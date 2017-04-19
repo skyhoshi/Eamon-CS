@@ -1,0 +1,60 @@
+﻿
+// IPluginGlobals.cs
+
+// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+
+using System.Collections.Generic;
+using System.Text;
+using Eamon.Framework;
+using Eamon.Framework.Commands;
+using Eamon.Framework.Parsing;
+using Eamon.Framework.States;
+using Enums = Eamon.Framework.Primitive.Enums;
+
+namespace EamonRT.Framework.Plugin
+{
+	public interface IPluginGlobals : EamonDD.Framework.Plugin.IPluginGlobals
+	{
+		StringBuilder Buf01 { get; set; }
+
+		StringBuilder Buf02 { get; set; }
+
+		IList<ICommand> CommandList { get; set; }
+
+		IList<ICommand> LastCommandList { get; set; }
+
+		long LoopMonsterUid { get; set; }
+
+		IRtEngine RtEngine { get; set; }
+
+		IIntroStory IntroStory { get; set; }
+
+		IMainLoop MainLoop { get; set; }
+
+		ICommandParser CommandParser { get; set; }
+
+		IState CurrState { get; set; }
+
+		IState NextState { get; set; }
+
+		IGameState GameState { get; set; }
+
+		ICharacter Character { get; set; }
+
+		Enums.ExitType ExitType { get; set; }
+
+		ICommand LastCommand { get; }
+
+		bool GameRunning { get; }
+
+		bool DeleteGameStateAfterLoop { get; }
+
+		bool StartOver { get; }
+
+		bool ErrorExit { get; }
+
+		bool ExportCharacterGoToMainHall { get; }
+
+		bool ExportCharacter { get; }
+	}
+}

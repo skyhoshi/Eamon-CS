@@ -1,0 +1,196 @@
+﻿
+// OpenCommand.cs
+
+// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+
+using System;
+using System.Diagnostics;
+using Eamon;
+using Eamon.Framework.Commands;
+using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
+using Enums = Eamon.Framework.Primitive.Enums;
+using static EamonRT.Game.Plugin.PluginContext;
+
+namespace EamonRT.Game.Commands
+{
+	[ClassMappings]
+	public class OpenCommand : Command, IOpenCommand
+	{
+		protected virtual void PlayerProcessEvents()
+		{
+
+		}
+
+		protected virtual bool ShouldPrintContainerInventory()
+		{
+			return true;
+		}
+
+		protected override void PlayerExecute()
+		{
+			RetCode rc;
+
+			Debug.Assert(DobjArtifact != null);
+
+			var containerAc = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Container);
+
+			var doorGateAc = DobjArtifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+
+			var disguisedMonsterAc = DobjArtifact.GetArtifactClass(Enums.ArtifactType.DisguisedMonster);
+
+			var drinkableAc = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Drinkable);
+
+			var edibleAc = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Edible);
+
+			var readableAc = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Readable);
+
+			var ac =	containerAc != null ? containerAc :
+						doorGateAc != null ? doorGateAc :
+						disguisedMonsterAc != null ? disguisedMonsterAc :
+						drinkableAc != null ? drinkableAc :
+						edibleAc != null ? edibleAc : 
+						readableAc;
+
+			if (ac != null)
+			{
+				if (DobjArtifact.IsEmbeddedInRoom(ActorRoom))
+				{
+					DobjArtifact.SetInRoom(ActorRoom);
+				}
+
+				if (ac.Type == Enums.ArtifactType.DoorGate)
+				{
+					ac.Field8 = 0;
+				}
+
+				if (ac.Type == Enums.ArtifactType.DisguisedMonster)
+				{
+					Globals.RtEngine.RevealDisguisedMonster(DobjArtifact);
+
+					goto Cleanup;
+				}
+
+				var keyUid = ac.GetKeyUid();
+
+				var key = keyUid > 0 ? Globals.ADB[keyUid] : null;
+
+				if (ac.IsOpen() || keyUid == -2)
+				{
+					PrintAlreadyOpen(DobjArtifact);
+
+					goto Cleanup;
+				}
+
+				if (ac.Type == Enums.ArtifactType.Drinkable || ac.Type == Enums.ArtifactType.Edible || ac.Type == Enums.ArtifactType.Readable)
+				{
+					ac.SetOpen(true);
+
+					rc = DobjArtifact.SyncArtifactClasses(ac);
+
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+					PrintOpened(DobjArtifact);
+
+					goto Cleanup;
+				}
+
+				if (keyUid == -1)
+				{
+					PrintWontOpen(DobjArtifact);
+
+					goto Cleanup;
+				}
+
+				if (key != null && !key.IsCarriedByCharacter() && !key.IsWornByCharacter() && !key.IsInRoom(ActorRoom))
+				{
+					PrintLocked(DobjArtifact);
+
+					goto Cleanup;
+				}
+
+				if (keyUid == 0 && ac.GetBreakageStrength() > 0)
+				{
+					PrintHaveToForceOpen(DobjArtifact);
+
+					goto Cleanup;
+				}
+
+				if (key != null)
+				{
+					Globals.Out.Write("{0}You open {1} with {2}.{0}",
+						Environment.NewLine,
+						DobjArtifact.EvalPlural("it", "them"),
+						key.GetDecoratedName03(false, true, false, false, Globals.Buf));
+				}
+				else
+				{
+					PrintOpened(DobjArtifact);
+				}
+
+				if (ac.Type == Enums.ArtifactType.Container && ShouldPrintContainerInventory())
+				{
+					NextState = Globals.CreateInstance<IInventoryCommand>();
+
+					CopyCommandData(NextState as ICommand);
+				}
+
+				ac.SetKeyUid(0);
+
+				ac.SetOpen(true);
+
+				/*
+				Note: duplicated above?
+
+				if (Ac.Type != Enums.ArtifactType.Container)
+				{
+					Ac.Field8 = 0;
+				}
+				*/
+
+				rc = DobjArtifact.SyncArtifactClasses(ac);
+
+				Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+				PlayerProcessEvents();
+
+				if (GotoCleanup)
+				{
+					goto Cleanup;
+				}
+			}
+			else
+			{
+				PrintCantVerbObj(DobjArtifact);
+
+				NextState = Globals.CreateInstance<IStartState>();
+
+				goto Cleanup;
+			}
+
+		Cleanup:
+
+			if (NextState == null)
+			{
+				NextState = Globals.CreateInstance<IMonsterStartState>();
+			}
+		}
+
+		protected override void PlayerFinishParsing()
+		{
+			PlayerResolveArtifact();
+		}
+
+		public OpenCommand()
+		{
+			SortOrder = 180;
+
+			Name = "OpenCommand";
+
+			Verb = "open";
+
+			Type = Enums.CommandType.Manipulation;
+		}
+	}
+}

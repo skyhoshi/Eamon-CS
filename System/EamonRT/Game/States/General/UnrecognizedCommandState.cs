@@ -1,0 +1,87 @@
+﻿
+// UnrecognizedCommandState.cs
+
+// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+
+using System;
+using System.Diagnostics;
+using System.Linq;
+using Eamon.Game.Attributes;
+using EamonRT.Framework.States;
+using Enums = Eamon.Framework.Primitive.Enums;
+using static EamonRT.Game.Plugin.PluginContext;
+
+namespace EamonRT.Game.States
+{
+	[ClassMappings]
+	public class UnrecognizedCommandState : State, IUnrecognizedCommandState
+	{
+		public override void Execute()
+		{
+			var newSeen = false;
+
+			var charMonster = Globals.MDB[Globals.GameState.Cm];
+
+			Debug.Assert(charMonster != null);
+
+			var commandList = Globals.CommandList.Where(x => x.IsEnabled(charMonster) && x.IsListed).ToList();
+
+			Globals.Out.Write("{0}Movement Commands:{0}", Environment.NewLine);
+
+			Globals.Buf.Clear();
+
+			var rc = Globals.Engine.BuildCommandList(commandList, Enums.CommandType.Movement, Globals.Buf, ref newSeen);
+			
+			Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+			Globals.Out.Write("{0}", Globals.Buf);
+
+			Globals.Out.Write("{0}Artifact Manipulation:{0}", Environment.NewLine);
+
+			Globals.Buf.Clear();
+
+			rc = Globals.Engine.BuildCommandList(commandList, Enums.CommandType.Manipulation, Globals.Buf, ref newSeen);
+
+			Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+			Globals.Out.Write("{0}", Globals.Buf);
+
+			Globals.Out.Write("{0}Interactive:{0}", Environment.NewLine);
+
+			Globals.Buf.Clear();
+
+			rc = Globals.Engine.BuildCommandList(commandList, Enums.CommandType.Interactive, Globals.Buf, ref newSeen);
+
+			Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+			Globals.Out.Write("{0}", Globals.Buf);
+
+			Globals.Out.Write("{0}Miscellaneous:{0}", Environment.NewLine);
+
+			Globals.Buf.Clear();
+
+			rc = Globals.Engine.BuildCommandList(commandList, Enums.CommandType.Miscellaneous, Globals.Buf, ref newSeen);
+
+			Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+			Globals.Out.Write("{0}", Globals.Buf);
+
+			if (newSeen)
+			{
+				Globals.Out.WriteLine("{0}(*) New Command", Environment.NewLine);
+			}
+
+			if (NextState == null)
+			{
+				NextState = Globals.CreateInstance<IStartState>();
+			}
+
+			Globals.NextState = NextState;
+		}
+
+		public UnrecognizedCommandState()
+		{
+			Name = "UnrecognizedCommandState";
+		}
+	}
+}

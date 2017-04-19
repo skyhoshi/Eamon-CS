@@ -1,0 +1,168 @@
+﻿
+// PluginConstants.cs
+
+// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+
+using System;
+using Eamon.Framework.Plugin;
+
+namespace Eamon.Game.Plugin
+{
+	public class PluginConstants : IPluginConstants
+	{
+		public virtual string ToughDesc { get; protected set; }
+
+		public virtual string CourageDesc { get; protected set; }
+
+		public virtual int ArtNameLen { get; protected set; } = 40;
+
+		public virtual int ArtStateDescLen { get; protected set; } = 64;
+
+		public virtual int ArtDescLen { get; protected set; } = 256;
+
+		public virtual int CharNameLen { get; protected set; } = 32;
+
+		public virtual int CharWpnNameLen { get; protected set; } = 40;
+
+		public virtual int EffDescLen { get; protected set; } = 256;
+
+		public virtual int FsNameLen { get; protected set; } = 40;
+
+		public virtual int FsFileNameLen { get; protected set; } = 64;
+
+		public virtual int HntQuestionLen { get; protected set; } = 256;
+
+		public virtual int HntAnswerLen { get; protected set; } = 256;
+
+		public virtual int ModNameLen { get; protected set; } = 40;
+
+		public virtual int ModDescLen { get; protected set; } = 256;
+
+		public virtual int ModAuthorLen { get; protected set; } = 40;
+
+		public virtual int ModVolLabelLen { get; protected set; } = 7;
+
+		public virtual int ModSerialNumLen { get; protected set; } = 3;
+
+		public virtual int MonNameLen { get; protected set; } = 40;
+
+		public virtual int MonStateDescLen { get; protected set; } = 64;
+
+		public virtual int MonDescLen { get; protected set; } = 256;
+
+		public virtual int RmNameLen { get; protected set; } = 40;
+
+		public virtual int RmDescLen { get; protected set; } = 256;
+
+		public virtual long AxePrice { get; protected set; } = 25;
+
+		public virtual long BowPrice { get; protected set; } = 40;
+
+		public virtual long MacePrice { get; protected set; } = 20;
+
+		public virtual long SpearPrice { get; protected set; } = 25;
+
+		public virtual long SwordPrice { get; protected set; } = 30;
+
+		public virtual long ShieldPrice { get; protected set; } = 50;
+
+		public virtual long LeatherArmorPrice { get; protected set; } = 100;
+
+		public virtual long ChainMailPrice { get; protected set; } = 250;
+
+		public virtual long PlateMailPrice { get; protected set; } = 500;
+
+		public virtual long BlastPrice { get; protected set; } = 1000;
+
+		public virtual long HealPrice { get; protected set; } = 500;
+
+		public virtual long SpeedPrice { get; protected set; } = 4000;
+
+		public virtual long PowerPrice { get; protected set; } = 100;
+
+		public virtual long RecallPrice { get; protected set; } = 100;
+
+		public virtual long StatGainPrice { get; protected set; } = 4500;
+
+		public virtual long WeaponTrainingPrice { get; protected set; } = 1000;
+
+		public virtual long ArmorTrainingPrice { get; protected set; } = 1000;
+
+		public virtual long SpellTrainingPrice { get; protected set; } = 1000;
+
+		public virtual long InfoBoothPrice { get; protected set; } = 30;
+
+		public virtual long FountainPrice { get; protected set; } = 20;
+
+		public virtual long NumCacheItems { get; protected set; } = 7;
+
+		public virtual long NumDatabases { get; protected set; } = 10;
+
+		public virtual long NumArtifactClasses { get; protected set; } = 4;
+
+		public virtual int BufSize { get; protected set; } = 1024;
+
+		public virtual int BufSize01 { get; protected set; } = 6;
+
+		public virtual int BufSize02 { get; protected set; } = 1;
+
+		public virtual int BufSize03 { get; protected set; } = 64;
+
+		public virtual string ResolveEffectRegexPattern { get; protected set; } = @"[^\*]\*[0-9]{3}|\*\*[0-9]{3}";
+
+		public virtual string ResolveUidMacroRegexPattern { get; protected set; } = @"[^\*]\*[0-9]{3}|\*\*[0-9]{3}|[^@]@[0-9]{3}|@@[0-9]{3}";
+
+		public virtual string RecIdepErrorFmtStr { get; protected set; } = "The {0} field refers to {1} uid {2}, {3}.";
+
+		public virtual string ProvidingLightDesc { get; protected set; } = "(providing light)";
+
+		public virtual string ReadyWeaponDesc { get; protected set; } = "(ready weapon)";
+
+		public virtual string BrokenDesc { get; protected set; } = "(broken)";
+
+		public virtual string EmptyDesc { get; protected set; } = "(empty)";
+
+		public virtual string BlastDesc { get; protected set; } = "ZAP! Direct hit!";
+
+		public virtual string DefaultWorkDir { get; protected set; } = ".";
+
+		public virtual string ProcessMutexName { get; protected set; }
+
+		public virtual string StackTraceFile { get; protected set; } = "STACKTRACE.TXT";
+
+		public virtual string ProgVersion { get; protected set; } = "1.3.0";
+
+		public virtual long InfiniteDrinkableEdible { get; protected set; } = 9999;
+
+		public virtual long DirectionExit { get; protected set; } = -999;
+
+		public virtual long MinGoldValue { get; protected set; } = -99999;
+
+		public virtual long MaxGoldValue { get; protected set; } = 999999;
+
+		public virtual long MaxPathLen { get; protected set; } = 256;
+
+		public virtual long MaxRecursionLevel { get; protected set; } = 100;
+
+		public virtual int WindowWidth { get; protected set; } = 80;
+
+		public virtual int WindowHeight { get; protected set; } = 50;
+
+		public virtual int BufferWidth { get; protected set; } = 80;
+
+		public virtual int BufferHeight { get; protected set; } = 9999;
+
+		public virtual long RightMargin { get; protected set; } = 78;
+
+		public virtual long NumRows { get; protected set; } = 22;
+
+		public PluginConstants()
+		{
+			ToughDesc = "Monsters usually fall into one of the following categories, but it is possible to create hybrids that are weak in some areas and strong in others:" + Environment.NewLine + Environment.NewLine + "Weak Monsters - wimps and small creatures like rats, kobolds, etc." + Environment.NewLine + "Medium Monsters - petty thugs, orcs, goblins, etc." + Environment.NewLine + "Tough Monsters - giants, trolls, highly skilled warriors, etc." + Environment.NewLine + "Exceptional Monsters - dragons, demons, special villians, etc." + Environment.NewLine + Environment.NewLine + "For group monsters, enter data relating to a single member of the group and scale values down lower than usual for groups with five or more members.";
+
+			CourageDesc = "Courage works as follows:" + Environment.NewLine + Environment.NewLine + "1-100% - the chance the monster won't flee combat and/or follow a fleeing player (if enemy).  If the monster is injured or gravely injured, then effective courage is reduced by 5 or 10%, respectively." + Environment.NewLine + "200% - the monster will never flee and always follow the player.";
+
+			ProcessMutexName = string.Format("Eamon_CS_{0}_Process_Mutex", ProgVersion);
+		}
+	}
+}

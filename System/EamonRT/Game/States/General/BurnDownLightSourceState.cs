@@ -1,0 +1,64 @@
+﻿
+// BurnDownLightSourceState.cs
+
+// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+
+using System;
+using System.Diagnostics;
+using Eamon.Game.Attributes;
+using EamonRT.Framework.States;
+using Enums = Eamon.Framework.Primitive.Enums;
+using static EamonRT.Game.Plugin.PluginContext;
+
+namespace EamonRT.Game.States
+{
+	[ClassMappings]
+	public class BurnDownLightSourceState : State, IBurnDownLightSourceState
+	{
+		public override void Execute()
+		{
+			var artUid = Globals.GameState.Ls;
+
+			if (artUid > 0 && ShouldPreTurnProcess())
+			{
+				var artifact = Globals.ADB[artUid];
+
+				Debug.Assert(artifact != null);
+
+				var ac = artifact.GetArtifactClass(Enums.ArtifactType.LightSource);
+
+				if (ac != null && ac.Field5 != -1)
+				{
+					if (ac.Field5 > 0)
+					{
+						ac.Field5--;
+					}
+
+					if (ac.Field5 > 0)
+					{
+						if (ac.Field5 < 20)
+						{
+							Globals.Out.Write("{0}{1}{2}{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), ac.Field5 < 10 ? " is almost out!" : " grows dim!");
+						}
+					}
+					else
+					{
+						Globals.RtEngine.LightOut(artifact);
+					}
+				}
+			}
+
+			if (NextState == null)
+			{
+				NextState = Globals.CreateInstance<IBurnDownSpeedSpellState>();
+			}
+
+			Globals.NextState = NextState;
+		}
+
+		public BurnDownLightSourceState()
+		{
+			Name = "BurnDownLightSourceState";
+		}
+	}
+}

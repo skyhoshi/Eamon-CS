@@ -1,0 +1,11 @@
+      Eamon CS 1.3.0
+             by
+   Michael R. Penner
+   -----------------------
+
+Michael R. Penner <firstmethod (at) hotmail.com>
+
+[Add more contributors and testers here later.]
+
+Eamon CS homepage:
+www.eamonag.org/pages/eamon_CS.htm

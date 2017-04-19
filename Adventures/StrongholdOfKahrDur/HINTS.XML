@@ -1,0 +1,334 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.HintDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IHint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="EAMON CS 1.3 GENERAL HELP." />
+            <Simple name="NumAnswers" value="8" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A Dr&quot; or &quot;A Gon&quot; for &quot;Attack Dragon&quot;, &quot;Req Ray From Al&quot; or &quot;Req Gun From Ien&quot; for &quot;Request Ray Gun From Alien&quot;, &quot;Put Pum In Lar&quot; or &quot;Put Pie In Oven&quot; for &quot;Put Pumpkin Pie In **080" />
+                <Simple value="2. Sometimes items may be in a room but won't show up until you Examine them.  Pay close attention to all descriptions.  Note:  Look only repeats the room description and -nothing- else.  Use Examine to, well, examine things." />
+                <Simple value="3. Before you can manipulate items that are inside of other items, you must Remove them from that item.  There is no &quot;Remove All&quot; command, but if you Attack a (breakable) container, all of its contents will be emptied to the floor and you can &quot;Get All&quot;." />
+                <Simple value="4. Type Save and a number for a desired save position to Quick Save (save without having to verify).  Adding a description will rename that slot.  Examples:  &quot;Save 2&quot; or &quot;Save 5 Dark Room (No Grues)&quot;.  Also works with Restore.  (Type &quot;Restore 1&quot;, etc.)" />
+                <Simple value="5. You can Inventory companions (normally anyone whom, when you Smile, smiles back at you) to see what they are carrying and wearing.  You can then Request those items from them.  You can also Inventory containers to get a list of contents." />
+                <Simple value="6. If you give food or a beverage to a friend, they will take a bite or drink and give it back to you." />
+                <Simple value="7. To give money to someone, type Give and an amount.  For example, &quot;Give 1000 To IRS Agent&quot; would pay 1000 gold coins to the nice IRS Agent.  In most standard adventures, if you &quot;Give 5000&quot; or more, a neutral monster will -usually- become your friend." />
+                <Simple value="8. The Power spell has been known to have strange and marvelous effects in many adventures.  When all else fails (or just for fun) try &quot;Power&quot;." />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Read me! (Special notes about this adventure.)" />
+            <Simple name="NumAnswers" value="3" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Eamon CS Note:  These excellent hints are courtesy of Eamon Deluxe." />
+                <Simple value="2. The Stronghold of Kahr-Dur does not use any embedded artifacts." />
+                <Simple value="3. You may save time (and excess typing) during your adventuring by not trying to Examine any artifacts that aren't already listed as being in the room. The extra items mentioned in the descriptions are there for mood and &quot;flavor&quot; only." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="What do I do in the library?" />
+            <Simple name="NumAnswers" value="2" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Did you Open (or Attack) the Cabinet in the administrative office and Remove its contents?" />
+                <Simple value="2. &quot;Wear Glasses&quot; and then &quot;Examine Bookshelf&quot; to reveal a hidden passage." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="How do I open the western door?" />
+            <Simple name="NumAnswers" value="2" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. You can't open it until you have explored the map much further." />
+                <Simple value="2. You will find a dark guard in a large clearing in the woods; he is carrying a leather pouch which has the key to the door inside of it." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Is there anything special in the King's quarters?" />
+            <Simple name="NumAnswers" value="1" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. &quot;Wear Glasses&quot; (see the hint about the library if you don't have them) and then Open or Examine the Armoire." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="What do I do with the cauldron?" />
+            <Simple name="NumAnswers" value="1" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Read the Spell Scroll, it will tell you exactly what to do." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="It's dark!" />
+            <Simple name="NumAnswers" value="1" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Light the Whitestone (see the hint about the library if you don't have it)." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="How do I open the portcullis?" />
+            <Simple name="NumAnswers" value="2" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. You must follow the instructions on the Spell Scroll." />
+                <Simple value="2. Once it is active (and you are in the room with the portcullis), &quot;Say Knock Nikto Mellon&quot; and then cast the Power spell and it will open." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="How can I enter the forest?" />
+            <Simple name="NumAnswers" value="1" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. You must &quot;Get Amulet Of Courage&quot; (which is carried by the goblin chieftain in the room full of goblins).  Once you have it, &quot;Wear Amulet&quot; and you will be able to enter Tangledoom Forest." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="How can I get down into the pit?" />
+            <Simple name="NumAnswers" value="2" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. See the hint about opening the western door." />
+                <Simple value="2. Once you have the key, backtrack to the western door and open it.  Head west and &quot;Wear Boots&quot; (of Levitation).  As long as they are worn, you can safely climb in and out of the pit." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Can my friends climb into or out of the pit?" />
+            <Simple name="NumAnswers" value="1" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Yes.  Use the Power spell to transport them." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="What do I do about the lich?" />
+            <Simple name="NumAnswers" value="3" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Trying to Attack or Blast him will prove pointless.  Did you listen to what he said when you first entered the room?" />
+                <Simple value="2. &quot;Say I Will Free You&quot; and he will tell you some magic words.  If you Say those words, he will be freed from his imprisonment." />
+                <Simple value="3. &quot;Say Barada Lhain&quot; to set him free.  (He will also give you the Wizard's Helm which you must have to successfully complete the game.)" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="How do I defeat the Necromancer?" />
+            <Simple name="NumAnswers" value="3" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Did you manage to climb down into the pit and set the lich free?" />
+                <Simple value="2. The lich gave you something of vital importance." />
+                <Simple value="3. You must Wear the Helm that the lich gave you and then only use your Blast spell to attack (all other weapons are ineffective against him)." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="What do I have to do to successfully complete the Quest?" />
+            <Simple name="NumAnswers" value="1" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. You must 1) Dispatch the Necromancer; 2) Free Lady Mirabelle; 3) Make your way back to the entrance, exiting the game with Lady Mirabelle still alive and in the same room as you." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Cheat code. (SPOILER ALERT!)" />
+            <Simple name="NumAnswers" value="2" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Stronghold of Kahr-Dur uses a fun and devious little routine which adjusts the Hardiness of most monsters according to the strongest weapon that you bring with you. So, if you enter with a superhuman character, you will be met with superhuman foes." />
+                <Simple value="2. A cheat code was added for testing purposes and has been left in the game:  To scale the monsters back down to a standard level of toughness, &quot;Say *Brutis&quot; at any time." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="15" />
+  </Properties>
+</Complex>

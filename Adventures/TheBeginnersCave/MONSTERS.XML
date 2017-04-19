@@ -1,0 +1,275 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.MonsterDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IMonster, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="TheBeginnersCave.Game.Monster, TheBeginnersCave, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="rat" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see three huge rats charging at you!  One is black, one is brown, and one is tan.  Each one has sharp white teeth." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="2" />
+            <Simple name="Agility" value="3" />
+            <Simple name="GroupCount" value="3" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="3" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="16" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="3" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheBeginnersCave.Game.Monster, TheBeginnersCave, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="priest" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="There is a huge man in religious garb with an insane look on his face here.  In his right hand, he carries a mace." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="10" />
+            <Simple name="Agility" value="6" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="18" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="7" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="17" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheBeginnersCave.Game.Monster, TheBeginnersCave, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Cynthia" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a beautiful girl in a flowing white dress.  You recognize her as Cynthia Luxom, Duke Luxom's not-too-bright daughter." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="50" />
+            <Simple name="Location" value="18" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="18" />
+            <Simple name="Friendliness" value="195" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheBeginnersCave.Game.Monster, TheBeginnersCave, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="hermit" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="There is a grizzled old hermit (who smells as if he hasn't taken a bath in forty years) in the room." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="13" />
+            <Simple name="Agility" value="12" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="85" />
+            <Simple name="Location" value="5" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="2" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="19" />
+            <Simple name="Friendliness" value="150" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheBeginnersCave.Game.Monster, TheBeginnersCave, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="gorilla" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="There is a huge, hairy, strong and angry gorilla in the room with you!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="11" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="70" />
+            <Simple name="Location" value="8" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="20" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheBeginnersCave.Game.Monster, TheBeginnersCave, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Heinrich" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A human warrior stands before you, armed with a longsword and carrying a shield.  On his shield is a sticker which says, &quot;Hi, I'm Heinrich!&quot;" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="7" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="105" />
+            <Simple name="Location" value="6" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="4" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="21" />
+            <Simple name="Friendliness" value="165" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheBeginnersCave.Game.Monster, TheBeginnersCave, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="mimic" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A chest-shaped monster is in the room, holding you with two tentacles and attempting to disassemble you with a third one." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="7" />
+            <Simple name="Agility" value="12" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="3" />
+            <Simple name="DeadBody" value="22" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheBeginnersCave.Game.Monster, TheBeginnersCave, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="pirate" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a man with a beard and a brass ring in his ear.  He is wearing clothes made out of silk and is wielding a very fancily engraved sword.*002" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="14" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="50" />
+            <Simple name="Location" value="26" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="10" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="2" />
+            <Simple name="DeadBody" value="23" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="8" />
+  </Properties>
+</Complex>

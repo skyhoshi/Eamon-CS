@@ -1,0 +1,38 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.FilesetDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IFileset, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="Eamon.Game.Fileset, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Test Adventure" />
+            <Simple name="WorkDir" value="..\..\Adventures\TestAdventure" />
+            <Simple name="PluginFileName" value="EamonRT.dll" />
+            <Simple name="ConfigFileName" value="NONE" />
+            <Simple name="FilesetFileName" value="NONE" />
+            <Simple name="CharacterFileName" value="NONE" />
+            <Simple name="ModuleFileName" value="MODULE.XML" />
+            <Simple name="RoomFileName" value="ROOMS.XML" />
+            <Simple name="ArtifactFileName" value="ARTIFACTS.XML" />
+            <Simple name="EffectFileName" value="EFFECTS.XML" />
+            <Simple name="MonsterFileName" value="MONSTERS.XML" />
+            <Simple name="HintFileName" value="HINTS.XML" />
+            <Simple name="GameStateFileName" value="NONE" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="1" />
+  </Properties>
+</Complex>

@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4B426313-E449-4AB3-981C-74F4EFBDE12E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Eamon</RootNamespace>
+    <AssemblyName>Eamon</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile24</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PORTABLE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+    <DefineConstants>TRACE;PORTABLE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\SharpSerializer.Library\SharpSerializer.Library.csproj">
+      <Project>{b0fb4215-357f-4faf-8ee9-93fd684b4b3f}</Project>
+      <Name>SharpSerializer.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Framework\Args\IBuildValueArgs.cs" />
+    <Compile Include="Framework\Args\IInputArgs.cs" />
+    <Compile Include="Framework\Args\IListArgs.cs" />
+    <Compile Include="Framework\Args\IPrintDescArgs.cs" />
+    <Compile Include="Framework\Args\IStatDisplayArgs.cs" />
+    <Compile Include="Framework\Args\IValidateArgs.cs" />
+    <Compile Include="Framework\Args\IWordWrapArgs.cs" />
+    <Compile Include="Framework\Commands\ICommand.cs" />
+    <Compile Include="Framework\DataEntry\IEditable.cs" />
+    <Compile Include="Framework\DataStorage\Generic\IDbTable.cs" />
+    <Compile Include="Framework\DataStorage\Generic\IRecordDb.cs" />
+    <Compile Include="Framework\DataStorage\IDatabase.cs" />
+    <Compile Include="Framework\Delegates.cs" />
+    <Compile Include="Framework\IArtifact.cs" />
+    <Compile Include="Framework\ICharacter.cs" />
+    <Compile Include="Framework\IConfig.cs" />
+    <Compile Include="Framework\IEffect.cs" />
+    <Compile Include="Framework\IEngine.cs" />
+    <Compile Include="Framework\IField.cs" />
+    <Compile Include="Framework\IFileset.cs" />
+    <Compile Include="Framework\IGameState.cs" />
+    <Compile Include="Framework\IHaveChildren.cs" />
+    <Compile Include="Framework\IHaveFields.cs" />
+    <Compile Include="Framework\IHaveListedName.cs" />
+    <Compile Include="Framework\IHaveUid.cs" />
+    <Compile Include="Framework\IHint.cs" />
+    <Compile Include="Framework\IModule.cs" />
+    <Compile Include="Framework\IMonster.cs" />
+    <Compile Include="Framework\IRoom.cs" />
+    <Compile Include="Framework\Menus\IMenu.cs" />
+    <Compile Include="Framework\Menus\IMenuItem.cs" />
+    <Compile Include="Framework\Parsing\ICommandParser.cs" />
+    <Compile Include="Framework\Parsing\IParserData.cs" />
+    <Compile Include="Framework\Plugin\IPluginClassMappings.cs" />
+    <Compile Include="Framework\Plugin\IPluginConstants.cs" />
+    <Compile Include="Framework\Plugin\IPluginGlobals.cs" />
+    <Compile Include="Framework\Portability\IDirectory.cs" />
+    <Compile Include="Framework\Portability\IFile.cs" />
+    <Compile Include="Framework\Portability\IMutex.cs" />
+    <Compile Include="Framework\Portability\IPath.cs" />
+    <Compile Include="Framework\Portability\IProgram.cs" />
+    <Compile Include="Framework\Portability\ISharpSerializer.cs" />
+    <Compile Include="Framework\Portability\ITextReader.cs" />
+    <Compile Include="Framework\Portability\ITextWriter.cs" />
+    <Compile Include="Framework\Portability\IThread.cs" />
+    <Compile Include="Framework\Portability\ITransferProtocol.cs" />
+    <Compile Include="Framework\Primitive\Classes\IArmor.cs" />
+    <Compile Include="Framework\Primitive\Classes\IArtifactClass.cs" />
+    <Compile Include="Framework\Primitive\Classes\IArtifactLinkage.cs" />
+    <Compile Include="Framework\Primitive\Classes\IArtifactType.cs" />
+    <Compile Include="Framework\Primitive\Classes\ICharacterWeapon.cs" />
+    <Compile Include="Framework\Primitive\Classes\IDirection.cs" />
+    <Compile Include="Framework\Primitive\Classes\IFriendliness.cs" />
+    <Compile Include="Framework\Primitive\Classes\IGender.cs" />
+    <Compile Include="Framework\Primitive\Classes\IRoomType.cs" />
+    <Compile Include="Framework\Primitive\Classes\ISpell.cs" />
+    <Compile Include="Framework\Primitive\Classes\IStat.cs" />
+    <Compile Include="Framework\Primitive\Classes\IWeapon.cs" />
+    <Compile Include="Framework\Primitive\Enums\Armor.cs" />
+    <Compile Include="Framework\Primitive\Enums\ArticleType.cs" />
+    <Compile Include="Framework\Primitive\Enums\ArtifactType.cs" />
+    <Compile Include="Framework\Primitive\Enums\Clothing.cs" />
+    <Compile Include="Framework\Primitive\Enums\CombatCode.cs" />
+    <Compile Include="Framework\Primitive\Enums\CommandType.cs" />
+    <Compile Include="Framework\Primitive\Enums\Direction.cs" />
+    <Compile Include="Framework\Primitive\Enums\ExitType.cs" />
+    <Compile Include="Framework\Primitive\Enums\FieldDesc.cs" />
+    <Compile Include="Framework\Primitive\Enums\Friendliness.cs" />
+    <Compile Include="Framework\Primitive\Enums\Gender.cs" />
+    <Compile Include="Framework\Primitive\Enums\LightLevel.cs" />
+    <Compile Include="Framework\Primitive\Enums\PluralType.cs" />
+    <Compile Include="Framework\Primitive\Enums\Record.cs" />
+    <Compile Include="Framework\Primitive\Enums\RoomType.cs" />
+    <Compile Include="Framework\Primitive\Enums\Spell.cs" />
+    <Compile Include="Framework\Primitive\Enums\Stat.cs" />
+    <Compile Include="Framework\Primitive\Enums\Status.cs" />
+    <Compile Include="Framework\Primitive\Enums\Weapon.cs" />
+    <Compile Include="Framework\States\IState.cs" />
+    <Compile Include="Framework\Validation\IValidator.cs" />
+    <Compile Include="Game\Args\BuildValueArgs.cs" />
+    <Compile Include="Game\Args\InputArgs.cs" />
+    <Compile Include="Game\Args\ListArgs.cs" />
+    <Compile Include="Game\Args\PrintDescArgs.cs" />
+    <Compile Include="Game\Args\StatDisplayArgs.cs" />
+    <Compile Include="Game\Args\ValidateArgs.cs" />
+    <Compile Include="Game\Args\WordWrapArgs.cs" />
+    <Compile Include="Game\Artifact.cs" />
+    <Compile Include="Game\Attributes\ClassMappingsAttribute.cs" />
+    <Compile Include="Game\Character.cs" />
+    <Compile Include="Game\Config.cs" />
+    <Compile Include="Game\DataEntry\Editable.cs" />
+    <Compile Include="Game\DataStorage\ArtifactDbTable.cs" />
+    <Compile Include="Game\DataStorage\CharacterDbTable.cs" />
+    <Compile Include="Game\DataStorage\ConfigDbTable.cs" />
+    <Compile Include="Game\DataStorage\Database.cs" />
+    <Compile Include="Game\DataStorage\EffectDbTable.cs" />
+    <Compile Include="Game\DataStorage\FilesetDbTable.cs" />
+    <Compile Include="Game\DataStorage\GameStateDbTable.cs" />
+    <Compile Include="Game\DataStorage\Generic\DbTable.cs" />
+    <Compile Include="Game\DataStorage\HintDbTable.cs" />
+    <Compile Include="Game\DataStorage\ModuleDbTable.cs" />
+    <Compile Include="Game\DataStorage\MonsterDbTable.cs" />
+    <Compile Include="Game\DataStorage\QuickAccess\ArtifactDb.cs" />
+    <Compile Include="Game\DataStorage\QuickAccess\CharacterDb.cs" />
+    <Compile Include="Game\DataStorage\QuickAccess\ConfigDb.cs" />
+    <Compile Include="Game\DataStorage\QuickAccess\EffectDb.cs" />
+    <Compile Include="Game\DataStorage\QuickAccess\FilesetDb.cs" />
+    <Compile Include="Game\DataStorage\QuickAccess\GameStateDb.cs" />
+    <Compile Include="Game\DataStorage\QuickAccess\HintDb.cs" />
+    <Compile Include="Game\DataStorage\QuickAccess\ModuleDb.cs" />
+    <Compile Include="Game\DataStorage\QuickAccess\MonsterDb.cs" />
+    <Compile Include="Game\DataStorage\QuickAccess\RoomDb.cs" />
+    <Compile Include="Game\DataStorage\RoomDbTable.cs" />
+    <Compile Include="Game\Effect.cs" />
+    <Compile Include="Game\Engine.cs" />
+    <Compile Include="Game\Extensions\AssemblyExtensions.cs" />
+    <Compile Include="Game\Extensions\IListExtensions.cs" />
+    <Compile Include="Game\Extensions\ListExtensions.cs" />
+    <Compile Include="Game\Extensions\ObjectExtensions.cs" />
+    <Compile Include="Game\Extensions\QueueExtensions.cs" />
+    <Compile Include="Game\Extensions\StringBuilderExtensions.cs" />
+    <Compile Include="Game\Extensions\StringExtensions.cs" />
+    <Compile Include="Game\Field.cs" />
+    <Compile Include="Game\Fileset.cs" />
+    <Compile Include="Game\GameState.cs" />
+    <Compile Include="Game\Hint.cs" />
+    <Compile Include="Game\Menus\Menu.cs" />
+    <Compile Include="Game\Menus\MenuItem.cs" />
+    <Compile Include="Game\Module.cs" />
+    <Compile Include="Game\Monster.cs" />
+    <Compile Include="Game\Plugin\PluginConstants.cs" />
+    <Compile Include="Game\Plugin\PluginContext.cs" />
+    <Compile Include="Game\Plugin\PluginClassMappings.cs" />
+    <Compile Include="Game\Plugin\PluginContextStack.cs" />
+    <Compile Include="Game\Plugin\PluginGlobals.cs" />
+    <Compile Include="Game\Primitive\Classes\Armor.cs" />
+    <Compile Include="Game\Primitive\Classes\ArtifactClass.cs" />
+    <Compile Include="Game\Primitive\Classes\ArtifactLinkage.cs" />
+    <Compile Include="Game\Primitive\Classes\ArtifactType.cs" />
+    <Compile Include="Game\Primitive\Classes\CharacterWeapon.cs" />
+    <Compile Include="Game\Primitive\Classes\Direction.cs" />
+    <Compile Include="Game\Primitive\Classes\Friendliness.cs" />
+    <Compile Include="Game\Primitive\Classes\Gender.cs" />
+    <Compile Include="Game\Primitive\Classes\RoomType.cs" />
+    <Compile Include="Game\Primitive\Classes\Spell.cs" />
+    <Compile Include="Game\Primitive\Classes\Stat.cs" />
+    <Compile Include="Game\Primitive\Classes\Weapon.cs" />
+    <Compile Include="Game\Room.cs" />
+    <Compile Include="Game\Utilities\EnumUtil.cs" />
+    <Compile Include="Game\Validation\Validator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RetCode.cs" />
+    <Compile Include="ThirdParty\StringBuilderExtensions.cs" />
+    <Compile Include="ThirdParty\TrentTobler\BTree.cs" />
+    <Compile Include="ThirdParty\TrentTobler\ISorted.cs" />
+    <Compile Include="ThirdParty\TrentTobler\SR.Designer.cs" />
+    <Compile Include="ThirdParty\TrentTobler\SR1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ThirdParty\TypeExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ChangeLog.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ThirdParty\TrentTobler\SR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>SR1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1267 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.MonsterDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IMonster, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="pooka" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see something resembling an enormous hare. Where it begins and ends precisely is indeterminate; its boundaries ebb and flow like streams, though you peg its height at six feet and three and a half inches. It silently stares with foreboding black eyes." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="90" />
+            <Simple name="Agility" value="35" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="1" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="8" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="pooka" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Here stands a creature with the head of a wren sprouting from a man's body.  It faces the far wall, quietly muttering in an unfamiliar tongue.  Its outline is hazy, as if infected by the surrounding shadows." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="90" />
+            <Simple name="Agility" value="35" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="5" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="8" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="pooka" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Facing the woods is a lone, ethereal figure.  Its head is like that of a horse, with an uncanny asymmetry to its features.  Its form undulates, like smoke, the image of the forest beyond it visible through its body in fits, like a flame's irregular dance." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="90" />
+            <Simple name="Agility" value="35" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="6" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="8" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Hokas Tokas" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Here stands Hokas Tokas, his hat and robes dirtied and singed.  Blood stains his gnarled hands and staff, while an uncomfortable admixture of anger, desperation, and confusion stains his face." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Hardiness" value="90" />
+            <Simple name="Agility" value="35" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="8" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="injured Free Adventurer" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Nervous and bleeding, here stands a once-noble Free Adventurer, reduced to trembling by the onslaught against the Main Hall." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="2" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="5" />
+            <Simple name="Location" value="9" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Friend" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="swordsman of the Bandit's Guild" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a swordsman of the Bandit's Guild, wearing the traditional black cloak over his dull armor.  His eyes betray the madness of one excited by the letting of blood; unfortunately, those eyes are turned towards your person." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="12" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="90" />
+            <Simple name="Location" value="9" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="19" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bandit's Guild captain" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A captain of the Bandit's Guild stands here, wearing a regal black cloak emblazoned with the Guild colors.  His barking of orders to his swordsmen does not deter him from turning his attention towards you." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="10" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="20" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bowman of the Bandit's Guild" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A skilled archer dressed in black kneels in the shadows, taking aim.  He is garbed in the traditional Bandit's Guild cloak and colors." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="90" />
+            <Simple name="Location" value="10" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="21" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="terrorized Free Adventurer" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Scurrying haphazardly, a member of the Free Adventurer's Guild has snapped from the stress of hopeless combat." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="2" />
+            <Simple name="Agility" value="2" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="5" />
+            <Simple name="Location" value="10" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Friend" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="swordsman of the Bandit's Guild" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a swordsman of the Bandit's Guild, the hood of his black cloak obscuring his face.  Were his face to be revealed, however, you would surely witness the living incarnation of wrath." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="12" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="90" />
+            <Simple name="Location" value="12" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="22" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="behemoth of the Bandit's Guild" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Towering above you is a seeming giant of a man, eight feet in height and breadth, cloaked in Bandit's Guild colors.  Beneath his enormous brow, his tiny eyes suggest a dead innocence subverted by a perverting evil.  Hatred is all that remains." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="11" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="23" />
+            <Simple name="NwDice" value="3" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="frenzied Free Adventurer" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A former ally stands here, muttering gibberish. The strain of seeing her comrades struck down has loosened this Free Adventurer's grip on reality. Mumbling to herself like a lunatic, the only service she may provide is to distract your enemies' attention." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="2" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="5" />
+            <Simple name="Location" value="11" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Friend" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="putrid rat" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see two enormous rats, covered in the accumulated filth of their abode.  The only thing clean on their bodies is their fine sets of needle-like teeth, which they lick with enthusiasm upon seeing you." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="8" />
+            <Simple name="Agility" value="13" />
+            <Simple name="GroupCount" value="2" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="14" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="2" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="enormous alligator" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="The cold eyes of an enormous alligator peer out from the slow current of the sewage, aimed at your form.  Judging by its size, a century must have passed since some Free Adventurer or other cast it into the sewer system to feed on the likes of you." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="13" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="18" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="3" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="scout of the Bandit's Guild" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A menacing scout stands here, cloaked in shadows, though the Bandit's Guild colors stand out.  The tower has provided to him a vantage point for the Bandits' siege.  Disturbed from his primary mission, his menacing look betrays his secondary assignment." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="14" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="23" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="33" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="wild dog" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A guttural, quiet growl is all that gives away the presence of a stealthy, wild dog.  The tense posture of its solid, grey figure further indicates its malignant displeasure at your trespass into its territory." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="8" />
+            <Simple name="Agility" value="9" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="30" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="3" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="thin and pale ghoul" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="In sharp contrast to the darkness of the shadows lurks a group of morbidly pallid ghouls, animated corpses of the deceased.  All humanity is gone now; all that is reflected in their eyes is hunger.  Their tense limbs twitch sporadically as they attack." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="2" />
+            <Simple name="Courage" value="90" />
+            <Simple name="Location" value="33" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="3" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="2" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="crawling ghoul" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="From the shadows, misshapen ghouls drag themselves towards you.  Their forms are grotesque parodies of humans, but what once were legs are broken and shredded, trailing behind them.  Their movement is spastic as they jerk their claw-like hands menacingly." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="10" />
+            <Simple name="Agility" value="7" />
+            <Simple name="GroupCount" value="3" />
+            <Simple name="Courage" value="90" />
+            <Simple name="Location" value="35" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="3" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="gelatinous ghoul" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A foul, gelatinous ghoul rests in the corner, coincident with a roughly humanoid frame.  Amid the reek of decay, with a violent lurch the form is animated and slowly totters in your direction.  Although the creature lacks dexterity, it appears brutal." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="10" />
+            <Simple name="Agility" value="3" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="90" />
+            <Simple name="Location" value="42" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="wandering ghoul" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Obscenely tall, corpse-like ghouls wander before you, their arms jerking rapidly about without apparent pattern while their lengthy, seeking fingers swing crazily towards you." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="11" />
+            <Simple name="Agility" value="12" />
+            <Simple name="GroupCount" value="3" />
+            <Simple name="Courage" value="90" />
+            <Simple name="Location" value="38" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="3" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="snarling ghoul" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Tensely crouched on all fours is a rotting ghoul.  Its lengthy arms and legs and tattered garments suggest that this unholy dead thing was once a man.  But this speculation is frivolous as its snarling, crying maw reveals the scores of teeth within." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="8" />
+            <Simple name="Agility" value="14" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="90" />
+            <Simple name="Location" value="49" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Amazon of Easy Virtue" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A tall, Amazonian woman stands here, the very picture of strength and femininity.  She wears what seems to be chain mail negligee (though that could be a Freudian slip.)  Surely, she would pose a formidable ally, with her many talents, some only inferred." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="18" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="50" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="75" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Friend" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bill of Ockham" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Before you stands a tall, bald fellow whose calloused hands and strong physique suggest a life of toil and hard work.  Only his intelligent, calculating eyes betray his former career as a professor of rhetoric at Eamon University." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="18" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="81" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Friend" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="wild dog" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A feral dog, its eyes mad with hunger, slowly steps from the shadows.  Its teeth, dripping with saliva, are bared, like little daggers unsheathed in advance of the kill.  The creature's sinewy muscles are braced in preparation for its imminent attack." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="8" />
+            <Simple name="Agility" value="9" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="52" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bandit's Guild footsoldier" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Footsoldiers of the Bandit's Guild, cowled in the trademark black, have been startled by your intrusion.  Anger at the interruption of their poker game, coupled with a deep animosity towards Free Adventurers, drives them to lunge towards you with ferocity." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="9" />
+            <Simple name="Agility" value="12" />
+            <Simple name="GroupCount" value="3" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="56" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="3" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="sergeant of the Bandit's Guild" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Beneath the black cloak he wears are revealed three hashmarks, betraying the dark figure posted here as a sergeant of the Bandit's Guild.  His veteran service in their ranks can be seen in his weathered features, and the speed at which he draws his weapon." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="12" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="58" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="88" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="27" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bandit's Guild commander" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="The guild colors emblazoned on his plate mail armor, the commander of the Bandit's Guild forces stands in the middle of the camp.  His manner suggests a refined, if martial, education; his sword speaks to his willingness to engage in violence if necessary." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="40" />
+            <Simple name="Agility" value="30" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="59" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="3" />
+            <Simple name="Weapon" value="84" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="28" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bandit's Guild private soldier" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Here are camped private soldiers of the Bandit's Guild, enlisted to take part in the guild's spree of theft and infamy.  Though the soldiers may be inexperienced, they wear their black robes proudly, willing to die defending the honor of the guild colors." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="22" />
+            <Simple name="GroupCount" value="28" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="59" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="28" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="29" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bandit's Guild recon soldier" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A wiry soldier rushes at you from the shadows, his grey cloak acting as camouflage as he attacks.  His grey garb advertises his assignment in the Bandit's Guild for reconnaissance; what he lacks in brute strength, he makes up for in agility." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="19" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="64" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="96" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="30" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bandit's Guild recon sergeant" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Blending in with the shadows stands a hulking man in grey.  The grey, you've learned, is a mark of the elite reconnaissance soldiers in service of the Bandit's Guild.  Three hash marks on his thick cloak reveal that he is a sergeant of this order." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="17" />
+            <Simple name="Agility" value="18" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="66" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="102" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="31" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="fortuneteller" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="This grizzled old woman, her visage like that of a mummy, wears a tattered, burlap cloak.  Her years, you surmise, have provided ample time for the study of the dark arts." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="2" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="32" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bandit's Guild footsoldier" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You have run across a party of footsoldiers of the Guild of Bandits; their black cloaks have granted them stealth in the night.  The darkness of their garb is only disturbed by the glint of their blades and the shine of cold fearlessness in their eyes." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="10" />
+            <Simple name="Agility" value="14" />
+            <Simple name="GroupCount" value="3" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="69" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="3" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="3" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="33" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bandit's Guild scout" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You have fallen upon a squad of scouts of the Bandit's Guild, who are presumably combing Eamon University for signs of the &quot;Runcible Cargo.&quot;  They look pleased to see you, if only because the thrill of bloodshed will break the monotony of their assignment." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="14" />
+            <Simple name="GroupCount" value="2" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="77" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="3" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="2" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="34" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="enforcer of the Bandit's Guild" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="This elite soldier of the Bandit's Guild, draped in the traditional black, bears the title of &quot;enforcer,&quot; entrusted to oversee the Guild operations at Eamon University.  His countenance is menacing, and he lunges towards you with focused violence." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="17" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="82" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="3" />
+            <Simple name="Weapon" value="122" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="35" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bandit's Guild scout" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You have interrupted a group of Bandit's Guild scouts from their task of rifling through Prof. Larkspur's office.  They drop their present, tedious commitment in favor of the more pleasurable drawing of their weapons and charging towards you viciously." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="14" />
+            <Simple name="GroupCount" value="2" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="84" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="3" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="2" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="36" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Professor Larkspur" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="In tattered and bloody field clothing, the shell-shocked Professor Larkspur paces frantically, whispering to himself.  Fine trails of sweat cut downward through patches of dried blood and earth on his face.  Whatever this man has seen has broken him." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="10" />
+            <Simple name="Agility" value="13" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="88" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="37" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Larcenous Lil" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see your old friend, Larcenous Lil.  The two of you have a long history, dominated by both Lil's backstabbing and the inevitable reconciliation." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="42" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Friend" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="38" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Prince of Bandits" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A dark figure stands here, encased in dark velvet robes fringed with ermine and armor painted with the coat of arms of the Bandit's Guild.  You recognize him as the Prince of Bandits, who has overseen the rise in influence and infamy of the Guild." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="45" />
+            <Simple name="Agility" value="30" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="96" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Monster, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="39" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bandit Guild Praetorian Guard" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A host of hardy warriors stands here, emblazoned with the Bandit's Guild colors.  They are the virtual Praetorian Guard of the guild, recruited from the barbarians of northern Eamon personally by the Bandit Prince for their ferocity and fidelity." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="22" />
+            <Simple name="GroupCount" value="28" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="96" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="28" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="39" />
+  </Properties>
+</Complex>

@@ -1,0 +1,18 @@
+﻿
+// IIntroStory.cs
+
+// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+
+using System.Text;
+
+namespace EamonRT.Framework
+{
+	public interface IIntroStory
+	{
+		StringBuilder Buf { get; set; }
+
+		bool ShouldPrintOutput { get; set; }
+
+		void PrintOutput();
+	}
+}

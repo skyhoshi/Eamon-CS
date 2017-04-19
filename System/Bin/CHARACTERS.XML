@@ -1,0 +1,691 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.CharacterDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.ICharacter, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Lux Beetlebrox" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="Status" value="Alive" />
+            <SingleArray name="Stats">
+              <Items>
+                <Simple value="0" />
+                <Simple value="19" />
+                <Simple value="12" />
+                <Simple value="17" />
+                <Simple value="9" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="SpellAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="WeaponAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="5" />
+                <Simple value="-10" />
+                <Simple value="20" />
+                <Simple value="11" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="ArmorExpertise" value="2" />
+            <Simple name="HeldGold" value="123" />
+            <Simple name="BankGold" value="0" />
+            <Simple name="ArmorClass" value="Leather" />
+            <SingleArray name="Weapons">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="spear" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="S" />
+                    <Simple name="ArticleType" value="A" />
+                    <Simple name="Complexity" value="-10" />
+                    <Simple name="Type" value="Spear" />
+                    <Simple name="Dice" value="1" />
+                    <Simple name="Sides" value="5" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="spear#" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="S" />
+                    <Simple name="ArticleType" value="A" />
+                    <Simple name="Complexity" value="-10" />
+                    <Simple name="Type" value="Spear" />
+                    <Simple name="Dice" value="1" />
+                    <Simple name="Sides" value="5" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Faker McDuggan" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="Status" value="Alive" />
+            <SingleArray name="Stats">
+              <Items>
+                <Simple value="0" />
+                <Simple value="18" />
+                <Simple value="10" />
+                <Simple value="11" />
+                <Simple value="15" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="SpellAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="WeaponAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="5" />
+                <Simple value="-10" />
+                <Simple value="20" />
+                <Simple value="10" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="ArmorExpertise" value="0" />
+            <Simple name="HeldGold" value="172" />
+            <Simple name="BankGold" value="0" />
+            <Simple name="ArmorClass" value="SkinClothes" />
+            <SingleArray name="Weapons">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="spear" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="S" />
+                    <Simple name="ArticleType" value="A" />
+                    <Simple name="Complexity" value="10" />
+                    <Simple name="Type" value="Spear" />
+                    <Simple name="Dice" value="1" />
+                    <Simple name="Sides" value="5" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Confucious Maximus" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="Status" value="Alive" />
+            <SingleArray name="Stats">
+              <Items>
+                <Simple value="0" />
+                <Simple value="18" />
+                <Simple value="16" />
+                <Simple value="12" />
+                <Simple value="20" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="SpellAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="25" />
+                <Simple value="39" />
+                <Simple value="25" />
+                <Simple value="25" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="WeaponAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="6" />
+                <Simple value="-10" />
+                <Simple value="20" />
+                <Simple value="18" />
+                <Simple value="1" />
+              </Items>
+            </SingleArray>
+            <Simple name="ArmorExpertise" value="12" />
+            <Simple name="HeldGold" value="1244" />
+            <Simple name="BankGold" value="3000" />
+            <Simple name="ArmorClass" value="ChainMailShield" />
+            <SingleArray name="Weapons">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="spear" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="S" />
+                    <Simple name="ArticleType" value="A" />
+                    <Simple name="Complexity" value="10" />
+                    <Simple name="Type" value="Spear" />
+                    <Simple name="Dice" value="1" />
+                    <Simple name="Sides" value="5" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Moonpie Raybeam" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="Status" value="Alive" />
+            <SingleArray name="Stats">
+              <Items>
+                <Simple value="0" />
+                <Simple value="14" />
+                <Simple value="15" />
+                <Simple value="13" />
+                <Simple value="15" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="SpellAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="60" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="WeaponAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="5" />
+                <Simple value="-10" />
+                <Simple value="20" />
+                <Simple value="10" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="ArmorExpertise" value="0" />
+            <Simple name="HeldGold" value="153" />
+            <Simple name="BankGold" value="0" />
+            <Simple name="ArmorClass" value="PlateMailShield" />
+            <SingleArray name="Weapons">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="axe" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="S" />
+                    <Simple name="ArticleType" value="An" />
+                    <Simple name="Complexity" value="10" />
+                    <Simple name="Type" value="Axe" />
+                    <Simple name="Dice" value="1" />
+                    <Simple name="Sides" value="6" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Hellion Coldiron" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="Status" value="Alive" />
+            <SingleArray name="Stats">
+              <Items>
+                <Simple value="0" />
+                <Simple value="14" />
+                <Simple value="10" />
+                <Simple value="17" />
+                <Simple value="15" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="SpellAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="WeaponAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="5" />
+                <Simple value="-10" />
+                <Simple value="20" />
+                <Simple value="10" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="ArmorExpertise" value="0" />
+            <Simple name="HeldGold" value="322" />
+            <Simple name="BankGold" value="0" />
+            <Simple name="ArmorClass" value="LeatherShield" />
+            <SingleArray name="Weapons">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="axe" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="S" />
+                    <Simple name="ArticleType" value="An" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="Axe" />
+                    <Simple name="Dice" value="1" />
+                    <Simple name="Sides" value="6" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="sword" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="S" />
+                    <Simple name="ArticleType" value="A" />
+                    <Simple name="Complexity" value="-10" />
+                    <Simple name="Type" value="Sword" />
+                    <Simple name="Dice" value="1" />
+                    <Simple name="Sides" value="8" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="spear" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="S" />
+                    <Simple name="ArticleType" value="A" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="Spear" />
+                    <Simple name="Dice" value="1" />
+                    <Simple name="Sides" value="5" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Fuchsia Coldiron" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="Status" value="Alive" />
+            <SingleArray name="Stats">
+              <Items>
+                <Simple value="0" />
+                <Simple value="14" />
+                <Simple value="15" />
+                <Simple value="16" />
+                <Simple value="9" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="SpellAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="WeaponAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="5" />
+                <Simple value="-10" />
+                <Simple value="20" />
+                <Simple value="10" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="ArmorExpertise" value="0" />
+            <Simple name="HeldGold" value="5" />
+            <Simple name="BankGold" value="0" />
+            <Simple name="ArmorClass" value="ClothesShield" />
+            <SingleArray name="Weapons">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Coma Thickhide" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="Status" value="Alive" />
+            <SingleArray name="Stats">
+              <Items>
+                <Simple value="0" />
+                <Simple value="14" />
+                <Simple value="14" />
+                <Simple value="17" />
+                <Simple value="5" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="SpellAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="53" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="WeaponAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="5" />
+                <Simple value="-10" />
+                <Simple value="20" />
+                <Simple value="10" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="ArmorExpertise" value="0" />
+            <Simple name="HeldGold" value="0" />
+            <Simple name="BankGold" value="0" />
+            <Simple name="ArmorClass" value="LeatherShield" />
+            <SingleArray name="Weapons">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="spear" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="S" />
+                    <Simple name="ArticleType" value="A" />
+                    <Simple name="Complexity" value="10" />
+                    <Simple name="Type" value="Spear" />
+                    <Simple name="Dice" value="1" />
+                    <Simple name="Sides" value="5" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="NONE" />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Complexity" value="0" />
+                    <Simple name="Type" value="0" />
+                    <Simple name="Dice" value="0" />
+                    <Simple name="Sides" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="7" />
+  </Properties>
+</Complex>

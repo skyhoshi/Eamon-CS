@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD8E7C84-D98B-4578-90A3-538EEF173E1D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ARuncibleCargo</RootNamespace>
+    <AssemblyName>ARuncibleCargo</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile24</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\System\Bin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;PORTABLE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\System\Bin\</OutputPath>
+    <DefineConstants>TRACE;PORTABLE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <ProjectReference Include="..\..\System\EamonDD\EamonDD.csproj">
+      <Project>{38c326a7-4f79-470b-b004-c515b94b24e2}</Project>
+      <Name>EamonDD</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System\EamonRT\EamonRT.csproj">
+      <Project>{621a852b-a038-44a1-a245-42b67a8368c7}</Project>
+      <Name>EamonRT</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\System\Eamon\Eamon.csproj">
+      <Project>{4b426313-e449-4ab3-981c-74f4efbde12e}</Project>
+      <Name>Eamon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Framework\Combat\ICombatSystem.cs" />
+    <Compile Include="Framework\Commands\Interactive\IBlastCommand.cs" />
+    <Compile Include="Framework\Commands\Interactive\IFreeCommand.cs" />
+    <Compile Include="Framework\Commands\Interactive\IAttackCommand.cs" />
+    <Compile Include="Framework\Commands\Interactive\IGiveCommand.cs" />
+    <Compile Include="Framework\Commands\Manipulation\IOpenCommand.cs" />
+    <Compile Include="Framework\Commands\Manipulation\IReadCommand.cs" />
+    <Compile Include="Framework\Commands\Manipulation\IRemoveCommand.cs" />
+    <Compile Include="Framework\Commands\Manipulation\IUseCommand.cs" />
+    <Compile Include="Framework\Commands\Miscellaneous\ISayCommand.cs" />
+    <Compile Include="Framework\Commands\Movement\IFleeCommand.cs" />
+    <Compile Include="Framework\IGameState.cs" />
+    <Compile Include="Framework\IConfig.cs" />
+    <Compile Include="Framework\IMainLoop.cs" />
+    <Compile Include="Framework\IRoom.cs" />
+    <Compile Include="Framework\IMonster.cs" />
+    <Compile Include="Framework\IRtEngine.cs" />
+    <Compile Include="Framework\Plugin\IPluginClassMappings.cs" />
+    <Compile Include="Framework\Plugin\IPluginConstants.cs" />
+    <Compile Include="Framework\Plugin\IPluginGlobals.cs" />
+    <Compile Include="Framework\States\General\IStartState.cs" />
+    <Compile Include="Framework\States\Player\IAfterPlayerMoveState.cs" />
+    <Compile Include="Framework\States\Player\IPrintPlayerRoomState.cs" />
+    <Compile Include="Framework\States\Player\IGetPlayerInputState.cs" />
+    <Compile Include="Framework\States\Player\IPlayerMoveCheckState.cs" />
+    <Compile Include="Game\Combat\CombatSystem.cs" />
+    <Compile Include="Game\Commands\Interactive\BlastCommand.cs" />
+    <Compile Include="Game\Commands\Interactive\FreeCommand.cs" />
+    <Compile Include="Game\Commands\Interactive\AttackCommand.cs" />
+    <Compile Include="Game\Commands\Interactive\GiveCommand.cs" />
+    <Compile Include="Game\Commands\Manipulation\OpenCommand.cs" />
+    <Compile Include="Game\Commands\Manipulation\ReadCommand.cs" />
+    <Compile Include="Game\Commands\Manipulation\RemoveCommand.cs" />
+    <Compile Include="Game\Commands\Manipulation\UseCommand.cs" />
+    <Compile Include="Game\Commands\Miscellaneous\SayCommand.cs" />
+    <Compile Include="Game\Commands\Movement\FleeCommand.cs" />
+    <Compile Include="Game\GameState.cs" />
+    <Compile Include="Game\Config.cs" />
+    <Compile Include="Game\MainLoop.cs" />
+    <Compile Include="Game\Room.cs" />
+    <Compile Include="Game\Monster.cs" />
+    <Compile Include="Game\Plugin\PluginClassMappings.cs" />
+    <Compile Include="Game\Plugin\PluginConstants.cs" />
+    <Compile Include="Game\Plugin\PluginContext.cs" />
+    <Compile Include="Game\Plugin\PluginGlobals.cs" />
+    <Compile Include="Game\RtEngine.cs" />
+    <Compile Include="Game\States\General\StartState.cs" />
+    <Compile Include="Game\States\Player\AfterPlayerMoveState.cs" />
+    <Compile Include="Game\States\Player\PrintPlayerRoomState.cs" />
+    <Compile Include="Game\States\Player\GetPlayerInputState.cs" />
+    <Compile Include="Game\States\Player\PlayerMoveCheckState.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ChangeLog.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

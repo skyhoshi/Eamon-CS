@@ -1,0 +1,915 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cabinet" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A large wooden cabinet is situated against the north wall." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="14" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Container" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="35" />
+                    <Simple name="Field8" value="10" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="eyeglass" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="These eyeglasses have colored lenses and are decorated with magical runes." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Value" value="75" />
+            <Simple name="Weight" value="1" />
+            <Simple name="Location" value="1001" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Wearable" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="35" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="armoire" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="The armoire was once a valuable piece of furniture but is now battered and scratched." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="18" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Container" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="100" />
+                    <Simple name="Field8" value="5" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="secret door" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="to the west" />
+            <Simple name="Desc" value="Using the power of your magical eyeglasses, you can see that there is a secret door in the rear wall of the armoire!" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field5" value="19" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="1" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="healing potion" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a small vial made of delicate glass.  The potion inside will heal your battle wounds!" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="30" />
+            <Simple name="Weight" value="1" />
+            <Simple name="Location" value="1015" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Drinkable" />
+                    <Simple name="Field5" value="12" />
+                    <Simple name="Field6" value="3" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="water" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="The water from the marble fountain is cloudy and dark.  A foul odor emanates from the water." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="90" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Drinkable" />
+                    <Simple name="Field5" value="-10" />
+                    <Simple name="Field6" value="30" />
+                    <Simple name="Field7" value="1" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="east portcullis" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="To the east you see a heavy portcullis.  It looks as though it might be magical in nature." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="43" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field5" value="53" />
+                    <Simple name="Field6" value="-1" />
+                    <Simple name="Field7" value="1" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="west portcullis" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="To the west you see a heavy portcullis.  It looks as though it might be magical in nature." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="53" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field5" value="43" />
+                    <Simple name="Field6" value="-1" />
+                    <Simple name="Field7" value="1" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Whitestone of Karamir" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a massive diamond that looks to be extremely valuable.  It casts off a clear, shimmering light that could illuminate the darkest of dungeons." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="200" />
+            <Simple name="Weight" value="1" />
+            <Simple name="Location" value="93" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="LightSource" />
+                    <Simple name="Field5" value="-1" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="secret door" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="to the north" />
+            <Simple name="Desc" value="With the power of your magic eyeglasses, you are able to find a hidden latch on the shelf that opens a secret door to the north!" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field5" value="93" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="1" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bookshelf" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You notice that a bookshelf along the north wall is still standing and seems affixed to the wall." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="11" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="gem" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a generous assortment of precious gems and rare stones." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="90" />
+            <Simple name="Weight" value="8" />
+            <Simple name="Location" value="93" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="gold coin" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see several stacks of gold coins." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="90" />
+            <Simple name="Weight" value="45" />
+            <Simple name="Location" value="93" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Gold" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Boot of Levitation" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a fine pair of magical boots that provide the ability to make a nice smooth descent down deep distances.  The boots, which are very lightweight, appear to be of Elvish origin and are covered in Elvish runes." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="1079" />
+            <Simple name="Value" value="125" />
+            <Simple name="Weight" value="2" />
+            <Simple name="Location" value="27" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Wearable" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="leather pouch" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You notice that the dark guard has dropped a small leather pouch." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Value" value="2" />
+            <Simple name="Weight" value="2" />
+            <Simple name="Location" value="-17" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Container" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="5" />
+                    <Simple name="Field8" value="5" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="iron key" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a heavy iron key that looks to be useful for unlocking a large set of doors." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="1" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="1015" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="western door" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a set of heavy iron double-doors to the west." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="16" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field5" value="26" />
+                    <Simple name="Field6" value="16" />
+                    <Simple name="Field7" value="1" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Amulet of Courage" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a spectacular ruby amulet hanging from a gold chain.  It appears to have been worn by the goblin chieftain." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="123" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="-18" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Wearable" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="phial of Dragon Spice" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="The ghoul was carrying a small phial of Dragon Spice.  This rare substance is highly prized by wizards and Hokas would gladly pay you a King's ransom for it!" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="120" />
+            <Simple name="Weight" value="1" />
+            <Simple name="Location" value="-22" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Kingswort Weed" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a patch of thorny Kingswort Weed growing near the edge of the clearing.  It seems healthy and fresh and hasn't been trampled." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="5" />
+            <Simple name="Weight" value="1" />
+            <Simple name="Location" value="85" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ruby stone" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see an intricately carved and polished red ruby stone shimmering with its own internal light.  It looks to be of great value." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="143" />
+            <Simple name="Weight" value="1" />
+            <Simple name="Location" value="93" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Residuum Powder" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a small vial of pure white Residuum Powder here.  This magical powder is used by artificers to create magical items and to cast spells." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="87" />
+            <Simple name="Weight" value="1" />
+            <Simple name="Location" value="19" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="spell scroll" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a very old scroll written on ancient papyrus." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="68" />
+            <Simple name="Weight" value="1" />
+            <Simple name="Location" value="19" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Readable" />
+                    <Simple name="Field5" value="50" />
+                    <Simple name="Field6" value="1" />
+                    <Simple name="Field7" value="1" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cauldron" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a small, portable cast-iron cauldron here that could be used for mixing magical components." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="12" />
+            <Simple name="Weight" value="4" />
+            <Simple name="Location" value="19" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Container" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="10" />
+                    <Simple name="Field8" value="4" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Wizard's Helm" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see the powerful Wizard's Helm which will grant extended power to your Blast spell." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="135" />
+            <Simple name="Weight" value="2" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Wearable" />
+                    <Simple name="Field5" value="0" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="0" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Lady Mirabelle" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see Lady Mirabelle here!  She is bound with a heavy chain bolted to the wall.  She looks bedraggled and afraid but otherwise healthy." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="900" />
+            <Simple name="Location" value="56" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="BoundMonster" />
+                    <Simple name="Field5" value="26" />
+                    <Simple name="Field6" value="0" />
+                    <Simple name="Field7" value="22" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="27" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Jollifrud's sword" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see Jollifrud's marvelous sword.  It is a remarkable blade, finely crafted by the Elves of Erelolth, and perfectly suited for a great warrior." />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="35" />
+            <Simple name="Weight" value="10" />
+            <Simple name="Location" value="-21" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Weapon" />
+                    <Simple name="Field5" value="25" />
+                    <Simple name="Field6" value="5" />
+                    <Simple name="Field7" value="2" />
+                    <Simple name="Field8" value="6" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Artifact, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="28" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="sign" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="An old wooden sign, decrepit with age, barely reads &quot;Tangledoom Forest.&quot;" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="92" />
+            <SingleArray name="Classes">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Readable" />
+                    <Simple name="Field5" value="77" />
+                    <Simple name="Field6" value="1" />
+                    <Simple name="Field7" value="1" />
+                    <Simple name="Field8" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="28" />
+  </Properties>
+</Complex>

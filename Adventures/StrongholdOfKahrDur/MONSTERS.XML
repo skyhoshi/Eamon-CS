@@ -1,0 +1,851 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.MonsterDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IMonster, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dark guard" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A very large and heavily armored guardian warrior stands here.  Covered in black armor, wearing a great spiked black helmet and wielding a huge battle axe, the guardian is an imposing figure.  No face is visible, only two red glowing eyes." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="5" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="6" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="stone golem" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a massive stone golem!  It is huge and has imposing stone fists that look like they could smash through walls." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="20" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="19" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="6" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="2" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="iron golem" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a gigantic iron golem!  It has sharp, deadly blades for fingers and its glowing yellow eyes seem to stare you down." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="20" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="19" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="6" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="2" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="zombie" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a group of horrific zombies!  These undead minions reek of death.  Their rotten flesh hangs from their bones in foul tatters." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="4" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="101" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="4" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="2" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="skeleton" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="There are three undead skeletons in this room!  As soon as you enter, they immediately begin to clack and chatter with alarm." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="20" />
+            <Simple name="GroupCount" value="3" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="99" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="3" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="undead hydra" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a massive undead hydra!  This huge 5-headed beast would have been fearsome when it was living, but this abomination is horrific and deadly.  Its rotting flesh reveals black bones and rotten organs still pumping with unnatural life." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="20" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="103" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="4" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="3" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="wraith" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see three ghost-like undead spirits in this room.  Their barely-corporeal spectral forms are wrapped in tattered clothing.  Their very presence chills you to the bone!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="24" />
+            <Simple name="GroupCount" value="3" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="105" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="4" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="12" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="3" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="2" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="evil tree ent" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Here you see a huge oak tree.  The dark and twisted branches slowly sweep aside to reveal a terrible wooden face upon the trunk!  A huge mouth opens to reveal sharp wooden spikes for teeth.  The ferocity in this creature's eyes give you the shivers." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="8" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="85" />
+            <Simple name="Location" value="85" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="6" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="10" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="4" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="evil tree ent" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Here you see a huge oak tree.  The foul and rotten branches slowly sweep aside to reveal a sinister wooden face upon the trunk!  A huge mouth opens to reveal sharp wooden spikes for teeth.  The ferocity in this creature's eyes give you the shivers." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="8" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="85" />
+            <Simple name="Location" value="69" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="6" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="10" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="4" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="evil tree ent" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Here you see a huge oak tree.  The twisted branches slowly sweep aside to reveal a sinister wooden face upon the trunk!  A huge mouth opens to reveal sharp wooden spikes for teeth.  The ferocity in this creature's unnatural red eyes scare you to the core." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="8" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="85" />
+            <Simple name="Location" value="90" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="6" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="10" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="4" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dark guard" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see two very large and heavily armored guardian warriors here.  Covered in black armor, wearing a great spiked black helmet and wielding a huge battle axe, the guardians are imposing figures.  No face is visible, only two red glowing eyes." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="2" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="11" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="6" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="2" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dark guard" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see two very large and heavily armored guardian warriors here.  Covered in black armor, wearing a great spiked black helmet and wielding a huge battle axe, the guardians are imposing figures.  No face is visible, only two red glowing eyes." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="2" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="24" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="6" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="2" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dark guard" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see four very large and heavily armored guardian warriors here.  Covered in black armor, wearing a great spiked black helmet and wielding a huge battle axe, the guardians are imposing figures.  No face is visible, only two red glowing eyes." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="4" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="16" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="6" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="4" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ochre jelly" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Situated in the center of this room is a massive blob.  It is made of a thick and viscous ooze that smells awful.  Inside the translucent pulsing mass, you can see various bits of detritus and the bones of partially digested victims." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="YIes" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="10" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="35" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="4" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="3" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Sharruk the Lich" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Standing here is a powerful Lich!  Once a powerful human wizard, any humanity left in this creature is long gone.  Now, only a decomposing corpse wrapped in filthy tattered robes remains.  Nevertheless, this creature still bristles with magical energy." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="2800" />
+            <Simple name="Agility" value="32" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="109" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="7" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="3" />
+            <Simple name="NwSides" value="10" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dark guard" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A very large and heavily armored guardian warrior stands here.  Covered in black armor, wearing a great spiked black helmet and wielding a huge battle axe, the guardian is an imposing figure.  No face is visible, only two red glowing eyes." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="70" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="6" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="goblin chieftain" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a fierce goblin chieftain standing here, ready for battle.  His cruel, beady eyes and hungry snarl make it clear this is no friend." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="52" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="3" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="3" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="goblin soldier" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a goblin soldier standing here, ready for battle." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="52" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="3" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="goblin scout" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a goblin scout standing here, ready for battle." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="52" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="3" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Jollifrud" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Your brother and companion, Jollifrud, is here to help you with this quest.  He is a truly noble warrior and his regal presence reminds you of his old adventuring days." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="200" />
+            <Simple name="Agility" value="28" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="1" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="6" />
+            <Simple name="Weapon" value="27" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Friend" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ghoul" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a wicked, snarling ghoul here!  This foul creature's black claws and sharp teeth are perfect for the tearing of human flesh..." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="20" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="39" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="6" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="3" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Necromancer" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Standing before you is a tall man wrapped in jet black wizard's robes.  His eyes are milky-white and have no pupils.  He cracks a snarling grin revealing sharp teeth that are like needles.  This foe's evil will is clearly bent on your total destruction." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="36" />
+            <Simple name="Agility" value="25" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="56" />
+            <Simple name="CombatCode" value="NaturalWeapons" />
+            <Simple name="Armor" value="7" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="3" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="demonic serpent" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a slithering demonic serpent with dagger-like fangs that the Necromancer has magically warped into the chamber!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="hell hound" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a snarling hell hound with glowing red eyes that the Necromancer has magically warped into the chamber!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="fire demon" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a fiery demon that the Necromancer summoned here!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="0" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="StrongholdOfKahrDur.Game.Monster, StrongholdOfKahrDur, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Lady Mirabelle" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Lady Mirabelle thanks you for freeing her!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Friend" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="26" />
+  </Properties>
+</Complex>

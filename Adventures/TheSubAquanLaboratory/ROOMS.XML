@@ -1,0 +1,1477 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.RoomDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IRoom, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Large Cavern" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are inside a large cavern.  The only exit lies to the south, from which bright sunlight streams in.  Despite the slight breeze present, a dank odor permeates the place making it reek of decaying plant matter." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="13" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Elevator Cave" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are inside a small room whose walls, floor, and ceiling are all made of a silvery metal.  The floor is divided into 1 meter square tiles.  You may go south through an unlit tunnel." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="-18" />
+                <Simple value="14" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Reception Area" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="This room is elegantly furnished with chairs, tables, and couches.  An oval opening to the south connects this room with the central dome, and an elevator lies to the north." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="18" />
+                <Simple value="4" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Corridor A" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are walking down a long causeway, which connects the central and receptionist domes.  The walls are constructed of a transparent material, allowing you to view the surrounding lake.  You can continue north or south." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="3" />
+                <Simple value="5" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Circular Causeway" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You have entered a circular causeway, which bends out of sight to the east and west.  An oval entrance sits in the north wall and a smaller passage heads south.  Two doors, to the southeast and southwest, can also be used." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="4" />
+                <Simple value="34" />
+                <Simple value="54" />
+                <Simple value="53" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="20" />
+                <Simple value="19" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Kitchen Area" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The kitchen and common area are separated by a thin plastic partition, and the only exit lies north through it." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="26" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Power And General Storage" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="This room is stocked high with empty boxes and cartons.  Two large metal doors exit to the east and west." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="36" />
+                <Simple value="37" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Aquarium" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Upon entering, you find yourself standing on a thin balcony that circles the chamber four meters above the floor.  Stairs lead downward into darkness, and the dome exit lies to the northwest, down an oval causeway." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="42" />
+                <Simple value="0" />
+                <Simple value="41" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Marine Studies Dome" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand in the middle of a circular room, which is austerely furnished with chairs and tables.  Duralloy doors lead in nearly every direction." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="45" />
+                <Simple value="49" />
+                <Simple value="43" />
+                <Simple value="47" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="44" />
+                <Simple value="46" />
+                <Simple value="50" />
+                <Simple value="48" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Excursion Docks" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The walls and ceiling of this room are made of white tile, and the floor is grill-work.  A pair of bay-doors lead out into the lake, a staircase circles upward, a causeway leads to the northwest, and another door leads northeast." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="11" />
+                <Simple value="0" />
+                <Simple value="52" />
+                <Simple value="39" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Station Defense Area" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The section of dome covering this area is made of duraglass, allowing a full view of the surrounding waters.  A staircase circles down." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="10" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Stretch Of Beach" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are on a stretch of seaweed-covered beach.  To the south lies the Great Mitchigoom, and a narrow footpath leads north.  On either side of you (east and west), the cliff walls reach out almost to the water and then swing back out of sight." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="15" />
+                <Simple value="-17" />
+                <Simple value="14" />
+                <Simple value="13" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="-17" />
+                <Simple value="-17" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Outside Dark Cavern" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="As you round the cliff corner, you find before you to the north a dark cavern of unknown depth.  To the south lies the murky Lake Mitchigoom, and the beach continues to the east." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="1" />
+                <Simple value="-17" />
+                <Simple value="12" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="-17" />
+                <Simple value="-17" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Sandy Beach" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="As you round the corner near this area, you see a short section of unlit tunnel carved into the cliffs ahead to the north.  To the south lies the lake, and west, the beach continues." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="2" />
+                <Simple value="-17" />
+                <Simple value="0" />
+                <Simple value="12" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="-17" />
+                <Simple value="-17" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Stairway Base" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand at the base of an ancient and crumbling staircase.  Carved into each step is a small design depicting two crossed swords of oriental design.  You may climb up, or go south onto the beachfront." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="12" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="16" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Cliff Top" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The view of the area is breathtaking - you can see hundreds of meters of beachfront stretched out below your feet.  You may proceed down an ancient set of stairs to the beach or up the magical stairs which lead back to the Main Hall." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="-999" />
+                <Simple value="15" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Elevator" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are inside a small cubical room.  A door to the south leads out." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="2" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="-19" />
+                <Simple value="-19" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Elevator" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a small cubical room.  Through a door to the south, you see a large domed room with walls made of transparent material.  You are apparently on the bottom of the lake, some 25-30 meters underwater." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="3" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="-19" />
+                <Simple value="-19" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Individual Quarters" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="This chamber is furnished with a bed, desk, chair, lamp, overhead lights, and a closet.  You can exit to the northeast." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="5" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Individual Quarters" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="This room is furnished with the standard items:  a bed, closet, mirror, etc.  It appears that the former occupant left in a hurry, as the place is in shambles.  A door lies to the northwest." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="5" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Individual Quarters" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="This room has a bed, and nightstand (complete with lamp).  The eastern wall has a large mural on it, depicting a tropical paradise scene.  The only exit lies west." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="30" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Individual Quarters" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="This room, unlike many others like it, is completely square.  There is a bed in the corner, next to a nightstand.  A shallow closet is included.  The exit lies to the east." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="34" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Individual Quarters" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="This room is completely square, and used as a bedroom.  A bed, mirror, nightstand, and lamp are among the included items.  An exit lies to the west." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="34" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Individual Quarters" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="There is no bed in this room - rather, there is a small sleeping mattress (which has now been reduced to a pile of shreds).  The lights are out in this room, and you can see light from the corridor to the east." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="31" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Individual Quarters" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="This is the standard stock bedroom:  bed, lamp, nightstand, overhead lights, and closet are the predominant features.  The exit lies to the northwest." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="30" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Commons Area" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="This is the dining area.  It contains one long table which is surrounded by 12 chairs.  There are a dozen depressions in the table, one for each meal tray.  The exits are south to the kitchen, and north, west, and east down passageways." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="34" />
+                <Simple value="6" />
+                <Simple value="38" />
+                <Simple value="35" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="27" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Individual Quarters" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="This bedroom is pitch black, and the only light enters from the corridor to the northeast." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="31" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="28" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Suite-like Room" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="These quarters are extravagantly furnished and rather large.  The bed is of the advanced-flotation variety, and the closet is of the walk-in type.  An exit lies to the northeast." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="35" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="29" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Empty Room" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in an empty room, completely bare and stripped of everything.  The exit lies to the northwest." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="38" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="30" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Short Stretch Of Passageway" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a short stretch of passageway which bends around to the north and south.  A pair of doors, one to the east and another to the southeast, offer another possible direction to go.  Through the transparent walls, the murky lake bottom can be seen." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="53" />
+                <Simple value="32" />
+                <Simple value="21" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="25" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="31" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Short Stretch Of Passageway" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a short stretch of bending north/south passageway.  A pair of doors, one west and another southwest, can be used.  You look through the transparent walls and see neatly growing rows of seaweed growing on the lake bottom." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="54" />
+                <Simple value="33" />
+                <Simple value="0" />
+                <Simple value="24" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="27" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="32" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Passageway End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a bending passageway.  You may go back north, to the southwest down another large oval corridor, or to the east down a smaller corridor that leads to the central region of the dome." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="30" />
+                <Simple value="0" />
+                <Simple value="35" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="40" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="33" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bending Passageway" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a bending passageway.  You may go back north, to the southeast down another large oval corridor, or to the west down a smaller corridor which leads into the heart region of the dome." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="31" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="38" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="39" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="34" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dimly-lit Corridor" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are walking along a dimly-lit corridor.  To the north, you see the large bending corridor which encircles this entire dome, and to the south, you see a large open area.  A pair of doors lead east and west." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="5" />
+                <Simple value="26" />
+                <Simple value="23" />
+                <Simple value="22" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="35" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dimly-lit Corridor" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are walking down a dimly-lit stretch of corridor.  To the east, it exits into a dining area, and to the west, into a circular corridor.  A narrow passage also runs south, and a door sits in the southwest wall." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="37" />
+                <Simple value="26" />
+                <Simple value="32" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="28" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="36" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dimly-lit Corridor" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a narrow, and rather dimly lit passageway.  To the north, it makes a T with another narrow passage, and to the west sits a duralloy door.  Emblazoned on this door is a symbol whose meaning is unknown to you." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="38" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="7" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="37" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dimly-lit Corridor" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a narrow and dimly-lit corridor.  To the north it T's with another narrow passage, and to the east sits a duralloy door.  On the door is a strange symbol whose meaning has been lost with the passage of time." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="35" />
+                <Simple value="0" />
+                <Simple value="7" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="38" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Short Passageway" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a short stretch of passageway.  To the west, it opens into a dining area, and eastward into a large bending passageway with transparent walls.  A narrow passageway leads south, and a door sits in the southeast wall." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="36" />
+                <Simple value="33" />
+                <Simple value="26" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="29" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="39" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Corridor D" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="This oval passageway connects the main dome to one of the four minor domes.  To the SE sits the smaller dome, and the larger lies to the NW.  A pair of enormous doors block the entrance of water into this corridor; the dome to the SW has ruptured." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="33" />
+                <Simple value="10" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="40" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Corridor B" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="This oval passageway connects the main dome to the marine studies dome.  To the SW sits the smaller dome, and the larger lies to the NE.  In addition, another oval passage leads off to the SE, connecting this passage to another small dome." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="32" />
+                <Simple value="0" />
+                <Simple value="41" />
+                <Simple value="43" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="41" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Corridor C" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are inside a section of oval passageway, which connects a small dome (to the southeast) to another major corridor (to the northwest).  Two pairs of flood control doors lie at either end of the passageway." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="40" />
+                <Simple value="8" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="42" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Base Of Aquarium Dome" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are on the aquarium floor.  The only exit lies upward." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="8" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="43" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Small Glass Cubicle" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a small glass cubicle in the center of a round room.  The floor and ceiling are covered with a grillwork.  You may exit to the northeast or west." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="1016" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="40" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="44" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Computer Center" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="This is obviously the station's scientific center, used to monitor energy usage and atmospheric status.  A door exits to the southwest." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="9" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="45" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Seismic Station" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="This is the laboratory's seismic station.  The exit lies to the south." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="46" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Operating Room" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a brightly-lit room, with clean white walls, and a smooth blue tile floor.  A door lies to the southeast." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="9" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="47" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Lab 3A" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You find a flight of stairs circling upward towards the top of the dome.  A door leads east." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="51" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="48" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Lab 2" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a room which is similar in shape to the other labs.  However, the walls are lined with aquariums of all sizes and shapes.  A door lies to the northeast." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="49" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Lab 1" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="There are long workbenches in this room, covered with bubbling, liquid-filled apparatuses.  One side of the room seems devoted to studying undersea flora, and the other to distinct chemical reactions.  A door lies northward." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="50" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Laboratory Supplies" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in the laboratory supply room.  There are many shelves lining the walls, and boxes sitting strewn about the floor.  A door lies to the northwest." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="51" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Lab 3B" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The room at the top of the stairs is filled with micro-electronics gear, simple medical facilities, and four transparent oval tanks.  The only exit is the staircase leading down." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="47" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="52" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Excursion Prep" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are inside the Excursion Prep.  The only exit lies to the southwest, through a reinforced-duralloy flood door." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="10" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="53" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Newly-built Corridor" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The corridor here bends to the east and south.  By the fresh coat of paint on the walls, you judge that it is a new addition to the facility." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="30" />
+                <Simple value="5" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheSubAquanLaboratory.Game.Room, TheSubAquanLaboratory, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="54" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Newly-built Corridor" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The corridor, bending to the south and west, in which you walk bears all the hallmarks of a recent addition to the underwater compound.  Even the gray paint on the walls smells fresh." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="2" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="31" />
+                <Simple value="0" />
+                <Simple value="5" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="54" />
+  </Properties>
+</Complex>

@@ -1,0 +1,2773 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.RoomDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IRoom, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Long Pier, Western End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are on the end of a teetering pier, extending westwardly over the Malphigian Sea.  The worm-eaten pilings sway in the current causing the wood beneath your feet to rock gently.  The glow of the setting sun on the horizon lends to the scene an odd calm." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="2" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="East/West Pier, Middle" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are standing on the middle of a beaten, working pier extending west into the Malphigian Sea.  To the east, the pier leads to the shore, whereupon lies the battered remnants of a fishing shack and relevant paraphernalia; row boats and lobster cages." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="3" />
+                <Simple value="1" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Sea-Battered Pier, Initial Section" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are on the initial portion of a pier extending westward onto the sea. The structure, though battered, feels sturdier below you. To the east lies an ancient fishing shack and the rocky shore upon which it rests. The sun to the west casts an amber glow." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="4" />
+                <Simple value="2" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Rocky Shore" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are on the coast.  West extends a decrepit pier, raised above the calm tide of the sea.  To the north is the door to a decaying fishing shack, its paint eaten away by years of proximity to the sea.  East lies a glade where dense forest meets the shore." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="1004" />
+                <Simple value="0" />
+                <Simple value="6" />
+                <Simple value="3" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Ramshackle Fishing Shack" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The decay of the shack hangs in the air here.  Dim light filters in through gaps in the walls and a southern door.  The floor is littered with the silver, mummified corpses of a thousand fish, the shine of their scales dampened by a thick layer of dust." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="4" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Coastal Clearing" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are at a grassy clearing.  Around you towers a dark and ancient forest, its frontier abrupt against the sands of the coast.  Strange, inhuman voices echo from its impenetrable depths, calling in a tone of dire warning.  The only way out is west." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="4" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Private Chambers/Inferno" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in the room you have rented from Hokas Tokas, on the western edge of the Main Hall.  The scene is illuminated by a violent dance between rollicking smoke and spasmodic flames.  The east window, open to the alley below, is the only means of escape." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="1005" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Alley" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in an alley leading east to the Main Hall.  West lies your quarters above Hokas' shop, now wholly engulfed by a wall of fire.  The Hall itself fares little better; the audible sounds of fighting and the heat of flames drifting from its depths." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Main Hall, Southwest Corner" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Signs of struggle surround you in this corner of the Main Hall; a wagon is overturned, and evidence of the present barrage is seen in the broken stone littering the floor.  A narrow alley leads west; you can continue north and east to the rest of the Hall." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="10" />
+                <Simple value="0" />
+                <Simple value="12" />
+                <Simple value="8" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Main Hall, Northwest Corner" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The sounds of battle echo and reverberate in the northwest corner of the cavernous Main Hall.  South and east lead to the rest of the enormous Main Hall, moonlight sifting through the holes punctured in its grand roof by artillery fire." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="9" />
+                <Simple value="11" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Main Hall, Northeast Corner" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The iron gate of the Main Hall lies to the north, leading into the surrounding country.  The gate appears to be on its last limbs, yet it stands despite the beating it has taken in the siege.  West and south lead towards other corners of the hall." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="51" />
+                <Simple value="12" />
+                <Simple value="0" />
+                <Simple value="10" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Main Hall, Southeast Corner" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Moonlight breaches the high roof, falling on the sign above the door to Sam Slicker's shop to the east.  West and north lead towards other corners of the Main Hall; to the south, the ceiling has collapsed, blocking southward movement." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="11" />
+                <Simple value="1018" />
+                <Simple value="1017" />
+                <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Main Hall Southern Alley" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in an alley that once led south from the Main Hall.  The dark thoroughfare has become a de facto dead end due to the collapse of the southern wall.  The stone floor below you is covered by a sooty dampness, draining into an iron maintenance grate." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="1139" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="1024" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Main Hall Sewers, Western End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in the dank sewers of the Main Hall. The violence outside subsides in favor of the soft scurrying of the sewer's rodent population. The moonlight from a grate above dimly illuminates the tunnel, though the blackness of the eastern section remains." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="15" />
+                <Simple value="0" />
+                <Simple value="1140" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Main Hall Sewers" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The light of your lantern casts shadows on the filthy walls as you wade through the knee-deep sewage inhabiting this east-west tunnel.  The stillness of the current amplifies the sound of scurrying rodents.  Moonlight can be seen coming from the south." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="16" />
+                <Simple value="18" />
+                <Simple value="14" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Main Hall Sewers, N/S Drainage Passage" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Light barely trickles in from a large grate to the south, and a salty air filters towards you, clearing up some of the sewer's stench.  The raw sewage within which you wade develops a southward current here." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="15" />
+                <Simple value="17" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Main Hall Sewers, Southern Terminal" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="A vast grate stands south of you; the moonlight dancing off the tide of the Great Sea.  The sewage rushes past your feet in its journey towards the free waters.  Outside the grate, you can make out the coast, untouched by the chaos facing the Main Hall." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="16" />
+                <Simple value="1026" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Main Hall Sewers, Eastern End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Foul sewage gently flows from the east through a grate too small for you to fit through.  What appears to be candlelight floats down from a small opening in the ceiling, and the sewage flows to the west." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="15" />
+                <Simple value="50" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Sam Slicker's Store" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You have entered the haven of Sam Slicker's well-organized shop; the interior is well-fortified. Light from the window falls and reflects infinitesimal specks of dust in the air. A reinforced door leads west into the Main Hall and Sam's warehouse is east." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="20" />
+                <Simple value="12" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Sam Slicker's Warehouse" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in Sam Slicker's cavernous warehouse.  Shelving rises towards the heavens, uniformly populated with boxes with labels like &quot;Trollsfire Crate C.&quot;  West lies the door to Sam's shop itself, while great bay doors open to a dark commercial railyard." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="21" />
+                <Simple value="1136" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Railyard" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in an overgrown commercial railyard.  The familiar Eamon Railroad itself lies to your east, grasses growing between its ties.  West lies the entrance to Sam Slicker's warehouse, and a wooden tower is north.  At an unattainable height **046" />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="22" />
+                <Simple value="0" />
+                <Simple value="24" />
+                <Simple value="20" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Railyard Tower, Base" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand at the base of a weathered tower, erected to oversee rail operations.  In the distance, the sound of sporadic fighting emerges.  A sturdy ladder rises to the observation deck, and a weedy path leads south to the railyard itself." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="21" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="23" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Railyard Tower, Observation Deck" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are at the perceptibly swaying summit of an observation tower, overlooking the trainyard. From this rickety height, the moon illuminates the railroad running across the dark countryside. West lies the Great Hall, a mass of confusion, fire, and debris." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="22" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="N/S Train Platform, Center" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are standing in the middle of a concrete train platform running north and south near the Main Hall; a steam engine is berthed on the beaten, northern section.  To the west are the loading facilities the Main Hall relies on for its commerce." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="25" />
+                <Simple value="26" />
+                <Simple value="0" />
+                <Simple value="21" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="N/S Train Platform, Northern End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are standing on the northern end of a crumbling, concrete train platform extending to the south.  Graffiti colors the floor and railings despite the soft, grey illumination of the moonlight.  A powerful steam engine is berthed to the east." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="24" />
+                <Simple value="28" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Train Platform, Southern End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand on the southern end of the Main Hall commercial rail platform.  The years of daily freight have been cruel to the concrete structure.  On the southern end of the structure, a set of stairs descending into blackness." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="24" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="27" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="27" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Rail Management's Office" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a small, dank room filled with equipment dedicated to the repair and maintenance of the Eamon Railroad.  A spot of moonlight alerts you to the stairwell leading back to the platform." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="26" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="28" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Aging Steam Locomotive" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="A dank heat greets you in the cramped cabin of a powerful, eighteen-wheel, steam locomotive.  Emblazoned on the west-exiting hatch of the train, in a baroque golden script, are the words &quot;Spirit of Madison.&quot;  The door opens west to the Main Hall platform." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="25" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="29" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Great Sea, Northern Coast" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are at the northern shore of the Great Sea, the foul sewage of the Main Hall slowly draining into its depths from a great pipe to your north.  On the distant western waters, the outline of the naval forces of the Bandit's Guild can be **025" />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="1138" />
+                <Simple value="0" />
+                <Simple value="30" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="30" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Coast, Sandy East/West Path" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are trudging across a sandy path running east across the northern shore of the Great Sea.  The pungent odor of sewage from the west alerts you to the entrance to the Eamon sewers, while to the east is a small dock hanging over the calm, black waters." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="31" />
+                <Simple value="29" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="31" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Great Sea, Poorly Constructed Dock" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You've walked onto a rickety dock on the Great Sea.  Years of decay have contributed to the sensation that any minute its pilings could give way.  A neglected but serviceable boat lies to the south, while an overgrown path extends through the sands west." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="97" />
+                <Simple value="0" />
+                <Simple value="30" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="32" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Deserted Beach" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are on an empty beach on the north shore of the Great Sea.  The outline of a settlement to the north can be seen against the moonlit sky, past a dark path cutting through dense forest.  A boat lies south, tethered securely to a sea-worn signpost." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="33" />
+                <Simple value="99" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="33" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Menacing Forest, North/South Path" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The snapping of twigs beneath your feet echoes in the quiet of this dark and towering forest as you make your way along the north/south path through it.  The reflection of the moon on water can be seen to the south, and a quiet and empty town lies north." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="34" />
+                <Simple value="32" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="34" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dodge Main Street, Southern End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Dodge's main strip extends north as you stand in its gloomy quiet. South lies a dirt path into a dense and chaotic forest that envelops the southeastern edge of the settlement. Immediately to the west stands an enormous bank, its sturdy door boarded over." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="35" />
+                <Simple value="33" />
+                <Simple value="0" />
+                <Simple value="1050" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="35" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dodge Main Street, Middle" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="An uncanny quiet fills Dodge's Main Street, which extends north and south into blackness. A path leading to the west penetrates the dark forest enveloping Dodge's southern border. To the east is an unlit hotel whose entrance has been torn from its hinges." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="37" />
+                <Simple value="34" />
+                <Simple value="39" />
+                <Simple value="36" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="36" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Forest, Obscure East/West Footpath" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The trail upon which you cautiously walk is thin and in disuse.  With every step, the thick, obscure forest itself seems to start at you.  To the east, the open area of Dodge's main strip can be seen; to the west, the path leads into a forbidden darkness." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="35" />
+                <Simple value="47" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="37" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dodge Main Street" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Boarded buildings extend up from the dusty earth to the east and west of where you stand in Dodge's moonlit, north/south main strip.  By the letters still remaining on their eviscerated awnings, you can infer that one was a saloon, another a general store." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="38" />
+                <Simple value="35" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="38" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dodge Main Street, Northern End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Abandoned, sealed buildings are legion to the west and south of this dark section of Dodge's north/south Main Street. The darkness here is broken by a dim light pouring from a Sheriff's Office east. To the north, a dimly illuminated train platform stands." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="44" />
+                <Simple value="37" />
+                <Simple value="43" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="39" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dodge Hotel" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="In the uncanny darkness of the abandoned Dodge Hotel, signs of struggle are omnipresent.  The western door has been torn from its hinges, and blood and detritus stain the once-regal stairways leading up and down.  The front desk is littered with glass." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="35" />
+                <Simple value="40" />
+                <Simple value="42" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="40" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Abandoned Dodge Hotel, Top Floor" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are on the top floor of the silent hotel. Most of the hallway has collapsed but moonlight illuminates one remaining door to the east. A magnificent stairway descends down into the darkened lobby, losing its form as it proceeds into the miserable dark." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="1051" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="39" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="41" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dodge Hotel, Room 14" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The obvious luxury of the hotel room within which you stand is tarnished by the disturbing silence and darkness that meet your entry.  A feather-stuffed bed stands at the edge of the room, below a window looking into the night." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="40" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="42" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dodge Hotel, Coal-Black Basement" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The clammy air of the Dodge Hotel's basement greets you like a wave of nausea as you enter.  The dank, stone walls of this room are covered in a blue-green lichen." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="39" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="43" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dodge Sheriff's Office" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Flickering lights and soft radio static greet your entry into the Sheriff's Office, causing a crimson strobe effect as the light reflects from the blood-drenched floor.  The cacophony spills out into the street to the west, and the jail to the east." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="102" />
+                <Simple value="38" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="44" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Well-Worn Rail Platform, Middle" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand on the middle of a well-used east/west train platform.  The dark, still Main Street of the town of Dodge yawns to the south.  A surreal calm surrounds the area, broken only by the churn of a steam engine berthed to the east." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="38" />
+                <Simple value="46" />
+                <Simple value="45" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="45" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Rail Platform, Western End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are standing on the western end of the Dodge rail platform.  The concrete deck is worn, exposing the rebar beneath.  Over the western horizon, beneath the moon's glow, you can see the faint glow of the Main Hall, burning.  A humming train lies east." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="44" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="46" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Rail Platform, Eastern Section" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand beneath the moon's glow on the eastern portion of a train platform.  Signs of melee abound; fresh pools of blood cling to the concrete floor, draining over the platform onto the tracks below.  To the north, a majestic steam engine is berthed." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="89" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="44" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="47" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dark Forest, Narrow East/West Path" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The path grows narrow and the earth loose at this point, as you progress slowly through the dark forest west of Dodge.  The light of a clearing can be seen to your west, while the path evaporates into the darkness to the east." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="36" />
+                <Simple value="48" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="48" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dark Forest, Man-Made Clearing" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You have entered a clearing in the forest.  Moonlight filters through the opening in the trees, providing a welcome oasis of light from the darkness of the eastern path.  North, a filthy, canvas tent is erected.  To the west lies an enormous, iron fence." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="49" />
+                <Simple value="0" />
+                <Simple value="47" />
+                <Simple value="1072" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="49" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Canvas Tent" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand in the claustrophobic gloom of a dusty, canvas tent.  Bedrolls litter the cool, earth floor, each covered by a fine layer of dust.  The suggestion of light trickles in from the southern entrance." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="48" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="50" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="House Of Ill Repute" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You find yourself in the baroque decor of the whispered-of House of Ill Repute.  Torn damask wallpaper and velvet curtains give a sense of sumptuousness to the room.  The only apparent exits are a grate descending into the dark and a rosy northern window." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="1074" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="18" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="51" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="North/South Road" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are walking along a cobbled, north/south road.  Just south stand the great walls and breached portcullis of the Main Hall of the Guild of Free Adventurers, while the steady glow of watch-fires indicate the presence of a military camp far northward." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="52" />
+                <Simple value="11" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="52" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Intersection; East Path And N/S Road" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are walking the oft trodden road leading south to the Main Hall and north to the clamor of the forward camp of the Bandit's Guild.  At this point, a smaller path branches east over the grasslands, leading to a building in the distance." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="57" />
+                <Simple value="51" />
+                <Simple value="53" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="53" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Grasslands Clearing" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are standing in a clearing in the grasslands.  A path leads west to the main road, and to the east stands a moderately-sized inn, Ockham's Inn, where many a Free Adventurer has spent the night after a particularly exhausting quest or night of drinking." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="54" />
+                <Simple value="52" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="54" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Ockham's Inn, Hall" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Though Ockham's Inn is inviting, the gaiety is extinguished by signs of struggle about the place, such as a trail of broken glass leading up a flight of stairs and toppled furniture.  The entrance lies to the west while a kitchen lies to the south." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="55" />
+                <Simple value="0" />
+                <Simple value="53" />
+                <Simple value="56" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="55" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Ockham's Inn, Small Kitchen" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in the small, utilitarian kitchen that typically services Ockham's Inn.  Equipment, like a refrigerator, is upheaved, presumably tossed in the advance of the Bandit's Guild towards the Main Hall.  The door to the inn proper is to the north." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="54" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="56" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Ockham's Inn, Sleeping Quarters" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You have ascended into a loft in which spartan bunk beds and poker tables stand for the use of the inn's guests.  This room appears to have been recently repurposed as a garrison for the soldiers of the Bandit's Guild." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="54" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="57" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="North/South Road" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Moonlight illuminates the cold, cobbled road beneath your feet.  Grasslands extends in all directions.  The fires raging at the Main Hall can be seen to the south, while the calm glow from the north comes from the camp of the Bandit's Guild forces." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="58" />
+                <Simple value="52" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="58" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Train Crossing" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The cobbled road running south to the Main Hall intersects the tracks of the Eamon Railroad at this point.  It appears that the Bandit's Guild, camped northward, have set up a makeshift barricade to interrupt any train traffic heading west to Frukendorf." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="59" />
+                <Simple value="57" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="59" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bandit's Guild Forward Camp" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Watch-fires mark the perimeter of this fortification.  The flags of the Bandit's Guild fly in the moonlight from every direction.  The road leads only south from here; northern movement has been cut off by the expedient, yet massive, walls of the camp." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="58" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="60" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="E/W Train Platform, Middle" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand on the concrete midsection of an east/west train platform.  A sign hangs to the south, supported by pillars framing the small town of Mudville.  Across the tracks, to the north, you can see the cathedral-like Eamon University in the moonlight." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="61" />
+                <Simple value="62" />
+                <Simple value="63" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="61" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Mudville Town Square" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="An imposing, marble statue towers over the quite empty square from its perch above a fountain.  To the north lies a rail platform, while a spare, dark cabin-like structure sits to the west.  A small, dirt trail wanders off into the woods to the south." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="60" />
+                <Simple value="65" />
+                <Simple value="0" />
+                <Simple value="64" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="62" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Train Platform, Eastern End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand on the eastern end of a worn, commercial rail platform.  The light of the moon reveals the presence of an ancient steam locomotive berthed north of the platform, and above them looms the gothic silhouette of Eamon University." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="90" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="60" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="63" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Train Platform, Western End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are standing on the western end of the commuter rail station at Mudville. A painted sign hangs over a stairwell descending into a gloomy underpass. The staggering silhouette of Eamon University can be seen northward; perhaps the underpass leads there." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="60" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="68" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="64" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Cabin-Like Structure" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Judging by the plethora of reports stapled to the wall, you can determine that this cabin, typically used as a meeting hall, is presently repurposed as a base of operations for the Bandit's Guild.  An open door leads east into the town square of Mudville." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="61" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="65" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="North/South Dirt Path" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are walking on a north/south dirt path.  The lights of the town square to the north illuminate the trail and reflect softly on a calm body of water to the south.  The rickety door to an equally rickety shack lies to the east." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="61" />
+                <Simple value="67" />
+                <Simple value="1098" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="66" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Broken-Down Shack" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand in a tiny, broken-down shack.  The floor is lopsided, and the only illumination is moonlight sifting between the gaps in the thin walls and the open door lying west.  You feel pity for whoever dwells here." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="65" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="67" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Great Sea, Marshy Beach" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are standing on a marshy beach.  A boat lies beached to the south, and an arboreal plenum to the north breaks only to permit the passage of a small, boggy trail.  The moon casts a grey glow on your surroundings, its reflection caught on the Great Sea." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="65" />
+                <Simple value="101" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="68" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Railway Underpass, Southern End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The moist darkness of the southern end of this underpass running north/south beneath the Eamon Railroad is only punctured by the stream of moonlight descending through the upward staircase.  To the north, even that light evaporates into oblivion." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="69" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="63" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="69" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="N/S Railway Underpass, Middle" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Faint points of moonlight can be seen at both ends of this north/south tunnel beneath the railway.  Other than this, and the rhythmic dripping of condensing water, there is nothing to break the immersive deprivation of your senses." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="70" />
+                <Simple value="68" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="70" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="N/S Railway Underpass, Northern End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The dim light of the moon can be detected from a stairway ascending into the night.  To the south, the tunnel continues, though no visual cue is present to indicate how far the overwhelming blackness reaches beneath the railroad." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="69" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="71" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="71" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Eamon University, Outside S. Gate" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand outside the northward iron gate of Eamon University.  The university itself is housed in a great series of limestone buildings, each merging into the other by means of buttressed walkways.  A concrete staircase descends into shadows." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="72" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="70" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="72" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Eamon University, Beneath S. Gate" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Above you extends the great south gate of Eamon University.  While it is late and the university is closed, you still detect movement in the shadows of the quad to the north.  A path leads south towards train tracks, and a door to the east appears ajar." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="74" />
+                <Simple value="71" />
+                <Simple value="1105" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="73" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Eamon University, Safety Office" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand in a small office that appears to have been recently ransacked.  From its contents you infer that it is used as a Safety Office.  Its door, recently forced open, opens to the southern gate to Eamon University." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="72" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="74" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Eamon University, Quad" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Great, oak doors lie to the north, east, and west on the facades of the great, gothic buildings framing the quad of Eamon University.  The great southern gate lies to your south.  Moonlight filters through the grand trees onto the grass below." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="1111" />
+                <Simple value="72" />
+                <Simple value="1113" />
+                <Simple value="1112" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="75" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dept./Quantum Engineering, Lobby" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The contrast between the technological marvels housed in the lobby of the Department of Quantum Engineering and the ancient stone that houses them is stark.  A neon glow lights the lobby.  Doors lead east and west, and a large door leads south to the quad." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="74" />
+                <Simple value="77" />
+                <Simple value="76" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="76" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dept./Quantum Engineering, Classroom" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand in a classroom devoted to the study of technological gadgetry and so forth. In front of a large blackboard, filled with formulae, stands a stately lectern, surrounded by a semicircle of seats. A doorway leads east to the lobby of the department." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="75" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="77" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dept./Quantum Eng., Faculty Offices" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Myriad desks surround you in the faculty offices of the Department of Quantum Engineering.  Only the occasional flicker from the ethereal neon lighting interrupts the silence of these offices.  Stairs lead down to a laboratory, and west lies the lobby." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="75" />
+                <Simple value="0" />
+                <Simple value="78" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="78" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Eamon University, Basement Laboratory" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand in a cluttered, basement laboratory.  Countless experiments have been run here, undoubtedly providing new technologies to allies of the Guild of Free Adventurers and its foes alike." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="77" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="79" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dept./Alchemy, Lobby" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You have entered the lobby of the Department of Alchemy, where new spells and magic is developed.  An arcane glow descends from a staircase leading up, casting a maroon shade upon the contents of the room.  A grand door leads east into the university quad." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="74" />
+                <Simple value="0" />
+                <Simple value="80" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="80" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dept./Alchemy, Offices" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand in the moon-lit offices of the Department of Alchemy.  From the windows, you can see the grassy quad below you.  Stairs descend into the gloom, while to the west lies a door marked &quot;Library.&quot;  To the east extends an elevated, limestone walkway." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="82" />
+                <Simple value="81" />
+                <Simple value="0" />
+                <Simple value="79" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="81" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dept./Alchemy, Library" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are surrounded by centuries' worth of alchemical scholarship in this small library.  Moonlight fills the room.  To the east lies the departmental offices." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="80" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="82" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="University Quad, Limestone Overpass" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Moonlight floods this elevated overpass; it is supported by large, limestone columns and it runs east/west over the trees of the still and gloomy quad.  To the west lies a portal to the Department of Alchemy, while the Department of Archaeology lies east." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="83" />
+                <Simple value="80" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="83" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dept./Archaeology, Offices" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Soft moonlight illuminates the limestone offices of the Department of Archaeology.  A buttressed walkway lies to the west, and a stairway descends into its lobby.  To the east lies an office, the maple door reading:  &quot;Prof. Larkspur, Department Chair.&quot;" />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="84" />
+                <Simple value="82" />
+                <Simple value="0" />
+                <Simple value="85" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="84" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Professor Larkspur's Office" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You have entered the dim, tidy office of Professor Larkspur.  Myriad degrees hang on the wall above his desk, detailing his academic career.  The room is small, almost like a cloakroom, illuminated only by moonlight." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="83" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="85" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dept./Archaeology, Lobby" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The lobby of the Department of Archaeology is damp and cold; the darkness of the gothic room is uncanny.  Stairs lead upwards towards the departmental offices, and a door leads westward into the quad." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="74" />
+                <Simple value="83" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="86" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Deep Hole, Precipice" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The uniformity of the deep crater before you suggests that you are standing at the precipice of an archaeological dig.  A slender path leads downward into the yawning recess, and a path cuts east into a clearing in the dense forest." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="48" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="87" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="87" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dark Pit, Slender Path" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Earth precariously slides down the stark incline of the gaping pit as you traverse this path downward.  The moonlight grows dim as you descend; you can make out few details farther down, but the outline of the precipice is still visible upward." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="86" />
+                <Simple value="88" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="88" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Deep Pit, Bottom" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="In the dim light, you can here make out all the workings of an archaeological site.  Sections are artfully partitioned with twine, and the signs of methodical digging are omnipresent.  The moonlight shines on an upward path, leading out of the dark crater." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="87" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="89" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Aging Steam Locomotive" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="A dank heat greets you in the cramped cabin of a powerful, eighteen-wheel, steam locomotive.  Emblazoned on the west-exiting hatch of the train, in a baroque golden script, are the words &quot;Spirit of Madison.&quot;  The door opens south to the Dodge platform." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="46" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="90" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Aging Steam Locomotive" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="A dank heat greets you in the cramped cabin of a powerful, eighteen-wheel, steam locomotive.  Emblazoned on the west-exiting hatch of the train, in a baroque golden script, are the words &quot;Spirit of Madison.&quot;  The door opens south to the Mudville platform." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="62" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="91" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Aging Steam Locomotive" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="A dank heat greets you in the cramped cabin of a powerful, eighteen-wheel, steam locomotive. Emblazoned on the west-exiting hatch of the train, in a baroque golden script, are the words &quot;Spirit of Madison.&quot; The door opens north to the Frukendorf platform." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="92" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="92" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="E/W Rail Platform, Western End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand on the western end of an elegant, marble east/west platform in the shadow of the Main Hall of the powerful Bandit's Guild in the city of Frukendorf.  The majestic main gate lies eastward, and a steam engine stands idle to the south." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="91" />
+                <Simple value="93" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="93" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="E/W Rail Platform, Midsection" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand on the middle of an ornate, marble rail platform running east/west.  The plundered majesty of the massive gates leading into the Main Hall of the Bandit's Guild lies north, advertising the Guild's past successes in the art of thievery." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="1137" />
+                <Simple value="0" />
+                <Simple value="94" />
+                <Simple value="92" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="94" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="E/W Rail Platform, Eastern End" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand on the eastern end of a baroque east/west rail platform.  Its construction is ornate and elegant, advertising the power and influence of the Bandit's Guild.  Behind the northern hall, you can see the majestic Main Hall of the Guild." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="93" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="95" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bandit's Guild, South Antechamber" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand in a grand, southern antechamber of the Main Hall of the Bandit's Guild. Sweeping baroque arches support the high ceiling, colored by the light of the great stained glass windows. To the south stands a train platform, and the hall extends north." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="96" />
+                <Simple value="93" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="96" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bandit's Guild, Throne Room" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The luxurious and ill-gotten decor of the throne room of the Bandit's Guild astounds you as you enter.  The cruel vanity of the Bandit Prince is actualized in its every aspect, from the velvet drapes to the marble columnade around the southern entrance." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="95" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="97" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Great Sea, Boat" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a rickety boat, floating along the shore of the Great Sea.  To the north you can see the Main Hall atop a high cliff.  On the waters to the west, you can see a flotilla of Bandit's Guild ships, assuring the imprudence of westward travel by sea." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="31" />
+                <Simple value="0" />
+                <Simple value="98" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="98" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Great Sea Coast, Boat" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a boat following the line of the coast of the Great Sea.  The coast extends both east and west; to the west lies your Main Hall, while the towns of Dodge and Mudville both lie along the eastern coast." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="99" />
+                <Simple value="97" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="99" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Great Sea Coast, Boat" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a boat, floating in the calm waters of the Great Sea along its northern coastline.  To the north lies a boggy-like beach that you may land at.  To the west lies the Main Hall, while the town of Mudville lies to the east." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="32" />
+                <Simple value="0" />
+                <Simple value="100" />
+                <Simple value="98" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="100" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Great Sea Coast, Boat" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a boat following the line of the coast of the Great Sea.  The coast extends both east and west; to the west lies the Main Hall and town of Dodge, while the town of Mudville might be landed at with further eastward movement." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="101" />
+                <Simple value="99" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="101" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Great Sea Coast, Boat" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a boat near the coast of the Great Sea.  To the north lies a sandy beach upon which you may land the boat.  The town of Dodge and the Main Hall might be found to the west; the waters to the east are too rocky to navigate safely, however." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="67" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="100" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="ARuncibleCargo.Game.Room, ARuncibleCargo, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="102" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dodge Jail" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The barred windows and jail cell suggest that the cold, spartan room you occupy is the Dodge Jail, wherein the host of Dodge's bank robbers have awaited their sentences.  A door leads west into the Sheriff's Office." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="43" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="102" />
+  </Properties>
+</Complex>
