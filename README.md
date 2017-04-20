@@ -1,7 +1,7 @@
 # Eamon-CS
 ### The Eamon RPG System (C# Branch)
 
-This is Eamon CS (ECS), a C# port of the classic Eamon roleplaying game system that debuted on the Apple II.  Eamon was created by Donald Brown, but there have been many versions over the years, on a wide variety of computer systems.  ECS is the production version of Eamon AC (EAC), an experimental prototype intended to extract the game from BASIC.  EAC has been obsoleted in favor of this new Eamon, which hopefully will be the definitive version for the C family of languages.
+This is Eamon CS (ECS), a C# port of the classic Eamon roleplaying game system that debuted on the Apple II.  Eamon was created by Donald Brown, but there have been many versions over the years, on a variety of computer systems.  ECS is the production version of Eamon AC (EAC), a prototype intended to extract the game from BASIC.  EAC has been obsoleted in favor of this Eamon, which hopefully will be the definitive version for the C family of languages.
 
 #### Prerequisites
 
@@ -9,7 +9,7 @@ Eamon CS requires .NET 4.5+ on Windows and Mono 4.6.2+ on Unix.  All modern Wind
 
 #### Installing
 
-There is no formal installer for Eamon CS.  To obtain a copy of this repository (which contains a full set of ECS binaries) you can either do a Git Clone using Visual Studio 2017 or, more simply, download a .zip file using the green Clone Or Download button above.
+There is no formal installer for Eamon CS.  To obtain a copy of this repository (which contains a full set of binaries) you can either do a Git Clone using Visual Studio 2017 or, more simply, download a .zip file using the green Clone Or Download button above.
 
 If you are on Windows and choose the second option, prior to unzipping the file, you should right click on it, select Properties and click the Unblock check box (or button) in the lower right corner of the form.  Then click Apply and OK.  This will improve the gameplay experience by eliminating security warning message boxes.
 
@@ -27,7 +27,7 @@ If you are interested in contributing to the Eamon CS project, or you wish to po
 
 #### Roadmap
 
-The current goal is to produce one fully polished game per quarter until I run out of suitable candidates - beginning in Q3 2017.  These are ported BASIC games; new games will take longer, as they are showcases for the ECS engine.  There is no timeframe for when new games will be built.  If you have an old BASIC game that you'd like to see ported and are willing to assist in that task (just through your insight) you'll get priority.  Otherwise, the emphasis here is quality over quantity.
+The current plan is to produce one fully polished game per quarter (until I run out of suitable candidates) beginning in Q3 2017.  These are ported BASIC games; new games will take longer, as they are showcases for the ECS engine.  There is no timeframe for when new games will be built.  If you have an old BASIC game that you'd like to see ported and are willing to assist in that task (just through your insight) you'll get priority.  Otherwise, the emphasis here is quality over quantity.
 
 There are currently plans to port ECS to Android and, if that is successful, iOS.
 
