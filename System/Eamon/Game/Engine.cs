@@ -1813,12 +1813,12 @@ namespace Eamon.Game
 
 				if (complexity > 25)
 				{
-					wp += (calcPrice ? 400 : 25);
+					wp += (calcPrice ? 400 : 20);
 				}
 
 				if (complexity > 35)
 				{
-					wp += (calcPrice ? 2000 : 75);
+					wp += (calcPrice ? 2000 : 50);
 				}
 
 				if (dice * sides > 10)
@@ -1833,12 +1833,12 @@ namespace Eamon.Game
 
 				if (dice * sides > 25)
 				{
-					wp += (calcPrice ? 400 : 25);
+					wp += (calcPrice ? 400 : 20);
 				}
 
 				if (dice * sides > 35)
 				{
-					wp += (calcPrice ? 2000 : 75);
+					wp += (calcPrice ? 2000 : 50);
 				}
 			}
 
@@ -2385,7 +2385,7 @@ namespace Eamon.Game
 					x.MarcosName = "Leather Armor";
 					x.MarcosPrice = Constants.LeatherArmorPrice;
 					x.MarcosNum = 1;
-					x.ArtifactValue = 85;
+					x.ArtifactValue = 100;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2401,7 +2401,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = Constants.ChainMailPrice;
 					x.MarcosNum = 2;
-					x.ArtifactValue = 160;
+					x.ArtifactValue = 200;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2417,7 +2417,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = Constants.PlateMailPrice;
 					x.MarcosNum = 3;
-					x.ArtifactValue = 325;
+					x.ArtifactValue = 350;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2433,7 +2433,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
-					x.ArtifactValue = 490;
+					x.ArtifactValue = 500;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2449,7 +2449,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
-					x.ArtifactValue = 655;
+					x.ArtifactValue = 650;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2465,7 +2465,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
-					x.ArtifactValue = 820;
+					x.ArtifactValue = 800;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2481,7 +2481,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
-					x.ArtifactValue = 985;
+					x.ArtifactValue = 950;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
