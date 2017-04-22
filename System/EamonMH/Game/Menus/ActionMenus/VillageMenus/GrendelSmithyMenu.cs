@@ -98,6 +98,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 		public override void Execute()
 		{
 			RetCode rc;
+			bool imw = false;
 			long ap = 0;
 			long ap0;
 			long ap1;
@@ -167,11 +168,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				var j = (int)GetWeaponType();
 
-				var weaponPrice = 500;
+				var weaponPrice = Globals.Engine.GetWeaponPriceOrValue(weaponList[j][0], 12, (Enums.Weapon)j, 2, 8, true, ref imw);
 
 				ap0 = Globals.Engine.GetMerchantAskPrice(weaponPrice, (double)Rtio);
 
-				weaponPrice = 1200;
+				weaponPrice = Globals.Engine.GetWeaponPriceOrValue(weaponList[j][1], 24, (Enums.Weapon)j, 2, 16, true, ref imw);
 
 				ap1 = Globals.Engine.GetMerchantAskPrice(weaponPrice, (double)Rtio);
 
@@ -321,7 +322,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 					wpnSides = 12;
 				}
 
-				var weaponPrice = wpnComplexity * wpnDice * wpnSides + 500;
+				var weaponPrice = Globals.Engine.GetWeaponPriceOrValue(wpnName01, wpnComplexity, (Enums.Weapon)j, wpnDice, wpnSides, true, ref imw);
 
 				ap = Globals.Engine.GetMerchantAskPrice(weaponPrice, (double)Rtio);
 

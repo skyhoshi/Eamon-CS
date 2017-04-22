@@ -18,5 +18,7 @@ namespace Eamon.Game.Primitive.Classes
 		public virtual long MarcosPrice { get; set; }
 
 		public virtual long MarcosNum { get; set; }
+
+		public virtual long ArtifactValue { get; set; }
 	}
 }

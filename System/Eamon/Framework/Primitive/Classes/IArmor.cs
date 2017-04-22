@@ -14,5 +14,7 @@ namespace Eamon.Framework.Primitive.Classes
 		long MarcosPrice { get; set; }
 
 		long MarcosNum { get; set; }
+
+		long ArtifactValue { get; set; }
 	}
 }

@@ -112,7 +112,7 @@ namespace EamonRT.Game
 
 					var ima = false;
 
-					y.Value = (long)Globals.Engine.GetArmorPrice(Globals.Character.ArmorClass, ref ima);
+					y.Value = (long)Globals.Engine.GetArmorPriceOrValue(Globals.Character.ArmorClass, false, ref ima);
 
 					y.Weight = (a2 == 1 ? 15 : a2 == 2 ? 25 : 35);
 
@@ -548,7 +548,7 @@ namespace EamonRT.Game
 
 				var imw = false;
 
-				x.Value = (long)Globals.Engine.GetWeaponPrice(weapon, ref imw);
+				x.Value = (long)Globals.Engine.GetWeaponPriceOrValue(weapon, false, ref imw);
 
 				x.Weight = 15;
 

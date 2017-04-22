@@ -178,9 +178,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 								Globals.Out.Write("{0}Marcos says, \"Well, I just happen to have three {1}s in, of varying quality.  I've got a very good one for {2} GP, a fair one for {3} GP, and a kinda shabby one for {4} GP.  Which do you want?\"{0}",
 									Environment.NewLine,
 									cw.Name,
-									Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice * 2, (double)Rtio),
 									Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice, (double)Rtio),
-									Globals.Engine.GetMerchantAskPrice((double)weapon.MarcosPrice / (double)2, (double)Rtio));
+									Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice * 0.80, (double)Rtio),
+									Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice * 0.60, (double)Rtio));
 
 								Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 
@@ -200,19 +200,19 @@ namespace EamonMH.Game.Menus.ActionMenus
 								{
 									if (Buf[0] == 'G')
 									{
-										ap = Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice * 2, (double)Rtio);
+										ap = Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice, (double)Rtio);
 
 										cw.Complexity = 10;
 									}
 									else if (Buf[0] == 'F')
 									{
-										ap = Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice, (double)Rtio);
+										ap = Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice * 0.80, (double)Rtio);
 									}
 									else
 									{
 										Debug.Assert(Buf[0] == 'P');
 
-										ap = Globals.Engine.GetMerchantAskPrice((double)weapon.MarcosPrice / (double)2, (double)Rtio);
+										ap = Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice * 0.60, (double)Rtio);
 
 										cw.Complexity = -10;
 									}
@@ -335,7 +335,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 								var imw = false;
 
-								var weaponPrice = Globals.Engine.GetWeaponPrice(Globals.Character.GetWeapons(i), ref imw);
+								var weaponPrice = Globals.Engine.GetWeaponPriceOrValue(Globals.Character.GetWeapons(i), true, ref imw);
 
 								ap = Globals.Engine.GetMerchantAskPrice(weaponPrice, (double)Rtio);
 
@@ -450,7 +450,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						var ima = false;
 
-						var armorPrice = Globals.Engine.GetArmorPrice(Globals.Character.ArmorClass, ref ima);
+						var armorPrice = Globals.Engine.GetArmorPriceOrValue(Globals.Character.ArmorClass, true, ref ima);
 
 						ap = Globals.Engine.GetMerchantAskPrice(armorPrice, (double)Rtio);
 

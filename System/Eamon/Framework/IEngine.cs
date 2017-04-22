@@ -269,11 +269,11 @@ namespace Eamon.Framework
 
 		RetCode ResolveUidMacros(string str, StringBuilder buf, bool resolveFuncs, bool recurse);
 
-		double GetWeaponPrice(string name, long complexity, Enums.Weapon type, long dice, long sides, ref bool isMarcosWeapon);
+		double GetWeaponPriceOrValue(string name, long complexity, Enums.Weapon type, long dice, long sides, bool calcPrice, ref bool isMarcosWeapon);
 
-		double GetWeaponPrice(Classes.ICharacterWeapon weapon, ref bool isMarcosWeapon);
+		double GetWeaponPriceOrValue(Classes.ICharacterWeapon weapon, bool calcPrice, ref bool isMarcosWeapon);
 
-		double GetArmorPrice(Enums.Armor armor, ref bool isMarcosArmor);
+		double GetArmorPriceOrValue(Enums.Armor armor, bool calcPrice, ref bool isMarcosArmor);
 
 		void AppendFieldDesc(IPrintDescArgs args, StringBuilder fullDesc, StringBuilder briefDesc);
 

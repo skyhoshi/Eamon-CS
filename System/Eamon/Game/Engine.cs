@@ -1762,7 +1762,7 @@ namespace Eamon.Game
 			return ResolveUidMacros(str, buf, resolveFuncs, recurse, ref invalidUid);
 		}
 
-		public virtual double GetWeaponPrice(string name, long complexity, Enums.Weapon type, long dice, long sides, ref bool isMarcosWeapon)
+		public virtual double GetWeaponPriceOrValue(string name, long complexity, Enums.Weapon type, long dice, long sides, bool calcPrice, ref bool isMarcosWeapon)
 		{
 			double wp;
 
@@ -1788,59 +1788,57 @@ namespace Eamon.Game
 
 			wp = weapon.MarcosPrice;
 
+			if (complexity >= 0 && complexity < 10)
+			{
+				wp *= 0.80;
+			}
+			else if (complexity < 0)
+			{
+				wp *= 0.60;
+			}
+
 			isMarcosWeapon = string.Equals(name, weapon.MarcosName ?? weapon.Name, StringComparison.OrdinalIgnoreCase) && (complexity == -10 || complexity == 0 || complexity == 10) && dice == weapon.MarcosDice && sides == weapon.MarcosSides;
 
-			if (isMarcosWeapon)
-			{
-				if (complexity < 0)
-				{
-					wp /= 2;
-				}
-				else if (complexity > 0)
-				{
-					wp *= 2;
-				}
-			}
-			else
+			if (!isMarcosWeapon)
 			{
 				if (complexity > 10)
 				{
-					wp += 40;
+					wp += (calcPrice ? 40 : 5);
 				}
 
 				if (complexity > 15)
 				{
-					wp += 80;
+					wp += (calcPrice ? 80 : 10);
 				}
 
 				if (complexity > 25)
 				{
-					wp += 400;
+					wp += (calcPrice ? 400 : 25);
 				}
 
 				if (complexity > 35)
 				{
-					wp += 2000;
+					wp += (calcPrice ? 2000 : 75);
 				}
 
 				if (dice * sides > 10)
 				{
-					wp += 40;
+					wp += (calcPrice ? 40 : 5);
 				}
 
 				if (dice * sides > 15)
 				{
-					wp += 80;
+					wp += (calcPrice ? 80 : 10);
 				}
 
 				if (dice * sides > 25)
 				{
-					wp += 400;
+					wp += (calcPrice ? 400 : 25);
 				}
 
 				if (dice * sides > 35)
 				{
-					wp += 2000;
+					wp += (calcPrice ? 2000 : 75);
 				}
 			}
 
@@ -1849,14 +1847,14 @@ namespace Eamon.Game
 			return wp;
 		}
 
-		public virtual double GetWeaponPrice(Classes.ICharacterWeapon weapon, ref bool isMarcosWeapon)
+		public virtual double GetWeaponPriceOrValue(Classes.ICharacterWeapon weapon, bool calcPrice, ref bool isMarcosWeapon)
 		{
 			Debug.Assert(weapon != null);
 
-			return GetWeaponPrice(weapon.Name, weapon.Complexity, weapon.Type, weapon.Dice, weapon.Sides, ref isMarcosWeapon);
+			return GetWeaponPriceOrValue(weapon.Name, weapon.Complexity, weapon.Type, weapon.Dice, weapon.Sides, calcPrice, ref isMarcosWeapon);
 		}
 
-		public virtual double GetArmorPrice(Enums.Armor armor, ref bool isMarcosArmor)
+		public virtual double GetArmorPriceOrValue(Enums.Armor armor, bool calcPrice, ref bool isMarcosArmor)
 		{
 			double ap;
 
@@ -1881,17 +1879,31 @@ namespace Eamon.Game
 
 				if (armor02.MarcosPrice > 0)
 				{
-					ap = armor02.MarcosPrice;
+					if (calcPrice)
+					{
+						ap = armor02.MarcosPrice;
+					}
+					else
+					{
+						ap = armor02.ArtifactValue;
+					}
 
 					isMarcosArmor = true;
 				}
 				else
 				{
-					armor02 = GetArmors(Enums.Armor.PlateMail);
+					if (calcPrice)
+					{
+						armor02 = GetArmors(Enums.Armor.PlateMail);
 
-					Debug.Assert(armor02 != null);
+						Debug.Assert(armor02 != null);
 
-					ap = armor02.MarcosPrice + (((armor01 - (long)Enums.Armor.PlateMail) / 2) * 1150);
+						ap = armor02.MarcosPrice + (((armor01 - (long)Enums.Armor.PlateMail) / 2) * 1150);
+					}
+					else
+					{
+						ap = armor02.ArtifactValue;
+					}
 				}
 			}
 
@@ -2357,6 +2369,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
+					x.ArtifactValue = 0;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2364,6 +2377,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
+					x.ArtifactValue = 0;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2371,6 +2385,7 @@ namespace Eamon.Game
 					x.MarcosName = "Leather Armor";
 					x.MarcosPrice = Constants.LeatherArmorPrice;
 					x.MarcosNum = 1;
+					x.ArtifactValue = 85;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2378,6 +2393,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
+					x.ArtifactValue = 0;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2385,6 +2401,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = Constants.ChainMailPrice;
 					x.MarcosNum = 2;
+					x.ArtifactValue = 160;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2392,6 +2409,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
+					x.ArtifactValue = 0;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2399,6 +2417,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = Constants.PlateMailPrice;
 					x.MarcosNum = 3;
+					x.ArtifactValue = 325;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2406,6 +2425,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
+					x.ArtifactValue = 0;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2413,6 +2433,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
+					x.ArtifactValue = 490;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2420,6 +2441,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
+					x.ArtifactValue = 0;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2427,6 +2449,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
+					x.ArtifactValue = 655;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2434,6 +2457,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
+					x.ArtifactValue = 0;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2441,6 +2465,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
+					x.ArtifactValue = 820;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2448,6 +2473,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
+					x.ArtifactValue = 0;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2455,6 +2481,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
+					x.ArtifactValue = 985;
 				}),
 				Globals.CreateInstance<Classes.IArmor>(x =>
 				{
@@ -2462,6 +2489,7 @@ namespace Eamon.Game
 					x.MarcosName = null;
 					x.MarcosPrice = 0;
 					x.MarcosNum = 0;
+					x.ArtifactValue = 0;
 				})
 			};
 
