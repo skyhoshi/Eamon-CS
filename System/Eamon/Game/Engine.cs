@@ -1827,12 +1827,12 @@ namespace Eamon.Game
 
 				if (complexity > 25)
 				{
-					wp += (calcPrice ? 400 : 20);
+					wp += (calcPrice ? 320 : 20);
 				}
 
 				if (complexity > 35)
 				{
-					wp += (calcPrice ? 2000 : 50);
+					wp += (calcPrice ? 960 : 50);
 				}
 
 				if (dice * sides > 10)
@@ -1847,12 +1847,12 @@ namespace Eamon.Game
 
 				if (dice * sides > 25)
 				{
-					wp += (calcPrice ? 400 : 20);
+					wp += (calcPrice ? 320 : 20);
 				}
 
 				if (dice * sides > 35)
 				{
-					wp += (calcPrice ? 2000 : 50);
+					wp += (calcPrice ? 960 : 50);
 				}
 			}
 
@@ -1912,7 +1912,7 @@ namespace Eamon.Game
 
 						Debug.Assert(armor02 != null);
 
-						ap = armor02.MarcosPrice + (((armor01 - (long)Enums.Armor.PlateMail) / 2) * 1150);
+						ap = armor02.MarcosPrice + (((armor01 - (long)Enums.Armor.PlateMail) / 2) * 1000);
 					}
 					else
 					{
