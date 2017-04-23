@@ -540,11 +540,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							Debug.Assert(armor != null);
 
-							ap = Globals.Engine.GetMerchantAskPrice(armor.MarcosPrice, (double)Rtio) - ti;
+							ap = Globals.Engine.GetMerchantAskPrice(armor.MarcosPrice, (double)Rtio);
 
-							if (Globals.Character.HeldGold >= ap)
+							if (Globals.Character.HeldGold + ti >= ap)
 							{
 								Globals.Out.Write("{0}Marcos takes your gold{1} and helps you into your new armor.{0}", Environment.NewLine, ti > 0 ? " and your old armor" : "");
+
+								Globals.Character.HeldGold += ti;
 
 								Globals.Character.HeldGold -= ap;
 
