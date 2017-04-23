@@ -452,7 +452,21 @@ namespace Eamon.Game
 
 		public virtual double GetMerchantRtio(long charisma)
 		{
-			return (double)10 / (double)charisma;
+			var stat = GetStats(Enums.Stat.Charisma);
+
+			Debug.Assert(stat != null);
+
+			var min = 0;
+
+			var max = 1;
+
+			var a = 0.70;
+
+			var b = 1.30;
+
+			var x = (double)((stat.MaxValue - stat.MinValue) - (charisma - stat.MinValue)) / (double)(stat.MaxValue - stat.MinValue);
+
+			return (((b - a) * (x - min)) / (max - min)) + a;
 		}
 
 		public virtual bool IsCharYOrN(char ch)
