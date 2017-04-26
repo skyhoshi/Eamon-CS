@@ -31,7 +31,7 @@ The current plan is to produce one fully polished game per quarter (until I run 
 
 There are currently plans to port ECS to Android and, if that is successful, iOS.
 
-There are a vast number of 3rd party technologies that can seamlessly integrate with ECS (being a C# system), some of which may push the game into places its never been.  Stay tuned and see what comes of it.
+There are many 3rd party technologies that can seamlessly integrate with ECS, some of which may push the game in new directions.  Stay tuned and see what comes of it.
 
 #### License
 
