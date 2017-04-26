@@ -82,7 +82,7 @@ namespace EamonRT.Game.Commands
 					Globals.Out.Write("{0}There {1}{2}{3}{4} left.{0}",
 						Environment.NewLine,
 						ac.Field6 != 1 ? "are " : "is ",
-						ac.Field6 > 0 ? Globals.Engine.GetNumberString(ac.Field6, false, Globals.Buf) : "no",
+						ac.Field6 > 0 ? Globals.Engine.GetStringFromNumber(ac.Field6, false, Globals.Buf) : "no",
 						ac.Type == Enums.ArtifactType.Drinkable ? " swallow" : " bite",
 						ac.Field6 != 1 ? "s" : "");
 				}

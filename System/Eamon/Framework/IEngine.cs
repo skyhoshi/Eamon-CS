@@ -217,7 +217,9 @@ namespace Eamon.Framework
 
 		string WordWrap(string str, StringBuilder buf, bool clearBuf = true);
 
-		string GetNumberString(long num, bool addSpace, StringBuilder buf);
+		string GetStringFromNumber(long num, bool addSpace, StringBuilder buf);
+
+		long GetNumberFromString(string str);
 
 		string GetAttackDescString(Enums.Weapon weapon, long roll);
 

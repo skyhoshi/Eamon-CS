@@ -280,7 +280,7 @@ namespace EamonRT.Game.Commands
 			{
 				Globals.Out.Write("{0}Give {1} gold piece{2} to {3}.{0}",
 					Environment.NewLine,
-					Globals.Engine.GetNumberString(GoldAmount, false, Globals.Buf),
+					Globals.Engine.GetStringFromNumber(GoldAmount, false, Globals.Buf),
 					GoldAmount > 1 ? "s" : "",
 					IobjMonster.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 
@@ -303,7 +303,7 @@ namespace EamonRT.Game.Commands
 				{
 					Globals.Out.Write("{0}You only have {1} gold piece{2}.{0}",
 						Environment.NewLine,
-						Globals.Engine.GetNumberString(Globals.Character.HeldGold, false, Globals.Buf),
+						Globals.Engine.GetStringFromNumber(Globals.Character.HeldGold, false, Globals.Buf),
 						Globals.Character.HeldGold != 1 ? "s" : "");
 
 					NextState = Globals.CreateInstance<IStartState>();

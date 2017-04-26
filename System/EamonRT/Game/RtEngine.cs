@@ -1422,6 +1422,24 @@ namespace EamonRT.Game
 
 			Debug.Assert(!string.IsNullOrWhiteSpace(name));
 
+			var tokens = name.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+
+			long i = -1;
+
+			if (tokens.Length > 1)
+			{
+				i = Globals.Engine.GetNumberFromString(tokens[0]);
+
+				if (i > 0)
+				{
+					name = name.Substring(tokens[0].Length + 1);
+				}
+				else
+				{
+					i = -1;
+				}
+			}
+
 			var filteredMonsterList = monsterList.Where(m => string.Equals(m.Name, name, StringComparison.OrdinalIgnoreCase)).ToList();
 
 			if (filteredMonsterList.Count == 0)
@@ -1447,6 +1465,11 @@ namespace EamonRT.Game
 			if (filteredMonsterList.Count == 0)
 			{
 				filteredMonsterList = monsterList.Where(m => m.Synonyms != null && m.Synonyms.FirstOrDefault(s => s.StartsWith(name, StringComparison.OrdinalIgnoreCase) || s.EndsWith(name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
+			}
+
+			if (i > 0)
+			{
+				filteredMonsterList.RemoveAll(m => m.OrigGroupCount == 1 || m.OrigGroupCount < i);
 			}
 
 			return filteredMonsterList;

@@ -2429,7 +2429,7 @@ namespace Eamon.Game
 					}
 					else
 					{
-						buf01.Append(gc > 1 ? Globals.Engine.GetNumberString(gc, true, new StringBuilder(Constants.BufSize)) : "");
+						buf01.Append(gc > 1 ? Globals.Engine.GetStringFromNumber(gc, true, new StringBuilder(Constants.BufSize)) : "");
 					}
 
 					buf.AppendFormat
@@ -2458,7 +2458,7 @@ namespace Eamon.Game
 							gc > 1 ? "the " :
 							ArticleType == Enums.ArticleType.None ? "" :
 							"the ",
-							gc > 1 ? Globals.Engine.GetNumberString(gc, true, new StringBuilder(Constants.BufSize)) : ""
+							gc > 1 ? Globals.Engine.GetStringFromNumber(gc, true, new StringBuilder(Constants.BufSize)) : ""
 						);
 					}
 
@@ -2484,7 +2484,7 @@ namespace Eamon.Game
 					{
 						buf01.Append
 						(
-							gc > 1 ? Globals.Engine.GetNumberString(gc, true, new StringBuilder(Constants.BufSize)) :
+							gc > 1 ? Globals.Engine.GetStringFromNumber(gc, true, new StringBuilder(Constants.BufSize)) :
 							ArticleType == Enums.ArticleType.None ? "" :
 							ArticleType == Enums.ArticleType.The ? "the " :
 							ArticleType == Enums.ArticleType.Some ? "some " :
