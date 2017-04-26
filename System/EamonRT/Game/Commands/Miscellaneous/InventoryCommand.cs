@@ -125,7 +125,7 @@ namespace EamonRT.Game.Commands
 					goldArtifact = Globals.CreateInstance<IArtifact>(x =>
 					{
 						x.Name = string.Format("{0} gold piece{1}", 
-										Globals.Engine.GetNumberString(Globals.Character.HeldGold, false, Globals.Buf), 
+										Globals.Engine.GetStringFromNumber(Globals.Character.HeldGold, false, Globals.Buf), 
 										Globals.Character.HeldGold != 1 ? "s" : "");
 					});
 

@@ -902,7 +902,7 @@ namespace Eamon.Game
 			return WordWrap(str, buf, config != null ? config.WordWrapMargin : Constants.RightMargin, null, clearBuf);
 		}
 
-		public virtual string GetNumberString(long num, bool addSpace, StringBuilder buf)
+		public virtual string GetStringFromNumber(long num, bool addSpace, StringBuilder buf)
 		{
 			string result;
 
@@ -920,6 +920,40 @@ namespace Eamon.Game
 				addSpace ? " " : "");
 
 			result = buf.ToString();
+
+		Cleanup:
+
+			return result;
+		}
+
+		public virtual long GetNumberFromString(string str)
+		{
+			long result = -1;
+			long i;
+
+			if (string.IsNullOrWhiteSpace(str))
+			{
+				// PrintError
+
+				goto Cleanup;
+			}
+
+			for (i = 0; i < NumberStrings.Length; i++)
+			{
+				if (string.Equals(NumberStrings[i], str, StringComparison.OrdinalIgnoreCase))
+				{
+					result = i;
+
+					goto Cleanup;
+				}
+			}
+
+			if (long.TryParse(str, out i))
+			{
+				result = i;
+
+				goto Cleanup;
+			}
 
 		Cleanup:
 
