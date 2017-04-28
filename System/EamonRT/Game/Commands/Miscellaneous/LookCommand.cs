@@ -27,7 +27,7 @@ namespace EamonRT.Game.Commands
 
 		protected override void PlayerFinishParsing()
 		{
-			if (CommandParser.CurrToken < CommandParser.Tokens.Length && !string.Equals(CommandParser.Tokens[CommandParser.CurrToken], "room", StringComparison.OrdinalIgnoreCase))
+			if (CommandParser.CurrToken < CommandParser.Tokens.Length)
 			{
 				var command = Globals.CreateInstance<IExamineCommand>();
 
