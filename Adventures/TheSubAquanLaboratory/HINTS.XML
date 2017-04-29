@@ -36,7 +36,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. The Go command allows you to travel through any door/gate you encounter, even those that are free-standing (not associated with a room directional link)." />
+                <Simple value="1. The Go command allows you to travel through any door/gate you encounter, including those that are free-standing (not associated with a room directional link)." />
               </Items>
             </SingleArray>
           </Properties>
