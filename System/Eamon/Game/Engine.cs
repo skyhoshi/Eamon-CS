@@ -2968,7 +2968,15 @@ namespace Eamon.Game
 				"with",
 				"onto",
 				"into",
-				"inside"
+				"inside",
+				"under",
+				"underneath",
+				"beneath",
+				"below",
+				"behind",
+				"through",
+				"along",
+				"across"
 			};
 
 			Articles = new string[]

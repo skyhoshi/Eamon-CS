@@ -15,6 +15,8 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class PrintPlayerRoomState : State, IPrintPlayerRoomState
 	{
+		protected virtual string TooDarkToSeeDesc { get; set; }
+
 		protected virtual void ProcessEvents()
 		{
 
@@ -36,7 +38,7 @@ namespace EamonRT.Game.States
 			}
 			else
 			{
-				Globals.Buf.SetFormat("{0}It's too dark to see.{0}", Environment.NewLine);
+				Globals.Buf.SetFormat(TooDarkToSeeDesc, Environment.NewLine);
 			}
 
 			Globals.Out.Write("{0}", Globals.Buf);
@@ -66,6 +68,8 @@ namespace EamonRT.Game.States
 		public PrintPlayerRoomState()
 		{
 			Name = "PrintPlayerRoomState";
+
+			TooDarkToSeeDesc = "{0}It's too dark to see.{0}";
 		}
 	}
 }

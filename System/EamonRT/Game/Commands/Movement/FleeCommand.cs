@@ -4,8 +4,10 @@
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
@@ -29,6 +31,15 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Enums.Direction), Direction));
 
+			if (DobjArtifact != null && !DobjArtifact.IsDoorGate())
+			{
+				PrintDontFollowYou();
+
+				NextState = Globals.CreateInstance<IStartState>();
+
+				goto Cleanup;
+			}
+
 			if (!Globals.RtEngine.CheckNBTLHostility(ActorMonster))
 			{
 				PrintCalmDown();
@@ -38,17 +49,20 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			var numExits = 0L;
-
-			Globals.RtEngine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref numExits);
-			
-			if (numExits == 0)
+			if (DobjArtifact == null)
 			{
-				PrintNoPlaceToGo();
+				var numExits = 0L;
 
-				NextState = Globals.CreateInstance<IStartState>();
+				Globals.RtEngine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref numExits);
 
-				goto Cleanup;
+				if (numExits == 0)
+				{
+					PrintNoPlaceToGo();
+
+					NextState = Globals.CreateInstance<IStartState>();
+
+					goto Cleanup;
+				}
 			}
 
 			PlayerProcessEvents();
@@ -58,29 +72,36 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (Direction == 0)
+			if (DobjArtifact == null)
 			{
-				Enums.Direction direction = 0;
+				if (Direction == 0)
+				{
+					Enums.Direction direction = 0;
 
-				Globals.RtEngine.GetRandomMoveDirection(ActorRoom, ActorMonster, true, ref direction);
+					Globals.RtEngine.GetRandomMoveDirection(ActorRoom, ActorMonster, true, ref direction);
 
-				Direction = direction;
+					Direction = direction;
+				}
+
+				Debug.Assert(Enum.IsDefined(typeof(Enums.Direction), Direction));
 			}
 
-			Debug.Assert(Enum.IsDefined(typeof(Enums.Direction), Direction));
-
-			if (Direction > Enums.Direction.West && Direction < Enums.Direction.Northeast)
+			if (DobjArtifact != null)
 			{
-				Globals.Buf.SetFormat("{0}ward", Direction.ToString().ToLower());
+				Globals.Buf.Clear();
+			}
+			else if (Direction > Enums.Direction.West && Direction < Enums.Direction.Northeast)
+			{
+				Globals.Buf.SetFormat(" {0}ward", Direction.ToString().ToLower());
 			}
 			else
 			{
-				Globals.Buf.SetFormat("to the {0}", Direction.ToString().ToLower());
+				Globals.Buf.SetFormat(" to the {0}", Direction.ToString().ToLower());
 			}
 
-			Globals.Out.Write("{0}Attempting to flee {1}.{0}", Environment.NewLine, Globals.Buf);
+			Globals.Out.Write("{0}Attempting to flee{1}.{0}", Environment.NewLine, Globals.Buf);
 
-			Globals.GameState.R2 = ActorRoom.GetDirs(Direction);
+			Globals.GameState.R2 = DobjArtifact != null ? 0 : ActorRoom.GetDirs(Direction);
 
 		Cleanup:
 
@@ -89,6 +110,8 @@ namespace EamonRT.Game.Commands
 				NextState = Globals.CreateInstance<IPlayerMoveCheckState>(x =>
 				{
 					x.Direction = Direction;
+
+					x.Artifact = DobjArtifact;
 
 					x.Fleeing = true;
 				});
@@ -209,7 +232,30 @@ namespace EamonRT.Game.Commands
 			{
 				Direction = Globals.Engine.GetDirection(CommandParser.Tokens[CommandParser.CurrToken]);
 
-				CommandParser.CurrToken++;
+				if (Direction != 0)
+				{
+					CommandParser.CurrToken++;
+				}
+				else if (ActorRoom.IsLit())
+				{
+					CommandParser.ParseName();
+
+					CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+					{
+						a => a.IsInRoom(ActorRoom),
+						a => a.IsEmbeddedInRoom(ActorRoom)
+					};
+
+					CommandParser.ObjData.ArtifactNotFoundFunc = PrintNothingHereByThatName;
+
+					PlayerResolveArtifact();
+				}
+				else
+				{
+					CommandParser.NextState.Dispose();
+
+					CommandParser.NextState = Globals.CreateInstance<IStartState>();
+				}
 			}
 		}
 

@@ -25,11 +25,11 @@ namespace EamonRT.Game.States
 
 		protected virtual IMonster Monster { get; set; }
 
-		protected virtual IArtifact Artifact { get; set; }
-
 		protected virtual long ArtUid { get; set; }
 
 		public virtual Enums.Direction Direction { get; set; }
+
+		public virtual IArtifact Artifact { get; set; }
 
 		public virtual bool Fleeing { get; set; }
 
@@ -71,7 +71,7 @@ namespace EamonRT.Game.States
 
 		public override void Execute()
 		{
-			Debug.Assert(Enum.IsDefined(typeof(Enums.Direction), Direction));
+			Debug.Assert(Enum.IsDefined(typeof(Enums.Direction), Direction) || Artifact != null);
 
 			Monster = Globals.MDB[Globals.GameState.Cm];
 
@@ -91,6 +91,8 @@ namespace EamonRT.Game.States
 					NextState = Globals.CreateInstance<IAfterPlayerMoveState>(x =>
 					{
 						x.Direction = Direction;
+
+						x.Artifact = Artifact;
 					});
 				}
 				else
@@ -105,13 +107,16 @@ namespace EamonRT.Game.States
 
 			Debug.Assert(Room != null);
 
-			ArtUid = Room.GetDirectionDoorUid(Direction);
+			ArtUid = Artifact != null ? Artifact.Uid : Room.GetDirectionDoorUid(Direction);
 
 			if (ArtUid > 0)
 			{
-				Artifact = Globals.ADB[ArtUid];
+				if (Artifact == null)
+				{
+					Artifact = Globals.ADB[ArtUid];
 
-				Debug.Assert(Artifact != null);
+					Debug.Assert(Artifact != null);
+				}
 
 				Globals.RtEngine.CheckDoor(Room, Artifact, ref _found, ref _roomUid);
 
@@ -126,6 +131,8 @@ namespace EamonRT.Game.States
 						NextState = Globals.CreateInstance<IPlayerMoveCheckState>(x =>
 						{
 							x.Direction = Direction;
+
+							x.Artifact = Artifact;
 
 							x.Fleeing = Fleeing;
 						});

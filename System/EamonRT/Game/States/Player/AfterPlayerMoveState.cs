@@ -19,6 +19,8 @@ namespace EamonRT.Game.States
 	{
 		public virtual Enums.Direction Direction { get; set; }
 
+		public virtual IArtifact Artifact { get; set; }
+
 		protected virtual void ProcessEvents()
 		{
 
