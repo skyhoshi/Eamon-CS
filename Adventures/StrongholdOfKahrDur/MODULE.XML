@@ -22,7 +22,7 @@
             <Simple name="NumArtifacts" value="28" />
             <Simple name="NumEffects" value="89" />
             <Simple name="NumMonsters" value="26" />
-            <Simple name="NumHints" value="15" />
+            <Simple name="NumHints" value="16" />
           </Properties>
         </Complex>
       </Items>

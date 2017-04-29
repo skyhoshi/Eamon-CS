@@ -26,7 +26,7 @@ namespace TheSubAquanLaboratory.Game
 				{
 					switch (Uid)
 					{
-						case 2:
+						case 3:
 
 							room = Globals.RDB[2];
 
@@ -34,7 +34,7 @@ namespace TheSubAquanLaboratory.Game
 
 							return room.Seen;
 
-						case 3:
+						case 4:
 
 							artifact = Globals.ADB[16];
 
@@ -42,7 +42,7 @@ namespace TheSubAquanLaboratory.Game
 
 							return artifact.Seen;
 
-						case 4:
+						case 5:
 
 							artifact = Globals.ADB[9];
 
@@ -50,7 +50,7 @@ namespace TheSubAquanLaboratory.Game
 
 							return artifact.Seen;
 
-						case 5:
+						case 6:
 
 							room = Globals.RDB[18];
 
@@ -58,7 +58,7 @@ namespace TheSubAquanLaboratory.Game
 
 							return room.Seen;
 
-						case 6:
+						case 7:
 
 							artifact = Globals.ADB[57];
 

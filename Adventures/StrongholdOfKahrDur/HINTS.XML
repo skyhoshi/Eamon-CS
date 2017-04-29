@@ -32,6 +32,20 @@
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
+            <Simple name="Question" value="EAMON CS 1.3 NEW COMMANDS." />
+            <Simple name="NumAnswers" value="1" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. The Go command allows you to travel through any door/gate you encounter, even those that are free-standing (not associated with a room directional link)." />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
             <Simple name="Question" value="Read me! (Special notes about this adventure.)" />
             <Simple name="NumAnswers" value="3" />
             <SingleArray name="Answers">
@@ -50,7 +64,7 @@
         </Complex>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="3" />
+            <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="What do I do in the library?" />
@@ -71,7 +85,7 @@
         </Complex>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="4" />
+            <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="How do I open the western door?" />
@@ -92,7 +106,7 @@
         </Complex>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="5" />
+            <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="Is there anything special in the King's quarters?" />
@@ -113,7 +127,7 @@
         </Complex>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="6" />
+            <Simple name="Uid" value="7" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="What do I do with the cauldron?" />
@@ -134,7 +148,7 @@
         </Complex>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="7" />
+            <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="It's dark!" />
@@ -155,7 +169,7 @@
         </Complex>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="8" />
+            <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="How do I open the portcullis?" />
@@ -176,7 +190,7 @@
         </Complex>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="9" />
+            <Simple name="Uid" value="10" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="How can I enter the forest?" />
@@ -197,7 +211,7 @@
         </Complex>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="10" />
+            <Simple name="Uid" value="11" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="How can I get down into the pit?" />
@@ -218,7 +232,7 @@
         </Complex>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="11" />
+            <Simple name="Uid" value="12" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="Can my friends climb into or out of the pit?" />
@@ -239,7 +253,7 @@
         </Complex>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="12" />
+            <Simple name="Uid" value="13" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="What do I do about the lich?" />
@@ -260,7 +274,7 @@
         </Complex>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="13" />
+            <Simple name="Uid" value="14" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="How do I defeat the Necromancer?" />
@@ -281,7 +295,7 @@
         </Complex>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="14" />
+            <Simple name="Uid" value="15" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="What do I have to do to successfully complete the Quest?" />
@@ -302,7 +316,7 @@
         </Complex>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="15" />
+            <Simple name="Uid" value="16" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="Cheat code. (SPOILER ALERT!)" />
@@ -329,6 +343,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="15" />
+    <Simple name="CurrUid" value="16" />
   </Properties>
 </Complex>
