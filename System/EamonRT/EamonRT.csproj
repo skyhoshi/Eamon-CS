@@ -91,6 +91,7 @@
     <Compile Include="Framework\Commands\Movement\IDownCommand.cs" />
     <Compile Include="Framework\Commands\Movement\IEastCommand.cs" />
     <Compile Include="Framework\Commands\Movement\IFleeCommand.cs" />
+    <Compile Include="Framework\Commands\Movement\IGoCommand.cs" />
     <Compile Include="Framework\Commands\Movement\INeCommand.cs" />
     <Compile Include="Framework\Commands\Movement\INorthCommand.cs" />
     <Compile Include="Framework\Commands\Movement\INwCommand.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="Game\Commands\Movement\DownCommand.cs" />
     <Compile Include="Game\Commands\Movement\EastCommand.cs" />
     <Compile Include="Game\Commands\Movement\FleeCommand.cs" />
+    <Compile Include="Game\Commands\Movement\GoCommand.cs" />
     <Compile Include="Game\Commands\Movement\NeCommand.cs" />
     <Compile Include="Game\Commands\Movement\NorthCommand.cs" />
     <Compile Include="Game\Commands\Movement\NwCommand.cs" />

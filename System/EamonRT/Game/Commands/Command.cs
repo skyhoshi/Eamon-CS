@@ -302,6 +302,11 @@ namespace EamonRT.Game.Commands
 			Globals.Out.WriteLine("{0}Nobody here by that name!", Environment.NewLine);
 		}
 
+		protected virtual void PrintNothingHereByThatName()
+		{
+			Globals.Out.WriteLine("{0}Nothing here by that name!", Environment.NewLine);
+		}
+
 		protected virtual void PrintYouSeeNothingSpecial()
 		{
 			Globals.Out.WriteLine("{0}You see nothing special.", Environment.NewLine);

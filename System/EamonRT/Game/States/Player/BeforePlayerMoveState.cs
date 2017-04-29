@@ -5,6 +5,7 @@
 
 using System;
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -16,6 +17,8 @@ namespace EamonRT.Game.States
 	public class BeforePlayerMoveState : State, IBeforePlayerMoveState
 	{
 		public virtual Enums.Direction Direction { get; set; }
+
+		public virtual IArtifact Artifact { get; set; }
 
 		protected virtual void ProcessEvents()
 		{
@@ -29,13 +32,13 @@ namespace EamonRT.Game.States
 
 		public override void Execute()
 		{
-			Debug.Assert(Enum.IsDefined(typeof(Enums.Direction), Direction));
+			Debug.Assert(Enum.IsDefined(typeof(Enums.Direction), Direction) || Artifact != null);
 
 			var room = Globals.RDB[Globals.GameState.Ro];
 
 			Debug.Assert(room != null);
 
-			Globals.GameState.R2 = room.GetDirs(Direction);
+			Globals.GameState.R2 = Artifact != null ? 0 : room.GetDirs(Direction);
 
 			ProcessEvents();
 
@@ -44,6 +47,8 @@ namespace EamonRT.Game.States
 				NextState = Globals.CreateInstance<IPlayerMoveCheckState>(x =>
 				{
 					x.Direction = Direction;
+
+					x.Artifact = Artifact;
 				});
 			}
 
