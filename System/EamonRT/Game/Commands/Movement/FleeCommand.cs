@@ -27,6 +27,11 @@ namespace EamonRT.Game.Commands
 
 		}
 
+		protected virtual void SetDoorGateFleeDesc()
+		{
+			Globals.Buf.Clear();
+		}
+
 		protected override void PlayerExecute()
 		{
 			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Enums.Direction), Direction));
@@ -88,7 +93,7 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact != null)
 			{
-				Globals.Buf.Clear();
+				SetDoorGateFleeDesc();
 			}
 			else if (Direction > Enums.Direction.West && Direction < Enums.Direction.Northeast)
 			{
@@ -201,14 +206,14 @@ namespace EamonRT.Game.Commands
 					{
 						if (direction > Enums.Direction.West && direction < Enums.Direction.Northeast)
 						{
-							Globals.Buf.SetFormat("{0}ward", direction.ToString().ToLower());
+							Globals.Buf.SetFormat(" {0}ward", direction.ToString().ToLower());
 						}
 						else
 						{
-							Globals.Buf.SetFormat("to the {0}", direction.ToString().ToLower());
+							Globals.Buf.SetFormat(" to the {0}", direction.ToString().ToLower());
 						}
 
-						Globals.Out.Write("{0}{1} {2} {3}!{0}", Environment.NewLine, monsterName, rl > 1 ? "flee" : "flees", Globals.Buf);
+						Globals.Out.Write("{0}{1} {2}{3}!{0}", Environment.NewLine, monsterName, rl > 1 ? "flee" : "flees", Globals.Buf);
 					}
 
 					ActorMonster.Location = roomUid;
