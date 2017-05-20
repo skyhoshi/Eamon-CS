@@ -72,6 +72,13 @@ namespace ARuncibleCargo.Game
 			{
 				return roomUid != 13 && roomUid != 29 && roomUid != 50 ? base.CanMoveToRoomUid(roomUid, fleeing) : false;
 			}
+
+			// Gelatinous ghoul can't leave hotel basement
+
+			else if (Uid == 19)
+			{
+				return roomUid != 39;
+			}
 			else
 			{
 				return base.CanMoveToRoomUid(roomUid, fleeing);
