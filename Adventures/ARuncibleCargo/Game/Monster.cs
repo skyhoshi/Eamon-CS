@@ -77,7 +77,7 @@ namespace ARuncibleCargo.Game
 
 			else if (Uid == 19)
 			{
-				return roomUid != 39;
+				return roomUid != 39 ? base.CanMoveToRoomUid(roomUid, fleeing) : false;
 			}
 			else
 			{
