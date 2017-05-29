@@ -32,6 +32,17 @@ namespace ARuncibleCargo.Game.States
 				Globals.Engine.PrintEffectDesc(114);
 			}
 
+			// Sync contents of water rooms
+
+			var oldRoom = Globals.RDB[gameState.R3] as IRoom;
+
+			var newRoom = Globals.RDB[gameState.Ro] as IRoom;
+
+			if (oldRoom != null && oldRoom.IsWaterRoom() && newRoom != null && newRoom.IsWaterRoom())
+			{
+				Globals.RtEngine.TransportRoomContentsBetweenRooms(oldRoom, newRoom, false);
+			}
+
 			// Out the Window of Ill Repute
 
 			if (gameState.Ro == 21 && gameState.R3 == 50)

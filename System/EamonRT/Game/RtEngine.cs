@@ -1748,15 +1748,11 @@ namespace EamonRT.Game
 			}
 		}
 
-		public virtual void TransportPlayerBetweenRooms(IRoom oldRoom, IRoom newRoom, IEffect effect)
+		public virtual void TransportRoomContentsBetweenRooms(IRoom oldRoom, IRoom newRoom, bool includeEmbedded = true)
 		{
 			Debug.Assert(oldRoom != null);
 
 			Debug.Assert(newRoom != null);
-
-			var gameState = Globals.Engine.GetGameState();
-
-			Debug.Assert(gameState != null);
 
 			var monsterList = Globals.Engine.GetMonsterList(() => true, m => m.IsInRoom(oldRoom)).ToList();
 
@@ -1772,12 +1768,28 @@ namespace EamonRT.Game
 				a.SetInRoom(newRoom);
 			}
 
-			artifactList = Globals.Engine.GetArtifactList(() => true, a => a.IsEmbeddedInRoom(oldRoom)).ToList();
-
-			foreach (var a in artifactList)
+			if (includeEmbedded)
 			{
-				a.SetEmbeddedInRoom(newRoom);
+				artifactList = Globals.Engine.GetArtifactList(() => true, a => a.IsEmbeddedInRoom(oldRoom)).ToList();
+
+				foreach (var a in artifactList)
+				{
+					a.SetEmbeddedInRoom(newRoom);
+				}
 			}
+		}
+
+		public virtual void TransportPlayerBetweenRooms(IRoom oldRoom, IRoom newRoom, IEffect effect)
+		{
+			Debug.Assert(oldRoom != null);
+
+			Debug.Assert(newRoom != null);
+
+			var gameState = Globals.Engine.GetGameState();
+
+			Debug.Assert(gameState != null);
+
+			TransportRoomContentsBetweenRooms(oldRoom, newRoom);
 
 			if (effect != null)
 			{

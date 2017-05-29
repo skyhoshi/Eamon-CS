@@ -113,6 +113,8 @@ namespace EamonRT.Framework
 
 		void CheckPlayerSkillIncrease(Classes.IArtifactClass ac, long af);
 
+		void TransportRoomContentsBetweenRooms(IRoom oldRoom, IRoom newRoom, bool includeEmbedded = true);
+
 		void TransportPlayerBetweenRooms(IRoom oldRoom, IRoom newRoom, IEffect effect);
 
 		void CreateArtifactSynonyms(long artifactUid, params string[] synonyms);
