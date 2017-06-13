@@ -12,6 +12,8 @@ namespace Eamon.Framework.Portability
 	{
 		bool EnableStdio { get; set; }
 
+		bool LineWrapUserInput { get; set; }
+
 		Action<IDictionary<Type, Type>> LoadPortabilityClassMappings { get; set; }
 
 		void Main(string[] args);

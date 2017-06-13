@@ -17,6 +17,8 @@ namespace EamonRT.Game.Plugin
 
 		public virtual double ScaledHardinessMaxDamageDivisor { get; protected set; } = 2.0;
 
+		public virtual string CommandPrompt { get; protected set; } = "> ";
+
 		public virtual string PageSep { get; protected set; } = "@@PB";
 
 		public virtual string RtProgVersion { get; protected set; }

@@ -54,6 +54,8 @@ namespace EamonRT
 
 		public virtual bool EnableStdio { get; set; }
 
+		public virtual bool LineWrapUserInput { get; set; }
+
 		public virtual Action<IDictionary<Type, Type>> LoadPortabilityClassMappings { get; set; }
 
 		protected virtual RetCode DdMain(string[] args)
@@ -1210,6 +1212,8 @@ namespace EamonRT
 					// initialize system
 
 					Globals.InitSystem();
+
+					Globals.LineWrapUserInput = LineWrapUserInput;
 
 					// call appropriate program
 

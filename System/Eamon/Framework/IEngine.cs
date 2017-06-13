@@ -217,6 +217,8 @@ namespace Eamon.Framework
 
 		string WordWrap(string str, StringBuilder buf, bool clearBuf = true);
 
+		string LineWrap(string str, StringBuilder buf, long startColumn, bool clearBuf = true);
+
 		string GetStringFromNumber(long num, bool addSpace, StringBuilder buf);
 
 		long GetNumberFromString(string str);

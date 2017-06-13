@@ -28,11 +28,11 @@ namespace EamonRT.Game.States
 				goto Cleanup;
 			}
 
-			Globals.Out.Write("{0}> ", Environment.NewLine);
+			Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.CommandPrompt);
 
 			Globals.CursorPosition = Globals.Out.GetCursorPosition();
 
-			if (Globals.CursorPosition.Y + 1 >= Globals.Out.GetBufferHeight())
+			if (Globals.CursorPosition.Y > -1 && Globals.CursorPosition.Y + 1 >= Globals.Out.GetBufferHeight())
 			{
 				Globals.CursorPosition.Y--;
 			}

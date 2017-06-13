@@ -185,6 +185,8 @@ namespace Eamon.Game.Plugin
 
 		public virtual string LineSep { get; set; } = new string('-', (int)Constants.RightMargin);
 
+		public virtual bool LineWrapUserInput { get; set; }
+
 		public virtual bool RunGameEditor
 		{
 			get

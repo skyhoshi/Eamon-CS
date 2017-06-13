@@ -9,6 +9,8 @@ namespace Eamon.Framework.Portability
 	{
 		bool Exists(string path);
 
+		void Delete(string path, bool recursive);
+
 		void CreateDirectory(string path);
 
 		void SetCurrentDirectory(string path);
