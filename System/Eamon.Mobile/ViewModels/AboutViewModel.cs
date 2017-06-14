@@ -1,0 +1,22 @@
+﻿
+using System;
+using System.Windows.Input;
+using Xamarin.Forms;
+
+namespace Eamon.Mobile.ViewModels
+{
+	public class AboutViewModel : BaseViewModel
+	{
+		public AboutViewModel()
+		{
+			Title = "About";
+
+			OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://github.com/firstmethod/Eamon-CS")));
+		}
+
+		/// <summary>
+		/// Command to open browser to xamarin.com
+		/// </summary>
+		public ICommand OpenWebCommand { get; }
+	}
+}

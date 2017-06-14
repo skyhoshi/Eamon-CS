@@ -30,6 +30,8 @@ namespace EamonMH
 
 		public virtual bool EnableStdio { get; set; }
 
+		public virtual bool LineWrapUserInput { get; set; }
+
 		public virtual Action<IDictionary<Type, Type>> LoadPortabilityClassMappings { get; set; }
 
 		public virtual void Main(string[] args)
@@ -79,6 +81,8 @@ namespace EamonMH
 					// initialize system
 
 					Globals.InitSystem();
+
+					Globals.LineWrapUserInput = LineWrapUserInput;
 
 					// disable resolution of uid macros
 

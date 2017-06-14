@@ -46,6 +46,8 @@ namespace Eamon.Framework.Plugin
 
 		string LineSep { get; set; }
 
+		bool LineWrapUserInput { get; set; }
+
 		bool RunGameEditor { get; set; }
 
 		bool DeleteGameStateFromMainHall { get; set; }

@@ -46,6 +46,8 @@ namespace EamonRT.Game.Plugin
 
 		public virtual Enums.ExitType ExitType { get; set; }
 
+		public virtual string CommandPrompt { get; set; }
+
 		public virtual ICommand LastCommand
 		{
 			get
@@ -117,6 +119,8 @@ namespace EamonRT.Game.Plugin
 			MainLoop = CreateInstance<IMainLoop>();
 
 			CommandParser = CreateInstance<ICommandParser>();
+
+			CommandPrompt = Constants.CommandPrompt;
 		}
 	}
 }

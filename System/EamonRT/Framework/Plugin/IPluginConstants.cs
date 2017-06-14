@@ -15,6 +15,8 @@ namespace EamonRT.Framework.Plugin
 
 		double ScaledHardinessMaxDamageDivisor { get; }
 
+		string CommandPrompt { get; }
+
 		string PageSep { get; }
 
 		string RtProgVersion { get; }

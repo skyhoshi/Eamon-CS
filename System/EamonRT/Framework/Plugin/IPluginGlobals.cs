@@ -43,6 +43,8 @@ namespace EamonRT.Framework.Plugin
 
 		Enums.ExitType ExitType { get; set; }
 
+		string CommandPrompt { get; set; }
+
 		ICommand LastCommand { get; }
 
 		bool GameRunning { get; }

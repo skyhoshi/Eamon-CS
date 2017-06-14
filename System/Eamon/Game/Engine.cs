@@ -902,6 +902,48 @@ namespace Eamon.Game
 			return WordWrap(str, buf, config != null ? config.WordWrapMargin : Constants.RightMargin, null, clearBuf);
 		}
 
+		public virtual string LineWrap(string str, StringBuilder buf, long startColumn, bool clearBuf = true)
+		{
+			string result;
+
+			var config = GetConfig();
+
+			var rightMargin = config != null ? config.WordWrapMargin : Constants.RightMargin;
+
+			if (str == null || buf == null || startColumn < 0 || startColumn >= rightMargin)
+			{
+				result = null;
+
+				// PrintError
+
+				goto Cleanup;
+			}
+
+			if (clearBuf)
+			{
+				buf.Clear();
+			}
+
+			var chunkSize = rightMargin - startColumn;
+
+			while (str.Length > chunkSize)
+			{
+				buf.AppendFormat("{0}{1}", str.Substring(0, (int)chunkSize), Environment.NewLine);
+
+				str = str.Substring((int)chunkSize);
+
+				chunkSize = rightMargin;
+			}
+
+			buf.Append(str);
+
+			result = buf.ToString();
+
+		Cleanup:
+
+			return result;
+		}
+
 		public virtual string GetStringFromNumber(long num, bool addSpace, StringBuilder buf)
 		{
 			string result;

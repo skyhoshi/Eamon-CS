@@ -247,16 +247,25 @@ namespace EamonRT.Game.Parsing
 
 				if (InputBuf.Length > 0 && ActorMonster.IsCharacterMonster())
 				{
-					if (Environment.NewLine.Length == 1 && Globals.CursorPosition.Y + 1 >= Globals.Out.GetBufferHeight())
+					if (Environment.NewLine.Length == 1 && Globals.CursorPosition.Y > -1 && Globals.CursorPosition.Y + 1 >= Globals.Out.GetBufferHeight())
 					{
 						Globals.CursorPosition.Y--;
 					}
 
 					Globals.Out.SetCursorPosition(Globals.CursorPosition);
 
+					if (Globals.LineWrapUserInput)
+					{
+						Globals.Engine.LineWrap(InputBuf.ToString(), Globals.Buf, Globals.CommandPrompt.Length);
+					}
+					else
+					{
+						Globals.Buf.SetFormat("{0}", InputBuf.ToString());
+					}
+
 					Globals.Out.WordWrap = false;
 
-					Globals.Out.WriteLine(InputBuf);
+					Globals.Out.WriteLine(Globals.Buf);
 
 					Globals.Out.WordWrap = true;
 				}
