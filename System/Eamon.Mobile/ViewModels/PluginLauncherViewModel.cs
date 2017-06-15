@@ -134,6 +134,8 @@ namespace Eamon.Mobile.ViewModels
 
 			FontSize = App.SettingsViewModel.FontSize;
 
+			App.PluginLauncherPage.RedrawPluginLauncherPageControls();
+
 			App.PluginLauncherPage.ScrollToBottomOfPluginScrollView();
 		}
 
