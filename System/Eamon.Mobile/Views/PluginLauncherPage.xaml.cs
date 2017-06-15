@@ -26,6 +26,28 @@ namespace Eamon.Mobile.Views
 			App.PluginLauncherPage = this;
 		}
 
+		public void RedrawPluginLauncherPageControls()
+		{
+			Device.BeginInvokeOnMainThread(() =>
+			{
+				OutputLabel.IsVisible = false;
+
+				OutputLabel.IsVisible = true;
+
+				Separator.IsVisible = false;
+
+				Separator.IsVisible = true;
+
+				InputEntry.IsVisible = false;
+
+				InputEntry.IsVisible = true;
+
+				PluginScrollView.IsVisible = false;
+
+				PluginScrollView.IsVisible = true;
+			});
+		}
+
 		public void ScrollToBottomOfPluginScrollView()
 		{
 			Device.BeginInvokeOnMainThread(async () =>
@@ -166,24 +188,7 @@ namespace Eamon.Mobile.Views
 				InputEntry.Unfocus();
 			});
 
-			Device.BeginInvokeOnMainThread(() =>
-			{
-				OutputLabel.IsVisible = false;
-
-				OutputLabel.IsVisible = true;
-
-				Separator.IsVisible = false;
-
-				Separator.IsVisible = true;
-
-				InputEntry.IsVisible = false;
-
-				InputEntry.IsVisible = true;
-
-				PluginScrollView.IsVisible = false;
-
-				PluginScrollView.IsVisible = true;
-			});
+			RedrawPluginLauncherPageControls();
 
 			ScrollToBottomOfPluginScrollView();
 		}
