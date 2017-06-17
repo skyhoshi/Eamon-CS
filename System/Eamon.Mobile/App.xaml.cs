@@ -68,10 +68,6 @@ namespace Eamon.Mobile
 
 		public static SettingsViewModel SettingsViewModel { get; set; }
 
-		public static bool InputEntryCompletedPending { get; set; }			// Xamarin Forms bug workaround ???
-
-		public static bool BackButtonEnabled { get; set; }                // Xamarin Forms bug workaround ???
-
 		public App()
 		{
 			InitializeComponent();
@@ -134,15 +130,6 @@ namespace Eamon.Mobile
 					},
 				}
 			};
-
-			// Early Androids apparently don't call SplashActivity.OnDestroy so this hack is needed
-
-			Device.StartTimer(new TimeSpan(0, 0, 0, 0, 5000), () =>
-			{
-				BackButtonEnabled = true;
-
-				return false;
-			});
 		}
 	}
 }

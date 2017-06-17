@@ -258,14 +258,5 @@ namespace EamonPM
 
 			Process.KillProcess(Process.MyPid());
 		}
-
-		// Prevent the back button from interfering with the startup process
-		public override void OnBackPressed()
-		{
-			if (App.BackButtonEnabled)
-			{
-				base.OnBackPressed();
-			}
-		}
 	}
 }

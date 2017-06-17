@@ -27,8 +27,6 @@ namespace EamonPM
 
 					if (args.Handled)
 					{
-						App.InputEntryCompletedPending = true;
-
 						Device.BeginInvokeOnMainThread(() =>
 						{
 							((IEntryController)Element).SendCompleted();

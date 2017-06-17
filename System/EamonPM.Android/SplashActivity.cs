@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace EamonPM
 {
-	[Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, ScreenOrientation = ScreenOrientation.Locked, NoHistory = true)]
+	[Activity(Theme = "@style/MyTheme.Splash", ScreenOrientation = ScreenOrientation.Locked, NoHistory = true, MainLauncher = true)]
     public class SplashActivity : AppCompatActivity
     {
         static readonly string TAG = "X:" + typeof (SplashActivity).Name;
@@ -115,29 +115,12 @@ namespace EamonPM
 
 			App.BasePath = Application.Context.FilesDir.Path;
 
-			Task startupWork = new Task(() => { StartupWork(); });
+			MirrorAssets();
 
-			startupWork.Start();
-		}
-
-		// Prevent the back button from interfering with the startup process
-		protected override void OnDestroy()
-		{
-			base.OnDestroy();
-
-			App.BackButtonEnabled = true;
+			StartActivity(new Intent(this, typeof(MainActivity)));         // StartActivity(new Intent(Application.Context, typeof(MainActivity)));
 		}
 
 		// Prevent the back button from canceling the startup process
 		public override void OnBackPressed() { }
-
-		void StartupWork()
-		{
-			// Log.Debug(TAG, "Performing some startup work that takes a bit of time.");
-
-			MirrorAssets();
-
-			StartActivity(new Intent(Application.Context, typeof (MainActivity)));
-		}
    }
 }
