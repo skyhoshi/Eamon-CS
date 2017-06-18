@@ -9,3 +9,6 @@ Michael R. Penner <firstmethod (at) hotmail.com>
 
 Eamon CS homepage:
 www.eamonag.org/pages/eamon_CS.htm
+
+Eamon CS repository:
+https://github.com/firstmethod/Eamon-CS

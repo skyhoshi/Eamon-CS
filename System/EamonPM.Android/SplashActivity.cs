@@ -1,24 +1,26 @@
-﻿using System.Threading.Tasks;
+﻿
+// SplashActivity.cs
+
+// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Threading;
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Util;
-
-using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Linq;
-using System.Threading;
-using Android.Content.PM;
 using Eamon;
 using Eamon.Framework.Plugin;
 using Eamon.Framework.Portability;
 using Eamon.Mobile;
 using static Eamon.Game.Plugin.PluginContext;
 using static Eamon.Game.Plugin.PluginContextStack;
-using System.Threading.Tasks;
 
 namespace EamonPM
 {
@@ -42,6 +44,38 @@ namespace EamonPM
 				if (!File.Exists(fileName))
 				{
 					fileName = Path.Combine(Path.Combine("System", "Bin"), file);
+
+					using (var streamReader = new StreamReader(Assets.Open(fileName)))
+					{
+						var fileBytes = default(byte[]);
+
+						using (var memoryStream = new MemoryStream())
+						{
+							streamReader.BaseStream.CopyTo(memoryStream);
+
+							fileBytes = memoryStream.ToArray();
+
+							fileName = Path.Combine(path, file);
+
+							File.WriteAllBytes(fileName, fileBytes);
+						}
+					}
+				}
+			}
+
+			path = Path.Combine(App.BasePath, "Documentation");
+
+			Directory.CreateDirectory(path);
+
+			var docFiles = Assets.List("Documentation");
+
+			foreach (var file in docFiles)
+			{
+				var fileName = Path.Combine(path, file);
+
+				if (!File.Exists(fileName))
+				{
+					fileName = Path.Combine("Documentation", file);
 
 					using (var streamReader = new StreamReader(Assets.Open(fileName)))
 					{

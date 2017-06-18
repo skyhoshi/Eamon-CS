@@ -1,8 +1,8 @@
                               Eamon CS 1.3.0
-                  http://www.EamonAG.org/pages/eamon_CS.htm
+                  https://github.com/firstmethod/Eamon-CS
 
 A complete fantasy/RPG/adventure gaming system. Please visit the Official 
-Eamon CS Homepage for the latest updates and information. Note: The 
+Eamon CS Repository for the latest updates and information. Note: The 
 following applies to all source code, system design(s), and any other ORIGINAL 
 content written by Michael R. Penner and/or contained in the Eamon CS folder
 and subfolders on all operating systems.

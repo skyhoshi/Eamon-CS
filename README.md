@@ -9,9 +9,11 @@ This is Eamon CS (ECS), a C# port of the classic Eamon roleplaying game that deb
 
 Eamon CS requires .NET 4.5+ on Windows and Mono 4.6.2+ on Unix.  All modern Windows platforms come with the latest .NET runtime installed, but for Unix you may have to do a manual Mono install depending on your distribution.
 
+Eamon CS Mobile currently runs on devices using Android 4.0 through 7.1.
+
 #### Installing
 
-There is no formal installer for Eamon CS.  To obtain a copy of this repository (which contains a full set of binaries) you can either do a Git Clone using Visual Studio 2017 or, more simply, download a .zip file using the green Clone Or Download button above.
+There is no formal installer for Eamon CS.  To obtain a copy of this repository (which contains a full set of binaries) you can either do a Git Clone using Visual Studio 2017 or, more simply, download a .zip file using the green Clone Or Download button above.  (To obtain and install Eamon CS Mobile, take a look at the Wiki entry dated 20170613.)
 
 If you are on Windows and choose the second option, prior to unzipping the file, you should right click on it, select Properties and click the Unblock check box (or button) in the lower right corner of the form.  Then click Apply and OK.  This will improve the gameplay experience by eliminating security warning message boxes.
 
@@ -20,6 +22,8 @@ It is possible to have multiple ECS repositories present on your system; provide
 #### Playing
 
 ECS programs are launched using a collection of batch files (or shell scripts in Unix) that are located under the QuickLaunch directory.  You can create a shortcut to this folder on your desktop for easy access to the system.
+
+ECS Mobile uses a series of ListViews to mirror the directory structure of ECS Desktop, making the experience very similar.
 
 #### Contributing
 
@@ -31,7 +35,7 @@ If you are interested in contributing to the Eamon CS project, or you wish to po
 
 The current plan is to produce one fully polished game per quarter (until I run out of suitable candidates) beginning in Q3 2017.  These are ported BASIC games; new games will take longer, as they are showcases for the ECS engine.  There is no timeframe for when new games will be built.  If you have an old BASIC game that you'd like to see ported and are willing to assist in that task (just through your insight) you'll get priority.  Otherwise, the emphasis here is quality over quantity.
 
-There are currently plans to port ECS to Android and, if that is successful, iOS.
+There are currently plans to port Eamon CS Mobile to iOS in Q1 2018.
 
 There are many 3rd party technologies that can seamlessly integrate with ECS, some of which may push the game in new directions.  Stay tuned and see what comes of it.
 

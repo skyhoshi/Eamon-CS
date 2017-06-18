@@ -1,13 +1,17 @@
 ﻿
+// App.xaml.cs
+
+// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading;
-using Eamon.Mobile.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Eamon.Mobile.Models;
+using Eamon.Mobile.Views;
 using Eamon.Mobile.ViewModels;
 using static Eamon.Game.Plugin.PluginContext;
 
@@ -50,6 +54,8 @@ namespace Eamon.Mobile
 
 		public static AutoResetEvent FinishInput { get; set; }
 
+		public static Func<string[]> GetDocumentationFiles { get; set; }
+
 		public static Func<string[]> GetAdventureDirs { get; set; }
 
 		public static Func<string, bool> PluginExists { get; set; }
@@ -67,6 +73,8 @@ namespace Eamon.Mobile
 		public static SettingsPage SettingsPage { get; set; }
 
 		public static SettingsViewModel SettingsViewModel { get; set; }
+
+		public static TextFilePage TextFilePage { get; set; }
 
 		public App()
 		{

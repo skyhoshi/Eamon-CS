@@ -24,9 +24,19 @@ namespace EamonPM.Game.Portability
 			System.IO.File.Delete(NormalizePath(path));
 		}
 
+		public virtual string ReadAllText(string path)
+		{
+			return System.IO.File.ReadAllText(NormalizePath(path));
+		}
+
 		public virtual void WriteAllText(string path, string contents)
 		{
 			System.IO.File.WriteAllText(NormalizePath(path), contents);
+		}
+
+		public virtual void AppendAllText(string path, string contents)
+		{
+			System.IO.File.AppendAllText(NormalizePath(path), contents);
 		}
 	}
 }
