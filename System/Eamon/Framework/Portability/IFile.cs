@@ -11,6 +11,10 @@ namespace Eamon.Framework.Portability
 
 		void Delete(string path);
 
+		string ReadAllText(string path);
+
 		void WriteAllText(string path, string contents);
+
+		void AppendAllText(string path, string contents);
 	}
 }

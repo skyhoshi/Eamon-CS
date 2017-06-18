@@ -1,4 +1,9 @@
-﻿using System;
+﻿
+// PluginLauncherEntryRenderer.cs
+
+// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+
+using System;
 using Android.Views.InputMethods;
 using Android.Widget;
 using Xamarin.Forms;
@@ -27,8 +32,6 @@ namespace EamonPM
 
 					if (args.Handled)
 					{
-						App.InputEntryCompletedPending = true;
-
 						Device.BeginInvokeOnMainThread(() =>
 						{
 							((IEntryController)Element).SendCompleted();

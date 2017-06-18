@@ -1,8 +1,13 @@
-﻿using System;
-using System.IO;
+﻿
+// MainActivity.cs
+
+// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+
+using System;
 using System.Collections.Generic;
-using System.Reflection;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using Android.App;
 using Android.Content.PM;
@@ -13,7 +18,6 @@ using Eamon.Framework.Portability;
 using Eamon.Mobile;
 using static Eamon.Game.Plugin.PluginContext;
 using static Eamon.Game.Plugin.PluginContextStack;
-using System.Threading.Tasks;
 
 namespace EamonPM
 {
@@ -197,6 +201,11 @@ namespace EamonPM
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 
+			App.GetDocumentationFiles = () =>
+			{
+				return Directory.GetFiles(Path.Combine(App.BasePath, "Documentation"));
+			};
+
 			App.GetAdventureDirs = () =>
 			{
 				var fullDirs = Directory.GetDirectories(Path.Combine(App.BasePath, "Adventures"));
@@ -257,15 +266,6 @@ namespace EamonPM
 			Finish();
 
 			Process.KillProcess(Process.MyPid());
-		}
-
-		// Prevent the back button from interfering with the startup process
-		public override void OnBackPressed()
-		{
-			if (App.BackButtonEnabled)
-			{
-				base.OnBackPressed();
-			}
 		}
 	}
 }

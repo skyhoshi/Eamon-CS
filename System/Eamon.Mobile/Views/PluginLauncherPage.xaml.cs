@@ -1,4 +1,9 @@
-﻿using System;
+﻿
+// PluginLauncherPage.xaml.cs
+
+// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+
+using System;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Eamon.Mobile.ViewModels;
@@ -76,7 +81,7 @@ namespace Eamon.Mobile.Views
 
 			var oldTextValue = e.OldTextValue ?? "";
 
-			if (newTextValue.Length > oldTextValue.Length && !App.InputEntryCompletedPending)
+			if (newTextValue.Length > oldTextValue.Length)
 			{
 				var ch = newTextValue[newTextValue.Length - 1];
 
@@ -119,8 +124,6 @@ namespace Eamon.Mobile.Views
 
 						if (termChar)
 						{
-							App.InputEntryCompletedPending = true;
-
 							Device.BeginInvokeOnMainThread(() =>
 							{
 								InputEntry_Completed(InputEntry, null);
@@ -155,8 +158,6 @@ namespace Eamon.Mobile.Views
 						InputEntry.Unfocus();
 					}
 
-					App.InputEntryCompletedPending = false;
-
 					App.FinishInput.Set();
 				});
 			}
@@ -165,8 +166,6 @@ namespace Eamon.Mobile.Views
 				Device.StartTimer(new TimeSpan(0, 0, 0, 0, 250), () =>
 				{
 					InputEntry.Focus();
-
-					App.InputEntryCompletedPending = false;
 
 					return false;
 				});

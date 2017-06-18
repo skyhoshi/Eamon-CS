@@ -6,7 +6,18 @@
              x:Name="BrowseDocumentationPage">
   <ContentPage.Content>
     <StackLayout>
-		 
-    </StackLayout> 
+			<ListView x:Name="BatchFilesListView"
+				ItemsSource="{Binding BatchFiles}"
+            VerticalOptions="FillAndExpand"
+				HasUnevenRows="true"
+				CachingStrategy="RecycleElement"
+				ItemTapped="OnItemTapped">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<TextCell Text="{Binding Name}" TextColor="Black"/>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout> 
   </ContentPage.Content>
 </ContentPage>
