@@ -33,5 +33,15 @@ namespace EamonPM.Game.Portability
 		{
 			System.IO.Directory.SetCurrentDirectory(NormalizePath(path));
 		}
+
+		public virtual string[] GetFiles(string path)
+		{
+			return System.IO.Directory.GetFiles(NormalizePath(path));
+		}
+
+		public virtual string[] GetDirectories(string path)
+		{
+			return System.IO.Directory.GetDirectories(NormalizePath(path));
+		}
 	}
 }

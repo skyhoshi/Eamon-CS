@@ -14,5 +14,9 @@ namespace Eamon.Framework.Portability
 		void CreateDirectory(string path);
 
 		void SetCurrentDirectory(string path);
+
+		string[] GetFiles(string path);
+
+		string[] GetDirectories(string path);
 	}
 }
