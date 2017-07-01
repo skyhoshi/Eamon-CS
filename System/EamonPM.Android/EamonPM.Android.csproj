@@ -392,6 +392,24 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\Documentation\AUTHORS.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\DemoAdventure\ARTIFACTS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\DemoAdventure\EFFECTS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\DemoAdventure\HINTS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\DemoAdventure\MODULE.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\DemoAdventure\MONSTERS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\DemoAdventure\ROOMS.XML" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -442,6 +460,7 @@
 xcopy "$(TargetDir)..\..\Documentation\*.txt" "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /I /S /Y
 xcopy "$(TargetDir)..\..\Documentation\*.htm" "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\ARuncibleCargo\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\ARuncibleCargo" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\DemoAdventure\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\DemoAdventure" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\StrongholdOfKahrDur\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\StrongholdOfKahrDur" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\TestAdventure\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TestAdventure" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\TheBeginnersCave\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheBeginnersCave" /I /S /Y

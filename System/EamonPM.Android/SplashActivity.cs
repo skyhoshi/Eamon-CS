@@ -27,7 +27,15 @@ namespace EamonPM
 	[Activity(Theme = "@style/MyTheme.Splash", ScreenOrientation = ScreenOrientation.Locked, NoHistory = true, MainLauncher = true)]
     public class SplashActivity : AppCompatActivity
     {
-        static readonly string TAG = "X:" + typeof (SplashActivity).Name;
+			/*
+				- leave the BuildGuid alone to upgrade only the binary .apk file
+
+				- change the BuildGuid to upgrade the binary .apk file and the .XML datafiles in the filesystem (but not CHARACTERS.XML)
+			*/
+
+			static readonly string BuildGuid = "52E7EA4D-7375-4624-992C-242B5FEB2F39";
+
+			static readonly string TAG = "X:" + typeof (SplashActivity).Name;
 
 		protected virtual void MirrorAssets()
 		{
@@ -35,13 +43,29 @@ namespace EamonPM
 
 			Directory.CreateDirectory(path);
 
+			var copyFiles = true;
+
+			var guidFile = Path.Combine(path, "BUILDGUID.TXT");
+
+			if (File.Exists(guidFile))
+			{
+				var savedGuid = File.ReadAllText(guidFile);
+
+				if (string.Equals(BuildGuid, savedGuid, StringComparison.OrdinalIgnoreCase))
+				{
+					copyFiles = false;
+				}
+			}
+
+			File.WriteAllText(guidFile, BuildGuid);
+
 			var binFiles = Assets.List(Path.Combine("System", "Bin"));
 
 			foreach (var file in binFiles)
 			{
 				var fileName = Path.Combine(path, file);
 
-				if (!File.Exists(fileName))
+				if (!File.Exists(fileName) || (copyFiles && !string.Equals(file, "CHARACTERS.XML", StringComparison.OrdinalIgnoreCase)))
 				{
 					fileName = Path.Combine(Path.Combine("System", "Bin"), file);
 
@@ -73,7 +97,7 @@ namespace EamonPM
 			{
 				var fileName = Path.Combine(path, file);
 
-				if (!File.Exists(fileName))
+				if (!File.Exists(fileName) || copyFiles)
 				{
 					fileName = Path.Combine("Documentation", file);
 
@@ -109,7 +133,7 @@ namespace EamonPM
 				{
 					var fileName = Path.Combine(path, file);
 
-					if (!File.Exists(fileName))
+					if (!File.Exists(fileName) || copyFiles)
 					{
 						fileName = Path.Combine(Path.Combine("Adventures", dir), file);
 

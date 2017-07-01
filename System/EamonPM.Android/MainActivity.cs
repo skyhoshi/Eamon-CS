@@ -21,6 +21,8 @@ using static Eamon.Game.Plugin.PluginContextStack;
 
 namespace EamonPM
 {
+	// *** Note: don't forget to change BuildGuid in SplashActivity.cs if necessary! ***
+
 	[Activity(Label = "@string/app_name", Theme = "@style/MyTheme", Icon = "@drawable/ten_sided_die", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{

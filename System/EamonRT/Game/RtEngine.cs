@@ -1146,6 +1146,8 @@ namespace EamonRT.Game
 
 		public virtual void RevealDisguisedMonster(IArtifact artifact)
 		{
+			RetCode rc;
+
 			Debug.Assert(artifact != null);
 
 			var ac = artifact.GetArtifactClass(Enums.ArtifactType.DisguisedMonster);
@@ -1160,11 +1162,18 @@ namespace EamonRT.Game
 				{
 					var effect = Globals.EDB[ac.Field6 + i - 1];
 
-					Debug.Assert(effect != null);
+					if (effect != null)
+					{
+						Globals.Buf.Clear();
 
-					Globals.Buf.Clear();
+						rc = effect.BuildPrintedFullDesc(Globals.Buf);
+					}
+					else
+					{
+						Globals.Buf.SetFormat("{0}???{0}", Environment.NewLine);
 
-					var rc = effect.BuildPrintedFullDesc(Globals.Buf);
+						rc = RetCode.Success;
+					}
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
