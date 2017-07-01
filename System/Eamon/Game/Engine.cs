@@ -1498,9 +1498,7 @@ namespace Eamon.Game
 
 		public virtual void PrintEffectDesc(IEffect effect, bool printFinalNewLine = true)
 		{
-			Debug.Assert(effect != null);
-
-			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, effect.Desc, printFinalNewLine ? Environment.NewLine : "");
+			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, effect != null ? effect.Desc : "???", printFinalNewLine ? Environment.NewLine : "");
 		}
 
 		public virtual void PrintEffectDesc(long effectUid, bool printFinalNewLine = true)

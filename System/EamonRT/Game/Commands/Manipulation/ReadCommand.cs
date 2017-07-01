@@ -3,8 +3,11 @@
 
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
+using System;
 using System.Diagnostics;
+using Eamon;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -27,6 +30,8 @@ namespace EamonRT.Game.Commands
 
 		protected override void PlayerExecute()
 		{
+			RetCode rc;
+
 			Debug.Assert(DobjArtifact != null);
 
 			var ac = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Readable);
@@ -62,11 +67,18 @@ namespace EamonRT.Game.Commands
 				{
 					var effect = Globals.EDB[ac.Field5 + i - 1];
 
-					Debug.Assert(effect != null);
+					if (effect != null)
+					{
+						Globals.Buf.Clear();
 
-					Globals.Buf.Clear();
+						rc = effect.BuildPrintedFullDesc(Globals.Buf);
+					}
+					else
+					{
+						Globals.Buf.SetFormat("{0}???{0}", Environment.NewLine);
 
-					var rc = effect.BuildPrintedFullDesc(Globals.Buf);
+						rc = RetCode.Success;
+					}
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 

@@ -1,0 +1,532 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.RoomDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IRoom, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Outside Small Building" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="A dilapidated old building lies to the north of you.  The windows have all been boarded up and a sign says, &quot;Keep out!  Condemned!&quot;.  The door has been torn off and is lying on the ground next to a rusted mailbox.  The road to the Main Hall lies south." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="2" />
+                <Simple value="-999" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Inside Building" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="Despite the outer appearance of the building, the inside is rather nice.  Aside from the splinters and broken wood from the broken front door, you are standing in a neat and tidy, albeit very empty, room.  To the east is a sturdy looking door." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="7" />
+                <Simple value="1" />
+                <Simple value="1005" />
+                <Simple value="3" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bathroom" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The bathroom is rather small and average looking.  A toilet is in the corner, next to a metal sink." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="2" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Office" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a tidy office with polished wood floors and fine oak paneling.  Empty shelves line the walls and a fresh pile of ashes on the floor seems to indicate that they were emptied very recently." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="1017" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="2" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Closet" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a secret closet. It looks like a large amount of goods would normally be stored here, but it has recently been emptied out. Likewise, a once hidden trap door in the floor has been pried open, revealing a metal ladder leading down into darkness." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="4" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="8" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Bedroom" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a small, sparsely furnished bedroom.  A bed is against the wall with a small table next to it." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="7" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Kitchen" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand in a plain kitchen with sparse furnishings.  You see a small wood stove, a rickety kitchen table and a set of empty cupboards." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="2" />
+                <Simple value="0" />
+                <Simple value="6" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Cellar" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a damp and musty cellar with algae growing all over the walls.  That's odd, the south wall seems cleaner than the rest.  (Examine Wall)" />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="1020" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="5" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Secret U/ground Passages, Intersection" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="To the north lies the cellar, to the east and west are rooms labeled &quot;Storage&quot;, and to the south is a passage leading into darkness." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="8" />
+                <Simple value="12" />
+                <Simple value="11" />
+                <Simple value="10" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Storage Room" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a room which was once used to hide stolen treasures until they could be sold on the black market.  It appears to have been recently and hastily emptied, with almost nothing left behind." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Storage Room" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a room which was once used to hide stolen treasures until they could be sold on the black market.  It appears to have been recently and hastily emptied, with almost nothing left behind." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Smooth North/South Tunnel" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The walls here have been well constructed out of smooth brick and seem to be fairly new." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="9" />
+                <Simple value="13" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Rough North/South Tunnel" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="The nice brick work ends here but the tunnel continues south, apparently part of a series of natural caverns." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="12" />
+                <Simple value="1046" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Large Cavern" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You stand in the center of a huge cavern with smaller chambers branching off to the east and west.  You notice fresh blood spatters on the floor next to a broken sword, giving the impression that a recent struggle has taken place here." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="13" />
+                <Simple value="0" />
+                <Simple value="16" />
+                <Simple value="15" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Underground Meeting Room" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You see a large table in the center of the room and there is a dusty chalk board propped against one wall.  This is obviously a room used to hold secret underground meetings!" />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="14" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Underground Jail" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a crudely constructed jail.  A single cell lies to the north, the large cavern is to the west and you can see faint light accompanied by the smell of fresh ocean air to the south." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="1034" />
+                <Simple value="18" />
+                <Simple value="0" />
+                <Simple value="14" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Small Jail Cell" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are in a crowded cell that is populated with a variety of bugs and small rodents.  A pile of straw is on the ground for the purpose of sleeping and a rack is in the corner for the purpose of torture." />
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="16" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Cave Entrance" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are at the entrance to the caverns beneath the old building.  Bright light streams in and, once your eyes adjust to it, you can see a clean sandy beach with rolling waves and smell salt water in the air." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="16" />
+                <Simple value="19" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Sandy Beach" />
+            <Simple name="Seen" value="False" />
+            <Simple name="Desc" value="You are standing on one of the great beaches near the Main Hall. The pure blue water crashes hypnotically against the white sandy shore. To the south is a docked ferry which will take you home. You see some neat looking sea shells strewn about the beach." />
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="18" />
+                <Simple value="-999" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="19" />
+  </Properties>
+</Complex>

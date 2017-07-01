@@ -13,7 +13,7 @@ Eamon CS Mobile currently runs on devices using Android 4.0 through 7.1.
 
 #### Installing
 
-There is no formal installer for Eamon CS.  To obtain a copy of this repository (which contains a full set of binaries) you can either do a Git Clone using Visual Studio 2017 or, more simply, download a .zip file using the green Clone Or Download button above.  (To obtain and install Eamon CS Mobile, take a look at the Wiki entry dated 20170613.)
+There is no formal installer for Eamon CS.  To obtain a copy of this repository (which contains a full set of binaries) you can either do a Git Clone using Visual Studio 2017 or, more simply, download a .zip file using the green Clone Or Download button above.  (To obtain and install Eamon CS Mobile, take a look at the Wiki Development Log entry dated 20170613.)
 
 If you are on Windows and choose the second option, prior to unzipping the file, you should right click on it, select Properties and click the Unblock check box (or button) in the lower right corner of the form.  Then click Apply and OK.  This will improve the gameplay experience by eliminating security warning message boxes.
 
@@ -27,7 +27,7 @@ ECS Mobile uses a series of ListViews to mirror the directory structure of ECS D
 
 #### Contributing
 
-Like all Eamons, ECS allows you to create adventures with no programming involved, via the EamonDD data file editor.  But for the intrepid game designer, the engine is infinitely extensible, using typical C# subclassing mechanisms.  The documentation at this point is lacking but there are multiple example adventures that can be recompiled in Debug mode and stepped through to gain a better understanding of the system.  The README.htm file (which will be rebuilt ASAP) goes through this in more detail.
+Like all Eamons, ECS allows you to create adventures with no programming involved, via the EamonDD data file editor.  But for the intrepid game designer, the engine is infinitely extensible, using typical C# subclassing mechanisms.  The documentation at this point is lacking but there are multiple example adventures that can be recompiled in Debug mode and stepped through to gain a better understanding of the system.  The README.htm file goes through this in more detail.
 
 If you are interested in contributing to the Eamon CS project, or you wish to port your own game, or build a new one, please contact me.  I can provide insight if there are areas of the code that need clarification.  Eamon has always been an ideal programmer's learning tool; if you build a game you aren't just contributing to the system, you're honing your skills as a C# developer while having fun doing it!
 

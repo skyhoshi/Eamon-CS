@@ -29,6 +29,25 @@
           <Properties>
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Demo Adventure" />
+            <Simple name="WorkDir" value="..\..\Adventures\DemoAdventure" />
+            <Simple name="PluginFileName" value="EamonRT.dll" />
+            <Simple name="ConfigFileName" value="NONE" />
+            <Simple name="FilesetFileName" value="NONE" />
+            <Simple name="CharacterFileName" value="NONE" />
+            <Simple name="ModuleFileName" value="MODULE.XML" />
+            <Simple name="RoomFileName" value="ROOMS.XML" />
+            <Simple name="ArtifactFileName" value="ARTIFACTS.XML" />
+            <Simple name="EffectFileName" value="EFFECTS.XML" />
+            <Simple name="MonsterFileName" value="MONSTERS.XML" />
+            <Simple name="HintFileName" value="HINTS.XML" />
+            <Simple name="GameStateFileName" value="NONE" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Fileset, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="The Beginner's Cave" />
             <Simple name="WorkDir" value="..\..\Adventures\TheBeginnersCave" />
             <Simple name="PluginFileName" value="TheBeginnersCave.dll" />
@@ -46,7 +65,7 @@
         </Complex>
         <Complex type="Eamon.Game.Fileset, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="3" />
+            <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="The Sub-Aquan Laboratory" />
             <Simple name="WorkDir" value="..\..\Adventures\TheSubAquanLaboratory" />
@@ -65,7 +84,7 @@
         </Complex>
         <Complex type="Eamon.Game.Fileset, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="4" />
+            <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="A Runcible Cargo" />
             <Simple name="WorkDir" value="..\..\Adventures\ARuncibleCargo" />
@@ -84,7 +103,7 @@
         </Complex>
         <Complex type="Eamon.Game.Fileset, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="5" />
+            <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Stronghold of Kahr-Dur" />
             <Simple name="WorkDir" value="..\..\Adventures\StrongholdOfKahrDur" />
@@ -109,6 +128,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="5" />
+    <Simple name="CurrUid" value="6" />
   </Properties>
 </Complex>
