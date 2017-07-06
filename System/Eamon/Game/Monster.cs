@@ -181,7 +181,7 @@ namespace Eamon.Game
 
 		protected virtual bool ValidateGroupCount(IField field, IValidateArgs args)
 		{
-			return GroupCount > 0;
+			return GroupCount >= 0;          // 0=Must be calculated
 		}
 
 		protected virtual bool ValidateCourage(IField field, IValidateArgs args)

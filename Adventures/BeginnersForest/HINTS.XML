@@ -1,0 +1,96 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.HintDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IHint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="EAMON CS 1.3 GENERAL HELP." />
+            <Simple name="NumAnswers" value="8" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A Dr&quot; or &quot;A Gon&quot; for &quot;Attack Dragon&quot;, &quot;Req Ray From Al&quot; or &quot;Req Gun From Ien&quot; for &quot;Request Ray Gun From Alien&quot;, &quot;Put Pum In Lar&quot; or &quot;Put Pie In Oven&quot; for &quot;Put Pumpkin Pie In **021" />
+                <Simple value="2. Sometimes items may be in a room but won't show up until you Examine them.  Pay close attention to all descriptions.  Note:  Look only repeats the room description and -nothing- else.  Use Examine to, well, examine things." />
+                <Simple value="3. Before you can manipulate items that are inside of other items, you must Remove them from that item.  There is no &quot;Remove All&quot; command, but if you Attack a (breakable) container, all of its contents will be emptied to the floor and you can &quot;Get All&quot;." />
+                <Simple value="4. Type Save and a number for a desired save position to Quick Save (save without having to verify).  Adding a description will rename that slot.  Examples:  &quot;Save 2&quot; or &quot;Save 5 Dark Room (No Grues)&quot;.  Also works with Restore.  (Type &quot;Restore 1&quot;, etc.)" />
+                <Simple value="5. You can Inventory companions (normally anyone whom, when you Smile, smiles back at you) to see what they are carrying and wearing.  You can then Request those items from them.  You can also Inventory containers to get a list of contents." />
+                <Simple value="6. If you give food or a beverage to a friend, they will take a bite or drink and give it back to you." />
+                <Simple value="7. To give money to someone, type Give and an amount.  For example, &quot;Give 1000 To IRS Agent&quot; would pay 1000 gold coins to the nice IRS Agent.  In most standard adventures, if you &quot;Give 5000&quot; or more, a neutral monster will -usually- become your friend." />
+                <Simple value="8. The Power spell has been known to have strange and marvelous effects in many adventures.  When all else fails (or just for fun) try &quot;Power&quot;." />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="EAMON CS 1.3 NEW COMMANDS." />
+            <Simple name="NumAnswers" value="1" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. The Go command allows you to travel through any door/gate you encounter, including those that are free-standing (not associated with a room directional link)." />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Beginner's Forest -- Help!  There are too many spooks!" />
+            <Simple name="NumAnswers" value="1" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="The ten cardboard cut-out &quot;spooks&quot; that will come after you in part of this adventure can be a little unfair for beginning level characters.  If you wish, you can reduce the total amount of spooks to two if you Say Less Spooks." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Secrets of the Beginner's Forest.  (For your amusement...)" />
+            <Simple name="NumAnswers" value="5" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="SPOILER ALERT!  The following contains a complete list of all the special things you can do which are unique to this adventure.  This will also spoil any surprises if you are still exploring.  Only read ahead if you are sure you want everything revealed." />
+                <Simple value="In the Beginner's Forest you can:  Get different results from the Ranger if you are a beginner, are not a beginner, or forget to bring at least one weapon; Get different results from the Fairy Queen depending upon your gender;" />
+                <Simple value="...Get a magic sword from the Fairy Queen if you are carrying the blade of grass (or it is in the room) when you first meet her; Sir Grummor will always be initially friendly if your character is female (75% chance of friendliness for male characters);" />
+                <Simple value="...Wear the ring to activate a Speed spell (note: the ring vanishes when the spell wears off); Automatically get resurrected and placed at the entrance if you step into the unfair death traps that were in the original version of the Beginner's Forest;" />
+                <Simple value="...Find a secret bridge if you Examine Shape at the top of the oak tree; end up at the entrance with the path to the Beginner's Forest gone if you go west from the beaver dam." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="4" />
+  </Properties>
+</Complex>

@@ -45,9 +45,13 @@ namespace Eamon.Framework
 
 		long CurrTurn { get; set; }
 
+		long UsedWpnIdx { get; set; }
+
 		long[] NBTL { get; set; }
 
 		long[] Sa { get; set; }
+
+		long[] HeldWpnUids { get; set; }
 
 		#endregion
 
@@ -61,6 +65,8 @@ namespace Eamon.Framework
 
 		long GetSa(Enums.Spell spell);
 
+		long GetHeldWpnUids(long index);
+
 		void SetNBTL(long index, long value);
 
 		void SetNBTL(Enums.Friendliness friendliness, long value);
@@ -68,6 +74,8 @@ namespace Eamon.Framework
 		void SetSa(long index, long value);
 
 		void SetSa(Enums.Spell spell, long value);
+
+		void SetHeldWpnUids(long index, long value);
 
 		void ModNBTL(long index, long value);
 

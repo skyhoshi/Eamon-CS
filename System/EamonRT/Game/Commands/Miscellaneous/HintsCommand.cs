@@ -4,10 +4,12 @@
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
@@ -19,6 +21,20 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class HintsCommand : Command, IHintsCommand
 	{
+		protected virtual void PrintHintsQuestion(IList<IHint> hints, int i)
+		{
+			Debug.Assert(hints != null);
+
+			Globals.Out.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, hints[i].Question);
+		}
+
+		protected virtual void PrintHintsQuestion01(IList<IHint> hints, int i)
+		{
+			Debug.Assert(hints != null);
+
+			Globals.Out.Write("{0}{1}{0}", Environment.NewLine, hints[i].Question);
+		}
+
 		protected override void PlayerExecute()
 		{
 			RetCode rc;
@@ -34,7 +50,7 @@ namespace EamonRT.Game.Commands
 
 					for (i = 0; i < hints.Count; i++)
 					{
-						Globals.Out.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, hints[i].Question);
+						PrintHintsQuestion(hints, i);
 					}
 
 					Globals.Out.Write("{0}{0}Enter your choice: ", Environment.NewLine);
@@ -51,7 +67,7 @@ namespace EamonRT.Game.Commands
 
 					if (i >= 0 && i < hints.Count)
 					{
-						Globals.Out.Write("{0}{1}{0}", Environment.NewLine, hints[i].Question);
+						PrintHintsQuestion01(hints, i);
 
 						for (j = 0; j < hints[i].NumAnswers; j++)
 						{

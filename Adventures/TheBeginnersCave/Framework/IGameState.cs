@@ -13,18 +13,6 @@ namespace TheBeginnersCave.Framework
 
 		long BookWarning { get; set; }
 
-		long UsedWpnIdx { get; set; }
-
-		long[] HeldWpnUids { get; set; }
-
-		#endregion
-
-		#region Methods
-
-		long GetHeldWpnUids(long index);
-
-		void SetHeldWpnUids(long index, long value);
-
 		#endregion
 	}
 }

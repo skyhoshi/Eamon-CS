@@ -1,0 +1,38 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.ModuleDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IModule, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="Eamon.Game.Module, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Beginner's Forest" />
+            <Simple name="Desc" value="Adventure in the Beginner's Forest, an alternative to the Beginner's Cave.  While this game is intended for new characters, it is more difficult than you might expect, so be wary.  Original Eamon #140 by Margaret Anderson; Eamon CS port by Mike Penner." />
+            <Simple name="Author" value="Margaret Anderson" />
+            <Simple name="VolLabel" value="MA-001" />
+            <Simple name="SerialNum" value="002" />
+            <Simple name="LastMod" value="06/24/2017 11:35:53" />
+            <Simple name="IntroStory" value="0" />
+            <Simple name="NumDirs" value="6" />
+            <Simple name="NumRooms" value="33" />
+            <Simple name="NumArtifacts" value="20" />
+            <Simple name="NumEffects" value="21" />
+            <Simple name="NumMonsters" value="10" />
+            <Simple name="NumHints" value="4" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="1" />
+  </Properties>
+</Complex>

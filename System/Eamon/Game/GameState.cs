@@ -63,9 +63,13 @@ namespace Eamon.Game
 
 		public virtual long CurrTurn { get; set; }
 
+		public virtual long UsedWpnIdx { get; set; }
+
 		public virtual long[] NBTL { get; set; }
 
 		public virtual long[] Sa { get; set; }
+
+		public virtual long[] HeldWpnUids { get; set; }
 
 		#endregion
 
@@ -139,6 +143,11 @@ namespace Eamon.Game
 			return CurrTurn >= 0;
 		}
 
+		protected virtual bool ValidateUsedWpnIdx(IField field, IValidateArgs args)
+		{
+			return UsedWpnIdx >= 0 && UsedWpnIdx < HeldWpnUids.Length;
+		}
+
 		protected virtual bool ValidateNBTL(IField field, IValidateArgs args)
 		{
 			Debug.Assert(field != null && field.UserData != null);
@@ -161,6 +170,17 @@ namespace Eamon.Game
 			Debug.Assert(spell != null);
 
 			return GetSa(i) >= spell.MinValue && GetSa(i) <= spell.MaxValue;
+		}
+
+		protected virtual bool ValidateHeldWpnUids(IField field, IValidateArgs args)
+		{
+			Debug.Assert(field != null && field.UserData != null);
+
+			var i = Convert.ToInt64(field.UserData);
+
+			Debug.Assert(i >= 0 && i < HeldWpnUids.Length);
+
+			return GetHeldWpnUids(i) >= 0;
 		}
 
 		#endregion
@@ -275,6 +295,12 @@ namespace Eamon.Game
 						x.Name = "CurrTurn";
 						x.Validate = ValidateCurrTurn;
 						x.GetValue = () => CurrTurn;
+					}),
+					Globals.CreateInstance<IField>(x =>
+					{
+						x.Name = "UsedWpnIdx";
+						x.Validate = ValidateUsedWpnIdx;
+						x.GetValue = () => UsedWpnIdx;
 					})
 				};
 
@@ -310,6 +336,22 @@ namespace Eamon.Game
 							x.UserData = i;
 							x.Validate = ValidateSa;
 							x.GetValue = () => GetSa(i);
+						})
+					);
+				}
+
+				for (var i = 0; i < HeldWpnUids.Length; i++)
+				{
+					var j = i;
+
+					Fields.Add
+					(
+						Globals.CreateInstance<IField>(x =>
+						{
+							x.Name = string.Format("HeldWpnUids[{0}]", j);
+							x.UserData = j;
+							x.Validate = ValidateHeldWpnUids;
+							x.GetValue = () => GetHeldWpnUids(j);
 						})
 					);
 				}
@@ -351,6 +393,11 @@ namespace Eamon.Game
 			return GetSa((long)spell);
 		}
 
+		public virtual long GetHeldWpnUids(long index)
+		{
+			return HeldWpnUids[index];
+		}
+
 		public virtual void SetNBTL(long index, long value)
 		{
 			NBTL[index] = value;
@@ -369,6 +416,11 @@ namespace Eamon.Game
 		public virtual void SetSa(Enums.Spell spell, long value)
 		{
 			SetSa((long)spell, value);
+		}
+
+		public virtual void SetHeldWpnUids(long index, long value)
+		{
+			HeldWpnUids[index] = value;
 		}
 
 		public virtual void ModNBTL(long index, long value)
@@ -399,9 +451,15 @@ namespace Eamon.Game
 		{
 			IsUidRecycled = true;
 
+			var character = Globals.CreateInstance<ICharacter>();
+
+			Debug.Assert(character != null);
+
 			NBTL = new long[(long)EnumUtil.GetLastValue<Enums.Friendliness>() + 1];
 
-			Sa = new long[(long)EnumUtil.GetLastValue<Enums.Spell>() + 1];
+			Sa = new long[character.SpellAbilities.Length];
+
+			HeldWpnUids = new long[character.Weapons.Length];
 		}
 
 		#endregion
