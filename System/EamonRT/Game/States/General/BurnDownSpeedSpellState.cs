@@ -13,6 +13,11 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class BurnDownSpeedSpellState : State, IBurnDownSpeedSpellState
 	{
+		protected virtual void PrintSpeedSpellExpired()
+		{
+			Globals.Out.Write("{0}{1}{0}", Environment.NewLine, "Your speed spell has expired!");
+		}
+
 		public override void Execute()
 		{
 			if (Globals.GameState.Speed > 0 && ShouldPreTurnProcess())
@@ -23,7 +28,7 @@ namespace EamonRT.Game.States
 				{
 					Globals.MDB[Globals.GameState.Cm].Agility /= 2;
 
-					Globals.Out.Write("{0}{1}{0}", Environment.NewLine, "Your speed spell has expired!");
+					PrintSpeedSpellExpired();
 				}
 			}
 			

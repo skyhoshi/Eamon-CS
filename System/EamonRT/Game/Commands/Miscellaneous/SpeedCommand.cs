@@ -18,6 +18,11 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool CastSpell { get; set; }
 
+		protected virtual void PrintFeelNewAgility()
+		{
+			Globals.Out.WriteLine("{0}You can feel the new agility flowing through you!", Environment.NewLine);
+		}
+
 		protected override void PlayerExecute()
 		{
 			if (CastSpell && !Globals.RtEngine.CheckPlayerSpellCast(Enums.Spell.Speed, true))
@@ -38,7 +43,7 @@ namespace EamonRT.Game.Commands
 
 			Globals.GameState.Speed += (rl + 10);
 
-			Globals.Out.WriteLine("{0}You can feel the new agility flowing through you!", Environment.NewLine);
+			PrintFeelNewAgility();
 
 		Cleanup:
 

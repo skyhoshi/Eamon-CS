@@ -48,6 +48,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\ARuncibleCargo.dll</HintPath>
     </Reference>
+    <Reference Include="BeginnersForest">
+      <HintPath>..\Bin\BeginnersForest.dll</HintPath>
+    </Reference>
     <Reference Include="Eamon, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\Eamon.dll</HintPath>
@@ -393,6 +396,24 @@
     <AndroidAsset Include="Assets\Documentation\AUTHORS.txt" />
   </ItemGroup>
   <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\BeginnersForest\ROOMS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\BeginnersForest\ARTIFACTS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\BeginnersForest\EFFECTS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\BeginnersForest\HINTS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\BeginnersForest\MODULE.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\BeginnersForest\MONSTERS.XML" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidAsset Include="Assets\Adventures\DemoAdventure\ARTIFACTS.XML" />
   </ItemGroup>
   <ItemGroup>
@@ -460,6 +481,7 @@
 xcopy "$(TargetDir)..\..\Documentation\*.txt" "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /I /S /Y
 xcopy "$(TargetDir)..\..\Documentation\*.htm" "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\ARuncibleCargo\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\ARuncibleCargo" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\BeginnersForest\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\BeginnersForest" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\DemoAdventure\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\DemoAdventure" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\StrongholdOfKahrDur\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\StrongholdOfKahrDur" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\TestAdventure\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TestAdventure" /I /S /Y

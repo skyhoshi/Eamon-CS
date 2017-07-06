@@ -19,6 +19,11 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class WearCommand : Command, IWearCommand
 	{
+		protected virtual void PlayerProcessEvents()
+		{
+
+		}
+
 		protected override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
@@ -101,6 +106,13 @@ namespace EamonRT.Game.Commands
 				DobjArtifact.SetWornByCharacter();
 
 				Globals.Out.Write("{0}{1} worn.{0}", Environment.NewLine, DobjArtifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
+
+				PlayerProcessEvents();
+
+				if (GotoCleanup)
+				{
+					goto Cleanup;
+				}
 			}
 			else
 			{ 

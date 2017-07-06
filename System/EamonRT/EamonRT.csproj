@@ -78,6 +78,7 @@
     <Compile Include="Framework\Commands\Miscellaneous\IInfoCommand.cs" />
     <Compile Include="Framework\Commands\Miscellaneous\IInventoryCommand.cs" />
     <Compile Include="Framework\Commands\Miscellaneous\ILookCommand.cs" />
+    <Compile Include="Framework\Primitive\Enums\IntroStoryType.cs" />
     <Compile Include="Game\Commands\Miscellaneous\InfoCommand.cs" />
     <Compile Include="Game\Commands\Miscellaneous\InventoryCommand.cs" />
     <Compile Include="Framework\Commands\Miscellaneous\IPowerCommand.cs" />
