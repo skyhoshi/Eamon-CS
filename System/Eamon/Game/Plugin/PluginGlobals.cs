@@ -183,6 +183,18 @@ namespace Eamon.Game.Plugin
 			}
 		}
 
+		public virtual string FilePrefix
+		{
+			get
+			{
+				return ClassMappings.FilePrefix;
+			}
+			set
+			{
+				ClassMappings.FilePrefix = value;
+			}
+		}
+
 		public virtual string LineSep { get; set; } = new string('-', (int)Constants.RightMargin);
 
 		public virtual bool LineWrapUserInput { get; set; }
@@ -557,6 +569,11 @@ namespace Eamon.Game.Plugin
 		public virtual bool CompareInstances<T>(T object1, T object2) where T : class
 		{
 			return ClassMappings.CompareInstances(object1, object2);
+		}
+
+		public virtual string GetPrefixedFileName(string fileName)
+		{
+			return ClassMappings.GetPrefixedFileName(fileName);
 		}
 	}
 }

@@ -65,7 +65,7 @@ namespace EamonPM
 			{
 				var fileName = Path.Combine(path, file);
 
-				if (!File.Exists(fileName) || (copyFiles && !string.Equals(file, "CHARACTERS.XML", StringComparison.OrdinalIgnoreCase)))
+				if (!File.Exists(fileName) || (copyFiles && !fileName.EndsWith("CHARACTERS.XML", StringComparison.OrdinalIgnoreCase)))
 				{
 					fileName = Path.Combine(Path.Combine("System", "Bin"), file);
 

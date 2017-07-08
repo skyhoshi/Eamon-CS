@@ -17,6 +17,8 @@ namespace Eamon.Framework.Portability
 
 		string GetExtension(string path);
 
+		string GetFileName(string path);
+
 		string GetFileNameWithoutExtension(string path);
 	}
 }

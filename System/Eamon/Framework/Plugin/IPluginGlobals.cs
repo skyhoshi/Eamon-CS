@@ -44,6 +44,8 @@ namespace Eamon.Framework.Plugin
 
 		string WorkDir { get; set; }
 
+		string FilePrefix { get; set; }
+
 		string LineSep { get; set; }
 
 		bool LineWrapUserInput { get; set; }
@@ -105,5 +107,7 @@ namespace Eamon.Framework.Plugin
 		T CloneInstance<T>(T source) where T : class;
 
 		bool CompareInstances<T>(T object1, T object2) where T : class;
+
+		string GetPrefixedFileName(string fileName);
 	}
 }

@@ -660,11 +660,11 @@ namespace Eamon.Game
 
 		#region Interface IConfig
 
-		public virtual RetCode LoadGameDatabase(bool validate = true, bool printOutput = true)
+		public virtual RetCode LoadGameDatabase(bool useFilePrefix, bool validate = true, bool printOutput = true)
 		{
 			RetCode rc;
 
-			rc = Globals.Database.LoadFilesets(RtFilesetFileName, validate, printOutput);
+			rc = Globals.Database.LoadFilesets(Globals.GetPrefixedFileName(RtFilesetFileName), validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -673,7 +673,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.LoadCharacters(RtCharacterFileName, validate, printOutput);
+			rc = Globals.Database.LoadCharacters(Globals.GetPrefixedFileName(RtCharacterFileName), validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -682,7 +682,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.LoadModules(RtModuleFileName, validate, printOutput);
+			rc = Globals.Database.LoadModules(useFilePrefix ? Globals.GetPrefixedFileName(RtModuleFileName) : RtModuleFileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -691,7 +691,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.LoadRooms(RtRoomFileName, validate, printOutput);
+			rc = Globals.Database.LoadRooms(useFilePrefix ? Globals.GetPrefixedFileName(RtRoomFileName) : RtRoomFileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -700,7 +700,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.LoadArtifacts(RtArtifactFileName, validate, printOutput);
+			rc = Globals.Database.LoadArtifacts(useFilePrefix ? Globals.GetPrefixedFileName(RtArtifactFileName) : RtArtifactFileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -709,7 +709,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.LoadEffects(RtEffectFileName, validate, printOutput);
+			rc = Globals.Database.LoadEffects(useFilePrefix ? Globals.GetPrefixedFileName(RtEffectFileName) : RtEffectFileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -718,7 +718,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.LoadMonsters(RtMonsterFileName, validate, printOutput);
+			rc = Globals.Database.LoadMonsters(useFilePrefix ? Globals.GetPrefixedFileName(RtMonsterFileName) : RtMonsterFileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -727,7 +727,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.LoadHints(RtHintFileName, validate, printOutput);
+			rc = Globals.Database.LoadHints(useFilePrefix ? Globals.GetPrefixedFileName(RtHintFileName) : RtHintFileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -736,7 +736,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.LoadGameStates(RtGameStateFileName, validate, printOutput);
+			rc = Globals.Database.LoadGameStates(Globals.GetPrefixedFileName(RtGameStateFileName), validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -754,7 +754,7 @@ namespace Eamon.Game
 		{
 			RetCode rc;
 
-			rc = Globals.Database.SaveGameStates(RtGameStateFileName, printOutput);
+			rc = Globals.Database.SaveGameStates(Globals.GetPrefixedFileName(RtGameStateFileName), printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -763,7 +763,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.SaveHints(RtHintFileName, printOutput);
+			rc = Globals.Database.SaveHints(Globals.GetPrefixedFileName(RtHintFileName), printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -772,7 +772,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.SaveMonsters(RtMonsterFileName, printOutput);
+			rc = Globals.Database.SaveMonsters(Globals.GetPrefixedFileName(RtMonsterFileName), printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -781,7 +781,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.SaveEffects(RtEffectFileName, printOutput);
+			rc = Globals.Database.SaveEffects(Globals.GetPrefixedFileName(RtEffectFileName), printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -790,7 +790,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.SaveArtifacts(RtArtifactFileName, printOutput);
+			rc = Globals.Database.SaveArtifacts(Globals.GetPrefixedFileName(RtArtifactFileName), printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -799,7 +799,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.SaveRooms(RtRoomFileName, printOutput);
+			rc = Globals.Database.SaveRooms(Globals.GetPrefixedFileName(RtRoomFileName), printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -808,7 +808,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.SaveModules(RtModuleFileName, printOutput);
+			rc = Globals.Database.SaveModules(Globals.GetPrefixedFileName(RtModuleFileName), printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -817,7 +817,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.SaveCharacters(RtCharacterFileName, printOutput);
+			rc = Globals.Database.SaveCharacters(Globals.GetPrefixedFileName(RtCharacterFileName), printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -826,7 +826,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			rc = Globals.Database.SaveFilesets(RtFilesetFileName, printOutput);
+			rc = Globals.Database.SaveFilesets(Globals.GetPrefixedFileName(RtFilesetFileName), printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -857,7 +857,7 @@ namespace Eamon.Game
 
 			foreach (var fs in Globals.Database.FilesetTable.Records)
 			{
-				rc = fs.DeleteFiles(null);
+				rc = fs.DeleteFiles(null, true);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 			}
@@ -868,7 +868,7 @@ namespace Eamon.Game
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				rc = Globals.Database.SaveFilesets(RtFilesetFileName, false);
+				rc = Globals.Database.SaveFilesets(Globals.GetPrefixedFileName(RtFilesetFileName), false);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 			}
@@ -876,7 +876,7 @@ namespace Eamon.Game
 			{
 				try
 				{
-					Globals.File.Delete(configFileName);
+					Globals.File.Delete(Globals.GetPrefixedFileName(configFileName));
 				}
 				catch (Exception ex)
 				{
@@ -888,7 +888,7 @@ namespace Eamon.Game
 
 				try
 				{
-					Globals.File.Delete(RtCharacterFileName);
+					Globals.File.Delete(Globals.GetPrefixedFileName(RtCharacterFileName));
 				}
 				catch (Exception ex)
 				{
@@ -900,7 +900,7 @@ namespace Eamon.Game
 
 				try
 				{
-					Globals.File.Delete(RtFilesetFileName);
+					Globals.File.Delete(Globals.GetPrefixedFileName(RtFilesetFileName));
 				}
 				catch (Exception ex)
 				{

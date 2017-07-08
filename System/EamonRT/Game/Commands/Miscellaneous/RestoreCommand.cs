@@ -43,7 +43,7 @@ namespace EamonRT.Game.Commands
 
 			try
 			{
-				rc = Globals.Database.LoadConfigs(fileset.ConfigFileName, printOutput: false);
+				rc = Globals.Database.LoadConfigs(Globals.GetPrefixedFileName(fileset.ConfigFileName), printOutput: false);
 
 				if (Globals.Engine.IsFailure(rc))
 				{
@@ -87,7 +87,7 @@ namespace EamonRT.Game.Commands
 
 				config.RtGameStateFileName = Globals.CloneInstance(fileset.GameStateFileName);
 
-				rc = config.LoadGameDatabase(printOutput: false);
+				rc = config.LoadGameDatabase(true, printOutput: false);
 
 				if (Globals.Engine.IsFailure(rc))
 				{

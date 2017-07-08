@@ -47,6 +47,8 @@ namespace Eamon.Game.Plugin
 
 		public virtual string WorkDir { get; set; } = "";
 
+		public virtual string FilePrefix { get; set; } = "";
+
 		public virtual bool EnableStdio { get; set; } = true;
 
 		public virtual bool IgnoreMutex { get; set; }
@@ -65,7 +67,7 @@ namespace Eamon.Game.Plugin
 
 			try
 			{
-				File.WriteAllText(stackTraceFile, ex.ToString());
+				File.WriteAllText(GetPrefixedFileName(stackTraceFile), ex.ToString());
 			}
 			catch (Exception)
 			{
@@ -163,6 +165,13 @@ namespace Eamon.Game.Plugin
 					if (++i < args.Length)
 					{
 						WorkDir = args[i].Trim();
+					}
+				}
+				else if (string.Equals(args[i], "--filePrefix", StringComparison.OrdinalIgnoreCase) || string.Equals(args[i], "-fp", StringComparison.OrdinalIgnoreCase))
+				{
+					if (++i < args.Length)
+					{
+						FilePrefix = args[i].Trim();
 					}
 				}
 				else if (string.Equals(args[i], "--ignoreMutex", StringComparison.OrdinalIgnoreCase) || string.Equals(args[i], "-im", StringComparison.OrdinalIgnoreCase))
@@ -352,6 +361,28 @@ namespace Eamon.Game.Plugin
 			Debug.Assert(object2Bytes != null);
 
 			result = object1Bytes.SequenceEqual(object2Bytes);
+
+		Cleanup:
+
+			return result;
+		}
+
+		public virtual string GetPrefixedFileName(string fileName)
+		{
+			string result = null;
+
+			if (string.IsNullOrWhiteSpace(fileName))
+			{
+				// PrintError
+
+				goto Cleanup;
+			}
+
+			var path = Path.GetDirectoryName(fileName);
+
+			var fileName01 = Path.GetFileName(fileName);
+
+			result = Path.Combine(path, string.Format("{0}{1}", !string.IsNullOrWhiteSpace(FilePrefix) ? FilePrefix + "_" : "", fileName01));
 
 		Cleanup:
 
