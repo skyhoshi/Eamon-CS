@@ -199,7 +199,7 @@ namespace EamonMH
 					{
 						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 
-						rc = Globals.Database.LoadConfigs(Globals.ConfigFileName);
+						rc = Globals.Database.LoadConfigs(Globals.GetPrefixedFileName(Globals.ConfigFileName));
 
 						if (Globals.Engine.IsFailure(rc))
 						{
@@ -282,7 +282,7 @@ namespace EamonMH
 						goto Cleanup;
 					}
 
-					rc = Globals.Database.LoadCharacters(Globals.Config.MhCharacterFileName);
+					rc = Globals.Database.LoadCharacters(Globals.GetPrefixedFileName(Globals.Config.MhCharacterFileName));
 
 					if (Globals.Engine.IsFailure(rc))
 					{
@@ -357,7 +357,7 @@ namespace EamonMH
 
 						if (Globals.CharactersModified)
 						{
-							rc = Globals.Database.SaveCharacters(Globals.Config.MhCharacterFileName);
+							rc = Globals.Database.SaveCharacters(Globals.GetPrefixedFileName(Globals.Config.MhCharacterFileName));
 
 							if (Globals.Engine.IsFailure(rc))
 							{
@@ -385,7 +385,7 @@ namespace EamonMH
 
 						if (Globals.ConfigFileName.Length > 0 && Globals.ConfigsModified)
 						{
-							rc = Globals.Database.SaveConfigs(Globals.ConfigFileName);
+							rc = Globals.Database.SaveConfigs(Globals.GetPrefixedFileName(Globals.ConfigFileName));
 
 							if (Globals.Engine.IsFailure(rc))
 							{
@@ -410,7 +410,7 @@ namespace EamonMH
 
 						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 
-						Globals.TransferProtocol.SendCharacterOnAdventure(Globals.Fileset.WorkDir, Globals.Fileset.PluginFileName);
+						Globals.TransferProtocol.SendCharacterOnAdventure(Globals.Fileset.WorkDir, Globals.FilePrefix, Globals.Fileset.PluginFileName);
 					}
 
 					nlFlag = false;

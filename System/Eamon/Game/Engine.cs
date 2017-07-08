@@ -1205,7 +1205,7 @@ namespace Eamon.Game
 		{
 			try
 			{
-				Globals.File.Delete("EAMONCFG.XML");
+				Globals.File.Delete(Globals.GetPrefixedFileName("EAMONCFG.XML"));
 			}
 			catch (Exception ex)
 			{
@@ -1217,7 +1217,7 @@ namespace Eamon.Game
 
 			try
 			{
-				Globals.File.Delete("FRESHMEAT.XML");
+				Globals.File.Delete(Globals.GetPrefixedFileName("FRESHMEAT.XML"));
 			}
 			catch (Exception ex)
 			{
@@ -1229,7 +1229,7 @@ namespace Eamon.Game
 
 			try
 			{
-				Globals.File.Delete("SAVEGAME.XML");
+				Globals.File.Delete(Globals.GetPrefixedFileName("SAVEGAME.XML"));
 			}
 			catch (Exception ex)
 			{

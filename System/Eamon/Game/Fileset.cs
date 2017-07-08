@@ -1151,7 +1151,7 @@ namespace Eamon.Game
 
 		#region Interface IFileset
 
-		public virtual RetCode DeleteFiles(IField field)
+		public virtual RetCode DeleteFiles(IField field, bool useFilePrefix)
 		{
 			StringBuilder buf;
 			string fileName;
@@ -1191,7 +1191,7 @@ namespace Eamon.Game
 
 					try
 					{
-						Globals.File.Delete(buf.ToString());
+						Globals.File.Delete(useFilePrefix ? Globals.GetPrefixedFileName(buf.ToString()) : buf.ToString());
 					}
 					catch (Exception ex)
 					{

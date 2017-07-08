@@ -43,6 +43,11 @@ namespace EamonPM.Game.Portability
 			return System.IO.Path.GetExtension(NormalizePath(path));
 		}
 
+		public virtual string GetFileName(string path)
+		{
+			return System.IO.Path.GetFileName(NormalizePath(path));
+		}
+
 		public virtual string GetFileNameWithoutExtension(string path)
 		{
 			return System.IO.Path.GetFileNameWithoutExtension(NormalizePath(path));

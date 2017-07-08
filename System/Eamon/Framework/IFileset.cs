@@ -43,7 +43,7 @@ namespace Eamon.Framework
 
 		#region Methods
 
-		RetCode DeleteFiles(IField field);
+		RetCode DeleteFiles(IField field, bool useFilePrefix);
 
 		#endregion
 	}

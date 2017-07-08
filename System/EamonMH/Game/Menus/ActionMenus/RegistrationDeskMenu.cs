@@ -70,9 +70,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 				{
 					var chrfn = Globals.Path.Combine(fileset.WorkDir, "FRESHMEAT.XML");
 
-					if (Globals.File.Exists(chrfn))
+					if (Globals.File.Exists(Globals.GetPrefixedFileName(chrfn)))
 					{
-						rc = Globals.Database.LoadCharacters(chrfn, printOutput: false);
+						rc = Globals.Database.LoadCharacters(Globals.GetPrefixedFileName(chrfn), printOutput: false);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -86,7 +86,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							Globals.CharactersModified = true;
 
-							Globals.TransferProtocol.RecallCharacterFromAdventure(fileset.WorkDir, fileset.PluginFileName);
+							Globals.TransferProtocol.RecallCharacterFromAdventure(fileset.WorkDir, Globals.FilePrefix, fileset.PluginFileName);
 						}
 					}
 				}

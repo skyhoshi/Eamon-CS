@@ -7,10 +7,10 @@ namespace Eamon.Framework.Portability
 {
 	public interface ITransferProtocol
 	{
-		void SendCharacterToMainHall(string filesetFileName, string characterFileName, string effectFileName, string characterName);
+		void SendCharacterToMainHall(string filePrefix, string filesetFileName, string characterFileName, string effectFileName, string characterName);
 
-		void SendCharacterOnAdventure(string workDir, string pluginFileName);
+		void SendCharacterOnAdventure(string workDir, string filePrefix, string pluginFileName);
 
-		void RecallCharacterFromAdventure(string workDir, string pluginFileName);
+		void RecallCharacterFromAdventure(string workDir, string filePrefix, string pluginFileName);
 	}
 }

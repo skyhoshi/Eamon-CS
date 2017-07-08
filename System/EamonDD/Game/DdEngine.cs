@@ -38,6 +38,13 @@ namespace EamonDD.Game
 						// do nothing
 					}
 				}
+				else if (string.Equals(Globals.Argv[i], "--filePrefix", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-fp", StringComparison.OrdinalIgnoreCase))
+				{
+					if (++i < Globals.Argv.Length)
+					{
+						// do nothing
+					}
+				}
 				else if (string.Equals(Globals.Argv[i], "--ignoreMutex", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-im", StringComparison.OrdinalIgnoreCase))
 				{
 					// do nothing
