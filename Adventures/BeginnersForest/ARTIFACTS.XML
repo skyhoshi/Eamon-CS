@@ -207,7 +207,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a gold inlaid crown that you could Wear on your head." />
+            <Simple name="Desc" value="You see a gold inlaid crown that you could WEAR on your head." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -463,7 +463,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a crown of unfading flowers that you could Wear on your head." />
+            <Simple name="Desc" value="You see a crown of unfading flowers that you could WEAR on your head." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -559,7 +559,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a fairy trapped inside a huge glass jar.  With desperate eyes, she asks you to Free her." />
+            <Simple name="Desc" value="You see a fairy trapped inside a huge glass jar.  With desperate eyes, she asks you to FREE her." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />

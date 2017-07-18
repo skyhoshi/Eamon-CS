@@ -48,15 +48,15 @@ namespace BeginnersForest.Game
 
 			// Hidden bridge
 
-			Globals.RtEngine.CreateArtifactSynonyms(17, "giant green blanket", "green blanket", "giant blanket", "giant green", "blanket", "large shape", "shape");
+			CreateArtifactSynonyms(17, "giant green blanket", "green blanket", "giant blanket", "giant green", "blanket", "large shape", "shape");
 
 			// Entrance/exit gates
 
 			var synonyms = new string[] { "green arch", "vine covered arch", "arch", "vines", "vine", "wrought iron gate", "gate", "words" };
 
-			Globals.RtEngine.CreateArtifactSynonyms(19, synonyms);
+			CreateArtifactSynonyms(19, synonyms);
 
-			Globals.RtEngine.CreateArtifactSynonyms(20, synonyms);
+			CreateArtifactSynonyms(20, synonyms);
 		}
 
 		public override void InitMonsters()

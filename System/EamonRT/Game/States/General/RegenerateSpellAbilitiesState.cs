@@ -32,11 +32,11 @@ namespace EamonRT.Game.States
 						}
 
 						Globals.GameState.ModSa(sv, n);
-					}
 
-					if (Globals.GameState.GetSa(sv) > Globals.Character.GetSpellAbilities(sv))
-					{
-						Globals.GameState.SetSa(sv, Globals.Character.GetSpellAbilities(sv));
+						if (Globals.GameState.GetSa(sv) > Globals.Character.GetSpellAbilities(sv))
+						{
+							Globals.GameState.SetSa(sv, Globals.Character.GetSpellAbilities(sv));
+						}
 					}
 				}
 			}

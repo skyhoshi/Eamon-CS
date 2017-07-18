@@ -29,6 +29,11 @@ namespace EamonRT.Game.Commands
 
 		}
 
+		protected virtual void PlayerProcessEvents01()
+		{
+
+		}
+
 		protected virtual bool AllowSkillIncrease()
 		{
 			return DobjMonster != null || DobjArtifact.IsAttackable();
@@ -65,12 +70,19 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
+			PlayerProcessEvents();
+
+			if (GotoCleanup)
+			{
+				goto Cleanup;
+			}
+
 			if (DobjMonster != null && DobjMonster.Friendliness != Enums.Friendliness.Enemy)
 			{
 				Globals.RtEngine.MonsterGetsAggravated(DobjMonster);
 			}
 
-			PlayerProcessEvents();
+			PlayerProcessEvents01();
 
 			if (GotoCleanup)
 			{

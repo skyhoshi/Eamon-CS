@@ -22,11 +22,6 @@ namespace EamonRT.Game.Commands
 			});
 		}
 
-		public override string GetPrintedVerb()
-		{
-			return Verb.ToUpper();
-		}
-
 		public NeCommand()
 		{
 			SortOrder = 60;

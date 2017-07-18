@@ -129,7 +129,7 @@ namespace ARuncibleCargo.Game
 
 			for (var i = 0; i < artUids.Length; i++)
 			{
-				Globals.RtEngine.CreateArtifactSynonyms(artUids[i], synonyms[i]);
+				CreateArtifactSynonyms(artUids[i], synonyms[i]);
 			}
 
 			// Signs (Sam's/weathered/supported/station)

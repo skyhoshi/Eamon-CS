@@ -99,7 +99,9 @@ namespace Eamon.Framework
 		void SetInRoom(IRoom room);
 
 		bool IsInRoomLit();
-		
+
+		T EvalGender<T>(T maleValue, T femaleValue, T neutralValue);
+
 		T EvalPlural<T>(T singularValue, T pluralValue);
 
 		T EvalInRoomLightLevel<T>(T darkValue, T lightValue);

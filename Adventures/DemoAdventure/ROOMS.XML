@@ -201,7 +201,7 @@
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Cellar" />
             <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in a damp and musty cellar with algae growing all over the walls.  That's odd, the south wall seems cleaner than the rest.  (Examine Wall)" />
+            <Simple name="Desc" value="You are in a damp and musty cellar with algae growing all over the walls.  That's odd, the south wall seems cleaner than the rest.  (EXAMINE WALL)" />
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
             <Simple name="Zone" value="1" />

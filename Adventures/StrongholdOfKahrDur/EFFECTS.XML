@@ -563,7 +563,7 @@
           <Properties>
             <Simple name="Uid" value="80" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Desc" value="Large Oven&quot;." />
+            <Simple name="Desc" value="LARGE OVEN." />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
