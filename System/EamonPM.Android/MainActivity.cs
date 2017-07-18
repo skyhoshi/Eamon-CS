@@ -175,6 +175,8 @@ namespace EamonPM
 
 			pg = BeginnersForest.Game.Plugin.PluginContext.Globals;
 
+			pg = TheTrainingGround.Game.Plugin.PluginContext.Globals;
+
 			pg = TheSubAquanLaboratory.Game.Plugin.PluginContext.Globals;
 
 			pg = StrongholdOfKahrDur.Game.Plugin.PluginContext.Globals;

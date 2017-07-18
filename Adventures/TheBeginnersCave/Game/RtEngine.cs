@@ -41,13 +41,13 @@ namespace TheBeginnersCave.Game
 				}
 			});
 
-			Globals.RtEngine.CreateArtifactSynonyms(3, "label", "strange potion", "potion", "bottle");
+			CreateArtifactSynonyms(3, "label", "strange potion", "potion", "bottle");
 
-			Globals.RtEngine.CreateArtifactSynonyms(14, "east wall", "wall", "smooth shape", "shape", "secret door", "door", "passage", "tunnel");
+			CreateArtifactSynonyms(14, "east wall", "wall", "smooth shape", "shape", "secret door", "door", "passage", "tunnel");
 
-			Globals.RtEngine.CreateArtifactSynonyms(15, "water", "sea water", "ocean water");
+			CreateArtifactSynonyms(15, "water", "sea water", "ocean water");
 
-			Globals.RtEngine.CreateArtifactSynonyms(24, "broken old boat", "old broken boat", "broken boat", "old boat");
+			CreateArtifactSynonyms(24, "broken old boat", "old broken boat", "broken boat", "old boat");
 		}
 
 		public override void InitMonsters()

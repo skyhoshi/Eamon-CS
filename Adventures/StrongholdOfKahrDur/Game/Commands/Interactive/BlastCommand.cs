@@ -13,7 +13,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 	[ClassMappings(typeof(EamonRT.Framework.Commands.IBlastCommand))]
 	public class BlastCommand : EamonRT.Game.Commands.BlastCommand, IBlastCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents01()
 		{
 			var artifact = Globals.ADB[25];
 
@@ -31,7 +31,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 			}
 			else
 			{
-				base.PlayerProcessEvents();
+				base.PlayerProcessEvents01();
 			}
 		}
 

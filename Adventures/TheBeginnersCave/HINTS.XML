@@ -15,14 +15,14 @@
             <Simple name="NumAnswers" value="8" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A Dr&quot; or &quot;A Gon&quot; for &quot;Attack Dragon&quot;, &quot;Req Ray From Al&quot; or &quot;Req Gun From Ien&quot; for &quot;Request Ray Gun From Alien&quot;, &quot;Put Pum In Lar&quot; or &quot;Put Pie In Oven&quot; for &quot;Put Pumpkin Pie In **016" />
-                <Simple value="2. Sometimes items may be in a room but won't show up until you Examine them.  Pay close attention to all descriptions.  Note:  Look only repeats the room description and -nothing- else.  Use Examine to, well, examine things." />
-                <Simple value="3. Before you can manipulate items that are inside of other items, you must Remove them from that item.  There is no &quot;Remove All&quot; command, but if you Attack a (breakable) container, all of its contents will be emptied to the floor and you can &quot;Get All&quot;." />
-                <Simple value="4. Type Save and a number for a desired save position to Quick Save (save without having to verify).  Adding a description will rename that slot.  Examples:  &quot;Save 2&quot; or &quot;Save 5 Dark Room (No Grues)&quot;.  Also works with Restore.  (Type &quot;Restore 1&quot;, etc.)" />
-                <Simple value="5. You can Inventory companions (normally anyone whom, when you Smile, smiles back at you) to see what they are carrying and wearing.  You can then Request those items from them.  You can also Inventory containers to get a list of contents." />
-                <Simple value="6. If you give food or a beverage to a friend, they will take a bite or drink and give it back to you." />
-                <Simple value="7. To give money to someone, type Give and an amount.  For example, &quot;Give 1000 To IRS Agent&quot; would pay 1000 gold coins to the nice IRS Agent.  In most standard adventures, if you &quot;Give 5000&quot; or more, a neutral monster will -usually- become your friend." />
-                <Simple value="8. The Power spell has been known to have strange and marvelous effects in many adventures.  When all else fails (or just for fun) try &quot;Power&quot;." />
+                <Simple value="1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A DR&quot; or &quot;A GON&quot; for ATTACK DRAGON, &quot;REQ RAY FROM AL&quot; or &quot;REQ GUN FROM IEN&quot; for REQUEST RAY GUN FROM ALIEN, &quot;PUT PUM IN LAR&quot; or &quot;PUT PIE IN OVEN&quot; for PUT PUMPKIN PIE IN **016" />
+                <Simple value="2. Sometimes items may be in a room but won't show up until you EXAMINE them.  Pay close attention to all descriptions.  Note:  LOOK only repeats the room description and -nothing- else.  Use EXAMINE to, well, examine things." />
+                <Simple value="3. Before you can manipulate items that are inside of other items, you must REMOVE them from that item.  There is no REMOVE ALL command, but if you ATTACK a (breakable) container, all of its contents will be emptied to the floor and you can GET ALL." />
+                <Simple value="4. Type SAVE and a number for a desired save position to Quick Save (save without having to verify).  Adding a description will rename that slot.  Examples:  &quot;SAVE 2&quot; or &quot;SAVE 5 Dark Room (NO GRUES)&quot;.  Also works with RESTORE.  (Type RESTORE 1, etc.)" />
+                <Simple value="5. You can INVENTORY companions (normally anyone whom, when you SMILE, smiles back at you) to see what they are carrying and wearing.  You can then REQUEST those items from them.  You can also INVENTORY containers to get a list of contents." />
+                <Simple value="6. If you GIVE food or a beverage to a friend, they will take a bite or drink and give it back to you." />
+                <Simple value="7. To give money to someone, type GIVE and an amount.  For example, GIVE 1000 TO IRS AGENT would pay 1000 gold coins to the nice IRS Agent.  In most standard adventures, if you GIVE 5000 or more, a neutral monster will -usually- become your friend." />
+                <Simple value="8. The POWER spell has been known to have strange and marvelous effects in many adventures.  When all else fails (or just for fun) try POWER." />
               </Items>
             </SingleArray>
           </Properties>
@@ -36,7 +36,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. The Go command allows you to travel through any door/gate you encounter, including those that are free-standing (not associated with a room directional link)." />
+                <Simple value="1. The GO command allows you to travel through any door/gate you encounter, including those that are free-standing (not associated with a room directional link)." />
               </Items>
             </SingleArray>
           </Properties>
@@ -50,7 +50,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. Note the non-standard command (Trollsfire) in this adventure.  This is used in place of &quot;Say Trollsfire&quot; and it will... Well, you will just have to figure that part out for yourself!" />
+                <Simple value="1. Note the non-standard command (TROLLSFIRE) in this adventure.  This is used in place of SAY TROLLSFIRE and it will... Well, you will just have to figure that part out for yourself!" />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -71,8 +71,8 @@
             <Simple name="NumAnswers" value="2" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. You must &quot;Ready Trollsfire&quot; before you activate it, then it won't burn you." />
-                <Simple value="2. If you are wondering what the Trollsfire command is for:  the Trollsfire sword normally does 1D6 of damage, but it magically changes to 1D10 if you activate it with the Trollsfire command.  (It will say &quot;alight&quot; in your Inventory if activated.)" />
+                <Simple value="1. You must READY Trollsfire before you activate it, then it won't burn you." />
+                <Simple value="2. If you are wondering what the TROLLSFIRE command is for:  the Trollsfire sword normally does 1D6 of damage, but it magically changes to 1D10 if you activate it with the TROLLSFIRE command.  (It will say &quot;alight&quot; in your INVENTORY if activated.)" />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />

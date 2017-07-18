@@ -2738,6 +2738,11 @@ namespace Eamon.Game
 			return room != null && room.IsLit();
 		}
 
+		public virtual T EvalGender<T>(T maleValue, T femaleValue, T neutralValue)
+		{
+			return Gender == Enums.Gender.Male ? maleValue : Gender == Enums.Gender.Female ? femaleValue : neutralValue;
+		}
+
 		public virtual T EvalPlural<T>(T singularValue, T pluralValue)
 		{
 			return GroupCount > 1 ? pluralValue : singularValue;

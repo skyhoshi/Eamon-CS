@@ -128,10 +128,7 @@ namespace EamonRT.Game.Commands
 
 				if (DobjArtifact.IsDeadBody())
 				{
-					Globals.Out.Write("{0}{1} politely refuse{2}.{0}",
-						Environment.NewLine,
-						IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf),
-						IobjMonster.EvalPlural("s", ""));
+					PrintPolitelyRefuses(IobjMonster);
 
 					goto Cleanup;
 				}
@@ -161,10 +158,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				Globals.Out.Write("{0}You give {1} to {2}.{0}",
-					Environment.NewLine,
-					DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf),
-					IobjMonster.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+				PrintGiveObjToActor(DobjArtifact, IobjMonster);
 
 				var ac = DobjArtifact.GetArtifactClass(new Enums.ArtifactType[] { Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible });
 

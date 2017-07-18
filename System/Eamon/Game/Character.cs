@@ -2579,6 +2579,11 @@ namespace Eamon.Game
 			return GetWeapons(index).IsActive();
 		}
 
+		public virtual T EvalGender<T>(T maleValue, T femaleValue, T neutralValue)
+		{
+			return Gender == Enums.Gender.Male ? maleValue : Gender == Enums.Gender.Female ? femaleValue : neutralValue;
+		}
+
 		public virtual RetCode GetBaseOddsToHit(Classes.ICharacterWeapon weapon, ref long baseOddsToHit)
 		{
 			long ar1, sh1, af, x, a, d, f, odds;

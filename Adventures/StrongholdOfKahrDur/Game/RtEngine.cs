@@ -91,7 +91,7 @@ namespace StrongholdOfKahrDur.Game
 
 			for (var i = 0; i < artUids.Length; i++)
 			{
-				Globals.RtEngine.CreateArtifactSynonyms(artUids[i], synonyms[i]);
+				CreateArtifactSynonyms(artUids[i], synonyms[i]);
 			}
 		}
 
@@ -132,7 +132,7 @@ namespace StrongholdOfKahrDur.Game
 
 			for (var i = 0; i < monUids.Length; i++)
 			{
-				Globals.RtEngine.CreateMonsterSynonyms(monUids[i], synonyms[i]);
+				CreateMonsterSynonyms(monUids[i], synonyms[i]);
 			}
 		}
 

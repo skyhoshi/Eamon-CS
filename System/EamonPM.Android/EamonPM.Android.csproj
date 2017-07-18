@@ -91,6 +91,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\TheSubAquanLaboratory.dll</HintPath>
     </Reference>
+    <Reference Include="TheTrainingGround">
+      <HintPath>..\Bin\TheTrainingGround.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Android.Support.Animated.Vector.Drawable.25.3.1\lib\MonoAndroid70\Xamarin.Android.Support.Animated.Vector.Drawable.dll</HintPath>
     </Reference>
@@ -431,6 +434,24 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\Adventures\DemoAdventure\ROOMS.XML" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\TheTrainingGround\HINTS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\TheTrainingGround\MODULE.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\TheTrainingGround\MONSTERS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\TheTrainingGround\ROOMS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\TheTrainingGround\ARTIFACTS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\TheTrainingGround\EFFECTS.XML" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -487,6 +508,7 @@ xcopy "$(TargetDir)..\..\Adventures\StrongholdOfKahrDur\*.XML" "$(TargetDir)..\E
 xcopy "$(TargetDir)..\..\Adventures\TestAdventure\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TestAdventure" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\TheBeginnersCave\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheBeginnersCave" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\TheSubAquanLaboratory\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheSubAquanLaboratory" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\TheTrainingGround\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheTrainingGround" /I /S /Y
 </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>

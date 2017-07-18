@@ -262,6 +262,20 @@ namespace EamonRT.Game.Commands
 			Globals.Out.WriteLine("{0}{1} a weapon.", Environment.NewLine, artifact.EvalPlural("That isn't", "They aren't"));
 		}
 
+		protected virtual void PrintPolitelyRefuses(IMonster monster)
+		{
+			Debug.Assert(monster != null);
+
+			Globals.Out.Write("{0}{1} politely refuse{2}.{0}",	Environment.NewLine, monster.GetDecoratedName03(true, true, false, false, Globals.Buf), monster.EvalPlural("s", ""));
+		}
+
+		protected virtual void PrintGiveObjToActor(IArtifact artifact, IMonster monster)
+		{
+			Debug.Assert(artifact != null && monster != null);
+
+			Globals.Out.Write("{0}You give {1} to {2}.{0}",	Environment.NewLine,	artifact.GetDecoratedName03(false, true, false, false, Globals.Buf),	monster.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+		}
+
 		protected virtual void PrintMustFirstReadyWeapon()
 		{
 			Globals.Out.WriteLine("{0}You must first ready a weapon!", Environment.NewLine);
@@ -679,7 +693,7 @@ namespace EamonRT.Game.Commands
 
 		public virtual string GetPrintedVerb()
 		{
-			return Char.ToUpper(Verb[0]) + (Verb.Length > 1 ? Verb.Substring(1) : "");
+			return Verb.ToUpper();
 		}
 
 		public virtual bool IsEnabled(IMonster monster)

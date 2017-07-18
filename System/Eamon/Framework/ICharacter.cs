@@ -97,6 +97,8 @@ namespace Eamon.Framework
 
 		bool IsWeaponActive(long index);
 
+		T EvalGender<T>(T maleValue, T femaleValue, T neutralValue);
+
 		RetCode GetBaseOddsToHit(Classes.ICharacterWeapon weapon, ref long baseOddsToHit);
 
 		RetCode GetBaseOddsToHit(long index, ref long baseOddsToHit);

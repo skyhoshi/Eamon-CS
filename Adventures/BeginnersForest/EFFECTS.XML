@@ -150,7 +150,7 @@
           <Properties>
             <Simple name="Uid" value="21" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Desc" value="Large Oven&quot;." />
+            <Simple name="Desc" value="LARGE OVEN." />
           </Properties>
         </Complex>
       </Items>

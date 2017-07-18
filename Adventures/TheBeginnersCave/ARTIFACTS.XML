@@ -79,7 +79,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="There is a bottle with a strange potion inside of it here!  It has a label stuck to it that you could Read." />
+            <Simple name="Desc" value="There is a bottle with a strange potion inside of it here!  It has a label stuck to it that you could READ." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />

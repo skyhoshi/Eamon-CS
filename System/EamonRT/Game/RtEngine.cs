@@ -1936,7 +1936,7 @@ namespace EamonRT.Game
 		{
 			long rl = 0;
 
-			var monsters = Globals.Engine.GetMonsterList(() => true, m => !m.IsCharacterMonster() && m.Location == Globals.GameState.R3);
+			var monsters = Globals.Engine.GetMonsterList(() => true, m => !m.IsCharacterMonster() && m.Seen && m.Location == Globals.GameState.R3);
 
 			foreach (var monster in monsters)
 			{

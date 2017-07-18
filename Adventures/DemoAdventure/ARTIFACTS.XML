@@ -47,7 +47,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="A sign has been hastily attached to the broken door with rusty nails.  The message on it is faded but you could still Read it." />
+            <Simple name="Desc" value="A sign has been hastily attached to the broken door with rusty nails.  The message on it is faded but you could still READ it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -79,7 +79,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The mailbox is a small, black aluminum receptacle mounted to the side of the building.  It has almost rusted shut from lack of use, but will still Open." />
+            <Simple name="Desc" value="The mailbox is a small, black aluminum receptacle mounted to the side of the building.  It has almost rusted shut from lack of use, but will still OPEN." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -303,7 +303,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a rusty pipe wrench which could also be used as a weapon.  Eamon Deluxe monsters are &quot;smart&quot;, Give Wrench To Eddie, then Request his mace and he will Ready the wrench (or a better weapon) if he is carrying one." />
+            <Simple name="Desc" value="You see a rusty pipe wrench which could also be used as a weapon.  Eamon Deluxe monsters are &quot;smart&quot;, GIVE WRENCH TO EDDIE, then REQUEST his mace and he will READY the wrench (or a better weapon) if he is carrying one." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -399,7 +399,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an expensive, well-crafted oak desk in the center of the room.  It has a single drawer (Open Desk) and an old typewriter sits on top of it.  You are suddenly alarmed by what appears to be freshly spattered blood on one corner of it." />
+            <Simple name="Desc" value="You see an expensive, well-crafted oak desk in the center of the room.  It has a single drawer (OPEN DESK) and an old typewriter sits on top of it.  You are suddenly alarmed by what appears to be freshly spattered blood on one corner of it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -463,7 +463,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="Some" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The shelves have dust marks which give the impression that not so long ago they were filled with books.  Only one book remains now.  Odd, that book appears to be connected to the back of the shelves.  (Examine Book)" />
+            <Simple name="Desc" value="The shelves have dust marks which give the impression that not so long ago they were filled with books.  Only one book remains now.  Odd, that book appears to be connected to the back of the shelves.  (EXAMINE BOOK)" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -1423,7 +1423,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You find a solid gold &quot;decoder&quot; ring which must have come from some young prince's breakfast cereal.  This is an example of clothing type #5 (jewelry) and, of course, you can Wear it." />
+            <Simple name="Desc" value="You find a solid gold &quot;decoder&quot; ring which must have come from some young prince's breakfast cereal.  This is an example of clothing type #5 (jewelry) and, of course, you can WEAR it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1455,7 +1455,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="A plain wooden door blocks your passage to the south.  It has no keyhole but it doesn't look very sturdy and could easily be forced open.  (Note:  Just as you can Attack doors and containers, you can also Blast them as well.)" />
+            <Simple name="Desc" value="A plain wooden door blocks your passage to the south.  It has no keyhole but it doesn't look very sturdy and could easily be forced open.  (Note:  Just as you can ATTACK doors and containers, you can also BLAST them as well.)" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1519,7 +1519,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a message tacked over the sink.  It says, &quot;Try to Read me, I have been put here to deliberately generate a game error.&quot;" />
+            <Simple name="Desc" value="You see a message tacked over the sink.  It says, &quot;Try to READ me, I have been put here to deliberately generate a game error.&quot;" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1551,7 +1551,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a second message, also tacked over the sink.  It says, &quot;Try to Read me too, as I have also been put here to deliberately generate a game error.&quot;" />
+            <Simple name="Desc" value="You see a second message, also tacked over the sink.  It says, &quot;Try to READ me too, as I have also been put here to deliberately generate a game error.&quot;" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1615,7 +1615,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a poor dead wumpus all shriveled up in the corner.  This is an example of a normal dead body artifact.  It can't be picked up and will be totally ignored by Get All, but note that you can Attack bodies." />
+            <Simple name="Desc" value="You see a poor dead wumpus all shriveled up in the corner.  This is an example of a normal dead body artifact.  It can't be picked up and will be totally ignored by GET ALL, but note that you can ATTACK bodies." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1775,7 +1775,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an average bedside table with a single drawer that has a brass keyhole.  This an example of a container artifact that can either be opened with the proper key or forced open by using Attack or Blast." />
+            <Simple name="Desc" value="You see an average bedside table with a single drawer that has a brass keyhole.  This an example of a container artifact that can either be opened with the proper key or forced open by using ATTACK or BLAST." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />

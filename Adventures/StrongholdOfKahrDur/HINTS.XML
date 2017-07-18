@@ -15,14 +15,14 @@
             <Simple name="NumAnswers" value="8" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A Dr&quot; or &quot;A Gon&quot; for &quot;Attack Dragon&quot;, &quot;Req Ray From Al&quot; or &quot;Req Gun From Ien&quot; for &quot;Request Ray Gun From Alien&quot;, &quot;Put Pum In Lar&quot; or &quot;Put Pie In Oven&quot; for &quot;Put Pumpkin Pie In **080" />
-                <Simple value="2. Sometimes items may be in a room but won't show up until you Examine them.  Pay close attention to all descriptions.  Note:  Look only repeats the room description and -nothing- else.  Use Examine to, well, examine things." />
-                <Simple value="3. Before you can manipulate items that are inside of other items, you must Remove them from that item.  There is no &quot;Remove All&quot; command, but if you Attack a (breakable) container, all of its contents will be emptied to the floor and you can &quot;Get All&quot;." />
-                <Simple value="4. Type Save and a number for a desired save position to Quick Save (save without having to verify).  Adding a description will rename that slot.  Examples:  &quot;Save 2&quot; or &quot;Save 5 Dark Room (No Grues)&quot;.  Also works with Restore.  (Type &quot;Restore 1&quot;, etc.)" />
-                <Simple value="5. You can Inventory companions (normally anyone whom, when you Smile, smiles back at you) to see what they are carrying and wearing.  You can then Request those items from them.  You can also Inventory containers to get a list of contents." />
-                <Simple value="6. If you give food or a beverage to a friend, they will take a bite or drink and give it back to you." />
-                <Simple value="7. To give money to someone, type Give and an amount.  For example, &quot;Give 1000 To IRS Agent&quot; would pay 1000 gold coins to the nice IRS Agent.  In most standard adventures, if you &quot;Give 5000&quot; or more, a neutral monster will -usually- become your friend." />
-                <Simple value="8. The Power spell has been known to have strange and marvelous effects in many adventures.  When all else fails (or just for fun) try &quot;Power&quot;." />
+                <Simple value="1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A DR&quot; or &quot;A GON&quot; for ATTACK DRAGON, &quot;REQ RAY FROM AL&quot; or &quot;REQ GUN FROM IEN&quot; for REQUEST RAY GUN FROM ALIEN, &quot;PUT PUM IN LAR&quot; or &quot;PUT PIE IN OVEN&quot; for PUT PUMPKIN PIE IN **080" />
+                <Simple value="2. Sometimes items may be in a room but won't show up until you EXAMINE them.  Pay close attention to all descriptions.  Note:  LOOK only repeats the room description and -nothing- else.  Use EXAMINE to, well, examine things." />
+                <Simple value="3. Before you can manipulate items that are inside of other items, you must REMOVE them from that item.  There is no REMOVE ALL command, but if you ATTACK a (breakable) container, all of its contents will be emptied to the floor and you can GET ALL." />
+                <Simple value="4. Type SAVE and a number for a desired save position to Quick Save (save without having to verify).  Adding a description will rename that slot.  Examples:  &quot;SAVE 2&quot; or &quot;SAVE 5 Dark Room (NO GRUES)&quot;.  Also works with RESTORE.  (Type RESTORE 1, etc.)" />
+                <Simple value="5. You can INVENTORY companions (normally anyone whom, when you SMILE, smiles back at you) to see what they are carrying and wearing.  You can then REQUEST those items from them.  You can also INVENTORY containers to get a list of contents." />
+                <Simple value="6. If you GIVE food or a beverage to a friend, they will take a bite or drink and give it back to you." />
+                <Simple value="7. To give money to someone, type GIVE and an amount.  For example, GIVE 1000 TO IRS AGENT would pay 1000 gold coins to the nice IRS Agent.  In most standard adventures, if you GIVE 5000 or more, a neutral monster will -usually- become your friend." />
+                <Simple value="8. The POWER spell has been known to have strange and marvelous effects in many adventures.  When all else fails (or just for fun) try POWER." />
               </Items>
             </SingleArray>
           </Properties>
@@ -36,7 +36,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. The Go command allows you to travel through any door/gate you encounter, including those that are free-standing (not associated with a room directional link)." />
+                <Simple value="1. The GO command allows you to travel through any door/gate you encounter, including those that are free-standing (not associated with a room directional link)." />
               </Items>
             </SingleArray>
           </Properties>
@@ -52,7 +52,7 @@
               <Items>
                 <Simple value="1. Eamon CS Note:  These excellent hints are courtesy of Eamon Deluxe." />
                 <Simple value="2. The Stronghold of Kahr-Dur does not use any embedded artifacts." />
-                <Simple value="3. You may save time (and excess typing) during your adventuring by not trying to Examine any artifacts that aren't already listed as being in the room. The extra items mentioned in the descriptions are there for mood and &quot;flavor&quot; only." />
+                <Simple value="3. You may save time (and excess typing) during your adventuring by not trying to EXAMINE any artifacts that aren't already listed as being in the room. The extra items mentioned in the descriptions are there for mood and &quot;flavor&quot; only." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -71,8 +71,8 @@
             <Simple name="NumAnswers" value="2" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. Did you Open (or Attack) the Cabinet in the administrative office and Remove its contents?" />
-                <Simple value="2. &quot;Wear Glasses&quot; and then &quot;Examine Bookshelf&quot; to reveal a hidden passage." />
+                <Simple value="1. Did you OPEN (or ATTACK) the cabinet in the administrative office and REMOVE its contents?" />
+                <Simple value="2. WEAR GLASSES and then EXAMINE BOOKSHELF to reveal a hidden passage." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -113,7 +113,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. &quot;Wear Glasses&quot; (see the hint about the library if you don't have them) and then Open or Examine the Armoire." />
+                <Simple value="1. WEAR GLASSES (see the hint about the library if you don't have them) and then OPEN or EXAMINE the ARMOIRE." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -134,7 +134,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. Read the Spell Scroll, it will tell you exactly what to do." />
+                <Simple value="1. READ the SPELL SCROLL, it will tell you exactly what to do." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -155,7 +155,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. Light the Whitestone (see the hint about the library if you don't have it)." />
+                <Simple value="1. LIGHT the WHITESTONE (see the hint about the library if you don't have it)." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -176,8 +176,8 @@
             <Simple name="NumAnswers" value="2" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. You must follow the instructions on the Spell Scroll." />
-                <Simple value="2. Once it is active (and you are in the room with the portcullis), &quot;Say Knock Nikto Mellon&quot; and then cast the Power spell and it will open." />
+                <Simple value="1. You must follow the instructions on the spell scroll." />
+                <Simple value="2. Once it is active (and you are in the room with the portcullis), SAY KNOCK NIKTO MELLON and then cast the POWER spell and it will open." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -197,7 +197,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. You must &quot;Get Amulet Of Courage&quot; (which is carried by the goblin chieftain in the room full of goblins).  Once you have it, &quot;Wear Amulet&quot; and you will be able to enter Tangledoom Forest." />
+                <Simple value="1. You must GET AMULET of Courage (which is carried by the goblin chieftain in the room full of goblins).  Once you have it, WEAR AMULET and you will be able to enter Tangledoom Forest." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -219,7 +219,7 @@
             <SingleArray name="Answers">
               <Items>
                 <Simple value="1. See the hint about opening the western door." />
-                <Simple value="2. Once you have the key, backtrack to the western door and open it.  Head west and &quot;Wear Boots&quot; (of Levitation).  As long as they are worn, you can safely climb in and out of the pit." />
+                <Simple value="2. Once you have the key, backtrack to the western door and open it.  Head west and WEAR BOOTS (of Levitation).  As long as they are worn, you can safely climb in and out of the pit." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -239,7 +239,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. Yes.  Use the Power spell to transport them." />
+                <Simple value="1. Yes.  Use the POWER spell to transport them." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -260,9 +260,9 @@
             <Simple name="NumAnswers" value="3" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. Trying to Attack or Blast him will prove pointless.  Did you listen to what he said when you first entered the room?" />
-                <Simple value="2. &quot;Say I Will Free You&quot; and he will tell you some magic words.  If you Say those words, he will be freed from his imprisonment." />
-                <Simple value="3. &quot;Say Barada Lhain&quot; to set him free.  (He will also give you the Wizard's Helm which you must have to successfully complete the game.)" />
+                <Simple value="1. Trying to ATTACK or BLAST him will prove pointless.  Did you listen to what he said when you first entered the room?" />
+                <Simple value="2. SAY I WILL FREE YOU and he will tell you some magic words.  If you SAY those words, he will be freed from his imprisonment." />
+                <Simple value="3. SAY BARADA LHAIN to set him free.  (He will also give you the Wizard's Helm which you must have to successfully complete the game.)" />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -283,7 +283,7 @@
               <Items>
                 <Simple value="1. Did you manage to climb down into the pit and set the lich free?" />
                 <Simple value="2. The lich gave you something of vital importance." />
-                <Simple value="3. You must Wear the Helm that the lich gave you and then only use your Blast spell to attack (all other weapons are ineffective against him)." />
+                <Simple value="3. You must WEAR the HELM that the lich gave you and then only use your BLAST spell to attack (all other weapons are ineffective against him)." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -302,7 +302,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. You must 1) Dispatch the Necromancer; 2) Free Lady Mirabelle; 3) Make your way back to the entrance, exiting the game with Lady Mirabelle still alive and in the same room as you." />
+                <Simple value="1. You must 1) Dispatch the Necromancer; 2) FREE Lady Mirabelle; 3) Make your way back to the entrance, exiting the game with Lady Mirabelle still alive and in the same room as you." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -324,7 +324,7 @@
             <SingleArray name="Answers">
               <Items>
                 <Simple value="1. Stronghold of Kahr-Dur uses a fun and devious little routine which adjusts the Hardiness of most monsters according to the strongest weapon that you bring with you. So, if you enter with a superhuman character, you will be met with superhuman foes." />
-                <Simple value="2. A cheat code was added for testing purposes and has been left in the game:  To scale the monsters back down to a standard level of toughness, &quot;Say *Brutis&quot; at any time." />
+                <Simple value="2. A cheat code was added for testing purposes and has been left in the game:  To scale the monsters back down to a standard level of toughness, SAY *BRUTIS at any time." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
