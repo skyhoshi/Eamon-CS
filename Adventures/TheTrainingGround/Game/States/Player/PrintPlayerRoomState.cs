@@ -63,9 +63,13 @@ namespace TheTrainingGround.Game.States
 
 					Debug.Assert(zapfMonster != null);
 
+					var staffArtifact = Globals.ADB[33];
+
+					Debug.Assert(staffArtifact != null);
+
 					// Zapf the Conjurer brings in strangers (15% Chance)
 
-					if (zapfMonster.IsInRoom(characterRoom) && zapfMonster.Seen && !Globals.RtEngine.CheckNBTLHostility(zapfMonster))
+					if (zapfMonster.IsInRoom(characterRoom) && zapfMonster.Seen && !Globals.RtEngine.CheckNBTLHostility(zapfMonster) && staffArtifact.IsCarriedByMonster(zapfMonster))
 					{
 						var rl = Globals.Engine.RollDice01(1, 100, 0);
 
