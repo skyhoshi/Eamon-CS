@@ -461,7 +461,7 @@ namespace EamonRT.Game.Combat
 
 			_rl = Globals.Engine.RollDice01(1, 100, 0);
 
-			if (_rl > 50)
+			if (_rl > 50 || OfAc.Field8 <= 0)
 			{
 				CombatState = RTEnums.CombatState.EndAttack;
 
