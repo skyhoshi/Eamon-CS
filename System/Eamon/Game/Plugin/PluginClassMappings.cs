@@ -49,7 +49,7 @@ namespace Eamon.Game.Plugin
 
 		public virtual string FilePrefix { get; set; } = "";
 
-		public virtual long ClassicVersion { get; set; }
+		public virtual long RulesetVersion { get; set; }
 
 		public virtual bool EnableStdio { get; set; } = true;
 
@@ -369,7 +369,7 @@ namespace Eamon.Game.Plugin
 			return result;
 		}
 
-		public virtual bool IsClassicVersion(params long[] versions)
+		public virtual bool IsRulesetVersion(params long[] versions)
 		{
 			var result = false;
 
@@ -380,7 +380,7 @@ namespace Eamon.Game.Plugin
 				goto Cleanup;
 			}
 
-			result = versions.Contains(ClassicVersion);
+			result = versions.Contains(RulesetVersion);
 
 		Cleanup:
 

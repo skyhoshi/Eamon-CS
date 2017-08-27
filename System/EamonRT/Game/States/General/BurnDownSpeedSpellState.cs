@@ -15,7 +15,7 @@ namespace EamonRT.Game.States
 	{
 		protected virtual void PrintSpeedSpellExpired()
 		{
-			Globals.Out.Write("{0}Your speed spell has{1} expired!{0}", Environment.NewLine, Globals.IsClassicVersion(5) ? " just" : "");
+			Globals.Out.Write("{0}Your speed spell has{1} expired!{0}", Environment.NewLine, Globals.IsRulesetVersion(5) ? " just" : "");
 		}
 
 		public override void Execute()
@@ -30,7 +30,7 @@ namespace EamonRT.Game.States
 
 					var rl = Globals.Engine.RollDice01(1, 100, 0);
 
-					if (!Globals.IsClassicVersion(5) || rl > 80)
+					if (!Globals.IsRulesetVersion(5) || rl > 80)
 					{
 						PrintSpeedSpellExpired();
 					}

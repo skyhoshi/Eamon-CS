@@ -32,7 +32,7 @@ namespace EamonRT.Game.Commands
 
 			if (DobjMonster.DmgTaken > 0)
 			{
-				if (Globals.IsClassicVersion(5))
+				if (Globals.IsRulesetVersion(5))
 				{
 					Globals.Buf.SetFormat("{0}Some of your", Environment.NewLine);
 				}
@@ -50,7 +50,7 @@ namespace EamonRT.Game.Commands
 					Globals.Engine.GetPossessiveName(Globals.Buf);
 				}
 
-				if (Globals.IsClassicVersion(5))
+				if (Globals.IsRulesetVersion(5))
 				{
 					Globals.Buf.AppendFormat(" wounds seem to clear up.{0}", Environment.NewLine);
 				}
@@ -61,9 +61,9 @@ namespace EamonRT.Game.Commands
 
 				Globals.Out.Write("{0}", Globals.Buf);
 
-				var rl = Globals.Engine.RollDice01(1, Globals.IsClassicVersion(5) ? 10 : 12, 0);
+				var rl = Globals.Engine.RollDice01(1, Globals.IsRulesetVersion(5) ? 10 : 12, 0);
 
-				if (Globals.IsClassicVersion(5))
+				if (Globals.IsRulesetVersion(5))
 				{
 					Globals.GameState.ModDTTL(DobjMonster.Friendliness, -Math.Min(DobjMonster.DmgTaken, rl));
 				}
@@ -95,7 +95,7 @@ namespace EamonRT.Game.Commands
 
 		protected override void PlayerFinishParsing()
 		{
-			if (!Globals.IsClassicVersion(5) && CommandParser.CurrToken < CommandParser.Tokens.Length)
+			if (!Globals.IsRulesetVersion(5) && CommandParser.CurrToken < CommandParser.Tokens.Length)
 			{
 				PlayerResolveMonster();
 			}

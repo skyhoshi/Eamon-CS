@@ -334,7 +334,7 @@ namespace Eamon.Game
 						})
 					);
 
-					if (Globals.IsClassicVersion(5))
+					if (Globals.IsRulesetVersion(5))
 					{
 						Fields.Add
 						(

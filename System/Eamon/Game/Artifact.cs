@@ -3976,7 +3976,7 @@ namespace Eamon.Game
 		{
 			ac = GetArtifactClass(new Enums.ArtifactType[] { Enums.ArtifactType.DeadBody, Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Container, Enums.ArtifactType.DoorGate }, false);
 
-			return !Globals.IsClassicVersion(5) && ac != null;
+			return !Globals.IsRulesetVersion(5) && ac != null;
 		}
 
 		public virtual bool IsUnmovable()

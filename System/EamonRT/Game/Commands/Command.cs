@@ -225,7 +225,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			if (Globals.IsClassicVersion(5))
+			if (Globals.IsRulesetVersion(5))
 			{
 				Globals.Out.WriteLine("{0}You're wearing {1}.", Environment.NewLine, artifact.EvalPlural("it", "them"));
 			}
@@ -239,7 +239,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			if (Globals.IsClassicVersion(5))
+			if (Globals.IsRulesetVersion(5))
 			{
 				Globals.Out.WriteLine("{0}You're wearing {1}.", Environment.NewLine, artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
 			}
@@ -335,7 +335,7 @@ namespace EamonRT.Game.Commands
 
 		protected virtual void PrintNotEnoughGold()
 		{
-			if (Globals.IsClassicVersion(5))
+			if (Globals.IsRulesetVersion(5))
 			{
 				Globals.Out.Write("{0}You aren't carrying that much gold of your own!{0}", Environment.NewLine);
 			}
@@ -350,7 +350,7 @@ namespace EamonRT.Game.Commands
 
 		protected virtual void PrintMustFirstReadyWeapon()
 		{
-			if (Globals.IsClassicVersion(5))
+			if (Globals.IsRulesetVersion(5))
 			{
 				Globals.Out.WriteLine("{0}You have no weapon ready!", Environment.NewLine);
 			}
@@ -417,7 +417,7 @@ namespace EamonRT.Game.Commands
 
 		protected virtual void PrintCalmDown()
 		{
-			if (Globals.IsClassicVersion(5))
+			if (Globals.IsRulesetVersion(5))
 			{
 				Globals.Out.WriteLine("{0}There's nothing to flee from!", Environment.NewLine);
 			}

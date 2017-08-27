@@ -197,15 +197,15 @@ namespace Eamon.Game.Plugin
 
 		public virtual string LineSep { get; set; } = new string('-', (int)Constants.RightMargin);
 
-		public virtual long ClassicVersion
+		public virtual long RulesetVersion
 		{
 			get
 			{
-				return ClassMappings.ClassicVersion;
+				return ClassMappings.RulesetVersion;
 			}
 			set
 			{
-				ClassMappings.ClassicVersion = value;
+				ClassMappings.RulesetVersion = value;
 			}
 		}
 
@@ -583,9 +583,9 @@ namespace Eamon.Game.Plugin
 			return ClassMappings.CompareInstances(object1, object2);
 		}
 
-		public virtual bool IsClassicVersion(params long[] versions)
+		public virtual bool IsRulesetVersion(params long[] versions)
 		{
-			return ClassMappings.IsClassicVersion(versions);
+			return ClassMappings.IsRulesetVersion(versions);
 		}
 
 		public virtual string GetPrefixedFileName(string fileName)

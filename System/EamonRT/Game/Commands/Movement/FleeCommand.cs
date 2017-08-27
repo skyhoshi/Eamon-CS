@@ -172,7 +172,7 @@ namespace EamonRT.Game.Commands
 
 				Globals.GameState.ModNBTL(ActorMonster.Friendliness, -ActorMonster.Hardiness * rl);
 
-				if (Globals.IsClassicVersion(5))
+				if (Globals.IsRulesetVersion(5))
 				{
 					Globals.GameState.ModDTTL(ActorMonster.Friendliness, -ActorMonster.DmgTaken);
 				}

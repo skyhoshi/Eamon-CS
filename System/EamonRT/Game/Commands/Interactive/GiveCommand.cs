@@ -42,7 +42,7 @@ namespace EamonRT.Game.Commands
 
 		protected virtual bool MonsterRefusesToAccept()
 		{
-			return !Globals.IsClassicVersion(5) && (IobjMonster.Friendliness == Enums.Friendliness.Enemy || (IobjMonster.Friendliness == Enums.Friendliness.Neutral && DobjArtifact.Value < 3000));
+			return !Globals.IsRulesetVersion(5) && (IobjMonster.Friendliness == Enums.Friendliness.Enemy || (IobjMonster.Friendliness == Enums.Friendliness.Neutral && DobjArtifact.Value < 3000));
 		}
 
 		protected override void PlayerExecute()
@@ -162,7 +162,7 @@ namespace EamonRT.Game.Commands
 
 				var ac = DobjArtifact.GetArtifactClass(new Enums.ArtifactType[] { Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible });
 
-				if (!Globals.IsClassicVersion(5) && ac != null && ac.Field6 > 0)
+				if (!Globals.IsRulesetVersion(5) && ac != null && ac.Field6 > 0)
 				{
 					var monsterName = IobjMonster.EvalPlural(IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), IobjMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01));
 
@@ -260,7 +260,7 @@ namespace EamonRT.Game.Commands
 
 					DobjArtifact.SetCarriedByMonster(IobjMonster);
 
-					if (Globals.IsClassicVersion(5))
+					if (Globals.IsRulesetVersion(5))
 					{
 						IobjMonster.CalculateGiftFriendlinessPct(DobjArtifact.Value);
 					}
@@ -325,7 +325,7 @@ namespace EamonRT.Game.Commands
 
 				Globals.Character.HeldGold -= GoldAmount;
 
-				if (Globals.IsClassicVersion(5))
+				if (Globals.IsRulesetVersion(5))
 				{
 					IobjMonster.CalculateGiftFriendlinessPct(GoldAmount);
 				}

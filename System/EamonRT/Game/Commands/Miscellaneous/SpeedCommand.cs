@@ -34,7 +34,7 @@ namespace EamonRT.Game.Commands
 				ActorMonster.Agility *= 2;
 			}
 
-			var rl = Globals.IsClassicVersion(5) ? Globals.Engine.RollDice01(1, 25, 9) : Globals.Engine.RollDice01(1, 10, 10);
+			var rl = Globals.IsRulesetVersion(5) ? Globals.Engine.RollDice01(1, 25, 9) : Globals.Engine.RollDice01(1, 10, 10);
 
 			Globals.GameState.Speed += rl;
 

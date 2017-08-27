@@ -189,7 +189,7 @@ namespace EamonRT.Game.Commands
 			{
 				if (Globals.GameState.Lt != 0)
 				{
-					if (Globals.IsClassicVersion(5))
+					if (Globals.IsRulesetVersion(5))
 					{
 						PlayerResolveArtifact();
 					}

@@ -25,7 +25,7 @@ namespace EamonRT.Game.States
 			{
 				Debug.Assert(Globals.GameState.GetNBTL(fv) >= 0);
 
-				if (Globals.IsClassicVersion(5))
+				if (Globals.IsRulesetVersion(5))
 				{
 					Debug.Assert(Globals.GameState.GetDTTL(fv) >= 0);
 				}

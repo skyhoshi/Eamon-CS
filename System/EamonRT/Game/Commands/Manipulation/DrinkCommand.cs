@@ -99,7 +99,7 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Field5 != 0)
 				{
-					if (Globals.IsClassicVersion(5))
+					if (Globals.IsRulesetVersion(5))
 					{
 						Globals.GameState.ModDTTL(ActorMonster.Friendliness, -(ac.Field5 >= 0 ? Math.Min(ActorMonster.DmgTaken, ac.Field5) : ac.Field5));
 					}
@@ -172,7 +172,7 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 120;
 
-			if (Globals.IsClassicVersion(5))
+			if (Globals.IsRulesetVersion(5))
 			{
 				IsPlayerEnabled = false;
 

@@ -367,7 +367,7 @@ namespace EamonRT.Game.Combat
 
 			_rl = Globals.Engine.RollDice01(1, 100, 0);
 
-			if ((Globals.IsClassicVersion(5) && _rl < 36) || (!Globals.IsClassicVersion(5) && _rl < 41))
+			if ((Globals.IsRulesetVersion(5) && _rl < 36) || (!Globals.IsRulesetVersion(5) && _rl < 41))
 			{
 				PrintRecovered();
 
@@ -376,7 +376,7 @@ namespace EamonRT.Game.Combat
 				goto Cleanup;
 			}
 
-			if ((Globals.IsClassicVersion(5) && _rl < 76) || (!Globals.IsClassicVersion(5) && _rl < 81))
+			if ((Globals.IsRulesetVersion(5) && _rl < 76) || (!Globals.IsRulesetVersion(5) && _rl < 81))
 			{
 				Globals.RtEngine.RemoveWeight(OfWeapon);
 
@@ -511,20 +511,20 @@ namespace EamonRT.Game.Combat
 
 			PrintCriticalHit();
 
-			if (OfMonster != DfMonster || !Globals.IsClassicVersion(5))
+			if (OfMonster != DfMonster || !Globals.IsRulesetVersion(5))
 			{
 				_rl = Globals.Engine.RollDice01(1, 100, 0);
 
 				if (_rl == 100)
 				{
-					_d2 = DfMonster.Hardiness - DfMonster.DmgTaken - (Globals.IsClassicVersion(5) ? 0 : 2);
+					_d2 = DfMonster.Hardiness - DfMonster.DmgTaken - (Globals.IsRulesetVersion(5) ? 0 : 2);
 
 					CombatState = RTEnums.CombatState.CheckArmor;
 
 					goto Cleanup;
 				}
 
-				if (_rl < (Globals.IsClassicVersion(5) ? 51 : 50))
+				if (_rl < (Globals.IsRulesetVersion(5) ? 51 : 50))
 				{
 					A = 0;
 
@@ -533,7 +533,7 @@ namespace EamonRT.Game.Combat
 					goto Cleanup;
 				}
 
-				if (!Globals.IsClassicVersion(5) || _rl < 86)
+				if (_rl < 86 || !Globals.IsRulesetVersion(5))
 				{
 					S2 = S;
 
@@ -611,7 +611,7 @@ namespace EamonRT.Game.Combat
 
 			DfMonster.DmgTaken += _d2;
 
-			if (Globals.IsClassicVersion(5))
+			if (Globals.IsRulesetVersion(5))
 			{
 				Globals.GameState.ModDTTL(DfMonster.Friendliness, _d2);
 			}
@@ -751,7 +751,7 @@ namespace EamonRT.Game.Combat
 			{
 				PrintBlast();
 
-				if (Globals.IsClassicVersion(5))
+				if (Globals.IsRulesetVersion(5))
 				{
 					ExecuteCalculateDamage(1, 6);
 				}

@@ -118,7 +118,7 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 200;
 
-			if (Globals.IsClassicVersion(5))
+			if (Globals.IsRulesetVersion(5))
 			{
 				IsPlayerEnabled = false;
 

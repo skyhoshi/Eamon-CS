@@ -232,11 +232,11 @@ namespace EamonRT.Game
 
 			Debug.Assert(spell != null);
 
-			Globals.Out.Write("{0}The strain of attempting to cast {1} overloads your brain and you forget it completely{2}.{0}", Environment.NewLine, spell.Name, Globals.IsClassicVersion(5) ? "" : " for the rest of this adventure");
+			Globals.Out.Write("{0}The strain of attempting to cast {1} overloads your brain and you forget it completely{2}.{0}", Environment.NewLine, spell.Name, Globals.IsRulesetVersion(5) ? "" : " for the rest of this adventure");
 
 			Globals.GameState.SetSa(s, 0);
 
-			if (Globals.IsClassicVersion(5))
+			if (Globals.IsRulesetVersion(5))
 			{
 				Globals.Character.SetSpellAbilities(s, 0);
 			}
@@ -1065,7 +1065,7 @@ namespace EamonRT.Game
 
 			Debug.Assert(friendliness != null);
 
-			if (Globals.IsClassicVersion(5) && monster.Friendliness == Enums.Friendliness.Friend)
+			if (Globals.IsRulesetVersion(5) && monster.Friendliness == Enums.Friendliness.Friend)
 			{
 				Globals.Out.Write("{0}{1} {2}{3} back.",
 					Environment.NewLine,
@@ -1134,7 +1134,7 @@ namespace EamonRT.Game
 					DfMonster.Weapon = -1;
 				}
 
-				if (Globals.IsClassicVersion(5))
+				if (Globals.IsRulesetVersion(5))
 				{
 					Globals.GameState.ModDTTL(DfMonster.Friendliness, -DfMonster.DmgTaken);
 				}
@@ -1705,7 +1705,7 @@ namespace EamonRT.Game
 
 					artifact.SetInLimbo();
 
-					Globals.Out.Write("{0}{1} {2}{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), Globals.IsClassicVersion(5) ? "comes alive!" : "comes to life!");
+					Globals.Out.Write("{0}{1} {2}{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), Globals.IsRulesetVersion(5) ? "comes alive!" : "comes to life!");
 
 					found = true;
 				}
@@ -1756,7 +1756,7 @@ namespace EamonRT.Game
 
 			Debug.Assert(monster != null);
 
-			if (Globals.IsClassicVersion(5))
+			if (Globals.IsRulesetVersion(5))
 			{
 				var rl = (long)Math.Round((double)Globals.GameState.GetDTTL(monster.Friendliness) / (double)Globals.GameState.GetNBTL(monster.Friendliness) * 100 + Globals.Engine.RollDice01(1, 41, -21));
 
@@ -1814,7 +1814,7 @@ namespace EamonRT.Game
 
 					if (rl > Globals.Character.GetSpellAbilities(s))
 					{
-						if (!Globals.IsClassicVersion(5))
+						if (!Globals.IsRulesetVersion(5))
 						{
 							Globals.Out.Write("{0}Your ability to cast {1} just increased!{0}", Environment.NewLine, spell.Name);
 						}
@@ -1866,7 +1866,7 @@ namespace EamonRT.Game
 
 					Debug.Assert(weapon != null);
 
-					if (!Globals.IsClassicVersion(5))
+					if (!Globals.IsRulesetVersion(5))
 					{
 						Globals.Out.Write("{0}Your {1} ability just increased!{0}", Environment.NewLine, weapon.Name);
 					}
@@ -1891,7 +1891,7 @@ namespace EamonRT.Game
 
 					if (rl > Globals.Character.ArmorExpertise)
 					{
-						if (!Globals.IsClassicVersion(5))
+						if (!Globals.IsRulesetVersion(5))
 						{
 							Globals.Out.Write("{0}Your armor expertise just increased!{0}", Environment.NewLine);
 						}
@@ -2077,7 +2077,7 @@ namespace EamonRT.Game
 
 			Globals.GameState.SetNBTL(Enums.Friendliness.Friend, Globals.MDB[Globals.GameState.Cm].Hardiness);
 
-			if (Globals.IsClassicVersion(5))
+			if (Globals.IsRulesetVersion(5))
 			{
 				Array.Clear(Globals.GameState.DTTL, 0, (int)Globals.GameState.DTTL.Length);
 
@@ -2092,7 +2092,7 @@ namespace EamonRT.Game
 
 				Globals.GameState.ModNBTL(monster.Friendliness, monster.Hardiness * monster.GroupCount);
 
-				if (Globals.IsClassicVersion(5))
+				if (Globals.IsRulesetVersion(5))
 				{
 					Globals.GameState.ModDTTL(monster.Friendliness, monster.DmgTaken);
 				}

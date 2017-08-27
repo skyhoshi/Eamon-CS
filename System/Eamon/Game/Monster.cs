@@ -77,7 +77,7 @@ namespace Eamon.Game
 		{
 			get
 			{
-				return Globals.IsClassicVersion(5) && Globals?.Engine.GetGameState() != null && IsWeaponless(false) ? _courage / 2 : _courage;
+				return Globals.IsRulesetVersion(5) && Globals?.Engine.GetGameState() != null && IsWeaponless(false) ? _courage / 2 : _courage;
 			}
 
 			set
@@ -575,7 +575,7 @@ namespace Eamon.Game
 
 		protected virtual void PrintDescGroupCount(IField field, IPrintDescArgs args)
 		{
-			var fullDesc = "Enter the number of members in the monster's group." + (Globals.IsClassicVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be 1." : "");
+			var fullDesc = "Enter the number of members in the monster's group." + (Globals.IsRulesetVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be 1." : "");
 
 			var briefDesc = "1=Single monster; (GT 1)=Multiple monsters";
 
@@ -586,7 +586,7 @@ namespace Eamon.Game
 		{
 			Debug.Assert(args != null && args.Buf != null);
 
-			var fullDesc = "Enter the courage of the monster." + (Globals.IsClassicVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be between 1 and 100, inclusive." : "");
+			var fullDesc = "Enter the courage of the monster." + (Globals.IsRulesetVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be between 1 and 100, inclusive." : "");
 
 			var briefDesc = "80-90=Weak monster; 95-100=Medium monster; 200=Tough/Exceptional monster";
 
@@ -696,7 +696,7 @@ namespace Eamon.Game
 		{
 			int j;
 
-			var fullDesc = "Enter the friendliness of the monster." + (Globals.IsClassicVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be between 100 and 200, inclusive." : "");
+			var fullDesc = "Enter the friendliness of the monster." + (Globals.IsRulesetVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be between 100 and 200, inclusive." : "");
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
@@ -2812,7 +2812,7 @@ namespace Eamon.Game
 		{
 			if (Globals.Engine.IsValidMonsterFriendlinessPct(Friendliness))
 			{
-				if (Globals.IsClassicVersion(5))
+				if (Globals.IsRulesetVersion(5))
 				{
 					var f = (long)Friendliness - 100;
 
@@ -2878,7 +2878,7 @@ namespace Eamon.Game
 
 		public virtual void CalculateGiftFriendlinessPct(long value)
 		{
-			Debug.Assert(Globals.IsClassicVersion(5));
+			Debug.Assert(Globals.IsRulesetVersion(5));
 
 			OrigFriendliness -= 100;
 
@@ -3110,7 +3110,7 @@ namespace Eamon.Game
 
 				if (x == 4)
 				{
-					result = (Globals.IsClassicVersion(5) ? "very " : "") + "badly injured.";
+					result = (Globals.IsRulesetVersion(5) ? "very " : "") + "badly injured.";
 				}
 				else if (x == 3)
 				{

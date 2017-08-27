@@ -48,7 +48,7 @@ namespace Eamon.Framework.Plugin
 
 		string LineSep { get; set; }
 
-		long ClassicVersion { get; set; }
+		long RulesetVersion { get; set; }
 
 		bool LineWrapUserInput { get; set; }
 
@@ -110,7 +110,7 @@ namespace Eamon.Framework.Plugin
 
 		bool CompareInstances<T>(T object1, T object2) where T : class;
 
-		bool IsClassicVersion(params long[] versions);
+		bool IsRulesetVersion(params long[] versions);
 
 		string GetPrefixedFileName(string fileName);
 	}

@@ -41,7 +41,7 @@ namespace Eamon.Framework.Plugin
 
 		string FilePrefix { get; set; }
 
-		long ClassicVersion { get; set; }
+		long RulesetVersion { get; set; }
 
 		bool EnableStdio { get; set; }
 
@@ -71,7 +71,7 @@ namespace Eamon.Framework.Plugin
 
 		bool CompareInstances<T>(T object1, T object2) where T : class;
 
-		bool IsClassicVersion(params long[] versions);
+		bool IsRulesetVersion(params long[] versions);
 
 		string GetPrefixedFileName(string fileName);
 	}
