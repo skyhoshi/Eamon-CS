@@ -998,7 +998,7 @@ namespace Eamon.Game
 
 		public virtual bool IsLit()
 		{
-			var gameState = Globals.Engine.GetGameState();
+			var gameState = Globals?.Engine.GetGameState();
 
 			return gameState != null && Uid == gameState.Ro ? gameState.Lt != 0 : LightLvl == Enums.LightLevel.Light;
 		}
@@ -1077,6 +1077,11 @@ namespace Eamon.Game
 		public virtual T EvalLightLevel<T>(T darkValue, T lightValue)
 		{
 			return IsLit() ? lightValue : darkValue;
+		}
+
+		public virtual T EvalRoomType<T>(T indoorsValue, T outdoorsValue)
+		{
+			return Type == Enums.RoomType.Indoors ? indoorsValue : outdoorsValue;
 		}
 
 		public virtual IList<IArtifact> GetTakeableList(Func<IArtifact, bool> roomFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false)

@@ -64,7 +64,7 @@ namespace EamonRT.Game.States
 
 			var artifact = ArtifactList[(int)ArtifactListIndex];
 
-			Debug.Assert(artifact != null && artifact.IsWeapon01());
+			Debug.Assert(artifact != null && artifact.IsReadyableByMonster(monster));
 
 			if (!artifact.IsCarriedByMonster(monster))
 			{

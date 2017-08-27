@@ -14,6 +14,7 @@ using Eamon.Game.Extensions;
 using EamonRT.Framework.Combat;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
+using Classes = Eamon.Framework.Primitive.Classes;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -45,12 +46,12 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact != null)
 			{
-				var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.DeadBody, Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Container, Enums.ArtifactType.DoorGate };
+				Classes.IArtifactClass ac = null;
 
-				var ac = DobjArtifact.GetArtifactClass(artClasses, false);
-
-				if (ac != null)
+				if (DobjArtifact.IsAttackable01(ref ac))
 				{
+					Debug.Assert(ac != null);
+
 					if (ac.Type == Enums.ArtifactType.DeadBody)
 					{
 						if (BlastSpell)

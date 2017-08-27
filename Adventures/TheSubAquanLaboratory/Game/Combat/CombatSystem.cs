@@ -43,13 +43,13 @@ namespace TheSubAquanLaboratory.Game.Combat
 		{
 			if (DfMonster.Uid == Globals.GameState.Cm && DfMonster.Armor < 1)
 			{
-				Globals.Out.Write("{0}  Blow turned!", Environment.NewLine);
+				Globals.Out.Write("{0}{1}Blow turned!", Environment.NewLine, OmitBboaPadding ? "" : "  ");
 			}
 			else
 			{
 				var armorDesc = DfMonster.GetArmorDescString();
 
-				Globals.Out.Write("{0}  Blow bounces off {1}!", Environment.NewLine, armorDesc);
+				Globals.Out.Write("{0}{1}Blow bounces off {2}!", Environment.NewLine, OmitBboaPadding ? "" : "  ", armorDesc);
 			}
 		}
 	}

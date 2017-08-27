@@ -64,6 +64,8 @@ namespace Eamon.Framework
 
 		T EvalLightLevel<T>(T darkValue, T lightValue);
 
+		T EvalRoomType<T>(T indoorsValue, T outdoorsValue);
+
 		IList<IArtifact> GetTakeableList(Func<IArtifact, bool> roomFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false);
 
 		IList<IArtifact> GetEmbeddedList(Func<IArtifact, bool> roomFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false);

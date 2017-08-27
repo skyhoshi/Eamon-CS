@@ -32,26 +32,41 @@ namespace EamonRT.Game.Commands
 
 			if (DobjMonster.DmgTaken > 0)
 			{
-				Globals.Buf.SetFormat("{0}{1}",
-					Environment.NewLine,
-					isCharMonster ? "Your" :
-					DobjMonster.EvalPlural(DobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf01),
-													DobjMonster.GetDecoratedName02(true, true, false, true, Globals.Buf02)));
+				if (Globals.IsClassicVersion(5))
+				{
+					Globals.Buf.SetFormat("{0}Some of your", Environment.NewLine);
+				}
+				else
+				{
+					Globals.Buf.SetFormat("{0}{1}",
+						Environment.NewLine,
+						isCharMonster ? "Your" :
+						DobjMonster.EvalPlural(DobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf01),
+														DobjMonster.GetDecoratedName02(true, true, false, true, Globals.Buf02)));
+				}
 
-				if (!DobjMonster.IsCharacterMonster())
+				if (!isCharMonster)
 				{
 					Globals.Engine.GetPossessiveName(Globals.Buf);
 				}
 
-				Globals.Buf.AppendFormat("{1}{0}", Environment.NewLine, " health improves!");
+				if (Globals.IsClassicVersion(5))
+				{
+					Globals.Buf.AppendFormat(" wounds seem to clear up.{0}", Environment.NewLine);
+				}
+				else
+				{
+					Globals.Buf.AppendFormat(" health improves!{0}", Environment.NewLine);
+				}
 
 				Globals.Out.Write("{0}", Globals.Buf);
 
-				var rl = 0L;
+				var rl = Globals.Engine.RollDice01(1, Globals.IsClassicVersion(5) ? 10 : 12, 0);
 
-				var rc = Globals.Engine.RollDice(1, 12, 0, ref rl);
-
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				if (Globals.IsClassicVersion(5))
+				{
+					Globals.GameState.ModDTTL(DobjMonster.Friendliness, -Math.Min(DobjMonster.DmgTaken, rl));
+				}
 
 				DobjMonster.DmgTaken -= rl;
 			}
@@ -80,7 +95,7 @@ namespace EamonRT.Game.Commands
 
 		protected override void PlayerFinishParsing()
 		{
-			if (CommandParser.CurrToken < CommandParser.Tokens.Length)
+			if (!Globals.IsClassicVersion(5) && CommandParser.CurrToken < CommandParser.Tokens.Length)
 			{
 				PlayerResolveMonster();
 			}

@@ -22,6 +22,12 @@ namespace Eamon.Game
 	[ClassMappings]
 	public class Monster : Editable, IMonster
 	{
+		#region Protected Fields
+
+		protected long _courage;
+
+		#endregion
+
 		#region Protected Properties
 
 		[ExcludeFromSerialization]
@@ -67,7 +73,18 @@ namespace Eamon.Game
 
 		public virtual long GroupCount { get; set; }
 
-		public virtual long Courage { get; set; }
+		public virtual long Courage
+		{
+			get
+			{
+				return Globals.IsClassicVersion(5) && Globals?.Engine.GetGameState() != null && IsWeaponless(false) ? _courage / 2 : _courage;
+			}
+
+			set
+			{
+				_courage = value;
+			}
+		}
 
 		public virtual long Location { get; set; }
 
@@ -90,6 +107,8 @@ namespace Eamon.Game
 		public virtual long InitGroupCount { get; set; }
 
 		public virtual long OrigGroupCount { get; set; }
+
+		public virtual Enums.Friendliness OrigFriendliness { get; set; }
 
 		public virtual long DmgTaken { get; set; }
 
@@ -224,6 +243,19 @@ namespace Eamon.Game
 			return OrigGroupCount >= GroupCount;
 		}
 
+		protected virtual bool ValidateOrigFriendliness(IField field, IValidateArgs args)
+		{
+			if (OrigFriendliness == 0)
+			{
+				OrigFriendliness = (Enums.Friendliness)((long)Friendliness >= 100 && (long)Friendliness <= 200 ? (long)Friendliness :
+					Friendliness == Enums.Friendliness.Friend ? 200 :
+					Friendliness == Enums.Friendliness.Neutral ? 150 :
+					100);
+			}
+
+			return Globals.Engine.IsValidMonsterFriendliness(OrigFriendliness);
+		}
+
 		protected virtual bool ValidateDmgTaken(IField field, IValidateArgs args)
 		{
 			return DmgTaken >= 0;
@@ -353,11 +385,11 @@ namespace Eamon.Game
 
 					goto Cleanup;
 				}
-				else if (!artifact.IsWeapon01())
+				else if (!artifact.IsReadyableByMonster(this))
 				{
 					result = false;
 
-					args.Buf.SetFormat(Constants.RecIdepErrorFmtStr, field.GetPrintedName(), "artifact", artUid, "which should be a weapon, but isn't");
+					args.Buf.SetFormat(Constants.RecIdepErrorFmtStr, field.GetPrintedName(), "artifact", artUid, "which should be a readyable weapon, but isn't");
 
 					args.ErrorMessage = args.Buf.ToString();
 
@@ -543,7 +575,7 @@ namespace Eamon.Game
 
 		protected virtual void PrintDescGroupCount(IField field, IPrintDescArgs args)
 		{
-			var fullDesc = "Enter the number of members in the monster's group.";
+			var fullDesc = "Enter the number of members in the monster's group." + (Globals.IsClassicVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be 1." : "");
 
 			var briefDesc = "1=Single monster; (GT 1)=Multiple monsters";
 
@@ -554,7 +586,7 @@ namespace Eamon.Game
 		{
 			Debug.Assert(args != null && args.Buf != null);
 
-			var fullDesc = "Enter the courage of the monster.";
+			var fullDesc = "Enter the courage of the monster." + (Globals.IsClassicVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be between 1 and 100, inclusive." : "");
 
 			var briefDesc = "80-90=Weak monster; 95-100=Medium monster; 200=Tough/Exceptional monster";
 
@@ -599,7 +631,7 @@ namespace Eamon.Game
 
 			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc.ToString());
 		}
-
+		
 		protected virtual void PrintDescArmor(IField field, IPrintDescArgs args)
 		{
 			var fullDesc = "Enter the armor of the monster.";
@@ -664,7 +696,7 @@ namespace Eamon.Game
 		{
 			int j;
 
-			var fullDesc = "Enter the friendliness of the monster.";
+			var fullDesc = "Enter the friendliness of the monster." + (Globals.IsClassicVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be between 100 and 200, inclusive." : "");
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
@@ -1927,6 +1959,11 @@ namespace Eamon.Game
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
+			OrigFriendliness = (Enums.Friendliness)((long)Friendliness >= 100 && (long)Friendliness <= 200 ? (long)Friendliness :
+				Friendliness == Enums.Friendliness.Friend ? 200 :
+				Friendliness == Enums.Friendliness.Neutral ? 150 :
+				100);
+
 			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 		}
 
@@ -2312,6 +2349,12 @@ namespace Eamon.Game
 					}),
 					Globals.CreateInstance<IField>(x =>
 					{
+						x.Name = "OrigFriendliness";
+						x.Validate = ValidateOrigFriendliness;
+						x.GetValue = () => OrigFriendliness;
+					}),
+					Globals.CreateInstance<IField>(x =>
+					{
 						x.Name = "DmgTaken";
 						x.Validate = ValidateDmgTaken;
 						x.GetValue = () => DmgTaken;
@@ -2648,6 +2691,11 @@ namespace Eamon.Game
 			return Weapon > 0 && Weapon < 1001;
 		}
 
+		public virtual bool IsWeaponless(bool includeWeaponFumble)
+		{
+			return includeWeaponFumble ? Weapon < 0 : Weapon == -1;
+		}
+
 		public virtual bool HasDeadBody()
 		{
 			return DeadBody > 0 && DeadBody < 1001;
@@ -2717,11 +2765,18 @@ namespace Eamon.Game
 		public virtual void SetInRoomUid(long roomUid)
 		{
 			Location = roomUid;
+
+			var gameState = Globals?.Engine.GetGameState();
+
+			if (IsCharacterMonster() && gameState != null)
+			{
+				gameState.Ro = roomUid;
+			}
 		}
 
 		public virtual void SetInLimbo()
 		{
-			Location = 0;
+			SetInRoomUid(0);
 		}
 
 		public virtual void SetInRoom(IRoom room)
@@ -2757,35 +2812,59 @@ namespace Eamon.Game
 		{
 			if (Globals.Engine.IsValidMonsterFriendlinessPct(Friendliness))
 			{
-				var rl = 0L;
-
-				var f = (long)Friendliness - 100;
-
-				var k = Enums.Friendliness.Friend;
-
-				var rc = Globals.Engine.RollDice(1, 100, 0, ref rl);
-
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-				rl -= Globals.Engine.GetCharismaFactor(charisma);
-
-				if (rl > f)
+				if (Globals.IsClassicVersion(5))
 				{
-					k--;
+					var f = (long)Friendliness - 100;
 
-					rc = Globals.Engine.RollDice(1, 100, 0, ref rl);
+					if (f > 0 && f < 100)
+					{
+						f += Globals.Engine.GetCharismaFactor(charisma);
+					}
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					var k = Enums.Friendliness.Friend;
+
+					var rl = Globals.Engine.RollDice01(1, 100, 0);
+
+					if (rl > f)
+					{
+						k--;
+
+						rl = Globals.Engine.RollDice01(1, 100, 0);
+
+						if (rl > f)
+						{
+							k--;
+						}
+					}
+
+					Friendliness = k;
+				}
+				else
+				{
+					var f = (long)Friendliness - 100;
+
+					var k = Enums.Friendliness.Friend;
+
+					var rl = Globals.Engine.RollDice01(1, 100, 0);
 
 					rl -= Globals.Engine.GetCharismaFactor(charisma);
 
 					if (rl > f)
 					{
 						k--;
-					}
-				}
 
-				Friendliness = k;
+						rl = Globals.Engine.RollDice01(1, 100, 0);
+
+						rl -= Globals.Engine.GetCharismaFactor(charisma);
+
+						if (rl > f)
+						{
+							k--;
+						}
+					}
+
+					Friendliness = k;
+				}
 			}
 		}
 
@@ -2797,9 +2876,31 @@ namespace Eamon.Game
 			}
 		}
 
+		public virtual void CalculateGiftFriendlinessPct(long value)
+		{
+			Debug.Assert(Globals.IsClassicVersion(5));
+
+			OrigFriendliness -= 100;
+
+			OrigFriendliness = (Enums.Friendliness)((double)OrigFriendliness * (1 + (double)value / 33));       // Scaled to EDX values; originally 100
+
+			if (OrigFriendliness < 0)
+			{
+				OrigFriendliness = 0;
+			}
+			else if ((long)OrigFriendliness > 100)
+			{
+				OrigFriendliness = (Enums.Friendliness)100;
+			}
+
+			OrigFriendliness += 100;
+
+			Friendliness = OrigFriendliness;
+		}
+
 		public virtual bool IsCharacterMonster()
 		{
-			var gameState = Globals.Engine.GetGameState();
+			var gameState = Globals?.Engine.GetGameState();
 
 			return gameState != null && gameState.Cm == Uid;
 		}
@@ -3009,7 +3110,7 @@ namespace Eamon.Game
 
 				if (x == 4)
 				{
-					result = "badly injured.";
+					result = (Globals.IsClassicVersion(5) ? "very " : "") + "badly injured.";
 				}
 				else if (x == 3)
 				{

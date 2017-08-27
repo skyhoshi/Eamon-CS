@@ -48,6 +48,8 @@ namespace Eamon.Framework.Plugin
 
 		string LineSep { get; set; }
 
+		long ClassicVersion { get; set; }
+
 		bool LineWrapUserInput { get; set; }
 
 		bool RunGameEditor { get; set; }
@@ -107,6 +109,8 @@ namespace Eamon.Framework.Plugin
 		T CloneInstance<T>(T source) where T : class;
 
 		bool CompareInstances<T>(T object1, T object2) where T : class;
+
+		bool IsClassicVersion(params long[] versions);
 
 		string GetPrefixedFileName(string fileName);
 	}

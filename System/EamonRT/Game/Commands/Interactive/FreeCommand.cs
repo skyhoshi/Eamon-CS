@@ -114,6 +114,13 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 270;
 
+			if (Globals.IsClassicVersion(5))
+			{
+				IsPlayerEnabled = false;
+
+				IsMonsterEnabled = false;
+			}
+
 			Name = "FreeCommand";
 
 			Verb = "free";

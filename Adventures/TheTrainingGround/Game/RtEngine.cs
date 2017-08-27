@@ -41,7 +41,7 @@ namespace TheTrainingGround.Game
 			}
 		}
 
-		protected override void PrintMonsterAlive(Eamon.Framework.IArtifact artifact)
+		public override void PrintMonsterAlive(Eamon.Framework.IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 

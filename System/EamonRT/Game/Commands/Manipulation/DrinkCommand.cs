@@ -19,6 +19,16 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class DrinkCommand : Command, IDrinkCommand
 	{
+		protected virtual void PlayerProcessEvents()
+		{
+
+		}
+
+		protected virtual void PlayerProcessEvents01()
+		{
+
+		}
+
 		protected override void PlayerExecute()
 		{
 			RetCode rc;
@@ -53,7 +63,7 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Field6 < 1)
 				{
-					Globals.Out.WriteLine("{0}There's none left.", Environment.NewLine);
+					PrintNoneLeft(DobjArtifact);
 
 					goto Cleanup;
 				}
@@ -67,6 +77,13 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
+				PlayerProcessEvents();
+
+				if (GotoCleanup)
+				{
+					goto Cleanup;
+				}
+
 				if (ac.Field6 < 1)
 				{
 					DobjArtifact.Value = 0;
@@ -77,11 +94,16 @@ namespace EamonRT.Game.Commands
 				}
 				else if (ac.Field5 == 0)
 				{
-					Globals.Out.WriteLine("{0}Okay.", Environment.NewLine);
+					PrintOkay(DobjArtifact);
 				}
 
 				if (ac.Field5 != 0)
 				{
+					if (Globals.IsClassicVersion(5))
+					{
+						Globals.GameState.ModDTTL(ActorMonster.Friendliness, -(ac.Field5 >= 0 ? Math.Min(ActorMonster.DmgTaken, ac.Field5) : ac.Field5));
+					}
+
 					ActorMonster.DmgTaken -= ac.Field5;
 
 					if (ActorMonster.DmgTaken < 0)
@@ -89,7 +111,14 @@ namespace EamonRT.Game.Commands
 						ActorMonster.DmgTaken = 0;
 					}
 
-					Globals.Out.WriteLine("{0}You feel {1}!", Environment.NewLine, ac.Field5 < 0 ? "worse" : "better");
+					if (ac.Field5 > 0)
+					{
+						PrintFeelBetter(DobjArtifact);
+					}
+					else
+					{
+						PrintFeelWorse(DobjArtifact);
+					}
 
 					Globals.Buf.SetFormat("{0}You are ", Environment.NewLine);
 
@@ -108,6 +137,13 @@ namespace EamonRT.Game.Commands
 
 						goto Cleanup;
 					}
+				}
+
+				PlayerProcessEvents01();
+
+				if (GotoCleanup)
+				{
+					goto Cleanup;
 				}
 			}
 			else
@@ -135,6 +171,13 @@ namespace EamonRT.Game.Commands
 		public DrinkCommand()
 		{
 			SortOrder = 120;
+
+			if (Globals.IsClassicVersion(5))
+			{
+				IsPlayerEnabled = false;
+
+				IsMonsterEnabled = false;
+			}
 
 			Name = "DrinkCommand";
 

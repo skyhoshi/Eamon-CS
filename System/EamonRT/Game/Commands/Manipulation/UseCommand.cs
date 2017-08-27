@@ -127,6 +127,13 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 230;
 
+			if (Globals.IsClassicVersion(5))
+			{
+				IsPlayerEnabled = false;
+
+				IsMonsterEnabled = false;
+			}
+
 			Name = "UseCommand";
 
 			Verb = "use";

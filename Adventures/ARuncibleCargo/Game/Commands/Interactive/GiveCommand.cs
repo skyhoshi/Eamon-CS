@@ -54,6 +54,8 @@ namespace ARuncibleCargo.Game.Commands
 
 				IobjMonster.Friendliness++;
 
+				IobjMonster.OrigFriendliness = (Enums.Friendliness)200;
+
 				Globals.RtEngine.CheckEnemies();
 
 				Globals.Engine.PrintEffectDesc(94);

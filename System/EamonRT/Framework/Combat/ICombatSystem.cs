@@ -36,7 +36,7 @@ namespace EamonRT.Framework.Combat
 
 		RTEnums.AttackResult FixedResult { get; set; }
 
-		void ExecuteCalculateDamage(long numDice, long numSides);
+		void ExecuteCalculateDamage(long numDice, long numSides, long mod = 0);
 
 		void ExecuteCheckMonsterStatus();
 

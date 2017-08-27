@@ -26,7 +26,7 @@ namespace StrongholdOfKahrDur.Game.Combat
 			{
 				var armorDesc = DfMonster.GetArmorDescString();
 
-				Globals.Out.Write("{0}  Blow glances off {1}!", Environment.NewLine, armorDesc);
+				Globals.Out.Write("{0}{1}Blow glances off {2}!", Environment.NewLine, OmitBboaPadding ? "" : "  ", armorDesc);
 			}
 			else
 			{

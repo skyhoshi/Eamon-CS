@@ -60,6 +60,8 @@ namespace EamonRT.Game.Combat
 
 		protected virtual string MissDesc { get; set; }
 
+		protected virtual bool OmitBboaPadding { get; set; }
+
 		protected virtual bool LightOut { get; set; }
 
 		protected virtual long OfWeaponUid { get; set; }
@@ -69,6 +71,8 @@ namespace EamonRT.Game.Combat
 		protected virtual long D { get; set; }
 
 		protected virtual long S { get; set; }
+
+		protected virtual long M { get; set; }
 
 		protected virtual long A { get; set; }
 
@@ -203,13 +207,13 @@ namespace EamonRT.Game.Combat
 		{
 			if (DfMonster.Armor < 1)
 			{
-				Globals.Out.Write("{0}  Blow turned!", Environment.NewLine);
+				Globals.Out.Write("{0}{1}Blow turned!", Environment.NewLine, OmitBboaPadding ? "" : "  ");
 			}
 			else
 			{
 				var armorDesc = DfMonster.GetArmorDescString();
 
-				Globals.Out.Write("{0}  Blow bounces off {1}!", Environment.NewLine, armorDesc);
+				Globals.Out.Write("{0}{1}Blow bounces off {2}!", Environment.NewLine, OmitBboaPadding ? "" : "  ", armorDesc);
 			}
 		}
 
@@ -236,8 +240,6 @@ namespace EamonRT.Game.Combat
 
 		protected virtual void BeginAttack()
 		{
-			RetCode rc;
-
 			Debug.Assert(OfMonster != null && OfMonster.CombatCode != Enums.CombatCode.NeverFights);
 
 			Debug.Assert(DfMonster != null);
@@ -248,7 +250,7 @@ namespace EamonRT.Game.Combat
 
 			if (OfWeaponUid > 0 && OfMonster.GroupCount > 1 && MemberNumber > 1)
 			{
-				OfWeapon = Globals.Engine.GetNthArtifact(OfMonster.GetCarriedList(), MemberNumber - 1, x => x.IsWeapon01() && x.Uid != OfWeaponUid);
+				OfWeapon = Globals.Engine.GetNthArtifact(OfMonster.GetCarriedList(), MemberNumber - 1, x => x.IsReadyableByMonster(OfMonster) && x.Uid != OfWeaponUid);
 
 				OfWeaponUid = OfWeapon != null ? OfWeapon.Uid : OfMonster.NwDice > 0 && OfMonster.NwSides > 0 ? 0 : -1;
 
@@ -305,12 +307,10 @@ namespace EamonRT.Game.Combat
 			}
 			else
 			{
-				rc = Globals.Engine.RollDice(1, 100, 0, ref _rl);
-
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				_rl = Globals.Engine.RollDice01(1, 100, 0);
 			}
 
-			if (OfMonster.IsCharacterMonster() && _rl < 97 && (_rl <= 5 || _rl <= _odds) && !OmitSkillGains)
+			if (OfMonster.IsCharacterMonster() && _rl < 97 && (_rl < 5 || _rl <= _odds) && !OmitSkillGains)
 			{
 				Globals.RtEngine.CheckPlayerSkillIncrease(OfAc, Af);
 			}
@@ -319,7 +319,7 @@ namespace EamonRT.Game.Combat
 
 			PrintAttack();
 
-			if (_rl < 97 && (_rl <= 5 || _rl <= _odds))
+			if (_rl < 97 && (_rl < 5 || _rl <= _odds))
 			{
 				CombatState = RTEnums.CombatState.AttackHit;
 			}
@@ -365,11 +365,9 @@ namespace EamonRT.Game.Combat
 
 			PrintFumble();
 
-			rc = Globals.Engine.RollDice(1, 100, 0, ref _rl);
+			_rl = Globals.Engine.RollDice01(1, 100, 0);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-			if (_rl < 41)
+			if ((Globals.IsClassicVersion(5) && _rl < 36) || (!Globals.IsClassicVersion(5) && _rl < 41))
 			{
 				PrintRecovered();
 
@@ -378,7 +376,7 @@ namespace EamonRT.Game.Combat
 				goto Cleanup;
 			}
 
-			if (_rl < 81)
+			if ((Globals.IsClassicVersion(5) && _rl < 76) || (!Globals.IsClassicVersion(5) && _rl < 81))
 			{
 				Globals.RtEngine.RemoveWeight(OfWeapon);
 
@@ -411,10 +409,6 @@ namespace EamonRT.Game.Combat
 				PrintWeaponHitsUser();
 
 				DfMonster = OfMonster;
-
-				rc = Globals.Engine.RollDice(1, 100, 0, ref _rl);
-
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
 				CombatState = RTEnums.CombatState.AttackHit;
 
@@ -465,9 +459,7 @@ namespace EamonRT.Game.Combat
 
 			OfMonster.Weapon = -1;
 
-			rc = Globals.Engine.RollDice(1, 100, 0, ref _rl);
-
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			_rl = Globals.Engine.RollDice01(1, 100, 0);
 
 			if (_rl > 50)
 			{
@@ -480,9 +472,7 @@ namespace EamonRT.Game.Combat
 
 			DfMonster = OfMonster;
 
-			rc = Globals.Engine.RollDice(1, 100, 0, ref _rl);
-
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			_rl = Globals.Engine.RollDice01(1, 5, 95);
 
 			CombatState = RTEnums.CombatState.AttackHit;
 
@@ -493,8 +483,6 @@ namespace EamonRT.Game.Combat
 
 		protected virtual void AttackHit()
 		{
-			RetCode rc;
-
 			if (OfAc != null)
 			{
 				D = OfAc.Field7;
@@ -512,7 +500,7 @@ namespace EamonRT.Game.Combat
 
 			PrintStarPlus();
 
-			if ((OfMonster != DfMonster && _rl > 5) || (OfMonster == DfMonster && _rl > 1))
+			if ((OfMonster != DfMonster && _rl >= 5) || (OfMonster == DfMonster && _rl < 100))
 			{
 				PrintHit();
 
@@ -523,33 +511,47 @@ namespace EamonRT.Game.Combat
 
 			PrintCriticalHit();
 
-			rc = Globals.Engine.RollDice(1, 100, 0, ref _rl);
-
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-			if (_rl == 100)
+			if (OfMonster != DfMonster || !Globals.IsClassicVersion(5))
 			{
-				_d2 = DfMonster.Hardiness - DfMonster.DmgTaken - 2;
+				_rl = Globals.Engine.RollDice01(1, 100, 0);
 
-				CombatState = RTEnums.CombatState.CheckArmor;
+				if (_rl == 100)
+				{
+					_d2 = DfMonster.Hardiness - DfMonster.DmgTaken - (Globals.IsClassicVersion(5) ? 0 : 2);
 
-				goto Cleanup;
+					CombatState = RTEnums.CombatState.CheckArmor;
+
+					goto Cleanup;
+				}
+
+				if (_rl < (Globals.IsClassicVersion(5) ? 51 : 50))
+				{
+					A = 0;
+
+					CombatState = RTEnums.CombatState.CalculateDamage;
+
+					goto Cleanup;
+				}
+
+				if (!Globals.IsClassicVersion(5) || _rl < 86)
+				{
+					S2 = S;
+
+					S2 *= (1 + .5 + (_rl > 85 ? 1 : 0) + (_rl > 95 ? 1 : 0));
+
+					S = (long)Math.Round(S2);
+				}
+				else
+				{
+					D *= (1 + (_rl > 85 ? 1 : 0) + (_rl > 95 ? 1 : 0));
+				}
 			}
-
-			if (_rl < 50)
+			else
 			{
+				D *= 2;
+
 				A = 0;
-
-				CombatState = RTEnums.CombatState.CalculateDamage;
-
-				goto Cleanup;
 			}
-
-			S2 = S;
-
-			S2 *= (1 + .5 + (_rl > 85 ? 1 : 0) + (_rl > 95 ? 1 : 0));
-
-			S = (long)Math.Round(S2);
 
 			CombatState = RTEnums.CombatState.CalculateDamage;
 
@@ -560,24 +562,11 @@ namespace EamonRT.Game.Combat
 
 		protected virtual void CalculateDamage()
 		{
-			RetCode rc;
-
 			Debug.Assert(DfMonster != null);
 
 			Debug.Assert(D > 0 && S > 0 && A >= 0 && A <= 1);
 
-			_d2 = 0;
-
-			if (MaxDamage)
-			{
-				_d2 = D * S;
-			}
-			else
-			{
-				rc = Globals.Engine.RollDice(D, S, 0, ref _d2);
-
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
-			}
+			_d2 = MaxDamage ? (D * S) + M : Globals.Engine.RollDice01(D, S, M);
 
 			_d2 -= (A * DfMonster.Armor);
 
@@ -621,6 +610,11 @@ namespace EamonRT.Game.Combat
 			Debug.Assert(_d2 >= 0);
 
 			DfMonster.DmgTaken += _d2;
+
+			if (Globals.IsClassicVersion(5))
+			{
+				Globals.GameState.ModDTTL(DfMonster.Friendliness, _d2);
+			}
 
 			if (!OmitMonsterStatus || OfMonster == DfMonster)
 			{
@@ -725,7 +719,7 @@ namespace EamonRT.Game.Combat
 			}
 		}
 
-		public virtual void ExecuteCalculateDamage(long numDice, long numSides)
+		public virtual void ExecuteCalculateDamage(long numDice, long numSides, long mod = 0)
 		{
 			CombatState = RTEnums.CombatState.CalculateDamage;
 
@@ -733,7 +727,11 @@ namespace EamonRT.Game.Combat
 
 			S = numSides;
 
+			M = mod;
+
 			A = BlastSpell || OmitArmor ? 0 : 1;
+
+			OmitBboaPadding = true;
 
 			ExecuteStateMachine();
 		}
@@ -753,7 +751,14 @@ namespace EamonRT.Game.Combat
 			{
 				PrintBlast();
 
-				ExecuteCalculateDamage(2, 5);
+				if (Globals.IsClassicVersion(5))
+				{
+					ExecuteCalculateDamage(1, 6);
+				}
+				else
+				{
+					ExecuteCalculateDamage(2, 5);
+				}
 			}
 			else
 			{

@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using Eamon.Framework;
 using Eamon.Framework.Commands;
 using Eamon.Framework.Parsing;
@@ -224,14 +225,28 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}You're wearing {1}.  Remove {1} first.", Environment.NewLine, artifact.EvalPlural("it", "them"));
+			if (Globals.IsClassicVersion(5))
+			{
+				Globals.Out.WriteLine("{0}You're wearing {1}.", Environment.NewLine, artifact.EvalPlural("it", "them"));
+			}
+			else
+			{
+				Globals.Out.WriteLine("{0}You're wearing {1}.  Remove {1} first.", Environment.NewLine, artifact.EvalPlural("it", "them"));
+			}
 		}
 
 		protected virtual void PrintWearingRemoveFirst01(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}You're wearing {1}.  Remove {2} first.", Environment.NewLine, artifact.GetDecoratedName03(false, true, false, false, Globals.Buf), artifact.EvalPlural("it", "them"));
+			if (Globals.IsClassicVersion(5))
+			{
+				Globals.Out.WriteLine("{0}You're wearing {1}.", Environment.NewLine, artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+			}
+			else
+			{
+				Globals.Out.WriteLine("{0}You're wearing {1}.  Remove {2} first.", Environment.NewLine, artifact.GetDecoratedName03(false, true, false, false, Globals.Buf), artifact.EvalPlural("it", "them"));
+			}
 		}
 
 		protected virtual void PrintVerbItAll(IArtifact artifact)
@@ -239,6 +254,34 @@ namespace EamonRT.Game.Commands
 			Debug.Assert(artifact != null);
 
 			Globals.Out.Write("{0}You {1} {2} all.{0}", Environment.NewLine, Verb, artifact.EvalPlural("it", "them"));
+		}
+
+		protected virtual void PrintNoneLeft(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Out.WriteLine("{0}There's none left.", Environment.NewLine);
+		}
+
+		protected virtual void PrintOkay(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Out.WriteLine("{0}Okay.", Environment.NewLine);
+		}
+
+		protected virtual void PrintFeelBetter(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Out.WriteLine("{0}You feel better!", Environment.NewLine);
+		}
+
+		protected virtual void PrintFeelWorse(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Out.WriteLine("{0}You feel worse!", Environment.NewLine);
 		}
 
 		protected virtual void PrintTryDifferentCommand(IArtifact artifact)
@@ -262,6 +305,13 @@ namespace EamonRT.Game.Commands
 			Globals.Out.WriteLine("{0}{1} a weapon.", Environment.NewLine, artifact.EvalPlural("That isn't", "They aren't"));
 		}
 
+		protected virtual void PrintNotReadyableWeapon(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Out.WriteLine("{0}{1} a weapon that you can wield.", Environment.NewLine, artifact.EvalPlural("That isn't", "They aren't"));
+		}
+
 		protected virtual void PrintPolitelyRefuses(IMonster monster)
 		{
 			Debug.Assert(monster != null);
@@ -276,9 +326,38 @@ namespace EamonRT.Game.Commands
 			Globals.Out.Write("{0}You give {1} to {2}.{0}",	Environment.NewLine,	artifact.GetDecoratedName03(false, true, false, false, Globals.Buf),	monster.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 		}
 
+		protected virtual void PrintOpenObjWithKey(IArtifact artifact, IArtifact key)
+		{
+			Debug.Assert(artifact != null && key != null);
+
+			Globals.Out.Write("{0}You open {1} with {2}.{0}", Environment.NewLine, artifact.EvalPlural("it", "them"), key.GetDecoratedName03(false, true, false, false, Globals.Buf));
+		}
+
+		protected virtual void PrintNotEnoughGold()
+		{
+			if (Globals.IsClassicVersion(5))
+			{
+				Globals.Out.Write("{0}You aren't carrying that much gold of your own!{0}", Environment.NewLine);
+			}
+			else
+			{
+				Globals.Out.Write("{0}You only have {1} gold piece{2}.{0}",
+					Environment.NewLine,
+					Globals.Engine.GetStringFromNumber(Globals.Character.HeldGold, false, Globals.Buf),
+					Globals.Character.HeldGold != 1 ? "s" : "");
+			}
+		}
+
 		protected virtual void PrintMustFirstReadyWeapon()
 		{
-			Globals.Out.WriteLine("{0}You must first ready a weapon!", Environment.NewLine);
+			if (Globals.IsClassicVersion(5))
+			{
+				Globals.Out.WriteLine("{0}You have no weapon ready!", Environment.NewLine);
+			}
+			else
+			{
+				Globals.Out.WriteLine("{0}You must first ready a weapon!", Environment.NewLine);
+			}
 		}
 
 		protected virtual void PrintDontHaveItNotHere()
@@ -338,7 +417,14 @@ namespace EamonRT.Game.Commands
 
 		protected virtual void PrintCalmDown()
 		{
-			Globals.Out.WriteLine("{0}Calm down.", Environment.NewLine);
+			if (Globals.IsClassicVersion(5))
+			{
+				Globals.Out.WriteLine("{0}There's nothing to flee from!", Environment.NewLine);
+			}
+			else
+			{
+				Globals.Out.WriteLine("{0}Calm down.", Environment.NewLine);
+			}
 		}
 
 		protected virtual void PrintNoPlaceToGo()
@@ -537,7 +623,11 @@ namespace EamonRT.Game.Commands
 
 						Debug.Assert(CommandParser.ObjData.GetArtifactList != null);
 
-						CommandParser.ObjData.FilterArtifactList = CommandParser.ObjData.FilterArtifactListFunc(CommandParser.ObjData.GetArtifactList, CommandParser.ObjData.Name);
+						var filterArtifactList = CommandParser.ObjData.FilterArtifactListFunc(CommandParser.ObjData.GetArtifactList, CommandParser.ObjData.Name);
+
+						Debug.Assert(filterArtifactList != null);
+
+						CommandParser.ObjData.FilterArtifactList = filterArtifactList.GroupBy(a => a.Name.ToLower()).Select(a => a.First()).ToList();
 
 						Debug.Assert(CommandParser.ObjData.FilterArtifactList != null);
 

@@ -2188,7 +2188,7 @@ namespace Eamon.Game
 			while (c == 1);
 		}
 
-		public virtual void ConvertWeaponToTreasure(IArtifact artifact)
+		public virtual void ConvertWeaponToGoldOrTreasure(IArtifact artifact, bool convertToGold)
 		{
 			RetCode rc;
 
@@ -2196,7 +2196,7 @@ namespace Eamon.Game
 
 			if (artifact.IsWeapon01())
 			{
-				var ac = artifact.GetArtifactClass(Enums.ArtifactType.Treasure);
+				var ac = artifact.GetArtifactClass(convertToGold ? Enums.ArtifactType.Gold : Enums.ArtifactType.Treasure);
 
 				if (ac == null)
 				{
@@ -2204,7 +2204,7 @@ namespace Eamon.Game
 
 					Debug.Assert(ac != null);
 
-					ac.Type = Enums.ArtifactType.Treasure;
+					ac.Type = convertToGold ? Enums.ArtifactType.Gold : Enums.ArtifactType.Treasure;
 
 					ac.Field5 = 0;
 

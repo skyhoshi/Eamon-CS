@@ -301,7 +301,7 @@ namespace Eamon.Framework
 
 		void AddPoundCharsToRecordNames(IList<IHaveListedName> recordList);
 
-		void ConvertWeaponToTreasure(IArtifact artifact);
+		void ConvertWeaponToGoldOrTreasure(IArtifact artifact, bool convertToGold);
 
 		#endregion
 	}

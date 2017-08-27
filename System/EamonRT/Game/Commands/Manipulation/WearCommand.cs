@@ -147,6 +147,13 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 240;
 
+			if (Globals.IsClassicVersion(5))
+			{
+				IsPlayerEnabled = false;
+
+				IsMonsterEnabled = false;
+			}
+
 			Name = "WearCommand";
 
 			Verb = "wear";

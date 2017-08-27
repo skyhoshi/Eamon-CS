@@ -178,6 +178,13 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 190;
 
+			if (Globals.IsClassicVersion(5))
+			{
+				IsPlayerEnabled = false;
+
+				IsMonsterEnabled = false;
+			}
+
 			Name = "PutCommand";
 
 			Verb = "put";

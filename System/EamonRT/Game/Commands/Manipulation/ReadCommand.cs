@@ -118,6 +118,13 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 200;
 
+			if (Globals.IsClassicVersion(5))
+			{
+				IsPlayerEnabled = false;
+
+				IsMonsterEnabled = false;
+			}
+
 			Name = "ReadCommand";
 
 			Verb = "read";

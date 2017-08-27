@@ -54,6 +54,8 @@ namespace Eamon.Framework
 
 		long OrigGroupCount { get; set; }
 
+		Enums.Friendliness OrigFriendliness { get; set; }
+
 		long DmgTaken { get; set; }
 
 		long Field1 { get; set; }
@@ -67,6 +69,8 @@ namespace Eamon.Framework
 		bool IsDead();
 
 		bool IsCarryingWeapon();
+
+		bool IsWeaponless(bool includeWeaponFumble);
 
 		bool HasDeadBody();
 
@@ -109,6 +113,8 @@ namespace Eamon.Framework
 		void ResolveFriendlinessPct(long charisma);
 
 		void ResolveFriendlinessPct(ICharacter character);
+
+		void CalculateGiftFriendlinessPct(long value);
 
 		bool IsCharacterMonster();
 

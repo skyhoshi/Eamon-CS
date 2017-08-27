@@ -27,7 +27,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			Debug.Assert(Ac != null);
 
-			var whereClauseFuncs = Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) == 0 ?
+			var whereClauseFuncs = Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) <= 0 ?
 				new Func<Eamon.Framework.IMonster, bool>[] { m => m == ActorMonster, m => m.IsInRoom(ActorRoom) && m.Friendliness == Enums.Friendliness.Friend && ((m.Weapon > -1 && m.Weapon <= Globals.Database.GetArtifactsCount()) || m.CombatCode == Enums.CombatCode.NaturalWeapons) && m != ActorMonster } :
 				new Func<Eamon.Framework.IMonster, bool>[] { m => m == ActorMonster };
 

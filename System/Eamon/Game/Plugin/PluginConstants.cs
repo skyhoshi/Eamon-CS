@@ -158,9 +158,9 @@ namespace Eamon.Game.Plugin
 
 		public PluginConstants()
 		{
-			ToughDesc = "Monsters usually fall into one of the following categories, but it is possible to create hybrids that are weak in some areas and strong in others:" + Environment.NewLine + Environment.NewLine + "Weak Monsters - wimps and small creatures like rats, kobolds, etc." + Environment.NewLine + "Medium Monsters - petty thugs, orcs, goblins, etc." + Environment.NewLine + "Tough Monsters - giants, trolls, highly skilled warriors, etc." + Environment.NewLine + "Exceptional Monsters - dragons, demons, special villians, etc." + Environment.NewLine + Environment.NewLine + "For group monsters, enter data relating to a single member of the group and scale values down lower than usual for groups with five or more members.";
+			ToughDesc = string.Format("Monsters usually fall into one of the following categories, but it is possible to create hybrids that are weak in some areas and strong in others:{0}{0}Weak Monsters - wimps and small creatures like rats, kobolds, etc.{0}Medium Monsters - petty thugs, orcs, goblins, etc.{0}Tough Monsters - giants, trolls, highly skilled warriors, etc.{0}Exceptional Monsters - dragons, demons, special villians, etc.{0}{0}For group monsters, enter data relating to a single member of the group and scale values down lower than usual for groups with five or more members.", Environment.NewLine);
 
-			CourageDesc = "Courage works as follows:" + Environment.NewLine + Environment.NewLine + "1-100% - the chance the monster won't flee combat and/or follow a fleeing player (if enemy).  If the monster is injured or gravely injured, then effective courage is reduced by 5 or 10%, respectively." + Environment.NewLine + "200% - the monster will never flee and always follow the player.";
+			CourageDesc = string.Format("Courage works as follows:{0}{0}1-100% - the chance the monster won't flee combat and/or follow a fleeing player (if enemy).  If the monster is injured or gravely injured, then effective courage is reduced by 5% or 10%, respectively.{0}200% - the monster will never flee and always follow the player.", Environment.NewLine);
 
 			ProcessMutexName = string.Format("Eamon_CS_{0}_Process_Mutex", ProgVersion);
 		}

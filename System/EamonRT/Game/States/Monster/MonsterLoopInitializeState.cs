@@ -24,6 +24,11 @@ namespace EamonRT.Game.States
 			foreach (var fv in friendlinessValues)
 			{
 				Debug.Assert(Globals.GameState.GetNBTL(fv) >= 0);
+
+				if (Globals.IsClassicVersion(5))
+				{
+					Debug.Assert(Globals.GameState.GetDTTL(fv) >= 0);
+				}
 			}
 
 			if (NextState == null)

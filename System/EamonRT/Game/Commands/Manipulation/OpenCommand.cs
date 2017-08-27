@@ -119,10 +119,7 @@ namespace EamonRT.Game.Commands
 
 				if (key != null)
 				{
-					Globals.Out.Write("{0}You open {1} with {2}.{0}",
-						Environment.NewLine,
-						DobjArtifact.EvalPlural("it", "them"),
-						key.GetDecoratedName03(false, true, false, false, Globals.Buf));
+					PrintOpenObjWithKey(DobjArtifact, key);
 				}
 				else
 				{
@@ -185,6 +182,13 @@ namespace EamonRT.Game.Commands
 		public OpenCommand()
 		{
 			SortOrder = 180;
+
+			if (Globals.IsClassicVersion(5))
+			{
+				IsPlayerEnabled = false;
+
+				IsMonsterEnabled = false;
+			}
 
 			Name = "OpenCommand";
 

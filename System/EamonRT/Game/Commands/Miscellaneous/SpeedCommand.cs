@@ -4,7 +4,6 @@
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System;
-using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
@@ -35,13 +34,9 @@ namespace EamonRT.Game.Commands
 				ActorMonster.Agility *= 2;
 			}
 
-			var rl = 0L;
+			var rl = Globals.IsClassicVersion(5) ? Globals.Engine.RollDice01(1, 25, 9) : Globals.Engine.RollDice01(1, 10, 10);
 
-			var rc = Globals.Engine.RollDice(1, 10, 0, ref rl);
-
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-			Globals.GameState.Speed += (rl + 10);
+			Globals.GameState.Speed += rl;
 
 			PrintFeelNewAgility();
 

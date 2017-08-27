@@ -128,6 +128,13 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 110;
 
+			if (Globals.IsClassicVersion(5))
+			{
+				IsPlayerEnabled = false;
+
+				IsMonsterEnabled = false;
+			}
+
 			Name = "CloseCommand";
 
 			Verb = "close";
