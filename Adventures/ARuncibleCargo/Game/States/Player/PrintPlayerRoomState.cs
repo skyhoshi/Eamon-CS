@@ -192,6 +192,8 @@ namespace ARuncibleCargo.Game.States
 
 						monster01.Friendliness = Enums.Friendliness.Enemy;
 
+						monster01.OrigFriendliness = (Enums.Friendliness)100;
+
 						Globals.RtEngine.CheckEnemies();
 					}
 				}

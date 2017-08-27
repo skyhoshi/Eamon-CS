@@ -189,9 +189,16 @@ namespace EamonRT.Game.Commands
 			{
 				if (Globals.GameState.Lt != 0)
 				{
-					CommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch03;
+					if (Globals.IsClassicVersion(5))
+					{
+						PlayerResolveArtifact();
+					}
+					else
+					{
+						CommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch03;
 
-					PlayerResolveMonster();
+						PlayerResolveMonster();
+					}
 				}
 				else
 				{

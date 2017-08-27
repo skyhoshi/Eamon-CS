@@ -33,7 +33,7 @@ namespace ARuncibleCargo.Game
 			Globals.Out.Write("{0}{1}You take {2} gold pieces total.{0}", Environment.NewLine, goodsExist ? Environment.NewLine : "", payment);
 		}
 
-		protected override void PrintMonsterAlive(IArtifact artifact)
+		public override void PrintMonsterAlive(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -249,7 +249,7 @@ namespace ARuncibleCargo.Game
 
 		public RtEngine()
 		{
-			AddPoundCharsToCharOwnedArtifactNames = true;
+			PoundCharPolicy = Enums.PoundCharPolicy.PlayerArtifactsOnly;
 		}
 	}
 }

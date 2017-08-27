@@ -39,7 +39,7 @@ namespace EamonRT.Game
 
 		public virtual bool UseMonsterScaledHardinessValues { get; set; }
 
-		public virtual bool AddPoundCharsToCharOwnedArtifactNames { get; set; }
+		public virtual Enums.PoundCharPolicy PoundCharPolicy { get; set; }
 
 		protected virtual long ConvertWeaponsToArtifacts()
 		{
@@ -124,7 +124,7 @@ namespace EamonRT.Game
 					}
 					else
 					{
-						y.SetInRoomUid(Globals.RtEngine.StartRoom);
+						y.SetInRoomUid(StartRoom);
 					}
 				});
 
@@ -180,7 +180,7 @@ namespace EamonRT.Game
 					}
 					else
 					{
-						y.SetInRoomUid(Globals.RtEngine.StartRoom);
+						y.SetInRoomUid(StartRoom);
 					}
 				});
 
@@ -214,13 +214,6 @@ namespace EamonRT.Game
 			Globals.Out.Write("{0}{1}He pays you {2} gold pieces total.{0}", Environment.NewLine, goodsExist ? Environment.NewLine : "", payment);
 		}
 
-		protected virtual void PrintMonsterAlive(IArtifact artifact)
-		{
-			Debug.Assert(artifact != null);
-
-			Globals.Out.Write("{0}{1} {2} alive!{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), artifact.EvalPlural("is", "are"));
-		}
-
 		protected virtual void SetScaledHardiness(IMonster monster, long damageFactor)
 		{
 			Debug.Assert(monster != null);
@@ -239,9 +232,21 @@ namespace EamonRT.Game
 
 			Debug.Assert(spell != null);
 
-			Globals.Out.Write("{0}The strain of attempting to cast {1} overloads your brain and you forget it completely for the rest of this adventure.{0}", Environment.NewLine, spell.Name);
+			Globals.Out.Write("{0}The strain of attempting to cast {1} overloads your brain and you forget it completely{2}.{0}", Environment.NewLine, spell.Name, Globals.IsClassicVersion(5) ? "" : " for the rest of this adventure");
 
 			Globals.GameState.SetSa(s, 0);
+
+			if (Globals.IsClassicVersion(5))
+			{
+				Globals.Character.SetSpellAbilities(s, 0);
+			}
+		}
+
+		public virtual void PrintMonsterAlive(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Out.Write("{0}{1} {2} alive!{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), artifact.EvalPlural("is", "are"));
 		}
 
 		public virtual long WeaponPowerCompare(IArtifact artifact1, IArtifact artifact2)
@@ -343,7 +348,7 @@ namespace EamonRT.Game
 				}
 				else
 				{
-					artifact.SetInRoomUid(Globals.RtEngine.StartRoom);
+					artifact.SetInRoomUid(StartRoom);
 				}
 			}
 		}
@@ -352,7 +357,9 @@ namespace EamonRT.Game
 		{
 			var nameList = new List<IHaveListedName>();
 
-			var artifactList = AddPoundCharsToCharOwnedArtifactNames ? Globals.Database.ArtifactTable.Records.Where(a => a.IsCharOwned).ToList() : Globals.Database.ArtifactTable.Records.ToList();
+			var artifactList = PoundCharPolicy == Enums.PoundCharPolicy.PlayerArtifactsOnly ? Globals.Database.ArtifactTable.Records.Where(a => a.IsCharOwned).ToList() :
+									PoundCharPolicy == Enums.PoundCharPolicy.AllArtifacts ? Globals.Database.ArtifactTable.Records.ToList() :
+									new List<IArtifact>();
 
 			artifactList.Reverse();
 
@@ -560,7 +567,7 @@ namespace EamonRT.Game
 				}
 				else
 				{
-					x.SetInRoomUid(Globals.RtEngine.StartRoom);
+					x.SetInRoomUid(StartRoom);
 				}
 			});
 
@@ -648,6 +655,8 @@ namespace EamonRT.Game
 				x.Gender = Enums.Gender.Male;
 
 				x.OrigGroupCount = 1;
+
+				x.OrigFriendliness = (Enums.Friendliness)200;
 			});
 
 			if (initialize != null)
@@ -692,6 +701,8 @@ namespace EamonRT.Game
 				x.Armor = ConvertArmorToArtifacts();
 
 				x.Friendliness = Enums.Friendliness.Friend;
+
+				x.OrigFriendliness = (Enums.Friendliness)200;
 
 				x.Gender = Globals.Character.Gender;
 			});
@@ -825,7 +836,7 @@ namespace EamonRT.Game
 				{
 					var ac = artifact.GetArtifactClass(artClasses);
 
-					if (ac != null && ac == artifact.GetClasses(0))
+					if (ac != null && ac == artifact.GetClasses(0) && artifact.IsReadyableByCharacter())
 					{
 						weaponList.Add(artifact);
 
@@ -1027,6 +1038,12 @@ namespace EamonRT.Game
 
 				monster.Friendliness--;
 
+				monster.OrigFriendliness -= 100;
+
+				monster.OrigFriendliness = (Enums.Friendliness)((long)monster.OrigFriendliness / 2);
+
+				monster.OrigFriendliness += 100;
+
 				CheckEnemies();
 
 				if (monster.IsInRoom(room) && monster.Friendliness == Enums.Friendliness.Enemy)
@@ -1048,12 +1065,23 @@ namespace EamonRT.Game
 
 			Debug.Assert(friendliness != null);
 
-			Globals.Out.Write("{0}{1} {2}{3} {4}you.", 
-				Environment.NewLine, 
-				monster.GetDecoratedName03(true, true, false, false, Globals.Buf), 
-				friendliness.SmileDesc, 
-				monster.EvalPlural("s", ""), 
-				monster.Friendliness != Enums.Friendliness.Neutral ? "at " : "");
+			if (Globals.IsClassicVersion(5) && monster.Friendliness == Enums.Friendliness.Friend)
+			{
+				Globals.Out.Write("{0}{1} {2}{3} back.",
+					Environment.NewLine,
+					monster.GetDecoratedName03(true, true, false, false, Globals.Buf),
+					friendliness.SmileDesc,
+					monster.EvalPlural("s", ""));
+			}
+			else
+			{
+				Globals.Out.Write("{0}{1} {2}{3} {4}you.",
+					Environment.NewLine,
+					monster.GetDecoratedName03(true, true, false, false, Globals.Buf),
+					friendliness.SmileDesc,
+					monster.EvalPlural("s", ""),
+					monster.Friendliness != Enums.Friendliness.Neutral ? "at " : "");
+			}
 		}
 
 		public virtual void MonsterDies(IMonster OfMonster, IMonster DfMonster)
@@ -1072,7 +1100,7 @@ namespace EamonRT.Game
 			{
 				if (DfMonster.Weapon > 0)
 				{
-					var weapon = Globals.Engine.GetNthArtifact(DfMonster.GetCarriedList(), DfMonster.GroupCount - 1, a => a.IsWeapon01() && a.Uid != DfMonster.Weapon);
+					var weapon = Globals.Engine.GetNthArtifact(DfMonster.GetCarriedList(), DfMonster.GroupCount - 1, a => a.IsReadyableByMonster(DfMonster) && a.Uid != DfMonster.Weapon);
 
 					if (weapon != null)
 					{
@@ -1106,9 +1134,16 @@ namespace EamonRT.Game
 					DfMonster.Weapon = -1;
 				}
 
+				if (Globals.IsClassicVersion(5))
+				{
+					Globals.GameState.ModDTTL(DfMonster.Friendliness, -DfMonster.DmgTaken);
+				}
+
 				DfMonster.SetInLimbo();
 
 				DfMonster.GroupCount = DfMonster.OrigGroupCount;
+
+				// DfMonster.Friendliness = DfMonster.OrigFriendliness;
 
 				DfMonster.DmgTaken = 0;
 
@@ -1342,7 +1377,7 @@ namespace EamonRT.Game
 			Debug.Assert(monster != null);
 
 			direction = 0;
-			
+
 			do
 			{
 				rl = 0;
@@ -1387,6 +1422,33 @@ namespace EamonRT.Game
 			var roomUid = 0L;
 
 			GetRandomMoveDirection(room, monster, fleeing, ref direction, ref found, ref roomUid);
+		}
+
+		public virtual IList<IMonster> GetRandomMonsterList(long numMonsters, params Func<IMonster, bool>[] whereClauseFuncs)
+		{
+			Debug.Assert(numMonsters > 0);
+
+			var monsterList = new List<IMonster>();
+
+			var origList = Globals.Engine.GetMonsterList(() => true, whereClauseFuncs);
+
+			if (numMonsters > origList.Count)
+			{
+				numMonsters = origList.Count;
+			}
+
+			while (numMonsters > 0)
+			{
+				var rl = (int)Globals.Engine.RollDice01(1, origList.Count, 0);
+
+				monsterList.Add(origList[rl - 1]);
+
+				origList.RemoveAt(rl - 1);
+
+				numMonsters--;
+			}
+
+			return monsterList;
 		}
 
 		public virtual IList<IArtifact> FilterArtifactList(IList<IArtifact> artifactList, string name)
@@ -1580,7 +1642,7 @@ namespace EamonRT.Game
 
 			Debug.Assert(room != null);
 
-			var artifactList = Globals.Engine.GetArtifactList(() => true, a => a.IsWeapon01() && (a.IsCarriedByMonster(monster) || a.IsInRoom(room))).OrderByDescending(a01 =>
+			var artifactList = Globals.Engine.GetArtifactList(() => true, a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || a.IsInRoom(room))).OrderByDescending(a01 =>
 			{
 				if (monster.Weapon != -a01.Uid - 1)
 				{
@@ -1615,6 +1677,72 @@ namespace EamonRT.Game
 			return monsterList;
 		}
 
+		public virtual bool ResurrectDeadBodies(params Func<IArtifact, bool>[] whereClauseFuncs)
+		{
+			if (whereClauseFuncs == null || whereClauseFuncs.Length == 0)
+			{
+				whereClauseFuncs = new Func<IArtifact, bool>[]
+				{
+					a => (a.IsCarriedByCharacter() || a.IsInRoomUid(Globals.GameState.Ro)) && a.IsDeadBody()
+				};
+			}
+
+			var found = false;
+
+			var artifacts = Globals.Engine.GetArtifactList(() => true, whereClauseFuncs);
+			
+			foreach (var artifact in artifacts)
+			{
+				var monster = Globals.Database.MonsterTable.Records.FirstOrDefault(m => m.DeadBody == artifact.Uid);
+
+				if (monster != null && monster.OrigGroupCount == 1)
+				{
+					monster.SetInRoomUid(Globals.GameState.Ro);
+
+					monster.DmgTaken = 0;
+
+					RemoveWeight(artifact);
+
+					artifact.SetInLimbo();
+
+					Globals.Out.Write("{0}{1} {2}{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), Globals.IsClassicVersion(5) ? "comes alive!" : "comes to life!");
+
+					found = true;
+				}
+			}
+			
+			if (found)
+			{
+				CheckEnemies();
+			}
+
+			return found;
+		}
+
+		public virtual bool MakeArtifactsVanish(params Func<IArtifact, bool>[] whereClauseFuncs)
+		{
+			if (whereClauseFuncs == null || whereClauseFuncs.Length == 0)
+			{
+				whereClauseFuncs = new Func<IArtifact, bool>[]
+				{
+					a => a.IsInRoomUid(Globals.GameState.Ro) && !a.IsUnmovable()
+				};
+			}
+
+			var artifacts = Globals.Engine.GetArtifactList(() => true, whereClauseFuncs);
+
+			foreach (var artifact in artifacts)
+			{
+				RemoveWeight(artifact);
+
+				artifact.SetInLimbo();
+
+				Globals.Out.Write("{0}{1} vanishes!{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+			}
+
+			return artifacts.Count > 0;
+		}
+
 		public virtual bool CheckNBTLHostility(IMonster monster)
 		{
 			Debug.Assert(monster != null);
@@ -1622,10 +1750,32 @@ namespace EamonRT.Game
 			return monster.Friendliness != Enums.Friendliness.Neutral && Globals.GameState.GetNBTL(monster.Friendliness == Enums.Friendliness.Friend ? Enums.Friendliness.Enemy : Enums.Friendliness.Friend) > 0;
 		}
 
+		public virtual bool CheckCourage(IMonster monster)
+		{
+			bool result;
+
+			Debug.Assert(monster != null);
+
+			if (Globals.IsClassicVersion(5))
+			{
+				var rl = (long)Math.Round((double)Globals.GameState.GetDTTL(monster.Friendliness) / (double)Globals.GameState.GetNBTL(monster.Friendliness) * 100 + Globals.Engine.RollDice01(1, 41, -21));
+
+				result = rl <= monster.Courage;
+			}
+			else
+			{
+				var s = (monster.DmgTaken > 0 || monster.OrigGroupCount > monster.GroupCount ? 1 : 0) + (monster.DmgTaken + 4 >= monster.Hardiness ? 1 : 0);
+
+				var rl = Globals.Engine.RollDice01(1, 100, s * 5);
+
+				result = rl <= monster.Courage;           // monster.Courage >= 100 ||
+			}
+
+			return result;
+		}
+
 		public virtual bool CheckPlayerSpellCast(Enums.Spell spellValue, bool allowSkillIncrease)
 		{
-			RetCode rc;
-
 			Debug.Assert(Enum.IsDefined(typeof(Enums.Spell), spellValue));
 
 			var result = false;
@@ -1640,9 +1790,7 @@ namespace EamonRT.Game
 
 			if (Globals.GameState.GetSa(s) > 0 && Globals.Character.GetSpellAbilities(s) > 0)
 			{
-				rc = Globals.Engine.RollDice(1, 100, 0, ref rl);
-
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				rl = Globals.Engine.RollDice01(1, 100, 0);
 			}
 
 			if (rl == 100)
@@ -1660,15 +1808,16 @@ namespace EamonRT.Game
 
 				if (allowSkillIncrease)
 				{
-					rc = Globals.Engine.RollDice(1, 100, 0, ref rl);
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					rl = Globals.Engine.RollDice01(1, 100, 0);
 
 					rl += Globals.Character.GetIntellectBonusPct();
 
 					if (rl > Globals.Character.GetSpellAbilities(s))
 					{
-						Globals.Out.Write("{0}Your ability to cast {1} just increased!{0}", Environment.NewLine, spell.Name);
+						if (!Globals.IsClassicVersion(5))
+						{
+							Globals.Out.Write("{0}Your ability to cast {1} just increased!{0}", Environment.NewLine, spell.Name);
+						}
 
 						Globals.Character.ModSpellAbilities(s, 2);
 
@@ -1717,7 +1866,10 @@ namespace EamonRT.Game
 
 					Debug.Assert(weapon != null);
 
-					Globals.Out.Write("{0}Your {1} ability just increased!{0}", Environment.NewLine, weapon.Name);
+					if (!Globals.IsClassicVersion(5))
+					{
+						Globals.Out.Write("{0}Your {1} ability just increased!{0}", Environment.NewLine, weapon.Name);
+					}
 
 					Globals.Character.ModWeaponAbilities(s, 2);
 
@@ -1739,7 +1891,10 @@ namespace EamonRT.Game
 
 					if (rl > Globals.Character.ArmorExpertise)
 					{
-						Globals.Out.Write("{0}Your armor expertise just increased!{0}", Environment.NewLine);
+						if (!Globals.IsClassicVersion(5))
+						{
+							Globals.Out.Write("{0}Your armor expertise just increased!{0}", Environment.NewLine);
+						}
 
 						Globals.Character.ArmorExpertise += 2;
 
@@ -1922,6 +2077,13 @@ namespace EamonRT.Game
 
 			Globals.GameState.SetNBTL(Enums.Friendliness.Friend, Globals.MDB[Globals.GameState.Cm].Hardiness);
 
+			if (Globals.IsClassicVersion(5))
+			{
+				Array.Clear(Globals.GameState.DTTL, 0, (int)Globals.GameState.DTTL.Length);
+
+				Globals.GameState.SetDTTL(Enums.Friendliness.Friend, Globals.MDB[Globals.GameState.Cm].DmgTaken);
+			}
+
 			var monsters = Globals.Engine.GetMonsterList(() => true, m => !m.IsCharacterMonster() && m.Location == Globals.GameState.Ro);
 
 			foreach (var monster in monsters)
@@ -1929,6 +2091,11 @@ namespace EamonRT.Game
 				monster.ResolveFriendlinessPct(Globals.Character);
 
 				Globals.GameState.ModNBTL(monster.Friendliness, monster.Hardiness * monster.GroupCount);
+
+				if (Globals.IsClassicVersion(5))
+				{
+					Globals.GameState.ModDTTL(monster.Friendliness, monster.DmgTaken);
+				}
 			}
 		}
 
@@ -2107,6 +2274,8 @@ namespace EamonRT.Game
 			ScaledHardinessMaxDamageDivisor = Constants.ScaledHardinessMaxDamageDivisor;
 
 			EnforceMonsterWeightLimits = true;
+
+			PoundCharPolicy = Enums.PoundCharPolicy.AllArtifacts;
 		}
 	}
 }

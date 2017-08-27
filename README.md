@@ -23,7 +23,7 @@ It is possible to have multiple ECS repositories present on your system; provide
 
 ECS programs are launched using a collection of batch files (or shell scripts in Unix) that are located under the QuickLaunch directory.  You can create a shortcut to this folder on your desktop for easy access to the system.
 
-ECS Mobile uses a series of ListViews to mirror the directory structure of ECS Desktop, making the experience very similar.
+ECS Mobile mirrors the hierarchical directory structure of ECS Desktop, making the experience very similar.
 
 #### Contributing
 

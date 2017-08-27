@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using Eamon.Framework;
+using Eamon.Framework.States;
 using Classes = Eamon.Framework.Primitive.Classes;
 using Enums = Eamon.Framework.Primitive.Enums;
 
@@ -25,7 +26,9 @@ namespace EamonRT.Framework
 
 		bool UseMonsterScaledHardinessValues { get; set; }
 
-		bool AddPoundCharsToCharOwnedArtifactNames { get; set; }
+		Enums.PoundCharPolicy PoundCharPolicy { get; set; }
+
+		void PrintMonsterAlive(IArtifact artifact);
 
 		long WeaponPowerCompare(IArtifact artifact1, IArtifact artifact2);
 
@@ -97,6 +100,8 @@ namespace EamonRT.Framework
 
 		void GetRandomMoveDirection(IRoom room, IMonster monster, bool fleeing, ref Enums.Direction direction);
 
+		IList<IMonster> GetRandomMonsterList(long numMonsters, params Func<IMonster, bool>[] whereClauseFuncs);
+
 		IList<IArtifact> FilterArtifactList(IList<IArtifact> artifactList, string name);
 
 		IList<IMonster> FilterMonsterList(IList<IMonster> monsterList, string name);
@@ -107,7 +112,13 @@ namespace EamonRT.Framework
 
 		IList<IMonster> GetHostileMonsterList(IMonster monster);
 
+		bool ResurrectDeadBodies(params Func<IArtifact, bool>[] whereClauseFuncs);
+
+		bool MakeArtifactsVanish(params Func<IArtifact, bool>[] whereClauseFuncs);
+
 		bool CheckNBTLHostility(IMonster monster);
+
+		bool CheckCourage(IMonster monster);
 
 		bool CheckPlayerSpellCast(Enums.Spell spellValue, bool allowSkillIncrease);
 

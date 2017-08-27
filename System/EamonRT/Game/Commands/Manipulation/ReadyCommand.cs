@@ -38,7 +38,16 @@ namespace EamonRT.Game.Commands
 
 					goto Cleanup;
 				}
-							
+
+				if (!DobjArtifact.IsReadyableByCharacter())
+				{
+					PrintNotReadyableWeapon(DobjArtifact);
+
+					NextState = Globals.CreateInstance<IStartState>();
+
+					goto Cleanup;
+				}
+
 				if (!DobjArtifact.IsCarriedByCharacter())
 				{
 					PrintTakingFirst(DobjArtifact);
@@ -94,11 +103,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
-
-			var ac = DobjArtifact.GetArtifactClass(artClasses);
-
-			if (ac != null && ActorRoom.IsLit() && DobjArtifact.IsCarriedByMonster(ActorMonster))
+			if (ActorRoom.IsLit() && DobjArtifact.IsReadyableByMonster(ActorMonster) && DobjArtifact.IsCarriedByMonster(ActorMonster))
 			{
 				var wpnArtifact = Globals.ADB[ActorMonster.Weapon];
 

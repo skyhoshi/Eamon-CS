@@ -133,6 +133,11 @@ namespace EamonRT.Game.Commands
 
 			IsDarkEnabled = true;
 
+			if (Globals.IsClassicVersion(5))
+			{
+				IsPlayerEnabled = false;
+			}
+
 			IsMonsterEnabled = false;
 
 			Name = "LightCommand";

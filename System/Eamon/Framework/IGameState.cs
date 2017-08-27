@@ -49,6 +49,8 @@ namespace Eamon.Framework
 
 		long[] NBTL { get; set; }
 
+		long[] DTTL { get; set; }
+
 		long[] Sa { get; set; }
 
 		long[] HeldWpnUids { get; set; }
@@ -61,6 +63,10 @@ namespace Eamon.Framework
 
 		long GetNBTL(Enums.Friendliness friendliness);
 
+		long GetDTTL(long index);
+
+		long GetDTTL(Enums.Friendliness friendliness);
+
 		long GetSa(long index);
 
 		long GetSa(Enums.Spell spell);
@@ -71,6 +77,10 @@ namespace Eamon.Framework
 
 		void SetNBTL(Enums.Friendliness friendliness, long value);
 
+		void SetDTTL(long index, long value);
+
+		void SetDTTL(Enums.Friendliness friendliness, long value);
+
 		void SetSa(long index, long value);
 
 		void SetSa(Enums.Spell spell, long value);
@@ -80,6 +90,10 @@ namespace Eamon.Framework
 		void ModNBTL(long index, long value);
 
 		void ModNBTL(Enums.Friendliness friendliness, long value);
+
+		void ModDTTL(long index, long value);
+
+		void ModDTTL(Enums.Friendliness friendliness, long value);
 
 		void ModSa(long index, long value);
 

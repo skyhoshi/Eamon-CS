@@ -58,6 +58,8 @@ namespace Eamon.Framework
 
 		bool IsWornByMonster();
 
+		bool IsReadyableByCharacter();
+
 		bool IsInRoom();
 
 		bool IsEmbeddedInRoom();
@@ -70,6 +72,8 @@ namespace Eamon.Framework
 
 		bool IsWornByMonsterUid(long monsterUid);
 
+		bool IsReadyableByMonsterUid(long monsterUid);
+
 		bool IsInRoomUid(long roomUid);
 
 		bool IsEmbeddedInRoomUid(long roomUid);
@@ -79,6 +83,8 @@ namespace Eamon.Framework
 		bool IsCarriedByContainer(IArtifact container);
 
 		bool IsWornByMonster(IMonster monster);
+
+		bool IsReadyableByMonster(IMonster monster);
 
 		bool IsInRoom(IRoom room);
 
@@ -141,6 +147,8 @@ namespace Eamon.Framework
 		bool IsWeapon(Enums.Weapon weapon);
 
 		bool IsAttackable();
+
+		bool IsAttackable01(ref Classes.IArtifactClass ac);
 
 		bool IsUnmovable();
 

@@ -114,6 +114,7 @@
     <Compile Include="Framework\Primitive\Enums\CommandType.cs" />
     <Compile Include="Framework\Primitive\Enums\Direction.cs" />
     <Compile Include="Framework\Primitive\Enums\ExitType.cs" />
+    <Compile Include="Framework\Primitive\Enums\PoundCharPolicy.cs" />
     <Compile Include="Framework\Primitive\Enums\FieldDesc.cs" />
     <Compile Include="Framework\Primitive\Enums\Friendliness.cs" />
     <Compile Include="Framework\Primitive\Enums\Gender.cs" />

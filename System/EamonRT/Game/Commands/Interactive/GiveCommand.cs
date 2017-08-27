@@ -42,7 +42,7 @@ namespace EamonRT.Game.Commands
 
 		protected virtual bool MonsterRefusesToAccept()
 		{
-			return IobjMonster.Friendliness == Enums.Friendliness.Enemy || (IobjMonster.Friendliness == Enums.Friendliness.Neutral && DobjArtifact.Value < 3000);
+			return !Globals.IsClassicVersion(5) && (IobjMonster.Friendliness == Enums.Friendliness.Enemy || (IobjMonster.Friendliness == Enums.Friendliness.Neutral && DobjArtifact.Value < 3000));
 		}
 
 		protected override void PlayerExecute()
@@ -162,7 +162,7 @@ namespace EamonRT.Game.Commands
 
 				var ac = DobjArtifact.GetArtifactClass(new Enums.ArtifactType[] { Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible });
 
-				if (ac != null && ac.Field6 > 0)
+				if (!Globals.IsClassicVersion(5) && ac != null && ac.Field6 > 0)
 				{
 					var monsterName = IobjMonster.EvalPlural(IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), IobjMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01));
 
@@ -260,13 +260,22 @@ namespace EamonRT.Game.Commands
 
 					DobjArtifact.SetCarriedByMonster(IobjMonster);
 
-					if (IobjMonster.Friendliness == Enums.Friendliness.Neutral)
+					if (Globals.IsClassicVersion(5))
 					{
-						IobjMonster.Friendliness = Enums.Friendliness.Friend;
+						IobjMonster.CalculateGiftFriendlinessPct(DobjArtifact.Value);
+					}
+					else
+					{
+						if (IobjMonster.Friendliness == Enums.Friendliness.Neutral)
+						{
+							IobjMonster.Friendliness = Enums.Friendliness.Friend;
 
-						Globals.RtEngine.MonsterSmiles(IobjMonster);
+							IobjMonster.OrigFriendliness = (Enums.Friendliness)200;
 
-						Globals.Out.WriteLine();
+							Globals.RtEngine.MonsterSmiles(IobjMonster);
+
+							Globals.Out.WriteLine();
+						}
 					}
 				}
 			}
@@ -295,10 +304,7 @@ namespace EamonRT.Game.Commands
 
 				if (Globals.Character.HeldGold < GoldAmount)
 				{
-					Globals.Out.Write("{0}You only have {1} gold piece{2}.{0}",
-						Environment.NewLine,
-						Globals.Engine.GetStringFromNumber(Globals.Character.HeldGold, false, Globals.Buf),
-						Globals.Character.HeldGold != 1 ? "s" : "");
+					PrintNotEnoughGold();
 
 					NextState = Globals.CreateInstance<IStartState>();
 
@@ -319,13 +325,22 @@ namespace EamonRT.Game.Commands
 
 				Globals.Character.HeldGold -= GoldAmount;
 
-				if (IobjMonster.Friendliness == Enums.Friendliness.Neutral && GoldAmount > 4999)
+				if (Globals.IsClassicVersion(5))
 				{
-					IobjMonster.Friendliness = Enums.Friendliness.Friend;
+					IobjMonster.CalculateGiftFriendlinessPct(GoldAmount);
+				}
+				else
+				{
+					if (IobjMonster.Friendliness == Enums.Friendliness.Neutral && GoldAmount > 4999)
+					{
+						IobjMonster.Friendliness = Enums.Friendliness.Friend;
 
-					Globals.RtEngine.MonsterSmiles(IobjMonster);
+						IobjMonster.OrigFriendliness = (Enums.Friendliness)200;
 
-					Globals.Out.WriteLine();
+						Globals.RtEngine.MonsterSmiles(IobjMonster);
+
+						Globals.Out.WriteLine();
+					}
 				}
 			}
 

@@ -4,8 +4,6 @@
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
-using Eamon;
-using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -18,8 +16,6 @@ namespace EamonRT.Game.States
 	{
 		public override void Execute()
 		{
-			RetCode rc;
-
 			var monster = Globals.MDB[Globals.LoopMonsterUid];
 
 			Debug.Assert(monster != null);
@@ -28,27 +24,7 @@ namespace EamonRT.Game.States
 			{
 				if (Globals.RtEngine.CheckNBTLHostility(monster))
 				{
-					var s = 0L;
-
-					if (monster.DmgTaken > 0 || monster.OrigGroupCount > monster.GroupCount)
-					{
-						s++;
-					}
-
-					if (monster.DmgTaken + 4 >= monster.Hardiness)
-					{
-						s++;
-					}
-
-					var rl = 0L;
-
-					rc = Globals.Engine.RollDice(1, 100, 0, ref rl);
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-					rl += (s * 5);
-
-					if (monster.CanMoveToRoom(true) && rl > monster.Courage)        // monster.Courage < 100 &&
+					if (monster.CanMoveToRoom(true) && !Globals.RtEngine.CheckCourage(monster))
 					{
 						NextState = Globals.CreateInstance<IMonsterFleesRoomState>();
 

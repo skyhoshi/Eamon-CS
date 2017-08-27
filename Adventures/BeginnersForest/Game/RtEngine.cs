@@ -94,6 +94,8 @@ namespace BeginnersForest.Game
 				// Sir Grummor is always kind to the ladies!
 
 				monster.Friendliness = Enums.Friendliness.Friend;
+
+				monster.OrigFriendliness = (Enums.Friendliness)200;
 			}
 		}
 

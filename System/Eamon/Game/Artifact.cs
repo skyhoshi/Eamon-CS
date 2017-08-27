@@ -3707,6 +3707,11 @@ namespace Eamon.Game
 			return Location < -1000;
 		}
 
+		public virtual bool IsReadyableByCharacter()
+		{
+			return IsWeapon01();
+		}
+
 		public virtual bool IsInRoom()
 		{
 			return Location > 0 && Location < 1001;
@@ -3735,6 +3740,11 @@ namespace Eamon.Game
 		public virtual bool IsWornByMonsterUid(long monsterUid)
 		{
 			return Location == (-monsterUid - 1000);
+		}
+
+		public virtual bool IsReadyableByMonsterUid(long monsterUid)
+		{
+			return IsWeapon01();
 		}
 
 		public virtual bool IsInRoomUid(long roomUid)
@@ -3766,6 +3776,13 @@ namespace Eamon.Game
 			Debug.Assert(monster != null);
 
 			return IsWornByMonsterUid(monster.Uid);
+		}
+
+		public virtual bool IsReadyableByMonster(IMonster monster)
+		{
+			Debug.Assert(monster != null);
+
+			return IsReadyableByMonsterUid(monster.Uid);
 		}
 
 		public virtual bool IsInRoom(IRoom room)
@@ -3953,6 +3970,13 @@ namespace Eamon.Game
 			var ac = GetArtifactClass(new Enums.ArtifactType[] { Enums.ArtifactType.DeadBody, Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Container, Enums.ArtifactType.DoorGate });
 
 			return ac != null && (ac.Type == Enums.ArtifactType.DeadBody || ac.Type == Enums.ArtifactType.DisguisedMonster || ac.GetBreakageStrength() >= 1000);
+		}
+
+		public virtual bool IsAttackable01(ref Classes.IArtifactClass ac)
+		{
+			ac = GetArtifactClass(new Enums.ArtifactType[] { Enums.ArtifactType.DeadBody, Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Container, Enums.ArtifactType.DoorGate }, false);
+
+			return !Globals.IsClassicVersion(5) && ac != null;
 		}
 
 		public virtual bool IsUnmovable()

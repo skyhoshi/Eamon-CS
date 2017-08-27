@@ -71,7 +71,7 @@ namespace TheSubAquanLaboratory.Game.States
 					{
 						artifact.Value = 15;
 
-						Globals.Engine.ConvertWeaponToTreasure(artifact);
+						Globals.Engine.ConvertWeaponToGoldOrTreasure(artifact, false);
 
 						Globals.Engine.PrintEffectDesc(32);
 					}

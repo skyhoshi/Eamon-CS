@@ -67,6 +67,13 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 95;
 
+			if (Globals.IsClassicVersion(5))
+			{
+				IsPlayerEnabled = false;
+
+				IsMonsterEnabled = false;
+			}
+
 			Name = "GoCommand";
 
 			Verb = "go";

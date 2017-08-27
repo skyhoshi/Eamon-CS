@@ -124,7 +124,7 @@ namespace EamonRT.Game.Commands
 						}
 					}
 
-					if (artifact.IsWeapon01() && artifact.IsCarriedByCharacter())
+					if (artifact.IsReadyableByCharacter() && artifact.IsCarriedByCharacter())
 					{
 						if (wpnArtifact == null || Globals.RtEngine.WeaponPowerCompare(artifact, wpnArtifact) > 0)
 						{

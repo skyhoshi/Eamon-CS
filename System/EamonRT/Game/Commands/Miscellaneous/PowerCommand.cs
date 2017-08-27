@@ -4,7 +4,6 @@
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System;
-using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
@@ -20,7 +19,14 @@ namespace EamonRT.Game.Commands
 
 		protected virtual void PrintSonicBoom()
 		{
-			Globals.Out.Write("{0}You hear a loud sonic boom which echoes all around you!{0}", Environment.NewLine);
+			if (Globals.IsClassicVersion(5))
+			{
+				Globals.Out.Write("{0}You hear a very loud sonic boom that echoes through the {1}.{0}", Environment.NewLine, ActorRoom.EvalRoomType("tunnels", "area"));
+			}
+			else
+			{
+				Globals.Out.Write("{0}You hear a loud sonic boom which echoes all around you!{0}", Environment.NewLine);
+			}
 		}
 
 		protected virtual void PrintFortuneCookie()
@@ -36,24 +42,83 @@ namespace EamonRT.Game.Commands
 
 		protected virtual void PlayerProcessEvents()
 		{
-			var rl = 0L;
+			var rl = Globals.Engine.RollDice01(1, 100, 0);
 
-			var rc = Globals.Engine.RollDice(1, 100, 0, ref rl);
-
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-			if (rl > 50)
+			if (Globals.IsClassicVersion(5))
 			{
-				// 50% chance of boom
+				// Raise the dead / Make stuff vanish
 
-				PrintSonicBoom();
+				if (Globals.RtEngine.ResurrectDeadBodies() || Globals.RtEngine.MakeArtifactsVanish())
+				{
+					goto Cleanup;
+				}
+
+				// 10% chance of death trap
+
+				if (rl < 11)
+				{
+					Globals.Out.Write("{0}The section of {1} collapses and you die.{0}", Environment.NewLine, ActorRoom.EvalRoomType("tunnel you are in", "ground you are on"));
+
+					Globals.GameState.Die = 1;
+
+					NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
+					{
+						x.PrintLineSep = true;
+					});
+				}
+
+				// 75% chance of boom
+
+				else if (rl < 86)
+				{
+					PrintSonicBoom();
+				}
+
+				// 5% chance of full heal
+
+				else if (rl > 95)
+				{
+					Globals.Out.Write("{0}All of your wounds are healed.{0}", Environment.NewLine);
+
+					ActorMonster.DmgTaken = 0;
+
+					Globals.RtEngine.CheckEnemies();
+				}
+
+				// 10% chance of SPEED spell
+
+				else
+				{
+					var command = Globals.CreateInstance<ISpeedCommand>(x =>
+					{
+						x.CastSpell = false;
+					});
+
+					CopyCommandData(command);
+
+					NextState = command;
+				}
 			}
 			else
 			{
+				// 50% chance of boom
+
+				if (rl > 50)
+				{
+					PrintSonicBoom();
+				}
+
 				// 50% chance of fortune cookie
 
-				PrintFortuneCookie();
+				else
+				{
+					PrintFortuneCookie();
+				}
 			}
+
+		Cleanup:
+
+			;
 		}
 
 		protected override void PlayerExecute()

@@ -49,6 +49,8 @@ namespace Eamon.Game.Plugin
 
 		public virtual string FilePrefix { get; set; } = "";
 
+		public virtual long ClassicVersion { get; set; }
+
 		public virtual bool EnableStdio { get; set; } = true;
 
 		public virtual bool IgnoreMutex { get; set; }
@@ -361,6 +363,24 @@ namespace Eamon.Game.Plugin
 			Debug.Assert(object2Bytes != null);
 
 			result = object1Bytes.SequenceEqual(object2Bytes);
+
+		Cleanup:
+
+			return result;
+		}
+
+		public virtual bool IsClassicVersion(params long[] versions)
+		{
+			var result = false;
+
+			if (versions == null)
+			{
+				// PrintError
+
+				goto Cleanup;
+			}
+
+			result = versions.Contains(ClassicVersion);
 
 		Cleanup:
 

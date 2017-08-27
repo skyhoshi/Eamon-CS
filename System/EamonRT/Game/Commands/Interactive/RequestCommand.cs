@@ -90,7 +90,7 @@ namespace EamonRT.Game.Commands
 				DobjArtifact.Seen = true;
 			}
 
-			if (ActorMonster.Weapon <= 0 && DobjArtifact.IsWeapon01() && NextState == null)
+			if (ActorMonster.Weapon <= 0 && DobjArtifact.IsReadyableByCharacter() && NextState == null)
 			{
 				NextState = Globals.CreateInstance<IReadyCommand>();
 
@@ -142,6 +142,13 @@ namespace EamonRT.Game.Commands
 		public RequestCommand()
 		{
 			SortOrder = 300;
+
+			if (Globals.IsClassicVersion(5))
+			{
+				IsPlayerEnabled = false;
+
+				IsMonsterEnabled = false;
+			}
 
 			Name = "RequestCommand";
 
