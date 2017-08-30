@@ -24,7 +24,9 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon, Enums.ArtifactType.Wearable };
+			var artClasses = Globals.IsRulesetVersion(5) ? 
+				new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon } : 
+				new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon, Enums.ArtifactType.Wearable };
 
 			var ac = DobjArtifact.GetArtifactClass(artClasses, false);
 

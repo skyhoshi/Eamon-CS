@@ -4,8 +4,10 @@
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System;
+using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
+using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.States
@@ -26,11 +28,24 @@ namespace EamonRT.Game.States
 
 				if (Globals.GameState.Speed <= 0)
 				{
-					Globals.MDB[Globals.GameState.Cm].Agility /= 2;
+					var stat = Globals.Engine.GetStats(Enums.Stat.Agility);
+
+					Debug.Assert(stat != null);
+
+					var characterMonster = Globals.MDB[Globals.GameState.Cm];
+
+					Debug.Assert(characterMonster != null);
+
+					characterMonster.Agility /= 2;
+
+					if (characterMonster.Agility < stat.MinValue)
+					{
+						characterMonster.Agility = stat.MinValue;
+					}
 
 					var rl = Globals.Engine.RollDice01(1, 100, 0);
 
-					if (!Globals.IsRulesetVersion(5) || rl > 80)
+					if (rl > 80 || !Globals.IsRulesetVersion(5))
 					{
 						PrintSpeedSpellExpired();
 					}

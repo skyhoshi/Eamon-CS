@@ -1925,6 +1925,8 @@ namespace EamonRT.Game
 				m.SetInRoom(newRoom);
 			}
 
+			CheckEnemies();
+
 			var artifactList = Globals.Engine.GetArtifactList(() => true, a => a.IsInRoom(oldRoom)).ToList();
 
 			foreach (var a in artifactList)
