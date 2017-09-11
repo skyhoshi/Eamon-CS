@@ -17,7 +17,7 @@ There is no formal installer for Eamon CS.  To obtain a copy of this repository 
 
 If you are on Windows and choose the second option, prior to unzipping the file, you should right click on it, select Properties and click the Unblock check box (or button) in the lower right corner of the form.  Then click Apply and OK.  This will improve the gameplay experience by eliminating security warning message boxes.
 
-It is possible to have multiple ECS repositories present on your system; provided they are in separate directories, they will not interfere with each other.  This can be useful in upgrade scenarios.  Unfortunately, the big improvements for Eamon CS 1.3.0 once again changed the data files (but much for the better).  You can now run EamonDD 1.X.0 along side EamonDD 1.3.0 and transfer your characters more easily (but still manually).
+It is possible to have multiple ECS repositories present on your system; provided they are in separate directories, they will not interfere with each other.  This can be useful in upgrade scenarios.
 
 #### Playing
 
