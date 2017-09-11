@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeginnersForest", "Adventur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTrainingGround", "Adventures\TheTrainingGround\TheTrainingGround.csproj", "{B67DBF44-18E8-44A7-969C-94511EDCFE8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTempleOfNgurct", "Adventures\TheTempleOfNgurct\TheTempleOfNgurct.csproj", "{0E804D0A-D655-43F9-AF86-56BAAC15FAC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,6 +87,10 @@ Global
 		{B67DBF44-18E8-44A7-969C-94511EDCFE8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B67DBF44-18E8-44A7-969C-94511EDCFE8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B67DBF44-18E8-44A7-969C-94511EDCFE8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E804D0A-D655-43F9-AF86-56BAAC15FAC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E804D0A-D655-43F9-AF86-56BAAC15FAC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E804D0A-D655-43F9-AF86-56BAAC15FAC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E804D0A-D655-43F9-AF86-56BAAC15FAC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -102,5 +108,6 @@ Global
 		{CD8E7C84-D98B-4578-90A3-538EEF173E1D} = {25D7389F-FD50-4453-80D0-F5CCFAF12CEC}
 		{184EFB07-7B2D-4ED5-B1E5-72AB5BA3EBAB} = {25D7389F-FD50-4453-80D0-F5CCFAF12CEC}
 		{B67DBF44-18E8-44A7-969C-94511EDCFE8B} = {25D7389F-FD50-4453-80D0-F5CCFAF12CEC}
+		{0E804D0A-D655-43F9-AF86-56BAAC15FAC1} = {25D7389F-FD50-4453-80D0-F5CCFAF12CEC}
 	EndGlobalSection
 EndGlobal

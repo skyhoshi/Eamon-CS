@@ -1,0 +1,1999 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.MonsterDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IMonster, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="rat" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a giant rat." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="50" />
+            <Simple name="Location" value="39" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="rat" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a giant rat." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="50" />
+            <Simple name="Location" value="39" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="rat" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a giant rat." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="13" />
+            <Simple name="Agility" value="17" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="75" />
+            <Simple name="Location" value="39" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="rat" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a giant rat." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="50" />
+            <Simple name="Location" value="39" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="rat" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a giant rat." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="13" />
+            <Simple name="Agility" value="13" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="50" />
+            <Simple name="Location" value="39" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="rat" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a giant rat." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="17" />
+            <Simple name="Agility" value="17" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="75" />
+            <Simple name="Location" value="39" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="guard" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a big, nasty looking guy with a sword that's seen lots of use.  He turns to use it." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="10" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="80" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="guard" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a man wearing the uniform of the Guards of Ngurct.  He sees you, too, and readies his axe." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="2" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ogre" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see an ogre, all eight feet of him, with black and red splotches all over his body.  He says, &quot;Ungh,&quot; and turns to face you." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="18" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="80" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="3" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="guard" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a big guy with a big mace.  He doesn't like your looks.  You can tell." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="14" />
+            <Simple name="Agility" value="14" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="90" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="4" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="goblin" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a goblin in shining chainmail.  He sees you and readies his broadsword." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="14" />
+            <Simple name="Agility" value="14" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="5" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Debbie" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A beautiful girl stumbles into the @@005!  Her skimpy attire is composed of rags.  She cowers in fear." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="9" />
+            <Simple name="Agility" value="25" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="30" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="190" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="190" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="guard" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A guard enters the @@005!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="13" />
+            <Simple name="Agility" value="13" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="6" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="orc" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="An orc walks into the @@005!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="75" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="7" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="guard" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A guard walks into the @@005!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="90" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="8" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="goblin" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A goblin enters the @@005!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="14" />
+            <Simple name="Agility" value="14" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="75" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="9" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bugbear" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A bugbear walks into the @@005!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="90" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="10" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Joubert" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A man in rags enters the @@005!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="14" />
+            <Simple name="Agility" value="12" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="80" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="11" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="orc" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="An orc walks into the @@005!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="75" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="18" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="hobgoblin" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A hobgoblin walks into the @@005!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="12" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="giant" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A huge giant strides into the @@005!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="90" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="13" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="guard" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A guard steps into the @@005!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="14" />
+            <Simple name="Agility" value="14" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="75" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="14" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="orc" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="An orc steps into the @@005!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="14" />
+            <Simple name="Agility" value="14" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="75" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="15" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="goblin" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A goblin walks into the @@005!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="16" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bugbear" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A bugbear walks into the @@005!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="17" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="17" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Sumata" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A man in tattered oriental garb enters the @@005!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="37" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="3" />
+            <Simple name="NwSides" value="2" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="27" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Zapata" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Zapata, one of the prisoners, welcomes you to his humble home." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="18" />
+            <Simple name="Agility" value="20" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="80" />
+            <Simple name="Location" value="55" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="190" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="190" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="28" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Sir Charles" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="One of the prisoners is the good Sir Charles, who wears the tattered remnants of his clothes with noble dignity.  &quot;Greetings,@@001&quot; says he.  &quot;And about time.&quot;" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="18" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="90" />
+            <Simple name="Location" value="55" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="195" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="195" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="29" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Thera" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a beautiful princess bound to the altar; she was obviously the high priest's next sacrifice.  When you distract the priest, she is able to free herself and grab the sacrificial dagger." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="17" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="75" />
+            <Simple name="Location" value="48" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="78" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="30" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="guard" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A guard straightens up from the brazier.  He sees you and pulls a red-hot poker from the coals." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="12" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="50" />
+            <Simple name="Location" value="56" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="19" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="31" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="guard" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a man in the uniform of the guards of Ngurct; but he's wearing some strange insignia.  He's also holding a very nasty sword." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="36" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="20" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="10" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="32" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="magician" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a puny guy who's old and grey.  He is wearing a conical hat with magical symbols on it.  He is startled to see you, and seems panicked.  He awkwardly readies a sword." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="9" />
+            <Simple name="Agility" value="10" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="50" />
+            <Simple name="Location" value="42" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="21" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="33" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="priest" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A man whirls from the bed.  He is naked but is armed with a wicked sword, with which he was slicing up a slave girl.  He turns, cries &quot;How dare you, infidel!&quot; and prepares to slice you up." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="24" />
+            <Simple name="Agility" value="24" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="53" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="22" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="34" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="high priest" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="The high priest turns from the black and bloodstained altar.  He carefully puts down the sacrificial dagger he was sharpening and whips out an elaborate sword.  &quot;Those who defile the Temple of Ngurct -- DIE!&quot;" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="30" />
+            <Simple name="Agility" value="33" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="48" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="24" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="35" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="priest" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Another priest turns from before a black statue to attack." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="24" />
+            <Simple name="Agility" value="24" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="48" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="23" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="36" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bugbear" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="As you enter, a bugbear who was playing cards with an orc rises and readies its axe." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="13" />
+            <Simple name="Agility" value="14" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="60" />
+            <Simple name="Location" value="35" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="25" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="37" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="giant" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="The loot is not unguarded, however.  You see a giant giant, a truly large critter who looks at you and smiles.  &quot;Mmmm.&quot; he says.  &quot;Food.&quot;" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="60" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="41" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="26" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="10" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="38" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="goblin" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You are in combat!  You have walked into the middle of a fight between a goblin and a handsome man." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="30" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="40" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="27" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="39" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="hobgoblin" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see the captain of the citadel outer guard -- a mid-sized hobgoblin (which is still pretty big).  He is not at all pleased to see you." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="80" />
+            <Simple name="Location" value="6" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="28" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="40" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="kobold" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a frightened kobold standing indecisively by the rack." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="13" />
+            <Simple name="Agility" value="13" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="25" />
+            <Simple name="Location" value="56" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="29" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="150" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="41" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="orc" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a sword-wielding orc wearing leather armor." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="80" />
+            <Simple name="Location" value="34" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="30" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="42" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="skeleton" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="An animated skeleton rattles out from amongst the rubble!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="10" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="3" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="31" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="43" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="skeleton" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="An animated skeleton rattles out of the rubble!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="10" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="7" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="32" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="44" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ghoul" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A ghoul attacks from the shadows!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="12" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="4" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="33" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="45" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="minotaur" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A minotaur whirls to face you as you enter.  He snorts, his huge shoulders bulging, and paws the ground with his feet.  He swings his immense double-bladed axe and -- charges!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="59" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="34" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="46" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="mummy" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see the source of the musty smell shuffling towards you.  It is a ragged mummy, wrapped head to toe in filthy bandages.  He advances, shuffling, one arm reaching to grab you." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="YIes" />
+            <Simple name="Hardiness" value="24" />
+            <Simple name="Agility" value="9" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="38" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="10" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="47" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ogre" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="An ogre, who was playing craps with the giant and being cheated, smiles an evil grin at the thought of venting his frustrations on you." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="41" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="36" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="10" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="48" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ogre" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="An ogre advances from behind the altar." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="20" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="48" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="37" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="49" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Belisarius" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="Battling the goblin is a man in bright chain mail.  &quot;Don't stand there, fool!&quot; he cries." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Hardiness" value="22" />
+            <Simple name="Agility" value="24" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="40" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="38" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="190" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="190" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="50" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Abdul" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="As you enter, a dark man rises to his feet.  &quot;You are not a jailer,&quot; he says.  &quot;My name is Abdul.&quot;  He seems tense." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="20" />
+            <Simple name="Agility" value="19" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="75" />
+            <Simple name="Location" value="45" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="190" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="190" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="51" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Osborne" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A man lies weeping on the floor.  &quot;Please don't hurt me again,&quot; he whimpers.  &quot;I just don't want to be hurt.  I'll do anything you want.&quot;  He turns, and jumps when he sees you." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="14" />
+            <Simple name="Agility" value="18" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="20" />
+            <Simple name="Location" value="46" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="150" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="52" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cobra" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A cobra hisses, coiled on the jewels in the chest!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="8" />
+            <Simple name="Agility" value="24" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="12" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="53" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Ngurct" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="The statue howls in pain and roars with anger.  The demon Ngurct is before you!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="250" />
+            <Simple name="Agility" value="24" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="54" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="slave girl" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="The slave girl smiles as she pulls herself loose of the ropes that bound her.  &quot;I don't have the words to thank you!&quot;" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="12" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="35" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="39" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="175" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="175" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="55" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Gonzales" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="&quot;Pssst!&quot;  You pause at the whisper.  &quot;Hey stupid!&quot; it says.  You look and see a dark man hiding in the rubble.  &quot;Another mercenary after the reward on Princess Thera!  Maybe we can work together, or...&quot;  He peers at you, sword at the ready." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Hardiness" value="19" />
+            <Simple name="Agility" value="17" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="45" />
+            <Simple name="Location" value="11" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="40" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="175" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="175" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="56" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Alkanda" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A whirlwind scatters the dust into a cloud, from which comes a man in a black silk tunic.  &quot;I'm alive!&quot; he cries.  &quot;Alive!  Now I have the power of death!&quot;  He slides an evil sword from its scabbard.  &quot;And for you?  A just reward!&quot;" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="75" />
+            <Simple name="Agility" value="24" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="41" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="57" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Hero" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A thunderclap slams your ears.  From out of thin air leaps a Norse barbarian, a lion's mane around his shoulders and a two-handed broadsword in his hand.  &quot;Hi!  I'm Hero!&quot;" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Hardiness" value="24" />
+            <Simple name="Agility" value="24" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="42" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="10" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="58" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="troll" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="A troll leaps out of the shadows!" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="17" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="48" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="59" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bugbear" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="You see a bugbear wearing a greasy apron and smoking a fat cigar.  He hears you come in and turns, boredly, frying pan in hand.  He sees you're not a moocher, exactly, and gets a death grip on the pan." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="17" />
+            <Simple name="Agility" value="14" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="60" />
+            <Simple name="Location" value="54" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="43" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Monster, TheTempleOfNgurct, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="60" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="orc" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="Desc" value="The bugbear's competition scurries to his shiny orc-feet and grabs an axe." />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="13" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="60" />
+            <Simple name="Location" value="35" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="44" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="60" />
+  </Properties>
+</Complex>
