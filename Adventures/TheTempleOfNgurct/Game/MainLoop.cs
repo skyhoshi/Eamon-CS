@@ -45,7 +45,7 @@ namespace TheTempleOfNgurct.Game
 
 			if (theraMonster.Location == Globals.GameState.Ro && theraMonster.Friendliness > Enums.Friendliness.Enemy)
 			{
-				var rw = 200 + (100 * ((theraMonster.Hardiness - theraMonster.DmgTaken) / theraMonster.Hardiness));
+				var rw = 200 + (long)Math.Round(100 * ((theraMonster.Hardiness - theraMonster.DmgTaken) / (double)theraMonster.Hardiness));
 
 				Globals.Out.Write("{0}In addition, you receive {1} gold pieces as a reward for the return of Princess Thera.{2}{0}", Environment.NewLine, rw, gonzalesMonster.Location == Globals.GameState.Ro ? "  Of course, Gonzales takes his half." : "");
 
