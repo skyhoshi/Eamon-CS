@@ -15,7 +15,11 @@ namespace TheTempleOfNgurct.Game.States
 	{
 		protected override void ProcessEvents01()
 		{
-			if (Globals.GameState.R2 == -17)
+			if (Globals.GameState.R2 == -33)
+			{
+				Globals.Out.WriteLine("{0}The oak door is locked from the inside!", Environment.NewLine);
+			}
+			else if (Globals.GameState.R2 == -55)
 			{
 				Globals.Out.WriteLine("{0}The cell door is locked from the outside!", Environment.NewLine);
 			}

@@ -18,7 +18,15 @@ namespace TheTempleOfNgurct.Game
 
 			if (gameState != null)        // null in EamonDD; non-null in EamonRT
 			{
-				if (Uid == 45)
+				if (Uid == 33)
+				{
+					var oakDoorArtifact = Globals.ADB[85];
+
+					var ac = oakDoorArtifact != null ? oakDoorArtifact.GetArtifactClass(Enums.ArtifactType.DoorGate) : null;
+
+					return ac != null && (ac.GetKeyUid() <= 0 || !oakDoorArtifact.Seen) && index == 1 ? 18 : base.GetDirs(index);
+				}
+				else if (Uid == 45)
 				{
 					var cellDoorArtifact = Globals.ADB[87];
 

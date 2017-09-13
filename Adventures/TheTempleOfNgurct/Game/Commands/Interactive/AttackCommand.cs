@@ -27,7 +27,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (BlastSpell || ActorMonster.Weapon > 0)
 			{
-				// Attack/BLAST statue
+				// ATTACK/BLAST statue
 
 				if (DobjArtifact != null && DobjArtifact.Uid == 50)
 				{

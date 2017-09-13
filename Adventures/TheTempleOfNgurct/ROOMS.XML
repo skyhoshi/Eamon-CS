@@ -280,7 +280,7 @@
           <Properties>
             <Simple name="Uid" value="11" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Breach" />
+            <Simple name="Name" value="East Wall, Breach" />
             <Simple name="Seen" value="False" />
             <Simple name="Desc" value="You are in the breach in the east wall.  The stones and rubble are loose and dangerous.  To the west you see the ruins of the east tower; to the south is a north/south path." />
             <Simple name="LightLvl" value="Light" />
@@ -883,7 +883,7 @@
             <SingleArray name="Dirs">
               <Items>
                 <Simple value="0" />
-                <Simple value="18" />
+                <Simple value="-33" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1210,7 +1210,7 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
-                <Simple value="-17" />
+                <Simple value="-55" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1236,7 +1236,7 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
-                <Simple value="-17" />
+                <Simple value="-55" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1477,7 +1477,7 @@
             <SingleArray name="Dirs">
               <Items>
                 <Simple value="0" />
-                <Simple value="-17" />
+                <Simple value="-55" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
