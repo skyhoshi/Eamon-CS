@@ -17,6 +17,11 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings(typeof(EamonRT.Framework.Commands.IPowerCommand))]
 	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
+		protected virtual void PrintAirCracklesWithEnergy()
+		{
+			Globals.Out.Write("{0}The air crackles with magical energy.{0}", Environment.NewLine);
+		}
+
 		protected override void PlayerProcessEvents()
 		{
 			var rl = 0L;
@@ -128,6 +133,8 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (rl < 71 && gameState.Ro != 58 && !heroMonster.Seen)
 			{
+				PrintAirCracklesWithEnergy();
+
 				heroMonster.SetInRoom(ActorRoom);
 
 				Globals.RtEngine.CheckEnemies();
@@ -158,6 +165,8 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (rl < 81 && gameState.Ro != 58)
 			{
+				PrintAirCracklesWithEnergy();
+
 				Globals.RtEngine.CastTo<IRtEngine>().GetWanderingMonster();
 
 				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
@@ -171,6 +180,8 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (rl < 86 && gameState.Ro != 58)
 			{
+				PrintAirCracklesWithEnergy();
+
 				ActorMonster.SetInRoomUid(58);
 
 				Globals.RtEngine.CheckEnemies();
