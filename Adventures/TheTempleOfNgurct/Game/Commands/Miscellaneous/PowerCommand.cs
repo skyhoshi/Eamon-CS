@@ -19,7 +19,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	{
 		protected virtual void PrintAirCracklesWithEnergy()
 		{
-			Globals.Out.Write("{0}The air crackles with magical energy.{0}", Environment.NewLine);
+			Globals.Out.Write("{0}The air crackles with magical energy!{0}", Environment.NewLine);
 		}
 
 		protected override void PlayerProcessEvents()
