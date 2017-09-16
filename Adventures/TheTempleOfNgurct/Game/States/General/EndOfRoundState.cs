@@ -45,7 +45,7 @@ namespace TheTempleOfNgurct.Game.States
 
 			var rl = Globals.Engine.RollDice01(1, 100, 0);
 
-			if (rl <= 3 && gameState.Ro != 58)        // rl <= 7
+			if (rl <= 4 && gameState.Ro != 58)        // rl <= 7
 			{
 				// Monsters won't wander into a locked cell
 
