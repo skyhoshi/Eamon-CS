@@ -1303,7 +1303,7 @@ namespace EamonRT.Game
 
 				if (found)
 				{
-					if (artifact.Seen)
+					if (artifact.Seen && room.IsLit())
 					{
 						ac.Field8 = 0;
 					}

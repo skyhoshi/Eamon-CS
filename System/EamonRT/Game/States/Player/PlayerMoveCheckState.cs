@@ -122,7 +122,10 @@ namespace EamonRT.Game.States
 
 				if (_found)
 				{
-					Globals.RtEngine.RevealEmbeddedArtifact(Room, Artifact);
+					if (Room.IsLit())
+					{
+						Globals.RtEngine.RevealEmbeddedArtifact(Room, Artifact);
+					}
 
 					Globals.GameState.R2 = _roomUid;
 
@@ -139,7 +142,7 @@ namespace EamonRT.Game.States
 
 						goto Cleanup;
 					}
-					else if (Globals.GameState.R2 == 0)
+					else if (Globals.GameState.R2 == 0 && Room.IsLit())
 					{
 						Globals.Out.Write("{0}{1} block{2} the way!{0}", Environment.NewLine, Artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), Artifact.EvalPlural("s", ""));
 

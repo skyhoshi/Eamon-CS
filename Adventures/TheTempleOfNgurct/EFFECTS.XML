@@ -227,14 +227,14 @@
           <Properties>
             <Simple name="Uid" value="32" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Desc" value="Also noteworthy:  Robert Plamondon's 1983 Creative Computing article, &quot;An Adventure Game For The Apple II With (Almost) Everything&quot; helped to kickstart **033" />
+            <Simple name="Desc" value="Also noteworthy:  Robert Plamondon's 1983 Creative Computing article, &quot;An Adventure Game For The Apple II With (Almost) Everything&quot; introduced many gamers **033" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="33" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Desc" value="the Eamon phenomenon, introducing countless gamers of the era to this intriguing system.  Eamon CS port of Eamon #23 by Mike Penner." />
+            <Simple name="Desc" value="of the era to this intriguing system.  Eamon CS port of Eamon #23 by Mike Penner." />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
