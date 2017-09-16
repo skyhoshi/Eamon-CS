@@ -216,6 +216,22 @@ namespace TheTempleOfNgurct.Game
 			base.ConvertToCarriedInventory(weaponList);
 		}
 
+		public override void MonsterSmiles(Eamon.Framework.IMonster monster)
+		{
+			Debug.Assert(monster != null);
+
+			// Cobra
+
+			if (monster.Uid == 52)
+			{
+				Globals.Out.Write("{0}{1} hisses at you.", Environment.NewLine, monster.GetDecoratedName03(true, true, false, false, Globals.Buf));
+			}
+			else
+			{
+				base.MonsterSmiles(monster);
+			}
+		}
+
 		public override void MonsterDies(Eamon.Framework.IMonster OfMonster, Eamon.Framework.IMonster DfMonster)
 		{
 			Debug.Assert(DfMonster != null);

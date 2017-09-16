@@ -45,9 +45,11 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			DmgTaken = ActorMonster.DmgTaken;
 
+			var ac = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Drinkable);
+
 			// Sulphuric acid
 
-			if (DobjArtifact.Uid == 53)
+			if (DobjArtifact.Uid == 53 && ac.IsOpen())
 			{
 				Globals.Engine.PrintEffectDesc(29);
 
@@ -61,7 +63,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			// Human blood
 
-			else if (DobjArtifact.Uid == 52)
+			else if (DobjArtifact.Uid == 52 && ac.IsOpen())
 			{
 				Globals.Engine.PrintEffectDesc(30);
 
@@ -72,7 +74,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			// Wine
 
-			else if (DobjArtifact.Uid == 69)
+			else if (DobjArtifact.Uid == 69 && ac.IsOpen())
 			{
 				var stat = Globals.Engine.GetStats(Enums.Stat.Agility);
 
