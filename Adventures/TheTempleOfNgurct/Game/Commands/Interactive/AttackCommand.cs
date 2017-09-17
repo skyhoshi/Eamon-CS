@@ -9,7 +9,6 @@ using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using TheTempleOfNgurct.Framework;
 using TheTempleOfNgurct.Framework.Commands;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
@@ -43,7 +42,12 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					Globals.RtEngine.CheckEnemies();
 
-					var command = Globals.CreateInstance<EamonRT.Framework.Commands.IAttackCommand>();
+					var command = Globals.CreateInstance<EamonRT.Framework.Commands.IAttackCommand>(x =>
+					{
+						x.BlastSpell = BlastSpell;
+
+						x.CheckAttack = CheckAttack;
+					});
 
 					CopyCommandData(command);
 

@@ -171,17 +171,19 @@ namespace EamonPM
 
 			pg = EamonRT.Game.Plugin.PluginContext.Globals;
 
-			pg = TheBeginnersCave.Game.Plugin.PluginContext.Globals;
+			pg = ARuncibleCargo.Game.Plugin.PluginContext.Globals;
 
 			pg = BeginnersForest.Game.Plugin.PluginContext.Globals;
 
-			pg = TheTrainingGround.Game.Plugin.PluginContext.Globals;
+			pg = StrongholdOfKahrDur.Game.Plugin.PluginContext.Globals;
+
+			pg = TheBeginnersCave.Game.Plugin.PluginContext.Globals;
 
 			pg = TheSubAquanLaboratory.Game.Plugin.PluginContext.Globals;
 
-			pg = StrongholdOfKahrDur.Game.Plugin.PluginContext.Globals;
+			pg = TheTempleOfNgurct.Game.Plugin.PluginContext.Globals;
 
-			pg = ARuncibleCargo.Game.Plugin.PluginContext.Globals;
+			pg = TheTrainingGround.Game.Plugin.PluginContext.Globals;
 		}
 
 		protected override void OnCreate(Bundle bundle)
