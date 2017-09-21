@@ -88,7 +88,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					Globals.Out.WriteLine("{0}The {1} is filled with an incandescent fireball!", Environment.NewLine, ActorRoom.EvalRoomType("room", "area"));
 
-					var monsters = Globals.RtEngine.GetRandomMonsterList(10, m => !m.IsCharacterMonster() && m.Uid != DobjMonster.Uid && m.Seen && m.IsInRoom(ActorRoom));
+					var monsters = Globals.RtEngine.GetRandomMonsterList(9, m => !m.IsCharacterMonster() && m.Uid != DobjMonster.Uid && m.Seen && m.IsInRoom(ActorRoom));
 
 					Debug.Assert(monsters != null);
 
