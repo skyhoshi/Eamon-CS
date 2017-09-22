@@ -60,6 +60,8 @@ namespace EamonRT.Game.Combat
 
 		protected virtual string MissDesc { get; set; }
 
+		protected virtual bool UseFractionalStrength { get; set; }
+
 		protected virtual bool OmitBboaPadding { get; set; }
 
 		protected virtual bool LightOut { get; set; }
@@ -560,13 +562,43 @@ namespace EamonRT.Game.Combat
 			;
 		}
 
+		protected virtual void CalculateDamageForFractionalStrength()
+		{
+			Debug.Assert(OfMonster != null && UseFractionalStrength);
+
+			_d2 = 0;
+
+			var xx = (double)(OfMonster.Hardiness - OfMonster.DmgTaken) / (double)OfMonster.Hardiness;      // Fractional strength
+
+			var yy = xx < .5 ? .5 + (xx * (.083 + (.833 * xx))) : (-.75) + (xx * (4.25 - (2.5 * xx)));
+
+			if (yy > 1)
+			{
+				yy = 1;
+			}
+
+			for (var i = 0; i < D; i++)
+			{
+				_d2 += (long)Math.Round(yy * (MaxDamage ? S : Globals.Engine.RollDice01(1, S, 0)));
+			}
+		}
+
 		protected virtual void CalculateDamage()
 		{
+			Debug.Assert(OfMonster != null || !UseFractionalStrength);
+
 			Debug.Assert(DfMonster != null);
 
 			Debug.Assert(D > 0 && S > 0 && A >= 0 && A <= 1);
 
-			_d2 = MaxDamage ? (D * S) + M : Globals.Engine.RollDice01(D, S, M);
+			if (UseFractionalStrength)
+			{
+				CalculateDamageForFractionalStrength();
+			}
+			else
+			{
+				_d2 = MaxDamage ? (D * S) + M : Globals.Engine.RollDice01(D, S, M);
+			}
 
 			_d2 -= (A * DfMonster.Armor);
 

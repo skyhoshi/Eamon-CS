@@ -7,6 +7,6 @@ namespace TheTempleOfNgurct.Framework.Combat
 {
 	public interface ICombatSystem : EamonRT.Framework.Combat.ICombatSystem
 	{
-		bool UseFractionalStrength { get; set; }
+		
 	}
 }
