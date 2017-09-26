@@ -132,6 +132,7 @@
     <Compile Include="Framework\Menus\ActionMenus\RoomMenus\IListRoomRecordDetailMenu.cs" />
     <Compile Include="Framework\Menus\ActionMenus\RoomMenus\IListRoomRecordNameMenu.cs" />
     <Compile Include="Framework\Menus\ActionMenus\UtilitiesMenus\IAnalyseAllRecordInterdependenciesMenu.cs" />
+    <Compile Include="Framework\Menus\ActionMenus\UtilitiesMenus\IAnalyseAdventureRecordTreeMenu.cs" />
     <Compile Include="Framework\Menus\HierarchicalMenus\ArtifactMenus\IAddArtifactRecordMenu.cs" />
     <Compile Include="Framework\Menus\HierarchicalMenus\ArtifactMenus\IArtifactRecordMenu.cs" />
     <Compile Include="Framework\Menus\HierarchicalMenus\ArtifactMenus\IArtifactRecordUtilitiesMenu.cs" />
@@ -251,6 +252,7 @@
     <Compile Include="Game\Menus\ActionMenus\RoomMenus\AddRoomRecordManualMenu.cs" />
     <Compile Include="Game\Menus\ActionMenus\RoomMenus\AnalyseRoomRecordInterdependenciesMenu.cs" />
     <Compile Include="Game\Menus\ActionMenus\RoomMenus\AnalyseRoomRecordInterdependenciesMenu01.cs" />
+    <Compile Include="Game\Menus\ActionMenus\UtilitiesMenus\AnalyseAdventureRecordTreeMenu.cs" />
     <Compile Include="Game\Menus\ActionMenus\RoomMenus\BriefMapRoomRecordConnectionsMenu.cs" />
     <Compile Include="Game\Menus\ActionMenus\RoomMenus\DeleteRoomRecordMenu.cs" />
     <Compile Include="Game\Menus\ActionMenus\RoomMenus\EditRoomRecordManyFieldsMenu.cs" />

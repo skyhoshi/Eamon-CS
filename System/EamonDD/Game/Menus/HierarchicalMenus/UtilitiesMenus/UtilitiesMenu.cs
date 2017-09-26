@@ -43,6 +43,13 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 					x.LineText = string.Format("{0}{1}. Analyse all record interdependencies.", Environment.NewLine, MenuItems.Count + 1);
 					x.SubMenu = Globals.CreateInstance<IAnalyseAllRecordInterdependenciesMenu>();
 				}));
+
+				MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
+				{
+					x.SelectChar = (char)('1' + MenuItems.Count);
+					x.LineText = string.Format("{0}{1}. Analyse adventure record tree.", Environment.NewLine, MenuItems.Count + 1);
+					x.SubMenu = Globals.CreateInstance<IAnalyseAdventureRecordTreeMenu>();
+				}));
 			}
 
 			MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
