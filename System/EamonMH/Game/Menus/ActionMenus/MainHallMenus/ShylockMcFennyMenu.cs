@@ -25,15 +25,10 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 
-			var gender = Globals.Engine.GetGenders(Globals.Character.Gender);
-
-			Debug.Assert(gender != null);
-
-			Globals.Out.Write("{0}You have no trouble spotting Shylock McFenny, the local banker, due to his large belly.  You attract his attention, and he comes over to you.{0}{0}\"Well, {1}{2}{3} what a pleasure to see you!  Do you want to make a deposit or a withdrawal?\"{0}",
+			Globals.Out.Write("{0}You have no trouble spotting Shylock McFenny, the local banker, due to his large belly.  You attract his attention, and he comes over to you.{0}{0}\"Well, {1} my dear {2} what a pleasure to see you!  Do you want to make a deposit or a withdrawal?\"{0}",
 				Environment.NewLine,
 				Globals.Character.Name,
-				gender.BoyDesc != null ? " my dear " : "",
-				gender.BoyDesc != null ? gender.BoyDesc : "");
+				Globals.Character.EvalGender("boy", "girl", "thing"));
 
 			Globals.Out.Write("{0}You have {1} GP in hand, {2} GP in the bank.{0}",
 				Environment.NewLine,

@@ -407,10 +407,6 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Globals.CharacterName = Globals.Character.Name;
 
-						var gender = Globals.Engine.GetGenders(Globals.Character.Gender);
-
-						Debug.Assert(gender != null);
-
 						if (Globals.Character.Status == Enums.Status.Alive)
 						{
 							Globals.Out.Write("{0}Finally he looks up and says, \"Ah, here ye be.  Well, go and have fun in the hall.\"{0}", Environment.NewLine);
@@ -499,7 +495,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 									Globals.Out.Write("{0}Pointing to an entry in his registry, the Irishman exclaims, \"Says 'ere the wizard couldn't locate {1} in any known adventure!\"{0}{0}(You will have to manually change {2} status using EamonDD.){0}",
 										Environment.NewLine,
 										Globals.Character.Name,
-										gender.HisDesc);
+										Globals.Character.EvalGender("his", "her", "its"));
 								}
 							}
 						}
@@ -510,7 +506,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 							Globals.Out.Write("{0}The burly Irishman gets a sad look in his eyes and says, \"Ye can't be {1}, {2} be dead.  Now who'r ye again?\"{0}",
 								Environment.NewLine,
 								Globals.Character.Name,
-								gender.HeDesc);
+								Globals.Character.EvalGender("he", "she", "it"));
 						}
 					}
 				}

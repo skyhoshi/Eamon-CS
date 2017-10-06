@@ -704,11 +704,7 @@ namespace Eamon.Game
 
 			for (j = 0; j < friendlinessValues.Count; j++)
 			{
-				var friendliness = Globals.Engine.GetFriendlinesses(friendlinessValues[j]);
-
-				Debug.Assert(friendliness != null);
-
-				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)friendlinessValues[j], friendliness.Name);
+				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)friendlinessValues[j], Globals.Engine.EvalFriendliness(friendlinessValues[j], "Enemy", "Neutral", "Friend"));
 			}
 
 			briefDesc.AppendFormat("{0}(100 + N)=N% chance of being friend", j != 0 ? "; " : "");
@@ -726,11 +722,7 @@ namespace Eamon.Game
 
 			for (var j = 0; j < genderValues.Count; j++)
 			{
-				var gender = Globals.Engine.GetGenders(genderValues[j]);
-
-				Debug.Assert(gender != null);
-
-				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)genderValues[j], gender.Name);
+				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)genderValues[j], Globals.Engine.EvalGender(genderValues[j], "Male", "Female", "Neutral"));
 			}
 
 			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc.ToString());
@@ -1207,14 +1199,10 @@ namespace Eamon.Game
 					}
 					else
 					{
-						var friendliness = Globals.Engine.GetFriendlinesses(Friendliness);
-
-						Debug.Assert(friendliness != null);
-
 						Globals.Out.Write("{0}{1}{2}",
 							Environment.NewLine,
 							Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null),
-							Globals.Engine.BuildValue(51, ' ', 8, (long)Friendliness, null, friendliness.Name));
+							Globals.Engine.BuildValue(51, ' ', 8, (long)Friendliness, null, EvalFriendliness("Enemy", "Neutral", "Friend")));
 					}
 				}
 				else
@@ -1237,14 +1225,10 @@ namespace Eamon.Game
 
 				if (args.LookupMsg)
 				{
-					var gender = Globals.Engine.GetGenders(Gender);
-
-					Debug.Assert(gender != null);
-
 					Globals.Out.Write("{0}{1}{2}",
 						Environment.NewLine,
 						Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null),
-						Globals.Engine.BuildValue(51, ' ', 8, (long)Gender, null, gender.Name));
+						Globals.Engine.BuildValue(51, ' ', 8, (long)Gender, null, EvalGender("Male", "Female", "Neutral")));
 				}
 				else
 				{
@@ -2793,9 +2777,14 @@ namespace Eamon.Game
 			return room != null && room.IsLit();
 		}
 
+		public virtual T EvalFriendliness<T>(T enemyValue, T neutralValue, T friendValue)
+		{
+			return Globals.Engine.EvalFriendliness(Friendliness, enemyValue, neutralValue, friendValue);
+		}
+
 		public virtual T EvalGender<T>(T maleValue, T femaleValue, T neutralValue)
 		{
-			return Gender == Enums.Gender.Male ? maleValue : Gender == Enums.Gender.Female ? femaleValue : neutralValue;
+			return Globals.Engine.EvalGender(Gender, maleValue, femaleValue, neutralValue);
 		}
 
 		public virtual T EvalPlural<T>(T singularValue, T pluralValue)

@@ -83,21 +83,9 @@ namespace Eamon.Framework
 
 		Classes.IArmor GetArmors(Enums.Armor armor);
 
-		Classes.IGender GetGenders(long index);
-
-		Classes.IGender GetGenders(Enums.Gender gender);
-
 		Classes.IDirection GetDirections(long index);
 
 		Classes.IDirection GetDirections(Enums.Direction direction);
-
-		Classes.IFriendliness GetFriendlinesses(long index);
-
-		Classes.IFriendliness GetFriendlinesses(Enums.Friendliness friendliness);
-
-		Classes.IRoomType GetRoomTypes(long index);
-
-		Classes.IRoomType GetRoomTypes(Enums.RoomType roomType);
 
 		Classes.IArtifactType GetArtifactTypes(long index);
 
@@ -208,6 +196,12 @@ namespace Eamon.Framework
 		IGameState GetGameState();
 
 		IModule GetModule();
+
+		T EvalFriendliness<T>(Enums.Friendliness friendliness, T enemyValue, T neutralValue, T friendValue);
+
+		T EvalGender<T>(Enums.Gender gender, T maleValue, T femaleValue, T neutralValue);
+
+		T EvalRoomType<T>(Enums.RoomType roomType, T indoorsValue, T outdoorsValue);
 
 		string BuildPrompt(long bufSize, char fillChar, long number, string msg, string emptyVal);
 

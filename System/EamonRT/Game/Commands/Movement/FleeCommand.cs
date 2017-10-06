@@ -158,13 +158,9 @@ namespace EamonRT.Game.Commands
 
 				if (numExits == 0)
 				{
-					var roomType = Globals.Engine.GetRoomTypes(ActorRoom.Type);
-
-					Debug.Assert(roomType != null);
-
 					if (monsters.Contains(charMonster))
 					{
-						Globals.Out.Write("{0}{1} {2} to flee, but can't find {3}!{0}", Environment.NewLine, monsterName, rl > 1 ? "try" : "tries", roomType.FleeDesc);
+						Globals.Out.Write("{0}{1} {2} to flee, but can't find {3}!{0}", Environment.NewLine, monsterName, rl > 1 ? "try" : "tries", ActorRoom.EvalRoomType("an exit", "a path"));
 					}
 
 					goto Cleanup;

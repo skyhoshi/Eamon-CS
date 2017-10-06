@@ -48,13 +48,7 @@ namespace Eamon.Game
 
 		protected virtual Classes.IArmor[] Armors { get; set; }
 
-		protected virtual Classes.IGender[] Genders { get; set; }
-
 		protected virtual Classes.IDirection[] Directions { get; set; }
-
-		protected virtual Classes.IFriendliness[] Friendlinesses { get; set; }
-
-		protected virtual Classes.IRoomType[] RoomTypes { get; set; }
 
 		protected virtual Classes.IArtifactType[] ArtifactTypes { get; set; }
 
@@ -197,16 +191,6 @@ namespace Eamon.Game
 			return Enum.IsDefined(typeof(Enums.Armor), armor) ? GetArmors((long)armor) : null;
 		}
 
-		public virtual Classes.IGender GetGenders(long index)
-		{
-			return Genders[index];
-		}
-
-		public virtual Classes.IGender GetGenders(Enums.Gender gender)
-		{
-			return Enum.IsDefined(typeof(Enums.Gender), gender) ? GetGenders((long)gender) : null;
-		}
-
 		public virtual Classes.IDirection GetDirections(long index)
 		{
 			return Directions[index];
@@ -215,26 +199,6 @@ namespace Eamon.Game
 		public virtual Classes.IDirection GetDirections(Enums.Direction direction)
 		{
 			return Enum.IsDefined(typeof(Enums.Direction), direction) ? GetDirections((long)direction - 1) : null;
-		}
-
-		public virtual Classes.IFriendliness GetFriendlinesses(long index)
-		{
-			return Friendlinesses[index];
-		}
-
-		public virtual Classes.IFriendliness GetFriendlinesses(Enums.Friendliness friendliness)
-		{
-			return Enum.IsDefined(typeof(Enums.Friendliness), friendliness) ? GetFriendlinesses((long)friendliness - 1) : null;
-		}
-
-		public virtual Classes.IRoomType GetRoomTypes(long index)
-		{
-			return RoomTypes[index];
-		}
-
-		public virtual Classes.IRoomType GetRoomTypes(Enums.RoomType roomType)
-		{
-			return Enum.IsDefined(typeof(Enums.RoomType), roomType) ? GetRoomTypes((long)roomType) : null;
 		}
 
 		public virtual Classes.IArtifactType GetArtifactTypes(long index)
@@ -629,6 +593,21 @@ namespace Eamon.Game
 		public virtual IModule GetModule()
 		{
 			return Globals?.Database?.ModuleTable.Records.FirstOrDefault();
+		}
+
+		public virtual T EvalFriendliness<T>(Enums.Friendliness friendliness, T enemyValue, T neutralValue, T friendValue)
+		{
+			return friendliness == Enums.Friendliness.Enemy ? enemyValue : friendliness == Enums.Friendliness.Neutral ? neutralValue : friendValue;
+		}
+
+		public virtual T EvalGender<T>(Enums.Gender gender, T maleValue, T femaleValue, T neutralValue)
+		{
+			return gender == Enums.Gender.Male ? maleValue : gender == Enums.Gender.Female ? femaleValue : neutralValue;
+		}
+
+		public virtual T EvalRoomType<T>(Enums.RoomType roomType, T indoorsValue, T outdoorsValue)
+		{
+			return roomType == Enums.RoomType.Indoors ? indoorsValue : outdoorsValue;
 		}
 
 		public virtual string BuildPrompt(long bufSize, char fillChar, long number, string msg, string emptyVal)
@@ -2581,37 +2560,6 @@ namespace Eamon.Game
 				})
 			};
 
-			Genders = new Classes.IGender[]
-			{
-				Globals.CreateInstance<Classes.IGender>(x =>
-				{
-					x.Name = "Male";
-					x.MightyDesc = "Mighty";
-					x.BoyDesc = "boy";
-					x.HimDesc = "him";
-					x.HisDesc = "his";
-					x.HeDesc = "he";
-				}),
-				Globals.CreateInstance<Classes.IGender>(x =>
-				{
-					x.Name = "Female";
-					x.MightyDesc = "Fair";
-					x.BoyDesc = "girl";
-					x.HimDesc = "her";
-					x.HisDesc = "her";
-					x.HeDesc = "she";
-				}),
-				Globals.CreateInstance<Classes.IGender>(x =>
-				{
-					x.Name = "Neutral";
-					x.MightyDesc = "Androgynous";
-					x.BoyDesc = null;
-					x.HimDesc = "it";
-					x.HisDesc = "its";
-					x.HeDesc = "it";
-				})
-			};
-
 			Directions = new Classes.IDirection[]
 			{
 				Globals.CreateInstance<Classes.IDirection>(x =>
@@ -2673,43 +2621,6 @@ namespace Eamon.Game
 					x.Name = "Southwest";
 					x.PrintedName = "SW";
 					x.Abbr = "SW";
-				})
-			};
-
-			Friendlinesses = new Classes.IFriendliness[]
-			{
-				Globals.CreateInstance<Classes.IFriendliness>(x =>
-				{
-					x.Name = "Enemy";
-					x.SmileDesc = "growl";
-				}),
-				Globals.CreateInstance<Classes.IFriendliness>(x =>
-				{
-					x.Name = "Neutral";
-					x.SmileDesc = "ignore";
-				}),
-				Globals.CreateInstance<Classes.IFriendliness>(x =>
-				{
-					x.Name = "Friend";
-					x.SmileDesc = "smile";
-				})
-			};
-
-			RoomTypes = new Classes.IRoomType[]
-			{
-				Globals.CreateInstance<Classes.IRoomType>(x =>
-				{
-					x.Name = "Indoors";
-					x.RoomDesc = "room";
-					x.ExitDesc = "exits";
-					x.FleeDesc = "an exit";
-				}),
-				Globals.CreateInstance<Classes.IRoomType>(x =>
-				{
-					x.Name = "Outdoors";
-					x.RoomDesc = "area";
-					x.ExitDesc = "paths";
-					x.FleeDesc = "a path";
 				})
 			};
 

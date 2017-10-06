@@ -281,11 +281,7 @@ namespace Eamon.Game
 
 			for (var j = 0; j < roomTypeValues.Count; j++)
 			{
-				var roomType = Globals.Engine.GetRoomTypes(roomTypeValues[j]);
-
-				Debug.Assert(roomType != null);
-
-				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)roomTypeValues[j], roomType.Name);
+				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)roomTypeValues[j], Globals.Engine.EvalRoomType(roomTypeValues[j], "Indoors", "Outdoors"));
 			}
 
 			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc.ToString());
@@ -437,14 +433,10 @@ namespace Eamon.Game
 
 				if (args.LookupMsg)
 				{
-					var roomType = Globals.Engine.GetRoomTypes(Type);
-
-					Debug.Assert(roomType != null);
-
 					Globals.Out.Write("{0}{1}{2}",
 						Environment.NewLine,
 						Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null),
-						Globals.Engine.BuildValue(51, ' ', 8, (long)Type, null, roomType.Name));
+						Globals.Engine.BuildValue(51, ' ', 8, (long)Type, null, EvalRoomType("Indoors", "Outdoors")));
 				}
 				else
 				{
@@ -808,11 +800,7 @@ namespace Eamon.Game
 
 		protected virtual string GetObviousExits()
 		{
-			var roomType = Globals.Engine.GetRoomTypes(Type);
-
-			Debug.Assert(roomType != null);
-
-			return string.Format("{0}Obvious {1}:  ", Environment.NewLine, roomType.ExitDesc);
+			return string.Format("{0}Obvious {1}:  ", Environment.NewLine, EvalRoomType("exits", "paths"));
 		}
 
 		#endregion
@@ -1081,7 +1069,7 @@ namespace Eamon.Game
 
 		public virtual T EvalRoomType<T>(T indoorsValue, T outdoorsValue)
 		{
-			return Type == Enums.RoomType.Indoors ? indoorsValue : outdoorsValue;
+			return Globals.Engine.EvalRoomType(Type, indoorsValue, outdoorsValue);
 		}
 
 		public virtual IList<IArtifact> GetTakeableList(Func<IArtifact, bool> roomFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false)

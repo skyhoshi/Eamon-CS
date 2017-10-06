@@ -471,11 +471,7 @@ namespace Eamon.Game
 
 			for (var j = 0; j < genderValues.Count; j++)
 			{
-				var gender = Globals.Engine.GetGenders(genderValues[j]);
-
-				Debug.Assert(gender != null);
-
-				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)genderValues[j], gender.Name);
+				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)genderValues[j], Globals.Engine.EvalGender(genderValues[j], "Male", "Female", "Neutral"));
 			}
 
 			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc.ToString());
@@ -755,16 +751,12 @@ namespace Eamon.Game
 
 			if (args.FullDetail)
 			{
-				var gender = Globals.Engine.GetGenders(Gender);
-
-				Debug.Assert(gender != null);
-
 				if (args.NumberFields)
 				{
 					field.ListNum = args.ListNum++;
 				}
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), gender.Name);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), EvalGender("Male", "Female", "Neutral"));
 			}
 		}
 
@@ -2390,13 +2382,9 @@ namespace Eamon.Game
 					name);
 			}
 
-			var gender = Globals.Engine.GetGenders(Gender);
-
-			Debug.Assert(gender != null);
-
 			buf.AppendFormat("{0}You are the {1} {2}.{0}",
 				Environment.NewLine,
-				gender.MightyDesc,
+				EvalGender("Mighty", "Fair", "Androgynous"),
 				name);
 
 		Cleanup:
@@ -2581,7 +2569,7 @@ namespace Eamon.Game
 
 		public virtual T EvalGender<T>(T maleValue, T femaleValue, T neutralValue)
 		{
-			return Gender == Enums.Gender.Male ? maleValue : Gender == Enums.Gender.Female ? femaleValue : neutralValue;
+			return Globals.Engine.EvalGender(Gender, maleValue, femaleValue, neutralValue);
 		}
 
 		public virtual RetCode GetBaseOddsToHit(Classes.ICharacterWeapon weapon, ref long baseOddsToHit)
@@ -2796,7 +2784,6 @@ namespace Eamon.Game
 			RetCode rc;
 			long i, j;
 
-			Classes.IGender gender;
 			Classes.IWeapon weapon;
 			Classes.ISpell spell;
 
@@ -2815,14 +2802,10 @@ namespace Eamon.Game
 
 			buf02 = new StringBuilder(Constants.BufSize);
 
-			gender = Globals.Engine.GetGenders(Gender);
-
-			Debug.Assert(gender != null);
-
 			Globals.Out.WriteLine("{0}{1,-36}Gender: {2,-9}Damage Taken: {3}/{4}",
 				Environment.NewLine,
 				args.Monster.Name.ToUpper(),
-				gender.Name,
+				EvalGender("Male", "Female", "Neutral"),
 				args.Monster.DmgTaken,
 				args.Monster.Hardiness);
 

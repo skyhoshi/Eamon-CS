@@ -156,14 +156,10 @@ namespace StrongholdOfKahrDur.Game
 		{
 			Debug.Assert(monster != null);
 
-			var friendliness = Globals.Engine.GetFriendlinesses(monster.Friendliness);
-
-			Debug.Assert(friendliness != null);
-
 			Globals.Out.Write("{0}{1} {2}{3} at you.",
 				Environment.NewLine,
 				monster.GetDecoratedName03(true, true, false, false, Globals.Buf),
-				friendliness.SmileDesc,
+				monster.EvalFriendliness("growl", "look", "smile"),
 				monster.EvalPlural("s", ""));
 		}
 

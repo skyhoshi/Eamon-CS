@@ -45,11 +45,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 				Rtio = Globals.Engine.GetMerchantRtio(c2);
 			}
 
-			var gender = Globals.Engine.GetGenders(Globals.Character.Gender);
-
-			Debug.Assert(gender != null);
-
-			Globals.Out.Write("{0}\"Ah, so.  Welcome to my shop, oh {1} Adventurer.  May the blessings of the gods be yours.\"{0}", Environment.NewLine, gender.MightyDesc);
+			Globals.Out.Write("{0}\"Ah, so.  Welcome to my shop, oh {1} Adventurer.  May the blessings of the gods be yours.\"{0}", Environment.NewLine, Globals.Character.EvalGender("Mighty", "Fair", "Androgynous"));
 
 			Globals.Out.Write("{0}\"And what mystical prowess do you wish this humble one to impart to one of your magnificence?\"{0}", Environment.NewLine);
 

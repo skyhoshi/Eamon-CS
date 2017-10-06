@@ -23,15 +23,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 
-			var gender = Globals.Engine.GetGenders(Globals.Character.Gender);
-
-			Debug.Assert(gender != null);
-
 			Globals.Out.Write("{0}Schmitty, the owner, says, \"Welcome, {1}!  Perhaps a cocktail before you start?\"{0}", Environment.NewLine, Globals.Character.Name);
 
 			Globals.Out.Write("{0}Some time later you make your way to the floor of the casino and stop at the roulette wheel.{0}", Environment.NewLine);
 
-			Globals.Out.Write("{0}\"Place your bets!  Place your bets!  Would you like in {1} One?\"{0}", Environment.NewLine, gender.MightyDesc);
+			Globals.Out.Write("{0}\"Place your bets!  Place your bets!  Would you like in {1} One?\"{0}", Environment.NewLine, Globals.Character.EvalGender("Mighty", "Fair", "Androgynous"));
 
 			while (true)
 			{

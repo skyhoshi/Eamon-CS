@@ -682,11 +682,7 @@ namespace EamonRT.Game
 
 				x.Name = Globals.Character.Name.Trim();
 
-				var gender = Globals.Engine.GetGenders(Globals.Character.Gender);
-
-				Debug.Assert(gender != null);
-
-				x.Desc = string.Format("You are the {0} {1}.", gender.MightyDesc.ToLower(), Globals.Character.Name);
+				x.Desc = string.Format("You are the {0} {1}.", Globals.Character.EvalGender("mighty", "fair", "androgynous"), Globals.Character.Name);
 
 				x.Hardiness = Globals.Character.GetStats(Enums.Stat.Hardiness);
 
@@ -1061,16 +1057,12 @@ namespace EamonRT.Game
 		{
 			Debug.Assert(monster != null);
 
-			var friendliness = Globals.Engine.GetFriendlinesses(monster.Friendliness);
-
-			Debug.Assert(friendliness != null);
-
 			if (Globals.IsRulesetVersion(5) && monster.Friendliness == Enums.Friendliness.Friend)
 			{
 				Globals.Out.Write("{0}{1} {2}{3} back.",
 					Environment.NewLine,
 					monster.GetDecoratedName03(true, true, false, false, Globals.Buf),
-					friendliness.SmileDesc,
+					monster.EvalFriendliness("growl", "ignore", "smile"),
 					monster.EvalPlural("s", ""));
 			}
 			else
@@ -1078,7 +1070,7 @@ namespace EamonRT.Game
 				Globals.Out.Write("{0}{1} {2}{3} {4}you.",
 					Environment.NewLine,
 					monster.GetDecoratedName03(true, true, false, false, Globals.Buf),
-					friendliness.SmileDesc,
+					monster.EvalFriendliness("growl", "ignore", "smile"),
 					monster.EvalPlural("s", ""),
 					monster.Friendliness != Enums.Friendliness.Neutral ? "at " : "");
 			}

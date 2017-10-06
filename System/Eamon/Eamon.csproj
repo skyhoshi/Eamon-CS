@@ -100,9 +100,6 @@
     <Compile Include="Framework\Primitive\Classes\IArtifactType.cs" />
     <Compile Include="Framework\Primitive\Classes\ICharacterWeapon.cs" />
     <Compile Include="Framework\Primitive\Classes\IDirection.cs" />
-    <Compile Include="Framework\Primitive\Classes\IFriendliness.cs" />
-    <Compile Include="Framework\Primitive\Classes\IGender.cs" />
-    <Compile Include="Framework\Primitive\Classes\IRoomType.cs" />
     <Compile Include="Framework\Primitive\Classes\ISpell.cs" />
     <Compile Include="Framework\Primitive\Classes\IStat.cs" />
     <Compile Include="Framework\Primitive\Classes\IWeapon.cs" />
@@ -190,9 +187,6 @@
     <Compile Include="Game\Primitive\Classes\ArtifactType.cs" />
     <Compile Include="Game\Primitive\Classes\CharacterWeapon.cs" />
     <Compile Include="Game\Primitive\Classes\Direction.cs" />
-    <Compile Include="Game\Primitive\Classes\Friendliness.cs" />
-    <Compile Include="Game\Primitive\Classes\Gender.cs" />
-    <Compile Include="Game\Primitive\Classes\RoomType.cs" />
     <Compile Include="Game\Primitive\Classes\Spell.cs" />
     <Compile Include="Game\Primitive\Classes\Stat.cs" />
     <Compile Include="Game\Primitive\Classes\Weapon.cs" />

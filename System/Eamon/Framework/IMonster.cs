@@ -104,6 +104,8 @@ namespace Eamon.Framework
 
 		bool IsInRoomLit();
 
+		T EvalFriendliness<T>(T enemyValue, T neutralValue, T friendValue);
+
 		T EvalGender<T>(T maleValue, T femaleValue, T neutralValue);
 
 		T EvalPlural<T>(T singularValue, T pluralValue);
