@@ -25,7 +25,7 @@ namespace Eamon.Framework
 
 		public delegate IList<IMonster> FilterMonsterListFunc(IList<IMonster> monsterList, string name);
 
-		public delegate IList<IHaveListedName> FilterRecordListFunc(IList<IHaveListedName> recordList, string name);
+		public delegate IList<IGameBase> FilterRecordListFunc(IList<IGameBase> recordList, string name);
 
 		public delegate void RevealEmbeddedArtifactFunc(IRoom room, IArtifact artifact);
 	}

@@ -10,7 +10,6 @@ using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Args;
 using Eamon.Game.Attributes;
-using Eamon.Game.DataEntry;
 using Eamon.Game.Extensions;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
@@ -18,23 +17,11 @@ using static Eamon.Game.Plugin.PluginContext;
 namespace Eamon.Game
 {
 	[ClassMappings]
-	public class Module : Editable, IModule
+	public class Module : GameBase, IModule
 	{
 		#region Public Properties
 
-		#region Interface IHaveUid
-
-		public virtual long Uid { get; set; }
-
-		public virtual bool IsUidRecycled { get; set; }
-
-		#endregion
-
 		#region Interface IModule
-
-		public virtual string Name { get; set; }
-
-		public virtual string Desc { get; set; }
 
 		public virtual string Author { get; set; }
 
@@ -83,7 +70,9 @@ namespace Eamon.Game
 
 		#endregion
 
-		#region Interface IValidator
+		#region Interface IGameBase
+
+		#region Validate Methods
 
 		protected virtual bool ValidateUid(IField field, IValidateArgs args)
 		{
@@ -221,8 +210,6 @@ namespace Eamon.Game
 		}
 
 		#endregion
-
-		#region Interface IEditable
 
 		#region PrintFieldDesc Methods
 
@@ -908,7 +895,7 @@ namespace Eamon.Game
 
 		#region Public Methods
 
-		#region Interface IHaveFields
+		#region Interface IGameBase
 
 		public override IList<IField> GetFields()
 		{
@@ -1063,10 +1050,6 @@ namespace Eamon.Game
 			return Fields;
 		}
 
-		#endregion
-
-		#region Interface IEditable
-
 		public override void ListErrorField(IValidateArgs args)
 		{
 			Debug.Assert(args != null && args.ErrorField != null && args.Buf != null);
@@ -1126,12 +1109,6 @@ namespace Eamon.Game
 		public Module()
 		{
 			SetUidIfInvalid = SetModuleUidIfInvalid;
-
-			IsUidRecycled = true;
-
-			Name = "";
-
-			Desc = "";
 
 			Author = "";
 

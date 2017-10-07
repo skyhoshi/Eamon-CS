@@ -10,7 +10,6 @@ using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Args;
 using Eamon.Game.Attributes;
-using Eamon.Game.DataEntry;
 using Eamon.Game.Extensions;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
@@ -18,26 +17,8 @@ using static Eamon.Game.Plugin.PluginContext;
 namespace Eamon.Game
 {
 	[ClassMappings]
-	public class Effect : Editable, IEffect
+	public class Effect : GameBase, IEffect
 	{
-		#region Public Properties
-
-		#region Interface IHaveUid
-
-		public virtual long Uid { get; set; }
-
-		public virtual bool IsUidRecycled { get; set; }
-
-		#endregion
-
-		#region Interface IEffect
-
-		public virtual string Desc { get; set; }
-
-		#endregion
-
-		#endregion
-
 		#region Protected Methods
 
 		#region Interface IDisposable
@@ -59,7 +40,9 @@ namespace Eamon.Game
 
 		#endregion
 
-		#region Interface IValidator
+		#region Interface IGameBase
+
+		#region Validate Methods
 
 		protected virtual bool ValidateUid(IField field, IValidateArgs args)
 		{
@@ -104,8 +87,6 @@ namespace Eamon.Game
 		}
 
 		#endregion
-
-		#region Interface IEditable
 
 		#region PrintFieldDesc Methods
 
@@ -236,7 +217,7 @@ namespace Eamon.Game
 
 		#region Public Methods
 
-		#region Interface IHaveFields
+		#region Interface IGameBase
 
 		public override IList<IField> GetFields()
 		{
@@ -275,10 +256,6 @@ namespace Eamon.Game
 
 			return Fields;
 		}
-
-		#endregion
-
-		#region Interface IEditable
 
 		public override void ListErrorField(IValidateArgs args)
 		{
@@ -338,10 +315,6 @@ namespace Eamon.Game
 		public Effect()
 		{
 			SetUidIfInvalid = SetEffectUidIfInvalid;
-
-			IsUidRecycled = true;
-
-			Desc = "";
 		}
 
 		#endregion

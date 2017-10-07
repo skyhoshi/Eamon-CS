@@ -16,7 +16,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings(typeof(EamonRT.Framework.Commands.IReadCommand))]
 	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
-		protected override void PrintCantVerbObj(Eamon.Framework.IHaveListedName obj)
+		protected override void PrintCantVerbObj(Eamon.Framework.IGameBase obj)
 		{
 			Debug.Assert(obj != null);
 

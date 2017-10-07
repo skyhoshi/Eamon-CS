@@ -318,11 +318,11 @@ namespace Eamon.Game.Plugin
 			}
 			finally
 			{
-				var ihc = result as IHaveChildren;
+				var igb = result as IGameBase;
 
-				if (ihc != null)
+				if (igb != null)
 				{
-					ihc.SetParentReferences();
+					igb.SetParentReferences();
 				}
 			}
 

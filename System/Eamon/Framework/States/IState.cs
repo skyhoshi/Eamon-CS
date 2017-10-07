@@ -22,7 +22,7 @@ namespace Eamon.Framework.States
 
 		#region Methods
 
-		string GetDarkName(IHaveListedName target, Enums.ArticleType articleType, string nameType, bool upshift, bool groupCountOne);
+		string GetDarkName(IGameBase target, Enums.ArticleType articleType, string nameType, bool upshift, bool groupCountOne);
 
 		bool ShouldPreTurnProcess();
 

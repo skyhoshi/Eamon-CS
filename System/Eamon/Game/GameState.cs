@@ -10,24 +10,15 @@ using Eamon.Framework;
 using Eamon.Framework.Args;
 using Eamon.Game.Attributes;
 using Eamon.Game.Utilities;
-using Eamon.Game.Validation;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
 {
 	[ClassMappings]
-	public class GameState : Validator, IGameState
+	public class GameState : GameBase, IGameState
 	{
 		#region Public Properties
-
-		#region Interface IHaveUid
-
-		public virtual long Uid { get; set; }
-
-		public virtual bool IsUidRecycled { get; set; }
-
-		#endregion
 
 		#region Interface IGameState
 
@@ -98,7 +89,9 @@ namespace Eamon.Game
 
 		#endregion
 
-		#region Interface IValidator
+		#region Interface IGameBase
+
+		#region Validate Methods
 
 		protected virtual bool ValidateUid(IField field, IValidateArgs args)
 		{
@@ -200,9 +193,11 @@ namespace Eamon.Game
 
 		#endregion
 
+		#endregion
+
 		#region Public Methods
 
-		#region Interface IHaveFields
+		#region Interface IGameBase
 
 		public override IList<IField> GetFields()
 		{
@@ -506,8 +501,6 @@ namespace Eamon.Game
 
 		public GameState()
 		{
-			IsUidRecycled = true;
-
 			var character = Globals.CreateInstance<ICharacter>();
 
 			Debug.Assert(character != null);

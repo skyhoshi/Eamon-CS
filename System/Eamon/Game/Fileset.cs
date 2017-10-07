@@ -11,7 +11,6 @@ using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Args;
 using Eamon.Game.Attributes;
-using Eamon.Game.DataEntry;
 using Eamon.Game.Extensions;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
@@ -19,21 +18,11 @@ using static Eamon.Game.Plugin.PluginContext;
 namespace Eamon.Game
 {
 	[ClassMappings]
-	public class Fileset : Editable, IFileset
+	public class Fileset : GameBase, IFileset
 	{
 		#region Public Properties
 
-		#region Interface IHaveUid
-
-		public virtual long Uid { get; set; }
-
-		public virtual bool IsUidRecycled { get; set; }
-
-		#endregion
-
 		#region Interface IFileset
-
-		public virtual string Name { get; set; }
 
 		public virtual string WorkDir { get; set; }
 
@@ -84,7 +73,9 @@ namespace Eamon.Game
 
 		#endregion
 
-		#region Interface IValidator
+		#region Interface IGameBase
+
+		#region Validate Methods
 
 		protected virtual bool ValidateUid(IField field, IValidateArgs args)
 		{
@@ -157,8 +148,6 @@ namespace Eamon.Game
 		}
 
 		#endregion
-
-		#region Interface IEditable
 
 		#region PrintFieldDesc Methods
 
@@ -979,7 +968,7 @@ namespace Eamon.Game
 
 		#region Public Methods
 
-		#region Interface IHaveFields
+		#region Interface IGameBase
 
 		public override IList<IField> GetFields()
 		{
@@ -1213,10 +1202,6 @@ namespace Eamon.Game
 		public Fileset()
 		{
 			SetUidIfInvalid = SetFilesetUidIfInvalid;
-
-			IsUidRecycled = true;
-
-			Name = "";
 
 			WorkDir = "";
 

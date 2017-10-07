@@ -86,7 +86,7 @@ namespace EamonRT.Game.States
 
 		#region Interface IState
 
-		public virtual string GetDarkName(IHaveListedName target, Enums.ArticleType articleType, string nameType, bool upshift, bool groupCountOne)
+		public virtual string GetDarkName(IGameBase target, Enums.ArticleType articleType, string nameType, bool upshift, bool groupCountOne)
 		{
 			string result = null;
 

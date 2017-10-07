@@ -4,13 +4,11 @@
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System;
-using Eamon.Framework.DataEntry;
-using Eamon.Framework.Validation;
 using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework
 {
-	public interface IConfig : IHaveUid, IHaveFields, IValidator, IEditable, IComparable<IConfig>
+	public interface IConfig : IGameBase, IComparable<IConfig>
 	{
 		#region Properties
 

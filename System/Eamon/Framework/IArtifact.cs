@@ -5,20 +5,16 @@
 
 using System;
 using System.Collections.Generic;
-using Eamon.Framework.DataEntry;
-using Eamon.Framework.Validation;
 using Classes = Eamon.Framework.Primitive.Classes;
 using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework
 {
-	public interface IArtifact : IHaveUid, IHaveFields, IHaveChildren, IHaveListedName, IValidator, IEditable, IComparable<IArtifact>
+	public interface IArtifact : IGameBase, IComparable<IArtifact>
 	{
 		#region Properties
 
 		string StateDesc { get; set; }
-
-		string Desc { get; set; }
 
 		bool IsCharOwned { get; set; }
 

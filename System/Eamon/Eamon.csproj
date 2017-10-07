@@ -56,7 +56,6 @@
     <Compile Include="Framework\Args\IValidateArgs.cs" />
     <Compile Include="Framework\Args\IWordWrapArgs.cs" />
     <Compile Include="Framework\Commands\ICommand.cs" />
-    <Compile Include="Framework\DataEntry\IEditable.cs" />
     <Compile Include="Framework\DataStorage\Generic\IDbTable.cs" />
     <Compile Include="Framework\DataStorage\Generic\IRecordDb.cs" />
     <Compile Include="Framework\DataStorage\IDatabase.cs" />
@@ -68,11 +67,8 @@
     <Compile Include="Framework\IEngine.cs" />
     <Compile Include="Framework\IField.cs" />
     <Compile Include="Framework\IFileset.cs" />
+    <Compile Include="Framework\IGameBase.cs" />
     <Compile Include="Framework\IGameState.cs" />
-    <Compile Include="Framework\IHaveChildren.cs" />
-    <Compile Include="Framework\IHaveFields.cs" />
-    <Compile Include="Framework\IHaveListedName.cs" />
-    <Compile Include="Framework\IHaveUid.cs" />
     <Compile Include="Framework\IHint.cs" />
     <Compile Include="Framework\IModule.cs" />
     <Compile Include="Framework\IMonster.cs" />
@@ -124,7 +120,6 @@
     <Compile Include="Framework\Primitive\Enums\Status.cs" />
     <Compile Include="Framework\Primitive\Enums\Weapon.cs" />
     <Compile Include="Framework\States\IState.cs" />
-    <Compile Include="Framework\Validation\IValidator.cs" />
     <Compile Include="Game\Args\BuildValueArgs.cs" />
     <Compile Include="Game\Args\InputArgs.cs" />
     <Compile Include="Game\Args\ListArgs.cs" />
@@ -136,7 +131,6 @@
     <Compile Include="Game\Attributes\ClassMappingsAttribute.cs" />
     <Compile Include="Game\Character.cs" />
     <Compile Include="Game\Config.cs" />
-    <Compile Include="Game\DataEntry\Editable.cs" />
     <Compile Include="Game\DataStorage\ArtifactDbTable.cs" />
     <Compile Include="Game\DataStorage\CharacterDbTable.cs" />
     <Compile Include="Game\DataStorage\ConfigDbTable.cs" />
@@ -170,6 +164,7 @@
     <Compile Include="Game\Extensions\StringExtensions.cs" />
     <Compile Include="Game\Field.cs" />
     <Compile Include="Game\Fileset.cs" />
+    <Compile Include="Game\GameBase.cs" />
     <Compile Include="Game\GameState.cs" />
     <Compile Include="Game\Hint.cs" />
     <Compile Include="Game\Menus\Menu.cs" />
@@ -192,7 +187,6 @@
     <Compile Include="Game\Primitive\Classes\Weapon.cs" />
     <Compile Include="Game\Room.cs" />
     <Compile Include="Game\Utilities\EnumUtil.cs" />
-    <Compile Include="Game\Validation\Validator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RetCode.cs" />
     <Compile Include="ThirdParty\StringBuilderExtensions.cs" />

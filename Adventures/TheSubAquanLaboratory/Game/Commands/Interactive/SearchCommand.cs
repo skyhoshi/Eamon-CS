@@ -16,7 +16,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class SearchCommand : EamonRT.Game.Commands.Command, ISearchCommand
 	{
-		protected override void PrintCantVerbObj(IHaveListedName obj)
+		protected override void PrintCantVerbObj(IGameBase obj)
 		{
 			Debug.Assert(obj != null);
 

@@ -18,7 +18,7 @@ namespace Eamon.Framework.Args
 
 		Type RecordType { get; set; }
 
-		IHaveUid EditRecord { get; set; }
+		IGameBase EditRecord { get; set; }
 
 		long NewRecordUid { get; set; }
 

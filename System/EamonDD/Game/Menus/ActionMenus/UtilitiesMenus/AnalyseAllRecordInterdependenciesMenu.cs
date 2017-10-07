@@ -18,7 +18,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class AnalyseAllRecordInterdependenciesMenu : Menu, IAnalyseAllRecordInterdependenciesMenu
 	{
-		public virtual IAnalyseRecordInterdependenciesMenu01<IHaveUid>[] AnalyseMenus { get; set; }
+		public virtual IAnalyseRecordInterdependenciesMenu01<IGameBase>[] AnalyseMenus { get; set; }
 
 		public virtual IList<IField> SkipFields { get; set; }
 
@@ -95,7 +95,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			SkipFields = new List<IField>();
 
-			AnalyseMenus = new IAnalyseRecordInterdependenciesMenu01<IHaveUid>[]
+			AnalyseMenus = new IAnalyseRecordInterdependenciesMenu01<IGameBase>[]
 			{
 				Globals.CreateInstance<IAnalyseArtifactRecordInterdependenciesMenu01>(x =>
 				{

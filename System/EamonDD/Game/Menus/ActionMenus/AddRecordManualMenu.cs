@@ -8,7 +8,6 @@ using System.Diagnostics;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
-using Eamon.Framework.DataEntry;
 using Eamon.Game.Extensions;
 using EamonDD.Framework.Menus.ActionMenus;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -16,7 +15,7 @@ using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class AddRecordManualMenu<T> : RecordMenu<T>, IAddRecordManualMenu<T> where T : class, IHaveUid
+	public abstract class AddRecordManualMenu<T> : RecordMenu<T>, IAddRecordManualMenu<T> where T : class, IGameBase
 	{
 		public virtual long NewRecordUid { get; set; }
 
@@ -64,11 +63,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 				x.Uid = NewRecordUid;
 			});
 
-			var editable = record as IEditable;
+			Debug.Assert(record != null);
 
-			Debug.Assert(editable != null);
-
-			editable.InputRecord(false, Globals.Config.FieldDesc);
+			record.InputRecord(false, Globals.Config.FieldDesc);
 
 			Globals.Thread.Sleep(150);
 

@@ -9,13 +9,12 @@ using System.Linq;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
-using Eamon.Framework.DataEntry;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class ListRecordDetailMenu<T> : RecordMenu<T>, IListRecordDetailMenu<T> where T : class, IHaveUid
+	public abstract class ListRecordDetailMenu<T> : RecordMenu<T>, IListRecordDetailMenu<T> where T : class, IGameBase
 	{
 		public override void Execute()
 		{
@@ -57,13 +56,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			foreach (var record in records)
 			{
-				var editable = record as IEditable;
-
-				Debug.Assert(editable != null);
-
 				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 
-				editable.ListRecord(true, Globals.Config.ShowDesc, Globals.Config.ResolveEffects, true, false, false);
+				record.ListRecord(true, Globals.Config.ShowDesc, Globals.Config.ResolveEffects, true, false, false);
 
 				PrintPostListLineSep();
 

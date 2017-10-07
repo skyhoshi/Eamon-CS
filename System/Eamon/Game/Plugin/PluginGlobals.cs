@@ -439,9 +439,9 @@ namespace Eamon.Game.Plugin
 			// 
 			// Note: may want to be really rigorous here; loop through all records in each table and:
 			// 
-			// 	(1) cast to IValidator and if non-null validate record
+			// 	(1) Validate record
 			// 
-			// 	(2) cast to IHavechildren and if non-null call SetParentReferences
+			// 	(2) Call SetParentReferences
 			// 
 
 			var characters = database?.CharacterTable?.Records;
@@ -450,12 +450,7 @@ namespace Eamon.Game.Plugin
 			{
 				foreach (var c in characters)
 				{
-					var ihc = c as IHaveChildren;
-
-					if (ihc != null)
-					{
-						ihc.SetParentReferences();
-					}
+					c.SetParentReferences();
 				}
 			}
 
@@ -465,12 +460,7 @@ namespace Eamon.Game.Plugin
 			{
 				foreach (var a in artifacts)
 				{
-					var ihc = a as IHaveChildren;
-
-					if (ihc != null)
-					{
-						ihc.SetParentReferences();
-					}
+					a.SetParentReferences();
 				}
 			}
 

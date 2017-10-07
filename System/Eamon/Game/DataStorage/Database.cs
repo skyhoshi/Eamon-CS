@@ -10,7 +10,6 @@ using Eamon.Framework;
 using Eamon.Framework.Args;
 using Eamon.Framework.DataStorage;
 using Eamon.Framework.DataStorage.Generic;
-using Eamon.Framework.Validation;
 using Eamon.Game.Attributes;
 using static Eamon.Game.Plugin.PluginContext;
 
@@ -39,7 +38,7 @@ namespace Eamon.Game.DataStorage
 
 		public virtual IDbTable<IGameState> GameStateTable { get; set; }
 
-		public virtual RetCode LoadRecords<T>(ref IDbTable<T> table, string fileName, bool validate = true, bool printOutput = true) where T : class, IHaveUid
+		public virtual RetCode LoadRecords<T>(ref IDbTable<T> table, string fileName, bool validate = true, bool printOutput = true) where T : class, IGameBase
 		{
 			IDbTable<T> table01;
 			RetCode rc;
@@ -84,9 +83,7 @@ namespace Eamon.Game.DataStorage
 
 				foreach (var r in table01.Records)
 				{
-					var rv = r as IValidator;
-
-					if (rv != null && rv.ValidateRecord(args) == false)
+					if (r.ValidateRecord(args) == false)
 					{
 						rc = RetCode.Failure;
 
@@ -103,12 +100,7 @@ namespace Eamon.Game.DataStorage
 
 			foreach (var r in table01.Records)
 			{
-				var rh = r as IHaveChildren;
-
-				if (rh != null)
-				{
-					rh.SetParentReferences();
-				}
+				r.SetParentReferences();
 			}
 
 			rc = FreeRecords(table, false);
@@ -310,7 +302,7 @@ namespace Eamon.Game.DataStorage
 			return rc;
 		}
 
-		public virtual RetCode SaveRecords<T>(IDbTable<T> table, string fileName, bool printOutput = true) where T : class, IHaveUid
+		public virtual RetCode SaveRecords<T>(IDbTable<T> table, string fileName, bool printOutput = true) where T : class, IGameBase
 		{
 			RetCode rc;
 
@@ -482,7 +474,7 @@ namespace Eamon.Game.DataStorage
 			return rc;
 		}
 
-		public virtual void CompactRecords<T>(IDbTable<T> table) where T : class, IHaveUid
+		public virtual void CompactRecords<T>(IDbTable<T> table) where T : class, IGameBase
 		{
 			if (table == null)
 			{
@@ -571,7 +563,7 @@ namespace Eamon.Game.DataStorage
 			CompactGameStates();
 		}
 
-		public virtual RetCode FreeRecords<T>(IDbTable<T> table, bool dispose = true) where T : class, IHaveUid
+		public virtual RetCode FreeRecords<T>(IDbTable<T> table, bool dispose = true) where T : class, IGameBase
 		{
 			RetCode rc;
 
@@ -641,7 +633,7 @@ namespace Eamon.Game.DataStorage
 			return FreeRecords(GameStateTable, dispose);
 		}
 
-		public virtual long GetRecordsCount<T>(IDbTable<T> table) where T : class, IHaveUid
+		public virtual long GetRecordsCount<T>(IDbTable<T> table) where T : class, IGameBase
 		{
 			long result;
 
@@ -711,7 +703,7 @@ namespace Eamon.Game.DataStorage
 			return GetRecordsCount(GameStateTable);
 		}
 
-		public virtual T FindRecord<T>(IDbTable<T> table, long uid) where T : class, IHaveUid
+		public virtual T FindRecord<T>(IDbTable<T> table, long uid) where T : class, IGameBase
 		{
 			T result;
 
@@ -781,7 +773,7 @@ namespace Eamon.Game.DataStorage
 			return FindRecord(GameStateTable, uid);
 		}
 
-		public virtual T FindRecord<T>(IDbTable<T> table, Type type, bool exactMatch = false) where T : class, IHaveUid
+		public virtual T FindRecord<T>(IDbTable<T> table, Type type, bool exactMatch = false) where T : class, IGameBase
 		{
 			T result;
 
@@ -801,7 +793,7 @@ namespace Eamon.Game.DataStorage
 			return result;
 		}
 
-		public virtual RetCode AddRecord<T>(IDbTable<T> table, T record, bool makeCopy = false) where T : class, IHaveUid
+		public virtual RetCode AddRecord<T>(IDbTable<T> table, T record, bool makeCopy = false) where T : class, IGameBase
 		{
 			RetCode rc;
 
@@ -871,7 +863,7 @@ namespace Eamon.Game.DataStorage
 			return AddRecord(GameStateTable, gameState, makeCopy);
 		}
 
-		public virtual T RemoveRecord<T>(IDbTable<T> table, long uid) where T : class, IHaveUid
+		public virtual T RemoveRecord<T>(IDbTable<T> table, long uid) where T : class, IGameBase
 		{
 			T result;
 
@@ -941,7 +933,7 @@ namespace Eamon.Game.DataStorage
 			return RemoveRecord(GameStateTable, uid);
 		}
 
-		public virtual T RemoveRecord<T>(IDbTable<T> table, Type type, bool exactMatch = false) where T : class, IHaveUid
+		public virtual T RemoveRecord<T>(IDbTable<T> table, Type type, bool exactMatch = false) where T : class, IGameBase
 		{
 			T result;
 
@@ -961,7 +953,7 @@ namespace Eamon.Game.DataStorage
 			return result;
 		}
 
-		public virtual long GetRecordUid<T>(IDbTable<T> table, bool allocate = true) where T : class, IHaveUid
+		public virtual long GetRecordUid<T>(IDbTable<T> table, bool allocate = true) where T : class, IGameBase
 		{
 			long result;
 
@@ -1031,7 +1023,7 @@ namespace Eamon.Game.DataStorage
 			return GetRecordUid(GameStateTable, allocate);
 		}
 
-		public virtual void FreeRecordUid<T>(IDbTable<T> table, long uid) where T : class, IHaveUid
+		public virtual void FreeRecordUid<T>(IDbTable<T> table, long uid) where T : class, IGameBase
 		{
 			if (table == null)
 			{

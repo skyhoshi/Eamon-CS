@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Eamon.Framework.DataStorage.Generic
 {
-	public interface IDbTable<T> where T : class, IHaveUid
+	public interface IDbTable<T> where T : class, IGameBase
 	{
 		ICollection<T> Records { get; set; }
 

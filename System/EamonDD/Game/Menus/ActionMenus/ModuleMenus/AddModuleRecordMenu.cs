@@ -62,6 +62,8 @@ namespace EamonDD.Game.Menus.ActionMenus
 					x.Uid = NewRecordUid;
 				});
 
+				Debug.Assert(module != null);
+
 				module.InputRecord(false, Globals.Config.FieldDesc);
 
 				Globals.Thread.Sleep(150);

@@ -7,11 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-using Polenter.Serialization;
 using Eamon.Framework;
 using Eamon.Framework.Args;
 using Eamon.Game.Attributes;
-using Eamon.Game.DataEntry;
 using Eamon.Game.Extensions;
 using Eamon.Game.Utilities;
 using Classes = Eamon.Framework.Primitive.Classes;
@@ -21,36 +19,9 @@ using static Eamon.Game.Plugin.PluginContext;
 namespace Eamon.Game
 {
 	[ClassMappings]
-	public class Character : Editable, ICharacter
+	public class Character : GameBase, ICharacter
 	{
-		#region Protected Properties
-
-		[ExcludeFromSerialization]
-		protected virtual IField NameField { get; set; }
-
-		#endregion
-
 		#region Public Properties
-
-		#region Interface IHaveUid
-
-		public virtual long Uid { get; set; }
-
-		public virtual bool IsUidRecycled { get; set; }
-
-		#endregion
-
-		#region Interface IHaveListedName
-
-		public virtual string Name { get; set; }
-
-		public virtual string[] Synonyms { get; set; }
-
-		public virtual bool Seen { get; set; }
-
-		public virtual Enums.ArticleType ArticleType { get; set; }
-
-		#endregion
 
 		#region Interface ICharacter
 
@@ -99,7 +70,9 @@ namespace Eamon.Game
 
 		#endregion
 
-		#region Interface IValidator
+		#region Interface IGameBase
+
+		#region Validate Methods
 
 		protected virtual bool ValidateUid(IField field, IValidateArgs args)
 		{
@@ -449,8 +422,6 @@ namespace Eamon.Game
 		}
 
 		#endregion
-
-		#region Interface IEditable
 
 		#region PrintFieldDesc Methods
 
@@ -1941,14 +1912,7 @@ namespace Eamon.Game
 
 		#region Public Methods
 
-		#region Interface IHaveFields
-
-		public override void FreeFields()
-		{
-			base.FreeFields();
-
-			NameField = null;
-		}
+		#region Interface IGameBase
 
 		public override IList<IField> GetFields()
 		{
@@ -2270,11 +2234,7 @@ namespace Eamon.Game
 			return Fields;
 		}
 
-		#endregion
-
-		#region Interface IHaveChildren
-
-		public virtual void SetParentReferences()
+		public override void SetParentReferences()
 		{
 			foreach (var w in Weapons)
 			{
@@ -2282,11 +2242,7 @@ namespace Eamon.Game
 			}
 		}
 
-		#endregion
-
-		#region Interface IHaveListedName
-
-		public virtual string GetPluralName(IField field, StringBuilder buf)
+		public override string GetPluralName(IField field, StringBuilder buf)
 		{
 			string result;
 
@@ -2312,12 +2268,7 @@ namespace Eamon.Game
 			return result;
 		}
 
-		public virtual string GetPluralName01(StringBuilder buf)
-		{
-			return GetPluralName(GetField("Name"), buf);
-		}
-
-		public virtual string GetDecoratedName(IField field, Enums.ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public override string GetDecoratedName(IField field, Enums.ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
 		{
 			string result;
 
@@ -2343,22 +2294,7 @@ namespace Eamon.Game
 			return result;
 		}
 
-		public virtual string GetDecoratedName01(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
-		{
-			return GetDecoratedName(GetField("Name"), Enums.ArticleType.None, upshift, showCharOwned, showStateDesc, groupCountOne, buf);
-		}
-
-		public virtual string GetDecoratedName02(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
-		{
-			return GetDecoratedName(GetField("Name"), ArticleType, upshift, showCharOwned, showStateDesc, groupCountOne, buf);
-		}
-
-		public virtual string GetDecoratedName03(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
-		{
-			return GetDecoratedName(GetField("Name"), Enums.ArticleType.The, upshift, showCharOwned, showStateDesc, groupCountOne, buf);
-		}
-
-		public virtual RetCode BuildPrintedFullDesc(StringBuilder buf, bool showName)
+		public override RetCode BuildPrintedFullDesc(StringBuilder buf, bool showName)
 		{
 			RetCode rc;
 
@@ -2392,7 +2328,7 @@ namespace Eamon.Game
 			return rc;
 		}
 
-		public virtual IField GetNameField()
+		public override IField GetNameField()
 		{
 			if (NameField == null)
 			{
@@ -2996,10 +2932,6 @@ namespace Eamon.Game
 		public Character()
 		{
 			SetUidIfInvalid = SetCharacterUidIfInvalid;
-
-			IsUidRecycled = true;
-
-			Name = "";
 
 			Stats = new long[(long)EnumUtil.GetLastValue<Enums.Stat>() + 1];
 

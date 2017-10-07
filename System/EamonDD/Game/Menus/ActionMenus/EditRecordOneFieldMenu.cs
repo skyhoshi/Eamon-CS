@@ -9,14 +9,13 @@ using System.Text;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Args;
-using Eamon.Framework.DataEntry;
 using Eamon.Game.Extensions;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class EditRecordOneFieldMenu<T> : RecordMenu<T>, IEditRecordOneFieldMenu<T> where T : class, IHaveUid
+	public abstract class EditRecordOneFieldMenu<T> : RecordMenu<T>, IEditRecordOneFieldMenu<T> where T : class, IGameBase
 	{
 		public virtual T EditRecord { get; set; }
 
@@ -56,19 +55,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var editRecord01 = Globals.CloneInstance(EditRecord);
 
-			var editable = editRecord01 as IEditable;
-
-			Debug.Assert(editable != null);
-
-			var haveFields = editRecord01 as IHaveFields;
-
-			Debug.Assert(haveFields != null);
+			Debug.Assert(editRecord01 != null);
 
 			IField editField01 = null;
 
 			if (EditField == null)
 			{
-				editable.ListRecord(true, true, false, true, true, true);
+				editRecord01.ListRecord(true, true, false, true, true, true);
 
 				PrintPostListLineSep();
 
@@ -82,7 +75,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				var fieldNum = Convert.ToInt64(Buf.Trim().ToString());
 
-				editField01 = haveFields.GetField(fieldNum);
+				editField01 = editRecord01.GetField(fieldNum);
 
 				if (editField01 == null)
 				{
@@ -93,7 +86,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 			else
 			{
-				editField01 = haveFields.GetField(EditField.Name);
+				editField01 = editRecord01.GetField(EditField.Name);
 			}
 
 			var args = Globals.CreateInstance<IInputArgs>(x =>
@@ -103,7 +96,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				x.FieldDesc = Globals.Config.FieldDesc;
 			});
 
-			editable.InputField(editField01, args);
+			editRecord01.InputField(editField01, args);
 
 			Globals.Thread.Sleep(150);
 

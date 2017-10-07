@@ -11,7 +11,6 @@ using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Args;
 using Eamon.Game.Attributes;
-using Eamon.Game.DataEntry;
 using Eamon.Game.Extensions;
 using Eamon.Game.Utilities;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -20,25 +19,11 @@ using static Eamon.Game.Plugin.PluginContext;
 namespace Eamon.Game
 {
 	[ClassMappings]
-	public class Room : Editable, IRoom
+	public class Room : GameBase, IRoom
 	{
 		#region Public Properties
 
-		#region Interface IHaveUid
-
-		public virtual long Uid { get; set; }
-
-		public virtual bool IsUidRecycled { get; set; }
-
-		#endregion
-
 		#region Interface IRoom
-
-		public virtual string Name { get; set; }
-
-		public virtual bool Seen { get; set; }
-
-		public virtual string Desc { get; set; }
 
 		public virtual Enums.LightLevel LightLvl { get; set; }
 
@@ -73,7 +58,9 @@ namespace Eamon.Game
 
 		#endregion
 
-		#region Interface IValidator
+		#region Interface IGameBase
+
+		#region Validate Methods
 
 		protected virtual bool ValidateUid(IField field, IValidateArgs args)
 		{
@@ -227,8 +214,6 @@ namespace Eamon.Game
 		}
 
 		#endregion
-
-		#region Interface IEditable
 
 		#region PrintFieldDesc Methods
 
@@ -809,7 +794,7 @@ namespace Eamon.Game
 
 		#region Public Methods
 
-		#region Interface IHaveFields
+		#region Interface IGameBase
 
 		public override IList<IField> GetFields()
 		{
@@ -924,9 +909,42 @@ namespace Eamon.Game
 			return Fields;
 		}
 
-		#endregion
+		public override RetCode BuildPrintedFullDesc(StringBuilder buf, bool showName)
+		{
+			RetCode rc;
 
-		#region Interface IEditable
+			if (buf == null)
+			{
+				rc = RetCode.InvalidArg;
+
+				// PrintError
+
+				goto Cleanup;
+			}
+
+			rc = RetCode.Success;
+
+			if (showName)
+			{
+				buf.AppendFormat("{0}[{1}]",
+					Environment.NewLine,
+					Name);
+			}
+
+			if (!string.IsNullOrWhiteSpace(Desc))
+			{
+				buf.AppendFormat("{0}{1}", Environment.NewLine, Desc);
+			}
+
+			if (showName || !string.IsNullOrWhiteSpace(Desc))
+			{
+				buf.Append(Environment.NewLine);
+			}
+
+		Cleanup:
+
+			return rc;
+		}
 
 		public override void ListErrorField(IValidateArgs args)
 		{
@@ -1141,7 +1159,7 @@ namespace Eamon.Game
 			return list;
 		}
 
-		public virtual IList<IHaveListedName> GetContainedList(Func<IHaveListedName, bool> roomFindFunc = null, Func<IArtifact, bool> monsterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false)
+		public virtual IList<IGameBase> GetContainedList(Func<IGameBase, bool> roomFindFunc = null, Func<IArtifact, bool> monsterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false)
 		{
 			if (roomFindFunc == null)
 			{
@@ -1164,7 +1182,7 @@ namespace Eamon.Game
 				};
 			}
 
-			var list = new List<IHaveListedName>();
+			var list = new List<IGameBase>();
 
 			list.AddRange(Globals.Engine.GetMonsterList(() => true, m => roomFindFunc(m)));
 
@@ -1263,43 +1281,6 @@ namespace Eamon.Game
 			return rc;
 		}
 
-		public virtual RetCode BuildPrintedFullDesc(StringBuilder buf, bool showName)
-		{
-			RetCode rc;
-
-			if (buf == null)
-			{
-				rc = RetCode.InvalidArg;
-
-				// PrintError
-
-				goto Cleanup;
-			}
-
-			rc = RetCode.Success;
-
-			if (showName)
-			{
-				buf.AppendFormat("{0}[{1}]",
-					Environment.NewLine,
-					Name);
-			}
-
-			if (!string.IsNullOrWhiteSpace(Desc))
-			{
-				buf.AppendFormat("{0}{1}", Environment.NewLine, Desc);
-			}
-
-			if (showName || !string.IsNullOrWhiteSpace(Desc))
-			{
-				buf.Append(Environment.NewLine);
-			}
-
-		Cleanup:
-
-			return rc;
-		}
-
 		public virtual RetCode BuildPrintedFullDesc(StringBuilder buf, Func<IMonster, bool> monsterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool verboseRoomDesc = false, bool verboseMonsterDesc = false, bool verboseArtifactDesc = false)
 		{
 			bool showDesc;
@@ -1353,7 +1334,7 @@ namespace Eamon.Game
 				Seen = true;
 			}
 
-			var combined = new List<IHaveListedName>();
+			var combined = new List<IGameBase>();
 
 			if (!verboseMonsterDesc)
 			{
@@ -1433,12 +1414,6 @@ namespace Eamon.Game
 		public Room()
 		{
 			SetUidIfInvalid = SetRoomUidIfInvalid;
-
-			IsUidRecycled = true;
-
-			Name = "";
-
-			Desc = "";
 
 			Dirs = new long[(long)EnumUtil.GetLastValue<Enums.Direction>() + 1];
 		}

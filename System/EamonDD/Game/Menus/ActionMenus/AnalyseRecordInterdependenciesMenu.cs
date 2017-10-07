@@ -9,15 +9,13 @@ using System.Diagnostics;
 using System.Linq;
 using Eamon.Framework;
 using Eamon.Framework.Args;
-using Eamon.Framework.DataEntry;
 using Eamon.Framework.Menus;
-using Eamon.Framework.Validation;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class AnalyseRecordInterdependenciesMenu<T> : RecordMenu<T>, IAnalyseRecordInterdependenciesMenu<T> where T : class, IHaveUid
+	public abstract class AnalyseRecordInterdependenciesMenu<T> : RecordMenu<T>, IAnalyseRecordInterdependenciesMenu<T> where T : class, IGameBase
 	{
 		public virtual IList<IField> SkipFields { get; set; }
 
@@ -33,11 +31,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		public virtual void ProcessInterdependency()
 		{
-			var editable = ErrorRecord as IEditable;
+			Debug.Assert(ErrorRecord != null);
 
-			Debug.Assert(editable != null);
-
-			editable.ListErrorField(ValidateArgs);
+			ErrorRecord.ListErrorField(ValidateArgs);
 
 			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, ValidateArgs.ErrorMessage);
 
@@ -244,19 +240,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				foreach (var record in RecordTable.Records)
 				{
-					var validator = record as IValidator;
-
-					Debug.Assert(validator != null);
-
-					var haveFields = record as IHaveFields;
-
-					Debug.Assert(haveFields != null);
-
-					var fields = haveFields.GetFields().Where(f => !SkipFields.Contains(f));
+					var fields = record.GetFields().Where(f => !SkipFields.Contains(f));
 
 					foreach (var field in fields)
 					{
-						if (!validator.ValidateFieldInterdependencies(field, ValidateArgs))
+						if (!record.ValidateFieldInterdependencies(field, ValidateArgs))
 						{
 							ErrorRecord = record;
 

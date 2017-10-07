@@ -355,7 +355,7 @@ namespace EamonRT.Game
 
 		public virtual void AddPoundCharsToArtifactNames()
 		{
-			var nameList = new List<IHaveListedName>();
+			var nameList = new List<IGameBase>();
 
 			var artifactList = PoundCharPolicy == Enums.PoundCharPolicy.PlayerArtifactsOnly ? Globals.Database.ArtifactTable.Records.Where(a => a.IsCharOwned).ToList() :
 									PoundCharPolicy == Enums.PoundCharPolicy.AllArtifacts ? Globals.Database.ArtifactTable.Records.ToList() :
@@ -861,7 +861,7 @@ namespace EamonRT.Game
 
 					Globals.Buf.Clear();
 
-					var rc = Globals.Engine.ListRecords(weaponList.Cast<IHaveListedName>().ToList(), true, true, Globals.Buf);
+					var rc = Globals.Engine.ListRecords(weaponList.Cast<IGameBase>().ToList(), true, true, Globals.Buf);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -1538,7 +1538,7 @@ namespace EamonRT.Game
 			return filteredMonsterList;
 		}
 
-		public virtual IList<IHaveListedName> FilterRecordList(IList<IHaveListedName> recordList, string name)
+		public virtual IList<IGameBase> FilterRecordList(IList<IGameBase> recordList, string name)
 		{
 			Debug.Assert(recordList != null);
 

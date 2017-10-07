@@ -9,7 +9,6 @@ using System.Text;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Args;
-using Eamon.Framework.DataEntry;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -38,19 +37,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				var editModule01 = Globals.CloneInstance(EditRecord);
 
-				var editable = editModule01 as IEditable;
-
-				Debug.Assert(editable != null);
-
-				var haveFields = editModule01 as IHaveFields;
-
-				Debug.Assert(haveFields != null);
+				Debug.Assert(editModule01 != null);
 
 				IField editField01 = null;
 
 				if (EditField == null)
 				{
-					editable.ListRecord(true, true, false, true, true, true);
+					editModule01.ListRecord(true, true, false, true, true, true);
 
 					Globals.Out.WriteLine();
 
@@ -66,7 +59,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					var fieldNum = Convert.ToInt64(Buf.Trim().ToString());
 
-					editField01 = haveFields.GetField(fieldNum);
+					editField01 = editModule01.GetField(fieldNum);
 
 					if (editField01 == null)
 					{
@@ -77,7 +70,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				}
 				else
 				{
-					editField01 = haveFields.GetField(EditField.Name);
+					editField01 = editModule01.GetField(EditField.Name);
 				}
 
 				var args = Globals.CreateInstance<IInputArgs>(x =>
@@ -87,7 +80,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 					x.FieldDesc = Globals.Config.FieldDesc;
 				});
 
-				editable.InputField(editField01, args);
+				editModule01.InputField(editField01, args);
 
 				CompareAndSave(editModule01);
 			}

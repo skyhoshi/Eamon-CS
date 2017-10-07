@@ -30,7 +30,7 @@ namespace Eamon.Framework.DataStorage
 
 		IDbTable<IGameState> GameStateTable { get; set; }
 
-		RetCode LoadRecords<T>(ref IDbTable<T> table, string fileName, bool validate = true, bool printOutput = true) where T : class, IHaveUid;
+		RetCode LoadRecords<T>(ref IDbTable<T> table, string fileName, bool validate = true, bool printOutput = true) where T : class, IGameBase;
 
 		RetCode LoadConfigs(string fileName, bool validate = true, bool printOutput = true);
 
@@ -52,7 +52,7 @@ namespace Eamon.Framework.DataStorage
 
 		RetCode LoadGameStates(string fileName, bool validate = true, bool printOutput = true);
 
-		RetCode SaveRecords<T>(IDbTable<T> table, string fileName, bool printOutput = true) where T : class, IHaveUid;
+		RetCode SaveRecords<T>(IDbTable<T> table, string fileName, bool printOutput = true) where T : class, IGameBase;
 
 		RetCode SaveConfigs(string fileName, bool printOutput = true);
 
@@ -74,7 +74,7 @@ namespace Eamon.Framework.DataStorage
 
 		RetCode SaveGameStates(string fileName, bool printOutput = true);
 
-		void CompactRecords<T>(IDbTable<T> table) where T : class, IHaveUid;
+		void CompactRecords<T>(IDbTable<T> table) where T : class, IGameBase;
 
 		void CompactConfigs();
 
@@ -98,7 +98,7 @@ namespace Eamon.Framework.DataStorage
 
 		void Compact();
 
-		RetCode FreeRecords<T>(IDbTable<T> table, bool dispose = true) where T : class, IHaveUid;
+		RetCode FreeRecords<T>(IDbTable<T> table, bool dispose = true) where T : class, IGameBase;
 
 		RetCode FreeConfigs(bool dispose = true);
 
@@ -120,7 +120,7 @@ namespace Eamon.Framework.DataStorage
 
 		RetCode FreeGameStates(bool dispose = true);
 
-		long GetRecordsCount<T>(IDbTable<T> table) where T : class, IHaveUid;
+		long GetRecordsCount<T>(IDbTable<T> table) where T : class, IGameBase;
 
 		long GetConfigsCount();
 
@@ -142,7 +142,7 @@ namespace Eamon.Framework.DataStorage
 
 		long GetGameStatesCount();
 
-		T FindRecord<T>(IDbTable<T> table, long uid) where T : class, IHaveUid;
+		T FindRecord<T>(IDbTable<T> table, long uid) where T : class, IGameBase;
 
 		IConfig FindConfig(long uid);
 
@@ -164,9 +164,9 @@ namespace Eamon.Framework.DataStorage
 
 		IGameState FindGameState(long uid);
 
-		T FindRecord<T>(IDbTable<T> table, Type type, bool exactMatch = false) where T : class, IHaveUid;
+		T FindRecord<T>(IDbTable<T> table, Type type, bool exactMatch = false) where T : class, IGameBase;
 
-		RetCode AddRecord<T>(IDbTable<T> table, T record, bool makeCopy = false) where T : class, IHaveUid;
+		RetCode AddRecord<T>(IDbTable<T> table, T record, bool makeCopy = false) where T : class, IGameBase;
 
 		RetCode AddConfig(IConfig config, bool makeCopy = false);
 
@@ -188,7 +188,7 @@ namespace Eamon.Framework.DataStorage
 
 		RetCode AddGameState(IGameState gameState, bool makeCopy = false);
 
-		T RemoveRecord<T>(IDbTable<T> table, long uid) where T : class, IHaveUid;
+		T RemoveRecord<T>(IDbTable<T> table, long uid) where T : class, IGameBase;
 
 		IConfig RemoveConfig(long uid);
 
@@ -210,9 +210,9 @@ namespace Eamon.Framework.DataStorage
 
 		IGameState RemoveGameState(long uid);
 
-		T RemoveRecord<T>(IDbTable<T> table, Type type, bool exactMatch = false) where T : class, IHaveUid;
+		T RemoveRecord<T>(IDbTable<T> table, Type type, bool exactMatch = false) where T : class, IGameBase;
 
-		long GetRecordUid<T>(IDbTable<T> table, bool allocate = true) where T : class, IHaveUid;
+		long GetRecordUid<T>(IDbTable<T> table, bool allocate = true) where T : class, IGameBase;
 
 		long GetConfigUid(bool allocate = true);
 
@@ -234,7 +234,7 @@ namespace Eamon.Framework.DataStorage
 
 		long GetGameStateUid(bool allocate = true);
 
-		void FreeRecordUid<T>(IDbTable<T> table, long uid) where T : class, IHaveUid;
+		void FreeRecordUid<T>(IDbTable<T> table, long uid) where T : class, IGameBase;
 
 		void FreeConfigUid(long uid);
 

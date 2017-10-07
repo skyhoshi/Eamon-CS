@@ -53,7 +53,7 @@ namespace EamonRT.Game.Commands
 
 		public virtual bool IsMonsterEnabled { get; set; }
 
-		protected virtual void PrintCantVerbObj(IHaveListedName obj)
+		protected virtual void PrintCantVerbObj(IGameBase obj)
 		{
 			Debug.Assert(obj != null);
 
@@ -74,7 +74,7 @@ namespace EamonRT.Game.Commands
 			Globals.Out.Write("{0}You can't {1} {2}.{0}", Environment.NewLine, Verb, artifact.EvalPlural("that", "them"));
 		}
 
-		protected virtual void PrintDoYouMeanObj1OrObj2(IHaveListedName obj1, IHaveListedName obj2)
+		protected virtual void PrintDoYouMeanObj1OrObj2(IGameBase obj1, IGameBase obj2)
 		{
 			Debug.Assert(obj1 != null && obj2 != null);
 

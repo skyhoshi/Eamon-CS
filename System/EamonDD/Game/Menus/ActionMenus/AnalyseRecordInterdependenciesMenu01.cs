@@ -9,7 +9,7 @@ using EamonDD.Framework.Menus.ActionMenus;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class AnalyseRecordInterdependenciesMenu01<T> : IAnalyseRecordInterdependenciesMenu01<T> where T : class, IHaveUid
+	public abstract class AnalyseRecordInterdependenciesMenu01<T> : IAnalyseRecordInterdependenciesMenu01<T> where T : class, IGameBase
 	{
 		protected virtual IAnalyseRecordInterdependenciesMenu<T> AnalyseMenu { get; set; }
 

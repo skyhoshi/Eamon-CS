@@ -4,18 +4,12 @@
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System;
-using Eamon.Framework.DataEntry;
-using Eamon.Framework.Validation;
 
 namespace Eamon.Framework
 {
-	public interface IModule : IHaveUid, IHaveFields, IValidator, IEditable, IComparable<IModule>
+	public interface IModule : IGameBase, IComparable<IModule>
 	{
 		#region Properties
-
-		string Name { get; set; }
-
-		string Desc { get; set; }
 
 		string Author { get; set; }
 

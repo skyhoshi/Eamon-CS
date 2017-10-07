@@ -610,6 +610,16 @@ namespace Eamon.Game
 			return roomType == Enums.RoomType.Indoors ? indoorsValue : outdoorsValue;
 		}
 
+		public virtual T EvalLightLevel<T>(Enums.LightLevel lightLevel, T darkValue, T lightValue)
+		{
+			return lightLevel == Enums.LightLevel.Dark ? darkValue : lightValue;
+		}
+
+		public virtual T EvalPlural<T>(bool isPlural, T singularValue, T pluralValue)
+		{
+			return isPlural ? pluralValue : singularValue;
+		}
+
 		public virtual string BuildPrompt(long bufSize, char fillChar, long number, string msg, string emptyVal)
 		{
 			StringBuilder buf;
@@ -1487,7 +1497,7 @@ namespace Eamon.Game
 			PrintEffectDesc(effect, printFinalNewLine);
 		}
 
-		public virtual RetCode GetRecordNameList(IList<IHaveListedName> records, Enums.ArticleType articleType, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public virtual RetCode GetRecordNameList(IList<IGameBase> records, Enums.ArticleType articleType, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
 		{
 			StringBuilder buf01;
 			RetCode rc;
@@ -1530,7 +1540,7 @@ namespace Eamon.Game
 			return rc;
 		}
 
-		public virtual RetCode GetRecordNameCount(IList<IHaveListedName> records, string name, bool exactMatch, ref long count)
+		public virtual RetCode GetRecordNameCount(IList<IGameBase> records, string name, bool exactMatch, ref long count)
 		{
 			RetCode rc;
 
@@ -1570,7 +1580,7 @@ namespace Eamon.Game
 			return rc;
 		}
 
-		public virtual RetCode ListRecords(IList<IHaveListedName> records, bool capitalize, bool showExtraInfo, StringBuilder buf)
+		public virtual RetCode ListRecords(IList<IGameBase> records, bool capitalize, bool showExtraInfo, StringBuilder buf)
 		{
 			RetCode rc;
 			long i;
@@ -2065,13 +2075,13 @@ namespace Eamon.Game
 			return monsterList;
 		}
 
-		public virtual IList<IHaveListedName> GetRecordList(Func<bool> shouldQueryFunc, params Func<IHaveListedName, bool>[] whereClauseFuncs)
+		public virtual IList<IGameBase> GetRecordList(Func<bool> shouldQueryFunc, params Func<IGameBase, bool>[] whereClauseFuncs)
 		{
 			Debug.Assert(shouldQueryFunc != null);
 
 			Debug.Assert(whereClauseFuncs != null);
 
-			var recordList = new List<IHaveListedName>();
+			var recordList = new List<IGameBase>();
 
 			if (shouldQueryFunc())
 			{
@@ -2110,7 +2120,7 @@ namespace Eamon.Game
 			return monsterList.Where(m => whereClauseFunc(m)).OrderBy(m => m.Uid).Skip((int)(which - 1)).Take(1).FirstOrDefault();
 		}
 
-		public virtual IHaveListedName GetNthRecord(IList<IHaveListedName> recordList, long which, Func<IHaveListedName, bool> whereClauseFunc)
+		public virtual IGameBase GetNthRecord(IList<IGameBase> recordList, long which, Func<IGameBase, bool> whereClauseFunc)
 		{
 			Debug.Assert(recordList != null);
 
@@ -2120,14 +2130,13 @@ namespace Eamon.Game
 
 			return recordList.Where(x => whereClauseFunc(x)).OrderBy((x) =>
 			{
-				var ihu = x as IHaveUid;
 
-				return string.Format("{0}_{1}", x.Name.ToLower(), ihu != null ? ihu.Uid : 0);
+				return string.Format("{0}_{1}", x.Name.ToLower(), x.Uid);
 
 			}).Skip((int)(which - 1)).Take(1).FirstOrDefault();
 		}
 
-		public virtual void StripPoundCharsFromRecordNames(IList<IHaveListedName> recordList)
+		public virtual void StripPoundCharsFromRecordNames(IList<IGameBase> recordList)
 		{
 			Debug.Assert(recordList != null);
 
@@ -2139,7 +2148,7 @@ namespace Eamon.Game
 			}
 		}
 
-		public virtual void AddPoundCharsToRecordNames(IList<IHaveListedName> recordList)
+		public virtual void AddPoundCharsToRecordNames(IList<IGameBase> recordList)
 		{
 			long c;
 
