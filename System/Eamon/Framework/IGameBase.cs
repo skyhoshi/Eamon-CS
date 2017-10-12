@@ -1,16 +1,25 @@
 ﻿
-// IHaveListedName.cs
+// IGameBase.cs
 
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
+using System;
 using System.Text;
 using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework
 {
-	public interface IHaveListedName
+	public interface IGameBase : IDisposable
 	{
+		#region Properties
+
+		long Uid { get; set; }
+
+		bool IsUidRecycled { get; set; }
+
 		string Name { get; set; }
+
+		string Desc { get; set; }
 
 		string[] Synonyms { get; set; }
 
@@ -18,11 +27,17 @@ namespace Eamon.Framework
 
 		Enums.ArticleType ArticleType { get; set; }
 
-		string GetPluralName(IField field, StringBuilder buf);
+		#endregion
+
+		#region Methods
+
+		void SetParentReferences();
+
+		string GetPluralName(string fieldName, StringBuilder buf);
 
 		string GetPluralName01(StringBuilder buf);
 
-		string GetDecoratedName(IField field, Enums.ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
+		string GetDecoratedName(string fieldName, Enums.ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
 
 		string GetDecoratedName01(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
 
@@ -32,6 +47,6 @@ namespace Eamon.Framework
 
 		RetCode BuildPrintedFullDesc(StringBuilder buf, bool showName);
 
-		IField GetNameField();
+		#endregion
 	}
 }

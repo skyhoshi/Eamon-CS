@@ -4,7 +4,8 @@
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
-using Eamon.Framework.DataEntry;
+using Eamon.Framework;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -27,11 +28,14 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var editConfig01 = Globals.CloneInstance(EditRecord);
 
-			var editable = editConfig01 as IEditable;
+			Debug.Assert(editConfig01 != null);
 
-			Debug.Assert(editable != null);
+			var helper = Globals.CreateInstance<IHelper<IConfig>>(x =>
+			{
+				x.Record = editConfig01;
+			});
 
-			editable.InputRecord(true, Globals.Config.FieldDesc);
+			helper.InputRecord(true, Globals.Config.FieldDesc);
 
 			CompareAndSave(editConfig01);
 

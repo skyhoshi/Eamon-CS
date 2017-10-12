@@ -10,6 +10,7 @@ using System.Text;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Args;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
@@ -129,7 +130,12 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			character.Gender = (Enums.Gender)Convert.ToInt64(Buf.Trim().ToString());
 
-			Debug.Assert(character.ValidateField(character.GetField("Gender"), args));
+			var helper = Globals.CreateInstance<IHelper<ICharacter>>(x =>
+			{
+				x.Record = character;
+			});
+
+			Debug.Assert(helper.ValidateField("Gender", args));
 
 			Globals.Thread.Sleep(150);
 
@@ -337,9 +343,14 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				character.Name = Buf.Trim().ToString();
 
+				var helper = Globals.CreateInstance<IHelper<ICharacter>>(x =>
+				{
+					x.Record = character;
+				});
+
 				Globals.Thread.Sleep(150);
 
-				if (character.ValidateField(character.GetField("Name"), args))
+				if (helper.ValidateField("Name", args))
 				{
 					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 
@@ -406,10 +417,6 @@ namespace EamonMH.Game.Menus.ActionMenus
 						}
 
 						Globals.CharacterName = Globals.Character.Name;
-
-						var gender = Globals.Engine.GetGenders(Globals.Character.Gender);
-
-						Debug.Assert(gender != null);
 
 						if (Globals.Character.Status == Enums.Status.Alive)
 						{
@@ -499,7 +506,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 									Globals.Out.Write("{0}Pointing to an entry in his registry, the Irishman exclaims, \"Says 'ere the wizard couldn't locate {1} in any known adventure!\"{0}{0}(You will have to manually change {2} status using EamonDD.){0}",
 										Environment.NewLine,
 										Globals.Character.Name,
-										gender.HisDesc);
+										Globals.Character.EvalGender("his", "her", "its"));
 								}
 							}
 						}
@@ -510,7 +517,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 							Globals.Out.Write("{0}The burly Irishman gets a sad look in his eyes and says, \"Ye can't be {1}, {2} be dead.  Now who'r ye again?\"{0}",
 								Environment.NewLine,
 								Globals.Character.Name,
-								gender.HeDesc);
+								Globals.Character.EvalGender("he", "she", "it"));
 						}
 					}
 				}

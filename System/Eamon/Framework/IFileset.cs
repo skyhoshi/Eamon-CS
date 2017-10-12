@@ -4,16 +4,12 @@
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System;
-using Eamon.Framework.DataEntry;
-using Eamon.Framework.Validation;
 
 namespace Eamon.Framework
 {
-	public interface IFileset : IHaveUid, IHaveFields, IValidator, IEditable, IComparable<IFileset>
+	public interface IFileset : IGameBase, IComparable<IFileset>
 	{
 		#region Properties
-
-		string Name { get; set; }
 
 		string WorkDir { get; set; }
 
@@ -43,7 +39,7 @@ namespace Eamon.Framework
 
 		#region Methods
 
-		RetCode DeleteFiles(IField field, bool useFilePrefix);
+		RetCode DeleteFiles(string fieldName, bool useFilePrefix);
 
 		#endregion
 	}

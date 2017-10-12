@@ -83,21 +83,9 @@ namespace Eamon.Framework
 
 		Classes.IArmor GetArmors(Enums.Armor armor);
 
-		Classes.IGender GetGenders(long index);
-
-		Classes.IGender GetGenders(Enums.Gender gender);
-
 		Classes.IDirection GetDirections(long index);
 
 		Classes.IDirection GetDirections(Enums.Direction direction);
-
-		Classes.IFriendliness GetFriendlinesses(long index);
-
-		Classes.IFriendliness GetFriendlinesses(Enums.Friendliness friendliness);
-
-		Classes.IRoomType GetRoomTypes(long index);
-
-		Classes.IRoomType GetRoomTypes(Enums.RoomType roomType);
 
 		Classes.IArtifactType GetArtifactTypes(long index);
 
@@ -209,6 +197,16 @@ namespace Eamon.Framework
 
 		IModule GetModule();
 
+		T EvalFriendliness<T>(Enums.Friendliness friendliness, T enemyValue, T neutralValue, T friendValue);
+
+		T EvalGender<T>(Enums.Gender gender, T maleValue, T femaleValue, T neutralValue);
+
+		T EvalRoomType<T>(Enums.RoomType roomType, T indoorsValue, T outdoorsValue);
+
+		T EvalLightLevel<T>(Enums.LightLevel lightLevel, T darkValue, T lightValue);
+
+		T EvalPlural<T>(bool isPlural, T singularValue, T pluralValue);
+
 		string BuildPrompt(long bufSize, char fillChar, long number, string msg, string emptyVal);
 
 		string BuildValue(long bufSize, char fillChar, long offset, long longVal, string stringVal, string lookupMsg);
@@ -263,11 +261,11 @@ namespace Eamon.Framework
 
 		void PrintEffectDesc(long effectUid, bool printFinalNewLine = true);
 
-		RetCode GetRecordNameList(IList<IHaveListedName> records, Enums.ArticleType articleType, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
+		RetCode GetRecordNameList(IList<IGameBase> records, Enums.ArticleType articleType, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
 
-		RetCode GetRecordNameCount(IList<IHaveListedName> records, string name, bool exactMatch, ref long count);
+		RetCode GetRecordNameCount(IList<IGameBase> records, string name, bool exactMatch, ref long count);
 
-		RetCode ListRecords(IList<IHaveListedName> records, bool capitalize, bool showExtraInfo, StringBuilder buf);
+		RetCode ListRecords(IList<IGameBase> records, bool capitalize, bool showExtraInfo, StringBuilder buf);
 
 		RetCode ResolveUidMacros(string str, StringBuilder buf, bool resolveFuncs, bool recurse, ref long invalidUid);
 
@@ -289,17 +287,17 @@ namespace Eamon.Framework
 
 		IList<IMonster> GetMonsterList(Func<bool> shouldQueryFunc, params Func<IMonster, bool>[] whereClauseFuncs);
 
-		IList<IHaveListedName> GetRecordList(Func<bool> shouldQueryFunc, params Func<IHaveListedName, bool>[] whereClauseFuncs);
+		IList<IGameBase> GetRecordList(Func<bool> shouldQueryFunc, params Func<IGameBase, bool>[] whereClauseFuncs);
 
 		IArtifact GetNthArtifact(IList<IArtifact> artifactList, long which, Func<IArtifact, bool> whereClauseFunc);
 
 		IMonster GetNthMonster(IList<IMonster> monsterList, long which, Func<IMonster, bool> whereClauseFunc);
 
-		IHaveListedName GetNthRecord(IList<IHaveListedName> recordList, long which, Func<IHaveListedName, bool> whereClauseFunc);
+		IGameBase GetNthRecord(IList<IGameBase> recordList, long which, Func<IGameBase, bool> whereClauseFunc);
 
-		void StripPoundCharsFromRecordNames(IList<IHaveListedName> recordList);
+		void StripPoundCharsFromRecordNames(IList<IGameBase> recordList);
 
-		void AddPoundCharsToRecordNames(IList<IHaveListedName> recordList);
+		void AddPoundCharsToRecordNames(IList<IGameBase> recordList);
 
 		void ConvertWeaponToGoldOrTreasure(IArtifact artifact, bool convertToGold);
 

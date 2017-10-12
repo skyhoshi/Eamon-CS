@@ -6,19 +6,15 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Eamon.Framework.DataEntry;
-using Eamon.Framework.Validation;
 using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework
 {
-	public interface IMonster : IHaveUid, IHaveFields, IHaveListedName, IValidator, IEditable, IComparable<IMonster>
+	public interface IMonster : IGameBase, IComparable<IMonster>
 	{
 		#region Properties
 
 		string StateDesc { get; set; }
-
-		string Desc { get; set; }
 
 		bool IsListed { get; set; }
 
@@ -103,6 +99,8 @@ namespace Eamon.Framework
 		void SetInRoom(IRoom room);
 
 		bool IsInRoomLit();
+
+		T EvalFriendliness<T>(T enemyValue, T neutralValue, T friendValue);
 
 		T EvalGender<T>(T maleValue, T femaleValue, T neutralValue);
 

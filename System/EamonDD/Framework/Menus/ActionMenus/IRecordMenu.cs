@@ -9,7 +9,7 @@ using Eamon.Framework.Menus;
 
 namespace EamonDD.Framework.Menus.ActionMenus
 {
-	public interface IRecordMenu<T> : IMenu where T : class, IHaveUid
+	public interface IRecordMenu<T> : IMenu where T : class, IGameBase
 	{
 		IDbTable<T> RecordTable { get; set; }
 

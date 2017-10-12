@@ -300,8 +300,6 @@ namespace EamonMH
 						goto Cleanup;
 					}
 
-					Globals.Database.Compact();
-
 					Globals.Out.WriteLine();
 
 					// auto load character if necessary

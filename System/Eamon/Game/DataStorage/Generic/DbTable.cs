@@ -14,7 +14,7 @@ using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game.DataStorage.Generic
 {
-	public abstract class DbTable<T> : IDbTable<T> where T : class, IHaveUid
+	public abstract class DbTable<T> : IDbTable<T> where T : class, IGameBase
 	{
 		public virtual ICollection<T> Records { get; set; }
 
@@ -24,19 +24,6 @@ namespace Eamon.Game.DataStorage.Generic
 		public virtual T[] Cache { get; set; }
 
 		public virtual long CurrUid { get; set; }
-
-		public virtual void CompactRecords()
-		{
-			foreach (var record in Records)
-			{
-				var haveFields = record as IHaveFields;
-
-				if (haveFields != null)
-				{
-					haveFields.FreeFields();
-				}
-			}
-		}
 
 		public virtual RetCode FreeRecords(bool dispose = true)
 		{

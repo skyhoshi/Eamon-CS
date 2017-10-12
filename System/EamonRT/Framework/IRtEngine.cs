@@ -106,7 +106,7 @@ namespace EamonRT.Framework
 
 		IList<IMonster> FilterMonsterList(IList<IMonster> monsterList, string name);
 
-		IList<IHaveListedName> FilterRecordList(IList<IHaveListedName> recordList, string name);
+		IList<IGameBase> FilterRecordList(IList<IGameBase> recordList, string name);
 
 		IList<IArtifact> GetReadyableWeaponList(IMonster monster);
 

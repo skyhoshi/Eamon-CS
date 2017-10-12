@@ -8,14 +8,14 @@ using System.Diagnostics;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
-using Eamon.Framework.DataEntry;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Extensions;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class EditRecordManyFieldsMenu<T> : RecordMenu<T>, IEditRecordManyFieldsMenu<T> where T : class, IHaveUid
+	public abstract class EditRecordManyFieldsMenu<T> : RecordMenu<T>, IEditRecordManyFieldsMenu<T> where T : class, IGameBase
 	{
 		public virtual T EditRecord { get; set; }
 
@@ -53,11 +53,14 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var editRecord01 = Globals.CloneInstance(EditRecord);
 
-			var editable = editRecord01 as IEditable;
+			Debug.Assert(editRecord01 != null);
 
-			Debug.Assert(editable != null);
+			var helper = Globals.CreateInstance<IHelper<T>>(x =>
+			{
+				x.Record = editRecord01;
+			});
 
-			editable.InputRecord(true, Globals.Config.FieldDesc);
+			helper.InputRecord(true, Globals.Config.FieldDesc);
 
 			Globals.Thread.Sleep(150);
 

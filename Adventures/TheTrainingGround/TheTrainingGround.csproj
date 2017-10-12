@@ -85,6 +85,7 @@
     <Compile Include="Game\Commands\Miscellaneous\PowerCommand.cs" />
     <Compile Include="Game\Commands\Miscellaneous\SayCommand.cs" />
     <Compile Include="Game\GameState.cs" />
+    <Compile Include="Game\Helpers\GameStateHelper.cs" />
     <Compile Include="Game\IntroStory.cs" />
     <Compile Include="Game\Plugin\PluginClassMappings.cs" />
     <Compile Include="Game\Plugin\PluginConstants.cs" />

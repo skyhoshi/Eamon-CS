@@ -6,14 +6,12 @@
 using System;
 using System.Text;
 using Eamon.Framework.Args;
-using Eamon.Framework.DataEntry;
-using Eamon.Framework.Validation;
 using Classes = Eamon.Framework.Primitive.Classes;
 using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework
 {
-	public interface ICharacter : IHaveUid, IHaveFields, IHaveChildren, IHaveListedName, IValidator, IEditable, IComparable<ICharacter>
+	public interface ICharacter : IGameBase, IComparable<ICharacter>
 	{
 		#region Properties
 

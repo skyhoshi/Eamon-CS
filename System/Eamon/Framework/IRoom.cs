@@ -6,21 +6,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Eamon.Framework.DataEntry;
-using Eamon.Framework.Validation;
 using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework
 {
-	public interface IRoom : IHaveUid, IHaveFields, IValidator, IEditable, IComparable<IRoom>
+	public interface IRoom : IGameBase, IComparable<IRoom>
 	{
 		#region Properties
-
-		string Name { get; set; }
-
-		bool Seen { get; set; }
-
-		string Desc { get; set; }
 
 		Enums.LightLevel LightLvl { get; set; }
 
@@ -70,11 +62,9 @@ namespace Eamon.Framework
 
 		IList<IArtifact> GetEmbeddedList(Func<IArtifact, bool> roomFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false);
 
-		IList<IHaveListedName> GetContainedList(Func<IHaveListedName, bool> roomFindFunc = null, Func<IArtifact, bool> monsterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false);
+		IList<IGameBase> GetContainedList(Func<IGameBase, bool> roomFindFunc = null, Func<IArtifact, bool> monsterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false);
 
 		RetCode GetExitList(StringBuilder buf, Func<string, string> modFunc = null, bool useNames = true);
-
-		RetCode BuildPrintedFullDesc(StringBuilder buf, bool showName);
 
 		RetCode BuildPrintedFullDesc(StringBuilder buf, Func<IMonster, bool> monsterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool verboseRoomDesc = false, bool verboseMonsterDesc = false, bool verboseArtifactDesc = false);
 

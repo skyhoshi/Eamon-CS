@@ -8,11 +8,11 @@ using Eamon.Framework;
 
 namespace EamonDD.Framework.Menus.ActionMenus
 {
-	public interface IAnalyseRecordInterdependenciesMenu01<out T> where T : class, IHaveUid
+	public interface IAnalyseRecordInterdependenciesMenu01<out T> where T : class, IGameBase
 	{
-		IList<IField> SkipFields { get; set; }
+		IList<string> SkipFieldNames { get; set; }
 
-		bool ClearSkipFields { get; set; }
+		bool ClearSkipFieldNames { get; set; }
 
 		bool ModifyFlag { get; set; }
 

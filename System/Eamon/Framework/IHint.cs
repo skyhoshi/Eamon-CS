@@ -4,12 +4,10 @@
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System;
-using Eamon.Framework.DataEntry;
-using Eamon.Framework.Validation;
 
 namespace Eamon.Framework
 {
-	public interface IHint : IHaveUid, IHaveFields, IValidator, IEditable, IComparable<IHint>
+	public interface IHint : IGameBase, IComparable<IHint>
 	{
 		#region Properties
 

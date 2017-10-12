@@ -11,9 +11,9 @@ namespace EamonDD.Framework.Menus.ActionMenus
 {
 	public interface IAnalyseAllRecordInterdependenciesMenu : IMenu
 	{
-		IAnalyseRecordInterdependenciesMenu01<IHaveUid>[] AnalyseMenus { get; set; }
+		IAnalyseRecordInterdependenciesMenu01<IGameBase>[] AnalyseMenus { get; set; }
 
-		IList<IField> SkipFields { get; set; }
+		IList<string> SkipFieldNames { get; set; }
 
 		bool ModifyFlag { get; set; }
 

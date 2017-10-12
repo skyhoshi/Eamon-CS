@@ -7,13 +7,13 @@ using System;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework;
-using Eamon.Framework.DataEntry;
+using Eamon.Framework.Helpers.Generic;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class ListRecordNameMenu<T> : RecordMenu<T>, IListRecordNameMenu<T> where T : class, IHaveUid
+	public abstract class ListRecordNameMenu<T> : RecordMenu<T>, IListRecordNameMenu<T> where T : class, IGameBase
 	{
 		public override void Execute()
 		{
@@ -25,17 +25,17 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Globals.Engine.PrintTitle(Title, true);
 
+			var helper = Globals.CreateInstance<IHelper<T>>();
+
 			var j = RecordTable.GetRecordsCount();
 
 			var i = 0;
 
 			foreach (var record in RecordTable.Records)
 			{
-				var editable = record as IEditable;
+				helper.Record = record;
 
-				Debug.Assert(editable != null);
-
-				editable.ListRecord(false, false, false, false, false, false);
+				helper.ListRecord(false, false, false, false, false, false);
 
 				nlFlag = true;
 

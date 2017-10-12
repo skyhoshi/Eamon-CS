@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -62,7 +63,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 					x.Uid = NewRecordUid;
 				});
 
-				module.InputRecord(false, Globals.Config.FieldDesc);
+				var helper = Globals.CreateInstance<IHelper<IModule>>(x =>
+				{
+					x.Record = module;
+				});
+
+				helper.InputRecord(false, Globals.Config.FieldDesc);
 
 				Globals.Thread.Sleep(150);
 

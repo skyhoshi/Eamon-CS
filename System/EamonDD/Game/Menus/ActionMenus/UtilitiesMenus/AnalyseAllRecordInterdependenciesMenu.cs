@@ -18,9 +18,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class AnalyseAllRecordInterdependenciesMenu : Menu, IAnalyseAllRecordInterdependenciesMenu
 	{
-		public virtual IAnalyseRecordInterdependenciesMenu01<IHaveUid>[] AnalyseMenus { get; set; }
+		public virtual IAnalyseRecordInterdependenciesMenu01<IGameBase>[] AnalyseMenus { get; set; }
 
-		public virtual IList<IField> SkipFields { get; set; }
+		public virtual IList<string> SkipFieldNames { get; set; }
 
 		public virtual bool ModifyFlag { get; set; }
 
@@ -30,7 +30,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			RetCode rc;
 
-			SkipFields.Clear();
+			SkipFieldNames.Clear();
 
 			ExitFlag = false;
 
@@ -93,39 +93,39 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			Buf = Globals.Buf;
 
-			SkipFields = new List<IField>();
+			SkipFieldNames = new List<string>();
 
-			AnalyseMenus = new IAnalyseRecordInterdependenciesMenu01<IHaveUid>[]
+			AnalyseMenus = new IAnalyseRecordInterdependenciesMenu01<IGameBase>[]
 			{
 				Globals.CreateInstance<IAnalyseArtifactRecordInterdependenciesMenu01>(x =>
 				{
-					x.SkipFields = SkipFields;
-					x.ClearSkipFields = false;
+					x.SkipFieldNames = SkipFieldNames;
+					x.ClearSkipFieldNames = false;
 				}),
 				Globals.CreateInstance<IAnalyseEffectRecordInterdependenciesMenu01>(x =>
 				{
-					x.SkipFields = SkipFields;
-					x.ClearSkipFields = false;
+					x.SkipFieldNames = SkipFieldNames;
+					x.ClearSkipFieldNames = false;
 				}),
 				Globals.CreateInstance<IAnalyseHintRecordInterdependenciesMenu01>(x =>
 				{
-					x.SkipFields = SkipFields;
-					x.ClearSkipFields = false;
+					x.SkipFieldNames = SkipFieldNames;
+					x.ClearSkipFieldNames = false;
 				}),
 				Globals.CreateInstance<IAnalyseModuleRecordInterdependenciesMenu01>(x =>
 				{
-					x.SkipFields = SkipFields;
-					x.ClearSkipFields = false;
+					x.SkipFieldNames = SkipFieldNames;
+					x.ClearSkipFieldNames = false;
 				}),
 				Globals.CreateInstance<IAnalyseMonsterRecordInterdependenciesMenu01>(x =>
 				{
-					x.SkipFields = SkipFields;
-					x.ClearSkipFields = false;
+					x.SkipFieldNames = SkipFieldNames;
+					x.ClearSkipFieldNames = false;
 				}),
 				Globals.CreateInstance<IAnalyseRoomRecordInterdependenciesMenu01>(x =>
 				{
-					x.SkipFields = SkipFields;
-					x.ClearSkipFields = false;
+					x.SkipFieldNames = SkipFieldNames;
+					x.ClearSkipFieldNames = false;
 				})
 			};
 

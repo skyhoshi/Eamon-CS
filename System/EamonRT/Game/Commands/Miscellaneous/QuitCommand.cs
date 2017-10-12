@@ -48,14 +48,10 @@ namespace EamonRT.Game.Commands
 			{
 				if (Globals.Database.GetFilesetsCount() == 0)
 				{
-					var gender = Globals.Engine.GetGenders(ActorMonster.Gender);
-
-					Debug.Assert(gender != null);
-
 					Globals.Out.Write("{0}[You haven't saved a game yet but {1} will be left here should you choose to return.  Use \"quit hall\" if you don't want {2} to stay.]{0}",
 						Environment.NewLine,
 						ActorMonster.Name,
-						gender.HimDesc);
+						ActorMonster.EvalGender("him", "her", "it"));
 				}
 
 				Globals.Out.Write("{0}Do you really want to quit (Y/N): ", Environment.NewLine);

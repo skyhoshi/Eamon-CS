@@ -9,15 +9,15 @@ using Eamon.Framework.Args;
 
 namespace EamonDD.Framework.Menus.ActionMenus
 {
-	public interface IAnalyseRecordInterdependenciesMenu<T> : IRecordMenu<T> where T : class, IHaveUid
+	public interface IAnalyseRecordInterdependenciesMenu<T> : IRecordMenu<T> where T : class, IGameBase
 	{
-		IList<IField> SkipFields { get; set; }
+		IList<string> SkipFieldNames { get; set; }
 
 		IValidateArgs ValidateArgs { get; set; }
 
 		T ErrorRecord { get; set; }
 
-		bool ClearSkipFields { get; set; }
+		bool ClearSkipFieldNames { get; set; }
 
 		bool ModifyFlag { get; set; }
 

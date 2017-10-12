@@ -9,18 +9,18 @@ using System.Text;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Args;
-using Eamon.Framework.DataEntry;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Extensions;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class EditRecordOneFieldMenu<T> : RecordMenu<T>, IEditRecordOneFieldMenu<T> where T : class, IHaveUid
+	public abstract class EditRecordOneFieldMenu<T> : RecordMenu<T>, IEditRecordOneFieldMenu<T> where T : class, IGameBase
 	{
 		public virtual T EditRecord { get; set; }
 
-		public virtual IField EditField { get; set; }
+		public virtual string EditFieldName { get; set; }
 
 		public override void Execute()
 		{
@@ -56,19 +56,18 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var editRecord01 = Globals.CloneInstance(EditRecord);
 
-			var editable = editRecord01 as IEditable;
+			Debug.Assert(editRecord01 != null);
 
-			Debug.Assert(editable != null);
-
-			var haveFields = editRecord01 as IHaveFields;
-
-			Debug.Assert(haveFields != null);
-
-			IField editField01 = null;
-
-			if (EditField == null)
+			var helper = Globals.CreateInstance<IHelper<T>>(x =>
 			{
-				editable.ListRecord(true, true, false, true, true, true);
+				x.Record = editRecord01;
+			});
+
+			string editFieldName01 = null;
+
+			if (string.IsNullOrWhiteSpace(EditFieldName))
+			{
+				helper.ListRecord(true, true, false, true, true, true);
 
 				PrintPostListLineSep();
 
@@ -82,9 +81,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				var fieldNum = Convert.ToInt64(Buf.Trim().ToString());
 
-				editField01 = haveFields.GetField(fieldNum);
+				editFieldName01 = helper.GetFieldName(fieldNum);
 
-				if (editField01 == null)
+				if (string.IsNullOrWhiteSpace(editFieldName01))
 				{
 					goto Cleanup;
 				}
@@ -93,7 +92,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 			else
 			{
-				editField01 = haveFields.GetField(EditField.Name);
+				editFieldName01 = EditFieldName;
 			}
 
 			var args = Globals.CreateInstance<IInputArgs>(x =>
@@ -103,7 +102,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				x.FieldDesc = Globals.Config.FieldDesc;
 			});
 
-			editable.InputField(editField01, args);
+			helper.InputField(editFieldName01, args);
 
 			Globals.Thread.Sleep(150);
 
@@ -177,7 +176,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			EditRecord = null;
 
-			EditField = null;
+			EditFieldName = null;
 		}
 	}
 }

@@ -23,7 +23,7 @@ namespace Eamon.Game.Args
 
 		public virtual Type RecordType { get; set; }
 
-		public virtual IHaveUid EditRecord { get; set; }
+		public virtual IGameBase EditRecord { get; set; }
 
 		public virtual long NewRecordUid { get; set; }
 

@@ -3,11 +3,8 @@
 
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
-using System.Collections.Generic;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Game.Attributes;
-using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game
 {
@@ -33,31 +30,6 @@ namespace TheTrainingGround.Game
 		public virtual bool CharismaBoosted { get; set; }
 
 		public virtual long GenderChangeCounter { get; set; }
-
-		protected virtual bool ValidateGenderChangeCounter(IField field, IValidateArgs args)
-		{
-			return GenderChangeCounter >= 0 && GenderChangeCounter <= 2;
-		}
-
-		public override IList<IField> GetFields()
-		{
-			if (Fields == null)
-			{
-				var fields = base.GetFields();
-
-				fields.Add
-				(
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "GenderChangeCounter";
-						x.Validate = ValidateGenderChangeCounter;
-						x.GetValue = () => GenderChangeCounter;
-					})
-				);
-			}
-
-			return Fields;
-		}
 
 		public GameState()
 		{

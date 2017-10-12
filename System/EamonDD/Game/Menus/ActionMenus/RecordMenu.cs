@@ -12,7 +12,7 @@ using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class RecordMenu<T> : Menu, IRecordMenu<T> where T : class, IHaveUid
+	public abstract class RecordMenu<T> : Menu, IRecordMenu<T> where T : class, IGameBase
 	{
 		public virtual IDbTable<T> RecordTable { get; set; }
 

@@ -5,19 +5,11 @@
 
 using System;
 using System.Text;
-using Eamon.Framework.DataEntry;
-using Eamon.Framework.Validation;
 
 namespace Eamon.Framework
 {
-	public interface IEffect : IHaveUid, IHaveFields, IValidator, IEditable, IComparable<IEffect>
+	public interface IEffect : IGameBase, IComparable<IEffect>
 	{
-		#region Properties
-
-		string Desc { get; set; }
-
-		#endregion
-
 		#region Methods
 
 		RetCode BuildPrintedFullDesc(StringBuilder buf);

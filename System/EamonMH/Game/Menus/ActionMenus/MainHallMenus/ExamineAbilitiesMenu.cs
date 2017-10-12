@@ -25,11 +25,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 
-			var gender = Globals.Engine.GetGenders(Globals.Character.Gender);
-
-			Debug.Assert(gender != null);
-
-			Globals.Out.WriteLine("{0}You are the {1} {2}", Environment.NewLine, gender.MightyDesc.ToLower(), Globals.Character.Name);
+			Globals.Out.WriteLine("{0}You are the {1} {2}", Environment.NewLine, Globals.Character.EvalGender("mighty", "fair", "androgynous"), Globals.Character.Name);
 
 			Buf.SetFormat("{0}{1}{2}%)",
 				"(Learning: ",

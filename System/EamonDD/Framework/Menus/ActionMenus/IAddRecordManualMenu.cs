@@ -7,7 +7,7 @@ using Eamon.Framework;
 
 namespace EamonDD.Framework.Menus.ActionMenus
 {
-	public interface IAddRecordManualMenu<T> : IRecordMenu<T> where T : class, IHaveUid
+	public interface IAddRecordManualMenu<T> : IRecordMenu<T> where T : class, IGameBase
 	{
 		long NewRecordUid { get; set; }
 	}

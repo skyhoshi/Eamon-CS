@@ -60,8 +60,6 @@ namespace EamonRT.Game
 
 			Globals.Module.NumMonsters = Globals.Database.GetMonstersCount();
 
-			Globals.Database.Compact();
-
 			Globals.RtEngine.CreateInitialState(false);
 		}
 

@@ -48,13 +48,7 @@ namespace Eamon.Game
 
 		protected virtual Classes.IArmor[] Armors { get; set; }
 
-		protected virtual Classes.IGender[] Genders { get; set; }
-
 		protected virtual Classes.IDirection[] Directions { get; set; }
-
-		protected virtual Classes.IFriendliness[] Friendlinesses { get; set; }
-
-		protected virtual Classes.IRoomType[] RoomTypes { get; set; }
 
 		protected virtual Classes.IArtifactType[] ArtifactTypes { get; set; }
 
@@ -197,16 +191,6 @@ namespace Eamon.Game
 			return Enum.IsDefined(typeof(Enums.Armor), armor) ? GetArmors((long)armor) : null;
 		}
 
-		public virtual Classes.IGender GetGenders(long index)
-		{
-			return Genders[index];
-		}
-
-		public virtual Classes.IGender GetGenders(Enums.Gender gender)
-		{
-			return Enum.IsDefined(typeof(Enums.Gender), gender) ? GetGenders((long)gender) : null;
-		}
-
 		public virtual Classes.IDirection GetDirections(long index)
 		{
 			return Directions[index];
@@ -215,26 +199,6 @@ namespace Eamon.Game
 		public virtual Classes.IDirection GetDirections(Enums.Direction direction)
 		{
 			return Enum.IsDefined(typeof(Enums.Direction), direction) ? GetDirections((long)direction - 1) : null;
-		}
-
-		public virtual Classes.IFriendliness GetFriendlinesses(long index)
-		{
-			return Friendlinesses[index];
-		}
-
-		public virtual Classes.IFriendliness GetFriendlinesses(Enums.Friendliness friendliness)
-		{
-			return Enum.IsDefined(typeof(Enums.Friendliness), friendliness) ? GetFriendlinesses((long)friendliness - 1) : null;
-		}
-
-		public virtual Classes.IRoomType GetRoomTypes(long index)
-		{
-			return RoomTypes[index];
-		}
-
-		public virtual Classes.IRoomType GetRoomTypes(Enums.RoomType roomType)
-		{
-			return Enum.IsDefined(typeof(Enums.RoomType), roomType) ? GetRoomTypes((long)roomType) : null;
 		}
 
 		public virtual Classes.IArtifactType GetArtifactTypes(long index)
@@ -629,6 +593,31 @@ namespace Eamon.Game
 		public virtual IModule GetModule()
 		{
 			return Globals?.Database?.ModuleTable.Records.FirstOrDefault();
+		}
+
+		public virtual T EvalFriendliness<T>(Enums.Friendliness friendliness, T enemyValue, T neutralValue, T friendValue)
+		{
+			return friendliness == Enums.Friendliness.Enemy ? enemyValue : friendliness == Enums.Friendliness.Neutral ? neutralValue : friendValue;
+		}
+
+		public virtual T EvalGender<T>(Enums.Gender gender, T maleValue, T femaleValue, T neutralValue)
+		{
+			return gender == Enums.Gender.Male ? maleValue : gender == Enums.Gender.Female ? femaleValue : neutralValue;
+		}
+
+		public virtual T EvalRoomType<T>(Enums.RoomType roomType, T indoorsValue, T outdoorsValue)
+		{
+			return roomType == Enums.RoomType.Indoors ? indoorsValue : outdoorsValue;
+		}
+
+		public virtual T EvalLightLevel<T>(Enums.LightLevel lightLevel, T darkValue, T lightValue)
+		{
+			return lightLevel == Enums.LightLevel.Dark ? darkValue : lightValue;
+		}
+
+		public virtual T EvalPlural<T>(bool isPlural, T singularValue, T pluralValue)
+		{
+			return isPlural ? pluralValue : singularValue;
 		}
 
 		public virtual string BuildPrompt(long bufSize, char fillChar, long number, string msg, string emptyVal)
@@ -1508,7 +1497,7 @@ namespace Eamon.Game
 			PrintEffectDesc(effect, printFinalNewLine);
 		}
 
-		public virtual RetCode GetRecordNameList(IList<IHaveListedName> records, Enums.ArticleType articleType, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public virtual RetCode GetRecordNameList(IList<IGameBase> records, Enums.ArticleType articleType, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
 		{
 			StringBuilder buf01;
 			RetCode rc;
@@ -1535,7 +1524,7 @@ namespace Eamon.Game
 					i == 0 ? "" : i == records.Count - 1 ? " and " : ", ",
 					x.GetDecoratedName
 					(
-						x.GetNameField(),
+						"Name",
 						articleType == Enums.ArticleType.None || articleType == Enums.ArticleType.The ? articleType : x.ArticleType,
 						false,
 						showCharOwned,
@@ -1551,7 +1540,7 @@ namespace Eamon.Game
 			return rc;
 		}
 
-		public virtual RetCode GetRecordNameCount(IList<IHaveListedName> records, string name, bool exactMatch, ref long count)
+		public virtual RetCode GetRecordNameCount(IList<IGameBase> records, string name, bool exactMatch, ref long count)
 		{
 			RetCode rc;
 
@@ -1591,7 +1580,7 @@ namespace Eamon.Game
 			return rc;
 		}
 
-		public virtual RetCode ListRecords(IList<IHaveListedName> records, bool capitalize, bool showExtraInfo, StringBuilder buf)
+		public virtual RetCode ListRecords(IList<IGameBase> records, bool capitalize, bool showExtraInfo, StringBuilder buf)
 		{
 			RetCode rc;
 			long i;
@@ -2086,13 +2075,13 @@ namespace Eamon.Game
 			return monsterList;
 		}
 
-		public virtual IList<IHaveListedName> GetRecordList(Func<bool> shouldQueryFunc, params Func<IHaveListedName, bool>[] whereClauseFuncs)
+		public virtual IList<IGameBase> GetRecordList(Func<bool> shouldQueryFunc, params Func<IGameBase, bool>[] whereClauseFuncs)
 		{
 			Debug.Assert(shouldQueryFunc != null);
 
 			Debug.Assert(whereClauseFuncs != null);
 
-			var recordList = new List<IHaveListedName>();
+			var recordList = new List<IGameBase>();
 
 			if (shouldQueryFunc())
 			{
@@ -2131,7 +2120,7 @@ namespace Eamon.Game
 			return monsterList.Where(m => whereClauseFunc(m)).OrderBy(m => m.Uid).Skip((int)(which - 1)).Take(1).FirstOrDefault();
 		}
 
-		public virtual IHaveListedName GetNthRecord(IList<IHaveListedName> recordList, long which, Func<IHaveListedName, bool> whereClauseFunc)
+		public virtual IGameBase GetNthRecord(IList<IGameBase> recordList, long which, Func<IGameBase, bool> whereClauseFunc)
 		{
 			Debug.Assert(recordList != null);
 
@@ -2141,14 +2130,13 @@ namespace Eamon.Game
 
 			return recordList.Where(x => whereClauseFunc(x)).OrderBy((x) =>
 			{
-				var ihu = x as IHaveUid;
 
-				return string.Format("{0}_{1}", x.Name.ToLower(), ihu != null ? ihu.Uid : 0);
+				return string.Format("{0}_{1}", x.Name.ToLower(), x.Uid);
 
 			}).Skip((int)(which - 1)).Take(1).FirstOrDefault();
 		}
 
-		public virtual void StripPoundCharsFromRecordNames(IList<IHaveListedName> recordList)
+		public virtual void StripPoundCharsFromRecordNames(IList<IGameBase> recordList)
 		{
 			Debug.Assert(recordList != null);
 
@@ -2160,7 +2148,7 @@ namespace Eamon.Game
 			}
 		}
 
-		public virtual void AddPoundCharsToRecordNames(IList<IHaveListedName> recordList)
+		public virtual void AddPoundCharsToRecordNames(IList<IGameBase> recordList)
 		{
 			long c;
 
@@ -2581,37 +2569,6 @@ namespace Eamon.Game
 				})
 			};
 
-			Genders = new Classes.IGender[]
-			{
-				Globals.CreateInstance<Classes.IGender>(x =>
-				{
-					x.Name = "Male";
-					x.MightyDesc = "Mighty";
-					x.BoyDesc = "boy";
-					x.HimDesc = "him";
-					x.HisDesc = "his";
-					x.HeDesc = "he";
-				}),
-				Globals.CreateInstance<Classes.IGender>(x =>
-				{
-					x.Name = "Female";
-					x.MightyDesc = "Fair";
-					x.BoyDesc = "girl";
-					x.HimDesc = "her";
-					x.HisDesc = "her";
-					x.HeDesc = "she";
-				}),
-				Globals.CreateInstance<Classes.IGender>(x =>
-				{
-					x.Name = "Neutral";
-					x.MightyDesc = "Androgynous";
-					x.BoyDesc = null;
-					x.HimDesc = "it";
-					x.HisDesc = "its";
-					x.HeDesc = "it";
-				})
-			};
-
 			Directions = new Classes.IDirection[]
 			{
 				Globals.CreateInstance<Classes.IDirection>(x =>
@@ -2673,43 +2630,6 @@ namespace Eamon.Game
 					x.Name = "Southwest";
 					x.PrintedName = "SW";
 					x.Abbr = "SW";
-				})
-			};
-
-			Friendlinesses = new Classes.IFriendliness[]
-			{
-				Globals.CreateInstance<Classes.IFriendliness>(x =>
-				{
-					x.Name = "Enemy";
-					x.SmileDesc = "growl";
-				}),
-				Globals.CreateInstance<Classes.IFriendliness>(x =>
-				{
-					x.Name = "Neutral";
-					x.SmileDesc = "ignore";
-				}),
-				Globals.CreateInstance<Classes.IFriendliness>(x =>
-				{
-					x.Name = "Friend";
-					x.SmileDesc = "smile";
-				})
-			};
-
-			RoomTypes = new Classes.IRoomType[]
-			{
-				Globals.CreateInstance<Classes.IRoomType>(x =>
-				{
-					x.Name = "Indoors";
-					x.RoomDesc = "room";
-					x.ExitDesc = "exits";
-					x.FleeDesc = "an exit";
-				}),
-				Globals.CreateInstance<Classes.IRoomType>(x =>
-				{
-					x.Name = "Outdoors";
-					x.RoomDesc = "area";
-					x.ExitDesc = "paths";
-					x.FleeDesc = "a path";
 				})
 			};
 

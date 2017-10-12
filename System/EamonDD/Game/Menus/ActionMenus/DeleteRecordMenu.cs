@@ -8,14 +8,14 @@ using System.Diagnostics;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
-using Eamon.Framework.DataEntry;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Extensions;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class DeleteRecordMenu<T> : RecordMenu<T>, IDeleteRecordMenu<T> where T : class, IHaveUid
+	public abstract class DeleteRecordMenu<T> : RecordMenu<T>, IDeleteRecordMenu<T> where T : class, IGameBase
 	{
 		public override void Execute()
 		{
@@ -46,11 +46,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 				goto Cleanup;
 			}
 
-			var editable = record as IEditable;
+			var helper = Globals.CreateInstance<IHelper<T>>(x =>
+			{
+				x.Record = record;
+			});
 
-			Debug.Assert(editable != null);
-
-			editable.ListRecord(true, true, false, true, false, false);
+			helper.ListRecord(true, true, false, true, false, false);
 
 			PrintPostListLineSep();
 
