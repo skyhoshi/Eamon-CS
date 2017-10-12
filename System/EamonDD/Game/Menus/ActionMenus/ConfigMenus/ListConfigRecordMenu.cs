@@ -6,6 +6,8 @@
 using System;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
 using EamonDD.Framework.Menus.ActionMenus;
@@ -24,7 +26,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Globals.Engine.PrintTitle("LIST CONFIG RECORD DETAILS", true);
 
-			Globals.Config.ListRecord(true, false, false, false, false, false);
+			var helper = Globals.CreateInstance<IHelper<IConfig>>(x =>
+			{
+				x.Record = Globals.Config;
+			});
+
+			helper.ListRecord(true, false, false, false, false, false);
 
 			Globals.Out.WriteLine();
 

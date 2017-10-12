@@ -6,6 +6,8 @@
 using System;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
 using EamonDD.Framework.Menus.ActionMenus;
@@ -26,7 +28,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				Globals.Engine.PrintTitle("LIST MODULE RECORD DETAILS", true);
 
-				Globals.Module.ListRecord(true, Globals.Config.ShowDesc, Globals.Config.ResolveEffects, true, false, false);
+				var helper = Globals.CreateInstance<IHelper<IModule>>(x =>
+				{
+					x.Record = Globals.Module;
+				});
+
+				helper.ListRecord(true, Globals.Config.ShowDesc, Globals.Config.ResolveEffects, true, false, false);
 
 				Globals.Out.WriteLine();
 

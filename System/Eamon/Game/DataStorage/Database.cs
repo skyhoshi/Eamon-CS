@@ -10,6 +10,7 @@ using Eamon.Framework;
 using Eamon.Framework.Args;
 using Eamon.Framework.DataStorage;
 using Eamon.Framework.DataStorage.Generic;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using static Eamon.Game.Plugin.PluginContext;
 
@@ -77,17 +78,21 @@ namespace Eamon.Game.DataStorage
 
 			if (validate)
 			{
+				var helper = Globals.CreateInstance<IHelper<T>>();
+
 				var args = Globals.CreateInstance<IValidateArgs>();
 
 				long i = 1;
 
 				foreach (var r in table01.Records)
 				{
-					if (r.ValidateRecord(args) == false)
+					helper.Record = r;
+
+					if (helper.ValidateRecord(args) == false)
 					{
 						rc = RetCode.Failure;
 
-						Globals.Error.WriteLine("{0}Error: expected valid [{1} value], found [{2}]", Environment.NewLine, args.ErrorField.Name, args.ErrorField.GetValue() ?? "null");
+						Globals.Error.WriteLine("{0}Error: expected valid [{1} value], found [{2}]", Environment.NewLine, helper.GetErrorFieldName(args), helper.GetErrorFieldValue(args) ?? "null");
 
 						Globals.Error.WriteLine("Error: Validate function call failed for record number {0}", i);
 
@@ -472,95 +477,6 @@ namespace Eamon.Game.DataStorage
 			}
 
 			return rc;
-		}
-
-		public virtual void CompactRecords<T>(IDbTable<T> table) where T : class, IGameBase
-		{
-			if (table == null)
-			{
-				// PrintError
-
-				goto Cleanup;
-			}
-
-			table.CompactRecords();
-
-		Cleanup:
-
-			;
-		}
-
-		public virtual void CompactConfigs()
-		{
-			CompactRecords(ConfigTable);
-		}
-
-		public virtual void CompactFilesets()
-		{
-			CompactRecords(FilesetTable);
-		}
-
-		public virtual void CompactCharacters()
-		{
-			CompactRecords(CharacterTable);
-		}
-
-		public virtual void CompactModules()
-		{
-			CompactRecords(ModuleTable);
-		}
-
-		public virtual void CompactRooms()
-		{
-			CompactRecords(RoomTable);
-		}
-
-		public virtual void CompactArtifacts()
-		{
-			CompactRecords(ArtifactTable);
-		}
-
-		public virtual void CompactEffects()
-		{
-			CompactRecords(EffectTable);
-		}
-
-		public virtual void CompactMonsters()
-		{
-			CompactRecords(MonsterTable);
-		}
-
-		public virtual void CompactHints()
-		{
-			CompactRecords(HintTable);
-		}
-
-		public virtual void CompactGameStates()
-		{
-			CompactRecords(GameStateTable);
-		}
-
-		public virtual void Compact()
-		{
-			CompactConfigs();
-
-			CompactFilesets();
-
-			CompactCharacters();
-
-			CompactModules();
-
-			CompactRooms();
-
-			CompactArtifacts();
-
-			CompactEffects();
-
-			CompactMonsters();
-
-			CompactHints();
-
-			CompactGameStates();
 		}
 
 		public virtual RetCode FreeRecords<T>(IDbTable<T> table, bool dispose = true) where T : class, IGameBase

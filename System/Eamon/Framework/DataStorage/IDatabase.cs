@@ -74,30 +74,6 @@ namespace Eamon.Framework.DataStorage
 
 		RetCode SaveGameStates(string fileName, bool printOutput = true);
 
-		void CompactRecords<T>(IDbTable<T> table) where T : class, IGameBase;
-
-		void CompactConfigs();
-
-		void CompactFilesets();
-
-		void CompactCharacters();
-
-		void CompactModules();
-
-		void CompactRooms();
-
-		void CompactArtifacts();
-
-		void CompactEffects();
-
-		void CompactMonsters();
-
-		void CompactHints();
-
-		void CompactGameStates();
-
-		void Compact();
-
 		RetCode FreeRecords<T>(IDbTable<T> table, bool dispose = true) where T : class, IGameBase;
 
 		RetCode FreeConfigs(bool dispose = true);

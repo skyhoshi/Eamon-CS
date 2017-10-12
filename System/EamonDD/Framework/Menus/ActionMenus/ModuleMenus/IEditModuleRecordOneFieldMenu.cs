@@ -9,6 +9,6 @@ namespace EamonDD.Framework.Menus.ActionMenus
 {
 	public interface IEditModuleRecordOneFieldMenu : IEditModuleRecordMenu
 	{
-		IField EditField { get; set; }
+		string EditFieldName { get; set; }
 	}
 }

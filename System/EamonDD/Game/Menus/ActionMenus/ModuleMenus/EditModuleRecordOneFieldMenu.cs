@@ -9,6 +9,7 @@ using System.Text;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Args;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -18,7 +19,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class EditModuleRecordOneFieldMenu : EditModuleRecordMenu, IEditModuleRecordOneFieldMenu
 	{
-		public virtual IField EditField { get; set; }
+		public virtual string EditFieldName { get; set; }
 
 		public override void Execute()
 		{
@@ -39,11 +40,16 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				Debug.Assert(editModule01 != null);
 
-				IField editField01 = null;
-
-				if (EditField == null)
+				var helper = Globals.CreateInstance<IHelper<IModule>>(x =>
 				{
-					editModule01.ListRecord(true, true, false, true, true, true);
+					x.Record = editModule01;
+				});
+
+				string editFieldName01 = null;
+
+				if (string.IsNullOrWhiteSpace(EditFieldName))
+				{
+					helper.ListRecord(true, true, false, true, true, true);
 
 					Globals.Out.WriteLine();
 
@@ -59,9 +65,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					var fieldNum = Convert.ToInt64(Buf.Trim().ToString());
 
-					editField01 = editModule01.GetField(fieldNum);
+					editFieldName01 = helper.GetFieldName(fieldNum);
 
-					if (editField01 == null)
+					if (string.IsNullOrWhiteSpace(editFieldName01))
 					{
 						goto Cleanup;
 					}
@@ -70,7 +76,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				}
 				else
 				{
-					editField01 = editModule01.GetField(EditField.Name);
+					editFieldName01 = EditFieldName;
 				}
 
 				var args = Globals.CreateInstance<IInputArgs>(x =>
@@ -80,7 +86,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 					x.FieldDesc = Globals.Config.FieldDesc;
 				});
 
-				editModule01.InputField(editField01, args);
+				helper.InputField(editFieldName01, args);
 
 				CompareAndSave(editModule01);
 			}
@@ -89,7 +95,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			EditRecord = null;
 
-			EditField = null;
+			EditFieldName = null;
 		}
 
 		public EditModuleRecordOneFieldMenu()

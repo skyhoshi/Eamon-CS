@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Menus;
@@ -71,13 +72,17 @@ namespace EamonDD.Game.Menus.ActionMenus
 				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 			}
 
+			var helper = Globals.CreateInstance<IHelper<IMonster>>();
+
 			var j = 0;
 
 			foreach (var monster in monsters)
 			{
 				if (!exited)
 				{
-					monster.ListRecord(false, false, false, false, false, false);
+					helper.Record = monster;
+
+					helper.ListRecord(false, false, false, false, false, false);
 
 					nlFlag = true;
 

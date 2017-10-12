@@ -4,6 +4,8 @@
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -30,7 +32,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				Debug.Assert(editModule01 != null);
 
-				editModule01.InputRecord(true, Globals.Config.FieldDesc);
+				var helper = Globals.CreateInstance<IHelper<IModule>>(x =>
+				{
+					x.Record = editModule01;
+				});
+
+				helper.InputRecord(true, Globals.Config.FieldDesc);
 
 				CompareAndSave(editModule01);
 			}

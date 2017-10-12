@@ -18,8 +18,6 @@ namespace Eamon.Framework.DataStorage.Generic
 
 		long CurrUid { get; set; }
 
-		void CompactRecords();
-
 		RetCode FreeRecords(bool dispose = true);
 
 		long GetRecordsCount();

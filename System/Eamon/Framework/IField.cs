@@ -8,6 +8,8 @@ using Eamon.Framework.Args;
 
 namespace Eamon.Framework
 {
+	// Note: this is targeted for eventual removal; it should ONLY be used inside IValidateArgs and the various Helpers
+
 	public interface IField
 	{
 		string Name { get; set; }

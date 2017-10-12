@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Extensions;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -54,7 +55,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Debug.Assert(editRecord01 != null);
 
-			editRecord01.InputRecord(true, Globals.Config.FieldDesc);
+			var helper = Globals.CreateInstance<IHelper<T>>(x =>
+			{
+				x.Record = editRecord01;
+			});
+
+			helper.InputRecord(true, Globals.Config.FieldDesc);
 
 			Globals.Thread.Sleep(150);
 

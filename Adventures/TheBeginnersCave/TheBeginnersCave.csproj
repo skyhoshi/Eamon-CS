@@ -88,6 +88,7 @@
     <Compile Include="Game\Commands\Miscellaneous\TrollsfireCommand.cs" />
     <Compile Include="Game\Commands\Movement\FleeCommand.cs" />
     <Compile Include="Game\GameState.cs" />
+    <Compile Include="Game\Helpers\GameStateHelper.cs" />
     <Compile Include="Game\IntroStory.cs" />
     <Compile Include="Game\MainLoop.cs" />
     <Compile Include="Game\Monster.cs" />

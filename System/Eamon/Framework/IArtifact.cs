@@ -216,8 +216,6 @@ namespace Eamon.Framework
 
 		RetCode GetContainerInfo(ref long count, ref long weight, bool recurse = false);
 
-		string BuildValue(long bufSize, char fillChar, long offset, IField field);
-
 		#endregion
 	}
 }

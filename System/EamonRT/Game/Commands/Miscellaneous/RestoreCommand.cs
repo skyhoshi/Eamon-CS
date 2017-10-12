@@ -190,8 +190,6 @@ namespace EamonRT.Game.Commands
 
 			Globals.GameState.R2 = Globals.GameState.Ro;
 
-			Globals.Database.Compact();
-
 			Globals.Out.WriteLine("{0}Game restored.", Environment.NewLine);
 
 			Globals.RtEngine.CreateInitialState(true);

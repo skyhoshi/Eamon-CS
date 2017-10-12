@@ -25,14 +25,6 @@ namespace Eamon.Game.DataStorage.Generic
 
 		public virtual long CurrUid { get; set; }
 
-		public virtual void CompactRecords()
-		{
-			foreach (var record in Records)
-			{
-				record.FreeFields();
-			}
-		}
-
 		public virtual RetCode FreeRecords(bool dispose = true)
 		{
 			if (dispose)

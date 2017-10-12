@@ -6,9 +6,9 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using Eamon.Framework;
 using Eamon.Framework.Args;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Framework.Menus;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -17,13 +17,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 {
 	public abstract class AnalyseRecordInterdependenciesMenu<T> : RecordMenu<T>, IAnalyseRecordInterdependenciesMenu<T> where T : class, IGameBase
 	{
-		public virtual IList<IField> SkipFields { get; set; }
+		public virtual IList<string> SkipFieldNames { get; set; }
 
 		public virtual IValidateArgs ValidateArgs { get; set; }
 
 		public virtual T ErrorRecord { get; set; }
 
-		public virtual bool ClearSkipFields { get; set; }
+		public virtual bool ClearSkipFieldNames { get; set; }
 
 		public virtual bool ModifyFlag { get; set; }
 
@@ -33,7 +33,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			Debug.Assert(ErrorRecord != null);
 
-			ErrorRecord.ListErrorField(ValidateArgs);
+			var helper = Globals.CreateInstance<IHelper<T>>(x =>
+			{
+				x.Record = ErrorRecord;
+			});
+
+			helper.ListErrorField(ValidateArgs);
 
 			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, ValidateArgs.ErrorMessage);
 
@@ -55,7 +60,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 			else if (ValidateArgs.Buf[0] == 'S')
 			{
-				SkipFields.Add(ValidateArgs.ErrorField);
+				var uniqueFieldName = string.Format("{0}_{1}_{2}", typeof(T).Name, ErrorRecord.Uid, helper.GetErrorFieldName(ValidateArgs));
+
+				SkipFieldNames.Add(uniqueFieldName);
 			}
 			else if (ValidateArgs.Buf[0] == 'T')
 			{
@@ -223,9 +230,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Globals.Engine.PrintTitle(Title, true);
 
-			if (ClearSkipFields)
+			var helper = Globals.CreateInstance<IHelper<T>>();
+
+			if (ClearSkipFieldNames)
 			{
-				SkipFields.Clear();
+				SkipFieldNames.Clear();
 			}
 
 			ValidateArgs.Clear();
@@ -240,11 +249,18 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				foreach (var record in RecordTable.Records)
 				{
-					var fields = record.GetFields().Where(f => !SkipFields.Contains(f));
+					helper.Record = record;
 
-					foreach (var field in fields)
+					var fieldNames = helper.GetFieldNames((fn) =>
 					{
-						if (!record.ValidateFieldInterdependencies(field, ValidateArgs))
+						var uniqueFieldName = string.Format("{0}_{1}_{2}", typeof(T).Name, record.Uid, fn);
+
+						return !SkipFieldNames.Contains(uniqueFieldName);
+					});
+
+					foreach (var fieldName in fieldNames)
+					{
+						if (!helper.ValidateFieldInterdependencies(fieldName, ValidateArgs))
 						{
 							ErrorRecord = record;
 
@@ -277,11 +293,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		public AnalyseRecordInterdependenciesMenu()
 		{
-			SkipFields = new List<IField>();
+			SkipFieldNames = new List<string>();
 
 			ValidateArgs = Globals.CreateInstance<IValidateArgs>();
 
-			ClearSkipFields = true;
+			ClearSkipFieldNames = true;
 		}
 	}
 }

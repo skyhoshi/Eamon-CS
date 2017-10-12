@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Helpers.Generic;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
 
@@ -52,13 +53,17 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			recUids[1] = Convert.ToInt64(Buf.Trim().ToString());
 
+			var helper = Globals.CreateInstance<IHelper<T>>();
+
 			var records = RecordTable.Records.Where(x => x.Uid >= recUids[0] && x.Uid <= recUids[1]);
 
 			foreach (var record in records)
 			{
+				helper.Record = record;
+
 				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 
-				record.ListRecord(true, Globals.Config.ShowDesc, Globals.Config.ResolveEffects, true, false, false);
+				helper.ListRecord(true, Globals.Config.ShowDesc, Globals.Config.ResolveEffects, true, false, false);
 
 				PrintPostListLineSep();
 

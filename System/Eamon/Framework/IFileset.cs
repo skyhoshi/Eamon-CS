@@ -39,7 +39,7 @@ namespace Eamon.Framework
 
 		#region Methods
 
-		RetCode DeleteFiles(IField field, bool useFilePrefix);
+		RetCode DeleteFiles(string fieldName, bool useFilePrefix);
 
 		#endregion
 	}

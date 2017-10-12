@@ -98,6 +98,7 @@
     <Compile Include="Game\Commands\Miscellaneous\PowerCommand.cs" />
     <Compile Include="Game\Commands\Miscellaneous\ScoreCommand.cs" />
     <Compile Include="Game\GameState.cs" />
+    <Compile Include="Game\Helpers\GameStateHelper.cs" />
     <Compile Include="Game\Hint.cs" />
     <Compile Include="Game\MainLoop.cs" />
     <Compile Include="Game\Room.cs" />

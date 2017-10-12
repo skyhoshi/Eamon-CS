@@ -5,7 +5,8 @@ ChangeLog: Eamon
 
 Date			Version			Who			Notes
 ----------------------------------------------------------------------------------------------------------------------------------
-20170613		1.3.0			MRP			Initial commit EamonPM.Android
+20171012		1.3.0			MRP			Eval/GameBase/Helper overhaul
+20170613					MRP			Initial commit EamonPM.Android
 20170326					MRP			Indexer overhaul; replaced with array accessor methods
 20170208		1.2.0			MRP			Namespace overhaul
 20170123		1.1.0			MRP			Portability overhaul; converted to plugin model

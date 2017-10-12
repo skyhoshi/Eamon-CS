@@ -1524,7 +1524,7 @@ namespace Eamon.Game
 					i == 0 ? "" : i == records.Count - 1 ? " and " : ", ",
 					x.GetDecoratedName
 					(
-						x.GetNameField(),
+						"Name",
 						articleType == Enums.ArticleType.None || articleType == Enums.ArticleType.The ? articleType : x.ArticleType,
 						false,
 						showCharOwned,

@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Extensions;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -45,7 +46,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 				goto Cleanup;
 			}
 
-			record.ListRecord(true, true, false, true, false, false);
+			var helper = Globals.CreateInstance<IHelper<T>>(x =>
+			{
+				x.Record = record;
+			});
+
+			helper.ListRecord(true, true, false, true, false, false);
 
 			PrintPostListLineSep();
 

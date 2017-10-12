@@ -13,7 +13,7 @@ namespace EamonDD.Framework.Menus.ActionMenus
 	{
 		IAnalyseRecordInterdependenciesMenu01<IGameBase>[] AnalyseMenus { get; set; }
 
-		IList<IField> SkipFields { get; set; }
+		IList<string> SkipFieldNames { get; set; }
 
 		bool ModifyFlag { get; set; }
 

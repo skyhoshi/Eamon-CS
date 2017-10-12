@@ -10,6 +10,7 @@ using System.Text;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Args;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
@@ -129,7 +130,12 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			character.Gender = (Enums.Gender)Convert.ToInt64(Buf.Trim().ToString());
 
-			Debug.Assert(character.ValidateField(character.GetField("Gender"), args));
+			var helper = Globals.CreateInstance<IHelper<ICharacter>>(x =>
+			{
+				x.Record = character;
+			});
+
+			Debug.Assert(helper.ValidateField("Gender", args));
 
 			Globals.Thread.Sleep(150);
 
@@ -337,9 +343,14 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				character.Name = Buf.Trim().ToString();
 
+				var helper = Globals.CreateInstance<IHelper<ICharacter>>(x =>
+				{
+					x.Record = character;
+				});
+
 				Globals.Thread.Sleep(150);
 
-				if (character.ValidateField(character.GetField("Name"), args))
+				if (helper.ValidateField("Name", args))
 				{
 					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 

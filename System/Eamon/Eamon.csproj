@@ -60,6 +60,7 @@
     <Compile Include="Framework\DataStorage\Generic\IRecordDb.cs" />
     <Compile Include="Framework\DataStorage\IDatabase.cs" />
     <Compile Include="Framework\Delegates.cs" />
+    <Compile Include="Framework\Helpers\Generic\IHelper.cs" />
     <Compile Include="Framework\IArtifact.cs" />
     <Compile Include="Framework\ICharacter.cs" />
     <Compile Include="Framework\IConfig.cs" />
@@ -166,6 +167,17 @@
     <Compile Include="Game\Fileset.cs" />
     <Compile Include="Game\GameBase.cs" />
     <Compile Include="Game\GameState.cs" />
+    <Compile Include="Game\Helpers\ArtifactHelper.cs" />
+    <Compile Include="Game\Helpers\CharacterHelper.cs" />
+    <Compile Include="Game\Helpers\ConfigHelper.cs" />
+    <Compile Include="Game\Helpers\EffectHelper.cs" />
+    <Compile Include="Game\Helpers\FilesetHelper.cs" />
+    <Compile Include="Game\Helpers\GameStateHelper.cs" />
+    <Compile Include="Game\Helpers\Generic\Helper.cs" />
+    <Compile Include="Game\Helpers\HintHelper.cs" />
+    <Compile Include="Game\Helpers\ModuleHelper.cs" />
+    <Compile Include="Game\Helpers\MonsterHelper.cs" />
+    <Compile Include="Game\Helpers\RoomHelper.cs" />
     <Compile Include="Game\Hint.cs" />
     <Compile Include="Game\Menus\Menu.cs" />
     <Compile Include="Game\Menus\MenuItem.cs" />

@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Extensions;
 using EamonDD.Framework.Menus.ActionMenus;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -63,9 +64,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 				x.Uid = NewRecordUid;
 			});
 
-			Debug.Assert(record != null);
+			var helper = Globals.CreateInstance<IHelper<T>>(x =>
+			{
+				x.Record = record;
+			});
 
-			record.InputRecord(false, Globals.Config.FieldDesc);
+			helper.InputRecord(false, Globals.Config.FieldDesc);
 
 			Globals.Thread.Sleep(150);
 
@@ -106,8 +110,6 @@ namespace EamonDD.Game.Menus.ActionMenus
 					rc = artifact.SetArtifactClassCount(i);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-					artifact.FreeFields();
 				}
 
 				rc = artifact.SyncArtifactClasses();

@@ -7,6 +7,7 @@ using System;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Helpers.Generic;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
 
@@ -24,13 +25,17 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Globals.Engine.PrintTitle(Title, true);
 
+			var helper = Globals.CreateInstance<IHelper<T>>();
+
 			var j = RecordTable.GetRecordsCount();
 
 			var i = 0;
 
 			foreach (var record in RecordTable.Records)
 			{
-				record.ListRecord(false, false, false, false, false, false);
+				helper.Record = record;
+
+				helper.ListRecord(false, false, false, false, false, false);
 
 				nlFlag = true;
 

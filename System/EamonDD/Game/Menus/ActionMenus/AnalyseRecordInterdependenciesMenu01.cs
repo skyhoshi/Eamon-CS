@@ -13,29 +13,29 @@ namespace EamonDD.Game.Menus.ActionMenus
 	{
 		protected virtual IAnalyseRecordInterdependenciesMenu<T> AnalyseMenu { get; set; }
 
-		public virtual IList<IField> SkipFields
+		public virtual IList<string> SkipFieldNames
 		{
 			get
 			{
-				return AnalyseMenu.SkipFields;
+				return AnalyseMenu.SkipFieldNames;
 			}
 
 			set
 			{
-				AnalyseMenu.SkipFields = value;
+				AnalyseMenu.SkipFieldNames = value;
 			}
 		}
 
-		public virtual bool ClearSkipFields
+		public virtual bool ClearSkipFieldNames
 		{
 			get
 			{
-				return AnalyseMenu.ClearSkipFields;
+				return AnalyseMenu.ClearSkipFieldNames;
 			}
 
 			set
 			{
-				AnalyseMenu.ClearSkipFields = value;
+				AnalyseMenu.ClearSkipFieldNames = value;
 			}
 		}
 

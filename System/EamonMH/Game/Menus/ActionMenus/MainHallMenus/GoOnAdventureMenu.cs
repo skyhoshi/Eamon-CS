@@ -8,7 +8,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Framework.DataStorage;
+using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
 using EamonMH.Framework.Menus.ActionMenus;
@@ -60,11 +62,15 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				var i = 0;
 
+				var helper = Globals.CreateInstance<IHelper<IFileset>>();
+
 				var filesets = Globals.Database.FilesetTable.Records;
 
 				foreach (var fileset01 in filesets)
 				{
-					fileset01.ListRecord(false, false, false, false, false, false);
+					helper.Record = fileset01;
+
+					helper.ListRecord(false, false, false, false, false, false);
 
 					nlFlag = true;
 

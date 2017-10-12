@@ -11,6 +11,6 @@ namespace EamonDD.Framework.Menus.ActionMenus
 	{
 		T EditRecord { get; set; }
 
-		IField EditField { get; set; }
+		string EditFieldName { get; set; }
 	}
 }
