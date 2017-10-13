@@ -1634,7 +1634,7 @@ namespace EamonRT.Game
 
 			Debug.Assert(room != null);
 
-			var artifactList = Globals.Engine.GetArtifactList(() => true, a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || a.IsInRoom(room))).OrderByDescending(a01 =>
+			var artifactList = Globals.Engine.GetArtifactList(() => true, a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || (a.IsInRoom(room) && (!room.IsLit() || a.Seen)))).OrderByDescending(a01 =>
 			{
 				if (monster.Weapon != -a01.Uid - 1)
 				{
