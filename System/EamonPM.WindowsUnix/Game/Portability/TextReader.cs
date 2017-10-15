@@ -150,7 +150,7 @@ namespace EamonPM.Game.Portability
 
 					i = 0;
 				}
-				else if ((Environment.NewLine.Length == 2 && ch == '\b') || (Environment.NewLine.Length == 1 && ch == 0x00))
+				else if ((Environment.NewLine.Length == 2 && ch == '\b') || (Environment.NewLine.Length == 1 && ch == 0x7F))
 				{
 					if (i > 0)
 					{

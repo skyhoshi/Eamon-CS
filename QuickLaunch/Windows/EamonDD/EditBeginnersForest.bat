@@ -1,4 +1,3 @@
 @echo off
 cd ..\..\..\System\Bin
-start .\EamonPM.WindowsUnix.exe -pfn BeginnersForest.dll -wd ..\..\Adventures\BeginnersForest -la -rge
-exit
+dotnet .\EamonPM.WindowsUnix.dll -pfn BeginnersForest.dll -wd ..\..\Adventures\BeginnersForest -la -rge

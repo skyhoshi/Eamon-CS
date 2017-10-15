@@ -1,4 +1,3 @@
 @echo off
 cd ..\..\..\System\Bin
-start .\EamonPM.WindowsUnix.exe -pfn TheTempleOfNgurct.dll -wd ..\..\Adventures\TheTempleOfNgurct -la -rge
-exit
+dotnet .\EamonPM.WindowsUnix.dll -pfn TheTempleOfNgurct.dll -wd ..\..\Adventures\TheTempleOfNgurct -la -rge

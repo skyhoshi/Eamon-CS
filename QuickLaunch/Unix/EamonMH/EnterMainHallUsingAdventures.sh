@@ -1,3 +1,3 @@
 #!/bin/sh
 cd ../../../System/Bin
-xterm -e mono ./EamonPM.WindowsUnix.exe -pfn EamonMH.dll -fsfn ADVENTURES.XML
+xterm -e dotnet ./EamonPM.WindowsUnix.dll -pfn EamonMH.dll -fsfn ADVENTURES.XML

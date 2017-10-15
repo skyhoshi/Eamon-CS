@@ -1,4 +1,3 @@
 @echo off
 cd ..\..\..\System\Bin
-start .\EamonPM.WindowsUnix.exe -pfn StrongholdOfKahrDur.dll -wd ..\..\Adventures\StrongholdOfKahrDur
-exit
+dotnet .\EamonPM.WindowsUnix.dll -pfn StrongholdOfKahrDur.dll -wd ..\..\Adventures\StrongholdOfKahrDur

@@ -1,4 +1,3 @@
 @echo off
 cd ..\..\..\System\Bin
-start .\EamonPM.WindowsUnix.exe -pfn ARuncibleCargo.dll -wd ..\..\Adventures\ARuncibleCargo
-exit
+dotnet .\EamonPM.WindowsUnix.dll -pfn ARuncibleCargo.dll -wd ..\..\Adventures\ARuncibleCargo

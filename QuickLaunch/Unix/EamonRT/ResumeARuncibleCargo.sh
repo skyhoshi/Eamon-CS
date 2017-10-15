@@ -1,3 +1,3 @@
 #!/bin/sh
 cd ../../../System/Bin
-xterm -e mono ./EamonPM.WindowsUnix.exe -pfn ARuncibleCargo.dll -wd ../../Adventures/ARuncibleCargo
+xterm -e dotnet ./EamonPM.WindowsUnix.dll -pfn ARuncibleCargo.dll -wd ../../Adventures/ARuncibleCargo

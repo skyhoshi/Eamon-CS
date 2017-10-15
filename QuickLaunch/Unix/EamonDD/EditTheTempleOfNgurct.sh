@@ -1,3 +1,3 @@
 #!/bin/sh
 cd ../../../System/Bin
-xterm -e mono ./EamonPM.WindowsUnix.exe -pfn TheTempleOfNgurct.dll -wd ../../Adventures/TheTempleOfNgurct -la -rge
+xterm -e dotnet ./EamonPM.WindowsUnix.dll -pfn TheTempleOfNgurct.dll -wd ../../Adventures/TheTempleOfNgurct -la -rge

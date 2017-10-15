@@ -1,0 +1,100 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.0/",
+    "signature": "d5ef1509ab9594c5ee7350d5e7860d93d6b54c43"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.0": {},
+    ".NETStandard,Version=v2.0/": {
+      "TheBeginnersCave/1.3.0.0": {
+        "dependencies": {
+          "Eamon": "1.3.0",
+          "EamonDD": "1.3.0",
+          "EamonRT": "1.3.0",
+          "NETStandard.Library": "2.0.0"
+        },
+        "runtime": {
+          "TheBeginnersCave.dll": {}
+        }
+      },
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "NETStandard.Library/2.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "Eamon/1.3.0": {
+        "dependencies": {
+          "Polenter.SharpSerializer.Standard": "2.20.0"
+        },
+        "runtime": {
+          "Eamon.dll": {}
+        }
+      },
+      "EamonDD/1.3.0": {
+        "dependencies": {
+          "Eamon": "1.3.0"
+        },
+        "runtime": {
+          "EamonDD.dll": {}
+        }
+      },
+      "EamonRT/1.3.0": {
+        "dependencies": {
+          "Eamon": "1.3.0",
+          "EamonDD": "1.3.0"
+        },
+        "runtime": {
+          "EamonRT.dll": {}
+        }
+      },
+      "Polenter.SharpSerializer.Standard/2.20.0": {
+        "runtime": {
+          "Polenter.SharpSerializer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TheBeginnersCave/1.3.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "NETStandard.Library/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7jnbRU+L08FXKMxqUflxEXtVymWvNOrS8yHgu9s6EM8Anr6T/wIX4nZ08j/u3Asz+tCufp3YVwFSEvFTPYmBPA==",
+      "path": "netstandard.library/2.0.0",
+      "hashPath": "netstandard.library.2.0.0.nupkg.sha512"
+    },
+    "Eamon/1.3.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EamonDD/1.3.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EamonRT/1.3.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Polenter.SharpSerializer.Standard/2.20.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
