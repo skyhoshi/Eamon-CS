@@ -1,4 +1,3 @@
 @echo off
 cd ..\..\..\System\Bin
-start .\EamonPM.WindowsUnix.exe -pfn EamonRT.dll -wd ..\..\Adventures\TestAdventure -la -rge
-exit
+dotnet .\EamonPM.WindowsUnix.dll -pfn EamonRT.dll -wd ..\..\Adventures\TestAdventure -la -rge

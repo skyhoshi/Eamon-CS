@@ -1,4 +1,3 @@
 @echo off
 cd ..\..\..\System\Bin
-start .\EamonPM.WindowsUnix.exe -pfn TheBeginnersCave.dll -wd ..\..\Adventures\TheBeginnersCave -la -rge
-exit
+dotnet .\EamonPM.WindowsUnix.dll -pfn TheBeginnersCave.dll -wd ..\..\Adventures\TheBeginnersCave -la -rge

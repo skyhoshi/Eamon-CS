@@ -1,115 +1,31 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E784BF1F-2ABD-47A0-9B5D-D5A3011E0047}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>TheBeginnersCave</RootNamespace>
-    <AssemblyName>TheBeginnersCave</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile24</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>1.3.0.0</Version>
+    <Authors>Michael R. Penner</Authors>
+    <Company>Michael R. Penner</Company>
+    <Product>The Wonderful World of Eamon CS</Product>
+    <Description>Eamon CS Adventure Plugin</Description>
+    <Copyright>Copyright (C) 2014-2017</Copyright>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETSTANDARD2_0;PORTABLE</DefineConstants>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <OutputPath>..\..\System\Bin\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;PORTABLE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;RELEASE;NETSTANDARD2_0;PORTABLE</DefineConstants>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <OutputPath>..\..\System\Bin\</OutputPath>
-    <DefineConstants>TRACE;PORTABLE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
-  </PropertyGroup>
+
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <ProjectReference Include="..\..\System\EamonDD\EamonDD.csproj">
-      <Project>{38c326a7-4f79-470b-b004-c515b94b24e2}</Project>
-      <Name>EamonDD</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\System\EamonRT\EamonRT.csproj">
-      <Project>{621a852b-a038-44a1-a245-42b67a8368c7}</Project>
-      <Name>EamonRT</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\System\Eamon\Eamon.csproj">
-      <Project>{4b426313-e449-4ab3-981c-74f4efbde12e}</Project>
-      <Name>Eamon</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\..\System\EamonDD\EamonDD.csproj" />
+    <ProjectReference Include="..\..\System\EamonRT\EamonRT.csproj" />
+    <ProjectReference Include="..\..\System\Eamon\Eamon.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Framework\Commands\Interactive\IGiveCommand.cs" />
-    <Compile Include="Framework\Commands\Interactive\ISmileCommand.cs" />
-    <Compile Include="Framework\Commands\Manipulation\IExamineCommand.cs" />
-    <Compile Include="Framework\Commands\Manipulation\IGetCommand.cs" />
-    <Compile Include="Framework\Commands\Manipulation\ILightCommand.cs" />
-    <Compile Include="Framework\Commands\Manipulation\IReadCommand.cs" />
-    <Compile Include="Framework\Commands\Manipulation\IUseCommand.cs" />
-    <Compile Include="Framework\Commands\Miscellaneous\ISayCommand.cs" />
-    <Compile Include="Framework\Commands\Miscellaneous\IStatusCommand.cs" />
-    <Compile Include="Framework\Commands\Miscellaneous\ITrollsfireCommand.cs" />
-    <Compile Include="Framework\Commands\Movement\IFleeCommand.cs" />
-    <Compile Include="Framework\IGameState.cs" />
-    <Compile Include="Framework\IIntroStory.cs" />
-    <Compile Include="Framework\IMainLoop.cs" />
-    <Compile Include="Framework\IMonster.cs" />
-    <Compile Include="Framework\IRtEngine.cs" />
-    <Compile Include="Framework\Plugin\IPluginClassMappings.cs" />
-    <Compile Include="Framework\Plugin\IPluginConstants.cs" />
-    <Compile Include="Framework\Plugin\IPluginGlobals.cs" />
-    <Compile Include="Framework\States\Player\IPlayerMoveCheckState.cs" />
-    <Compile Include="Game\Commands\Interactive\GiveCommand.cs" />
-    <Compile Include="Game\Commands\Interactive\SmileCommand.cs" />
-    <Compile Include="Game\Commands\Manipulation\ExamineCommand.cs" />
-    <Compile Include="Game\Commands\Manipulation\GetCommand.cs" />
-    <Compile Include="Game\Commands\Manipulation\LightCommand.cs" />
-    <Compile Include="Game\Commands\Manipulation\ReadCommand.cs" />
-    <Compile Include="Game\Commands\Manipulation\UseCommand.cs" />
-    <Compile Include="Game\Commands\Miscellaneous\SayCommand.cs" />
-    <Compile Include="Game\Commands\Miscellaneous\StatusCommand.cs" />
-    <Compile Include="Game\Commands\Miscellaneous\TrollsfireCommand.cs" />
-    <Compile Include="Game\Commands\Movement\FleeCommand.cs" />
-    <Compile Include="Game\GameState.cs" />
-    <Compile Include="Game\Helpers\GameStateHelper.cs" />
-    <Compile Include="Game\IntroStory.cs" />
-    <Compile Include="Game\MainLoop.cs" />
-    <Compile Include="Game\Monster.cs" />
-    <Compile Include="Game\Plugin\PluginClassMappings.cs" />
-    <Compile Include="Game\Plugin\PluginConstants.cs" />
-    <Compile Include="Game\Plugin\PluginContext.cs" />
-    <Compile Include="Game\Plugin\PluginGlobals.cs" />
-    <Compile Include="Game\RtEngine.cs" />
-    <Compile Include="Game\States\Player\PlayerMoveCheckState.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="ChangeLog.txt" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>

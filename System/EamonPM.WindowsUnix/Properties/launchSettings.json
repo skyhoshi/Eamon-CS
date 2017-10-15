@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EamonPM.WindowsUnix": {
+      "commandName": "Project",
+      "commandLineArgs": "-pfn TheSubAquanLaboratory.dll -wd ..\\..\\Adventures\\TheSubAquanLaboratory -la -rge"
+    }
+  }
+}

@@ -6,8 +6,10 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Loader;
 using Eamon;
 using Eamon.Framework.Portability;
 using static Eamon.Game.Plugin.PluginContext;
@@ -17,7 +19,30 @@ namespace EamonPM
 {
 	public class Program
 	{
+		public static string WorkDir { get; set; }
+
 		public static string[] NextArgs { get; set; }
+
+		protected static Assembly LoadAssembly(string assemblyPath)
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(assemblyPath));
+
+			var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);
+
+			Debug.Assert(assembly != null);
+
+			foreach (var dependency in assembly.GetReferencedAssemblies())
+			{
+				var dependencyPath = Path.Combine(WorkDir, dependency.Name + ".dll");
+
+				if (File.Exists(dependencyPath))
+				{
+					LoadAssembly(dependencyPath);
+				}
+			}
+
+			return assembly;
+		}
 
 		protected static void LoadPortabilityClassMappings(IDictionary<Type, Type> classMappings)
 		{
@@ -50,9 +75,9 @@ namespace EamonPM
 
 			Debug.Assert(string.Equals(args[0], "-pfn", StringComparison.OrdinalIgnoreCase));
 
-			var pluginFileName = System.IO.Path.GetFileNameWithoutExtension(args[1]);
+			var pluginFileName = Path.GetFileNameWithoutExtension(args[1]);
 
-			var plugin = Assembly.Load(pluginFileName);
+			var plugin = LoadAssembly(Path.Combine(WorkDir, args[1]));
 
 			Debug.Assert(plugin != null);
 
@@ -80,6 +105,8 @@ namespace EamonPM
 			try
 			{
 				rc = RetCode.Success;
+
+				WorkDir = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
 				PushConstants();
 

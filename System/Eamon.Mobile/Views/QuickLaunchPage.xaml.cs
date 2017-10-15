@@ -5,7 +5,6 @@
 
 using System;
 using Xamarin.Forms;
-using Eamon.Mobile.Models;
 using Eamon.Mobile.ViewModels;
 
 namespace Eamon.Mobile.Views

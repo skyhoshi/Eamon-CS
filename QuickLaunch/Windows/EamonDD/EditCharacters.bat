@@ -1,4 +1,3 @@
 @echo off
 cd ..\..\..\System\Bin
-start .\EamonPM.WindowsUnix.exe -pfn EamonRT.dll -chrfn CHARACTERS.XML -rge
-exit
+dotnet .\EamonPM.WindowsUnix.dll -pfn EamonRT.dll -chrfn CHARACTERS.XML -rge
