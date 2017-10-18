@@ -8,6 +8,7 @@ using Eamon.Framework;
 using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game.Helpers
@@ -52,35 +53,27 @@ namespace BeginnersForest.Game.Helpers
 			{
 				var fields = base.GetFields();
 
-				fields.Add
-				(
+				fields.AddRange(new List<IField>()
+				{
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "QueenGiftEffectUid";
 						x.Validate = ValidateQueenGiftEffectUid;
 						x.GetValue = () => Record.QueenGiftEffectUid;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "QueenGiftArtifactUid";
 						x.Validate = ValidateQueenGiftArtifactUid;
 						x.GetValue = () => Record.QueenGiftArtifactUid;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "SpookCounter";
 						x.Validate = ValidateSpookCounter;
 						x.GetValue = () => Record.SpookCounter;
 					})
-				);
+				});
 			}
 
 			return Fields;

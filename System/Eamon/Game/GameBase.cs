@@ -4,15 +4,10 @@
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Text;
-using Polenter.Serialization;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Enums = Eamon.Framework.Primitive.Enums;
-using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
 {

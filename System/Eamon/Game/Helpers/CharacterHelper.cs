@@ -1977,8 +1977,8 @@ namespace Eamon.Game.Helpers
 					);
 				}
 
-				Fields.Add
-				(
+				Fields.AddRange(new List<IField>()
+				{
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "ArmorExpertise";
@@ -1988,11 +1988,7 @@ namespace Eamon.Game.Helpers
 						x.Input = InputArmorExpertise;
 						x.GetPrintedName = () => "Armor Expertise";
 						x.GetValue = () => Record.ArmorExpertise;
-					})
-				);
-
-				Fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "HeldGold";
@@ -2002,11 +1998,7 @@ namespace Eamon.Game.Helpers
 						x.Input = InputHeldGold;
 						x.GetPrintedName = () => "Held Gold";
 						x.GetValue = () => Record.HeldGold;
-					})
-				);
-
-				Fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "BankGold";
@@ -2016,11 +2008,7 @@ namespace Eamon.Game.Helpers
 						x.Input = InputBankGold;
 						x.GetPrintedName = () => "Bank Gold";
 						x.GetValue = () => Record.BankGold;
-					})
-				);
-
-				Fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "ArmorClass";
@@ -2031,14 +2019,14 @@ namespace Eamon.Game.Helpers
 						x.GetPrintedName = () => "Armor Class";
 						x.GetValue = () => Record.ArmorClass;
 					})
-				);
+				});
 
 				for (var i = 0; i < Record.Weapons.Length; i++)
 				{
 					var j = i;
 
-					Fields.Add
-					(
+					Fields.AddRange(new List<IField>()
+					{
 						Globals.CreateInstance<IField>(x =>
 						{
 							x.Name = string.Format("Weapons[{0}].Name", j);
@@ -2049,11 +2037,7 @@ namespace Eamon.Game.Helpers
 							x.Input = InputWeaponsName;
 							x.GetPrintedName = () => string.Format("Wpn #{0} Name", j + 1);
 							x.GetValue = () => Record.GetWeapons(j).Name;
-						})
-					);
-
-					Fields.Add
-					(
+						}),
 						Globals.CreateInstance<IField>(x =>
 						{
 							x.Name = string.Format("Weapons[{0}].IsPlural", j);
@@ -2064,11 +2048,7 @@ namespace Eamon.Game.Helpers
 							x.Input = InputWeaponsIsPlural;
 							x.GetPrintedName = () => string.Format("Wpn #{0} Is Plural", j + 1);
 							x.GetValue = () => Record.GetWeapons(j).IsPlural;
-						})
-					);
-
-					Fields.Add
-					(
+						}),
 						Globals.CreateInstance<IField>(x =>
 						{
 							x.Name = string.Format("Weapons[{0}].PluralType", j);
@@ -2079,11 +2059,7 @@ namespace Eamon.Game.Helpers
 							x.Input = InputWeaponsPluralType;
 							x.GetPrintedName = () => string.Format("Wpn #{0} Plural Type", j + 1);
 							x.GetValue = () => Record.GetWeapons(j).PluralType;
-						})
-					);
-
-					Fields.Add
-					(
+						}),
 						Globals.CreateInstance<IField>(x =>
 						{
 							x.Name = string.Format("Weapons[{0}].ArticleType", j);
@@ -2094,11 +2070,7 @@ namespace Eamon.Game.Helpers
 							x.Input = InputWeaponsArticleType;
 							x.GetPrintedName = () => string.Format("Wpn #{0} Article Type", j + 1);
 							x.GetValue = () => Record.GetWeapons(j).ArticleType;
-						})
-					);
-
-					Fields.Add
-					(
+						}),
 						Globals.CreateInstance<IField>(x =>
 						{
 							x.Name = string.Format("Weapons[{0}].Complexity", j);
@@ -2109,11 +2081,7 @@ namespace Eamon.Game.Helpers
 							x.Input = InputWeaponsComplexity;
 							x.GetPrintedName = () => string.Format("Wpn #{0} Complexity", j + 1);
 							x.GetValue = () => Record.GetWeapons(j).Complexity;
-						})
-					);
-
-					Fields.Add
-					(
+						}),
 						Globals.CreateInstance<IField>(x =>
 						{
 							x.Name = string.Format("Weapons[{0}].Type", j);
@@ -2124,11 +2092,7 @@ namespace Eamon.Game.Helpers
 							x.Input = InputWeaponsType;
 							x.GetPrintedName = () => string.Format("Wpn #{0} Type", j + 1);
 							x.GetValue = () => Record.GetWeapons(j).Type;
-						})
-					);
-
-					Fields.Add
-					(
+						}),
 						Globals.CreateInstance<IField>(x =>
 						{
 							x.Name = string.Format("Weapons[{0}].Dice", j);
@@ -2139,11 +2103,7 @@ namespace Eamon.Game.Helpers
 							x.Input = InputWeaponsDice;
 							x.GetPrintedName = () => string.Format("Wpn #{0} Dice", j + 1);
 							x.GetValue = () => Record.GetWeapons(j).Dice;
-						})
-					);
-
-					Fields.Add
-					(
+						}),
 						Globals.CreateInstance<IField>(x =>
 						{
 							x.Name = string.Format("Weapons[{0}].Sides", j);
@@ -2155,7 +2115,7 @@ namespace Eamon.Game.Helpers
 							x.GetPrintedName = () => string.Format("Wpn #{0} Sides", j + 1);
 							x.GetValue = () => Record.GetWeapons(j).Sides;
 						})
-					);
+					});
 				}
 			}
 

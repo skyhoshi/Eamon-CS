@@ -8,6 +8,7 @@ using Eamon.Framework;
 using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Helpers
@@ -62,55 +63,39 @@ namespace TheTempleOfNgurct.Game.Helpers
 			{
 				var fields = base.GetFields();
 
-				fields.Add
-				(
+				fields.AddRange(new List<IField>()
+				{
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "WanderingMonster";
 						x.Validate = ValidateWanderingMonster;
 						x.GetValue = () => Record.WanderingMonster;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "DwLoopCounter";
 						x.Validate = ValidateDwLoopCounter;
 						x.GetValue = () => Record.DwLoopCounter;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "WandCharges";
 						x.Validate = ValidateWandCharges;
 						x.GetValue = () => Record.WandCharges;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "Regenerate";
 						x.Validate = ValidateRegenerate;
 						x.GetValue = () => Record.Regenerate;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "KeyRingRoomUid";
 						x.Validate = ValidateKeyRingRoomUid;
 						x.GetValue = () => Record.KeyRingRoomUid;
 					})
-				);
+				});
 			}
 
 			return Fields;

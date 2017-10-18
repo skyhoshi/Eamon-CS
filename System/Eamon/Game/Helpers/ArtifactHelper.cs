@@ -2879,8 +2879,8 @@ namespace Eamon.Game.Helpers
 				{
 					var j = i;
 
-					Fields.Add
-					(
+					Fields.AddRange(new List<IField>()
+					{
 						Globals.CreateInstance<IField>(x =>
 						{
 							x.Name = string.Format("Classes[{0}].Type", j);
@@ -2892,11 +2892,7 @@ namespace Eamon.Game.Helpers
 							x.BuildValue = BuildValueClassesType;
 							x.GetPrintedName = () => string.Format("Cls #{0} Type", j + 1);
 							x.GetValue = () => Record.GetClasses(j).Type;
-						})
-					);
-
-					Fields.Add
-					(
+						}),
 						Globals.CreateInstance<IField>(x =>
 						{
 							x.Name = string.Format("Classes[{0}].Field5", j);
@@ -2914,11 +2910,7 @@ namespace Eamon.Game.Helpers
 								return string.Format("Cls #{0} {1}", j + 1, artType != null ? artType.Field5Name : "Field5");
 							};
 							x.GetValue = () => Record.GetClasses(j).Field5;
-						})
-					);
-
-					Fields.Add
-					(
+						}),
 						Globals.CreateInstance<IField>(x =>
 						{
 							x.Name = string.Format("Classes[{0}].Field6", j);
@@ -2936,11 +2928,7 @@ namespace Eamon.Game.Helpers
 								return string.Format("Cls #{0} {1}", j + 1, artType != null ? artType.Field6Name : "Field6");
 							};
 							x.GetValue = () => Record.GetClasses(j).Field6;
-						})
-					);
-
-					Fields.Add
-					(
+						}),
 						Globals.CreateInstance<IField>(x =>
 						{
 							x.Name = string.Format("Classes[{0}].Field7", j);
@@ -2958,11 +2946,7 @@ namespace Eamon.Game.Helpers
 								return string.Format("Cls #{0} {1}", j + 1, artType != null ? artType.Field7Name : "Field7");
 							};
 							x.GetValue = () => Record.GetClasses(j).Field7;
-						})
-					);
-
-					Fields.Add
-					(
+						}),
 						Globals.CreateInstance<IField>(x =>
 						{
 							x.Name = string.Format("Classes[{0}].Field8", j);
@@ -2980,7 +2964,7 @@ namespace Eamon.Game.Helpers
 							};
 							x.GetValue = () => Record.GetClasses(j).Field8;
 						})
-					);
+					});
 				}
 			}
 

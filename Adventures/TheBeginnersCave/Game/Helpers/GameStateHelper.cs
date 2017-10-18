@@ -8,6 +8,7 @@ using Eamon.Framework;
 using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Helpers
@@ -47,25 +48,21 @@ namespace TheBeginnersCave.Game.Helpers
 			{
 				var fields = base.GetFields();
 
-				fields.Add
-				(
+				fields.AddRange(new List<IField>()
+				{
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "Trollsfire";
 						x.Validate = ValidateTrollsfire;
 						x.GetValue = () => Record.Trollsfire;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "BookWarning";
 						x.Validate = ValidateBookWarning;
 						x.GetValue = () => Record.BookWarning;
 					})
-				);
+				});
 			}
 
 			return Fields;

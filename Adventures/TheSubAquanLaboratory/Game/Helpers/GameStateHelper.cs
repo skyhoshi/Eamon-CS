@@ -8,6 +8,7 @@ using Eamon.Framework;
 using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Helpers
@@ -82,95 +83,63 @@ namespace TheSubAquanLaboratory.Game.Helpers
 			{
 				var fields = base.GetFields();
 
-				fields.Add
-				(
+				fields.AddRange(new List<IField>()
+				{
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "FoodButtonPushes";
 						x.Validate = ValidateFoodButtonPushes;
 						x.GetValue = () => Record.FoodButtonPushes;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "Flood";
 						x.Validate = ValidateFlood;
 						x.GetValue = () => Record.Flood;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "FloodLevel";
 						x.Validate = ValidateFloodLevel;
 						x.GetValue = () => Record.FloodLevel;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "Elevation";
 						x.Validate = ValidateElevation;
 						x.GetValue = () => Record.Elevation;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "EnergyMaceCharge";
 						x.Validate = ValidateEnergyMaceCharge;
 						x.GetValue = () => Record.EnergyMaceCharge;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "LaserScalpelCharge";
 						x.Validate = ValidateLaserScalpelCharge;
 						x.GetValue = () => Record.LaserScalpelCharge;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "QuestValue";
 						x.Validate = ValidateQuestValue;
 						x.GetValue = () => Record.QuestValue;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "FakeWallExamines";
 						x.Validate = ValidateFakeWallExamines;
 						x.GetValue = () => Record.FakeWallExamines;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "LabRoomsSeen";
 						x.Validate = ValidateLabRoomsSeen;
 						x.GetValue = () => Record.LabRoomsSeen;
 					})
-				);
+				});
 			}
 
 			return Fields;

@@ -8,6 +8,7 @@ using Eamon.Framework;
 using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Helpers
@@ -62,55 +63,39 @@ namespace ARuncibleCargo.Game.Helpers
 			{
 				var fields = base.GetFields();
 
-				fields.Add
-				(
+				fields.AddRange(new List<IField>()
+				{
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "DreamCounter";
 						x.Validate = ValidateDreamCounter;
 						x.GetValue = () => Record.DreamCounter;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "SwarmyCounter";
 						x.Validate = ValidateSwarmyCounter;
 						x.GetValue = () => Record.SwarmyCounter;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "CargoOpenCounter";
 						x.Validate = ValidateCargoOpenCounter;
 						x.GetValue = () => Record.CargoOpenCounter;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "CargoInRoom";
 						x.Validate = ValidateCargoInRoom;
 						x.GetValue = () => Record.CargoInRoom;
-					})
-				);
-
-				fields.Add
-				(
+					}),
 					Globals.CreateInstance<IField>(x =>
 					{
 						x.Name = "GiveAmazonMoney";
 						x.Validate = ValidateGiveAmazonMoney;
 						x.GetValue = () => Record.GiveAmazonMoney;
 					})
-				);
+				});
 			}
 
 			return Fields;
