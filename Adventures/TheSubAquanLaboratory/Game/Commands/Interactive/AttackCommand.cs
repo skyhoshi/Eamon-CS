@@ -198,7 +198,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 								monster.SetInRoom(ActorRoom);
 							}
 
-							Globals.RtEngine.CheckEnemies();
+							Globals.Engine.CheckEnemies();
 
 							NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
 						}

@@ -26,7 +26,7 @@ namespace EamonRT.Game.States
 
 				Debug.Assert(monster != null);
 
-				Globals.RtEngine.DeadMenu(monster, PrintLineSep, ref restoreGame);
+				Globals.Engine.DeadMenu(monster, PrintLineSep, ref restoreGame);
 
 				if (restoreGame)
 				{

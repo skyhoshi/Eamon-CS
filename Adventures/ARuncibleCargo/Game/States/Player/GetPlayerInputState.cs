@@ -114,7 +114,7 @@ namespace ARuncibleCargo.Game.States
 				{
 					monster01.SetInRoomUid(1);
 
-					Globals.RtEngine.CheckEnemies();
+					Globals.Engine.CheckEnemies();
 
 					Globals.Engine.PrintEffectDesc(11);
 

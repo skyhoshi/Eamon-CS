@@ -60,7 +60,7 @@ namespace StrongholdOfKahrDur.Game.States
 				monster.OrigGroupCount++;
 			}
 
-			Globals.RtEngine.CheckEnemies();
+			Globals.Engine.CheckEnemies();
 		}
 
 		public override void Execute()

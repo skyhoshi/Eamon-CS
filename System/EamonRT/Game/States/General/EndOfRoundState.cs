@@ -20,7 +20,7 @@ namespace EamonRT.Game.States
 
 		public override void Execute()
 		{
-			Globals.RtEngine.CheckEnemies();
+			Globals.Engine.CheckEnemies();
 
 			var monsters = Globals.Database.MonsterTable.Records.ToList();
 

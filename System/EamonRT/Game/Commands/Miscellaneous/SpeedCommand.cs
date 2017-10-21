@@ -24,7 +24,7 @@ namespace EamonRT.Game.Commands
 
 		protected override void PlayerExecute()
 		{
-			if (CastSpell && !Globals.RtEngine.CheckPlayerSpellCast(Enums.Spell.Speed, true))
+			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Speed, true))
 			{
 				goto Cleanup;
 			}

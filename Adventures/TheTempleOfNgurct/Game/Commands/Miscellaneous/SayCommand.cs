@@ -39,7 +39,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 						alkandaMonster.SetInRoom(ActorRoom);
 
-						Globals.RtEngine.CheckEnemies();
+						Globals.Engine.CheckEnemies();
 
 						NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
 					}

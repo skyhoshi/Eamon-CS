@@ -45,7 +45,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.MhEngine.IsCharDOrM, Globals.MhEngine.IsCharDOrM);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharDOrM, Globals.Engine.IsCharDOrM);
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 

@@ -118,13 +118,13 @@ namespace EamonRT.Game.States
 					Debug.Assert(Artifact != null);
 				}
 
-				Globals.RtEngine.CheckDoor(Room, Artifact, ref _found, ref _roomUid);
+				Globals.Engine.CheckDoor(Room, Artifact, ref _found, ref _roomUid);
 
 				if (_found)
 				{
 					if (Room.IsLit())
 					{
-						Globals.RtEngine.RevealEmbeddedArtifact(Room, Artifact);
+						Globals.Engine.RevealEmbeddedArtifact(Room, Artifact);
 					}
 
 					Globals.GameState.R2 = _roomUid;

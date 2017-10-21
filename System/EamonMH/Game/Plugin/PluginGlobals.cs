@@ -6,7 +6,6 @@
 using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Menus;
-using EamonMH.Framework;
 using EamonMH.Framework.Menus;
 using EamonMH.Framework.Plugin;
 using static EamonMH.Game.Plugin.PluginContext;
@@ -27,7 +26,21 @@ namespace EamonMH.Game.Plugin
 
 		public virtual string CharacterName { get; set; }
 
-		public virtual IMhEngine MhEngine { get; set; }
+		public virtual new Framework.IEngine Engine
+		{
+			get
+			{
+				return (Framework.IEngine)base.Engine;
+			}
+
+			set
+			{
+				if (base.Engine != value)
+				{
+					base.Engine = value;
+				}
+			}
+		}
 
 		public virtual IMhMenu MhMenu { get; set; }
 
@@ -56,8 +69,6 @@ namespace EamonMH.Game.Plugin
 			ConfigFileName = "";
 
 			CharacterName = "";
-
-			MhEngine = CreateInstance<IMhEngine>();
 
 			MhMenu = CreateInstance<IMhMenu>();
 

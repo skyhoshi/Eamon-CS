@@ -136,7 +136,7 @@ namespace EamonRT.Game.Commands
 			{
 				Debug.Assert(DobjArtifact.IsLightSource());
 
-				Globals.RtEngine.LightOut(DobjArtifact);
+				Globals.Engine.LightOut(DobjArtifact);
 			}
 
 			if (ActorMonster.Weapon == DobjArtifact.Uid)

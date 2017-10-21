@@ -60,7 +60,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					Buf.Clear();
 
-					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.MhEngine.IsChar1Or2OrX, Globals.MhEngine.IsChar1Or2OrX);
+					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsChar1Or2OrX, Globals.Engine.IsChar1Or2OrX);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 

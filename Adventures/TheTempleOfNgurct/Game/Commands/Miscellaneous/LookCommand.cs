@@ -35,7 +35,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					Debug.Assert(secretDoorArtifact != null);
 
-					Globals.RtEngine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact);
+					Globals.Engine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact);
 				}
 
 				// Secret door
@@ -46,7 +46,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					Debug.Assert(secretDoorArtifact != null);
 
-					Globals.RtEngine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact);
+					Globals.Engine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact);
 				}
 
 				var scarabArtifact = Globals.ADB[65];

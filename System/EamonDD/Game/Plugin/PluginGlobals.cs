@@ -6,7 +6,6 @@
 using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Menus;
-using EamonDD.Framework;
 using EamonDD.Framework.Menus;
 using EamonDD.Framework.Plugin;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -25,7 +24,21 @@ namespace EamonDD.Game.Plugin
 
 		public virtual string ConfigFileName { get; set; }
 
-		public virtual IDdEngine DdEngine { get; set; }
+		public virtual new Framework.IEngine Engine
+		{
+			get
+			{
+				return (Framework.IEngine)base.Engine;
+			}
+
+			set
+			{
+				if (base.Engine != value)
+				{
+					base.Engine = value;
+				}
+			}
+		}
 
 		public virtual IDdMenu DdMenu { get; set; }
 
@@ -61,8 +74,6 @@ namespace EamonDD.Game.Plugin
 
 			if (RunGameEditor)
 			{
-				DdEngine = ClassMappings.CreateInstance<IDdEngine>();
-
 				DdMenu = ClassMappings.CreateInstance<IDdMenu>();
 			}
 

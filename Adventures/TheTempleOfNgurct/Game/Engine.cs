@@ -1,5 +1,5 @@
 ﻿
-// RtEngine.cs
+// Engine.cs
 
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
@@ -13,8 +13,8 @@ using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game
 {
-	[ClassMappings(typeof(EamonRT.Framework.IRtEngine))]
-	public class RtEngine : EamonRT.Game.RtEngine, IRtEngine
+	[ClassMappings(typeof(Eamon.Framework.IEngine))]
+	public class Engine : EamonRT.Game.Engine, Framework.IEngine
 	{
 		public override void InitArtifacts()
 		{
@@ -281,7 +281,7 @@ namespace TheTempleOfNgurct.Game
 
 					gameState.WanderingMonster++;
 
-					Globals.RtEngine.CheckEnemies();
+					Globals.Engine.CheckEnemies();
 
 					found = true;
 
@@ -296,7 +296,7 @@ namespace TheTempleOfNgurct.Game
 			return found;
 		}
 
-		public RtEngine()
+		public Engine()
 		{
 			PoundCharPolicy = Enums.PoundCharPolicy.None;
 		}

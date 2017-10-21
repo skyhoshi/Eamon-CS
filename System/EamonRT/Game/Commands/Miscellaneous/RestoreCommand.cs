@@ -31,7 +31,7 @@ namespace EamonRT.Game.Commands
 
 			var filesetsCount = Globals.Database.GetFilesetsCount();
 
-			Debug.Assert(filesetsCount <= Globals.RtEngine.NumSaveSlots);
+			Debug.Assert(filesetsCount <= Globals.Engine.NumSaveSlots);
 
 			Debug.Assert(SaveSlot >= 1 && SaveSlot <= filesetsCount);
 
@@ -192,7 +192,7 @@ namespace EamonRT.Game.Commands
 
 			Globals.Out.WriteLine("{0}Game restored.", Environment.NewLine);
 
-			Globals.RtEngine.CreateInitialState(true);
+			Globals.Engine.CreateInitialState(true);
 
 			NextState = Globals.CurrState;
 
@@ -208,7 +208,7 @@ namespace EamonRT.Game.Commands
 			RetCode rc;
 			long i;
 
-			if (CommandParser.CurrToken < CommandParser.Tokens.Length && long.TryParse(CommandParser.Tokens[CommandParser.CurrToken], out i) && i >= 1 && i <= Globals.RtEngine.NumSaveSlots)
+			if (CommandParser.CurrToken < CommandParser.Tokens.Length && long.TryParse(CommandParser.Tokens[CommandParser.CurrToken], out i) && i >= 1 && i <= Globals.Engine.NumSaveSlots)
 			{
 				SaveSlot = i;
 
@@ -230,7 +230,7 @@ namespace EamonRT.Game.Commands
 
 					Globals.Out.WriteLine("{0}Saved games:", Environment.NewLine);
 
-					for (i = 0; i < Globals.RtEngine.NumSaveSlots; i++)
+					for (i = 0; i < Globals.Engine.NumSaveSlots; i++)
 					{
 						Globals.Out.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, i < filesets.Count ? filesets[(int)i].Name : "(none)");
 					}
@@ -258,7 +258,7 @@ namespace EamonRT.Game.Commands
 
 						break;
 					}
-					else if (i == Globals.RtEngine.NumSaveSlots + 1)
+					else if (i == Globals.Engine.NumSaveSlots + 1)
 					{
 						break;
 					}

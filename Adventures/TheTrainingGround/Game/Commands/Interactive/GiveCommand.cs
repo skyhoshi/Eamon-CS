@@ -40,13 +40,13 @@ namespace TheTrainingGround.Game.Commands
 
 			if (IobjMonster.Uid == 14 && DobjArtifact.Uid == 51)
 			{
-				Globals.RtEngine.RemoveWeight(DobjArtifact);
+				Globals.Engine.RemoveWeight(DobjArtifact);
 
 				DobjArtifact.SetInLimbo();
 
 				IobjMonster.SetInLimbo();
 
-				Globals.RtEngine.CheckEnemies();
+				Globals.Engine.CheckEnemies();
 
 				Globals.Engine.PrintEffectDesc(14);
 

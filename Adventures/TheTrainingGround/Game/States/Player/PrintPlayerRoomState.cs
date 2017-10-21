@@ -53,7 +53,7 @@ namespace TheTrainingGround.Game.States
 								koboldMonster.SetInRoom(characterRoom);
 							}
 
-							Globals.RtEngine.CheckEnemies();
+							Globals.Engine.CheckEnemies();
 
 							gameState.KoboldsAppear = true;
 						}
@@ -69,7 +69,7 @@ namespace TheTrainingGround.Game.States
 
 					// Zapf the Conjurer brings in strangers (15% Chance)
 
-					if (zapfMonster.IsInRoom(characterRoom) && zapfMonster.Seen && !Globals.RtEngine.CheckNBTLHostility(zapfMonster) && staffArtifact.IsCarriedByMonster(zapfMonster))
+					if (zapfMonster.IsInRoom(characterRoom) && zapfMonster.Seen && !Globals.Engine.CheckNBTLHostility(zapfMonster) && staffArtifact.IsCarriedByMonster(zapfMonster))
 					{
 						var rl = Globals.Engine.RollDice01(1, 100, 0);
 
@@ -98,7 +98,7 @@ namespace TheTrainingGround.Game.States
 
 								summonedMonster.SetInRoom(characterRoom);
 
-								Globals.RtEngine.CheckEnemies();
+								Globals.Engine.CheckEnemies();
 							}
 						}
 					}

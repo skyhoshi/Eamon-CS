@@ -29,7 +29,7 @@ namespace EamonRT.Game.States
 
 			Debug.Assert(room != null);
 
-			var monsterList = Globals.RtEngine.GetHostileMonsterList(monster);
+			var monsterList = Globals.Engine.GetHostileMonsterList(monster);
 
 			Debug.Assert(monsterList != null);
 

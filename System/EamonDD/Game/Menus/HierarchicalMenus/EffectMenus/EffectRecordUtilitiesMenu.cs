@@ -30,7 +30,7 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 
 			MenuItems = new List<IMenuItem>();
 
-			if (Globals.DdEngine.IsAdventureFilesetLoaded())
+			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
 				MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
 				{

@@ -24,7 +24,7 @@ namespace TheTrainingGround.Game.Commands
 
 				Debug.Assert(spell != null);
 
-				Globals.RtEngine.RemoveWeight(DobjArtifact);
+				Globals.Engine.RemoveWeight(DobjArtifact);
 
 				DobjArtifact.SetInLimbo();
 

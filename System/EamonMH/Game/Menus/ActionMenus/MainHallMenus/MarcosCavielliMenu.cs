@@ -72,7 +72,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Buf.Clear();
 
-						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.MhEngine.IsCharBOrSOrAOrX, Globals.MhEngine.IsCharBOrSOrAOrX);
+						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharBOrSOrAOrX, Globals.Engine.IsCharBOrSOrAOrX);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -148,7 +148,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							Buf.Clear();
 
-							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.MhEngine.IsCharWpnTypeOrX, Globals.MhEngine.IsCharWpnTypeOrX);
+							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharWpnTypeOrX, Globals.Engine.IsCharWpnTypeOrX);
 
 							Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -188,7 +188,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 								Buf.Clear();
 
-								rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.MhEngine.IsCharGOrFOrPOrX, Globals.MhEngine.IsCharGOrFOrPOrX);
+								rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharGOrFOrPOrX, Globals.Engine.IsCharGOrFOrPOrX);
 
 								Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -321,7 +321,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							Buf.Clear();
 
-							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.MhEngine.IsCharWpnNumOrX, Globals.MhEngine.IsCharWpnNumOrX);
+							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharWpnNumOrX, Globals.Engine.IsCharWpnNumOrX);
 
 							Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -357,7 +357,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 								Buf.Clear();
 
-								rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.MhEngine.IsCharTOrL, Globals.MhEngine.IsCharTOrL);
+								rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharTOrL, Globals.Engine.IsCharTOrL);
 
 								Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -464,7 +464,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Buf.Clear();
 
-						j = Globals.MhEngine.GetMaxArmorMarcosNum();
+						j = Globals.Engine.GetMaxArmorMarcosNum();
 
 						var armorValues = EnumUtil.GetValues<Enums.Armor>();
 
@@ -501,7 +501,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Buf.Clear();
 
-						j = Globals.MhEngine.GetMaxArmorMarcosNum();
+						j = Globals.Engine.GetMaxArmorMarcosNum();
 
 						for (i = 0; i < armorValues.Count; i++)
 						{
@@ -524,7 +524,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Buf.Clear();
 
-						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.MhEngine.IsCharMarcosNumOrX, Globals.MhEngine.IsCharMarcosNumOrX);
+						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharMarcosNumOrX, Globals.Engine.IsCharMarcosNumOrX);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -536,7 +536,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 						{
 							i = Convert.ToInt64(Buf.Trim().ToString());
 
-							armor = Globals.MhEngine.GetArmorByMarcosNum(i);
+							armor = Globals.Engine.GetArmorByMarcosNum(i);
 
 							Debug.Assert(armor != null);
 

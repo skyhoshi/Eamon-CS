@@ -28,7 +28,21 @@ namespace EamonRT.Game.Plugin
 
 		public virtual long LoopMonsterUid { get; set; }
 
-		public virtual IRtEngine RtEngine { get; set; }
+		public virtual new Framework.IEngine Engine
+		{
+			get
+			{
+				return (Framework.IEngine)base.Engine;
+			}
+
+			set
+			{
+				if (base.Engine != value)
+				{
+					base.Engine = value;
+				}
+			}
+		}
 
 		public virtual IIntroStory IntroStory { get; set; }
 
@@ -111,8 +125,6 @@ namespace EamonRT.Game.Plugin
 			CommandList = new List<ICommand>();
 
 			LastCommandList = new List<ICommand>();
-
-			RtEngine = CreateInstance<IRtEngine>();
 
 			IntroStory = CreateInstance<IIntroStory>();
 

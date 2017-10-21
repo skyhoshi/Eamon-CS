@@ -99,7 +99,7 @@ namespace TheSubAquanLaboratory.Game.States
 									combatSystem.ExecuteCheckMonsterStatus();
 								}
 
-								Globals.RtEngine.CheckEnemies();
+								Globals.Engine.CheckEnemies();
 							}
 							else
 							{

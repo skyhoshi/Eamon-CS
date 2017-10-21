@@ -78,11 +78,11 @@ namespace EamonRT.Game.Commands
 
 				Monster.SetInRoom(ActorRoom);
 
-				Globals.RtEngine.RemoveWeight(DobjArtifact);
+				Globals.Engine.RemoveWeight(DobjArtifact);
 
 				DobjArtifact.SetInLimbo();
 
-				Globals.RtEngine.CheckEnemies();
+				Globals.Engine.CheckEnemies();
 			}
 			else
 			{

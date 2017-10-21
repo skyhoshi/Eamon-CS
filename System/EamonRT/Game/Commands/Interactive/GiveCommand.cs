@@ -88,7 +88,7 @@ namespace EamonRT.Game.Commands
 
 				if (MonsterRefusesToAccept())
 				{
-					Globals.RtEngine.MonsterSmiles(IobjMonster);
+					Globals.Engine.MonsterSmiles(IobjMonster);
 
 					Globals.Out.WriteLine();
 
@@ -103,7 +103,7 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				if (Globals.RtEngine.EnforceMonsterWeightLimits)
+				if (Globals.Engine.EnforceMonsterWeightLimits)
 				{
 					var monWeight = 0L;
 
@@ -137,7 +137,7 @@ namespace EamonRT.Game.Commands
 				{
 					Debug.Assert(DobjArtifact.IsLightSource());
 
-					Globals.RtEngine.LightOut(DobjArtifact);
+					Globals.Engine.LightOut(DobjArtifact);
 				}
 
 				if (ActorMonster.Weapon == DobjArtifact.Uid)
@@ -251,7 +251,7 @@ namespace EamonRT.Game.Commands
 
 					if (IobjMonster.IsDead())
 					{
-						Globals.RtEngine.MonsterDies(ActorMonster, IobjMonster);
+						Globals.Engine.MonsterDies(ActorMonster, IobjMonster);
 					}
 				}
 				else
@@ -272,7 +272,7 @@ namespace EamonRT.Game.Commands
 
 							IobjMonster.OrigFriendliness = (Enums.Friendliness)200;
 
-							Globals.RtEngine.MonsterSmiles(IobjMonster);
+							Globals.Engine.MonsterSmiles(IobjMonster);
 
 							Globals.Out.WriteLine();
 						}
@@ -337,14 +337,14 @@ namespace EamonRT.Game.Commands
 
 						IobjMonster.OrigFriendliness = (Enums.Friendliness)200;
 
-						Globals.RtEngine.MonsterSmiles(IobjMonster);
+						Globals.Engine.MonsterSmiles(IobjMonster);
 
 						Globals.Out.WriteLine();
 					}
 				}
 			}
 
-			Globals.RtEngine.CheckEnemies();
+			Globals.Engine.CheckEnemies();
 
 		Cleanup:
 

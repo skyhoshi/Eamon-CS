@@ -47,7 +47,7 @@ namespace TheTempleOfNgurct.Game.Commands
 						gameState.KeyRingRoomUid = ActorRoom.Uid;
 					}
 
-					Globals.RtEngine.CheckEnemies();
+					Globals.Engine.CheckEnemies();
 
 					GotoCleanup = true;
 
@@ -79,7 +79,7 @@ namespace TheTempleOfNgurct.Game.Commands
 					goto Cleanup;
 				}
 
-				monsters = Globals.RtEngine.GetRandomMonsterList(1, m => !m.IsCharacterMonster() && m.Seen && m.IsInRoom(ActorRoom));
+				monsters = Globals.Engine.GetRandomMonsterList(1, m => !m.IsCharacterMonster() && m.Seen && m.IsInRoom(ActorRoom));
 
 				Debug.Assert(monsters != null);
 
@@ -116,7 +116,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				ActorMonster.SetInRoomUid(room);
 
-				Globals.RtEngine.CheckEnemies();
+				Globals.Engine.CheckEnemies();
 
 				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
 
@@ -137,7 +137,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				heroMonster.SetInRoom(ActorRoom);
 
-				Globals.RtEngine.CheckEnemies();
+				Globals.Engine.CheckEnemies();
 
 				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
 
@@ -154,7 +154,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				heroMonster.SetInLimbo();
 
-				Globals.RtEngine.CheckEnemies();
+				Globals.Engine.CheckEnemies();
 
 				GotoCleanup = true;
 
@@ -167,7 +167,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			{
 				PrintAirCracklesWithEnergy();
 
-				Globals.RtEngine.CastTo<IRtEngine>().GetWanderingMonster();
+				Globals.Engine.GetWanderingMonster();
 
 				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
 
@@ -184,7 +184,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				ActorMonster.SetInRoomUid(58);
 
-				Globals.RtEngine.CheckEnemies();
+				Globals.Engine.CheckEnemies();
 
 				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
 

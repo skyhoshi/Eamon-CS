@@ -33,7 +33,7 @@ namespace EamonRT.Game.States
 			{
 				NextState = Globals.CreateInstance<IMonsterReadiesWeaponState>(x =>
 				{
-					x.ArtifactList = Globals.RtEngine.GetReadyableWeaponList(monster);
+					x.ArtifactList = Globals.Engine.GetReadyableWeaponList(monster);
 
 					x.MemberNumber = MemberNumber;
 				});
@@ -41,7 +41,7 @@ namespace EamonRT.Game.States
 				goto Cleanup;
 			}
 
-			if (monster.Weapon >= 0 && Globals.RtEngine.CheckNBTLHostility(monster))
+			if (monster.Weapon >= 0 && Globals.Engine.CheckNBTLHostility(monster))
 			{
 				NextState = Globals.CreateInstance<IMonsterAttacksFoeState>(x =>
 				{

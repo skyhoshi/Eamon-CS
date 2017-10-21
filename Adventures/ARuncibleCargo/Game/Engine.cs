@@ -1,5 +1,5 @@
 ﻿
-// RtEngine.cs
+// Engine.cs
 
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
@@ -8,15 +8,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
-using ARuncibleCargo.Framework;
 using Classes = Eamon.Framework.Primitive.Classes;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game
 {
-	[ClassMappings(typeof(EamonRT.Framework.IRtEngine))]
-	public class RtEngine : EamonRT.Game.RtEngine, IRtEngine
+	[ClassMappings(typeof(Eamon.Framework.IEngine))]
+	public class Engine : EamonRT.Game.Engine, Framework.IEngine
 	{
 		protected override void PrintTooManyWeapons()
 		{
@@ -247,7 +246,7 @@ namespace ARuncibleCargo.Game
 			}
 		}
 
-		public RtEngine()
+		public Engine()
 		{
 			PoundCharPolicy = Enums.PoundCharPolicy.PlayerArtifactsOnly;
 		}

@@ -36,7 +36,7 @@ namespace BeginnersForest.Game.Commands
 
 				monster.OrigGroupCount = monster.GroupCount;
 
-				Globals.RtEngine.CheckEnemies();
+				Globals.Engine.CheckEnemies();
 
 				gameState.SpookCounter = 8;
 

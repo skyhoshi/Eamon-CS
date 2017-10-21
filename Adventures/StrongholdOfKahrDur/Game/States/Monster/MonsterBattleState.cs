@@ -21,7 +21,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 			if (monster.Uid == 22)
 			{
-				if (Globals.RtEngine.CheckNBTLHostility(monster))
+				if (Globals.Engine.CheckNBTLHostility(monster))
 				{
 					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterAttacksFoeState>(x =>
 					{

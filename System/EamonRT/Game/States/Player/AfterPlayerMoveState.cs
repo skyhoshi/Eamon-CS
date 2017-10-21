@@ -37,9 +37,9 @@ namespace EamonRT.Game.States
 
 			Globals.GameState.Ro = Globals.GameState.R2;
 
-			Globals.RtEngine.MoveMonsters();
+			Globals.Engine.MoveMonsters();
 
-			Globals.RtEngine.CheckEnemies();
+			Globals.Engine.CheckEnemies();
 
 			var monster = Globals.MDB[Globals.GameState.Cm];
 

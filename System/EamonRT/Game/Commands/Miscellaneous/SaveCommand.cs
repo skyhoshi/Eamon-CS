@@ -32,9 +32,9 @@ namespace EamonRT.Game.Commands
 
 			var filesetsCount = Globals.Database.GetFilesetsCount();
 
-			Debug.Assert(filesetsCount <= Globals.RtEngine.NumSaveSlots);
+			Debug.Assert(filesetsCount <= Globals.Engine.NumSaveSlots);
 
-			Debug.Assert(SaveSlot >= 1 && SaveSlot <= Math.Min(filesetsCount + 1, Globals.RtEngine.NumSaveSlots));
+			Debug.Assert(SaveSlot >= 1 && SaveSlot <= Math.Min(filesetsCount + 1, Globals.Engine.NumSaveSlots));
 
 			Debug.Assert(SaveName != null);
 
@@ -306,14 +306,14 @@ namespace EamonRT.Game.Commands
 			RetCode rc;
 			long i;
 
-			if (CommandParser.CurrToken < CommandParser.Tokens.Length && long.TryParse(CommandParser.Tokens[CommandParser.CurrToken], out i) && i >= 1 && i <= Globals.RtEngine.NumSaveSlots)
+			if (CommandParser.CurrToken < CommandParser.Tokens.Length && long.TryParse(CommandParser.Tokens[CommandParser.CurrToken], out i) && i >= 1 && i <= Globals.Engine.NumSaveSlots)
 			{
 				SaveSlot = i;
 
 				CommandParser.CurrToken++;
 			}
 
-			if (CommandParser.CurrToken < CommandParser.Tokens.Length && SaveSlot >= 1 && SaveSlot <= Globals.RtEngine.NumSaveSlots)
+			if (CommandParser.CurrToken < CommandParser.Tokens.Length && SaveSlot >= 1 && SaveSlot <= Globals.Engine.NumSaveSlots)
 			{
 				SaveName = string.Join(" ", CommandParser.Tokens.Skip((int)CommandParser.CurrToken));
 
@@ -333,7 +333,7 @@ namespace EamonRT.Game.Commands
 
 			var filesetsCount = filesets.Count();
 
-			if (SaveSlot < 1 || SaveSlot > Globals.RtEngine.NumSaveSlots)
+			if (SaveSlot < 1 || SaveSlot > Globals.Engine.NumSaveSlots)
 			{
 				SaveName = "";
 
@@ -341,7 +341,7 @@ namespace EamonRT.Game.Commands
 				{
 					Globals.Out.WriteLine("{0}Saved games:", Environment.NewLine);
 
-					for (i = 0; i < Globals.RtEngine.NumSaveSlots; i++)
+					for (i = 0; i < Globals.Engine.NumSaveSlots; i++)
 					{
 						Globals.Out.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, i < filesets.Count ? filesets[(int)i].Name : "(none)");
 					}
@@ -358,20 +358,20 @@ namespace EamonRT.Game.Commands
 
 					i = Convert.ToInt64(Globals.Buf.Trim().ToString());
 
-					if (i >= 1 && i <= Globals.RtEngine.NumSaveSlots)
+					if (i >= 1 && i <= Globals.Engine.NumSaveSlots)
 					{
 						SaveSlot = i;
 
 						break;
 					}
-					else if (i == Globals.RtEngine.NumSaveSlots + 1)
+					else if (i == Globals.Engine.NumSaveSlots + 1)
 					{
 						break;
 					}
 				}
 			}
 
-			if (SaveSlot > filesetsCount + 1 && SaveSlot <= Globals.RtEngine.NumSaveSlots)
+			if (SaveSlot > filesetsCount + 1 && SaveSlot <= Globals.Engine.NumSaveSlots)
 			{
 				SaveSlot = filesetsCount + 1;
 

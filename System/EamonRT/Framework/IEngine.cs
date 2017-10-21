@@ -1,18 +1,17 @@
 ﻿
-// IRtEngine.cs
+// IEngine.cs
 
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
 using Eamon.Framework;
-using Eamon.Framework.States;
 using Classes = Eamon.Framework.Primitive.Classes;
 using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace EamonRT.Framework
 {
-	public interface IRtEngine
+	public interface IEngine : EamonDD.Framework.IEngine
 	{
 		long StartRoom { get; set; }
 
@@ -140,6 +139,6 @@ namespace EamonRT.Framework
 
 		void MoveMonsters();
 
-		void ProcessArgv(bool secondPass, ref bool nlFlag);
+		void RtProcessArgv(bool secondPass, ref bool nlFlag);
 	};
 }

@@ -25,7 +25,7 @@ namespace EamonRT.Framework.Plugin
 
 		long LoopMonsterUid { get; set; }
 
-		IRtEngine RtEngine { get; set; }
+		new IEngine Engine { get; set; }
 
 		IIntroStory IntroStory { get; set; }
 

@@ -22,7 +22,7 @@ namespace EamonDD.Framework.Plugin
 
 		string ConfigFileName { get; set; }
 
-		IDdEngine DdEngine { get; set; }
+		new IEngine Engine { get; set; }
 
 		IDdMenu DdMenu { get; set; }
 

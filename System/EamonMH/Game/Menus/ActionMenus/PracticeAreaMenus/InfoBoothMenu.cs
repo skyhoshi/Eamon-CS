@@ -52,7 +52,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.MhEngine.IsCharDOrIOrX, Globals.MhEngine.IsCharDOrIOrX);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharDOrIOrX, Globals.Engine.IsCharDOrIOrX);
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 

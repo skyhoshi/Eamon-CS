@@ -65,7 +65,7 @@ namespace EamonRT.Game.Commands
 				CheckAttack = true;
 			}
 
-			if (CastSpell && !Globals.RtEngine.CheckPlayerSpellCast(Enums.Spell.Blast, AllowSkillIncrease()))
+			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Blast, AllowSkillIncrease()))
 			{
 				goto Cleanup;
 			}
@@ -79,7 +79,7 @@ namespace EamonRT.Game.Commands
 
 			if (DobjMonster != null && DobjMonster.Friendliness != Enums.Friendliness.Enemy)
 			{
-				Globals.RtEngine.MonsterGetsAggravated(DobjMonster);
+				Globals.Engine.MonsterGetsAggravated(DobjMonster);
 			}
 
 			PlayerProcessEvents01();

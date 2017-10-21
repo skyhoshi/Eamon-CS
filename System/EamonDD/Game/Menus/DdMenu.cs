@@ -17,7 +17,7 @@ namespace EamonDD.Game.Menus
 		{
 			long i;
 
-			if (Globals.DdEngine.IsAdventureFilesetLoaded())
+			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
 				Globals.Out.WriteLine("{0}Editing: {1}",
 					Environment.NewLine,
@@ -103,7 +103,7 @@ namespace EamonDD.Game.Menus
 
 		public virtual void PrintModuleMenuSubtitle()
 		{
-			if (Globals.DdEngine.IsAdventureFilesetLoaded())
+			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
 				Globals.Out.WriteLine("{0}Editing: {1}",
 					Environment.NewLine,
@@ -115,7 +115,7 @@ namespace EamonDD.Game.Menus
 
 		public virtual void PrintRoomMenuSubtitle()
 		{
-			if (Globals.DdEngine.IsAdventureFilesetLoaded())
+			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
 				Globals.Out.WriteLine("{0}Editing: {1}",
 					Environment.NewLine,
@@ -127,7 +127,7 @@ namespace EamonDD.Game.Menus
 
 		public virtual void PrintArtifactMenuSubtitle()
 		{
-			if (Globals.DdEngine.IsAdventureFilesetLoaded())
+			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
 				Globals.Out.WriteLine("{0}Editing: {1}",
 					Environment.NewLine,
@@ -139,7 +139,7 @@ namespace EamonDD.Game.Menus
 
 		public virtual void PrintEffectMenuSubtitle()
 		{
-			if (Globals.DdEngine.IsAdventureFilesetLoaded())
+			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
 				Globals.Out.WriteLine("{0}Editing: {1}",
 					Environment.NewLine,
@@ -151,7 +151,7 @@ namespace EamonDD.Game.Menus
 
 		public virtual void PrintMonsterMenuSubtitle()
 		{
-			if (Globals.DdEngine.IsAdventureFilesetLoaded())
+			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
 				Globals.Out.WriteLine("{0}Editing: {1}",
 					Environment.NewLine,
@@ -163,7 +163,7 @@ namespace EamonDD.Game.Menus
 
 		public virtual void PrintHintMenuSubtitle()
 		{
-			if (Globals.DdEngine.IsAdventureFilesetLoaded())
+			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
 				Globals.Out.WriteLine("{0}Editing: {1}",
 					Environment.NewLine,

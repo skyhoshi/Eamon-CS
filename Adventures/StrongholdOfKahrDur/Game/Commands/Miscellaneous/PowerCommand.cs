@@ -34,7 +34,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 			// If the cauldron is prepared (see Effect #50) and the magic words have been spoken, unlock the portcullis
 
-			if (ActorRoom.Uid == 43 && gameState.UsedCauldron && (artifact.IsCarriedByCharacter() || artifact.IsInRoom(ActorRoom)) && Globals.RtEngine.CastTo<IRtEngine>().SpellReagentsInCauldron(artifact))
+			if (ActorRoom.Uid == 43 && gameState.UsedCauldron && (artifact.IsCarriedByCharacter() || artifact.IsInRoom(ActorRoom)) && Globals.Engine.SpellReagentsInCauldron(artifact))
 			{
 				Globals.Engine.PrintEffectDesc(52);
 
@@ -62,7 +62,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				ac.SetOpen(true);
 
-				Globals.RtEngine.RemoveWeight(artifact);
+				Globals.Engine.RemoveWeight(artifact);
 
 				artifact.SetInLimbo();
 
@@ -90,7 +90,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 						m.SetInRoom(ActorRoom);
 					}
 
-					Globals.RtEngine.CheckEnemies();
+					Globals.Engine.CheckEnemies();
 
 					GotoCleanup = true;
 
@@ -115,7 +115,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 						m.SetInRoom(ActorRoom);
 					}
 
-					Globals.RtEngine.CheckEnemies();
+					Globals.Engine.CheckEnemies();
 
 					GotoCleanup = true;
 

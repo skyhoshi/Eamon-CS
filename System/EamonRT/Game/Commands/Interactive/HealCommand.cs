@@ -23,7 +23,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(DobjMonster != null);
 
-			if (CastSpell && !Globals.RtEngine.CheckPlayerSpellCast(Enums.Spell.Heal, true))
+			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Heal, true))
 			{
 				goto Cleanup;
 			}

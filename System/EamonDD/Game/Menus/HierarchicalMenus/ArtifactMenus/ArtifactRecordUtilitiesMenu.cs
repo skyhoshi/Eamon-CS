@@ -44,7 +44,7 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 				x.SubMenu = Globals.CreateInstance<IGenerateDeadBodyArtifactRecordsMenu>();
 			}));
 
-			if (Globals.DdEngine.IsAdventureFilesetLoaded())
+			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
 				MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
 				{
