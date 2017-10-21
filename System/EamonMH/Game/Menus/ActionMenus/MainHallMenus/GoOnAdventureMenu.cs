@@ -123,9 +123,18 @@ namespace EamonMH.Game.Menus.ActionMenus
 					goto Cleanup;
 				}
 
-				var filesetUid = Convert.ToInt64(Buf.Trim().ToString());
+				IFileset fileset = null;
 
-				var fileset = Globals.FSDB[filesetUid];
+				try
+				{
+					var filesetUid = Convert.ToInt64(Buf.Trim().ToString());
+
+					fileset = Globals.FSDB[filesetUid];
+				}
+				catch (Exception)
+				{
+					// do nothing
+				}
 
 				if (fileset != null)
 				{
