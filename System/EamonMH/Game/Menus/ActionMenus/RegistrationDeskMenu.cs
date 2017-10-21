@@ -230,7 +230,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.MhEngine.IsCharROrT, Globals.MhEngine.IsCharROrT);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharROrT, Globals.Engine.IsCharROrT);
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 

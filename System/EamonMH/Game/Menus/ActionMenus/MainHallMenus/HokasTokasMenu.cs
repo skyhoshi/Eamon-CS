@@ -91,7 +91,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.MhEngine.IsCharSpellTypeOrX, Globals.MhEngine.IsCharSpellTypeOrX);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharSpellTypeOrX, Globals.Engine.IsCharSpellTypeOrX);
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 

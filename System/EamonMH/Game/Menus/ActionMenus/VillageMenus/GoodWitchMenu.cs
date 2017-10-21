@@ -71,7 +71,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, null, Globals.MhEngine.IsCharStat, Globals.MhEngine.IsCharStat);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, null, Globals.Engine.IsCharStat, Globals.Engine.IsCharStat);
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -107,7 +107,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					Buf.Clear();
 
-					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.MhEngine.IsChar1OrX, Globals.MhEngine.IsChar1OrX);
+					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsChar1OrX, Globals.Engine.IsChar1OrX);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 

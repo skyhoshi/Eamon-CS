@@ -139,7 +139,7 @@ namespace EamonMH
 
 					// process command line args
 
-					Globals.MhEngine.ProcessArgv(false, ref nlFlag);
+					Globals.Engine.ProcessArgv(false, ref nlFlag);
 
 					// assign default work directory, if necessary
 
@@ -262,7 +262,7 @@ namespace EamonMH
 
 					// process command line args
 
-					Globals.MhEngine.ProcessArgv(true, ref nlFlag);
+					Globals.Engine.ProcessArgv(true, ref nlFlag);
 
 					if (nlFlag)
 					{

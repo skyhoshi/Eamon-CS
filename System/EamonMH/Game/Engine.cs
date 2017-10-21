@@ -1,5 +1,5 @@
 ﻿
-// MhEngine.cs
+// Engine.cs
 
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
@@ -14,8 +14,8 @@ using static EamonMH.Game.Plugin.PluginContext;
 
 namespace EamonMH.Game
 {
-	[ClassMappings]
-	public class MhEngine : IMhEngine
+	[ClassMappings(typeof(Eamon.Framework.IEngine))]
+	public class Engine : Eamon.Game.Engine, IEngine
 	{
 		public virtual bool IsCharDOrM(char ch)
 		{

@@ -581,6 +581,8 @@ namespace EamonRT.Game.Combat
 			{
 				_d2 += (long)Math.Round(yy * (MaxDamage ? S : Globals.Engine.RollDice01(1, S, 0)));
 			}
+
+			_d2 += (long)Math.Round(yy * M);
 		}
 
 		protected virtual void CalculateDamage()

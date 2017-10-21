@@ -1,5 +1,5 @@
 ﻿
-// IMhEngine.cs
+// IEngine.cs
 
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
@@ -7,7 +7,7 @@ using Classes = Eamon.Framework.Primitive.Classes;
 
 namespace EamonMH.Framework
 {
-	public interface IMhEngine
+	public interface IEngine : Eamon.Framework.IEngine
 	{
 		bool IsCharDOrM(char ch);
 

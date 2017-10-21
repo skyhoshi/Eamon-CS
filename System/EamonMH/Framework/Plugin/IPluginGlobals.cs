@@ -25,7 +25,7 @@ namespace EamonMH.Framework.Plugin
 
 		string CharacterName { get; set; }
 
-		IMhEngine MhEngine { get; set; }
+		new IEngine Engine { get; set; }
 
 		IMhMenu MhMenu { get; set; }
 
