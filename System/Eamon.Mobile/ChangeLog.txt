@@ -5,5 +5,5 @@ ChangeLog: Eamon.Mobile
 
 Date			Version			Who			Notes
 ----------------------------------------------------------------------------------------------------------------------------------
-20170920		1.3.0			MRP			Compliant with .NET Standard 2.0
-20170613					MRP			Initial commit EamonPM.Android
+20170920		1.3.0				MRP			Compliant with .NET Standard 2.0
+20170613							MRP			Initial commit EamonPM.Android
