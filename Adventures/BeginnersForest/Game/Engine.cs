@@ -104,7 +104,7 @@ namespace BeginnersForest.Game
 
 			var gameState = Globals.GameState as Framework.IGameState;
 
-			var i = Globals.Engine.FindIndex(Globals.Character.Weapons, x => x == weapon);
+			var i = FindIndex(Globals.Character.Weapons, x => x == weapon);
 
 			if (i != gameState.UsedWpnIdx)
 			{

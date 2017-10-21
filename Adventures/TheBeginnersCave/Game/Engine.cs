@@ -28,7 +28,7 @@ namespace TheBeginnersCave.Game
 		{
 			base.InitArtifacts();
 
-			Globals.Engine.MacroFuncs.Add(1, () =>
+			MacroFuncs.Add(1, () =>
 			{
 				if (Globals.GameState.CastTo<Framework.IGameState>().Trollsfire == 1)
 				{
@@ -69,7 +69,7 @@ namespace TheBeginnersCave.Game
 
 			var gameState = Globals.GameState as Framework.IGameState;
 
-			var i = Globals.Engine.FindIndex(Globals.Character.Weapons, x => x == weapon);
+			var i = FindIndex(Globals.Character.Weapons, x => x == weapon);
 
 			if (i != gameState.UsedWpnIdx)
 			{

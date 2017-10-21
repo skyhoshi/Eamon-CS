@@ -20,7 +20,7 @@ namespace TheTempleOfNgurct.Game
 		{
 			base.InitArtifacts();
 
-			Globals.Engine.MacroFuncs.Add(2, () =>
+			MacroFuncs.Add(2, () =>
 			{
 				var cellDoorArtifact = Globals.ADB[87];
 
@@ -33,7 +33,7 @@ namespace TheTempleOfNgurct.Game
 				return ac.GetKeyUid() > 0 ? "locked" : "unlocked";
 			});
 
-			Globals.Engine.MacroFuncs.Add(3, () =>
+			MacroFuncs.Add(3, () =>
 			{
 				var cellDoorArtifact = Globals.ADB[88];
 
@@ -46,7 +46,7 @@ namespace TheTempleOfNgurct.Game
 				return ac.GetKeyUid() > 0 ? "locked" : "unlocked";
 			});
 
-			Globals.Engine.MacroFuncs.Add(4, () =>
+			MacroFuncs.Add(4, () =>
 			{
 				var result = "floor";
 
@@ -127,7 +127,7 @@ namespace TheTempleOfNgurct.Game
 
 				Debug.Assert(ac != null);
 
-				ac.Field5 = Globals.Engine.RollDice01(1, 10, 0);
+				ac.Field5 = RollDice01(1, 10, 0);
 			}
 
 			// Places fireball wand and ring of regeneration
@@ -136,7 +136,7 @@ namespace TheTempleOfNgurct.Game
 
 			Debug.Assert(wandArtifact != null);
 
-			wandArtifact.Location = Globals.Engine.RollDice01(1, 28, 28);
+			wandArtifact.Location = RollDice01(1, 28, 28);
 
 			var ringArtifact = Globals.ADB[64];
 
@@ -149,7 +149,7 @@ namespace TheTempleOfNgurct.Game
 		{
 			base.InitMonsters();
 
-			Globals.Engine.MacroFuncs.Add(1, () =>
+			MacroFuncs.Add(1, () =>
 			{
 				var characterMonster = Globals.MDB[Globals.GameState.Cm];
 
@@ -158,7 +158,7 @@ namespace TheTempleOfNgurct.Game
 				return characterMonster.EvalGender(" sir", " madam", "");
 			});
 
-			Globals.Engine.MacroFuncs.Add(5, () =>
+			MacroFuncs.Add(5, () =>
 			{
 				var result = "room";
 
@@ -184,7 +184,7 @@ namespace TheTempleOfNgurct.Game
 
 				while (true)
 				{
-					randomMonster.Location = Globals.Engine.RollDice01(1, 56, 3);
+					randomMonster.Location = RollDice01(1, 56, 3);
 
 					if (randomMonster.Location != 58)
 					{
@@ -211,7 +211,7 @@ namespace TheTempleOfNgurct.Game
 
 			Debug.Assert(wandArtifact != null);
 
-			Globals.Engine.ConvertWeaponToGoldOrTreasure(wandArtifact, true);
+			ConvertWeaponToGoldOrTreasure(wandArtifact, true);
 
 			base.ConvertToCarriedInventory(weaponList);
 		}
@@ -281,7 +281,7 @@ namespace TheTempleOfNgurct.Game
 
 					gameState.WanderingMonster++;
 
-					Globals.Engine.CheckEnemies();
+					CheckEnemies();
 
 					found = true;
 

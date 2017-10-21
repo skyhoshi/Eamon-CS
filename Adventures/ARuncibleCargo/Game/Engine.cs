@@ -48,7 +48,7 @@ namespace ARuncibleCargo.Game
 		{
 			base.InitArtifacts();
 
-			Globals.Engine.MacroFuncs.Add(1, () =>
+			MacroFuncs.Add(1, () =>
 			{
 				var artifact = Globals.ADB[129];
 
@@ -68,7 +68,7 @@ namespace ARuncibleCargo.Game
 				}
 			});
 
-			Globals.Engine.MacroFuncs.Add(2, () =>
+			MacroFuncs.Add(2, () =>
 			{
 				if (Globals.GameState != null)
 				{
@@ -88,7 +88,7 @@ namespace ARuncibleCargo.Game
 				}
 			});
 
-			Globals.Engine.MacroFuncs.Add(3, () =>
+			MacroFuncs.Add(3, () =>
 			{
 				if (Globals.GameState != null)
 				{

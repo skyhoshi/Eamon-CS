@@ -138,7 +138,7 @@ namespace EamonMH.Game
 
 			var rc = Globals.Character.GetWeaponCount(ref i);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(IsSuccess(rc));
 
 			ch = Char.ToUpper(ch);
 
@@ -162,7 +162,7 @@ namespace EamonMH.Game
 
 			for (var i = 0; i < armorValues.Count; i++)
 			{
-				var armor = Globals.Engine.GetArmors(armorValues[i]);
+				var armor = GetArmors(armorValues[i]);
 
 				Debug.Assert(armor != null);
 
@@ -183,7 +183,7 @@ namespace EamonMH.Game
 
 			for (var i = 0; i < armorValues.Count; i++)
 			{
-				var armor = Globals.Engine.GetArmors(armorValues[i]);
+				var armor = GetArmors(armorValues[i]);
 
 				Debug.Assert(armor != null);
 

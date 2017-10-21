@@ -111,7 +111,7 @@ namespace EamonRT.Game
 
 					var ima = false;
 
-					y.Value = (long)Globals.Engine.GetArmorPriceOrValue(Globals.Character.ArmorClass, false, ref ima);
+					y.Value = (long)GetArmorPriceOrValue(Globals.Character.ArmorClass, false, ref ima);
 
 					y.Weight = (a2 == 1 ? 15 : a2 == 2 ? 25 : 35);
 
@@ -129,7 +129,7 @@ namespace EamonRT.Game
 
 				var rc = Globals.Database.AddArtifact(artifact);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(IsSuccess(rc));
 
 				if (artifact.IsWornByCharacter())
 				{
@@ -185,7 +185,7 @@ namespace EamonRT.Game
 
 				var rc = Globals.Database.AddArtifact(artifact);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(IsSuccess(rc));
 
 				if (artifact.IsWornByCharacter())
 				{
@@ -312,7 +312,7 @@ namespace EamonRT.Game
 			RetCode rc;
 			long c, w;
 
-			var artifacts = Globals.Engine.GetArtifactList(() => true, a => a.IsCarriedByCharacter() || a.IsWornByCharacter());
+			var artifacts = GetArtifactList(() => true, a => a.IsCarriedByCharacter() || a.IsWornByCharacter());
 
 			foreach (var artifact in artifacts)
 			{
@@ -338,7 +338,7 @@ namespace EamonRT.Game
 				{
 					rc = artifact.GetContainerInfo(ref c, ref w, true);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(IsSuccess(rc));
 				}
 
 				if (Globals.GameState.Wt + w <= 10 * Globals.Character.GetStats(Enums.Stat.Hardiness))
@@ -381,19 +381,19 @@ namespace EamonRT.Game
 
 			nameList.AddRange(artifactList);
 
-			Globals.Engine.AddPoundCharsToRecordNames(nameList);
+			AddPoundCharsToRecordNames(nameList);
 		}
 
 		public virtual void AddMissingDescs()
 		{
-			var monsters = Globals.Engine.GetMonsterList(() => true, m => string.IsNullOrWhiteSpace(m.Desc) || string.Equals(m.Desc, "NONE", StringComparison.OrdinalIgnoreCase));
+			var monsters = GetMonsterList(() => true, m => string.IsNullOrWhiteSpace(m.Desc) || string.Equals(m.Desc, "NONE", StringComparison.OrdinalIgnoreCase));
 
 			foreach (var monster in monsters)
 			{
 				monster.Desc = string.Format("{0} {1}.", monster.EvalPlural("This is", "These are"), monster.GetDecoratedName02(false, true, false, false, Globals.Buf));
 			}
 
-			var artifacts = Globals.Engine.GetArtifactList(() => true, a => string.IsNullOrWhiteSpace(a.Desc) || string.Equals(a.Desc, "NONE", StringComparison.OrdinalIgnoreCase));
+			var artifacts = GetArtifactList(() => true, a => string.IsNullOrWhiteSpace(a.Desc) || string.Equals(a.Desc, "NONE", StringComparison.OrdinalIgnoreCase));
 
 			foreach (var artifact in artifacts)
 			{
@@ -436,9 +436,9 @@ namespace EamonRT.Game
 			{
 				var rc = artifact.SyncArtifactClasses();
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(IsSuccess(rc));
 
-				Globals.Engine.TruncatePluralTypeEffectDesc(artifact.PluralType, Constants.ArtNameLen);
+				TruncatePluralTypeEffectDesc(artifact.PluralType, Constants.ArtNameLen);
 			}
 		}
 
@@ -459,7 +459,7 @@ namespace EamonRT.Game
 				{
 					var rc = monster.EnforceFullInventoryWeightLimits(recurse: true);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(IsSuccess(rc));
 				}
 
 				if (monster.Weapon > 0)
@@ -468,11 +468,11 @@ namespace EamonRT.Game
 
 					if (artifact != null)
 					{
-						artifact.AddStateDesc(Globals.Engine.ReadyWeaponDesc);
+						artifact.AddStateDesc(ReadyWeaponDesc);
 					}
 				}
 
-				Globals.Engine.TruncatePluralTypeEffectDesc(monster.PluralType, Constants.MonNameLen);
+				TruncatePluralTypeEffectDesc(monster.PluralType, Constants.MonNameLen);
 			}
 		}
 
@@ -554,7 +554,7 @@ namespace EamonRT.Game
 
 				var imw = false;
 
-				x.Value = (long)Globals.Engine.GetWeaponPriceOrValue(weapon, false, ref imw);
+				x.Value = (long)GetWeaponPriceOrValue(weapon, false, ref imw);
 
 				x.Weight = 15;
 
@@ -572,7 +572,7 @@ namespace EamonRT.Game
 
 			var rc = Globals.Database.AddArtifact(artifact);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(IsSuccess(rc));
 
 			return artifact;
 		}
@@ -667,7 +667,7 @@ namespace EamonRT.Game
 			{
 				var rc = Globals.Database.AddMonster(monster);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(IsSuccess(rc));
 			}
 
 			return monster;
@@ -704,7 +704,7 @@ namespace EamonRT.Game
 
 			var rc = Globals.Database.AddMonster(monster);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(IsSuccess(rc));
 
 			return monster;
 		}
@@ -786,7 +786,7 @@ namespace EamonRT.Game
 
 			var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
 
-			var artifacts = Globals.Engine.GetArtifactList(() => true, a => a.IsWornByCharacter());
+			var artifacts = GetArtifactList(() => true, a => a.IsWornByCharacter());
 
 			foreach (var artifact in artifacts)
 			{
@@ -797,7 +797,7 @@ namespace EamonRT.Game
 			{
 				c = 0;
 
-				artifacts = Globals.Engine.GetArtifactList(() => true, a => a.IsCarriedByCharacter());
+				artifacts = GetArtifactList(() => true, a => a.IsCarriedByCharacter());
 
 				foreach (var artifact in artifacts)
 				{
@@ -805,7 +805,7 @@ namespace EamonRT.Game
 
 					if (ac != null)
 					{
-						var artifacts01 = Globals.Engine.GetArtifactList(() => true, a => a.IsCarriedByContainer(artifact));
+						var artifacts01 = GetArtifactList(() => true, a => a.IsCarriedByContainer(artifact));
 
 						foreach (var artifact01 in artifacts01)
 						{
@@ -860,9 +860,9 @@ namespace EamonRT.Game
 
 					Globals.Buf.Clear();
 
-					var rc = Globals.Engine.ListRecords(weaponList.Cast<IGameBase>().ToList(), true, true, Globals.Buf);
+					var rc = ListRecords(weaponList.Cast<IGameBase>().ToList(), true, true, Globals.Buf);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(IsSuccess(rc));
 
 					Globals.Out.WriteLine("{0}Your weapons are:{0}{1}", Environment.NewLine, Globals.Buf);
 
@@ -872,9 +872,9 @@ namespace EamonRT.Game
 
 					Globals.Buf.Clear();
 
-					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize01, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharDigit, null);
+					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize01, null, ' ', '\0', false, null, ModifyCharToUpper, IsCharDigit, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(IsSuccess(rc));
 
 					Globals.Thread.Sleep(150);
 
@@ -902,13 +902,13 @@ namespace EamonRT.Game
 			{
 				var c2 = Globals.Character.GetMerchantAdjustedCharisma();
 
-				var rtio = Globals.Engine.GetMerchantRtio(c2);
+				var rtio = GetMerchantRtio(c2);
 
-				var artifacts = Globals.Engine.GetArtifactList(() => true, a => a.IsCarriedByCharacter());
+				var artifacts = GetArtifactList(() => true, a => a.IsCarriedByCharacter());
 
 				foreach (var artifact in artifacts)
 				{
-					var m = artifact.IsGold() ? artifact.Value : Globals.Engine.GetMerchantBidPrice(artifact.Value, rtio);
+					var m = artifact.IsGold() ? artifact.Value : GetMerchantBidPrice(artifact.Value, rtio);
 
 					if (m < 0)
 					{
@@ -982,9 +982,9 @@ namespace EamonRT.Game
 
 			Globals.Buf.Clear();
 
-			var rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsChar1To3, null);
+			var rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, ModifyCharToUpper, IsChar1To3, null);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(IsSuccess(rc));
 
 			var i = Convert.ToInt64(Globals.Buf.Trim().ToString());
 
@@ -1010,9 +1010,9 @@ namespace EamonRT.Game
 		{
 			Debug.Assert(artifact != null);
 
-			var rc = artifact.RemoveStateDesc(Globals.Engine.ProvidingLightDesc);
+			var rc = artifact.RemoveStateDesc(ProvidingLightDesc);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(IsSuccess(rc));
 
 			Globals.GameState.Ls = 0;
 
@@ -1091,7 +1091,7 @@ namespace EamonRT.Game
 			{
 				if (DfMonster.Weapon > 0)
 				{
-					var weapon = Globals.Engine.GetNthArtifact(DfMonster.GetCarriedList(), DfMonster.GroupCount - 1, a => a.IsReadyableByMonster(DfMonster) && a.Uid != DfMonster.Weapon);
+					var weapon = GetNthArtifact(DfMonster.GetCarriedList(), DfMonster.GroupCount - 1, a => a.IsReadyableByMonster(DfMonster) && a.Uid != DfMonster.Weapon);
 
 					if (weapon != null)
 					{
@@ -1107,7 +1107,7 @@ namespace EamonRT.Game
 				{
 					rc = DfMonster.EnforceFullInventoryWeightLimits(recurse: true);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(IsSuccess(rc));
 				}
 			}
 			else
@@ -1118,9 +1118,9 @@ namespace EamonRT.Game
 
 					Debug.Assert(weapon != null);
 
-					rc = weapon.RemoveStateDesc(Globals.Engine.ReadyWeaponDesc);
+					rc = weapon.RemoveStateDesc(ReadyWeaponDesc);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(IsSuccess(rc));
 
 					DfMonster.Weapon = -1;
 				}
@@ -1138,7 +1138,7 @@ namespace EamonRT.Game
 
 				DfMonster.DmgTaken = 0;
 
-				var artifactList = Globals.Engine.GetArtifactList(() => true, a => a.IsCarriedByMonster(DfMonster) || a.IsWornByMonster(DfMonster));
+				var artifactList = GetArtifactList(() => true, a => a.IsCarriedByMonster(DfMonster) || a.IsWornByMonster(DfMonster));
 
 				foreach (var artifact in artifactList)
 				{
@@ -1201,7 +1201,7 @@ namespace EamonRT.Game
 						rc = RetCode.Success;
 					}
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(IsSuccess(rc));
 
 					Globals.Out.Write("{0}", Globals.Buf);
 				}
@@ -1241,7 +1241,7 @@ namespace EamonRT.Game
 
 					var rc = artifact.BuildPrintedFullDesc(Globals.Buf, false);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(IsSuccess(rc));
 
 					Globals.Out.Write("{0}", Globals.Buf);
 
@@ -1262,7 +1262,7 @@ namespace EamonRT.Game
 
 				var rc = artifact.GetContainerInfo(ref count, ref weight, true);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(IsSuccess(rc));
 
 				Globals.GameState.Wt -= weight;
 
@@ -1350,7 +1350,7 @@ namespace EamonRT.Game
 					roomUid = 0;
 				}
 
-				if (Globals.Engine.IsValidRoomUid01(roomUid) && (monster.IsCharacterMonster() || (roomUid > 0 && Globals.RDB[roomUid] != null)))
+				if (IsValidRoomUid01(roomUid) && (monster.IsCharacterMonster() || (roomUid > 0 && Globals.RDB[roomUid] != null)))
 				{
 					numExits++;
 				}
@@ -1373,9 +1373,9 @@ namespace EamonRT.Game
 			{
 				rl = 0;
 
-				var rc = Globals.Engine.RollDice(1, Globals.Module.NumDirs, 0, ref rl);
+				var rc = RollDice(1, Globals.Module.NumDirs, 0, ref rl);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(IsSuccess(rc));
 
 				found = false;
 
@@ -1401,7 +1401,7 @@ namespace EamonRT.Game
 					roomUid = 0;
 				}
 			}
-			while (roomUid == 0 || roomUid == room.Uid || Globals.Engine.IsValidRoomDirectionDoorUid01(roomUid) || (!monster.IsCharacterMonster() && (roomUid < 1 || Globals.RDB[roomUid] == null)));
+			while (roomUid == 0 || roomUid == room.Uid || IsValidRoomDirectionDoorUid01(roomUid) || (!monster.IsCharacterMonster() && (roomUid < 1 || Globals.RDB[roomUid] == null)));
 
 			direction = (Enums.Direction)rl;
 		}
@@ -1421,7 +1421,7 @@ namespace EamonRT.Game
 
 			var monsterList = new List<IMonster>();
 
-			var origList = Globals.Engine.GetMonsterList(() => true, whereClauseFuncs);
+			var origList = GetMonsterList(() => true, whereClauseFuncs);
 
 			if (numMonsters > origList.Count)
 			{
@@ -1430,7 +1430,7 @@ namespace EamonRT.Game
 
 			while (numMonsters > 0)
 			{
-				var rl = (int)Globals.Engine.RollDice01(1, origList.Count, 0);
+				var rl = (int)RollDice01(1, origList.Count, 0);
 
 				monsterList.Add(origList[rl - 1]);
 
@@ -1490,7 +1490,7 @@ namespace EamonRT.Game
 
 			if (tokens.Length > 1)
 			{
-				i = Globals.Engine.GetNumberFromString(tokens[0]);
+				i = GetNumberFromString(tokens[0]);
 
 				if (i > 0)
 				{
@@ -1633,7 +1633,7 @@ namespace EamonRT.Game
 
 			Debug.Assert(room != null);
 
-			var artifactList = Globals.Engine.GetArtifactList(() => true, a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || (a.IsInRoom(room) && (!room.IsLit() || a.Seen)))).OrderByDescending(a01 =>
+			var artifactList = GetArtifactList(() => true, a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || (a.IsInRoom(room) && (!room.IsLit() || a.Seen)))).OrderByDescending(a01 =>
 			{
 				if (monster.Weapon != -a01.Uid - 1)
 				{
@@ -1661,8 +1661,8 @@ namespace EamonRT.Game
 			Debug.Assert(room != null);
 
 			var monsterList =
-					monster.Friendliness == Enums.Friendliness.Friend ? Globals.Engine.GetMonsterList(() => true, m => m.Friendliness == Enums.Friendliness.Enemy && m.IsInRoom(room)) :
-					monster.Friendliness == Enums.Friendliness.Enemy ? Globals.Engine.GetMonsterList(() => true, m => m.Friendliness == Enums.Friendliness.Friend && m.IsInRoom(room)) :
+					monster.Friendliness == Enums.Friendliness.Friend ? GetMonsterList(() => true, m => m.Friendliness == Enums.Friendliness.Enemy && m.IsInRoom(room)) :
+					monster.Friendliness == Enums.Friendliness.Enemy ? GetMonsterList(() => true, m => m.Friendliness == Enums.Friendliness.Friend && m.IsInRoom(room)) :
 					new List<IMonster>();
 
 			return monsterList;
@@ -1680,7 +1680,7 @@ namespace EamonRT.Game
 
 			var found = false;
 
-			var artifacts = Globals.Engine.GetArtifactList(() => true, whereClauseFuncs);
+			var artifacts = GetArtifactList(() => true, whereClauseFuncs);
 			
 			foreach (var artifact in artifacts)
 			{
@@ -1720,7 +1720,7 @@ namespace EamonRT.Game
 				};
 			}
 
-			var artifacts = Globals.Engine.GetArtifactList(() => true, whereClauseFuncs);
+			var artifacts = GetArtifactList(() => true, whereClauseFuncs);
 
 			foreach (var artifact in artifacts)
 			{
@@ -1749,7 +1749,7 @@ namespace EamonRT.Game
 
 			if (Globals.IsRulesetVersion(5))
 			{
-				var rl = (long)Math.Round((double)Globals.GameState.GetDTTL(monster.Friendliness) / (double)Globals.GameState.GetNBTL(monster.Friendliness) * 100 + Globals.Engine.RollDice01(1, 41, -21));
+				var rl = (long)Math.Round((double)Globals.GameState.GetDTTL(monster.Friendliness) / (double)Globals.GameState.GetNBTL(monster.Friendliness) * 100 + RollDice01(1, 41, -21));
 
 				result = rl <= monster.Courage;
 			}
@@ -1757,7 +1757,7 @@ namespace EamonRT.Game
 			{
 				var s = (monster.DmgTaken > 0 || monster.OrigGroupCount > monster.GroupCount ? 1 : 0) + (monster.DmgTaken + 4 >= monster.Hardiness ? 1 : 0);
 
-				var rl = Globals.Engine.RollDice01(1, 100, s * 5);
+				var rl = RollDice01(1, 100, s * 5);
 
 				result = rl <= monster.Courage;           // monster.Courage >= 100 ||
 			}
@@ -1775,13 +1775,13 @@ namespace EamonRT.Game
 
 			var s = spellValue;
 
-			var spell = Globals.Engine.GetSpells(spellValue);
+			var spell = GetSpells(spellValue);
 
 			Debug.Assert(spell != null);
 
 			if (Globals.GameState.GetSa(s) > 0 && Globals.Character.GetSpellAbilities(s) > 0)
 			{
-				rl = Globals.Engine.RollDice01(1, 100, 0);
+				rl = RollDice01(1, 100, 0);
 			}
 
 			if (rl == 100)
@@ -1799,7 +1799,7 @@ namespace EamonRT.Game
 
 				if (allowSkillIncrease)
 				{
-					rl = Globals.Engine.RollDice01(1, 100, 0);
+					rl = RollDice01(1, 100, 0);
 
 					rl += Globals.Character.GetIntellectBonusPct();
 
@@ -1839,21 +1839,21 @@ namespace EamonRT.Game
 
 			var rl = 0L;
 
-			var rc = Globals.Engine.RollDice(1, 100, 0, ref rl);
+			var rc = RollDice(1, 100, 0, ref rl);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(IsSuccess(rc));
 
 			if (rl > 75)
 			{
-				rc = Globals.Engine.RollDice(1, 100, 0, ref rl);
+				rc = RollDice(1, 100, 0, ref rl);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(IsSuccess(rc));
 
 				rl += Globals.Character.GetIntellectBonusPct();
 
 				if (rl > Globals.Character.GetWeaponAbilities(s))
 				{
-					var weapon = Globals.Engine.GetWeapons(s);
+					var weapon = GetWeapons(s);
 
 					Debug.Assert(weapon != null);
 
@@ -1874,9 +1874,9 @@ namespace EamonRT.Game
 
 				if (x > 0)
 				{
-					rc = Globals.Engine.RollDice(1, x, 0, ref rl);
+					rc = RollDice(1, x, 0, ref rl);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(IsSuccess(rc));
 
 					rl += (long)Math.Round(((double)x / 100.0) * (double)Globals.Character.GetIntellectBonusPct());
 
@@ -1909,7 +1909,7 @@ namespace EamonRT.Game
 
 			Debug.Assert(newRoom != null);
 
-			var monsterList = Globals.Engine.GetMonsterList(() => true, m => m.IsInRoom(oldRoom)).ToList();
+			var monsterList = GetMonsterList(() => true, m => m.IsInRoom(oldRoom)).ToList();
 
 			foreach (var m in monsterList)
 			{
@@ -1918,7 +1918,7 @@ namespace EamonRT.Game
 
 			CheckEnemies();
 
-			var artifactList = Globals.Engine.GetArtifactList(() => true, a => a.IsInRoom(oldRoom)).ToList();
+			var artifactList = GetArtifactList(() => true, a => a.IsInRoom(oldRoom)).ToList();
 
 			foreach (var a in artifactList)
 			{
@@ -1927,7 +1927,7 @@ namespace EamonRT.Game
 
 			if (includeEmbedded)
 			{
-				artifactList = Globals.Engine.GetArtifactList(() => true, a => a.IsEmbeddedInRoom(oldRoom)).ToList();
+				artifactList = GetArtifactList(() => true, a => a.IsEmbeddedInRoom(oldRoom)).ToList();
 
 				foreach (var a in artifactList)
 				{
@@ -1942,7 +1942,7 @@ namespace EamonRT.Game
 
 			Debug.Assert(newRoom != null);
 
-			var gameState = Globals.Engine.GetGameState();
+			var gameState = GetGameState();
 
 			Debug.Assert(gameState != null);
 
@@ -1950,7 +1950,7 @@ namespace EamonRT.Game
 
 			if (effect != null)
 			{
-				Globals.Engine.PrintEffectDesc(effect);
+				PrintEffectDesc(effect);
 			}
 
 			gameState.Ro = newRoom.Uid;
@@ -2077,7 +2077,7 @@ namespace EamonRT.Game
 				Globals.GameState.SetDTTL(Enums.Friendliness.Friend, Globals.MDB[Globals.GameState.Cm].DmgTaken);
 			}
 
-			var monsters = Globals.Engine.GetMonsterList(() => true, m => !m.IsCharacterMonster() && m.Location == Globals.GameState.Ro);
+			var monsters = GetMonsterList(() => true, m => !m.IsCharacterMonster() && m.Location == Globals.GameState.Ro);
 
 			foreach (var monster in monsters)
 			{
@@ -2096,7 +2096,7 @@ namespace EamonRT.Game
 		{
 			long rl = 0;
 
-			var monsters = Globals.Engine.GetMonsterList(() => true, m => !m.IsCharacterMonster() && m.Seen && m.Location == Globals.GameState.R3);
+			var monsters = GetMonsterList(() => true, m => !m.IsCharacterMonster() && m.Seen && m.Location == Globals.GameState.R3);
 
 			foreach (var monster in monsters)
 			{
@@ -2106,9 +2106,9 @@ namespace EamonRT.Game
 				{
 					if (monster.Friendliness == Enums.Friendliness.Enemy)
 					{
-						var rc = Globals.Engine.RollDice(1, 100, 0, ref rl);
+						var rc = RollDice(1, 100, 0, ref rl);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(IsSuccess(rc));
 
 						if (rl <= monster.Courage)
 						{
