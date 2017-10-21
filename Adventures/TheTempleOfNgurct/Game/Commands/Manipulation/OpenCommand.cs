@@ -32,7 +32,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				cobraMonster.SetInRoom(ActorRoom);
 
-				Globals.RtEngine.CheckEnemies();
+				Globals.Engine.CheckEnemies();
 
 				gameState.CobraAppeared = true;
 

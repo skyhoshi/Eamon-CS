@@ -31,11 +31,11 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				ActorMonster.Weapon = -1;
 
-				Globals.RtEngine.InitMonsterScaledHardinessValues();
+				Globals.Engine.InitMonsterScaledHardinessValues();
 
 				ActorMonster.Weapon = artUid;
 
-				Globals.RtEngine.CheckEnemies();
+				Globals.Engine.CheckEnemies();
 
 				Globals.Out.WriteLine("{0}Monster stats reduced.", Environment.NewLine);
 
@@ -50,7 +50,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 			// If the cauldron is present and the spell components (see effect #50) are in it then begin the spell casting process
 
-			if (string.Equals(ProcessedPhrase, "knock nikto mellon", StringComparison.OrdinalIgnoreCase) && (artifact.IsCarriedByCharacter() || artifact.IsInRoom(ActorRoom)) && Globals.RtEngine.CastTo<IRtEngine>().SpellReagentsInCauldron(artifact))
+			if (string.Equals(ProcessedPhrase, "knock nikto mellon", StringComparison.OrdinalIgnoreCase) && (artifact.IsCarriedByCharacter() || artifact.IsInRoom(ActorRoom)) && Globals.Engine.SpellReagentsInCauldron(artifact))
 			{
 				Globals.Engine.PrintEffectDesc(51);
 

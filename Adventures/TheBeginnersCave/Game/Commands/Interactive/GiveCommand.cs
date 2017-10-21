@@ -16,7 +16,7 @@ namespace TheBeginnersCave.Game.Commands
 		{
 			if (IobjMonster.Uid == 1 || IobjMonster.Uid == 5 || IobjMonster.Uid == 7)
 			{
-				Globals.RtEngine.MonsterSmiles(IobjMonster);
+				Globals.Engine.MonsterSmiles(IobjMonster);
 
 				Globals.Out.WriteLine();
 

@@ -57,7 +57,7 @@ namespace EamonRT.Game.Commands
 						PrintTakingFirst(DobjArtifact);
 					}
 
-					Globals.RtEngine.RevealDisguisedMonster(DobjArtifact);
+					Globals.Engine.RevealDisguisedMonster(DobjArtifact);
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
 

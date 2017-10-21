@@ -45,7 +45,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (!Globals.RtEngine.CheckNBTLHostility(ActorMonster))
+			if (!Globals.Engine.CheckNBTLHostility(ActorMonster))
 			{
 				PrintCalmDown();
 
@@ -58,7 +58,7 @@ namespace EamonRT.Game.Commands
 			{
 				var numExits = 0L;
 
-				Globals.RtEngine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref numExits);
+				Globals.Engine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref numExits);
 
 				if (numExits == 0)
 				{
@@ -83,7 +83,7 @@ namespace EamonRT.Game.Commands
 				{
 					Enums.Direction direction = 0;
 
-					Globals.RtEngine.GetRandomMoveDirection(ActorRoom, ActorMonster, true, ref direction);
+					Globals.Engine.GetRandomMoveDirection(ActorRoom, ActorMonster, true, ref direction);
 
 					Direction = direction;
 				}
@@ -129,7 +129,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(Direction == 0);
 
-			if (Globals.RtEngine.CheckNBTLHostility(ActorMonster))
+			if (Globals.Engine.CheckNBTLHostility(ActorMonster))
 			{
 				var charMonster = Globals.MDB[Globals.GameState.Cm];
 
@@ -139,7 +139,7 @@ namespace EamonRT.Game.Commands
 
 				var numExits = 0L;
 
-				Globals.RtEngine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref numExits);
+				Globals.Engine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref numExits);
 
 				var rl = 0L;
 
@@ -182,7 +182,7 @@ namespace EamonRT.Game.Commands
 						Globals.Out.Write("{0}{1} {2}!{0}", Environment.NewLine, monsterName, rl > 1 ? "flee" : "flees");
 					}
 
-					if (Globals.RtEngine.EnforceMonsterWeightLimits)
+					if (Globals.Engine.EnforceMonsterWeightLimits)
 					{
 						rc = ActorMonster.EnforceFullInventoryWeightLimits(recurse: true);
 
@@ -197,7 +197,7 @@ namespace EamonRT.Game.Commands
 
 					var roomUid = 0L;
 
-					Globals.RtEngine.GetRandomMoveDirection(ActorRoom, ActorMonster, true, ref direction, ref found, ref roomUid);
+					Globals.Engine.GetRandomMoveDirection(ActorRoom, ActorMonster, true, ref direction, ref found, ref roomUid);
 
 					Debug.Assert(Enum.IsDefined(typeof(Enums.Direction), direction));
 

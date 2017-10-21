@@ -69,7 +69,7 @@ namespace EamonRT.Game.Commands
 
 					if (ac.Type == Enums.ArtifactType.DisguisedMonster)
 					{
-						ProcessAction(() => Globals.RtEngine.RevealDisguisedMonster(artifact), ref nlFlag);
+						ProcessAction(() => Globals.Engine.RevealDisguisedMonster(artifact), ref nlFlag);
 					}
 					else if (artifact.Weight > 900)
 					{
@@ -126,7 +126,7 @@ namespace EamonRT.Game.Commands
 
 					if (artifact.IsReadyableByCharacter() && artifact.IsCarriedByCharacter())
 					{
-						if (wpnArtifact == null || Globals.RtEngine.WeaponPowerCompare(artifact, wpnArtifact) > 0)
+						if (wpnArtifact == null || Globals.Engine.WeaponPowerCompare(artifact, wpnArtifact) > 0)
 						{
 							wpnArtifact = artifact;
 						}
@@ -199,7 +199,7 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				if (!Globals.RtEngine.EnforceMonsterWeightLimits || (artWeight <= ActorMonster.GetWeightCarryableGronds() && artWeight + monWeight <= ActorMonster.GetWeightCarryableGronds() * ActorMonster.GroupCount))
+				if (!Globals.Engine.EnforceMonsterWeightLimits || (artWeight <= ActorMonster.GetWeightCarryableGronds() && artWeight + monWeight <= ActorMonster.GetWeightCarryableGronds() * ActorMonster.GroupCount))
 				{
 					DobjArtifact.SetCarriedByMonster(ActorMonster);
 

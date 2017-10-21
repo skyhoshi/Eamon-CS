@@ -55,7 +55,7 @@ namespace TheTempleOfNgurct.Game.States
 
 				if (ac == null || ac.GetKeyUid() <= 0)
 				{
-					Globals.RtEngine.CastTo<IRtEngine>().GetWanderingMonster();
+					Globals.Engine.GetWanderingMonster();
 				}
 			}
 

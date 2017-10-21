@@ -25,13 +25,13 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (DobjArtifact.Uid == 61)
 			{
-				Globals.RtEngine.RemoveWeight(DobjArtifact);
+				Globals.Engine.RemoveWeight(DobjArtifact);
 
 				DobjArtifact.SetInRoom(ActorRoom);
 
 				ActorMonster.SetInRoomUid(58);
 
-				Globals.RtEngine.CheckEnemies();
+				Globals.Engine.CheckEnemies();
 
 				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
 

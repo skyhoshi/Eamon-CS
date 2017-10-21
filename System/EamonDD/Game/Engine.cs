@@ -1,5 +1,5 @@
 ﻿
-// DdEngine.cs
+// Engine.cs
 
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
@@ -10,8 +10,8 @@ using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game
 {
-	[ClassMappings]
-	public class DdEngine : IDdEngine
+	[ClassMappings(typeof(Eamon.Framework.IEngine))]
+	public class Engine : Eamon.Game.Engine, IEngine
 	{
 		public virtual bool IsAdventureFilesetLoaded()
 		{
@@ -25,7 +25,7 @@ namespace EamonDD.Game
 			}
 		}
 
-		public virtual void ProcessArgv(bool secondPass, ref bool ddfnFlag, ref bool nlFlag)
+		public virtual void DdProcessArgv(bool secondPass, ref bool ddfnFlag, ref bool nlFlag)
 		{
 			long i;
 

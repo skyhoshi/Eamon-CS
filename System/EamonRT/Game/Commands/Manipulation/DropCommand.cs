@@ -41,7 +41,7 @@ namespace EamonRT.Game.Commands
 
 				if ((DropAll || lsArtifact == DobjArtifact) && lsArtifact.IsCarriedByCharacter())
 				{
-					Globals.RtEngine.LightOut(lsArtifact);
+					Globals.Engine.LightOut(lsArtifact);
 				}
 			}
 
@@ -51,7 +51,7 @@ namespace EamonRT.Game.Commands
 			{
 				foreach (var artifact in artifactList)
 				{
-					Globals.RtEngine.RemoveWeight(artifact);
+					Globals.Engine.RemoveWeight(artifact);
 
 					artifact.SetInRoom(ActorRoom);
 

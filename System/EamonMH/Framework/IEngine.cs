@@ -47,6 +47,6 @@ namespace EamonMH.Framework
 
 		Classes.IArmor GetArmorByMarcosNum(long marcosNum);
 
-		void ProcessArgv(bool secondPass, ref bool nlFlag);
+		void MhProcessArgv(bool secondPass, ref bool nlFlag);
 	};
 }

@@ -49,7 +49,7 @@ namespace EamonRT.Game.Commands
 
 				if (DobjArtifact.IsDisguisedMonster())
 				{
-					Globals.RtEngine.RevealDisguisedMonster(DobjArtifact);
+					Globals.Engine.RevealDisguisedMonster(DobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 

@@ -7,6 +7,8 @@ namespace TheTempleOfNgurct.Framework.Plugin
 {
 	public interface IPluginGlobals : EamonRT.Framework.Plugin.IPluginGlobals
 	{
+		new IEngine Engine { get; set; }
+
 		bool FireDamage { get; set; }
 	}
 }

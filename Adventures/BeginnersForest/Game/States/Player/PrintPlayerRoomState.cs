@@ -46,7 +46,7 @@ namespace BeginnersForest.Game.States
 
 						gameState.SpookCounter++;
 
-						Globals.RtEngine.CheckEnemies();
+						Globals.Engine.CheckEnemies();
 					}
 				}
 			}

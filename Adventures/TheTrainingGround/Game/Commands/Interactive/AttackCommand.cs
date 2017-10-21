@@ -27,7 +27,7 @@ namespace TheTrainingGround.Game.Commands
 
 					DobjMonster.SetInLimbo();
 
-					Globals.RtEngine.CheckEnemies();
+					Globals.Engine.CheckEnemies();
 
 					NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
 				}

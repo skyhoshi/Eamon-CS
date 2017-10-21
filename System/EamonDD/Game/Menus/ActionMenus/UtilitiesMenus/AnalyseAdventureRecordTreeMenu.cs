@@ -98,7 +98,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Globals.Engine.PrintTitle("ANALYSE ADVENTURE RECORD TREE", true);
 
-			Debug.Assert(Globals.DdEngine.IsAdventureFilesetLoaded());
+			Debug.Assert(Globals.Engine.IsAdventureFilesetLoaded());
 
 			RecordTreeStrings.Clear();
 

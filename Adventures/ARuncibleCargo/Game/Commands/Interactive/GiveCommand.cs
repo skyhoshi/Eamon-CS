@@ -22,7 +22,7 @@ namespace ARuncibleCargo.Game.Commands
 
 			if ((IobjMonster.Uid == 38 || IobjMonster.Uid == 39) && DobjArtifact.Uid == 129)
 			{
-				Globals.RtEngine.RemoveWeight(DobjArtifact);
+				Globals.Engine.RemoveWeight(DobjArtifact);
 
 				DobjArtifact.SetCarriedByMonsterUid(38);
 
@@ -48,7 +48,7 @@ namespace ARuncibleCargo.Game.Commands
 
 			else if (IobjMonster.Uid == 36 && DobjArtifact.Uid == 130)
 			{
-				Globals.RtEngine.RemoveWeight(DobjArtifact);
+				Globals.Engine.RemoveWeight(DobjArtifact);
 
 				DobjArtifact.SetInLimbo();
 
@@ -56,7 +56,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				IobjMonster.OrigFriendliness = (Enums.Friendliness)200;
 
-				Globals.RtEngine.CheckEnemies();
+				Globals.Engine.CheckEnemies();
 
 				Globals.Engine.PrintEffectDesc(94);
 
@@ -67,7 +67,7 @@ namespace ARuncibleCargo.Game.Commands
 
 			else if (IobjMonster.Friendliness < Enums.Friendliness.Friend)
 			{
-				Globals.RtEngine.MonsterSmiles(IobjMonster);
+				Globals.Engine.MonsterSmiles(IobjMonster);
 
 				Globals.Out.WriteLine();
 
@@ -114,7 +114,7 @@ namespace ARuncibleCargo.Game.Commands
 
 			else if (IobjMonster.Friendliness < Enums.Friendliness.Friend)
 			{
-				Globals.RtEngine.MonsterSmiles(IobjMonster);
+				Globals.Engine.MonsterSmiles(IobjMonster);
 
 				Globals.Out.WriteLine();
 

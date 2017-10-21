@@ -6,7 +6,6 @@
 using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Menus;
-using EamonMH.Framework;
 using EamonMH.Framework.Menus;
 
 namespace EamonMH.Framework.Plugin

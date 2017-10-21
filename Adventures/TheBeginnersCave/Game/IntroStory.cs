@@ -19,7 +19,7 @@ namespace TheBeginnersCave.Game
 		{
 			Globals.Engine.PrintEffectDesc(8);
 
-			var room = Globals.RDB[Globals.RtEngine.StartRoom];
+			var room = Globals.RDB[Globals.Engine.StartRoom];
 
 			Debug.Assert(room != null);
 

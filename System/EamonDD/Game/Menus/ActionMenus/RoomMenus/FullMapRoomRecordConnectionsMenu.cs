@@ -27,7 +27,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Globals.Engine.PrintTitle("FULL MAP ROOM RECORD CONNECTIONS", true);
 
-			if (Globals.DdEngine.IsAdventureFilesetLoaded())
+			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
 				Globals.Out.WriteLine("{0}A map of: {1}",
 					Environment.NewLine,

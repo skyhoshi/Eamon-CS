@@ -106,7 +106,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						monster.SetInRoom(ActorRoom);
 
-						Globals.RtEngine.CheckEnemies();
+						Globals.Engine.CheckEnemies();
 
 						Globals.Engine.PrintEffectDesc(1);
 

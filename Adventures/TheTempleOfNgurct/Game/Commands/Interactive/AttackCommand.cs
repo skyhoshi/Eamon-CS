@@ -30,7 +30,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				if (DobjArtifact != null && DobjArtifact.Uid == 50)
 				{
-					Globals.RtEngine.PrintMonsterAlive(DobjArtifact);
+					Globals.Engine.PrintMonsterAlive(DobjArtifact);
 
 					DobjArtifact.SetInLimbo();
 
@@ -40,7 +40,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					ngurctMonster.SetInRoom(ActorRoom);
 
-					Globals.RtEngine.CheckEnemies();
+					Globals.Engine.CheckEnemies();
 
 					var command = Globals.CreateInstance<EamonRT.Framework.Commands.IAttackCommand>(x =>
 					{
@@ -88,7 +88,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					Globals.Out.WriteLine("{0}The {1} is filled with an incandescent fireball!", Environment.NewLine, ActorRoom.EvalRoomType("room", "area"));
 
-					var monsters = Globals.RtEngine.GetRandomMonsterList(9, m => !m.IsCharacterMonster() && m.Uid != DobjMonster.Uid && m.Seen && m.IsInRoom(ActorRoom));
+					var monsters = Globals.Engine.GetRandomMonsterList(9, m => !m.IsCharacterMonster() && m.Uid != DobjMonster.Uid && m.Seen && m.IsInRoom(ActorRoom));
 
 					Debug.Assert(monsters != null);
 
@@ -109,7 +109,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 						var savedVsFire = (m.Hardiness / 4) > 4 && rl < 51;
 
-						Globals.RtEngine.MonsterGetsAggravated(m);
+						Globals.Engine.MonsterGetsAggravated(m);
 
 						var combatSystem = Globals.CreateInstance<EamonRT.Framework.Combat.ICombatSystem>(x =>
 						{

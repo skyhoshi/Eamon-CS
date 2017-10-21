@@ -43,7 +43,7 @@ namespace EamonRT.Game.States
 					}
 					else
 					{
-						Globals.RtEngine.LightOut(artifact);
+						Globals.Engine.LightOut(artifact);
 					}
 				}
 			}

@@ -5,8 +5,8 @@
 
 namespace StrongholdOfKahrDur.Framework
 {
-	public interface IEngine : Eamon.Framework.IEngine
+	public interface IEngine : EamonRT.Framework.IEngine
 	{
-
+		bool SpellReagentsInCauldron(Eamon.Framework.IArtifact artifact);
 	}
 }

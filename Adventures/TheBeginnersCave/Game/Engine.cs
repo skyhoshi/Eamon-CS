@@ -1,5 +1,5 @@
 ﻿
-// RtEngine.cs
+// Engine.cs
 
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
@@ -9,14 +9,13 @@ using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using TheBeginnersCave.Framework;
 using Classes = Eamon.Framework.Primitive.Classes;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game
 {
-	[ClassMappings(typeof(EamonRT.Framework.IRtEngine))]
-	public class RtEngine : EamonRT.Game.RtEngine, IRtEngine
+	[ClassMappings(typeof(Eamon.Framework.IEngine))]
+	public class Engine : EamonRT.Game.Engine, Framework.IEngine
 	{
 		protected virtual long HeldWpnIdx { get; set; }
 

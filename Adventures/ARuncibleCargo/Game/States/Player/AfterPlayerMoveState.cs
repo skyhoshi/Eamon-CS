@@ -40,7 +40,7 @@ namespace ARuncibleCargo.Game.States
 
 			if (oldRoom != null && oldRoom.IsWaterRoom() && newRoom != null && newRoom.IsWaterRoom())
 			{
-				Globals.RtEngine.TransportRoomContentsBetweenRooms(oldRoom, newRoom, false);
+				Globals.Engine.TransportRoomContentsBetweenRooms(oldRoom, newRoom, false);
 			}
 
 			// Out the Window of Ill Repute

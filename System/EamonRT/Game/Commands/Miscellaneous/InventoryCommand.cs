@@ -92,7 +92,7 @@ namespace EamonRT.Game.Commands
 
 				if (!isCharMonster && DobjMonster.Friendliness < Enums.Friendliness.Friend)
 				{
-					Globals.RtEngine.MonsterSmiles(DobjMonster);
+					Globals.Engine.MonsterSmiles(DobjMonster);
 
 					Globals.Out.WriteLine();
 

@@ -17,7 +17,7 @@ namespace TheTempleOfNgurct.Game.States
 	{
 		protected virtual IList<Eamon.Framework.IMonster> GetTrapMonsterList(long numMonsters, long roomUid)
 		{
-			var monsters = Globals.RtEngine.GetRandomMonsterList(numMonsters, m => m.IsCharacterMonster() || (m.Seen && m.IsInRoomUid(roomUid)));
+			var monsters = Globals.Engine.GetRandomMonsterList(numMonsters, m => m.IsCharacterMonster() || (m.Seen && m.IsInRoomUid(roomUid)));
 
 			Debug.Assert(monsters != null);
 

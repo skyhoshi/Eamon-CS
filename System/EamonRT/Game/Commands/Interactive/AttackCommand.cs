@@ -71,7 +71,7 @@ namespace EamonRT.Game.Commands
 
 					if (ac.Type == Enums.ArtifactType.DisguisedMonster)
 					{
-						Globals.RtEngine.RevealDisguisedMonster(DobjArtifact);
+						Globals.Engine.RevealDisguisedMonster(DobjArtifact);
 
 						var monster = Globals.MDB[ac.Field5];
 
@@ -252,7 +252,7 @@ namespace EamonRT.Game.Commands
 
 					CheckAttack = true;
 
-					Globals.RtEngine.MonsterGetsAggravated(DobjMonster);
+					Globals.Engine.MonsterGetsAggravated(DobjMonster);
 				}
 
 				var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>

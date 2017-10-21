@@ -1,17 +1,16 @@
 ﻿
-// RtEngine.cs
+// Engine.cs
 
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTrainingGround.Framework;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game
 {
-	[ClassMappings(typeof(EamonRT.Framework.IRtEngine))]
-	public class RtEngine : EamonRT.Game.RtEngine, IRtEngine
+	[ClassMappings(typeof(Eamon.Framework.IEngine))]
+	public class Engine : EamonRT.Game.Engine, Framework.IEngine
 	{
 		public override void AddPoundCharsToArtifactNames()
 		{

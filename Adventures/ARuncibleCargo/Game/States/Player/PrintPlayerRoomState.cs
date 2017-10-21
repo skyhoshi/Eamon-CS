@@ -102,7 +102,7 @@ namespace ARuncibleCargo.Game.States
 
 					monster.SetInRoom(room);
 
-					Globals.RtEngine.CheckEnemies();
+					Globals.Engine.CheckEnemies();
 
 					Globals.Engine.PrintEffectDesc(7);
 				}
@@ -184,7 +184,7 @@ namespace ARuncibleCargo.Game.States
 				{
 					if ((artifact.IsInRoom(room) || artifact.IsCarriedByCharacter()) && monster01.IsInRoom(room))
 					{
-						Globals.RtEngine.RemoveWeight(artifact);
+						Globals.Engine.RemoveWeight(artifact);
 
 						artifact.SetCarriedByMonster(monster01);
 
@@ -194,7 +194,7 @@ namespace ARuncibleCargo.Game.States
 
 						monster01.OrigFriendliness = (Enums.Friendliness)100;
 
-						Globals.RtEngine.CheckEnemies();
+						Globals.Engine.CheckEnemies();
 					}
 				}
 

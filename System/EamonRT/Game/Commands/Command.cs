@@ -592,7 +592,7 @@ namespace EamonRT.Game.Commands
 
 					if (CommandParser.ObjData.RevealEmbeddedArtifactFunc == null)
 					{
-						CommandParser.ObjData.RevealEmbeddedArtifactFunc = Globals.RtEngine.RevealEmbeddedArtifact;
+						CommandParser.ObjData.RevealEmbeddedArtifactFunc = Globals.Engine.RevealEmbeddedArtifact;
 					}
 
 					if (CommandParser.ObjData.GetArtifactListFunc == null)
@@ -602,7 +602,7 @@ namespace EamonRT.Game.Commands
 
 					if (CommandParser.ObjData.FilterArtifactListFunc == null)
 					{
-						CommandParser.ObjData.FilterArtifactListFunc = Globals.RtEngine.FilterArtifactList;
+						CommandParser.ObjData.FilterArtifactListFunc = Globals.Engine.FilterArtifactList;
 					}
 
 					if (CommandParser.ObjData.ArtifactMatchFunc == null)
@@ -677,7 +677,7 @@ namespace EamonRT.Game.Commands
 
 					if (CommandParser.ObjData.FilterMonsterListFunc == null)
 					{
-						CommandParser.ObjData.FilterMonsterListFunc = Globals.RtEngine.FilterMonsterList;
+						CommandParser.ObjData.FilterMonsterListFunc = Globals.Engine.FilterMonsterList;
 					}
 
 					if (CommandParser.ObjData.MonsterMatchFunc == null)

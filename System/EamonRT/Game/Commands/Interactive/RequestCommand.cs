@@ -30,7 +30,7 @@ namespace EamonRT.Game.Commands
 
 			if (IobjMonster.Friendliness < Enums.Friendliness.Friend)
 			{
-				Globals.RtEngine.MonsterSmiles(IobjMonster);
+				Globals.Engine.MonsterSmiles(IobjMonster);
 
 				Globals.Out.WriteLine();
 

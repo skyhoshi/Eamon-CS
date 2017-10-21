@@ -46,7 +46,7 @@ namespace ARuncibleCargo.Game.Commands
 
 			Debug.Assert(effect != null);
 
-			Globals.RtEngine.TransportPlayerBetweenRooms(ActorRoom, newRoom, effect);
+			Globals.Engine.TransportPlayerBetweenRooms(ActorRoom, newRoom, effect);
 
 			NextState = Globals.CreateInstance<EamonRT.Framework.States.IAfterPlayerMoveState>();
 

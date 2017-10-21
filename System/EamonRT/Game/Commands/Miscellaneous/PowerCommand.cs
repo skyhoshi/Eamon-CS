@@ -48,7 +48,7 @@ namespace EamonRT.Game.Commands
 			{
 				// Raise the dead / Make stuff vanish
 
-				if (Globals.RtEngine.ResurrectDeadBodies() || Globals.RtEngine.MakeArtifactsVanish())
+				if (Globals.Engine.ResurrectDeadBodies() || Globals.Engine.MakeArtifactsVanish())
 				{
 					goto Cleanup;
 				}
@@ -82,7 +82,7 @@ namespace EamonRT.Game.Commands
 
 					ActorMonster.DmgTaken = 0;
 
-					Globals.RtEngine.CheckEnemies();
+					Globals.Engine.CheckEnemies();
 				}
 
 				// 10% chance of SPEED spell
@@ -123,7 +123,7 @@ namespace EamonRT.Game.Commands
 
 		protected override void PlayerExecute()
 		{
-			if (CastSpell && !Globals.RtEngine.CheckPlayerSpellCast(Enums.Spell.Power, true))
+			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Power, true))
 			{
 				goto Cleanup;
 			}

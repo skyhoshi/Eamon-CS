@@ -31,7 +31,7 @@ namespace TheTrainingGround.Game.Commands
 					monster.Field1 = 1;
 				}
 
-				Globals.RtEngine.CheckEnemies();
+				Globals.Engine.CheckEnemies();
 
 				Globals.Engine.PrintEffectDesc(32);
 

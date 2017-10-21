@@ -274,7 +274,7 @@ namespace EamonRT.Game.Combat
 
 			Af = Globals.Engine.GetArmorFactor(Globals.GameState.Ar, Globals.GameState.Sh);
 
-			Globals.RtEngine.GetOddsToHit(OfMonster, DfMonster, OfAc, Af, ref _odds);
+			Globals.Engine.GetOddsToHit(OfMonster, DfMonster, OfAc, Af, ref _odds);
 
 			if (FixedResult != RTEnums.AttackResult.None)
 			{
@@ -314,7 +314,7 @@ namespace EamonRT.Game.Combat
 
 			if (OfMonster.IsCharacterMonster() && _rl < 97 && (_rl < 5 || _rl <= _odds) && !OmitSkillGains)
 			{
-				Globals.RtEngine.CheckPlayerSkillIncrease(OfAc, Af);
+				Globals.Engine.CheckPlayerSkillIncrease(OfAc, Af);
 			}
 
 			OfWeaponType = (Enums.Weapon)(OfAc != null ? OfAc.Field6 : 0);
@@ -380,7 +380,7 @@ namespace EamonRT.Game.Combat
 
 			if ((Globals.IsRulesetVersion(5) && _rl < 76) || (!Globals.IsRulesetVersion(5) && _rl < 81))
 			{
-				Globals.RtEngine.RemoveWeight(OfWeapon);
+				Globals.Engine.RemoveWeight(OfWeapon);
 
 				if (Globals.GameState.Ls > 0 && Globals.GameState.Ls == OfWeaponUid)
 				{
@@ -442,7 +442,7 @@ namespace EamonRT.Game.Combat
 
 			PrintWeaponBroken();
 
-			Globals.RtEngine.RemoveWeight(OfWeapon);
+			Globals.Engine.RemoveWeight(OfWeapon);
 
 			if (Globals.GameState.Ls > 0 && Globals.GameState.Ls == OfWeaponUid)
 			{
@@ -671,7 +671,7 @@ namespace EamonRT.Game.Combat
 				}
 				else
 				{
-					Globals.RtEngine.MonsterDies(OfMonster, DfMonster);
+					Globals.Engine.MonsterDies(OfMonster, DfMonster);
 				}
 			}
 
@@ -749,7 +749,7 @@ namespace EamonRT.Game.Combat
 
 			if (LightOut && OfWeapon != null)
 			{
-				Globals.RtEngine.LightOut(OfWeapon);
+				Globals.Engine.LightOut(OfWeapon);
 			}
 		}
 

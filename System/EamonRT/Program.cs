@@ -123,7 +123,7 @@ namespace EamonRT
 
 			// process command line args
 
-			Globals.DdEngine.ProcessArgv(false, ref _ddfnFlag, ref _nlFlag);
+			Globals.Engine.DdProcessArgv(false, ref _ddfnFlag, ref _nlFlag);
 
 			// initialize Config record
 
@@ -305,7 +305,7 @@ namespace EamonRT
 
 			// process command line args
 
-			Globals.DdEngine.ProcessArgv(true, ref _ddfnFlag, ref _nlFlag);
+			Globals.Engine.DdProcessArgv(true, ref _ddfnFlag, ref _nlFlag);
 
 			if (_nlFlag)
 			{
@@ -733,7 +733,7 @@ namespace EamonRT
 
 			// process command line args
 
-			Globals.RtEngine.ProcessArgv(false, ref _nlFlag);
+			Globals.Engine.RtProcessArgv(false, ref _nlFlag);
 
 			// assign default work directory, if necessary
 
@@ -935,7 +935,7 @@ namespace EamonRT
 
 			// process command line args
 
-			Globals.RtEngine.ProcessArgv(true, ref _nlFlag);
+			Globals.Engine.RtProcessArgv(true, ref _nlFlag);
 
 			if (_nlFlag)
 			{
@@ -1041,7 +1041,7 @@ namespace EamonRT
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 				}
 
-				var room = Globals.RDB[Globals.RtEngine.StartRoom];
+				var room = Globals.RDB[Globals.Engine.StartRoom];
 
 				if (room == null)
 				{

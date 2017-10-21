@@ -84,7 +84,7 @@ namespace EamonRT.Game.Commands
 
 					Debug.Assert(lsArtifact != null && lsArtifact.IsLightSource());
 
-					Globals.RtEngine.LightOut(lsArtifact);
+					Globals.Engine.LightOut(lsArtifact);
 				}
 
 				rc = DobjArtifact.AddStateDesc(Globals.Engine.ProvidingLightDesc);

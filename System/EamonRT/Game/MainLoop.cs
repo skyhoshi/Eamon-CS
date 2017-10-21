@@ -28,9 +28,9 @@ namespace EamonRT.Game
 
 		public virtual void Startup()
 		{
-			Globals.RtEngine.InitWtValueAndEnforceLimits();
+			Globals.Engine.InitWtValueAndEnforceLimits();
 
-			var monster = Globals.RtEngine.ConvertCharacterToMonster();
+			var monster = Globals.Engine.ConvertCharacterToMonster();
 
 			Debug.Assert(monster != null);
 
@@ -38,48 +38,48 @@ namespace EamonRT.Game
 
 			Debug.Assert(Globals.GameState.Cm > 0);
 
-			Globals.RtEngine.AddPoundCharsToArtifactNames();
+			Globals.Engine.AddPoundCharsToArtifactNames();
 
-			Globals.RtEngine.AddMissingDescs();
+			Globals.Engine.AddMissingDescs();
 
-			Globals.GameState.Ro = Globals.RtEngine.StartRoom;
+			Globals.GameState.Ro = Globals.Engine.StartRoom;
 
-			Globals.GameState.R2 = Globals.RtEngine.StartRoom;
+			Globals.GameState.R2 = Globals.Engine.StartRoom;
 
-			Globals.GameState.R3 = Globals.RtEngine.StartRoom;
+			Globals.GameState.R3 = Globals.Engine.StartRoom;
 
-			Globals.RtEngine.InitSaArray();
+			Globals.Engine.InitSaArray();
 
-			Globals.RtEngine.CreateCommands();
+			Globals.Engine.CreateCommands();
 
-			Globals.RtEngine.InitArtifacts();
+			Globals.Engine.InitArtifacts();
 
-			Globals.RtEngine.InitMonsters();
+			Globals.Engine.InitMonsters();
 
 			Globals.Module.NumArtifacts = Globals.Database.GetArtifactsCount();
 
 			Globals.Module.NumMonsters = Globals.Database.GetMonstersCount();
 
-			Globals.RtEngine.CreateInitialState(false);
+			Globals.Engine.CreateInitialState(false);
 		}
 
 		public virtual void Shutdown()
 		{
 			var weaponList = new List<IArtifact>();
 
-			Globals.RtEngine.SetArmorClass();
+			Globals.Engine.SetArmorClass();
 
-			Globals.RtEngine.ConvertToCarriedInventory(weaponList);
+			Globals.Engine.ConvertToCarriedInventory(weaponList);
 
-			Globals.RtEngine.SellExcessWeapons(weaponList);
+			Globals.Engine.SellExcessWeapons(weaponList);
 
 			var monster = Globals.MDB[Globals.GameState.Cm];
 
 			Debug.Assert(monster != null);
 
-			Globals.RtEngine.ConvertMonsterToCharacter(monster, weaponList);
+			Globals.Engine.ConvertMonsterToCharacter(monster, weaponList);
 
-			Globals.RtEngine.SellInventoryToMerchant();
+			Globals.Engine.SellInventoryToMerchant();
 		}
 
 		public virtual void Execute()

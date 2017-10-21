@@ -26,7 +26,7 @@ namespace EamonRT.Game.Commands
 				{
 					monster.ResolveFriendlinessPct(Globals.Character);
 
-					Globals.RtEngine.MonsterSmiles(monster);
+					Globals.Engine.MonsterSmiles(monster);
 				}
 
 				Globals.Out.WriteLine();

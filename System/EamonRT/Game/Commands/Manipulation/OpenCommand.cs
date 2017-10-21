@@ -67,7 +67,7 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Type == Enums.ArtifactType.DisguisedMonster)
 				{
-					Globals.RtEngine.RevealDisguisedMonster(DobjArtifact);
+					Globals.Engine.RevealDisguisedMonster(DobjArtifact);
 
 					goto Cleanup;
 				}

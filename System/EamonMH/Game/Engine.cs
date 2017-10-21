@@ -198,7 +198,7 @@ namespace EamonMH.Game
 			return rc;
 		}
 
-		public virtual void ProcessArgv(bool secondPass, ref bool nlFlag)
+		public virtual void MhProcessArgv(bool secondPass, ref bool nlFlag)
 		{
 			long i;
 

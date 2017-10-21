@@ -22,9 +22,9 @@ namespace EamonRT.Game.States
 
 			if (monster.Location == Globals.GameState.Ro)
 			{
-				if (Globals.RtEngine.CheckNBTLHostility(monster))
+				if (Globals.Engine.CheckNBTLHostility(monster))
 				{
-					if (monster.CanMoveToRoom(true) && !Globals.RtEngine.CheckCourage(monster))
+					if (monster.CanMoveToRoom(true) && !Globals.Engine.CheckCourage(monster))
 					{
 						NextState = Globals.CreateInstance<IMonsterFleesRoomState>();
 
@@ -43,7 +43,7 @@ namespace EamonRT.Game.States
 					{
 						NextState = Globals.CreateInstance<IMonsterReadiesWeaponState>(x =>
 						{
-							x.ArtifactList = Globals.RtEngine.GetReadyableWeaponList(monster);
+							x.ArtifactList = Globals.Engine.GetReadyableWeaponList(monster);
 						});
 
 						goto Cleanup;
