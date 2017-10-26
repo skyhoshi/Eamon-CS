@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Eamon.Framework;
 using Eamon.Framework.DataStorage;
 using Eamon.Framework.DataStorage.Generic;
@@ -257,6 +258,19 @@ namespace Eamon.Game.Plugin
 
 		public virtual IRecordDb<IGameState> GSDB { get; set; }
 
+		protected virtual void RestoreRecords(IList<IGameBase> records)
+		{
+			// Note: may want to be really rigorous here and also validate records
+
+			if (records != null)
+			{
+				foreach (var r in records)
+				{
+					r.SetParentReferences();
+				}
+			}
+		}
+
 		public virtual void HandleException(Exception ex, string stackTraceFile, string errorMessage)
 		{
 			ClassMappings.HandleException(ex, stackTraceFile, errorMessage);
@@ -436,33 +450,25 @@ namespace Eamon.Game.Plugin
 				goto Cleanup;
 			}
 
-			// 
-			// Note: may want to be really rigorous here; loop through all records in each table and:
-			// 
-			// 	(1) Validate record
-			// 
-			// 	(2) Call SetParentReferences
-			// 
+			RestoreRecords(database?.ConfigTable?.Records?.Cast<IGameBase>().ToList());
 
-			var characters = database?.CharacterTable?.Records;
+			RestoreRecords(database?.FilesetTable?.Records?.Cast<IGameBase>().ToList());
 
-			if (characters != null)
-			{
-				foreach (var c in characters)
-				{
-					c.SetParentReferences();
-				}
-			}
+			RestoreRecords(database?.CharacterTable?.Records?.Cast<IGameBase>().ToList());
 
-			var artifacts = database?.ArtifactTable?.Records;
+			RestoreRecords(database?.ModuleTable?.Records?.Cast<IGameBase>().ToList());
 
-			if (artifacts != null)
-			{
-				foreach (var a in artifacts)
-				{
-					a.SetParentReferences();
-				}
-			}
+			RestoreRecords(database?.RoomTable?.Records?.Cast<IGameBase>().ToList());
+
+			RestoreRecords(database?.ArtifactTable?.Records?.Cast<IGameBase>().ToList());
+
+			RestoreRecords(database?.EffectTable?.Records?.Cast<IGameBase>().ToList());
+
+			RestoreRecords(database?.MonsterTable?.Records?.Cast<IGameBase>().ToList());
+
+			RestoreRecords(database?.HintTable?.Records?.Cast<IGameBase>().ToList());
+
+			RestoreRecords(database?.GameStateTable?.Records?.Cast<IGameBase>().ToList());
 
 			Databases[++DbStackTop] = database;
 
