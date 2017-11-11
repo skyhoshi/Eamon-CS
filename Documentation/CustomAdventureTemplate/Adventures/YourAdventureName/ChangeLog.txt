@@ -5,4 +5,4 @@ ChangeLog: YourAdventureName
 
 Date			Version			Who			Notes
 ----------------------------------------------------------------------------------------------------------------------------------
-2017XXXX		1.3.0			YourAuthorInitials	Code complete 1.3.0
+2017XXXX		1.3.0				YourAuthorInitials			Code complete 1.3.0

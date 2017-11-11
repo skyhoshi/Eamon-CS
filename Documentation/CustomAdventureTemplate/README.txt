@@ -30,3 +30,5 @@
 8.  Compile the entire solution - you should now have an adventure .dll file in the System\Bin directory
 
 9.  You can now edit your adventure using EamonDD and play it using EamonMH
+
+	a. The adventure requires one Module record and at least one Room record to be playable

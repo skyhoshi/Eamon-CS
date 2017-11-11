@@ -382,7 +382,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="9" />
-            <Simple name="Agility" value="25" />
+            <Simple name="Agility" value="9" />
             <Simple name="GroupCount" value="1" />
             <Simple name="Courage" value="30" />
             <Simple name="Location" value="0" />
@@ -844,7 +844,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="16" />
-            <Simple name="Agility" value="37" />
+            <Simple name="Agility" value="24" />
             <Simple name="GroupCount" value="1" />
             <Simple name="Courage" value="100" />
             <Simple name="Location" value="0" />
@@ -877,7 +877,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="18" />
-            <Simple name="Agility" value="20" />
+            <Simple name="Agility" value="14" />
             <Simple name="GroupCount" value="1" />
             <Simple name="Courage" value="80" />
             <Simple name="Location" value="55" />
@@ -1042,7 +1042,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="9" />
-            <Simple name="Agility" value="10" />
+            <Simple name="Agility" value="15" />
             <Simple name="GroupCount" value="1" />
             <Simple name="Courage" value="50" />
             <Simple name="Location" value="42" />
@@ -1108,7 +1108,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="30" />
-            <Simple name="Agility" value="33" />
+            <Simple name="Agility" value="24" />
             <Simple name="GroupCount" value="1" />
             <Simple name="Courage" value="100" />
             <Simple name="Location" value="48" />
@@ -1570,7 +1570,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="25" />
-            <Simple name="Agility" value="20" />
+            <Simple name="Agility" value="15" />
             <Simple name="GroupCount" value="1" />
             <Simple name="Courage" value="100" />
             <Simple name="Location" value="48" />
@@ -1768,7 +1768,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="12" />
-            <Simple name="Agility" value="12" />
+            <Simple name="Agility" value="24" />
             <Simple name="GroupCount" value="1" />
             <Simple name="Courage" value="35" />
             <Simple name="Location" value="0" />
