@@ -40,13 +40,18 @@ namespace TheBeginnersCave.Game
 				}
 			});
 
-			CreateArtifactSynonyms(3, "label", "strange potion", "potion", "bottle");
+			var synonyms = new Dictionary<long, string[]>()
+			{
+				{ 3, new string[] { "label", "strange potion", "potion", "bottle" } },
+				{ 14, new string[] { "east wall", "wall", "smooth shape", "shape", "secret door", "door", "passage", "tunnel" } },
+				{ 15, new string[] { "water", "sea water", "ocean water" } },
+				{ 24, new string[] { "broken old boat", "old broken boat", "broken boat", "old boat" } },
+			};
 
-			CreateArtifactSynonyms(14, "east wall", "wall", "smooth shape", "shape", "secret door", "door", "passage", "tunnel");
-
-			CreateArtifactSynonyms(15, "water", "sea water", "ocean water");
-
-			CreateArtifactSynonyms(24, "broken old boat", "old broken boat", "broken boat", "old boat");
+			foreach (var synonym in synonyms)
+			{
+				CreateArtifactSynonyms(synonym.Key, synonym.Value);
+			}
 		}
 
 		public override void InitMonsters()

@@ -318,7 +318,7 @@ namespace Eamon.Game
 
 		public virtual bool IsEmbeddedInRoom()
 		{
-			return Location > 2000;
+			return Location > 2000 && Location < 3001;
 		}
 
 		public virtual bool IsInLimbo()

@@ -3,6 +3,7 @@
 
 // Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
 
+using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using static TheTrainingGround.Game.Plugin.PluginContext;
@@ -56,11 +57,22 @@ namespace TheTrainingGround.Game
 		{
 			base.InitArtifacts();
 
-			// Graffiti
+			var wallValues = new string[] { "walls", "wall", "writing", "writings", "marks", "markings" };
 
-			for (var i = 46; i <= 50; i++)
+			var synonyms = new Dictionary<long, string[]>()
 			{
-				CreateArtifactSynonyms(i, "walls", "wall", "writing", "writings", "marks", "markings");
+				// Graffiti
+
+				{ 46, wallValues },
+				{ 47, wallValues },
+				{ 48, wallValues },
+				{ 49, wallValues },
+				{ 50, wallValues },
+			};
+
+			foreach (var synonym in synonyms)
+			{
+				CreateArtifactSynonyms(synonym.Key, synonym.Value);
 			}
 		}
 

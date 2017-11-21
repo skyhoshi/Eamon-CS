@@ -55,42 +55,37 @@ namespace StrongholdOfKahrDur.Game
 		{
 			base.InitArtifacts();
 
-			var artUids = new long[]
+			var synonyms = new Dictionary<long, string[]>()
 			{
-				2, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
+				{ 2, new string[] { "glasses" } },
+				{ 4, new string[] { "door" } },
+				{ 5, new string[] { "potion" } },
+				{ 7, new string[] { "east gate", "east door", "portcullis", "gate", "door" } },
+				{ 8, new string[] { "west gate", "west door", "portcullis", "gate", "door" } },
+				{ 9, new string[] { "whitestone", "karamir" } },
+				{ 10, new string[] { "door" } },
+				{ 11, new string[] { "shelf" } },
+				{ 12, new string[] { "gemstones", "stones" } },
+				{ 13, new string[] { "coins" } },
+				{ 14, new string[] { "boots", "levitation" } },
+				{ 15, new string[] { "pouch" } },
+				{ 16, new string[] { "key" } },
+				{ 17, new string[] { "door" } },
+				{ 18, new string[] { "amulet", "courage" } },
+				{ 19, new string[] { "phial", "dragon", "spice" } },
+				{ 20, new string[] { "weed" } },
+				{ 21, new string[] { "stone" } },
+				{ 22, new string[] { "powder" } },
+				{ 23, new string[] { "scroll" } },
+				{ 24, new string[] { "kettle", "pot" } },
+				{ 25, new string[] { "wizard's helmet", "wizard helm", "wizard helmet", "helmet" } },
+				{ 26, new string[] { "mirabelle", "niece", "woman", "girl" } },
+				{ 27, new string[] { "sword" } },
 			};
 
-			var synonyms = new List<string[]>()
+			foreach (var synonym in synonyms)
 			{
-				new string[] { "glasses" },
-				new string[] { "door" },
-				new string[] { "potion" },
-				new string[] { "east gate", "east door", "portcullis", "gate", "door" },
-				new string[] { "west gate", "west door", "portcullis", "gate", "door" },
-				new string[] { "whitestone", "karamir" },
-				new string[] { "door" },
-				new string[] { "shelf" },
-				new string[] { "gemstones", "stones" },
-				new string[] { "coins" },
-				new string[] { "boots", "levitation" },
-				new string[] { "pouch" },
-				new string[] { "key" },
-				new string[] { "door" },
-				new string[] { "amulet", "courage" },
-				new string[] { "phial", "dragon", "spice" },
-				new string[] { "weed" },
-				new string[] { "stone" },
-				new string[] { "powder" },
-				new string[] { "scroll" },
-				new string[] { "kettle", "pot" },
-				new string[] { "wizard's helmet", "wizard helm", "wizard helmet", "helmet" },
-				new string[] { "mirabelle", "niece", "woman", "girl" },
-				new string[] { "sword" }
-			};
-
-			for (var i = 0; i < artUids.Length; i++)
-			{
-				CreateArtifactSynonyms(artUids[i], synonyms[i]);
+				CreateArtifactSynonyms(synonym.Key, synonym.Value);
 			}
 		}
 
@@ -98,40 +93,35 @@ namespace StrongholdOfKahrDur.Game
 		{
 			base.InitMonsters();
 
-			var monUids = new long[] 
+			var synonyms = new Dictionary<long, string[]>()
 			{
-				1, 2, 3, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 22, 23, 24, 25, 26
+				{ 1, new string[] { "guard" } },
+				{ 2, new string[] { "golem" } },
+				{ 3, new string[] { "golem" } },
+				{ 6, new string[] { "hydra" } },
+				{ 8, new string[] { "evil ent", "tree ent", "ent" } },
+				{ 9, new string[] { "evil ent", "tree ent", "ent" } },
+				{ 10, new string[] { "evil ent", "tree ent", "ent" } },
+				{ 11, new string[] { "guard" } },
+				{ 12, new string[] { "guard" } },
+				{ 13, new string[] { "guard" } },
+				{ 14, new string[] { "jelly", "blob" } },
+				{ 15, new string[] { "sharruk", "lich" } },
+				{ 16, new string[] { "guard" } },
+				{ 17, new string[] { "chieftain" } },
+				{ 18, new string[] { "soldier" } },
+				{ 19, new string[] { "scout" } },
+				{ 20, new string[] { "brother" } },
+				{ 22, new string[] { "wizard" } },
+				{ 23, new string[] { "demonic snake", "serpent", "snake" } },
+				{ 24, new string[] { "hound", "dog" } },
+				{ 25, new string[] { "demon" } },
+				{ 26, new string[] { "mirabelle", "niece", "girl" } },
 			};
 
-			var synonyms = new List<string[]>()
+			foreach (var synonym in synonyms)
 			{
-				new string[] { "guard" },
-				new string[] { "golem" },
-				new string[] { "golem" },
-				new string[] { "hydra" },
-				new string[] { "evil ent", "tree ent", "ent" },
-				new string[] { "evil ent", "tree ent", "ent" },
-				new string[] { "evil ent", "tree ent", "ent" },
-				new string[] { "guard" },
-				new string[] { "guard" },
-				new string[] { "guard" },
-				new string[] { "jelly", "blob" },
-				new string[] { "sharruk", "lich" },
-				new string[] { "guard" },
-				new string[] { "chieftain" },
-				new string[] { "soldier" },
-				new string[] { "scout" },
-				new string[] { "brother" },
-				new string[] { "wizard" },
-				new string[] { "demonic snake", "serpent", "snake" },
-				new string[] { "hound", "dog" },
-				new string[] { "demon" },
-				new string[] { "mirabelle", "niece", "girl" }
-			};
-
-			for (var i = 0; i < monUids.Length; i++)
-			{
-				CreateMonsterSynonyms(monUids[i], synonyms[i]);
+				CreateMonsterSynonyms(synonym.Key, synonym.Value);
 			}
 		}
 

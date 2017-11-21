@@ -104,31 +104,26 @@ namespace ARuncibleCargo.Game
 				}
 			});
 
-			var artUids = new long[]
+			var synonyms = new Dictionary<long, string[]>()
 			{
-				25, 37, 69, 73, 74, 78, 80, 89, 90, 95, 118, 129, 136, 
+				{ 25, new string[] { "lantern" } },
+				{ 37, new string[] { "bureau", "drawers" } },
+				{ 69, new string[] { "window" } },
+				{ 73, new string[] { "sign" } },
+				{ 74, new string[] { "window" } },
+				{ 78, new string[] { "refrigerator", "fridge" } },
+				{ 80, new string[] { "oven" } },
+				{ 89, new string[] { "sign" } },
+				{ 90, new string[] { "sign" } },
+				{ 95, new string[] { "lantern" } },
+				{ 118, new string[] { "desks" } },
+				{ 129, new string[] { "cargo" } },
+				{ 136, new string[] { "rear door", "shop door", "door" } },
 			};
 
-			var synonyms = new List<string[]>()
+			foreach (var synonym in synonyms)
 			{
-				new string[] { "lantern" },
-				new string[] { "bureau", "drawers" },
-				new string[] { "window" },
-				new string[] { "sign" },
-				new string[] { "window" },
-				new string[] { "refrigerator", "fridge" },
-				new string[] { "oven" },
-				new string[] { "sign" },
-				new string[] { "sign" },
-				new string[] { "lantern" },
-				new string[] { "desks" },
-				new string[] { "cargo" },
-				new string[] { "rear door", "shop door", "door" },
-			};
-
-			for (var i = 0; i < artUids.Length; i++)
-			{
-				CreateArtifactSynonyms(artUids[i], synonyms[i]);
+				CreateArtifactSynonyms(synonym.Key, synonym.Value);
 			}
 
 			// Signs (Sam's/weathered/supported/station)

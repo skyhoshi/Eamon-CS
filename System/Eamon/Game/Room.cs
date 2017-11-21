@@ -59,6 +59,16 @@ namespace Eamon.Game
 
 		#region Class Room
 
+		protected virtual bool IsDirectionInObviousExitsList(long index)
+		{
+			return true;
+		}
+
+		protected virtual bool IsDirectionInObviousExitsList(Enums.Direction dir)
+		{
+			return IsDirectionInObviousExitsList((long)dir);
+		}
+
 		protected virtual string GetObviousExits()
 		{
 			return string.Format("{0}Obvious {1}:  ", Environment.NewLine, EvalRoomType("exits", "paths"));
@@ -166,7 +176,7 @@ namespace Eamon.Game
 
 		public virtual bool IsDirectionDoor(Enums.Direction dir)
 		{
-			return GetDirs(dir) > 1000;
+			return GetDirs(dir) > 1000 && GetDirs(dir) < 2001;
 		}
 
 		public virtual bool IsDirectionSpecial(Enums.Direction dir, bool includeExit = true)
@@ -381,7 +391,7 @@ namespace Eamon.Game
 
 			foreach (var dv in directionValues)
 			{
-				if (IsDirectionRoom(dv) || IsDirectionExit(dv))
+				if ((IsDirectionRoom(dv) || IsDirectionExit(dv)) && IsDirectionInObviousExitsList(dv))
 				{
 					i++;
 				}
@@ -393,7 +403,7 @@ namespace Eamon.Game
 
 				foreach (var dv in directionValues)
 				{
-					if (IsDirectionRoom(dv) || IsDirectionExit(dv))
+					if ((IsDirectionRoom(dv) || IsDirectionExit(dv)) && IsDirectionInObviousExitsList(dv))
 					{
 						var direction = Globals.Engine.GetDirections(dv);
 

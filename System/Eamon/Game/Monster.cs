@@ -515,7 +515,10 @@ namespace Eamon.Game
 
 					var rl = Globals.Engine.RollDice01(1, 100, 0);
 
-					rl -= Globals.Engine.GetCharismaFactor(charisma);
+					if (f > 0 && f < 100)
+					{
+						rl -= Globals.Engine.GetCharismaFactor(charisma);
+					}
 
 					if (rl > f)
 					{
@@ -523,7 +526,10 @@ namespace Eamon.Game
 
 						rl = Globals.Engine.RollDice01(1, 100, 0);
 
-						rl -= Globals.Engine.GetCharismaFactor(charisma);
+						if (f > 0 && f < 100)
+						{
+							rl -= Globals.Engine.GetCharismaFactor(charisma);
+						}
 
 						if (rl > f)
 						{

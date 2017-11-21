@@ -45,17 +45,24 @@ namespace BeginnersForest.Game
 		{
 			base.InitArtifacts();
 
-			// Hidden bridge
+			var gateValues = new string[] { "green arch", "vine covered arch", "arch", "vines", "vine", "wrought iron gate", "gate", "words" };
 
-			CreateArtifactSynonyms(17, "giant green blanket", "green blanket", "giant blanket", "giant green", "blanket", "large shape", "shape");
+			var synonyms = new Dictionary<long, string[]>()
+			{
+				// Hidden bridge
 
-			// Entrance/exit gates
+				{ 17, new string[] { "giant green blanket", "green blanket", "giant blanket", "giant green", "blanket", "large shape", "shape" } },
 
-			var synonyms = new string[] { "green arch", "vine covered arch", "arch", "vines", "vine", "wrought iron gate", "gate", "words" };
+				// Entrance/exit gates
 
-			CreateArtifactSynonyms(19, synonyms);
+				{ 19, gateValues },
+				{ 20, gateValues },
+			};
 
-			CreateArtifactSynonyms(20, synonyms);
+			foreach (var synonym in synonyms)
+			{
+				CreateArtifactSynonyms(synonym.Key, synonym.Value);
+			}
 		}
 
 		public override void InitMonsters()

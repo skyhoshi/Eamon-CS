@@ -62,58 +62,51 @@ namespace TheTempleOfNgurct.Game
 				return result;
 			});
 
-			var artUids = new long[]
+			var synonyms = new Dictionary<long, string[]>()
 			{
-				11, 34, 38, 40, 41, 42, 43, 47, 51, 52, 53, 56, 58,
-				62, 63, 68, 69, 70, 72, 73, 74, 75, 76, 78, 80, 81,
-				82, 83, 84, 85, 86, 87, 88
+				{ 11, new string[] { "sword" } },
+				{ 34, new string[] { "axe" } },
+				{ 38, new string[] { "sword" } },
+				{ 40, new string[] { "sword" } },
+				{ 41, new string[] { "scimitar" } },
+				{ 42, new string[] { "sword" } },
+				{ 43, new string[] { "pan" } },
+				{ 47, new string[] { "ingots", "ingot" } },
+				{ 51, new string[] { "healing potion", "potion" } },
+				{ 52, new string[] { "human blood", "blood", "potion" } },
+				{ 53, new string[] { "sulphuric acid", "acid", "h2so4", "potion" } },
+				{ 56, new string[] { "bars", "bar" } },
+				{ 58, new string[] { "stones", "stone" } },
+				{ 62, new string[] { "healing potion", "potion" } },
+				{ 63, new string[] { "wand" } },
+				{ 68, new string[] { "pig" } },
+				{ 69, new string[] { "bottle", "label" } },
+				{ 70, new string[] { "key" } },
+				{ 72, new string[] { "keys" } },
+				{ 73, new string[] { "key" } },
+				{ 74, new string[] { "dagger" } },
+				{ 75, new string[] { "robes", "robe" } },
+				{ 76, new string[] { "blanks" } },
+				{ 78, new string[] { "dagger" } },
+				{ 80, new string[] { "ring" } },
+				{ 81, new string[] { "bound slave", "bound girl", "slave girl", "girl" } },
+				{ 82, new string[] { "hieroglyphs", "glyphs", "inscriptions", "wall" } },
+				{ 83, new string[] { "door" } },
+				{ 84, new string[] { "door" } },
+				{ 85, new string[] { "door" } },
+				{ 86, new string[] { "door" } },
+				{ 87, new string[] { "door" } },
+				{ 88, new string[] { "door" } },
 			};
 
-			var synonyms = new List<string[]>()
+			foreach (var synonym in synonyms)
 			{
-				new string[] { "sword" },
-				new string[] { "axe" },
-				new string[] { "sword" },
-				new string[] { "sword" },
-				new string[] { "scimitar" },
-				new string[] { "sword" },
-				new string[] { "pan" },
-				new string[] { "ingots", "ingot" },
-				new string[] { "healing potion", "potion" },
-				new string[] { "human blood", "blood", "potion" },
-				new string[] { "sulphuric acid", "acid", "h2so4", "potion" },
-				new string[] { "bars", "bar" },
-				new string[] { "stones", "stone" },
-				new string[] { "healing potion", "potion" },
-				new string[] { "wand" },
-				new string[] { "pig" },
-				new string[] { "bottle", "label" },
-				new string[] { "key" },
-				new string[] { "keys" },
-				new string[] { "key" },
-				new string[] { "dagger" },
-				new string[] { "robes", "robe" },
-				new string[] { "blanks" },
-				new string[] { "dagger" },
-				new string[] { "ring" },
-				new string[] { "bound slave", "bound girl", "slave girl", "girl" },
-				new string[] { "hieroglyphs", "glyphs", "inscriptions", "wall" },
-				new string[] { "door" },
-				new string[] { "door" },
-				new string[] { "door" },
-				new string[] { "door" },
-				new string[] { "door" },
-				new string[] { "door" },
-			};
-
-			for (var i = 0; i < artUids.Length; i++)
-			{
-				CreateArtifactSynonyms(artUids[i], synonyms[i]);
+				CreateArtifactSynonyms(synonym.Key, synonym.Value);
 			}
 
 			var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible };
 
-			artUids = new long[] { 51, 62, 68 };
+			var artUids = new long[] { 51, 62, 68 };
 
 			// Sets up potion/roast pig random heal amounts
 
