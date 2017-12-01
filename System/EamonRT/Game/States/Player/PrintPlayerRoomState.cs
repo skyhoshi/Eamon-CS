@@ -5,6 +5,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Text;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.States;
@@ -15,11 +16,16 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class PrintPlayerRoomState : State, IPrintPlayerRoomState
 	{
-		protected virtual string TooDarkToSeeDesc { get; set; }
-
 		protected virtual void ProcessEvents()
 		{
 
+		}
+
+		protected virtual void BuildPrintedTooDarkToSeeDesc(StringBuilder buf)
+		{
+			Debug.Assert(buf != null);
+
+			buf.SetFormat("{0}It's too dark to see.{0}", Environment.NewLine);
 		}
 
 		protected virtual void PrintPlayerRoom()
@@ -38,7 +44,7 @@ namespace EamonRT.Game.States
 			}
 			else
 			{
-				Globals.Buf.SetFormat(TooDarkToSeeDesc, Environment.NewLine);
+				BuildPrintedTooDarkToSeeDesc(Globals.Buf);
 			}
 
 			Globals.Out.Write("{0}", Globals.Buf);
@@ -68,8 +74,6 @@ namespace EamonRT.Game.States
 		public PrintPlayerRoomState()
 		{
 			Name = "PrintPlayerRoomState";
-
-			TooDarkToSeeDesc = "{0}It's too dark to see.{0}";
 		}
 	}
 }
