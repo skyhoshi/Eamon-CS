@@ -36,13 +36,23 @@ namespace Eamon.Framework
 
 		bool IsLit();
 
+		bool IsDirectionInvalid(long index);
+
 		bool IsDirectionInvalid(Enums.Direction dir);
+
+		bool IsDirectionRoom(long index);
 
 		bool IsDirectionRoom(Enums.Direction dir);
 
+		bool IsDirectionExit(long index);
+
 		bool IsDirectionExit(Enums.Direction dir);
 
+		bool IsDirectionDoor(long index);
+
 		bool IsDirectionDoor(Enums.Direction dir);
+
+		bool IsDirectionSpecial(long index, bool includeExit = true);
 
 		bool IsDirectionSpecial(Enums.Direction dir, bool includeExit = true);
 

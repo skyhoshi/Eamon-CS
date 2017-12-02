@@ -61,7 +61,7 @@ namespace Eamon.Game
 
 		protected virtual bool IsDirectionInObviousExitsList(long index)
 		{
-			return true;
+			return IsDirectionRoom(index) || IsDirectionExit(index);
 		}
 
 		protected virtual bool IsDirectionInObviousExitsList(Enums.Direction dir)
@@ -159,29 +159,54 @@ namespace Eamon.Game
 			return gameState != null && Uid == gameState.Ro ? gameState.Lt != 0 : LightLvl == Enums.LightLevel.Light;
 		}
 
+		public virtual bool IsDirectionInvalid(long index)
+		{
+			return GetDirs(index) == 0;
+		}
+
 		public virtual bool IsDirectionInvalid(Enums.Direction dir)
 		{
-			return GetDirs(dir) == 0;
+			return IsDirectionInvalid((long)dir);
+		}
+
+		public virtual bool IsDirectionRoom(long index)
+		{
+			return GetDirs(index) > 0 && GetDirs(index) < 1001;
 		}
 
 		public virtual bool IsDirectionRoom(Enums.Direction dir)
 		{
-			return GetDirs(dir) > 0 && GetDirs(dir) < 1001;
+			return IsDirectionRoom((long)dir);
+		}
+
+		public virtual bool IsDirectionExit(long index)
+		{
+			return GetDirs(index) == Constants.DirectionExit;
 		}
 
 		public virtual bool IsDirectionExit(Enums.Direction dir)
 		{
-			return GetDirs(dir) == Constants.DirectionExit;
+			return IsDirectionExit((long)dir);
+		}
+
+		public virtual bool IsDirectionDoor(long index)
+		{
+			return GetDirs(index) > 1000 && GetDirs(index) < 2001;
 		}
 
 		public virtual bool IsDirectionDoor(Enums.Direction dir)
 		{
-			return GetDirs(dir) > 1000 && GetDirs(dir) < 2001;
+			return IsDirectionDoor((long)dir);
+		}
+
+		public virtual bool IsDirectionSpecial(long index, bool includeExit = true)
+		{
+			return GetDirs(index) < 0 && (includeExit || !IsDirectionExit(index));
 		}
 
 		public virtual bool IsDirectionSpecial(Enums.Direction dir, bool includeExit = true)
 		{
-			return GetDirs(dir) < 0 && (includeExit || !IsDirectionExit(dir));
+			return IsDirectionSpecial((long)dir, includeExit);
 		}
 
 		public virtual long GetDirectionDoorUid(Enums.Direction dir)
@@ -391,7 +416,7 @@ namespace Eamon.Game
 
 			foreach (var dv in directionValues)
 			{
-				if ((IsDirectionRoom(dv) || IsDirectionExit(dv)) && IsDirectionInObviousExitsList(dv))
+				if (IsDirectionInObviousExitsList(dv))
 				{
 					i++;
 				}
@@ -403,7 +428,7 @@ namespace Eamon.Game
 
 				foreach (var dv in directionValues)
 				{
-					if ((IsDirectionRoom(dv) || IsDirectionExit(dv)) && IsDirectionInObviousExitsList(dv))
+					if (IsDirectionInObviousExitsList(dv))
 					{
 						var direction = Globals.Engine.GetDirections(dv);
 
