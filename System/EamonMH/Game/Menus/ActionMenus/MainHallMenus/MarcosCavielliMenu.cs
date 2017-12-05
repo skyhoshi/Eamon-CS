@@ -371,15 +371,6 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 									Globals.Character.HeldGold += ti;
 
-									if (Globals.Character.HeldGold < Constants.MinGoldValue)
-									{
-										Globals.Character.HeldGold = Constants.MinGoldValue;
-									}
-									else if (Globals.Character.HeldGold > Constants.MaxGoldValue)
-									{
-										Globals.Character.HeldGold = Constants.MaxGoldValue;
-									}
-
 									while (i + 1 < Globals.Character.Weapons.Length)
 									{
 										Globals.Character.SetWeapons(i, Globals.Character.GetWeapons(i + 1));

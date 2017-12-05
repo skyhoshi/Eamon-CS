@@ -482,15 +482,6 @@ namespace EamonMH.Game.Menus.ActionMenus
 										}
 									}
 
-									if (Globals.Character.HeldGold < Constants.MinGoldValue)
-									{
-										Globals.Character.HeldGold = Constants.MinGoldValue;
-									}
-									else if (Globals.Character.HeldGold > Constants.MaxGoldValue)
-									{
-										Globals.Character.HeldGold = Constants.MaxGoldValue;
-									}
-
 									Globals.CharactersModified = true;
 
 									Globals.Out.Write("{0}Finally he looks up and says, \"Welcome back from yer adventure.  Now go and have fun in the hall.\"{0}", Environment.NewLine);

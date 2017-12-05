@@ -939,15 +939,6 @@ namespace EamonRT.Game
 				}
 
 				Globals.Character.HeldGold += w;
-
-				if (Globals.Character.HeldGold < Constants.MinGoldValue)
-				{
-					Globals.Character.HeldGold = Constants.MinGoldValue;
-				}
-				else if (Globals.Character.HeldGold > Constants.MaxGoldValue)
-				{
-					Globals.Character.HeldGold = Constants.MaxGoldValue;
-				}
 			}
 
 			PrintGoodsPayment(c == 1, w);

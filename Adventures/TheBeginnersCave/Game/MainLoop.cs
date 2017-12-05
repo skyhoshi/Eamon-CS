@@ -31,15 +31,6 @@ namespace TheBeginnersCave.Game
 
 				Globals.Character.HeldGold += reward;
 
-				if (Globals.Character.HeldGold < Constants.MinGoldValue)
-				{
-					Globals.Character.HeldGold = Constants.MinGoldValue;
-				}
-				else if (Globals.Character.HeldGold > Constants.MaxGoldValue)
-				{
-					Globals.Character.HeldGold = Constants.MaxGoldValue;
-				}
-
 				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 
 				Globals.Out.Write("{0}Additionally, you receive {1} gold pieces for the safe return of Cynthia.{0}", Environment.NewLine, reward);

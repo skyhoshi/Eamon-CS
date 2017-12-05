@@ -72,15 +72,6 @@ namespace TheTempleOfNgurct.Game
 
 			Globals.Character.HeldGold += reward;
 
-			if (Globals.Character.HeldGold < Constants.MinGoldValue)
-			{
-				Globals.Character.HeldGold = Constants.MinGoldValue;
-			}
-			else if (Globals.Character.HeldGold > Constants.MaxGoldValue)
-			{
-				Globals.Character.HeldGold = Constants.MaxGoldValue;
-			}
-
 			Globals.In.KeyPress(Globals.Buf);
 		}
 	}

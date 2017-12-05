@@ -53,15 +53,6 @@ namespace TheSubAquanLaboratory.Game
 
 				Globals.Character.HeldGold += reward;
 
-				if (Globals.Character.HeldGold > Constants.MaxGoldValue)
-				{
-					Globals.Character.HeldGold = Constants.MaxGoldValue;
-				}
-				else if (Globals.Character.HeldGold < Constants.MinGoldValue)
-				{
-					Globals.Character.HeldGold = Constants.MinGoldValue;
-				}
-
 				Globals.Engine.PrintEffectDesc(78);
 
 				Globals.Out.Write("{0}The mayor then calculates the value of the information you have presented him with and pays you {1} gold pieces.{0}", Environment.NewLine, reward);

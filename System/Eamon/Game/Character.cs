@@ -20,6 +20,14 @@ namespace Eamon.Game
 	[ClassMappings]
 	public class Character : GameBase, ICharacter
 	{
+		#region Protected Fields
+
+		protected long _heldGold;
+
+		protected long _bankGold;
+
+		#endregion
+
 		#region Public Properties
 
 		#region Interface ICharacter
@@ -36,9 +44,49 @@ namespace Eamon.Game
 
 		public virtual long ArmorExpertise { get; set; }
 
-		public virtual long HeldGold { get; set; }
+		public virtual long HeldGold
+		{
+			get
+			{
+				return _heldGold;
+			}
 
-		public virtual long BankGold { get; set; }
+			set
+			{
+				_heldGold = value;
+
+				if (_heldGold < Constants.MinGoldValue)
+				{
+					_heldGold = Constants.MinGoldValue;
+				}
+				else if (_heldGold > Constants.MaxGoldValue)
+				{
+					_heldGold = Constants.MaxGoldValue;
+				}
+			}
+		}
+
+		public virtual long BankGold
+		{
+			get
+			{
+				return _bankGold;
+			}
+
+			set
+			{
+				_bankGold = value;
+
+				if (_bankGold < Constants.MinGoldValue)
+				{
+					_bankGold = Constants.MinGoldValue;
+				}
+				else if (_bankGold > Constants.MaxGoldValue)
+				{
+					_bankGold = Constants.MaxGoldValue;
+				}
+			}
+		}
 
 		public virtual Enums.Armor ArmorClass { get; set; }
 
