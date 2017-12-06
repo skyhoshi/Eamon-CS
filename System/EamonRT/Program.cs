@@ -662,6 +662,8 @@ namespace EamonRT
 						// goto Cleanup omitted
 					}
 				}
+
+				Globals.Thread.Sleep(150);
 			}
 			else
 			{

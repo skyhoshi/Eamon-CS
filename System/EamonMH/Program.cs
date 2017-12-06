@@ -331,9 +331,11 @@ namespace EamonMH
 
 					Globals.Menu.Execute();
 
+					var saveTextFiles = (Globals.ConfigFileName.Length > 0 && Globals.ConfigsModified) || Globals.FilesetsModified || Globals.CharactersModified || Globals.EffectsModified;
+
 					// save textfiles, if any modifications were made
 
-					if ((Globals.ConfigFileName.Length > 0 && Globals.ConfigsModified) || Globals.FilesetsModified || Globals.CharactersModified || Globals.EffectsModified)
+					if (saveTextFiles)
 					{
 						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 
@@ -409,6 +411,10 @@ namespace EamonMH
 						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
 
 						Globals.TransferProtocol.SendCharacterOnAdventure(Globals.Fileset.WorkDir, Globals.FilePrefix, Globals.Fileset.PluginFileName);
+					}
+					else if (saveTextFiles)
+					{
+						Globals.Thread.Sleep(150);
 					}
 
 					nlFlag = false;
