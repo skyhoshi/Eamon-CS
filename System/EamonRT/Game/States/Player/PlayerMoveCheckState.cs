@@ -65,7 +65,7 @@ namespace EamonRT.Game.States
 			}
 			else
 			{
-				Globals.Out.WriteLine("{0}You can't go that way!", Environment.NewLine);
+				PrintCantGoThatWay();
 			}
 		}
 

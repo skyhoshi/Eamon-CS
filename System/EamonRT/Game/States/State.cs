@@ -52,6 +52,11 @@ namespace EamonRT.Game.States
 
 		#endregion
 
+		protected virtual void PrintCantGoThatWay()
+		{
+			Globals.Out.WriteLine("{0}You can't go that way!", Environment.NewLine);
+		}
+
 		protected virtual void PrintCantVerbThere(string verb)
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(verb));

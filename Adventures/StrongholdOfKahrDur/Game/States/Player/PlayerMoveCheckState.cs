@@ -173,7 +173,7 @@ namespace StrongholdOfKahrDur.Game.States
 			}
 			else
 			{
-				Globals.Out.WriteLine("{0}You can't go that way!", Environment.NewLine);
+				base.ProcessEvents01();
 			}
 		}
 	}

@@ -240,6 +240,45 @@ namespace EamonRT.Game.Combat
 			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.Engine.BlastDesc);
 		}
 
+		protected virtual void RollToHitOrMiss()
+		{
+			if (FixedResult != RTEnums.AttackResult.None)
+			{
+				_odds = 50;
+
+				switch (FixedResult)
+				{
+					case RTEnums.AttackResult.Fumble:
+
+						_rl = 100;
+
+						break;
+
+					case RTEnums.AttackResult.Miss:
+
+						_rl = _odds + 1;
+
+						break;
+
+					case RTEnums.AttackResult.Hit:
+
+						_rl = _odds;
+
+						break;
+
+					case RTEnums.AttackResult.CriticalHit:
+
+						_rl = 1;
+
+						break;
+				}
+			}
+			else
+			{
+				_rl = Globals.Engine.RollDice01(1, 100, 0);
+			}
+		}
+
 		protected virtual void BeginAttack()
 		{
 			Debug.Assert(OfMonster != null && OfMonster.CombatCode != Enums.CombatCode.NeverFights);
@@ -276,41 +315,7 @@ namespace EamonRT.Game.Combat
 
 			Globals.Engine.GetOddsToHit(OfMonster, DfMonster, OfAc, Af, ref _odds);
 
-			if (FixedResult != RTEnums.AttackResult.None)
-			{
-				_odds = 50;
-
-				switch (FixedResult)
-				{
-					case RTEnums.AttackResult.Fumble:
-
-						_rl = 100;
-
-						break;
-
-					case RTEnums.AttackResult.Miss:
-
-						_rl = _odds + 1;
-
-						break;
-
-					case RTEnums.AttackResult.Hit:
-
-						_rl = _odds;
-
-						break;
-
-					case RTEnums.AttackResult.CriticalHit:
-
-						_rl = 1;
-
-						break;
-				}
-			}
-			else
-			{
-				_rl = Globals.Engine.RollDice01(1, 100, 0);
-			}
+			RollToHitOrMiss();
 
 			if (OfMonster.IsCharacterMonster() && _rl < 97 && (_rl < 5 || _rl <= _odds) && !OmitSkillGains)
 			{
