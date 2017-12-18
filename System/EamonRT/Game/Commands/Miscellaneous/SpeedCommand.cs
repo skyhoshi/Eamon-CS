@@ -22,14 +22,9 @@ namespace EamonRT.Game.Commands
 			Globals.Out.WriteLine("{0}You can feel the new agility flowing through you!", Environment.NewLine);
 		}
 
-		protected virtual bool AllowSkillIncrease()
-		{
-			return true;
-		}
-
 		protected override void PlayerExecute()
 		{
-			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Speed, AllowSkillIncrease()))
+			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Speed, IsSkillIncreaseAllowed()))
 			{
 				goto Cleanup;
 			}

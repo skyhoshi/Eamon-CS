@@ -747,6 +747,11 @@ namespace EamonRT.Game.Commands
 			return true;
 		}
 
+		protected virtual bool IsSkillIncreaseAllowed()
+		{
+			return true;
+		}
+
 		public override bool ShouldPreTurnProcess()
 		{
 			return true;

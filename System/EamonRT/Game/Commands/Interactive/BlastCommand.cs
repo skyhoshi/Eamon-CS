@@ -34,11 +34,6 @@ namespace EamonRT.Game.Commands
 
 		}
 
-		protected virtual bool AllowSkillIncrease()
-		{
-			return DobjMonster != null || DobjArtifact.IsAttackable();
-		}
-
 		protected override void PlayerExecute()
 		{
 			RetCode rc;
@@ -65,7 +60,7 @@ namespace EamonRT.Game.Commands
 				CheckAttack = true;
 			}
 
-			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Blast, AllowSkillIncrease()))
+			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Blast, IsSkillIncreaseAllowed()))
 			{
 				goto Cleanup;
 			}
@@ -119,6 +114,11 @@ namespace EamonRT.Game.Commands
 			CommandParser.ObjData.ArtifactNotFoundFunc = PrintNobodyHereByThatName;
 
 			PlayerResolveMonster();
+		}
+
+		protected override bool IsSkillIncreaseAllowed()
+		{
+			return DobjMonster != null || DobjArtifact.IsAttackable();
 		}
 
 		public BlastCommand()

@@ -35,7 +35,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 			}
 		}
 
-		protected override bool AllowSkillIncrease()
+		protected override bool IsSkillIncreaseAllowed()
 		{
 			// When Necromancer is blasted only allow skill increases if wearing Wizard's Helm
 
@@ -49,7 +49,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 			}
 			else
 			{
-				return base.AllowSkillIncrease();
+				return base.IsSkillIncreaseAllowed();
 			}
 		}
 	}
