@@ -19,11 +19,16 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool CastSpell { get; set; }
 
+		protected virtual bool AllowSkillIncrease()
+		{
+			return true;
+		}
+
 		protected override void PlayerExecute()
 		{
 			Debug.Assert(DobjMonster != null);
 
-			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Heal, true))
+			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Heal, AllowSkillIncrease()))
 			{
 				goto Cleanup;
 			}

@@ -121,9 +121,14 @@ namespace EamonRT.Game.Commands
 			;
 		}
 
+		protected virtual bool AllowSkillIncrease()
+		{
+			return true;
+		}
+
 		protected override void PlayerExecute()
 		{
-			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Power, true))
+			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Power, AllowSkillIncrease()))
 			{
 				goto Cleanup;
 			}
