@@ -24,7 +24,7 @@ namespace EamonRT.Game.Commands
 
 		protected override void PlayerExecute()
 		{
-			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Speed, IsSkillIncreaseAllowed()))
+			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Speed, ShouldAllowSkillGains()))
 			{
 				goto Cleanup;
 			}

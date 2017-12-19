@@ -119,9 +119,9 @@ namespace EamonRT.Framework
 
 		bool CheckCourage(IMonster monster);
 
-		bool CheckPlayerSpellCast(Enums.Spell spellValue, bool allowSkillIncrease);
+		bool CheckPlayerSpellCast(Enums.Spell spellValue, bool shouldAllowSkillGains);
 
-		void CheckPlayerSkillIncrease(Classes.IArtifactClass ac, long af);
+		void CheckPlayerSkillGains(Classes.IArtifactClass ac, long af);
 
 		void TransportRoomContentsBetweenRooms(IRoom oldRoom, IRoom newRoom, bool includeEmbedded = true);
 

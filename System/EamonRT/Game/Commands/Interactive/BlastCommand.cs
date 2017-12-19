@@ -60,7 +60,7 @@ namespace EamonRT.Game.Commands
 				CheckAttack = true;
 			}
 
-			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Blast, IsSkillIncreaseAllowed()))
+			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Blast, ShouldAllowSkillGains()))
 			{
 				goto Cleanup;
 			}
@@ -116,7 +116,7 @@ namespace EamonRT.Game.Commands
 			PlayerResolveMonster();
 		}
 
-		protected override bool IsSkillIncreaseAllowed()
+		protected override bool ShouldAllowSkillGains()
 		{
 			return DobjMonster != null || DobjArtifact.IsAttackable();
 		}

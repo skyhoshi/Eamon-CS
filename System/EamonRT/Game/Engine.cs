@@ -1756,7 +1756,7 @@ namespace EamonRT.Game
 			return result;
 		}
 
-		public virtual bool CheckPlayerSpellCast(Enums.Spell spellValue, bool allowSkillIncrease)
+		public virtual bool CheckPlayerSpellCast(Enums.Spell spellValue, bool shouldAllowSkillGains)
 		{
 			Debug.Assert(Enum.IsDefined(typeof(Enums.Spell), spellValue));
 
@@ -1788,7 +1788,7 @@ namespace EamonRT.Game
 
 				Globals.GameState.SetSa(s, (long)((double)Globals.GameState.GetSa(s) * .5 + 1));
 
-				if (allowSkillIncrease)
+				if (shouldAllowSkillGains)
 				{
 					rl = RollDice01(1, 100, 0);
 
@@ -1822,7 +1822,7 @@ namespace EamonRT.Game
 			return result;
 		}
 
-		public virtual void CheckPlayerSkillIncrease(Classes.IArtifactClass ac, long af)
+		public virtual void CheckPlayerSkillGains(Classes.IArtifactClass ac, long af)
 		{
 			Debug.Assert(ac != null && ac.IsWeapon01());
 

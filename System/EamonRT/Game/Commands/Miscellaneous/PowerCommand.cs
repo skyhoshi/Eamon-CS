@@ -123,7 +123,7 @@ namespace EamonRT.Game.Commands
 
 		protected override void PlayerExecute()
 		{
-			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Power, IsSkillIncreaseAllowed()))
+			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Power, ShouldAllowSkillGains()))
 			{
 				goto Cleanup;
 			}

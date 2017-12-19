@@ -319,7 +319,7 @@ namespace EamonRT.Game.Combat
 
 			if (OfMonster.IsCharacterMonster() && _rl < 97 && (_rl < 5 || _rl <= _odds) && !OmitSkillGains)
 			{
-				Globals.Engine.CheckPlayerSkillIncrease(OfAc, Af);
+				Globals.Engine.CheckPlayerSkillGains(OfAc, Af);
 			}
 
 			OfWeaponType = (Enums.Weapon)(OfAc != null ? OfAc.Field6 : 0);

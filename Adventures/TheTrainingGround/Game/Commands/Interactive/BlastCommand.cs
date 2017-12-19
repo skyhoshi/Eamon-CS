@@ -34,11 +34,11 @@ namespace TheTrainingGround.Game.Commands
 			}
 		}
 
-		protected override bool IsSkillIncreaseAllowed()
+		protected override bool ShouldAllowSkillGains()
 		{
 			// BLASTing Bozworth never increases skill
 
-			return DobjMonster != null && DobjMonster.Uid == 20 ? false : base.IsSkillIncreaseAllowed();
+			return DobjMonster != null && DobjMonster.Uid == 20 ? false : base.ShouldAllowSkillGains();
 		}
 	}
 }

@@ -747,7 +747,7 @@ namespace EamonRT.Game.Commands
 			return true;
 		}
 
-		protected virtual bool IsSkillIncreaseAllowed()
+		protected virtual bool ShouldAllowSkillGains()
 		{
 			return true;
 		}

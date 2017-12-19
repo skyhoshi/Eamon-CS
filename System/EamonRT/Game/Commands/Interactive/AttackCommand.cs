@@ -266,6 +266,8 @@ namespace EamonRT.Game.Commands
 					x.MemberNumber = MemberNumber;
 
 					x.BlastSpell = BlastSpell;
+
+					x.OmitSkillGains = !BlastSpell && !ShouldAllowSkillGains();
 				});
 
 				combatSystem.ExecuteAttack();
