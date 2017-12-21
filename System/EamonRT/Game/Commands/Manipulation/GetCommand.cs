@@ -43,9 +43,68 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected virtual bool ShouldProcessArtifact(IArtifact artifact, Classes.IArtifactClass ac, ref bool nlFlag)
+		protected virtual void ProcessArtifact(IArtifact artifact, Classes.IArtifactClass ac, ref bool nlFlag)
 		{
-			return true;
+			Debug.Assert(artifact != null);
+
+			Debug.Assert(ac != null);
+
+			if (ac.Type == Enums.ArtifactType.DisguisedMonster)
+			{
+				ProcessAction(() => Globals.Engine.RevealDisguisedMonster(artifact), ref nlFlag);
+			}
+			else if (artifact.Weight > 900)
+			{
+				ProcessAction(() => PrintDontBeAbsurd(), ref nlFlag);
+			}
+			else if (artifact.IsUnmovable01())
+			{
+				ProcessAction(() => PrintCantVerbThat(artifact), ref nlFlag);
+			}
+			else
+			{
+				var count = 0L;
+
+				var weight = artifact.Weight;
+
+				var rc = artifact.GetContainerInfo(ref count, ref weight, true);
+
+				Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+				if (ac.Type == Enums.ArtifactType.DeadBody && ac.Field5 != 1)
+				{
+					ProcessAction(() => PrintBestLeftAlone(artifact), ref nlFlag);
+				}
+				else if (Globals.GameState.Wt + weight > ActorMonster.GetWeightCarryableGronds())
+				{
+					ProcessAction(() => PrintTooHeavy(artifact), ref nlFlag);
+				}
+				else if (ac.Type == Enums.ArtifactType.BoundMonster)
+				{
+					ProcessAction(() => PrintMustBeFreed(artifact), ref nlFlag);
+				}
+				else
+				{
+					Globals.GameState.Wt += weight;
+
+					artifact.SetCarriedByCharacter();
+
+					if (NextState is IRequestCommand)
+					{
+						PrintReceived(artifact);
+					}
+					else if (NextState is IRemoveCommand)
+					{
+						PrintRetrieved(artifact);
+					}
+					else
+					{
+						PrintTaken(artifact);
+					}
+
+					nlFlag = true;
+				}
+			}
 		}
 
 		protected override void PlayerExecute()
@@ -73,65 +132,7 @@ namespace EamonRT.Game.Commands
 
 					Debug.Assert(ac != null);
 
-					if (ShouldProcessArtifact(artifact, ac, ref nlFlag))
-					{
-						if (ac.Type == Enums.ArtifactType.DisguisedMonster)
-						{
-							ProcessAction(() => Globals.Engine.RevealDisguisedMonster(artifact), ref nlFlag);
-						}
-						else if (artifact.Weight > 900)
-						{
-							ProcessAction(() => PrintDontBeAbsurd(), ref nlFlag);
-						}
-						else if (artifact.IsUnmovable01())
-						{
-							ProcessAction(() => PrintCantVerbThat(artifact), ref nlFlag);
-						}
-						else
-						{
-							var count = 0L;
-
-							var weight = artifact.Weight;
-
-							var rc = artifact.GetContainerInfo(ref count, ref weight, true);
-
-							Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-							if (ac.Type == Enums.ArtifactType.DeadBody && ac.Field5 != 1)
-							{
-								ProcessAction(() => PrintBestLeftAlone(artifact), ref nlFlag);
-							}
-							else if (Globals.GameState.Wt + weight > ActorMonster.GetWeightCarryableGronds())
-							{
-								ProcessAction(() => PrintTooHeavy(artifact), ref nlFlag);
-							}
-							else if (ac.Type == Enums.ArtifactType.BoundMonster)
-							{
-								ProcessAction(() => PrintMustBeFreed(artifact), ref nlFlag);
-							}
-							else
-							{
-								Globals.GameState.Wt += weight;
-
-								artifact.SetCarriedByCharacter();
-
-								if (NextState is IRequestCommand)
-								{
-									PrintReceived(artifact);
-								}
-								else if (NextState is IRemoveCommand)
-								{
-									PrintRetrieved(artifact);
-								}
-								else
-								{
-									PrintTaken(artifact);
-								}
-
-								nlFlag = true;
-							}
-						}
-					}
+					ProcessArtifact(artifact, ac, ref nlFlag);
 
 					if (artifact.IsReadyableByCharacter() && artifact.IsCarriedByCharacter())
 					{
