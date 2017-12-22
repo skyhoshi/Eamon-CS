@@ -20,6 +20,43 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool DropAll { get; set; }
 
+		protected virtual void ProcessLightSource()
+		{
+			if (Globals.GameState.Ls > 0)
+			{
+				var lsArtifact = Globals.ADB[Globals.GameState.Ls];
+
+				Debug.Assert(lsArtifact != null && lsArtifact.IsLightSource());
+
+				if ((DropAll || lsArtifact == DobjArtifact) && lsArtifact.IsCarriedByCharacter())
+				{
+					Globals.Engine.LightOut(lsArtifact);
+				}
+			}
+		}
+
+		protected virtual void ProcessArtifact(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Engine.RemoveWeight(artifact);
+
+			artifact.SetInRoom(ActorRoom);
+
+			if (ActorMonster.Weapon == artifact.Uid)
+			{
+				Debug.Assert(artifact.IsWeapon01());
+
+				var rc = artifact.RemoveStateDesc(Globals.Engine.ReadyWeaponDesc);
+
+				Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+				ActorMonster.Weapon = -1;
+			}
+
+			PrintDropped(artifact);
+		}
+
 		protected override void PlayerExecute()
 		{
 			Debug.Assert(DropAll || DobjArtifact != null);
@@ -33,17 +70,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (Globals.GameState.Ls > 0)
-			{
-				var lsArtifact = Globals.ADB[Globals.GameState.Ls];
-
-				Debug.Assert(lsArtifact != null && lsArtifact.IsLightSource());
-
-				if ((DropAll || lsArtifact == DobjArtifact) && lsArtifact.IsCarriedByCharacter())
-				{
-					Globals.Engine.LightOut(lsArtifact);
-				}
-			}
+			ProcessLightSource();
 
 			var artifactList = DropAll ? ActorMonster.GetCarriedList() : new List<IArtifact>() { DobjArtifact };
 
@@ -51,22 +78,7 @@ namespace EamonRT.Game.Commands
 			{
 				foreach (var artifact in artifactList)
 				{
-					Globals.Engine.RemoveWeight(artifact);
-
-					artifact.SetInRoom(ActorRoom);
-
-					if (ActorMonster.Weapon == artifact.Uid)
-					{
-						Debug.Assert(artifact.IsWeapon01());
-
-						var rc = artifact.RemoveStateDesc(Globals.Engine.ReadyWeaponDesc);
-
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-						ActorMonster.Weapon = -1;
-					}
-
-					PrintDropped(artifact);
+					ProcessArtifact(artifact);
 				}
 
 				Globals.Out.WriteLine();
