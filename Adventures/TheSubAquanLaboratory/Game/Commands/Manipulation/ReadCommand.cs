@@ -25,8 +25,6 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 		protected override void PlayerExecute()
 		{
-			RetCode rc;
-
 			var rl = 0L;
 
 			Debug.Assert(DobjArtifact != null);
@@ -56,9 +54,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Display screen
 
-					rc = Globals.Engine.RollDice(1, 100, 0, ref rl);
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					rl = Globals.Engine.RollDice01(1, 100, 0);
 
 					if (rl < 34)
 					{
@@ -133,9 +129,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Terminals
 
-					rc = Globals.Engine.RollDice(1, 100, 0, ref rl);
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					rl = Globals.Engine.RollDice01(1, 100, 0);
 
 					if (rl < 51)
 					{
@@ -150,9 +144,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 					}
 					else
 					{
-						rc = Globals.Engine.RollDice(1, 100, 0, ref rl);
-
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						rl = Globals.Engine.RollDice01(1, 100, 0);
 
 						Globals.Out.Write("{0}As you watch, the terminal screen prints:{0}", Environment.NewLine);
 

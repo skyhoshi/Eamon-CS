@@ -26,11 +26,7 @@ namespace TheBeginnersCave.Game.Commands
 			{
 				if (GameState.BookWarning == 0)
 				{
-					var rl = 0L;
-
-					var rc = Globals.Engine.RollDice(1, 22, 2, ref rl);
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					var rl = Globals.Engine.RollDice01(1, 22, 2);
 
 					if (rl < Globals.Character.GetStats(Enums.Stat.Intellect))
 					{

@@ -144,7 +144,7 @@ namespace EamonRT.Game.States
 					}
 					else if (Globals.GameState.R2 == 0 && Room.IsLit())
 					{
-						Globals.Out.Write("{0}{1} block{2} the way!{0}", Environment.NewLine, Artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), Artifact.EvalPlural("s", ""));
+						PrintObjBlocksTheWay(Artifact);
 
 						goto Cleanup;
 					}

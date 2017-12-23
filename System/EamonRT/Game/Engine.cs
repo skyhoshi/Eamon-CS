@@ -1362,11 +1362,7 @@ namespace EamonRT.Game
 
 			do
 			{
-				rl = 0;
-
-				var rc = RollDice(1, Globals.Module.NumDirs, 0, ref rl);
-
-				Debug.Assert(IsSuccess(rc));
+				rl = RollDice01(1, Globals.Module.NumDirs, 0);
 
 				found = false;
 
@@ -1828,17 +1824,11 @@ namespace EamonRT.Game
 
 			var s = (Enums.Weapon)ac.Field6;
 
-			var rl = 0L;
-
-			var rc = RollDice(1, 100, 0, ref rl);
-
-			Debug.Assert(IsSuccess(rc));
+			var rl = RollDice01(1, 100, 0);
 
 			if (rl > 75)
 			{
-				rc = RollDice(1, 100, 0, ref rl);
-
-				Debug.Assert(IsSuccess(rc));
+				rl = RollDice01(1, 100, 0);
 
 				rl += Globals.Character.GetIntellectBonusPct();
 
@@ -1865,9 +1855,7 @@ namespace EamonRT.Game
 
 				if (x > 0)
 				{
-					rc = RollDice(1, x, 0, ref rl);
-
-					Debug.Assert(IsSuccess(rc));
+					rl = RollDice01(1, x, 0);
 
 					rl += (long)Math.Round(((double)x / 100.0) * (double)Globals.Character.GetIntellectBonusPct());
 
@@ -2097,9 +2085,7 @@ namespace EamonRT.Game
 				{
 					if (monster.Friendliness == Enums.Friendliness.Enemy)
 					{
-						var rc = RollDice(1, 100, 0, ref rl);
-
-						Debug.Assert(IsSuccess(rc));
+						rl = RollDice01(1, 100, 0);
 
 						if (rl <= monster.Courage)
 						{

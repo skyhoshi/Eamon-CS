@@ -155,11 +155,7 @@ namespace EamonRT.Game.Commands
 
 					Globals.Out.Write("{0}", Globals.Buf);
 
-					var rl = 0L;
-
-					rc = Globals.Engine.RollDice(d, s, 0, ref rl);
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					var rl = Globals.Engine.RollDice01(d, s, 0);
 
 					breakageStrength -= rl;
 

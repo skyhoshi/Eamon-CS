@@ -824,11 +824,7 @@ namespace Eamon.Game
 
 		public virtual string GetMissDescString(IArtifact artifact)
 		{
-			var i = 0L;
-
-			var rc = Globals.Engine.RollDice(1, 2, 0, ref i);
-
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			var i = Globals.Engine.RollDice01(1, 2, 0);
 
 			var ac = artifact != null ? artifact.GetArtifactClass(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon }) : null;
 

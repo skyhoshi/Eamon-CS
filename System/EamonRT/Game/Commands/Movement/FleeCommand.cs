@@ -141,11 +141,7 @@ namespace EamonRT.Game.Commands
 
 				Globals.Engine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref numExits);
 
-				var rl = 0L;
-
-				rc = Globals.Engine.RollDice(1, ActorMonster.GroupCount, 0, ref rl);
-
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				var rl = Globals.Engine.RollDice01(1, ActorMonster.GroupCount, 0);
 
 				var monster = Globals.CloneInstance(ActorMonster);
 

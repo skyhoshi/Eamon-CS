@@ -38,11 +38,7 @@ namespace EamonRT.Game.States
 				goto Cleanup;
 			}
 
-			var rl = 0L;
-
-			var rc = Globals.Engine.RollDice(1, monsterList.Count, 0, ref rl);
-
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			var rl = Globals.Engine.RollDice01(1, monsterList.Count, 0);
 
 			var command = Globals.CreateInstance<IAttackCommand>(x =>
 			{

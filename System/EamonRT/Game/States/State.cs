@@ -52,6 +52,13 @@ namespace EamonRT.Game.States
 
 		#endregion
 
+		protected virtual void PrintObjBlocksTheWay(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Out.Write("{0}{1} block{2} the way!{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), artifact.EvalPlural("s", ""));
+		}
+
 		protected virtual void PrintCantGoThatWay()
 		{
 			Globals.Out.WriteLine("{0}You can't go that way!", Environment.NewLine);
