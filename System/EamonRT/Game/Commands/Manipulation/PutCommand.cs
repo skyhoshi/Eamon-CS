@@ -20,6 +20,11 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool GetCommandCalled { get; set; }
 
+		protected virtual void PlayerProcessEvents()
+		{
+
+		}
+
 		protected override void PlayerExecute()
 		{
 			RetCode rc;
@@ -151,6 +156,13 @@ namespace EamonRT.Game.Commands
 			}
 
 			Globals.Out.WriteLine("{0}Done.", Environment.NewLine);
+
+			PlayerProcessEvents();
+
+			if (GotoCleanup)
+			{
+				goto Cleanup;
+			}
 
 		Cleanup:
 

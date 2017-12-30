@@ -417,7 +417,7 @@ namespace EamonRT.Game.Commands
 
 		protected virtual void PrintCalmDown()
 		{
-			if (Globals.IsRulesetVersion(5))
+			if (Globals.IsRulesetVersion(5, 6, 62))
 			{
 				Globals.Out.WriteLine("{0}There's nothing to flee from!", Environment.NewLine);
 			}

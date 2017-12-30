@@ -35,7 +35,20 @@ namespace EamonRT.Game.States
 
 		protected virtual void ProcessEvents()
 		{
+			var gameState = Globals.Engine.GetGameState();
 
+			Debug.Assert(gameState != null);
+
+			// Special blocking artifacts
+
+			var artifact = Globals.Engine.GetBlockedDirectionArtifact(gameState.Ro, gameState.R2, Direction);
+
+			if (artifact != null)
+			{
+				PrintObjBlocksTheWay(artifact);
+
+				GotoCleanup = true;
+			}
 		}
 
 		protected virtual void ProcessEvents01()

@@ -70,6 +70,10 @@ namespace Eamon.Framework
 
 		bool HasDeadBody();
 
+		bool HasWornInventory();
+
+		bool HasCarriedInventory();
+
 		bool IsInRoom();
 
 		bool IsInLimbo();

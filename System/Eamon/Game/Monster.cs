@@ -364,6 +364,16 @@ namespace Eamon.Game
 			return DeadBody > 0 && DeadBody < 1001;
 		}
 
+		public virtual bool HasWornInventory()
+		{
+			return true;
+		}
+
+		public virtual bool HasCarriedInventory()
+		{
+			return true;
+		}
+
 		public virtual bool IsInRoom()
 		{
 			return Location > 0 && Location < 1001;

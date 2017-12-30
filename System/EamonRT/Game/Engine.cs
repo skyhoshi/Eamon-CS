@@ -1261,6 +1261,11 @@ namespace EamonRT.Game
 			}
 		}
 
+		public virtual IArtifact GetBlockedDirectionArtifact(long ro, long r2, Enums.Direction dir)
+		{
+			return null;
+		}
+
 		public virtual void CheckDoor(IRoom room, IArtifact artifact, ref bool found, ref long roomUid)
 		{
 			Debug.Assert(room != null);
@@ -1336,7 +1341,7 @@ namespace EamonRT.Game
 					roomUid = room.GetDirs(dv);
 				}
 
-				if (roomUid != 0 && !monster.CanMoveToRoomUid(roomUid, fleeing))
+				if (roomUid != 0 && (!monster.CanMoveToRoomUid(roomUid, fleeing) || GetBlockedDirectionArtifact(room.Uid, roomUid, dv) != null))
 				{
 					roomUid = 0;
 				}
@@ -1383,7 +1388,7 @@ namespace EamonRT.Game
 					roomUid = room.GetDirs(rl);
 				}
 
-				if (roomUid != 0 && !monster.CanMoveToRoomUid(roomUid, fleeing))
+				if (roomUid != 0 && (!monster.CanMoveToRoomUid(roomUid, fleeing) || GetBlockedDirectionArtifact(room.Uid, roomUid, (Enums.Direction)rl) != null))
 				{
 					roomUid = 0;
 				}

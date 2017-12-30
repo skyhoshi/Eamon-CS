@@ -99,60 +99,66 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				var artifactList = DobjMonster.GetWornList();
-
-				if (artifactList.Count > 0)
+				if (DobjMonster.HasWornInventory())
 				{
+					var artifactList = DobjMonster.GetWornList();
+
+					if (artifactList.Count > 0)
+					{
+						Globals.Buf.SetFormat("{0}{1} {2} {3}",
+							Environment.NewLine,
+							isCharMonster ? "You" : DobjMonster.EvalPlural(DobjMonster.GetDecoratedName03(true, true, false, true, Globals.Buf01), "They"),
+							isCharMonster ? "are" : DobjMonster.EvalPlural("is", "are"),
+							isCharMonster ? "wearing " : DobjMonster.EvalPlural("wearing ", "wearing among them "));
+
+						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), Enums.ArticleType.A, isCharMonster ? false : true, true, false, Globals.Buf);
+
+						Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+						Globals.Buf.AppendFormat(".{0}", Environment.NewLine);
+
+						Globals.Out.Write("{0}", Globals.Buf);
+					}
+				}
+
+				if (DobjMonster.HasCarriedInventory())
+				{
+					var artifactList = DobjMonster.GetCarriedList();
+
+					if (isCharMonster && Globals.Character.HeldGold != 0)
+					{
+						goldArtifact = Globals.CreateInstance<IArtifact>(x =>
+						{
+							x.Name = string.Format("{0} gold piece{1}",
+											Globals.Engine.GetStringFromNumber(Globals.Character.HeldGold, false, Globals.Buf),
+											Globals.Character.HeldGold != 1 ? "s" : "");
+						});
+
+						artifactList.Add(goldArtifact);
+					}
+
 					Globals.Buf.SetFormat("{0}{1} {2} {3}",
 						Environment.NewLine,
 						isCharMonster ? "You" : DobjMonster.EvalPlural(DobjMonster.GetDecoratedName03(true, true, false, true, Globals.Buf01), "They"),
 						isCharMonster ? "are" : DobjMonster.EvalPlural("is", "are"),
-						isCharMonster ? "wearing " : DobjMonster.EvalPlural("wearing ", "wearing among them "));
+						artifactList.Count == 0 ? "" :
+						isCharMonster ? "carrying " : DobjMonster.EvalPlural("carrying ", "carrying among them "));
 
-					rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), Enums.ArticleType.A, isCharMonster ? false : true, true, false, Globals.Buf);
+					if (artifactList.Count > 0)
+					{
+						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), Enums.ArticleType.A, isCharMonster ? false : true, true, false, Globals.Buf);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(Globals.Engine.IsSuccess(rc));
+					}
+					else
+					{
+						Globals.Buf.Append("empty handed");
+					}
 
 					Globals.Buf.AppendFormat(".{0}", Environment.NewLine);
 
 					Globals.Out.Write("{0}", Globals.Buf);
 				}
-
-				artifactList = DobjMonster.GetCarriedList();
-
-				if (isCharMonster && Globals.Character.HeldGold != 0)
-				{
-					goldArtifact = Globals.CreateInstance<IArtifact>(x =>
-					{
-						x.Name = string.Format("{0} gold piece{1}", 
-										Globals.Engine.GetStringFromNumber(Globals.Character.HeldGold, false, Globals.Buf), 
-										Globals.Character.HeldGold != 1 ? "s" : "");
-					});
-
-					artifactList.Add(goldArtifact);
-				}
-
-				Globals.Buf.SetFormat("{0}{1} {2} {3}",
-					Environment.NewLine,
-					isCharMonster ? "You" : DobjMonster.EvalPlural(DobjMonster.GetDecoratedName03(true, true, false, true, Globals.Buf01), "They"),
-					isCharMonster ? "are" : DobjMonster.EvalPlural("is", "are"),
-					artifactList.Count == 0 ? "" :
-					isCharMonster ? "carrying " : DobjMonster.EvalPlural("carrying ", "carrying among them "));
-
-				if (artifactList.Count > 0)
-				{
-					rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), Enums.ArticleType.A, isCharMonster ? false : true, true, false, Globals.Buf);
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
-				}
-				else
-				{
-					Globals.Buf.Append("empty handed");
-				}
-
-				Globals.Buf.AppendFormat(".{0}", Environment.NewLine);
-
-				Globals.Out.Write("{0}", Globals.Buf);
 
 				var isUninjuredGroup = DobjMonster.GroupCount > 1 && DobjMonster.DmgTaken == 0;
 

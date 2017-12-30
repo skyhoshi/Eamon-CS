@@ -23,6 +23,11 @@ namespace EamonRT.Game.Commands
 
 		protected virtual IArtifact Key { get; set; }
 
+		protected virtual void PlayerProcessEvents()
+		{
+
+		}
+
 		protected virtual void PrintMonsterFreed()
 		{
 			Globals.Out.Write("{0}You have freed {1}{2}.{0}",
@@ -52,6 +57,13 @@ namespace EamonRT.Game.Commands
 				Guard = guardUid > 0 ? Globals.MDB[guardUid] : null;
 
 				Debug.Assert(Monster != null);
+
+				PlayerProcessEvents();
+
+				if (GotoCleanup)
+				{
+					goto Cleanup;
+				}
 
 				if (Guard != null && Guard.IsInRoom(ActorRoom))
 				{

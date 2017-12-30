@@ -91,6 +91,8 @@ namespace EamonRT.Framework
 
 		void RemoveWeight(IArtifact artifact);
 
+		IArtifact GetBlockedDirectionArtifact(long ro, long r2, Enums.Direction dir);
+
 		void CheckDoor(IRoom room, IArtifact artifact, ref bool found, ref long roomUid);
 
 		void CheckNumberOfExits(IRoom room, IMonster monster, bool fleeing, ref long numExits);
