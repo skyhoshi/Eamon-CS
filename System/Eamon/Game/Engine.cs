@@ -68,16 +68,6 @@ namespace Eamon.Game
 
 		public virtual long NumCacheItems { get; set; }
 
-		public virtual string ProvidingLightDesc { get; set; }
-
-		public virtual string ReadyWeaponDesc { get; set; }
-
-		public virtual string BrokenDesc { get; set; }
-
-		public virtual string EmptyDesc { get; set; }
-
-		public virtual string BlastDesc { get; set; }
-
 		public virtual string UnknownName { get; set; }
 
 		#endregion
@@ -991,6 +981,11 @@ namespace Eamon.Game
 			return result;
 		}
 
+		public virtual string GetBlastDesc()
+		{
+			return "ZAP!  Direct hit!";
+		}
+		
 		public virtual string GetAttackDescString(Enums.Weapon weapon, long roll)
 		{
 			string result = null;
@@ -2212,7 +2207,7 @@ namespace Eamon.Game
 					}
 				}
 
-				rc = artifact.RemoveStateDesc(ReadyWeaponDesc);
+				rc = artifact.RemoveStateDesc(artifact.GetReadyWeaponDesc());
 
 				Debug.Assert(IsSuccess(rc));
 
@@ -2957,16 +2952,6 @@ namespace Eamon.Game
 			};
 
 			NumCacheItems = Constants.NumCacheItems;
-
-			ProvidingLightDesc = Constants.ProvidingLightDesc;
-
-			ReadyWeaponDesc = Constants.ReadyWeaponDesc;
-
-			BrokenDesc = Constants.BrokenDesc;
-
-			EmptyDesc = Constants.EmptyDesc;
-
-			BlastDesc = Constants.BlastDesc;
 
 			UnknownName = "???";
 		}

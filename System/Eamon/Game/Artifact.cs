@@ -694,6 +694,26 @@ namespace Eamon.Game
 			return GetArtifactClass(Enums.ArtifactType.User3) != null;
 		}
 
+		public virtual string GetProvidingLightDesc()
+		{
+			return "(providing light)";
+		}
+
+		public virtual string GetReadyWeaponDesc()
+		{
+			return "(ready weapon)";
+		}
+
+		public virtual string GetBrokenDesc()
+		{
+			return "(broken)";
+		}
+
+		public virtual string GetEmptyDesc()
+		{
+			return "(empty)";
+		}
+
 		public virtual T EvalPlural<T>(T singularValue, T pluralValue)
 		{
 			return Globals.Engine.EvalPlural(IsPlural, singularValue, pluralValue);

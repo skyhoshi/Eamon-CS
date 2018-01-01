@@ -468,7 +468,7 @@ namespace EamonRT.Game
 
 					if (artifact != null)
 					{
-						artifact.AddStateDesc(ReadyWeaponDesc);
+						artifact.AddStateDesc(artifact.GetReadyWeaponDesc());
 					}
 				}
 
@@ -1001,7 +1001,7 @@ namespace EamonRT.Game
 		{
 			Debug.Assert(artifact != null);
 
-			var rc = artifact.RemoveStateDesc(ProvidingLightDesc);
+			var rc = artifact.RemoveStateDesc(artifact.GetProvidingLightDesc());
 
 			Debug.Assert(IsSuccess(rc));
 
@@ -1109,7 +1109,7 @@ namespace EamonRT.Game
 
 					Debug.Assert(weapon != null);
 
-					rc = weapon.RemoveStateDesc(ReadyWeaponDesc);
+					rc = weapon.RemoveStateDesc(weapon.GetReadyWeaponDesc());
 
 					Debug.Assert(IsSuccess(rc));
 

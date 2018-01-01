@@ -14,7 +14,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 	[ClassMappings(typeof(EamonRT.Framework.Commands.IOpenCommand))]
 	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, IOpenCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents01()
 		{
 			var artifact = Globals.ADB[2];
 
@@ -40,7 +40,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 			}
 			else
 			{
-				base.PlayerProcessEvents();
+				base.PlayerProcessEvents01();
 			}
 		}
 	}

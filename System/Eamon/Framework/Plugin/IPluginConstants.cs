@@ -111,16 +111,6 @@ namespace Eamon.Framework.Plugin
 
 		string RecIdepErrorFmtStr { get; }
 
-		string ProvidingLightDesc { get; }
-
-		string ReadyWeaponDesc { get; }
-
-		string BrokenDesc { get; }
-
-		string EmptyDesc { get; }
-
-		string BlastDesc { get; }
-
 		string DefaultWorkDir { get; }
 
 		string ProcessMutexName { get; }

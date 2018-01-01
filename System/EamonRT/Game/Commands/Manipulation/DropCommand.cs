@@ -47,7 +47,7 @@ namespace EamonRT.Game.Commands
 			{
 				Debug.Assert(artifact.IsWeapon01());
 
-				var rc = artifact.RemoveStateDesc(Globals.Engine.ReadyWeaponDesc);
+				var rc = artifact.RemoveStateDesc(artifact.GetReadyWeaponDesc());
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 

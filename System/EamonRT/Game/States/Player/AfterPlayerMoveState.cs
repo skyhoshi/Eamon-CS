@@ -55,7 +55,7 @@ namespace EamonRT.Game.States
 
 				if (!artifact.IsCarriedByCharacter())
 				{
-					rc = artifact.RemoveStateDesc(Globals.Engine.ProvidingLightDesc);
+					rc = artifact.RemoveStateDesc(artifact.GetProvidingLightDesc());
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -91,7 +91,7 @@ namespace EamonRT.Game.States
 
 					if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'Y')
 					{
-						rc = artifact.RemoveStateDesc(Globals.Engine.ProvidingLightDesc);
+						rc = artifact.RemoveStateDesc(artifact.GetProvidingLightDesc());
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 

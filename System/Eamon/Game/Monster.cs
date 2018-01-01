@@ -738,7 +738,7 @@ namespace Eamon.Game
 
 					if (Weapon == a.Uid)
 					{
-						a.RemoveStateDesc(Globals.Engine.ReadyWeaponDesc);
+						a.RemoveStateDesc(a.GetReadyWeaponDesc());
 
 						Weapon = -1;
 					}

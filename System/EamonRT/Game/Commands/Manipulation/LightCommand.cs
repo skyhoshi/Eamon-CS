@@ -64,7 +64,7 @@ namespace EamonRT.Game.Commands
 
 					if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'Y')
 					{
-						rc = DobjArtifact.RemoveStateDesc(Globals.Engine.ProvidingLightDesc);
+						rc = DobjArtifact.RemoveStateDesc(DobjArtifact.GetProvidingLightDesc());
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -87,7 +87,7 @@ namespace EamonRT.Game.Commands
 					Globals.Engine.LightOut(lsArtifact);
 				}
 
-				rc = DobjArtifact.AddStateDesc(Globals.Engine.ProvidingLightDesc);
+				rc = DobjArtifact.AddStateDesc(DobjArtifact.GetProvidingLightDesc());
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 

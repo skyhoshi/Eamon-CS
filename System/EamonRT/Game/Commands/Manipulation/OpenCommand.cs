@@ -23,6 +23,11 @@ namespace EamonRT.Game.Commands
 
 		}
 
+		protected virtual void PlayerProcessEvents01()
+		{
+
+		}
+
 		protected virtual bool ShouldPrintContainerInventory()
 		{
 			return true;
@@ -126,6 +131,13 @@ namespace EamonRT.Game.Commands
 					PrintOpened(DobjArtifact);
 				}
 
+				PlayerProcessEvents();
+
+				if (GotoCleanup)
+				{
+					goto Cleanup;
+				}
+
 				if (ac.Type == Enums.ArtifactType.Container && ShouldPrintContainerInventory())
 				{
 					NextState = Globals.CreateInstance<IInventoryCommand>();
@@ -150,7 +162,7 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				PlayerProcessEvents();
+				PlayerProcessEvents01();
 
 				if (GotoCleanup)
 				{

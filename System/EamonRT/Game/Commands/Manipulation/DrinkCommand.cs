@@ -88,7 +88,7 @@ namespace EamonRT.Game.Commands
 				{
 					DobjArtifact.Value = 0;
 
-					DobjArtifact.AddStateDesc(Globals.Engine.EmptyDesc);
+					DobjArtifact.AddStateDesc(DobjArtifact.GetEmptyDesc());
 
 					PrintVerbItAll(DobjArtifact);
 				}

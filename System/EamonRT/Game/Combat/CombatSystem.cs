@@ -237,7 +237,7 @@ namespace EamonRT.Game.Combat
 
 		protected virtual void PrintBlast()
 		{
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.Engine.BlastDesc);
+			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.Engine.GetBlastDesc());
 		}
 
 		protected virtual void RollToHitOrMiss()
@@ -398,7 +398,7 @@ namespace EamonRT.Game.Combat
 
 				Debug.Assert(WpnArtifact != null);
 
-				rc = WpnArtifact.RemoveStateDesc(Globals.Engine.ReadyWeaponDesc);
+				rc = WpnArtifact.RemoveStateDesc(WpnArtifact.GetReadyWeaponDesc());
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -460,7 +460,7 @@ namespace EamonRT.Game.Combat
 
 			Debug.Assert(WpnArtifact != null);
 
-			rc = WpnArtifact.RemoveStateDesc(Globals.Engine.ReadyWeaponDesc);
+			rc = WpnArtifact.RemoveStateDesc(WpnArtifact.GetReadyWeaponDesc());
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 

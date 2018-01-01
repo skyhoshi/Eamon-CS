@@ -190,6 +190,14 @@ namespace Eamon.Framework
 
 		bool IsUser3();
 
+		string GetProvidingLightDesc();
+
+		string GetReadyWeaponDesc();
+
+		string GetBrokenDesc();
+
+		string GetEmptyDesc();
+
 		T EvalPlural<T>(T singularValue, T pluralValue);
 
 		T EvalInRoomLightLevel<T>(T darkValue, T lightValue);

@@ -69,14 +69,14 @@ namespace EamonRT.Game.Commands
 
 				if (wpnArtifact != null)
 				{
-					rc = wpnArtifact.RemoveStateDesc(Globals.Engine.ReadyWeaponDesc);
+					rc = wpnArtifact.RemoveStateDesc(wpnArtifact.GetReadyWeaponDesc());
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 				}
 
 				ActorMonster.Weapon = DobjArtifact.Uid;
 
-				rc = DobjArtifact.AddStateDesc(Globals.Engine.ReadyWeaponDesc);
+				rc = DobjArtifact.AddStateDesc(DobjArtifact.GetReadyWeaponDesc());
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -111,14 +111,14 @@ namespace EamonRT.Game.Commands
 
 				if (wpnArtifact != null)
 				{
-					rc = wpnArtifact.RemoveStateDesc(Globals.Engine.ReadyWeaponDesc);
+					rc = wpnArtifact.RemoveStateDesc(wpnArtifact.GetReadyWeaponDesc());
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 				}
 
 				ActorMonster.Weapon = DobjArtifact.Uid;
 
-				rc = DobjArtifact.AddStateDesc(Globals.Engine.ReadyWeaponDesc);
+				rc = DobjArtifact.AddStateDesc(DobjArtifact.GetReadyWeaponDesc());
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 

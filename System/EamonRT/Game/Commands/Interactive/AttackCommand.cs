@@ -29,6 +29,26 @@ namespace EamonRT.Game.Commands
 
 		public virtual long MemberNumber { get; set; }
 
+		protected virtual void PrintHackToBits()
+		{
+			Globals.Out.Write("{0}You {1} {2} to bits!{0}",	Environment.NewLine, BlastSpell ? "blast" : "hack", DobjArtifact.EvalPlural("it", "them"));
+		}
+
+		protected virtual void BuildWhamHitObj()
+		{
+			Globals.Buf.SetFormat("{0}Wham!  You hit {1}!{0}", Environment.NewLine, DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+		}
+
+		protected virtual void BuildSmashesToPieces()
+		{
+			Globals.Buf.SetFormat("{0}{1} {2} to pieces", Environment.NewLine, DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), DobjArtifact.EvalPlural("smashes", "smash"));
+		}
+
+		protected virtual void BuildContentsSpillToFloor()
+		{
+			Globals.Buf.AppendFormat("; {0} contents spill to the {1}", DobjArtifact.EvalPlural("its", "their"), ActorRoom.Type == Enums.RoomType.Indoors ? "floor" : "ground");
+		}
+
 		protected override void PlayerExecute()
 		{
 			RetCode rc;
@@ -56,15 +76,12 @@ namespace EamonRT.Game.Commands
 					{
 						if (BlastSpell)
 						{
-							Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.Engine.BlastDesc);
+							Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.Engine.GetBlastDesc());
 						}
 
 						DobjArtifact.SetInLimbo();
 
-						Globals.Out.Write("{0}You {1} {2} to bits!{0}",
-							Environment.NewLine,
-							BlastSpell ? "blast" : "hack",
-							DobjArtifact.EvalPlural("it", "them"));
+						PrintHackToBits();
 
 						goto Cleanup;
 					}
@@ -110,7 +127,7 @@ namespace EamonRT.Game.Commands
 
 					if (keyUid == -2)
 					{
-						Globals.Out.Write("{0}You already broke {1}!{0}", Environment.NewLine, DobjArtifact.EvalPlural("it", "them"));
+						PrintAlreadyBrokeIt(DobjArtifact);
 
 						goto Cleanup;
 					}
@@ -134,7 +151,7 @@ namespace EamonRT.Game.Commands
 
 						s = 5;
 
-						Globals.Buf.SetFormat("{0}{1}{0}", Environment.NewLine, Globals.Engine.BlastDesc);
+						Globals.Buf.SetFormat("{0}{1}{0}", Environment.NewLine, Globals.Engine.GetBlastDesc());
 					}
 					else
 					{
@@ -150,7 +167,7 @@ namespace EamonRT.Game.Commands
 
 						s = weaponAc.Field8;
 
-						Globals.Buf.SetFormat("{0}Wham! You hit {1}!{0}", Environment.NewLine, DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+						BuildWhamHitObj();
 					}
 
 					Globals.Out.Write("{0}", Globals.Buf);
@@ -186,14 +203,11 @@ namespace EamonRT.Game.Commands
 
 					DobjArtifact.Value = 0;
 
-					rc = DobjArtifact.AddStateDesc(Globals.Engine.BrokenDesc);
+					rc = DobjArtifact.AddStateDesc(DobjArtifact.GetBrokenDesc());
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					Globals.Buf.SetFormat("{0}{1} {2} to pieces", 
-						Environment.NewLine, 
-						DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf01),
-						DobjArtifact.EvalPlural("smashes", "smash"));
+					BuildSmashesToPieces();
 
 					if (ac.Type == Enums.ArtifactType.Container)
 					{
@@ -206,9 +220,7 @@ namespace EamonRT.Game.Commands
 
 						if (artifactList.Count > 0)
 						{
-							Globals.Buf.AppendFormat("; {0} contents spill to the {1}",
-								DobjArtifact.EvalPlural("its", "their"),
-								ActorRoom.Type == Enums.RoomType.Indoors ? "floor" : "ground");
+							BuildContentsSpillToFloor();
 						}
 
 						ac.Field7 = 0;

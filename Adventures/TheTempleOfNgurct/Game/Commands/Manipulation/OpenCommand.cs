@@ -16,7 +16,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings(typeof(EamonRT.Framework.Commands.IOpenCommand))]
 	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, IOpenCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents01()
 		{
 			var gameState = Globals.GameState as IGameState;
 
@@ -42,7 +42,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			}
 			else
 			{
-				base.PlayerProcessEvents();
+				base.PlayerProcessEvents01();
 			}
 		}
 

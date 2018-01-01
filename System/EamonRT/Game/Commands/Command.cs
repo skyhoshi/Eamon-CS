@@ -214,6 +214,13 @@ namespace EamonRT.Game.Commands
 			Globals.Out.WriteLine("{0}You broke {1}!", Environment.NewLine, artifact.EvalPlural("it", "them"));
 		}
 
+		protected virtual void PrintAlreadyBrokeIt(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Out.Write("{0}You already broke {1}!{0}", Environment.NewLine, artifact.EvalPlural("it", "them"));
+		}
+
 		protected virtual void PrintHaveToForceOpen(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);

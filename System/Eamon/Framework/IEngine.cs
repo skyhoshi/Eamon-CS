@@ -25,16 +25,6 @@ namespace Eamon.Framework
 
 		long NumCacheItems { get; set; }
 
-		string ProvidingLightDesc { get; set; }
-
-		string ReadyWeaponDesc { get; set; }
-
-		string BrokenDesc { get; set; }
-
-		string EmptyDesc { get; set; }
-
-		string BlastDesc { get; set; }
-
 		string UnknownName { get; set; }
 
 		#endregion
@@ -220,6 +210,8 @@ namespace Eamon.Framework
 		string GetStringFromNumber(long num, bool addSpace, StringBuilder buf);
 
 		long GetNumberFromString(string str);
+
+		string GetBlastDesc();
 
 		string GetAttackDescString(Enums.Weapon weapon, long roll);
 

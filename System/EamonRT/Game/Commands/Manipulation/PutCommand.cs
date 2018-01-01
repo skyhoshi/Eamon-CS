@@ -148,7 +148,7 @@ namespace EamonRT.Game.Commands
 			{
 				Debug.Assert(DobjArtifact.IsWeapon01());
 
-				rc = DobjArtifact.RemoveStateDesc(Globals.Engine.ReadyWeaponDesc);
+				rc = DobjArtifact.RemoveStateDesc(DobjArtifact.GetReadyWeaponDesc());
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 

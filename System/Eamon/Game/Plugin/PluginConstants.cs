@@ -114,16 +114,6 @@ namespace Eamon.Game.Plugin
 
 		public virtual string RecIdepErrorFmtStr { get; protected set; } = "The {0} field refers to {1} uid {2}, {3}.";
 
-		public virtual string ProvidingLightDesc { get; protected set; } = "(providing light)";
-
-		public virtual string ReadyWeaponDesc { get; protected set; } = "(ready weapon)";
-
-		public virtual string BrokenDesc { get; protected set; } = "(broken)";
-
-		public virtual string EmptyDesc { get; protected set; } = "(empty)";
-
-		public virtual string BlastDesc { get; protected set; } = "ZAP! Direct hit!";
-
 		public virtual string DefaultWorkDir { get; protected set; } = ".";
 
 		public virtual string ProcessMutexName { get; protected set; }
