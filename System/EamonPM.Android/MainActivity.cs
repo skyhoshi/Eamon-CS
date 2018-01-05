@@ -184,6 +184,8 @@ namespace EamonPM
 			pg = TheTempleOfNgurct.Game.Plugin.PluginContext.Globals;
 
 			pg = TheTrainingGround.Game.Plugin.PluginContext.Globals;
+
+			pg = WrenholdsSecretVigil.Game.Plugin.PluginContext.Globals;
 		}
 
 		protected override void OnCreate(Bundle bundle)

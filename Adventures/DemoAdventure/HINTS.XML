@@ -50,7 +50,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="The 5.0 Demo Adventure is slightly expanded from previous versions with new descriptions and even more &quot;embedded&quot; artifacts.  In the first room EXAMINE the mailbox, door, and sign.  READ the paper that is in the mailbox for more notes." />
+                <Simple value="1. The 5.0 Demo Adventure is slightly expanded from previous versions with new descriptions and even more &quot;embedded&quot; artifacts.  In the first room EXAMINE the mailbox, door, and sign.  READ the paper that is in the mailbox for more notes." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
