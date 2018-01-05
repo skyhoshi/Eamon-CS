@@ -50,7 +50,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="Cast the POWER spell to gain a hidden treasure." />
+                <Simple value="1. Cast the POWER spell to gain a hidden treasure." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -71,7 +71,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="SAY THOR (or USE HAMMER) to reduce the courage of your enemies by 3/4." />
+                <Simple value="1. SAY THOR (or USE HAMMER) to reduce the courage of your enemies by 3/4." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -92,7 +92,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="If you don't want to fight him, GIVE OBSIDIAN SCROLL CASE to him." />
+                <Simple value="1. If you don't want to fight him, GIVE OBSIDIAN SCROLL CASE to him." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -113,7 +113,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="Keep casting the POWER spell until your gender reverts to normal (20% chance each time)." />
+                <Simple value="1. Keep casting the POWER spell until your gender reverts to normal (20% chance each time)." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -134,7 +134,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="OPEN BACKPACK then REMOVE TORCH# FROM BACKPACK and use that as a light source after the first torch runs out." />
+                <Simple value="1. OPEN BACKPACK then REMOVE TORCH# FROM BACKPACK and use that as a light source after the first torch runs out." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -155,7 +155,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="GIVE 100 to him twice to get two healing potions.  After that you can just ignore him.  Note:  If you act hostile towards him, he will disappear before he can be harmed." />
+                <Simple value="1. GIVE 100 to him twice to get two healing potions.  After that you can just ignore him.  Note:  If you act hostile towards him, he will disappear before he can be harmed." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />

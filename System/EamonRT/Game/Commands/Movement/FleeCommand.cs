@@ -32,6 +32,11 @@ namespace EamonRT.Game.Commands
 			Globals.Buf.Clear();
 		}
 
+		protected virtual bool ShouldMonsterFlee()
+		{
+			return Globals.Engine.CheckNBTLHostility(ActorMonster);
+		}
+
 		protected override void PlayerExecute()
 		{
 			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Enums.Direction), Direction));
@@ -129,7 +134,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(Direction == 0);
 
-			if (Globals.Engine.CheckNBTLHostility(ActorMonster))
+			if (ShouldMonsterFlee())
 			{
 				var charMonster = Globals.MDB[Globals.GameState.Cm];
 

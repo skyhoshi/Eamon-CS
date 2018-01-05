@@ -20,6 +20,8 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class GetCommand : Command, IGetCommand
 	{
+		protected virtual IList<IArtifact> ArtifactList { get; set; }
+
 		public virtual bool GetAll { get; set; }
 
 		protected virtual void ProcessAction(Action action, ref bool nlFlag)
@@ -111,9 +113,9 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(GetAll || DobjArtifact != null);
 
-			var artifactList = GetAll ? ActorRoom.GetTakeableList() : new List<IArtifact>() { DobjArtifact };
+			ArtifactList = GetAll ? ActorRoom.GetTakeableList() : new List<IArtifact>() { DobjArtifact };
 
-			if (artifactList.Count > 0)
+			if (ArtifactList.Count > 0)
 			{
 				var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Container, Enums.ArtifactType.DeadBody, Enums.ArtifactType.BoundMonster, Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
 
@@ -121,7 +123,7 @@ namespace EamonRT.Game.Commands
 
 				IArtifact wpnArtifact = null;
 
-				foreach (var artifact in artifactList)
+				foreach (var artifact in ArtifactList)
 				{
 					var ac = artifact.GetArtifactClass(artClasses, false);
 

@@ -50,7 +50,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="The ten cardboard cut-out &quot;spooks&quot; that will come after you in part of this adventure can be a little unfair for beginning level characters.  If you wish, you can reduce the total amount of spooks to two if you SAY LESS SPOOKS." />
+                <Simple value="1. The ten cardboard cut-out &quot;spooks&quot; that will come after you in part of this adventure can be a little unfair for beginning level characters.  If you wish, you can reduce the total amount of spooks to two if you SAY LESS SPOOKS." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />

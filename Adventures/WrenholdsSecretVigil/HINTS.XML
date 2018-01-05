@@ -1,0 +1,428 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.HintDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IHint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="EAMON CS 1.3 GENERAL HELP." />
+            <Simple name="NumAnswers" value="8" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A DR&quot; or &quot;A GON&quot; for ATTACK DRAGON, &quot;REQ RAY FROM AL&quot; or &quot;REQ GUN FROM IEN&quot; for REQUEST RAY GUN FROM ALIEN, &quot;PUT PUM IN LAR&quot; or &quot;PUT PIE IN OVEN&quot; for PUT PUMPKIN PIE IN **046" />
+                <Simple value="2. Sometimes items may be in a room but won't show up until you EXAMINE them.  Pay close attention to all descriptions.  Note:  LOOK only repeats the room description and -nothing- else.  Use EXAMINE to, well, examine things." />
+                <Simple value="3. Before you can manipulate items that are inside of other items, you must REMOVE them from that item.  There is no REMOVE ALL command, but if you ATTACK a (breakable) container, all of its contents will be emptied to the floor and you can GET ALL." />
+                <Simple value="4. Type SAVE and a number for a desired save position to Quick Save (save without having to verify).  Adding a description will rename that slot.  Examples:  &quot;SAVE 2&quot; or &quot;SAVE 5 Dark Room (NO GRUES)&quot;.  Also works with RESTORE.  (Type RESTORE 1, etc.)" />
+                <Simple value="5. You can INVENTORY companions (normally anyone whom, when you SMILE, smiles back at you) to see what they are carrying and wearing.  You can then REQUEST those items from them.  You can also INVENTORY containers to get a list of contents." />
+                <Simple value="6. If you GIVE food or a beverage to a friend, they will take a bite or drink and give it back to you." />
+                <Simple value="7. To give money to someone, type GIVE and an amount.  For example, GIVE 1000 TO IRS AGENT would pay 1000 gold coins to the nice IRS Agent.  In most standard adventures, if you GIVE 5000 or more, a neutral monster will -usually- become your friend." />
+                <Simple value="8. The POWER spell has been known to have strange and marvelous effects in many adventures.  When all else fails (or just for fun) try POWER." />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="EAMON CS 1.3 NEW COMMANDS." />
+            <Simple name="NumAnswers" value="1" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. The GO command allows you to travel through any door/gate you encounter, including those that are free-standing (not associated with a room directional link)." />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Why am I always killed by wild animals when I exit the game?" />
+            <Simple name="NumAnswers" value="2" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. In the introductory story, it was mentioned that the animals have gone wild, killing everything they encounter." />
+                <Simple value="2. This is the author's way of keeping you in the adventure until you solve it.  In classic Eamon you had no choice but to keep playing, but in Eamon CS you can always QUIT HALL to exit if you like." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Where are the buried artifacts I can access with the DIG command?" />
+            <Simple name="NumAnswers" value="8" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. There are eight artifacts sprinkled around the game map, waiting to be discovered by using the DIG command." />
+                <Simple value="2. On the mountain path you will discover a dead rabbit." />
+                <Simple value="3. You will find a metal key inside the cave entrance." />
+                <Simple value="4. You will discover a small wooden box in the lime pool, with an ebony key nearby." />
+                <Simple value="5. A large rock sits at the bottom of a small drop-off." />
+                <Simple value="6. An ornate ring is buried at the bottom of a crevice." />
+                <Simple value="7. You can find a pea-sized crystal ball in a carved-out chamber while you're lost in the maze." />
+                <Simple value="8. A strong box is buried underneath the wooden and rope bridge." />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="What do I do to discover the secret doors in this game?" />
+            <Simple name="NumAnswers" value="1" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. You need to explicitly LOOK at the room to discover any secret doors in it." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="What do I do with the dead rabbit?  It doesn't appear to be edible." />
+            <Simple name="NumAnswers" value="3" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Actually that depends on who (or what) is doing the eating." />
+                <Simple value="2. You will discover in your exploration a certain creature that has a taste for rabbit." />
+                <Simple value="3. If you GIVE the dead rabbit to the large death dog it may influence the dog's reaction to you." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Help!  I'm lost in the maze!  Is there anything interesting in here?" />
+            <Simple name="NumAnswers" value="4" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. If you're new to Interaction Fiction this is a classic puzzle technique that drove people crazy in the old days." />
+                <Simple value="2. The best solution to this is to draw a map, perhaps dropping items while doing so to help you keep your bearings." />
+                <Simple value="3. There is a large chamber in the maze that is well worth visiting." />
+                <Simple value="4. You can rescue two characters held hostage and gain some friends to help you on your adventure." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="How do I get past the large rock that's blocking the southern passage?" />
+            <Simple name="NumAnswers" value="4" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. First, you need to DIG at the boulder to gain better access to it." />
+                <Simple value="2. Then there are two ways of destroying the boulder - one easy and one really hard." />
+                <Simple value="3. You can ATTACK the boulder repeatedly until it breaks.  This is the really hard option, you'll be at this for quite a while." />
+                <Simple value="4. You can also BLAST the boulder to bits, which is the easy option." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="How do I get past the slime in the oblong room or rough-walled passage?" />
+            <Simple name="NumAnswers" value="3" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. You can try to ATTACK it but you will be unsuccessful and you'll lose your weapon as well (unless you're using a bow)." />
+                <Simple value="2. In general putting anything into the slime will cause the object to be destroyed." />
+                <Simple value="3. You can BLAST the slime, but you will need to do it repeatedly." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="What do I do with the swallower shark?" />
+            <Simple name="NumAnswers" value="2" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. You can try to cut it open but only if you have the right tool for the job." />
+                <Simple value="2. The drow chef is wielding a black cleaver which may be useful." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="What do I do with the metal pedestal?" />
+            <Simple name="NumAnswers" value="2" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. You can place a certain object in this pedestal to seal the drows inside the mountain." />
+                <Simple value="2. See the question regarding the concealed room, and also the one about completing the quest." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="How do I get past the bronze door?" />
+            <Simple name="NumAnswers" value="2" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. If you read the room description in the guard room you will see there is a straw mattress present." />
+                <Simple value="2. Taking the mattress reveals a bronze key that will open the door." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="How do I get past the gold curtain in the worship room?" />
+            <Simple name="NumAnswers" value="7" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. There are two ways to get past the gold curtain." />
+                <Simple value="2. The first way is to simply GET CURTAIN, which will allow you to access the area beyond, but this is only available to characters of great strength." />
+                <Simple value="3. The second way involves using a special key found elsewhere in the drow city." />
+                <Simple value="4. The key is located in the tavern." />
+                <Simple value="5. The key may be obtained by close inspection of the wine barrels." />
+                <Simple value="6. The bartender is carrying the key to the ivory door." />
+                <Simple value="7. Once the gold curtain is removed as an obstacle, LOOK in the worship room to find a secret door." />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="What do I do in the concealed room?" />
+            <Simple name="NumAnswers" value="3" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. If you read the room description you will see there is a large green device present." />
+                <Simple value="2. LOOK at the green device two times to thoroughly inspect it." />
+                <Simple value="3. GET or USE the lever to deactivate the large green device.  You can now OPEN it to reveal Wrenhold's life-orb." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="How do I complete the quest for this game?" />
+            <Simple name="NumAnswers" value="4" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. There are two ways to successfully complete the quest for the game." />
+                <Simple value="2. Both solutions involve obtaining the life-orb of master Wrenhold." />
+                <Simple value="3. You can place the life-orb in the metal pedestal at the entrance to the drow city, sealing them in forever.  Wrenhold sacrifices his life in this scenario." />
+                <Simple value="4. You can also take the life-orb and give it to King Argas (exit the game), in which case Wrenhold will be saved but the drow threat will linger." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="What is the &quot;moral quandry&quot; mentioned by the INFO command?" />
+            <Simple name="NumAnswers" value="2" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. The main antagonists are drow - dark elves, humanoids.  While they are hostile (and according to legend, of evil disposition) you are actively battling many civilians." />
+                <Simple value="2. It is supposition at this point, but the author may have had a similar motif in mind - one of the monster descriptions refers to &quot;a murderer of their own people&quot;." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="16" />
+  </Properties>
+</Complex>

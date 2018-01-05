@@ -1,0 +1,2020 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.RoomDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IRoom, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="-999" />
+                <Simple value="0" />
+                <Simple value="2" />
+                <Simple value="0" />
+                <Simple value="2" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Mount Eilaak, Base" />
+            <Simple name="Desc" value="You are at the base of a mist enshrouded mountain, Mount Eilaak.  A rocky path to the east leads upward.  A dark forest and the path back to a warm bed lie north." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="3" />
+                <Simple value="1" />
+                <Simple value="3" />
+                <Simple value="1" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Rocky, Narrow East/West Path" />
+            <Simple name="Desc" value="The footing is poor and makes climbing very slow.  The path continues upward to the east and downward to the west." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="4" />
+                <Simple value="2" />
+                <Simple value="4" />
+                <Simple value="2" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Narrow East/West Path" />
+            <Simple name="Desc" value="The path is filled with pebbles probably deposited here from above by wind and rain.  You must shuffle your feet and cling to the mountain wall to avoid losing your balance.  The path continues east (up) and west (down)." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="5" />
+                <Simple value="3" />
+                <Simple value="5" />
+                <Simple value="3" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Steep Mountain Path" />
+            <Simple name="Desc" value="The path is rather steep here.  The wall of the mountain is smooth from weather and you find yourself literally crawling along the path.  The path continues up (east) and, of course, down (west)." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="-8" />
+                <Simple value="6" />
+                <Simple value="4" />
+                <Simple value="6" />
+                <Simple value="4" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Mountain-Side Path" />
+            <Simple name="Desc" value="The path is fairly defined here and two small shrubs manage to keep hold in the otherwise impenetrably hard rock.  The path continues up (east) and down (west)." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="7" />
+                <Simple value="5" />
+                <Simple value="7" />
+                <Simple value="5" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Misty Mountain Path" />
+            <Simple name="Desc" value="A light mist hangs in the air in wisps as if suspended.  Your passing disturbs their sleep and they swirl around you.  The smooth southern face of Mount Eilaak offers no comment to your presence.  The path extends east (up) and west (down)." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="-100" />
+                <Simple value="-101" />
+                <Simple value="6" />
+                <Simple value="0" />
+                <Simple value="6" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Mountain Path, End" />
+            <Simple name="Desc" value="The path ends here, the ledge stopping as if some giant slide had swept it away ages ago.  You can see the expanse of the forest and the farmlands beyond to the north.  A 3-foot high, cobweb draped, rocky hole is at the south wall base." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="5" />
+                <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Cave Entrance" />
+            <Simple name="Desc" value="You are inside a cave entrance.  You can hear small sounds faintly echoing down the tunnel.  Various size rocks litter the floor and mist can be seen further ahead.  The tunnel is south, the exit north." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="8" />
+                <Simple value="17" />
+                <Simple value="20" />
+                <Simple value="10" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Four-Way Intersection" />
+            <Simple name="Desc" value="Small slices of mist lie in the air and it seems to get thicker towards the east and south.  A bend in the tunnel lies west and the cave entrance is north.  Noises seem to come from the west and east." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="11" />
+                <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Tunnel, East/South Bend" />
+            <Simple name="Desc" value="The walls were carved using ancient methods indicating the immense age of the cave.  The tunnel bends east towards the mist and south towards a lighted chamber." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="10" />
+                <Simple value="12" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Large Natural Cavern" />
+            <Simple name="Desc" value="You stand in awe.  The stalactite covered ceiling drips in its own rhythms into several multi-colored pools of minerals lying on the floor.  The expanse of the cavern is huge with the walls wet and glistening.  Exits lie north and south." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="11" />
+                <Simple value="13" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Small Connecting Tunnel" />
+            <Simple name="Desc" value="You are in a small smooth-walled tunnel that connects two chambers.  Lime water runs north to south along the floor, trickling into the edge of a pool just past the southern chamber opening.  This N/S tunnel seems to be natural." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="12" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="14" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Lime Pool, Edge" />
+            <Simple name="Desc" value="You are at the edge of a large lime pool extending to the west and south.  It is fed by trickling water coming from a northern tunnel.  The rock floor is smooth and slippery.  The only exit is north." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="13" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Lime Pool" />
+            <Simple name="Desc" value="You are standing in the lime pool.  Your footing is poor and you must be careful because of the soft bottom.  The pool is quite calm except for the ripples moving away from you while you sink; the water is cold." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="45" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="N/S Tunnel, South End" />
+            <Simple name="Desc" value="You see a large opening in the rock to the south with a bluish-green glow over it and a metal pedestal that stands here.  The glow seems to get slightly brighter each moment you watch it." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="36" />
+                <Simple value="35" />
+                <Simple value="0" />
+                <Simple value="31" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="T-Intersection (N/S/W)" />
+            <Simple name="Desc" value="The heavy mist is making it difficult to see more than a few paces ahead.  You can discern passages north, south and west, but cannot see any other details." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="9" />
+                <Simple value="18" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="18" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Rough Rock-Strewn N/S Tunnel" />
+            <Simple name="Desc" value="You are in a rough walled, rock-strewn tunnel extending north and south.  The mist is much heavier here and you cannot make out any objects in the darkness in front of you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="19" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="17" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Small Drop-off, Bottom" />
+            <Simple name="Desc" value="You are at the bottom of a drop-off, approximately two man-heights.  The wall has holes and protrusions and looks easy enough to climb.  The floor is littered with stony debris; a mound of dirt and rock block a would-be south passage." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="18" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Caved-In Tunnel" />
+            <Simple name="Desc" value="You are in a caved-in tunnel that runs north and south.  The southern passage is blocked by a slab of rock making further excavation impossible.  The rock slab has strange scorches along the bottom edge, nothing that looks like a normal burn." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="21" />
+                <Simple value="22" />
+                <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="T-Intersection (W/E/S)" />
+            <Simple name="Desc" value="The mist is making features to the east undiscernible.  Light comes from a doorway to the south which seems to open up into a large cavern.  The tunnel extending westward is clearer of mist." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="20" />
+                <Simple value="44" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Oblong, Carved-Out Room" />
+            <Simple name="Desc" value="The walls, floor and ceiling have tool marks gouged in them as if rock monsters had taken bites out of the mountain for their glacial hibernation.  Wooden crates and barrels line the walls as if this were a supply depot.  Exits N/S." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="23" />
+                <Simple value="24" />
+                <Simple value="20" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="T-Intersection (W/E/S)" />
+            <Simple name="Desc" value="The mist is thick enough that only the outline of features can be seen.  The tunnel is clear of debris and extends west, east and south." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="22" />
+                <Simple value="26" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="40" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Small Wooden Bridge" />
+            <Simple name="Desc" value="You are on a well-constructed wooden bridge held together with many tightly wound ropes.  A small crevice can be made out below the bridge through the mist, but you cannot see how far down the bottom may lie." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="25" />
+                <Simple value="0" />
+                <Simple value="22" />
+                <Simple value="0" />
+                <Simple value="25" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Tunnel, South/West Bend" />
+            <Simple name="Desc" value="You are at a south/west bend in the mist-filled tunnel.  Small pieces of rock and wood crunch under your feet as you step." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="24" />
+                <Simple value="27" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="24" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Crevice, Bottom" />
+            <Simple name="Desc" value="You are at the bottom of a small crevice littered with rocks, broken boards and small pieces of rope.  Some of the boards have burn marks and grey ashes can be seen mixed with the mountain dust.  You  may climb up north or south." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="23" />
+                <Simple value="30" />
+                <Simple value="27" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="T-Intersection (N/S/E)" />
+            <Simple name="Desc" value="The thick mist limits your vision to 20 foot-lengths.  You can barely make out openings in the tunnel to the north, south and east." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="25" />
+                <Simple value="31" />
+                <Simple value="28" />
+                <Simple value="26" />
+                <Simple value="0" />
+                <Simple value="25" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="27" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Four-Way Intersection" />
+            <Simple name="Desc" value="The thick mist limits your vision to 20 foot-lengths.  You can barely make out openings in the tunnel to the north, south, east and west." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="32" />
+                <Simple value="29" />
+                <Simple value="27" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="28" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="T-Intersection (E/W/S)" />
+            <Simple name="Desc" value="The thick mist limits your vision to 20 foot-lengths.  You can barely make out openings in the tunnel to the west, south and east." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="36" />
+                <Simple value="0" />
+                <Simple value="28" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="29" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Tunnel, West/South Bend" />
+            <Simple name="Desc" value="The thick mist limits your vision to 20 foot-lengths.  You can barely make out openings in the tunnel to the west and south." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="26" />
+                <Simple value="33" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="30" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="North/South Tunnel" />
+            <Simple name="Desc" value="The thick mist limits your vision to 20 foot-lengths.  You can barely make out openings in the tunnel to the north and south." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="27" />
+                <Simple value="34" />
+                <Simple value="32" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="31" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="T-Intersection (N/S/E)" />
+            <Simple name="Desc" value="The thick mist limits your vision to 20 foot-lengths.  You can barely make out openings in the tunnel to the north, south and east." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="28" />
+                <Simple value="35" />
+                <Simple value="0" />
+                <Simple value="31" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="32" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="T-Intersection (N/S/W)" />
+            <Simple name="Desc" value="The thick mist limits your vision to 20 foot-lengths.  You can barely make out openings in the tunnel to the north, south and west." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="30" />
+                <Simple value="31" />
+                <Simple value="34" />
+                <Simple value="26" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="33" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Four-Way Intersection" />
+            <Simple name="Desc" value="The thick mist limits your vision to 20 foot-lengths.  You can barely make out openings in the tunnel to the north, south, east and west." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="31" />
+                <Simple value="16" />
+                <Simple value="35" />
+                <Simple value="33" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="34" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Four-Way Intersection" />
+            <Simple name="Desc" value="The thick mist limits your vision to 20 foot-lengths.  You can barely make out openings in the tunnel to the north, south, east and west." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="32" />
+                <Simple value="38" />
+                <Simple value="36" />
+                <Simple value="34" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="35" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Four-Way Intersection" />
+            <Simple name="Desc" value="The thick mist limits your vision to 20 foot-lengths.  You can barely make out openings in the tunnel to the north, south, east and west." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="29" />
+                <Simple value="16" />
+                <Simple value="33" />
+                <Simple value="35" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="36" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Four-Way Intersection" />
+            <Simple name="Desc" value="The thick mist limits your vision to 20 foot-lengths.  You can barely make out openings in the tunnel to the north, south, east and west.  You feel a draft of cool, fresh air coming from above." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="27" />
+                <Simple value="39" />
+                <Simple value="38" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="37" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="T-Intersection (N/S/E)" />
+            <Simple name="Desc" value="The thick mist limits your vision to 20 foot-lengths.  You can barely make out openings in the tunnel to the north, south and east." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="35" />
+                <Simple value="16" />
+                <Simple value="28" />
+                <Simple value="37" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="38" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Four-Way Intersection" />
+            <Simple name="Desc" value="The thick mist limits your vision to 20 foot-lengths.  You can barely make out openings in the tunnel to the north, south, east and west." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="37" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="39" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Large Carved-Out Chamber" />
+            <Simple name="Desc" value="You are in a carved-out chamber that has a pile of rubble for the southern wall.  It seems a cave-in may have caused part of the chamber to be buried.  The only exit is north." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="-41" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="23" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="40" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Wooden/Rope Bridge, Underneath" />
+            <Simple name="Desc" value="You are in a crevice which extends east and west but is too narrow to explore further.  A wooden bridge held together with ropes is within climbing distance above you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="40" />
+                <Simple value="42" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="41" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Low-Ceilinged Secret Passage" />
+            <Simple name="Desc" value="You are in a secret passage with a low ceiling height.  You must bend over to avoid hitting your head on the smooth rock.  This tunnel has a layer of dust almost a half finger deep.  The passage extends north and south." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="41" />
+                <Simple value="43" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="42" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Low-Ceilinged Secret Passage" />
+            <Simple name="Desc" value="You are in a secret passage with a low ceiling height.  The dust being stirred about by your feet is filling the tunnel and is making breathing difficult.  The passage extends north and south." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="42" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="45" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="43" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Secret Passage, N/W Bend" />
+            <Simple name="Desc" value="You are in a low-ceilinged secret passage that bends north and west.  Thick dust lies on the floor of the smooth-walled tunnel that was not naturally made." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="21" />
+                <Simple value="45" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="44" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Rough-Walled North/South Passage" />
+            <Simple name="Desc" value="You are in a roughly-carved north/south passage that contains signs of use.  Small mud foot-prints, animal tracks and frayed pieces of rope are in abundance.  A pungent scent hangs in the air." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="44" />
+                <Simple value="46" />
+                <Simple value="-43" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="45" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Rough-Walled North/South Passage" />
+            <Simple name="Desc" value="You are in a roughly-carved north/south passage that has debris strewn throughout it.  The pieces of plants, bits of stale food, even animal droppings signify this tunnels recent use." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="45" />
+                <Simple value="47" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="46" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="N/S Tunnel, South End" />
+            <Simple name="Desc" value="You see a large opening in the rock to the south of a roughly-cut tunnel.  It looks to have been hastily formed and many fist-sized rocks lay on the floor.  Some of the rocks have black and grey soot on them." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="46" />
+                <Simple value="56" />
+                <Simple value="48" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="47" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="City Tunnel, East/South Bend" />
+            <Simple name="Desc" value="You see a gaping opening to the north in this east/south bend in a round, smooth-walled tunnel.  Peering down the passages, you can see several openings in the round granite walls." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="58" />
+                <Simple value="49" />
+                <Simple value="47" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="48" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="E/W City Tunnel; Chamber South" />
+            <Simple name="Desc" value="A perfectly cut, circular doorway to the south emits a shaft of light on the smooth northern wall.  The floor shows some trace of wear before the southern opening." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="62" />
+                <Simple value="59" />
+                <Simple value="50" />
+                <Simple value="48" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="49" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="E/W City Tunnel; Doors N/S" />
+            <Simple name="Desc" value="The tunnel is well lighted, receiving illumination from north and south doorways.  Bits of food lie in a broken line down the center of the circular east/west tunnel.  The smell of cooked meat is present." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="51" />
+                <Simple value="0" />
+                <Simple value="49" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="50" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="City Tunnel, W/S Bend" />
+            <Simple name="Desc" value="A few scratches and a bloodstain one quarter up the outer wall mar this otherwise perfectly smooth circular tunnel.  The tunnel bends west and south and light can be seen in both directions from circular openings." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="50" />
+                <Simple value="52" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="51" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="North/South City Tunnel" />
+            <Simple name="Desc" value="You are in a circular granite tunnel leading north and south.  A smear of dried blood is on the floor with much of it coagulated in the middle.  The smear extends north and south as if something had been dragged." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="51" />
+                <Simple value="65" />
+                <Simple value="0" />
+                <Simple value="53" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="52" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="T-Intersection (N/S/W)" />
+            <Simple name="Desc" value="You are at a T-intersection going west, north and south.  A smear of dried blood extends north and south.  Light pours through several openings in the western tunnel.  A faint rotting smell can be detected." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="61" />
+                <Simple value="64" />
+                <Simple value="52" />
+                <Simple value="54" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="53" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="E/W City Tunnel; Doors N/S" />
+            <Simple name="Desc" value="You see shafts of light illuminating this east/west tunnel from doorways in the north and south walls.  The granite ceiling of the circular tunnel has several gouges and scorch marks.  Small pebbles line the center of the tunnel." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="60" />
+                <Simple value="63" />
+                <Simple value="53" />
+                <Simple value="55" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="54" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="E/W City Tunnel; Doors N/S" />
+            <Simple name="Desc" value="The north and south doorways provide plenty of light to see in the circular east/west tunnel.  A trail of water comes from the northern doorway and leads to a bend in the tunnel to the west." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="56" />
+                <Simple value="0" />
+                <Simple value="54" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="55" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="City Tunnel, N/E Bend" />
+            <Simple name="Desc" value="The circular granite tunnel bends north and east.  A small pool of water rests here with tiny wet footprints leading north.  Water drips down into the pool from splash marks on the wall." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="47" />
+                <Simple value="55" />
+                <Simple value="0" />
+                <Simple value="57" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="56" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="N/S Tunnel; Tavern West" />
+            <Simple name="Desc" value="You see a sign posted on the right side of a west doorway with a carved picture of a man in flowing robes and zig-zags coming from his fingertips.  The all too familiar smell of alcohol abounds.  The tunnel continues north and south." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="56" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="57" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Small Tavern" />
+            <Simple name="Desc" value="You see crude tables and chairs made from carved rocks.  The drinks are served from barrels on the western wall.  Small metal cups are stacked on a table near the northwest corner and dirty cups lie by the door.  The exit is east." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="48" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="-102" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="58" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Guard Room" />
+            <Simple name="Desc" value="You see several straw mattresses lined against the western wall and a small stack of animal bones gnawed clean of the meat.  A rope hangs lifeless from a large ceiling hole in the southeast corner of the room.  The exit is north." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="49" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="59" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Food Preparation Room" />
+            <Simple name="Desc" value="Food is stacked along all the walls and takes up much of the floor.  Meat, fruits and vegetables are being cooked and prepared.  Enough food is present to feed one hundred people for several days.  The exit is north." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="54" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="60" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Water Well Room" />
+            <Simple name="Desc" value="You see a small stone circle in the center of the room that contains water.  It must be fed through the floor by an underground stream.  Several basket-size clay pots stand in the room filled with water.  The exit is south." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="53" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="61" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Armoury" />
+            <Simple name="Desc" value="You see many racks of weapons filled with daggers, bows and arrows, pikes and short swords.  The weapons look very light, as if made for young boys before they reach manhood.  A southern doorway is the only exit." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="49" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="62" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Eating Room" />
+            <Simple name="Desc" value="You see many crude tables and benches in a disarrayed pattern.  Scraps of food lie on the tables and floor and the walls have many blotches as if attacked with tomatoes.  The only exit is south." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="54" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="63" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Toilet Room" />
+            <Simple name="Desc" value="You see three jagged holes in the floor of the rock with several small cracks connecting them.  A pungent smell invades the room that reminds you of the trees behind the Main Hall.  You see several other filled holes.  The exit is north." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="53" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="64" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Sleeping Quarters" />
+            <Simple name="Desc" value="You see many straw beds lying on the floor crowded together where each one has only two foot-lengths from the other.  The room looks to hold about 100 people.  A doorway lies north as the only exit." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="52" />
+                <Simple value="66" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="65" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="N/S City Tunnel" />
+            <Simple name="Desc" value="A smear of dried blood goes from the north to a large hole inset into the eastern wall.  A rotten, choking smell rises from the hole.  The eastern wall of the north/south tunnel displays garbage stains." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="65" />
+                <Simple value="1039" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="66" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="N/S City Tunnel, End" />
+            <Simple name="Desc" value="The circular granite tunnel ends here with a heavy bronze door at the south end.  The door has symbols that apparently depict some great event.  The tunnel extends north." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="66" />
+                <Simple value="1040" />
+                <Simple value="0" />
+                <Simple value="-69" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="67" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Worship Room" />
+            <Simple name="Desc" value="Dimly lit torches give a somber effect to the individual worship areas spaced along the walls separated by wooden partitions.  A bronze door is north and a drawn gold curtain covers a doorway to the south." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="67" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="68" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Religious Sanctum" />
+            <Simple name="Desc" value="The room is dark.  Only outlines of a table covered with books and several covered devices can be seen.  The air has a feeling of power so immense, it seems the mountain itself could not crush it.  A gold curtain is open to the north." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="67" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="69" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Concealed Room" />
+            <Simple name="Desc" value="You see a device of unknown purpose in the center of the room.  The walls of the room are lined with cages, mostly empty.  The only exit is east." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="69" />
+  </Properties>
+</Complex>

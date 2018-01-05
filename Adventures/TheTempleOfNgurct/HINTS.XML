@@ -50,7 +50,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="The ECS engine has been enhanced with classic Eamon DDD5 support.  This mode is intended to reproduce the gameplay experience for really old Eamons, and one element of that is a restricted command set." />
+                <Simple value="1. The ECS engine has been enhanced with classic Eamon DDD5 support.  This mode is intended to reproduce the gameplay experience for really old Eamons, and one element of that is a restricted command set." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -71,11 +71,11 @@
             <Simple name="NumAnswers" value="5" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="You must LOOK at the room while not in combat to discover its secrets (possibly multiple times; a random element affects your likelihood of success).  Additional hints will give you specific answers!" />
-                <Simple value="In the hall which bends to the south and east there are cracks on the north wall; this is evidence of a secret door." />
-                <Simple value="In the temple of Ngurct proper, there is another secret door which leads south." />
-                <Simple value="If you LOOK in the mummy room you will uncover a hidden scarab!" />
-                <Simple value="If you LOOK in the room where the torture chamber guard is killed, you'll find his ring of keys." />
+                <Simple value="1. You must LOOK at the room while not in combat to discover its secrets (possibly multiple times; a random element affects your likelihood of success).  Additional hints will give you specific answers!" />
+                <Simple value="2. In the hall which bends to the south and east there are cracks on the north wall; this is evidence of a secret door." />
+                <Simple value="3. In the temple of Ngurct proper, there is another secret door which leads south." />
+                <Simple value="4. If you LOOK in the mummy room you will uncover a hidden scarab!" />
+                <Simple value="5. If you LOOK in the room where the torture chamber guard is killed, you'll find his ring of keys." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -92,7 +92,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="The iron key in the officer's room to the west unlocks the oak door." />
+                <Simple value="1. The iron key in the officer's room to the west unlocks the oak door." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -113,7 +113,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="In the library you will find some keys on a table that will unlock both cell doors." />
+                <Simple value="1. In the library you will find some keys on a table that will unlock both cell doors." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -134,7 +134,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="If you LOOK in the room where the torture chamber guard is killed, you'll find his ring of keys (which can open the cell door)." />
+                <Simple value="1. If you LOOK in the room where the torture chamber guard is killed, you'll find his ring of keys (which can open the cell door)." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -155,7 +155,7 @@
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="The steel key found in the minotaur's room will unlock the chest." />
+                <Simple value="1. The steel key found in the minotaur's room will unlock the chest." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -176,9 +176,9 @@
             <Simple name="NumAnswers" value="3" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="The secret is hinted at when you READ the ring." />
-                <Simple value="You should keep an eye on your general health for another clue." />
-                <Simple value="This is a ring of regeneration; it will slowly heal your injuries when you WEAR it." />
+                <Simple value="1. The secret is hinted at when you READ the ring." />
+                <Simple value="2. You should keep an eye on your general health for another clue." />
+                <Simple value="3. This is a ring of regeneration; it will slowly heal your injuries when you WEAR it." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -197,9 +197,9 @@
             <Simple name="NumAnswers" value="3" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="You must first READY it as a weapon, then ATTACK one of your enemies." />
-                <Simple value="The trigger word is one of the four elements." />
-                <Simple value="The trigger word is FIRE." />
+                <Simple value="1. You must first READY it as a weapon, then ATTACK one of your enemies." />
+                <Simple value="2. The trigger word is one of the four elements." />
+                <Simple value="3. The trigger word is FIRE." />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />

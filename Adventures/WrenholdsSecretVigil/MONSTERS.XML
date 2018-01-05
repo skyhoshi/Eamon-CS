@@ -1,0 +1,877 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.MonsterDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IMonster, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="30" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="11" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="3" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="9" />
+            <Simple name="DeadBody" value="51" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="large death dog" />
+            <Simple name="Desc" value="You see a death dog with flesh-tearing teeth standing chest-high.  Saliva drips from the black corners of its closed mouth as the red eyes gaze intently at you.  A low, deep growl seems to vibrate your body." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="24" />
+            <Simple name="Agility" value="20" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="21" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="5" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="52" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="magician" />
+            <Simple name="Desc" value="You see a user of the dark magic dressed in a dark-blue robe.  His deep-set, black eyes penetrate your soul.  He begins to wave his arms - sparks ignite at his fingertips as he recites an incantation." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="27" />
+            <Simple name="Agility" value="13" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="39" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="7" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="53" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="one-eyed ogre" />
+            <Simple name="Desc" value="You see an ogre standing 7 feet high wearing wolfskin clothing.  Snarling at your repugnent smell, his good eye gazes intently on your movements while the other stares up and to the side; covered with scar tissue of a long-ago wound." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="8" />
+            <Simple name="Agility" value="8" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="40" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="54" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Raj Breanok" />
+            <Simple name="Desc" value="You see a weak and injured villager from a town near the base of Mount Eilaak.  He complains of numerous pains and has cuts on his head and body." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="18" />
+            <Simple name="Agility" value="20" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="55" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dol Pantwell" />
+            <Simple name="Desc" value="You see a medium-sized dwarf wearing the red cloak of a travelling merchant.  He says he was enroute to a festival with a wagon of goods when he was taken by surprise by 6 bandits dressed in tattered clothes looking like zombies." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="7" />
+            <Simple name="Agility" value="18" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="40" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="56" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="brown rat" />
+            <Simple name="Desc" value="You see a brown rat with sharp teeth and several fleas feeding from it.  It starts scampering toward you, squealing in ear-piercing bursts." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="7" />
+            <Simple name="Agility" value="18" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="40" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="57" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="black rat" />
+            <Simple name="Desc" value="You see a black rat with a torn ear and blood caked along its right, front leg.  It bears its teeth and runs at you; limping slightly but hardly impairing its lunge." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="80" />
+            <Simple name="Location" value="9" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="13" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="7" />
+            <Simple name="DeadBody" value="58" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="black-haired zombie" />
+            <Simple name="Desc" value="You see a blue-grey faced man with staring red eyes.  He has black hair over his ears and dirty brown rags for clothes.  Judging from descriptions you have heard from other adventurers, this must be a zombie - the living dead." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="80" />
+            <Simple name="Location" value="21" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="59" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="leather-clad zombie" />
+            <Simple name="Desc" value="You see a muscular zombie with leather armour over his tattered, blood-stained clothes.  At the sight of you, he screams an unintelligible alarm and scrambles for a nearby weapon." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="80" />
+            <Simple name="Location" value="21" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="60" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="barefoot zombie" />
+            <Simple name="Desc" value="You see a barefoot zombie with red trousers and a drab brown shirt.  His red eyes look up from the coins he was counting on a barrel.  A snarl emits from his throat and he quickly pulls a knife." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="21" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="4" />
+            <Simple name="Weapon" value="14" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="61" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="zombie in chain-mail" />
+            <Simple name="Desc" value="You see a zombie wearing chain-mail armour over his dull brown clothes.  Red eyes glaring and nostrils flaring, he unsheaths a sword and swiftly moves toward you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="10" />
+            <Simple name="Agility" value="13" />
+            <Simple name="GroupCount" value="9" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="44" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="62" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="9" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="patrolling zombie" />
+            <Simple name="Desc" value="You see nine or twelve (you don't have time to count) zombies fully armed and fully dis-pleased with your presence.  The leader barks a command and sounds of pounding feet and fierce war yells fill the tunnel." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="14" />
+            <Simple name="Agility" value="18" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="20" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="7" />
+            <Simple name="DeadBody" value="63" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="short zombie" />
+            <Simple name="Desc" value="You see a short, stout zombie with red, wild-staring eyes.  He stops abruptly when he sees you then charges with a tight grip on his weapon." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="10" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="8" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="3" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="64" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="8" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="drow soldier" />
+            <Simple name="Desc" value="You see a band of heavily armed drows.  They look surprised and one wonders aloud how you got this far into the mountain.  Another yells a charge and they attack!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="4" />
+            <Simple name="Agility" value="11" />
+            <Simple name="GroupCount" value="10" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="65" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="10" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="drow citizen" />
+            <Simple name="Desc" value="You see common drows, dark skinned, dark hair and dark eyes all looking at you as if you were a murderer of their own people.  They advance with knives, short swords, shovels and rocks." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="10" />
+            <Simple name="Agility" value="15" />
+            <Simple name="GroupCount" value="8" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="66" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="8" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="drow guard" />
+            <Simple name="Desc" value="You see armed guards in decorative black and red armour bearing an unknown symbol.  With a battle cry they level their spears and advance, black boots pounding on the hard rock floor." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="58" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="67" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="angry guard" />
+            <Simple name="Desc" value="A guard awakens as you enter.  He springs from a straw mattress against the west wall and gropes for the knife at his belt.  He looks at the door, then at the rope.  You are blocking his path to either.  He begins shouting alarms!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="18" />
+            <Simple name="Agility" value="8" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="140" />
+            <Simple name="Location" value="59" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="32" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="7" />
+            <Simple name="DeadBody" value="68" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="drow chef" />
+            <Simple name="Desc" value="You see a large (actually fat) dark-skinned, dark-haired drow with a black cleaver raised over his head, poised to sever the head of a swallower shark from its naturally bloated body." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="13" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="60" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="69" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="old drow woman" />
+            <Simple name="Desc" value="You see an old woman with dark, wrinkled skin and grey-black hair.  She stands as you enter from filling her clay pot with the cold underground water.  With a hiss she produces a small dagger from her dress." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="4" />
+            <Simple name="Agility" value="8" />
+            <Simple name="GroupCount" value="17" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="62" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="70" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="17" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="drow diner" />
+            <Simple name="Desc" value="You see many old, young, male and female drows dining in a somewhat dingy atmosphere.  Several scream an alarm and they all grab their knives or forks and bolt from the tables in your direction!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="4" />
+            <Simple name="Agility" value="8" />
+            <Simple name="GroupCount" value="20" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="64" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="71" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="20" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="drowsing drow" />
+            <Simple name="Desc" value="You see many drows lying on the small beds; some sleeping, some playing drow games, some dressing.  Several alarms ring out, they all look at you in surprise and then begin grabbing weapons." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="12" />
+            <Simple name="Agility" value="6" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="57" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="72" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="drow bartender" />
+            <Simple name="Desc" value="You see a portly, dark-haired drow with a purple and grey stained apron wrapped around him.  He spys you and starts running for an exit." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="18" />
+            <Simple name="Agility" value="8" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="180" />
+            <Simple name="Location" value="57" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="73" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bar patron" />
+            <Simple name="Desc" value="You see a drow, dark-haired and dark-skinned, indulging in a blood-red drink and seemingly enjoying himself.  He stumbles to his feet and draws a short sword all the while mumbling something unintelligible." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="20" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="69" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="9" />
+            <Simple name="DeadBody" value="74" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="drow guard" />
+            <Simple name="Desc" value="You see a dark-skinned drow of the elite sacrificial guard; vowed to kill or be killed.  Even to die while protecting the religious leader will raise their holy spirit to dwell with the great one for eternity." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="69" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="75" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="high priest" />
+            <Simple name="Desc" value="You see a drow in religious garb - flowing dark robes with a red sash.  He is the high priest, the ruling drow.  All are vowed to protect him from harm.  He shouts and points at you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="WrenholdsSecretVigil.Game.Monster, WrenholdsSecretVigil, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="4" />
+            <Simple name="Agility" value="10" />
+            <Simple name="GroupCount" value="12" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="76" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="12" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="wild animal" />
+            <Simple name="Desc" value="You see wild mountain bears, frenzied rabbits and various assorted other beasts in uncertain states of mind.  They snarl, spit, snap and scratch while lunging frantically for you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="26" />
+  </Properties>
+</Complex>

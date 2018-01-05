@@ -18,6 +18,8 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class DropCommand : Command, IDropCommand
 	{
+		protected virtual IList<IArtifact> ArtifactList { get; set; }
+
 		public virtual bool DropAll { get; set; }
 
 		protected virtual void ProcessLightSource()
@@ -72,11 +74,11 @@ namespace EamonRT.Game.Commands
 
 			ProcessLightSource();
 
-			var artifactList = DropAll ? ActorMonster.GetCarriedList() : new List<IArtifact>() { DobjArtifact };
+			ArtifactList = DropAll ? ActorMonster.GetCarriedList() : new List<IArtifact>() { DobjArtifact };
 
-			if (artifactList.Count > 0)
+			if (ArtifactList.Count > 0)
 			{
-				foreach (var artifact in artifactList)
+				foreach (var artifact in ArtifactList)
 				{
 					ProcessArtifact(artifact);
 				}

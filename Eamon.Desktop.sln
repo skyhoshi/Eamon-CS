@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eamon", "System\Eamon\Eamon
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EamonMH", "System\EamonMH\EamonMH.csproj", "{1776D0F2-3BE0-4BB8-A3EC-392F84B44474}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EamonPM.WindowsUnix", "System\EamonPM.WindowsUnix\EamonPM.WindowsUnix.csproj", "{0E536609-626C-452A-ACCF-DCA3043915CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EamonPM.WindowsUnix", "System\EamonPM.WindowsUnix\EamonPM.WindowsUnix.csproj", "{0E536609-626C-452A-ACCF-DCA3043915CD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EamonDD", "System\EamonDD\EamonDD.csproj", "{87A7399C-9DC9-49FD-8A0B-EFDA3A625B95}"
 EndProject
@@ -32,6 +32,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTempleOfNgurct", "Adventures\TheTempleOfNgurct\TheTempleOfNgurct.csproj", "{BD5483A1-BCBC-4D75-AECD-C3AE19883A5B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTrainingGround", "Adventures\TheTrainingGround\TheTrainingGround.csproj", "{0D85F4D1-6040-4649-A000-8B89EB89D5DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WrenholdsSecretVigil", "Adventures\WrenholdsSecretVigil\WrenholdsSecretVigil.csproj", "{E1B87EC7-1901-4D56-99D8-693F70DEB1D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,10 @@ Global
 		{0D85F4D1-6040-4649-A000-8B89EB89D5DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D85F4D1-6040-4649-A000-8B89EB89D5DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D85F4D1-6040-4649-A000-8B89EB89D5DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1B87EC7-1901-4D56-99D8-693F70DEB1D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1B87EC7-1901-4D56-99D8-693F70DEB1D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1B87EC7-1901-4D56-99D8-693F70DEB1D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1B87EC7-1901-4D56-99D8-693F70DEB1D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,6 +115,7 @@ Global
 		{D0AE2B19-4EFE-46E8-9FD6-167213348350} = {25D7389F-FD50-4453-80D0-F5CCFAF12CEC}
 		{BD5483A1-BCBC-4D75-AECD-C3AE19883A5B} = {25D7389F-FD50-4453-80D0-F5CCFAF12CEC}
 		{0D85F4D1-6040-4649-A000-8B89EB89D5DC} = {25D7389F-FD50-4453-80D0-F5CCFAF12CEC}
+		{E1B87EC7-1901-4D56-99D8-693F70DEB1D3} = {25D7389F-FD50-4453-80D0-F5CCFAF12CEC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F89D37E7-07F8-42EE-9CD7-0C3BA305A2CB}
