@@ -73,7 +73,7 @@ namespace EamonRT.Game.Commands
 					}
 				}
 
-				if (string.Equals(fileset.Name, "(none)", StringComparison.OrdinalIgnoreCase))
+				while (string.Equals(fileset.Name, "(none)", StringComparison.OrdinalIgnoreCase))
 				{
 					Globals.Out.Write("{0}Enter new name: ", Environment.NewLine);
 
@@ -83,7 +83,12 @@ namespace EamonRT.Game.Commands
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					fileset.Name = Globals.Engine.Capitalize(Globals.Buf.ToString());
+					fileset.Name = Globals.Engine.Capitalize(Globals.Buf.ToString().Trim());
+
+					if (fileset.Name.Length == 0)
+					{
+						fileset.Name = "(none)";
+					}
 				}
 			}
 			else

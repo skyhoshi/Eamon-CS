@@ -187,9 +187,9 @@ namespace EamonPM
 
 			pg = WrenholdsSecretVigil.Game.Plugin.PluginContext.Globals;
 
-			// Note: if ECS Mobile crashes while loading data files it is likely that the FreeUids list in the offending data file is
+			// Note: if ECS Mobile crashes while loading textfiles it is likely that the FreeUids list in the offending textfile is
 			// defined as coming from System.Private.CoreLib.  Xamarin.Forms appears to currently only be compatible with mscorlib,
-			// so you should find a data file in a previous adventure containing this definition and copy it over.
+			// so you should find a textfile in a previous adventure containing this definition and copy it over.
 		}
 
 		protected override void OnCreate(Bundle bundle)
