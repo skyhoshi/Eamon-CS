@@ -22,7 +22,7 @@
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Wrenhold's Secret Vigil" />
-            <Simple name="Desc" value="Journey to uncover the source of the blight afflicting the realm of the good King Argas.  This amazing, multi-faceted game asks you to solve a mystery, but in doing so puts you in a moral quandry.  Given **047" />
+            <Simple name="Desc" value="Journey to uncover the source of the blight afflicting the realm of the good King Argas.  This amazing, multi-faceted game asks you to solve a mystery, but in doing so puts you in a moral quandary.  Given **047" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
