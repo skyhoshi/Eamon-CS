@@ -212,6 +212,10 @@ namespace WrenholdsSecretVigil.Game
 
 			Debug.Assert(lifeOrbArtifact != null);
 
+			var ac = largeRockArtifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+
+			Debug.Assert(ac != null);
+
 			// If slime in room, can't move past it
 
 			if ((r2 == 21 || r2 == 44) && (ro == 21 || ro == 44) && (slimeArtifact1.IsInRoomUid(ro) || slimeArtifact2.IsInRoomUid(ro)))
@@ -221,7 +225,7 @@ namespace WrenholdsSecretVigil.Game
 
 			// If rock in room, can't move past it
 
-			else if (r2 == 19 && ro == 18 && !largeRockArtifact.IsInLimbo())
+			else if (r2 == 19 && ro == 18 && !largeRockArtifact.IsInLimbo() && ac.GetKeyUid() != -2)
 			{
 				artifact = largeRockArtifact;
 			}
