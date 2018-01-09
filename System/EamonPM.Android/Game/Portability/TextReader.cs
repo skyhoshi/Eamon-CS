@@ -150,11 +150,17 @@ namespace EamonPM.Game.Portability
 
 				Globals.Out.WordWrap = false;
 
+				var suppressNewLines = Globals.Out.SuppressNewLines;
+
+				Globals.Out.SuppressNewLines = false;
+
 				var rc = ReadField(buf, bufSize, null, ' ', '\0', true, null, null, null, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
 				Globals.Out.WordWrap = true;
+
+				Globals.Out.SuppressNewLines = suppressNewLines;
 
 				ReadLineMode = false;
 

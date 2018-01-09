@@ -22,6 +22,8 @@ namespace Eamon.Framework.Portability
 
 		bool WordWrap { get; set; }
 
+		bool SuppressNewLines { get; set; }
+
 		bool Stdout { get; set; }
 
 		Encoding Encoding { get; }

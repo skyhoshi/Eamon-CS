@@ -72,6 +72,10 @@ namespace EamonRT
 
 			Globals.Out.ResolveUidMacros = false;
 
+			// disable extraneous newline suppression
+
+			Globals.Out.SuppressNewLines = false;
+
 			// make the cursor disappear
 
 			Globals.Out.CursorVisible = false;

@@ -14,15 +14,41 @@ namespace EamonPM.Game.Portability
 {
 	public class TextWriter : ITextWriter
 	{
+		protected bool _suppressNewLines;
+
 		protected virtual StringBuilder Buf { get; set; }
 
 		protected virtual StringBuilder Buf01 { get; set; }
+
+		protected virtual string ThreeNewLines { get; set; }
+
+		protected virtual string TwoNewLines { get; set; }
+
+		protected virtual long NumNewLines { get; set; }
 
 		public virtual bool EnableOutput { get; set; }
 
 		public virtual bool ResolveUidMacros { get; set; }
 
 		public virtual bool WordWrap { get; set; }
+
+		public virtual bool SuppressNewLines
+		{
+			get
+			{
+				return _suppressNewLines;
+			}
+
+			set
+			{
+				_suppressNewLines = value;
+
+				if (_suppressNewLines)
+				{
+					NumNewLines = 0;
+				}
+			}
+		}
 
 		public virtual bool Stdout { get; set; }
 
@@ -217,6 +243,28 @@ namespace EamonPM.Game.Portability
 				Globals.Engine.WordWrap(Buf.ToString(), Buf);
 			}
 
+			if (SuppressNewLines)
+			{
+				while (Buf.IndexOf(ThreeNewLines) >= 0)
+				{
+					Buf.Replace(ThreeNewLines, TwoNewLines);
+				}
+
+				NumNewLines += (Buf.StartsWith(TwoNewLines) ? 2 : Buf.StartsWith(Environment.NewLine) ? 1 : 0);
+
+				while (NumNewLines > 2 && Buf.StartsWith(Environment.NewLine))
+				{
+					Buf.Remove(0, Environment.NewLine.Length);
+
+					NumNewLines--;
+				}
+
+				if ((Buf.StartsWith(TwoNewLines) && Buf.Length > TwoNewLines.Length) || (Buf.StartsWith(Environment.NewLine) && Buf.Length > Environment.NewLine.Length) || (!Buf.StartsWith(Environment.NewLine) && Buf.Length > 0))
+				{
+					NumNewLines = Buf.EndsWith(TwoNewLines) ? 2 : Buf.EndsWith(Environment.NewLine) ? 1 : 0;
+				}
+			}
+
 			if (EnableOutput)
 			{
 				if (Stdout)
@@ -323,35 +371,7 @@ namespace EamonPM.Game.Portability
 		{
 			Debug.Assert(format != null);
 
-			Buf.SetFormat(format, arg);
-
-			if (ResolveUidMacros && Globals?.Engine != null)
-			{
-				Buf01.Clear();
-
-				var rc = Globals.Engine.ResolveUidMacros(Buf.ToString(), Buf01, true, true);
-
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-				Buf.SetFormat("{0}", Buf01);
-			}
-
-			if (WordWrap && Globals?.Engine != null)
-			{
-				Globals.Engine.WordWrap(Buf.ToString(), Buf);
-			}
-
-			if (EnableOutput)
-			{
-				if (Stdout)
-				{
-					Console.Out.WriteLine("{0}", Buf);
-				}
-				else
-				{
-					Console.Error.WriteLine("{0}", Buf);
-				}
-			}
+			Write(format + Environment.NewLine, arg);
 		}
 
 		public virtual void WriteLine(char[] buffer, int index, int count)
@@ -377,11 +397,17 @@ namespace EamonPM.Game.Portability
 
 			Buf01 = new StringBuilder(Constants.BufSize);
 
+			ThreeNewLines = string.Format("{0}{0}{0}", Environment.NewLine);
+
+			TwoNewLines = string.Format("{0}{0}", Environment.NewLine);
+
 			EnableOutput = true;
 
 			ResolveUidMacros = true;
 
 			WordWrap = true;
+
+			SuppressNewLines = true;
 
 			Stdout = true;
 		}
