@@ -259,7 +259,9 @@ namespace EamonPM.Game.Portability
 					NumNewLines--;
 				}
 
-				if ((Buf.StartsWith(TwoNewLines) && Buf.Length > TwoNewLines.Length) || (Buf.StartsWith(Environment.NewLine) && Buf.Length > Environment.NewLine.Length) || (!Buf.StartsWith(Environment.NewLine) && Buf.Length > 0))
+				var s = Buf.ToString();
+
+				if (Buf.Length > 0 && !string.Equals(s, Environment.NewLine) && !string.Equals(s, TwoNewLines))
 				{
 					NumNewLines = Buf.EndsWith(TwoNewLines) ? 2 : Buf.EndsWith(Environment.NewLine) ? 1 : 0;
 				}
