@@ -18,47 +18,44 @@ namespace WrenholdsSecretVigil.Game.States
 	{
 		protected override void ProcessEvents()
 		{
-			if (ShouldPreTurnProcess())
+			var gameState = Globals.GameState as IGameState;
+
+			Debug.Assert(gameState != null);
+
+			var lifeOrbArtifact = Globals.ADB[4];
+
+			Debug.Assert(lifeOrbArtifact != null);
+
+			var magicCubeArtifact = Globals.ADB[5];
+
+			Debug.Assert(magicCubeArtifact != null);
+
+			// Magic cube code
+
+			if (magicCubeArtifact.IsCarriedByCharacter() && gameState.Ro >= 40 && lifeOrbArtifact.IsCarriedByContainerUid(49))
 			{
-				var gameState = Globals.GameState as IGameState;
+				var characterRoom = Globals.RDB[gameState.Ro];
 
-				Debug.Assert(gameState != null);
+				Debug.Assert(characterRoom != null);
 
-				var lifeOrbArtifact = Globals.ADB[4];
-
-				Debug.Assert(lifeOrbArtifact != null);
-
-				var magicCubeArtifact = Globals.ADB[5];
-
-				Debug.Assert(magicCubeArtifact != null);
-
-				// Magic cube code
-
-				if (magicCubeArtifact.IsCarriedByCharacter() && gameState.Ro >= 40 && lifeOrbArtifact.IsCarriedByContainerUid(49))
+				if (gameState.Ro == 69)
 				{
-					var characterRoom = Globals.RDB[gameState.Ro];
+					Globals.Out.Write("{0}All sides of the magic cube are glowing!{0}", Environment.NewLine);
+				}
+				else
+				{
+					var dir = "south";
 
-					Debug.Assert(characterRoom != null);
-
-					if (gameState.Ro == 69)
+					if (gameState.Ro == 67 || gameState.Ro == 68)
 					{
-						Globals.Out.Write("{0}All sides of the magic cube are glowing!{0}", Environment.NewLine);
+						dir = "west";
 					}
-					else
+					else if (characterRoom.GetDirs(Enums.Direction.East) > 0 && characterRoom.GetDirs(Enums.Direction.East) <= Globals.Module.NumRooms)
 					{
-						var dir = "south";
-
-						if (gameState.Ro == 67 || gameState.Ro == 68)
-						{
-							dir = "west";
-						}
-						else if (characterRoom.GetDirs(Enums.Direction.East) > 0 && characterRoom.GetDirs(Enums.Direction.East) <= Globals.Module.NumRooms)
-						{
-							dir = "east";
-						}
-
-						Globals.Out.Write("{0}The {1} side of the magic cube is glowing!{0}", Environment.NewLine, dir);
+						dir = "east";
 					}
+
+					Globals.Out.Write("{0}The {1} side of the magic cube is glowing!{0}", Environment.NewLine, dir);
 				}
 			}
 

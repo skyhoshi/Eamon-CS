@@ -176,6 +176,8 @@ namespace EamonPM
 			MirrorAssets();
 
 			StartActivity(new Intent(this, typeof(MainActivity)));         // StartActivity(new Intent(Application.Context, typeof(MainActivity)));
+
+			Finish();
 		}
 
 		// Prevent the back button from canceling the startup process
