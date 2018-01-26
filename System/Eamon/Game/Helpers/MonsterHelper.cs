@@ -1,7 +1,7 @@
 ﻿
 // MonsterHelper.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -427,7 +427,7 @@ namespace Eamon.Game.Helpers
 			}
 			else if (args.FieldDesc == Enums.FieldDesc.Brief)
 			{
-				args.Buf.AppendFormat("{0}{1}{0}", Environment.NewLine, briefDesc);
+				args.Buf.AppendPrint("{0}", briefDesc);
 			}
 		}
 
@@ -452,7 +452,7 @@ namespace Eamon.Game.Helpers
 			}
 			else if (args.FieldDesc == Enums.FieldDesc.Brief)
 			{
-				args.Buf.AppendFormat("{0}{1}{0}", Environment.NewLine, briefDesc);
+				args.Buf.AppendPrint("{0}", briefDesc);
 			}
 		}
 
@@ -486,7 +486,7 @@ namespace Eamon.Game.Helpers
 			}
 			else if (args.FieldDesc == Enums.FieldDesc.Brief)
 			{
-				args.Buf.AppendFormat("{0}{1}{0}", Environment.NewLine, briefDesc);
+				args.Buf.AppendPrint("{0}", briefDesc);
 			}
 		}
 
@@ -1158,9 +1158,9 @@ namespace Eamon.Game.Helpers
 		{
 			Debug.Assert(field != null && args != null);
 
-			Globals.Out.WriteLine("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null), Record.Uid);
+			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null), Record.Uid);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputName(IField field, IInputArgs args)
@@ -1193,7 +1193,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputStateDesc(IField field, IInputArgs args)
@@ -1230,7 +1230,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputDesc(IField field, IInputArgs args)
@@ -1267,7 +1267,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputSeen(IField field, IInputArgs args)
@@ -1300,7 +1300,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputIsListed(IField field, IInputArgs args)
@@ -1333,7 +1333,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputPluralType(IField field, IInputArgs args)
@@ -1366,7 +1366,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputArticleType(IField field, IInputArgs args)
@@ -1399,7 +1399,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputHardiness(IField field, IInputArgs args)
@@ -1434,7 +1434,7 @@ namespace Eamon.Game.Helpers
 
 			Record.DmgTaken = 0;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputAgility(IField field, IInputArgs args)
@@ -1467,7 +1467,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputGroupCount(IField field, IInputArgs args)
@@ -1502,7 +1502,7 @@ namespace Eamon.Game.Helpers
 
 			Record.OrigGroupCount = Record.GroupCount;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputCourage(IField field, IInputArgs args)
@@ -1535,7 +1535,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputLocation(IField field, IInputArgs args)
@@ -1577,7 +1577,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputCombatCode(IField field, IInputArgs args)
@@ -1619,7 +1619,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputArmor(IField field, IInputArgs args)
@@ -1652,7 +1652,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputWeapon(IField field, IInputArgs args)
@@ -1694,7 +1694,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputNwDice(IField field, IInputArgs args)
@@ -1727,7 +1727,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputNwSides(IField field, IInputArgs args)
@@ -1760,7 +1760,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputDeadBody(IField field, IInputArgs args)
@@ -1793,7 +1793,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputFriendliness(IField field, IInputArgs args)
@@ -1831,7 +1831,7 @@ namespace Eamon.Game.Helpers
 				Record.Friendliness == Enums.Friendliness.Neutral ? 150 :
 				100);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputGender(IField field, IInputArgs args)
@@ -1864,7 +1864,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputField1(IField field, IInputArgs args)
@@ -1906,7 +1906,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputField2(IField field, IInputArgs args)
@@ -1948,7 +1948,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		#endregion
@@ -2271,19 +2271,19 @@ namespace Eamon.Game.Helpers
 
 			if (string.Equals(args.ErrorField.Name, "PluralType", StringComparison.OrdinalIgnoreCase))
 			{
-				Globals.Out.WriteLine("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, args.ErrorField.GetPrintedName(), null), (long)Record.PluralType);
+				Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '.', 0, args.ErrorField.GetPrintedName(), null), (long)Record.PluralType);
 			}
 			else if (string.Equals(args.ErrorField.Name, "Location", StringComparison.OrdinalIgnoreCase))
 			{
-				Globals.Out.WriteLine("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, args.ErrorField.GetPrintedName(), null), Record.Location);
+				Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '.', 0, args.ErrorField.GetPrintedName(), null), Record.Location);
 			}
 			else if (string.Equals(args.ErrorField.Name, "Weapon", StringComparison.OrdinalIgnoreCase))
 			{
-				Globals.Out.WriteLine("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, args.ErrorField.GetPrintedName(), null), Record.Weapon);
+				Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '.', 0, args.ErrorField.GetPrintedName(), null), Record.Weapon);
 			}
 			else if (string.Equals(args.ErrorField.Name, "DeadBody", StringComparison.OrdinalIgnoreCase))
 			{
-				Globals.Out.WriteLine("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, args.ErrorField.GetPrintedName(), null), Record.DeadBody);
+				Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '.', 0, args.ErrorField.GetPrintedName(), null), Record.DeadBody);
 			}
 		}
 

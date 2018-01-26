@@ -7,7 +7,7 @@
     <Company>Michael R. Penner</Company>
     <Product>The Wonderful World of Eamon CS</Product>
     <Description>Eamon CS Main Hall Plugin</Description>
-    <Copyright>Copyright (C) 2014-2017</Copyright>
+    <Copyright>Copyright (C) 2014+</Copyright>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

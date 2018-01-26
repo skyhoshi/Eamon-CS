@@ -1,12 +1,13 @@
 ﻿
 // Effect.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Text;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
@@ -67,7 +68,7 @@ namespace Eamon.Game
 
 			if (!string.IsNullOrWhiteSpace(Desc))
 			{
-				buf.AppendFormat("{0}{1}{0}", Environment.NewLine, Desc);
+				buf.AppendPrint("{0}", Desc);
 			}
 
 		Cleanup:

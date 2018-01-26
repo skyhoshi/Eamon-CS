@@ -1,7 +1,7 @@
 ﻿
 // EditRecordManyFieldsMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -39,13 +39,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				var recordUid = Convert.ToInt64(Buf.Trim().ToString());
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				EditRecord = RecordTable.FindRecord(recordUid);
 
 				if (EditRecord == null)
 				{
-					Globals.Out.WriteLine("{0}{1} record not found.", Environment.NewLine, RecordTypeName.FirstCharToUpper());
+					Globals.Out.Print("{0} record not found.", RecordTypeName.FirstCharToUpper());
 
 					goto Cleanup;
 				}
@@ -127,7 +127,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 			else
 			{
-				Globals.Out.WriteLine("{0}{1} record not modified.", Environment.NewLine, RecordTypeName.FirstCharToUpper());
+				Globals.Out.Print("{0} record not modified.", RecordTypeName.FirstCharToUpper());
 			}
 
 		Cleanup:

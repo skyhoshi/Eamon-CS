@@ -1,9 +1,8 @@
 ﻿
 // AttackCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
@@ -57,7 +56,7 @@ namespace ARuncibleCargo.Game.Commands
 
 						// Can't attack/blast the Runcible Cargo
 
-						Globals.Out.Write("{0}That sounds quite dangerous!{0}", Environment.NewLine);
+						Globals.Out.Print("That sounds quite dangerous!");
 
 						NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
 

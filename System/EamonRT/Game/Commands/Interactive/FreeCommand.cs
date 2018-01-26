@@ -1,9 +1,8 @@
 ﻿
 // FreeCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
@@ -30,8 +29,7 @@ namespace EamonRT.Game.Commands
 
 		protected virtual void PrintMonsterFreed()
 		{
-			Globals.Out.Write("{0}You have freed {1}{2}.{0}",
-				Environment.NewLine,
+			Globals.Out.Print("You have freed {0}{1}.",
 				Monster.GetDecoratedName03(false, true, false, false, Globals.Buf),
 				Key != null ? string.Format(" with {0}", Key.GetDecoratedName03(false, true, false, false, Globals.Buf01)) : "");
 		}
@@ -67,21 +65,21 @@ namespace EamonRT.Game.Commands
 
 				if (Guard != null && Guard.IsInRoom(ActorRoom))
 				{
-					Globals.Out.Write("{0}{1} won't let you!{0}", Environment.NewLine, Guard.GetDecoratedName03(true, true, false, false, Globals.Buf));
+					Globals.Out.Print("{0} won't let you!", Guard.GetDecoratedName03(true, true, false, false, Globals.Buf));
 
 					goto Cleanup;
 				}
 
 				if (keyUid == -1)
 				{
-					Globals.Out.WriteLine("{0}There's no obvious way to do that.", Environment.NewLine);
+					Globals.Out.Print("There's no obvious way to do that.");
 
 					goto Cleanup;
 				}
 
 				if (Key != null && !Key.IsCarriedByCharacter() && !Key.IsWornByCharacter() && !Key.IsInRoom(ActorRoom))
 				{
-					Globals.Out.WriteLine("{0}You don't have the key.", Environment.NewLine);
+					Globals.Out.Print("You don't have the key.");
 
 					goto Cleanup;
 				}

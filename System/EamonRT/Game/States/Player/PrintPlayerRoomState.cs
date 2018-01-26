@@ -1,9 +1,8 @@
 ﻿
 // PrintPlayerRoomState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon.Game.Attributes;
@@ -25,7 +24,7 @@ namespace EamonRT.Game.States
 		{
 			Debug.Assert(buf != null);
 
-			buf.SetFormat("{0}It's too dark to see.{0}", Environment.NewLine);
+			buf.SetPrint("It's too dark to see.");
 		}
 
 		protected virtual void PrintPlayerRoom()

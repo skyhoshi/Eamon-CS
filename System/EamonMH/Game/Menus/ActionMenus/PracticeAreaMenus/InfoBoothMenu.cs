@@ -1,7 +1,7 @@
 ﻿
 // InfoBoothMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -26,7 +26,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			long ap = 0;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			/* 
 				Full Credit:  Derived wholly from Donald Brown's Classic Eamon
@@ -44,9 +44,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			ap = Globals.Engine.GetMerchantAskPrice(Constants.InfoBoothPrice, (double)Rtio);
 
-			Globals.Out.Write("{0}The man leans over the counter and says, \"I give general directions for free and for a small charge of {1} gold pieces, I give interesting and useful information.\"{0}{0}\"So what'll it be?\"{0}", Environment.NewLine, ap);
+			Globals.Out.Write("{0}The man leans over the counter and says, \"I give general directions for free and for a small charge of {1} gold piece{2}, I give interesting and useful information.\"{0}{0}\"So what'll it be?\"{0}", Environment.NewLine, ap, ap != 1 ? "s" : "");
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.Write("{0}D=Get directions, I=Buy info, X=Exit: ", Environment.NewLine);
 
@@ -58,7 +58,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Thread.Sleep(150);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			if (Buf.Length == 0 || Buf[0] == 'X')
 			{
@@ -67,11 +67,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			if (Buf[0] == 'D')
 			{
-				Globals.Out.Write("{0}\"The proprietor of the shop to the northwest coaches spell casting.  It's expensive, though.\"{0}", Environment.NewLine);
+				Globals.Out.Print("\"The proprietor of the shop to the northwest coaches spell casting.  It's expensive, though.\"");
 
-				Globals.Out.Write("{0}\"The weapons training school to the southwest is quite popular.  The owner is an excellent instructor.\"{0}", Environment.NewLine);
+				Globals.Out.Print("\"The weapons training school to the southwest is quite popular.  The owner is an excellent instructor.\"");
 
-				Globals.Out.Write("{0}\"The eastern shop belongs to an unusual man.  But he's quite adept at teaching armor skills.\"{0}", Environment.NewLine);
+				Globals.Out.Print("\"The eastern shop belongs to an unusual man.  But he's quite adept at teaching armor skills.\"");
 
 				goto Cleanup;
 			}
@@ -81,26 +81,26 @@ namespace EamonMH.Game.Menus.ActionMenus
 				{
 					if (!GotInfo)
 					{
-						Globals.Out.Write("{0}\"If you go to the southeast corner of this area and look to the south, you may discover wealth!\"{0}", Environment.NewLine);
+						Globals.Out.Print("\"If you go to the southeast corner of this area and look to the south, you may discover wealth!\"");
 
 						var rl = Globals.Engine.RollDice01(1, 100, 0);
 
 						if (rl <= 50)
 						{
-							Globals.Out.Write("{0}You search around and discover a loose block with an old sack hidden behind it.  Inside the sack you find 100 gold coins!{0}", Environment.NewLine);
+							Globals.Out.Print("You search around and discover a loose block with an old sack hidden behind it.  Inside the sack you find 100 gold coins!");
 
 							Globals.Character.HeldGold += 100;
 						}
 						else
 						{
-							Globals.Out.Write("{0}You search around but find nothing there.  Obviously a bad tip.{0}", Environment.NewLine);
+							Globals.Out.Print("You search around but find nothing there.  Obviously a bad tip.");
 						}
 
 						GotInfo = true;
 					}
 					else
 					{
-						Globals.Out.Write("{0}\"Next time you're in the village, you may wish to look at the statue above the fountain.\"{0}", Environment.NewLine);
+						Globals.Out.Print("\"Next time you're in the village, you may wish to look at the statue above the fountain.\"");
 					}
 
 					Globals.Character.HeldGold -= ap;
@@ -111,7 +111,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 				}
 				else
 				{
-					Globals.Out.Write("{0}\"You don't have enough gold for my tip!\"{0}", Environment.NewLine);
+					Globals.Out.Print("\"You don't have enough gold for my tip!\"");
 
 					goto Cleanup;
 				}
@@ -119,7 +119,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 		Cleanup:
 
-			Globals.Out.Write("{0}The man at the Info Booth smiles at you as he turns to help someone else.{0}", Environment.NewLine);
+			Globals.Out.Print("The man at the Info Booth smiles at you as he turns to help someone else.");
 
 			Globals.In.KeyPress(Buf);
 		}

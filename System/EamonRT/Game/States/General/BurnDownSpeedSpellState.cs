@@ -1,9 +1,8 @@
 ﻿
 // BurnDownSpeedSpellState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
@@ -17,7 +16,7 @@ namespace EamonRT.Game.States
 	{
 		protected virtual void PrintSpeedSpellExpired()
 		{
-			Globals.Out.Write("{0}Your speed spell has{1} expired!{0}", Environment.NewLine, Globals.IsRulesetVersion(5) ? " just" : "");
+			Globals.Out.Print("Your speed spell has{0} expired!", Globals.IsRulesetVersion(5) ? " just" : "");
 		}
 
 		public override void Execute()

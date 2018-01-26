@@ -1,7 +1,7 @@
 ﻿
 // DonDiegoMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -29,7 +29,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 			long ap = 0;
 			long i;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			/* 
 				Full Credit:  Derived wholly from Donald Brown's Classic Eamon
@@ -45,9 +45,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 				Rtio = Globals.Engine.GetMerchantRtio(c2);
 			}
 
-			Globals.Out.Write("{0}The man behind the counter says, \"I'm Don Leif Thor Robin Hercules Diego, at your service!  I teach weapons.  Select your weapon of interest.\"{0}", Environment.NewLine);
+			Globals.Out.Print("The man behind the counter says, \"I'm Don Leif Thor Robin Hercules Diego, at your service!  I teach weapons.  Select your weapon of interest.\"");
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Buf.Clear();
 
@@ -77,7 +77,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Thread.Sleep(150);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Debug.Assert(Buf.Length > 0);
 
@@ -89,17 +89,17 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			ap = Globals.Engine.GetMerchantAskPrice(Constants.WeaponTrainingPrice, (double)Rtio);
 
-			Globals.Out.Write("{0}\"My fee is {1} gold pieces per try.  Your current ability is {2}%.\"{0}", Environment.NewLine, ap, Globals.Character.GetWeaponAbilities(i));
+			Globals.Out.Print("\"My fee is {0} gold piece{1} per try.  Your current ability is {2}%.\"", ap, ap != 1 ? "s" : "", Globals.Character.GetWeaponAbilities(i));
 
-			Globals.Out.Write("{0}Don asks you to enter his shop.  \"{1}, see that {2} over there?  It's all in the wrist...  ATTACK!\"{0}", Environment.NewLine, Globals.Character.Name, i == (long)Enums.Weapon.Bow || i == (long)Enums.Weapon.Spear ? "target" : "dummy");
+			Globals.Out.Print("Don asks you to enter his shop.  \"{0}, see that {1} over there?  It's all in the wrist...  ATTACK!\"", Globals.Character.Name, i == (long)Enums.Weapon.Bow || i == (long)Enums.Weapon.Spear ? "target" : "dummy");
 
 			while (true)
 			{
 				Globals.In.KeyPress(Buf);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}Ability: {1}        Gold: {2}{0}", Environment.NewLine, Globals.Character.GetWeaponAbilities(i), Globals.Character.HeldGold);
+				Globals.Out.Print("Ability: {0}        Gold: {1}", Globals.Character.GetWeaponAbilities(i), Globals.Character.HeldGold);
 
 				if (Globals.Character.HeldGold >= ap)
 				{
@@ -113,7 +113,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					Globals.Thread.Sleep(150);
 
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					if (Buf.Length == 0 || Buf[0] == 'X')
 					{
@@ -125,19 +125,19 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						if (rl > 90)
 						{
-							Globals.Out.Write("{0}\"A critical hit!  Very good!  Now, continue.\"{0}", Environment.NewLine);
+							Globals.Out.Print("\"A critical hit!  Very good!  Now, continue.\"");
 
 							Globals.Character.ModWeaponAbilities(i, 2);
 						}
 						else if (rl > 50)
 						{
-							Globals.Out.Write("{0}\"A hit!  Good!  Now, continue.\"{0}", Environment.NewLine);
+							Globals.Out.Print("\"A hit!  Good!  Now, continue.\"");
 
 							Globals.Character.ModWeaponAbilities(i, 1);
 						}
 						else
 						{
-							Globals.Out.Write("{0}\"A miss!  Try harder!  Now, continue.\"{0}", Environment.NewLine);
+							Globals.Out.Print("\"A miss!  Try harder!  Now, continue.\"");
 						}
 
 						if (Globals.Character.GetWeaponAbilities(i) > weapon.MaxValue)
@@ -151,18 +151,18 @@ namespace EamonMH.Game.Menus.ActionMenus
 					}
 					else
 					{
-						Globals.Out.Write("{0}PUFF  PUFF  PUFF.  \"Stamina is important!\"{0}", Environment.NewLine);
+						Globals.Out.Print("PUFF  PUFF  PUFF.  \"Stamina is important!\"");
 					}
 				}
 				else
 				{
-					Globals.Out.Write("{0}\"Sorry, but you have too little gold!\"{0}", Environment.NewLine);
+					Globals.Out.Print("\"Sorry, but you have too little gold!\"");
 
 					break;
 				}
 			}
 
-			Globals.Out.Write("{0}\"Goodbye and good luck!\"{0}", Environment.NewLine);
+			Globals.Out.Print("\"Goodbye and good luck!\"");
 
 			Globals.In.KeyPress(Buf);
 		}

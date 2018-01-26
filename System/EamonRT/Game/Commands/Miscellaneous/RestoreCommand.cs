@@ -1,7 +1,7 @@
 ﻿
 // RestoreCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -190,7 +190,7 @@ namespace EamonRT.Game.Commands
 
 			Globals.GameState.R2 = Globals.GameState.Ro;
 
-			Globals.Out.WriteLine("{0}Game restored.", Environment.NewLine);
+			Globals.Out.Print("Game restored.");
 
 			Globals.Engine.CreateInitialState(true);
 
@@ -225,21 +225,21 @@ namespace EamonRT.Game.Commands
 				{
 					if (Globals.GameState.Die == 1)
 					{
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 					}
 
-					Globals.Out.WriteLine("{0}Saved games:", Environment.NewLine);
+					Globals.Out.Print("Saved games:");
 
 					for (i = 0; i < Globals.Engine.NumSaveSlots; i++)
 					{
 						Globals.Out.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, i < filesets.Count ? filesets[(int)i].Name : "(none)");
 					}
 
-					Globals.Out.WriteLine("{0}{1,3}. {2}", Environment.NewLine, i + 1, "(Don't restore, return to game)");
+					Globals.Out.Print("{0,3}. {1}", i + 1, "(Don't restore, return to game)");
 
 					if (Globals.GameState.Die == 1)
 					{
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 					}
 
 					Globals.Out.Write("{0}Your choice (1-{1}): ", Environment.NewLine, i + 1);

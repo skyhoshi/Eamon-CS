@@ -1,7 +1,7 @@
 ﻿
 // DdMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using Eamon.Game.Attributes;
@@ -19,8 +19,7 @@ namespace EamonDD.Game.Menus
 
 			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
-				Globals.Out.WriteLine("{0}Editing: {1}",
-					Environment.NewLine,
+				Globals.Out.Print("Editing: {0}",
 					Globals.Module != null ? Globals.Module.Name : Globals.Engine.UnknownName);
 			}
 
@@ -88,89 +87,83 @@ namespace EamonDD.Game.Menus
 
 		public virtual void PrintConfigMenuSubtitle()
 		{
-			Globals.Out.WriteLine("{0}Configs: 1", Environment.NewLine);
+			Globals.Out.Print("Configs: 1");
 		}
 
 		public virtual void PrintFilesetMenuSubtitle()
 		{
-			Globals.Out.WriteLine("{0}Filesets: {1}", Environment.NewLine, Globals.Database.GetFilesetsCount());
+			Globals.Out.Print("Filesets: {0}", Globals.Database.GetFilesetsCount());
 		}
 
 		public virtual void PrintCharacterMenuSubtitle()
 		{
-			Globals.Out.WriteLine("{0}Characters: {1}", Environment.NewLine, Globals.Database.GetCharactersCount());
+			Globals.Out.Print("Characters: {0}", Globals.Database.GetCharactersCount());
 		}
 
 		public virtual void PrintModuleMenuSubtitle()
 		{
 			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
-				Globals.Out.WriteLine("{0}Editing: {1}",
-					Environment.NewLine,
+				Globals.Out.Print("Editing: {0}",
 					Globals.Module != null ? Globals.Module.Name : Globals.Engine.UnknownName);
 			}
 
-			Globals.Out.WriteLine("{0}Modules: {1}", Environment.NewLine, Globals.Database.GetModulesCount());
+			Globals.Out.Print("Modules: {0}", Globals.Database.GetModulesCount());
 		}
 
 		public virtual void PrintRoomMenuSubtitle()
 		{
 			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
-				Globals.Out.WriteLine("{0}Editing: {1}",
-					Environment.NewLine,
+				Globals.Out.Print("Editing: {0}",
 					Globals.Module != null ? Globals.Module.Name : Globals.Engine.UnknownName);
 			}
 
-			Globals.Out.WriteLine("{0}Rooms: {1}", Environment.NewLine, Globals.Database.GetRoomsCount());
+			Globals.Out.Print("Rooms: {0}", Globals.Database.GetRoomsCount());
 		}
 
 		public virtual void PrintArtifactMenuSubtitle()
 		{
 			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
-				Globals.Out.WriteLine("{0}Editing: {1}",
-					Environment.NewLine,
+				Globals.Out.Print("Editing: {0}",
 					Globals.Module != null ? Globals.Module.Name : Globals.Engine.UnknownName);
 			}
 
-			Globals.Out.WriteLine("{0}Artifacts: {1}", Environment.NewLine, Globals.Database.GetArtifactsCount());
+			Globals.Out.Print("Artifacts: {0}", Globals.Database.GetArtifactsCount());
 		}
 
 		public virtual void PrintEffectMenuSubtitle()
 		{
 			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
-				Globals.Out.WriteLine("{0}Editing: {1}",
-					Environment.NewLine,
+				Globals.Out.Print("Editing: {0}",
 					Globals.Module != null ? Globals.Module.Name : Globals.Engine.UnknownName);
 			}
 
-			Globals.Out.WriteLine("{0}Effects: {1}", Environment.NewLine, Globals.Database.GetEffectsCount());
+			Globals.Out.Print("Effects: {0}", Globals.Database.GetEffectsCount());
 		}
 
 		public virtual void PrintMonsterMenuSubtitle()
 		{
 			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
-				Globals.Out.WriteLine("{0}Editing: {1}",
-					Environment.NewLine,
+				Globals.Out.Print("Editing: {0}",
 					Globals.Module != null ? Globals.Module.Name : Globals.Engine.UnknownName);
 			}
 
-			Globals.Out.WriteLine("{0}Monsters: {1}", Environment.NewLine, Globals.Database.GetMonstersCount());
+			Globals.Out.Print("Monsters: {0}", Globals.Database.GetMonstersCount());
 		}
 
 		public virtual void PrintHintMenuSubtitle()
 		{
 			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
-				Globals.Out.WriteLine("{0}Editing: {1}",
-					Environment.NewLine,
+				Globals.Out.Print("Editing: {0}",
 					Globals.Module != null ? Globals.Module.Name : Globals.Engine.UnknownName);
 			}
 
-			Globals.Out.WriteLine("{0}Hints: {1}", Environment.NewLine, Globals.Database.GetHintsCount());
+			Globals.Out.Print("Hints: {0}", Globals.Database.GetHintsCount());
 		}
 	}
 }

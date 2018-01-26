@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -18,12 +18,12 @@ namespace StrongholdOfKahrDur.Game
 	{
 		protected override void PrintTooManyWeapons()
 		{
-			Globals.Out.Write("{0}As you enter the Main Hall, Lord William Crankhandle approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"{0}", Environment.NewLine);
+			Globals.Out.Print("As you enter the Main Hall, Lord William Crankhandle approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"");
 		}
 
 		protected override void PrintDeliverGoods()
 		{
-			Globals.Out.Write("{0}You sell your goods to {1}the local buyer of treasure (under the sign of 3 balls).  He examines your items and pays you what they are worth.{0}", Environment.NewLine, string.Equals(Globals.Character.Name, "tom zucchini", StringComparison.OrdinalIgnoreCase) ? "" : "Tom Zucchini, ");
+			Globals.Out.Print("You sell your goods to {0}the local buyer of treasure (under the sign of 3 balls).  He examines your items and pays you what they are worth.", string.Equals(Globals.Character.Name, "tom zucchini", StringComparison.OrdinalIgnoreCase) ? "" : "Tom Zucchini, ");
 		}
 
 		protected override void PlayerSpellCastBrainOverload(Enums.Spell s, Classes.ISpell spell)
@@ -32,7 +32,7 @@ namespace StrongholdOfKahrDur.Game
 
 			Debug.Assert(spell != null);
 
-			Globals.Out.Write("{0}Spell backlash!  Your ability to cast {1} temporarily diminishes!{0}", Environment.NewLine, spell.Name);
+			Globals.Out.Print("Spell backlash!  Your ability to cast {0} temporarily diminishes!", spell.Name);
 
 			if (Globals.GameState.GetSa(s) > 10)
 			{

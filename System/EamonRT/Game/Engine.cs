@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -200,17 +200,17 @@ namespace EamonRT.Game
 
 		protected virtual void PrintTooManyWeapons()
 		{
-			Globals.Out.Write("{0}As you enter the Main Hall, Lord William Missilefire approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"{0}", Environment.NewLine);
+			Globals.Out.Print("As you enter the Main Hall, Lord William Missilefire approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"");
 		}
 
 		protected virtual void PrintDeliverGoods()
 		{
-			Globals.Out.Write("{0}You deliver your goods to Sam Slicker, the local buyer for such things.  He examines your items and pays you what they are worth.{0}", Environment.NewLine);
+			Globals.Out.Print("You deliver your goods to Sam Slicker, the local buyer for such things.  He examines your items and pays you what they are worth.");
 		}
 
 		protected virtual void PrintGoodsPayment(bool goodsExist, long payment)
 		{
-			Globals.Out.Write("{0}{1}He pays you {2} gold pieces total.{0}", Environment.NewLine, goodsExist ? Environment.NewLine : "", payment);
+			Globals.Out.Print("{0}He pays you {1} gold piece{2} total.", goodsExist ? Environment.NewLine : "", payment, payment != 1 ? "s" : "");
 		}
 
 		protected virtual void SetScaledHardiness(IMonster monster, long damageFactor)
@@ -231,7 +231,7 @@ namespace EamonRT.Game
 
 			Debug.Assert(spell != null);
 
-			Globals.Out.Write("{0}The strain of attempting to cast {1} overloads your brain and you forget it completely{2}.{0}", Environment.NewLine, spell.Name, Globals.IsRulesetVersion(5) ? "" : " for the rest of this adventure");
+			Globals.Out.Print("The strain of attempting to cast {0} overloads your brain and you forget it completely{1}.", spell.Name, Globals.IsRulesetVersion(5) ? "" : " for the rest of this adventure");
 
 			Globals.GameState.SetSa(s, 0);
 
@@ -245,7 +245,7 @@ namespace EamonRT.Game
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Write("{0}{1} {2} alive!{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), artifact.EvalPlural("is", "are"));
+			Globals.Out.Print("{0} {1} alive!", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), artifact.EvalPlural("is", "are"));
 		}
 
 		public virtual long WeaponPowerCompare(IArtifact artifact1, IArtifact artifact2)
@@ -732,7 +732,7 @@ namespace EamonRT.Game
 
 			Globals.Character.AddPoundCharsToWeaponNames();
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		public virtual void ResetMonsterStats(IMonster monster)
@@ -842,7 +842,7 @@ namespace EamonRT.Game
 
 			if (weaponList.Count > Globals.Character.Weapons.Length)
 			{
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 			}
 		}
 
@@ -856,7 +856,7 @@ namespace EamonRT.Game
 
 				while (weaponList.Count > Globals.Character.Weapons.Length)
 				{
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					Globals.Buf.Clear();
 
@@ -866,7 +866,7 @@ namespace EamonRT.Game
 
 					Globals.Out.WriteLine("{0}Your weapons are:{0}{1}", Environment.NewLine, Globals.Buf);
 
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					Globals.Out.Write("{0}Enter the number of a weapon to sell: ", Environment.NewLine);
 
@@ -956,18 +956,18 @@ namespace EamonRT.Game
 
 			if (printLineSep)
 			{
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 			}
 
-			Globals.Out.WriteLine("{0}You have perished.  Now what?", Environment.NewLine);
+			Globals.Out.Print("You have perished.  Now what?");
 
 			Globals.Out.Write("{0} 1. Restore a saved game", Environment.NewLine);
 
 			Globals.Out.Write("{0} 2. Start over (saved games will be deleted)", Environment.NewLine);
 
-			Globals.Out.WriteLine("{0} 3. Give up, accept death", Environment.NewLine);
+			Globals.Out.Print(" 3. Give up, accept death");
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.Write("{0}Your choice: ", Environment.NewLine);
 
@@ -1009,7 +1009,7 @@ namespace EamonRT.Game
 
 			Globals.GameState.Lt = (long)Globals.RDB[Globals.GameState.Ro].LightLvl;
 
-			Globals.Out.Write("{0}{1} goes out.{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+			Globals.Out.Print("{0} goes out.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
 		}
 
 		public virtual void MonsterGetsAggravated(IMonster monster, bool printFinalNewLine = true)
@@ -1187,7 +1187,7 @@ namespace EamonRT.Game
 					}
 					else
 					{
-						Globals.Buf.SetFormat("{0}???{0}", Environment.NewLine);
+						Globals.Buf.SetPrint("{0}", "???");
 
 						rc = RetCode.Success;
 					}
@@ -1688,7 +1688,7 @@ namespace EamonRT.Game
 
 					artifact.SetInLimbo();
 
-					Globals.Out.Write("{0}{1} {2}{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), Globals.IsRulesetVersion(5) ? "comes alive!" : "comes to life!");
+					Globals.Out.Print("{0} {1}", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), Globals.IsRulesetVersion(5) ? "comes alive!" : "comes to life!");
 
 					found = true;
 				}
@@ -1720,7 +1720,7 @@ namespace EamonRT.Game
 
 				artifact.SetInLimbo();
 
-				Globals.Out.Write("{0}{1} vanishes!{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				Globals.Out.Print("{0} vanishes!", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
 			}
 
 			return artifacts.Count > 0;
@@ -1799,7 +1799,7 @@ namespace EamonRT.Game
 					{
 						if (!Globals.IsRulesetVersion(5))
 						{
-							Globals.Out.Write("{0}Your ability to cast {1} just increased!{0}", Environment.NewLine, spell.Name);
+							Globals.Out.Print("Your ability to cast {0} just increased!", spell.Name);
 						}
 
 						Globals.Character.ModSpellAbilities(s, 2);
@@ -1813,7 +1813,7 @@ namespace EamonRT.Game
 			}
 			else
 			{
-				Globals.Out.WriteLine("{0}Nothing happens.", Environment.NewLine);
+				Globals.Out.Print("Nothing happens.");
 
 				goto Cleanup;
 			}
@@ -1845,7 +1845,7 @@ namespace EamonRT.Game
 
 					if (!Globals.IsRulesetVersion(5))
 					{
-						Globals.Out.Write("{0}Your {1} ability just increased!{0}", Environment.NewLine, weapon.Name);
+						Globals.Out.Print("Your {0} ability just increased!", weapon.Name);
 					}
 
 					Globals.Character.ModWeaponAbilities(s, 2);
@@ -1868,7 +1868,7 @@ namespace EamonRT.Game
 					{
 						if (!Globals.IsRulesetVersion(5))
 						{
-							Globals.Out.Write("{0}Your armor expertise just increased!{0}", Environment.NewLine);
+							Globals.Out.Print("Your armor expertise just increased!");
 						}
 
 						Globals.Character.ArmorExpertise += 2;
@@ -2228,7 +2228,7 @@ namespace EamonRT.Game
 				{
 					if (!nlFlag)
 					{
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 					}
 
 					Globals.Out.Write("{0}Unrecognized command line argument: [{1}]", Environment.NewLine, Globals.Argv[i]);

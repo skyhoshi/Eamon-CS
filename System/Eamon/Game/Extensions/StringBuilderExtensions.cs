@@ -1,8 +1,9 @@
 ﻿
 // StringBuilderExtensions.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using System;
 using System.Text;
 
 namespace Eamon.Game.Extensions
@@ -26,6 +27,28 @@ namespace Eamon.Game.Extensions
 				buf.Clear();
 
 				buf.AppendFormat(format, args);
+			}
+
+			return buf;
+		}
+
+		public static StringBuilder SetPrint(this StringBuilder buf, string format, params object[] args)
+		{
+			if (buf != null && format != null)
+			{
+				buf.Clear();
+
+				buf.AppendFormat(Environment.NewLine + format + Environment.NewLine, args);
+			}
+
+			return buf;
+		}
+
+		public static StringBuilder AppendPrint(this StringBuilder buf, string format, params object[] args)
+		{
+			if (buf != null && format != null)
+			{
+				buf.AppendFormat(Environment.NewLine + format + Environment.NewLine, args);
 			}
 
 			return buf;

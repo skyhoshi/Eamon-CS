@@ -1,7 +1,7 @@
 ﻿
 // RequestCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -129,8 +129,7 @@ namespace EamonRT.Game.Commands
 
 				CommandParser.ObjData.ArtifactNotFoundFunc = () =>
 				{
-					Globals.Out.Write("{0}{1}{2} have it.{0}",
-						Environment.NewLine,
+					Globals.Out.Print("{0}{1} have it.",
 						IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf),
 						IobjMonster.EvalPlural(" doesn't", " don't"));
 				};

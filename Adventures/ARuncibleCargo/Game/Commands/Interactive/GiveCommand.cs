@@ -1,7 +1,7 @@
 ﻿
 // GiveCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -78,8 +78,7 @@ namespace ARuncibleCargo.Game.Commands
 
 			else if (DobjArtifact.Uid == 129)
 			{
-				Globals.Out.Write("{0}{1} nervously refuse{2} your offer.{0}",
-					Environment.NewLine,
+				Globals.Out.Print("{0} nervously refuse{1} your offer.",
 					IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf),
 					IobjMonster.EvalPlural("s", ""));
 

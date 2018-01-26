@@ -1,12 +1,11 @@
 ﻿
 // SayCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using Eamon.Game.Extensions;
 using StrongholdOfKahrDur.Framework;
 using StrongholdOfKahrDur.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -37,7 +36,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				Globals.Engine.CheckEnemies();
 
-				Globals.Out.WriteLine("{0}Monster stats reduced.", Environment.NewLine);
+				Globals.Out.Print("Monster stats reduced.");
 
 				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
 

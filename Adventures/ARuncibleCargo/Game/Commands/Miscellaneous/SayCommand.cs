@@ -1,7 +1,7 @@
 ﻿
 // SayCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -101,7 +101,7 @@ namespace ARuncibleCargo.Game.Commands
 
 			if (found && (gameState.Ro == 28 || (gameState.Ro > 88 && gameState.Ro < 92)))
 			{
-				Globals.Out.Write("{0}Thank you for flying Frank Black Airlines!{0}", Environment.NewLine);
+				Globals.Out.Print("Thank you for flying Frank Black Airlines!");
 			}
 
 			base.PlayerProcessEvents();
@@ -265,9 +265,9 @@ namespace ARuncibleCargo.Game.Commands
 
 				// Return to Main Hall after capitulating to the Bandits
 
-				Globals.Out.Write("{0}You begin your journey home...{0}", Environment.NewLine);
+				Globals.Out.Print("You begin your journey home...");
 
-				Globals.Out.Write("{0}{1}{0}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Engine.PrintEffectDesc(145);
 

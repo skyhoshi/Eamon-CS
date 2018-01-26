@@ -1,9 +1,8 @@
 ﻿
 // AttackCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using WrenholdsSecretVigil.Framework.Commands;
@@ -23,7 +22,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (artifact.Uid == 31)
 			{
-				Globals.Out.Write("{0}You already mangled {1}!{0}", Environment.NewLine, artifact.EvalPlural("it", "them"));
+				Globals.Out.Print("You already mangled {0}!", artifact.EvalPlural("it", "them"));
 			}
 			else
 			{

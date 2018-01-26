@@ -1,9 +1,8 @@
 ﻿
 // LookCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using Eamon.Game.Utilities;
@@ -44,7 +43,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 						Debug.Assert(direction != null);
 
-						Globals.Out.Write("{0}You found a secret passage {1}!{0}", Environment.NewLine, direction.Name.ToLower());
+						Globals.Out.Print("You found a secret passage {0}!", direction.Name.ToLower());
 
 						ActorRoom.SetDirs(dv, -ActorRoom.GetDirs(dv));
 					}

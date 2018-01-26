@@ -1,9 +1,8 @@
 ﻿
 // OpenCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheTempleOfNgurct.Framework;
@@ -54,21 +53,21 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (artifact.Uid == 54)
 			{
-				Globals.Out.Write("{0}{1} is open!{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				Globals.Out.Print("{0} is open!", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
 			}
 
 			// Oak door
 
 			else if (artifact.Uid == 85)
 			{
-				Globals.Out.Write("{0}{1} swings open to your gentle touch.{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				Globals.Out.Print("{0} swings open to your gentle touch.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
 			}
 
 			// Cell doors
 
 			else if (artifact.Uid >= 86 && artifact.Uid <= 88)
 			{
-				Globals.Out.Write("{0}{1} squeaks open.{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				Globals.Out.Print("{0} squeaks open.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
 			}
 			else
 			{
@@ -84,21 +83,21 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (artifact.Uid == 54)
 			{
-				Globals.Out.Write("{0}{1} is locked -- what do you think that padlock is... chopped liver?{0}",	Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				Globals.Out.Print("{0} is locked -- what do you think that padlock is... chopped liver?",	artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
 			}
 
 			// Oak door
 
 			else if (artifact.Uid == 85)
 			{
-				Globals.Out.Write("{0}{1} is locked shut!{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				Globals.Out.Print("{0} is locked shut!", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
 			}
 
 			// Cell doors
 
 			else if (artifact.Uid >= 86 && artifact.Uid <= 88)
 			{
-				Globals.Out.Write("{0}{1} is locked!{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				Globals.Out.Print("{0} is locked!", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
 			}
 			else
 			{
@@ -114,7 +113,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (artifact.Uid == 54 || artifact.Uid == 85 || (artifact.Uid >= 86 && artifact.Uid <= 88))
 			{
-				Globals.Out.Write("{0}You unlock {1} with {2}.{0}", Environment.NewLine, artifact.EvalPlural("it", "them"), key.GetDecoratedName03(false, true, false, false, Globals.Buf));
+				Globals.Out.Print("You unlock {0} with {1}.", artifact.EvalPlural("it", "them"), key.GetDecoratedName03(false, true, false, false, Globals.Buf));
 
 				PrintOpened(artifact);
 			}

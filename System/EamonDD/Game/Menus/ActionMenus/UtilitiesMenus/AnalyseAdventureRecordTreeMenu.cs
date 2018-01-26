@@ -1,7 +1,7 @@
 ﻿
 // AnalyseAdventureRecordTreeMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -123,7 +123,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			if (Buf.Length == 0 || Buf[0] != 'N')
 			{
@@ -150,7 +150,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 						Globals.Out.WriteLine();
 
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 
 						Globals.Out.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
 
@@ -160,7 +160,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 
 						if (Buf.Length > 0 && Buf[0] == 'X')
 						{
@@ -184,7 +184,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				Globals.In.KeyPress(Buf);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 			}
 
 			if (nlFlag)
@@ -192,7 +192,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				Globals.Out.WriteLine();
 			}
 
-			Globals.Out.WriteLine("{0}Done analysing adventure record tree.", Environment.NewLine);
+			Globals.Out.Print("Done analysing adventure record tree.");
 		}
 
 		public AnalyseAdventureRecordTreeMenu()

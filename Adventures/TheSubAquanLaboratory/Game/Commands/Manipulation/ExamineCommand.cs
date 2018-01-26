@@ -1,9 +1,8 @@
 ﻿
 // ExamineCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheSubAquanLaboratory.Framework;
@@ -55,7 +54,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					if (gameState.FakeWallExamines < 2)
 					{
-						Globals.Out.Write("{0}Examining {1} reveals something curious:{0}", Environment.NewLine, DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+						Globals.Out.Print("Examining {0} reveals something curious:", DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
 					}
 
 					gameState.FakeWallExamines++;

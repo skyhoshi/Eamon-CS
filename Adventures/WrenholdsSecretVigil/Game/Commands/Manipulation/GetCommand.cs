@@ -1,7 +1,7 @@
 ﻿
 // GetCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -170,12 +170,12 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		protected virtual void PrintCantGetSlime()
 		{
-			Globals.Out.Write("{0}Corrosive slime is not something to get.{0}", Environment.NewLine);
+			Globals.Out.Print("Corrosive slime is not something to get.");
 		}
 
 		protected virtual void PrintCantDetachRope()
 		{
-			Globals.Out.Write("{0}You cannot detach the rope.{0}", Environment.NewLine);
+			Globals.Out.Print("You cannot detach the rope.");
 		}
 
 		protected override void ProcessArtifact(IArtifact artifact, IArtifactClass ac, ref bool nlFlag)

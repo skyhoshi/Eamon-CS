@@ -1,9 +1,8 @@
 ﻿
 // OpenCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using WrenholdsSecretVigil.Framework.Commands;
@@ -38,7 +37,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (artifact.Uid == 44)
 			{
-				Globals.Out.Write("{0}You try to open the glowing device.{0}", Environment.NewLine);
+				Globals.Out.Print("You try to open the glowing device.");
 			}
 			else
 			{
@@ -54,7 +53,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (artifact.Uid == 31)
 			{
-				Globals.Out.Write("{0}The hide is too hard to cut!{0}", Environment.NewLine);
+				Globals.Out.Print("The hide is too hard to cut!");
 
 				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
 			}
@@ -72,7 +71,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (artifact.Uid == 44)
 			{
-				Globals.Out.Write("{0}You try to open the glowing device with {1}.{0}", Environment.NewLine, key.GetDecoratedName03(false, true, false, false, Globals.Buf));
+				Globals.Out.Print("You try to open the glowing device with {0}.", key.GetDecoratedName03(false, true, false, false, Globals.Buf));
 			}
 			else
 			{

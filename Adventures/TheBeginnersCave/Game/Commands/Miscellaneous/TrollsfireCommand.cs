@@ -1,9 +1,8 @@
 ﻿
 // TrollsfireCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheBeginnersCave.Framework;
@@ -24,14 +23,14 @@ namespace TheBeginnersCave.Game.Commands
 
 			if (artifact.IsInRoom(ActorRoom))
 			{
-				Globals.Out.WriteLine("{0}Maybe you should pick it up first.", Environment.NewLine);
+				Globals.Out.Print("Maybe you should pick it up first.");
 
 				goto Cleanup;
 			}
 
 			if (!artifact.IsCarriedByCharacter())
 			{
-				Globals.Out.WriteLine("{0}Nothing happens.", Environment.NewLine);
+				Globals.Out.Print("Nothing happens.");
 
 				goto Cleanup;
 			}

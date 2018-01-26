@@ -1,13 +1,14 @@
 ﻿
 // Monster.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using StrongholdOfKahrDur.Framework;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
@@ -30,7 +31,7 @@ namespace StrongholdOfKahrDur.Game
 
 				Debug.Assert(effect != null);
 
-				buf.AppendFormat("{0}{1}{0}", Environment.NewLine, effect.Desc);
+				buf.AppendPrint("{0}", effect.Desc);
 			}
 
 			return rc;

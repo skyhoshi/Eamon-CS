@@ -1,9 +1,8 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheSubAquanLaboratory.Framework.Commands;
@@ -17,18 +16,18 @@ namespace TheSubAquanLaboratory.Game.States
 	{
 		protected override void PrintRideOffIntoSunset()
 		{
-			Globals.Out.WriteLine("{0}You successfully teleport back to the Main Hall.", Environment.NewLine);
+			Globals.Out.Print("You successfully teleport back to the Main Hall.");
 		}
 
 		protected override void ProcessEvents01()
 		{
 			if (Globals.GameState.R2 == -17)
 			{
-				Globals.Out.WriteLine("{0}You wouldn't make it 10 meters out into that lake!", Environment.NewLine);
+				Globals.Out.Print("You wouldn't make it 10 meters out into that lake!");
 			}
 			else if (Globals.GameState.R2 == -18)
 			{
-				Globals.Out.WriteLine("{0}A fake-looking back wall blocks northward movement.", Environment.NewLine);
+				Globals.Out.Print("A fake-looking back wall blocks northward movement.");
 			}
 			else if (Globals.GameState.R2 == -19)
 			{
@@ -46,7 +45,7 @@ namespace TheSubAquanLaboratory.Game.States
 			}
 			else if (Globals.GameState.R2 == -20)
 			{
-				Globals.Out.WriteLine("{0}You find that all the doors are sealed shut!", Environment.NewLine);
+				Globals.Out.Print("You find that all the doors are sealed shut!");
 
 				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
 			}

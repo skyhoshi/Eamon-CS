@@ -1,7 +1,7 @@
 ﻿
 // GetCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -25,7 +25,7 @@ namespace TheBeginnersCave.Game.Commands
 			}
 			else if ((ActorRoom.Uid == 4 || ActorRoom.Uid == 20 || ActorRoom.Uid == 22) && CommandParser.ObjData.Name.IndexOf("torch", StringComparison.OrdinalIgnoreCase) >= 0)
 			{
-				Globals.Out.WriteLine("{0}All torches are bolted to the wall and cannot be removed.", Environment.NewLine);
+				Globals.Out.Print("All torches are bolted to the wall and cannot be removed.");
 
 				CommandParser.NextState.Dispose();
 

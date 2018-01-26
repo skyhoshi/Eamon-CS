@@ -1,7 +1,7 @@
 ﻿
 // ScoreCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -54,7 +54,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			var seenCount = rooms.Count(r => r.Seen);
 
-			Globals.Out.Write("{0}{1}/{2} laboratory rooms explored.{0}", Environment.NewLine, seenCount, rooms.Count);
+			Globals.Out.Print("{0}/{1} laboratory rooms explored.", seenCount, rooms.Count);
 
 			var percent = gameState.ReadPlaque ? 25L : 0L;
 
@@ -64,7 +64,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			percent += (long)Math.Round(((double)seenCount / (double)rooms.Count) * 25);
 
-			Globals.Out.Write("{0}{1}% of your quest is complete.{0}", Environment.NewLine, percent);
+			Globals.Out.Print("{0}% of your quest is complete.", percent);
 
 			if (NextState == null)
 			{

@@ -1,9 +1,8 @@
 ﻿
 // DigCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using WrenholdsSecretVigil.Framework;
@@ -18,7 +17,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	{
 		protected override void PrintCantVerbHere()
 		{
-			Globals.Out.Write("{0}You cannot {1} here.{0}", Environment.NewLine, Verb);
+			Globals.Out.Print("You cannot {0} here.", Verb);
 		}
 
 		protected override void PlayerExecute()
@@ -27,13 +26,13 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (buriedArtifacts.Count > 0)
 			{
-				Globals.Out.Write("{0}You found something!{0}", Environment.NewLine);
+				Globals.Out.Print("You found something!");
 
 				buriedArtifacts[0].SetInRoom(ActorRoom);
 			}
 			else
 			{
-				Globals.Out.Write("{0}You dig but find nothing.{0}", Environment.NewLine);
+				Globals.Out.Print("You dig but find nothing.");
 			}
 
 			if (NextState == null)

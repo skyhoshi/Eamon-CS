@@ -1,9 +1,8 @@
 ﻿
 // MainLoop.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheBeginnersCave.Framework;
@@ -31,9 +30,9 @@ namespace TheBeginnersCave.Game
 
 				Globals.Character.HeldGold += reward;
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}Additionally, you receive {1} gold pieces for the safe return of Cynthia.{0}", Environment.NewLine, reward);
+				Globals.Out.Print("Additionally, you receive {0} gold piece{1} for the safe return of Cynthia.", reward, reward != 1 ? "s" : "");
 
 				Globals.In.KeyPress(Globals.Buf);
 			}

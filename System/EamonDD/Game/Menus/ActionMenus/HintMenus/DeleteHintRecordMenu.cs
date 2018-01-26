@@ -1,9 +1,8 @@
 ﻿
 // DeleteHintRecordMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
@@ -16,7 +15,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 	{
 		public override void PrintPostListLineSep()
 		{
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		public override void UpdateGlobals()

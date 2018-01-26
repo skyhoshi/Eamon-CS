@@ -1,7 +1,7 @@
 
 // TextWriter.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -152,6 +152,13 @@ namespace EamonPM.Game.Portability
 		public virtual long GetBufferHeight()
 		{
 			return Console.BufferHeight;
+		}
+
+		public virtual void Print(string format, params object[] arg)
+		{
+			Debug.Assert(format != null);
+
+			Write(Environment.NewLine + format + Environment.NewLine, arg);
 		}
 
 		public virtual void Write(object value)

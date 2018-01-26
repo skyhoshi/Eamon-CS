@@ -1,7 +1,7 @@
 ﻿
 // HokasTokasMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -28,7 +28,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 			RetCode rc;
 			long i;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			/* 
 				Full Credit:  Derived wholly from Donald Brown's Classic Eamon
@@ -67,7 +67,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Out.Write("{0}After a few minutes of diligent searching, you find Hokas Tokas, the old mage.  He looks at you and says, \"So you want old Tokey to teach you some magic, heh heh?  Well, it'll cost you.{0}{0}Today my fees are {1}.{0}{0}Well, which will it be?\"{0}", Environment.NewLine, spellStr);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Buf.Clear();
 
@@ -97,11 +97,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Thread.Sleep(150);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			if (Buf.Length == 0 || Buf[0] == 'X')
 			{
-				Globals.Out.Write("{0}As you leave, you hear Hokas muttering about cheapskate adventurers always wanting something for nothing.{0}", Environment.NewLine);
+				Globals.Out.Print("As you leave, you hear Hokas muttering about cheapskate adventurers always wanting something for nothing.");
 
 				Globals.In.KeyPress(Buf);
 
@@ -127,7 +127,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			if (ap > Globals.Character.HeldGold)
 			{
-				Globals.Out.Write("{0}When Hokas sees that you don't have enough to pay him, he stalks to the bar, muttering about youngsters who should be turned into frogs.{0}", Environment.NewLine);
+				Globals.Out.Print("When Hokas sees that you don't have enough to pay him, he stalks to the bar, muttering about youngsters who should be turned into frogs.");
 
 				Globals.In.KeyPress(Buf);
 
@@ -146,7 +146,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.CharactersModified = true;
 
-			Globals.Out.Write("{0}Hokas teaches you your spell, takes his fee, and returns to his stool at the bar.  As you walk away you hear him order a double dragon blomb.{0}", Environment.NewLine);
+			Globals.Out.Print("Hokas teaches you your spell, takes his fee, and returns to his stool at the bar.  As you walk away you hear him order a double dragon blomb.");
 
 			Globals.In.KeyPress(Buf);
 

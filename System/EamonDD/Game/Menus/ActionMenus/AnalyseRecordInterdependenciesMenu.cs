@@ -1,7 +1,7 @@
 ﻿
 // AnalyseRecordInterdependenciesMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -40,9 +40,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			helper.ListErrorField(ValidateArgs);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, ValidateArgs.ErrorMessage);
+			Globals.Out.Print("{0}", ValidateArgs.ErrorMessage);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.Write("{0}S=Skip field, T=Edit this record, R={1} referred to record, X=Exit: ",
 				Environment.NewLine,
@@ -221,7 +221,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				menu.Execute();
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		public override void Execute()
@@ -288,7 +288,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				}
 			}
 
-			Globals.Out.WriteLine("{0}Done analysing {1} records.", Environment.NewLine, RecordTypeName);
+			Globals.Out.Print("Done analysing {0} records.", RecordTypeName);
 		}
 
 		public AnalyseRecordInterdependenciesMenu()

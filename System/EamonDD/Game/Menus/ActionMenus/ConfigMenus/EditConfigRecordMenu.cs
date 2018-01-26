@@ -1,7 +1,7 @@
 ﻿
 // EditConfigRecordMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -60,7 +60,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 			else
 			{
-				Globals.Out.WriteLine("{0}Config record not modified.", Environment.NewLine);
+				Globals.Out.Print("Config record not modified.");
 			}
 
 		Cleanup:

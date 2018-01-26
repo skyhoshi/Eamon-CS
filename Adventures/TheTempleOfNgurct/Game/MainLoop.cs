@@ -1,7 +1,7 @@
 ﻿
 // MainLoop.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -31,7 +31,7 @@ namespace TheTempleOfNgurct.Game
 
 			base.Shutdown();
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			// Thera's reward
 
@@ -47,7 +47,10 @@ namespace TheTempleOfNgurct.Game
 			{
 				var rw = 200 + (long)Math.Round(100 * ((double)(theraMonster.Hardiness - theraMonster.DmgTaken) / (double)theraMonster.Hardiness));
 
-				Globals.Out.Write("{0}In addition, you receive {1} gold pieces as a reward for the return of Princess Thera.{2}{0}", Environment.NewLine, rw, gonzalesMonster.Location == Globals.GameState.Ro ? "  Of course, Gonzales takes his half." : "");
+				Globals.Out.Print("In addition, you receive {0} gold piece{1} as a reward for the return of Princess Thera.{2}", 
+					rw, 
+					rw != 1 ? "s" : "", 
+					gonzalesMonster.Location == Globals.GameState.Ro ? "  Of course, Gonzales takes his half." : "");
 
 				if (gonzalesMonster.Location == Globals.GameState.Ro)
 				{
@@ -61,13 +64,13 @@ namespace TheTempleOfNgurct.Game
 
 			if (carryingMedallion)
 			{
-				Globals.Out.Write("{0}You also receive the 2,000 gold pieces for the return of the gold medallion of Ngurct.  It is immediately destroyed by the King.{0}", Environment.NewLine);
+				Globals.Out.Print("You also receive the 2,000 gold pieces for the return of the gold medallion of Ngurct.  It is immediately destroyed by the King.");
 
 				reward += 2000;
 			}
 			else
 			{
-				Globals.Out.Write("{0}Unfortunately, you have failed in your mission to return the gold medallion of Ngurct.  Shame!  Shame!  (And no money.){0}", Environment.NewLine);
+				Globals.Out.Print("Unfortunately, you have failed in your mission to return the gold medallion of Ngurct.  Shame!  Shame!  (And no money.)");
 			}
 
 			Globals.Character.HeldGold += reward;

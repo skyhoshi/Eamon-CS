@@ -1,9 +1,8 @@
 ﻿
 // StatusCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
@@ -24,7 +23,7 @@ namespace TheBeginnersCave.Game.Commands
 
 			if (artifact.IsCarriedByCharacter() && Globals.GameState.CastTo<IGameState>().Trollsfire == 1)
 			{
-				Globals.Out.WriteLine("{0}Trollsfire is alight!", Environment.NewLine);
+				Globals.Out.Print("Trollsfire is alight!");
 			}
 
 			base.PlayerProcessEvents();

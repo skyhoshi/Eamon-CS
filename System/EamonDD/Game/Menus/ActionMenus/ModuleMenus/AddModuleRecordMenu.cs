@@ -1,7 +1,7 @@
 ﻿
 // AddModuleRecordMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -41,7 +41,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					NewRecordUid = Convert.ToInt64(Buf.Trim().ToString());
 
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					if (NewRecordUid > 0)
 					{
@@ -49,7 +49,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 						if (module != null)
 						{
-							Globals.Out.WriteLine("{0}Module record already exists.", Environment.NewLine);
+							Globals.Out.Print("Module record already exists.");
 
 							goto Cleanup;
 						}

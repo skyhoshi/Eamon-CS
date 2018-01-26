@@ -1,7 +1,7 @@
 ﻿
 // CombatSystem.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -237,7 +237,7 @@ namespace EamonRT.Game.Combat
 
 		protected virtual void PrintBlast()
 		{
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.Engine.GetBlastDesc());
+			Globals.Out.Print("{0}", Globals.Engine.GetBlastDesc());
 		}
 
 		protected virtual void RollToHitOrMiss()

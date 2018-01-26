@@ -1,7 +1,7 @@
 ﻿
 // PowerCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using Eamon.Game.Attributes;
@@ -99,7 +99,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					Globals.Engine.CheckEnemies();
 
-					Globals.Out.Write("{0}All of your wounds are suddenly healed!{0}", Environment.NewLine);
+					Globals.Out.Print("All of your wounds are suddenly healed!");
 
 					Globals.Buf.SetFormat("{0}You are ", Environment.NewLine);
 

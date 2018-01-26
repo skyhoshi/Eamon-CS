@@ -1,7 +1,7 @@
 ﻿
 // ShowCharacterStatusSummaryMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -32,7 +32,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			Globals.Out.WriteLine();
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		public override void Execute()
@@ -133,7 +133,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					if (Buf.Length > 0 && Buf[0] == 'X')
 					{
@@ -149,7 +149,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				Globals.Out.WriteLine();
 			}
 
-			Globals.Out.WriteLine("{0}Done showing character status summary.", Environment.NewLine);
+			Globals.Out.Print("Done showing character status summary.");
 		}
 
 		public ShowCharacterStatusSummaryMenu()

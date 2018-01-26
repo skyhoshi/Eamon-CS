@@ -1,7 +1,7 @@
 ﻿
 // MainLoop.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -24,7 +24,7 @@ namespace TheSubAquanLaboratory.Game
 
 			// End of game specials
 
-			Globals.Out.Write("{0}{1}{0}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Engine.PrintEffectDesc(71);
 
@@ -40,7 +40,7 @@ namespace TheSubAquanLaboratory.Game
 
 			// 100% of quest = base reward of 1250
 
-			Globals.Out.Write("{0}{1}{0}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			if (gameState.QuestValue > 0)
 			{
@@ -55,7 +55,7 @@ namespace TheSubAquanLaboratory.Game
 
 				Globals.Engine.PrintEffectDesc(78);
 
-				Globals.Out.Write("{0}The mayor then calculates the value of the information you have presented him with and pays you {1} gold pieces.{0}", Environment.NewLine, reward);
+				Globals.Out.Print("The mayor then calculates the value of the information you have presented him with and pays you {0} gold piece{1}.", reward, reward != 1 ? "s" : "");
 			}
 			else
 			{

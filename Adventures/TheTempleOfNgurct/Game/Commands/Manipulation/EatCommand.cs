@@ -1,9 +1,8 @@
 ﻿
 // EatCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheTempleOfNgurct.Framework.Commands;
@@ -33,7 +32,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (DmgTaken > 0)
 			{
-				Globals.Out.Write("{0}Some of your wounds seem to clear up.{0}", Environment.NewLine);
+				Globals.Out.Print("Some of your wounds seem to clear up.");
 			}
 		}
 

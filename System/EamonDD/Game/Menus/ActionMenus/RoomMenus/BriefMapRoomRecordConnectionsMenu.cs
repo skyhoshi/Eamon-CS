@@ -1,7 +1,7 @@
 ﻿
 // BriefMapRoomRecordConnectionsMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -33,11 +33,10 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
-				Globals.Out.WriteLine("{0}A map of: {1}",
-					Environment.NewLine,
+				Globals.Out.Print("A map of: {0}",
 					Globals.Module != null ? Globals.Module.Name : Globals.Engine.UnknownName);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 			}
 
 			var numDirs = Globals.Module != null ? Globals.Module.NumDirs : 6;
@@ -129,7 +128,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					Globals.Out.WriteLine();
 
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					Globals.Out.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
 
@@ -139,7 +138,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					if (Buf.Length > 0 && Buf[0] == 'X')
 					{
@@ -157,7 +156,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				Globals.Out.WriteLine();
 			}
 
-			Globals.Out.WriteLine("{0}Done briefly mapping room record connections.", Environment.NewLine);
+			Globals.Out.Print("Done briefly mapping room record connections.");
 		}
 
 		public BriefMapRoomRecordConnectionsMenu()

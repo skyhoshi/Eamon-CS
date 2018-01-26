@@ -1,9 +1,8 @@
 ﻿
 // PushCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheSubAquanLaboratory.Framework;
@@ -36,7 +35,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 					{
 						if (ActorRoom.Uid != 17)
 						{
-							Globals.Out.Write("{0}Up button pushed.{0}", Environment.NewLine);
+							Globals.Out.Print("Up button pushed.");
 
 							var newRoom = Globals.RDB[17];
 
@@ -72,7 +71,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 					{
 						if (ActorRoom.Uid != 18)
 						{
-							Globals.Out.Write("{0}Down button pushed.{0}", Environment.NewLine);
+							Globals.Out.Print("Down button pushed.");
 
 							var newRoom = Globals.RDB[18];
 
@@ -106,7 +105,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Black/Yellow/Red buttons (Make mystery food)
 
-					Globals.Out.Write("{0}{1} pushed.{0}", Environment.NewLine, DobjArtifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
+					Globals.Out.Print("{0} pushed.", DobjArtifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
 
 					artifact = Globals.ADB[22];
 
@@ -147,8 +146,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 						d[2] += 3;
 					}
 
-					Globals.Out.Write("{0}{1} {2} {3} {4} substance {5} into the deposit area at the bottom of the machine.{0}", 
-						Environment.NewLine,
+					Globals.Out.Print("{0} {1} {2} {3} substance {4} into the deposit area at the bottom of the machine.", 
 						d[1] == 5 ? "An" : "A",
 						gruel[d[1]],
 						gruel[d[3] + 6],
@@ -171,7 +169,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 				case 69:
 				case 70:
 
-					Globals.Out.Write("{0}{1} pushed.{0}", Environment.NewLine, DobjArtifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
+					Globals.Out.Print("{0} pushed.", DobjArtifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
 
 					switch (DobjArtifact.Uid)
 					{

@@ -7,7 +7,7 @@ following applies to all source code, system design(s), and any other ORIGINAL
 content written by Michael R. Penner and/or contained in the Eamon CS folder
 and subfolders on all operating systems.
 
-                  Copyright (C) 2014-2017 Michael R. Penner.
+                     Copyright (C) 2014+ Michael R. Penner.
              Donations are very much appreciated, but never required; 
                      all I really ask is that you have fun.
 
@@ -33,7 +33,7 @@ published by the Free Software Foundation; either version 2 of the License, or
 ' solely to that user and may be licensed or distributed however they
 ' wish. All I ask is that you have fun.
 '
-' "Eamon CS 1.3.0" is Copyright (C) 2014-2017 Michael R. Penner
+' "Eamon CS 1.3.0" is Copyright (C) 2014+ Michael R. Penner
 '
 ' This program(s) is/are free software; you can redistribute it and/or 
 ' modify it under the terms of the GNU General Public License as published

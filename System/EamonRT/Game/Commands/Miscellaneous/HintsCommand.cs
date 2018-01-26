@@ -1,7 +1,7 @@
 ﻿
 // HintsCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -32,7 +32,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(hints != null);
 
-			Globals.Out.Write("{0}{1}{0}", Environment.NewLine, hints[i].Question);
+			Globals.Out.Print("{0}", hints[i].Question);
 		}
 
 		protected override void PlayerExecute()
@@ -46,7 +46,7 @@ namespace EamonRT.Game.Commands
 
 				if (hints.Count > 0)
 				{
-					Globals.Out.WriteLine("{0}Your question?", Environment.NewLine);
+					Globals.Out.Print("Your question?");
 
 					for (i = 0; i < hints.Count; i++)
 					{
@@ -71,7 +71,7 @@ namespace EamonRT.Game.Commands
 
 						for (j = 0; j < hints[i].NumAnswers; j++)
 						{
-							Globals.Out.Write("{0}{1}{0}", Environment.NewLine, hints[i].GetAnswers(j));
+							Globals.Out.Print("{0}", hints[i].GetAnswers(j));
 
 							if (j + 1 < hints[i].NumAnswers)
 							{
@@ -93,12 +93,12 @@ namespace EamonRT.Game.Commands
 				}
 				else
 				{
-					Globals.Out.WriteLine("{0}There are no hints available at this point in the adventure.", Environment.NewLine);
+					Globals.Out.Print("There are no hints available at this point in the adventure.");
 				}
 			}
 			else
 			{
-				Globals.Out.WriteLine("{0}There are no hints available for this adventure.", Environment.NewLine);
+				Globals.Out.Print("There are no hints available for this adventure.");
 			}
 
 			if (NextState == null)

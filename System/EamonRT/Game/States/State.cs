@@ -1,7 +1,7 @@
 ﻿
 // State.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -56,29 +56,29 @@ namespace EamonRT.Game.States
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Write("{0}{1} block{2} the way!{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), artifact.EvalPlural("s", ""));
+			Globals.Out.Print("{0} block{1} the way!", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), artifact.EvalPlural("s", ""));
 		}
 
 		protected virtual void PrintCantGoThatWay()
 		{
-			Globals.Out.WriteLine("{0}You can't go that way!", Environment.NewLine);
+			Globals.Out.Print("You can't go that way!");
 		}
 
 		protected virtual void PrintCantVerbThere(string verb)
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(verb));
 
-			Globals.Out.WriteLine("{0}You can't {1} there.", Environment.NewLine, verb);
+			Globals.Out.Print("You can't {0} there.", verb);
 		}
 
 		protected virtual void PrintRideOffIntoSunset()
 		{
-			Globals.Out.WriteLine("{0}You successfully ride off into the sunset.", Environment.NewLine);
+			Globals.Out.Print("You successfully ride off into the sunset.");
 		}
 
 		protected virtual void PrintEnemiesNearby()
 		{
-			Globals.Out.WriteLine("{0}You can't do that with unfriendlies about!", Environment.NewLine);
+			Globals.Out.Print("You can't do that with unfriendlies about!");
 		}
 
 		#endregion

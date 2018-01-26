@@ -1,7 +1,7 @@
 ﻿
 // Program.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 /*
 
@@ -112,9 +112,9 @@ namespace EamonRT
 
 			Globals.Out.Write("{0}Eamon CS Dungeon Designer ({1}) {2}", Environment.NewLine, ProgramName, Constants.DdProgVersion);
 
-			Globals.Out.Write("{0}Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved.", Environment.NewLine);
+			Globals.Out.Write("{0}Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.", Environment.NewLine);
 
-			Globals.Out.Write("{0}As defined by the GPL license, this is free software.{0}", Environment.NewLine);
+			Globals.Out.Print("As defined by the GPL license, this is free software.");
 
 			// copy and store command line args
 
@@ -153,9 +153,9 @@ namespace EamonRT
 
 				if (!Globals.Directory.Exists(Globals.WorkDir))
 				{
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
-					Globals.Out.Write("{0}The working directory [{1}] does not exist.{0}", Environment.NewLine, Globals.WorkDir);
+					Globals.Out.Print("The working directory [{0}] does not exist.", Globals.WorkDir);
 
 					Globals.Out.Write("{0}Would you like to create it (Y/N) [N]: ", Environment.NewLine);
 
@@ -188,7 +188,7 @@ namespace EamonRT
 
 			if (Globals.ConfigFileName.Length > 0)
 			{
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				rc = Globals.Database.LoadConfigs(Globals.GetPrefixedFileName(Globals.ConfigFileName));
 
@@ -320,7 +320,7 @@ namespace EamonRT
 
 			if (Globals.Config.DdEditingFilesets || Globals.Config.DdEditingCharacters || Globals.Config.DdEditingModules || Globals.Config.DdEditingRooms || Globals.Config.DdEditingArtifacts || Globals.Config.DdEditingEffects || Globals.Config.DdEditingMonsters || Globals.Config.DdEditingHints)
 			{
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 			}
 
 			if (Globals.Config.DdEditingFilesets)
@@ -516,9 +516,9 @@ namespace EamonRT
 
 			if ((Globals.ConfigFileName.Length > 0 && Globals.ConfigsModified) || Globals.FilesetsModified || Globals.CharactersModified || Globals.ModulesModified || Globals.RoomsModified || Globals.ArtifactsModified || Globals.EffectsModified || Globals.MonstersModified || Globals.HintsModified)
 			{
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.WriteLine("{0}You have made changes to the in-memory contents of one or more textfiles.", Environment.NewLine);
+				Globals.Out.Print("You have made changes to the in-memory contents of one or more textfiles.");
 
 				Globals.Out.Write("{0}Would you like to save these modifications (Y/N): ", Environment.NewLine);
 
@@ -537,7 +537,7 @@ namespace EamonRT
 					goto Cleanup;
 				}
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				// save the textfiles
 
@@ -724,9 +724,9 @@ namespace EamonRT
 
 			Globals.Out.Write("{0}Eamon CS Runtime ({1}) {2}", Environment.NewLine, ProgramName, Constants.RtProgVersion);
 
-			Globals.Out.Write("{0}Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved.", Environment.NewLine);
+			Globals.Out.Write("{0}Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.", Environment.NewLine);
 
-			Globals.Out.Write("{0}As defined by the GPL license, this is free software.{0}", Environment.NewLine);
+			Globals.Out.Print("As defined by the GPL license, this is free software.");
 
 			// copy and store command line args
 
@@ -779,9 +779,9 @@ namespace EamonRT
 
 				if (!Globals.Directory.Exists(Globals.WorkDir))
 				{
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
-					Globals.Out.Write("{0}The working directory [{1}] does not exist.{0}", Environment.NewLine, Globals.WorkDir);
+					Globals.Out.Print("The working directory [{0}] does not exist.", Globals.WorkDir);
 
 					Globals.Out.Write("{0}Would you like to create it (Y/N) [N]: ", Environment.NewLine);
 
@@ -814,7 +814,7 @@ namespace EamonRT
 
 			if (Globals.ConfigFileName.Length > 0)
 			{
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				rc = Globals.Database.LoadConfigs(Globals.GetPrefixedFileName(Globals.ConfigFileName));
 
@@ -950,7 +950,7 @@ namespace EamonRT
 
 			_nlFlag = true;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			rc = Globals.Config.LoadGameDatabase(false);
 
@@ -1147,7 +1147,7 @@ namespace EamonRT
 
 					if (Globals.GameState.Die != 1)
 					{
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 
 						Globals.TransferProtocol.SendCharacterToMainHall(Globals.FilePrefix, Globals.Config.MhFilesetFileName, Globals.Config.MhCharacterFileName, Globals.Config.MhEffectFileName, Globals.Character.Name);
 					}

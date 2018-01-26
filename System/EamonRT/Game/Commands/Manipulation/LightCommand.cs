@@ -1,7 +1,7 @@
 ﻿
 // LightCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -45,7 +45,7 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Field5 == 0)
 				{
-					Globals.Out.WriteLine("{0}{1} won't light.", Environment.NewLine, DobjArtifact.EvalPlural("It", "They"));
+					Globals.Out.Print("{0} won't light.", DobjArtifact.EvalPlural("It", "They"));
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
 
@@ -95,7 +95,7 @@ namespace EamonRT.Game.Commands
 
 				Globals.GameState.Lt = 1;
 
-				Globals.Out.Write("{0}You've lit {1}.{0}", Environment.NewLine, DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+				Globals.Out.Print("You've lit {0}.", DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
 			}
 			else
 			{

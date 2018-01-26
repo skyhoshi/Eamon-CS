@@ -1,7 +1,7 @@
 ﻿
 // GrendelSmithyMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -56,7 +56,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Thread.Sleep(150);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Debug.Assert(Buf.Length > 0);
 
@@ -90,9 +90,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 			Globals.CharactersModified = true;
 		}
 
-		protected virtual void NotEnoughGold()
+		protected virtual void PrintNotEnoughGold()
 		{
-			Globals.Out.Write("{0}\"Sorry, but you don't seem to have enough gold to pay for your weapon at this time.  Come back when you have enough.\"{0}", Environment.NewLine);
+			Globals.Out.Print("\"Sorry, but you don't seem to have enough gold to pay for your weapon at this time.  Come back when you have enough.\"");
 		}
 
 		public override void Execute()
@@ -104,7 +104,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 			long ap1;
 			long i;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			/* 
 				Full Credit:  Derived wholly from Donald Brown's Classic Eamon
@@ -124,14 +124,14 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			if (i < 0)
 			{
-				Globals.Out.Write("{0}Grendel says, \"I'm sorry, but you're going to have to try and sell one of your weapons at the store to the north.  You know the law:  No more than four weapons per person!  Come back when you've sold a weapon.\"{0}", Environment.NewLine);
+				Globals.Out.Print("Grendel says, \"I'm sorry, but you're going to have to try and sell one of your weapons at the store to the north.  You know the law:  No more than four weapons per person!  Come back when you've sold a weapon.\"");
 
 				goto Cleanup;
 			}
 
-			Globals.Out.Write("{0}Grendel says, \"Would you care to look at my stock of used weapons?  You can also order a custom weapon if you'd prefer.\"{0}", Environment.NewLine);
+			Globals.Out.Print("Grendel says, \"Would you care to look at my stock of used weapons?  You can also order a custom weapon if you'd prefer.\"");
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.Write("{0}U=Used weapon, C=Custom weapon, X=Exit: ", Environment.NewLine);
 
@@ -143,7 +143,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Thread.Sleep(150);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			if (Buf.Length == 0 || Buf[0] == 'X')
 			{
@@ -162,9 +162,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 					new string[] { "Slasher", "Freedom" }
 				};
 
-				Globals.Out.Write("{0}\"What type of weapon do you wish?\"{0}", Environment.NewLine);
+				Globals.Out.Print("\"What type of weapon do you wish?\"");
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				var j = (int)GetWeaponType();
 
@@ -178,7 +178,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Globals.Out.Write("{0}\"I happen to have two in stock right now.\"{0}{0}1. {1} (2D8  / 12%) ...... {2} GP{0}2. {3} (2D16 / 24%) ..... {4} GP{0}", Environment.NewLine, weaponList[j][0], ap0, weaponList[j][1], ap1);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Write("{0}Press the number of the weapon to buy or X to exit: ", Environment.NewLine);
 
@@ -190,7 +190,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Globals.Thread.Sleep(150);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				if (Buf.Length == 0 || Buf[0] == 'X')
 				{
@@ -203,7 +203,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				if (Globals.Character.HeldGold >= ap)
 				{
-					Globals.Out.Write("{0}\"Good choice!  A great bargain!\"{0}", Environment.NewLine);
+					Globals.Out.Print("\"Good choice!  A great bargain!\"");
 
 					UpdateCharacterWeapon(i, ap, Globals.CloneInstance(weaponList[j][k - 1]), j, 12 * k, 2, 8 * k);
 
@@ -211,16 +211,16 @@ namespace EamonMH.Game.Menus.ActionMenus
 				}
 				else
 				{
-					NotEnoughGold();
+					PrintNotEnoughGold();
 
 					goto Cleanup;
 				}
 			}
 			else
 			{
-				Globals.Out.Write("{0}\"What do you want me to make?\"{0}", Environment.NewLine);
+				Globals.Out.Print("\"What do you want me to make?\"");
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				var j = (int)GetWeaponType();
 
@@ -230,11 +230,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				var wpnName = (weapon.MarcosName ?? weapon.Name).ToLower();
 
-				Globals.Out.Write("{0}\"What name should I inscribe on it?\"{0}", Environment.NewLine);
+				Globals.Out.Print("\"What name should I inscribe on it?\"");
 
-				Globals.Out.Write("{0}Note: this should be a capitalized singular proper name (eg, Trollsfire){0}", Environment.NewLine);
+				Globals.Out.Print("Note: this should be a capitalized singular proper name (eg, Trollsfire)");
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Write("{0}Enter weapon name: ", Environment.NewLine);
 
@@ -255,11 +255,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				wpnName01 = Globals.Engine.Capitalize(wpnName01.ToLower());
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Write("{0}\"I do have limits of craftsmanship.\"{0}{0}    Complexity    Dice   Sides{0}      1%-50%       1-3    1-12{0}", Environment.NewLine);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Write("{0}Enter complexity: ", Environment.NewLine);
 
@@ -280,7 +280,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 					wpnComplexity = 50;
 				}
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Write("{0}Enter number of dice: ", Environment.NewLine);
 
@@ -301,7 +301,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 					wpnDice = 3;
 				}
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Write("{0}Enter number of dice sides: ", Environment.NewLine);
 
@@ -326,11 +326,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				ap = Globals.Engine.GetMerchantAskPrice(weaponPrice, (double)Rtio);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}\"I can make you a {1}D{2} {3} with complexity of {4}% called {5} for {6} gold pieces.  Should I proceed?\"{0}", Environment.NewLine, wpnDice, wpnSides, wpnName, wpnComplexity, wpnName01, ap);
+				Globals.Out.Print("\"I can make you a {0}D{1} {2} with complexity of {3}% called {4} for {5} gold piece{6}.  Should I proceed?\"", wpnDice, wpnSides, wpnName, wpnComplexity, wpnName01, ap, ap != 1 ? "s" : "");
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Write("{0}Press Y for yes or N for no: ", Environment.NewLine);
 
@@ -342,7 +342,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Globals.Thread.Sleep(150);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				if (Buf.Length == 0 || Buf[0] == 'N')
 				{
@@ -351,7 +351,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				if (Globals.Character.HeldGold >= ap)
 				{
-					Globals.Out.Write("{0}Grendel works on your weapon, often calling in wizards and weapon experts.  Finally he finishes.  \"I think you will be satisfied with this.\" he says modestly.{0}", Environment.NewLine);
+					Globals.Out.Print("Grendel works on your weapon, often calling in wizards and weapon experts.  Finally he finishes.  \"I think you will be satisfied with this.\" he says modestly.");
 
 					UpdateCharacterWeapon(i, ap, wpnName01, j, wpnComplexity, wpnDice, wpnSides);
 
@@ -359,7 +359,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 				}
 				else
 				{
-					NotEnoughGold();
+					PrintNotEnoughGold();
 
 					goto Cleanup;
 				}
@@ -367,7 +367,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 		Cleanup:
 
-			Globals.Out.Write("{0}\"Goodbye, {1}!  Come again.\"{0}", Environment.NewLine, Globals.Character.Name);
+			Globals.Out.Print("\"Goodbye, {0}!  Come again.\"", Globals.Character.Name);
 
 			Globals.In.KeyPress(Buf);
 		}

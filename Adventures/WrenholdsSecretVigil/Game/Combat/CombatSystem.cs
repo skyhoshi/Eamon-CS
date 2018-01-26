@@ -1,7 +1,7 @@
 ﻿
 // CombatSystem.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -33,7 +33,7 @@ namespace WrenholdsSecretVigil.Game.Combat
 
 				deadBodyArtifact.BuildPrintedFullDesc(Globals.Buf, false);
 
-				Globals.Out.Write(Globals.Buf);
+				Globals.Out.Write("{0}", Globals.Buf);
 
 				deadBodyArtifact.Seen = true;
 			}

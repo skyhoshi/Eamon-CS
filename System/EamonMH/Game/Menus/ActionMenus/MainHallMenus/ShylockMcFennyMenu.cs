@@ -1,7 +1,7 @@
 ﻿
 // ShylockMcFennyMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -23,19 +23,18 @@ namespace EamonMH.Game.Menus.ActionMenus
 			RetCode rc;
 			long i;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.Write("{0}You have no trouble spotting Shylock McFenny, the local banker, due to his large belly.  You attract his attention, and he comes over to you.{0}{0}\"Well, {1} my dear {2} what a pleasure to see you!  Do you want to make a deposit or a withdrawal?\"{0}",
 				Environment.NewLine,
 				Globals.Character.Name,
 				Globals.Character.EvalGender("boy", "girl", "thing"));
 
-			Globals.Out.Write("{0}You have {1} GP in hand, {2} GP in the bank.{0}",
-				Environment.NewLine,
+			Globals.Out.Print("You have {0} GP in hand, {1} GP in the bank.",
 				Globals.Character.HeldGold,
 				Globals.Character.BankGold);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.Write("{0}D=Deposit gold, W=Withdraw gold, X=Exit: ", Environment.NewLine);
 
@@ -52,18 +51,17 @@ namespace EamonMH.Game.Menus.ActionMenus
 				goto Cleanup;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			if (Buf[0] == 'D')
 			{
-				Globals.Out.Write("{0}Shylock gets a wide grin on his face and says, \"Good for you!  How much do you want to deposit?\"{0}", Environment.NewLine);
+				Globals.Out.Print("Shylock gets a wide grin on his face and says, \"Good for you!  How much do you want to deposit?\"");
 
-				Globals.Out.Write("{0}You have {1} GP in hand, {2} GP in the bank.{0}",
-					Environment.NewLine,
+				Globals.Out.Print("You have {0} GP in hand, {1} GP in the bank.",
 					Globals.Character.HeldGold,
 					Globals.Character.BankGold);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Write("{0}Enter the amount to deposit: ", Environment.NewLine);
 
@@ -77,7 +75,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				i = Convert.ToInt64(Buf.Trim().ToString());
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				if (i > 0)
 				{
@@ -94,16 +92,16 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Globals.CharactersModified = true;
 
-						Buf.SetFormat("{0}Shylock takes your money, puts it in his bag, listens to it jingle, then thanks you and walks away.{0}", Environment.NewLine);
+						Buf.SetPrint("Shylock takes your money, puts it in his bag, listens to it jingle, then thanks you and walks away.");
 					}
 					else
 					{
-						Buf.SetFormat("{0}Shylock was very pleased when you told him the sum, but when he discovered that you didn't have that much on you, he walked away shouting about fools who try to play tricks on a kindly banker.{0}", Environment.NewLine);
+						Buf.SetPrint("Shylock was very pleased when you told him the sum, but when he discovered that you didn't have that much on you, he walked away shouting about fools who try to play tricks on a kindly banker.");
 					}
 				}
 				else
 				{
-					Buf.SetFormat("{0}The banker says, \"Well, if you change your mind and need my services, just let me know!\"{0}", Environment.NewLine);
+					Buf.SetPrint("The banker says, \"Well, if you change your mind and need my services, just let me know!\"");
 				}
 
 				Globals.Out.Write("{0}", Buf);
@@ -112,16 +110,15 @@ namespace EamonMH.Game.Menus.ActionMenus
 			{
 				Debug.Assert(Buf[0] == 'W');
 
-				Globals.Out.Write("{0}Shylock says, \"Well, you have {1} gold pieces stored with me.  How many do you want to take back?\"{0}",
-					Environment.NewLine,
-					Globals.Character.BankGold);
+				Globals.Out.Print("Shylock says, \"Well, you have {0} gold piece{1} stored with me.  How many do you want to take back?\"", 
+					Globals.Character.BankGold,
+					Globals.Character.BankGold != 1 ? "s" : "");
 
-				Globals.Out.Write("{0}You have {1} GP in hand, {2} GP in the bank.{0}",
-					Environment.NewLine,
+				Globals.Out.Print("You have {0} GP in hand, {1} GP in the bank.",
 					Globals.Character.HeldGold,
 					Globals.Character.BankGold);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Write("{0}Enter the amount to withdraw: ", Environment.NewLine);
 
@@ -135,7 +132,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				i = Convert.ToInt64(Buf.Trim().ToString());
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				if (i > 0)
 				{
@@ -152,18 +149,19 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Globals.CharactersModified = true;
 
-						Buf.SetFormat("{0}The banker hands you your gold and says, \"That leaves you with {1} gold pieces in my care.\"{0}{0}He shakes your hand and walks away.{0}", 
+						Buf.SetFormat("{0}The banker hands you your gold and says, \"That leaves you with {1} gold piece{2} in my care.\"{0}{0}He shakes your hand and walks away.{0}", 
 							Environment.NewLine,
-							Globals.Character.BankGold);
+							Globals.Character.BankGold,
+							Globals.Character.BankGold != 1 ? "s" : "");
 					}
 					else
 					{
-						Buf.SetFormat("{0}The banker throws you a terrible glance and says, \"That's more than you've got!  You know I don't make loans to your kind!\"  With that, he loses himself in the crowd.{0}", Environment.NewLine);
+						Buf.SetPrint("The banker throws you a terrible glance and says, \"That's more than you've got!  You know I don't make loans to your kind!\"  With that, he loses himself in the crowd.");
 					}
 				}
 				else
 				{
-					Buf.SetFormat("{0}The banker says, \"Well, if you change your mind and need my services, just let me know!\"{0}", Environment.NewLine);
+					Buf.SetPrint("The banker says, \"Well, if you change your mind and need my services, just let me know!\"");
 				}
 
 				Globals.Out.Write("{0}", Buf);

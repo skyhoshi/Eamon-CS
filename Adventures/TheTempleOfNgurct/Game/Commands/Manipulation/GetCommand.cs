@@ -1,7 +1,7 @@
 ﻿
 // GetCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -90,7 +90,7 @@ namespace TheTempleOfNgurct.Game.Commands
 				}
 				else
 				{
-					Globals.Out.WriteLine("{0}They are bolted firmly to the walls.", Environment.NewLine);
+					Globals.Out.Print("They are bolted firmly to the walls.");
 
 					CommandParser.NextState.Dispose();
 

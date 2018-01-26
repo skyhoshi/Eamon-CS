@@ -1,7 +1,7 @@
 ﻿
 // QuitCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -48,8 +48,7 @@ namespace EamonRT.Game.Commands
 			{
 				if (Globals.Database.GetFilesetsCount() == 0)
 				{
-					Globals.Out.Write("{0}[You haven't saved a game yet but {1} will be left here should you choose to return.  Use \"quit hall\" if you don't want {2} to stay.]{0}",
-						Environment.NewLine,
+					Globals.Out.Print("[You haven't saved a game yet but {0} will be left here should you choose to return.  Use \"quit hall\" if you don't want {1} to stay.]",
 						ActorMonster.Name,
 						ActorMonster.EvalGender("him", "her", "it"));
 				}

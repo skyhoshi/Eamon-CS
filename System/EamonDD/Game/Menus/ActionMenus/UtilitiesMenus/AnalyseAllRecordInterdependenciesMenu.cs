@@ -1,7 +1,7 @@
 ﻿
 // AnalyseAllRecordInterdependenciesMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -54,7 +54,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 							ModifyFlag = true;
 						}
 
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 
 						Globals.Out.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
 
@@ -84,9 +84,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		ExitLoop:
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
-			Globals.Out.WriteLine("{0}Done analysing all record interdependencies.", Environment.NewLine);
+			Globals.Out.Print("Done analysing all record interdependencies.");
 		}
 
 		public AnalyseAllRecordInterdependenciesMenu()

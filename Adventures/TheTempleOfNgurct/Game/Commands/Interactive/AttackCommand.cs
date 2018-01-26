@@ -1,7 +1,7 @@
 ﻿
 // AttackCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -68,7 +68,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					if (!string.Equals(Globals.Buf.ToString(), "fire", StringComparison.OrdinalIgnoreCase))
 					{
-						Globals.Out.WriteLine("{0}Wrong!  Nothing happens!", Environment.NewLine);
+						Globals.Out.Print("Wrong!  Nothing happens!");
 
 						NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
 
@@ -77,7 +77,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					if (gameState.WandCharges <= 0)
 					{
-						Globals.Out.WriteLine("{0}The fireball wand is exhausted!", Environment.NewLine);
+						Globals.Out.Print("The fireball wand is exhausted!");
 
 						NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
 
@@ -86,7 +86,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					gameState.WandCharges--;
 
-					Globals.Out.WriteLine("{0}The {1} is filled with an incandescent fireball!", Environment.NewLine, ActorRoom.EvalRoomType("room", "area"));
+					Globals.Out.Print("The {0} is filled with an incandescent fireball!", ActorRoom.EvalRoomType("room", "area"));
 
 					var monsters = Globals.Engine.GetRandomMonsterList(9, m => !m.IsCharacterMonster() && m.Uid != DobjMonster.Uid && m.Seen && m.IsInRoom(ActorRoom));
 

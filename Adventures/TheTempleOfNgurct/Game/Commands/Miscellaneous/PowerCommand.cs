@@ -1,12 +1,10 @@
 ﻿
 // PowerCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using Eamon.Game.Extensions;
 using TheTempleOfNgurct.Framework;
 using TheTempleOfNgurct.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -19,7 +17,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	{
 		protected virtual void PrintAirCracklesWithEnergy()
 		{
-			Globals.Out.Write("{0}The air crackles with magical energy!{0}", Environment.NewLine);
+			Globals.Out.Print("The air crackles with magical energy!");
 		}
 
 		protected override void PlayerProcessEvents()
@@ -38,7 +36,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				if (rl > 50)
 				{
-					Globals.Out.WriteLine("{0}{1} vanishes!", Environment.NewLine, m.GetDecoratedName03(true, true, false, false, Globals.Buf));
+					Globals.Out.Print("{0} vanishes!", m.GetDecoratedName03(true, true, false, false, Globals.Buf));
 
 					m.SetInLimbo();
 
@@ -85,7 +83,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				foreach (var m in monsters)
 				{
-					Globals.Out.WriteLine("{0}{1} falls into the crack!", Environment.NewLine, m.GetDecoratedName03(true, true, false, false, Globals.Buf));
+					Globals.Out.Print("{0} falls into the crack!", m.GetDecoratedName03(true, true, false, false, Globals.Buf));
 
 					var combatSystem = Globals.CreateInstance<EamonRT.Framework.Combat.ICombatSystem>(x =>
 					{
@@ -150,7 +148,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (rl < 71 && heroMonster.IsInRoom(ActorRoom))
 			{
-				Globals.Out.Write("{0}The Hero vanishes!  (The gods giveth...){0}", Environment.NewLine);
+				Globals.Out.Print("The Hero vanishes!  (The gods giveth...)");
 
 				heroMonster.SetInLimbo();
 
@@ -193,7 +191,7 @@ namespace TheTempleOfNgurct.Game.Commands
 				goto Cleanup;
 			}
 
-			Globals.Out.Write("{0}All your wounds are healed!{0}", Environment.NewLine);
+			Globals.Out.Print("All your wounds are healed!");
 
 			Globals.GameState.ModDTTL(ActorMonster.Friendliness, -ActorMonster.DmgTaken);
 

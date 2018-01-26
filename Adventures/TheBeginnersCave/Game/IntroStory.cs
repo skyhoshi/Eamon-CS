@@ -1,9 +1,8 @@
 ﻿
 // IntroStory.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheBeginnersCave.Framework;
@@ -23,7 +22,7 @@ namespace TheBeginnersCave.Game
 
 			Debug.Assert(room != null);
 
-			Globals.Out.Write("{0}{1}{0}", Environment.NewLine, room.Desc);
+			Globals.Out.Print("{0}", room.Desc);
 
 			Globals.Engine.PrintEffectDesc(10);
 		}

@@ -1,7 +1,7 @@
 ﻿
 // SaveCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -102,7 +102,7 @@ namespace EamonRT.Game.Commands
 
 				fileset.Name = Globals.CloneInstance(SaveName);
 
-				Globals.Out.WriteLine("{0}[QUICK SAVE {1}: {2}]", Environment.NewLine, SaveSlot, SaveName);
+				Globals.Out.Print("[QUICK SAVE {0}: {1}]", SaveSlot, SaveName);
 			}
 
 			var config = Globals.CreateInstance<IConfig>();
@@ -298,7 +298,7 @@ namespace EamonRT.Game.Commands
 
 			config.Dispose();
 
-			Globals.Out.WriteLine(gameSaved ? "{0}Game saved." : "{0}Game not saved.", Environment.NewLine);
+			Globals.Out.Print(gameSaved ? "Game saved." : "Game not saved.");
 
 			if (NextState == null)
 			{
@@ -344,14 +344,14 @@ namespace EamonRT.Game.Commands
 
 				while (true)
 				{
-					Globals.Out.WriteLine("{0}Saved games:", Environment.NewLine);
+					Globals.Out.Print("Saved games:");
 
 					for (i = 0; i < Globals.Engine.NumSaveSlots; i++)
 					{
 						Globals.Out.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, i < filesets.Count ? filesets[(int)i].Name : "(none)");
 					}
 
-					Globals.Out.WriteLine("{0}{1,3}. {2}", Environment.NewLine, i + 1, "(Don't save, return to game)");
+					Globals.Out.Print("{0,3}. {1}", i + 1, "(Don't save, return to game)");
 
 					Globals.Out.Write("{0}Enter 1-{1} for saved position: ", Environment.NewLine, i + 1);
 
@@ -380,7 +380,7 @@ namespace EamonRT.Game.Commands
 			{
 				SaveSlot = filesetsCount + 1;
 
-				Globals.Out.WriteLine("{0}[Using #{1} instead.]", Environment.NewLine, SaveSlot);
+				Globals.Out.Print("[Using #{0} instead.]", SaveSlot);
 			}
 
 			if (SaveSlot < 1 || SaveSlot > filesetsCount + 1)

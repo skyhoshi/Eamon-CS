@@ -1,7 +1,7 @@
 ﻿
 // DropCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -87,7 +87,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				Globals.Out.WriteLine("{0}There's nothing for you to drop.", Environment.NewLine);
+				Globals.Out.Print("There's nothing for you to drop.");
 
 				NextState = Globals.CreateInstance<IStartState>();
 

@@ -1,7 +1,7 @@
 ﻿
 // GiveCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -186,8 +186,7 @@ namespace EamonRT.Game.Commands
 
 					if (ac.Field6 > 0)
 					{
-						Globals.Buf.SetFormat("{0}{1}{2}{3} takes a {4} and hands {5} back.{0}",
-							Environment.NewLine,
+						Globals.Buf.SetPrint("{0}{1}{2} takes a {3} and hands {4} back.",
 							monsterName,
 							Globals.Buf01,
 							Globals.Buf01.Length > 0 ? "," : "",
@@ -204,8 +203,7 @@ namespace EamonRT.Game.Commands
 
 							DobjArtifact.SetInLimbo();
 
-							Globals.Buf.SetFormat("{0}{1}{2}{3} eats {4} all.{0}",
-								Environment.NewLine,
+							Globals.Buf.SetPrint("{0}{1}{2} eats {3} all.",
 								monsterName,
 								Globals.Buf01,
 								Globals.Buf01.Length > 0 ? " and" : "",
@@ -217,8 +215,7 @@ namespace EamonRT.Game.Commands
 
 							Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-							Globals.Buf.SetFormat("{0}{1}{2}{3} drinks {4} all and hands {5} back.{0}",
-								Environment.NewLine,
+							Globals.Buf.SetPrint("{0}{1}{2} drinks {3} all and hands {4} back.",
 								monsterName,
 								Globals.Buf01,
 								Globals.Buf01.Length > 0 ? "," : "",
@@ -281,8 +278,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				Globals.Out.Write("{0}Give {1} gold piece{2} to {3}.{0}",
-					Environment.NewLine,
+				Globals.Out.Print("Give {0} gold piece{1} to {2}.",
 					Globals.Engine.GetStringFromNumber(GoldAmount, false, Globals.Buf),
 					GoldAmount > 1 ? "s" : "",
 					IobjMonster.GetDecoratedName03(false, true, false, false, Globals.Buf01));
@@ -318,8 +314,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				Globals.Out.Write("{0}{1} take{2} the money.{0}",
-					Environment.NewLine,
+				Globals.Out.Print("{0} take{1} the money.",
 					IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf),
 					IobjMonster.EvalPlural("s", ""));
 

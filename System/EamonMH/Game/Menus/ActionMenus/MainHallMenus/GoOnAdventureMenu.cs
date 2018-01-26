@@ -1,7 +1,7 @@
 ﻿
 // GoOnAdventureMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -39,10 +39,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			if (index == 0)
 			{
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}When you inquire with the burly Irishman about the adventures available to you he says, \"Ye cannat wait to put yerself to the test, eh?  {1}\"{0}",
-					Environment.NewLine,
+				Globals.Out.Print("When you inquire with the burly Irishman about the adventures available to you he says, \"Ye cannat wait to put yerself to the test, eh?  {0}\"",
 					j > 0 ? "Well, maybe one of these will suit yer fancy." : "Well, I just don't know where ye can venture right now.");
 			}
 
@@ -58,7 +57,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			while (true)
 			{
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				var i = 0;
 
@@ -95,7 +94,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 							break;
 						}
 
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 					}
 
 					i++;
@@ -106,7 +105,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 					Globals.Out.WriteLine();
 				}
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Write("{0}Enter the selection or X to exit: ", Environment.NewLine);
 
@@ -161,7 +160,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 					}
 					else
 					{
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 
 						var chrfn = Globals.Path.Combine(fileset.WorkDir, "FRESHMEAT.XML");
 
@@ -173,7 +172,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						if (character != null && character.Uid > 0 && !string.IsNullOrWhiteSpace(character.Name) && !string.Equals(character.Name, "NONE", StringComparison.OrdinalIgnoreCase))
 						{
-							Globals.Out.Write("{0}{1} is already adventuring there!{0}", Environment.NewLine, character.Name);
+							Globals.Out.Print("{0} is already adventuring there!", character.Name);
 
 							goto Cleanup01;
 						}
@@ -275,7 +274,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-						Globals.Out.Write("{0}You are about to adventure in {1}!{0}", Environment.NewLine, fileset.Name);
+						Globals.Out.Print("You are about to adventure in {0}!", fileset.Name);
 
 						IDatabase database = null;
 

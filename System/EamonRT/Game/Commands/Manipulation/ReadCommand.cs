@@ -1,9 +1,8 @@
 ﻿
 // ReadCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Game.Attributes;
@@ -75,7 +74,7 @@ namespace EamonRT.Game.Commands
 					}
 					else
 					{
-						Globals.Buf.SetFormat("{0}???{0}", Environment.NewLine);
+						Globals.Buf.SetPrint("{0}", "???");
 
 						rc = RetCode.Success;
 					}

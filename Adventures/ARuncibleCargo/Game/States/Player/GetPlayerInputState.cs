@@ -1,9 +1,8 @@
 ﻿
 // GetPlayerInputState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Game.Attributes;
@@ -274,7 +273,7 @@ namespace ARuncibleCargo.Game.States
 				{
 					var effectUid = commanderAndSoldiersDead ? 60L : 142L;
 
-					Globals.Out.Write("{0}{1}{0}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					Globals.Engine.PrintEffectDesc(effectUid);
 

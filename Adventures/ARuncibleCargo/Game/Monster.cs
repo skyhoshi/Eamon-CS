@@ -1,7 +1,7 @@
 ﻿
 // Monster.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -44,7 +44,7 @@ namespace ARuncibleCargo.Game
 
 					Debug.Assert(effect != null);
 
-					buf.AppendFormat("{0}{1}{0}", Environment.NewLine, effect.Desc);
+					buf.AppendPrint("{0}", effect.Desc);
 
 					gameState.SetPookaMet(Uid - 1, true);
 				}

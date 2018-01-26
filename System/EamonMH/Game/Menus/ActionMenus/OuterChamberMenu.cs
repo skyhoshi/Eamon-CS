@@ -1,7 +1,7 @@
 ﻿
 // OuterChamberMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -33,13 +33,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Buf.SetFormat("{0}{0}You are in the outer chamber of the hall of the Guild of Free Adventurers.  Many men and women are guzzling beer and there is loud singing and laughter.{0}", Environment.NewLine);
 
-			Buf.AppendFormat("{0}On the north side of the chamber is a cubbyhole with a desk.  Over the desk is a sign which says:  REGISTER HERE OR ELSE!{0}", Environment.NewLine);
+			Buf.AppendPrint("On the north side of the chamber is a cubbyhole with a desk.  Over the desk is a sign which says:  REGISTER HERE OR ELSE!");
 
-			Buf.AppendFormat("{0}Do you go over to the desk or join the men drinking beer?{0}", Environment.NewLine);
+			Buf.AppendPrint("Do you go over to the desk or join the men drinking beer?");
 
 			Globals.Out.Write("{0}", Buf);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.Write("{0}Press D for desk or M for men: ", Environment.NewLine);
 

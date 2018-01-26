@@ -1,9 +1,8 @@
 ﻿
 // PutCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using WrenholdsSecretVigil.Framework.Commands;
@@ -23,7 +22,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (artifact.Uid == 31)
 			{
-				Globals.Out.WriteLine("{0}You mangled {1}!", Environment.NewLine, artifact.EvalPlural("it", "them"));
+				Globals.Out.Print("You mangled {0}!", artifact.EvalPlural("it", "them"));
 			}
 			else
 			{
@@ -37,9 +36,9 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (IobjArtifact.Uid == 24 || IobjArtifact.Uid == 25)
 			{
-				Globals.Out.Write("{0}{1} start{2} dissolving on contact with {3}!{0}", Environment.NewLine, DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf),	DobjArtifact.EvalPlural("s", ""), IobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+				Globals.Out.Print("{0} start{1} dissolving on contact with {2}!", DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf),	DobjArtifact.EvalPlural("s", ""), IobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 
-				Globals.Out.Write("{0}{1} {2} destroyed!{0}", Environment.NewLine, DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf), DobjArtifact.EvalPlural("is", "are"));
+				Globals.Out.Print("{0} {1} destroyed!", DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf), DobjArtifact.EvalPlural("is", "are"));
 
 				DobjArtifact.SetInLimbo();
 			}

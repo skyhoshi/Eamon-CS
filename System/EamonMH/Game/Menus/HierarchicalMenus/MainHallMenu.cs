@@ -1,7 +1,7 @@
 ﻿
 // MainHallMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -31,9 +31,9 @@ namespace EamonMH.Game.Menus.HierarchicalMenus
 		{
 			if (!Globals.GoOnAdventure)
 			{
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}As you leave the hall, the Irishman comes up to you, slaps you on the back and says, \"Y'all come back real soon, ya heah?\"{0}", Environment.NewLine);
+				Globals.Out.Print("As you leave the hall, the Irishman comes up to you, slaps you on the back and says, \"Y'all come back real soon, ya heah?\"");
 
 				Globals.In.KeyPress(Buf);
 			}

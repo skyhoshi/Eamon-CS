@@ -1,9 +1,8 @@
 ﻿
 // SearchCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
@@ -20,14 +19,14 @@ namespace TheSubAquanLaboratory.Game.Commands
 		{
 			Debug.Assert(obj != null);
 
-			Globals.Out.Write("{0}You can only {1} dead bodies.{0}", Environment.NewLine, Verb);
+			Globals.Out.Print("You can only {0} dead bodies.", Verb);
 		}
 
 		protected virtual void PrintNothingFound(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Write("{0}Searching {1} reveals nothing of interest.{0}", Environment.NewLine, artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+			Globals.Out.Print("Searching {0} reveals nothing of interest.", artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
 		}
 
 		protected override void PlayerExecute()
@@ -46,7 +45,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					if (artifact.IsInLimbo())
 					{
-						Globals.Out.Write("{0}{1}{0}", Environment.NewLine, artifact.Desc);
+						Globals.Out.Print("{0}", artifact.Desc);
 
 						artifact.SetInRoom(ActorRoom);
 

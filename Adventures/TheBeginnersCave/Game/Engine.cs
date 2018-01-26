@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -21,7 +21,7 @@ namespace TheBeginnersCave.Game
 
 		protected override void PrintTooManyWeapons()
 		{
-			Globals.Out.Write("{0}As you leave for the Main Hall, the Knight Marshal reappears and tells you, \"You have too many weapons to keep them all, four is the legal limit.\"{0}", Environment.NewLine);
+			Globals.Out.Print("As you leave for the Main Hall, the Knight Marshal reappears and tells you, \"You have too many weapons to keep them all, four is the legal limit.\"");
 		}
 
 		public override void InitArtifacts()

@@ -1,7 +1,7 @@
 ﻿
 // SayCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -46,7 +46,7 @@ namespace TheTempleOfNgurct.Game.Commands
 				}
 				else
 				{
-					Globals.Out.Write("{0}You don't have the medallion of Ngurct!{0}", Environment.NewLine);
+					Globals.Out.Print("You don't have the medallion of Ngurct!");
 
 					NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
 

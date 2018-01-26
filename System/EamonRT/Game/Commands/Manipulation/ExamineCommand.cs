@@ -1,7 +1,7 @@
 ﻿
 // ExamineCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -79,8 +79,7 @@ namespace EamonRT.Game.Commands
 
 				if ((ac.Type == Enums.ArtifactType.Drinkable || ac.Type == Enums.ArtifactType.Edible) && ac.Field6 != Constants.InfiniteDrinkableEdible)
 				{
-					Globals.Out.Write("{0}There {1}{2}{3}{4} left.{0}",
-						Environment.NewLine,
+					Globals.Out.Print("There {0}{1}{2}{3} left.",
 						ac.Field6 != 1 ? "are " : "is ",
 						ac.Field6 > 0 ? Globals.Engine.GetStringFromNumber(ac.Field6, false, Globals.Buf) : "no",
 						ac.Type == Enums.ArtifactType.Drinkable ? " swallow" : " bite",

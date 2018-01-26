@@ -1,14 +1,12 @@
 ﻿
 // PrintPlayerRoomState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheTrainingGround.Framework;
 using TheTrainingGround.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.States
@@ -87,7 +85,7 @@ namespace TheTrainingGround.Game.States
 
 							if (!summonedMonster.IsInRoom(characterRoom) && summonedMonster.Seen)
 							{
-								Globals.Out.Write("{0}<<POOF!!>>  {1} appears!{0}", Environment.NewLine, summonedMonster.GetDecoratedName03(true, true, false, true, Globals.Buf));
+								Globals.Out.Print("<<POOF!!>>  {0} appears!", summonedMonster.GetDecoratedName03(true, true, false, true, Globals.Buf));
 
 								// Only reset for dead monsters
 

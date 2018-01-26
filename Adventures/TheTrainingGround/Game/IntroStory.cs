@@ -1,9 +1,8 @@
 ﻿
 // IntroStory.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using Eamon.Game.Attributes;
 using TheTrainingGround.Framework;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -20,7 +19,7 @@ namespace TheTrainingGround.Game
 
 			Globals.In.KeyPress(Buf);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			// Inspect the player
 
@@ -41,7 +40,7 @@ namespace TheTrainingGround.Game
 					Globals.Engine.PrintEffectDesc(19);
 				}
 
-				Globals.Out.Write("{0}\"OK, let's be careful in there, {1}!\" he says, as he walks away.{0}", Environment.NewLine, Globals.Character.EvalGender("son", "miss", ""));
+				Globals.Out.Print("\"OK, let's be careful in there, {0}!\" he says, as he walks away.", Globals.Character.EvalGender("son", "miss", ""));
 			}
 		}
 	}

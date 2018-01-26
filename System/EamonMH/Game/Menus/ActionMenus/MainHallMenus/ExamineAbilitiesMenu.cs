@@ -1,7 +1,7 @@
 ﻿
 // ExamineAbilitiesMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -23,9 +23,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 		{
 			RetCode rc;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
-			Globals.Out.WriteLine("{0}You are the {1} {2}", Environment.NewLine, Globals.Character.EvalGender("mighty", "fair", "androgynous"), Globals.Character.Name);
+			Globals.Out.Print("You are the {0} {1}", Globals.Character.EvalGender("mighty", "fair", "androgynous"), Globals.Character.Name);
 
 			Buf.SetFormat("{0}{1}{2}%)",
 				"(Learning: ",
@@ -111,15 +111,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Debug.Assert(armor != null);
 
-			Globals.Out.WriteLine("{0}{1}{2,-25}{3}{4,3}%",
-				Environment.NewLine,
+			Globals.Out.Print("{0}{1,-25}{2}{3,3}%",
 				"Armor:  ",
 				armor.Name,
 				"Armor Expertise: ",
 				Globals.Character.ArmorExpertise);
 
-			Globals.Out.WriteLine("{0}{1}{2}{3}{4}{5}",
-				Environment.NewLine,
+			Globals.Out.Print("{0}{1}{2}{3}{4}",
 				"Weight Carryable: ",
 				Globals.Character.GetWeightCarryableGronds(),
 				" Gronds  (",

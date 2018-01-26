@@ -1,7 +1,7 @@
 ﻿
 // Command.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -57,84 +57,84 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(obj != null);
 
-			Globals.Out.Write("{0}You can't {1} {2}.{0}", Environment.NewLine, Verb, obj.GetDecoratedName03(false, true, false, false, Globals.Buf));
+			Globals.Out.Print("You can't {0} {1}.", Verb, obj.GetDecoratedName03(false, true, false, false, Globals.Buf));
 		}
 
 		protected virtual void PrintCantVerbIt(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Write("{0}You can't {1} {2}.{0}", Environment.NewLine, Verb, artifact.EvalPlural("it", "them"));
+			Globals.Out.Print("You can't {0} {1}.", Verb, artifact.EvalPlural("it", "them"));
 		}
 
 		protected virtual void PrintCantVerbThat(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Write("{0}You can't {1} {2}.{0}", Environment.NewLine, Verb, artifact.EvalPlural("that", "them"));
+			Globals.Out.Print("You can't {0} {1}.", Verb, artifact.EvalPlural("that", "them"));
 		}
 
 		protected virtual void PrintDoYouMeanObj1OrObj2(IGameBase obj1, IGameBase obj2)
 		{
 			Debug.Assert(obj1 != null && obj2 != null);
 
-			Globals.Out.Write("{0}Do you mean \"{1}\" or \"{2}\"?{0}", Environment.NewLine, obj1.GetDecoratedName01(false, false, false, false, Globals.Buf), obj2.GetDecoratedName01(false, false, false, false, Globals.Buf01));
+			Globals.Out.Print("Do you mean \"{0}\" or \"{1}\"?", obj1.GetDecoratedName01(false, false, false, false, Globals.Buf), obj2.GetDecoratedName01(false, false, false, false, Globals.Buf01));
 		}
 
 		protected virtual void PrintTakingFirst(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}[Taking {1} first.]", Environment.NewLine, artifact.EvalPlural("it", "them"));
+			Globals.Out.Print("[Taking {0} first.]", artifact.EvalPlural("it", "them"));
 		}
 
 		protected virtual void PrintBestLeftAlone(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Write("{0}{1} {2} best if left alone.{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), artifact.EvalPlural("is", "are"));
+			Globals.Out.Print("{0} {1} best if left alone.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), artifact.EvalPlural("is", "are"));
 		}
 
 		protected virtual void PrintTooHeavy(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Write("{0}{1} {2} too heavy.{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), artifact.EvalPlural("is", "are"));
+			Globals.Out.Print("{0} {1} too heavy.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), artifact.EvalPlural("is", "are"));
 		}
 
 		protected virtual void PrintMustBeFreed(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Write("{0}{1} must be freed.{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+			Globals.Out.Print("{0} must be freed.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
 		}
 
 		protected virtual void PrintMustFirstOpen(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}You must first open {1}.", Environment.NewLine, artifact.EvalPlural("it", "them"));
+			Globals.Out.Print("You must first open {0}.", artifact.EvalPlural("it", "them"));
 		}
 
 		protected virtual void PrintRemoved(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Write("{0}{1} removed.{0}", Environment.NewLine, artifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
+			Globals.Out.Print("{0} removed.", artifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
 		}
 
 		protected virtual void PrintOpened(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Write("{0}{1} opened.{0}", Environment.NewLine, artifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
+			Globals.Out.Print("{0} opened.", artifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
 		}
 
 		protected virtual void PrintClosed(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Write("{0}{1} closed.{0}", Environment.NewLine, artifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
+			Globals.Out.Print("{0} closed.", artifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
 		}
 
 		protected virtual void PrintReceived(IArtifact artifact)
@@ -169,63 +169,63 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}{1} not open.", Environment.NewLine, artifact.EvalPlural("It's", "They're"));
+			Globals.Out.Print("{0} not open.", artifact.EvalPlural("It's", "They're"));
 		}
 
 		protected virtual void PrintAlreadyOpen(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}{1} already open.", Environment.NewLine, artifact.EvalPlural("It's", "They're"));
+			Globals.Out.Print("{0} already open.", artifact.EvalPlural("It's", "They're"));
 		}
 
 		protected virtual void PrintWontOpen(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}{1} won't open.", Environment.NewLine, artifact.EvalPlural("It", "They"));
+			Globals.Out.Print("{0} won't open.", artifact.EvalPlural("It", "They"));
 		}
 
 		protected virtual void PrintWontFit(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}{1} won't fit.", Environment.NewLine, artifact.EvalPlural("It", "They"));
+			Globals.Out.Print("{0} won't fit.", artifact.EvalPlural("It", "They"));
 		}
 
 		protected virtual void PrintFull(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}{1} full.", Environment.NewLine, artifact.EvalPlural("It's", "They're"));
+			Globals.Out.Print("{0} full.", artifact.EvalPlural("It's", "They're"));
 		}
 
 		protected virtual void PrintLocked(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}{1} locked.", Environment.NewLine, artifact.EvalPlural("It's", "They're"));
+			Globals.Out.Print("{0} locked.", artifact.EvalPlural("It's", "They're"));
 		}
 
 		protected virtual void PrintBrokeIt(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}You broke {1}!", Environment.NewLine, artifact.EvalPlural("it", "them"));
+			Globals.Out.Print("You broke {0}!", artifact.EvalPlural("it", "them"));
 		}
 
 		protected virtual void PrintAlreadyBrokeIt(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Write("{0}You already broke {1}!{0}", Environment.NewLine, artifact.EvalPlural("it", "them"));
+			Globals.Out.Print("You already broke {0}!", artifact.EvalPlural("it", "them"));
 		}
 
 		protected virtual void PrintHaveToForceOpen(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}You'll have to force {1} open.", Environment.NewLine, artifact.EvalPlural("it", "them"));
+			Globals.Out.Print("You'll have to force {0} open.", artifact.EvalPlural("it", "them"));
 		}
 
 		protected virtual void PrintWearingRemoveFirst(IArtifact artifact)
@@ -234,11 +234,11 @@ namespace EamonRT.Game.Commands
 
 			if (Globals.IsRulesetVersion(5))
 			{
-				Globals.Out.WriteLine("{0}You're wearing {1}.", Environment.NewLine, artifact.EvalPlural("it", "them"));
+				Globals.Out.Print("You're wearing {0}.", artifact.EvalPlural("it", "them"));
 			}
 			else
 			{
-				Globals.Out.WriteLine("{0}You're wearing {1}.  Remove {1} first.", Environment.NewLine, artifact.EvalPlural("it", "them"));
+				Globals.Out.Print("You're wearing {0}.  Remove {0} first.", artifact.EvalPlural("it", "them"));
 			}
 		}
 
@@ -248,11 +248,11 @@ namespace EamonRT.Game.Commands
 
 			if (Globals.IsRulesetVersion(5))
 			{
-				Globals.Out.WriteLine("{0}You're wearing {1}.", Environment.NewLine, artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+				Globals.Out.Print("You're wearing {0}.", artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
 			}
 			else
 			{
-				Globals.Out.WriteLine("{0}You're wearing {1}.  Remove {2} first.", Environment.NewLine, artifact.GetDecoratedName03(false, true, false, false, Globals.Buf), artifact.EvalPlural("it", "them"));
+				Globals.Out.Print("You're wearing {0}.  Remove {1} first.", artifact.GetDecoratedName03(false, true, false, false, Globals.Buf), artifact.EvalPlural("it", "them"));
 			}
 		}
 
@@ -260,96 +260,95 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Write("{0}You {1} {2} all.{0}", Environment.NewLine, Verb, artifact.EvalPlural("it", "them"));
+			Globals.Out.Print("You {0} {1} all.", Verb, artifact.EvalPlural("it", "them"));
 		}
 
 		protected virtual void PrintNoneLeft(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}There's none left.", Environment.NewLine);
+			Globals.Out.Print("There's none left.");
 		}
 
 		protected virtual void PrintOkay(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}Okay.", Environment.NewLine);
+			Globals.Out.Print("Okay.");
 		}
 
 		protected virtual void PrintFeelBetter(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}You feel better!", Environment.NewLine);
+			Globals.Out.Print("You feel better!");
 		}
 
 		protected virtual void PrintFeelWorse(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}You feel worse!", Environment.NewLine);
+			Globals.Out.Print("You feel worse!");
 		}
 
 		protected virtual void PrintTryDifferentCommand(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}Try a different command.", Environment.NewLine);
+			Globals.Out.Print("Try a different command.");
 		}
 
 		protected virtual void PrintWhyAttack(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Write("{0}Why would you attack {1}?{0}", Environment.NewLine, artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+			Globals.Out.Print("Why would you attack {0}?", artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
 		}
 
 		protected virtual void PrintNotWeapon(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}{1} a weapon.", Environment.NewLine, artifact.EvalPlural("That isn't", "They aren't"));
+			Globals.Out.Print("{0} a weapon.", artifact.EvalPlural("That isn't", "They aren't"));
 		}
 
 		protected virtual void PrintNotReadyableWeapon(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.WriteLine("{0}{1} a weapon that you can wield.", Environment.NewLine, artifact.EvalPlural("That isn't", "They aren't"));
+			Globals.Out.Print("{0} a weapon that you can wield.", artifact.EvalPlural("That isn't", "They aren't"));
 		}
 
 		protected virtual void PrintPolitelyRefuses(IMonster monster)
 		{
 			Debug.Assert(monster != null);
 
-			Globals.Out.Write("{0}{1} politely refuse{2}.{0}",	Environment.NewLine, monster.GetDecoratedName03(true, true, false, false, Globals.Buf), monster.EvalPlural("s", ""));
+			Globals.Out.Print("{0} politely refuse{1}.",	monster.GetDecoratedName03(true, true, false, false, Globals.Buf), monster.EvalPlural("s", ""));
 		}
 
 		protected virtual void PrintGiveObjToActor(IArtifact artifact, IMonster monster)
 		{
 			Debug.Assert(artifact != null && monster != null);
 
-			Globals.Out.Write("{0}You give {1} to {2}.{0}",	Environment.NewLine,	artifact.GetDecoratedName03(false, true, false, false, Globals.Buf),	monster.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+			Globals.Out.Print("You give {0} to {1}.",	artifact.GetDecoratedName03(false, true, false, false, Globals.Buf),	monster.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 		}
 
 		protected virtual void PrintOpenObjWithKey(IArtifact artifact, IArtifact key)
 		{
 			Debug.Assert(artifact != null && key != null);
 
-			Globals.Out.Write("{0}You open {1} with {2}.{0}", Environment.NewLine, artifact.EvalPlural("it", "them"), key.GetDecoratedName03(false, true, false, false, Globals.Buf));
+			Globals.Out.Print("You open {0} with {1}.", artifact.EvalPlural("it", "them"), key.GetDecoratedName03(false, true, false, false, Globals.Buf));
 		}
 
 		protected virtual void PrintNotEnoughGold()
 		{
 			if (Globals.IsRulesetVersion(5))
 			{
-				Globals.Out.Write("{0}You aren't carrying that much gold of your own!{0}", Environment.NewLine);
+				Globals.Out.Print("You aren't carrying that much gold of your own!");
 			}
 			else
 			{
-				Globals.Out.Write("{0}You only have {1} gold piece{2}.{0}",
-					Environment.NewLine,
+				Globals.Out.Print("You only have {0} gold piece{1}.",
 					Globals.Engine.GetStringFromNumber(Globals.Character.HeldGold, false, Globals.Buf),
 					Globals.Character.HeldGold != 1 ? "s" : "");
 			}
@@ -359,84 +358,84 @@ namespace EamonRT.Game.Commands
 		{
 			if (Globals.IsRulesetVersion(5))
 			{
-				Globals.Out.WriteLine("{0}You have no weapon ready!", Environment.NewLine);
+				Globals.Out.Print("You have no weapon ready!");
 			}
 			else
 			{
-				Globals.Out.WriteLine("{0}You must first ready a weapon!", Environment.NewLine);
+				Globals.Out.Print("You must first ready a weapon!");
 			}
 		}
 
 		protected virtual void PrintDontHaveItNotHere()
 		{
-			Globals.Out.WriteLine("{0}You don't have it and it's not here.", Environment.NewLine);
+			Globals.Out.Print("You don't have it and it's not here.");
 		}
 
 		protected virtual void PrintDontHaveIt()
 		{
-			Globals.Out.WriteLine("{0}You don't have it.", Environment.NewLine);
+			Globals.Out.Print("You don't have it.");
 		}
 
 		protected virtual void PrintDontNeedTo()
 		{
-			Globals.Out.WriteLine("{0}You don't need to.", Environment.NewLine);
+			Globals.Out.Print("You don't need to.");
 		}
 
 		protected virtual void PrintCantVerbThat()
 		{
-			Globals.Out.WriteLine("{0}You can't {1} that.", Environment.NewLine, Verb);
+			Globals.Out.Print("You can't {0} that.", Verb);
 		}
 
 		protected virtual void PrintCantVerbHere()
 		{
-			Globals.Out.WriteLine("{0}You can't {1} here.", Environment.NewLine, Verb);
+			Globals.Out.Print("You can't {0} here.", Verb);
 		}
 
 		protected virtual void PrintBeMoreSpecific()
 		{
-			Globals.Out.WriteLine("{0}Try to be more specific.", Environment.NewLine);
+			Globals.Out.Print("Try to be more specific.");
 		}
 
 		protected virtual void PrintNobodyHereByThatName()
 		{
-			Globals.Out.WriteLine("{0}Nobody here by that name!", Environment.NewLine);
+			Globals.Out.Print("Nobody here by that name!");
 		}
 
 		protected virtual void PrintNothingHereByThatName()
 		{
-			Globals.Out.WriteLine("{0}Nothing here by that name!", Environment.NewLine);
+			Globals.Out.Print("Nothing here by that name!");
 		}
 
 		protected virtual void PrintYouSeeNothingSpecial()
 		{
-			Globals.Out.WriteLine("{0}You see nothing special.", Environment.NewLine);
+			Globals.Out.Print("You see nothing special.");
 		}
 
 		protected virtual void PrintDontFollowYou()
 		{
-			Globals.Out.WriteLine("{0}I don't follow you.", Environment.NewLine);
+			Globals.Out.Print("I don't follow you.");
 		}
 
 		protected virtual void PrintDontBeAbsurd()
 		{
-			Globals.Out.WriteLine("{0}Don't be absurd.", Environment.NewLine);
+			Globals.Out.Print("Don't be absurd.");
 		}
 
 		protected virtual void PrintCalmDown()
 		{
 			if (Globals.IsRulesetVersion(5, 6, 62))
 			{
-				Globals.Out.WriteLine("{0}There's nothing to flee from!", Environment.NewLine);
+				Globals.Out.Print("There's nothing to flee from!");
 			}
 			else
 			{
-				Globals.Out.WriteLine("{0}Calm down.", Environment.NewLine);
+				Globals.Out.Print("Calm down.");
 			}
 		}
 
 		protected virtual void PrintNoPlaceToGo()
 		{
-			Globals.Out.WriteLine("{0}There's no place to go!", Environment.NewLine);
+			Globals.Out.Print("There's no place to go!");
 		}
 
 		protected virtual void PlayerArtifactMatch()

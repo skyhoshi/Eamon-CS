@@ -1,9 +1,8 @@
 ﻿
 // HealCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using WrenholdsSecretVigil.Framework.Commands;
@@ -26,7 +25,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (medallionArtifact.IsCarriedByCharacter() && gameState.MedallionCharges > 0)
 			{
-				Globals.Out.Write("{0}{1} feel{2} warm in your hand!{0}", Environment.NewLine, medallionArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf), medallionArtifact.EvalPlural("s", ""));
+				Globals.Out.Print("{0} feel{1} warm in your hand!", medallionArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf), medallionArtifact.EvalPlural("s", ""));
 
 				gameState.MedallionCharges--;
 

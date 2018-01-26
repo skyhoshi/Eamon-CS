@@ -1,9 +1,8 @@
 ﻿
 // SmileCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Linq;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -33,7 +32,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				Globals.Out.WriteLine("{0}Okay.", Environment.NewLine);
+				Globals.Out.Print("Okay.");
 			}
 
 			if (NextState == null)

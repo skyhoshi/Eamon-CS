@@ -1,9 +1,8 @@
 ﻿
 // FleeCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheBeginnersCave.Framework.Commands;
@@ -16,12 +15,12 @@ namespace TheBeginnersCave.Game.Commands
 	{
 		protected override void PrintCalmDown()
 		{
-			Globals.Out.WriteLine("{0}What are you fleeing from?", Environment.NewLine);
+			Globals.Out.Print("What are you fleeing from?");
 		}
 
 		protected override void PrintNoPlaceToGo()
 		{
-			Globals.Out.WriteLine("{0}There's no place to run!", Environment.NewLine);
+			Globals.Out.Print("There's no place to run!");
 		}
 
 		protected override void PlayerProcessEvents()
@@ -34,7 +33,7 @@ namespace TheBeginnersCave.Game.Commands
 
 			if (monster.IsInRoom(ActorRoom))
 			{
-				Globals.Out.WriteLine("{0}You are held fast by the mimic and cannot flee!", Environment.NewLine);
+				Globals.Out.Print("You are held fast by the mimic and cannot flee!");
 
 				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
 

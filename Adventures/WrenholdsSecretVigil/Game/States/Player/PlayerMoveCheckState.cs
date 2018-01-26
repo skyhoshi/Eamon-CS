@@ -1,7 +1,7 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -166,7 +166,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 					lifeOrbArtifact.SetInLimbo();
 
-					Globals.Out.Write("{0}{1}{0}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					// If life-orb carried by player character or in metal pedestal
 
@@ -193,7 +193,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 						magicBowArtifact.SetCarriedByCharacter();
 
-						Globals.Out.Write("{0}King Argas hands you the bow and one arrow.  You nock then let loose the arrow...{0}", Environment.NewLine);
+						Globals.Out.Print("King Argas hands you the bow and one arrow.  You nock then let loose the arrow...");
 
 						Globals.Out.Write("{0}What will you name your bow? ", Environment.NewLine);
 
@@ -236,7 +236,7 @@ namespace WrenholdsSecretVigil.Game.States
 							Globals.Engine.PrintEffectDesc(i);
 						}
 
-						Globals.Out.Write("{0}You are dead.{0}", Environment.NewLine);
+						Globals.Out.Print("You are dead.");
 
 						GameState.Die = 1;
 

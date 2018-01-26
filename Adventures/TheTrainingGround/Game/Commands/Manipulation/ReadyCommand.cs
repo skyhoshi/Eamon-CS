@@ -1,9 +1,8 @@
 ﻿
 // ReadyCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheTrainingGround.Framework.Commands;
@@ -22,7 +21,7 @@ namespace TheTrainingGround.Game.Commands
 
 			if (DobjArtifact.Uid == 24)
 			{
-				Globals.Out.WriteLine("{0}Only Thor himself could do that.", Environment.NewLine);
+				Globals.Out.Print("Only Thor himself could do that.");
 
 				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
 			}

@@ -1,7 +1,7 @@
 ﻿
 // SayCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -53,7 +53,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			Globals.Out.Write("{0}Okay, \"{1}\"{0}", Environment.NewLine, PrintedPhrase);
+			Globals.Out.Print("Okay, \"{0}\"", PrintedPhrase);
 
 			PlayerProcessEvents01();
 

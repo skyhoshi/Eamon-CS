@@ -1,7 +1,7 @@
 ﻿
 // TurnCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -58,7 +58,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 						}
 						else
 						{
-							Globals.Out.Write("{0}The dial is already turned up to its maximum.{0}", Environment.NewLine);
+							Globals.Out.Print("The dial is already turned up to its maximum.");
 						}
 					}
 					else
@@ -71,7 +71,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 						}
 						else
 						{
-							Globals.Out.Write("{0}The dial is at its absolute lowest.{0}", Environment.NewLine);
+							Globals.Out.Print("The dial is at its absolute lowest.");
 						}
 					}
 

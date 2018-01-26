@@ -1,7 +1,7 @@
 ﻿
 // FilesetHelper.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -454,9 +454,9 @@ namespace Eamon.Game.Helpers
 		{
 			Debug.Assert(field != null && args != null);
 
-			Globals.Out.WriteLine("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null), Record.Uid);
+			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null), Record.Uid);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputName(IField field, IInputArgs args)
@@ -489,7 +489,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputWorkDir(IField field, IInputArgs args)
@@ -526,7 +526,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputPluginFileName(IField field, IInputArgs args)
@@ -559,7 +559,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputConfigFileName(IField field, IInputArgs args)
@@ -592,7 +592,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputFilesetFileName(IField field, IInputArgs args)
@@ -625,7 +625,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputCharacterFileName(IField field, IInputArgs args)
@@ -658,7 +658,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputModuleFileName(IField field, IInputArgs args)
@@ -691,7 +691,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputRoomFileName(IField field, IInputArgs args)
@@ -724,7 +724,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputArtifactFileName(IField field, IInputArgs args)
@@ -757,7 +757,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputEffectFileName(IField field, IInputArgs args)
@@ -790,7 +790,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputMonsterFileName(IField field, IInputArgs args)
@@ -823,7 +823,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputHintFileName(IField field, IInputArgs args)
@@ -856,7 +856,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		protected virtual void InputGameStateFileName(IField field, IInputArgs args)
@@ -889,7 +889,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = Enums.FieldDesc.Brief;
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		#endregion

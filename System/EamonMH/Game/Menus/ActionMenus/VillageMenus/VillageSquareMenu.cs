@@ -1,7 +1,7 @@
 ﻿
 // VillageSquareMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -24,13 +24,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			long p = 0;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			p = Constants.FountainPrice;
 
-			Globals.Out.Write("{0}You hear a mysterious voice say, \"Throw {1} gold pieces into the fountain and good fortune will be yours!\"{0}{0}Will you do it?{0}", Environment.NewLine, p);
+			Globals.Out.Write("{0}You hear a mysterious voice say, \"Throw {1} gold piece{2} into the fountain and good fortune will be yours!\"{0}{0}Will you do it?{0}", Environment.NewLine, p, p != 1 ? "s" : "");
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.Write("{0}Press Y for yes or N for no: ", Environment.NewLine);
 
@@ -42,7 +42,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Thread.Sleep(150);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			if (Buf.Length == 0 || Buf[0] == 'N')
 			{
@@ -59,7 +59,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				if (wc > 0 && !AddedPotency)
 				{
-					Globals.Out.Write("{0}\"For your generosity I will increase the potency of one of your weapons!\"{0}", Environment.NewLine);
+					Globals.Out.Print("\"For your generosity I will increase the potency of one of your weapons!\"");
 
 					var rl = Globals.Engine.RollDice01(1, wc, 0);
 
@@ -69,7 +69,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 				}
 				else
 				{
-					Globals.Out.Write("{0}The air around the fountain begins to glow briefly but nothing happens.{0}", Environment.NewLine);
+					Globals.Out.Print("The air around the fountain begins to glow briefly but nothing happens.");
 				}
 
 				Globals.Character.HeldGold -= p;
@@ -80,14 +80,14 @@ namespace EamonMH.Game.Menus.ActionMenus
 			}
 			else
 			{
-				Globals.Out.Write("{0}Your pouch of gold is too light!{0}", Environment.NewLine);
+				Globals.Out.Print("Your pouch of gold is too light!");
 
 				goto Cleanup;
 			}
 
 		Cleanup:
 
-			Globals.Out.Write("{0}You leave the area thinking the fountain has given up all its secrets.{0}", Environment.NewLine);
+			Globals.Out.Print("You leave the area thinking the fountain has given up all its secrets.");
 
 			Globals.In.KeyPress(Buf);
 		}

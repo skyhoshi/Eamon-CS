@@ -1,7 +1,7 @@
 ﻿
 // AttackCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -31,12 +31,12 @@ namespace EamonRT.Game.Commands
 
 		protected virtual void PrintHackToBits()
 		{
-			Globals.Out.Write("{0}You {1} {2} to bits!{0}",	Environment.NewLine, BlastSpell ? "blast" : "hack", DobjArtifact.EvalPlural("it", "them"));
+			Globals.Out.Print("You {0} {1} to bits!",	BlastSpell ? "blast" : "hack", DobjArtifact.EvalPlural("it", "them"));
 		}
 
 		protected virtual void BuildWhamHitObj()
 		{
-			Globals.Buf.SetFormat("{0}Wham!  You hit {1}!{0}", Environment.NewLine, DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+			Globals.Buf.SetPrint("Wham!  You hit {0}!", DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 		}
 
 		protected virtual void BuildSmashesToPieces()
@@ -76,7 +76,7 @@ namespace EamonRT.Game.Commands
 					{
 						if (BlastSpell)
 						{
-							Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.Engine.GetBlastDesc());
+							Globals.Out.Print("{0}", Globals.Engine.GetBlastDesc());
 						}
 
 						DobjArtifact.SetInLimbo();
@@ -136,7 +136,7 @@ namespace EamonRT.Game.Commands
 
 					if (breakageStrength < 1000)
 					{
-						Globals.Out.WriteLine("{0}Nothing happens.", Environment.NewLine);
+						Globals.Out.Print("Nothing happens.");
 
 						goto Cleanup;
 					}
@@ -151,7 +151,7 @@ namespace EamonRT.Game.Commands
 
 						s = 5;
 
-						Globals.Buf.SetFormat("{0}{1}{0}", Environment.NewLine, Globals.Engine.GetBlastDesc());
+						Globals.Buf.SetPrint("{0}", Globals.Engine.GetBlastDesc());
 					}
 					else
 					{

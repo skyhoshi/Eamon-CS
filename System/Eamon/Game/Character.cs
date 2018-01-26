@@ -1,7 +1,7 @@
 ﻿
 // Character.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -207,8 +207,7 @@ namespace Eamon.Game
 					name);
 			}
 
-			buf.AppendFormat("{0}You are the {1} {2}.{0}",
-				Environment.NewLine,
+			buf.AppendPrint("You are the {0} {1}.",
 				EvalGender("Mighty", "Fair", "Androgynous"),
 				name);
 
@@ -607,8 +606,7 @@ namespace Eamon.Game
 
 			buf02 = new StringBuilder(Constants.BufSize);
 
-			Globals.Out.WriteLine("{0}{1,-36}Gender: {2,-9}Damage Taken: {3}/{4}",
-				Environment.NewLine,
+			Globals.Out.Print("{0,-36}Gender: {1,-9}Damage Taken: {2}/{3}",
 				args.Monster.Name.ToUpper(),
 				EvalGender("Male", "Female", "Neutral"),
 				args.Monster.DmgTaken,
@@ -691,15 +689,13 @@ namespace Eamon.Game
 				"In bank: ",
 				BankGold);
 
-			Globals.Out.WriteLine("{0}Armor: {1}  Armor Expertise: {2}%",
-				Environment.NewLine,
+			Globals.Out.Print("Armor: {0}  Armor Expertise: {1}%",
 				args.ArmorString.PadTRight(31, ' '),
 				ArmorExpertise);
 
 			var wcg = Globals.Engine.GetWeightCarryableGronds(args.Monster.Hardiness);
 
-			Globals.Out.WriteLine("{0}Weight carried: {1}/{2} Gronds (One Grond = Ten DOS)",
-				Environment.NewLine,
+			Globals.Out.Print("Weight carried: {0}/{1} Gronds (One Grond = Ten DOS)",
 				args.Weight,
 				wcg);
 

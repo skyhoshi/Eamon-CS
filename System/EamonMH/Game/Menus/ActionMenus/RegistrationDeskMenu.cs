@@ -1,7 +1,7 @@
 ﻿
 // RegistrationDeskMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -32,12 +32,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 		protected virtual void BadCharacterName()
 		{
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			NumChances--;
 
-			Globals.Out.Write("{0}{1}{0}",
-				Environment.NewLine,
+			Globals.Out.Print("{0}",
 				NumChances == 12 ? "He pulls out a sword and begins to sharpen it, saying \"Ye'd best be givin' me yer name laddie, if ye know wots good fer ye!!!\"" :
 				NumChances == 11 ? "\"I've 'bout had me fill o' yer sick sensa 'umor!!  Now gimme yer name!!\"" :
 				NumChances == 10 ? string.Format("The man cuts one of your fingers off!!  He then eats it!!!!{0}{0}Then he says, \"Are ye ready t' talk now?\"", Environment.NewLine) :
@@ -109,13 +108,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Debug.Assert(character != null && args != null);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Write("{0}He hits his forehead and says, \"Ah, ye must be new here!  Well, wait just a minute and I'll bring someone out to take care of ye.\"{0}", Environment.NewLine);
+			Globals.Out.Print("He hits his forehead and says, \"Ah, ye must be new here!  Well, wait just a minute and I'll bring someone out to take care of ye.\"");
 
-			Globals.Out.Write("{0}The Irishman says, \"First I must know whether ye be male or female.  Which are ye?\"{0}", Environment.NewLine);
+			Globals.Out.Print("The Irishman says, \"First I must know whether ye be male or female.  Which are ye?\"");
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.Write("{0}You give him your gender ({1}=Male, {2}=Female): ",
 				Environment.NewLine,
@@ -139,7 +138,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Thread.Sleep(150);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			character.Uid = Globals.Database.GetCharacterUid();
 
@@ -187,9 +186,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				if (character.GetStats(Enums.Stat.Intellect) + character.GetStats(Enums.Stat.Hardiness) + character.GetStats(Enums.Stat.Agility) < 39 || character.Stats.Sum() < 52)
 				{
-					Globals.Out.Write("{0}\"You are such a poor excuse for an adventurer that we will allow you to commit suicide.\"{0}", Environment.NewLine);
+					Globals.Out.Print("\"You are such a poor excuse for an adventurer that we will allow you to commit suicide.\"");
 
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					Globals.Out.Write("{0}Press Y to commit suicide or N to continue: ", Environment.NewLine);
 
@@ -203,9 +202,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					if (Buf.Length > 0 && Buf[0] == 'Y')
 					{
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 
-						Globals.Out.Write("{0}\"We resurrect you again and your prime attributes are--{0}", Environment.NewLine);
+						Globals.Out.Print("\"We resurrect you again and your prime attributes are--");
 					}
 					else
 					{
@@ -224,7 +223,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.CharactersModified = true;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.Write("{0}Press R to read instructions or T to give them back: ", Environment.NewLine);
 
@@ -236,7 +235,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Thread.Sleep(150);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			if (Buf.Length > 0 && Buf[0] == 'R')
 			{
@@ -254,15 +253,15 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Globals.Out.Write("{0}{1,28}", Environment.NewLine, "Sword...........0%");
 
-				Globals.Out.WriteLine("{0}{1,28}", Environment.NewLine, "Bow...........-10%");
+				Globals.Out.Print("{0,28}", "Bow...........-10%");
 
-				Globals.Out.Write("{0}Every time you score a hit in battle, your ability in the weapon class may go up by 2%, if a random number from 1-100 is less than your chance to miss!{0}", Environment.NewLine);
+				Globals.Out.Print("Every time you score a hit in battle, your ability in the weapon class may go up by 2%, if a random number from 1-100 is less than your chance to miss!");
 
 				Globals.In.KeyPress(Buf);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}There are four armor types and you may also carry a shield if you do not use a two-handed weapon.  These protections will absorb hits placed upon you (almost always!) but they lower your chance to hit.  The protections are--{0}", Environment.NewLine);
+				Globals.Out.Print("There are four armor types and you may also carry a shield if you do not use a two-handed weapon.  These protections will absorb hits placed upon you (almost always!) but they lower your chance to hit.  The protections are--");
 
 				Globals.Out.Write("{0}{1,61}", Environment.NewLine, "Armor          Hits Absorbed        Odds Adjustment");
 
@@ -276,13 +275,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Globals.Out.Write("{0}{1,56}", Environment.NewLine, "Plate ................5 ..................-60%");
 
-				Globals.Out.WriteLine("{0}{1,56}", Environment.NewLine, "Shield ...............1 ...................-5%");
+				Globals.Out.Print("{0,56}", "Shield ...............1 ...................-5%");
 
-				Globals.Out.Write("{0}You will develop an Armor Expertise, which will go up when you hit a blow wearing armor and your expertise is less than the armor you are wearing.  No matter how high your Armor Expertise is, however, the net effect of armor will never increase your chance to hit.{0}", Environment.NewLine);
+				Globals.Out.Print("You will develop an Armor Expertise, which will go up when you hit a blow wearing armor and your expertise is less than the armor you are wearing.  No matter how high your Armor Expertise is, however, the net effect of armor will never increase your chance to hit.");
 
 				Globals.In.KeyPress(Buf);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Write("{0}You can carry weight up to ten times your hardiness, or, {1} Gronds.  (A measure of weight, one Grond = 10 Dos.){0}{0}Additionally, your hardiness tells how many points of damage you can survive.  Therefore, you can be hit with {2} 1-point blows before you die.{0}{0}You will not be told how many blows you have taken.  You will be merely told such things as--{0}{0}   \"Wow!  That one hurt!\"{0}or \"You don't feel very well.\"{0}{0}Your charisma ({3}) affects how the citizens of Eamon react to you.  You affect a monster's friendliness rating by your charisma less ten, difference times two ({4}%).{0}{0}You start off with 200 gold pieces, which you will want to spend on supplies for your first adventure.  You will get a lower price for items if your charisma is high.{0}",
 					Environment.NewLine,
@@ -293,7 +292,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Globals.In.KeyPress(Buf);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Write("{0}After you begin to accumulate wealth, you may want to put some of your money into the bank, where it cannot be stolen.  However it is a good idea to always carry some gold with you for use in bargaining and ransom situations.{0}{0}You should also hire a Wizard to teach you some magic spells.  Your intellect ({1}) affects your ability to learn both skills and spells.  There are four spells you can learn--{0}{0}Blast: Throw a magical blast at your enemies to inflict damage.{0}Heal : Remove damage from your body.{0}Speed: Double your agility for a short time.{0}Power: This unpredictable spell is different in each adventure.{0}{0}Other types of spells may be available in various adventures, and items may have special properties.  However, these will only work in the adventure where they were found.  Thus it is best (and you have no choice but to) sell all items found in adventures except for weapons and armor.{0}",
 					Environment.NewLine,
@@ -301,7 +300,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Globals.In.KeyPress(Buf);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 			}
 
 			Globals.Out.Write("{0}The man behind the desk takes back the instructions and says, \"It is now time for you to start your life.\"  He makes an odd sign with his hand and says, \"Live long and prosper.\"{0}{0}You now wander into the Main Hall...{0}", Environment.NewLine);
@@ -315,9 +314,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 		{
 			RetCode rc;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Write("{0}You are greeted there by a burly Irishman who looks at you with a scowl and asks you, \"What's yer name?\"{0}", Environment.NewLine);
+			Globals.Out.Print("You are greeted there by a burly Irishman who looks at you with a scowl and asks you, \"What's yer name?\"");
 
 			var character = Globals.CreateInstance<ICharacter>();
 
@@ -331,7 +330,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 			{
 				Rtio = null;
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Write("{0}You give him your name (type it in now): ", Environment.NewLine);
 
@@ -352,7 +351,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				if (helper.ValidateField("Name", args))
 				{
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					if (effect == null)
 					{
@@ -361,15 +360,15 @@ namespace EamonMH.Game.Menus.ActionMenus
 						effect = Globals.EDB[effectUid];
 					}
 
-					Globals.Out.Write("{0}He starts looking through his book, while muttering something about {1}{0}", Environment.NewLine, effect != null ? effect.Desc : "not having enough snappy comments.");
+					Globals.Out.Print("He starts looking through his book, while muttering something about {0}", effect != null ? effect.Desc : "not having enough snappy comments.");
 
 					Globals.Character = Globals.Database.CharacterTable.Records.Where(c => string.Equals(c.Name, character.Name, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
 
 					if (Globals.Character == null)
 					{
-						Globals.Out.Write("{0}He eventually looks at you and says, \"Yer name's na in here.  Have ye given it to me aright?\"{0}", Environment.NewLine);
+						Globals.Out.Print("He eventually looks at you and says, \"Yer name's na in here.  Have ye given it to me aright?\"");
 
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 
 						Globals.Out.Write("{0}Press Y for yes or N for no: ", Environment.NewLine);
 
@@ -418,7 +417,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						if (Globals.Character.Status == Enums.Status.Alive)
 						{
-							Globals.Out.Write("{0}Finally he looks up and says, \"Ah, here ye be.  Well, go and have fun in the hall.\"{0}", Environment.NewLine);
+							Globals.Out.Print("Finally he looks up and says, \"Ah, here ye be.  Well, go and have fun in the hall.\"");
 
 							Globals.In.KeyPress(Buf);
 
@@ -432,7 +431,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 								Environment.NewLine,
 								Globals.Character.Name);
 
-							Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+							Globals.Out.Print("{0}", Globals.LineSep);
 
 							Globals.Out.Write("{0}Press Y for yes or N for no: ", Environment.NewLine);
 
@@ -446,7 +445,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							if (Buf.Length > 0 && Buf[0] == 'Y')
 							{
-								Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+								Globals.Out.Print("{0}", Globals.LineSep);
 
 								AdventureName = "";
 
@@ -456,10 +455,10 @@ namespace EamonMH.Game.Menus.ActionMenus
 								{
 									var ap = Globals.Engine.GetMerchantAskPrice(Constants.RecallPrice, (double)Rtio);
 
-									Globals.Out.Write("{0}Pointing to an entry in his registry, the Irishman exclaims, \"Says 'ere the wizard found ye in {1} and charged {2} gold coins for his services{3}!\"{0}",
-										Environment.NewLine,
+									Globals.Out.Print("Pointing to an entry in his registry, the Irishman exclaims, \"Says 'ere the wizard found ye in {0} and charged {1} gold coin{2} for his services{3}!\"",
 										AdventureName.Length > 0 ? AdventureName : Globals.Engine.UnknownName,
 										ap,
+										ap != 1 ? "s" : "",
 										Globals.Character.HeldGold + Globals.Character.BankGold < ap ? ", but ye didn't have enough to pay the fee, even after he put a lien on yer bank account!  Uh-oh, he said he'd get even soon" :
 										Globals.Character.HeldGold < ap ? "!  He even put a lien on yer bank account to ensure full payment" :
 										"");
@@ -482,7 +481,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 									Globals.CharactersModified = true;
 
-									Globals.Out.Write("{0}Finally he looks up and says, \"Welcome back from yer adventure.  Now go and have fun in the hall.\"{0}", Environment.NewLine);
+									Globals.Out.Print("Finally he looks up and says, \"Welcome back from yer adventure.  Now go and have fun in the hall.\"");
 
 									Globals.In.KeyPress(Buf);
 
@@ -503,8 +502,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 						{
 							Debug.Assert(Globals.Character.Status == Enums.Status.Dead);
 
-							Globals.Out.Write("{0}The burly Irishman gets a sad look in his eyes and says, \"Ye can't be {1}, {2} be dead.  Now who'r ye again?\"{0}",
-								Environment.NewLine,
+							Globals.Out.Print("The burly Irishman gets a sad look in his eyes and says, \"Ye can't be {0}, {1} be dead.  Now who'r ye again?\"",
 								Globals.Character.Name,
 								Globals.Character.EvalGender("he", "she", "it"));
 						}

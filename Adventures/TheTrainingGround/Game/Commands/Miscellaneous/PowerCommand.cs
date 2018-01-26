@@ -1,9 +1,8 @@
 ﻿
 // PowerCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheTrainingGround.Framework;
@@ -53,7 +52,7 @@ namespace TheTrainingGround.Game.Commands
 
 				Globals.Character.Gender = ActorMonster.Gender;
 
-				Globals.Out.WriteLine("{0}You feel different... more {1}.", Environment.NewLine, ActorMonster.EvalGender("masculine", "feminine", "androgynous"));
+				Globals.Out.Print("You feel different... more {0}.", ActorMonster.EvalGender("masculine", "feminine", "androgynous"));
 
 				gameState.GenderChangeCounter++;
 
@@ -68,7 +67,7 @@ namespace TheTrainingGround.Game.Commands
 			{
 				Globals.Character.ModStats(Enums.Stat.Charisma, 2);
 
-				Globals.Out.WriteLine("{0}You suddenly feel more {1}.", Environment.NewLine, Globals.Character.EvalGender("handsome", "beautiful", "androgynous"));
+				Globals.Out.Print("You suddenly feel more {0}.", Globals.Character.EvalGender("handsome", "beautiful", "androgynous"));
 
 				gameState.CharismaBoosted = true;
 

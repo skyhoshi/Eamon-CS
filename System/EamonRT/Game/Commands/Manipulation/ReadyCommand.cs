@@ -1,9 +1,8 @@
 ﻿
 // ReadyCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework.Commands;
@@ -80,7 +79,7 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Globals.Out.Write("{0}{1} readied.{0}", Environment.NewLine, DobjArtifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
+				Globals.Out.Print("{0} readied.", DobjArtifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
 			}
 			else
 			{
@@ -132,7 +131,7 @@ namespace EamonRT.Game.Commands
 				{
 					var monsterName = ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01));
 
-					Globals.Out.Write("{0}{1} readies {2}.{0}", Environment.NewLine, monsterName, DobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf));
+					Globals.Out.Print("{0} readies {1}.", monsterName, DobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf));
 				}
 			}
 

@@ -1,7 +1,7 @@
 ﻿
 // MainLoop.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -94,9 +94,9 @@ namespace EamonRT.Game
 
 			Globals.Out.WriteLine("[Base Program {0}]", Constants.RtProgVersion);
 
-			Globals.Out.WriteLine("{0}Welcome to the Eamon CS fantasy gaming system!", Environment.NewLine);
+			Globals.Out.Print("Welcome to the Eamon CS fantasy gaming system!");
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			while (Globals.GameRunning)
 			{

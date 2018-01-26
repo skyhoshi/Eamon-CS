@@ -1,9 +1,8 @@
 ﻿
 // BurnDownLightSourceState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
@@ -38,7 +37,7 @@ namespace EamonRT.Game.States
 					{
 						if (ac.Field5 < 20)
 						{
-							Globals.Out.Write("{0}{1}{2}{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), ac.Field5 < 10 ? " is almost out!" : " grows dim!");
+							Globals.Out.Print("{0}{1}", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), ac.Field5 < 10 ? " is almost out!" : " grows dim!");
 						}
 					}
 					else

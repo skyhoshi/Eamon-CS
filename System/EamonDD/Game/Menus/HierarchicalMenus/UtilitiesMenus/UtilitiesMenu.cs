@@ -1,7 +1,7 @@
 ﻿
 // UtilitiesMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -21,8 +21,7 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 		{
 			if (Globals.Engine.IsAdventureFilesetLoaded())
 			{
-				Globals.Out.WriteLine("{0}Editing: {1}",
-					Environment.NewLine,
+				Globals.Out.Print("Editing: {0}",
 					Globals.Module != null ? Globals.Module.Name : Globals.Engine.UnknownName);
 			}
 		}

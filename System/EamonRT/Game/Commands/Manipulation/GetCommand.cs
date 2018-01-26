@@ -1,7 +1,7 @@
 ﻿
 // GetCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -165,7 +165,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				Globals.Out.WriteLine("{0}There's nothing for you to get.", Environment.NewLine);
+				Globals.Out.Print("There's nothing for you to get.");
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -225,7 +225,7 @@ namespace EamonRT.Game.Commands
 					{
 						var monsterName = ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01));
 
-						Globals.Out.Write("{0}{1} picks up {2}.{0}", Environment.NewLine, monsterName, DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+						Globals.Out.Print("{0} picks up {1}.", monsterName, DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
 					}
 				}
 			}

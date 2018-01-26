@@ -1,7 +1,7 @@
 ﻿
 // GoodWitchMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -29,7 +29,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 			long ap = 0;
 			long i;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			/* 
 				Full Credit:  Derived wholly from Donald Brown's Classic Eamon
@@ -45,9 +45,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 				Rtio = Globals.Engine.GetMerchantRtio(c2);
 			}
 
-			Globals.Out.Write("{0}A lovely young woman says, \"Good day, {1}.  Ah, you're surprised that I know your name?  I also know the extent of your intellect, hardiness, agility, and charisma.  If you wish, I can magically raise your attributes.  Which one would you like me to focus on?\"{0}", Environment.NewLine, Globals.Character.Name);
+			Globals.Out.Print("A lovely young woman says, \"Good day, {0}.  Ah, you're surprised that I know your name?  I also know the extent of your intellect, hardiness, agility, and charisma.  If you wish, I can magically raise your attributes.  Which one would you like me to focus on?\"", Globals.Character.Name);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Buf.Clear();
 
@@ -77,7 +77,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Thread.Sleep(150);
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Debug.Assert(Buf.Length > 0);
 
@@ -89,7 +89,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			ap = Globals.Engine.GetMerchantAskPrice(Constants.StatGainPrice, (double)Rtio);
 
-			Globals.Out.Write("{0}\"My standard price is {1} gold pieces per attribute point.\"{0}", Environment.NewLine, ap);
+			Globals.Out.Print("\"My standard price is {0} gold piece{1} per attribute point.\"", ap, ap != 1 ? "s" : "");
 
 			while (true)
 			{
@@ -97,9 +97,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Globals.In.KeyPress(Buf);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}Attribute: {1}        Gold: {2}        Cost: {3}{0}", Environment.NewLine, Globals.Character.GetStats(i), Globals.Character.HeldGold, ap);
+				Globals.Out.Print("Attribute: {0}        Gold: {1}        Cost: {2}", Globals.Character.GetStats(i), Globals.Character.HeldGold, ap);
 
 				if (Globals.Character.HeldGold >= ap)
 				{
@@ -113,7 +113,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					Globals.Thread.Sleep(150);
 
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					if (Buf.Length == 0 || Buf[0] == 'X')
 					{
@@ -121,19 +121,19 @@ namespace EamonMH.Game.Menus.ActionMenus
 					}
 					else
 					{
-						Globals.Out.Write("{0}The witch begins an incantation and you are enveloped by a hazy white cloud.{0}", Environment.NewLine);
+						Globals.Out.Print("The witch begins an incantation and you are enveloped by a hazy white cloud.");
 
 						var rl = Globals.Engine.RollDice01(1, 24, 0);
 
 						if (rl >= Globals.Character.GetStats(Enums.Stat.Charisma))
 						{
-							Globals.Out.Write("{0}\"It is done!\" she exclaims.{0}", Environment.NewLine);
+							Globals.Out.Print("\"It is done!\" she exclaims.");
 
 							Globals.Character.ModStats(i, 1);
 						}
 						else
 						{
-							Globals.Out.Write("{0}\"Because of your powerful adventurer's aura, my spells will sometimes fail.  Unfortunately, this was one of those times.\"{0}", Environment.NewLine);
+							Globals.Out.Print("\"Because of your powerful adventurer's aura, my spells will sometimes fail.  Unfortunately, this was one of those times.\"");
 						}
 
 						if (Globals.Character.GetStats(i) > stat.MaxValue)
@@ -148,13 +148,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 				}
 				else
 				{
-					Globals.Out.Write("{0}\"Ah, but I see you can't afford my modest fee.\"{0}", Environment.NewLine);
+					Globals.Out.Print("\"Ah, but I see you can't afford my modest fee.\"");
 
 					break;
 				}
 			}
 
-			Globals.Out.Write("{0}\"Good faring, {1}!\"{0}", Environment.NewLine, Globals.Character.Name);
+			Globals.Out.Print("\"Good faring, {0}!\"", Globals.Character.Name);
 
 			Globals.In.KeyPress(Buf);
 		}

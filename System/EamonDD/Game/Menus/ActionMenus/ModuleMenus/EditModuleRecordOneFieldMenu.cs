@@ -1,7 +1,7 @@
 ﻿
 // EditModuleRecordOneFieldMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -53,7 +53,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					Globals.Out.WriteLine();
 
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(47, '\0', 0, "Enter the number of the field to edit", "0"));
 
@@ -72,7 +72,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 						goto Cleanup;
 					}
 
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 				}
 				else
 				{

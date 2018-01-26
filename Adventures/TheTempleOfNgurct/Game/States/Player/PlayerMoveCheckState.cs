@@ -1,9 +1,8 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using Eamon.Game.Attributes;
 using TheTempleOfNgurct.Framework.States;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
@@ -17,11 +16,11 @@ namespace TheTempleOfNgurct.Game.States
 		{
 			if (Globals.GameState.R2 == -33)
 			{
-				Globals.Out.WriteLine("{0}The oak door is locked from the inside!", Environment.NewLine);
+				Globals.Out.Print("The oak door is locked from the inside!");
 			}
 			else if (Globals.GameState.R2 == -55)
 			{
-				Globals.Out.WriteLine("{0}The cell door is locked from the outside!", Environment.NewLine);
+				Globals.Out.Print("The cell door is locked from the outside!");
 			}
 
 			// Down the sewage chute

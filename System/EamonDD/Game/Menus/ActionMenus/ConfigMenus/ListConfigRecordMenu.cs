@@ -1,7 +1,7 @@
 ﻿
 // ListConfigRecordMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -35,7 +35,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Globals.Out.WriteLine();
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
 
@@ -50,9 +50,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 				// do nothing
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
-			Globals.Out.WriteLine("{0}Done listing config record details.", Environment.NewLine);
+			Globals.Out.Print("Done listing config record details.");
 		}
 
 		public ListConfigRecordMenu()

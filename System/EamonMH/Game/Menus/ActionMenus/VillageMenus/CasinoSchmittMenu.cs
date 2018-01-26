@@ -1,7 +1,7 @@
 ﻿
 // CasinoSchmittMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -21,21 +21,21 @@ namespace EamonMH.Game.Menus.ActionMenus
 		{
 			RetCode rc;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Write("{0}Schmitty, the owner, says, \"Welcome, {1}!  Perhaps a cocktail before you start?\"{0}", Environment.NewLine, Globals.Character.Name);
+			Globals.Out.Print("Schmitty, the owner, says, \"Welcome, {0}!  Perhaps a cocktail before you start?\"", Globals.Character.Name);
 
-			Globals.Out.Write("{0}Some time later you make your way to the floor of the casino and stop at the roulette wheel.{0}", Environment.NewLine);
+			Globals.Out.Print("Some time later you make your way to the floor of the casino and stop at the roulette wheel.");
 
-			Globals.Out.Write("{0}\"Place your bets!  Place your bets!  Would you like in {1} One?\"{0}", Environment.NewLine, Globals.Character.EvalGender("Mighty", "Fair", "Androgynous"));
+			Globals.Out.Print("\"Place your bets!  Place your bets!  Would you like in {0} One?\"", Globals.Character.EvalGender("Mighty", "Fair", "Androgynous"));
 
 			while (true)
 			{
 				Globals.In.KeyPress(Buf);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}You have {1} gold pieces.  The house limit is 10,000.{0}", Environment.NewLine, Globals.Character.HeldGold);
+				Globals.Out.Print("You have {0} gold piece{1}.  The house limit is 10,000.", Globals.Character.HeldGold, Globals.Character.HeldGold != 1 ? "s" : "");
 
 				Globals.Out.Write("{0}Your bet? (0 to leave): ", Environment.NewLine);
 
@@ -51,7 +51,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				if (bet > 0 && bet <= Globals.Character.HeldGold && bet <= 10000)
 				{
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					Globals.Out.Write("{0}The wheel is spinning ... ", Environment.NewLine);
 
@@ -90,17 +90,17 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					if (rl > 80)
 					{
-						Globals.Out.Write("{0}You just won double your money!{0}", Environment.NewLine);
+						Globals.Out.Print("You just won double your money!");
 
 						bet *= 2;
 					}
 					else if (rl > 55)
 					{
-						Globals.Out.Write("{0}You won {1} gold pieces!{0}", Environment.NewLine, bet);
+						Globals.Out.Print("You won {0} gold piece{1}!", bet, bet != 1 ? "s" : "");
 					}
 					else
 					{
-						Globals.Out.Write("{0}Sorry, {1}, you lost.{0}", Environment.NewLine, Globals.Character.Name);
+						Globals.Out.Print("Sorry, {0}, you lost.", Globals.Character.Name);
 
 						bet = -bet;
 					}
@@ -111,9 +111,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 				}
 				else if (bet > 0)
 				{
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
-					Globals.Out.Write("{0}The dealer doesn't seem amused by your sense of humor.{0}", Environment.NewLine);
+					Globals.Out.Print("The dealer doesn't seem amused by your sense of humor.");
 				}
 				else if (bet == 0)
 				{

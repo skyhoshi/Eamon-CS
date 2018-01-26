@@ -1,12 +1,13 @@
 ﻿
 // Module.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Text;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
@@ -84,8 +85,7 @@ namespace Eamon.Game
 		{
 			var buf = new StringBuilder(Constants.BufSize);
 
-			buf.AppendFormat("{0}This is {1}, by {2}.{0}",
-				Environment.NewLine,
+			buf.AppendPrint("This is {0}, by {1}.",
 				Name,
 				Author);
 

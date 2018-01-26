@@ -1,11 +1,10 @@
 ﻿
 // ReadCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
-using Eamon;
 using Eamon.Game.Attributes;
 using TheSubAquanLaboratory.Framework;
 using TheSubAquanLaboratory.Framework.Commands;
@@ -20,7 +19,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 		{
 			Debug.Assert(obj != null);
 
-			Globals.Out.Write("{0}You stare at {1}, but you don't see any secret messages forming.{0}", Environment.NewLine, obj.GetDecoratedName03(false, true, false, false, Globals.Buf));
+			Globals.Out.Print("You stare at {0}, but you don't see any secret messages forming.", obj.GetDecoratedName03(false, true, false, false, Globals.Buf));
 		}
 
 		protected override void PlayerExecute()
@@ -99,7 +98,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						Globals.Engine.PrintEffectDesc(51);
 
-						Globals.Out.Write("{0}{1}{2}.{3} GMT{0}", Environment.NewLine, ls[d[13]], d[14], d[15]);
+						Globals.Out.Print("{0}{1}.{2} GMT", ls[d[13]], d[14], d[15]);
 
 						Globals.Out.Write("{0}Magnitude.....{1}.{2}", Environment.NewLine, d[1], d[2]);
 
@@ -107,7 +106,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						Globals.Out.Write("{0}Epicenter.....{1} Latitude {2} degrees {3} minutes {4} seconds", Environment.NewLine, nsd, d[7], d[9], d[11]);
 
-						Globals.Out.Write("{0}{1,14}{2} Longitude {3} degrees {4} minutes {5} seconds{0}", Environment.NewLine, "", ewd, d[8], d[10], d[12]);
+						Globals.Out.Print("{0,14}{1} Longitude {2} degrees {3} minutes {4} seconds", "", ewd, d[8], d[10], d[12]);
 						
 						if (!gameState.ReadDisplayScreen)
 						{
@@ -118,7 +117,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 					}
 					else
 					{
-						Globals.Out.Write("{0}The monitor screen remains blank.{0}", Environment.NewLine);
+						Globals.Out.Print("The monitor screen remains blank.");
 					}
 
 					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
@@ -146,11 +145,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 					{
 						rl = Globals.Engine.RollDice01(1, 100, 0);
 
-						Globals.Out.Write("{0}As you watch, the terminal screen prints:{0}", Environment.NewLine);
+						Globals.Out.Print("As you watch, the terminal screen prints:");
 
-						Globals.Out.Write("{0}  Error #{1}{0}", Environment.NewLine, rl);
+						Globals.Out.Print("  Error #{0}", rl);
 
-						Globals.Out.Write("{0}Uploading execution impossible - attempting to abort!{0}", Environment.NewLine);
+						Globals.Out.Print("Uploading execution impossible - attempting to abort!");
 					}
 
 					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();

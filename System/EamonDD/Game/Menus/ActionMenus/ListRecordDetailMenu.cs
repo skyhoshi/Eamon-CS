@@ -1,7 +1,7 @@
 ﻿
 // ListRecordDetailMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -41,7 +41,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			recUids[0] = Convert.ToInt64(Buf.Trim().ToString());
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(43, '\0', 0, string.Format("Enter the ending {0} uid", RecordTypeName), maxRecUid > 0 ? maxRecUid.ToString() : "1"));
 
@@ -61,7 +61,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			{
 				helper.Record = record;
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				helper.ListRecord(true, Globals.Config.ShowDesc, Globals.Config.ResolveEffects, true, false, false);
 
@@ -81,9 +81,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 				}
 			}
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
-			Globals.Out.WriteLine("{0}Done listing {1} record details.", Environment.NewLine, RecordTypeName);
+			Globals.Out.Print("Done listing {0} record details.", RecordTypeName);
 		}
 	}
 }

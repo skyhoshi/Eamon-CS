@@ -1,9 +1,8 @@
 ﻿
 // ReadCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheBeginnersCave.Framework;
@@ -54,10 +53,7 @@ namespace TheBeginnersCave.Game.Commands
 
 			if (DobjArtifact.Uid == 9)
 			{
-				Globals.Out.WriteLine(ActorRoom.Uid == 26 ?
-					"{0}You fall into the sea and are eaten by a big fish." :
-					"{0}You flop three times and die.",
-					Environment.NewLine);
+				Globals.Out.Print(ActorRoom.Uid == 26 ? "You fall into the sea and are eaten by a big fish." : "You flop three times and die.");
 
 				GameState.Die = 1;
 
@@ -84,7 +80,7 @@ namespace TheBeginnersCave.Game.Commands
 			{
 				DobjArtifact.Name = "healing potion";
 
-				Globals.Out.WriteLine("{0}It says, \"HEALING POTION\".", Environment.NewLine);
+				Globals.Out.Print("It says, \"HEALING POTION\".");
 
 				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
 			}

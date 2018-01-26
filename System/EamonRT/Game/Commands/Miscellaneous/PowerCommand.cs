@@ -1,9 +1,8 @@
 ﻿
 // PowerCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
@@ -21,11 +20,11 @@ namespace EamonRT.Game.Commands
 		{
 			if (Globals.IsRulesetVersion(5))
 			{
-				Globals.Out.Write("{0}You hear a very loud sonic boom that echoes through the {1}.{0}", Environment.NewLine, ActorRoom.EvalRoomType("tunnels", "area"));
+				Globals.Out.Print("You hear a very loud sonic boom that echoes through the {0}.", ActorRoom.EvalRoomType("tunnels", "area"));
 			}
 			else
 			{
-				Globals.Out.Write("{0}You hear a loud sonic boom which echoes all around you!{0}", Environment.NewLine);
+				Globals.Out.Print("You hear a loud sonic boom which echoes all around you!");
 			}
 		}
 
@@ -33,8 +32,7 @@ namespace EamonRT.Game.Commands
 		{
 			var rl = Globals.Engine.RollDice01(1, 100, 0);
 
-			Globals.Out.Write("{0}A fortune cookie appears in mid-air and explodes!  The smoking paper left behind reads, \"{1}\"  How strange.{0}",
-				Environment.NewLine,
+			Globals.Out.Print("A fortune cookie appears in mid-air and explodes!  The smoking paper left behind reads, \"{0}\"  How strange.",
 				rl > 50 ?
 				"THE SECTION OF TUNNEL YOU ARE IN COLLAPSES AND YOU DIE." :
 				"YOU SUDDENLY FIND YOU CANNOT CARRY ALL OF THE ITEMS YOU ARE CARRYING, AND THEY ALL FALL TO THE GROUND.");
@@ -57,7 +55,7 @@ namespace EamonRT.Game.Commands
 
 				if (rl < 11)
 				{
-					Globals.Out.Write("{0}The section of {1} collapses and you die.{0}", Environment.NewLine, ActorRoom.EvalRoomType("tunnel you are in", "ground you are on"));
+					Globals.Out.Print("The section of {0} collapses and you die.", ActorRoom.EvalRoomType("tunnel you are in", "ground you are on"));
 
 					Globals.GameState.Die = 1;
 
@@ -78,7 +76,7 @@ namespace EamonRT.Game.Commands
 
 				else if (rl > 95)
 				{
-					Globals.Out.Write("{0}All of your wounds are healed.{0}", Environment.NewLine);
+					Globals.Out.Print("All of your wounds are healed.");
 
 					ActorMonster.DmgTaken = 0;
 

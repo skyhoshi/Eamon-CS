@@ -10,7 +10,7 @@ using Android.App;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Michael R. Penner")]
 [assembly: AssemblyProduct("The Wonderful World of Eamon CS")]
-[assembly: AssemblyCopyright("Copyright (C) 2014-2017")]
+[assembly: AssemblyCopyright("Copyright (C) 2014+")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

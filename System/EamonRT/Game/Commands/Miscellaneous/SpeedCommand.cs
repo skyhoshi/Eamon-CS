@@ -1,9 +1,8 @@
 ﻿
 // SpeedCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
@@ -19,7 +18,7 @@ namespace EamonRT.Game.Commands
 
 		protected virtual void PrintFeelNewAgility()
 		{
-			Globals.Out.WriteLine("{0}You can feel the new agility flowing through you!", Environment.NewLine);
+			Globals.Out.Print("You can feel the new agility flowing through you!");
 		}
 
 		protected override void PlayerExecute()

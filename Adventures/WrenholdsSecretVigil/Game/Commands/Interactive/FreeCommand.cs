@@ -1,9 +1,8 @@
 ﻿
 // FreeCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using WrenholdsSecretVigil.Framework.Commands;
@@ -24,7 +23,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (DobjArtifact.Uid == 46 && (deviceArtifact.IsInRoom(ActorRoom) || deviceArtifact.IsEmbeddedInRoom(ActorRoom)))
 			{
-				Globals.Out.Write("{0}The glowing cages won't open!{0}", Environment.NewLine);
+				Globals.Out.Print("The glowing cages won't open!");
 
 				GotoCleanup = true;
 			}

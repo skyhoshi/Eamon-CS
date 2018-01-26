@@ -1,12 +1,10 @@
 ﻿
 // PowerCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using Eamon.Game.Extensions;
 using StrongholdOfKahrDur.Framework;
 using StrongholdOfKahrDur.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -19,7 +17,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 	{
 		protected override void PrintFortuneCookie()
 		{
-			Globals.Out.Write("{0}The air crackles with magical energy but nothing interesting happens.{0}", Environment.NewLine);
+			Globals.Out.Print("The air crackles with magical energy but nothing interesting happens.");
 		}
 
 		protected override void PlayerProcessEvents()
@@ -66,7 +64,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				artifact.SetInLimbo();
 
-				Globals.Out.WriteLine("{0}The cauldron disintegrates!", Environment.NewLine);
+				Globals.Out.Print("The cauldron disintegrates!");
 
 				GotoCleanup = true;
 
@@ -85,7 +83,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 					foreach (var m in monsters)
 					{
-						Globals.Out.WriteLine("{0}{1} suddenly appears!", Environment.NewLine, m.GetDecoratedName03(true, true, false, false, Globals.Buf));
+						Globals.Out.Print("{0} suddenly appears!", m.GetDecoratedName03(true, true, false, false, Globals.Buf));
 
 						m.SetInRoom(ActorRoom);
 					}
@@ -110,7 +108,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 					foreach (var m in monsters)
 					{
-						Globals.Out.WriteLine("{0}{1} suddenly appears!", Environment.NewLine, m.GetDecoratedName03(true, true, false, false, Globals.Buf));
+						Globals.Out.Print("{0} suddenly appears!", m.GetDecoratedName03(true, true, false, false, Globals.Buf));
 
 						m.SetInRoom(ActorRoom);
 					}

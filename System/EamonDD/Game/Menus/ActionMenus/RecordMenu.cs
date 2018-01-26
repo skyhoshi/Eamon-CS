@@ -1,9 +1,8 @@
 ﻿
 // RecordMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using Eamon.Framework;
 using Eamon.Framework.DataStorage.Generic;
 using Eamon.Game.Menus;
@@ -22,7 +21,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			Globals.Out.WriteLine();
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		public virtual void UpdateGlobals()

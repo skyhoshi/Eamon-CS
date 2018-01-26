@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -19,17 +19,17 @@ namespace ARuncibleCargo.Game
 	{
 		protected override void PrintTooManyWeapons()
 		{
-			Globals.Out.Write("{0}As you enter the Main Hall, Lord William Crankhandle approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"{0}", Environment.NewLine);
+			Globals.Out.Print("As you enter the Main Hall, Lord William Crankhandle approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"");
 		}
 
 		protected override void PrintDeliverGoods()
 		{
-			Globals.Out.Write("{0}As Sam Slicker, the local buyer of treasure is vacationing, you grant yourself the gold he would have given you.{0}", Environment.NewLine);
+			Globals.Out.Print("As Sam Slicker, the local buyer of treasure is vacationing, you grant yourself the gold he would have given you.");
 		}
 
 		protected override void PrintGoodsPayment(bool goodsExist, long payment)
 		{
-			Globals.Out.Write("{0}{1}You take {2} gold pieces total.{0}", Environment.NewLine, goodsExist ? Environment.NewLine : "", payment);
+			Globals.Out.Print("{0}You take {1} gold piece{2} total.", goodsExist ? Environment.NewLine : "", payment, payment != 1 ? "s" : "");
 		}
 
 		public override void PrintMonsterAlive(IArtifact artifact)

@@ -1,7 +1,7 @@
 ﻿
 // GenerateDummyArtifactRecordsMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -77,11 +77,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (j > 0)
 			{
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Buf.SetFormat(j > 1 ? "Generated dummy artifacts with uids between {0} and {1}, inclusive." : "Generated a dummy artifact with uid {0}.", artUids[0], artUids[1]);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Buf);
+				Globals.Out.Print("{0}", Buf);
 			}
 		}
 

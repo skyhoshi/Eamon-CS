@@ -1,9 +1,8 @@
 ﻿
 // ReadCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using ARuncibleCargo.Framework;
@@ -57,13 +56,13 @@ namespace ARuncibleCargo.Game.Commands
 
 						Globals.Engine.PrintEffectDesc(76);
 
-						Globals.Out.Write("{0}Your ability to cast {1} just increased!{0}", Environment.NewLine, spell.Name);
+						Globals.Out.Print("Your ability to cast {0} just increased!", spell.Name);
 
 						gameState.PaperRead = true;
 					}
 					else
 					{
-						Globals.Out.WriteLine("{0}Nothing happens.", Environment.NewLine);
+						Globals.Out.Print("Nothing happens.");
 					}
 
 					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();

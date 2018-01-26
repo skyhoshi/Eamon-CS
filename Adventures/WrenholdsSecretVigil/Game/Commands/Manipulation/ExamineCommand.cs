@@ -1,9 +1,8 @@
 ﻿
 // ExamineCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using WrenholdsSecretVigil.Framework.Commands;
@@ -62,14 +61,14 @@ namespace WrenholdsSecretVigil.Game.Commands
 				}
 				else if (DobjArtifact.IsCharOwned)
 				{
-					Globals.Out.Write("{0}You see nothing unusual about {1}.{0}", Environment.NewLine, DobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf));
+					Globals.Out.Print("You see nothing unusual about {0}.", DobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf));
 				}
 
 				// If not special dead body, send msg
 
 				else if (DobjArtifact.Uid >= 51)
 				{
-					Globals.Out.Write("{0}You find nothing special about {1}.{0}", Environment.NewLine, DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+					Globals.Out.Print("You find nothing special about {0}.", DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
 				}
 				else
 				{

@@ -1,9 +1,8 @@
 ﻿
 // EndOfRoundState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using Eamon.Game.Attributes;
 using WrenholdsSecretVigil.Framework.States;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
@@ -19,7 +18,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 			if (Globals.DeviceOpened)
 			{
-				Globals.Out.Write("{0}Your attempts to open the glowing device are unsuccessful.{0}", Environment.NewLine);
+				Globals.Out.Print("Your attempts to open the glowing device are unsuccessful.");
 
 				Globals.DeviceOpened = false;
 			}

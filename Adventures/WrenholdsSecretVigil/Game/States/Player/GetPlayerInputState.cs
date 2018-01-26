@@ -1,7 +1,7 @@
 ﻿
 // GetPlayerInputState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -40,7 +40,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 				if (gameState.Ro == 69)
 				{
-					Globals.Out.Write("{0}All sides of the magic cube are glowing!{0}", Environment.NewLine);
+					Globals.Out.Print("All sides of the magic cube are glowing!");
 				}
 				else
 				{
@@ -55,7 +55,7 @@ namespace WrenholdsSecretVigil.Game.States
 						dir = "east";
 					}
 
-					Globals.Out.Write("{0}The {1} side of the magic cube is glowing!{0}", Environment.NewLine, dir);
+					Globals.Out.Print("The {0} side of the magic cube is glowing!", dir);
 				}
 			}
 

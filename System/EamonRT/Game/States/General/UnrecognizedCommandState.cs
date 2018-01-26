@@ -1,9 +1,8 @@
 ﻿
 // UnrecognizedCommandState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Game.Attributes;
@@ -26,7 +25,7 @@ namespace EamonRT.Game.States
 
 			var commandList = Globals.CommandList.Where(x => x.IsEnabled(charMonster) && x.IsListed).ToList();
 
-			Globals.Out.Write("{0}Movement Commands:{0}", Environment.NewLine);
+			Globals.Out.Print("Movement Commands:");
 
 			Globals.Buf.Clear();
 
@@ -36,7 +35,7 @@ namespace EamonRT.Game.States
 
 			Globals.Out.Write("{0}", Globals.Buf);
 
-			Globals.Out.Write("{0}Artifact Manipulation:{0}", Environment.NewLine);
+			Globals.Out.Print("Artifact Manipulation:");
 
 			Globals.Buf.Clear();
 
@@ -46,7 +45,7 @@ namespace EamonRT.Game.States
 
 			Globals.Out.Write("{0}", Globals.Buf);
 
-			Globals.Out.Write("{0}Interactive:{0}", Environment.NewLine);
+			Globals.Out.Print("Interactive:");
 
 			Globals.Buf.Clear();
 
@@ -56,7 +55,7 @@ namespace EamonRT.Game.States
 
 			Globals.Out.Write("{0}", Globals.Buf);
 
-			Globals.Out.Write("{0}Miscellaneous:{0}", Environment.NewLine);
+			Globals.Out.Print("Miscellaneous:");
 
 			Globals.Buf.Clear();
 
@@ -68,7 +67,7 @@ namespace EamonRT.Game.States
 
 			if (newSeen)
 			{
-				Globals.Out.WriteLine("{0}(*) New Command", Environment.NewLine);
+				Globals.Out.Print("(*) New Command");
 			}
 
 			if (NextState == null)

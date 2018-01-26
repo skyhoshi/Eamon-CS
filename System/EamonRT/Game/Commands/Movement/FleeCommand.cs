@@ -1,7 +1,7 @@
 ﻿
 // FleeCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -109,7 +109,7 @@ namespace EamonRT.Game.Commands
 				Globals.Buf.SetFormat(" to the {0}", Direction.ToString().ToLower());
 			}
 
-			Globals.Out.Write("{0}Attempting to flee{1}.{0}", Environment.NewLine, Globals.Buf);
+			Globals.Out.Print("Attempting to flee{0}.", Globals.Buf);
 
 			Globals.GameState.R2 = DobjArtifact != null ? 0 : ActorRoom.GetDirs(Direction);
 
@@ -161,7 +161,7 @@ namespace EamonRT.Game.Commands
 				{
 					if (monsters.Contains(charMonster))
 					{
-						Globals.Out.Write("{0}{1} {2} to flee, but can't find {3}!{0}", Environment.NewLine, monsterName, rl > 1 ? "try" : "tries", ActorRoom.EvalRoomType("an exit", "a path"));
+						Globals.Out.Print("{0} {1} to flee, but can't find {2}!", monsterName, rl > 1 ? "try" : "tries", ActorRoom.EvalRoomType("an exit", "a path"));
 					}
 
 					goto Cleanup;
@@ -180,7 +180,7 @@ namespace EamonRT.Game.Commands
 
 					if (monsters.Contains(charMonster))
 					{
-						Globals.Out.Write("{0}{1} {2}!{0}", Environment.NewLine, monsterName, rl > 1 ? "flee" : "flees");
+						Globals.Out.Print("{0} {1}!", monsterName, rl > 1 ? "flee" : "flees");
 					}
 
 					if (Globals.Engine.EnforceMonsterWeightLimits)
@@ -215,7 +215,7 @@ namespace EamonRT.Game.Commands
 							Globals.Buf.SetFormat(" to the {0}", direction.ToString().ToLower());
 						}
 
-						Globals.Out.Write("{0}{1} {2}{3}!{0}", Environment.NewLine, monsterName, rl > 1 ? "flee" : "flees", Globals.Buf);
+						Globals.Out.Print("{0} {1}{2}!", monsterName, rl > 1 ? "flee" : "flees", Globals.Buf);
 					}
 
 					ActorMonster.Location = roomUid;

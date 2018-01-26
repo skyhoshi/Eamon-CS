@@ -1,7 +1,7 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -18,7 +18,7 @@ namespace StrongholdOfKahrDur.Game.States
 	{
 		protected override void PrintRideOffIntoSunset()
 		{
-			Globals.Out.WriteLine("{0}You ride off into the sunset.", Environment.NewLine);
+			Globals.Out.Print("You ride off into the sunset.");
 		}
 
 		protected override void ProcessEvents()
@@ -100,7 +100,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 				else
 				{
-					Globals.Out.WriteLine("{0}The ceiling is too high to climb back up!", Environment.NewLine);
+					Globals.Out.Print("The ceiling is too high to climb back up!");
 
 					GotoCleanup = true;
 				}
@@ -135,21 +135,21 @@ namespace StrongholdOfKahrDur.Game.States
 
 				if (!vanquished || !rescued)
 				{
-					Globals.Out.Write("{0}You have not succeeded in your quest!{0}", Environment.NewLine);
+					Globals.Out.Print("You have not succeeded in your quest!");
 
 					if (!vanquished)
 					{
-						Globals.Out.Write("{0} * The evil force here has not been vanquished{0}", Environment.NewLine);
+						Globals.Out.Print(" * The evil force here has not been vanquished");
 					}
 
 					if (!rescued)
 					{
-						Globals.Out.Write("{0} * Lady Mirabelle has not been rescued{0}", Environment.NewLine);
+						Globals.Out.Print(" * Lady Mirabelle has not been rescued");
 					}
 				}
 				else
 				{
-					Globals.Out.Write("{0}YOU HAVE SUCCEEDED IN YOUR QUEST!  CONGRATULATIONS!{0}", Environment.NewLine);
+					Globals.Out.Print("YOU HAVE SUCCEEDED IN YOUR QUEST!  CONGRATULATIONS!");
 				}
 
 				Globals.Out.Write("{0}Leave this adventure (Y/N): ", Environment.NewLine);

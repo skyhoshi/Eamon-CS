@@ -1,7 +1,7 @@
 ﻿
 // AttackCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -189,7 +189,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							Globals.Engine.PrintEffectDesc(70);
 
-							Globals.Out.Write("{0}Enemies storm into the room!{0}", Environment.NewLine);
+							Globals.Out.Print("Enemies storm into the room!");
 
 							var monsters = Globals.Engine.GetMonsterList(() => true, m => m.Uid >= 20 && m.Uid <= 22);
 
@@ -241,7 +241,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 						{
 							artifact.Desc = "Destroying the remains of the android reveals a small featureless card made out of a durable plastic.";
 
-							Globals.Out.Write("{0}{1}{0}", Environment.NewLine, artifact.Desc);
+							Globals.Out.Print("{0}", artifact.Desc);
 
 							artifact.SetInRoom(ActorRoom);
 

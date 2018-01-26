@@ -1,9 +1,8 @@
 ﻿
 // GetPlayerInputState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheSubAquanLaboratory.Framework;
@@ -33,7 +32,7 @@ namespace TheSubAquanLaboratory.Game.States
 
 				if (artifact.Location == Globals.GameState.Ro)
 				{
-					Globals.Out.Write("{0}The electrified floor zaps everyone in the chamber!{0}", Environment.NewLine);
+					Globals.Out.Print("The electrified floor zaps everyone in the chamber!");
 
 					var monsters = Globals.Engine.GetMonsterList(() => true, m => m.IsCharacterMonster(), m => m.Location == Globals.GameState.Ro && !m.IsCharacterMonster());
 
@@ -77,7 +76,7 @@ namespace TheSubAquanLaboratory.Game.States
 
 							if (artifact.IsWornByCharacter())
 							{
-								Globals.Out.Write("{0}The chamber has entirely flooded!{0}", Environment.NewLine);
+								Globals.Out.Print("The chamber has entirely flooded!");
 
 								var monsters = Globals.Engine.GetMonsterList(() => true, m => m.Location == gameState.Ro && !m.IsCharacterMonster());
 
@@ -121,11 +120,11 @@ namespace TheSubAquanLaboratory.Game.States
 						{
 							if (++gameState.FloodLevel % 3 == 0)
 							{
-								Globals.Out.Write("{0}The water has risen to the {1} meter mark.{0}", Environment.NewLine, gameState.FloodLevel / 3);
+								Globals.Out.Print("The water has risen to the {0} meter mark.", gameState.FloodLevel / 3);
 							}
 							else
 							{
-								Globals.Out.Write("{0}The water continues to pour into the chamber.{0}", Environment.NewLine);
+								Globals.Out.Print("The water continues to pour into the chamber.");
 							}
 						}
 					}
@@ -133,11 +132,11 @@ namespace TheSubAquanLaboratory.Game.States
 					{
 						if (gameState.FloodLevel % 3 == 0)
 						{
-							Globals.Out.Write("{0}The water has receded to the {1} meter mark.{0}", Environment.NewLine, gameState.FloodLevel / 3);
+							Globals.Out.Print("The water has receded to the {0} meter mark.", gameState.FloodLevel / 3);
 						}
 						else
 						{
-							Globals.Out.Write("{0}The water continues to drain from the chamber.{0}", Environment.NewLine);
+							Globals.Out.Print("The water continues to drain from the chamber.");
 						}
 
 						if (--gameState.FloodLevel < 0)

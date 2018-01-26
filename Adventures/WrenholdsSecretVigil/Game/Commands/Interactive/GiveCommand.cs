@@ -1,9 +1,8 @@
 ﻿
 // GiveCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using Eamon.Game.Attributes;
 using WrenholdsSecretVigil.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -38,7 +37,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 					if (IobjMonster.Friendliness == Enums.Friendliness.Friend)
 					{
-						Globals.Out.Write("{0}{1} barks once and wags its tail!{0}", Environment.NewLine, IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf));
+						Globals.Out.Print("{0} barks once and wags its tail!", IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf));
 					}
 				}
 				else

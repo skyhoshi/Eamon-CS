@@ -1,9 +1,8 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using Eamon.Game.Attributes;
 using BeginnersForest.Framework.States;
 using static BeginnersForest.Game.Plugin.PluginContext;
@@ -19,7 +18,7 @@ namespace BeginnersForest.Game.States
 
 			if (Globals.GameState.R2 == -2)
 			{
-				Globals.Out.WriteLine("{0}The path is washed out!", Environment.NewLine);
+				Globals.Out.Print("The path is washed out!");
 			}
 
 			// Death by spooky water! / Death by moss!

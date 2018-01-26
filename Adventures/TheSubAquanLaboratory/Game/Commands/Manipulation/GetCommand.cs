@@ -1,9 +1,8 @@
 ﻿
 // GetCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
@@ -29,25 +28,25 @@ namespace TheSubAquanLaboratory.Game.Commands
 			{
 				case -1:
 
-					Globals.Buf.SetFormat("{0}{1} {2} affixed to the wall.{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), artifact.EvalPlural("is", "are"));
+					Globals.Buf.SetPrint("{0} {1} affixed to the wall.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), artifact.EvalPlural("is", "are"));
 
 					break;
 
 				case -2:
 
-					Globals.Buf.SetFormat("{0}{1} {2} carved into the wall.{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), artifact.EvalPlural("is", "are"));
+					Globals.Buf.SetPrint("{0} {1} carved into the wall.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), artifact.EvalPlural("is", "are"));
 
 					break;
 
 				case -3:
 
-					Globals.Buf.SetFormat("{0}{1} {2} bolted down, and can't be removed.{0}", Environment.NewLine, artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), artifact.EvalPlural("is", "are"));
+					Globals.Buf.SetPrint("{0} {1} bolted down, and can't be removed.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), artifact.EvalPlural("is", "are"));
 
 					break;
 
 				case -4:
 
-					Globals.Buf.SetFormat("{0}You can't get near enough to {1} to grab {2}.{0}", Environment.NewLine, artifact.GetDecoratedName03(false, true, false, false, Globals.Buf01), artifact.EvalPlural("it", "them"));
+					Globals.Buf.SetPrint("You can't get near enough to {0} to grab {1}.", artifact.GetDecoratedName03(false, true, false, false, Globals.Buf01), artifact.EvalPlural("it", "them"));
 
 					break;
 			}

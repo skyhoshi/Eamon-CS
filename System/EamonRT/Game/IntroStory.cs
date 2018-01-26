@@ -1,7 +1,7 @@
 ﻿
 // IntroStory.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -30,9 +30,9 @@ namespace EamonRT.Game
 
 				if (Globals.Database.GetFilesetsCount() > 0)
 				{
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
-					Globals.Out.WriteLine("{0}Welcome back to {1}!", Environment.NewLine, Globals.Module.Name);
+					Globals.Out.Print("Welcome back to {0}!", Globals.Module.Name);
 
 					Globals.Out.Write("{0}Would you like to see the introduction story again (Y/N) [N]: ", Environment.NewLine);
 
@@ -84,7 +84,7 @@ namespace EamonRT.Game
 		{
 			RetCode rc;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			PrintOutputBeginnersPrelude();
 
@@ -118,7 +118,7 @@ namespace EamonRT.Game
 
 					Globals.Out.WriteLine("{0}", Buf);
 
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					Globals.Out.Write("{0}Press the number of the weapon to select: ", Environment.NewLine);
 
@@ -130,7 +130,7 @@ namespace EamonRT.Game
 
 					Globals.Thread.Sleep(150);
 
-					Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
 					Debug.Assert(Globals.GameState != null);
 
@@ -147,7 +147,7 @@ namespace EamonRT.Game
 		{
 			RetCode rc;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			var effect = Globals.EDB[Globals.Module.IntroStory];
 
@@ -184,7 +184,7 @@ namespace EamonRT.Game
 			}
 			else
 			{
-				Globals.Out.WriteLine("{0}There is no introduction story for this adventure.", Environment.NewLine);
+				Globals.Out.Print("There is no introduction story for this adventure.");
 			}
 		}
 

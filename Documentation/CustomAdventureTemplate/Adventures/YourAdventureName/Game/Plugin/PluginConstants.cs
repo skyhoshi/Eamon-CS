@@ -1,7 +1,7 @@
 ﻿
 // PluginConstants.cs
 
-// Copyright (c) 2014-2017 by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
 
 using YourAdventureName.Framework.Plugin;
 

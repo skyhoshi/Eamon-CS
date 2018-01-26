@@ -1,7 +1,7 @@
 ﻿
 // GenerateDeadBodyArtifactRecordsMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -51,7 +51,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			monUids[0] = Convert.ToInt64(Buf.Trim().ToString());
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(43, '\0', 0, "Enter the ending monster uid", maxMonUid > 0 ? maxMonUid.ToString() : "1"));
 
@@ -69,7 +69,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (k > 0)
 			{
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 			}
 
 			var helper = Globals.CreateInstance<IHelper<IMonster>>();
@@ -92,7 +92,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 						Globals.Out.WriteLine();
 
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 
 						Globals.Out.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
 
@@ -108,7 +108,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 						}
 						else if (j < k - 1)
 						{
-							Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+							Globals.Out.Print("{0}", Globals.LineSep);
 						}
 					}
 				}
@@ -123,7 +123,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (j > 0)
 			{
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Write("{0}Would you like to generate {1} (Y/N): ", Environment.NewLine, j > 1 ? "dead body artifact records" : "a dead body artifact record");
 
@@ -182,11 +182,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 					}
 				}
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Buf.SetFormat(j > 1 ? "Generated dead body artifacts with uids between {0} and {1}, inclusive." : "Generated a dead body artifact with uid {0}.", artUids[0], artUids[1]);
 
-				Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Buf);
+				Globals.Out.Print("{0}", Buf);
 			}
 
 		Cleanup:

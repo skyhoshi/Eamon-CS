@@ -1,7 +1,7 @@
 ﻿
 // WearCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -34,7 +34,7 @@ namespace EamonRT.Game.Commands
 			{
 				if (DobjArtifact.IsWornByCharacter())
 				{
-					Globals.Out.WriteLine("{0}You're already wearing {1}!", Environment.NewLine, DobjArtifact.EvalPlural("it", "them"));
+					Globals.Out.Print("You're already wearing {0}!", DobjArtifact.EvalPlural("it", "them"));
 
 					NextState = Globals.CreateInstance<IStartState>();
 
@@ -75,7 +75,7 @@ namespace EamonRT.Game.Commands
 
 						if (arAc != null)
 						{
-							Globals.Out.WriteLine("{0}You're already wearing armor!", Environment.NewLine);
+							Globals.Out.Print("You're already wearing armor!");
 
 							NextState = Globals.CreateInstance<IStartState>();
 
@@ -90,7 +90,7 @@ namespace EamonRT.Game.Commands
 					{
 						if (shAc != null)
 						{
-							Globals.Out.WriteLine("{0}You're already wearing a shield!", Environment.NewLine);
+							Globals.Out.Print("You're already wearing a shield!");
 
 							NextState = Globals.CreateInstance<IStartState>();
 
@@ -105,7 +105,7 @@ namespace EamonRT.Game.Commands
 
 				DobjArtifact.SetWornByCharacter();
 
-				Globals.Out.Write("{0}{1} worn.{0}", Environment.NewLine, DobjArtifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
+				Globals.Out.Print("{0} worn.", DobjArtifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
 
 				PlayerProcessEvents();
 

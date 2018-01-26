@@ -1,9 +1,8 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using Eamon.Game.Attributes;
 using TheBeginnersCave.Framework.States;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
@@ -17,7 +16,7 @@ namespace TheBeginnersCave.Game.States
 		{
 			if (Globals.GameState.R2 == -1)
 			{
-				Globals.Out.WriteLine("{0}Sorry, but I'm afraid to go into the water without my life preserver.", Environment.NewLine);
+				Globals.Out.Print("Sorry, but I'm afraid to go into the water without my life preserver.");
 
 				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
 			}

@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
@@ -2001,14 +2001,14 @@ namespace Eamon.Game
 				}
 				else if (args.FieldDesc == Enums.FieldDesc.Brief)
 				{
-					args.Buf.AppendFormat("{0}{1}{0}", Environment.NewLine, briefDesc);
+					args.Buf.AppendPrint("{0}", briefDesc);
 				}
 			}
 			else
 			{
 				if (args.FieldDesc == Enums.FieldDesc.Full)
 				{
-					args.Buf.AppendFormat("{0}{1}{0}", Environment.NewLine, fullDesc);
+					args.Buf.AppendPrint("{0}", fullDesc);
 				}
 			}
 		}

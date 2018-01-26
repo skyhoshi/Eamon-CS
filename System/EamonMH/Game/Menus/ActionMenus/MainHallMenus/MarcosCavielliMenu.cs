@@ -1,7 +1,7 @@
 ﻿
 // MarcosCavielliMenu.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Diagnostics;
@@ -56,9 +56,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			var menuState = MenuState.BuyOrSell;
 
-			Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+			Globals.Out.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Write("{0}As you enter the weapon shop, Marcos Cavielli (the owner) comes from out of the back room and says, \"Well, as I live and breathe, if it isn't my old pal, {1}!  So, what do you need?\"{0}", Environment.NewLine, Globals.Character.Name);
+			Globals.Out.Print("As you enter the weapon shop, Marcos Cavielli (the owner) comes from out of the back room and says, \"Well, as I live and breathe, if it isn't my old pal, {0}!  So, what do you need?\"", Globals.Character.Name);
 
 			while (true)
 			{
@@ -66,7 +66,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 				{
 					case MenuState.BuyOrSell:
 
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 
 						Globals.Out.Write("{0}B=Buy weapon, S=Sell weapon, A=Buy better armor, X=Exit: ", Environment.NewLine);
 
@@ -83,7 +83,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 								goto Cleanup;
 						}
 
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 
 						/* 
 							Full Credit:  Derived wholly from Donald Brown's Classic Eamon
@@ -122,9 +122,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						if (!Globals.Character.IsWeaponActive(i))
 						{
-							Globals.Out.Write("{0}Marcos smiles at you and says, \"Good!  I gotta the best.  What kind do you want?\"{0}", Environment.NewLine);
+							Globals.Out.Print("Marcos smiles at you and says, \"Good!  I gotta the best.  What kind do you want?\"");
 
-							Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+							Globals.Out.Print("{0}", Globals.LineSep);
 
 							Buf.Clear();
 
@@ -154,7 +154,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							Globals.Thread.Sleep(150);
 
-							Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+							Globals.Out.Print("{0}", Globals.LineSep);
 
 							if (Buf.Length > 0 && Buf[0] != 'X')
 							{
@@ -175,14 +175,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 									x.Sides = weapon.MarcosSides;
 								});
 
-								Globals.Out.Write("{0}Marcos says, \"Well, I just happen to have three {1}s in, of varying quality.  I've got a very good one for {2} GP, a fair one for {3} GP, and a kinda shabby one for {4} GP.  Which do you want?\"{0}",
-									Environment.NewLine,
+								Globals.Out.Print("Marcos says, \"Well, I just happen to have three {0}s in, of varying quality.  I've got a very good one for {1} GP, a fair one for {2} GP, and a kinda shabby one for {3} GP.  Which do you want?\"",
 									cw.Name,
 									Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice, (double)Rtio),
 									Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice * 0.80, (double)Rtio),
 									Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice * 0.60, (double)Rtio));
 
-								Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+								Globals.Out.Print("{0}", Globals.LineSep);
 
 								Globals.Out.Write("{0}G=Good quality, F=Fair quality, P=Poor quality, X=Exit: ", Environment.NewLine);
 
@@ -194,7 +193,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 								Globals.Thread.Sleep(150);
 
-								Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+								Globals.Out.Print("{0}", Globals.LineSep);
 
 								if (Buf.Length > 0 && Buf[0] != 'X')
 								{
@@ -219,7 +218,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 									if (ap > Globals.Character.HeldGold)
 									{
-										Globals.Out.Write("{0}Marcos shakes a finger at you and says, \"You shouldn't play tricks on an old friend!  Come back when you gotta more gold or you want something you can afford.\"  He then shoos you out the door.{0}", Environment.NewLine);
+										Globals.Out.Print("Marcos shakes a finger at you and says, \"You shouldn't play tricks on an old friend!  Come back when you gotta more gold or you want something you can afford.\"  He then shoos you out the door.");
 
 										Globals.In.KeyPress(Buf);
 
@@ -242,7 +241,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 									Globals.CharactersModified = true;
 
-									Globals.Out.Write("{0}Marcos hands you your weapon and takes the price from you.{0}", Environment.NewLine);
+									Globals.Out.Print("Marcos hands you your weapon and takes the price from you.");
 
 									menuState = MenuState.CheckShield;
 								}
@@ -258,7 +257,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 						}
 						else
 						{
-							Globals.Out.Write("{0}Marcos smiles at you and says, \"Thatsa good, but first you gotta sell me a weapon.  You know the law:  No more than four weapons per person!\"{0}", Environment.NewLine);
+							Globals.Out.Print("Marcos smiles at you and says, \"Thatsa good, but first you gotta sell me a weapon.  You know the law:  No more than four weapons per person!\"");
 
 							menuState = MenuState.BuyOrSell;
 						}
@@ -271,9 +270,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						if (Globals.Character.HeldGold >= ap)
 						{
-							Globals.Out.Write("{0}He now asks you, \"Now how about some armor?\"{0}", Environment.NewLine);
+							Globals.Out.Print("He now asks you, \"Now how about some armor?\"");
 
-							Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+							Globals.Out.Print("{0}", Globals.LineSep);
 
 							Globals.Out.Write("{0}Press Y for yes or N for no: ", Environment.NewLine);
 
@@ -285,7 +284,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							Globals.Thread.Sleep(150);
 
-							Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+							Globals.Out.Print("{0}", Globals.LineSep);
 
 							if (Buf.Length > 0 && Buf[0] == 'Y')
 							{
@@ -307,7 +306,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						if (Globals.Character.IsWeaponActive(0))
 						{
-							Buf.SetFormat("{0}Marcos says, \"Okay, what've you got?\"{0}", Environment.NewLine);
+							Buf.SetPrint("Marcos says, \"Okay, what've you got?\"");
 
 							rc = Globals.Character.ListWeapons(Buf);
 
@@ -327,7 +326,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							Globals.Thread.Sleep(150);
 
-							Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+							Globals.Out.Print("{0}", Globals.LineSep);
 
 							if (Buf.Length > 0 && Buf[0] != 'X')
 							{
@@ -343,15 +342,14 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 								ti = Math.Min(ap, bp) / 4;
 
-								Globals.Out.Write("{0}Marcos examines your weapon and says, \"{1}Well, {2}I can give you {3} gold piece{4} for it, take it or leave it.\"{0}",
-									Environment.NewLine,
+								Globals.Out.Print("Marcos examines your weapon and says, \"{0}Well, {1}I can give you {2} gold piece{3} for it, take it or leave it.\"",
 									Globals.Character.GetWeapons(i).Dice * Globals.Character.GetWeapons(i).Sides > 25 ? "Very nice, this is a magical weapon.  " :
 									Globals.Character.GetWeapons(i).Dice * Globals.Character.GetWeapons(i).Sides > 15 || Globals.Character.GetWeapons(i).Complexity > 10 ? "Hey, this is a pretty good weapon!  " : "",
 									imw ? "you've banged it up a bit, but " : "",
 									ti,
 									ti != 1 ? "s" : "");
 
-								Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+								Globals.Out.Print("{0}", Globals.LineSep);
 
 								Globals.Out.Write("{0}Press T to take or L to leave: ", Environment.NewLine);
 
@@ -363,11 +361,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 								Globals.Thread.Sleep(150);
 
-								Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+								Globals.Out.Print("{0}", Globals.LineSep);
 
 								if (Buf.Length > 0 && Buf[0] == 'T')
 								{
-									Globals.Out.Write("{0}Marcos gives you your money and takes your weapon.{0}", Environment.NewLine);
+									Globals.Out.Print("Marcos gives you your money and takes your weapon.");
 
 									Globals.Character.HeldGold += ti;
 
@@ -389,9 +387,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 									Globals.CharactersModified = true;
 
-									Globals.Out.Write("{0}Marcos asks you, \"How about buying a weapon?\"{0}", Environment.NewLine);
+									Globals.Out.Print("Marcos asks you, \"How about buying a weapon?\"");
 
-									Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+									Globals.Out.Print("{0}", Globals.LineSep);
 
 									Globals.Out.Write("{0}Press Y for yes or N for no: ", Environment.NewLine);
 
@@ -403,7 +401,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 									Globals.Thread.Sleep(150);
 
-									Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+									Globals.Out.Print("{0}", Globals.LineSep);
 
 									if (Buf.Length > 0 && Buf[0] == 'Y')
 									{
@@ -426,7 +424,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 						}
 						else
 						{
-							Globals.Out.Write("{0}Marcos grins and says, \"You havea no weapons to sell me, {1}!\"{0}", Environment.NewLine, Globals.Character.Name);
+							Globals.Out.Print("Marcos grins and says, \"You havea no weapons to sell me, {0}!\"", Globals.Character.Name);
 
 							menuState = MenuState.BuyOrSell;
 						}
@@ -481,14 +479,14 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						if (ti > 0)
 						{
-							Buf.AppendFormat("{0}Also, I can give you a trade-in on your old armor of {1} gold pieces.{0}", Environment.NewLine, ti);
+							Buf.AppendPrint("Also, I can give you a trade-in on your old armor of {0} gold piece{1}.", ti, ti != 1 ? "s" : "");
 						}
 
-						Buf.AppendFormat("{0}Well, what will it be?\"{0}", Environment.NewLine);
+						Buf.AppendPrint("Well, what will it be?\"");
 
 						Globals.Out.Write("{0}", Buf);
 
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 
 						Buf.Clear();
 
@@ -521,7 +519,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Globals.Thread.Sleep(150);
 
-						Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+						Globals.Out.Print("{0}", Globals.LineSep);
 
 						if (Buf.Length > 0 && Buf[0] != 'X')
 						{
@@ -535,7 +533,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							if (Globals.Character.HeldGold + ti >= ap)
 							{
-								Globals.Out.Write("{0}Marcos takes your gold{1} and helps you into your new armor.{0}", Environment.NewLine, ti > 0 ? " and your old armor" : "");
+								Globals.Out.Print("Marcos takes your gold{0} and helps you into your new armor.", ti > 0 ? " and your old armor" : "");
 
 								Globals.Character.HeldGold += ti;
 
@@ -557,7 +555,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 							}
 							else
 							{
-								Globals.Out.Write("{0}Marcos frowns when he sees that you do not have enough to pay for your armor and says, \"I don't give credit!\"{0}", Environment.NewLine);
+								Globals.Out.Print("Marcos frowns when he sees that you do not have enough to pay for your armor and says, \"I don't give credit!\"");
 							}
 						}
 
@@ -571,9 +569,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 						{
 							ap = Globals.Engine.GetMerchantAskPrice(Constants.ShieldPrice, (double)Rtio);
 
-							Globals.Out.Write("{0}Marcos smiles and says, \"Now how about a shield?  I can let you have one for only {1} gold pieces!\"{0}", Environment.NewLine, ap);
+							Globals.Out.Print("Marcos smiles and says, \"Now how about a shield?  I can let you have one for only {0} gold piece{1}!\"", ap, ap != 1 ? "s" : "");
 
-							Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+							Globals.Out.Print("{0}", Globals.LineSep);
 
 							Globals.Out.Write("{0}Press Y for yes or N for no: ", Environment.NewLine);
 
@@ -585,13 +583,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							Globals.Thread.Sleep(150);
 
-							Globals.Out.WriteLine("{0}{1}", Environment.NewLine, Globals.LineSep);
+							Globals.Out.Print("{0}", Globals.LineSep);
 
 							if (Buf.Length > 0 && Buf[0] == 'Y')
 							{
 								if (Globals.Character.HeldGold >= ap)
 								{
-									Globals.Out.Write("{0}Marcos takes your gold and gives you a shield.{0}", Environment.NewLine);
+									Globals.Out.Print("Marcos takes your gold and gives you a shield.");
 
 									Globals.Character.HeldGold -= ap;
 
@@ -601,7 +599,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 								}
 								else
 								{
-									Globals.Out.Write("{0}When he sees that you do not have enough gold to buy the shield, Marcos frowns and says, \"I'm sorry, but I don't give credit!\"{0}", Environment.NewLine);
+									Globals.Out.Print("When he sees that you do not have enough gold to buy the shield, Marcos frowns and says, \"I'm sorry, but I don't give credit!\"");
 								}
 							}
 						}
@@ -625,7 +623,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					case MenuState.LeaveShop:
 
-						Globals.Out.Write("{0}Marcos smiles and says, \"Come back again soon!\" as he shoos you out of his shop.{0}", Environment.NewLine);
+						Globals.Out.Print("Marcos smiles and says, \"Come back again soon!\" as he shoos you out of his shop.");
 
 						Globals.In.KeyPress(Buf);
 

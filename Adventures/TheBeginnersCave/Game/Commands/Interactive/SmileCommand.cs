@@ -1,9 +1,8 @@
 ﻿
 // SmileCommand.cs
 
-// Copyright (c) 2014-2017 by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using Eamon.Game.Attributes;
 using TheBeginnersCave.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -20,7 +19,7 @@ namespace TheBeginnersCave.Game.Commands
 
 			if (Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) > 0)
 			{
-				Globals.Out.WriteLine("{0}As you smile, the enemy attacks you!", Environment.NewLine);
+				Globals.Out.Print("As you smile, the enemy attacks you!");
 
 				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
 			}
