@@ -5,7 +5,7 @@ ChangeLog: BeginnersForest
 
 Date			Version			Who			Notes
 ----------------------------------------------------------------------------------------------------------------------------------
-20180122		1.3.0				MRP			TextWriter Print overhaul
+20180126		1.3.0				MRP			Print/SetPrint/AppendPrint overhaul
 20171021							MRP			Engine overhaul
 20171012							MRP			Eval/GameBase/Helper overhaul
 20170920							MRP			Compliant with .NET Standard 2.0

@@ -175,7 +175,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="As the Mimic dies, it rolls over and you find an unmarked gold ring!" />
+            <Simple name="Desc" value="As the mimic dies, it rolls over and you find an unmarked gold ring!" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
