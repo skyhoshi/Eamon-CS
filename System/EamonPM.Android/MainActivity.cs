@@ -140,8 +140,6 @@ namespace EamonPM
 
 		Cleanup:
 
-			SaveSettings();
-
 			if (App.SettingsViewModel.KeepKeyboardVisible)
 			{
 				App.PluginLauncherPage.InputEntry_Unfocus();
@@ -149,9 +147,7 @@ namespace EamonPM
 
 			Thread.Sleep(500);
 
-			Finish();
-
-			Process.KillProcess(Process.MyPid());
+			App.StopApplication();
 		}
 
 		protected virtual void StartGameThread()
@@ -161,6 +157,17 @@ namespace EamonPM
 			GameThread = new System.Threading.Thread(threadStart);
 
 			GameThread.Start(App.BatchFile.PluginArgs);
+		}
+
+		protected virtual void SaveSettingsAndTerminate()
+		{
+			SaveSettings();
+
+			Finish();
+
+			Thread.Sleep(500);
+
+			Process.KillProcess(Process.MyPid());
 		}
 
 		protected virtual void ForcePluginLinkage()
@@ -249,6 +256,8 @@ namespace EamonPM
 
 			App.StartGameThread = StartGameThread;
 
+			App.SaveSettingsAndTerminate = SaveSettingsAndTerminate;
+
 			LoadApplication(new App());
 		}
 
@@ -259,11 +268,9 @@ namespace EamonPM
 				// +++ IMPLEMENT +++
 			}
 
-			SaveSettings();
-
 			if (GameThread != null)
 			{
-				GameThread.Join(500);
+				GameThread.Join(0);
 
 				if (GameThread.IsAlive)
 				{
@@ -276,10 +283,18 @@ namespace EamonPM
 			PopConstants();
 
 			base.OnDestroy();
+		}
 
-			Finish();
-
-			Process.KillProcess(Process.MyPid());
+		public override void OnBackPressed()
+		{
+			if (App.ShouldStopApplicationOnBackPressed())
+			{
+				App.StopApplication();
+			}
+			else
+			{
+				base.OnBackPressed();
+			}
 		}
 	}
 }
