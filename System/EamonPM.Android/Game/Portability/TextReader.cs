@@ -95,6 +95,8 @@ namespace EamonPM.Game.Portability
 
 				buf.SetFormat("{0}", App.PluginLauncherViewModel.InputText);
 
+				App.FinishInputSet = false;
+
 				if (buf.Length > 0 || (emptyAllowed && string.IsNullOrEmpty(emptyVal)))
 				{
 					break;

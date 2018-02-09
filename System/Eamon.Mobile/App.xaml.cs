@@ -44,6 +44,8 @@ namespace Eamon.Mobile
 		
 		public static bool InputEmptyAllowed { get; set; }
 		
+		public static bool FinishInputSet { get; set; }
+
 		public static string InputEmptyVal { get; set; }
 		
 		public static Func<char, char> InputModifyCharFunc { get; set; }

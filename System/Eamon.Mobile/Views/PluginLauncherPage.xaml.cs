@@ -146,20 +146,25 @@ namespace Eamon.Mobile.Views
 		{
 			if (viewModel.InputText.Length > 0 || App.InputEmptyAllowed)
 			{
-				if (viewModel.InputText.Length == 0 && App.InputEmptyVal != null)
+				if (!App.FinishInputSet)         // Xamarin Forms bug workaround ???
 				{
-					SetInputTextNoEvents(App.InputEmptyVal);
-				}
+					App.FinishInputSet = true;
 
-				Device.BeginInvokeOnMainThread(() =>
-				{
-					if (!App.SettingsViewModel.KeepKeyboardVisible)
+					if (viewModel.InputText.Length == 0 && App.InputEmptyVal != null)
 					{
-						InputEntry.Unfocus();
+						SetInputTextNoEvents(App.InputEmptyVal);
 					}
 
-					App.FinishInput.Set();
-				});
+					Device.BeginInvokeOnMainThread(() =>
+					{
+						if (!App.SettingsViewModel.KeepKeyboardVisible)
+						{
+							InputEntry.Unfocus();
+						}
+
+						App.FinishInput.Set();
+					});
+				}
 			}
 			else		// never reached, but just in case
 			{
