@@ -82,9 +82,11 @@ namespace EamonPM.Game.Portability
 				App.OutputBufMutex.ReleaseMutex();
 			}
 
+			var defaultText = buf.ToString();
+
 			Device.BeginInvokeOnMainThread(() =>
 			{
-				App.PluginLauncherPage.SetInputTextNoEvents(buf.ToString());
+				App.PluginLauncherPage.SetInputTextNoEvents(defaultText);
 			});
 
 			while (true)         // Xamarin Forms bug workaround ???
