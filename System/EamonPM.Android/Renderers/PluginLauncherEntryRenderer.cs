@@ -4,6 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
+using Android.Content;
 using Android.Views.InputMethods;
 using Android.Widget;
 using Xamarin.Forms;
@@ -39,6 +40,11 @@ namespace EamonPM
 					}
 				};
 			}
+		}
+
+		public PluginLauncherEntryRenderer(Context context) : base(context)
+		{
+
 		}
 	}
 }

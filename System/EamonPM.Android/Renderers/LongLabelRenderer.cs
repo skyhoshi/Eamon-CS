@@ -3,6 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using Android.Content;
 using Android.Widget;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
@@ -23,6 +24,11 @@ namespace EamonPM
 
 				label.SetMaxLines(9000);
 			}
+		}
+
+		public LongLabelRenderer(Context context) : base(context)
+		{
+
 		}
 	}
 }

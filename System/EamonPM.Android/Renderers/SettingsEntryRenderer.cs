@@ -3,6 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using Android.Content;
 using Android.Views.InputMethods;
 using Android.Widget;
 using Xamarin.Forms;
@@ -25,6 +26,11 @@ namespace EamonPM
 
 				entry.ImeOptions = (ImeAction)ImeFlags.NoExtractUi;
 			}
+		}
+
+		public SettingsEntryRenderer(Context context) : base(context)
+		{
+
 		}
 	}
 }
