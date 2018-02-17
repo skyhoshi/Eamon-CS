@@ -68,8 +68,6 @@ namespace Eamon.Mobile
 
 		public static Action StartGameThread { get; set; }
 
-		public static Action SaveSettingsAndTerminate { get; set; }
-
 		public static PluginLauncherPage PluginLauncherPage { get; set; }
 
 		public static PluginLauncherViewModel PluginLauncherViewModel { get; set; }
@@ -102,16 +100,6 @@ namespace Eamon.Mobile
 			Debug.Assert(tabbedPage != null);
 
 			return tabbedPage.CurrentPage != tabbedPage.Children[0] || tabbedPage.CurrentPage.Navigation.NavigationStack.Count == 1;
-		}
-
-		public static void StopApplication()
-		{
-			Debug.Assert(SaveSettingsAndTerminate != null);
-
-			Device.BeginInvokeOnMainThread(() =>
-			{
-				SaveSettingsAndTerminate();
-			});
 		}
 
 		public static void SetMainPage()

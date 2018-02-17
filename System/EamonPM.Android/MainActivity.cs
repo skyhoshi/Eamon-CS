@@ -147,7 +147,7 @@ namespace EamonPM
 
 			Thread.Sleep(500);
 
-			App.StopApplication();
+			RunOnUiThread(SaveSettingsAndTerminate);
 		}
 
 		protected virtual void StartGameThread()
@@ -256,8 +256,6 @@ namespace EamonPM
 
 			App.StartGameThread = StartGameThread;
 
-			App.SaveSettingsAndTerminate = SaveSettingsAndTerminate;
-
 			LoadApplication(new App());
 		}
 
@@ -289,7 +287,7 @@ namespace EamonPM
 		{
 			if (App.ShouldStopApplicationOnBackPressed())
 			{
-				App.StopApplication();
+				RunOnUiThread(SaveSettingsAndTerminate);
 			}
 			else
 			{
