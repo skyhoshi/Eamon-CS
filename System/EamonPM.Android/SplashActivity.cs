@@ -9,7 +9,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -34,7 +33,7 @@ namespace EamonPM
 				- change the BuildGuid to upgrade the binary .apk file and the .XML datafiles in the filesystem (but not CHARACTERS.XML)
 			*/
 
-			static readonly string BuildGuid = "E0CBABC8-756F-4E90-B15C-954B413AA2A9";
+			static readonly string BuildGuid = "9F6EC627-85A6-46E1-89DD-059672269E5D";
 
 			static readonly string TAG = "X:" + typeof (SplashActivity).Name;
 
@@ -174,18 +173,11 @@ namespace EamonPM
 
 			App.BasePath = Application.Context.FilesDir.Path;
 
-			Task.Run(() =>
-			{
-				MirrorAssets();
+			MirrorAssets();
 
-				var intent = new Intent(this, typeof(MainActivity));			// new Intent(Application.Context, typeof(MainActivity))
+			StartActivity(new Intent(this, typeof(MainActivity)));         // StartActivity(new Intent(Application.Context, typeof(MainActivity)));
 
-				intent.AddFlags(ActivityFlags.NoAnimation);
-
-				StartActivity(intent);
-
-				RunOnUiThread(Finish);
-			});
+			Finish();
 		}
 
 		// Prevent the back button from canceling the startup process
