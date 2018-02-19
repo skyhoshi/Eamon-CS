@@ -113,7 +113,21 @@ namespace EamonDD.Game.Menus.ActionMenus
 				AnalyseRoomRecordTree(room, "R", 1);
 			}
 
-			RecordTreeStrings.Add(string.Format("{0}]", roomList.Count > 0 ? Environment.NewLine : ""));
+			var monsterList = Globals.Engine.GetMonsterList(() => true, m => !m.IsInRoom());
+
+			foreach (var monster in monsterList)
+			{
+				AnalyseMonsterRecordTree(monster, "M", 1);
+			}
+
+			var artifactList = Globals.Engine.GetArtifactList(() => true, a => !a.IsInRoom() && !a.IsEmbeddedInRoom() && !a.IsCarriedByMonster() && !a.IsWornByMonster() && !a.IsCarriedByContainer());
+
+			foreach (var artifact in artifactList)
+			{
+				AnalyseArtifactRecordTree(artifact, "A", 1);
+			}
+
+			RecordTreeStrings.Add(string.Format("{0}]", roomList.Count > 0 || monsterList.Count > 0 || artifactList.Count > 0 ? Environment.NewLine : ""));
 
 			Globals.Out.Write("{0}Would you like to use page breaks (Y/N) [Y]: ", Environment.NewLine);
 
@@ -144,7 +158,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					nlFlag = true;
 
-					if (i == k - 1 || (j >= Constants.NumRows - 10 && RecordTreeStrings[i + 1].StartsWith(Environment.NewLine + "\t[R")))
+					if (i == k - 1 || (j >= Constants.NumRows - 10 && (RecordTreeStrings[i + 1].StartsWith(Environment.NewLine + "\t[R") || RecordTreeStrings[i + 1].StartsWith(Environment.NewLine + "\t[M") || RecordTreeStrings[i + 1].StartsWith(Environment.NewLine + "\t[A"))))
 					{
 						nlFlag = false;
 
