@@ -33,7 +33,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 				CopyCommandData(command);
 
-				command.DobjArtifact = artifact;
+				command.Dobj = artifact;
 
 				NextState = command;
 			}

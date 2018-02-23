@@ -110,9 +110,7 @@ namespace EamonRT.Game.Commands
 
 						CopyCommandData(command);
 
-						command.DobjArtifact = null;
-
-						command.DobjMonster = monster;
+						command.Dobj = monster;
 
 						NextState = command;
 

@@ -158,7 +158,7 @@ namespace EamonRT.Game.Commands
 
 					CopyCommandData(command);
 
-					command.DobjArtifact = wpnArtifact;
+					command.Dobj = wpnArtifact;
 
 					NextState = command;
 				}

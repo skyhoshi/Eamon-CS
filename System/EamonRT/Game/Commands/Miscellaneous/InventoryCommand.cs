@@ -215,7 +215,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				DobjMonster = Globals.MDB[Globals.GameState.Cm];
+				Dobj = Globals.MDB[Globals.GameState.Cm];
 			}
 		}
 

@@ -37,7 +37,7 @@ namespace TheSubAquanLaboratory.Game.States
 
 				dirCommand.CopyCommandData(pushCommand, false);
 
-				pushCommand.DobjArtifact = Globals.ADB[dirCommand is EamonRT.Framework.Commands.IDownCommand ? 4 : 3];
+				pushCommand.Dobj = Globals.ADB[dirCommand is EamonRT.Framework.Commands.IDownCommand ? 4 : 3];
 
 				Debug.Assert(pushCommand.DobjArtifact != null);
 

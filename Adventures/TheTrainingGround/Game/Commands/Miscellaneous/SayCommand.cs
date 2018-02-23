@@ -32,7 +32,7 @@ namespace TheTrainingGround.Game.Commands
 
 				CopyCommandData(command);
 
-				command.DobjArtifact = hammerArtifact;
+				command.Dobj = hammerArtifact;
 
 				NextState = command;
 

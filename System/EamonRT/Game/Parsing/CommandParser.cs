@@ -56,14 +56,14 @@ namespace EamonRT.Game.Parsing
 
 			if (ObjData == DobjData)
 			{
-				command.DobjArtifact = artifact;
+				command.Dobj = artifact;
 			}
 			else
 			{
-				command.IobjArtifact = artifact;
+				command.Iobj = artifact;
 			}
 
-			ObjData.Artifact = artifact;
+			ObjData.Obj = artifact;
 		}
 
 		public virtual void SetMonster(IMonster monster)
@@ -74,14 +74,14 @@ namespace EamonRT.Game.Parsing
 
 			if (ObjData == DobjData)
 			{
-				command.DobjMonster = monster;
+				command.Dobj = monster;
 			}
 			else
 			{
-				command.IobjMonster = monster;
+				command.Iobj = monster;
 			}
 
-			ObjData.Monster = monster;
+			ObjData.Obj = monster;
 		}
 
 		public virtual IArtifact GetArtifact()
@@ -313,13 +313,9 @@ namespace EamonRT.Game.Parsing
 
 					command.ActorRoom = ActorRoom;
 
-					command.DobjArtifact = DobjData.Artifact;
+					command.Dobj = DobjData.Obj;
 
-					command.DobjMonster = DobjData.Monster;
-
-					command.IobjArtifact = IobjData.Artifact;
-
-					command.IobjMonster = IobjData.Monster;
+					command.Iobj = IobjData.Obj;
 
 					if (!ActorMonster.IsCharacterMonster() || ActorRoom.IsLit() || command.IsDarkEnabled)
 					{

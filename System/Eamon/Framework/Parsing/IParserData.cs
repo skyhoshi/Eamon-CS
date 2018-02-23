@@ -14,9 +14,11 @@ namespace Eamon.Framework.Parsing
 
 		string QueryDesc { get; set; }
 
-		IArtifact Artifact { get; set; }
+		IGameBase Obj { get; set; }
 
-		IMonster Monster { get; set; }
+		IArtifact Artifact { get; }
+
+		IMonster Monster { get; }
 
 		IList<IArtifact> GetArtifactList { get; set; }
 

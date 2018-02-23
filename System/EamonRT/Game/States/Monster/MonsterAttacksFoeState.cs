@@ -49,7 +49,7 @@ namespace EamonRT.Game.States
 
 			command.ActorRoom = room;
 
-			command.DobjMonster = monsterList[(int)rl - 1];
+			command.Dobj = monsterList[(int)rl - 1];
 
 			command.NextState = Globals.CreateInstance<IMonsterBattleState>(x =>
 			{

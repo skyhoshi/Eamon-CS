@@ -76,7 +76,7 @@ namespace EamonRT.Game.States
 
 					command.ActorRoom = room;
 
-					command.DobjArtifact = artifact;
+					command.Dobj = artifact;
 
 					command.NextState = Globals.CreateInstance<IMonsterReadiesWeaponState>(x =>
 					{
@@ -114,7 +114,7 @@ namespace EamonRT.Game.States
 
 				command.ActorRoom = room;
 
-				command.DobjArtifact = artifact;
+				command.Dobj = artifact;
 
 				command.NextState = Globals.CreateInstance<IMonsterReadiesWeaponState>(x =>
 				{

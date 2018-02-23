@@ -51,9 +51,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					CopyCommandData(command);
 
-					command.DobjArtifact = null;
-
-					command.DobjMonster = ngurctMonster;
+					command.Dobj = ngurctMonster;
 
 					NextState = command;
 				}

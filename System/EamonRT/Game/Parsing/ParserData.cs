@@ -18,9 +18,23 @@ namespace EamonRT.Game.Parsing
 
 		public virtual string QueryDesc { get; set; }
 
-		public virtual IArtifact Artifact { get; set; }
+		public virtual IGameBase Obj { get; set; }
 
-		public virtual IMonster Monster { get; set; }
+		public virtual IArtifact Artifact
+		{
+			get
+			{
+				return Obj as IArtifact;
+			}
+		}
+
+		public virtual IMonster Monster
+		{
+			get
+			{
+				return Obj as IMonster;
+			}
+		}
 
 		public virtual IList<IArtifact> GetArtifactList { get; set; }
 

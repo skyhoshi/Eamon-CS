@@ -25,13 +25,41 @@ namespace EamonRT.Game.Commands
 
 		public virtual IRoom ActorRoom { get; set; }
 
-		public virtual IArtifact DobjArtifact { get; set; }
+		public virtual IGameBase Dobj { get; set; }
 
-		public virtual IMonster DobjMonster { get; set; }
+		public virtual IArtifact DobjArtifact
+		{
+			get
+			{
+				return Dobj as IArtifact;
+			}
+		}
 
-		public virtual IArtifact IobjArtifact { get; set; }
+		public virtual IMonster DobjMonster
+		{
+			get
+			{
+				return Dobj as IMonster;
+			}
+		}
 
-		public virtual IMonster IobjMonster { get; set; }
+		public virtual IGameBase Iobj { get; set; }
+
+		public virtual IArtifact IobjArtifact
+		{
+			get
+			{
+				return Iobj as IArtifact;
+			}
+		}
+
+		public virtual IMonster IobjMonster
+		{
+			get
+			{
+				return Iobj as IMonster;
+			}
+		}
 
 		public virtual string[] Synonyms { get; set; }
 
@@ -814,15 +842,11 @@ namespace EamonRT.Game.Commands
 
 			destCommand.ActorRoom = ActorRoom;
 
-			destCommand.DobjArtifact = DobjArtifact;
-
-			destCommand.DobjMonster = DobjMonster;
+			destCommand.Dobj = Dobj;
 
 			if (includeIobj)
 			{
-				destCommand.IobjArtifact = IobjArtifact;
-
-				destCommand.IobjMonster = IobjMonster;
+				destCommand.Iobj = Iobj;
 
 				destCommand.Prep = Globals.CloneInstance(Prep);
 			}

@@ -17,13 +17,17 @@ namespace Eamon.Framework.Commands
 
 		IRoom ActorRoom { get; set; }
 
-		IArtifact DobjArtifact { get; set; }
+		IGameBase Dobj { get; set; }
 
-		IMonster DobjMonster { get; set; }
+		IArtifact DobjArtifact { get; }
 
-		IArtifact IobjArtifact { get; set; }
+		IMonster DobjMonster { get; }
 
-		IMonster IobjMonster { get; set; }
+		IGameBase Iobj { get; set; }
+
+		IArtifact IobjArtifact { get; }
+
+		IMonster IobjMonster { get; }
 
 		string[] Synonyms { get; set; }
 
