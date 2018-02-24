@@ -107,11 +107,14 @@ namespace EamonRT.Game
 				if (command != null && command.ActorMonster.IsCharacterMonster())
 				{
 					Globals.LastCommandList.Add(command);
-				}
 
-				using (Globals.CurrState)
+					Globals.CurrState.Execute();
+				}
+				else
 				{
 					Globals.CurrState.Execute();
+
+					Globals.CurrState.Dispose();
 				}
 
 				Globals.CurrState = Globals.NextState;
