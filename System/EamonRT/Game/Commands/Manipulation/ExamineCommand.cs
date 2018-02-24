@@ -128,7 +128,7 @@ namespace EamonRT.Game.Commands
 
 				CopyCommandData(command);
 
-				CommandParser.NextState.Dispose();
+				CommandParser.NextState.Discarded = true;
 
 				CommandParser.NextState = command;
 			}

@@ -152,7 +152,7 @@ namespace EamonRT.Game.Commands
 				{
 					PrintDoYouMeanObj1OrObj2(CommandParser.ObjData.FilterArtifactList[0], CommandParser.ObjData.FilterArtifactList[1]);
 
-					CommandParser.NextState.Dispose();
+					CommandParser.NextState.Discarded = true;
 
 					CommandParser.NextState = Globals.CreateInstance<IStartState>();
 				}
@@ -189,7 +189,7 @@ namespace EamonRT.Game.Commands
 							{
 								PrintMustFirstOpen(IobjArtifact);
 
-								CommandParser.NextState.Dispose();
+								CommandParser.NextState.Discarded = true;
 
 								CommandParser.NextState = Globals.CreateInstance<IStartState>();
 							}
@@ -198,7 +198,7 @@ namespace EamonRT.Game.Commands
 						{
 							PrintDontFollowYou();
 
-							CommandParser.NextState.Dispose();
+							CommandParser.NextState.Discarded = true;
 
 							CommandParser.NextState = Globals.CreateInstance<IStartState>();
 						}

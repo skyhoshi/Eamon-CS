@@ -18,6 +18,8 @@ namespace Eamon.Framework.States
 
 		bool PreserveNextState { get; set; }
 
+		bool Discarded { get; set; }
+
 		#endregion
 
 		#region Methods

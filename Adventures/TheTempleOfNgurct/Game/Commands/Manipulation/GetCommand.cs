@@ -69,7 +69,7 @@ namespace TheTempleOfNgurct.Game.Commands
 				{
 					PrintEnemiesNearby();
 
-					CommandParser.NextState.Dispose();
+					CommandParser.NextState.Discarded = true;
 
 					CommandParser.NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
 				}
@@ -84,7 +84,7 @@ namespace TheTempleOfNgurct.Game.Commands
 				{
 					PrintEnemiesNearby();
 
-					CommandParser.NextState.Dispose();
+					CommandParser.NextState.Discarded = true;
 
 					CommandParser.NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
 				}
@@ -92,7 +92,7 @@ namespace TheTempleOfNgurct.Game.Commands
 				{
 					Globals.Out.Print("They are bolted firmly to the walls.");
 
-					CommandParser.NextState.Dispose();
+					CommandParser.NextState.Discarded = true;
 
 					CommandParser.NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
 				}

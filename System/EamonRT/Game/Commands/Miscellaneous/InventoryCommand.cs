@@ -208,7 +208,7 @@ namespace EamonRT.Game.Commands
 				}
 				else
 				{
-					CommandParser.NextState.Dispose();
+					CommandParser.NextState.Discarded = true;
 
 					CommandParser.NextState = Globals.CreateInstance<IStartState>();
 				}

@@ -32,6 +32,8 @@ namespace EamonRT.Game.States
 
 		public virtual bool PreserveNextState { get; set; }
 
+		public virtual bool Discarded { get; set; }
+
 		#endregion
 
 		#endregion

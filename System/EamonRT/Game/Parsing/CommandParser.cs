@@ -323,9 +323,14 @@ namespace EamonRT.Game.Parsing
 					}
 					else
 					{
-						NextState.Dispose();
+						command.Discarded = true;
 
 						NextState = Globals.CreateInstance<IStartState>();
+					}
+
+					if (command.Discarded)
+					{
+						command.Dispose();
 					}
 				}
 			}

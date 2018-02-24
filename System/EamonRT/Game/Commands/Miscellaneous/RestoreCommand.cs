@@ -267,7 +267,7 @@ namespace EamonRT.Game.Commands
 
 			if (SaveSlot < 1 || SaveSlot > filesetsCount)
 			{
-				CommandParser.NextState.Dispose();
+				CommandParser.NextState.Discarded = true;
 
 				if (Globals.GameState.Die == 1)
 				{

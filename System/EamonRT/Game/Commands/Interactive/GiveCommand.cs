@@ -368,7 +368,7 @@ namespace EamonRT.Game.Commands
 					{
 						PrintDoYouMeanObj1OrObj2(CommandParser.ObjData.FilterArtifactList[0], CommandParser.ObjData.FilterArtifactList[1]);
 
-						CommandParser.NextState.Dispose();
+						CommandParser.NextState.Discarded = true;
 
 						CommandParser.NextState = Globals.CreateInstance<IStartState>();
 					}
@@ -385,7 +385,7 @@ namespace EamonRT.Game.Commands
 							{
 								PrintDoYouMeanObj1OrObj2(CommandParser.ObjData.FilterArtifactList[0], CommandParser.ObjData.FilterArtifactList[1]);
 
-								CommandParser.NextState.Dispose();
+								CommandParser.NextState.Discarded = true;
 
 								CommandParser.NextState = Globals.CreateInstance<IStartState>();
 							}
@@ -393,7 +393,7 @@ namespace EamonRT.Game.Commands
 							{
 								CommandParser.ObjData.ArtifactNotFoundFunc();
 
-								CommandParser.NextState.Dispose();
+								CommandParser.NextState.Discarded = true;
 
 								CommandParser.NextState = Globals.CreateInstance<IStartState>();
 							}
@@ -401,7 +401,7 @@ namespace EamonRT.Game.Commands
 							{
 								PrintWearingRemoveFirst(CommandParser.ObjData.FilterArtifactList[0]);
 
-								CommandParser.NextState.Dispose();
+								CommandParser.NextState.Discarded = true;
 
 								CommandParser.NextState = Globals.CreateInstance<IStartState>();
 							}

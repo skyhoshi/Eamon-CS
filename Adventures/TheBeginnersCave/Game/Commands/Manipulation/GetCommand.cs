@@ -27,7 +27,7 @@ namespace TheBeginnersCave.Game.Commands
 			{
 				Globals.Out.Print("All torches are bolted to the wall and cannot be removed.");
 
-				CommandParser.NextState.Dispose();
+				CommandParser.NextState.Discarded = true;
 
 				CommandParser.NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
 			}
