@@ -35,7 +35,7 @@ If you are interested in contributing to the Eamon CS project, or you wish to po
 
 The current plan is to produce one fully polished game per quarter (until I run out of suitable candidates) beginning in Q3 2017.  These are ported BASIC games; new games will take longer, as they are showcases for the ECS engine.  There is no timeframe for when new games will be built.  If you have an old BASIC game that you'd like to see ported and are willing to assist in that task (just through your insight) you'll get priority.  Otherwise, the emphasis here is quality over quantity.
 
-There are currently plans to port Eamon CS Mobile to iOS in Q1 2018.
+There are currently plans to port Eamon CS Mobile to iOS in 2018.
 
 There are many 3rd party technologies that can seamlessly integrate with ECS, some of which may push the game in new directions.  Stay tuned and see what comes of it.
 
