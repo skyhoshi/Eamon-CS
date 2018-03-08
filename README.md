@@ -33,7 +33,7 @@ If you are interested in contributing to the Eamon CS project, or you wish to po
 
 #### Roadmap
 
-The current plan is to produce fully polished games as time allows, beginning in Q3 2017.  If you have an old BASIC game that you'd like to see ported and are willing to assist in that task (just through your insight) you'll get priority.  Otherwise, the emphasis here is quality over quantity.
+The current plan is to produce fully polished games as time allows.  If you have an old BASIC game that you'd like to see ported and are willing to assist in that task (just through your insight) you'll get priority.  Otherwise, the emphasis here is quality over quantity.
 
 There are currently plans to port Eamon CS Mobile to iOS in 2018.
 
