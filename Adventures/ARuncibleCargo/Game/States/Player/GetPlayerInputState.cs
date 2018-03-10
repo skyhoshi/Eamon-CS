@@ -128,7 +128,7 @@ namespace ARuncibleCargo.Game.States
 
 				Debug.Assert(artifact != null);
 
-				var ac = artifact.GetArtifactClass(Enums.ArtifactType.Container);
+				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
 				Debug.Assert(ac != null);
 
@@ -156,7 +156,7 @@ namespace ARuncibleCargo.Game.States
 
 				Debug.Assert(artifact != null);
 
-				ac = artifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+				ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 				Debug.Assert(ac != null);
 
@@ -190,7 +190,7 @@ namespace ARuncibleCargo.Game.States
 
 					Debug.Assert(artifact != null);
 
-					ac = artifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+					ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 					Debug.Assert(ac != null);
 
@@ -208,7 +208,7 @@ namespace ARuncibleCargo.Game.States
 
 				Debug.Assert(artifact != null);
 
-				ac = artifact.GetArtifactClass(Enums.ArtifactType.Container);
+				ac = artifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
 				Debug.Assert(ac != null);
 
@@ -363,7 +363,7 @@ namespace ARuncibleCargo.Game.States
 					}
 				}
 
-				Eamon.Framework.Primitive.Classes.IArtifactClass ac01 = null;
+				Eamon.Framework.Primitive.Classes.IArtifactCategory ac01 = null;
 
 				// Maintenance grate, sewer grate, and (Barney) Rubble
 
@@ -379,11 +379,11 @@ namespace ARuncibleCargo.Game.States
 
 					Debug.Assert(artifact01 != null);
 
-					ac = artifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+					ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 					Debug.Assert(ac != null);
 
-					ac01 = artifact01.GetArtifactClass(Enums.ArtifactType.DoorGate);
+					ac01 = artifact01.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 					Debug.Assert(ac01 != null);
 
@@ -391,9 +391,9 @@ namespace ARuncibleCargo.Game.States
 
 					artifact01.StateDesc = Globals.CloneInstance(artifact.StateDesc);
 
-					ac01.Field6 = ac.Field6;
+					ac01.Field2 = ac.Field2;
 
-					ac01.Field7 = ac.Field7;
+					ac01.Field3 = ac.Field3;
 				}
 			}
 

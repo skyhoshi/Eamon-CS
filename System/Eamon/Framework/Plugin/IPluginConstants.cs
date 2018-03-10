@@ -95,7 +95,7 @@ namespace Eamon.Framework.Plugin
 
 		long NumDatabases { get; }
 
-		long NumArtifactClasses { get; }
+		long NumArtifactCategories { get; }
 
 		int BufSize { get; }
 

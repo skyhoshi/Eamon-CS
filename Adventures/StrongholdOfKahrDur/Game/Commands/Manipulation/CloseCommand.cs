@@ -24,7 +24,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				Debug.Assert(artifact != null);
 
-				var ac = artifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 				Debug.Assert(ac != null);
 
@@ -32,7 +32,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				ac.SetOpen(false);
 
-				ac.Field8 = 1;
+				ac.Field4 = 1;
 			}
 			else
 			{

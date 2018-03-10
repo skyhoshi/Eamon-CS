@@ -3,6 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using System.IO;
 using Eamon.Framework.Portability;
 
 namespace EamonPM.Game.Portability
@@ -22,6 +23,18 @@ namespace EamonPM.Game.Portability
 		public virtual void Delete(string path)
 		{
 			System.IO.File.Delete(NormalizePath(path));
+		}
+
+		public virtual string ReadFirstLine(string path)
+		{
+			var firstLine = "";
+
+			using (var streamReader = new StreamReader(path))
+			{
+				firstLine = streamReader.ReadLine();
+			}
+
+			return firstLine;
 		}
 
 		public virtual string ReadAllText(string path)

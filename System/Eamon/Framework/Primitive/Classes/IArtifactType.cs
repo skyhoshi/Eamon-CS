@@ -13,20 +13,20 @@ namespace Eamon.Framework.Primitive.Classes
 
 		string LocationEmptyVal { get; set; }
 
-		string Field5Name { get; set; }
+		string Field1Name { get; set; }
 
-		string Field5EmptyVal { get; set; }
+		string Field1EmptyVal { get; set; }
 
-		string Field6Name { get; set; }
+		string Field2Name { get; set; }
 
-		string Field6EmptyVal { get; set; }
+		string Field2EmptyVal { get; set; }
 
-		string Field7Name { get; set; }
+		string Field3Name { get; set; }
 
-		string Field7EmptyVal { get; set; }
+		string Field3EmptyVal { get; set; }
 
-		string Field8Name { get; set; }
+		string Field4Name { get; set; }
 
-		string Field8EmptyVal { get; set; }
+		string Field4EmptyVal { get; set; }
 	}
 }

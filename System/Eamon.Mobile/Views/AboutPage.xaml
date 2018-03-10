@@ -27,7 +27,7 @@
               <FormattedString.Spans>
                 <Span Text="EamonPM.Android" FontSize="22"/>
                 <Span Text=" "/>
-                <Span Text="1.3.0" ForegroundColor="{StaticResource LightTextColor}"/>
+                <Span Text="1.4.0" ForegroundColor="{StaticResource LightTextColor}"/>
               </FormattedString.Spans>
             </FormattedString>
           </Label.FormattedText>

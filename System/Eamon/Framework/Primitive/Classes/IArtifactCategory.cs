@@ -1,23 +1,23 @@
 ﻿
-// IArtifactClass.cs
+// IArtifactCategory.cs
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 namespace Eamon.Framework.Primitive.Classes
 {
-	public interface IArtifactClass
+	public interface IArtifactCategory
 	{
 		IArtifact Parent { get; set; }
 
 		Enums.ArtifactType Type { get; set; }
 
-		long Field5 { get; set; }
+		long Field1 { get; set; }
 
-		long Field6 { get; set; }
+		long Field2 { get; set; }
 
-		long Field7 { get; set; }
+		long Field3 { get; set; }
 
-		long Field8 { get; set; }
+		long Field4 { get; set; }
 
 		bool IsOpenable();
 

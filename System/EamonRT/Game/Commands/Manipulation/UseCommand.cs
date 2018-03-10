@@ -35,9 +35,9 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon, Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible, Enums.ArtifactType.Wearable };
+			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon, Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible, Enums.ArtifactType.Wearable };
 
-			var ac = DobjArtifact.GetArtifactClass(artClasses, false);
+			var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
 
 			if (ac != null)
 			{

@@ -30,17 +30,17 @@ namespace Eamon.Framework
 
 		long Location { get; set; }
 
-		Classes.IArtifactClass[] Classes { get; set; }
+		Classes.IArtifactCategory[] Categories { get; set; }
 
 		#endregion
 
 		#region Methods
 
-		Classes.IArtifactClass GetClasses(long index);
+		Classes.IArtifactCategory GetCategories(long index);
 
 		string GetSynonyms(long index);
 
-		void SetClasses(long index, Classes.IArtifactClass value);
+		void SetCategories(long index, Classes.IArtifactCategory value);
 
 		void SetSynonyms(long index, string value);
 
@@ -144,7 +144,7 @@ namespace Eamon.Framework
 
 		bool IsAttackable();
 
-		bool IsAttackable01(ref Classes.IArtifactClass ac);
+		bool IsAttackable01(ref Classes.IArtifactCategory ac);
 
 		bool IsUnmovable();
 
@@ -204,17 +204,17 @@ namespace Eamon.Framework
 
 		T EvalEmbeddedInRoomLightLevel<T>(T darkValue, T lightValue);
 
-		Classes.IArtifactClass GetArtifactClass(Enums.ArtifactType artifactType);
+		Classes.IArtifactCategory GetArtifactCategory(Enums.ArtifactType artifactType);
 
-		Classes.IArtifactClass GetArtifactClass(Enums.ArtifactType[] artifactTypes, bool classArrayPrecedence = true);
+		Classes.IArtifactCategory GetArtifactCategory(Enums.ArtifactType[] artifactTypes, bool categoryArrayPrecedence = true);
 
-		IList<Classes.IArtifactClass> GetArtifactClasses(Enums.ArtifactType[] artifactTypes);
+		IList<Classes.IArtifactCategory> GetArtifactCategories(Enums.ArtifactType[] artifactTypes);
 
-		RetCode SetArtifactClassCount(long count);
+		RetCode SetArtifactCategoryCount(long count);
 
-		RetCode SyncArtifactClasses(Classes.IArtifactClass artifactClass);
+		RetCode SyncArtifactCategories(Classes.IArtifactCategory artifactCategory);
 
-		RetCode SyncArtifactClasses();
+		RetCode SyncArtifactCategories();
 
 		RetCode AddStateDesc(string stateDesc, bool dupAllowed = false);
 

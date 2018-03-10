@@ -40,7 +40,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			var wpnArtifact = ActorMonster.Weapon > 0 ? Globals.ADB[ActorMonster.Weapon] : null;
 
-			var ac = wpnArtifact != null ? wpnArtifact.GetArtifactClass(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon }) : null;
+			var ac = wpnArtifact != null ? wpnArtifact.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon }) : null;
 
 			if (BlastSpell)
 			{
@@ -88,7 +88,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			// Attack slime will dissolve weapon (bows excluded)
 
-			else if (DobjArtifact != null && (DobjArtifact.Uid == 24 || DobjArtifact.Uid == 25) && ac != null && ac.Field6 != (long)Enums.Weapon.Bow)
+			else if (DobjArtifact != null && (DobjArtifact.Uid == 24 || DobjArtifact.Uid == 25) && ac != null && ac.Field2 != (long)Enums.Weapon.Bow)
 			{
 				Globals.Engine.PrintEffectDesc(18);
 

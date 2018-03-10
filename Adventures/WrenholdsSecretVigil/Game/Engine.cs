@@ -212,7 +212,7 @@ namespace WrenholdsSecretVigil.Game
 
 			Debug.Assert(lifeOrbArtifact != null);
 
-			var ac = largeRockArtifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+			var ac = largeRockArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 			Debug.Assert(ac != null);
 

@@ -38,7 +38,7 @@ namespace ARuncibleCargo.Game.Commands
 
 						// Attack cell = Open Jail
 
-						var ac = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Container);
+						var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
 						Debug.Assert(ac != null);
 

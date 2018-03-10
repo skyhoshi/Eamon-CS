@@ -827,18 +827,18 @@ namespace Eamon.Game
 		{
 			var rl = Globals.Engine.RollDice01(1, 3, artifact == null && HasHumanNaturalAttackDescs() ? 3 : 0);
 
-			var ac = artifact != null ? artifact.GetArtifactClass(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon }) : null;
+			var ac = artifact != null ? artifact.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon }) : null;
 
-			return Globals.Engine.GetAttackDescString((Enums.Weapon)(ac != null ? ac.Field6 : 0), rl);
+			return Globals.Engine.GetAttackDescString((Enums.Weapon)(ac != null ? ac.Field2 : 0), rl);
 		}
 
 		public virtual string GetMissDescString(IArtifact artifact)
 		{
 			var i = Globals.Engine.RollDice01(1, 2, 0);
 
-			var ac = artifact != null ? artifact.GetArtifactClass(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon }) : null;
+			var ac = artifact != null ? artifact.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon }) : null;
 
-			return Globals.Engine.GetMissDescString((Enums.Weapon)(ac != null ? ac.Field6 : 0), i);
+			return Globals.Engine.GetMissDescString((Enums.Weapon)(ac != null ? ac.Field2 : 0), i);
 		}
 
 		public virtual string GetArmorDescString()

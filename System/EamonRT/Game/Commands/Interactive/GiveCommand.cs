@@ -160,9 +160,9 @@ namespace EamonRT.Game.Commands
 
 				PrintGiveObjToActor(DobjArtifact, IobjMonster);
 
-				var ac = DobjArtifact.GetArtifactClass(new Enums.ArtifactType[] { Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible });
+				var ac = DobjArtifact.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible });
 
-				if (!Globals.IsRulesetVersion(5) && ac != null && ac.Field6 > 0)
+				if (!Globals.IsRulesetVersion(5) && ac != null && ac.Field2 > 0)
 				{
 					var monsterName = IobjMonster.EvalPlural(IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), IobjMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01));
 
@@ -175,16 +175,16 @@ namespace EamonRT.Game.Commands
 						ac.SetOpen(true);
 					}
 
-					if (ac.Field6 != Constants.InfiniteDrinkableEdible)
+					if (ac.Field2 != Constants.InfiniteDrinkableEdible)
 					{
-						ac.Field6--;
+						ac.Field2--;
 					}
 
-					rc = DobjArtifact.SyncArtifactClasses(ac);
+					rc = DobjArtifact.SyncArtifactCategories(ac);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					if (ac.Field6 > 0)
+					if (ac.Field2 > 0)
 					{
 						Globals.Buf.SetPrint("{0}{1}{2} takes a {3} and hands {4} back.",
 							monsterName,
@@ -226,12 +226,12 @@ namespace EamonRT.Game.Commands
 
 					Globals.Out.Write("{0}", Globals.Buf);
 
-					if (ac.Field5 == 0)
+					if (ac.Field1 == 0)
 					{
 						goto Cleanup;
 					}
 
-					IobjMonster.DmgTaken -= ac.Field5;
+					IobjMonster.DmgTaken -= ac.Field1;
 
 					if (IobjMonster.DmgTaken < 0)
 					{

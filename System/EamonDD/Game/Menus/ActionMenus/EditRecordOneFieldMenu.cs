@@ -136,7 +136,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				if (artifact != null)
 				{
-					rc = artifact.SyncArtifactClasses();
+					rc = artifact.SyncArtifactCategories();
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 

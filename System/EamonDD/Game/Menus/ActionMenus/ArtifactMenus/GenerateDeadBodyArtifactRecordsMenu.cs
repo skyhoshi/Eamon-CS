@@ -155,7 +155,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 						x.Desc = string.Format("You see {0}.", x.Name);
 						x.IsListed = true;
 						x.Weight = 150;
-						x.GetClasses(0).Type = Enums.ArtifactType.DeadBody;
+						x.GetCategories(0).Type = Enums.ArtifactType.DeadBody;
 					});
 
 					if (i == 0)

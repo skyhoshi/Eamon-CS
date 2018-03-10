@@ -38,15 +38,15 @@ namespace TheSubAquanLaboratory.Game.States
 				{
 					if (--gameState.EnergyMaceCharge == 0)
 					{
-						var ac = artifact.GetClasses(0);
+						var ac = artifact.GetCategories(0);
 
 						Debug.Assert(ac != null);
 
-						ac.Field5 = 0;
+						ac.Field1 = 0;
 
-						ac.Field7 = 1;
+						ac.Field3 = 1;
 
-						ac.Field8 = 6;
+						ac.Field4 = 6;
 
 						artifact.Value = 15;
 

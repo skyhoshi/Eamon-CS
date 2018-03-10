@@ -76,11 +76,11 @@ namespace ARuncibleCargo.Game
 
 					Debug.Assert(artifact != null);
 
-					var ac = artifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+					var ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 					Debug.Assert(ac != null);
 
-					return ac.Field6 != 0 ? "  You've locked yourself out." : "";
+					return ac.Field2 != 0 ? "  You've locked yourself out." : "";
 				}
 				else
 				{

@@ -1,12 +1,12 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.CharacterDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.CharacterDbTable, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.ICharacter, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.ICharacter, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
@@ -50,7 +50,7 @@
             <Simple name="ArmorClass" value="Leather" />
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
                     <Simple name="IsPlural" value="False" />
@@ -62,7 +62,7 @@
                     <Simple name="Sides" value="5" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear#" />
                     <Simple name="IsPlural" value="False" />
@@ -74,7 +74,7 @@
                     <Simple name="Sides" value="5" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -86,7 +86,7 @@
                     <Simple name="Sides" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -102,7 +102,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
@@ -146,7 +146,7 @@
             <Simple name="ArmorClass" value="SkinClothes" />
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
                     <Simple name="IsPlural" value="False" />
@@ -158,7 +158,7 @@
                     <Simple name="Sides" value="5" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -170,7 +170,7 @@
                     <Simple name="Sides" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -182,7 +182,7 @@
                     <Simple name="Sides" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -198,7 +198,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="3" />
             <Simple name="IsUidRecycled" value="True" />
@@ -242,7 +242,7 @@
             <Simple name="ArmorClass" value="ChainMailShield" />
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
                     <Simple name="IsPlural" value="False" />
@@ -254,7 +254,7 @@
                     <Simple name="Sides" value="5" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -266,7 +266,7 @@
                     <Simple name="Sides" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -278,7 +278,7 @@
                     <Simple name="Sides" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -294,7 +294,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
@@ -338,7 +338,7 @@
             <Simple name="ArmorClass" value="PlateMailShield" />
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="axe" />
                     <Simple name="IsPlural" value="False" />
@@ -350,7 +350,7 @@
                     <Simple name="Sides" value="6" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -362,7 +362,7 @@
                     <Simple name="Sides" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -374,7 +374,7 @@
                     <Simple name="Sides" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -390,7 +390,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
@@ -434,7 +434,7 @@
             <Simple name="ArmorClass" value="LeatherShield" />
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="axe" />
                     <Simple name="IsPlural" value="False" />
@@ -446,7 +446,7 @@
                     <Simple name="Sides" value="6" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="sword" />
                     <Simple name="IsPlural" value="False" />
@@ -458,7 +458,7 @@
                     <Simple name="Sides" value="8" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
                     <Simple name="IsPlural" value="False" />
@@ -470,7 +470,7 @@
                     <Simple name="Sides" value="5" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -486,7 +486,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
@@ -530,7 +530,7 @@
             <Simple name="ArmorClass" value="ClothesShield" />
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -542,7 +542,7 @@
                     <Simple name="Sides" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -554,7 +554,7 @@
                     <Simple name="Sides" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -566,7 +566,7 @@
                     <Simple name="Sides" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -582,7 +582,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="7" />
             <Simple name="IsUidRecycled" value="True" />
@@ -626,7 +626,7 @@
             <Simple name="ArmorClass" value="LeatherShield" />
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
                     <Simple name="IsPlural" value="False" />
@@ -638,7 +638,7 @@
                     <Simple name="Sides" value="5" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -650,7 +650,7 @@
                     <Simple name="Sides" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />
@@ -662,7 +662,7 @@
                     <Simple name="Sides" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterWeapon, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="IsPlural" value="False" />

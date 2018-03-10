@@ -75,11 +75,11 @@ namespace EamonRT.Game.States
 
 				Debug.Assert(artifact != null);
 
-				var ac = artifact.GetArtifactClass(Enums.ArtifactType.LightSource);
+				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.LightSource);
 
 				Debug.Assert(ac != null);
 
-				if (ac.Field5 != -1)
+				if (ac.Field1 != -1)
 				{
 					Globals.Out.Write("{0}It's not dark here.  Extinguish {1} (Y/N): ", Environment.NewLine, artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
 

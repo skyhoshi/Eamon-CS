@@ -26,7 +26,7 @@ namespace TheTempleOfNgurct.Game
 
 				Debug.Assert(cellDoorArtifact != null);
 			
-				var ac = cellDoorArtifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+				var ac = cellDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 				Debug.Assert(ac != null);
 
@@ -39,7 +39,7 @@ namespace TheTempleOfNgurct.Game
 
 				Debug.Assert(cellDoorArtifact != null);
 			
-				var ac = cellDoorArtifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+				var ac = cellDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 				Debug.Assert(ac != null);
 
@@ -104,7 +104,7 @@ namespace TheTempleOfNgurct.Game
 				CreateArtifactSynonyms(synonym.Key, synonym.Value);
 			}
 
-			var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible };
+			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible };
 
 			var artUids = new long[] { 51, 62, 68 };
 
@@ -116,11 +116,11 @@ namespace TheTempleOfNgurct.Game
 
 				Debug.Assert(healingArtifact != null);
 
-				var ac = healingArtifact.GetArtifactClass(artClasses);
+				var ac = healingArtifact.GetArtifactCategory(artTypes);
 
 				Debug.Assert(ac != null);
 
-				ac.Field5 = RollDice01(1, 10, 0);
+				ac.Field1 = RollDice01(1, 10, 0);
 			}
 
 			// Places fireball wand and ring of regeneration

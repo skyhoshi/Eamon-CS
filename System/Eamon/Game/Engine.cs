@@ -315,11 +315,11 @@ namespace Eamon.Game
 
 				Debug.Assert(artifact != null);
 
-				var ac = artifact.GetArtifactClass(Enums.ArtifactType.Wearable);
+				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.Wearable);
 
 				Debug.Assert(ac != null);
 
-				var f = ac.Field5 / 2;
+				var f = ac.Field1 / 2;
 
 				if (f > 3)
 				{
@@ -340,11 +340,11 @@ namespace Eamon.Game
 
 				Debug.Assert(artifact != null);
 
-				var ac = artifact.GetArtifactClass(Enums.ArtifactType.Wearable);
+				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.Wearable);
 
 				Debug.Assert(ac != null);
 
-				af -= (5 * ac.Field5);
+				af -= (5 * ac.Field1);
 			}
 
 			return af;
@@ -1591,7 +1591,7 @@ namespace Eamon.Game
 
 			rc = RetCode.Success;
 
-			var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
+			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
 
 			for (i = 0; i < records.Count; i++)
 			{
@@ -1601,11 +1601,11 @@ namespace Eamon.Game
 
 				if (showExtraInfo && a != null && a.IsWeapon01())
 				{
-					var ac = a.GetArtifactClass(artClasses);
+					var ac = a.GetArtifactCategory(artTypes);
 
 					Debug.Assert(ac != null);
 
-					var weapon = GetWeapons((Enums.Weapon)ac.Field6);
+					var weapon = GetWeapons((Enums.Weapon)ac.Field2);
 
 					Debug.Assert(weapon != null);
 
@@ -1614,9 +1614,9 @@ namespace Eamon.Game
 						i + 1,
 						capitalize ? Capitalize(a.Name.PadTRight(31, ' ')) : a.Name.PadTRight(31, ' '),
 						weapon.Name,
-						ac.Field5,
-						ac.Field7,
-						ac.Field8);
+						ac.Field1,
+						ac.Field3,
+						ac.Field4);
 				}
 				else
 				{
@@ -2013,19 +2013,19 @@ namespace Eamon.Game
 			}
 		}
 
-		public virtual void CopyArtifactClassFields(Classes.IArtifactClass destAc, Classes.IArtifactClass sourceAc)
+		public virtual void CopyArtifactCategoryFields(Classes.IArtifactCategory destAc, Classes.IArtifactCategory sourceAc)
 		{
 			Debug.Assert(destAc != null);
 
 			Debug.Assert(sourceAc != null);
 
-			destAc.Field5 = sourceAc.Field5;
+			destAc.Field1 = sourceAc.Field1;
 
-			destAc.Field6 = sourceAc.Field6;
+			destAc.Field2 = sourceAc.Field2;
 
-			destAc.Field7 = sourceAc.Field7;
+			destAc.Field3 = sourceAc.Field3;
 
-			destAc.Field8 = sourceAc.Field8;
+			destAc.Field4 = sourceAc.Field4;
 		}
 
 		public virtual IList<IArtifact> GetArtifactList(Func<bool> shouldQueryFunc, params Func<IArtifact, bool>[] whereClauseFuncs)
@@ -2179,31 +2179,31 @@ namespace Eamon.Game
 
 			if (artifact.IsWeapon01())
 			{
-				var ac = artifact.GetArtifactClass(convertToGold ? Enums.ArtifactType.Gold : Enums.ArtifactType.Treasure);
+				var ac = artifact.GetArtifactCategory(convertToGold ? Enums.ArtifactType.Gold : Enums.ArtifactType.Treasure);
 
 				if (ac == null)
 				{
-					ac = artifact.GetArtifactClass(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon });
+					ac = artifact.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon });
 
 					Debug.Assert(ac != null);
 
 					ac.Type = convertToGold ? Enums.ArtifactType.Gold : Enums.ArtifactType.Treasure;
 
-					ac.Field5 = 0;
+					ac.Field1 = 0;
 
-					ac.Field6 = 0;
+					ac.Field2 = 0;
 
-					ac.Field7 = 0;
+					ac.Field3 = 0;
 
-					ac.Field8 = 0;
+					ac.Field4 = 0;
 				}
 				else
 				{
-					var acList = artifact.Classes.Where(ac01 => ac01 != null && !ac01.IsWeapon01()).ToList();
+					var acList = artifact.Categories.Where(ac01 => ac01 != null && !ac01.IsWeapon01()).ToList();
 
-					for (var i = 0; i < artifact.Classes.Length; i++)
+					for (var i = 0; i < artifact.Categories.Length; i++)
 					{
-						artifact.SetClasses(i, acList.Count > i ? acList[i] : null);
+						artifact.SetCategories(i, acList.Count > i ? acList[i] : null);
 					}
 				}
 
@@ -2635,238 +2635,238 @@ namespace Eamon.Game
 					x.Name = "Gold";
 					x.WeightEmptyVal = "15";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Field5";
-					x.Field5EmptyVal = "0";
-					x.Field6Name = "Field6";
-					x.Field6EmptyVal = "0";
-					x.Field7Name = "Field7";
-					x.Field7EmptyVal = "0";
-					x.Field8Name = "Field8";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Field1";
+					x.Field1EmptyVal = "0";
+					x.Field2Name = "Field2";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Field3";
+					x.Field3EmptyVal = "0";
+					x.Field4Name = "Field4";
+					x.Field4EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "Treasure";
 					x.WeightEmptyVal = "15";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Field5";
-					x.Field5EmptyVal = "0";
-					x.Field6Name = "Field6";
-					x.Field6EmptyVal = "0";
-					x.Field7Name = "Field7";
-					x.Field7EmptyVal = "0";
-					x.Field8Name = "Field8";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Field1";
+					x.Field1EmptyVal = "0";
+					x.Field2Name = "Field2";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Field3";
+					x.Field3EmptyVal = "0";
+					x.Field4Name = "Field4";
+					x.Field4EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "Weapon";
 					x.WeightEmptyVal = "25";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Complexity";
-					x.Field5EmptyVal = "5";
-					x.Field6Name = "Wpn Type";
-					x.Field6EmptyVal = "5";
-					x.Field7Name = "Dice";
-					x.Field7EmptyVal = "1";
-					x.Field8Name = "Sides";
-					x.Field8EmptyVal = "6";
+					x.Field1Name = "Complexity";
+					x.Field1EmptyVal = "5";
+					x.Field2Name = "Wpn Type";
+					x.Field2EmptyVal = "5";
+					x.Field3Name = "Dice";
+					x.Field3EmptyVal = "1";
+					x.Field4Name = "Sides";
+					x.Field4EmptyVal = "6";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "Magic Weapon";
 					x.WeightEmptyVal = "25";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Complexity";
-					x.Field5EmptyVal = "15";
-					x.Field6Name = "Wpn Type";
-					x.Field6EmptyVal = "5";
-					x.Field7Name = "Dice";
-					x.Field7EmptyVal = "1";
-					x.Field8Name = "Sides";
-					x.Field8EmptyVal = "10";
+					x.Field1Name = "Complexity";
+					x.Field1EmptyVal = "15";
+					x.Field2Name = "Wpn Type";
+					x.Field2EmptyVal = "5";
+					x.Field3Name = "Dice";
+					x.Field3EmptyVal = "1";
+					x.Field4Name = "Sides";
+					x.Field4EmptyVal = "10";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "Container";
 					x.WeightEmptyVal = "15";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Key Uid";
-					x.Field5EmptyVal = "0";
-					x.Field6Name = "Open/Closed";
-					x.Field6EmptyVal = "0";
-					x.Field7Name = "Max Weight Inside";
-					x.Field7EmptyVal = "0";
-					x.Field8Name = "Max Items Inside";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Key Uid";
+					x.Field1EmptyVal = "0";
+					x.Field2Name = "Open/Closed";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Max Weight Inside";
+					x.Field3EmptyVal = "0";
+					x.Field4Name = "Max Items Inside";
+					x.Field4EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "Light Source";
 					x.WeightEmptyVal = "10";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Counter";
-					x.Field5EmptyVal = "999";
-					x.Field6Name = "Field6";
-					x.Field6EmptyVal = "0";
-					x.Field7Name = "Field7";
-					x.Field7EmptyVal = "0";
-					x.Field8Name = "Field8";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Counter";
+					x.Field1EmptyVal = "999";
+					x.Field2Name = "Field2";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Field3";
+					x.Field3EmptyVal = "0";
+					x.Field4Name = "Field4";
+					x.Field4EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "Drinkable";
 					x.WeightEmptyVal = "10";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Heal Amount";
-					x.Field5EmptyVal = "10";
-					x.Field6Name = "Number Of Uses";
-					x.Field6EmptyVal = "3";
-					x.Field7Name = "Open/Closed";
-					x.Field7EmptyVal = "1";
-					x.Field8Name = "Field8";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Heal Amount";
+					x.Field1EmptyVal = "10";
+					x.Field2Name = "Number Of Uses";
+					x.Field2EmptyVal = "3";
+					x.Field3Name = "Open/Closed";
+					x.Field3EmptyVal = "1";
+					x.Field4Name = "Field4";
+					x.Field4EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "Readable";
 					x.WeightEmptyVal = "15";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Effect #1";
-					x.Field5EmptyVal = "1";
-					x.Field6Name = "Number Of Effects";
-					x.Field6EmptyVal = "1";
-					x.Field7Name = "Open/Closed";
-					x.Field7EmptyVal = "1";
-					x.Field8Name = "Field8";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Effect #1";
+					x.Field1EmptyVal = "1";
+					x.Field2Name = "Number Of Effects";
+					x.Field2EmptyVal = "1";
+					x.Field3Name = "Open/Closed";
+					x.Field3EmptyVal = "1";
+					x.Field4Name = "Field4";
+					x.Field4EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "Door/Gate";
 					x.WeightEmptyVal = "-999";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Room Uid Beyond";
-					x.Field5EmptyVal = "1";
-					x.Field6Name = "Key Uid";
-					x.Field6EmptyVal = "0";
-					x.Field7Name = "Open/Closed";
-					x.Field7EmptyVal = "1";
-					x.Field8Name = "Hidden";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Room Uid Beyond";
+					x.Field1EmptyVal = "1";
+					x.Field2Name = "Key Uid";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Open/Closed";
+					x.Field3EmptyVal = "1";
+					x.Field4Name = "Hidden";
+					x.Field4EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "Edible";
 					x.WeightEmptyVal = "10";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Heal Amount";
-					x.Field5EmptyVal = "10";
-					x.Field6Name = "Number Of Uses";
-					x.Field6EmptyVal = "4";
-					x.Field7Name = "Open/Closed";
-					x.Field7EmptyVal = "1";
-					x.Field8Name = "Field8";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Heal Amount";
+					x.Field1EmptyVal = "10";
+					x.Field2Name = "Number Of Uses";
+					x.Field2EmptyVal = "4";
+					x.Field3Name = "Open/Closed";
+					x.Field3EmptyVal = "1";
+					x.Field4Name = "Field4";
+					x.Field4EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "Bound Monster";
 					x.WeightEmptyVal = "999";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Monster Uid";
-					x.Field5EmptyVal = "1";
-					x.Field6Name = "Key Uid";
-					x.Field6EmptyVal = "0";
-					x.Field7Name = "Guard Uid";
-					x.Field7EmptyVal = "0";
-					x.Field8Name = "Field8";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Monster Uid";
+					x.Field1EmptyVal = "1";
+					x.Field2Name = "Key Uid";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Guard Uid";
+					x.Field3EmptyVal = "0";
+					x.Field4Name = "Field4";
+					x.Field4EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "Wearable";
 					x.WeightEmptyVal = "15";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Armor Class";
-					x.Field5EmptyVal = "0";
-					x.Field6Name = "Clothing Type";
-					x.Field6EmptyVal = "0";
-					x.Field7Name = "Field7";
-					x.Field7EmptyVal = "0";
-					x.Field8Name = "Field8";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Armor Class";
+					x.Field1EmptyVal = "0";
+					x.Field2Name = "Clothing Type";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Field3";
+					x.Field3EmptyVal = "0";
+					x.Field4Name = "Field4";
+					x.Field4EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "Disguised Monster";
 					x.WeightEmptyVal = "15";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Monster Uid";
-					x.Field5EmptyVal = "1";
-					x.Field6Name = "Effect #1";
-					x.Field6EmptyVal = "0";
-					x.Field7Name = "Number Of Effects";
-					x.Field7EmptyVal = "0";
-					x.Field8Name = "Field8";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Monster Uid";
+					x.Field1EmptyVal = "1";
+					x.Field2Name = "Effect #1";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Number Of Effects";
+					x.Field3EmptyVal = "0";
+					x.Field4Name = "Field4";
+					x.Field4EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "Dead Body";
 					x.WeightEmptyVal = "150";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Can Take";
-					x.Field5EmptyVal = "0";
-					x.Field6Name = "Field6";
-					x.Field6EmptyVal = "0";
-					x.Field7Name = "Field7";
-					x.Field7EmptyVal = "0";
-					x.Field8Name = "Field8";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Can Take";
+					x.Field1EmptyVal = "0";
+					x.Field2Name = "Field2";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Field3";
+					x.Field3EmptyVal = "0";
+					x.Field4Name = "Field4";
+					x.Field4EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "User Defined #1";
 					x.WeightEmptyVal = "15";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Field5";
-					x.Field5EmptyVal = "0";
-					x.Field6Name = "Field6";
-					x.Field6EmptyVal = "0";
-					x.Field7Name = "Field7";
-					x.Field7EmptyVal = "0";
-					x.Field8Name = "Field8";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Field1";
+					x.Field1EmptyVal = "0";
+					x.Field2Name = "Field2";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Field3";
+					x.Field3EmptyVal = "0";
+					x.Field4Name = "Field4";
+					x.Field4EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "User Defined #2";
 					x.WeightEmptyVal = "15";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Field5";
-					x.Field5EmptyVal = "0";
-					x.Field6Name = "Field6";
-					x.Field6EmptyVal = "0";
-					x.Field7Name = "Field7";
-					x.Field7EmptyVal = "0";
-					x.Field8Name = "Field8";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Field1";
+					x.Field1EmptyVal = "0";
+					x.Field2Name = "Field2";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Field3";
+					x.Field3EmptyVal = "0";
+					x.Field4Name = "Field4";
+					x.Field4EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
 					x.Name = "User Defined #3";
 					x.WeightEmptyVal = "15";
 					x.LocationEmptyVal = "0";
-					x.Field5Name = "Field5";
-					x.Field5EmptyVal = "0";
-					x.Field6Name = "Field6";
-					x.Field6EmptyVal = "0";
-					x.Field7Name = "Field7";
-					x.Field7EmptyVal = "0";
-					x.Field8Name = "Field8";
-					x.Field8EmptyVal = "0";
+					x.Field1Name = "Field1";
+					x.Field1EmptyVal = "0";
+					x.Field2Name = "Field2";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Field3";
+					x.Field3EmptyVal = "0";
+					x.Field4Name = "Field4";
+					x.Field4EmptyVal = "0";
 				})
 			};
 

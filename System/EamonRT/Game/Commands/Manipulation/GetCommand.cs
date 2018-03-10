@@ -45,7 +45,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected virtual void ProcessArtifact(IArtifact artifact, Classes.IArtifactClass ac, ref bool nlFlag)
+		protected virtual void ProcessArtifact(IArtifact artifact, Classes.IArtifactCategory ac, ref bool nlFlag)
 		{
 			Debug.Assert(artifact != null);
 
@@ -73,7 +73,7 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				if (ac.Type == Enums.ArtifactType.DeadBody && ac.Field5 != 1)
+				if (ac.Type == Enums.ArtifactType.DeadBody && ac.Field1 != 1)
 				{
 					ProcessAction(() => PrintBestLeftAlone(artifact), ref nlFlag);
 				}
@@ -117,7 +117,7 @@ namespace EamonRT.Game.Commands
 
 			if (ArtifactList.Count > 0)
 			{
-				var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Container, Enums.ArtifactType.DeadBody, Enums.ArtifactType.BoundMonster, Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
+				var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Container, Enums.ArtifactType.DeadBody, Enums.ArtifactType.BoundMonster, Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
 
 				var nlFlag = false;
 
@@ -125,11 +125,11 @@ namespace EamonRT.Game.Commands
 
 				foreach (var artifact in ArtifactList)
 				{
-					var ac = artifact.GetArtifactClass(artClasses, false);
+					var ac = artifact.GetArtifactCategory(artTypes, false);
 
 					if (ac == null)
 					{
-						ac = artifact.GetClasses(0);
+						ac = artifact.GetCategories(0);
 					}
 
 					Debug.Assert(ac != null);
@@ -186,16 +186,16 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Container, Enums.ArtifactType.DeadBody, Enums.ArtifactType.BoundMonster, Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
+			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Container, Enums.ArtifactType.DeadBody, Enums.ArtifactType.BoundMonster, Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
 
-			var ac = DobjArtifact.GetArtifactClass(artClasses, false);
+			var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
 
 			if (ac == null)
 			{
-				ac = DobjArtifact.GetClasses(0);
+				ac = DobjArtifact.GetCategories(0);
 			}
 
-			if (ac != null && ActorRoom.IsLit() && ac.Type != Enums.ArtifactType.DisguisedMonster && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != Enums.ArtifactType.DeadBody || ac.Field5 == 1) && ac.Type != Enums.ArtifactType.BoundMonster)
+			if (ac != null && ActorRoom.IsLit() && ac.Type != Enums.ArtifactType.DisguisedMonster && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != Enums.ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != Enums.ArtifactType.BoundMonster)
 			{
 				var artCount = 0L;
 

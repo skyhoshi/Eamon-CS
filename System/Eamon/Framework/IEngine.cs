@@ -273,7 +273,7 @@ namespace Eamon.Framework
 
 		void AppendFieldDesc(IPrintDescArgs args, string fullDesc, string briefDesc);
 
-		void CopyArtifactClassFields(Classes.IArtifactClass destAc, Classes.IArtifactClass sourceAc);
+		void CopyArtifactCategoryFields(Classes.IArtifactCategory destAc, Classes.IArtifactCategory sourceAc);
 
 		IList<IArtifact> GetArtifactList(Func<bool> shouldQueryFunc, params Func<IArtifact, bool>[] whereClauseFuncs);
 

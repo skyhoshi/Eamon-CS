@@ -108,20 +108,20 @@ namespace EamonRT.Game.Commands
 
 				var shArtifact = Globals.ADB[Globals.GameState.Sh];
 
-				var arAc = arArtifact != null ? arArtifact.GetArtifactClass(Enums.ArtifactType.Wearable) : null;
+				var arAc = arArtifact != null ? arArtifact.GetArtifactCategory(Enums.ArtifactType.Wearable) : null;
 
-				var shAc = shArtifact != null ? shArtifact.GetArtifactClass(Enums.ArtifactType.Wearable) : null;
+				var shAc = shArtifact != null ? shArtifact.GetArtifactCategory(Enums.ArtifactType.Wearable) : null;
 
 				if (DobjArtifact.Uid == Globals.GameState.Sh)
 				{
-					ActorMonster.Armor = arAc != null ? arAc.Field5 / 2 : 0;
+					ActorMonster.Armor = arAc != null ? arAc.Field1 / 2 : 0;
 
 					Globals.GameState.Sh = 0;
 				}
 
 				if (DobjArtifact.Uid == Globals.GameState.Ar)
 				{
-					ActorMonster.Armor = shAc != null ? shAc.Field5 : 0;
+					ActorMonster.Armor = shAc != null ? shAc.Field1 : 0;
 
 					Globals.GameState.Ar = 0;
 				}
@@ -166,7 +166,7 @@ namespace EamonRT.Game.Commands
 
 					if (IobjArtifact != null)
 					{
-						var ac = IobjArtifact.GetArtifactClass(Enums.ArtifactType.Container);
+						var ac = IobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
 						if (ac != null)
 						{

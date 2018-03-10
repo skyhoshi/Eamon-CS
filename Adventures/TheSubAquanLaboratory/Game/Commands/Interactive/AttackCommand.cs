@@ -17,13 +17,13 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings(typeof(EamonRT.Framework.Commands.IAttackCommand))]
 	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
 	{
-		protected virtual Classes.IArtifactClass Ac { get; set; }
+		protected virtual Classes.IArtifactCategory Ac { get; set; }
 
 		protected virtual long Damage { get; set; }
 
 		protected virtual void ProcessWallAttack()
 		{
-			Ac = DobjArtifact.GetClasses(0);
+			Ac = DobjArtifact.GetCategories(0);
 
 			Debug.Assert(Ac != null);
 
@@ -59,11 +59,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 				{
 					var weapon = monster.Weapon > 0 ? Globals.ADB[monster.Weapon] : null;
 
-					var wpnAc = weapon != null ? weapon.GetClasses(0) : null;
+					var wpnAc = weapon != null ? weapon.GetCategories(0) : null;
 
-					dice = wpnAc != null ? wpnAc.Field7 : monster.NwDice;
+					dice = wpnAc != null ? wpnAc.Field3 : monster.NwDice;
 
-					sides = wpnAc != null ? wpnAc.Field8 : monster.NwSides;
+					sides = wpnAc != null ? wpnAc.Field4 : monster.NwSides;
 				}
 
 				Damage += Globals.Engine.RollDice01(dice, sides, 0);
@@ -98,9 +98,9 @@ namespace TheSubAquanLaboratory.Game.Commands
 							Damage = 19;
 						}
 
-						Ac.Field8 -= Damage;
+						Ac.Field4 -= Damage;
 
-						n = (long)Math.Round((double)Ac.Field8 / 20);
+						n = (long)Math.Round((double)Ac.Field4 / 20);
 
 						effectUid = 63 - n * (n > 0 ? 1 : 0);
 
@@ -125,7 +125,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						if (effectUid == 63)
 						{
-							Ac.Field8 = 0;
+							Ac.Field4 = 0;
 
 							DobjArtifact.SetInLimbo();
 
@@ -157,9 +157,9 @@ namespace TheSubAquanLaboratory.Game.Commands
 							Damage = 10;
 						}
 
-						Ac.Field8 -= Damage;
+						Ac.Field4 -= Damage;
 
-						n = (long)Math.Round((double)Ac.Field8 / 10);
+						n = (long)Math.Round((double)Ac.Field4 / 10);
 
 						effectUid = 69 - n * (n > 0 ? 1 : 0);
 
@@ -169,7 +169,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						if (effectUid == 69)
 						{
-							Ac.Field8 = 0;
+							Ac.Field4 = 0;
 
 							DobjArtifact.SetInLimbo();
 

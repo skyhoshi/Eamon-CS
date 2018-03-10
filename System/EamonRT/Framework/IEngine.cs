@@ -123,7 +123,7 @@ namespace EamonRT.Framework
 
 		bool CheckPlayerSpellCast(Enums.Spell spellValue, bool shouldAllowSkillGains);
 
-		void CheckPlayerSkillGains(Classes.IArtifactClass ac, long af);
+		void CheckPlayerSkillGains(Classes.IArtifactCategory ac, long af);
 
 		void TransportRoomContentsBetweenRooms(IRoom oldRoom, IRoom newRoom, bool includeEmbedded = true);
 
@@ -133,7 +133,7 @@ namespace EamonRT.Framework
 
 		void CreateMonsterSynonyms(long monsterUid, params string[] synonyms);
 
-		void GetOddsToHit(IMonster ofMonster, IMonster dfMonster, Classes.IArtifactClass ac, long af, ref long oddsToHit);
+		void GetOddsToHit(IMonster ofMonster, IMonster dfMonster, Classes.IArtifactCategory ac, long af, ref long oddsToHit);
 
 		void CreateInitialState(bool printLineSep);
 

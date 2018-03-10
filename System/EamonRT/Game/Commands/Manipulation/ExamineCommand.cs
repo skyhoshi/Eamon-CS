@@ -30,13 +30,13 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact != null)
 			{
-				var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.DoorGate, Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible };
+				var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.DoorGate, Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible };
 
-				var ac = DobjArtifact.GetArtifactClass(artClasses, false);
+				var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
 
 				if (ac == null)
 				{
-					ac = DobjArtifact.GetClasses(0);
+					ac = DobjArtifact.GetCategories(0);
 				}
 
 				Debug.Assert(ac != null);
@@ -48,7 +48,7 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Type == Enums.ArtifactType.DoorGate)
 				{
-					ac.Field8 = 0;
+					ac.Field4 = 0;
 				}
 
 				if (ac.Type == Enums.ArtifactType.DisguisedMonster)
@@ -77,13 +77,13 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if ((ac.Type == Enums.ArtifactType.Drinkable || ac.Type == Enums.ArtifactType.Edible) && ac.Field6 != Constants.InfiniteDrinkableEdible)
+				if ((ac.Type == Enums.ArtifactType.Drinkable || ac.Type == Enums.ArtifactType.Edible) && ac.Field2 != Constants.InfiniteDrinkableEdible)
 				{
 					Globals.Out.Print("There {0}{1}{2}{3} left.",
-						ac.Field6 != 1 ? "are " : "is ",
-						ac.Field6 > 0 ? Globals.Engine.GetStringFromNumber(ac.Field6, false, Globals.Buf) : "no",
+						ac.Field2 != 1 ? "are " : "is ",
+						ac.Field2 > 0 ? Globals.Engine.GetStringFromNumber(ac.Field2, false, Globals.Buf) : "no",
 						ac.Type == Enums.ArtifactType.Drinkable ? " swallow" : " bite",
-						ac.Field6 != 1 ? "s" : "");
+						ac.Field2 != 1 ? "s" : "");
 				}
 			}
 			else

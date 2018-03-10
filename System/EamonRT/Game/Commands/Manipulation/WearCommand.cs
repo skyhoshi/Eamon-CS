@@ -28,7 +28,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(DobjArtifact != null);
 
-			var dobjAc = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Wearable);
+			var dobjAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Wearable);
 
 			if (dobjAc != null)
 			{
@@ -56,21 +56,21 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (dobjAc.Field5 > 0)
+				if (dobjAc.Field1 > 0)
 				{
 					var arArtifact = Globals.ADB[Globals.GameState.Ar];
 
 					var shArtifact = Globals.ADB[Globals.GameState.Sh];
 
-					var arAc = arArtifact != null ? arArtifact.GetArtifactClass(Enums.ArtifactType.Wearable) : null;
+					var arAc = arArtifact != null ? arArtifact.GetArtifactCategory(Enums.ArtifactType.Wearable) : null;
 
-					var shAc = shArtifact != null ? shArtifact.GetArtifactClass(Enums.ArtifactType.Wearable) : null;
+					var shAc = shArtifact != null ? shArtifact.GetArtifactCategory(Enums.ArtifactType.Wearable) : null;
 
-					if (dobjAc.Field5 > 1)
+					if (dobjAc.Field1 > 1)
 					{
-						if (dobjAc.Field5 > 14)
+						if (dobjAc.Field1 > 14)
 						{
-							dobjAc.Field5 = 14;
+							dobjAc.Field1 = 14;
 						}
 
 						if (arAc != null)
@@ -84,7 +84,7 @@ namespace EamonRT.Game.Commands
 
 						Globals.GameState.Ar = DobjArtifact.Uid;
 
-						ActorMonster.Armor = (dobjAc.Field5 / 2) + (shAc != null ? shAc.Field5 : 0);
+						ActorMonster.Armor = (dobjAc.Field1 / 2) + (shAc != null ? shAc.Field1 : 0);
 					}
 					else
 					{
@@ -99,7 +99,7 @@ namespace EamonRT.Game.Commands
 
 						Globals.GameState.Sh = DobjArtifact.Uid;
 
-						ActorMonster.Armor = (arAc != null ? arAc.Field5 / 2 : 0) + dobjAc.Field5;
+						ActorMonster.Armor = (arAc != null ? arAc.Field1 / 2 : 0) + dobjAc.Field1;
 					}
 				}
 

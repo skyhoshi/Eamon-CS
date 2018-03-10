@@ -60,7 +60,7 @@ namespace ARuncibleCargo.Game.Commands
 
 						Debug.Assert(artifact02 != null);
 
-						var ac = artifact02.GetArtifactClass(Enums.ArtifactType.DoorGate);
+						var ac = artifact02.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 						Debug.Assert(ac != null);
 

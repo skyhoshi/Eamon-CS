@@ -35,9 +35,9 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var drinkableAc = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Drinkable);
+			var drinkableAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Drinkable);
 
-			var edibleAc = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Edible);
+			var edibleAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Edible);
 
 			var ac = drinkableAc != null ? drinkableAc : edibleAc;
 
@@ -61,19 +61,19 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Field6 < 1)
+				if (ac.Field2 < 1)
 				{
 					PrintNoneLeft(DobjArtifact);
 
 					goto Cleanup;
 				}
 
-				if (ac.Field6 != Constants.InfiniteDrinkableEdible)
+				if (ac.Field2 != Constants.InfiniteDrinkableEdible)
 				{
-					ac.Field6--;
+					ac.Field2--;
 				}
 
-				rc = DobjArtifact.SyncArtifactClasses(ac);
+				rc = DobjArtifact.SyncArtifactCategories(ac);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -84,7 +84,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Field6 < 1)
+				if (ac.Field2 < 1)
 				{
 					DobjArtifact.Value = 0;
 
@@ -92,26 +92,26 @@ namespace EamonRT.Game.Commands
 
 					PrintVerbItAll(DobjArtifact);
 				}
-				else if (ac.Field5 == 0)
+				else if (ac.Field1 == 0)
 				{
 					PrintOkay(DobjArtifact);
 				}
 
-				if (ac.Field5 != 0)
+				if (ac.Field1 != 0)
 				{
 					if (Globals.IsRulesetVersion(5))
 					{
-						Globals.GameState.ModDTTL(ActorMonster.Friendliness, -(ac.Field5 >= 0 ? Math.Min(ActorMonster.DmgTaken, ac.Field5) : ac.Field5));
+						Globals.GameState.ModDTTL(ActorMonster.Friendliness, -(ac.Field1 >= 0 ? Math.Min(ActorMonster.DmgTaken, ac.Field1) : ac.Field1));
 					}
 
-					ActorMonster.DmgTaken -= ac.Field5;
+					ActorMonster.DmgTaken -= ac.Field1;
 
 					if (ActorMonster.DmgTaken < 0)
 					{
 						ActorMonster.DmgTaken = 0;
 					}
 
-					if (ac.Field5 > 0)
+					if (ac.Field1 > 0)
 					{
 						PrintFeelBetter(DobjArtifact);
 					}

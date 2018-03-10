@@ -116,7 +116,7 @@ namespace ARuncibleCargo.Game.States
 					gameState.FireEscaped = true;
 				}
 
-				Eamon.Framework.Primitive.Classes.IArtifactClass ac = null;
+				Eamon.Framework.Primitive.Classes.IArtifactCategory ac = null;
 
 				Eamon.Framework.IArtifact artifact = null;
 
@@ -130,7 +130,7 @@ namespace ARuncibleCargo.Game.States
 
 					Debug.Assert(artifact != null);
 
-					ac = artifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+					ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 					Debug.Assert(ac != null);
 
@@ -232,7 +232,7 @@ namespace ARuncibleCargo.Game.States
 
 				if (room.Uid == 93 && artifact.IsCarriedByMonster(monster01) && monster01.Friendliness > Enums.Friendliness.Enemy && !monster02.IsInLimbo())
 				{
-					ac = artifact01.GetArtifactClass(Enums.ArtifactType.DoorGate);
+					ac = artifact01.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 					Debug.Assert(ac != null);
 
@@ -244,7 +244,7 @@ namespace ARuncibleCargo.Game.States
 					}
 				}
 
-				ac = artifact.GetArtifactClass(Enums.ArtifactType.Container);
+				ac = artifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
 				Debug.Assert(ac != null);
 

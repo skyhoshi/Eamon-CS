@@ -1,1195 +1,1195 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.EffectDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.EffectDbTable, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IEffect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IEffect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Despite the setting sun, and the coolness that should accompany it, the air begins to grow warm." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Seemingly without cause, the temperature of the air again noticeably increases.  Strange, too, is the dawning scent of burning wood.  These factors begin to sting your lungs and make breathing strangely uncomfortable." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="3" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The everpresent heat becomes excruciatingly intense.  Tumults of sweat pour from your brow and sting your eyes, and so great is their discomfort that your lungs disobey your commands to breathe.  Your mind screams to take flight, but there is no refuge." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="A barely audible murmur escapes the creature's lips, repeating, as if set on a loop:  &quot;Run.  Run, Run.  Run...&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Though the language spoken by the creature is unknown to you, a candidate interpretation forcefully makes itself salient to you:  &quot;Hide.  Hide.  Hide.  Hide...&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Like a monotonic mantra, the creature speaks the following words to itself, oblivious to your presence:  &quot;Fire.  Fire.  Fire.  Fire...&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="7" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The perceived fire in the air becomes actualized as you open your eyes; the Arcadia you'd dreamt dissolves by the overwhelming force of reality.  And that reality is you, awake, in your bed, while the walls burn and roast your surroundings." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You cast yourself through the window and land in the untidy alley outside your quarters.  As you steady yourself, you see Hokas Tokas- your present landlord- standing by you, visibly weakened and resting his weight on his staff.*009" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Thank Annav you're alive!&quot; shouts Hokas.  &quot;We are under siege by the Guild of Bandits; many Free Adventurers have perished in the assault.  They seek after an artifact called the 'Runcible Cargo' they'd believed that Sam Slicker had imported.*010" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="10" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;But Sam never received the cargo; you must either locate it and deliver it to the bandits, or else find a means of defeating them!&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="11" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Hokas shouts at you, &quot;Did you not understand me?  Time is short!  Find the Runcible Cargo or some means of eliminating the attackers!&quot;*012" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="12" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="A column of smoke swiftly engulfs the magician, and Hokas disappears within its opacity.  When the smoke clears, Hokas has mystically absconded along with it." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="13" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The encroaching flames sear your flesh!" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="14" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The letter reads:*015" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="15" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Dear M. Slicker,*016" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="16" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;I regret to communicate to you that amongst the most recent shipment of Ervuolian artifacts, the &quot;Runcible Cargo&quot; will not be found.  In light of some unfortunate developments, now is not an optimal time for its display. *017" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="17" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Respectfully, Professor Larkspur, Eamon University, Mudville&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="18" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The dusty sign reads:  &quot;The Eamon Railroad- perhaps the only well-run train left, or one of a very few today.  Passengers ride free!&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="19" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The sign reads:  &quot;Railroad Office:  Authorized Personnel Only!&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="20" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The map reads:*021" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="21" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The architect of the Eamon Railroad designed the engines to be voice-activated.  Just say the name of one of the following stops:*022" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="22" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="                Frukendorf - Main Hall - Dodge - Mudville*023" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="23" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="and you'll be on your way!" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="24" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Wiping away the fine, ashen coating, you read the words, &quot;All are invited to the unveiling of the latest trove of Ervuolian artifacts.  Uncovered at Archaeological Site #23 near Dodge, this collection features the legendary and eldritch Runcible Cargo.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="25" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="seen.  To the east, a small path carves through the sand towards a small dock at which is berthed a small, wooden rowboat." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="26" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="the Main Hall.  You also notice a seared, wooden marquee standing in the corner.  With effort, you could undoubtedly determine its intent." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="27" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Carved ages ago into the wooden sign are the words:  &quot;Welcome to Dodge.  If you expect to find friends here, forget about it.&quot;  A notice of more recent origin has been added as well, reading &quot;Obey the curfew.  -Sheriff.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="28" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="NONE" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="29" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You read the words:  &quot;DODGE HOTEL: *030" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="30" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="     Room 08:  A.J. (in a rococo script) *031" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="31" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="     Room 11:  Brion Gysin (in an ornate script) *032" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="32" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="     Room 14:  Professor Larkspur, PhD (in a quite legible script)" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="33" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Day 1:  My team has arrived at Dodge; the students are setting up a camp at Site 23, though Eamon University and the Eamon Museum have seen fit to arrange for me these accommodations at the hotel.  Ah, sweet tenure, and all its associated benefits!*034" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="34" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Day 12:  The team has uncovered a cache of Ervuolian artifacts of miraculous proportions!  Much time will have to be devoted to cataloguing the assortment of idols; so alien appear our finds, it will prove difficult to find an apt vocabulary to do so. *035" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="35" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Day 17:  My team today stumbled upon something so uncanny, so foreign, that my attempts to describe it have failed.  Words such as &quot;profane&quot; and &quot;majestic&quot; spring to mind, but fail to capture its sense.  I have thus taken to calling it &quot;runcible.&quot; *039" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="36" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Day 19:  This morning, in the excitement of a new find, a student knocked over the Runcible Cargo.  Some indescribable substance... leaked from it.  Into the ground.  The student is overly distraught about this forgettable accident.  Disturbingly so. *037" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="37" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Day 19 (addendum):  Augustine- the student who had committed the accident this morning- has taken his own life.  I've contacted the University, and we will send his remains back home by rail in the morning.  Tragic. *038" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="38" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Day 20:  Augustine's body is... gone.  A local drunk claimed that he'd seen Augustine walking aimlessly in the forest this morning, but then proceeded to spin a yarn about seeing his dead sister and mother running through the forest as well.  Useless. *040" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="39" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Day 18:  I've arranged a lucrative deal with Sam Slicker to display our finds in the University branch at the Main Hall.  Yet I admit some misgivings about displaying that &quot;Runcible Cargo&quot; to the public. *036" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="40" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Day 21:  I awoke from a dream near midnight.  Peering out the window, into the grounds outside the hotel, I saw Augustine, standing silently, looking up at my room.  He wore a face of utter... hunger. *041" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="41" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Day 23: Whatever this plague may be that has befallen Dodge, it is out of control.  The dead hide behind every shadow.  I've collected the most important of the artifacts, and at first light will attempt to spirit them away, back to the safety of Mudville." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="42" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="A surprising number of bank robberies are detailed on this board, but those dated more recently deal with more arcane subjects; sightings of the deceased running in the forest and a spate of disappearances are particularly salient." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="43" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="A single page of the dusty notebooks, appearing more recently written upon than the rest, singles itself for inspection.  It reads: *044" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="44" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Day 24:  I am unable to escape Dodge.  The forest is alive with the abominable dead.  Site #23 is like a fortress already, so I've decided to hide within the safety of its fences.  I've also decided to leave this page here for narrative effect." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="45" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The sign reads:  &quot;Eamon University Archaeological Site #23.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="46" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="you see a warm, red glow from a window in a southern building." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="47" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="As you ascend through the grate, a beautiful woman greets you. She says, &quot;The House of Ill Repute has had to go underground since the K.E.C. started leaning on us, but I'd rather deal with them than the Bandit's Guild. Let me come with you on your quest.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="48" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The heavy door to Sam Slicker's shop slams behind you with an equally heavy crash.@@002" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="49" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The soft grasses of the Main Hall railyards absorb the impact as you throw yourself out of the high window.  Looking southward, you doubt that you can scale that wall." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="50" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The sign reads &quot;Ockham's Inn, to the East!  All Free Adventurers welcome!  Great meals at rock-bottom prices!&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="51" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The man in the oven introduces himself as Bill and says, &quot;Thanks for saving my neck there.  Bandits stormed in this evening, and threw me in that oven.  Thank Terza they didn't turn it on!  Why don't we settle our scores together?&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="52" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="From the large oven you hear the sound of something struggling." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="53" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Well, well, well,&quot; says the tall Amazon, &quot;if it isn't my favorite customer, Bill.&quot;*054" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="54" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Bill of Ockham, clearly embarrassed, just smiles sheepishly." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="55" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The parchment reads:  &quot;Objective of Operation:  To recover the Ervuolian artifact known as the &quot;Runcible Cargo.&quot;*056" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="56" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Directions:  Majority of forces (Bdes 1, 6, and 9) are directed to take control of the Main Hall of the Guild of Free Adventurers.  The artifact has been advertised as soon to be displayed at that position. *057" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="57" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Additional forces (Bdes 25 and 92) are directed to make reconnaissance at Archaeological Site #23 at Dodge and Eamon University at Mudville, respectively.  If artifact is not found at primary target, odds are it will be secured at these locations.*058" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="58" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Rules of Engagement:  Deadly force is authorized for use against any resistance.  Looting and pillaging are, being this the Bandit's Guild, authorized and encouraged.*059" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="59" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Authorized this date, Bandit's Guild Strategic Command, Frukendorf.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="60" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You have improbably vanquished the entirety of the Bandit Guild's military forces threatening the Main Hall.  The Guild, however, is large, and organized, and undoubtedly its prince still covets after the &quot;Runcible Cargo.&quot;*143" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="61" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The reports read:  &quot;Bde 92 has established operations in Mudville.  Local population is minimal and cooperative.  Will recon the university for signs of the &quot;Runcible Cargo.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="62" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The sign reads:  &quot;Welcome to the City of Mudville!  Population: 1.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="63" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The light of the moon permits you to make out the words:  &quot;Fortunes told here.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="64" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="As you free the old crone from the ropes that bind her, the fortuneteller cries, &quot;As compensation for your kindness, let me tell your fortune.&quot;*065" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="65" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Pulling out her dazzling crystal ball, she gazes deeply into the sphere and pronounces to you:*066" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="66" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;I see a room, and a table, around which are gathered the following party:  a horse, a wren, yourself, and a rabbit.  It is the rabbit's birthday!  He turns his terribly elongated face to face you, and asks, 'Where is my cake?'&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="67" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="This weathered sign reads:  &quot;Water here is polluted!  It is bad news!  Keep out, or else!&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="68" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="A man whose fine, plate armor peeks from beyond his black coat rises as you enter the camp.  &quot;Greetings, Free Adventurer.  If you have made it to our camp, you must be stronger than your brethren.  The Bandit's Guild, as you know, respects strength.*069" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="69" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Perhaps,&quot; he continues, &quot;we can strike a deal.  The &quot;Runcible Cargo&quot; has proven difficult to acquire.  Locate this object and bring it to the Bandit Prince in Frukendorf; if this is done, we shall withdraw from your Main Hall and grant you a bounty.*070" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="70" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Two thousand gold, shall we say?  Of course,&quot; he says, gesturing to the throngs of soldiers about him, &quot;if you'd rather take the noble route, you're free to attack.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="71" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The Bandit Commander rises, and asks, &quot;Have you the &quot;Runcible Cargo&quot;?  If not, we have no business.  Unless...&quot; he grins, &quot;...you wish to settle this with blood.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="72" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The Bandit Guild commander looks at you in disbelief and says, &quot;You have it?  You have the &quot;Runcible Cargo&quot;?  Now, secure a train from the railyards.  We shall permit you to escort it to Frukendorf, whereupon word shall be sent for my party to withdraw.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="73" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The sign reads &quot;Underpass to Eamon University.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="74" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="One name on the board grabs your attention; &quot;Professor Larkspur, Second Floor, Department of Archaeology, College of Physical Sciences and Necromancy.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="75" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="This map of the campus reads:  &quot;North is the Department of Quantum Engineering, West is the Department of Alchemy, and East is the Department of Archaeology.  Other departments are on the North Campus.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="76" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Upon reading this report, you get the feeling as if you've come to understand a bit more about how the Speed spell works." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="77" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You read the forbidden manual of terror.  It wasn't all bad, actually; quite humorous in some parts, though you concede that the plot did get a bit bogged down in the middle." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="78" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="One passage in particular catches your eye:  &quot;With technology so complex and obscure as to be described only as &quot;ineffable,&quot; the Ervuolian people were said to have harnessed the power between life and death.*079" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="79" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Some scholars suggest that it was through such technology that the Ervuolian people flourished, while others hint that it was the cause of their decline, and eventual extinction.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="80" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Upon this torn scrap of paper are written the digits:  &quot;1-2-3-4.&quot;  Quite original." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="81" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The answer key reads:  &quot;D-D-D-D-D-D-D-D-D...&quot;  So the old strategy of just marking &quot;D&quot; really works under some circumstances!" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="82" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The salient portions of the grant proposal read: &quot;Recent information has been uncovered suggesting the remains of an Ervuolian compound beneath the earth west of the city of Dodge... I propose assembling a team of graduate students to survey the site.*083" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="83" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;In addition to the inherent value of any such artifacts, it is suggested that a peculiar artifact, only legendary up until now, might be found at this location...*084" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="84" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;According to legend, human language is too limited in its richness to capture the properties of this object, described as &quot;ineffable&quot; or &quot;indescribable.&quot;  Indeed, I've become accustomed to just making up words when discussing the object.*085" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="85" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Nevertheless, I am willing to sacrifice my reputation as capital...  In any case, I believe that insight into the mystery of the Evruolian culture's rapid decline might be gained were this object to be discovered.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="86" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Bill of Ockham whispers that he has kept a set of keys from his tenure at Eamon University, and quickly unlocks the eastern door to the Department of Archaeology.  &quot;This might make the search a bit more swift... and less dangerous,&quot; he tells you quietly." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="87" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="As you enter the quad from the Department of Archaeology, you unlock the great door that had previously barred your entrance." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="88" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You hope for some new insight into the Speed spell, but nothing comes." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="89" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The front page of the Eamon Enquirer reads:  &quot;Strange Occurrences in Dodge:  A recent outbreak of violent crime and disappearances shouldn't be so strange in a city in which bank robberies are daily phenomena.*090" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="90" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;However, coupled with strange rumors circulating about sightings of pale, corpse-like creatures running through the forest, it seems that whatever is happening in Dodge is not merely the routine activity of bank robbers, as the sheriff insists.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="91" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The captive fortuneteller jerks her body against her restraints, knocking up a cloud of dust from the floor as she does so." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="92" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Here, at the bottom of the gaping hole, lies a weary man in tattered clothing, clutching some amorphous device.  Upon your descent, the man feebly lifts himself from the dirt floor and weakly whispers, &quot;I... am Professor... Larkspur.*093" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="93" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;I tried to escape... was forced to retreat to the site.  You... must be warned.  You need... my insight.  But there's little time.  My medicine... fetch my medicine.  I can tell you... more... then.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="94" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Prof. Larkspur swallows the pills and, after a moment, his demeanor visibly improves.  &quot;Thank you,&quot; he says.  &quot;I presume you've come for the &quot;Runcible Cargo.&quot;  If this is the case, you must heed my warnings about this most unusual artifact.*095" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="95" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Aeons ago, the continent was ruled by a now-gone race known as the Ervuolians.  Though the throne was at the island Ervuol, their power was great and through some mysterious means, their influence grew over the entire continent.*096" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="96" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;The nature of their power's source has been lost to the shroud of time.  I believe that this object that we've uncovered supplies the answer.  And it is not altogether wholesome.*097" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="97" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;It was some necromantic analogue of slavery, I believe now, that secured their prominence and sealed their fate.  This object, as the events of the last few days suggest, is capable of raising not only the dead, but perhaps something worse.*098" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="98" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;I can't stop you from taking this artifact.  But know that its mere accidental triggering condemned my team and Dodge itself.  If you open it, only do so briefly; were it to be opened entirely, or shattered, the consequences would be terrible.*148" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="99" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The engine lurches on the tracks, and steadily plunges into the dark, southeastern countryside of Eamon.  After a quarter of an hour, the train halts with a jerk and its door opens with a cloud of steam obscuring the night-drenched town of Dodge." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="100" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="In fits and starts, the engine begins its northwestern journey, winding its way across the eastern provinces.  Slowly, the engine approaches the moonlit Main Hall railyards, and grinds to a halt east of a commercial rail platform." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="101" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="In a cloud of steam, the engine churns forth towards the east.  After fifteen minutes have elapsed, the engine slows as it arrives at the Mudville station.  Under the shadow of the northern Eamon University, the door opens south onto the aging platform." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="102" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="With apparent effort, the aging engine slowly picks up steam in a westwardly direction.  The engine idly carves through the dark countryside, finally halting alongside the eerie calm of Dodge.  The door opens and the silence of the town infects the cabin." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="103" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The train stalls for a moment, then suddenly jerks southward.  The tracks eventually guide the engine east.  In the engine's spotlight, the town of Dodge approaches and then falls away into darkness.  After half an hour, you arrive at the town of Mudville." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="104" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The ancient steam engine crawls from the station towards the dark west countryside.  To the left, the light of the engine catches the small town of Dodge as you pass it in the night. After half an hour, the train ultimately stops at the familiar Main Hall." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="105" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The gilded sign reads:  &quot;Welcome to Frukendorf, Sponsor of and Home to the Main Hall of the Bandit's Guild.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="106" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The Prince of Bandits won't permit you to leave until the &quot;Runcible Cargo&quot; is delivered to him." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="107" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The western journey of the engine is interrupted as you reach an enormous barricade erected over the tracks by the Bandit's Guild.*108" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="108" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;We cannot allow you to pass unless you bear the &quot;Runcible Cargo,&quot; announces a guard standing outside the engine.  Dismayed, you return to your point of departure." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="109" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The engine lurches forward under your command.  As you pass the Main Hall, your progress is interrupted by a Bandit's Guild checkpoint.  A guard peers in, notes the presence of the &quot;Runcible Cargo,&quot; and nods to raise the barrier.*110" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="110" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The sun rises in the east as the engine begins its journey to Frukendorf anew.  As the Eamon Railroad is automated and the journey long, you close your eyes.*111" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="111" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You dream of sitting at a tea party, attended by myriad surreal creatures.  In the dream, a tall rabbit sits next to you.  He turns his uncanny visage towards you, and whispers in your ear, &quot;If you spoil the cake, you spoil the party as well.&quot;*112" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="112" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The engine's arrival into the Frukendorf station awakens you from your sleep at that moment.  After a brief spell, the door swings open to the north, allowing you to proceed to the Main Hall of the Bandit's Guild." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="113" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You push off into the still waters of the Great Sea." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="114" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You carefully disembark from the boat." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="115" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The sign reads:  &quot;The Eamon Railroad is voice-automated.  Once inside the cabin, just say the name of your destination, e.g., Frukendorf, Main Hall, Dodge, or Mudville, and you'll be on your way to fun and adventure.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="116" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Your old friend, Larcenous Lil, grins and exclaims, &quot;Those creatures have been trying to get into this cell since yesterday!  It was a matter of time before one figured out how to break in; I'd have been a snack for sure!  I owe you one for the rescue.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="117" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The tall Amazon you met at the House of Ill Repute leans to you and gestures towards Lil.  &quot;I'd keep my eye on that one, if I were you,&quot; she says.  &quot;In my line of work, you know a bad apple when you see one.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="118" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Bill of Ockham looks over at Lil and turns towards you, whispering, &quot;We're all equal in the eyes of Terza, but some are less equal than others.  With a name like Larcenous Lil, it isn't apparent that that girl is worthy of our trust.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="119" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Her face suddenly alight with greed, Larcenous Lil violently snatches the Runcible Cargo.  &quot;Sorry, my dear,&quot; she coos, &quot;The gold this artifact will fetch outweighs the ethereal value of our friendship.  In any case, you'll still forgive me eventually.&quot;@003" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="120" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Larcenous Lil prepares to attack!" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="121" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Peering into the ornate telescope, the remote province of Frukendorf to the west, the fires of an encampment of bandits to the north, and the towns of Dodge and Mudville reveal themselves, all nestled in the rolling and darkened landscape of Eamon." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="122" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="A young woman smiles at you from behind the bars of a jail cell, shouting, &quot;Break down the door!  Quickly!&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="123" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="As you disembark the train, Bill of Ockham leans towards you, whispering:  &quot;To just give them the artifact is cowardice, but to destroy it here- to unleash its infernal power- would decimate your enemy.  Perhaps we employ those explosives.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="124" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="As you disembark the train, your Amazonian companion whispers to you:  &quot;Surely you don't intend on allowing the Bandit's Guild free use of that artifact.  Perhaps those explosives could permit us to turn the artifact's power against the Guild.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="125" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="As you enter the throne room of the Bandit's Guild, the Bandit Prince rises.  &quot;Greetings,&quot; he says.  &quot;Today you have proven yourself the veritable salvation of the Free Adventurers.*126" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="126" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Give me the Runcible Cargo,&quot; he continues, &quot;and I give you my word that I will immediately withdraw my forces from your Main Hall, as well as provide you with adequate recompense for your efforts in securing this artifact.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="127" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Well,&quot; says the Bandit Prince, &quot;have you decided to surrender the artifact to me?  I remind you that as you deliberate, your Main Hall is burning.  Give me the artifact and put an end to the siege.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="128" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You reach to something approximating a lever, but as your fingers come into contact with the uncanny device, a visceral sense of loathing fills you.  You instinctively retract your touch, guessing that no good can come of activating the artifact." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="129" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You slowly crack open the odd device, and are met by an instantaneous feeling of repugnance.  If it must be opened, you sense that it must not be kept open for long." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="130" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="As an overpowering sense of dread descends upon you and thickens, you unflinchingly jerk the otherworldly &quot;Runcible Cargo&quot; shut." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="131" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The Bandit Commander hands the artifact back to you, saying &quot;The Prince of Bandits would prefer that you deliver this directly to him in Frukendorf.  Take the Eamon Railroad and my guards will permit you to pass our blockade.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="132" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The Prince of Bandits takes the Runcible Cargo from you, the ghost of a smile revealing itself on his lips.  &quot;I have lost many men in pursuit of this artifact,&quot; he says.  &quot;The Bandit's Guild, had you not delivered this device, would be thus crippled.*133" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="133" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;But you have provided our salvation,&quot; he continues.  &quot;By means of this device, should the rumors prove correct, the Bandit's Guild will be able to strengthen its numbers artificially, through the means of its arcane power.*134" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="134" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;The Ervuolian dynasty was filled with aesthetes and philosophers.  It is no small wonder such weak kings failed to harness this infernal artifact and ultimately fell.  Under the authority of a noble bandit the Guild may extend its malignant reign.*135" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="135" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;You have delivered the world into our hands.  I will honor my word and withdraw from the Main Hall of the Guild of Free Adventurers and pay your reward.  You may take the train back to your home.  Your lands will, for now, be free of our influence.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="136" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Perhaps it would be wise to wait for a sufficient reason to do that." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="137" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Detonating the explosive device, with the gates of Frukendorf still wide open, might not be a wise idea." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="138" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Moments after you trigger the detonator, the morning calm is broken violently by an immense blast coming from the Bandit's Main Hall.  As the impact subsides, it is replaced by a sound utterly otherworldly.*139" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="139" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="From behind the barred doors of Frukendorf emerges a crescendo of inhuman cries, as if the gates of hell were methodically opening.  Whatever has been unleashed within Frukendorf's walls, you are grateful those walls stand between you and its fury.*143" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="140" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The massive gates of Frukendorf slam behind you; the sound of mechanical ratcheting and whirring hums as they are sealed." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="141" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="As you begin to utter the name of your destination, you hesitate.  After such an exhausting night, perhaps you ought to return to the Main Hall of the Guild of Free Adventurers." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="142" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="After a bitter battle, you fell the Prince of Bandits and his guard.  Though the head has been removed from the beast, as it were, the remnants of the Bandit's Guild are yet unvanquished, and the death of their prince may embolden their ranks.*143" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="143" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You return to the smoldering Main Hall of the Guild of Free Adventurers worn from the night's adventures, but nevertheless triumphant.  The beneficiaries of your valiant acts drop their work clearing the rubble to stand in awe as you walk past them.*144" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="144" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="It will take time for the Bandit's Guild to attain even a whisper of their previous strength.  Time enough for the Free Adventurers to refortify.  And time enough for you to enjoy a well-deserved Double Dragon Blomb." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="145" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The train miserably lurches eastward into the morning sun towards the Main Hall.  You have secured a temporary reprieve for your fellow Free Adventurers, but have given to the Bandit's Guild the infernal key of conquest for which their blood was spilt.*146" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="146" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="It was undoubtedly a devil's bargain, and as you, weary from the night's events, enter the Main Hall of the Guild of Free Adventurers few of those struggling to rebuild its walls from the siege's devastation rise to meet your gaze.*147" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="147" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Yet more important tasks lay ahead; the tasks of rebuilding the Main Hall, of refortifying its walls, of reclaiming its esteem and influence await.  Whatever plans the Bandit's Guild may be making, there remains time to rise to the occasion." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="148" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;Should you,&quot; he finishes, &quot;be bent on its destruction, I suggest to you that the Department of Quantum Engineering has been working on some extraordinarily thorough explosive devices.  I would not advise being present for such a demonstration, however.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="149" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="As what should be a fatal blow befalls Hokas Tokas, he dramatically disappears in a column of thick smoke." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="150" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Larcenous Lil, injured, flees and is irreversibly absorbed into the night@@001" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="151" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Professor Larkspur, weakened by the blow, finds the strength to flee into the safety of the night." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="152" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="As you reenter the Eamon University quad, you unlock the door to the Department of Alchemy." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="153" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The tall Amazon hands your gold back to you and says &quot;That's a real sweet gesture but this isn't nearly enough to afford my company.  Perhaps once this is over, we can talk to McFenney and look into getting you a loan.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="154" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The Amazon hands you back your gold.  &quot;You are persistent, aren't you?&quot; she says.  &quot;Look, I do charity work for the poor on occasion as a tax write-off.  If you'd like to take advantage of my 'charitable contributions,' talk to my accountant next week.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="155" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The Amazon returns your gold to you, smiling.  &quot;Sugar, I only charge a fee for the men,&quot; she says.  &quot;Why don't you and I get a Double Dragon Blomb after the Main Hall is no longer under siege and see what comes of it?&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="156" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The Amazon forcefully hands back your gold, saying &quot;If, in the midst of this chaos, your attention is drawn to the carnal, I have seriously misjudged your character.  Consider my offer of a drink revoked, with prejudice.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="157" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The text of the pamphlet reads:*158" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="158" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Dear Valued Client,*159" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="159" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="As you know, the Keep Eamon Clean Committee has done its best to keep you away from the 'corrupting influence' of our services.  We're pleased to announce that we are back in business at a new, literally underground location.*160" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="160" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The House of Ill Repute can be located through the northeast corner of the Main Hall sewer system.  Of course, your discretion is appreciated; the Great Brothel War was a painful chapter in Eamon history, one we shouldn't want repeated.*161" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="161" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="                                -Eowyn Fleiss, Proprietor, House of Ill Repute" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="162" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Its sturdy design and construction resist your attack." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="163" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="shelves" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="164" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="gates of Frukendorf" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="165" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="LARGE OVEN." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="166" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="A riveting experience, not to be missed!  Original Eamon Deluxe adventure EDX-22 by Thomas Ferguson.  Eamon CS port by Michael R. Penner." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="167" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Admittedly, you don't know how you got here, but a relaxing, if uncanny, sunset greets your gaze.*168" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="168" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="But you have unexpected company, in the form of an incredibly large rabbit.*169" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="169" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Being a seasoned Eamonaut, a rabbit of this stature should seem pedestrian.  You, after all, have battled wizards with rocket launchers and engaged in space opera with broadswords...*170" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="170" />
             <Simple name="IsUidRecycled" value="True" />

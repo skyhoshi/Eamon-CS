@@ -1,0 +1,57 @@
+
+To give full credit, the following is based on the Eamon Deluxe documentation.
+This important information has changed in Eamon CS 1.4.0 and is reprinted here
+in hopes it will be useful.
+
+4.4    ARTIFACT TYPES
+
+There are 13 types of recognized artifacts. You are also allowed to enter a 
+value of 14, 15, or 16 for your own special types.  All USER types are treated 
+as type 1 by Eamon CS unless you add your own code. Creating new artifact 
+types is very uncommon as most any type you'll need is already pre-programmed 
+and it is strongly suggested that you stay within the usual types. The types 
+are as follows:
+
+ Type            Format         Type                  Format
+ ----------------------         ---------------------------- 
+  0. Gold...............0        9. Edible...............4
+  1. Treasure...........0       10. Bound Monster........7  
+  2. Weapon.............1       11. Wearable.............8
+  3. Magic Weapon.......1       12. Disguised Monster....9
+  4. Container..........2       13. Dead body............10
+  5. Lightable..........3       14. Undefined, User......0
+  6. Drinkable..........4       15. Undefined, User......0
+  7. Readable...........5       16. Undefined, User......0
+  8. Door/Gate..........6
+
+All of the formats have the same information in the Artifact object, including
+Value, Weight, Location, etc.  The Type and remaining format fields are stored
+in one or more ArtifactCategory objects, referenced by the Artifact.  Format #0
+is all USER fields, the rest of the format fields 1-4 contain the following.
+
+  Format 1             Format 2               Format 3
+1-Weapon Odds        1-Key No.                1-Light Counter
+2-Weapon Type        2-Open/Closed(1/0)       2-(USER #6)
+3-# of Dice          3-# of items inside      3-(USER #7)
+4-# of Dice Sides    4-# items it can hold    4-(USER #8)
+
+  Format 4             Format 5               Format 6
+1-# of Heal Points   1-1st Effect           1-Room Beyond
+2-# of Drinks/Bites  2-# of Effects         2-Key #
+3-Open/Closed(1/0)   3-Open/Closed(1/0)     3-Open/Closed(0/1)
+4-(USER #8)          4-(USER #8)            4-Hidden?
+
+  Format 7             Format 8               Format 9
+1-Monster #          1-Armor Class          1-Monster #
+2-Key #              2-Armor Type           2-1st Effect
+3-Guard #            3-(USER #7)            3-# of Effects
+4-(USER #8)          4-(USER #8)            4-(USER #8)
+
+  Format 10
+1-'Takeable' status*
+2-(USER #6)
+3-(USER #7)
+4-(USER #8)
+
+* -- 0=Can't be taken, 1=Can be. Should ALWAYS be 0 unless the body serves some 
+sort of special function (such as collecting rewards, etc.).

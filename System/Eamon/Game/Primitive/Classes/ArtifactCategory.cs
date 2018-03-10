@@ -1,5 +1,5 @@
 ﻿
-// ArtifactClass.cs
+// ArtifactCategory.cs
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
@@ -15,20 +15,20 @@ using static Eamon.Game.Plugin.PluginContext;
 namespace Eamon.Game.Primitive.Classes
 {
 	[ClassMappings]
-	public class ArtifactClass : IArtifactClass
+	public class ArtifactCategory : IArtifactCategory
 	{
 		[ExcludeFromSerialization]
 		public virtual IArtifact Parent { get; set; }
 
 		public virtual Enums.ArtifactType Type { get; set; }
 
-		public virtual long Field5 { get; set; }
+		public virtual long Field1 { get; set; }
 
-		public virtual long Field6 { get; set; }
+		public virtual long Field2 { get; set; }
 
-		public virtual long Field7 { get; set; }
+		public virtual long Field3 { get; set; }
 
-		public virtual long Field8 { get; set; }
+		public virtual long Field4 { get; set; }
 
 		public virtual bool IsOpenable()
 		{
@@ -59,7 +59,7 @@ namespace Eamon.Game.Primitive.Classes
 		{
 			Debug.Assert(Enum.IsDefined(typeof(Enums.Weapon), weapon));
 
-			return IsWeapon01() && Field6 == (long)weapon;
+			return IsWeapon01() && Field2 == (long)weapon;
 		}
 
 		public virtual bool IsWeapon01()
@@ -73,15 +73,15 @@ namespace Eamon.Game.Primitive.Classes
 
 			if (Type == Enums.ArtifactType.Container)
 			{
-				result = Field6 == 1;
+				result = Field2 == 1;
 			}
 			else if (Type == Enums.ArtifactType.Drinkable || Type == Enums.ArtifactType.Edible || Type == Enums.ArtifactType.Readable)
 			{
-				result = Field7 == 1;
+				result = Field3 == 1;
 			}
 			else if (Type == Enums.ArtifactType.DoorGate)
 			{
-				result = Field7 == 0;
+				result = Field3 == 0;
 			}
 
 			return result;
@@ -91,15 +91,15 @@ namespace Eamon.Game.Primitive.Classes
 		{
 			if (Type == Enums.ArtifactType.Container)
 			{
-				Field6 = open ? 1 : 0;
+				Field2 = open ? 1 : 0;
 			}
 			else if (Type == Enums.ArtifactType.Drinkable || Type == Enums.ArtifactType.Edible || Type == Enums.ArtifactType.Readable)
 			{
-				Field7 = open ? 1 : 0;
+				Field3 = open ? 1 : 0;
 			}
 			else if (Type == Enums.ArtifactType.DoorGate)
 			{
-				Field7 = open ? 0 : 1;
+				Field3 = open ? 0 : 1;
 			}
 		}
 
@@ -109,11 +109,11 @@ namespace Eamon.Game.Primitive.Classes
 
 			if (Type == Enums.ArtifactType.Container)
 			{
-				Field5 = artifactUid;
+				Field1 = artifactUid;
 			}
 			else if (Type == Enums.ArtifactType.DoorGate)
 			{
-				Field6 = artifactUid;
+				Field2 = artifactUid;
 			}
 			else if (Type == Enums.ArtifactType.BoundMonster)
 			{
@@ -122,7 +122,7 @@ namespace Eamon.Game.Primitive.Classes
 					artifactUid = 0;
 				}
 
-				Field6 = artifactUid;
+				Field2 = artifactUid;
 			}
 		}
 
@@ -132,11 +132,11 @@ namespace Eamon.Game.Primitive.Classes
 
 			if (Type == Enums.ArtifactType.Container)
 			{
-				Field6 = strength;
+				Field2 = strength;
 			}
 			else if (Type == Enums.ArtifactType.DoorGate)
 			{
-				Field7 = strength;
+				Field3 = strength;
 			}
 		}
 
@@ -146,11 +146,11 @@ namespace Eamon.Game.Primitive.Classes
 
 			if (Type == Enums.ArtifactType.Readable)
 			{
-				Field5 = effectUid;
+				Field1 = effectUid;
 			}
 			else if (Type == Enums.ArtifactType.DisguisedMonster)
 			{
-				Field6 = effectUid;
+				Field2 = effectUid;
 			}
 		}
 
@@ -160,11 +160,11 @@ namespace Eamon.Game.Primitive.Classes
 
 			if (Type == Enums.ArtifactType.Readable)
 			{
-				Field6 = numEffects;
+				Field2 = numEffects;
 			}
 			else if (Type == Enums.ArtifactType.DisguisedMonster)
 			{
-				Field7 = numEffects;
+				Field3 = numEffects;
 			}
 		}
 
@@ -174,7 +174,7 @@ namespace Eamon.Game.Primitive.Classes
 
 			if (Type == Enums.ArtifactType.BoundMonster || Type == Enums.ArtifactType.DisguisedMonster)
 			{
-				Field5 = monsterUid;
+				Field1 = monsterUid;
 			}
 		}
 
@@ -184,11 +184,11 @@ namespace Eamon.Game.Primitive.Classes
 
 			if (Type == Enums.ArtifactType.Container)
 			{
-				result = Field5;
+				result = Field1;
 			}
 			else if (Type == Enums.ArtifactType.DoorGate || Type == Enums.ArtifactType.BoundMonster)
 			{
-				result = Field6;
+				result = Field2;
 			}
 
 			return result;
@@ -200,11 +200,11 @@ namespace Eamon.Game.Primitive.Classes
 
 			if (Type == Enums.ArtifactType.Container)
 			{
-				result = Globals.Engine.IsArtifactFieldStrength(Field6) ? Field6 : 0L;
+				result = Globals.Engine.IsArtifactFieldStrength(Field2) ? Field2 : 0L;
 			}
 			else if (Type == Enums.ArtifactType.DoorGate)
 			{
-				result = Globals.Engine.IsArtifactFieldStrength(Field7) ? Field7 : 0L;
+				result = Globals.Engine.IsArtifactFieldStrength(Field3) ? Field3 : 0L;
 			}
 
 			return result;
@@ -216,11 +216,11 @@ namespace Eamon.Game.Primitive.Classes
 
 			if (Type == Enums.ArtifactType.Readable)
 			{
-				result = Field5;
+				result = Field1;
 			}
 			else if (Type == Enums.ArtifactType.DisguisedMonster)
 			{
-				result = Field6;
+				result = Field2;
 			}
 
 			return result;
@@ -232,11 +232,11 @@ namespace Eamon.Game.Primitive.Classes
 
 			if (Type == Enums.ArtifactType.Readable)
 			{
-				result = Field6;
+				result = Field2;
 			}
 			else if (Type == Enums.ArtifactType.DisguisedMonster)
 			{
-				result = Field7;
+				result = Field3;
 			}
 
 			return result;
@@ -248,13 +248,13 @@ namespace Eamon.Game.Primitive.Classes
 
 			if (Type == Enums.ArtifactType.BoundMonster || Type == Enums.ArtifactType.DisguisedMonster)
 			{
-				result = Field5;
+				result = Field1;
 			}
 
 			return result;
 		}
 
-		public ArtifactClass()
+		public ArtifactCategory()
 		{
 			Type = Enums.ArtifactType.None;
 		}

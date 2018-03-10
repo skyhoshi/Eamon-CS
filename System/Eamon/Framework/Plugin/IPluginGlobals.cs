@@ -113,5 +113,9 @@ namespace Eamon.Framework.Plugin
 		bool IsRulesetVersion(params long[] versions);
 
 		string GetPrefixedFileName(string fileName);
+
+		void ReplaceTextfileValues(string fileName, string[] oldValues, string[] newValues);
+
+		void UpgradeTextfile(string fileName);
 	}
 }
