@@ -29,7 +29,7 @@ namespace EamonPM.Game.Portability
 		{
 			var firstLine = "";
 
-			using (var streamReader = new StreamReader(path))
+			using (var streamReader = new StreamReader(NormalizePath(path)))
 			{
 				firstLine = streamReader.ReadLine();
 			}
