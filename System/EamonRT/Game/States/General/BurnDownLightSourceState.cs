@@ -24,20 +24,20 @@ namespace EamonRT.Game.States
 
 				Debug.Assert(artifact != null);
 
-				var ac = artifact.GetArtifactClass(Enums.ArtifactType.LightSource);
+				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.LightSource);
 
-				if (ac != null && ac.Field5 != -1)
+				if (ac != null && ac.Field1 != -1)
 				{
-					if (ac.Field5 > 0)
+					if (ac.Field1 > 0)
 					{
-						ac.Field5--;
+						ac.Field1--;
 					}
 
-					if (ac.Field5 > 0)
+					if (ac.Field1 > 0)
 					{
-						if (ac.Field5 < 20)
+						if (ac.Field1 < 20)
 						{
-							Globals.Out.Print("{0}{1}", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), ac.Field5 < 10 ? " is almost out!" : " grows dim!");
+							Globals.Out.Print("{0}{1}", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), ac.Field1 < 10 ? " is almost out!" : " grows dim!");
 						}
 					}
 					else

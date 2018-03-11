@@ -85,7 +85,7 @@ namespace EamonRT.Game
 			{
 				var artifact = Globals.CreateInstance<IArtifact>(y =>
 				{
-					y.SetArtifactClassCount(1);
+					y.SetArtifactCategoryCount(1);
 
 					y.Uid = Globals.Database.GetArtifactUid();
 
@@ -103,11 +103,11 @@ namespace EamonRT.Game
 
 					y.ArticleType = Enums.ArticleType.Some;
 
-					y.GetClasses(0).Field5 = a2 * 2;
+					y.GetCategories(0).Field1 = a2 * 2;
 
-					y.GetClasses(0).Field6 = 0;
+					y.GetCategories(0).Field2 = 0;
 
-					y.GetClasses(0).Type = Enums.ArtifactType.Wearable;
+					y.GetCategories(0).Type = Enums.ArtifactType.Wearable;
 
 					var ima = false;
 
@@ -143,7 +143,7 @@ namespace EamonRT.Game
 			{
 				var artifact = Globals.CreateInstance<IArtifact>(y =>
 				{
-					y.SetArtifactClassCount(1);
+					y.SetArtifactCategoryCount(1);
 
 					y.Uid = Globals.Database.GetArtifactUid();
 
@@ -161,11 +161,11 @@ namespace EamonRT.Game
 
 					y.ArticleType = Enums.ArticleType.A;
 
-					y.GetClasses(0).Field5 = 1;
+					y.GetCategories(0).Field1 = 1;
 
-					y.GetClasses(0).Field6 = 0;
+					y.GetCategories(0).Field2 = 0;
 
-					y.GetClasses(0).Type = Enums.ArtifactType.Wearable;
+					y.GetCategories(0).Type = Enums.ArtifactType.Wearable;
 
 					y.Value = Constants.ShieldPrice;
 
@@ -252,19 +252,19 @@ namespace EamonRT.Game
 		{
 			Debug.Assert(artifact1 != null && artifact2 != null);
 
-			var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
+			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
 
-			var ac1 = artifact1.GetArtifactClass(artClasses);
+			var ac1 = artifact1.GetArtifactCategory(artTypes);
 
 			Debug.Assert(ac1 != null);
 
-			var ac2 = artifact2.GetArtifactClass(artClasses);
+			var ac2 = artifact2.GetArtifactCategory(artTypes);
 
 			Debug.Assert(ac2 != null);
 
-			var result1 = ac1.Field7 * ac1.Field8;
+			var result1 = ac1.Field3 * ac1.Field4;
 
-			var result2 = ac2.Field7 * ac2.Field8;
+			var result2 = ac2.Field3 * ac2.Field4;
 
 			return result1 > result2 ? 1 : result1 < result2 ? -1 : 0;
 		}
@@ -280,11 +280,11 @@ namespace EamonRT.Game
 
 			Debug.Assert(artifactList != null);
 
-			var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
+			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
 
 			foreach (var artifact in artifactList)
 			{
-				var ac = artifact.GetArtifactClass(artClasses);
+				var ac = artifact.GetArtifactCategory(artTypes);
 
 				if (ac != null && (cw == null || WeaponPowerCompare(artifact, cw) > 0))
 				{
@@ -308,7 +308,7 @@ namespace EamonRT.Game
 
 		public virtual void InitWtValueAndEnforceLimits()
 		{
-			Classes.IArtifactClass ac;
+			Classes.IArtifactCategory ac;
 			RetCode rc;
 			long c, w;
 
@@ -318,9 +318,9 @@ namespace EamonRT.Game
 			{
 				if (artifact.IsWornByCharacter())
 				{
-					ac = artifact.GetArtifactClass(Enums.ArtifactType.Wearable);
+					ac = artifact.GetArtifactCategory(Enums.ArtifactType.Wearable);
 
-					if (ac != null && ac.Field5 > 0)
+					if (ac != null && ac.Field1 > 0)
 					{
 						artifact.SetCarriedByCharacter();
 					}
@@ -332,7 +332,7 @@ namespace EamonRT.Game
 
 				w = artifact.Weight;
 
-				ac = artifact.GetArtifactClass(Enums.ArtifactType.Container);
+				ac = artifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
 				if (ac != null)
 				{
@@ -434,7 +434,7 @@ namespace EamonRT.Game
 
 			foreach (var artifact in artifacts)
 			{
-				var rc = artifact.SyncArtifactClasses();
+				var rc = artifact.SyncArtifactCategories();
 
 				Debug.Assert(IsSuccess(rc));
 
@@ -492,11 +492,11 @@ namespace EamonRT.Game
 
 				Debug.Assert(artifact != null);
 
-				var ac = artifact.GetArtifactClass(artTypes);
+				var ac = artifact.GetArtifactCategory(artTypes);
 
 				Debug.Assert(ac != null);
 
-				maxDamage = ac.Field7 * ac.Field8;
+				maxDamage = ac.Field3 * ac.Field4;
 			}
 
 			var damageFactor = (long)Math.Round((double)maxDamage / ScaledHardinessMaxDamageDivisor);
@@ -520,7 +520,7 @@ namespace EamonRT.Game
 
 			var artifact = Globals.CreateInstance<IArtifact>(x =>
 			{
-				x.SetArtifactClassCount(1);
+				x.SetArtifactCategoryCount(1);
 
 				x.Uid = Globals.Database.GetArtifactUid();
 
@@ -540,17 +540,17 @@ namespace EamonRT.Game
 
 				x.ArticleType = weapon.ArticleType;
 
-				x.GetClasses(0).Field5 = weapon.Complexity;
+				x.GetCategories(0).Field1 = weapon.Complexity;
 
-				x.GetClasses(0).Field6 = (long)weapon.Type;
+				x.GetCategories(0).Field2 = (long)weapon.Type;
 
-				x.GetClasses(0).Field7 = weapon.Dice;
+				x.GetCategories(0).Field3 = weapon.Dice;
 
-				x.GetClasses(0).Field8 = weapon.Sides;
+				x.GetCategories(0).Field4 = weapon.Sides;
 
 				var d = weapon.Dice * weapon.Sides;
 
-				x.GetClasses(0).Type = (weapon.Complexity >= 15 || d >= 25) ? Enums.ArtifactType.MagicWeapon : Enums.ArtifactType.Weapon;
+				x.GetCategories(0).Type = (weapon.Complexity >= 15 || d >= 25) ? Enums.ArtifactType.MagicWeapon : Enums.ArtifactType.Weapon;
 
 				var imw = false;
 
@@ -581,7 +581,7 @@ namespace EamonRT.Game
 		{
 			Debug.Assert(artifact != null);
 
-			var ac = artifact.GetArtifactClass(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon });
+			var ac = artifact.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon });
 
 			Debug.Assert(ac != null);
 
@@ -597,13 +597,13 @@ namespace EamonRT.Game
 
 				x.ArticleType = artifact.ArticleType;
 
-				x.Complexity = ac.Field5;
+				x.Complexity = ac.Field1;
 
-				x.Type = (Enums.Weapon)ac.Field6;
+				x.Type = (Enums.Weapon)ac.Field2;
 
-				x.Dice = ac.Field7;
+				x.Dice = ac.Field3;
 
-				x.Sides = ac.Field8;
+				x.Sides = ac.Field4;
 			});
 
 			return weapon;
@@ -761,11 +761,11 @@ namespace EamonRT.Game
 
 					Debug.Assert(artifact != null);
 
-					var ac = artifact.GetArtifactClass(Enums.ArtifactType.Wearable);
+					var ac = artifact.GetArtifactCategory(Enums.ArtifactType.Wearable);
 
 					Debug.Assert(ac != null);
 
-					Globals.Character.ArmorClass += ac.Field5;
+					Globals.Character.ArmorClass += ac.Field1;
 
 					artifact.SetInLimbo();
 				}
@@ -784,7 +784,7 @@ namespace EamonRT.Game
 
 			weaponList.Clear();
 
-			var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
+			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
 
 			var artifacts = GetArtifactList(() => true, a => a.IsWornByCharacter());
 
@@ -801,7 +801,7 @@ namespace EamonRT.Game
 
 				foreach (var artifact in artifacts)
 				{
-					var ac = artifact.GetArtifactClass(Enums.ArtifactType.Container);
+					var ac = artifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
 					if (ac != null)
 					{
@@ -809,7 +809,7 @@ namespace EamonRT.Game
 
 						foreach (var artifact01 in artifacts01)
 						{
-							if (artifact01.Seen == true || ac.Field6 == 1)
+							if (artifact01.Seen == true || ac.Field2 == 1)
 							{
 								artifact01.SetCarriedByCharacter();
 
@@ -829,9 +829,9 @@ namespace EamonRT.Game
 
 				if (artifact.IsCarriedByCharacter())
 				{
-					var ac = artifact.GetArtifactClass(artClasses);
+					var ac = artifact.GetArtifactCategory(artTypes);
 
-					if (ac != null && ac == artifact.GetClasses(0) && artifact.IsReadyableByCharacter())
+					if (ac != null && ac == artifact.GetCategories(0) && artifact.IsReadyableByCharacter())
 					{
 						weaponList.Add(artifact);
 
@@ -924,12 +924,12 @@ namespace EamonRT.Game
 						Globals.Buf01.SetFormat("nothing");
 					}
 
-					var ac = artifact.GetArtifactClass(Enums.ArtifactType.Drinkable);
+					var ac = artifact.GetArtifactCategory(Enums.ArtifactType.Drinkable);
 
 					Globals.Out.Write("{0}{1}{2} {3} worth {4}.",
 						Environment.NewLine,
 						artifact.GetDecoratedName03(true, false, false, false, Globals.Buf),
-						ac != null && ac.Field6 < 1 && !artifact.Name.Contains("empty", StringComparison.OrdinalIgnoreCase) ? " (empty)" : "",
+						ac != null && ac.Field2 < 1 && !artifact.Name.Contains("empty", StringComparison.OrdinalIgnoreCase) ? " (empty)" : "",
 						artifact.EvalPlural("is", "are"),
 						Globals.Buf01);
 
@@ -1167,17 +1167,17 @@ namespace EamonRT.Game
 
 			Debug.Assert(artifact != null);
 
-			var ac = artifact.GetArtifactClass(Enums.ArtifactType.DisguisedMonster);
+			var ac = artifact.GetArtifactCategory(Enums.ArtifactType.DisguisedMonster);
 
 			Debug.Assert(ac != null);
 
 			PrintMonsterAlive(artifact);
 
-			if (ac.Field6 > 0)
+			if (ac.Field2 > 0)
 			{
-				for (var i = 1; i <= ac.Field7; i++)
+				for (var i = 1; i <= ac.Field3; i++)
 				{
-					var effect = Globals.EDB[ac.Field6 + i - 1];
+					var effect = Globals.EDB[ac.Field2 + i - 1];
 
 					if (effect != null)
 					{
@@ -1200,7 +1200,7 @@ namespace EamonRT.Game
 
 			artifact.SetInLimbo();
 
-			var monster = Globals.MDB[ac.Field5];
+			var monster = Globals.MDB[ac.Field1];
 
 			Debug.Assert(monster != null);
 
@@ -1219,11 +1219,11 @@ namespace EamonRT.Game
 			{
 				artifact.SetInRoom(room);
 
-				var ac = artifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 				if (ac != null)
 				{
-					ac.Field8 = 0;
+					ac.Field4 = 0;
 				}
 
 				if (!artifact.Seen)
@@ -1278,7 +1278,7 @@ namespace EamonRT.Game
 
 			if (!artifact.IsCharOwned)
 			{
-				var ac = artifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 				if (ac != null)
 				{
@@ -1292,10 +1292,10 @@ namespace EamonRT.Game
 				{
 					if (artifact.Seen && room.IsLit())
 					{
-						ac.Field8 = 0;
+						ac.Field4 = 0;
 					}
 
-					if (ac.Field8 != 0)
+					if (ac.Field4 != 0)
 					{
 						found = false;
 					}
@@ -1303,7 +1303,7 @@ namespace EamonRT.Game
 
 				if (found && ac.IsOpen())
 				{
-					roomUid = ac.Field5;
+					roomUid = ac.Field1;
 				}
 			}
 		}
@@ -1617,7 +1617,7 @@ namespace EamonRT.Game
 
 		public virtual IList<IArtifact> GetReadyableWeaponList(IMonster monster)
 		{
-			var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
+			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
 
 			Debug.Assert(monster != null);
 
@@ -1629,11 +1629,11 @@ namespace EamonRT.Game
 			{
 				if (monster.Weapon != -a01.Uid - 1)
 				{
-					var ac = a01.GetArtifactClass(artClasses);
+					var ac = a01.GetArtifactCategory(artTypes);
 
 					Debug.Assert(ac != null);
 
-					return ac.Field7 * ac.Field8;
+					return ac.Field3 * ac.Field4;
 				}
 				else
 				{
@@ -1823,11 +1823,11 @@ namespace EamonRT.Game
 			return result;
 		}
 
-		public virtual void CheckPlayerSkillGains(Classes.IArtifactClass ac, long af)
+		public virtual void CheckPlayerSkillGains(Classes.IArtifactCategory ac, long af)
 		{
 			Debug.Assert(ac != null && ac.IsWeapon01());
 
-			var s = (Enums.Weapon)ac.Field6;
+			var s = (Enums.Weapon)ac.Field2;
 
 			var rl = RollDice01(1, 100, 0);
 
@@ -1964,7 +1964,7 @@ namespace EamonRT.Game
 			monster.Synonyms = Globals.CloneInstance(synonyms);
 		}
 
-		public virtual void GetOddsToHit(IMonster ofMonster, IMonster dfMonster, Classes.IArtifactClass ac, long af, ref long oddsToHit)
+		public virtual void GetOddsToHit(IMonster ofMonster, IMonster dfMonster, Classes.IArtifactCategory ac, long af, ref long oddsToHit)
 		{
 			Debug.Assert(ofMonster != null);
 
@@ -2004,7 +2004,7 @@ namespace EamonRT.Game
 
 			if (ac != null)
 			{
-				d = ac.Field5;
+				d = ac.Field1;
 
 				if (d > 50)
 				{
@@ -2020,7 +2020,7 @@ namespace EamonRT.Game
 
 				odds += ((af + Globals.Character.ArmorExpertise) * (-af > Globals.Character.ArmorExpertise ? 1 : 0));
 
-				d = Globals.Character.GetWeaponAbilities(ac.Field6);
+				d = Globals.Character.GetWeaponAbilities(ac.Field2);
 
 				if (d > 122)
 				{

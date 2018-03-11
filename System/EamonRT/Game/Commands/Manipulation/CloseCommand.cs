@@ -27,15 +27,15 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var containerAc = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Container);
+			var containerAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
-			var doorGateAc = DobjArtifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+			var doorGateAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
-			var drinkableAc = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Drinkable);
+			var drinkableAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Drinkable);
 
-			var edibleAc = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Edible);
+			var edibleAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Edible);
 
-			var readableAc = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Readable);
+			var readableAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Readable);
 
 			var ac =	containerAc != null ? containerAc :
 						doorGateAc != null ? doorGateAc :
@@ -58,10 +58,10 @@ namespace EamonRT.Game.Commands
 				{
 					if (DobjArtifact.Seen)
 					{
-						ac.Field8 = 0;
+						ac.Field4 = 0;
 					}
 
-					if (ac.Field8 == 1)
+					if (ac.Field4 == 1)
 					{
 						PrintDontFollowYou();
 
@@ -91,7 +91,7 @@ namespace EamonRT.Game.Commands
 
 				ac.SetOpen(false);
 
-				rc = DobjArtifact.SyncArtifactClasses(ac);
+				rc = DobjArtifact.SyncArtifactCategories(ac);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 

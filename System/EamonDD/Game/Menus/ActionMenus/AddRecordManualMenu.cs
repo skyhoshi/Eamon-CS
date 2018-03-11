@@ -103,16 +103,16 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (artifact != null)
 			{
-				var i = Globals.Engine.FindIndex(artifact.Classes, ac => ac != null && ac.Type == Enums.ArtifactType.None);
+				var i = Globals.Engine.FindIndex(artifact.Categories, ac => ac != null && ac.Type == Enums.ArtifactType.None);
 				
 				if (i > 0)
 				{
-					rc = artifact.SetArtifactClassCount(i);
+					rc = artifact.SetArtifactCategoryCount(i);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 				}
 
-				rc = artifact.SyncArtifactClasses();
+				rc = artifact.SyncArtifactCategories();
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 

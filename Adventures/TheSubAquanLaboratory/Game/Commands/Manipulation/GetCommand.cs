@@ -18,13 +18,13 @@ namespace TheSubAquanLaboratory.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			var ac = artifact.GetClasses(0);
+			var ac = artifact.GetCategories(0);
 
 			Debug.Assert(ac != null);
 
 			Globals.Buf.Clear();
 
-			switch (ac.Field8)
+			switch (ac.Field4)
 			{
 				case -1:
 

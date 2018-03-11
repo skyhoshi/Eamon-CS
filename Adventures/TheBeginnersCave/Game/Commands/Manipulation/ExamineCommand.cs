@@ -22,17 +22,17 @@ namespace TheBeginnersCave.Game.Commands
 
 			if (DobjArtifact != null && DobjArtifact.Uid == 8)
 			{
-				var ac = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Edible);
+				var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Edible);
 
 				Debug.Assert(ac != null);
 
-				var field6 = ac.Field6;
+				var field2 = ac.Field2;
 
-				ac.Field6 = Constants.InfiniteDrinkableEdible;
+				ac.Field2 = Constants.InfiniteDrinkableEdible;
 
 				base.PlayerExecute();
 
-				ac.Field6 = field6;
+				ac.Field2 = field2;
 			}
 			else
 			{

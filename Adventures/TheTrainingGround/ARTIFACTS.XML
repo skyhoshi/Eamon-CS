@@ -1,12 +1,12 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
@@ -23,22 +23,22 @@
             <Simple name="Value" value="3" />
             <Simple name="Weight" value="4" />
             <Simple name="Location" value="2" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="LightSource" />
-                    <Simple name="Field5" value="180" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="0" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="180" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
@@ -55,22 +55,22 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="1" />
             <Simple name="Location" value="3" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
-                    <Simple name="Field5" value="34" />
-                    <Simple name="Field6" value="1" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="34" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="3" />
             <Simple name="IsUidRecycled" value="True" />
@@ -87,22 +87,22 @@
             <Simple name="Value" value="5" />
             <Simple name="Weight" value="5" />
             <Simple name="Location" value="-3" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="3" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="5" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="5" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
@@ -119,22 +119,22 @@
             <Simple name="Value" value="15" />
             <Simple name="Weight" value="5" />
             <Simple name="Location" value="-4" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field5" value="10" />
-                    <Simple name="Field6" value="4" />
-                    <Simple name="Field7" value="2" />
-                    <Simple name="Field8" value="3" />
+                    <Simple name="Field1" value="10" />
+                    <Simple name="Field2" value="4" />
+                    <Simple name="Field3" value="2" />
+                    <Simple name="Field4" value="3" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
@@ -151,22 +151,22 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="999" />
             <Simple name="Location" value="2007" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="75" />
-                    <Simple name="Field8" value="5" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="75" />
+                    <Simple name="Field4" value="5" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
@@ -183,22 +183,22 @@
             <Simple name="Value" value="30" />
             <Simple name="Weight" value="10" />
             <Simple name="Location" value="1005" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="0" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="7" />
             <Simple name="IsUidRecycled" value="True" />
@@ -215,22 +215,22 @@
             <Simple name="Value" value="200" />
             <Simple name="Weight" value="30" />
             <Simple name="Location" value="1005" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Gold" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="0" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
@@ -247,22 +247,22 @@
             <Simple name="Value" value="30" />
             <Simple name="Weight" value="10" />
             <Simple name="Location" value="-5" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field5" value="15" />
-                    <Simple name="Field6" value="4" />
-                    <Simple name="Field7" value="2" />
-                    <Simple name="Field8" value="4" />
+                    <Simple name="Field1" value="15" />
+                    <Simple name="Field2" value="4" />
+                    <Simple name="Field3" value="2" />
+                    <Simple name="Field4" value="4" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
@@ -279,22 +279,22 @@
             <Simple name="Value" value="1" />
             <Simple name="Weight" value="1" />
             <Simple name="Location" value="-5" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="0" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="10" />
             <Simple name="IsUidRecycled" value="True" />
@@ -311,22 +311,22 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="-999" />
             <Simple name="Location" value="2008" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
-                    <Simple name="Field5" value="9" />
-                    <Simple name="Field6" value="9" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="9" />
+                    <Simple name="Field2" value="9" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="11" />
             <Simple name="IsUidRecycled" value="True" />
@@ -343,22 +343,22 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="210" />
             <Simple name="Location" value="10" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="0" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="12" />
             <Simple name="IsUidRecycled" value="True" />
@@ -375,22 +375,22 @@
             <Simple name="Value" value="25" />
             <Simple name="Weight" value="10" />
             <Simple name="Location" value="10" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field5" value="10" />
-                    <Simple name="Field6" value="4" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="5" />
+                    <Simple name="Field1" value="10" />
+                    <Simple name="Field2" value="4" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="5" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="13" />
             <Simple name="IsUidRecycled" value="True" />
@@ -407,22 +407,22 @@
             <Simple name="Value" value="3" />
             <Simple name="Weight" value="0" />
             <Simple name="Location" value="10" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="25" />
-                    <Simple name="Field8" value="4" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="25" />
+                    <Simple name="Field4" value="4" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="14" />
             <Simple name="IsUidRecycled" value="True" />
@@ -439,22 +439,22 @@
             <Simple name="Value" value="3" />
             <Simple name="Weight" value="4" />
             <Simple name="Location" value="1013" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="LightSource" />
-                    <Simple name="Field5" value="180" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="0" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="180" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="15" />
             <Simple name="IsUidRecycled" value="True" />
@@ -471,22 +471,22 @@
             <Simple name="Value" value="55" />
             <Simple name="Weight" value="3" />
             <Simple name="Location" value="1013" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
-                    <Simple name="Field5" value="4" />
-                    <Simple name="Field6" value="8" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="4" />
+                    <Simple name="Field2" value="8" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="16" />
             <Simple name="IsUidRecycled" value="True" />
@@ -503,22 +503,22 @@
             <Simple name="Value" value="5" />
             <Simple name="Weight" value="8" />
             <Simple name="Location" value="-7" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="1" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="4" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="4" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="17" />
             <Simple name="IsUidRecycled" value="True" />
@@ -535,22 +535,22 @@
             <Simple name="Value" value="25" />
             <Simple name="Weight" value="20" />
             <Simple name="Location" value="-8" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="2" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="4" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="2" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="4" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="18" />
             <Simple name="IsUidRecycled" value="True" />
@@ -567,22 +567,22 @@
             <Simple name="Value" value="25" />
             <Simple name="Weight" value="20" />
             <Simple name="Location" value="-9" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="2" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="4" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="2" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="4" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="19" />
             <Simple name="IsUidRecycled" value="True" />
@@ -599,22 +599,22 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="5" />
             <Simple name="Location" value="-10" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="3" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="4" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="4" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="20" />
             <Simple name="IsUidRecycled" value="True" />
@@ -631,22 +631,22 @@
             <Simple name="Value" value="15" />
             <Simple name="Weight" value="5" />
             <Simple name="Location" value="-11" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="5" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="4" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="5" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="4" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="21" />
             <Simple name="IsUidRecycled" value="True" />
@@ -663,22 +663,22 @@
             <Simple name="Value" value="25" />
             <Simple name="Weight" value="20" />
             <Simple name="Location" value="-12" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="2" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="4" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="2" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="4" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="22" />
             <Simple name="IsUidRecycled" value="True" />
@@ -695,22 +695,22 @@
             <Simple name="Value" value="45" />
             <Simple name="Weight" value="10" />
             <Simple name="Location" value="-13" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
-                    <Simple name="Field5" value="15" />
-                    <Simple name="Field6" value="5" />
-                    <Simple name="Field7" value="2" />
-                    <Simple name="Field8" value="6" />
+                    <Simple name="Field1" value="15" />
+                    <Simple name="Field2" value="5" />
+                    <Simple name="Field3" value="2" />
+                    <Simple name="Field4" value="6" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="23" />
             <Simple name="IsUidRecycled" value="True" />
@@ -727,22 +727,22 @@
             <Simple name="Value" value="50" />
             <Simple name="Weight" value="10" />
             <Simple name="Location" value="-14" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
-                    <Simple name="Field5" value="10" />
-                    <Simple name="Field6" value="2" />
-                    <Simple name="Field7" value="2" />
-                    <Simple name="Field8" value="8" />
+                    <Simple name="Field1" value="10" />
+                    <Simple name="Field2" value="2" />
+                    <Simple name="Field3" value="2" />
+                    <Simple name="Field4" value="8" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="24" />
             <Simple name="IsUidRecycled" value="True" />
@@ -759,22 +759,22 @@
             <Simple name="Value" value="150" />
             <Simple name="Weight" value="30" />
             <Simple name="Location" value="0" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="0" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="25" />
             <Simple name="IsUidRecycled" value="True" />
@@ -791,22 +791,22 @@
             <Simple name="Value" value="20" />
             <Simple name="Weight" value="10" />
             <Simple name="Location" value="24" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
-                    <Simple name="Field5" value="8" />
-                    <Simple name="Field6" value="1" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="8" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="26" />
             <Simple name="IsUidRecycled" value="True" />
@@ -823,22 +823,22 @@
             <Simple name="Value" value="15" />
             <Simple name="Weight" value="10" />
             <Simple name="Location" value="24" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
-                    <Simple name="Field5" value="9" />
-                    <Simple name="Field6" value="1" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="9" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="27" />
             <Simple name="IsUidRecycled" value="True" />
@@ -855,22 +855,22 @@
             <Simple name="Value" value="20" />
             <Simple name="Weight" value="10" />
             <Simple name="Location" value="24" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
-                    <Simple name="Field5" value="10" />
-                    <Simple name="Field6" value="1" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="10" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="28" />
             <Simple name="IsUidRecycled" value="True" />
@@ -887,22 +887,22 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="-999" />
             <Simple name="Location" value="25" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="1015" />
-                    <Simple name="Field7" value="0" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="1015" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="29" />
             <Simple name="IsUidRecycled" value="True" />
@@ -919,22 +919,22 @@
             <Simple name="Value" value="75" />
             <Simple name="Weight" value="1" />
             <Simple name="Location" value="1028" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
-                    <Simple name="Field5" value="11" />
-                    <Simple name="Field6" value="1" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="11" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="30" />
             <Simple name="IsUidRecycled" value="True" />
@@ -951,22 +951,22 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="999" />
             <Simple name="Location" value="25" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DisguisedMonster" />
-                    <Simple name="Field5" value="14" />
-                    <Simple name="Field6" value="13" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="14" />
+                    <Simple name="Field2" value="13" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="31" />
             <Simple name="IsUidRecycled" value="True" />
@@ -983,22 +983,22 @@
             <Simple name="Value" value="45" />
             <Simple name="Weight" value="10" />
             <Simple name="Location" value="-15" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
-                    <Simple name="Field5" value="15" />
-                    <Simple name="Field6" value="5" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="10" />
+                    <Simple name="Field1" value="15" />
+                    <Simple name="Field2" value="5" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="10" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="32" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1015,22 +1015,22 @@
             <Simple name="Value" value="25" />
             <Simple name="Weight" value="20" />
             <Simple name="Location" value="26" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Gold" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="0" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="33" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1047,22 +1047,22 @@
             <Simple name="Value" value="32" />
             <Simple name="Weight" value="10" />
             <Simple name="Location" value="27" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
-                    <Simple name="Field5" value="20" />
-                    <Simple name="Field6" value="3" />
-                    <Simple name="Field7" value="2" />
-                    <Simple name="Field8" value="6" />
+                    <Simple name="Field1" value="20" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="2" />
+                    <Simple name="Field4" value="6" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="34" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1079,22 +1079,22 @@
             <Simple name="Value" value="20" />
             <Simple name="Weight" value="7" />
             <Simple name="Location" value="-17" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="5" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="8" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="5" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="8" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="35" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1111,22 +1111,22 @@
             <Simple name="Value" value="25" />
             <Simple name="Weight" value="7" />
             <Simple name="Location" value="-18" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="5" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="8" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="5" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="8" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="36" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1143,22 +1143,22 @@
             <Simple name="Value" value="25" />
             <Simple name="Weight" value="7" />
             <Simple name="Location" value="-19" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="3" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="4" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="4" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="37" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1175,22 +1175,22 @@
             <Simple name="Value" value="25" />
             <Simple name="Weight" value="7" />
             <Simple name="Location" value="-20" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="3" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="4" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="4" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="38" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1207,22 +1207,22 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="-999" />
             <Simple name="Location" value="2028" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
-                    <Simple name="Field5" value="29" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="29" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="39" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1239,22 +1239,22 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="-999" />
             <Simple name="Location" value="2028" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
-                    <Simple name="Field5" value="32" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="32" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="40" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1271,22 +1271,22 @@
             <Simple name="Value" value="100" />
             <Simple name="Weight" value="1" />
             <Simple name="Location" value="-21" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
-                    <Simple name="Field5" value="10" />
-                    <Simple name="Field6" value="3" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="10" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="41" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1303,22 +1303,22 @@
             <Simple name="Value" value="100" />
             <Simple name="Weight" value="1" />
             <Simple name="Location" value="-21" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
-                    <Simple name="Field5" value="10" />
-                    <Simple name="Field6" value="3" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="10" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="42" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1335,22 +1335,22 @@
             <Simple name="Value" value="30" />
             <Simple name="Weight" value="25" />
             <Simple name="Location" value="31" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="0" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="43" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1367,22 +1367,22 @@
             <Simple name="Value" value="60" />
             <Simple name="Weight" value="5" />
             <Simple name="Location" value="31" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Wearable" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="5" />
-                    <Simple name="Field7" value="0" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="5" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="44" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1399,22 +1399,22 @@
             <Simple name="Value" value="200" />
             <Simple name="Weight" value="50" />
             <Simple name="Location" value="36" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Gold" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="0" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="45" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1431,22 +1431,22 @@
             <Simple name="Value" value="45" />
             <Simple name="Weight" value="2" />
             <Simple name="Location" value="36" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="0" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="46" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1463,22 +1463,22 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="-999" />
             <Simple name="Location" value="2011" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
-                    <Simple name="Field5" value="23" />
-                    <Simple name="Field6" value="1" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="23" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="47" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1495,22 +1495,22 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="-999" />
             <Simple name="Location" value="2012" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
-                    <Simple name="Field5" value="24" />
-                    <Simple name="Field6" value="1" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="24" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="48" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1527,22 +1527,22 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="-999" />
             <Simple name="Location" value="2013" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
-                    <Simple name="Field5" value="25" />
-                    <Simple name="Field6" value="1" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="25" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="49" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1559,22 +1559,22 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="-999" />
             <Simple name="Location" value="2014" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
-                    <Simple name="Field5" value="26" />
-                    <Simple name="Field6" value="1" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="26" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="50" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1591,22 +1591,22 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="-999" />
             <Simple name="Location" value="2015" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
-                    <Simple name="Field5" value="27" />
-                    <Simple name="Field6" value="1" />
-                    <Simple name="Field7" value="1" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="27" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="51" />
             <Simple name="IsUidRecycled" value="True" />
@@ -1623,15 +1623,15 @@
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="35" />
             <Simple name="Location" value="0" />
-            <SingleArray name="Classes">
+            <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactClass, Eamon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
-                    <Simple name="Field5" value="0" />
-                    <Simple name="Field6" value="0" />
-                    <Simple name="Field7" value="0" />
-                    <Simple name="Field8" value="0" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
                   </Properties>
                 </Complex>
               </Items>

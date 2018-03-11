@@ -24,7 +24,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var ac = DobjArtifact.GetArtifactClass(Enums.ArtifactType.LightSource);
+			var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.LightSource);
 
 			if (ac != null)
 			{
@@ -43,7 +43,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Field5 == 0)
+				if (ac.Field1 == 0)
 				{
 					Globals.Out.Print("{0} won't light.", DobjArtifact.EvalPlural("It", "They"));
 

@@ -51,7 +51,7 @@ namespace ARuncibleCargo.Game.Commands
 
 			Debug.Assert(gameState != null);
 
-			var ac = DobjArtifact.Uid == 129 ? DobjArtifact.GetArtifactClass(Enums.ArtifactType.Container) : null;
+			var ac = DobjArtifact.Uid == 129 ? DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container) : null;
 
 			// Open the Runcible Cargo
 

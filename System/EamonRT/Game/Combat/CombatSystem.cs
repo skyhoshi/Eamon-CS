@@ -28,15 +28,15 @@ namespace EamonRT.Game.Combat
 
 		protected long _d2 = 0;
 
-		protected virtual Enums.ArtifactType[] ArtClasses { get; set; }
+		protected virtual Enums.ArtifactType[] ArtTypes { get; set; }
 
 		protected virtual RTEnums.CombatState CombatState { get; set; }
 
-		protected virtual Classes.IArtifactClass OfAc { get; set; }
+		protected virtual Classes.IArtifactCategory OfAc { get; set; }
 
-		protected virtual Classes.IArtifactClass DfAc { get; set; }
+		protected virtual Classes.IArtifactCategory DfAc { get; set; }
 
-		protected virtual Classes.IArtifactClass ArAc { get; set; }
+		protected virtual Classes.IArtifactCategory ArAc { get; set; }
 
 		protected virtual IArtifact WpnArtifact { get; set; }
 
@@ -309,7 +309,7 @@ namespace EamonRT.Game.Combat
 
 			Debug.Assert(OfWeaponUid == 0 || (OfWeapon != null && OfWeapon.IsWeapon01()));
 
-			OfAc = OfWeapon != null ? OfWeapon.GetArtifactClass(ArtClasses) : null;
+			OfAc = OfWeapon != null ? OfWeapon.GetArtifactCategory(ArtTypes) : null;
 
 			Af = Globals.Engine.GetArmorFactor(Globals.GameState.Ar, Globals.GameState.Sh);
 
@@ -322,7 +322,7 @@ namespace EamonRT.Game.Combat
 				Globals.Engine.CheckPlayerSkillGains(OfAc, Af);
 			}
 
-			OfWeaponType = (Enums.Weapon)(OfAc != null ? OfAc.Field6 : 0);
+			OfWeaponType = (Enums.Weapon)(OfAc != null ? OfAc.Field2 : 0);
 
 			PrintAttack();
 
@@ -346,9 +346,9 @@ namespace EamonRT.Game.Combat
 
 			DfWeapon = DfWeaponUid > 0 ? Globals.ADB[DfWeaponUid] : null;
 
-			DfAc = DfWeapon != null ? DfWeapon.GetArtifactClass(ArtClasses) : null;
+			DfAc = DfWeapon != null ? DfWeapon.GetArtifactCategory(ArtTypes) : null;
 
-			DfWeaponType = (Enums.Weapon)(DfAc != null ? DfAc.Field6 : 0);
+			DfWeaponType = (Enums.Weapon)(DfAc != null ? DfAc.Field2 : 0);
 
 			if (_rl < 97 || OfWeaponUid == 0)
 			{
@@ -433,9 +433,9 @@ namespace EamonRT.Game.Combat
 
 			if (_rl < 91)
 			{
-				OfAc.Field8--;
+				OfAc.Field4--;
 
-				if (OfAc.Field8 > 0)
+				if (OfAc.Field4 > 0)
 				{
 					PrintWeaponDamaged();
 
@@ -468,7 +468,7 @@ namespace EamonRT.Game.Combat
 
 			_rl = Globals.Engine.RollDice01(1, 100, 0);
 
-			if (_rl > 50 || OfAc.Field8 <= 0)
+			if (_rl > 50 || OfAc.Field4 <= 0)
 			{
 				CombatState = RTEnums.CombatState.EndAttack;
 
@@ -492,9 +492,9 @@ namespace EamonRT.Game.Combat
 		{
 			if (OfAc != null)
 			{
-				D = OfAc.Field7;
+				D = OfAc.Field3;
 
-				S = OfAc.Field8;
+				S = OfAc.Field4;
 			}
 			else
 			{
@@ -613,9 +613,9 @@ namespace EamonRT.Game.Combat
 			{
 				DfArmor = Globals.GameState.Ar > 0 ? Globals.ADB[Globals.GameState.Ar] : null;
 
-				ArAc = DfArmor != null ? DfArmor.GetArtifactClass(Enums.ArtifactType.Wearable) : null;
+				ArAc = DfArmor != null ? DfArmor.GetArtifactCategory(Enums.ArtifactType.Wearable) : null;
 
-				if (ArAc != null && (ArAc.Field5 / 2) > 2)
+				if (ArAc != null && (ArAc.Field1 / 2) > 2)
 				{
 					_d2 -= (A * 2);
 				}
@@ -809,7 +809,7 @@ namespace EamonRT.Game.Combat
 
 		public CombatSystem()
 		{
-			ArtClasses = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
+			ArtTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
 
 			OfWeaponType = 0;
 

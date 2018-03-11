@@ -33,7 +33,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var ac = DobjArtifact.GetArtifactClass(Enums.ArtifactType.Readable);
+			var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Readable);
 
 			if (ac != null)
 			{
@@ -62,9 +62,9 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				for (var i = 1; i <= ac.Field6; i++)
+				for (var i = 1; i <= ac.Field2; i++)
 				{
-					var effect = Globals.EDB[ac.Field5 + i - 1];
+					var effect = Globals.EDB[ac.Field1 + i - 1];
 
 					if (effect != null)
 					{

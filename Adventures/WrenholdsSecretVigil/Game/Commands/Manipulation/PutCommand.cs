@@ -75,36 +75,36 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		protected virtual void ConvertSlimeToContainer()
 		{
-			var ac = IobjArtifact.GetArtifactClass(Enums.ArtifactType.Treasure);
+			var ac = IobjArtifact.GetArtifactCategory(Enums.ArtifactType.Treasure);
 
 			Debug.Assert(ac != null);
 
 			ac.Type = Enums.ArtifactType.Container;
 
-			ac.Field5 = 0;
+			ac.Field1 = 0;
 
-			ac.Field6 = 1;
+			ac.Field2 = 1;
 
-			ac.Field7 = 9999;
+			ac.Field3 = 9999;
 
-			ac.Field8 = 1;
+			ac.Field4 = 1;
 		}
 
 		protected virtual void ConvertSlimeToTreasure()
 		{
-			var ac = IobjArtifact.GetArtifactClass(Enums.ArtifactType.Container);
+			var ac = IobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
 			Debug.Assert(ac != null);
 
 			ac.Type = Enums.ArtifactType.Treasure;
 
-			ac.Field5 = 0;
+			ac.Field1 = 0;
 
-			ac.Field6 = 0;
+			ac.Field2 = 0;
 
-			ac.Field7 = 0;
+			ac.Field3 = 0;
 
-			ac.Field8 = 0;
+			ac.Field4 = 0;
 		}
 
 		protected override void PlayerExecute()

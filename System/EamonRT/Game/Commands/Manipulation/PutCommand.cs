@@ -62,7 +62,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			var ac = IobjArtifact.GetArtifactClass(Enums.ArtifactType.Container);
+			var ac = IobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
 			if (DobjArtifact == IobjArtifact || ac == null)
 			{
@@ -97,7 +97,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-			if (ac.Field7 < 1 || ac.Field8 < 1)
+			if (ac.Field3 < 1 || ac.Field4 < 1)
 			{
 				PrintDontNeedTo();
 
@@ -106,16 +106,16 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			var maxItemsReached = count >= ac.Field8;
+			var maxItemsReached = count >= ac.Field4;
 
-			if (!maxItemsReached && weight + DobjArtifact.Weight > ac.Field7)
+			if (!maxItemsReached && weight + DobjArtifact.Weight > ac.Field3)
 			{
 				PrintWontFit(DobjArtifact);
 
 				goto Cleanup;
 			}
 
-			if (maxItemsReached || weight + DobjArtifact.Weight > ac.Field7)
+			if (maxItemsReached || weight + DobjArtifact.Weight > ac.Field3)
 			{
 				PrintFull(IobjArtifact);
 

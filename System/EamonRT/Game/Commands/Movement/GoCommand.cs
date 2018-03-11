@@ -22,7 +22,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(DobjArtifact != null);
 
-			var ac = DobjArtifact.GetArtifactClass(Enums.ArtifactType.DoorGate);
+			var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 			if (ac != null)
 			{

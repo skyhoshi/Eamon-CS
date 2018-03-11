@@ -126,7 +126,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					artifact.Seen = false;
 
-					artifact.GetClasses(0).Field6 = 5;
+					artifact.GetCategories(0).Field2 = 5;
 
 					var gruel = new string[] { "",
 						"piping hot", "warm", "tepid", "cool", "ice cold", "frozen",

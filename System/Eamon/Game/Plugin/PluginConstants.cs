@@ -98,7 +98,7 @@ namespace Eamon.Game.Plugin
 
 		public virtual long NumDatabases { get; protected set; } = 10;
 
-		public virtual long NumArtifactClasses { get; protected set; } = 4;
+		public virtual long NumArtifactCategories { get; protected set; } = 4;
 
 		public virtual int BufSize { get; protected set; } = 1024;
 
@@ -120,7 +120,7 @@ namespace Eamon.Game.Plugin
 
 		public virtual string StackTraceFile { get; protected set; } = "STACKTRACE.TXT";
 
-		public virtual string ProgVersion { get; protected set; } = "1.3.0";
+		public virtual string ProgVersion { get; protected set; } = "1.4.0";
 
 		public virtual long InfiniteDrinkableEdible { get; protected set; } = 9999;
 

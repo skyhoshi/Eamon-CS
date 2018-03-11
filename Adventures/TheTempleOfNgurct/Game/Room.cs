@@ -22,7 +22,7 @@ namespace TheTempleOfNgurct.Game
 				{
 					var oakDoorArtifact = Globals.ADB[85];
 
-					var ac = oakDoorArtifact != null ? oakDoorArtifact.GetArtifactClass(Enums.ArtifactType.DoorGate) : null;
+					var ac = oakDoorArtifact != null ? oakDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate) : null;
 
 					return ac != null && (ac.GetKeyUid() <= 0 || !oakDoorArtifact.Seen) && index == 1 ? 18 : base.GetDirs(index);
 				}
@@ -30,7 +30,7 @@ namespace TheTempleOfNgurct.Game
 				{
 					var cellDoorArtifact = Globals.ADB[87];
 
-					var ac = cellDoorArtifact != null ? cellDoorArtifact.GetArtifactClass(Enums.ArtifactType.DoorGate) : null;
+					var ac = cellDoorArtifact != null ? cellDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate) : null;
 
 					return ac != null && ac.GetKeyUid() <= 0 && index == 4 ? 26 : base.GetDirs(index);
 				}
@@ -38,7 +38,7 @@ namespace TheTempleOfNgurct.Game
 				{
 					var cellDoorArtifact = Globals.ADB[88];
 
-					var ac = cellDoorArtifact != null ? cellDoorArtifact.GetArtifactClass(Enums.ArtifactType.DoorGate) : null;
+					var ac = cellDoorArtifact != null ? cellDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate) : null;
 
 					return ac != null && ac.GetKeyUid() <= 0 && index == 3 ? 27 : base.GetDirs(index);
 				}
@@ -46,7 +46,7 @@ namespace TheTempleOfNgurct.Game
 				{
 					var cellDoorArtifact = Globals.ADB[86];
 
-					var ac = cellDoorArtifact != null ? cellDoorArtifact.GetArtifactClass(Enums.ArtifactType.DoorGate) : null;
+					var ac = cellDoorArtifact != null ? cellDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate) : null;
 
 					return ac != null && ac.GetKeyUid() <= 0 && index == 1 ? 56 : base.GetDirs(index);
 				}

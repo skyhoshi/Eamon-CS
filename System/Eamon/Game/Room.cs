@@ -275,9 +275,9 @@ namespace Eamon.Game
 
 					if (result)
 					{
-						var ac = a.GetArtifactClass(Enums.ArtifactType.DeadBody);
+						var ac = a.GetArtifactCategory(Enums.ArtifactType.DeadBody);
 
-						if (ac != null && ac.Field5 != 1)
+						if (ac != null && ac.Field1 != 1)
 						{
 							result = false;
 						}

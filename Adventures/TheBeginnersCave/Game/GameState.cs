@@ -36,7 +36,7 @@ namespace TheBeginnersCave.Game
 
 					Debug.Assert(artifact != null);
 
-					var ac = artifact.GetArtifactClass(Enums.ArtifactType.MagicWeapon);
+					var ac = artifact.GetArtifactCategory(Enums.ArtifactType.MagicWeapon);
 
 					Debug.Assert(ac != null);
 
@@ -46,7 +46,7 @@ namespace TheBeginnersCave.Game
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-						ac.Field8 = 10;
+						ac.Field4 = 10;
 					}
 					else
 					{
@@ -54,7 +54,7 @@ namespace TheBeginnersCave.Game
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-						ac.Field8 = 6;
+						ac.Field4 = 6;
 					}
 
 					_trollsfire = value;

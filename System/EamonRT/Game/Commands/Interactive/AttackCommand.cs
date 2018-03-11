@@ -66,7 +66,7 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact != null)
 			{
-				Classes.IArtifactClass ac = null;
+				Classes.IArtifactCategory ac = null;
 
 				if (DobjArtifact.IsAttackable01(ref ac))
 				{
@@ -90,7 +90,7 @@ namespace EamonRT.Game.Commands
 					{
 						Globals.Engine.RevealDisguisedMonster(DobjArtifact);
 
-						var monster = Globals.MDB[ac.Field5];
+						var monster = Globals.MDB[ac.Field1];
 
 						Debug.Assert(monster != null);
 
@@ -157,13 +157,13 @@ namespace EamonRT.Game.Commands
 
 						Debug.Assert(weapon != null);
 
-						var weaponAc = weapon.GetArtifactClass(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon });
+						var weaponAc = weapon.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon });
 
 						Debug.Assert(weaponAc != null);
 
-						d = weaponAc.Field7;
+						d = weaponAc.Field3;
 
-						s = weaponAc.Field8;
+						s = weaponAc.Field4;
 
 						BuildWhamHitObj();
 					}
@@ -178,7 +178,7 @@ namespace EamonRT.Game.Commands
 					{
 						ac.SetBreakageStrength(breakageStrength);
 
-						rc = DobjArtifact.SyncArtifactClasses(ac);
+						rc = DobjArtifact.SyncArtifactCategories(ac);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -193,9 +193,9 @@ namespace EamonRT.Game.Commands
 
 					ac.SetKeyUid(-2);
 
-					ac.Field8 = 0;
+					ac.Field4 = 0;
 
-					rc = DobjArtifact.SyncArtifactClasses(ac);
+					rc = DobjArtifact.SyncArtifactCategories(ac);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -221,7 +221,7 @@ namespace EamonRT.Game.Commands
 							BuildContentsSpillToFloor();
 						}
 
-						ac.Field7 = 0;
+						ac.Field3 = 0;
 					}
 
 					Globals.Buf.AppendFormat("!{0}", Environment.NewLine);

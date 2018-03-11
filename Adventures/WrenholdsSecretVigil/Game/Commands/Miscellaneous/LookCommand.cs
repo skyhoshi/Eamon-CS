@@ -19,13 +19,13 @@ namespace WrenholdsSecretVigil.Game.Commands
 		{
 			ActorRoom.Seen = false;
 
-			var artClasses = new Enums.ArtifactType[] { Enums.ArtifactType.Treasure, Enums.ArtifactType.DoorGate };
+			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Treasure, Enums.ArtifactType.DoorGate };
 
 			var goldCurtainArtifact = Globals.ADB[40];
 
 			Debug.Assert(goldCurtainArtifact != null);
 
-			var ac = goldCurtainArtifact.GetArtifactClass(artClasses);
+			var ac = goldCurtainArtifact.GetArtifactCategory(artTypes);
 
 			Debug.Assert(ac != null);
 

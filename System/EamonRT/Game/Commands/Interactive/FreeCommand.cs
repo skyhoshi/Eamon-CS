@@ -38,7 +38,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(DobjArtifact != null);
 
-			var ac = DobjArtifact.GetArtifactClass(Enums.ArtifactType.BoundMonster);
+			var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.BoundMonster);
 
 			if (ac != null)
 			{
@@ -46,7 +46,7 @@ namespace EamonRT.Game.Commands
 
 				var keyUid = ac.GetKeyUid();
 
-				var guardUid = ac.Field7;
+				var guardUid = ac.Field3;
 
 				Monster = monsterUid > 0 ? Globals.MDB[monsterUid] : null;
 

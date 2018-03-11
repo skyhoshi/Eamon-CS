@@ -94,7 +94,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			Debug.Assert(deviceArtifact2 != null);
 
-			var ac = artifact.Classes[0];
+			var ac = artifact.Categories[0];
 
 			// Get lever
 
@@ -154,13 +154,13 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				ac.Type = Enums.ArtifactType.Treasure;
 
-				ac.Field5 = 0;
+				ac.Field1 = 0;
 
-				ac.Field6 = 0;
+				ac.Field2 = 0;
 
-				ac.Field7 = 0;
+				ac.Field3 = 0;
 
-				ac.Field8 = 0;
+				ac.Field4 = 0;
 			}
 			else
 			{
@@ -178,7 +178,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			Globals.Out.Print("You cannot detach the rope.");
 		}
 
-		protected override void ProcessArtifact(IArtifact artifact, IArtifactClass ac, ref bool nlFlag)
+		protected override void ProcessArtifact(IArtifact artifact, IArtifactCategory ac, ref bool nlFlag)
 		{
 			Debug.Assert(artifact != null);
 
