@@ -3,7 +3,6 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System.IO;
 using Eamon.Framework.Portability;
 
 namespace EamonPM.Game.Portability
@@ -29,7 +28,7 @@ namespace EamonPM.Game.Portability
 		{
 			var firstLine = "";
 
-			using (var streamReader = new StreamReader(NormalizePath(path)))
+			using (var streamReader = new System.IO.StreamReader(NormalizePath(path)))
 			{
 				firstLine = streamReader.ReadLine();
 			}
