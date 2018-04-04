@@ -37,6 +37,11 @@ namespace EamonRT.Game.Commands
 			return Globals.Engine.CheckNBTLHostility(ActorMonster);
 		}
 
+		protected virtual long GetMonsterFleeingMemberCount()
+		{
+			return Globals.Engine.RollDice01(1, ActorMonster.GroupCount, 0);
+		}
+
 		protected override void PlayerExecute()
 		{
 			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Enums.Direction), Direction));
@@ -146,7 +151,7 @@ namespace EamonRT.Game.Commands
 
 				Globals.Engine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref numExits);
 
-				var rl = Globals.Engine.RollDice01(1, ActorMonster.GroupCount, 0);
+				var rl = GetMonsterFleeingMemberCount();
 
 				var monster = Globals.CloneInstance(ActorMonster);
 

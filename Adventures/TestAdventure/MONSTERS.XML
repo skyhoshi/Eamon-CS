@@ -20,7 +20,8 @@
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="6" />
             <Simple name="Agility" value="15" />
-            <Simple name="GroupCount" value="7" />
+            <Simple name="GroupCount" value="4" />
+            <Simple name="AttackCount" value="2" />
             <Simple name="Courage" value="75" />
             <Simple name="Location" value="2" />
             <Simple name="CombatCode" value="NaturalWeapons" />
@@ -117,6 +118,7 @@
             <Simple name="Hardiness" value="25" />
             <Simple name="Agility" value="10" />
             <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="-3" />
             <Simple name="Courage" value="200" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />

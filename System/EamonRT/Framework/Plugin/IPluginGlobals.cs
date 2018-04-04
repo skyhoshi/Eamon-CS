@@ -23,7 +23,19 @@ namespace EamonRT.Framework.Plugin
 
 		IList<ICommand> LastCommandList { get; set; }
 
+		IList<IArtifact> LoopArtifactList { get; set; }
+
+		long LoopArtifactListIndex { get; set; }
+
 		long LoopMonsterUid { get; set; }
+
+		long LoopMemberNumber { get; set; }
+
+		long LoopAttackNumber { get; set; }
+
+		long LoopGroupCount { get; set; }
+
+		IMonster LoopLastDfMonster { get; set; }
 
 		new IEngine Engine { get; set; }
 

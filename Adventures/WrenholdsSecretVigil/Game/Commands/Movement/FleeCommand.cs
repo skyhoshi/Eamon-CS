@@ -16,5 +16,10 @@ namespace WrenholdsSecretVigil.Game.Commands
 		{
 			return Globals.DeviceOpened || base.ShouldMonsterFlee();
 		}
+
+		protected override long GetMonsterFleeingMemberCount()
+		{
+			return Globals.DeviceOpened ? ActorMonster.GroupCount : base.GetMonsterFleeingMemberCount();
+		}
 	}
 }

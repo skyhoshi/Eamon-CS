@@ -1,5 +1,5 @@
 ﻿
-// MonsterBattleState.cs
+// BeforeMonsterAttacksEnemyState.cs
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
@@ -10,8 +10,8 @@ using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IMonsterBattleState))]
-	public class MonsterBattleState : EamonRT.Game.States.MonsterBattleState, IMonsterBattleState
+	[ClassMappings(typeof(EamonRT.Framework.States.IBeforeMonsterAttacksEnemyState))]
+	public class BeforeMonsterAttacksEnemyState : EamonRT.Game.States.BeforeMonsterAttacksEnemyState, IBeforeMonsterAttacksEnemyState
 	{
 		public override void Execute()
 		{
@@ -19,19 +19,11 @@ namespace StrongholdOfKahrDur.Game.States
 
 			Debug.Assert(monster != null);
 
+			// Necromancer has special attack routine. Casts spells, never misses, always attacks player.
+
 			if (monster.Uid == 22)
 			{
-				if (Globals.Engine.CheckNBTLHostility(monster))
-				{
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterAttacksFoeState>(x =>
-					{
-						x.MemberNumber = MemberNumber;
-					});
-				}
-				else
-				{
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterLoopIncrementState>();
-				}
+				NextState = Globals.CreateInstance<IBeforeNecromancerAttacksEnemyState>();
 
 				Globals.NextState = NextState;
 			}

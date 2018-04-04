@@ -26,7 +26,19 @@ namespace EamonRT.Game.Plugin
 
 		public virtual IList<ICommand> LastCommandList { get; set; }
 
+		public virtual IList<IArtifact> LoopArtifactList { get; set; }
+
+		public virtual long LoopArtifactListIndex { get; set; }
+
 		public virtual long LoopMonsterUid { get; set; }
+
+		public virtual long LoopMemberNumber { get; set; }
+
+		public virtual long LoopAttackNumber { get; set; }
+
+		public virtual long LoopGroupCount { get; set; }
+
+		public virtual IMonster LoopLastDfMonster { get; set; }
 
 		public virtual new Framework.IEngine Engine
 		{
