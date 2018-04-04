@@ -20,6 +20,8 @@ namespace EamonRT.Framework.Combat
 
 		long MemberNumber { get; set; }
 
+		long AttackNumber { get; set; }
+
 		bool BlastSpell { get; set; }
 
 		bool UseAttacks { get; set; }

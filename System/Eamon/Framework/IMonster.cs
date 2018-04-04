@@ -26,6 +26,8 @@ namespace Eamon.Framework
 
 		long GroupCount { get; set; }
 
+		long AttackCount { get; set; }
+
 		long Courage { get; set; }
 
 		long Location { get; set; }

@@ -639,6 +639,8 @@ namespace EamonRT.Game
 
 				x.GroupCount = 1;
 
+				x.AttackCount = 1;
+
 				x.Courage = 100;
 
 				x.Location = artifact.Location;
@@ -688,6 +690,8 @@ namespace EamonRT.Game
 				x.Agility = Globals.Character.GetStats(Enums.Stat.Agility);
 
 				x.GroupCount = 1;
+
+				x.AttackCount = 1;
 
 				x.OrigGroupCount = 1;
 

@@ -21,9 +21,9 @@ namespace WrenholdsSecretVigil.Game.States
 
 			// Try to open running device, all flee
 
-			if (monster.Location == Globals.GameState.Ro && monster.CanMoveToRoom(true) && Globals.DeviceOpened)
+			if (monster.CanMoveToRoom(true) && Globals.DeviceOpened)
 			{
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterFleesRoomState>();
+				NextState = Globals.CreateInstance<EamonRT.Framework.States.IBeforeMonsterFleesRoomState>();
 
 				Globals.NextState = NextState;
 			}

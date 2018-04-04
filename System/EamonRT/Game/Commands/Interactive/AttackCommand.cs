@@ -29,6 +29,8 @@ namespace EamonRT.Game.Commands
 
 		public virtual long MemberNumber { get; set; }
 
+		public virtual long AttackNumber { get; set; }
+
 		protected virtual void PrintHackToBits()
 		{
 			Globals.Out.Print("You {0} {1} to bits!",	BlastSpell ? "blast" : "hack", DobjArtifact.EvalPlural("it", "them"));
@@ -271,6 +273,8 @@ namespace EamonRT.Game.Commands
 
 					x.MemberNumber = MemberNumber;
 
+					x.AttackNumber = AttackNumber;
+
 					x.BlastSpell = BlastSpell;
 
 					x.OmitSkillGains = !BlastSpell && !ShouldAllowSkillGains();
@@ -300,6 +304,8 @@ namespace EamonRT.Game.Commands
 				x.DfMonster = DobjMonster;
 
 				x.MemberNumber = MemberNumber;
+
+				x.AttackNumber = AttackNumber;
 			});
 
 			combatSystem.ExecuteAttack();
@@ -339,6 +345,8 @@ namespace EamonRT.Game.Commands
 			Type = Enums.CommandType.Interactive;
 
 			MemberNumber = 1;
+
+			AttackNumber = 1;
 		}
 	}
 }

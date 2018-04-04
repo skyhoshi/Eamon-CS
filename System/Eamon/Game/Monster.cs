@@ -40,6 +40,8 @@ namespace Eamon.Game
 
 		public virtual long GroupCount { get; set; }
 
+		public virtual long AttackCount { get; set; }
+
 		public virtual long Courage
 		{
 			get

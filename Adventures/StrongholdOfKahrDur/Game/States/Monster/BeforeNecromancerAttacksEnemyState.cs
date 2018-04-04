@@ -1,5 +1,5 @@
 ﻿
-// NecromancerAttacksFoeState.cs
+// BeforeNecromancerAttacksEnemyState.cs
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
@@ -13,7 +13,7 @@ using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 namespace StrongholdOfKahrDur.Game.States
 {
 	[ClassMappings]
-	public class NecromancerAttacksFoeState : EamonRT.Game.States.State, INecromancerAttacksFoeState
+	public class BeforeNecromancerAttacksEnemyState : EamonRT.Game.States.State, IBeforeNecromancerAttacksEnemyState
 	{
 		protected virtual Eamon.Framework.IRoom Room { get; set; }
 
@@ -67,7 +67,7 @@ namespace StrongholdOfKahrDur.Game.States
 		{
 			var monster = Globals.MDB[Globals.LoopMonsterUid];
 
-			Debug.Assert(monster != null && monster.CombatCode != Enums.CombatCode.NeverFights && monster.Friendliness != Enums.Friendliness.Neutral);
+			Debug.Assert(monster != null);
 
 			var monster01 = Globals.MDB[Globals.GameState.Cm];
 
@@ -168,15 +168,15 @@ namespace StrongholdOfKahrDur.Game.States
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterLoopIncrementState>();
+				NextState = Globals.CreateInstance<EamonRT.Framework.States.IAttackLoopIncrementState>();
 			}
 
 			Globals.NextState = NextState;
 		}
 
-		public NecromancerAttacksFoeState()
+		public BeforeNecromancerAttacksEnemyState()
 		{
-			Name = "NecromancerAttacksFoeState";
+			Name = "BeforeNecromancerAttacksEnemyState";
 		}
 	}
 }

@@ -90,6 +90,8 @@ namespace EamonRT.Game.Combat
 
 		public virtual long MemberNumber { get; set; }
 
+		public virtual long AttackNumber { get; set; }
+
 		public virtual bool BlastSpell { get; set; }
 
 		public virtual bool UseAttacks { get; set; }
@@ -126,8 +128,8 @@ namespace EamonRT.Game.Combat
 			AttackDesc01 = string.Format(AttackDesc, OfMonster.IsCharacterMonster() ? "" : "s");
 
 			OfMonsterName = OfMonster.IsCharacterMonster() ? "You" :
-					OfMonster.EvalInRoomLightLevel("An unseen offender",
-					OfMonster.InitGroupCount > 1 ? OfMonster.GetDecoratedName02(true, true, false, true, Globals.Buf) : OfMonster.GetDecoratedName03(true, true, false, true, Globals.Buf));
+					OfMonster.EvalInRoomLightLevel(AttackNumber == 1 ? "An unseen offender" : "The unseen offender",
+						OfMonster.InitGroupCount > 1 && AttackNumber == 1 ? OfMonster.GetDecoratedName02(true, true, false, true, Globals.Buf) : OfMonster.GetDecoratedName03(true, true, false, true, Globals.Buf));
 
 			DfMonsterName = DfMonster.IsCharacterMonster() ? "you" :
 					DfMonster.EvalInRoomLightLevel("an unseen defender",

@@ -88,6 +88,16 @@ namespace Eamon.Game.Helpers
 			return Record.GroupCount >= 0;          // 0=Must be calculated
 		}
 
+		protected virtual bool ValidateAttackCount(IField field, IValidateArgs args)
+		{
+			if (Record.AttackCount == 0)
+			{
+				Record.AttackCount = 1;
+			}
+
+			return Record.AttackCount > 0 || Record.AttackCount < -1;
+		}
+
 		protected virtual bool ValidateCourage(IField field, IValidateArgs args)
 		{
 			return Globals.Engine.IsValidMonsterCourage(Record.Courage);
@@ -461,6 +471,15 @@ namespace Eamon.Game.Helpers
 			var fullDesc = "Enter the number of members in the monster's group." + (Globals.IsRulesetVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be 1." : "");
 
 			var briefDesc = "1=Single monster; (GT 1)=Multiple monsters";
+
+			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+		}
+
+		protected virtual void PrintDescAttackCount(IField field, IPrintDescArgs args)
+		{
+			var fullDesc = "Enter the number of attacks per round for the monster." + Environment.NewLine + Environment.NewLine + (Globals.IsRulesetVersion(5) ? "For classic Eamon games this value should always be 1." : "The monster can attack this many times per round.  For group monsters, each member has this many attacks per round.  For AttackCounts < -1, use ABS(AttackCount) as attacks per round.");
+
+			var briefDesc = "1=Single attack, single target; (GT 1)=Multiple attacks, single target;      (LT -1)=Multiple attacks, multiple targets";
 
 			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
 		}
@@ -857,6 +876,21 @@ namespace Eamon.Game.Helpers
 				}
 
 				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.GroupCount);
+			}
+		}
+
+		protected virtual void ListAttackCount(IField field, IListArgs args)
+		{
+			Debug.Assert(field != null && args != null);
+
+			if (args.FullDetail)
+			{
+				if (args.NumberFields)
+				{
+					field.ListNum = args.ListNum++;
+				}
+
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.AttackCount);
 			}
 		}
 
@@ -1505,6 +1539,53 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		protected virtual void InputAttackCount(IField field, IInputArgs args)
+		{
+			Debug.Assert(field != null && args != null && args.Buf != null);
+
+			var fieldDesc = args.FieldDesc;
+
+			var attackCount = Record.AttackCount;
+
+			while (true)
+			{
+				args.Buf.SetFormat(args.EditRec ? "{0}" : "", attackCount);
+
+				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "1"));
+
+				var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharPlusMinusDigit, null);
+
+				Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+				var error = false;
+
+				try
+				{
+					Record.AttackCount = Convert.ToInt64(args.Buf.Trim().ToString());
+
+					if (Record.AttackCount == 0)
+					{
+						error = true;
+					}
+				}
+				catch (Exception)
+				{
+					error = true;
+				}
+
+				if (!error && ValidateField(field, args.Vargs))
+				{
+					break;
+				}
+
+				fieldDesc = Enums.FieldDesc.Brief;
+			}
+
+			Globals.Out.Print("{0}", Globals.LineSep);
+		}
+
 		protected virtual void InputCourage(IField field, IInputArgs args)
 		{
 			Debug.Assert(field != null && args != null && args.Buf != null);
@@ -2064,6 +2145,16 @@ namespace Eamon.Game.Helpers
 						x.Input = InputGroupCount;
 						x.GetPrintedName = () => "Group Count";
 						x.GetValue = () => Record.GroupCount;
+					}),
+					Globals.CreateInstance<IField>(x =>
+					{
+						x.Name = "AttackCount";
+						x.Validate = ValidateAttackCount;
+						x.PrintDesc = PrintDescAttackCount;
+						x.List = ListAttackCount;
+						x.Input = InputAttackCount;
+						x.GetPrintedName = () => "Attack Count";
+						x.GetValue = () => Record.AttackCount;
 					}),
 					Globals.CreateInstance<IField>(x =>
 					{

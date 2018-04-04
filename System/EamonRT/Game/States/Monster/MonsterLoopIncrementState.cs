@@ -23,13 +23,11 @@ namespace EamonRT.Game.States
 
 		public override void Execute()
 		{
-			IMonster monster;
-
 			while (true)
 			{
 				Globals.LoopMonsterUid++;
 
-				monster = Globals.MDB[Globals.LoopMonsterUid];
+				var monster = Globals.MDB[Globals.LoopMonsterUid];
 
 				if (monster != null)
 				{
@@ -39,7 +37,7 @@ namespace EamonRT.Game.States
 
 						goto Cleanup;
 					}
-				} 
+				}
 				else
 				{
 					goto Cleanup;

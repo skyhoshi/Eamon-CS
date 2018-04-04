@@ -14,5 +14,7 @@ namespace EamonRT.Framework.Commands
 		bool CheckAttack { get; set; }
 
 		long MemberNumber { get; set; }
+
+		long AttackNumber { get; set; }
 	}
 }
