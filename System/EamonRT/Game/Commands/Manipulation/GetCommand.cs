@@ -195,7 +195,7 @@ namespace EamonRT.Game.Commands
 				ac = DobjArtifact.GetCategories(0);
 			}
 
-			if (ac != null && ActorRoom.IsLit() && ac.Type != Enums.ArtifactType.DisguisedMonster && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != Enums.ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != Enums.ArtifactType.BoundMonster)
+			if (ac != null && (ActorRoom.IsLit() || ActorMonster.Weapon == -DobjArtifact.Uid - 1) && ac.Type != Enums.ArtifactType.DisguisedMonster && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != Enums.ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != Enums.ArtifactType.BoundMonster)
 			{
 				var artCount = 0L;
 
@@ -223,9 +223,9 @@ namespace EamonRT.Game.Commands
 
 					if (monsters.Contains(charMonster))
 					{
-						var monsterName = ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01));
+						var monsterName = ActorRoom.EvalLightLevel("An unseen offender", ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01)));
 
-						Globals.Out.Print("{0} picks up {1}.", monsterName, DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+						Globals.Out.Print("{0} picks up {1}.", monsterName, ActorRoom.EvalLightLevel("a weapon", DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf)));
 					}
 				}
 			}

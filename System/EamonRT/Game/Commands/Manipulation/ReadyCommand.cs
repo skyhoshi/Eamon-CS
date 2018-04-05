@@ -104,7 +104,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			if (ActorRoom.IsLit() && DobjArtifact.IsReadyableByMonster(ActorMonster) && DobjArtifact.IsCarriedByMonster(ActorMonster))
+			if (DobjArtifact.IsReadyableByMonster(ActorMonster) && DobjArtifact.IsCarriedByMonster(ActorMonster))
 			{
 				var wpnArtifact = Globals.ADB[ActorMonster.Weapon];
 
@@ -129,9 +129,9 @@ namespace EamonRT.Game.Commands
 
 				if (monsters.Contains(charMonster))
 				{
-					var monsterName = ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01));
+					var monsterName = ActorRoom.EvalLightLevel("An unseen offender", ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01)));
 
-					Globals.Out.Print("{0} readies {1}.", monsterName, DobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf));
+					Globals.Out.Print("{0} readies {1}.", monsterName, ActorRoom.EvalLightLevel("a weapon", DobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf)));
 				}
 			}
 
