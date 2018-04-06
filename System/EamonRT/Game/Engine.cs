@@ -1625,11 +1625,17 @@ namespace EamonRT.Game
 
 			Debug.Assert(monster != null);
 
+			var charMonster = Globals.MDB[Globals.GameState.Cm];
+
+			Debug.Assert(charMonster != null);
+
 			var room = monster.GetInRoom();
 
 			Debug.Assert(room != null);
 
-			var artifactList = GetArtifactList(() => true, a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || (a.IsInRoom(room) && (!room.IsLit() || a.Seen)))).OrderByDescending(a01 =>
+			var monsterList = GetMonsterList(() => true, m => m.Uid != monster.Uid && m.Uid != charMonster.Uid && m.IsInRoom(room));
+
+			var artifactList = GetArtifactList(() => true, a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || (a.IsInRoom(room) && monsterList.FirstOrDefault(m => m.Weapon == -a.Uid - 1) == null && (charMonster.Weapon > 0 || !a.IsCharOwned)))).OrderByDescending(a01 =>
 			{
 				if (monster.Weapon != -a01.Uid - 1)
 				{
