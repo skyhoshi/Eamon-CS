@@ -105,11 +105,14 @@ namespace StrongholdOfKahrDur.Game.States
 
 					foreach (var sv in spellValues)
 					{
-						Globals.GameState.SetSa(sv, (long)(Globals.GameState.GetSa(sv) * 0.8));
-
-						if (Globals.GameState.GetSa(sv) < 5)
+						if (Globals.GameState.GetSa(sv) > 5)
 						{
-							Globals.GameState.SetSa(sv, 5);
+							Globals.GameState.SetSa(sv, (long)(Globals.GameState.GetSa(sv) * 0.8));
+
+							if (Globals.GameState.GetSa(sv) < 5)
+							{
+								Globals.GameState.SetSa(sv, 5);
+							}
 						}
 					}
 
