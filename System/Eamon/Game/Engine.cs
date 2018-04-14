@@ -36,20 +36,98 @@ namespace Eamon.Game
 
 		protected virtual string[] ClothingNames { get; set; }
 
+		/// <summary>
+		/// An array containing the description for each CombatCode.
+		/// </summary>
+		/// <remarks>
+		/// This array contains the description for each member of <see cref="Enums.CombatCode"/>.  You should never access this array directly;
+		/// always use the Getter methods mentioned below.
+		/// </remarks>
+		/// <seealso cref="IEngine.GetCombatCodeDescs(long)"/>
+		/// <seealso cref="IEngine.GetCombatCodeDescs(Enums.CombatCode)"/>
 		protected virtual string[] CombatCodeDescs { get; set; }
 
+		/// <summary>
+		/// An array containing the name for each LightLevel.
+		/// </summary>
+		/// <remarks>
+		/// This array contains the name for each member of <see cref="Enums.LightLevel"/>.  You should never access this array directly;
+		/// always use the Getter methods mentioned below.
+		/// </remarks>
+		/// <seealso cref="IEngine.GetLightLevelNames(long)"/>
+		/// <seealso cref="IEngine.GetLightLevelNames(Enums.LightLevel)"/>
 		protected virtual string[] LightLevelNames { get; set; }
 
+		/// <summary>
+		/// An array containing data for each Stat.
+		/// </summary>
+		/// <remarks>
+		/// This array contains data for each member of <see cref="Enums.Stat"/>.  You can subclass <see cref="Classes.IStat"/> and provide
+		/// your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="IEngine"/>.  Other than that
+		/// specialized case, you should never access this array directly; always use the Getter methods mentioned below.
+		/// </remarks>
+		/// <seealso cref="IEngine.GetStats(long)"/>
+		/// <seealso cref="IEngine.GetStats(Enums.Stat)"/>
 		protected virtual Classes.IStat[] Stats { get; set; }
 
+		/// <summary>
+		/// An array containing data for each Spell.
+		/// </summary>
+		/// <remarks>
+		/// This array contains data for each member of <see cref="Enums.Spell"/>.  You can subclass <see cref="Classes.ISpell"/> and provide
+		/// your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="IEngine"/>.  Other than that
+		/// specialized case, you should never access this array directly; always use the Getter methods mentioned below.
+		/// </remarks>
+		/// <seealso cref="IEngine.GetSpells(long)"/>
+		/// <seealso cref="IEngine.GetSpells(Enums.Spell)"/>
 		protected virtual Classes.ISpell[] Spells { get; set; }
 
+		/// <summary>
+		/// An array containing data for each Weapon.
+		/// </summary>
+		/// <remarks>
+		/// This array contains data for each member of <see cref="Enums.Weapon"/>.  You can subclass <see cref="Classes.IWeapon"/> and provide
+		/// your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="IEngine"/>.  Other than that
+		/// specialized case, you should never access this array directly; always use the Getter methods mentioned below.
+		/// </remarks>
+		/// <seealso cref="IEngine.GetWeapons(long)"/>
+		/// <seealso cref="IEngine.GetWeapons(Enums.Weapon)"/>
 		protected virtual Classes.IWeapon[] Weapons { get; set; }
 
+		/// <summary>
+		/// An array containing data for each Armor.
+		/// </summary>
+		/// <remarks>
+		/// This array contains data for each member of <see cref="Enums.Armor"/>.  You can subclass <see cref="Classes.IArmor"/> and provide
+		/// your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="IEngine"/>.  Other than that
+		/// specialized case, you should never access this array directly; always use the Getter methods mentioned below.
+		/// </remarks>
+		/// <seealso cref="IEngine.GetArmors(long)"/>
+		/// <seealso cref="IEngine.GetArmors(Enums.Armor)"/>
 		protected virtual Classes.IArmor[] Armors { get; set; }
 
+		/// <summary>
+		/// An array containing data for each Direction.
+		/// </summary>
+		/// <remarks>
+		/// This array contains data for each member of <see cref="Enums.Direction"/>.  You can subclass <see cref="Classes.IDirection"/> and provide
+		/// your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="IEngine"/>.  Other than that
+		/// specialized case, you should never access this array directly; always use the Getter methods mentioned below.
+		/// </remarks>
+		/// <seealso cref="IEngine.GetDirections(long)"/>
+		/// <seealso cref="IEngine.GetDirections(Enums.Direction)"/>
 		protected virtual Classes.IDirection[] Directions { get; set; }
 
+		/// <summary>
+		/// An array containing data for each Artifact Type.
+		/// </summary>
+		/// <remarks>
+		/// This array contains data for each member of <see cref="Enums.ArtifactType"/>.  You can subclass <see cref="Classes.IArtifactType"/> and provide
+		/// your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="IEngine"/>.  Other than that
+		/// specialized case, you should never access this array directly; always use the Getter methods mentioned below.
+		/// </remarks>
+		/// <seealso cref="IEngine.GetArtifactTypes(long)"/>
+		/// <seealso cref="IEngine.GetArtifactTypes(Enums.ArtifactType)"/>
 		protected virtual Classes.IArtifactType[] ArtifactTypes { get; set; }
 
 		protected virtual IDictionary<Tuple<Enums.Weapon, long>, string> AttackDescs { get; set; }
@@ -1056,11 +1134,11 @@ namespace Eamon.Game
 			return result;
 		}
 
-		public virtual RetCode SumHighestRolls(long[] dieRolls, long numDieRolls, long numRollsToSum, ref long result)
+		public virtual RetCode SumHighestRolls(long[] dieRolls, long numRollsToSum, ref long result)
 		{
 			RetCode rc;
 
-			if (dieRolls == null || numDieRolls < 1 || numRollsToSum < 0 || numRollsToSum > numDieRolls)
+			if (dieRolls == null || numRollsToSum < 0 || numRollsToSum > dieRolls.Length)
 			{
 				rc = RetCode.InvalidArg;
 
@@ -1073,7 +1151,7 @@ namespace Eamon.Game
 
 			Array.Sort(dieRolls);
 
-			result = dieRolls.Skip((int)(numDieRolls - numRollsToSum)).Take((int)numRollsToSum).Sum();
+			result = dieRolls.Skip((int)(dieRolls.Length - numRollsToSum)).Take((int)numRollsToSum).Sum();
 
 		Cleanup:
 
