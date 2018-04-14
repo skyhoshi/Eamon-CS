@@ -310,7 +310,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is one of ['Y', 'N'].
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -320,7 +320,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is one of ['S', 'T', 'R', 'X'].
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -330,7 +330,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is one of ['0', '1'].
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -340,7 +340,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is one of ['0', '1', '2'].
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -350,7 +350,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is one of ['0', '1', '2', '3'].
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -360,7 +360,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is one of ['1', '2', '3'].
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -370,7 +370,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is a numeric digit.
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -380,7 +380,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is a numeric digit or 'X'.
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -390,7 +390,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is a numeric digit or one of ['+', '-'].
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -400,7 +400,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is alphabetic.
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -410,7 +410,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is alphabetic or space.
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -420,7 +420,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is alphabetic or numeric digit.
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -430,7 +430,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is alphabetic, numeric digit or space.
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -440,7 +440,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is printable.
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -450,7 +450,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is '#'.
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -460,7 +460,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is a quote.
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -470,7 +470,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is any character at all.
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -480,7 +480,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Check whether a character is any character but one of ['"', ',', ':'].
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
 		/// </remarks>
@@ -490,7 +490,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Given a character, produce its upper case equivalent, if any.
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input modification.
 		/// </remarks>
@@ -500,7 +500,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Given a character, produce either 'X' or '\0'.
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input modification.
 		/// </remarks>
@@ -510,7 +510,7 @@ namespace Eamon.Framework
 		/// <summary>
 		/// Given a character, produce '\0'.
 		/// </summary>
-		/// <param name="rc">The character value.</param>
+		/// <param name="ch">The character value.</param>
 		/// <remarks>
 		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input modification.
 		/// </remarks>
