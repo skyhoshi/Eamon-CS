@@ -32,8 +32,26 @@ namespace Eamon.Game
 
 		protected virtual string[] FieldDescNames { get; set; }
 
+		/// <summary>
+		/// An array containing the name for each Status.
+		/// </summary>
+		/// <remarks>
+		/// This array contains the name for each member of <see cref="Enums.Status"/>.  You should never access this array directly;
+		/// always use the Getter methods mentioned below.
+		/// </remarks>
+		/// <seealso cref="IEngine.GetStatusNames(long)"/>
+		/// <seealso cref="IEngine.GetStatusNames(Enums.Status)"/>
 		protected virtual string[] StatusNames { get; set; }
 
+		/// <summary>
+		/// An array containing the name for each Clothing.
+		/// </summary>
+		/// <remarks>
+		/// This array contains the name for each member of <see cref="Enums.Clothing"/>.  You should never access this array directly;
+		/// always use the Getter methods mentioned below.
+		/// </remarks>
+		/// <seealso cref="IEngine.GetClothingNames(long)"/>
+		/// <seealso cref="IEngine.GetClothingNames(Enums.Clothing)"/>
 		protected virtual string[] ClothingNames { get; set; }
 
 		/// <summary>

@@ -41,12 +41,52 @@ namespace Eamon.Framework
 
 		string GetFieldDescNames(Enums.FieldDesc fieldDesc);
 
+		/// <summary>
+		/// Gets the name for a given Status.
+		/// </summary>
+		/// <param name="index">The index into the StatusNames array.</param>
+		/// <remarks>
+		/// This method looks up and returns the name associated with a given <see cref="Enums.Status"/>.  It is a Getter
+		/// method that can be overridden in a subclass to intercept array accesses or provide other specialized behavior.
+		/// </remarks>
+		/// <returns>The name associated with a given Status.</returns>
+		/// <seealso cref="GetStatusNames(Enums.Status)"/>
 		string GetStatusNames(long index);
 
+		/// <summary>
+		/// Gets the name for a given Status.
+		/// </summary>
+		/// <param name="status">The Status value.</param>
+		/// <remarks>
+		/// This method looks up and returns the name associated with a given <see cref="Enums.Status"/>.  It is a convenience
+		/// wrapper around the <see cref="GetStatusNames(long)"/> Getter method; as a rule it shouldn't be overridden.  The lower-level
+		/// method is called by casting the passed in Status to a long.
+		/// </remarks>
+		/// <returns>The name associated with a given Status.</returns>
 		string GetStatusNames(Enums.Status status);
 
+		/// <summary>
+		/// Gets the name for a given Clothing.
+		/// </summary>
+		/// <param name="index">The index into the ClothingNames array.</param>
+		/// <remarks>
+		/// This method looks up and returns the name associated with a given <see cref="Enums.Clothing"/>.  It is a Getter
+		/// method that can be overridden in a subclass to intercept array accesses or provide other specialized behavior.
+		/// </remarks>
+		/// <returns>The name associated with a given Clothing.</returns>
+		/// <seealso cref="GetClothingNames(Enums.Clothing)"/>
 		string GetClothingNames(long index);
 
+		/// <summary>
+		/// Gets the name for a given Clothing.
+		/// </summary>
+		/// <param name="clothing">The Clothing value.</param>
+		/// <remarks>
+		/// This method looks up and returns the name associated with a given <see cref="Enums.Clothing"/>.  It is a convenience
+		/// wrapper around the <see cref="GetClothingNames(long)"/> Getter method; as a rule it shouldn't be overridden.  The lower-level
+		/// method is called by casting the passed in Clothing to a long.
+		/// </remarks>
+		/// <returns>The name associated with a given Clothing.</returns>
 		string GetClothingNames(Enums.Clothing clothing);
 
 		/// <summary>

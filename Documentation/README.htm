@@ -7,11 +7,340 @@
   <body>
     <h2>WELCOME TO THE WONDERFUL WORLD OF EAMON CS</h2>
     <p>[Note:&nbsp; this document is a work in progress]</p>
-    With the release of Eamon CS 1.4.0, the README.htm file has fallen into a
-    state of disrepair.&nbsp; It will be rebuilt in the coming months (after a
-    port to iOS).<br>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">This
+      minimal document is intended to describe the various facets of Eamon
+      CS.&nbsp; </span><span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">The
+      real documentation will be a formal set:&nbsp; full source code
+      commenting, a Player's Manual, a Dungeon Designer's Manual and a Class
+      Reference.&nbsp; It will take quite a while to put all that together, so
+      in the mean time, this document will have to suffice.</span><br>
     <br>
-    <ol>
-    </ol>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">Eamon
+      CS (ECS) is a port of the Eamon roleplaying game to the C# programming
+      language.&nbsp; It is the production version of a prior system called
+      Eamon AC (EAC), an ANSI C prototype intended to extract Eamon out of
+      BASIC.&nbsp; If you have EAC on your system you should uninstall it before
+      using ECS, as it is now obsolete.<br>
+    </span><br style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">This
+      system is a hybrid of Donald Brown's Classic Eamon and the most modern
+      BASIC Eamon available, Frank Black Production's Eamon Deluxe.&nbsp; It is
+      also directly based on the EAC prototype.&nbsp; Eamon CS borrows liberally
+      from and bears a strong resemblance to all these sources in various areas.</span><span
+
+      style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </span><br>
+    <br>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">The
+      game has evolved rapidly over its short lifespan, first making the leap to
+      a plugin-based architecture unique to this branch of Eamon, then into the
+      various flavors of Unix, and most recently into the Android mobile device
+      space.&nbsp; Along the way, a small but growing collection of custom-built
+      adventures has been created, and the game engine has improved with each
+      one produced.&nbsp; The different facets of Eamon CS share a common code
+      base, but where necessary it will be distinguished as Eamon CS Desktop for
+      traditional workstations and Eamon CS Mobile for mobile devices.</span>
+    <h3 style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 18.73px; font-style: normal; font-variant: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">PROGRAMS,
+      LIBRARIES AND PLUGINS</h3>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </span>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">The
+      plugin-based architecture used by Eamon CS extends to the Main Hall, the
+      Dungeon Designer and all adventures. They are managed by a Plugin Manager
+      program specific to either Desktop or Mobile environments:</p>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </span>
+    <table style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; height: 225px; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; width: 663px; word-spacing: 0px;"
+
+      border="1">
+      <tbody>
+        <tr>
+          <td style="width: 336.45px;">System\Bin\EamonPM.WindowsUnix.dll</td>
+          <td style="width: 310.55px;">Eamon CS Windows/Unix Plugin Manager</td>
+        </tr>
+        <tr>
+          <td>System\Bin\EamonPM.Android-Signed.apk</td>
+          <td>Eamon CS Android Plugin Manager</td>
+        </tr>
+        <tr>
+          <td>System\Bin\EamonDD.dll</td>
+          <td>Eamon CS Dungeon Designer Plugin</td>
+        </tr>
+        <tr>
+          <td>System\Bin\EamonMH.dll</td>
+          <td>Eamon CS Main Hall Plugin</td>
+        </tr>
+        <tr>
+          <td>System\Bin\EamonRT.dll</td>
+          <td>Eamon CS Adventure Plugin</td>
+        </tr>
+        <tr>
+          <td>System\Bin\Eamon.dll</td>
+          <td>Eamon CS Library</td>
+        </tr>
+        <tr>
+          <td>System\Bin\Polenter.SharpSerializer.dll</td>
+          <td>SharpSerializer.Library</td>
+        </tr>
+      </tbody>
+    </table>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </span>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">Additionally
+      you have some adventures:</p>
+    <table style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; height: 225px; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; width: 615px; word-spacing: 0px;"
+
+      border="1">
+      <tbody>
+        <tr>
+          <td style="width: 305.92px;">System\Bin\TheBeginnersCave.dll</td>
+          <td style="width: 293.08px;">Eamon CS Adventure Plugin</td>
+        </tr>
+        <tr>
+          <td>System\Bin\BeginnersForest.dll</td>
+          <td>Eamon CS Adventure Plugin</td>
+        </tr>
+        <tr>
+          <td>System\Bin\TheSubAquanLaboratory.dll</td>
+          <td>Eamon CS Adventure Plugin</td>
+        </tr>
+        <tr>
+          <td>System\Bin\ARuncibleCargo.dll</td>
+          <td>Eamon CS Adventure Plugin</td>
+        </tr>
+        <tr>
+          <td>System\Bin\StrongholdOfKahrDur.dll</td>
+          <td>Eamon CS Adventure Plugin</td>
+        </tr>
+        <tr>
+          <td>System\Bin\TheTempleOfNgurct.dll</td>
+          <td>Eamon CS Adventure Plugin</td>
+        </tr>
+        <tr>
+          <td>System\Bin\WrenholdsSecretVigil.dll</td>
+          <td>Eamon CS Adventure Plugin</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">Conceptually,
+      each plugin can be thought of as a discrete program; it exposes a Program
+      class with a Main method that takes a collection of arguments, much like
+      any C-based program.&nbsp; The difference is that the Plugin Manager is
+      what "executes" the plugin, not the calling C# environment.&nbsp; At the
+      bottom of the software stack, you have Polenter.SharpSerializer.dll which
+      handles loading and saving of the game's textfiles and Eamon.dll which
+      holds code common to all ECS plugins.&nbsp; The EamonRT.dll contains the
+      vanilla game engine used by all non-customized adventures.&nbsp; For
+      customized adventures, the game plugin (eg, TheBeginnersCave.dll) contains
+      custom code specific to that game, built by leveraging EamonRT.dll.&nbsp;
+      It is a "modded" version of the game engine.</p>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </span>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">This
+      implementation allows the logic for any plugin to be shared with any other
+      plugin.&nbsp; For example, an interesting idea would be to create a
+      "campaign library" that contains common code for multiple derived
+      adventures.</p>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </span>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">The
+      source code for Plugin Managers and system plugins resides in the
+      appropriate directory under System; for adventures, it resides in the
+      adventure-specific directory under Adventures.</p>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </span>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">The
+      Main Hall textfiles reside in System\Bin, making them easily accessible to
+      all plugins, while game-specific textfiles (both original and save game)
+      reside under Adventures in their respective game directories.</p>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </span>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">A
+      final note on the architectural differences between ECS Desktop and
+      Mobile. For Desktop, the plugins reside in the System\Bin directory and
+      are loaded by EamonPM.WindowsUnix.dll only when needed (and reused once
+      loaded). In contrast, when EamonPM.Android-Signed.apk is built, all
+      plugins are statically linked in and all textfiles are embedded, producing
+      a monolithic application. When the .apk is delivered onto the mobile
+      device, only the textfiles are replicated (when appropriate) to the
+      device's file system - the plugins remain part of the application. In
+      spite of this, the plugin managers are very similar internally.</p>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;"><span
+
+        style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 18.73px; font-style: normal; font-variant: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">BATCH
+        FILES</span></p>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;"><span
+
+        style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">The
+        plugins take a variety of command line parameters (which will be
+        described below).&nbsp; However, to get you up and running quickly,
+        there is a QuickLaunch folder (since there is no formal ECS installer,
+        you may want to manually create a shortcut to it on your desktop).&nbsp;
+        Inside this folder is a set of batch files that can be run
+        directly.&nbsp; The batch files are organized into sub-folders based on
+        the underlying plugin they invoke:</span> </p>
+    <table style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; height: 500px; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; width: 859px; word-spacing: 0px;"
+
+      border="1">
+      <tbody>
+        <tr>
+          <td>EamonDD\EditAdventures.bat</td>
+          <td>Edit the flat Adventures database</td>
+        </tr>
+        <tr>
+          <td>EamonDD\EditCatalog.bat</td>
+          <td>Edit the adventure category Catalog</td>
+        </tr>
+        <tr>
+          <td>EamonDD\EditCharacters.bat</td>
+          <td>Edit the Characters file</td>
+        </tr>
+        <tr>
+          <td>EamonDD\EditContemporary.bat</td>
+          <td>Edit the Contemporary adventures category</td>
+        </tr>
+        <tr>
+          <td>EamonDD\EditFantasy.bat</td>
+          <td>Edit the Fantasy adventures category</td>
+        </tr>
+        <tr>
+          <td>EamonDD\EditSciFi.bat</td>
+          <td>Edit the Sci-Fi adventures category</td>
+        </tr>
+        <tr>
+          <td>EamonDD\EditTest.bat</td>
+          <td>Edit the Test adventures category</td>
+        </tr>
+        <tr>
+          <td>EamonDD\EditWorkbench.bat</td>
+          <td>Edit the Developer's Workbench</td>
+        </tr>
+        <tr>
+          <td>EamonDD\EditWorkInProgress.bat</td>
+          <td>Edit the Work-In-Progress adventures category</td>
+        </tr>
+        <tr>
+          <td>EamonDD\EditARuncibleCargo.bat</td>
+          <td>Edit A Runcible Cargo</td>
+        </tr>
+        <tr>
+          <td>EamonDD\EditBeginnersForest.bat</td>
+          <td>Edit Beginner's Forest</td>
+        </tr>
+        <tr>
+          <td>EamonDD\Edit[AdventureName].bat</td>
+          <td>Edit [AdventureName]</td>
+        </tr>
+        <tr>
+          <td>EamonMH\EnterMainHallUsingAdventures.bat</td>
+          <td>Enter the Main Hall using a flat adventure database<sup>1</sup></td>
+        </tr>
+        <tr>
+          <td>EamonMH\EnterMainHallUsingCatalog.bat</td>
+          <td>Enter the Main Hall using a hierarchical adventure database<sup>1</sup></td>
+        </tr>
+        <tr>
+          <td>EamonRT\ResumeARuncibleCargo.bat</td>
+          <td>Resume A Runcible Cargo<sup>2</sup></td>
+        </tr>
+        <tr>
+          <td>EamonRT\ResumeBeginnersForest.bat</td>
+          <td>Resume Beginner's Forest<sup>2</sup></td>
+        </tr>
+        <tr>
+          <td>EamonRT\Resume[AdventureName].bat</td>
+          <td>Resume [AdventureName]<sup>2</sup></td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </p>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;"><sup>1</sup>Run
+      these batch files to create a new character or send an existing one into
+      the Main Hall.&nbsp; The only difference between the two batch files is
+      the nature of the adventure database loaded (the same characters will be
+      available regardless).</p>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </span>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;"><sup>2</sup>Run
+      these batch files to return to an in-progress adventure.</p>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </span>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">You
+      can study the batch files to see how various programs are launched; you
+      can also create your own batch files using these as templates if you
+      decide to try your hand at adventure writing, or if you want to run the
+      system in a non-default manner.</p>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </span>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">Eamon
+      CS Mobile mirrors this QuickLaunch hierarchy using a series of ListViews
+      to provide a similar experience.</p>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;"><span
+
+        style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 18.73px; font-style: normal; font-variant: normal; font-weight: 700; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">QUICK
+        ARCHITECTURAL OVERVIEW</span></p>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">The
+      entire Eamon CS system was written from scratch and aggressively exploits
+      the C# language.&nbsp; This is no mere port, more like an expansive
+      toolkit used to build games based on the Eamon ruleset.&nbsp; It shares
+      more in common with traditional Interactive Fiction systems like TADS or
+      Inform.&nbsp; Eamon CS games are built by subclassing existing classes (in
+      any library/plugin, but especially Eamon.dll or EamonRT.dll) and
+      overriding their behavior, calling back into base classes where the
+      default behavior is needed.&nbsp; Every class in the system can be
+      subclassed, and generic improvements made to individual adventures can be
+      pushed back into the base framework for use by all games.&nbsp; As time
+      goes on, the system will grow in flexibility and power.</p>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </span>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">The
+      textfile format used by Eamon CS deserves an explanation.&nbsp; The game
+      produces ASCII XML files that represent C# object graphs.&nbsp; This is
+      radically different than any other Eamon, and plays a critical role in the
+      development of customized adventures.&nbsp; Take a look in the
+      MONSTERS.XML file in Test Adventure (a non-customized adventure) and you
+      will see the serialized class is Eamon.Game.Monster (from
+      Eamon.dll).&nbsp; But in The Beginner's Cave, you will see it's
+      TheBeginnersCave.Game.Monster (from TheBeginnersCave.dll).&nbsp; These are
+      two different classes, the latter is a subclass of the former, and
+      implements custom code that is used specifically by The Beginner's
+      Cave.&nbsp; Now compare the batch file EditTestAdventure.bat, which
+      contains the command line argument "-pfn EamonRT.dll" with
+      EditTheBeginnersCave.bat, which contains "-pfn TheBeginnersCave.dll". In
+      the former the flag instructs EamonDD to load the base engine, while in
+      the latter it loads TheBeginnersCave.dll and uses any customized classes
+      it finds (like the Monster class) when creating new objects.&nbsp; This
+      whole topic is fairly complex and begs to be part of a formal document
+      set, but at least this gives you an idea of how it works.</p>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </span>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">With
+      BASIC Eamons that use files containing just data, you can bypass the
+      Dungeon Designer program completely and build these files by hand.&nbsp;
+      You should avoid this practice in Eamon CS due to the specialized textfile
+      format.&nbsp; The EamonDD program is instrumental in producing textfiles
+      of the correct format and you should rely on it to do so.&nbsp; However,
+      you can still manually tweak the textfiles with your favorite
+      editor.&nbsp; Just be very careful to ensure the file format is not
+      violated, as the Polenter.SharpSerializer.dll library can be picky.</p>
+    <span style="display: inline !important; float: none; background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </span>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">The
+      EamonRT.dll base adventure runtime takes the form of a Finite State
+      Machine (FSM).&nbsp; For those unfamiliar, this is a technique used to
+      model complex program behavior.&nbsp; The main game loop is 15 lines long;
+      all complex behavior has been delegated to subclasses of the State
+      class.&nbsp; Player commands are derived from the Command class, which
+      itself is derived from State.&nbsp; Customized adventures will almost
+      always subclass various States or Commands to provide special
+      behavior.&nbsp; It is also very easy to create new States or Commands and
+      link them into the FSM if needed.&nbsp; Finally, if you look through the
+      code you will see that special care has been taken to avoid the use of
+      GOTO except in specific circumstances (goto Cleanup).&nbsp; This gives the
+      game engine a clean, deterministic quality.</p>
+    <p style="background-color: transparent; color: rgb(0, 0, 0); font-family: Times New Roman; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-decoration: none; text-indent: 0px; text-transform: none; -webkit-text-stroke-width: 0px; white-space: normal; word-spacing: 0px;">
+    </p>
+    
   </body>
 </html>
