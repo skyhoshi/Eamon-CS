@@ -48,14 +48,7 @@ namespace StrongholdOfKahrDur.Game
 		{
 			// Necromancer can't move into a dark area
 
-			if (Uid == 22)
-			{
-				return roomUid != 54 ? base.CanMoveToRoomUid(roomUid, fleeing) : false;
-			}
-			else
-			{
-				return base.CanMoveToRoomUid(roomUid, fleeing);
-			}
+			return Uid != 22 || roomUid != 54 ? base.CanMoveToRoomUid(roomUid, fleeing) : false;
 		}
 
 		public override void AddHealthStatus(StringBuilder buf, bool addNewLine = true)

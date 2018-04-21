@@ -295,14 +295,59 @@ namespace Eamon.Framework
 		/// <returns>If the operation failed, returns true; else returns false.</returns>
 		bool IsFailure(RetCode rc);
 
+		/// <summary>
+		/// Check whether a plural type is valid.
+		/// </summary>
+		/// <param name="pluralType">The PluralType value.</param>
+		/// <remarks>
+		/// This method checks to see if the supplied plural type is either (1) a member of <see cref="Enums.PluralType"/> or (2) a
+		/// customized plural name built using an effect record (of the form 1000 + effectUid).
+		/// </remarks>
+		/// <returns>If the plural type is valid, returns true; else returns false.</returns>
 		bool IsValidPluralType(Enums.PluralType pluralType);
 
+		/// <summary>
+		/// Check whether an artifact type is valid.
+		/// </summary>
+		/// <param name="artifactType">The ArtifactType value.</param>
+		/// <remarks>
+		/// This method checks to see if the supplied artifact type is a member of <see cref="Enums.ArtifactType"/>.  The None value
+		/// is not considered valid.
+		/// </remarks>
+		/// <returns>If the artifact type is valid, returns true; else returns false.</returns>
 		bool IsValidArtifactType(Enums.ArtifactType artifactType);
 
+		/// <summary>
+		/// Check whether an armor value is valid for an wearable artifact.
+		/// </summary>
+		/// <param name="armor">The armor value.</param>
+		/// <remarks>
+		/// This method checks to see if the supplied armor value is valid for a wearable artifact.  The armor value must be a member
+		/// of <see cref="Enums.Armor"/> and also either (1) a shield only or (2) armor only.  This excludes "combo armors" that contain
+		/// both armor and shield.
+		/// </remarks>
+		/// <returns>If the armor value is valid, returns true; else returns false.</returns>
 		bool IsValidArtifactArmor(long armor);
 
+		/// <summary>
+		/// Check whether an armor value is valid for a monster.
+		/// </summary>
+		/// <param name="armor">The armor value.</param>
+		/// <remarks>
+		/// This method checks to see if the supplied armor value is valid for a monster; always the case for any armor value >= 0.
+		/// </remarks>
+		/// <returns>If the armor value is valid, returns true; else returns false.</returns>
 		bool IsValidMonsterArmor(long armor);
 
+		/// <summary>
+		/// Check whether a courage value is valid for a monster.
+		/// </summary>
+		/// <param name="courage">The courage value.</param>
+		/// <remarks>
+		/// This method checks to see if the supplied courage value is valid for a monster; always the case for any courage value >= 0
+		/// and <= 200.
+		/// </remarks>
+		/// <returns>If the courage value is valid, returns true; else returns false.</returns>
 		bool IsValidMonsterCourage(long courage);
 
 		bool IsValidMonsterFriendliness(Enums.Friendliness friendliness);

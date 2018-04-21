@@ -5,7 +5,7 @@
 
 This is Eamon CS (ECS), a C# port of the classic Eamon roleplaying game that debuted on the Apple II.  Eamon was created by Donald Brown, but there have been many versions over the years, on a variety of computer systems.  ECS is the production version of Eamon AC (EAC), a prototype intended to extract the game from BASIC.  EAC has been obsoleted in favor of this Eamon, which hopefully will be the definitive version for the C family of languages.
 
-#### Prerequisites      *** Note: these have changed, see Wiki entry 20171015 ***
+#### Prerequisites
 
 Eamon CS requires a .NET Standard 2.0 compliant runtime; for example, .NET 4.6.1+ on Windows and Mono 5.2.0+ on Unix.  The .NET Core 2.0 runtime is also required.  All modern Windows platforms come with the latest .NET runtime installed, but for Unix you may have to do a manual Mono install depending on your distribution.
 
@@ -35,7 +35,7 @@ If you are interested in contributing to the Eamon CS project, or you wish to po
 
 The current plan is to produce fully polished games as time allows.  If you have an old BASIC game that you'd like to see ported and are willing to assist in that task (just through your insight) you'll get priority.  Otherwise, the emphasis here is quality over quantity.
 
-There are currently plans to port Eamon CS Mobile to iOS in 2018.
+There are currently plans to port Eamon CS Mobile to iOS.
 
 There are many 3rd party technologies that can seamlessly integrate with ECS, some of which may push the game in new directions.  Stay tuned and see what comes of it.
 
