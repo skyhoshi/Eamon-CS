@@ -26,9 +26,9 @@ namespace Eamon.Framework
 		/// plus a new type based on lookups done in the MacroFuncs dictionary:
 		/// <list type="table">
 		/// <listheader><term>Macro</term><description>Result</description></listheader>
-		/// <item><term>*XXX</term><description>Injects CRLF + CRLF + effect Uid XXX into the property string</description></item>
-		/// <item><term>**XXX</term><description>Injects effect Uid XXX into the property string</description></item>
-		/// <item><term>@XXX</term><description>Injects CRLF + CRLF + [string returned by Func w/Key XXX] into the property string</description></item>
+		/// <item><term>*XXX</term><description>Injects [CRLF + CRLF + effect Uid XXX] into the property string (no brackets)</description></item>
+		/// <item><term>**XXX</term><description>Injects [effect Uid XXX] into the property string</description></item>
+		/// <item><term>@XXX</term><description>Injects [CRLF + CRLF + string returned by Func w/Key XXX] into the property string</description></item>
 		/// <item><term>@@XXX</term><description>Injects [string returned by Func w/Key XXX] into the property string</description></item>
 		/// </list>
 		/// The functions stored in MacroFuncs are typically lambdas but can be any valid function returning a string.  This
