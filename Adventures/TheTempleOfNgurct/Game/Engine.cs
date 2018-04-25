@@ -142,6 +142,10 @@ namespace TheTempleOfNgurct.Game
 		{
 			base.InitMonsters();
 
+			// Note: since these macro functions are installed by InitMonsters, we can assume this is
+			// being executed by EamonRT so there is no need to overharden the functions.  But, it is
+			// still recommended!
+
 			MacroFuncs.Add(1, () =>
 			{
 				var characterMonster = Globals.MDB[Globals.GameState.Cm];

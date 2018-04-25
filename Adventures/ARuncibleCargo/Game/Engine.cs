@@ -48,6 +48,10 @@ namespace ARuncibleCargo.Game
 		{
 			base.InitArtifacts();
 
+			// Note: since these macro functions are installed by InitArtifacts, we can assume this is
+			// being executed by EamonRT so there is no need to overharden the functions.  But, it is
+			// still recommended!
+
 			MacroFuncs.Add(1, () =>
 			{
 				var artifact = Globals.ADB[129];

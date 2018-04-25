@@ -156,10 +156,34 @@ namespace Eamon.Game
 
 		#region Public Properties
 
+		/// <summary>
+		/// A collection of functions used to resolve macros embedded in Desc and StateDesc properties for various record types.
+		/// </summary>
+		/// <remarks>
+		/// There is a detailed writeup on this property in <see cref="IEngine.MacroFuncs"/>.  As a general rule you should feel
+		/// free to manipulate this dictionary at any point during gameplay, although typically it is only loaded during game
+		/// startup.  There are no Getter/Setter methods so all access is direct.
+		/// </remarks>
 		public virtual IDictionary<long, Func<string>> MacroFuncs { get; set; }
 
+		/// <summary>
+		/// An array containing sentence prepositions (eg, "to", "from", "inside", etc).
+		/// </summary>
+		/// <remarks>
+		/// This array contains the sentence prepositions recognized by the game's parser <see cref="Framework.Parsing.ICommandParser"/>.  You should never
+		/// access this array directly (other than to check its Length); always use the Getter method mentioned below.
+		/// </remarks>
+		/// <seealso cref="IEngine.GetPreps(long)"/>
 		public virtual string[] Preps { get; set; }
 
+		/// <summary>
+		/// An array containing sentence articles (eg, "a", "some", "the", etc).
+		/// </summary>
+		/// <remarks>
+		/// This array contains the sentence articles recognized by the game's parser <see cref="Framework.Parsing.ICommandParser"/>.  You should never
+		/// access this array directly (other than to check its Length); always use the Getter method mentioned below.
+		/// </remarks>
+		/// <seealso cref="IEngine.GetArticles(long)"/>
 		public virtual string[] Articles { get; set; }
 
 		public virtual long NumCacheItems { get; set; }

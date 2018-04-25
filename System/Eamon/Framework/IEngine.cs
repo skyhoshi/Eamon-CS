@@ -17,10 +17,55 @@ namespace Eamon.Framework
 	{
 		#region Properties
 
+		/// <summary>
+		/// A collection of functions used to resolve macros embedded in Desc and StateDesc properties for various record types.
+		/// </summary>
+		/// <remarks>
+		/// You can embed macros in the Desc or StateDesc properties of the various record types to produce dynamically
+		/// generated strings for output during gameplay.  Eamon CS supports the standard macros found in Eamon Deluxe,
+		/// plus a new type based on lookups done in the MacroFuncs dictionary:
+		/// <list type="table">
+		/// <listheader><term>Macro</term><description>Result</description></listheader>
+		/// <item><term>*XXX</term><description>Injects CRLF + CRLF + effect Uid XXX into the property string</description></item>
+		/// <item><term>**XXX</term><description>Injects effect Uid XXX into the property string</description></item>
+		/// <item><term>@XXX</term><description>Injects CRLF + CRLF + [string returned by Func w/Key XXX] into the property string</description></item>
+		/// <item><term>@@XXX</term><description>Injects [string returned by Func w/Key XXX] into the property string</description></item>
+		/// </list>
+		/// The functions stored in MacroFuncs are typically lambdas but can be any valid function returning a string.  This
+		/// mechanism is incredibly powerful as it can exploit all facets of the game engine to calculate the string returned.
+		/// Also, the dictionary can be manipulated during gameplay with old functions removed and/or new functions added if
+		/// beneficial.
+		/// <para>
+		/// However, there are a few things to keep in mind.  You can run EamonDD in a mode where it will display resolved macros;
+		/// the option is called Resolve Effects and it exists off the CONFIG RECORD MENU.  If you load the MacroFuncs dictionary
+		/// during gameplay (typically in InitArtifacts or InitMonsters, but this isn't a requirement), EamonDD will NOT be able
+		/// to resolve any function macro so it will remain.  But there are scenarios where you can load MacroFuncs in such a
+		/// way that functions are available to EamonDD, which will then use them to resolve macros.  The upshot of this is that
+		/// you should always write the functions installed in MacroFuncs in such a way that they are insensitive to whether they
+		/// are being executed by EamonRT or EamonDD.  The best way to do this is to be aggressive about checking for null at all
+		/// times and return default strings when appropriate.  There are many examples of macro functions written for the various
+		/// Eamon CS adventures; the See Also list below is a good place to start.
+		/// </para>
+		/// </remarks>
+		/// <seealso cref="WrenholdsSecretVigil.Game.Engine.Engine()"/>
+		/// <seealso cref="ARuncibleCargo.Game.Engine.InitArtifacts()"/>
+		/// <seealso cref="TheTempleOfNgurct.Game.Engine.InitMonsters()"/>
 		IDictionary<long, Func<string>> MacroFuncs { get; set; }
 
+		/// <summary>
+		/// An array of sentence prepositions (eg, "to", "from", "inside", etc).
+		/// </summary>
+		/// <remarks>
+		/// Other than to check the Length, you should never access this array directly; always use <see cref="GetPreps(long)"/>.
+		/// </remarks>
 		string[] Preps { get; set; }
 
+		/// <summary>
+		/// An array of sentence articles (eg, "a", "some", "the", etc).
+		/// </summary>
+		/// <remarks>
+		/// Other than to check the Length, you should never access this array directly; always use <see cref="GetArticles(long)"/>.
+		/// </remarks>
 		string[] Articles { get; set; }
 
 		long NumCacheItems { get; set; }
@@ -31,8 +76,28 @@ namespace Eamon.Framework
 
 		#region Methods
 
+		/// <summary>
+		/// Gets the sentence preposition (eg, "to", "from", "inside", etc).
+		/// </summary>
+		/// <param name="index">The index into the Preps array.</param>
+		/// <remarks>
+		/// This method looks up and returns the preposition associated with a given index.  It is a Getter method that
+		/// can be overridden in a subclass to intercept array accesses or provide other specialized behavior.  You must
+		/// ensure the passed index is valid for the Preps array or an exception will be thrown.
+		/// </remarks>
+		/// <returns>The preposition associated with a given index.</returns>
 		string GetPreps(long index);
 
+		/// <summary>
+		/// Gets the sentence article (eg, "a", "some", "the", etc).
+		/// </summary>
+		/// <param name="index">The index into the Articles array.</param>
+		/// <remarks>
+		/// This method looks up and returns the article associated with a given index.  It is a Getter method that
+		/// can be overridden in a subclass to intercept array accesses or provide other specialized behavior.  You must
+		/// ensure the passed index is valid for the Articles array or an exception will be thrown.
+		/// </remarks>
+		/// <returns>The article associated with a given index.</returns>
 		string GetArticles(long index);
 
 		string GetNumberStrings(long index);

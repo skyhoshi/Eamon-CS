@@ -270,6 +270,10 @@ namespace WrenholdsSecretVigil.Game
 
 		public Engine()
 		{
+			// Note: this is an example of a macro function that will be used by both EamonDD and EamonRT in macro
+			// resolution.  It is hardened to check for the existance of Globals.Character, which will only exist
+			// in EamonRT (the GameState object, though not used here, is another thing to always check for).
+
 			MacroFuncs.Add(1, () =>
 			{
 				return Globals.Character != null ? Globals.Character.Name : UnknownName;
