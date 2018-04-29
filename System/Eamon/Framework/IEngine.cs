@@ -68,8 +68,24 @@ namespace Eamon.Framework
 		/// </remarks>
 		string[] Articles { get; set; }
 
+		/// <summary>
+		/// Each record type has a quick-lookup cache in the database that stores this many items.
+		/// </summary>
+		/// <remarks>
+		/// The database uses B-Plus Trees as the backing store, one tree and one quick-lookup cache per record type.  Using a
+		/// cache speeds up the record access times since the actual "search" on the tree is more like a full-table scan (this
+		/// might get fixed at some point).  This value is initialized using <see cref="Plugin.IPluginConstants.NumCacheItems"/>.
+		/// </remarks>
+		/// <seealso cref="DataStorage.Generic.IDbTable{T}"/>
+		/// <seealso cref="DataStorage.IDatabase"/>
 		long NumCacheItems { get; set; }
 
+		/// <summary>
+		/// A generic string representing an unknown name (eg, "???").
+		/// </summary>
+		/// <remarks>
+		/// Typically the fallback value when a record with a given Uid is looked up for its Name property, but not found.
+		/// </remarks>
 		string UnknownName { get; set; }
 
 		#endregion
