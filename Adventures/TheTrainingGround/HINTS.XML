@@ -11,7 +11,7 @@
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
-            <Simple name="Question" value="EAMON CS 1.3 GENERAL HELP." />
+            <Simple name="Question" value="EAMON CS 1.4 GENERAL HELP." />
             <Simple name="NumAnswers" value="8" />
             <SingleArray name="Answers">
               <Items>
@@ -32,7 +32,7 @@
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
-            <Simple name="Question" value="EAMON CS 1.3 NEW COMMANDS." />
+            <Simple name="Question" value="EAMON CS 1.4 NEW COMMANDS." />
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
