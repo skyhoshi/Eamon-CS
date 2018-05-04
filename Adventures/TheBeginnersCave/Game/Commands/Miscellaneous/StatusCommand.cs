@@ -17,11 +17,11 @@ namespace TheBeginnersCave.Game.Commands
 	{
 		protected override void PlayerProcessEvents()
 		{
-			var artifact = Globals.ADB[10];
+			var trollsfireArtifact = Globals.ADB[10];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(trollsfireArtifact != null);
 
-			if (artifact.IsCarriedByCharacter() && Globals.GameState.CastTo<IGameState>().Trollsfire == 1)
+			if (trollsfireArtifact.IsCarriedByCharacter() && Globals.GameState.CastTo<IGameState>().Trollsfire == 1)
 			{
 				Globals.Out.Print("Trollsfire is alight!");
 			}

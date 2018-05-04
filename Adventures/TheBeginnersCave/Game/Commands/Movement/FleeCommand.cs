@@ -27,11 +27,11 @@ namespace TheBeginnersCave.Game.Commands
 		{
 			// another classic Eamon moment...
 
-			var monster = Globals.MDB[7];
+			var mimicMonster = Globals.MDB[7];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(mimicMonster != null);
 
-			if (monster.IsInRoom(ActorRoom))
+			if (mimicMonster.IsInRoom(ActorRoom))
 			{
 				Globals.Out.Print("You are held fast by the mimic and cannot flee!");
 

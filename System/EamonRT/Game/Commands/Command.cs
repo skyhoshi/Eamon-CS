@@ -756,11 +756,17 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		/// <summary>
+		/// The main entry point that resolves player character use of the Command.
+		/// </summary>
 		protected virtual void PlayerExecute()
 		{
 
 		}
 
+		/// <summary>
+		/// The main entry point that resolves non-player character use of the Command.
+		/// </summary>
 		protected virtual void MonsterExecute()
 		{
 

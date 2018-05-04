@@ -86,6 +86,25 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					Globals.Out.Print("The {0} is filled with an incandescent fireball!", ActorRoom.EvalRoomType("room", "area"));
 
+					var slaveGirlFireballCheck = false;
+
+					var slaveGirlArtifact = Globals.ADB[81];
+
+					Debug.Assert(slaveGirlArtifact != null);
+
+					var slaveGirlMonster = Globals.MDB[54];
+
+					Debug.Assert(slaveGirlMonster != null);
+
+					if (slaveGirlArtifact.IsInRoom(ActorRoom))
+					{
+						slaveGirlMonster.SetInRoom(ActorRoom);
+
+						slaveGirlMonster.Seen = true;
+
+						slaveGirlFireballCheck = true;
+					}
+
 					var monsters = Globals.Engine.GetRandomMonsterList(9, m => !m.IsCharacterMonster() && m.Uid != DobjMonster.Uid && m.Seen && m.IsInRoom(ActorRoom));
 
 					Debug.Assert(monsters != null);
@@ -122,6 +141,20 @@ namespace TheTempleOfNgurct.Game.Commands
 					}
 
 					Globals.FireDamage = false;
+
+					if (slaveGirlFireballCheck)
+					{
+						slaveGirlMonster.Seen = false;
+
+						if (slaveGirlMonster.IsInLimbo())
+						{
+							slaveGirlArtifact.SetInLimbo();
+						}
+						else
+						{
+							slaveGirlMonster.SetInLimbo();
+						}
+					}
 
 					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
 

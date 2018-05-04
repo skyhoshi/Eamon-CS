@@ -30,32 +30,50 @@ namespace TheBeginnersCave.Game
 
 				Debug.Assert(value >= 0 && value <= 1);
 
+				// if toggling the Trollsfire effect
+
 				if (_trollsfire != value)
 				{
-					var artifact = Globals.ADB[10];
+					// find Trollsfire in the game database
 
-					Debug.Assert(artifact != null);
+					var trollsfireArtifact = Globals.ADB[10];
 
-					var ac = artifact.GetArtifactCategory(Enums.ArtifactType.MagicWeapon);
+					Debug.Assert(trollsfireArtifact != null);
+
+					// look up the data relating to artifact type MagicWeapon
+
+					var ac = trollsfireArtifact.GetArtifactCategory(Enums.ArtifactType.MagicWeapon);
 
 					Debug.Assert(ac != null);
 
+					// if activating the Trollsfire effect
+
 					if (value != 0)
 					{
-						rc = artifact.AddStateDesc(Constants.AlightDesc);
+						// Trollsfire is now alight so add "(alight)" to the StateDesc property
+
+						rc = trollsfireArtifact.AddStateDesc(Constants.AlightDesc);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+						// Trollsfire now does 1d10 damage; change weapon sides to 10
 
 						ac.Field4 = 10;
 					}
 					else
 					{
-						rc = artifact.RemoveStateDesc(Constants.AlightDesc);
+						// Trollsfire is now extinguished so remove "(alight)" from the StateDesc property
+
+						rc = trollsfireArtifact.RemoveStateDesc(Constants.AlightDesc);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
+						// Trollsfire now does 1d6 damage; change weapon sides to 6
+
 						ac.Field4 = 6;
 					}
+
+					// store change to Trollsfire property in backing field
 
 					_trollsfire = value;
 				}

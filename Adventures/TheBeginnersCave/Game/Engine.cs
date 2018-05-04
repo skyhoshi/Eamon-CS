@@ -58,11 +58,11 @@ namespace TheBeginnersCave.Game
 		{
 			base.InitMonsters();
 
-			var monster = Globals.MDB[8];
+			var pirateMonster = Globals.MDB[8];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(pirateMonster != null);
 
-			if (monster.Weapon == 10)
+			if (pirateMonster.Weapon == 10)
 			{
 				Globals.GameState.CastTo<Framework.IGameState>().Trollsfire = 1;
 			}
@@ -118,11 +118,11 @@ namespace TheBeginnersCave.Game
 
 			if (DfMonster.Uid == 8)
 			{
-				var artifact = Globals.ADB[10];
+				var trollsfireArtifact = Globals.ADB[10];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(trollsfireArtifact != null);
 
-				var printEffect = artifact.IsCarriedByMonster(DfMonster) || artifact.IsWornByMonster(DfMonster);
+				var printEffect = trollsfireArtifact.IsCarriedByMonster(DfMonster) || trollsfireArtifact.IsWornByMonster(DfMonster);
 
 				base.MonsterDies(OfMonster, DfMonster);
 

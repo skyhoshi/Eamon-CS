@@ -20,11 +20,11 @@ namespace TheBeginnersCave.Game
 
 			// Duke Luxom's reward
 
-			var monster = Globals.MDB[3];
+			var cynthiaMonster = Globals.MDB[3];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(cynthiaMonster != null);
 
-			if (monster.Location == Globals.GameState.Ro && monster.Friendliness > Enums.Friendliness.Enemy)
+			if (cynthiaMonster.Location == Globals.GameState.Ro && cynthiaMonster.Friendliness > Enums.Friendliness.Enemy)
 			{
 				var reward = Globals.Character.GetStats(Enums.Stat.Charisma) * 7;
 

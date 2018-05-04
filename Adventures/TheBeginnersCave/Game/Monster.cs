@@ -15,6 +15,19 @@ namespace TheBeginnersCave.Game
 	[ClassMappings(typeof(Eamon.Framework.IMonster))]
 	public class Monster : Eamon.Game.Monster, IMonster
 	{
+		/// <summary>
+		/// Gets or sets the Weapon property.
+		/// </summary>
+		/// <remarks>
+		/// This complex override of the Monster's Weapon property demonstrates how easy it is to produce special
+		/// behaviors in Eamon CS with highly localized changes to default engine behavior.  In a BASIC Eamon this
+		/// logic would be sprinkled throughout a number of commands, to check for all the scenarios where the
+		/// Trollsfire effect might be activated/deactivated.  But realistically its all about the change in the
+		/// Weapon property.  This handles every possible thing that could deactivate Trollsfire (also activate it
+		/// for the pirate).  Fumbles, drops, gives, puts, takes, etc.  The Weapon property works in conjunction with
+		/// <see cref="IGameState.Trollsfire"/> and <see cref="Framework.Commands.ITrollsfireCommand"/> to fully
+		/// implement the Trollsfire sword.
+		/// </remarks>
 		public override long Weapon
 		{
 			get
@@ -28,20 +41,34 @@ namespace TheBeginnersCave.Game
 				{
 					var gameState = Globals.GameState as IGameState;
 
-					if (gameState != null)     	// null in EamonDD; non-null in EamonRT
+					// null in EamonDD; non-null in EamonRT (avoid assumptions)
+
+					if (gameState != null)
 					{
+						// if this is the character monster or the pirate
+
 						if (Uid == Globals.GameState.Cm || Uid == 8)
 						{
+							// if going from wielding Trollsfire to not wielding Trollsfire and Trollsfire effect active
+
 							if (base.Weapon == 10 && value != 10 && gameState.Trollsfire == 1)
 							{
+								// deactivate Trollsfire effect; the Trollsfire property is complex and does a fair bit of processing
+
 								gameState.Trollsfire = 0;
 							}
 						}
 
+						// if this is the pirate
+
 						if (Uid == 8)
 						{
+							// if going from not wielding Trollsfire to wielding Trollsfire and Trollsfire effect not active
+
 							if (base.Weapon != 10 && value == 10 && gameState.Trollsfire == 0)
 							{
+								// activate Trollsfire effect
+
 								gameState.Trollsfire = 1;
 							}
 						}
