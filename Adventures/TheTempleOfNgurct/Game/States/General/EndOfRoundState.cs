@@ -5,16 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using Eamon.Game.Extensions;
 using TheTempleOfNgurct.Framework;
-using TheTempleOfNgurct.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IEndOfRoundState))]
-	public class EndOfRoundState : EamonRT.Game.States.EndOfRoundState, IEndOfRoundState
+	[ClassMappings]
+	public class EndOfRoundState : EamonRT.Game.States.EndOfRoundState, EamonRT.Framework.States.IEndOfRoundState
 	{
 		protected override void ProcessEvents()
 		{

@@ -6,13 +6,12 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using TheSubAquanLaboratory.Framework.Commands;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IGetCommand))]
-	public class GetCommand : EamonRT.Game.Commands.GetCommand, IGetCommand
+	[ClassMappings]
+	public class GetCommand : EamonRT.Game.Commands.GetCommand, EamonRT.Framework.Commands.IGetCommand
 	{
 		protected override void PrintCantVerbThat(Eamon.Framework.IArtifact artifact)
 		{

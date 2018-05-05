@@ -5,13 +5,12 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using StrongholdOfKahrDur.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace StrongholdOfKahrDur.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IAttackCommand))]
-	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
+	[ClassMappings]
+	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, EamonRT.Framework.Commands.IAttackCommand
 	{
 		protected override void PlayerExecute()
 		{

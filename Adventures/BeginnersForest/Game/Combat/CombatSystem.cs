@@ -4,13 +4,12 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Game.Attributes;
-using BeginnersForest.Framework.Combat;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game.Combat
 {
-	[ClassMappings(typeof(EamonRT.Framework.Combat.ICombatSystem))]
-	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, ICombatSystem
+	[ClassMappings]
+	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, EamonRT.Framework.Combat.ICombatSystem
 	{
 		protected override void PrintHealthStatus()
 		{

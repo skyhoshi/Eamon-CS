@@ -6,13 +6,12 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using BeginnersForest.Framework;
-using BeginnersForest.Framework.States;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IGetPlayerInputState))]
-	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, IGetPlayerInputState
+	[ClassMappings]
+	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, EamonRT.Framework.States.IGetPlayerInputState
 	{
 		protected override void ProcessEvents()
 		{

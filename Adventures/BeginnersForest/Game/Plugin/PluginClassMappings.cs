@@ -5,11 +5,10 @@
 
 using System.Reflection;
 using Eamon;
-using BeginnersForest.Framework.Plugin;
 
 namespace BeginnersForest.Game.Plugin
 {
-	public class PluginClassMappings : EamonRT.Game.Plugin.PluginClassMappings, IPluginClassMappings
+	public class PluginClassMappings : EamonRT.Game.Plugin.PluginClassMappings, Framework.Plugin.IPluginClassMappings
 	{
 		public override RetCode LoadPluginClassMappings()
 		{

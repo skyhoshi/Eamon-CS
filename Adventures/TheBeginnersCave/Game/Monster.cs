@@ -12,8 +12,8 @@ using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IMonster))]
-	public class Monster : Eamon.Game.Monster, IMonster
+	[ClassMappings]
+	public class Monster : Eamon.Game.Monster, Eamon.Framework.IMonster
 	{
 		/// <summary>
 		/// Gets or sets the Weapon property.

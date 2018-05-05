@@ -5,14 +5,13 @@
 
 using System.Diagnostics;
 using Eamon;
-using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game
 {
-	[ClassMappings(typeof(IGameState))]
+	[ClassMappings(typeof(Eamon.Framework.IGameState))]
 	public class GameState : Eamon.Game.GameState, Framework.IGameState
 	{
 		protected long _trollsfire = 0;

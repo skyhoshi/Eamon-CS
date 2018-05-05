@@ -5,14 +5,13 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTrainingGround.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IReadCommand))]
-	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
+	[ClassMappings]
+	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, EamonRT.Framework.Commands.IReadCommand
 	{
 		protected override void PlayerProcessEvents01()
 		{

@@ -3,18 +3,16 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using WrenholdsSecretVigil.Framework;
-using WrenholdsSecretVigil.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IGetPlayerInputState))]
-	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, IGetPlayerInputState
+	[ClassMappings]
+	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, EamonRT.Framework.States.IGetPlayerInputState
 	{
 		protected override void ProcessEvents()
 		{

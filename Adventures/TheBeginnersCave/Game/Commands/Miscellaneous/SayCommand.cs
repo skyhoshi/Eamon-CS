@@ -5,19 +5,18 @@
 
 using System;
 using Eamon.Game.Attributes;
-using TheBeginnersCave.Framework.Commands;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.ISayCommand))]
-	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
+	[ClassMappings]
+	public class SayCommand : EamonRT.Game.Commands.SayCommand, EamonRT.Framework.Commands.ISayCommand
 	{
 		protected override void PlayerProcessEvents01()
 		{
 			if (ProcessedPhrase.IndexOf("trollsfire", StringComparison.OrdinalIgnoreCase) >= 0)
 			{
-				var command = Globals.CreateInstance<ITrollsfireCommand>();
+				var command = Globals.CreateInstance<Framework.Commands.ITrollsfireCommand>();
 
 				CopyCommandData(command);
 

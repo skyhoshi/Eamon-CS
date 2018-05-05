@@ -5,13 +5,12 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using WrenholdsSecretVigil.Framework.Commands;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IExamineCommand))]
-	public class ExamineCommand : EamonRT.Game.Commands.ExamineCommand, IExamineCommand
+	[ClassMappings]
+	public class ExamineCommand : EamonRT.Game.Commands.ExamineCommand, EamonRT.Framework.Commands.IExamineCommand
 	{
 		protected override void PlayerExecute()
 		{

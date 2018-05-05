@@ -5,13 +5,12 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using WrenholdsSecretVigil.Framework.Commands;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.ICloseCommand))]
-	public class CloseCommand : EamonRT.Game.Commands.CloseCommand, ICloseCommand
+	[ClassMappings]
+	public class CloseCommand : EamonRT.Game.Commands.CloseCommand, EamonRT.Framework.Commands.ICloseCommand
 	{
 		protected override void PrintBrokeIt(Eamon.Framework.IArtifact artifact)
 		{

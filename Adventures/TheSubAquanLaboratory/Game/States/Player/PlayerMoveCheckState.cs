@@ -5,14 +5,12 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheSubAquanLaboratory.Framework.Commands;
-using TheSubAquanLaboratory.Framework.States;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IPlayerMoveCheckState))]
-	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
+	[ClassMappings]
+	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, EamonRT.Framework.States.IPlayerMoveCheckState
 	{
 		protected override void PrintRideOffIntoSunset()
 		{
@@ -33,7 +31,7 @@ namespace TheSubAquanLaboratory.Game.States
 			{
 				var dirCommand = Globals.LastCommand;
 
-				var pushCommand = Globals.CreateInstance<IPushCommand>();
+				var pushCommand = Globals.CreateInstance<Framework.Commands.IPushCommand>();
 
 				dirCommand.CopyCommandData(pushCommand, false);
 

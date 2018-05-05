@@ -7,14 +7,13 @@ using System.Diagnostics;
 using System.Linq;
 using Eamon.Game.Attributes;
 using ARuncibleCargo.Framework;
-using ARuncibleCargo.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IGetPlayerInputState))]
-	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, IGetPlayerInputState
+	[ClassMappings]
+	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, EamonRT.Framework.States.IGetPlayerInputState
 	{
 		protected override void ProcessEvents()
 		{

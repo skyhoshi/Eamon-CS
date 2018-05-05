@@ -6,14 +6,13 @@
 using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTempleOfNgurct.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IDrinkCommand))]
-	public class DrinkCommand : EamonRT.Game.Commands.DrinkCommand, IDrinkCommand
+	[ClassMappings]
+	public class DrinkCommand : EamonRT.Game.Commands.DrinkCommand, EamonRT.Framework.Commands.IDrinkCommand
 	{
 		protected virtual long DmgTaken { get; set; }
 

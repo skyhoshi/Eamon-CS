@@ -11,7 +11,7 @@ using static TheTrainingGround.Game.Plugin.PluginContext;
 namespace TheTrainingGround.Game
 {
 	[ClassMappings(typeof(Eamon.Framework.IEngine))]
-	public class Engine : EamonRT.Game.Engine, Framework.IEngine
+	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
 	{
 		public override void AddPoundCharsToArtifactNames()
 		{

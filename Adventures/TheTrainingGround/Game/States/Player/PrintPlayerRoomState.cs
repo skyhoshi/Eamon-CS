@@ -6,13 +6,12 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheTrainingGround.Framework;
-using TheTrainingGround.Framework.States;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IPrintPlayerRoomState))]
-	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, IPrintPlayerRoomState
+	[ClassMappings]
+	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, EamonRT.Framework.States.IPrintPlayerRoomState
 	{
 		protected override void ProcessEvents()
 		{

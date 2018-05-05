@@ -3,13 +3,12 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using Eamon.Framework;
 using Eamon.Game.Attributes;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game
 {
-	[ClassMappings(typeof(IGameState))]
+	[ClassMappings(typeof(Eamon.Framework.IGameState))]
 	public class GameState : Eamon.Game.GameState, Framework.IGameState
 	{
 		public virtual long WanderingMonster { get; set; }

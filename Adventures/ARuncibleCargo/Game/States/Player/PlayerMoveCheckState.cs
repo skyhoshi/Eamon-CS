@@ -4,13 +4,12 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Game.Attributes;
-using ARuncibleCargo.Framework.States;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IPlayerMoveCheckState))]
-	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
+	[ClassMappings]
+	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, EamonRT.Framework.States.IPlayerMoveCheckState
 	{
 		protected override void PrintRideOffIntoSunset()
 		{

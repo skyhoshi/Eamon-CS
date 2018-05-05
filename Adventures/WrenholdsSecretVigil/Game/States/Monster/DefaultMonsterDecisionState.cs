@@ -5,13 +5,12 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using WrenholdsSecretVigil.Framework.States;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IDefaultMonsterDecisionState))]
-	public class DefaultMonsterDecisionState : EamonRT.Game.States.DefaultMonsterDecisionState, IDefaultMonsterDecisionState
+	[ClassMappings]
+	public class DefaultMonsterDecisionState : EamonRT.Game.States.DefaultMonsterDecisionState, EamonRT.Framework.States.IDefaultMonsterDecisionState
 	{
 		public override void Execute()
 		{

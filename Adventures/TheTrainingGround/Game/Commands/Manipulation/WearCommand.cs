@@ -5,13 +5,12 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTrainingGround.Framework.Commands;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IWearCommand))]
-	public class WearCommand : EamonRT.Game.Commands.WearCommand, IWearCommand
+	[ClassMappings]
+	public class WearCommand : EamonRT.Game.Commands.WearCommand, EamonRT.Framework.Commands.IWearCommand
 	{
 		protected override void PlayerExecute()
 		{

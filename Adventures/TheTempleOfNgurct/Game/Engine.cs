@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTempleOfNgurct.Framework;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
@@ -50,7 +49,7 @@ namespace TheTempleOfNgurct.Game
 			{
 				var result = "floor";
 
-				var gameState = Globals.GameState as IGameState;
+				var gameState = Globals.GameState as Framework.IGameState;
 
 				var characterRoom = gameState != null && gameState.Ro > 0 ? Globals.RDB[gameState.Ro] : null;
 
@@ -159,7 +158,7 @@ namespace TheTempleOfNgurct.Game
 			{
 				var result = "room";
 
-				var gameState = Globals.GameState as IGameState;
+				var gameState = Globals.GameState as Framework.IGameState;
 
 				var characterRoom = gameState != null && gameState.Ro > 0 ? Globals.RDB[gameState.Ro] : null;
 
@@ -233,7 +232,7 @@ namespace TheTempleOfNgurct.Game
 		{
 			Debug.Assert(DfMonster != null);
 
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -257,7 +256,7 @@ namespace TheTempleOfNgurct.Game
 		{
 			var found = false;
 
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 

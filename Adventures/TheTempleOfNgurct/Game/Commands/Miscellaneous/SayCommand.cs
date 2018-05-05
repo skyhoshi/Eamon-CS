@@ -7,13 +7,12 @@ using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheTempleOfNgurct.Framework;
-using TheTempleOfNgurct.Framework.Commands;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.ISayCommand))]
-	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
+	[ClassMappings]
+	public class SayCommand : EamonRT.Game.Commands.SayCommand, EamonRT.Framework.Commands.ISayCommand
 	{
 		protected override void PlayerProcessEvents()
 		{

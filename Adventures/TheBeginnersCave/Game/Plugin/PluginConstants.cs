@@ -3,11 +3,9 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using TheBeginnersCave.Framework.Plugin;
-
 namespace TheBeginnersCave.Game.Plugin
 {
-	public class PluginConstants : EamonRT.Game.Plugin.PluginConstants, IPluginConstants
+	public class PluginConstants : EamonRT.Game.Plugin.PluginConstants, Framework.Plugin.IPluginConstants
 	{
 		public virtual string AlightDesc { get; protected set; } = "(alight)";
 	}

@@ -6,14 +6,13 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using ARuncibleCargo.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IAttackCommand))]
-	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
+	[ClassMappings]
+	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, EamonRT.Framework.Commands.IAttackCommand
 	{
 		protected override void PlayerExecute()
 		{

@@ -5,13 +5,12 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using BeginnersForest.Framework.States;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IBurnDownSpeedSpellState))]
-	public class BurnDownSpeedSpellState : EamonRT.Game.States.BurnDownSpeedSpellState, IBurnDownSpeedSpellState
+	[ClassMappings]
+	public class BurnDownSpeedSpellState : EamonRT.Game.States.BurnDownSpeedSpellState, EamonRT.Framework.States.IBurnDownSpeedSpellState
 	{
 		protected override void PrintSpeedSpellExpired()
 		{

@@ -6,14 +6,13 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheBeginnersCave.Framework;
-using TheBeginnersCave.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IReadCommand))]
-	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
+	[ClassMappings]
+	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, EamonRT.Framework.Commands.IReadCommand
 	{
 		protected virtual IGameState GameState { get; set; }
 

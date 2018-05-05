@@ -6,13 +6,12 @@
 using System;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using TheSubAquanLaboratory.Framework.Commands;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IPowerCommand))]
-	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
+	[ClassMappings]
+	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, EamonRT.Framework.Commands.IPowerCommand
 	{
 		protected virtual bool IsActorRoomInLab()
 		{

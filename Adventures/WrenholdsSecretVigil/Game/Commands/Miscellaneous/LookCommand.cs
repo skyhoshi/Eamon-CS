@@ -6,14 +6,13 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using Eamon.Game.Utilities;
-using WrenholdsSecretVigil.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.ILookCommand))]
-	public class LookCommand : EamonRT.Game.Commands.LookCommand, ILookCommand
+	[ClassMappings]
+	public class LookCommand : EamonRT.Game.Commands.LookCommand, EamonRT.Framework.Commands.ILookCommand
 	{
 		protected override void PlayerExecute()
 		{

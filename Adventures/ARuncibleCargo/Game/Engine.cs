@@ -6,7 +6,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Classes = Eamon.Framework.Primitive.Classes;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -15,7 +14,7 @@ using static ARuncibleCargo.Game.Plugin.PluginContext;
 namespace ARuncibleCargo.Game
 {
 	[ClassMappings(typeof(Eamon.Framework.IEngine))]
-	public class Engine : EamonRT.Game.Engine, Framework.IEngine
+	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
 	{
 		protected override void PrintTooManyWeapons()
 		{
@@ -32,7 +31,7 @@ namespace ARuncibleCargo.Game
 			Globals.Out.Print("{0}You take {1} gold piece{2} total.", goodsExist ? Environment.NewLine : "", payment, payment != 1 ? "s" : "");
 		}
 
-		public override void PrintMonsterAlive(IArtifact artifact)
+		public override void PrintMonsterAlive(Eamon.Framework.IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -201,7 +200,7 @@ namespace ARuncibleCargo.Game
 			}));
 		}
 
-		public override void ConvertToCarriedInventory(IList<IArtifact> weaponList)
+		public override void ConvertToCarriedInventory(IList<Eamon.Framework.IArtifact> weaponList)
 		{
 			// Can't sell Sam Slicker's shop key
 

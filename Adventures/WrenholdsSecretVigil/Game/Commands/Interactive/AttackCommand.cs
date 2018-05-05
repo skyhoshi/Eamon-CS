@@ -5,14 +5,13 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using WrenholdsSecretVigil.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IAttackCommand))]
-	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
+	[ClassMappings]
+	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, EamonRT.Framework.Commands.IAttackCommand
 	{
 		protected override void PrintAlreadyBrokeIt(Eamon.Framework.IArtifact artifact)
 		{

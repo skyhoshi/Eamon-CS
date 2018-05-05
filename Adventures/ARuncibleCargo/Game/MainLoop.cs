@@ -6,13 +6,12 @@
 using System.Diagnostics;
 using Eamon;
 using Eamon.Game.Attributes;
-using ARuncibleCargo.Framework;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game
 {
-	[ClassMappings(typeof(EamonRT.Framework.IMainLoop))]
-	public class MainLoop : EamonRT.Game.MainLoop, IMainLoop
+	[ClassMappings]
+	public class MainLoop : EamonRT.Game.MainLoop, EamonRT.Framework.IMainLoop
 	{
 		public override void Startup()
 		{

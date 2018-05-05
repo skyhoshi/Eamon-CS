@@ -6,13 +6,12 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using ARuncibleCargo.Framework;
-using ARuncibleCargo.Framework.States;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IAfterPlayerMoveState))]
-	public class AfterPlayerMoveState : EamonRT.Game.States.AfterPlayerMoveState, IAfterPlayerMoveState
+	[ClassMappings]
+	public class AfterPlayerMoveState : EamonRT.Game.States.AfterPlayerMoveState, EamonRT.Framework.States.IAfterPlayerMoveState
 	{
 		protected override void ProcessEvents()
 		{

@@ -4,12 +4,11 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Game.Attributes;
-using TheTempleOfNgurct.Framework.Commands;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IFreeCommand))]
-	public class FreeCommand : EamonRT.Game.Commands.FreeCommand, IFreeCommand
+	[ClassMappings]
+	public class FreeCommand : EamonRT.Game.Commands.FreeCommand, EamonRT.Framework.Commands.IFreeCommand
 	{
 		public FreeCommand()
 		{

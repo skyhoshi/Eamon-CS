@@ -8,14 +8,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
-using TheTempleOfNgurct.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IGetCommand))]
-	public class GetCommand : EamonRT.Game.Commands.GetCommand, IGetCommand
+	[ClassMappings]
+	public class GetCommand : EamonRT.Game.Commands.GetCommand, EamonRT.Framework.Commands.IGetCommand
 	{
 		protected override void PlayerExecute()
 		{

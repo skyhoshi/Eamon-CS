@@ -6,10 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using Eamon.Game.Attributes;
-using Eamon.Game.Extensions;
-using Eamon.Game.Utilities;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 

@@ -9,13 +9,12 @@ using System.Text;
 using Eamon;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using StrongholdOfKahrDur.Framework;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IMonster))]
-	public class Monster : Eamon.Game.Monster, IMonster
+	[ClassMappings]
+	public class Monster : Eamon.Game.Monster, Eamon.Framework.IMonster
 	{
 		public override RetCode BuildPrintedFullDesc(StringBuilder buf, bool showName)
 		{

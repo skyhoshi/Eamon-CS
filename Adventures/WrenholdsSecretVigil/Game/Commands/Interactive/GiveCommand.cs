@@ -4,14 +4,13 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Game.Attributes;
-using WrenholdsSecretVigil.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IGiveCommand))]
-	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, IGiveCommand
+	[ClassMappings]
+	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, EamonRT.Framework.Commands.IGiveCommand
 	{
 		protected override void PlayerProcessEvents()
 		{

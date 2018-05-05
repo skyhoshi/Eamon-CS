@@ -6,7 +6,6 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheBeginnersCave.Framework;
-using TheBeginnersCave.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
@@ -14,7 +13,7 @@ namespace TheBeginnersCave.Game.Commands
 {
 	/// <seealso cref="ITrollsfireCommand" />
 	[ClassMappings]
-	public class TrollsfireCommand : EamonRT.Game.Commands.Command, ITrollsfireCommand
+	public class TrollsfireCommand : EamonRT.Game.Commands.Command, Framework.Commands.ITrollsfireCommand
 	{
 		protected override void PlayerExecute()
 		{

@@ -6,13 +6,12 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheSubAquanLaboratory.Framework;
-using TheSubAquanLaboratory.Framework.States;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IEndOfRoundState))]
-	public class EndOfRoundState : EamonRT.Game.States.EndOfRoundState, IEndOfRoundState
+	[ClassMappings]
+	public class EndOfRoundState : EamonRT.Game.States.EndOfRoundState, EamonRT.Framework.States.IEndOfRoundState
 	{
 		protected override void ProcessEvents()
 		{

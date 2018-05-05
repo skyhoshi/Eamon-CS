@@ -4,14 +4,13 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Game.Attributes;
-using BeginnersForest.Framework;
 using RTEnums = EamonRT.Framework.Primitive.Enums;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game
 {
-	[ClassMappings(typeof(EamonRT.Framework.IIntroStory))]
-	public class IntroStory : EamonRT.Game.IntroStory, IIntroStory
+	[ClassMappings]
+	public class IntroStory : EamonRT.Game.IntroStory, EamonRT.Framework.IIntroStory
 	{
 		protected override void PrintOutputBeginnersPrelude()
 		{

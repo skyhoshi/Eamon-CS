@@ -3,11 +3,9 @@
 
 // Copyright (c) 2014+ by YourAuthorName.  All rights reserved
 
-using YourAdventureName.Framework.Plugin;
-
 namespace YourAdventureName.Game.Plugin
 {
-	public class PluginGlobals : EamonRT.Game.Plugin.PluginGlobals, IPluginGlobals
+	public class PluginGlobals : EamonRT.Game.Plugin.PluginGlobals, Framework.Plugin.IPluginGlobals
 	{
 
 	}

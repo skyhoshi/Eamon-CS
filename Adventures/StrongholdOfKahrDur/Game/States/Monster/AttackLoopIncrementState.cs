@@ -5,12 +5,11 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using StrongholdOfKahrDur.Framework.States;
 
 namespace StrongholdOfKahrDur.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IAttackLoopIncrementState))]
-	public class AttackLoopIncrementState : EamonRT.Game.States.AttackLoopIncrementState, IAttackLoopIncrementState
+	[ClassMappings]
+	public class AttackLoopIncrementState : EamonRT.Game.States.AttackLoopIncrementState, EamonRT.Framework.States.IAttackLoopIncrementState
 	{
 		protected override bool ShouldMonsterRearm(Eamon.Framework.IMonster monster)
 		{

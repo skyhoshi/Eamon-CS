@@ -7,13 +7,12 @@ using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheSubAquanLaboratory.Framework;
-using TheSubAquanLaboratory.Framework.Commands;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IReadCommand))]
-	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
+	[ClassMappings]
+	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, EamonRT.Framework.Commands.IReadCommand
 	{
 		protected override void PrintCantVerbObj(Eamon.Framework.IGameBase obj)
 		{

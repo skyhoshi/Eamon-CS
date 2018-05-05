@@ -10,8 +10,8 @@ using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IBeforeMonsterAttacksEnemyState))]
-	public class BeforeMonsterAttacksEnemyState : EamonRT.Game.States.BeforeMonsterAttacksEnemyState, IBeforeMonsterAttacksEnemyState
+	[ClassMappings]
+	public class BeforeMonsterAttacksEnemyState : EamonRT.Game.States.BeforeMonsterAttacksEnemyState, EamonRT.Framework.States.IBeforeMonsterAttacksEnemyState
 	{
 		public override void Execute()
 		{

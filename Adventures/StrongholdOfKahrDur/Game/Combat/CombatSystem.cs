@@ -6,14 +6,13 @@
 using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using StrongholdOfKahrDur.Framework.Combat;
 using RTEnums = EamonRT.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.Combat
 {
-	[ClassMappings(typeof(EamonRT.Framework.Combat.ICombatSystem))]
-	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, ICombatSystem
+	[ClassMappings]
+	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, EamonRT.Framework.Combat.ICombatSystem
 	{
 		protected override void PrintCriticalHit()
 		{

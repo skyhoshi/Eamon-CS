@@ -6,13 +6,12 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheTrainingGround.Framework;
-using TheTrainingGround.Framework.States;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IGetPlayerInputState))]
-	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, IGetPlayerInputState
+	[ClassMappings]
+	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, EamonRT.Framework.States.IGetPlayerInputState
 	{
 		protected override void ProcessEvents()
 		{

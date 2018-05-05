@@ -9,8 +9,8 @@ using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IRoom))]
-	public class Room : Eamon.Game.Room, Framework.IRoom
+	[ClassMappings]
+	public class Room : Eamon.Game.Room, Eamon.Framework.IRoom
 	{
 		public override long GetDirs(long index)
 		{

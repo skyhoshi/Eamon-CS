@@ -8,14 +8,13 @@ using System.Diagnostics;
 using System.Text;
 using Eamon;
 using Eamon.Game.Attributes;
-using WrenholdsSecretVigil.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IPlayerMoveCheckState))]
-	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
+	[ClassMappings]
+	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, EamonRT.Framework.States.IPlayerMoveCheckState
 	{
 		protected virtual Framework.IGameState GameState { get; set; }
 

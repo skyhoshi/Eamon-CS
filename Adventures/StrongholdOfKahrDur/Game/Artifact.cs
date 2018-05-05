@@ -4,12 +4,11 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Game.Attributes;
-using StrongholdOfKahrDur.Framework;
 
 namespace StrongholdOfKahrDur.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IArtifact))]
-	public class Artifact : Eamon.Game.Artifact, IArtifact
+	[ClassMappings]
+	public class Artifact : Eamon.Game.Artifact, Eamon.Framework.IArtifact
 	{
 		public override bool IsAttackable()
 		{
