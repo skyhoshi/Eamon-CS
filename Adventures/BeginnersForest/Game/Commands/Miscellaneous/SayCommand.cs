@@ -7,13 +7,12 @@ using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using BeginnersForest.Framework;
-using BeginnersForest.Framework.Commands;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.ISayCommand))]
-	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
+	[ClassMappings]
+	public class SayCommand : EamonRT.Game.Commands.SayCommand, EamonRT.Framework.Commands.ISayCommand
 	{
 		protected override void PlayerProcessEvents01()
 		{

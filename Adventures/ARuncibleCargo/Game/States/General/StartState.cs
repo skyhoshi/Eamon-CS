@@ -6,13 +6,12 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using ARuncibleCargo.Framework;
-using ARuncibleCargo.Framework.States;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IStartState))]
-	public class StartState : EamonRT.Game.States.StartState, IStartState
+	[ClassMappings]
+	public class StartState : EamonRT.Game.States.StartState, EamonRT.Framework.States.IStartState
 	{
 		protected override void ProcessEvents()
 		{

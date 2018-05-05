@@ -4,13 +4,12 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Game.Attributes;
-using TheTempleOfNgurct.Framework.States;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IPlayerMoveCheckState))]
-	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
+	[ClassMappings]
+	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, EamonRT.Framework.States.IPlayerMoveCheckState
 	{
 		protected override void ProcessEvents01()
 		{

@@ -3,17 +3,14 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using ARuncibleCargo.Framework.Commands;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IFreeCommand))]
-	public class FreeCommand : EamonRT.Game.Commands.FreeCommand, IFreeCommand
+	[ClassMappings]
+	public class FreeCommand : EamonRT.Game.Commands.FreeCommand, EamonRT.Framework.Commands.IFreeCommand
 	{
 		protected override void PrintMonsterFreed()
 		{

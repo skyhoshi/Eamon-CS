@@ -8,13 +8,12 @@ using System.Diagnostics;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using TheTempleOfNgurct.Framework;
-using TheTempleOfNgurct.Framework.Commands;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IAttackCommand))]
-	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
+	[ClassMappings]
+	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, EamonRT.Framework.Commands.IAttackCommand
 	{
 		protected override void PlayerExecute()
 		{

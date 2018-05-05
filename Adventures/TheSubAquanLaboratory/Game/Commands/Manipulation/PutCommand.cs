@@ -6,13 +6,12 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheSubAquanLaboratory.Framework;
-using TheSubAquanLaboratory.Framework.Commands;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IPutCommand))]
-	public class PutCommand : EamonRT.Game.Commands.PutCommand, IPutCommand
+	[ClassMappings]
+	public class PutCommand : EamonRT.Game.Commands.PutCommand, EamonRT.Framework.Commands.IPutCommand
 	{
 		protected override void PlayerExecute()
 		{

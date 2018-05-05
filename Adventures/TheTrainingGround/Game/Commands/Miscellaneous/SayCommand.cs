@@ -6,13 +6,12 @@
 using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTrainingGround.Framework.Commands;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.ISayCommand))]
-	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
+	[ClassMappings]
+	public class SayCommand : EamonRT.Game.Commands.SayCommand, EamonRT.Framework.Commands.ISayCommand
 	{
 		protected override void PlayerProcessEvents01()
 		{

@@ -5,12 +5,11 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using WrenholdsSecretVigil.Framework;
 
 namespace WrenholdsSecretVigil.Game
 {
 	[ClassMappings(typeof(Eamon.Framework.IArtifact))]
-	public class Artifact : Eamon.Game.Artifact, IArtifact
+	public class Artifact : Eamon.Game.Artifact, Framework.IArtifact
 	{
 		public override bool IsReadyableByCharacter()
 		{

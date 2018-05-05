@@ -6,14 +6,13 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using ARuncibleCargo.Framework;
-using ARuncibleCargo.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IOpenCommand))]
-	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, IOpenCommand
+	[ClassMappings]
+	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, EamonRT.Framework.Commands.IOpenCommand
 	{
 		protected override void PrintOpened(Eamon.Framework.IArtifact artifact)
 		{

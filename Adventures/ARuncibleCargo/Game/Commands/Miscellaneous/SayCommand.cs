@@ -7,14 +7,13 @@ using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using ARuncibleCargo.Framework;
-using ARuncibleCargo.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.ISayCommand))]
-	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
+	[ClassMappings]
+	public class SayCommand : EamonRT.Game.Commands.SayCommand, EamonRT.Framework.Commands.ISayCommand
 	{
 		protected virtual bool EnemiesInRoom()
 		{

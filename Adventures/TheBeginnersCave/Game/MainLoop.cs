@@ -5,14 +5,13 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheBeginnersCave.Framework;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game
 {
-	[ClassMappings(typeof(EamonRT.Framework.IMainLoop))]
-	public class MainLoop : EamonRT.Game.MainLoop, IMainLoop
+	[ClassMappings]
+	public class MainLoop : EamonRT.Game.MainLoop, EamonRT.Framework.IMainLoop
 	{
 		public override void Shutdown()
 		{

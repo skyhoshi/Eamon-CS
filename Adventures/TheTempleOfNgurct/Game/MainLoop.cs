@@ -6,14 +6,13 @@
 using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTempleOfNgurct.Framework;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game
 {
-	[ClassMappings(typeof(EamonRT.Framework.IMainLoop))]
-	public class MainLoop : EamonRT.Game.MainLoop, IMainLoop
+	[ClassMappings]
+	public class MainLoop : EamonRT.Game.MainLoop, EamonRT.Framework.IMainLoop
 	{
 		public override void Shutdown()
 		{

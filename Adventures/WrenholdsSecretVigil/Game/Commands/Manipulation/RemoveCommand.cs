@@ -5,13 +5,12 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using WrenholdsSecretVigil.Framework.Commands;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IRemoveCommand))]
-	public class RemoveCommand : EamonRT.Game.Commands.RemoveCommand, IRemoveCommand
+	[ClassMappings]
+	public class RemoveCommand : EamonRT.Game.Commands.RemoveCommand, EamonRT.Framework.Commands.IRemoveCommand
 	{
 		protected override void PlayerExecute()
 		{

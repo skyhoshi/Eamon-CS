@@ -3,15 +3,13 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheSubAquanLaboratory.Framework.Commands;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IUseCommand))]
-	public class UseCommand : EamonRT.Game.Commands.UseCommand, IUseCommand
+	[ClassMappings]
+	public class UseCommand : EamonRT.Game.Commands.UseCommand, EamonRT.Framework.Commands.IUseCommand
 	{
 		protected override void PlayerProcessEvents()
 		{
@@ -38,7 +36,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Alphabet dial
 
-					command = Globals.CreateInstance<ITurnCommand>();
+					command = Globals.CreateInstance<Framework.Commands.ITurnCommand>();
 
 					CopyCommandData(command);
 
@@ -90,7 +88,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Various buttons
 
-					command = Globals.CreateInstance<IPushCommand>();
+					command = Globals.CreateInstance<Framework.Commands.IPushCommand>();
 
 					CopyCommandData(command);
 

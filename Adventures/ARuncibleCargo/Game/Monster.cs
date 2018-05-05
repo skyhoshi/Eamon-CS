@@ -3,7 +3,6 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon;
@@ -14,8 +13,8 @@ using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IMonster))]
-	public class Monster : Eamon.Game.Monster, IMonster
+	[ClassMappings]
+	public class Monster : Eamon.Game.Monster, Eamon.Framework.IMonster
 	{
 		protected override bool HasHumanNaturalAttackDescs()
 		{

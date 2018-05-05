@@ -9,14 +9,13 @@ using Eamon;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using ARuncibleCargo.Framework;
-using ARuncibleCargo.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IPrintPlayerRoomState))]
-	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, IPrintPlayerRoomState
+	[ClassMappings]
+	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, EamonRT.Framework.States.IPrintPlayerRoomState
 	{
 		protected override void ProcessEvents()
 		{

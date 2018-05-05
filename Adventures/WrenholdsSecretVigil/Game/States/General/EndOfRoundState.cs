@@ -4,13 +4,12 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Game.Attributes;
-using WrenholdsSecretVigil.Framework.States;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IEndOfRoundState))]
-	public class EndOfRoundState : EamonRT.Game.States.EndOfRoundState, IEndOfRoundState
+	[ClassMappings]
+	public class EndOfRoundState : EamonRT.Game.States.EndOfRoundState, EamonRT.Framework.States.IEndOfRoundState
 	{
 		protected override void ProcessEvents()
 		{

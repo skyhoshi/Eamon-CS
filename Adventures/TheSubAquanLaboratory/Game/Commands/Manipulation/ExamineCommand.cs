@@ -6,13 +6,12 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheSubAquanLaboratory.Framework;
-using TheSubAquanLaboratory.Framework.Commands;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
 	[ClassMappings(typeof(EamonRT.Framework.Commands.IExamineCommand))]
-	public class ExamineCommand : EamonRT.Game.Commands.ExamineCommand, IExamineCommand
+	public class ExamineCommand : EamonRT.Game.Commands.ExamineCommand, Framework.Commands.IExamineCommand
 	{
 		public virtual bool ExamineConsole { get; set; }
 
@@ -28,7 +27,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 				var command = Globals.CreateInstance<EamonRT.Framework.Commands.IExamineCommand>(x =>
 				{
-					((IExamineCommand)x).ExamineConsole = examineConsole;
+					((Framework.Commands.IExamineCommand)x).ExamineConsole = examineConsole;
 				});
 
 				CopyCommandData(command);

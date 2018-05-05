@@ -6,14 +6,13 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheTempleOfNgurct.Framework;
-using TheTempleOfNgurct.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IPowerCommand))]
-	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
+	[ClassMappings]
+	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, EamonRT.Framework.Commands.IPowerCommand
 	{
 		protected virtual void PrintAirCracklesWithEnergy()
 		{

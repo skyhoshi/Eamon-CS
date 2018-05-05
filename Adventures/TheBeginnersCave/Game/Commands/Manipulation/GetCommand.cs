@@ -7,13 +7,12 @@ using System;
 using System.Collections.Generic;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
-using TheBeginnersCave.Framework.Commands;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IGetCommand))]
-	public class GetCommand : EamonRT.Game.Commands.GetCommand, IGetCommand
+	[ClassMappings]
+	public class GetCommand : EamonRT.Game.Commands.GetCommand, EamonRT.Framework.Commands.IGetCommand
 	{
 		protected override void PlayerFinishParsing()
 		{

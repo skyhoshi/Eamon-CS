@@ -5,13 +5,12 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using BeginnersForest.Framework;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game
 {
-	[ClassMappings(typeof(EamonRT.Framework.IMainLoop))]
-	public class MainLoop : EamonRT.Game.MainLoop, IMainLoop
+	[ClassMappings]
+	public class MainLoop : EamonRT.Game.MainLoop, EamonRT.Framework.IMainLoop
 	{
 		public override void Startup()
 		{

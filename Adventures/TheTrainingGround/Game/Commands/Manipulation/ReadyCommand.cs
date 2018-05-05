@@ -5,13 +5,12 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTrainingGround.Framework.Commands;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IReadyCommand))]
-	public class ReadyCommand : EamonRT.Game.Commands.ReadyCommand, IReadyCommand
+	[ClassMappings]
+	public class ReadyCommand : EamonRT.Game.Commands.ReadyCommand, EamonRT.Framework.Commands.IReadyCommand
 	{
 		protected override void PlayerExecute()
 		{

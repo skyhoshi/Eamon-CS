@@ -6,13 +6,12 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using BeginnersForest.Framework;
-using BeginnersForest.Framework.States;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IPrintPlayerRoomState))]
-	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, IPrintPlayerRoomState
+	[ClassMappings]
+	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, EamonRT.Framework.States.IPrintPlayerRoomState
 	{
 		protected override void ProcessEvents()
 		{

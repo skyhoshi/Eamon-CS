@@ -7,13 +7,12 @@ using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon.Game.Attributes;
-using WrenholdsSecretVigil.Framework;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IMonster))]
-	public class Monster : Eamon.Game.Monster, IMonster
+	[ClassMappings]
+	public class Monster : Eamon.Game.Monster, Eamon.Framework.IMonster
 	{
 		protected override bool HasHumanNaturalAttackDescs()
 		{

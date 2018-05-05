@@ -6,13 +6,12 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheTrainingGround.Framework;
-using TheTrainingGround.Framework.Commands;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IGiveCommand))]
-	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, IGiveCommand
+	[ClassMappings]
+	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, EamonRT.Framework.Commands.IGiveCommand
 	{
 		protected override void PrintGiveObjToActor(Eamon.Framework.IArtifact artifact, Eamon.Framework.IMonster monster)
 		{

@@ -5,13 +5,12 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using StrongholdOfKahrDur.Framework.Commands;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IBlastCommand))]
-	public class BlastCommand : EamonRT.Game.Commands.BlastCommand, IBlastCommand
+	[ClassMappings]
+	public class BlastCommand : EamonRT.Game.Commands.BlastCommand, EamonRT.Framework.Commands.IBlastCommand
 	{
 		protected override void PlayerProcessEvents01()
 		{

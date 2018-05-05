@@ -7,13 +7,12 @@ using System.Diagnostics;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using TheBeginnersCave.Framework;
-using TheBeginnersCave.Framework.Commands;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IStatusCommand))]
-	public class StatusCommand : EamonRT.Game.Commands.StatusCommand, IStatusCommand
+	[ClassMappings]
+	public class StatusCommand : EamonRT.Game.Commands.StatusCommand, EamonRT.Framework.Commands.IStatusCommand
 	{
 		protected override void PlayerProcessEvents()
 		{

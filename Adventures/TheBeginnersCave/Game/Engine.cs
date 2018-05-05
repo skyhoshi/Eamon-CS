@@ -6,7 +6,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Classes = Eamon.Framework.Primitive.Classes;
@@ -15,7 +14,7 @@ using static TheBeginnersCave.Game.Plugin.PluginContext;
 namespace TheBeginnersCave.Game
 {
 	[ClassMappings(typeof(Eamon.Framework.IEngine))]
-	public class Engine : EamonRT.Game.Engine, Framework.IEngine
+	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
 	{
 		protected virtual long HeldWpnIdx { get; set; }
 
@@ -68,7 +67,7 @@ namespace TheBeginnersCave.Game
 			}
 		}
 
-		public override IArtifact ConvertWeaponToArtifact(Classes.ICharacterWeapon weapon)
+		public override Eamon.Framework.IArtifact ConvertWeaponToArtifact(Classes.ICharacterWeapon weapon)
 		{
 			var artifact = base.ConvertWeaponToArtifact(weapon);
 
@@ -91,7 +90,7 @@ namespace TheBeginnersCave.Game
 			return artifact;
 		}
 
-		public override void ConvertToCarriedInventory(IList<IArtifact> weaponList)
+		public override void ConvertToCarriedInventory(IList<Eamon.Framework.IArtifact> weaponList)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

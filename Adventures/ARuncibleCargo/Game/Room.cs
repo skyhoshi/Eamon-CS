@@ -5,12 +5,11 @@
 
 using System;
 using Eamon.Game.Attributes;
-using ARuncibleCargo.Framework;
 
 namespace ARuncibleCargo.Game
 {
 	[ClassMappings(typeof(Eamon.Framework.IRoom))]
-	public class Room : Eamon.Game.Room, IRoom
+	public class Room : Eamon.Game.Room, Framework.IRoom
 	{
 		protected override string GetObviousExits()
 		{

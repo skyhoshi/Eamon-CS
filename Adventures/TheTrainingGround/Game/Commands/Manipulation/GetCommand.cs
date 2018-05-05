@@ -6,14 +6,13 @@
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
-using TheTrainingGround.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IGetCommand))]
-	public class GetCommand : EamonRT.Game.Commands.GetCommand, IGetCommand
+	[ClassMappings]
+	public class GetCommand : EamonRT.Game.Commands.GetCommand, EamonRT.Framework.Commands.IGetCommand
 	{
 		protected virtual bool RevealSecretPassage { get; set; }
 

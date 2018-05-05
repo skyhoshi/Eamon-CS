@@ -6,14 +6,13 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheTempleOfNgurct.Framework;
-using TheTempleOfNgurct.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.ILookCommand))]
-	public class LookCommand : EamonRT.Game.Commands.LookCommand, ILookCommand
+	[ClassMappings]
+	public class LookCommand : EamonRT.Game.Commands.LookCommand, EamonRT.Framework.Commands.ILookCommand
 	{
 		protected override void PlayerExecute()
 		{

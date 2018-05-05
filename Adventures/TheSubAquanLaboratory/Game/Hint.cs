@@ -4,23 +4,22 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
-using Eamon.Framework;
 using Eamon.Game.Attributes;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game
 {
-	[ClassMappings(typeof(IHint))]
-	public class Hint : Eamon.Game.Hint, Framework.IHint
+	[ClassMappings]
+	public class Hint : Eamon.Game.Hint, Eamon.Framework.IHint
 	{
 		public override bool Active
 		{
 			get
 			{
-				IArtifact artifact;
-				IRoom room;
+				Eamon.Framework.IArtifact artifact;
+				Eamon.Framework.IRoom room;
 
-				var gameState = Globals.GameState as IGameState;
+				var gameState = Globals.GameState as Framework.IGameState;
 
 				if (gameState != null)        // null in EamonDD; non-null in EamonRT
 				{

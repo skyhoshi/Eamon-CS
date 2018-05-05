@@ -5,13 +5,12 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTempleOfNgurct.Framework.Commands;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IDropCommand))]
-	public class DropCommand : EamonRT.Game.Commands.DropCommand, IDropCommand
+	[ClassMappings]
+	public class DropCommand : EamonRT.Game.Commands.DropCommand, EamonRT.Framework.Commands.IDropCommand
 	{
 		protected override void PrintWearingRemoveFirst(Eamon.Framework.IArtifact artifact)
 		{

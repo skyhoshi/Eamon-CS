@@ -6,13 +6,12 @@
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Game.Attributes;
-using TheSubAquanLaboratory.Framework.Commands;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IWearCommand))]
-	public class WearCommand : EamonRT.Game.Commands.WearCommand, IWearCommand
+	[ClassMappings]
+	public class WearCommand : EamonRT.Game.Commands.WearCommand, EamonRT.Framework.Commands.IWearCommand
 	{
 		protected override void PlayerExecute()
 		{

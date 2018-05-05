@@ -5,13 +5,12 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheBeginnersCave.Framework.Commands;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IUseCommand))]
-	public class UseCommand : EamonRT.Game.Commands.UseCommand, IUseCommand
+	[ClassMappings]
+	public class UseCommand : EamonRT.Game.Commands.UseCommand, EamonRT.Framework.Commands.IUseCommand
 	{
 		protected override void PlayerExecute()
 		{
@@ -21,7 +20,7 @@ namespace TheBeginnersCave.Game.Commands
 
 			if (DobjArtifact.Uid == 10)
 			{
-				var command = Globals.CreateInstance<ITrollsfireCommand>();
+				var command = Globals.CreateInstance<Framework.Commands.ITrollsfireCommand>();
 
 				CopyCommandData(command);
 

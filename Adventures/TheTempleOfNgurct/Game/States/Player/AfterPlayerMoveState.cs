@@ -7,13 +7,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheTempleOfNgurct.Framework;
-using TheTempleOfNgurct.Framework.States;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.States
 {
-	[ClassMappings(typeof(EamonRT.Framework.States.IAfterPlayerMoveState))]
-	public class AfterPlayerMoveState : EamonRT.Game.States.AfterPlayerMoveState, IAfterPlayerMoveState
+	[ClassMappings]
+	public class AfterPlayerMoveState : EamonRT.Game.States.AfterPlayerMoveState, EamonRT.Framework.States.IAfterPlayerMoveState
 	{
 		protected virtual IList<Eamon.Framework.IMonster> GetTrapMonsterList(long numMonsters, long roomUid)
 		{

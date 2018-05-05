@@ -5,14 +5,13 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTempleOfNgurct.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IEatCommand))]
-	public class EatCommand : EamonRT.Game.Commands.EatCommand, IEatCommand
+	[ClassMappings]
+	public class EatCommand : EamonRT.Game.Commands.EatCommand, EamonRT.Framework.Commands.IEatCommand
 	{
 		protected virtual long DmgTaken { get; set; }
 

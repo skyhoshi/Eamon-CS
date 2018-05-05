@@ -7,13 +7,12 @@ using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon.Game.Attributes;
-using TheTempleOfNgurct.Framework;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IMonster))]
-	public class Monster : Eamon.Game.Monster, IMonster
+	[ClassMappings]
+	public class Monster : Eamon.Game.Monster, Eamon.Framework.IMonster
 	{
 		protected override bool HasHumanNaturalAttackDescs()
 		{

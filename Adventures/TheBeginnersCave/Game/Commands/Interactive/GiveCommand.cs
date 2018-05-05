@@ -4,13 +4,12 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Game.Attributes;
-using TheBeginnersCave.Framework.Commands;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IGiveCommand))]
-	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, IGiveCommand
+	[ClassMappings]
+	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, EamonRT.Framework.Commands.IGiveCommand
 	{
 		protected override void PlayerProcessEvents02()
 		{

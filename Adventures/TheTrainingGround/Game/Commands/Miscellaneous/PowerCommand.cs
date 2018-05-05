@@ -6,14 +6,13 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheTrainingGround.Framework;
-using TheTrainingGround.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IPowerCommand))]
-	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
+	[ClassMappings]
+	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, EamonRT.Framework.Commands.IPowerCommand
 	{
 		protected override void PlayerProcessEvents()
 		{

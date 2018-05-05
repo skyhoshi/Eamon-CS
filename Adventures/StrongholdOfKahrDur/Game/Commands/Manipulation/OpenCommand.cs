@@ -5,14 +5,13 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using StrongholdOfKahrDur.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IOpenCommand))]
-	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, IOpenCommand
+	[ClassMappings]
+	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, EamonRT.Framework.Commands.IOpenCommand
 	{
 		protected override void PlayerProcessEvents01()
 		{

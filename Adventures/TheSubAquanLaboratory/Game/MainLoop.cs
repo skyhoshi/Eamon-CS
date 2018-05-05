@@ -13,8 +13,8 @@ using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game
 {
-	[ClassMappings(typeof(EamonRT.Framework.IMainLoop))]
-	public class MainLoop : EamonRT.Game.MainLoop, IMainLoop
+	[ClassMappings]
+	public class MainLoop : EamonRT.Game.MainLoop, EamonRT.Framework.IMainLoop
 	{
 		public override void Shutdown()
 		{

@@ -4,11 +4,10 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
-using TheTempleOfNgurct.Framework.Plugin;
 
 namespace TheTempleOfNgurct.Game.Plugin
 {
-	public class PluginConstants : EamonRT.Game.Plugin.PluginConstants, IPluginConstants
+	public class PluginConstants : EamonRT.Game.Plugin.PluginConstants, Framework.Plugin.IPluginConstants
 	{
 		public PluginConstants()
 		{
