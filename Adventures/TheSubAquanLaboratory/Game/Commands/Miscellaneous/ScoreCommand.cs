@@ -8,14 +8,13 @@ using System.Diagnostics;
 using System.Linq;
 using Eamon.Game.Attributes;
 using TheSubAquanLaboratory.Framework;
-using TheSubAquanLaboratory.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
 	[ClassMappings]
-	public class ScoreCommand : EamonRT.Game.Commands.Command, IScoreCommand
+	public class ScoreCommand : EamonRT.Game.Commands.Command, Framework.Commands.IScoreCommand
 	{
 		protected override void PlayerExecute()
 		{

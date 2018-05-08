@@ -8,14 +8,13 @@ using System.Diagnostics;
 using Eamon;
 using Eamon.Game.Attributes;
 using TheSubAquanLaboratory.Framework;
-using TheSubAquanLaboratory.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
 	[ClassMappings]
-	public class TurnCommand : EamonRT.Game.Commands.Command, ITurnCommand
+	public class TurnCommand : EamonRT.Game.Commands.Command, Framework.Commands.ITurnCommand
 	{
 		protected virtual bool IsCharUOrD(char ch)
 		{

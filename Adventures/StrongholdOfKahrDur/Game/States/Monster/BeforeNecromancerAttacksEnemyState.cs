@@ -6,14 +6,13 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using Eamon.Game.Utilities;
-using StrongholdOfKahrDur.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.States
 {
 	[ClassMappings]
-	public class BeforeNecromancerAttacksEnemyState : EamonRT.Game.States.State, IBeforeNecromancerAttacksEnemyState
+	public class BeforeNecromancerAttacksEnemyState : EamonRT.Game.States.State, Framework.States.IBeforeNecromancerAttacksEnemyState
 	{
 		protected virtual Eamon.Framework.IRoom Room { get; set; }
 
@@ -65,19 +64,19 @@ namespace StrongholdOfKahrDur.Game.States
 
 		public override void Execute()
 		{
-			var monster = Globals.MDB[Globals.LoopMonsterUid];
+			var necromancerMonster = Globals.MDB[Globals.LoopMonsterUid];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(necromancerMonster != null);
 
-			var monster01 = Globals.MDB[Globals.GameState.Cm];
+			var characterMonster = Globals.MDB[Globals.GameState.Cm];
 
-			Debug.Assert(monster01 != null);
+			Debug.Assert(characterMonster != null);
 
-			Room = monster01.GetInRoom();
+			Room = characterMonster.GetInRoom();
 
 			Debug.Assert(Room != null);
 
-			if (!monster.IsInRoom(Room))
+			if (!necromancerMonster.IsInRoom(Room))
 			{
 				goto Cleanup;
 			}
@@ -86,7 +85,7 @@ namespace StrongholdOfKahrDur.Game.States
 			{
 				x.SetNextStateFunc = s => NextState = s;
 
-				x.DfMonster = monster01;
+				x.DfMonster = characterMonster;
 
 				x.OmitArmor = true;
 			});

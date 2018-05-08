@@ -6,14 +6,13 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using TheSubAquanLaboratory.Framework;
-using TheSubAquanLaboratory.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
 	[ClassMappings]
-	public class PushCommand : EamonRT.Game.Commands.Command, IPushCommand
+	public class PushCommand : EamonRT.Game.Commands.Command, Framework.Commands.IPushCommand
 	{
 		protected override void PlayerExecute()
 		{

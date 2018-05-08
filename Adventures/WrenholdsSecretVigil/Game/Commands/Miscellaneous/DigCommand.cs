@@ -6,14 +6,13 @@
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using WrenholdsSecretVigil.Framework;
-using WrenholdsSecretVigil.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
 	[ClassMappings]
-	public class DigCommand : EamonRT.Game.Commands.Command, IDigCommand
+	public class DigCommand : EamonRT.Game.Commands.Command, Framework.Commands.IDigCommand
 	{
 		protected override void PrintCantVerbHere()
 		{
