@@ -5,8 +5,10 @@
 
 using System;
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
-using TheSubAquanLaboratory.Framework;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Classes = Eamon.Framework.Primitive.Classes;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
@@ -14,7 +16,7 @@ using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 namespace TheSubAquanLaboratory.Game.Commands
 {
 	[ClassMappings]
-	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, EamonRT.Framework.Commands.IAttackCommand
+	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
 	{
 		protected virtual Classes.IArtifactCategory Ac { get; set; }
 
@@ -27,8 +29,8 @@ namespace TheSubAquanLaboratory.Game.Commands
 			Debug.Assert(Ac != null);
 
 			var whereClauseFuncs = Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) <= 0 ?
-				new Func<Eamon.Framework.IMonster, bool>[] { m => m == ActorMonster, m => m.IsInRoom(ActorRoom) && m.Friendliness == Enums.Friendliness.Friend && ((m.Weapon > -1 && m.Weapon <= Globals.Database.GetArtifactsCount()) || m.CombatCode == Enums.CombatCode.NaturalWeapons) && m != ActorMonster } :
-				new Func<Eamon.Framework.IMonster, bool>[] { m => m == ActorMonster };
+				new Func<IMonster, bool>[] { m => m == ActorMonster, m => m.IsInRoom(ActorRoom) && m.Friendliness == Enums.Friendliness.Friend && ((m.Weapon > -1 && m.Weapon <= Globals.Database.GetArtifactsCount()) || m.CombatCode == Enums.CombatCode.NaturalWeapons) && m != ActorMonster } :
+				new Func<IMonster, bool>[] { m => m == ActorMonster };
 
 			var monsters = Globals.Engine.GetMonsterList(() => true, whereClauseFuncs);
 
@@ -71,14 +73,14 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 		protected override void PlayerExecute()
 		{
-			Eamon.Framework.IArtifact artifact;
+			IArtifact artifact;
 
 			var effectUid = 0L;
 			var n = 0L;
 
 			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -141,7 +143,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 							artifact.SetInRoom(ActorRoom);
 						}
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+						NextState = Globals.CreateInstance<IMonsterStartState>();
 
 						break;
 
@@ -199,11 +201,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							Globals.Engine.CheckEnemies();
 
-							NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+							NextState = Globals.CreateInstance<IStartState>();
 						}
 						else
 						{
-							NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+							NextState = Globals.CreateInstance<IMonsterStartState>();
 						}
 
 						break;
@@ -222,7 +224,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						artifact.SetInRoom(ActorRoom);
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+						NextState = Globals.CreateInstance<IMonsterStartState>();
 
 						break;
 

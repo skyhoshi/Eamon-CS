@@ -5,13 +5,15 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
 	[ClassMappings]
-	public class WearCommand : EamonRT.Game.Commands.WearCommand, EamonRT.Framework.Commands.IWearCommand
+	public class WearCommand : EamonRT.Game.Commands.WearCommand, IWearCommand
 	{
 		protected override void PrintCantVerbHere()
 		{
@@ -28,7 +30,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			{
 				PrintDontNeedTo();
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 			}
 			else
 			{

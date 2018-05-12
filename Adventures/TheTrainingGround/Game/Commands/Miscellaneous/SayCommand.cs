@@ -6,12 +6,13 @@
 using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
 	[ClassMappings]
-	public class SayCommand : EamonRT.Game.Commands.SayCommand, EamonRT.Framework.Commands.ISayCommand
+	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
 	{
 		protected override void PlayerProcessEvents01()
 		{
@@ -27,7 +28,7 @@ namespace TheTrainingGround.Game.Commands
 
 			if (magicWordsSpoken && hammerPresent)
 			{
-				var command = Globals.CreateInstance<EamonRT.Framework.Commands.IUseCommand>();
+				var command = Globals.CreateInstance<IUseCommand>();
 
 				CopyCommandData(command);
 

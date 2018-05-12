@@ -8,13 +8,14 @@ using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Classes;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
 	[ClassMappings]
-	public class GetCommand : EamonRT.Game.Commands.GetCommand, EamonRT.Framework.Commands.IGetCommand
+	public class GetCommand : EamonRT.Game.Commands.GetCommand, IGetCommand
 	{
 		protected override void PrintReceived(IArtifact artifact)
 		{

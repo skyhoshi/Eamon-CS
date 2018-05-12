@@ -5,7 +5,7 @@
 
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using WrenholdsSecretVigil.Framework;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
@@ -21,7 +21,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		protected override void PlayerExecute()
 		{
-			var buriedArtifacts = Globals.Engine.GetArtifactList(() => true, a => a.CastTo<IArtifact>().IsBuriedInRoom(ActorRoom));
+			var buriedArtifacts = Globals.Engine.GetArtifactList(() => true, a => a.CastTo<Framework.IArtifact>().IsBuriedInRoom(ActorRoom));
 
 			if (buriedArtifacts.Count > 0)
 			{
@@ -36,13 +36,13 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 		}
 
 		protected override bool IsAllowedInRoom()
 		{
-			return ActorRoom.CastTo<IRoom>().IsDigCommandAllowedInRoom();
+			return ActorRoom.CastTo<Framework.IRoom>().IsDigCommandAllowedInRoom();
 		}
 
 		public DigCommand()

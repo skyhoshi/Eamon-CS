@@ -5,12 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
 	[ClassMappings]
-	public class ExamineCommand : EamonRT.Game.Commands.ExamineCommand, EamonRT.Framework.Commands.IExamineCommand
+	public class ExamineCommand : EamonRT.Game.Commands.ExamineCommand, IExamineCommand
 	{
 		protected override void PlayerExecute()
 		{
@@ -76,7 +78,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				if (NextState == null)
 				{
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+					NextState = Globals.CreateInstance<IMonsterStartState>();
 				}
 			}
 			else

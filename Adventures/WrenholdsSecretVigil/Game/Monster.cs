@@ -6,13 +6,14 @@
 using System;
 using System.Diagnostics;
 using System.Text;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game
 {
 	[ClassMappings]
-	public class Monster : Eamon.Game.Monster, Eamon.Framework.IMonster
+	public class Monster : Eamon.Game.Monster, IMonster
 	{
 		protected override bool HasHumanNaturalAttackDescs()
 		{

@@ -5,12 +5,13 @@
 
 using System;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
 {
 	[ClassMappings]
-	public class SayCommand : EamonRT.Game.Commands.SayCommand, EamonRT.Framework.Commands.ISayCommand
+	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
 	{
 		protected override void PlayerProcessEvents01()
 		{

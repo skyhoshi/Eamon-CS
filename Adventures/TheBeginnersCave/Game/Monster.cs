@@ -6,14 +6,14 @@
 using System;
 using System.Diagnostics;
 using System.Text;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
-using TheBeginnersCave.Framework;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game
 {
 	[ClassMappings]
-	public class Monster : Eamon.Game.Monster, Eamon.Framework.IMonster
+	public class Monster : Eamon.Game.Monster, IMonster
 	{
 		/// <summary>
 		/// Gets or sets the Weapon property.
@@ -25,8 +25,8 @@ namespace TheBeginnersCave.Game
 		/// Trollsfire effect might be activated/deactivated.  But realistically its all about the change in the
 		/// Weapon property.  This handles every possible thing that could deactivate Trollsfire (also activate it
 		/// for the pirate).  Fumbles, drops, gives, puts, takes, etc.  The Weapon property works in conjunction with
-		/// <see cref="IGameState.Trollsfire"/> and <see cref="Framework.Commands.ITrollsfireCommand"/> to fully
-		/// implement the Trollsfire sword.
+		/// <see cref="Framework.IGameState.Trollsfire"/> and <see cref="Framework.Commands.ITrollsfireCommand"/> to
+		/// fully implement the Trollsfire sword.
 		/// </remarks>
 		public override long Weapon
 		{
@@ -39,7 +39,7 @@ namespace TheBeginnersCave.Game
 			{
 				if (base.Weapon != value)
 				{
-					var gameState = Globals.GameState as IGameState;
+					var gameState = Globals.GameState as Framework.IGameState;
 
 					// null in EamonDD; non-null in EamonRT (avoid assumptions)
 

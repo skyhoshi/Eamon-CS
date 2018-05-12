@@ -5,12 +5,13 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game.Commands
 {
 	[ClassMappings]
-	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, EamonRT.Framework.Commands.IReadCommand
+	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
 		protected override void PlayerProcessEvents01()
 		{
@@ -32,7 +33,7 @@ namespace BeginnersForest.Game.Commands
 
 			if (DobjArtifact.Uid == 19 || DobjArtifact.Uid == 20)
 			{
-				var command = Globals.CreateInstance<EamonRT.Framework.Commands.IExamineCommand>();
+				var command = Globals.CreateInstance<IExamineCommand>();
 
 				CopyCommandData(command);
 

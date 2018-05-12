@@ -6,12 +6,14 @@
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
 	[ClassMappings]
-	public class WearCommand : EamonRT.Game.Commands.WearCommand, EamonRT.Framework.Commands.IWearCommand
+	public class WearCommand : EamonRT.Game.Commands.WearCommand, IWearCommand
 	{
 		protected override void PlayerExecute()
 		{
@@ -27,7 +29,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 			{
 				PrintWearingRemoveFirst01(artifacts[0]);
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 			}
 			else
 			{

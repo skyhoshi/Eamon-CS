@@ -5,17 +5,17 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using ARuncibleCargo.Framework;
+using EamonRT.Framework.States;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.States
 {
 	[ClassMappings]
-	public class AfterPlayerMoveState : EamonRT.Game.States.AfterPlayerMoveState, EamonRT.Framework.States.IAfterPlayerMoveState
+	public class AfterPlayerMoveState : EamonRT.Game.States.AfterPlayerMoveState, IAfterPlayerMoveState
 	{
 		protected override void ProcessEvents()
 		{
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -33,9 +33,9 @@ namespace ARuncibleCargo.Game.States
 
 			// Sync contents of water rooms
 
-			var oldRoom = Globals.RDB[gameState.R3] as IRoom;
+			var oldRoom = Globals.RDB[gameState.R3] as Framework.IRoom;
 
-			var newRoom = Globals.RDB[gameState.Ro] as IRoom;
+			var newRoom = Globals.RDB[gameState.Ro] as Framework.IRoom;
 
 			if (oldRoom != null && oldRoom.IsWaterRoom() && newRoom != null && newRoom.IsWaterRoom())
 			{

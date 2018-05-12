@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Classes = Eamon.Framework.Primitive.Classes;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -13,7 +14,7 @@ using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IEngine))]
+	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, Framework.IEngine
 	{
 		protected override void PrintTooManyWeapons()
@@ -125,7 +126,7 @@ namespace StrongholdOfKahrDur.Game
 			}
 		}
 
-		public override void MonsterGetsAggravated(Eamon.Framework.IMonster monster, bool printFinalNewLine = true)
+		public override void MonsterGetsAggravated(IMonster monster, bool printFinalNewLine = true)
 		{
 			base.MonsterGetsAggravated(monster, printFinalNewLine);
 
@@ -141,7 +142,7 @@ namespace StrongholdOfKahrDur.Game
 			}
 		}
 
-		public override void MonsterSmiles(Eamon.Framework.IMonster monster)
+		public override void MonsterSmiles(IMonster monster)
 		{
 			Debug.Assert(monster != null);
 
@@ -152,7 +153,7 @@ namespace StrongholdOfKahrDur.Game
 				monster.EvalPlural("s", ""));
 		}
 
-		public override void MonsterDies(Eamon.Framework.IMonster OfMonster, Eamon.Framework.IMonster DfMonster)
+		public override void MonsterDies(IMonster OfMonster, IMonster DfMonster)
 		{
 			base.MonsterDies(OfMonster, DfMonster);
 
@@ -196,7 +197,7 @@ namespace StrongholdOfKahrDur.Game
 			}
 		}
 
-		public virtual bool SpellReagentsInCauldron(Eamon.Framework.IArtifact artifact)
+		public virtual bool SpellReagentsInCauldron(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 

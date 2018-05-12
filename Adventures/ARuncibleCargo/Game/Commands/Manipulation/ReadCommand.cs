@@ -5,20 +5,21 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using ARuncibleCargo.Framework;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
 {
 	[ClassMappings]
-	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, EamonRT.Framework.Commands.IReadCommand
+	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
 		protected override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -28,7 +29,7 @@ namespace ARuncibleCargo.Game.Commands
 
 					// Read sign on Sam's door () () ()
 
-					var command = Globals.CreateInstance<EamonRT.Framework.Commands.IExamineCommand>();
+					var command = Globals.CreateInstance<IExamineCommand>();
 
 					CopyCommandData(command);
 
@@ -64,7 +65,7 @@ namespace ARuncibleCargo.Game.Commands
 						Globals.Out.Print("Nothing happens.");
 					}
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+					NextState = Globals.CreateInstance<IMonsterStartState>();
 
 					break;
 

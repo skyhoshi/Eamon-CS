@@ -5,12 +5,13 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.States;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.States
 {
 	[ClassMappings]
-	public class DefaultMonsterDecisionState : EamonRT.Game.States.DefaultMonsterDecisionState, EamonRT.Framework.States.IDefaultMonsterDecisionState
+	public class DefaultMonsterDecisionState : EamonRT.Game.States.DefaultMonsterDecisionState, IDefaultMonsterDecisionState
 	{
 		public override void Execute()
 		{
@@ -22,7 +23,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 			if (monster.CanMoveToRoom(true) && Globals.DeviceOpened)
 			{
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IBeforeMonsterFleesRoomState>();
+				NextState = Globals.CreateInstance<IBeforeMonsterFleesRoomState>();
 
 				Globals.NextState = NextState;
 			}

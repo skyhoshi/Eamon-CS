@@ -5,19 +5,19 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using BeginnersForest.Framework;
+using EamonRT.Framework.States;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game.States
 {
 	[ClassMappings]
-	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, EamonRT.Framework.States.IGetPlayerInputState
+	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, IGetPlayerInputState
 	{
 		protected override void ProcessEvents()
 		{
 			if (ShouldPreTurnProcess())
 			{
-				var gameState = Globals.GameState as IGameState;
+				var gameState = Globals.GameState as Framework.IGameState;
 
 				Debug.Assert(gameState != null);
 

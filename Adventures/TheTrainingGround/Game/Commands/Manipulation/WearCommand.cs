@@ -5,12 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
 	[ClassMappings]
-	public class WearCommand : EamonRT.Game.Commands.WearCommand, EamonRT.Framework.Commands.IWearCommand
+	public class WearCommand : EamonRT.Game.Commands.WearCommand, IWearCommand
 	{
 		protected override void PlayerExecute()
 		{
@@ -22,7 +24,7 @@ namespace TheTrainingGround.Game.Commands
 			{
 				PrintDontNeedTo();
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 			}
 			else
 			{

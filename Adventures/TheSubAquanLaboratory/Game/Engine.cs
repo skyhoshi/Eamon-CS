@@ -5,12 +5,13 @@
 
 using System.Collections.Generic;
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IEngine))]
+	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
 	{
 		public override void AddPoundCharsToArtifactNames()

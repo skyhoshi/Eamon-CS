@@ -4,16 +4,19 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
 	[ClassMappings]
-	public class PutCommand : EamonRT.Game.Commands.PutCommand, EamonRT.Framework.Commands.IPutCommand
+	public class PutCommand : EamonRT.Game.Commands.PutCommand, IPutCommand
 	{
-		protected override void PrintBrokeIt(Eamon.Framework.IArtifact artifact)
+		protected override void PrintBrokeIt(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -64,7 +67,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				Globals.Engine.TransportPlayerBetweenRooms(ActorRoom, newRoom, null);
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IAfterPlayerMoveState>();
+				NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 			}
 			else
 			{

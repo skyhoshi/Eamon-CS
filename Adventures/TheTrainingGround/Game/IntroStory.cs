@@ -4,13 +4,14 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Game.Attributes;
+using EamonRT.Framework;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game
 {
 	[ClassMappings]
-	public class IntroStory : EamonRT.Game.IntroStory, EamonRT.Framework.IIntroStory
+	public class IntroStory : EamonRT.Game.IntroStory, IIntroStory
 	{
 		public override void PrintOutput()
 		{

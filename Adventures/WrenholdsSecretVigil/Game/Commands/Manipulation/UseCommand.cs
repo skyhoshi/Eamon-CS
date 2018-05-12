@@ -5,12 +5,13 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
 	[ClassMappings]
-	public class UseCommand : EamonRT.Game.Commands.UseCommand, EamonRT.Framework.Commands.IUseCommand
+	public class UseCommand : EamonRT.Game.Commands.UseCommand, IUseCommand
 	{
 		protected override void PlayerExecute()
 		{
@@ -24,7 +25,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (DobjArtifact.Uid == 48 && deviceArtifact.IsInRoom(ActorRoom))
 			{
-				var command = Globals.CreateInstance<EamonRT.Framework.Commands.IGetCommand>();
+				var command = Globals.CreateInstance<IGetCommand>();
 
 				CopyCommandData(command);
 

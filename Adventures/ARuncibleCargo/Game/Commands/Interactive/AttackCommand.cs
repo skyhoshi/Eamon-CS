@@ -6,13 +6,15 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
 {
 	[ClassMappings]
-	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, EamonRT.Framework.Commands.IAttackCommand
+	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
 	{
 		protected override void PlayerExecute()
 		{
@@ -29,7 +31,7 @@ namespace ARuncibleCargo.Game.Commands
 
 						Globals.Engine.PrintEffectDesc(162);
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+						NextState = Globals.CreateInstance<IMonsterStartState>();
 
 						break;
 
@@ -43,7 +45,7 @@ namespace ARuncibleCargo.Game.Commands
 
 						ac.SetOpen(false);
 
-						var command = Globals.CreateInstance<EamonRT.Framework.Commands.IOpenCommand>();
+						var command = Globals.CreateInstance<IOpenCommand>();
 
 						CopyCommandData(command);
 
@@ -57,7 +59,7 @@ namespace ARuncibleCargo.Game.Commands
 
 						Globals.Out.Print("That sounds quite dangerous!");
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+						NextState = Globals.CreateInstance<IMonsterStartState>();
 
 						break;
 

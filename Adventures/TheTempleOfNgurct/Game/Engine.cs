@@ -6,13 +6,14 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IEngine))]
+	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, Framework.IEngine
 	{
 		public override void InitArtifacts()
@@ -190,7 +191,7 @@ namespace TheTempleOfNgurct.Game
 			}
 		}
 
-		public override void ResetMonsterStats(Eamon.Framework.IMonster monster)
+		public override void ResetMonsterStats(IMonster monster)
 		{
 			Debug.Assert(monster != null);
 
@@ -199,7 +200,7 @@ namespace TheTempleOfNgurct.Game
 			Globals.GameState.Speed = 0;
 		}
 
-		public override void ConvertToCarriedInventory(IList<Eamon.Framework.IArtifact> weaponList)
+		public override void ConvertToCarriedInventory(IList<IArtifact> weaponList)
 		{
 			// Convert fireball wand into artifact type gold
 
@@ -212,7 +213,7 @@ namespace TheTempleOfNgurct.Game
 			base.ConvertToCarriedInventory(weaponList);
 		}
 
-		public override void MonsterSmiles(Eamon.Framework.IMonster monster)
+		public override void MonsterSmiles(IMonster monster)
 		{
 			Debug.Assert(monster != null);
 
@@ -228,7 +229,7 @@ namespace TheTempleOfNgurct.Game
 			}
 		}
 
-		public override void MonsterDies(Eamon.Framework.IMonster OfMonster, Eamon.Framework.IMonster DfMonster)
+		public override void MonsterDies(IMonster OfMonster, IMonster DfMonster)
 		{
 			Debug.Assert(DfMonster != null);
 

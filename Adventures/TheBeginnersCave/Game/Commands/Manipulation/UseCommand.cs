@@ -5,12 +5,13 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
 {
 	[ClassMappings]
-	public class UseCommand : EamonRT.Game.Commands.UseCommand, EamonRT.Framework.Commands.IUseCommand
+	public class UseCommand : EamonRT.Game.Commands.UseCommand, IUseCommand
 	{
 		protected override void PlayerExecute()
 		{

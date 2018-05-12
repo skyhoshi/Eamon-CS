@@ -5,13 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Combat;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Combat
 {
 	[ClassMappings]
-	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, EamonRT.Framework.Combat.ICombatSystem
+	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, ICombatSystem
 	{
 		protected override void PrintHealthStatus()
 		{

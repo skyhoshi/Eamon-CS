@@ -5,13 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.Commands
 {
 	[ClassMappings]
-	public class CloseCommand : EamonRT.Game.Commands.CloseCommand, EamonRT.Framework.Commands.ICloseCommand
+	public class CloseCommand : EamonRT.Game.Commands.CloseCommand, ICloseCommand
 	{
 		protected override void PlayerProcessEvents()
 		{

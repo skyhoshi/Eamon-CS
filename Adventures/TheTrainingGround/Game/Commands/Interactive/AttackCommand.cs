@@ -5,12 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
 	[ClassMappings]
-	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, EamonRT.Framework.Commands.IAttackCommand
+	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
 	{
 		protected override void PlayerExecute()
 		{
@@ -28,7 +30,7 @@ namespace TheTrainingGround.Game.Commands
 
 					Globals.Engine.CheckEnemies();
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+					NextState = Globals.CreateInstance<IStartState>();
 				}
 
 				// Attack/BLAST backpack
@@ -37,7 +39,7 @@ namespace TheTrainingGround.Game.Commands
 				{
 					PrintDontNeedTo();
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+					NextState = Globals.CreateInstance<IStartState>();
 				}
 				else
 				{

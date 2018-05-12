@@ -4,18 +4,20 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
 	[ClassMappings]
-	public class EatCommand : EamonRT.Game.Commands.EatCommand, EamonRT.Framework.Commands.IEatCommand
+	public class EatCommand : EamonRT.Game.Commands.EatCommand, IEatCommand
 	{
 		protected virtual long DmgTaken { get; set; }
 
-		protected override void PrintVerbItAll(Eamon.Framework.IArtifact artifact)
+		protected override void PrintVerbItAll(IArtifact artifact)
 		{
 			// Carcass
 
@@ -25,7 +27,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			}
 		}
 
-		protected override void PrintFeelBetter(Eamon.Framework.IArtifact artifact)
+		protected override void PrintFeelBetter(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 

@@ -5,11 +5,12 @@
 
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
+using EamonRT.Framework.Commands;
 
 namespace ARuncibleCargo.Game.Commands
 {
 	[ClassMappings]
-	public class FleeCommand : EamonRT.Game.Commands.FleeCommand, EamonRT.Framework.Commands.IFleeCommand
+	public class FleeCommand : EamonRT.Game.Commands.FleeCommand, IFleeCommand
 	{
 		protected override bool IsAllowedInRoom()
 		{

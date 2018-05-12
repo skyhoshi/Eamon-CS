@@ -5,12 +5,13 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
 	[ClassMappings]
-	public class HealCommand : EamonRT.Game.Commands.HealCommand, EamonRT.Framework.Commands.IHealCommand
+	public class HealCommand : EamonRT.Game.Commands.HealCommand, IHealCommand
 	{
 		protected override void PlayerExecute()
 		{

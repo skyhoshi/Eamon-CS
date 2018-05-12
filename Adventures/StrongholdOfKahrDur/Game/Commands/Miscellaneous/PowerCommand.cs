@@ -5,14 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using StrongholdOfKahrDur.Framework;
+using EamonRT.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.Commands
 {
 	[ClassMappings]
-	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, EamonRT.Framework.Commands.IPowerCommand
+	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
 		protected override void PrintFortuneCookie()
 		{
@@ -21,7 +21,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 		protected override void PlayerProcessEvents()
 		{
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 

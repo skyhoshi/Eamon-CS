@@ -6,16 +6,17 @@
 using System.Diagnostics;
 using System.Linq;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
-using ARuncibleCargo.Framework;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.States
 {
 	[ClassMappings]
-	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, EamonRT.Framework.States.IPrintPlayerRoomState
+	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, IPrintPlayerRoomState
 	{
 		protected override void ProcessEvents()
 		{
@@ -23,7 +24,7 @@ namespace ARuncibleCargo.Game.States
 			{
 				RetCode rc;
 
-				var gameState = Globals.GameState as IGameState;
+				var gameState = Globals.GameState as Framework.IGameState;
 
 				Debug.Assert(gameState != null);
 
@@ -77,7 +78,7 @@ namespace ARuncibleCargo.Game.States
 
 					Globals.GameState = Globals.Engine.GetGameState();
 
-					gameState = Globals.GameState as IGameState;
+					gameState = Globals.GameState as Framework.IGameState;
 
 					gameState.PookaMet = Globals.CloneInstance(gameState01.PookaMet);
 
@@ -117,7 +118,7 @@ namespace ARuncibleCargo.Game.States
 
 				Eamon.Framework.Primitive.Classes.IArtifactCategory ac = null;
 
-				Eamon.Framework.IArtifact artifact = null;
+				IArtifact artifact = null;
 
 				// Shop doors
 

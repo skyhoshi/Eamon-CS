@@ -5,13 +5,15 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
 	[ClassMappings]
-	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, EamonRT.Framework.Commands.IReadCommand
+	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
 		protected override void PrintCantVerbHere()
 		{
@@ -32,7 +34,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				Globals.Engine.CheckEnemies();
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 
 				GotoCleanup = true;
 			}
@@ -87,7 +89,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 		}
 

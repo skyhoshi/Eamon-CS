@@ -5,14 +5,14 @@
 
 using System;
 using Eamon.Game.Attributes;
-using TheSubAquanLaboratory.Framework;
+using EamonRT.Framework.Combat;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Combat
 {
 	[ClassMappings]
-	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, EamonRT.Framework.Combat.ICombatSystem
+	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, ICombatSystem
 	{
 		protected override void SetAttackDesc()
 		{
@@ -30,7 +30,7 @@ namespace TheSubAquanLaboratory.Game.Combat
 					{
 						AttackDesc = "zap{0}";
 					}
-					else if (OfMonster.CombatCode != Enums.CombatCode.Attacks && (!((IMonster)OfMonster).IsAndroid() || OfMonster.Weapon > 0))
+					else if (OfMonster.CombatCode != Enums.CombatCode.Attacks && (!((Framework.IMonster)OfMonster).IsAndroid() || OfMonster.Weapon > 0))
 					{
 						AttackDesc = OfMonster.GetAttackDescString(OfWeapon);
 					}

@@ -5,13 +5,15 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
 {
 	[ClassMappings]
-	public class UseCommand : EamonRT.Game.Commands.UseCommand, EamonRT.Framework.Commands.IUseCommand
+	public class UseCommand : EamonRT.Game.Commands.UseCommand, IUseCommand
 	{
 		protected override void PlayerProcessEvents()
 		{
@@ -81,7 +83,7 @@ namespace ARuncibleCargo.Game.Commands
 
 							Globals.MainLoop.ShouldShutdown = true;
 
-							NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+							NextState = Globals.CreateInstance<IStartState>();
 
 							GotoCleanup = true;
 						}
@@ -89,7 +91,7 @@ namespace ARuncibleCargo.Game.Commands
 						{
 							Globals.Engine.PrintEffectDesc(137);
 
-							NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+							NextState = Globals.CreateInstance<IStartState>();
 
 							GotoCleanup = true;
 						}
@@ -98,7 +100,7 @@ namespace ARuncibleCargo.Game.Commands
 					{
 						Globals.Engine.PrintEffectDesc(136);
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+						NextState = Globals.CreateInstance<IStartState>();
 
 						GotoCleanup = true;
 					}

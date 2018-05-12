@@ -6,17 +6,18 @@
 using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using BeginnersForest.Framework;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game.Commands
 {
 	[ClassMappings]
-	public class SayCommand : EamonRT.Game.Commands.SayCommand, EamonRT.Framework.Commands.ISayCommand
+	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
 	{
 		protected override void PlayerProcessEvents01()
 		{
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -41,7 +42,7 @@ namespace BeginnersForest.Game.Commands
 
 				Globals.Out.Print("Less spooks it is!");
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 
 				goto Cleanup;
 			}

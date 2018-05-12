@@ -4,22 +4,24 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
-using TheSubAquanLaboratory.Framework;
+using EamonRT.Framework.Combat;
+using EamonRT.Framework.States;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.States
 {
 	[ClassMappings]
-	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, EamonRT.Framework.States.IGetPlayerInputState
+	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, IGetPlayerInputState
 	{
 		protected override void ProcessEvents()
 		{
-			Eamon.Framework.IArtifact artifact;
+			IArtifact artifact;
 
 			if (ShouldPreTurnProcess())
 			{
-				var gameState = Globals.GameState as IGameState;
+				var gameState = Globals.GameState as Framework.IGameState;
 
 				Debug.Assert(gameState != null);
 
@@ -39,7 +41,7 @@ namespace TheSubAquanLaboratory.Game.States
 					{
 						var monster = monsters[i];
 
-						var combatSystem = Globals.CreateInstance<EamonRT.Framework.Combat.ICombatSystem>(x =>
+						var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 						{
 							x.SetNextStateFunc = s => NextState = s;
 
@@ -85,7 +87,7 @@ namespace TheSubAquanLaboratory.Game.States
 
 									monster.DmgTaken = monster.Hardiness;
 
-									var combatSystem = Globals.CreateInstance<EamonRT.Framework.Combat.ICombatSystem>(x =>
+									var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 									{
 										x.SetNextStateFunc = s => NextState = s;
 
@@ -105,7 +107,7 @@ namespace TheSubAquanLaboratory.Game.States
 
 								gameState.Die = 1;
 
-								NextState = Globals.CreateInstance<EamonRT.Framework.States.IPlayerDeadState>(x =>
+								NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 								{
 									x.PrintLineSep = true;
 								});

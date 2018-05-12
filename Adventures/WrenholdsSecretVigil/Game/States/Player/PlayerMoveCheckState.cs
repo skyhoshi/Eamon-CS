@@ -8,13 +8,15 @@ using System.Diagnostics;
 using System.Text;
 using Eamon;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Combat;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.States
 {
 	[ClassMappings]
-	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, EamonRT.Framework.States.IPlayerMoveCheckState
+	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
 		protected virtual Framework.IGameState GameState { get; set; }
 
@@ -53,7 +55,7 @@ namespace WrenholdsSecretVigil.Game.States
 			{
 				Globals.Engine.PrintEffectDesc(24);
 
-				var combatSystem = Globals.CreateInstance<EamonRT.Framework.Combat.ICombatSystem>(x =>
+				var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 				{
 					x.SetNextStateFunc = s => NextState = s;
 
@@ -98,7 +100,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 				GameState.R2 = 36;
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IAfterPlayerMoveState>();
+				NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 			}
 
 			// Over the cliff
@@ -109,7 +111,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 				GameState.Die = 1;
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IPlayerDeadState>(x =>
+				NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 				{
 					x.PrintLineSep = true;
 				});
@@ -239,7 +241,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 						GameState.Die = 1;
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IPlayerDeadState>(x =>
+						NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 						{
 							x.PrintLineSep = true;
 						});

@@ -5,13 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
 {
 	[ClassMappings]
-	public class ExamineCommand : EamonRT.Game.Commands.ExamineCommand, EamonRT.Framework.Commands.IExamineCommand
+	public class ExamineCommand : EamonRT.Game.Commands.ExamineCommand, IExamineCommand
 	{
 		protected override void PlayerExecute()
 		{

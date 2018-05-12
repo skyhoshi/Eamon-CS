@@ -4,12 +4,13 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Game.Attributes;
+using EamonRT.Framework.States;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.States
 {
 	[ClassMappings]
-	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, EamonRT.Framework.States.IPlayerMoveCheckState
+	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
 		protected override void ProcessEvents01()
 		{
@@ -30,7 +31,7 @@ namespace TheTempleOfNgurct.Game.States
 
 				Globals.GameState.Die = 1;
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IPlayerDeadState>(x =>
+				NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 				{
 					x.PrintLineSep = true;
 				});

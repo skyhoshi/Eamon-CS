@@ -3,17 +3,19 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using Eamon.Framework.Commands;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
 	[ClassMappings]
-	public class UseCommand : EamonRT.Game.Commands.UseCommand, EamonRT.Framework.Commands.IUseCommand
+	public class UseCommand : EamonRT.Game.Commands.UseCommand, IUseCommand
 	{
 		protected override void PlayerProcessEvents()
 		{
-			Eamon.Framework.Commands.ICommand command;
+			ICommand command;
 
 			switch (DobjArtifact.Uid)
 			{
@@ -22,7 +24,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Display screen/Terminals
 
-					command = Globals.CreateInstance<EamonRT.Framework.Commands.IReadCommand>();
+					command = Globals.CreateInstance<IReadCommand>();
 
 					CopyCommandData(command);
 
@@ -52,7 +54,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					if (IobjArtifact != null && (IobjArtifact.Uid == 1 || IobjArtifact.Uid == 26))
 					{
-						command = Globals.CreateInstance<EamonRT.Framework.Commands.IPutCommand>();
+						command = Globals.CreateInstance<IPutCommand>();
 
 						CopyCommandData(command);
 

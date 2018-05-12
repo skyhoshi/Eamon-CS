@@ -6,12 +6,14 @@
 using System;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
 	[ClassMappings]
-	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, EamonRT.Framework.Commands.IPowerCommand
+	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
 		protected virtual bool IsActorRoomInLab()
 		{
@@ -73,7 +75,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					Globals.GameState.Die = 1;
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IPlayerDeadState>(x =>
+					NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 					{
 						x.PrintLineSep = true;
 					});

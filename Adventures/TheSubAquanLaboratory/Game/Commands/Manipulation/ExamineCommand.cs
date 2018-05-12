@@ -5,12 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheSubAquanLaboratory.Framework;
+using EamonRT.Framework.Combat;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
-	[ClassMappings(typeof(EamonRT.Framework.Commands.IExamineCommand))]
+	[ClassMappings(typeof(IExamineCommand))]
 	public class ExamineCommand : EamonRT.Game.Commands.ExamineCommand, Framework.Commands.IExamineCommand
 	{
 		public virtual bool ExamineConsole { get; set; }
@@ -25,7 +27,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 			{
 				artifact.SetInRoom(ActorRoom);
 
-				var command = Globals.CreateInstance<EamonRT.Framework.Commands.IExamineCommand>(x =>
+				var command = Globals.CreateInstance<IExamineCommand>(x =>
 				{
 					((Framework.Commands.IExamineCommand)x).ExamineConsole = examineConsole;
 				});
@@ -40,7 +42,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 		protected override void PlayerProcessEvents()
 		{
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -73,7 +75,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					Globals.Engine.PrintEffectDesc(37);
 
-					var combatSystem = Globals.CreateInstance<EamonRT.Framework.Combat.ICombatSystem>(x =>
+					var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 					{
 						x.SetNextStateFunc = s => NextState = s;
 
@@ -110,7 +112,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						gameState.Shark = true;
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+						NextState = Globals.CreateInstance<IStartState>();
 					}
 
 					break;

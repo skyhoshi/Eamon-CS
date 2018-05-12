@@ -4,16 +4,18 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
+using EamonRT.Framework.Commands;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
 	[ClassMappings]
-	public class GetCommand : EamonRT.Game.Commands.GetCommand, EamonRT.Framework.Commands.IGetCommand
+	public class GetCommand : EamonRT.Game.Commands.GetCommand, IGetCommand
 	{
-		protected override void PrintCantVerbThat(Eamon.Framework.IArtifact artifact)
+		protected override void PrintCantVerbThat(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 

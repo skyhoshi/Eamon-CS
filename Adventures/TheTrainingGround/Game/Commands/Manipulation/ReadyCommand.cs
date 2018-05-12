@@ -5,12 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
 	[ClassMappings]
-	public class ReadyCommand : EamonRT.Game.Commands.ReadyCommand, EamonRT.Framework.Commands.IReadyCommand
+	public class ReadyCommand : EamonRT.Game.Commands.ReadyCommand, IReadyCommand
 	{
 		protected override void PlayerExecute()
 		{
@@ -22,7 +24,7 @@ namespace TheTrainingGround.Game.Commands
 			{
 				Globals.Out.Print("Only Thor himself could do that.");
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 			}
 			else
 			{

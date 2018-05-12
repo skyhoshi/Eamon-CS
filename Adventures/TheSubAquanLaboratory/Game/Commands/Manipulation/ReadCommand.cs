@@ -5,16 +5,18 @@
 
 using System;
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
-using TheSubAquanLaboratory.Framework;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
 	[ClassMappings]
-	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, EamonRT.Framework.Commands.IReadCommand
+	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
-		protected override void PrintCantVerbObj(Eamon.Framework.IGameBase obj)
+		protected override void PrintCantVerbObj(IGameBase obj)
 		{
 			Debug.Assert(obj != null);
 
@@ -27,7 +29,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -119,7 +121,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 						Globals.Out.Print("The monitor screen remains blank.");
 					}
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+					NextState = Globals.CreateInstance<IMonsterStartState>();
 
 					break;
 
@@ -151,7 +153,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 						Globals.Out.Print("Uploading execution impossible - attempting to abort!");
 					}
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+					NextState = Globals.CreateInstance<IMonsterStartState>();
 
 					break;
 

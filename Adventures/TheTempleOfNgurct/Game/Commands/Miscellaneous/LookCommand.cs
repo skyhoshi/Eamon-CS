@@ -5,18 +5,19 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTempleOfNgurct.Framework;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
 	[ClassMappings]
-	public class LookCommand : EamonRT.Game.Commands.LookCommand, EamonRT.Framework.Commands.ILookCommand
+	public class LookCommand : EamonRT.Game.Commands.LookCommand, ILookCommand
 	{
 		protected override void PlayerExecute()
 		{
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -84,7 +85,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 		}
 	}

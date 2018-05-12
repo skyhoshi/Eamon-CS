@@ -4,12 +4,14 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
 	[ClassMappings]
-	public class BlastCommand : EamonRT.Game.Commands.BlastCommand, EamonRT.Framework.Commands.IBlastCommand
+	public class BlastCommand : EamonRT.Game.Commands.BlastCommand, IBlastCommand
 	{
 		protected override void PlayerProcessEvents()
 		{
@@ -23,7 +25,7 @@ namespace TheTrainingGround.Game.Commands
 
 				Globals.Engine.CheckEnemies();
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 
 				GotoCleanup = true;
 			}

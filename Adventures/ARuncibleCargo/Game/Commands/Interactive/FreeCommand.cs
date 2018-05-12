@@ -5,12 +5,13 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
 {
 	[ClassMappings]
-	public class FreeCommand : EamonRT.Game.Commands.FreeCommand, EamonRT.Framework.Commands.IFreeCommand
+	public class FreeCommand : EamonRT.Game.Commands.FreeCommand, IFreeCommand
 	{
 		protected override void PrintMonsterFreed()
 		{

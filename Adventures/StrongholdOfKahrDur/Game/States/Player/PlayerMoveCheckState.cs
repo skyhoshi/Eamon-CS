@@ -7,13 +7,14 @@ using System;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.States
 {
 	[ClassMappings]
-	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, EamonRT.Framework.States.IPlayerMoveCheckState
+	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
 		protected override void PrintRideOffIntoSunset()
 		{
@@ -74,7 +75,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 						Globals.GameState.Die = 1;
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IPlayerDeadState>(x =>
+						NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 						{
 							x.PrintLineSep = true;
 						});

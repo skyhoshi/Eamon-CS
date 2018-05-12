@@ -5,14 +5,16 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTempleOfNgurct.Framework;
+using EamonRT.Framework.Combat;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
 	[ClassMappings]
-	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, EamonRT.Framework.Commands.IPowerCommand
+	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
 		protected virtual void PrintAirCracklesWithEnergy()
 		{
@@ -23,7 +25,7 @@ namespace TheTempleOfNgurct.Game.Commands
 		{
 			var rl = 0L;
 
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -66,7 +68,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					gameState.Die = 1;
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IPlayerDeadState>(x =>
+					NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 					{
 						x.PrintLineSep = true;
 					});
@@ -84,7 +86,7 @@ namespace TheTempleOfNgurct.Game.Commands
 				{
 					Globals.Out.Print("{0} falls into the crack!", m.GetDecoratedName03(true, true, false, false, Globals.Buf));
 
-					var combatSystem = Globals.CreateInstance<EamonRT.Framework.Combat.ICombatSystem>(x =>
+					var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 					{
 						x.SetNextStateFunc = s => NextState = s;
 
@@ -115,7 +117,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				Globals.Engine.CheckEnemies();
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 
 				GotoCleanup = true;
 
@@ -136,7 +138,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				Globals.Engine.CheckEnemies();
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 
 				GotoCleanup = true;
 
@@ -166,7 +168,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				Globals.Engine.GetWanderingMonster();
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 
 				GotoCleanup = true;
 
@@ -183,7 +185,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				Globals.Engine.CheckEnemies();
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 
 				GotoCleanup = true;
 

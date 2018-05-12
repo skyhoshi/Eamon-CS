@@ -6,15 +6,15 @@
 using System.Diagnostics;
 using System.Text;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using ARuncibleCargo.Framework;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game
 {
 	[ClassMappings]
-	public class Monster : Eamon.Game.Monster, Eamon.Framework.IMonster
+	public class Monster : Eamon.Game.Monster, IMonster
 	{
 		protected override bool HasHumanNaturalAttackDescs()
 		{
@@ -33,7 +33,7 @@ namespace ARuncibleCargo.Game
 
 			if (Globals.Engine.IsSuccess(rc) && Uid < 4)
 			{
-				var gameState = Globals.GameState as IGameState;
+				var gameState = Globals.GameState as Framework.IGameState;
 
 				Debug.Assert(gameState != null);
 
@@ -60,7 +60,7 @@ namespace ARuncibleCargo.Game
 
 			// Nobody can flee into a water room
 
-			if (fleeing && room.CastTo<IRoom>().IsWaterRoom())
+			if (fleeing && room.CastTo<Framework.IRoom>().IsWaterRoom())
 			{
 				return false;
 			}

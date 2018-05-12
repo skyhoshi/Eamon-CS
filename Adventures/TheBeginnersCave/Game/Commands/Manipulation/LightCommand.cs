@@ -5,12 +5,13 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
 {
 	[ClassMappings]
-	public class LightCommand : EamonRT.Game.Commands.LightCommand, EamonRT.Framework.Commands.ILightCommand
+	public class LightCommand : EamonRT.Game.Commands.LightCommand, ILightCommand
 	{
 		protected override void PlayerExecute()
 		{

@@ -4,8 +4,11 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Eamon.Game.Utilities;
+using EamonRT.Framework.Combat;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
@@ -14,7 +17,7 @@ namespace StrongholdOfKahrDur.Game.States
 	[ClassMappings]
 	public class BeforeNecromancerAttacksEnemyState : EamonRT.Game.States.State, Framework.States.IBeforeNecromancerAttacksEnemyState
 	{
-		protected virtual Eamon.Framework.IRoom Room { get; set; }
+		protected virtual IRoom Room { get; set; }
 
 		protected virtual void SummonMonster(long monsterUid)
 		{
@@ -81,7 +84,7 @@ namespace StrongholdOfKahrDur.Game.States
 				goto Cleanup;
 			}
 
-			var combatSystem = Globals.CreateInstance<EamonRT.Framework.Combat.ICombatSystem>(x =>
+			var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 			{
 				x.SetNextStateFunc = s => NextState = s;
 
@@ -170,7 +173,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IAttackLoopIncrementState>();
+				NextState = Globals.CreateInstance<IAttackLoopIncrementState>();
 			}
 
 			Globals.NextState = NextState;

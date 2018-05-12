@@ -7,7 +7,7 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Game.Attributes;
-using TheSubAquanLaboratory.Framework;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
@@ -18,7 +18,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 	{
 		protected override void PlayerExecute()
 		{
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -67,7 +67,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 			}
 		}
 

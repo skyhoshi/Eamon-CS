@@ -5,13 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheBeginnersCave.Framework;
+using EamonRT.Framework.Combat;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
 {
-	/// <seealso cref="ITrollsfireCommand" />
+	/// <seealso cref="Framework.Commands.ITrollsfireCommand" />
 	[ClassMappings]
 	public class TrollsfireCommand : EamonRT.Game.Commands.Command, Framework.Commands.ITrollsfireCommand
 	{
@@ -43,7 +44,7 @@ namespace TheBeginnersCave.Game.Commands
 
 			// cast to the Beginner's Cave GameState to allow access to the Trollsfire property
 
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -72,7 +73,7 @@ namespace TheBeginnersCave.Game.Commands
 
 				// create a combat system object to inflict the injury; these can be created and discarded at will
 
-				var combatSystem = Globals.CreateInstance<EamonRT.Framework.Combat.ICombatSystem>(x =>
+				var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 				{
 					// the lambda is used if the combat system needs to set this Command's NextState property (eg, player character dies)
 
@@ -102,7 +103,7 @@ namespace TheBeginnersCave.Game.Commands
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 		}
 

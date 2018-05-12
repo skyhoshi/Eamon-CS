@@ -6,13 +6,13 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using TheBeginnersCave.Framework;
+using EamonRT.Framework.Commands;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
 {
 	[ClassMappings]
-	public class StatusCommand : EamonRT.Game.Commands.StatusCommand, EamonRT.Framework.Commands.IStatusCommand
+	public class StatusCommand : EamonRT.Game.Commands.StatusCommand, IStatusCommand
 	{
 		protected override void PlayerProcessEvents()
 		{
@@ -20,7 +20,7 @@ namespace TheBeginnersCave.Game.Commands
 
 			Debug.Assert(trollsfireArtifact != null);
 
-			if (trollsfireArtifact.IsCarriedByCharacter() && Globals.GameState.CastTo<IGameState>().Trollsfire == 1)
+			if (trollsfireArtifact.IsCarriedByCharacter() && Globals.GameState.CastTo<Framework.IGameState>().Trollsfire == 1)
 			{
 				Globals.Out.Print("Trollsfire is alight!");
 			}

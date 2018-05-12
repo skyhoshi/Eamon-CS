@@ -5,13 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework;
 using RTEnums = EamonRT.Framework.Primitive.Enums;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game
 {
 	[ClassMappings]
-	public class IntroStory : EamonRT.Game.IntroStory, EamonRT.Framework.IIntroStory
+	public class IntroStory : EamonRT.Game.IntroStory, IIntroStory
 	{
 		protected override void PrintOutputBeginnersPrelude()
 		{

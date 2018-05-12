@@ -4,20 +4,22 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
-using TheTrainingGround.Framework;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
 	[ClassMappings]
-	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, EamonRT.Framework.Commands.IGiveCommand
+	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, IGiveCommand
 	{
-		protected override void PrintGiveObjToActor(Eamon.Framework.IArtifact artifact, Eamon.Framework.IMonster monster)
+		protected override void PrintGiveObjToActor(IArtifact artifact, IMonster monster)
 		{
 			Debug.Assert(artifact != null && monster != null);
 
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -59,7 +61,7 @@ namespace TheTrainingGround.Game.Commands
 
 		protected override void PlayerProcessEvents02()
 		{
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -92,7 +94,7 @@ namespace TheTrainingGround.Game.Commands
 
 						Globals.Engine.PrintEffectDesc(31);
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+						NextState = Globals.CreateInstance<IStartState>();
 					}
 					else
 					{

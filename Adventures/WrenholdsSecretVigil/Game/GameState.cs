@@ -3,12 +3,13 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IGameState))]
+	[ClassMappings(typeof(IGameState))]
 	public class GameState : Eamon.Game.GameState, Framework.IGameState
 	{
 		public virtual long MedallionCharges { get; set; }

@@ -4,14 +4,16 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.States;
 
 namespace StrongholdOfKahrDur.Game.States
 {
 	[ClassMappings]
-	public class AttackLoopIncrementState : EamonRT.Game.States.AttackLoopIncrementState, EamonRT.Framework.States.IAttackLoopIncrementState
+	public class AttackLoopIncrementState : EamonRT.Game.States.AttackLoopIncrementState, IAttackLoopIncrementState
 	{
-		protected override bool ShouldMonsterRearm(Eamon.Framework.IMonster monster)
+		protected override bool ShouldMonsterRearm(IMonster monster)
 		{
 			Debug.Assert(monster != null);
 

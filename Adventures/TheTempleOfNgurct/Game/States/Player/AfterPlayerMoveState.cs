@@ -5,16 +5,18 @@
 
 using System.Collections.Generic;
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
-using TheTempleOfNgurct.Framework;
+using EamonRT.Framework.Combat;
+using EamonRT.Framework.States;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.States
 {
 	[ClassMappings]
-	public class AfterPlayerMoveState : EamonRT.Game.States.AfterPlayerMoveState, EamonRT.Framework.States.IAfterPlayerMoveState
+	public class AfterPlayerMoveState : EamonRT.Game.States.AfterPlayerMoveState, IAfterPlayerMoveState
 	{
-		protected virtual IList<Eamon.Framework.IMonster> GetTrapMonsterList(long numMonsters, long roomUid)
+		protected virtual IList<IMonster> GetTrapMonsterList(long numMonsters, long roomUid)
 		{
 			var monsters = Globals.Engine.GetRandomMonsterList(numMonsters, m => m.IsCharacterMonster() || (m.Seen && m.IsInRoomUid(roomUid)));
 
@@ -23,9 +25,9 @@ namespace TheTempleOfNgurct.Game.States
 			return monsters;
 		}
 
-		protected virtual void ApplyTrapDamage(Eamon.Framework.IMonster monster, long numDice, long numSides, bool omitArmor)
+		protected virtual void ApplyTrapDamage(IMonster monster, long numDice, long numSides, bool omitArmor)
 		{
-			var combatSystem = Globals.CreateInstance<EamonRT.Framework.Combat.ICombatSystem>(x =>
+			var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 			{
 				x.SetNextStateFunc = s => NextState = s;
 
@@ -41,7 +43,7 @@ namespace TheTempleOfNgurct.Game.States
 		{
 			var rl = Globals.Engine.RollDice01(1, 100, 0);
 
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 

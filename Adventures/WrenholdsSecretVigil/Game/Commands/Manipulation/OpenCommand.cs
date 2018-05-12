@@ -4,13 +4,16 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
 	[ClassMappings]
-	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, EamonRT.Framework.Commands.IOpenCommand
+	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, IOpenCommand
 	{
 		protected override void PlayerProcessEvents()
 		{
@@ -28,7 +31,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		protected override void PrintOpened(Eamon.Framework.IArtifact artifact)
+		protected override void PrintOpened(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -44,7 +47,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		protected override void PrintLocked(Eamon.Framework.IArtifact artifact)
+		protected override void PrintLocked(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -54,7 +57,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				Globals.Out.Print("The hide is too hard to cut!");
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 			}
 			else
 			{
@@ -62,7 +65,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		protected override void PrintOpenObjWithKey(Eamon.Framework.IArtifact artifact, Eamon.Framework.IArtifact key)
+		protected override void PrintOpenObjWithKey(IArtifact artifact, IArtifact key)
 		{
 			Debug.Assert(artifact != null && key != null);
 
@@ -88,7 +91,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				PrintCantVerbObj(DobjArtifact);
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 			}
 			else
 			{

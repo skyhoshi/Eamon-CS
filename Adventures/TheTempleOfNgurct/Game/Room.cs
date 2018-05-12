@@ -3,6 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
@@ -10,7 +11,7 @@ using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 namespace TheTempleOfNgurct.Game
 {
 	[ClassMappings]
-	public class Room : Eamon.Game.Room, Eamon.Framework.IRoom
+	public class Room : Eamon.Game.Room, IRoom
 	{
 		public override long GetDirs(long index)
 		{

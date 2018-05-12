@@ -3,17 +3,15 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using StrongholdOfKahrDur.Framework.Plugin;
-
 namespace StrongholdOfKahrDur.Game.Plugin
 {
 	public static class PluginContext
 	{
-		public static IPluginConstants Constants
+		public static Framework.Plugin.IPluginConstants Constants
 		{
 			get
 			{
-				return (IPluginConstants)EamonRT.Game.Plugin.PluginContext.Constants;
+				return (Framework.Plugin.IPluginConstants)EamonRT.Game.Plugin.PluginContext.Constants;
 			}
 			set
 			{
@@ -21,11 +19,11 @@ namespace StrongholdOfKahrDur.Game.Plugin
 			}
 		}
 
-		public static IPluginClassMappings ClassMappings
+		public static Framework.Plugin.IPluginClassMappings ClassMappings
 		{
 			get
 			{
-				return (IPluginClassMappings)EamonRT.Game.Plugin.PluginContext.ClassMappings;
+				return (Framework.Plugin.IPluginClassMappings)EamonRT.Game.Plugin.PluginContext.ClassMappings;
 			}
 			set
 			{
@@ -33,11 +31,11 @@ namespace StrongholdOfKahrDur.Game.Plugin
 			}
 		}
 
-		public static IPluginGlobals Globals
+		public static Framework.Plugin.IPluginGlobals Globals
 		{
 			get
 			{
-				return (IPluginGlobals)EamonRT.Game.Plugin.PluginContext.Globals;
+				return (Framework.Plugin.IPluginGlobals)EamonRT.Game.Plugin.PluginContext.Globals;
 			}
 			set
 			{

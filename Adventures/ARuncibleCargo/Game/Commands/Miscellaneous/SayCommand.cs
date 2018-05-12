@@ -6,14 +6,15 @@
 using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using ARuncibleCargo.Framework;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
 {
 	[ClassMappings]
-	public class SayCommand : EamonRT.Game.Commands.SayCommand, EamonRT.Framework.Commands.ISayCommand
+	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
 	{
 		protected virtual bool EnemiesInRoom()
 		{
@@ -23,7 +24,7 @@ namespace ARuncibleCargo.Game.Commands
 			{
 				PrintEnemiesNearby();
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 
 				GotoCleanup = true;
 
@@ -47,14 +48,14 @@ namespace ARuncibleCargo.Game.Commands
 
 			Globals.Engine.TransportPlayerBetweenRooms(ActorRoom, newRoom, effect);
 
-			NextState = Globals.CreateInstance<EamonRT.Framework.States.IAfterPlayerMoveState>();
+			NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 
 			GotoCleanup = true;
 		}
 
 		protected override void PlayerProcessEvents()
 		{
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -132,7 +133,7 @@ namespace ARuncibleCargo.Game.Commands
 				{
 					Globals.Engine.PrintEffectDesc(107);
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+					NextState = Globals.CreateInstance<IStartState>();
 
 					GotoCleanup = true;
 
@@ -239,7 +240,7 @@ namespace ARuncibleCargo.Game.Commands
 				{
 					Globals.Engine.PrintEffectDesc(106);
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+					NextState = Globals.CreateInstance<IStartState>();
 
 					GotoCleanup = true;
 
@@ -255,7 +256,7 @@ namespace ARuncibleCargo.Game.Commands
 				{
 					Globals.Engine.PrintEffectDesc(141);
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+					NextState = Globals.CreateInstance<IStartState>();
 
 					GotoCleanup = true;
 
@@ -278,7 +279,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				Globals.MainLoop.ShouldShutdown = true;
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 
 				GotoCleanup = true;
 

@@ -4,8 +4,9 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
-using TheSubAquanLaboratory.Framework;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
@@ -16,11 +17,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 	{
 		protected override void PlayerExecute()
 		{
-			Eamon.Framework.IArtifact artifact;
+			IArtifact artifact;
 
 			Debug.Assert(DobjArtifact != null);
 
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -46,7 +47,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							Globals.Engine.TransportPlayerBetweenRooms(ActorRoom, newRoom, effect);
 
-							NextState = Globals.CreateInstance<EamonRT.Framework.States.IAfterPlayerMoveState>();
+							NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 						}
 						else
 						{
@@ -57,7 +58,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 					{
 						PrintEnemiesNearby();
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+						NextState = Globals.CreateInstance<IStartState>();
 					}
 
 					goto Cleanup;
@@ -82,7 +83,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							Globals.Engine.TransportPlayerBetweenRooms(ActorRoom, newRoom, effect);
 
-							NextState = Globals.CreateInstance<EamonRT.Framework.States.IAfterPlayerMoveState>();
+							NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 						}
 						else
 						{
@@ -93,7 +94,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 					{
 						PrintEnemiesNearby();
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+						NextState = Globals.CreateInstance<IStartState>();
 					}
 
 					goto Cleanup;
@@ -152,7 +153,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 						gruel[d[2] + 12],
 						gruel[d[2] + 18]);
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+					NextState = Globals.CreateInstance<IStartState>();
 
 					goto Cleanup;
 
@@ -308,7 +309,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					PrintCantVerbObj(DobjArtifact);
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+					NextState = Globals.CreateInstance<IStartState>();
 
 					goto Cleanup;
 			}
@@ -317,7 +318,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 		}
 

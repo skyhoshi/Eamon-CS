@@ -6,14 +6,15 @@
 using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using ARuncibleCargo.Framework;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
 {
 	[ClassMappings]
-	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, EamonRT.Framework.Commands.IGiveCommand
+	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, IGiveCommand
 	{
 		protected override void PlayerProcessEvents()
 		{
@@ -38,7 +39,7 @@ namespace ARuncibleCargo.Game.Commands
 			{
 				Globals.Engine.PrintEffectDesc(131);
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 
 				GotoCleanup = true;
 			}
@@ -91,7 +92,7 @@ namespace ARuncibleCargo.Game.Commands
 
 		protected override void PlayerProcessEvents02()
 		{
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 

@@ -5,19 +5,19 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTrainingGround.Framework;
+using EamonRT.Framework.States;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.States
 {
 	[ClassMappings]
-	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, EamonRT.Framework.States.IPrintPlayerRoomState
+	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, IPrintPlayerRoomState
 	{
 		protected override void ProcessEvents()
 		{
 			if (ShouldPreTurnProcess())
 			{
-				var gameState = Globals.GameState as IGameState;
+				var gameState = Globals.GameState as Framework.IGameState;
 
 				Debug.Assert(gameState != null);
 

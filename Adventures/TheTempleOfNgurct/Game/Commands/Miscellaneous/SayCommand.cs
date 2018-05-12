@@ -6,17 +6,18 @@
 using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTempleOfNgurct.Framework;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
 	[ClassMappings]
-	public class SayCommand : EamonRT.Game.Commands.SayCommand, EamonRT.Framework.Commands.ISayCommand
+	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
 	{
 		protected override void PlayerProcessEvents()
 		{
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -40,14 +41,14 @@ namespace TheTempleOfNgurct.Game.Commands
 
 						Globals.Engine.CheckEnemies();
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+						NextState = Globals.CreateInstance<IStartState>();
 					}
 				}
 				else
 				{
 					Globals.Out.Print("You don't have the medallion of Ngurct!");
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+					NextState = Globals.CreateInstance<IStartState>();
 
 					GotoCleanup = true;
 

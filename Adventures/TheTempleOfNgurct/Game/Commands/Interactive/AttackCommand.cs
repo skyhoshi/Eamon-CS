@@ -7,19 +7,21 @@ using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using TheTempleOfNgurct.Framework;
+using EamonRT.Framework.Combat;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
 	[ClassMappings]
-	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, EamonRT.Framework.Commands.IAttackCommand
+	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
 	{
 		protected override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -41,7 +43,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					Globals.Engine.CheckEnemies();
 
-					var command = Globals.CreateInstance<EamonRT.Framework.Commands.IAttackCommand>(x =>
+					var command = Globals.CreateInstance<IAttackCommand>(x =>
 					{
 						x.BlastSpell = BlastSpell;
 
@@ -67,7 +69,7 @@ namespace TheTempleOfNgurct.Game.Commands
 					{
 						Globals.Out.Print("Wrong!  Nothing happens!");
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+						NextState = Globals.CreateInstance<IMonsterStartState>();
 
 						goto Cleanup;
 					}
@@ -76,7 +78,7 @@ namespace TheTempleOfNgurct.Game.Commands
 					{
 						Globals.Out.Print("The fireball wand is exhausted!");
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+						NextState = Globals.CreateInstance<IMonsterStartState>();
 
 						goto Cleanup;
 					}
@@ -129,7 +131,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 						Globals.Engine.MonsterGetsAggravated(m);
 
-						var combatSystem = Globals.CreateInstance<EamonRT.Framework.Combat.ICombatSystem>(x =>
+						var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 						{
 							x.SetNextStateFunc = s => NextState = s;
 
@@ -159,7 +161,7 @@ namespace TheTempleOfNgurct.Game.Commands
 						}
 					}
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+					NextState = Globals.CreateInstance<IMonsterStartState>();
 
 					goto Cleanup;
 				}

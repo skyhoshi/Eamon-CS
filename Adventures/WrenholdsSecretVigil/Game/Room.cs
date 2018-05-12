@@ -4,13 +4,14 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Collections.Generic;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IRoom))]
+	[ClassMappings(typeof(IRoom))]
 	public class Room : Eamon.Game.Room, Framework.IRoom
 	{
 		protected override bool IsDirectionInObviousExitsList(long index)
@@ -45,7 +46,7 @@ namespace WrenholdsSecretVigil.Game
 			return IsDirectionEffect(dir) ? GetDirs(dir) - 5000 : 0;
 		}
 
-		public virtual Eamon.Framework.IEffect GetDirectionEffect(Enums.Direction dir)
+		public virtual IEffect GetDirectionEffect(Enums.Direction dir)
 		{
 			var uid = GetDirectionEffectUid(dir);
 

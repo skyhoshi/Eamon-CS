@@ -7,18 +7,18 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Game.Attributes;
-using TheSubAquanLaboratory.Framework;
+using EamonRT.Framework;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game
 {
 	[ClassMappings]
-	public class MainLoop : EamonRT.Game.MainLoop, EamonRT.Framework.IMainLoop
+	public class MainLoop : EamonRT.Game.MainLoop, IMainLoop
 	{
 		public override void Shutdown()
 		{
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 

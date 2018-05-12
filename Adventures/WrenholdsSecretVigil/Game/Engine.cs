@@ -6,13 +6,14 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IEngine))]
+	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, Framework.IEngine
 	{
 		public override void AddPoundCharsToArtifactNames()
@@ -160,7 +161,7 @@ namespace WrenholdsSecretVigil.Game
 			}
 		}
 
-		public override void ConvertToCarriedInventory(IList<Eamon.Framework.IArtifact> weaponList)
+		public override void ConvertToCarriedInventory(IList<IArtifact> weaponList)
 		{
 			// Convert large tree limb into artifact type treasure
 
@@ -173,7 +174,7 @@ namespace WrenholdsSecretVigil.Game
 			base.ConvertToCarriedInventory(weaponList);
 		}
 
-		public override void MonsterSmiles(Eamon.Framework.IMonster monster)
+		public override void MonsterSmiles(IMonster monster)
 		{
 			Debug.Assert(monster != null);
 
@@ -189,9 +190,9 @@ namespace WrenholdsSecretVigil.Game
 			}
 		}
 
-		public override Eamon.Framework.IArtifact GetBlockedDirectionArtifact(long ro, long r2, Enums.Direction dir)
+		public override IArtifact GetBlockedDirectionArtifact(long ro, long r2, Enums.Direction dir)
 		{
-			Eamon.Framework.IArtifact artifact = null;
+			IArtifact artifact = null;
 
 			var slimeArtifact1 = Globals.ADB[24];
 
@@ -237,7 +238,7 @@ namespace WrenholdsSecretVigil.Game
 			return artifact;
 		}
 
-		public virtual string GetMonsterCurse(Eamon.Framework.IMonster monster, long effectUid)
+		public virtual string GetMonsterCurse(IMonster monster, long effectUid)
 		{
 			Debug.Assert(monster != null);
 

@@ -5,11 +5,12 @@
 
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
+using EamonRT.Framework.Commands;
 
 namespace ARuncibleCargo.Game.Commands
 {
 	[ClassMappings]
-	public class BlastCommand : EamonRT.Game.Commands.BlastCommand, EamonRT.Framework.Commands.IBlastCommand
+	public class BlastCommand : EamonRT.Game.Commands.BlastCommand, IBlastCommand
 	{
 		protected override bool IsAllowedInRoom()
 		{

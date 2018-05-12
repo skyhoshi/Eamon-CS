@@ -4,16 +4,19 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
 	[ClassMappings]
-	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, EamonRT.Framework.Commands.IAttackCommand
+	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
 	{
-		protected override void PrintAlreadyBrokeIt(Eamon.Framework.IArtifact artifact)
+		protected override void PrintAlreadyBrokeIt(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -37,11 +40,25 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			Debug.Assert(gameState != null);
 
+			var diaryArtifact = Globals.ADB[3];
+
+			Debug.Assert(diaryArtifact != null);
+
 			var wpnArtifact = ActorMonster.Weapon > 0 ? Globals.ADB[ActorMonster.Weapon] : null;
 
 			var ac = wpnArtifact != null ? wpnArtifact.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon }) : null;
 
-			if (BlastSpell)
+			// Find diary on dead adventurer
+
+			if ((BlastSpell || ActorMonster.Weapon > 0) && DobjArtifact != null && DobjArtifact.Uid == 2 && diaryArtifact.IsInLimbo())
+			{
+				base.PlayerExecute();
+
+				Globals.Out.Print("Inside the tattered shirt is a small cloth - bound book that appears to be a diary.");
+
+				diaryArtifact.SetInRoom(ActorRoom);
+			}
+			else if (BlastSpell)
 			{
 				// Blast rock
 
@@ -51,7 +68,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 					DobjArtifact.SetInLimbo();
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+					NextState = Globals.CreateInstance<IMonsterStartState>();
 				}
 
 				// Blast slime
@@ -77,7 +94,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 						slimeArtifact2.SetInLimbo();
 					}
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+					NextState = Globals.CreateInstance<IMonsterStartState>();
 				}
 				else
 				{
@@ -106,7 +123,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				ActorMonster.Weapon = -1;
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 			else
 			{

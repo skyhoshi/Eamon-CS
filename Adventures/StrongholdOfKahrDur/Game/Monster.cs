@@ -7,6 +7,7 @@ using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
@@ -14,7 +15,7 @@ using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 namespace StrongholdOfKahrDur.Game
 {
 	[ClassMappings]
-	public class Monster : Eamon.Game.Monster, Eamon.Framework.IMonster
+	public class Monster : Eamon.Game.Monster, IMonster
 	{
 		public override RetCode BuildPrintedFullDesc(StringBuilder buf, bool showName)
 		{

@@ -8,13 +8,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Combat;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
 	[ClassMappings]
-	public class GetCommand : EamonRT.Game.Commands.GetCommand, EamonRT.Framework.Commands.IGetCommand
+	public class GetCommand : EamonRT.Game.Commands.GetCommand, IGetCommand
 	{
 		protected override void PlayerExecute()
 		{
@@ -26,7 +29,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			{
 				PrintEnemiesNearby();
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 			}
 			else
 			{
@@ -42,7 +45,7 @@ namespace TheTempleOfNgurct.Game.Commands
 				{
 					Globals.Engine.PrintEffectDesc(28);
 
-					var combatSystem = Globals.CreateInstance<EamonRT.Framework.Combat.ICombatSystem>(x =>
+					var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 					{
 						x.SetNextStateFunc = s => NextState = s;
 
@@ -70,7 +73,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					CommandParser.NextState.Discarded = true;
 
-					CommandParser.NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+					CommandParser.NextState = Globals.CreateInstance<IStartState>();
 				}
 				else
 				{
@@ -85,7 +88,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					CommandParser.NextState.Discarded = true;
 
-					CommandParser.NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+					CommandParser.NextState = Globals.CreateInstance<IStartState>();
 				}
 				else
 				{
@@ -93,7 +96,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					CommandParser.NextState.Discarded = true;
 
-					CommandParser.NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+					CommandParser.NextState = Globals.CreateInstance<IMonsterStartState>();
 				}
 			}
 			else

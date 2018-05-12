@@ -6,6 +6,8 @@
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
@@ -50,7 +52,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						artifact.Seen = true;
 
-						var command = Globals.CreateInstance<EamonRT.Framework.Commands.IGetCommand>();
+						var command = Globals.CreateInstance<IGetCommand>();
 
 						CopyCommandData(command);
 
@@ -75,7 +77,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 					{ 
 						PrintCantVerbObj(DobjArtifact);
 
-						NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+						NextState = Globals.CreateInstance<IStartState>();
 					}
 
 					goto Cleanup;
@@ -85,7 +87,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 		}
 

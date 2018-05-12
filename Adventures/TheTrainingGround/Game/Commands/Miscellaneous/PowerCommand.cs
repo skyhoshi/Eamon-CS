@@ -5,18 +5,20 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheTrainingGround.Framework;
+using EamonRT.Framework.Combat;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
 	[ClassMappings]
-	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, EamonRT.Framework.Commands.IPowerCommand
+	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
 		protected override void PlayerProcessEvents()
 		{
-			var gameState = Globals.GameState as IGameState;
+			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
@@ -34,7 +36,7 @@ namespace TheTrainingGround.Game.Commands
 
 				gameState.ThorsHammerAppears = true;
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 
 				GotoCleanup = true;
 
@@ -81,7 +83,7 @@ namespace TheTrainingGround.Game.Commands
 			{
 				Globals.Engine.PrintEffectDesc(33);
 
-				var combatSystem = Globals.CreateInstance<EamonRT.Framework.Combat.ICombatSystem>(x =>
+				var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 				{
 					x.SetNextStateFunc = s => NextState = s;
 

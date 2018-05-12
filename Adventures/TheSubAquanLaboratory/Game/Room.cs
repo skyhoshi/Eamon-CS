@@ -3,13 +3,14 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game
 {
 	[ClassMappings]
-	public class Room : Eamon.Game.Room, Eamon.Framework.IRoom
+	public class Room : Eamon.Game.Room, IRoom
 	{
 		public override long GetDirs(long index)
 		{

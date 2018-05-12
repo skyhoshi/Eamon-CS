@@ -5,12 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.States
 {
 	[ClassMappings]
-	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, EamonRT.Framework.States.IPlayerMoveCheckState
+	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
 		protected override void PrintRideOffIntoSunset()
 		{
@@ -35,7 +37,7 @@ namespace TheSubAquanLaboratory.Game.States
 
 				dirCommand.CopyCommandData(pushCommand, false);
 
-				pushCommand.Dobj = Globals.ADB[dirCommand is EamonRT.Framework.Commands.IDownCommand ? 4 : 3];
+				pushCommand.Dobj = Globals.ADB[dirCommand is IDownCommand ? 4 : 3];
 
 				Debug.Assert(pushCommand.DobjArtifact != null);
 
@@ -45,7 +47,7 @@ namespace TheSubAquanLaboratory.Game.States
 			{
 				Globals.Out.Print("You find that all the doors are sealed shut!");
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 			else
 			{

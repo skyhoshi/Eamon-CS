@@ -5,13 +5,14 @@
 
 using System;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game
 {
 	[ClassMappings]
-	public class Config : Eamon.Game.Config, Eamon.Framework.IConfig
+	public class Config : Eamon.Game.Config, IConfig
 	{
 		public override RetCode DeleteGameState(string configFileName, bool startOver)
 		{

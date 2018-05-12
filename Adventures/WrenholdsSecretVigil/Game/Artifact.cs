@@ -4,11 +4,12 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 
 namespace WrenholdsSecretVigil.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IArtifact))]
+	[ClassMappings(typeof(IArtifact))]
 	public class Artifact : Eamon.Game.Artifact, Framework.IArtifact
 	{
 		public override bool IsReadyableByCharacter()
@@ -37,7 +38,7 @@ namespace WrenholdsSecretVigil.Game
 			return Location == (roomUid + 4000);
 		}
 
-		public virtual bool IsBuriedInRoom(Eamon.Framework.IRoom room)
+		public virtual bool IsBuriedInRoom(IRoom room)
 		{
 			Debug.Assert(room != null);
 

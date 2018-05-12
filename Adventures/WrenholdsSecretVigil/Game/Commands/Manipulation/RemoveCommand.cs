@@ -5,12 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
 {
 	[ClassMappings]
-	public class RemoveCommand : EamonRT.Game.Commands.RemoveCommand, EamonRT.Framework.Commands.IRemoveCommand
+	public class RemoveCommand : EamonRT.Game.Commands.RemoveCommand, IRemoveCommand
 	{
 		protected override void PlayerExecute()
 		{
@@ -22,7 +24,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				Globals.Out.Print("{0} {1} stuck to {2} and won't budge.", DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf), DobjArtifact.EvalPlural("is", "are"), IobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 			else
 			{

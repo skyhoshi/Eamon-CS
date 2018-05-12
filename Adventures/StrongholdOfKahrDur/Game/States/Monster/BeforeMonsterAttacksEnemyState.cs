@@ -5,13 +5,13 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using StrongholdOfKahrDur.Framework.States;
+using EamonRT.Framework.States;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.States
 {
 	[ClassMappings]
-	public class BeforeMonsterAttacksEnemyState : EamonRT.Game.States.BeforeMonsterAttacksEnemyState, EamonRT.Framework.States.IBeforeMonsterAttacksEnemyState
+	public class BeforeMonsterAttacksEnemyState : EamonRT.Game.States.BeforeMonsterAttacksEnemyState, IBeforeMonsterAttacksEnemyState
 	{
 		public override void Execute()
 		{
@@ -23,7 +23,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 			if (monster.Uid == 22)
 			{
-				NextState = Globals.CreateInstance<IBeforeNecromancerAttacksEnemyState>();
+				NextState = Globals.CreateInstance<Framework.States.IBeforeNecromancerAttacksEnemyState>();
 
 				Globals.NextState = NextState;
 			}

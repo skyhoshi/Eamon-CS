@@ -5,25 +5,28 @@
 
 using System;
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
 {
 	[ClassMappings]
-	public class DrinkCommand : EamonRT.Game.Commands.DrinkCommand, EamonRT.Framework.Commands.IDrinkCommand
+	public class DrinkCommand : EamonRT.Game.Commands.DrinkCommand, IDrinkCommand
 	{
 		protected virtual long DmgTaken { get; set; }
 
 		protected virtual bool DrankItAll { get; set; }
 
-		protected override void PrintVerbItAll(Eamon.Framework.IArtifact artifact)
+		protected override void PrintVerbItAll(IArtifact artifact)
 		{
 			DrankItAll = true;
 		}
 
-		protected override void PrintFeelBetter(Eamon.Framework.IArtifact artifact)
+		protected override void PrintFeelBetter(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -54,7 +57,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				Globals.GameState.Die = 1;
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IPlayerDeadState>(x =>
+				NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 				{
 					x.PrintLineSep = true;
 				});
@@ -68,7 +71,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				DrankItAll = true;
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 
 			// Wine
@@ -90,7 +93,7 @@ namespace TheTempleOfNgurct.Game.Commands
 					ActorMonster.Agility = stat.MinValue;
 				}
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 			else
 			{

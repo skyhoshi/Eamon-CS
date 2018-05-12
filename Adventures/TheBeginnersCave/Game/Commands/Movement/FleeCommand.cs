@@ -5,12 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
 {
 	[ClassMappings]
-	public class FleeCommand : EamonRT.Game.Commands.FleeCommand, EamonRT.Framework.Commands.IFleeCommand
+	public class FleeCommand : EamonRT.Game.Commands.FleeCommand, IFleeCommand
 	{
 		protected override void PrintCalmDown()
 		{
@@ -34,7 +36,7 @@ namespace TheBeginnersCave.Game.Commands
 			{
 				Globals.Out.Print("You are held fast by the mimic and cannot flee!");
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+				NextState = Globals.CreateInstance<IMonsterStartState>();
 
 				GotoCleanup = true;
 			}

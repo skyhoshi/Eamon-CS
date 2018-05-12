@@ -5,13 +5,14 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheSubAquanLaboratory.Framework;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
 {
 	[ClassMappings]
-	public class PutCommand : EamonRT.Game.Commands.PutCommand, EamonRT.Framework.Commands.IPutCommand
+	public class PutCommand : EamonRT.Game.Commands.PutCommand, IPutCommand
 	{
 		protected override void PlayerExecute()
 		{
@@ -23,11 +24,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 				{
 					Globals.Engine.PrintEffectDesc(38);
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+					NextState = Globals.CreateInstance<IMonsterStartState>();
 				}
 				else if (IobjArtifact.Uid == 26)
 				{
-					var gameState = Globals.GameState as IGameState;
+					var gameState = Globals.GameState as Framework.IGameState;
 
 					Debug.Assert(gameState != null);
 
@@ -46,7 +47,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 						Globals.Engine.PrintEffectDesc(39);
 					}
 
-					NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+					NextState = Globals.CreateInstance<IMonsterStartState>();
 				}
 				else
 				{

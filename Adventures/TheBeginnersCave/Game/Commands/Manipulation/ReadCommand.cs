@@ -5,16 +5,17 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
-using TheBeginnersCave.Framework;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
 {
 	[ClassMappings]
-	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, EamonRT.Framework.Commands.IReadCommand
+	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
-		protected virtual IGameState GameState { get; set; }
+		protected virtual Framework.IGameState GameState { get; set; }
 
 		protected override void PlayerProcessEvents()
 		{
@@ -56,7 +57,7 @@ namespace TheBeginnersCave.Game.Commands
 
 				GameState.Die = 1;
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IPlayerDeadState>(x =>
+				NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 				{
 					x.PrintLineSep = true;
 				});
@@ -81,7 +82,7 @@ namespace TheBeginnersCave.Game.Commands
 
 				Globals.Out.Print("It says, \"HEALING POTION\".");
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 			else
 			{
@@ -91,7 +92,7 @@ namespace TheBeginnersCave.Game.Commands
 
 		public ReadCommand()
 		{
-			GameState = Globals.GameState as IGameState;
+			GameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(GameState != null);
 		}

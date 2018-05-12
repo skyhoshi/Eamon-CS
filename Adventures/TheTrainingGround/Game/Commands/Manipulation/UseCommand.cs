@@ -5,13 +5,15 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
 {
 	[ClassMappings]
-	public class UseCommand : EamonRT.Game.Commands.UseCommand, EamonRT.Framework.Commands.IUseCommand
+	public class UseCommand : EamonRT.Game.Commands.UseCommand, IUseCommand
 	{
 		protected override void PlayerExecute()
 		{
@@ -34,7 +36,7 @@ namespace TheTrainingGround.Game.Commands
 
 				Globals.Engine.PrintEffectDesc(32);
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IMonsterStartState>();
+				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 			else
 			{

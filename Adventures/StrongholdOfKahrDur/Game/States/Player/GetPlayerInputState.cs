@@ -5,12 +5,13 @@
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.States;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.States
 {
 	[ClassMappings]
-	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, EamonRT.Framework.States.IGetPlayerInputState
+	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, IGetPlayerInputState
 	{
 		protected override void ProcessEvents()
 		{

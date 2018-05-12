@@ -5,12 +5,13 @@
 
 using System.Collections.Generic;
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game
 {
-	[ClassMappings(typeof(Eamon.Framework.IEngine))]
+	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
 	{
 		public override void AddPoundCharsToArtifactNames()
@@ -41,7 +42,7 @@ namespace TheTrainingGround.Game
 			}
 		}
 
-		public override void PrintMonsterAlive(Eamon.Framework.IArtifact artifact)
+		public override void PrintMonsterAlive(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -89,7 +90,7 @@ namespace TheTrainingGround.Game
 			monster.Seen = true;
 		}
 
-		public override void RevealDisguisedMonster(Eamon.Framework.IArtifact artifact)
+		public override void RevealDisguisedMonster(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 

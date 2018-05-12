@@ -8,12 +8,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game.Commands
 {
 	[ClassMappings]
-	public class HintsCommand : EamonRT.Game.Commands.HintsCommand, EamonRT.Framework.Commands.IHintsCommand
+	public class HintsCommand : EamonRT.Game.Commands.HintsCommand, IHintsCommand
 	{
 		protected override void PrintHintsQuestion(IList<IHint> hints, int i)
 		{

@@ -4,12 +4,13 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Game.Attributes;
+using EamonRT.Framework.States;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game.States
 {
 	[ClassMappings]
-	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, EamonRT.Framework.States.IPlayerMoveCheckState
+	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
 		protected override void ProcessEvents01()
 		{
@@ -32,7 +33,7 @@ namespace BeginnersForest.Game.States
 
 				Globals.GameState.R2 = Globals.GameState.Ro;
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IAfterPlayerMoveState>();
+				NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 			}
 
 			// Don't step on any beavers!
@@ -43,7 +44,7 @@ namespace BeginnersForest.Game.States
 
 				Globals.Engine.PrintEffectDesc(1);
 
-				NextState = Globals.CreateInstance<EamonRT.Framework.States.IAfterPlayerMoveState>();
+				NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 			}
 			else
 			{

@@ -4,12 +4,13 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Combat;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Combat
 {
 	[ClassMappings]
-	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, EamonRT.Framework.Combat.ICombatSystem
+	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, ICombatSystem
 	{
 		protected override void PrintHealthStatus()
 		{
