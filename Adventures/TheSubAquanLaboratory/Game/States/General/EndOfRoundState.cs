@@ -27,17 +27,17 @@ namespace TheSubAquanLaboratory.Game.States
 
 			if (gameState.EnergyMaceCharge > 0)
 			{
-				var artifact = Globals.ADB[80];
+				var energyMaceArtifact = Globals.ADB[80];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(energyMaceArtifact != null);
 
-				var monster = artifact.GetCarriedByMonster();
+				var monster = energyMaceArtifact.GetCarriedByMonster();
 
-				if (artifact.IsInRoom(room) || artifact.IsCarriedByCharacter() || (monster != null && monster.IsInRoom(room)))
+				if (energyMaceArtifact.IsInRoom(room) || energyMaceArtifact.IsCarriedByCharacter() || (monster != null && monster.IsInRoom(room)))
 				{
 					if (--gameState.EnergyMaceCharge == 0)
 					{
-						var ac = artifact.GetCategories(0);
+						var ac = energyMaceArtifact.GetCategories(0);
 
 						Debug.Assert(ac != null);
 
@@ -47,7 +47,7 @@ namespace TheSubAquanLaboratory.Game.States
 
 						ac.Field4 = 6;
 
-						artifact.Value = 15;
+						energyMaceArtifact.Value = 15;
 
 						Globals.Engine.PrintEffectDesc(31);
 					}
@@ -58,19 +58,19 @@ namespace TheSubAquanLaboratory.Game.States
 
 			if (gameState.LaserScalpelCharge > 0)
 			{
-				var artifact = Globals.ADB[76];
+				var scalpelArtifact = Globals.ADB[76];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(scalpelArtifact != null);
 
-				var monster = artifact.GetCarriedByMonster();
+				var monster = scalpelArtifact.GetCarriedByMonster();
 
-				if (artifact.IsInRoom(room) || artifact.IsCarriedByCharacter() || (monster != null && monster.IsInRoom(room)))
+				if (scalpelArtifact.IsInRoom(room) || scalpelArtifact.IsCarriedByCharacter() || (monster != null && monster.IsInRoom(room)))
 				{
 					if (--gameState.LaserScalpelCharge == 0)
 					{
-						artifact.Value = 15;
+						scalpelArtifact.Value = 15;
 
-						Globals.Engine.ConvertWeaponToGoldOrTreasure(artifact, false);
+						Globals.Engine.ConvertWeaponToGoldOrTreasure(scalpelArtifact, false);
 
 						Globals.Engine.PrintEffectDesc(32);
 					}

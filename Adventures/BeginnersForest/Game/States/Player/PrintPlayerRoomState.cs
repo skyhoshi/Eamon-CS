@@ -21,27 +21,27 @@ namespace BeginnersForest.Game.States
 
 				Debug.Assert(gameState != null);
 
-				var monster = Globals.MDB[9];
+				var spookMonster = Globals.MDB[9];
 
-				Debug.Assert(monster != null);
+				Debug.Assert(spookMonster != null);
 
 				// Random Annoying Spooks (4 Spook limit)
 
-				if (gameState.Ro > 1 && gameState.Ro < 5 && gameState.SpookCounter < 10 && monster.GroupCount < 4)
+				if (gameState.Ro > 1 && gameState.Ro < 5 && gameState.SpookCounter < 10 && spookMonster.GroupCount < 4)
 				{
 					var rl = Globals.Engine.RollDice01(1, 100, 0);
 
 					if (rl < 35)
 					{
-						monster.Seen = false;
+						spookMonster.Seen = false;
 
-						monster.GroupCount++;
+						spookMonster.GroupCount++;
 
-						monster.InitGroupCount++;
+						spookMonster.InitGroupCount++;
 
-						monster.OrigGroupCount++;
+						spookMonster.OrigGroupCount++;
 
-						monster.Location = gameState.Ro;
+						spookMonster.Location = gameState.Ro;
 
 						gameState.SpookCounter++;
 

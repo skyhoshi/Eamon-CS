@@ -17,8 +17,6 @@ namespace TheSubAquanLaboratory.Game.Commands
 	{
 		protected override void PlayerExecute()
 		{
-			IArtifact artifact;
-
 			Debug.Assert(DobjArtifact != null);
 
 			var gameState = Globals.GameState as Framework.IGameState;
@@ -107,11 +105,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					Globals.Out.Print("{0} pushed.", DobjArtifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
 
-					artifact = Globals.ADB[22];
+					var foodArtifact = Globals.ADB[22];
 
-					Debug.Assert(artifact != null);
+					Debug.Assert(foodArtifact != null);
 
-					if (!artifact.IsInLimbo() || ++gameState.FoodButtonPushes < 3)
+					if (!foodArtifact.IsInLimbo() || ++gameState.FoodButtonPushes < 3)
 					{
 						Globals.Engine.PrintEffectDesc(26);
 
@@ -122,11 +120,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					Globals.Engine.PrintEffectDesc(27);
 
-					artifact.SetInRoom(ActorRoom);
+					foodArtifact.SetInRoom(ActorRoom);
 
-					artifact.Seen = false;
+					foodArtifact.Seen = false;
 
-					artifact.GetCategories(0).Field2 = 5;
+					foodArtifact.GetCategories(0).Field2 = 5;
 
 					var gruel = new string[] { "",
 						"piping hot", "warm", "tepid", "cool", "ice cold", "frozen",
@@ -177,11 +175,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							// Sterilize
 
-							artifact = Globals.ADB[84];
+							var glassWallsArtifact = Globals.ADB[84];
 
-							Debug.Assert(artifact != null);
+							Debug.Assert(glassWallsArtifact != null);
 
-							if (!artifact.IsInLimbo() && !gameState.Sterilize)
+							if (!glassWallsArtifact.IsInLimbo() && !gameState.Sterilize)
 							{
 								Globals.Engine.PrintEffectDesc(6);
 

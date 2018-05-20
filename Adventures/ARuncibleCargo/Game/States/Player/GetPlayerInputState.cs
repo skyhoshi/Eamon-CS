@@ -24,11 +24,11 @@ namespace ARuncibleCargo.Game.States
 
 				Debug.Assert(gameState != null);
 
-				var monster = Globals.MDB[gameState.Cm];
+				var characterMonster = Globals.MDB[gameState.Cm];
 
-				Debug.Assert(monster != null);
+				Debug.Assert(characterMonster != null);
 
-				var room = monster.GetInRoom();
+				var room = characterMonster.GetInRoom();
 
 				Debug.Assert(room != null);
 
@@ -57,13 +57,13 @@ namespace ARuncibleCargo.Game.States
 					gameState.DreamCounter++;
 				}
 
-				var artifact = Globals.ADB[101];
+				var fortunetellerArtifact = Globals.ADB[101];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(fortunetellerArtifact != null);
 
 				// Swarmy
 
-				if (room.Uid == 66 && artifact.IsInRoom(room))
+				if (room.Uid == 66 && fortunetellerArtifact.IsInRoom(room))
 				{
 					if (gameState.SwarmyCounter == 1)
 					{
@@ -88,7 +88,7 @@ namespace ARuncibleCargo.Game.States
 					{
 						x.SetNextStateFunc = s => NextState = s;
 
-						x.DfMonster = monster;
+						x.DfMonster = characterMonster;
 
 						x.OmitArmor = true;
 					});
@@ -103,15 +103,15 @@ namespace ARuncibleCargo.Game.States
 					}
 				}
 
-				var monster01 = Globals.MDB[4];
+				var hokasTokasMonster = Globals.MDB[4];
 
-				Debug.Assert(monster01 != null);
+				Debug.Assert(hokasTokasMonster != null);
 
 				// Hokas scolds you
 
-				if (room.Uid == 8 && gameState.R3 == 9 && monster01.IsInRoom(room))
+				if (room.Uid == 8 && gameState.R3 == 9 && hokasTokasMonster.IsInRoom(room))
 				{
-					monster01.SetInRoomUid(1);
+					hokasTokasMonster.SetInRoomUid(1);
 
 					Globals.Engine.CheckEnemies();
 
@@ -124,21 +124,21 @@ namespace ARuncibleCargo.Game.States
 					goto Cleanup;
 				}
 
-				artifact = Globals.ADB[80];
+				var ovenArtifact = Globals.ADB[80];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(ovenArtifact != null);
 
-				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.Container);
+				var ac = ovenArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
 				Debug.Assert(ac != null);
 
-				monster01 = Globals.MDB[23];
+				var billMonster = Globals.MDB[23];
 
-				Debug.Assert(monster01 != null);
+				Debug.Assert(billMonster != null);
 
 				// Bill in oven
 
-				if (room.Uid == 55 && !ac.IsOpen() && !monster01.Seen)
+				if (room.Uid == 55 && !ac.IsOpen() && !billMonster.Seen)
 				{
 					Globals.Engine.PrintEffectDesc(52);
 				}
@@ -152,17 +152,21 @@ namespace ARuncibleCargo.Game.States
 					Globals.Engine.PrintEffectDesc(71 + gameState.CargoInRoom);
 				}
 
-				artifact = Globals.ADB[113];
+				var westernDoorArtifact = Globals.ADB[112];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(westernDoorArtifact != null);
 
-				ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+				var easternDoorArtifact = Globals.ADB[113];
+
+				Debug.Assert(easternDoorArtifact != null);
+
+				ac = easternDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 				Debug.Assert(ac != null);
 
 				// University doors
 
-				if (room.Uid == 74 && monster01.IsInRoom(room) && ac.GetKeyUid() == -1)
+				if (room.Uid == 74 && billMonster.IsInRoom(room) && ac.GetKeyUid() == -1)
 				{
 					ac.SetKeyUid(0);
 
@@ -173,24 +177,22 @@ namespace ARuncibleCargo.Game.States
 
 				if (room.Uid == 74 && (gameState.R3 == 85 || gameState.R3 == 79))
 				{
-					var artUid = 113L;
+					var doorArtifact = easternDoorArtifact;
 
 					var effectUid = 87L;
 
 					if (gameState.R3 == 79)
 					{
-						artUid = 112;
+						doorArtifact = westernDoorArtifact;
 
 						effectUid = 152;
 					}
 
 					gameState.R3 = room.Uid;
 
-					artifact = Globals.ADB[artUid];
+					Debug.Assert(doorArtifact != null);
 
-					Debug.Assert(artifact != null);
-
-					ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					ac = doorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 					Debug.Assert(ac != null);
 
@@ -204,36 +206,32 @@ namespace ARuncibleCargo.Game.States
 					}
 				}
 
-				artifact = Globals.ADB[41];
+				var jailCellArtifact = Globals.ADB[41];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(jailCellArtifact != null);
 
-				ac = artifact.GetArtifactCategory(Enums.ArtifactType.Container);
+				ac = jailCellArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
 				Debug.Assert(ac != null);
 
-				monster01 = Globals.MDB[37];
+				var lilMonster = Globals.MDB[37];
 
-				Debug.Assert(monster01 != null);
+				Debug.Assert(lilMonster != null);
 
 				// Lil in jail
 
-				if (room.Uid == 102 && !ac.IsOpen() && !monster01.Seen)
+				if (room.Uid == 102 && !ac.IsOpen() && !lilMonster.Seen)
 				{
 					Globals.Engine.PrintEffectDesc(122);
 				}
 
-				monster01 = Globals.MDB[22];
+				var amazonMonster = Globals.MDB[22];
 
-				Debug.Assert(monster01 != null);
-
-				var monster02 = Globals.MDB[23];
-
-				Debug.Assert(monster02 != null);
+				Debug.Assert(amazonMonster != null);
 
 				// Amazon and Bill
 
-				if (monster01.IsInRoom(room) && monster02.IsInRoom(room) && !gameState.BillAndAmazonMeet)
+				if (amazonMonster.IsInRoom(room) && billMonster.IsInRoom(room) && !gameState.BillAndAmazonMeet)
 				{
 					Globals.Engine.PrintEffectDesc(53);
 
@@ -242,31 +240,31 @@ namespace ARuncibleCargo.Game.States
 
 				var princeAndGuardsDead = false;
 
-				monster01 = Globals.MDB[27];
+				var commanderMonster = Globals.MDB[27];
 
-				Debug.Assert(monster01 != null);
+				Debug.Assert(commanderMonster != null);
 
-				monster02 = Globals.MDB[28];
+				var soldiersMonster = Globals.MDB[28];
 
-				Debug.Assert(monster02 != null);
+				Debug.Assert(soldiersMonster != null);
 
 				// Bandit Commander and all soldiers are dead!
 
-				var commanderAndSoldiersDead = monster01.IsInLimbo() && monster02.IsInLimbo();
+				var commanderAndSoldiersDead = commanderMonster.IsInLimbo() && soldiersMonster.IsInLimbo();
 
 				if (!commanderAndSoldiersDead)
 				{
-					monster01 = Globals.MDB[38];
+					var princeMonster = Globals.MDB[38];
 
-					Debug.Assert(monster01 != null);
+					Debug.Assert(princeMonster != null);
 
-					monster02 = Globals.MDB[39];
+					var guardsMonster = Globals.MDB[39];
 
-					Debug.Assert(monster02 != null);
+					Debug.Assert(guardsMonster != null);
 
 					// Bandit Prince and all Praetorian Guards are dead!
 
-					princeAndGuardsDead = monster01.IsInLimbo() && monster02.IsInLimbo();
+					princeAndGuardsDead = princeMonster.IsInLimbo() && guardsMonster.IsInLimbo();
 				}
 
 				if (commanderAndSoldiersDead || princeAndGuardsDead)
@@ -292,30 +290,18 @@ namespace ARuncibleCargo.Game.States
 					goto Cleanup;
 				}
 
-				monster01 = Globals.MDB[37];
-
-				Debug.Assert(monster01 != null);
-
 				// Amazon and Bill warn about Lil
 
-				if (monster01.IsInRoom(room))       // && (room.Uid == 18 || room.Uid == 21 || room.Uid == 38 || room.Uid == 53)
+				if (lilMonster.IsInRoom(room))       // && (room.Uid == 18 || room.Uid == 21 || room.Uid == 38 || room.Uid == 53)
 				{
-					monster02 = Globals.MDB[22];
-
-					Debug.Assert(monster02 != null);
-
-					if (!gameState.AmazonLilWarning && monster02.IsInRoom(room) && room.Uid != 50 && room.IsLit())
+					if (!gameState.AmazonLilWarning && amazonMonster.IsInRoom(room) && room.Uid != 50 && room.IsLit())
 					{
 						Globals.Engine.PrintEffectDesc(117);
 
 						gameState.AmazonLilWarning = true;
 					}
 
-					monster02 = Globals.MDB[23];
-
-					Debug.Assert(monster02 != null);
-
-					if (!gameState.BillLilWarning && monster02.IsInRoom(room) && room.Uid != 55 && room.IsLit())
+					if (!gameState.BillLilWarning && billMonster.IsInRoom(room) && room.Uid != 55 && room.IsLit())
 					{
 						Globals.Engine.PrintEffectDesc(118);
 
@@ -323,34 +309,26 @@ namespace ARuncibleCargo.Game.States
 					}
 				}
 
-				artifact = Globals.ADB[43];
+				var explosiveDeviceArtifact = Globals.ADB[43];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(explosiveDeviceArtifact != null);
 
-				var artifact01 = Globals.ADB[45];
+				var remoteDetonatorArtifact = Globals.ADB[45];
 
-				Debug.Assert(artifact01 != null);
+				Debug.Assert(remoteDetonatorArtifact != null);
 
 				// Bill (or Amazon) hint at using explosives
 
-				if (room.Uid == 92 && (artifact.IsInRoom(room) || artifact.IsCarriedByCharacter()) && (artifact01.IsInRoom(room) || artifact01.IsCarriedByCharacter()))
+				if (room.Uid == 92 && (explosiveDeviceArtifact.IsInRoom(room) || explosiveDeviceArtifact.IsCarriedByCharacter()) && (remoteDetonatorArtifact.IsInRoom(room) || remoteDetonatorArtifact.IsCarriedByCharacter()))
 				{
 					var effectUid = 0L;
 
-					monster01 = Globals.MDB[22];
-
-					Debug.Assert(monster01 != null);
-
-					if (monster01.IsInRoom(room) && monster01.Friendliness > Enums.Friendliness.Enemy)
+					if (amazonMonster.IsInRoom(room) && amazonMonster.Friendliness > Enums.Friendliness.Enemy)
 					{
 						effectUid = 124;
 					}
 
-					monster01 = Globals.MDB[23];
-
-					Debug.Assert(monster01 != null);
-
-					if (monster01.IsInRoom(room) && monster01.Friendliness > Enums.Friendliness.Enemy)
+					if (billMonster.IsInRoom(room) && billMonster.Friendliness > Enums.Friendliness.Enemy)
 					{
 						effectUid = 123;
 					}
@@ -371,25 +349,25 @@ namespace ARuncibleCargo.Game.States
 
 				foreach (var dd in doubleDoors)
 				{
-					artifact = Globals.ADB[dd.ArtifactUid1];
+					var doorArtifact = Globals.ADB[dd.ArtifactUid1];
 
-					Debug.Assert(artifact != null);
+					Debug.Assert(doorArtifact != null);
 
-					artifact01 = Globals.ADB[dd.ArtifactUid2];
+					var doorArtifact01 = Globals.ADB[dd.ArtifactUid2];
 
-					Debug.Assert(artifact01 != null);
+					Debug.Assert(doorArtifact01 != null);
 
-					ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					ac = doorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 					Debug.Assert(ac != null);
 
-					ac01 = artifact01.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					ac01 = doorArtifact01.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 					Debug.Assert(ac01 != null);
 
-					artifact01.Seen = artifact.Seen;
+					doorArtifact01.Seen = doorArtifact.Seen;
 
-					artifact01.StateDesc = Globals.CloneInstance(artifact.StateDesc);
+					doorArtifact01.StateDesc = Globals.CloneInstance(doorArtifact.StateDesc);
 
 					ac01.Field2 = ac.Field2;
 

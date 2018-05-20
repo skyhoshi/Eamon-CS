@@ -109,13 +109,13 @@ namespace ARuncibleCargo.Game.Commands
 
 		protected override void PlayerProcessEvents01()
 		{
-			var monster = Globals.MDB[38];
+			var princeMonster = Globals.MDB[38];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(princeMonster != null);
 
-			var artifact = Globals.ADB[129];
+			var cargoArtifact = Globals.ADB[129];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(cargoArtifact != null);
 
 			//                     Ye Olde Eamon Railroad
 			//                    ------------------------
@@ -129,7 +129,7 @@ namespace ARuncibleCargo.Game.Commands
 					goto Cleanup;
 				}
 
-				if (!artifact.IsInRoom(ActorRoom) && !artifact.IsCarriedByCharacter())
+				if (!cargoArtifact.IsInRoom(ActorRoom) && !cargoArtifact.IsCarriedByCharacter())
 				{
 					Globals.Engine.PrintEffectDesc(107);
 
@@ -236,7 +236,7 @@ namespace ARuncibleCargo.Game.Commands
 
 			if (ActorRoom.Uid == 91 && (string.Equals(ProcessedPhrase, "main hall", StringComparison.OrdinalIgnoreCase) || string.Equals(ProcessedPhrase, "dodge", StringComparison.OrdinalIgnoreCase) || string.Equals(ProcessedPhrase, "mudville", StringComparison.OrdinalIgnoreCase)))
 			{
-				if (!artifact.IsCarriedByMonster(monster))
+				if (!cargoArtifact.IsCarriedByMonster(princeMonster))
 				{
 					Globals.Engine.PrintEffectDesc(106);
 

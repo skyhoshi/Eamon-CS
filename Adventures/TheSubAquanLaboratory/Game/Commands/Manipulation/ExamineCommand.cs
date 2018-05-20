@@ -94,17 +94,17 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					if (!gameState.Shark)
 					{
-						var monster = Globals.MDB[7];
+						var largeHammerheadMonster = Globals.MDB[7];
 
-						Debug.Assert(monster != null);
+						Debug.Assert(largeHammerheadMonster != null);
 
-						monster.SetInRoom(ActorRoom);
+						largeHammerheadMonster.SetInRoom(ActorRoom);
 
-						monster = Globals.MDB[8];
+						var smallHammerheadMonster = Globals.MDB[8];
 
-						Debug.Assert(monster != null);
+						Debug.Assert(smallHammerheadMonster != null);
 
-						monster.SetInRoom(ActorRoom);
+						smallHammerheadMonster.SetInRoom(ActorRoom);
 
 						Globals.Engine.CheckEnemies();
 

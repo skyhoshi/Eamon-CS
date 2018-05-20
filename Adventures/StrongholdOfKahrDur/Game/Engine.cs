@@ -45,11 +45,11 @@ namespace StrongholdOfKahrDur.Game
 		{
 			base.AddPoundCharsToArtifactNames();
 
-			var artifact = Globals.ADB[10];     // Secret door #2
+			var secretDoorArtifact = Globals.ADB[10];     // Secret door #2
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(secretDoorArtifact != null);
 
-			artifact.Name = artifact.Name.TrimEnd('#');
+			secretDoorArtifact.Name = secretDoorArtifact.Name.TrimEnd('#');
 		}
 
 		public override void InitArtifacts()
@@ -197,27 +197,27 @@ namespace StrongholdOfKahrDur.Game
 			}
 		}
 
-		public virtual bool SpellReagentsInCauldron(IArtifact artifact)
+		public virtual bool SpellReagentsInCauldron(IArtifact cauldronArtifact)
 		{
-			Debug.Assert(artifact != null);
+			Debug.Assert(cauldronArtifact != null);
 
-			var artifact01 = Globals.ADB[19];
+			var dragonSpiceArtifact = Globals.ADB[19];
 
-			Debug.Assert(artifact01 != null);
+			Debug.Assert(dragonSpiceArtifact != null);
 
-			var artifact02 = Globals.ADB[20];
+			var kingswortWeedArtifact = Globals.ADB[20];
 
-			Debug.Assert(artifact02 != null);
+			Debug.Assert(kingswortWeedArtifact != null);
 
-			var artifact03 = Globals.ADB[21];
+			var rubyStoneArtifact = Globals.ADB[21];
 
-			Debug.Assert(artifact03 != null);
+			Debug.Assert(rubyStoneArtifact != null);
 
-			var artifact04 = Globals.ADB[22];
+			var residuumPowderArtifact = Globals.ADB[22];
 
-			Debug.Assert(artifact04 != null);
+			Debug.Assert(residuumPowderArtifact != null);
 
-			return artifact01.IsCarriedByContainer(artifact) && artifact02.IsCarriedByContainer(artifact) && artifact03.IsCarriedByContainer(artifact) && artifact04.IsCarriedByContainer(artifact);
+			return dragonSpiceArtifact.IsCarriedByContainer(cauldronArtifact) && kingswortWeedArtifact.IsCarriedByContainer(cauldronArtifact) && rubyStoneArtifact.IsCarriedByContainer(cauldronArtifact) && residuumPowderArtifact.IsCarriedByContainer(cauldronArtifact);
 		}
 
 		public Engine()

@@ -6,7 +6,6 @@
 using System.Diagnostics;
 using System.Linq;
 using Eamon;
-using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
@@ -28,11 +27,11 @@ namespace ARuncibleCargo.Game.States
 
 				Debug.Assert(gameState != null);
 
-				var monster = Globals.MDB[gameState.Cm];
+				var characterMonster = Globals.MDB[gameState.Cm];
 
-				Debug.Assert(monster != null);
+				Debug.Assert(characterMonster != null);
 
-				var room = monster.GetInRoom();
+				var room = characterMonster.GetInRoom();
 
 				Debug.Assert(room != null);
 
@@ -96,11 +95,11 @@ namespace ARuncibleCargo.Game.States
 
 					gameState.Va = gameState01.Va;
 
-					monster = Globals.MDB[gameState.Cm];
+					characterMonster = Globals.MDB[gameState.Cm];
 
 					room = Globals.RDB[gameState.Ro];
 
-					monster.SetInRoom(room);
+					characterMonster.SetInRoom(room);
 
 					Globals.Engine.CheckEnemies();
 
@@ -118,19 +117,17 @@ namespace ARuncibleCargo.Game.States
 
 				Eamon.Framework.Primitive.Classes.IArtifactCategory ac = null;
 
-				IArtifact artifact = null;
-
 				// Shop doors
 
 				if (gameState.R3 == 19 && (room.Uid == 12 || room.Uid == 20))
 				{
 					gameState.R3 = 12;
 
-					artifact = Globals.ADB[room.Uid == 20 ? 136 : 17];
+					var shopDoorArtifact = Globals.ADB[room.Uid == 20 ? 136 : 17];
 
-					Debug.Assert(artifact != null);
+					Debug.Assert(shopDoorArtifact != null);
 
-					ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					ac = shopDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 					Debug.Assert(ac != null);
 
@@ -159,52 +156,52 @@ namespace ARuncibleCargo.Game.States
 					gameState.CampEntered = true;
 				}
 
-				var monster01 = Globals.MDB[36];
+				var larkspurMonster = Globals.MDB[36];
 
-				Debug.Assert(monster01 != null);
+				Debug.Assert(larkspurMonster != null);
 
 				// Meet Larkspur
 
-				if (room.Uid == 88 && monster01.IsInRoom(room) && !monster01.Seen)
+				if (room.Uid == 88 && larkspurMonster.IsInRoom(room) && !larkspurMonster.Seen)
 				{
 					Globals.Engine.PrintEffectDesc(92);
 				}
 
-				monster01 = Globals.MDB[37];
+				var lilMonster = Globals.MDB[37];
 
-				Debug.Assert(monster01 != null);
+				Debug.Assert(lilMonster != null);
 
-				artifact = Globals.ADB[129];
+				var cargoArtifact = Globals.ADB[129];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(cargoArtifact != null);
 
 				// Lil steals Runcible Cargo
 
 				if (room.Uid != 102 && room.Uid != 43 && (room.Uid < 86 || room.Uid > 88))
 				{
-					if ((artifact.IsInRoom(room) || artifact.IsCarriedByCharacter()) && monster01.IsInRoom(room))
+					if ((cargoArtifact.IsInRoom(room) || cargoArtifact.IsCarriedByCharacter()) && lilMonster.IsInRoom(room))
 					{
-						Globals.Engine.RemoveWeight(artifact);
+						Globals.Engine.RemoveWeight(cargoArtifact);
 
-						artifact.SetCarriedByMonster(monster01);
+						cargoArtifact.SetCarriedByMonster(lilMonster);
 
 						Globals.Engine.PrintEffectDesc(119);
 
-						monster01.Friendliness = Enums.Friendliness.Enemy;
+						lilMonster.Friendliness = Enums.Friendliness.Enemy;
 
-						monster01.OrigFriendliness = (Enums.Friendliness)100;
+						lilMonster.OrigFriendliness = (Enums.Friendliness)100;
 
 						Globals.Engine.CheckEnemies();
 					}
 				}
 
-				monster01 = Globals.MDB[38];
+				var princeMonster = Globals.MDB[38];
 
-				Debug.Assert(monster01 != null);
+				Debug.Assert(princeMonster != null);
 
 				// The Prince would like the Cargo, please
 
-				if (room.Uid == 96 && monster01.IsInRoom(room) && !gameState.PrinceMet)
+				if (room.Uid == 96 && princeMonster.IsInRoom(room) && !gameState.PrinceMet)
 				{
 					gameState.R3 = 96;
 
@@ -213,26 +210,26 @@ namespace ARuncibleCargo.Game.States
 					gameState.PrinceMet = true;
 				}
 
-				if (room.Uid == 96 && gameState.R3 == 95 && monster01.IsInRoom(room) && monster01.Friendliness > Enums.Friendliness.Enemy && !artifact.IsCarriedByMonster(monster01) && gameState.PrinceMet)
+				if (room.Uid == 96 && gameState.R3 == 95 && princeMonster.IsInRoom(room) && princeMonster.Friendliness > Enums.Friendliness.Enemy && !cargoArtifact.IsCarriedByMonster(princeMonster) && gameState.PrinceMet)
 				{
 					gameState.R3 = 96;
 
 					Globals.Engine.PrintEffectDesc(127);
 				}
 
-				var monster02 = Globals.MDB[39];
+				var guardsMonster = Globals.MDB[39];
 
-				Debug.Assert(monster02 != null);
+				Debug.Assert(guardsMonster != null);
 
-				var artifact01 = Globals.ADB[137];
+				var gatesArtifact = Globals.ADB[137];
 
-				Debug.Assert(artifact01 != null);
+				Debug.Assert(gatesArtifact != null);
 
 				// Gates of Frukendorf slam shut
 
-				if (room.Uid == 93 && artifact.IsCarriedByMonster(monster01) && monster01.Friendliness > Enums.Friendliness.Enemy && !monster02.IsInLimbo())
+				if (room.Uid == 93 && cargoArtifact.IsCarriedByMonster(princeMonster) && princeMonster.Friendliness > Enums.Friendliness.Enemy && !guardsMonster.IsInLimbo())
 				{
-					ac = artifact01.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					ac = gatesArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 					Debug.Assert(ac != null);
 
@@ -244,13 +241,13 @@ namespace ARuncibleCargo.Game.States
 					}
 				}
 
-				ac = artifact.GetArtifactCategory(Enums.ArtifactType.Container);
+				ac = cargoArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
 				Debug.Assert(ac != null);
 
 				// Cargo open counter
 
-				if ((artifact.IsInRoom(room) || artifact.IsCarriedByCharacter()) && ac.IsOpen())
+				if ((cargoArtifact.IsInRoom(room) || cargoArtifact.IsCarriedByCharacter()) && ac.IsOpen())
 				{
 					gameState.CargoOpenCounter++;
 

@@ -17,9 +17,6 @@ namespace TheSubAquanLaboratory.Game
 		{
 			get
 			{
-				IArtifact artifact;
-				IRoom room;
-
 				var gameState = Globals.GameState as Framework.IGameState;
 
 				if (gameState != null)        // null in EamonDD; non-null in EamonRT
@@ -28,43 +25,43 @@ namespace TheSubAquanLaboratory.Game
 					{
 						case 3:
 
-							room = Globals.RDB[2];
+							var room2 = Globals.RDB[2];
 
-							Debug.Assert(room != null);
+							Debug.Assert(room2 != null);
 
-							return room.Seen;
+							return room2.Seen;
 
 						case 4:
 
-							artifact = Globals.ADB[16];
+							var ovalDoorArtifact = Globals.ADB[16];
 
-							Debug.Assert(artifact != null);
+							Debug.Assert(ovalDoorArtifact != null);
 
-							return artifact.Seen;
+							return ovalDoorArtifact.Seen;
 
 						case 5:
 
-							artifact = Globals.ADB[9];
+							var plaqueArtifact = Globals.ADB[9];
 
-							Debug.Assert(artifact != null);
+							Debug.Assert(plaqueArtifact != null);
 
-							return artifact.Seen;
+							return plaqueArtifact.Seen;
 
 						case 6:
 
-							room = Globals.RDB[18];
+							var room18 = Globals.RDB[18];
 
-							Debug.Assert(room != null);
+							Debug.Assert(room18 != null);
 
-							return room.Seen;
+							return room18.Seen;
 
 						case 7:
 
-							artifact = Globals.ADB[57];
+							var aquatronArtifact = Globals.ADB[57];
 
-							Debug.Assert(artifact != null);
+							Debug.Assert(aquatronArtifact != null);
 
-							return artifact.Seen;
+							return aquatronArtifact.Seen;
 
 						default:
 

@@ -22,29 +22,29 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			Debug.Assert(gameState != null);
 
-			var artifact = Globals.ADB[9];
+			var plaqueArtifact = Globals.ADB[9];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(plaqueArtifact != null);
 
-			if (artifact.Seen)
+			if (plaqueArtifact.Seen)
 			{
 				Globals.Out.Write("{0}Read bronze plaque: {1}", Environment.NewLine, gameState.ReadPlaque ? "Yes" : "No");
 			}
 
-			artifact = Globals.ADB[48];
+			var displayScreenArtifact = Globals.ADB[48];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(displayScreenArtifact != null);
 
-			if (artifact.Seen)
+			if (displayScreenArtifact.Seen)
 			{
 				Globals.Out.Write("{0}Read display screen: {1}", Environment.NewLine, gameState.ReadDisplayScreen ? "Yes" : "No");
 			}
 
-			artifact = Globals.ADB[50];
+			var terminalsArtifact = Globals.ADB[50];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(terminalsArtifact != null);
 
-			if (artifact.Seen)
+			if (terminalsArtifact.Seen)
 			{
 				Globals.Out.Write("{0}Read computer terminals: {1}", Environment.NewLine, gameState.ReadTerminals ? "Yes" : "No");
 			}

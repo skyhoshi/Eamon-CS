@@ -68,15 +68,15 @@ namespace StrongholdOfKahrDur.Game.Combat
 		{
 			if (BlastSpell)
 			{
-				var artifact = Globals.ADB[25];
+				var helmArtifact = Globals.ADB[25];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(helmArtifact != null);
 
 				PrintBlast();
 
 				// If player is wearing Wizard's Helm (25), blast spell is more potent
 
-				ExecuteCalculateDamage(2, artifact.IsWornByCharacter() ? 12 : 5);
+				ExecuteCalculateDamage(2, helmArtifact.IsWornByCharacter() ? 12 : 5);
 			}
 			else
 			{

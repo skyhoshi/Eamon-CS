@@ -21,9 +21,9 @@ namespace StrongholdOfKahrDur.Game.States
 
 				Debug.Assert(room != null);
 
-				var monster = Globals.MDB[22];
+				var necromancerMonster = Globals.MDB[22];
 
-				Debug.Assert(monster != null);
+				Debug.Assert(necromancerMonster != null);
 
 				// Flavor effects
 
@@ -31,7 +31,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 				var r = 5 + 5 * (!room.Seen ? 1 : 0);
 
-				if (rl < r && !monster.IsInLimbo())
+				if (rl < r && !necromancerMonster.IsInLimbo())
 				{
 					rl = Globals.Engine.RollDice01(1, 5, 64);
 

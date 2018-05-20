@@ -43,26 +43,26 @@ namespace StrongholdOfKahrDur.Game.Commands
 				goto Cleanup;
 			}
 
-			var artifact = Globals.ADB[24];
+			var cauldronArtifact = Globals.ADB[24];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(cauldronArtifact != null);
 
 			// If the cauldron is present and the spell components (see effect #50) are in it then begin the spell casting process
 
-			if (string.Equals(ProcessedPhrase, "knock nikto mellon", StringComparison.OrdinalIgnoreCase) && (artifact.IsCarriedByCharacter() || artifact.IsInRoom(ActorRoom)) && Globals.Engine.SpellReagentsInCauldron(artifact))
+			if (string.Equals(ProcessedPhrase, "knock nikto mellon", StringComparison.OrdinalIgnoreCase) && (cauldronArtifact.IsCarriedByCharacter() || cauldronArtifact.IsInRoom(ActorRoom)) && Globals.Engine.SpellReagentsInCauldron(cauldronArtifact))
 			{
 				Globals.Engine.PrintEffectDesc(51);
 
 				gameState.UsedCauldron = true;
 			}
 
-			var monster = Globals.MDB[15];
+			var lichMonster = Globals.MDB[15];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(lichMonster != null);
 
 			// Player will agree to free the Lich
 
-			if (string.Equals(ProcessedPhrase, "i will free you", StringComparison.OrdinalIgnoreCase) && ActorRoom.Uid == 109 && monster.IsInRoom(ActorRoom) && monster.Friendliness > Enums.Friendliness.Enemy && gameState.LichState < 2)
+			if (string.Equals(ProcessedPhrase, "i will free you", StringComparison.OrdinalIgnoreCase) && ActorRoom.Uid == 109 && lichMonster.IsInRoom(ActorRoom) && lichMonster.Friendliness > Enums.Friendliness.Enemy && gameState.LichState < 2)
 			{
 				Globals.Engine.PrintEffectDesc(54);
 
@@ -71,11 +71,11 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 			// Player actually frees the Lich
 
-			if (string.Equals(ProcessedPhrase, "barada lhain", StringComparison.OrdinalIgnoreCase) && ActorRoom.Uid == 109 && monster.IsInRoom(ActorRoom) && gameState.LichState == 1)
+			if (string.Equals(ProcessedPhrase, "barada lhain", StringComparison.OrdinalIgnoreCase) && ActorRoom.Uid == 109 && lichMonster.IsInRoom(ActorRoom) && gameState.LichState == 1)
 			{
-				var artifact01 = Globals.ADB[25];
+				var helmArtifact = Globals.ADB[25];
 
-				Debug.Assert(artifact01 != null);
+				Debug.Assert(helmArtifact != null);
 
 				Globals.Engine.PrintEffectDesc(55);
 
@@ -83,7 +83,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				gameState.LichState = 2;
 
-				artifact01.SetInRoom(ActorRoom);
+				helmArtifact.SetInRoom(ActorRoom);
 			}
 
 			base.PlayerProcessEvents01();

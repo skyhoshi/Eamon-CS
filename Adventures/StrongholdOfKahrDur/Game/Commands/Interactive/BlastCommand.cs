@@ -15,13 +15,13 @@ namespace StrongholdOfKahrDur.Game.Commands
 	{
 		protected override void PlayerProcessEvents01()
 		{
-			var artifact = Globals.ADB[25];
+			var helmArtifact = Globals.ADB[25];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(helmArtifact != null);
 
 			// Necromancer cannot be blasted unless wearing Wizard's Helm
 
-			if (DobjMonster != null && DobjMonster.Uid == 22 && !artifact.IsWornByCharacter())
+			if (DobjMonster != null && DobjMonster.Uid == 22 && !helmArtifact.IsWornByCharacter())
 			{
 				var rl = Globals.Engine.RollDice01(1, 4, 56);
 
@@ -41,11 +41,11 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 			if (DobjMonster != null && DobjMonster.Uid == 22)
 			{
-				var artifact = Globals.ADB[25];
+				var helmArtifact = Globals.ADB[25];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(helmArtifact != null);
 
-				return artifact.IsWornByCharacter();
+				return helmArtifact.IsWornByCharacter();
 			}
 			else
 			{

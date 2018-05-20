@@ -40,23 +40,23 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Dismantled worker android
 
-					var artifact = Globals.ADB[82];
+					var plasticCardArtifact = Globals.ADB[82];
 
-					Debug.Assert(artifact != null);
+					Debug.Assert(plasticCardArtifact != null);
 
-					if (artifact.IsInLimbo())
+					if (plasticCardArtifact.IsInLimbo())
 					{
-						Globals.Out.Print("{0}", artifact.Desc);
+						Globals.Out.Print("{0}", plasticCardArtifact.Desc);
 
-						artifact.SetInRoom(ActorRoom);
+						plasticCardArtifact.SetInRoom(ActorRoom);
 
-						artifact.Seen = true;
+						plasticCardArtifact.Seen = true;
 
 						var command = Globals.CreateInstance<IGetCommand>();
 
 						CopyCommandData(command);
 
-						command.Dobj = artifact;
+						command.Dobj = plasticCardArtifact;
 
 						NextState = command;
 					}

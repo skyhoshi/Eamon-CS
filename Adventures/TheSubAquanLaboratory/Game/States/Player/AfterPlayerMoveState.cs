@@ -21,19 +21,19 @@ namespace TheSubAquanLaboratory.Game.States
 
 			if (gameState.R3 == 43 && gameState.Ro != gameState.R3)
 			{
-				var artifact = Globals.ADB[84];
+				var glassWallsArtifact = Globals.ADB[84];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(glassWallsArtifact != null);
 
-				if (!artifact.IsInLimbo())
+				if (!glassWallsArtifact.IsInLimbo())
 				{
-					artifact = Globals.ADB[16];
+					var ovalDoorArtifact = Globals.ADB[16];
 
-					Debug.Assert(artifact != null);
+					Debug.Assert(ovalDoorArtifact != null);
 
-					if (artifact.IsInLimbo())
+					if (ovalDoorArtifact.IsInLimbo())
 					{
-						artifact.SetInRoomUid(43);
+						ovalDoorArtifact.SetInRoomUid(43);
 					}
 				}
 

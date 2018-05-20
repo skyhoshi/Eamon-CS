@@ -18,17 +18,17 @@ namespace TheSubAquanLaboratory.Game
 		{
 			base.AddPoundCharsToArtifactNames();
 
-			var artifact = Globals.ADB[26];     // Card slot #2
+			var cardSlotArtifact = Globals.ADB[26];     // Card slot #2
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(cardSlotArtifact != null);
 
-			artifact.Name = artifact.Name.TrimEnd('#');
+			cardSlotArtifact.Name = cardSlotArtifact.Name.TrimEnd('#');
 
-			artifact = Globals.ADB[62];         // Console #2
+			var consoleArtifact = Globals.ADB[62];         // Console #2
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(consoleArtifact != null);
 
-			artifact.Name = artifact.Name.TrimEnd('#');
+			consoleArtifact.Name = consoleArtifact.Name.TrimEnd('#');
 		}
 
 		public override void InitArtifacts()

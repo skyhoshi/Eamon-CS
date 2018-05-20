@@ -17,8 +17,6 @@ namespace TheSubAquanLaboratory.Game.States
 	{
 		protected override void ProcessEvents()
 		{
-			IArtifact artifact;
-
 			if (ShouldPreTurnProcess())
 			{
 				var gameState = Globals.GameState as Framework.IGameState;
@@ -27,11 +25,11 @@ namespace TheSubAquanLaboratory.Game.States
 
 				// Electrified floor
 
-				artifact = Globals.ADB[85];
+				var electrifiedFloorArtifact = Globals.ADB[85];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(electrifiedFloorArtifact != null);
 
-				if (artifact.Location == Globals.GameState.Ro)
+				if (electrifiedFloorArtifact.Location == Globals.GameState.Ro)
 				{
 					Globals.Out.Print("The electrified floor zaps everyone in the chamber!");
 
@@ -71,11 +69,11 @@ namespace TheSubAquanLaboratory.Game.States
 					{
 						if (gameState.FloodLevel == 11)
 						{
-							artifact = Globals.ADB[52];
+							var scubaGearArtifact = Globals.ADB[52];
 
-							Debug.Assert(artifact != null);
+							Debug.Assert(scubaGearArtifact != null);
 
-							if (artifact.IsWornByCharacter())
+							if (scubaGearArtifact.IsWornByCharacter())
 							{
 								Globals.Out.Print("The chamber has entirely flooded!");
 

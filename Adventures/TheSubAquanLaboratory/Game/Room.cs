@@ -20,9 +20,9 @@ namespace TheSubAquanLaboratory.Game
 			{
 				if (Uid == 2)
 				{
-					var artifact = Globals.ADB[83];
+					var backWallArtifact = Globals.ADB[83];
 
-					return artifact != null && artifact.IsInLimbo() && index == 1 ? 17 : base.GetDirs(index);
+					return backWallArtifact != null && backWallArtifact.IsInLimbo() && index == 1 ? 17 : base.GetDirs(index);
 				}
 				else if (Uid == 10)
 				{
@@ -30,9 +30,9 @@ namespace TheSubAquanLaboratory.Game
 				}
 				else if (Uid == 43)
 				{
-					var artifact = Globals.ADB[16];
+					var ovalDoorArtifact = Globals.ADB[16];
 
-					return artifact != null && artifact.IsInLimbo() && index == 4 ? 9 : base.GetDirs(index);
+					return ovalDoorArtifact != null && ovalDoorArtifact.IsInLimbo() && index == 4 ? 9 : base.GetDirs(index);
 				}
 				else
 				{

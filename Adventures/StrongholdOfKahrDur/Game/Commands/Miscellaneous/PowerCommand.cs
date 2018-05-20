@@ -25,13 +25,13 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 			Debug.Assert(gameState != null);
 
-			var artifact = Globals.ADB[24];
+			var cauldronArtifact = Globals.ADB[24];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(cauldronArtifact != null);
 
 			// If the cauldron is prepared (see Effect #50) and the magic words have been spoken, unlock the portcullis
 
-			if (ActorRoom.Uid == 43 && gameState.UsedCauldron && (artifact.IsCarriedByCharacter() || artifact.IsInRoom(ActorRoom)) && Globals.Engine.SpellReagentsInCauldron(artifact))
+			if (ActorRoom.Uid == 43 && gameState.UsedCauldron && (cauldronArtifact.IsCarriedByCharacter() || cauldronArtifact.IsInRoom(ActorRoom)) && Globals.Engine.SpellReagentsInCauldron(cauldronArtifact))
 			{
 				Globals.Engine.PrintEffectDesc(52);
 
@@ -39,29 +39,29 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				gameState.UsedCauldron = false;
 
-				var artifact01 = Globals.ADB[7];
+				var eastPortcullisArtifact = Globals.ADB[7];
 
-				Debug.Assert(artifact01 != null);
+				Debug.Assert(eastPortcullisArtifact != null);
 
-				var ac = artifact01.GetArtifactCategory(Enums.ArtifactType.DoorGate);
-
-				Debug.Assert(ac != null);
-
-				ac.SetOpen(true);
-
-				artifact01 = Globals.ADB[8];
-
-				Debug.Assert(artifact01 != null);
-
-				ac = artifact01.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+				var ac = eastPortcullisArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 				Debug.Assert(ac != null);
 
 				ac.SetOpen(true);
 
-				Globals.Engine.RemoveWeight(artifact);
+				var westPortcullisArtifact = Globals.ADB[8];
 
-				artifact.SetInLimbo();
+				Debug.Assert(westPortcullisArtifact != null);
+
+				ac = westPortcullisArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+
+				Debug.Assert(ac != null);
+
+				ac.SetOpen(true);
+
+				Globals.Engine.RemoveWeight(cauldronArtifact);
+
+				cauldronArtifact.SetInLimbo();
 
 				Globals.Out.Print("The cauldron disintegrates!");
 

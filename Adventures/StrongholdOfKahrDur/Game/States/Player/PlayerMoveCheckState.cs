@@ -25,17 +25,17 @@ namespace StrongholdOfKahrDur.Game.States
 		{
 			RetCode rc;
 
-			var monster = Globals.MDB[Globals.GameState.Cm];
+			var characterMonster = Globals.MDB[Globals.GameState.Cm];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(characterMonster != null);
 
-			var artifact = Globals.ADB[18];
+			var amuletArtifact = Globals.ADB[18];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(amuletArtifact != null);
 
 			// Cannot enter forest if not wearing magical amulet
 
-			if (Globals.GameState.Ro == 92 && Globals.GameState.R2 == 65 && !artifact.IsWornByCharacter())
+			if (Globals.GameState.Ro == 92 && Globals.GameState.R2 == 65 && !amuletArtifact.IsWornByCharacter())
 			{
 				Globals.Engine.PrintEffectDesc(45);
 				
@@ -44,15 +44,15 @@ namespace StrongholdOfKahrDur.Game.States
 				goto Cleanup;
 			}
 
-			artifact = Globals.ADB[14];
+			var bootsArtifact = Globals.ADB[14];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(bootsArtifact != null);
 
 			if (Globals.GameState.Ro == 84 && Globals.GameState.R2 == 94)
 			{
 				// If descend pit w/ mgk boots, write effect
 
-				if (artifact.IsWornByCharacter())
+				if (bootsArtifact.IsWornByCharacter())
 				{
 					Globals.Engine.PrintEffectDesc(47);
 				}
@@ -91,7 +91,7 @@ namespace StrongholdOfKahrDur.Game.States
 			{
 				// If ascend pit w/ mgk boots, write effect
 
-				if (artifact.IsWornByCharacter())
+				if (bootsArtifact.IsWornByCharacter())
 				{
 					Globals.Engine.PrintEffectDesc(48);
 				}
@@ -121,17 +121,17 @@ namespace StrongholdOfKahrDur.Game.States
 			{
 				// Successful adventure means the necromancer (22) is dead and Lady Mirabelle (26) is alive and exiting with player
 
-				var monster = Globals.MDB[22];
+				var necromancerMonster = Globals.MDB[22];
 
-				Debug.Assert(monster != null);
+				Debug.Assert(necromancerMonster != null);
 
-				var vanquished = monster.IsInLimbo();
+				var vanquished = necromancerMonster.IsInLimbo();
 
-				monster = Globals.MDB[26];
+				var mirabelleMonster = Globals.MDB[26];
 
-				Debug.Assert(monster != null);
+				Debug.Assert(mirabelleMonster != null);
 
-				var rescued = monster.Location == Globals.GameState.Ro;
+				var rescued = mirabelleMonster.Location == Globals.GameState.Ro;
 
 				if (!vanquished || !rescued)
 				{

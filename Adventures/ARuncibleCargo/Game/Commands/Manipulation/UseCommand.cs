@@ -43,25 +43,25 @@ namespace ARuncibleCargo.Game.Commands
 
 					// Detonator
 
-					var artifact = Globals.ADB[129];
+					var cargoArtifact = Globals.ADB[129];
 
-					Debug.Assert(artifact != null);
+					Debug.Assert(cargoArtifact != null);
 
-					var artifact01 = Globals.ADB[43];
+					var explosiveDeviceArtifact = Globals.ADB[43];
 
-					Debug.Assert(artifact01 != null);
+					Debug.Assert(explosiveDeviceArtifact != null);
 
-					var monster = Globals.MDB[38];
+					var princeMonster = Globals.MDB[38];
 
-					Debug.Assert(monster != null);
+					Debug.Assert(princeMonster != null);
 
-					if (artifact01.IsCarriedByContainer(artifact) && artifact.IsCarriedByMonster(monster))
+					if (explosiveDeviceArtifact.IsCarriedByContainer(cargoArtifact) && cargoArtifact.IsCarriedByMonster(princeMonster))
 					{
-						var artifact02 = Globals.ADB[137];
+						var gatesArtifact = Globals.ADB[137];
 
-						Debug.Assert(artifact02 != null);
+						Debug.Assert(gatesArtifact != null);
 
-						var ac = artifact02.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+						var ac = gatesArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 						Debug.Assert(ac != null);
 

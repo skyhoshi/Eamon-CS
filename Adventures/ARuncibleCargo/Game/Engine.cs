@@ -54,15 +54,15 @@ namespace ARuncibleCargo.Game
 
 			MacroFuncs.Add(1, () =>
 			{
-				var artifact = Globals.ADB[129];
+				var cargoArtifact = Globals.ADB[129];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(cargoArtifact != null);
 
-				var monster = Globals.MDB[37];
+				var lilMonster = Globals.MDB[37];
 
-				Debug.Assert(monster != null);
+				Debug.Assert(lilMonster != null);
 
-				if (artifact.IsCarriedByMonster(monster))
+				if (cargoArtifact.IsCarriedByMonster(lilMonster))
 				{
 					return ", dropping the \"Runcible Cargo\" at your feet as she disappears.";
 				}
@@ -76,11 +76,11 @@ namespace ARuncibleCargo.Game
 			{
 				if (Globals.GameState != null)
 				{
-					var artifact = Globals.ADB[Globals.GameState.Ro == 20 ? 136 : 17];
+					var shopDoorArtifact = Globals.ADB[Globals.GameState.Ro == 20 ? 136 : 17];
 
-					Debug.Assert(artifact != null);
+					Debug.Assert(shopDoorArtifact != null);
 
-					var ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					var ac = shopDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 					Debug.Assert(ac != null);
 
@@ -96,11 +96,11 @@ namespace ARuncibleCargo.Game
 			{
 				if (Globals.GameState != null)
 				{
-					var monster = Globals.MDB[37];
+					var lilMonster = Globals.MDB[37];
 
-					Debug.Assert(monster != null);
+					Debug.Assert(lilMonster != null);
 
-					return monster.Friendliness > Enums.Friendliness.Enemy ? "Larcenous Lil prepares to attack!" : "";
+					return lilMonster.Friendliness > Enums.Friendliness.Enemy ? "Larcenous Lil prepares to attack!" : "";
 				}
 				else
 				{
@@ -132,29 +132,29 @@ namespace ARuncibleCargo.Game
 
 			// Signs (Sam's/weathered/supported/station)
 
-			var artifact01 = Globals.ADB[16];
+			var signArtifact = Globals.ADB[16];
 
-			Debug.Assert(artifact01 != null);
+			Debug.Assert(signArtifact != null);
 
-			artifact01.Seen = true;
+			signArtifact.Seen = true;
 
-			artifact01 = Globals.ADB[73];
+			var weatheredSignArtifact = Globals.ADB[73];
 
-			Debug.Assert(artifact01 != null);
+			Debug.Assert(weatheredSignArtifact != null);
 
-			artifact01.Seen = true;
+			weatheredSignArtifact.Seen = true;
 
-			artifact01 = Globals.ADB[89];
+			var supportedSignArtifact = Globals.ADB[89];
 
-			Debug.Assert(artifact01 != null);
+			Debug.Assert(supportedSignArtifact != null);
 
-			artifact01.Seen = true;
+			supportedSignArtifact.Seen = true;
 
-			artifact01 = Globals.ADB[90];
+			var stationSignArtifact = Globals.ADB[90];
 
-			Debug.Assert(artifact01 != null);
+			Debug.Assert(stationSignArtifact != null);
 
-			artifact01.Seen = true;
+			stationSignArtifact.Seen = true;
 
 			// (Barney) Rubble, Maintenance grate, Sewer grate
 
@@ -205,11 +205,11 @@ namespace ARuncibleCargo.Game
 		{
 			// Can't sell Sam Slicker's shop key
 
-			var artifact = Globals.ADB[9];
+			var shopKeyArtifact = Globals.ADB[9];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(shopKeyArtifact != null);
 
-			artifact.SetInLimbo();
+			shopKeyArtifact.SetInLimbo();
 
 			base.ConvertToCarriedInventory(weaponList);
 		}

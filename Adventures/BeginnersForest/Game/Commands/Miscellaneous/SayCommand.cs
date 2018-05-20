@@ -26,15 +26,15 @@ namespace BeginnersForest.Game.Commands
 
 			if (string.Equals(ProcessedPhrase, "less spooks", StringComparison.OrdinalIgnoreCase) && gameState.SpookCounter < 8)
 			{
-				var monster = Globals.MDB[9];
+				var spookMonster = Globals.MDB[9];
 
-				Debug.Assert(monster != null);
+				Debug.Assert(spookMonster != null);
 
-				monster.GroupCount = monster.GroupCount > 0 ? 1 : 0;
+				spookMonster.GroupCount = spookMonster.GroupCount > 0 ? 1 : 0;
 
-				monster.InitGroupCount = monster.GroupCount;
+				spookMonster.InitGroupCount = spookMonster.GroupCount;
 
-				monster.OrigGroupCount = monster.GroupCount;
+				spookMonster.OrigGroupCount = spookMonster.GroupCount;
 
 				Globals.Engine.CheckEnemies();
 

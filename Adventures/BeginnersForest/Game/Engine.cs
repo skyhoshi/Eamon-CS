@@ -24,21 +24,21 @@ namespace BeginnersForest.Game
 
 			// Entrance/exit gates
 
-			var artifact = Globals.ADB[19];
+			var entryGateArtifact = Globals.ADB[19];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(entryGateArtifact != null);
 
-			artifact.Seen = true;
+			entryGateArtifact.Seen = true;
 
-			artifact.Name = artifact.Name.TrimEnd('#');
+			entryGateArtifact.Name = entryGateArtifact.Name.TrimEnd('#');
 
-			artifact = Globals.ADB[20];
+			var exitGateArtifact = Globals.ADB[20];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(exitGateArtifact != null);
 
-			artifact.Seen = true;
+			exitGateArtifact.Seen = true;
 
-			artifact.Name = artifact.Name.TrimEnd('#');
+			exitGateArtifact.Name = exitGateArtifact.Name.TrimEnd('#');
 		}
 
 		public override void InitArtifacts()
@@ -71,23 +71,23 @@ namespace BeginnersForest.Game
 
 			// Set Group Spooks to 0 for Spook routine
 
-			var monster = Globals.MDB[9];
+			var spookMonster = Globals.MDB[9];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(spookMonster != null);
 
-			monster.GroupCount = 0;
+			spookMonster.GroupCount = 0;
 
-			monster.InitGroupCount = 0;
+			spookMonster.InitGroupCount = 0;
 
-			monster.OrigGroupCount = 0;
+			spookMonster.OrigGroupCount = 0;
 
 			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
-			monster = Globals.MDB[4];
+			var sirGrummorMonster = Globals.MDB[4];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(sirGrummorMonster != null);
 
 			if (Globals.Character.Gender == Enums.Gender.Female)
 			{
@@ -99,9 +99,9 @@ namespace BeginnersForest.Game
 
 				// Sir Grummor is always kind to the ladies!
 
-				monster.Friendliness = Enums.Friendliness.Friend;
+				sirGrummorMonster.Friendliness = Enums.Friendliness.Friend;
 
-				monster.OrigFriendliness = (Enums.Friendliness)200;
+				sirGrummorMonster.OrigFriendliness = (Enums.Friendliness)200;
 			}
 		}
 

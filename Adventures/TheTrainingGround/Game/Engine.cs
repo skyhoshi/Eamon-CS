@@ -20,25 +20,25 @@ namespace TheTrainingGround.Game
 
 			// Obsidian scroll case
 
-			var artifact = Globals.ADB[51];
+			var scrollCaseArtifact = Globals.ADB[51];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(scrollCaseArtifact != null);
 
-			artifact.Seen = true;
+			scrollCaseArtifact.Seen = true;
 
-			artifact.Name = artifact.Name.TrimEnd('#');
+			scrollCaseArtifact.Name = scrollCaseArtifact.Name.TrimEnd('#');
 
 			// Graffiti
 
 			for (var i = 46; i <= 50; i++)
 			{
-				artifact = Globals.ADB[i];
+				var graffitiArtifact = Globals.ADB[i];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(graffitiArtifact != null);
 
-				artifact.Seen = true;
+				graffitiArtifact.Seen = true;
 
-				artifact.Name = artifact.Name.TrimEnd('#');
+				graffitiArtifact.Name = graffitiArtifact.Name.TrimEnd('#');
 			}
 		}
 

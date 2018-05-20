@@ -16,17 +16,17 @@ namespace StrongholdOfKahrDur.Game.Commands
 	{
 		protected override void PlayerProcessEvents()
 		{
-			var artifact = Globals.ADB[2];
+			var eyeglassesArtifact = Globals.ADB[2];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(eyeglassesArtifact != null);
 
-			var artifact01 = Globals.ADB[4];
+			var secretDoorArtifact = Globals.ADB[4];
 
-			Debug.Assert(artifact01 != null);
+			Debug.Assert(secretDoorArtifact != null);
 
 			// Armoire (while wearing glasses)
 
-			if (DobjArtifact.Uid == 3 && artifact.IsWornByCharacter() && !artifact01.IsInRoom(ActorRoom))
+			if (DobjArtifact.Uid == 3 && eyeglassesArtifact.IsWornByCharacter() && !secretDoorArtifact.IsInRoom(ActorRoom))
 			{
 				var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
@@ -45,17 +45,17 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 			// Bookshelf/secret door in library (while wearing magic glasses)
 
-			else if (DobjArtifact.Uid == 11 && artifact.IsWornByCharacter())
+			else if (DobjArtifact.Uid == 11 && eyeglassesArtifact.IsWornByCharacter())
 			{
-				artifact01 = Globals.ADB[10];
+				var secretDoorArtifact01 = Globals.ADB[10];
 
-				Debug.Assert(artifact01 != null);
+				Debug.Assert(secretDoorArtifact01 != null);
 
-				var ac = artifact01.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+				var ac = secretDoorArtifact01.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 				Debug.Assert(ac != null);
 
-				artifact01.SetInRoom(ActorRoom);
+				secretDoorArtifact01.SetInRoom(ActorRoom);
 
 				ac.SetOpen(true);
 

@@ -32,15 +32,15 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					Debug.Assert(gameState != null);
 
-					var artifact = Globals.ADB[16];
+					var ovalDoorArtifact = Globals.ADB[16];
 
-					Debug.Assert(artifact != null);
+					Debug.Assert(ovalDoorArtifact != null);
 
-					if (gameState.Sterilize && !artifact.IsInLimbo())
+					if (gameState.Sterilize && !ovalDoorArtifact.IsInLimbo())
 					{
 						Globals.Engine.PrintEffectDesc(40);
 
-						artifact.SetInLimbo();
+						ovalDoorArtifact.SetInLimbo();
 					}
 					else
 					{

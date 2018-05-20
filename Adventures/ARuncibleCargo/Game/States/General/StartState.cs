@@ -23,13 +23,13 @@ namespace ARuncibleCargo.Game.States
 
 			Debug.Assert(room != null);
 
-			var artifact = Globals.ADB[129];
+			var cargoArtifact = Globals.ADB[129];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(cargoArtifact != null);
 
 			// Cargo check
 
-			gameState.CargoInRoom = artifact.IsInRoom(room) || artifact.IsCarriedByCharacter() ? 1 : 0;
+			gameState.CargoInRoom = cargoArtifact.IsInRoom(room) || cargoArtifact.IsCarriedByCharacter() ? 1 : 0;
 
 			base.ProcessEvents();
 		}

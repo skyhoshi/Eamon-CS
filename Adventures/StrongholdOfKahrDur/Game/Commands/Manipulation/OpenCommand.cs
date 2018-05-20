@@ -16,23 +16,23 @@ namespace StrongholdOfKahrDur.Game.Commands
 	{
 		protected override void PlayerProcessEvents01()
 		{
-			var artifact = Globals.ADB[2];
+			var eyeglassesArtifact = Globals.ADB[2];
 
-			Debug.Assert(artifact != null);
+			Debug.Assert(eyeglassesArtifact != null);
 
 			// If armoire opened and player is wearing eyeglasses reveal secret door
 
-			if (DobjArtifact.Uid == 3 && artifact.IsWornByCharacter())
+			if (DobjArtifact.Uid == 3 && eyeglassesArtifact.IsWornByCharacter())
 			{
-				var artifact01 = Globals.ADB[4];
+				var secretDoorArtifact = Globals.ADB[4];
 
-				Debug.Assert(artifact01 != null);
+				Debug.Assert(secretDoorArtifact != null);
 
-				var ac = artifact01.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+				var ac = secretDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 				Debug.Assert(ac != null);
 
-				artifact01.SetInRoom(ActorRoom);
+				secretDoorArtifact.SetInRoom(ActorRoom);
 
 				ac.SetOpen(true);
 

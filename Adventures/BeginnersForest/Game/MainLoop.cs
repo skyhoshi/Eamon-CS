@@ -19,17 +19,17 @@ namespace BeginnersForest.Game
 
 			// Entrance/exit gate rooms already seen
 
-			var room = Globals.RDB[1];
+			var room1 = Globals.RDB[1];
 
-			Debug.Assert(room != null);
+			Debug.Assert(room1 != null);
 
-			room.Seen = true;
+			room1.Seen = true;
 
-			room = Globals.RDB[33];
+			var room33 = Globals.RDB[33];
 
-			Debug.Assert(room != null);
+			Debug.Assert(room33 != null);
 
-			room.Seen = true;
+			room33.Seen = true;
 		}
 	}
 }

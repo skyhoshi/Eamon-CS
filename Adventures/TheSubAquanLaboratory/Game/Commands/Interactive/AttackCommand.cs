@@ -73,8 +73,6 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 		protected override void PlayerExecute()
 		{
-			IArtifact artifact;
-
 			var effectUid = 0L;
 			var n = 0L;
 
@@ -113,11 +111,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 						{
 							Globals.Engine.PrintEffectDesc(64);
 
-							artifact = Globals.ADB[85];
+							var electrifiedFloorArtifact = Globals.ADB[85];
 
-							Debug.Assert(artifact != null);
+							Debug.Assert(electrifiedFloorArtifact != null);
 
-							artifact.SetInRoom(ActorRoom);
+							electrifiedFloorArtifact.SetInRoom(ActorRoom);
 
 							gameState.FloorAttack = true;
 						}
@@ -130,17 +128,17 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							DobjArtifact.SetInLimbo();
 
-							artifact = Globals.ADB[2];
+							var engravingArtifact = Globals.ADB[2];
 
-							Debug.Assert(artifact != null);
+							Debug.Assert(engravingArtifact != null);
 
-							artifact.SetInLimbo();
+							engravingArtifact.SetInLimbo();
 
-							artifact = Globals.ADB[106];
+							var rubbleArtifact = Globals.ADB[106];
 
-							Debug.Assert(artifact != null);
+							Debug.Assert(rubbleArtifact != null);
 
-							artifact.SetInRoom(ActorRoom);
+							rubbleArtifact.SetInRoom(ActorRoom);
 						}
 
 						NextState = Globals.CreateInstance<IMonsterStartState>();
@@ -174,17 +172,17 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							DobjArtifact.SetInLimbo();
 
-							artifact = Globals.ADB[16];
+							var ovalDoorArtifact = Globals.ADB[16];
 
-							Debug.Assert(artifact != null);
+							Debug.Assert(ovalDoorArtifact != null);
 
-							artifact.SetInLimbo();
+							ovalDoorArtifact.SetInLimbo();
 
-							artifact = Globals.ADB[105];
+							var shatteredGlassWallsArtifact = Globals.ADB[105];
 
-							Debug.Assert(artifact != null);
+							Debug.Assert(shatteredGlassWallsArtifact != null);
 
-							artifact.SetInRoom(ActorRoom);
+							shatteredGlassWallsArtifact.SetInRoom(ActorRoom);
 
 							gameState.Sterilize = false;
 
@@ -218,11 +216,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						DobjArtifact.SetInLimbo();
 
-						artifact = Globals.ADB[107];
+						var brokenFloorTrapArtifact = Globals.ADB[107];
 
-						Debug.Assert(artifact != null);
+						Debug.Assert(brokenFloorTrapArtifact != null);
 
-						artifact.SetInRoom(ActorRoom);
+						brokenFloorTrapArtifact.SetInRoom(ActorRoom);
 
 						NextState = Globals.CreateInstance<IMonsterStartState>();
 
@@ -234,19 +232,19 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						base.PlayerExecute();
 
-						artifact = Globals.ADB[82];
+						var plasticCardArtifact = Globals.ADB[82];
 
-						Debug.Assert(artifact != null);
+						Debug.Assert(plasticCardArtifact != null);
 
-						if (artifact.IsInLimbo())
+						if (plasticCardArtifact.IsInLimbo())
 						{
-							artifact.Desc = "Destroying the remains of the android reveals a small featureless card made out of a durable plastic.";
+							plasticCardArtifact.Desc = "Destroying the remains of the android reveals a small featureless card made out of a durable plastic.";
 
-							Globals.Out.Print("{0}", artifact.Desc);
+							Globals.Out.Print("{0}", plasticCardArtifact.Desc);
 
-							artifact.SetInRoom(ActorRoom);
+							plasticCardArtifact.SetInRoom(ActorRoom);
 
-							artifact.Seen = true;
+							plasticCardArtifact.Seen = true;
 						}
 
 						break;

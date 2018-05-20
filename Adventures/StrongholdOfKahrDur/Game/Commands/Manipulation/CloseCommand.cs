@@ -20,15 +20,15 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 			if (DobjArtifact.Uid == 3)
 			{
-				var artifact = Globals.ADB[4];
+				var secretDoorArtifact = Globals.ADB[4];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(secretDoorArtifact != null);
 
-				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+				var ac = secretDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
 				Debug.Assert(ac != null);
 
-				artifact.SetInLimbo();
+				secretDoorArtifact.SetInLimbo();
 
 				ac.SetOpen(false);
 
