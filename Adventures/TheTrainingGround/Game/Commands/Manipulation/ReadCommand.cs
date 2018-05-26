@@ -14,11 +14,11 @@ namespace TheTrainingGround.Game.Commands
 	[ClassMappings]
 	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
-		protected override void PlayerProcessEvents01()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			// Plain scroll increases BLAST ability
 
-			if (DobjArtifact.Uid == 29)
+			if (eventType == PpeAfterArtifactRead && DobjArtifact.Uid == 29)
 			{
 				var spell = Globals.Engine.GetSpells(Enums.Spell.Blast);
 
@@ -43,7 +43,7 @@ namespace TheTrainingGround.Game.Commands
 				}
 			}
 
-			base.PlayerProcessEvents01();
+			base.PlayerProcessEvents(eventType);
 		}
 	}
 }

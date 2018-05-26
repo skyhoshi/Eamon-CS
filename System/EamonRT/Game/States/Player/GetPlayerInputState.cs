@@ -14,14 +14,14 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class GetPlayerInputState : State, IGetPlayerInputState
 	{
-		protected virtual void ProcessEvents()
-		{
-
-		}
+		/// <summary>
+		/// This event fires before the player's command prompt is printed.
+		/// </summary>
+		protected const long PeBeforeCommandPromptPrint = 1;
 
 		public override void Execute()
 		{
-			ProcessEvents();
+			ProcessEvents(PeBeforeCommandPromptPrint);
 
 			if (GotoCleanup)
 			{

@@ -13,13 +13,13 @@ namespace TheSubAquanLaboratory.Game.States
 	[ClassMappings]
 	public class AfterPlayerMoveState : EamonRT.Game.States.AfterPlayerMoveState, IAfterPlayerMoveState
 	{
-		protected override void ProcessEvents()
+		protected override void ProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
-			if (gameState.R3 == 43 && gameState.Ro != gameState.R3)
+			if (eventType == PeAfterExtinguishLightSourceCheck && gameState.R3 == 43 && gameState.Ro != gameState.R3)
 			{
 				var glassWallsArtifact = Globals.ADB[84];
 
@@ -40,7 +40,7 @@ namespace TheSubAquanLaboratory.Game.States
 				gameState.Sterilize = false;
 			}
 
-			base.ProcessEvents();
+			base.ProcessEvents(eventType);
 		}
 	}
 }

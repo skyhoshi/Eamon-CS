@@ -17,21 +17,21 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class SayCommand : Command, ISayCommand
 	{
+		/// <summary>
+		/// This event fires before the player's said text is printed.
+		/// </summary>
+		protected const long PpeBeforePlayerSayTextPrint = 1;
+
+		/// <summary>
+		/// This event fires after the player says something.
+		/// </summary>
+		protected const long PpeAfterPlayerSay = 2;
+
 		public virtual string OriginalPhrase { get; set; }
 
 		public virtual string PrintedPhrase { get; set; }
 
 		public virtual string ProcessedPhrase { get; set; }
-
-		protected virtual void PlayerProcessEvents()
-		{
-
-		}
-
-		protected virtual void PlayerProcessEvents01()
-		{
-
-		}
 
 		protected override void PlayerExecute()
 		{
@@ -46,7 +46,7 @@ namespace EamonRT.Game.Commands
 
 			ProcessedPhrase = PrintedPhrase.Trim(new char[] { '.', '?', '!' }).ToLower();
 
-			PlayerProcessEvents();
+			PlayerProcessEvents(PpeBeforePlayerSayTextPrint);
 
 			if (GotoCleanup)
 			{
@@ -55,7 +55,7 @@ namespace EamonRT.Game.Commands
 
 			Globals.Out.Print("Okay, \"{0}\"", PrintedPhrase);
 
-			PlayerProcessEvents01();
+			PlayerProcessEvents(PpeAfterPlayerSay);
 
 			if (GotoCleanup)
 			{

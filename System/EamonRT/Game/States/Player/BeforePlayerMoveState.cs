@@ -16,17 +16,25 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class BeforePlayerMoveState : State, IBeforePlayerMoveState
 	{
+		/// <summary>
+		/// This event fires after the player's destination room Uid is calculated and stored.
+		/// </summary>
+		protected const long PeAfterDestinationRoomSet = 1;
+
 		public virtual Enums.Direction Direction { get; set; }
 
 		public virtual IArtifact Artifact { get; set; }
 
-		protected virtual void ProcessEvents()
+		protected override void ProcessEvents(long eventType)
 		{
-			if (Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) > 0 && Globals.GameState.Lt > 0)
+			if (eventType == PeAfterDestinationRoomSet)
 			{
-				PrintEnemiesNearby();
+				if (Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) > 0 && Globals.GameState.Lt > 0)
+				{
+					PrintEnemiesNearby();
 
-				NextState = Globals.CreateInstance<IStartState>();
+					NextState = Globals.CreateInstance<IStartState>();
+				}
 			}
 		}
 
@@ -40,7 +48,7 @@ namespace EamonRT.Game.States
 
 			Globals.GameState.R2 = Artifact != null ? 0 : room.GetDirs(Direction);
 
-			ProcessEvents();
+			ProcessEvents(PeAfterDestinationRoomSet);
 
 			if (NextState == null)
 			{

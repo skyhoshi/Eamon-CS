@@ -15,7 +15,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 
@@ -23,7 +23,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			// Summon Alkanda
 
-			if (string.Equals(ProcessedPhrase, "annal natthrac", StringComparison.OrdinalIgnoreCase))
+			if (eventType == PpeBeforePlayerSayTextPrint && string.Equals(ProcessedPhrase, "annal natthrac", StringComparison.OrdinalIgnoreCase))
 			{
 				var medallionArtifact = Globals.ADB[77];
 
@@ -56,7 +56,7 @@ namespace TheTempleOfNgurct.Game.Commands
 				}
 			}
 
-			base.PlayerProcessEvents();
+			base.PlayerProcessEvents(eventType);
 
 		Cleanup:
 

@@ -15,7 +15,7 @@ namespace BeginnersForest.Game.Commands
 	[ClassMappings]
 	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
 	{
-		protected override void PlayerProcessEvents01()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 
@@ -24,7 +24,7 @@ namespace BeginnersForest.Game.Commands
 			//          Spook Reducer 2.0
 			//  (c) 2012 Frank Black Productions
 
-			if (string.Equals(ProcessedPhrase, "less spooks", StringComparison.OrdinalIgnoreCase) && gameState.SpookCounter < 8)
+			if (eventType == PpeAfterPlayerSay && string.Equals(ProcessedPhrase, "less spooks", StringComparison.OrdinalIgnoreCase) && gameState.SpookCounter < 8)
 			{
 				var spookMonster = Globals.MDB[9];
 
@@ -47,7 +47,7 @@ namespace BeginnersForest.Game.Commands
 				goto Cleanup;
 			}
 
-			base.PlayerProcessEvents01();
+			base.PlayerProcessEvents(eventType);
 
 		Cleanup:
 

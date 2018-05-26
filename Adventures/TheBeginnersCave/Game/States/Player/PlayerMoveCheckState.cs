@@ -12,9 +12,9 @@ namespace TheBeginnersCave.Game.States
 	[ClassMappings]
 	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
-		protected override void ProcessEvents01()
+		protected override void ProcessEvents(long eventType)
 		{
-			if (Globals.GameState.R2 == -1)
+			if (eventType == PeAfterBlockingArtifactCheck && Globals.GameState.R2 == -1)
 			{
 				Globals.Out.Print("Sorry, but I'm afraid to go into the water without my life preserver.");
 
@@ -22,7 +22,7 @@ namespace TheBeginnersCave.Game.States
 			}
 			else
 			{
-				base.ProcessEvents01();
+				base.ProcessEvents(eventType);
 			}
 		}
 	}

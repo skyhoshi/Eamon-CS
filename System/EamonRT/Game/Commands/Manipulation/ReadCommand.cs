@@ -17,15 +17,15 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class ReadCommand : Command, IReadCommand
 	{
-		protected virtual void PlayerProcessEvents()
-		{
+		/// <summary>
+		/// This event fires before an artifact's read text is printed.
+		/// </summary>
+		protected const long PpeBeforeArtifactReadTextPrint = 1;
 
-		}
-
-		protected virtual void PlayerProcessEvents01()
-		{
-
-		}
+		/// <summary>
+		/// This event fires after the player reads an artifact.
+		/// </summary>
+		protected const long PpeAfterArtifactRead = 2;
 
 		protected override void PlayerExecute()
 		{
@@ -55,7 +55,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				PlayerProcessEvents();
+				PlayerProcessEvents(PpeBeforeArtifactReadTextPrint);
 
 				if (GotoCleanup)
 				{
@@ -84,7 +84,7 @@ namespace EamonRT.Game.Commands
 					Globals.Out.Write("{0}", Globals.Buf);
 				}
 
-				PlayerProcessEvents01();
+				PlayerProcessEvents(PpeAfterArtifactRead);
 
 				if (GotoCleanup)
 				{

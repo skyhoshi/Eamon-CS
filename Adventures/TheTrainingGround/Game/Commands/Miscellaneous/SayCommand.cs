@@ -14,33 +14,40 @@ namespace TheTrainingGround.Game.Commands
 	[ClassMappings]
 	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
 	{
-		protected override void PlayerProcessEvents01()
+		protected override void PlayerProcessEvents(long eventType)
 		{
-			var hammerArtifact = Globals.ADB[24];
-
-			Debug.Assert(hammerArtifact != null);
-
-			var magicWordsSpoken = string.Equals(ProcessedPhrase, "thor", StringComparison.OrdinalIgnoreCase) || string.Equals(ProcessedPhrase, "thor's hammer", StringComparison.OrdinalIgnoreCase);
-
-			var hammerPresent = hammerArtifact.IsCarriedByCharacter() || hammerArtifact.IsInRoom(ActorRoom);
-
-			// Hammer of Thor
-
-			if (magicWordsSpoken && hammerPresent)
+			if (eventType == PpeAfterPlayerSay)
 			{
-				var command = Globals.CreateInstance<IUseCommand>();
+				var hammerArtifact = Globals.ADB[24];
 
-				CopyCommandData(command);
+				Debug.Assert(hammerArtifact != null);
 
-				command.Dobj = hammerArtifact;
+				var magicWordsSpoken = string.Equals(ProcessedPhrase, "thor", StringComparison.OrdinalIgnoreCase) || string.Equals(ProcessedPhrase, "thor's hammer", StringComparison.OrdinalIgnoreCase);
 
-				NextState = command;
+				var hammerPresent = hammerArtifact.IsCarriedByCharacter() || hammerArtifact.IsInRoom(ActorRoom);
 
-				GotoCleanup = true;
+				// Hammer of Thor
+
+				if (magicWordsSpoken && hammerPresent)
+				{
+					var command = Globals.CreateInstance<IUseCommand>();
+
+					CopyCommandData(command);
+
+					command.Dobj = hammerArtifact;
+
+					NextState = command;
+
+					GotoCleanup = true;
+				}
+				else
+				{
+					base.PlayerProcessEvents(eventType);
+				}
 			}
 			else
 			{
-				base.PlayerProcessEvents01();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 	}

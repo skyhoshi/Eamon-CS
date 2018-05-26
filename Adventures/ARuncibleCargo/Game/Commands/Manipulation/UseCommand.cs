@@ -15,103 +15,110 @@ namespace ARuncibleCargo.Game.Commands
 	[ClassMappings]
 	public class UseCommand : EamonRT.Game.Commands.UseCommand, IUseCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
-			switch (DobjArtifact.Uid)
+			if (eventType == PpeBeforeArtifactUse)
 			{
-				case 34:
+				switch (DobjArtifact.Uid)
+				{
+					case 34:
 
-					// Telescope
+						// Telescope
 
-					Globals.Engine.PrintEffectDesc(121);
+						Globals.Engine.PrintEffectDesc(121);
 
-					GotoCleanup = true;
+						GotoCleanup = true;
 
-					break;
+						break;
 
-				case 129:
+					case 129:
 
-					// Cargo
+						// Cargo
 
-					Globals.Engine.PrintEffectDesc(128);
+						Globals.Engine.PrintEffectDesc(128);
 
-					GotoCleanup = true;
+						GotoCleanup = true;
 
-					break;
+						break;
 
-				case 45:
+					case 45:
 
-					// Detonator
+						// Detonator
 
-					var cargoArtifact = Globals.ADB[129];
+						var cargoArtifact = Globals.ADB[129];
 
-					Debug.Assert(cargoArtifact != null);
+						Debug.Assert(cargoArtifact != null);
 
-					var explosiveDeviceArtifact = Globals.ADB[43];
+						var explosiveDeviceArtifact = Globals.ADB[43];
 
-					Debug.Assert(explosiveDeviceArtifact != null);
+						Debug.Assert(explosiveDeviceArtifact != null);
 
-					var princeMonster = Globals.MDB[38];
+						var princeMonster = Globals.MDB[38];
 
-					Debug.Assert(princeMonster != null);
+						Debug.Assert(princeMonster != null);
 
-					if (explosiveDeviceArtifact.IsCarriedByContainer(cargoArtifact) && cargoArtifact.IsCarriedByMonster(princeMonster))
-					{
-						var gatesArtifact = Globals.ADB[137];
-
-						Debug.Assert(gatesArtifact != null);
-
-						var ac = gatesArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
-
-						Debug.Assert(ac != null);
-
-						if (!ac.IsOpen())
+						if (explosiveDeviceArtifact.IsCarriedByContainer(cargoArtifact) && cargoArtifact.IsCarriedByMonster(princeMonster))
 						{
-							// Blow up bandits with explosive-rigged Cargo
+							var gatesArtifact = Globals.ADB[137];
 
-							Globals.Out.Print("You activate the detonator...");
+							Debug.Assert(gatesArtifact != null);
 
-							Globals.Out.Print("{0}", Globals.LineSep);
+							var ac = gatesArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
 
-							Globals.Engine.PrintEffectDesc(138);
+							Debug.Assert(ac != null);
 
-							Globals.In.KeyPress(Globals.Buf);
+							if (!ac.IsOpen())
+							{
+								// Blow up bandits with explosive-rigged Cargo
 
-							Globals.GameState.Die = 0;
+								Globals.Out.Print("You activate the detonator...");
 
-							Globals.ExitType = Enums.ExitType.FinishAdventure;
+								Globals.Out.Print("{0}", Globals.LineSep);
 
-							Globals.MainLoop.ShouldShutdown = true;
+								Globals.Engine.PrintEffectDesc(138);
 
-							NextState = Globals.CreateInstance<IStartState>();
+								Globals.In.KeyPress(Globals.Buf);
 
-							GotoCleanup = true;
+								Globals.GameState.Die = 0;
+
+								Globals.ExitType = Enums.ExitType.FinishAdventure;
+
+								Globals.MainLoop.ShouldShutdown = true;
+
+								NextState = Globals.CreateInstance<IStartState>();
+
+								GotoCleanup = true;
+							}
+							else
+							{
+								Globals.Engine.PrintEffectDesc(137);
+
+								NextState = Globals.CreateInstance<IStartState>();
+
+								GotoCleanup = true;
+							}
 						}
 						else
 						{
-							Globals.Engine.PrintEffectDesc(137);
+							Globals.Engine.PrintEffectDesc(136);
 
 							NextState = Globals.CreateInstance<IStartState>();
 
 							GotoCleanup = true;
 						}
-					}
-					else
-					{
-						Globals.Engine.PrintEffectDesc(136);
 
-						NextState = Globals.CreateInstance<IStartState>();
+						break;
 
-						GotoCleanup = true;
-					}
+					default:
 
-					break;
+						base.PlayerProcessEvents(eventType);
 
-				default:
-
-					base.PlayerProcessEvents();
-
-					break;
+						break;
+				}
+			}
+			else
+			{
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 	}

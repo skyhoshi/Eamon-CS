@@ -13,9 +13,9 @@ namespace StrongholdOfKahrDur.Game.States
 	[ClassMappings]
 	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, IGetPlayerInputState
 	{
-		protected override void ProcessEvents()
+		protected override void ProcessEvents(long eventType)
 		{
-			if (ShouldPreTurnProcess())
+			if (eventType == PeBeforeCommandPromptPrint && ShouldPreTurnProcess())
 			{
 				var room = Globals.RDB[84];
 
@@ -39,7 +39,7 @@ namespace StrongholdOfKahrDur.Game.States
 				}
 			}
 
-			base.ProcessEvents();
+			base.ProcessEvents(eventType);
 		}
 	}
 }

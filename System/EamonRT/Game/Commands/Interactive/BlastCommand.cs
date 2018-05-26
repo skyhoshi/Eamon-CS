@@ -20,19 +20,20 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class BlastCommand : Command, IBlastCommand
 	{
+		/// <summary>
+		/// This event fires after a check has been made to resolve the player's spell cast
+		/// attempt, and it resolves as successful.
+		/// </summary>
+		protected const long PpeAfterPlayerSpellCastCheck = 1;
+
+		/// <summary>
+		/// This event fires after the monster targeted by the Blast spell gets aggravated.
+		/// </summary>
+		protected const long PpeAfterMonsterGetsAggravated = 2;
+
 		public virtual bool CastSpell { get; set; }
 
 		public virtual bool CheckAttack { get; set; }
-
-		protected virtual void PlayerProcessEvents()
-		{
-
-		}
-
-		protected virtual void PlayerProcessEvents01()
-		{
-
-		}
 
 		protected override void PlayerExecute()
 		{
@@ -65,7 +66,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			PlayerProcessEvents();
+			PlayerProcessEvents(PpeAfterPlayerSpellCastCheck);
 
 			if (GotoCleanup)
 			{
@@ -77,7 +78,7 @@ namespace EamonRT.Game.Commands
 				Globals.Engine.MonsterGetsAggravated(DobjMonster);
 			}
 
-			PlayerProcessEvents01();
+			PlayerProcessEvents(PpeAfterMonsterGetsAggravated);
 
 			if (GotoCleanup)
 			{

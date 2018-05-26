@@ -18,15 +18,16 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class OpenCommand : Command, IOpenCommand
 	{
-		protected virtual void PlayerProcessEvents()
-		{
+		/// <summary>
+		/// This event fires after an artifact's open message has been printed (but before
+		/// inventory is listed for containers).
+		/// </summary>
+		protected const long PpeAfterArtifactOpenPrint = 1;
 
-		}
-
-		protected virtual void PlayerProcessEvents01()
-		{
-
-		}
+		/// <summary>
+		/// This event fires after the player opens an artifact.
+		/// </summary>
+		protected const long PpeAfterArtifactOpen = 2;
 
 		protected virtual bool ShouldPrintContainerInventory()
 		{
@@ -131,7 +132,7 @@ namespace EamonRT.Game.Commands
 					PrintOpened(DobjArtifact);
 				}
 
-				PlayerProcessEvents();
+				PlayerProcessEvents(PpeAfterArtifactOpenPrint);
 
 				if (GotoCleanup)
 				{
@@ -162,7 +163,7 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				PlayerProcessEvents01();
+				PlayerProcessEvents(PpeAfterArtifactOpen);
 
 				if (GotoCleanup)
 				{

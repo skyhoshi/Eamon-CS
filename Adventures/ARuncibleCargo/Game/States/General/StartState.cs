@@ -13,25 +13,28 @@ namespace ARuncibleCargo.Game.States
 	[ClassMappings]
 	public class StartState : EamonRT.Game.States.StartState, IStartState
 	{
-		protected override void ProcessEvents()
+		protected override void ProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
-			var room = Globals.RDB[gameState.Ro];
+			if (eventType == PeBeforeRoundStart)
+			{
+				var room = Globals.RDB[gameState.Ro];
 
-			Debug.Assert(room != null);
+				Debug.Assert(room != null);
 
-			var cargoArtifact = Globals.ADB[129];
+				var cargoArtifact = Globals.ADB[129];
 
-			Debug.Assert(cargoArtifact != null);
+				Debug.Assert(cargoArtifact != null);
 
-			// Cargo check
+				// Cargo check
 
-			gameState.CargoInRoom = cargoArtifact.IsInRoom(room) || cargoArtifact.IsCarriedByCharacter() ? 1 : 0;
+				gameState.CargoInRoom = cargoArtifact.IsInRoom(room) || cargoArtifact.IsCarriedByCharacter() ? 1 : 0;
+			}
 
-			base.ProcessEvents();
+			base.ProcessEvents(eventType);
 		}
 	}
 }

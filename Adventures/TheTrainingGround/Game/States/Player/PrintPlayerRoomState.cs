@@ -13,9 +13,9 @@ namespace TheTrainingGround.Game.States
 	[ClassMappings]
 	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, IPrintPlayerRoomState
 	{
-		protected override void ProcessEvents()
+		protected override void ProcessEvents(long eventType)
 		{
-			if (ShouldPreTurnProcess())
+			if (eventType == PeBeforePlayerRoomPrint && ShouldPreTurnProcess())
 			{
 				var gameState = Globals.GameState as Framework.IGameState;
 
@@ -102,7 +102,7 @@ namespace TheTrainingGround.Game.States
 				}
 			}
 
-			base.ProcessEvents();
+			base.ProcessEvents(eventType);
 		}
 	}
 }

@@ -4,7 +4,6 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
-using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
 using EamonRT.Framework.States;
@@ -15,9 +14,9 @@ namespace TheSubAquanLaboratory.Game.States
 	[ClassMappings]
 	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, IGetPlayerInputState
 	{
-		protected override void ProcessEvents()
+		protected override void ProcessEvents(long eventType)
 		{
-			if (ShouldPreTurnProcess())
+			if (eventType == PeBeforeCommandPromptPrint && ShouldPreTurnProcess())
 			{
 				var gameState = Globals.GameState as Framework.IGameState;
 
@@ -148,7 +147,7 @@ namespace TheSubAquanLaboratory.Game.States
 				}
 			}
 
-			base.ProcessEvents();
+			base.ProcessEvents(eventType);
 
 		Cleanup:
 

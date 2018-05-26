@@ -16,16 +16,17 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class FreeCommand : Command, IFreeCommand
 	{
+		/// <summary>
+		/// This event fires before a check is made to see if a guard monster prevents
+		/// a bound monster from being freed.
+		/// </summary>
+		protected const long PpeBeforeGuardMonsterCheck = 1;
+
 		protected virtual IMonster Monster { get; set; }
 
 		protected virtual IMonster Guard { get; set; }
 
 		protected virtual IArtifact Key { get; set; }
-
-		protected virtual void PlayerProcessEvents()
-		{
-
-		}
 
 		protected virtual void PrintMonsterFreed()
 		{
@@ -56,7 +57,7 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(Monster != null);
 
-				PlayerProcessEvents();
+				PlayerProcessEvents(PpeBeforeGuardMonsterCheck);
 
 				if (GotoCleanup)
 				{

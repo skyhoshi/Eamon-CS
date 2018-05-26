@@ -39,120 +39,123 @@ namespace TheTempleOfNgurct.Game.States
 			combatSystem.ExecuteCalculateDamage(numDice, numSides);
 		}
 
-		protected override void ProcessEvents()
+		protected override void ProcessEvents(long eventType)
 		{
-			var rl = Globals.Engine.RollDice01(1, 100, 0);
-
 			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
-			// Spear trap
-
-			if (gameState.Ro == 5 && rl < 20)
+			if (eventType == PeAfterExtinguishLightSourceCheck)
 			{
-				Globals.Engine.PrintEffectDesc(19);
+				var rl = Globals.Engine.RollDice01(1, 100, 0);
 
-				var monsters = GetTrapMonsterList(1, gameState.Ro);
+				// Spear trap
 
-				foreach (var m in monsters)
+				if (gameState.Ro == 5 && rl < 20)
 				{
-					ApplyTrapDamage(m, 1, 6, false);
+					Globals.Engine.PrintEffectDesc(19);
 
-					if (gameState.Die == 1)
+					var monsters = GetTrapMonsterList(1, gameState.Ro);
+
+					foreach (var m in monsters)
 					{
-						GotoCleanup = true;
+						ApplyTrapDamage(m, 1, 6, false);
 
-						goto Cleanup;
+						if (gameState.Die == 1)
+						{
+							GotoCleanup = true;
+
+							goto Cleanup;
+						}
+					}
+				}
+
+				// Loose rocks
+
+				if (gameState.Ro == 11 && rl < 33)
+				{
+					Globals.Engine.PrintEffectDesc(20);
+
+					var monsters = GetTrapMonsterList(1, gameState.Ro);
+
+					foreach (var m in monsters)
+					{
+						ApplyTrapDamage(m, 1, 4, false);
+
+						if (gameState.Die == 1)
+						{
+							GotoCleanup = true;
+
+							goto Cleanup;
+						}
+					}
+				}
+
+				// Gas trap
+
+				if (gameState.Ro == 16 && rl < 15)
+				{
+					Globals.Engine.PrintEffectDesc(21);
+
+					var monsters = GetTrapMonsterList(3, gameState.Ro);
+
+					foreach (var m in monsters)
+					{
+						ApplyTrapDamage(m, 2, 6, true);
+
+						if (gameState.Die == 1)
+						{
+							GotoCleanup = true;
+
+							goto Cleanup;
+						}
+					}
+				}
+
+				// Crossbow trap
+
+				if (gameState.Ro == 32 && rl < 51)
+				{
+					Globals.Engine.PrintEffectDesc(22);
+
+					var monsters = GetTrapMonsterList(1, gameState.Ro);
+
+					foreach (var m in monsters)
+					{
+						ApplyTrapDamage(m, 1, 8, false);
+
+						if (gameState.Die == 1)
+						{
+							GotoCleanup = true;
+
+							goto Cleanup;
+						}
+					}
+				}
+
+				// Scything blade trap
+
+				if (gameState.Ro == 57 && rl < 20)
+				{
+					Globals.Engine.PrintEffectDesc(23);
+
+					var monsters = GetTrapMonsterList(1, gameState.Ro);
+
+					foreach (var m in monsters)
+					{
+						ApplyTrapDamage(m, 2, 6, false);
+
+						if (gameState.Die == 1)
+						{
+							GotoCleanup = true;
+
+							goto Cleanup;
+						}
 					}
 				}
 			}
 
-			// Loose rocks
-
-			if (gameState.Ro == 11 && rl < 33)
-			{
-				Globals.Engine.PrintEffectDesc(20);
-
-				var monsters = GetTrapMonsterList(1, gameState.Ro);
-
-				foreach (var m in monsters)
-				{
-					ApplyTrapDamage(m, 1, 4, false);
-
-					if (gameState.Die == 1)
-					{
-						GotoCleanup = true;
-
-						goto Cleanup;
-					}
-				}
-			}
-
-			// Gas trap
-
-			if (gameState.Ro == 16 && rl < 15)
-			{
-				Globals.Engine.PrintEffectDesc(21);
-
-				var monsters = GetTrapMonsterList(3, gameState.Ro);
-
-				foreach (var m in monsters)
-				{
-					ApplyTrapDamage(m, 2, 6, true);
-
-					if (gameState.Die == 1)
-					{
-						GotoCleanup = true;
-
-						goto Cleanup;
-					}
-				}
-			}
-
-			// Crossbow trap
-
-			if (gameState.Ro == 32 && rl < 51)
-			{
-				Globals.Engine.PrintEffectDesc(22);
-
-				var monsters = GetTrapMonsterList(1, gameState.Ro);
-
-				foreach (var m in monsters)
-				{
-					ApplyTrapDamage(m, 1, 8, false);
-
-					if (gameState.Die == 1)
-					{
-						GotoCleanup = true;
-
-						goto Cleanup;
-					}
-				}
-			}
-
-			// Scything blade trap
-
-			if (gameState.Ro == 57 && rl < 20)
-			{
-				Globals.Engine.PrintEffectDesc(23);
-
-				var monsters = GetTrapMonsterList(1, gameState.Ro);
-
-				foreach (var m in monsters)
-				{
-					ApplyTrapDamage(m, 2, 6, false);
-
-					if (gameState.Die == 1)
-					{
-						GotoCleanup = true;
-
-						goto Cleanup;
-					}
-				}
-			}
-
-			base.ProcessEvents();
+			base.ProcessEvents(eventType);
 
 		Cleanup:
 

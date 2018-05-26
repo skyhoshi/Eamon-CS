@@ -16,90 +16,97 @@ namespace TheTrainingGround.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
-			var hammerArtifact = Globals.ADB[24];
-
-			Debug.Assert(hammerArtifact != null);
-
-			// Thor's hammer appears in Norse Mural room
-
-			if (ActorRoom.Uid == 22 && !gameState.ThorsHammerAppears)
+			if (eventType == PpeAfterPlayerSpellCastCheck)
 			{
-				hammerArtifact.SetInRoom(ActorRoom);
+				var hammerArtifact = Globals.ADB[24];
 
-				Globals.Engine.PrintEffectDesc(7);
+				Debug.Assert(hammerArtifact != null);
 
-				gameState.ThorsHammerAppears = true;
+				// Thor's hammer appears in Norse Mural room
 
-				NextState = Globals.CreateInstance<IStartState>();
-
-				GotoCleanup = true;
-
-				goto Cleanup;
-			}
-
-			var rl = Globals.Engine.RollDice01(1, 100, 0);
-
-			// 20% chance of gender change
-
-			if (rl < 21 && gameState.GenderChangeCounter < 2)
-			{
-				ActorMonster.Gender = ActorMonster.EvalGender(Enums.Gender.Female, Enums.Gender.Male, Enums.Gender.Neutral);
-
-				Globals.Character.Gender = ActorMonster.Gender;
-
-				Globals.Out.Print("You feel different... more {0}.", ActorMonster.EvalGender("masculine", "feminine", "androgynous"));
-
-				gameState.GenderChangeCounter++;
-
-				GotoCleanup = true;
-
-				goto Cleanup;
-			}
-
-			// 40% chance Charisma up (one time only)
-
-			if (rl < 41 && !gameState.CharismaBoosted)
-			{
-				Globals.Character.ModStats(Enums.Stat.Charisma, 2);
-
-				Globals.Out.Print("You suddenly feel more {0}.", Globals.Character.EvalGender("handsome", "beautiful", "androgynous"));
-
-				gameState.CharismaBoosted = true;
-
-				GotoCleanup = true;
-
-				goto Cleanup;
-			}
-
-			// 5% Chance of being hit by lightning!
-
-			if (rl > 94)
-			{
-				Globals.Engine.PrintEffectDesc(33);
-
-				var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
+				if (ActorRoom.Uid == 22 && !gameState.ThorsHammerAppears)
 				{
-					x.SetNextStateFunc = s => NextState = s;
+					hammerArtifact.SetInRoom(ActorRoom);
 
-					x.DfMonster = ActorMonster;
+					Globals.Engine.PrintEffectDesc(7);
 
-					x.OmitArmor = true;
-				});
+					gameState.ThorsHammerAppears = true;
 
-				combatSystem.ExecuteCalculateDamage(1, 10);
+					NextState = Globals.CreateInstance<IStartState>();
 
-				GotoCleanup = true;
+					GotoCleanup = true;
 
-				goto Cleanup;
+					goto Cleanup;
+				}
+
+				var rl = Globals.Engine.RollDice01(1, 100, 0);
+
+				// 20% chance of gender change
+
+				if (rl < 21 && gameState.GenderChangeCounter < 2)
+				{
+					ActorMonster.Gender = ActorMonster.EvalGender(Enums.Gender.Female, Enums.Gender.Male, Enums.Gender.Neutral);
+
+					Globals.Character.Gender = ActorMonster.Gender;
+
+					Globals.Out.Print("You feel different... more {0}.", ActorMonster.EvalGender("masculine", "feminine", "androgynous"));
+
+					gameState.GenderChangeCounter++;
+
+					GotoCleanup = true;
+
+					goto Cleanup;
+				}
+
+				// 40% chance Charisma up (one time only)
+
+				if (rl < 41 && !gameState.CharismaBoosted)
+				{
+					Globals.Character.ModStats(Enums.Stat.Charisma, 2);
+
+					Globals.Out.Print("You suddenly feel more {0}.", Globals.Character.EvalGender("handsome", "beautiful", "androgynous"));
+
+					gameState.CharismaBoosted = true;
+
+					GotoCleanup = true;
+
+					goto Cleanup;
+				}
+
+				// 5% Chance of being hit by lightning!
+
+				if (rl > 94)
+				{
+					Globals.Engine.PrintEffectDesc(33);
+
+					var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
+					{
+						x.SetNextStateFunc = s => NextState = s;
+
+						x.DfMonster = ActorMonster;
+
+						x.OmitArmor = true;
+					});
+
+					combatSystem.ExecuteCalculateDamage(1, 10);
+
+					GotoCleanup = true;
+
+					goto Cleanup;
+				}
+
+				PrintSonicBoom();
 			}
-
-			PrintSonicBoom();
+			else
+			{
+				base.PlayerProcessEvents(eventType);
+			}
 
 		Cleanup:
 

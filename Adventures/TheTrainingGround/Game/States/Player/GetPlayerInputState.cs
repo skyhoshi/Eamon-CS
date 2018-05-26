@@ -13,9 +13,9 @@ namespace TheTrainingGround.Game.States
 	[ClassMappings]
 	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, IGetPlayerInputState
 	{
-		protected override void ProcessEvents()
+		protected override void ProcessEvents(long eventType)
 		{
-			if (ShouldPreTurnProcess())
+			if (eventType == PeBeforeCommandPromptPrint && ShouldPreTurnProcess())
 			{
 				var gameState = Globals.GameState as Framework.IGameState;
 
@@ -79,7 +79,7 @@ namespace TheTrainingGround.Game.States
 				}
 			}
 
-			base.ProcessEvents();
+			base.ProcessEvents(eventType);
 		}
 	}
 }

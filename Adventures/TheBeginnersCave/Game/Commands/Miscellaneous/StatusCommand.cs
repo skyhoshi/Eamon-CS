@@ -14,18 +14,21 @@ namespace TheBeginnersCave.Game.Commands
 	[ClassMappings]
 	public class StatusCommand : EamonRT.Game.Commands.StatusCommand, IStatusCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
-			var trollsfireArtifact = Globals.ADB[10];
-
-			Debug.Assert(trollsfireArtifact != null);
-
-			if (trollsfireArtifact.IsCarriedByCharacter() && Globals.GameState.CastTo<Framework.IGameState>().Trollsfire == 1)
+			if (eventType == PpeAfterPlayerStatus)
 			{
-				Globals.Out.Print("Trollsfire is alight!");
+				var trollsfireArtifact = Globals.ADB[10];
+
+				Debug.Assert(trollsfireArtifact != null);
+
+				if (trollsfireArtifact.IsCarriedByCharacter() && Globals.GameState.CastTo<Framework.IGameState>().Trollsfire == 1)
+				{
+					Globals.Out.Print("Trollsfire is alight!");
+				}
 			}
 
-			base.PlayerProcessEvents();
+			base.PlayerProcessEvents(eventType);
 		}
 	}
 }

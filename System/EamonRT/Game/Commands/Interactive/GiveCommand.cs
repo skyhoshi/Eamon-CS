@@ -21,24 +21,26 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class GiveCommand : Command, IGiveCommand
 	{
+		/// <summary>
+		/// This event fires after a check has been made to enforce limits on the weight a
+		/// monster can carry.
+		/// </summary>
+		protected const long PpeAfterEnforceMonsterWeightLimitsCheck = 1;
+
+		/// <summary>
+		/// This event fires after a check has been made to see if the player is giving away
+		/// a readied weapon.
+		/// </summary>
+		protected const long PpeAfterPlayerGivesReadiedWeaponCheck = 2;
+
+		/// <summary>
+		/// This event fires before a monster takes the gold offered by the player.
+		/// </summary>
+		protected const long PpeBeforeMonsterTakesGold = 3;
+
 		public virtual bool GetCommandCalled { get; set; }
 
 		public virtual long GoldAmount { get; set; }
-
-		protected virtual void PlayerProcessEvents()
-		{
-
-		}
-
-		protected virtual void PlayerProcessEvents01()
-		{
-
-		}
-
-		protected virtual void PlayerProcessEvents02()
-		{
-
-		}
 
 		protected virtual bool MonsterRefusesToAccept()
 		{
@@ -119,7 +121,7 @@ namespace EamonRT.Game.Commands
 					}
 				}
 
-				PlayerProcessEvents();
+				PlayerProcessEvents(PpeAfterEnforceMonsterWeightLimitsCheck);
 
 				if (GotoCleanup)
 				{
@@ -151,7 +153,7 @@ namespace EamonRT.Game.Commands
 					ActorMonster.Weapon = -1;
 				}
 
-				PlayerProcessEvents01();
+				PlayerProcessEvents(PpeAfterPlayerGivesReadiedWeaponCheck);
 
 				if (GotoCleanup)
 				{
@@ -307,7 +309,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				PlayerProcessEvents02();
+				PlayerProcessEvents(PpeBeforeMonsterTakesGold);
 
 				if (GotoCleanup)
 				{

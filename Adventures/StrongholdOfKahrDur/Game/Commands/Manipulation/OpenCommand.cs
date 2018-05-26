@@ -14,7 +14,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 	[ClassMappings]
 	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, IOpenCommand
 	{
-		protected override void PlayerProcessEvents01()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			var eyeglassesArtifact = Globals.ADB[2];
 
@@ -22,7 +22,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 			// If armoire opened and player is wearing eyeglasses reveal secret door
 
-			if (DobjArtifact.Uid == 3 && eyeglassesArtifact.IsWornByCharacter())
+			if (eventType == PpeAfterArtifactOpen && DobjArtifact.Uid == 3 && eyeglassesArtifact.IsWornByCharacter())
 			{
 				var secretDoorArtifact = Globals.ADB[4];
 
@@ -40,7 +40,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 			}
 			else
 			{
-				base.PlayerProcessEvents01();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 	}

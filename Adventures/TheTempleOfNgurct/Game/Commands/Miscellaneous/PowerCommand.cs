@@ -21,30 +21,139 @@ namespace TheTempleOfNgurct.Game.Commands
 			Globals.Out.Print("The air crackles with magical energy!");
 		}
 
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
-			var rl = 0L;
-
 			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
-			var monsters = Globals.Engine.GetMonsterList(() => true, m => !m.IsCharacterMonster() && m.Uid != 53 && m.Friendliness < Enums.Friendliness.Friend && m.Seen && m.IsInRoom(ActorRoom));
-
-			foreach (var m in monsters)
+			if (eventType == PpeAfterPlayerSpellCastCheck)
 			{
+				var rl = 0L;
+
+				var monsters = Globals.Engine.GetMonsterList(() => true, m => !m.IsCharacterMonster() && m.Uid != 53 && m.Friendliness < Enums.Friendliness.Friend && m.Seen && m.IsInRoom(ActorRoom));
+
+				foreach (var m in monsters)
+				{
+					rl = Globals.Engine.RollDice01(1, 100, 0);
+
+					if (rl > 50)
+					{
+						Globals.Out.Print("{0} vanishes!", m.GetDecoratedName03(true, true, false, false, Globals.Buf));
+
+						m.SetInLimbo();
+
+						if (m.Uid == 30)
+						{
+							gameState.KeyRingRoomUid = ActorRoom.Uid;
+						}
+
+						Globals.Engine.CheckEnemies();
+
+						GotoCleanup = true;
+
+						goto Cleanup;
+					}
+				}
+
 				rl = Globals.Engine.RollDice01(1, 100, 0);
 
-				if (rl > 50)
+				// Earthquake!
+
+				if (rl < 26 && gameState.Ro != 58)
 				{
-					Globals.Out.Print("{0} vanishes!", m.GetDecoratedName03(true, true, false, false, Globals.Buf));
+					Globals.Engine.PrintEffectDesc(17);
 
-					m.SetInLimbo();
-
-					if (m.Uid == 30)
+					if (rl < 11)
 					{
-						gameState.KeyRingRoomUid = ActorRoom.Uid;
+						Globals.Engine.PrintEffectDesc(18);
+
+						gameState.Die = 1;
+
+						NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
+						{
+							x.PrintLineSep = true;
+						});
+
+						GotoCleanup = true;
+
+						goto Cleanup;
 					}
+
+					monsters = Globals.Engine.GetRandomMonsterList(1, m => !m.IsCharacterMonster() && m.Seen && m.IsInRoom(ActorRoom));
+
+					Debug.Assert(monsters != null);
+
+					foreach (var m in monsters)
+					{
+						Globals.Out.Print("{0} falls into the crack!", m.GetDecoratedName03(true, true, false, false, Globals.Buf));
+
+						var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
+						{
+							x.SetNextStateFunc = s => NextState = s;
+
+							x.DfMonster = m;
+
+							x.OmitArmor = false;
+						});
+
+						combatSystem.ExecuteCalculateDamage(1, 100);
+					}
+
+					GotoCleanup = true;
+
+					goto Cleanup;
+				}
+
+				// Annoy higher power
+
+				if (rl < 51)
+				{
+					Globals.Engine.PrintEffectDesc(15);
+
+					Globals.Engine.PrintEffectDesc(16);
+
+					var room = Globals.Engine.RollDice01(1, 27, 32);
+
+					ActorMonster.SetInRoomUid(room);
+
+					Globals.Engine.CheckEnemies();
+
+					NextState = Globals.CreateInstance<IStartState>();
+
+					GotoCleanup = true;
+
+					goto Cleanup;
+				}
+
+				var heroMonster = Globals.MDB[57];
+
+				Debug.Assert(heroMonster != null);
+
+				// The Hero appears
+
+				if (rl < 71 && gameState.Ro != 58 && !heroMonster.Seen)
+				{
+					PrintAirCracklesWithEnergy();
+
+					heroMonster.SetInRoom(ActorRoom);
+
+					Globals.Engine.CheckEnemies();
+
+					NextState = Globals.CreateInstance<IStartState>();
+
+					GotoCleanup = true;
+
+					goto Cleanup;
+				}
+
+				// The Hero disappears
+
+				if (rl < 71 && heroMonster.IsInRoom(ActorRoom))
+				{
+					Globals.Out.Print("The Hero vanishes!  (The gods giveth...)");
+
+					heroMonster.SetInLimbo();
 
 					Globals.Engine.CheckEnemies();
 
@@ -52,151 +161,49 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					goto Cleanup;
 				}
-			}
 
-			rl = Globals.Engine.RollDice01(1, 100, 0);
+				// Gets wandering monster
 
-			// Earthquake!
-
-			if (rl < 26 && gameState.Ro != 58)
-			{
-				Globals.Engine.PrintEffectDesc(17);
-
-				if (rl < 11)
+				if (rl < 81 && gameState.Ro != 58)
 				{
-					Globals.Engine.PrintEffectDesc(18);
+					PrintAirCracklesWithEnergy();
 
-					gameState.Die = 1;
+					Globals.Engine.GetWanderingMonster();
 
-					NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
-					{
-						x.PrintLineSep = true;
-					});
+					NextState = Globals.CreateInstance<IStartState>();
 
 					GotoCleanup = true;
 
 					goto Cleanup;
 				}
 
-				monsters = Globals.Engine.GetRandomMonsterList(1, m => !m.IsCharacterMonster() && m.Seen && m.IsInRoom(ActorRoom));
+				// The lost room!
 
-				Debug.Assert(monsters != null);
-
-				foreach (var m in monsters)
+				if (rl < 86 && gameState.Ro != 58)
 				{
-					Globals.Out.Print("{0} falls into the crack!", m.GetDecoratedName03(true, true, false, false, Globals.Buf));
+					PrintAirCracklesWithEnergy();
 
-					var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
-					{
-						x.SetNextStateFunc = s => NextState = s;
+					ActorMonster.SetInRoomUid(58);
 
-						x.DfMonster = m;
+					Globals.Engine.CheckEnemies();
 
-						x.OmitArmor = false;
-					});
+					NextState = Globals.CreateInstance<IStartState>();
 
-					combatSystem.ExecuteCalculateDamage(1, 100);
+					GotoCleanup = true;
+
+					goto Cleanup;
 				}
 
-				GotoCleanup = true;
+				Globals.Out.Print("All your wounds are healed!");
 
-				goto Cleanup;
+				Globals.GameState.ModDTTL(ActorMonster.Friendliness, -ActorMonster.DmgTaken);
+
+				ActorMonster.DmgTaken = 0;
 			}
-
-			// Annoy higher power
-
-			if (rl < 51)
+			else
 			{
-				Globals.Engine.PrintEffectDesc(15);
-
-				Globals.Engine.PrintEffectDesc(16);
-
-				var room = Globals.Engine.RollDice01(1, 27, 32);
-
-				ActorMonster.SetInRoomUid(room);
-
-				Globals.Engine.CheckEnemies();
-
-				NextState = Globals.CreateInstance<IStartState>();
-
-				GotoCleanup = true;
-
-				goto Cleanup;
+				base.PlayerProcessEvents(eventType);
 			}
-
-			var heroMonster = Globals.MDB[57];
-
-			Debug.Assert(heroMonster != null);
-
-			// The Hero appears
-
-			if (rl < 71 && gameState.Ro != 58 && !heroMonster.Seen)
-			{
-				PrintAirCracklesWithEnergy();
-
-				heroMonster.SetInRoom(ActorRoom);
-
-				Globals.Engine.CheckEnemies();
-
-				NextState = Globals.CreateInstance<IStartState>();
-
-				GotoCleanup = true;
-
-				goto Cleanup;
-			}
-
-			// The Hero disappears
-
-			if (rl < 71 && heroMonster.IsInRoom(ActorRoom))
-			{
-				Globals.Out.Print("The Hero vanishes!  (The gods giveth...)");
-
-				heroMonster.SetInLimbo();
-
-				Globals.Engine.CheckEnemies();
-
-				GotoCleanup = true;
-
-				goto Cleanup;
-			}
-
-			// Gets wandering monster
-
-			if (rl < 81 && gameState.Ro != 58)
-			{
-				PrintAirCracklesWithEnergy();
-
-				Globals.Engine.GetWanderingMonster();
-
-				NextState = Globals.CreateInstance<IStartState>();
-
-				GotoCleanup = true;
-
-				goto Cleanup;
-			}
-
-			// The lost room!
-
-			if (rl < 86 && gameState.Ro != 58)
-			{
-				PrintAirCracklesWithEnergy();
-
-				ActorMonster.SetInRoomUid(58);
-
-				Globals.Engine.CheckEnemies();
-
-				NextState = Globals.CreateInstance<IStartState>();
-
-				GotoCleanup = true;
-
-				goto Cleanup;
-			}
-
-			Globals.Out.Print("All your wounds are healed!");
-
-			Globals.GameState.ModDTTL(ActorMonster.Friendliness, -ActorMonster.DmgTaken);
-
-			ActorMonster.DmgTaken = 0;
 
 		Cleanup:
 

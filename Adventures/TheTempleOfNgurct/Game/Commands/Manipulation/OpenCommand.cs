@@ -16,7 +16,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, IOpenCommand
 	{
-		protected override void PlayerProcessEvents01()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 
@@ -24,7 +24,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			// If chest opened reveal cobra
 
-			if (DobjArtifact.Uid == 54 && !gameState.CobraAppeared)
+			if (eventType == PpeAfterArtifactOpen && DobjArtifact.Uid == 54 && !gameState.CobraAppeared)
 			{
 				var cobraMonster = Globals.MDB[52];
 
@@ -42,7 +42,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			}
 			else
 			{
-				base.PlayerProcessEvents01();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 

@@ -32,46 +32,53 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
-			// Put anything in slime destroys it
-
-			if (IobjArtifact.Uid == 24 || IobjArtifact.Uid == 25)
+			if (eventType == PpeAfterArtifactPut)
 			{
-				Globals.Out.Print("{0} start{1} dissolving on contact with {2}!", DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf),	DobjArtifact.EvalPlural("s", ""), IobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+				// Put anything in slime destroys it
 
-				Globals.Out.Print("{0} {1} destroyed!", DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf), DobjArtifact.EvalPlural("is", "are"));
+				if (IobjArtifact.Uid == 24 || IobjArtifact.Uid == 25)
+				{
+					Globals.Out.Print("{0} start{1} dissolving on contact with {2}!", DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf), DobjArtifact.EvalPlural("s", ""), IobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 
-				DobjArtifact.SetInLimbo();
-			}
+					Globals.Out.Print("{0} {1} destroyed!", DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf), DobjArtifact.EvalPlural("is", "are"));
 
-			// Put orb in metal pedestal
+					DobjArtifact.SetInLimbo();
+				}
 
-			else if (DobjArtifact.Uid == 4 && IobjArtifact.Uid == 43)
-			{
-				Globals.Engine.PrintEffectDesc(43);
+				// Put orb in metal pedestal
 
-				Globals.Engine.PrintEffectDesc(44);
+				else if (DobjArtifact.Uid == 4 && IobjArtifact.Uid == 43)
+				{
+					Globals.Engine.PrintEffectDesc(43);
 
-				var adjacentRoom = Globals.RDB[45];
+					Globals.Engine.PrintEffectDesc(44);
 
-				Debug.Assert(adjacentRoom != null);
+					var adjacentRoom = Globals.RDB[45];
 
-				var newRoom = Globals.RDB[15];
+					Debug.Assert(adjacentRoom != null);
 
-				Debug.Assert(newRoom != null);
+					var newRoom = Globals.RDB[15];
 
-				adjacentRoom.SetDirs(Enums.Direction.South, 15);
+					Debug.Assert(newRoom != null);
 
-				IobjArtifact.IsListed = false;
+					adjacentRoom.SetDirs(Enums.Direction.South, 15);
 
-				Globals.Engine.TransportPlayerBetweenRooms(ActorRoom, newRoom, null);
+					IobjArtifact.IsListed = false;
 
-				NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
+					Globals.Engine.TransportPlayerBetweenRooms(ActorRoom, newRoom, null);
+
+					NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
+				}
+				else
+				{
+					base.PlayerProcessEvents(eventType);
+				}
 			}
 			else
 			{
-				base.PlayerProcessEvents();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 

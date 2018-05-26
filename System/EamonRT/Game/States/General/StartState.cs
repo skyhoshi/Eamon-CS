@@ -12,14 +12,14 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class StartState : State, IStartState
 	{
-		protected virtual void ProcessEvents()
-		{
-
-		}
+		/// <summary>
+		/// This event fires at the start of a new round, before any processing has been done.
+		/// </summary>
+		protected const long PeBeforeRoundStart = 1;
 
 		public override void Execute()
 		{
-			ProcessEvents();
+			ProcessEvents(PeBeforeRoundStart);
 
 			if (NextState == null)
 			{

@@ -17,6 +17,17 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class PlayerMoveCheckState : State, IPlayerMoveCheckState
 	{
+		/// <summary>
+		/// This event fires before a check is made to see if the player can move to a room.
+		/// </summary>
+		protected const long PeBeforeCanMoveToRoomCheck = 1;
+
+		/// <summary>
+		/// This event fires after a check is made to see if a blocking artifact (for example,
+		/// a door) prevents the player's movement.
+		/// </summary>
+		protected const long PeAfterBlockingArtifactCheck = 2;
+
 		protected bool _found;
 
 		protected long _roomUid;
@@ -33,52 +44,54 @@ namespace EamonRT.Game.States
 
 		public virtual bool Fleeing { get; set; }
 
-		protected virtual void ProcessEvents()
+		protected override void ProcessEvents(long eventType)
 		{
+			RetCode rc;
+
 			var gameState = Globals.Engine.GetGameState();
 
 			Debug.Assert(gameState != null);
 
-			// Special blocking artifacts
-
-			var artifact = Globals.Engine.GetBlockedDirectionArtifact(gameState.Ro, gameState.R2, Direction);
-
-			if (artifact != null)
+			if (eventType == PeBeforeCanMoveToRoomCheck)
 			{
-				PrintObjBlocksTheWay(artifact);
+				// Special blocking artifacts
 
-				GotoCleanup = true;
-			}
-		}
+				var artifact = Globals.Engine.GetBlockedDirectionArtifact(gameState.Ro, gameState.R2, Direction);
 
-		protected virtual void ProcessEvents01()
-		{
-			RetCode rc;
-
-			if (Globals.GameState.R2 == Constants.DirectionExit)
-			{
-				PrintRideOffIntoSunset();
-
-				Globals.Out.Write("{0}Leave this adventure (Y/N): ", Environment.NewLine);
-
-				Globals.Buf.Clear();
-
-				rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
-
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-				if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'Y')
+				if (artifact != null)
 				{
-					Globals.GameState.Die = 0;
+					PrintObjBlocksTheWay(artifact);
 
-					Globals.ExitType = Enums.ExitType.FinishAdventure;
-
-					Globals.MainLoop.ShouldShutdown = true;
+					GotoCleanup = true;
 				}
 			}
-			else
+			else if (eventType == PeAfterBlockingArtifactCheck)
 			{
-				PrintCantGoThatWay();
+				if (gameState.R2 == Constants.DirectionExit)
+				{
+					PrintRideOffIntoSunset();
+
+					Globals.Out.Write("{0}Leave this adventure (Y/N): ", Environment.NewLine);
+
+					Globals.Buf.Clear();
+
+					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+					if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'Y')
+					{
+						gameState.Die = 0;
+
+						Globals.ExitType = Enums.ExitType.FinishAdventure;
+
+						Globals.MainLoop.ShouldShutdown = true;
+					}
+				}
+				else
+				{
+					PrintCantGoThatWay();
+				}
 			}
 		}
 
@@ -90,7 +103,7 @@ namespace EamonRT.Game.States
 
 			Debug.Assert(Monster != null);
 
-			ProcessEvents();
+			ProcessEvents(PeBeforeCanMoveToRoomCheck);
 
 			if (GotoCleanup)
 			{
@@ -164,7 +177,7 @@ namespace EamonRT.Game.States
 				}
 			}
 
-			ProcessEvents01();
+			ProcessEvents(PeAfterBlockingArtifactCheck);
 
 		Cleanup:
 

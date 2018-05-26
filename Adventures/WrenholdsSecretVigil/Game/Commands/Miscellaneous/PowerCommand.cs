@@ -12,9 +12,16 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
-			Globals.Engine.PrintEffectDesc(45);
+			if (eventType == PpeAfterPlayerSpellCastCheck)
+			{
+				Globals.Engine.PrintEffectDesc(45);
+			}
+			else
+			{
+				base.PlayerProcessEvents(eventType);
+			}
 		}
 
 		protected override bool ShouldAllowSkillGains()

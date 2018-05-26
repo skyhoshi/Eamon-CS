@@ -12,9 +12,9 @@ namespace TheBeginnersCave.Game.Commands
 	[ClassMappings]
 	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, IGiveCommand
 	{
-		protected override void PlayerProcessEvents02()
+		protected override void PlayerProcessEvents(long eventType)
 		{
-			if (IobjMonster.Uid == 1 || IobjMonster.Uid == 5 || IobjMonster.Uid == 7)
+			if (eventType == PpeBeforeMonsterTakesGold && (IobjMonster.Uid == 1 || IobjMonster.Uid == 5 || IobjMonster.Uid == 7))
 			{
 				Globals.Engine.MonsterSmiles(IobjMonster);
 
@@ -24,7 +24,7 @@ namespace TheBeginnersCave.Game.Commands
 			}
 			else
 			{
-				base.PlayerProcessEvents02();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 	}

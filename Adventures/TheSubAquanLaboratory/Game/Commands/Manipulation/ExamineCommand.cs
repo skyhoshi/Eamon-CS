@@ -40,158 +40,165 @@ namespace TheSubAquanLaboratory.Game.Commands
 			}
 		}
 
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
-			switch (DobjArtifact.Uid)
+			if (eventType == PpeAfterArtifactFullDescPrint)
 			{
-				case 2:
-				case 83:
+				switch (DobjArtifact.Uid)
+				{
+					case 2:
+					case 83:
 
-					// Engraving/fake wall
+						// Engraving/fake wall
 
-					if (gameState.FakeWallExamines < 2)
-					{
-						Globals.Out.Print("Examining {0} reveals something curious:", DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
-					}
+						if (gameState.FakeWallExamines < 2)
+						{
+							Globals.Out.Print("Examining {0} reveals something curious:", DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+						}
 
-					gameState.FakeWallExamines++;
+						gameState.FakeWallExamines++;
 
-					Globals.Engine.PrintEffectDesc(40 + gameState.FakeWallExamines);
+						Globals.Engine.PrintEffectDesc(40 + gameState.FakeWallExamines);
 
-					if (gameState.FakeWallExamines > 2)
-					{
-						gameState.FakeWallExamines = 2;
-					}
+						if (gameState.FakeWallExamines > 2)
+						{
+							gameState.FakeWallExamines = 2;
+						}
 
-					break;
+						break;
 
-				case 23:
+					case 23:
 
-					// Magnetic fusion power plant
+						// Magnetic fusion power plant
 
-					Globals.Engine.PrintEffectDesc(37);
+						Globals.Engine.PrintEffectDesc(37);
 
-					var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
-					{
-						x.SetNextStateFunc = s => NextState = s;
+						var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
+						{
+							x.SetNextStateFunc = s => NextState = s;
 
-						x.DfMonster = ActorMonster;
+							x.DfMonster = ActorMonster;
 
-						x.OmitArmor = true;
-					});
+							x.OmitArmor = true;
+						});
 
-					combatSystem.ExecuteCalculateDamage(1, 6);
+						combatSystem.ExecuteCalculateDamage(1, 6);
 
-					break;
+						break;
 
-				case 25:
+					case 25:
 
-					// Pool pals
+						// Pool pals
 
-					if (!gameState.Shark)
-					{
-						var largeHammerheadMonster = Globals.MDB[7];
+						if (!gameState.Shark)
+						{
+							var largeHammerheadMonster = Globals.MDB[7];
 
-						Debug.Assert(largeHammerheadMonster != null);
+							Debug.Assert(largeHammerheadMonster != null);
 
-						largeHammerheadMonster.SetInRoom(ActorRoom);
+							largeHammerheadMonster.SetInRoom(ActorRoom);
 
-						var smallHammerheadMonster = Globals.MDB[8];
+							var smallHammerheadMonster = Globals.MDB[8];
 
-						Debug.Assert(smallHammerheadMonster != null);
+							Debug.Assert(smallHammerheadMonster != null);
 
-						smallHammerheadMonster.SetInRoom(ActorRoom);
+							smallHammerheadMonster.SetInRoom(ActorRoom);
 
-						Globals.Engine.CheckEnemies();
+							Globals.Engine.CheckEnemies();
 
-						Globals.Engine.PrintEffectDesc(1);
+							Globals.Engine.PrintEffectDesc(1);
 
-						gameState.Shark = true;
+							gameState.Shark = true;
 
-						NextState = Globals.CreateInstance<IStartState>();
-					}
+							NextState = Globals.CreateInstance<IStartState>();
+						}
 
-					break;
+						break;
 
-				case 45:
+					case 45:
 
-					RevealArtifact(46);
+						RevealArtifact(46);
 
-					break;
+						break;
 
-				case 63:
+					case 63:
 
-					if (ExamineConsole)
-					{
-						RevealArtifact(64, true);
-					}
-					else
-					{
-						RevealArtifact(65);
-					}
+						if (ExamineConsole)
+						{
+							RevealArtifact(64, true);
+						}
+						else
+						{
+							RevealArtifact(65);
+						}
 
-					break;
+						break;
 
-				case 58:
+					case 58:
 
-					RevealArtifact(59);
+						RevealArtifact(59);
 
-					break;
+						break;
 
-				case 59:
+					case 59:
 
-					RevealArtifact(60);
+						RevealArtifact(60);
 
-					break;
+						break;
 
-				case 64:
+					case 64:
 
-					if (!ExamineConsole)
-					{
-						RevealArtifact(66);
-					}
+						if (!ExamineConsole)
+						{
+							RevealArtifact(66);
+						}
 
-					break;
+						break;
 
-				case 66:
+					case 66:
 
-					RevealArtifact(67);
+						RevealArtifact(67);
 
-					break;
+						break;
 
-				case 67:
+					case 67:
 
-					RevealArtifact(68);
+						RevealArtifact(68);
 
-					break;
+						break;
 
-				case 68:
+					case 68:
 
-					RevealArtifact(69);
+						RevealArtifact(69);
 
-					break;
+						break;
 
-				case 69:
+					case 69:
 
-					RevealArtifact(70);
+						RevealArtifact(70);
 
-					break;
+						break;
 
-				case 62:
+					case 62:
 
-					RevealArtifact(63, true);
+						RevealArtifact(63, true);
 
-					break;
+						break;
 
-				default:
+					default:
 
-					base.PlayerProcessEvents();
+						base.PlayerProcessEvents(eventType);
 
-					break;
+						break;
+				}
+			} 
+			else
+			{
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 	}

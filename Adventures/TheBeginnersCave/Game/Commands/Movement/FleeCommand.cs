@@ -24,24 +24,27 @@ namespace TheBeginnersCave.Game.Commands
 			Globals.Out.Print("There's no place to run!");
 		}
 
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
-			// another classic Eamon moment...
-
-			var mimicMonster = Globals.MDB[7];
-
-			Debug.Assert(mimicMonster != null);
-
-			if (mimicMonster.IsInRoom(ActorRoom))
+			if (eventType == PpeAfterNumberOfExitsCheck)
 			{
-				Globals.Out.Print("You are held fast by the mimic and cannot flee!");
+				// another classic Eamon moment...
 
-				NextState = Globals.CreateInstance<IMonsterStartState>();
+				var mimicMonster = Globals.MDB[7];
 
-				GotoCleanup = true;
+				Debug.Assert(mimicMonster != null);
+
+				if (mimicMonster.IsInRoom(ActorRoom))
+				{
+					Globals.Out.Print("You are held fast by the mimic and cannot flee!");
+
+					NextState = Globals.CreateInstance<IMonsterStartState>();
+
+					GotoCleanup = true;
+				}
 			}
 
-			base.PlayerProcessEvents();
+			base.PlayerProcessEvents(eventType);
 		}
 	}
 }

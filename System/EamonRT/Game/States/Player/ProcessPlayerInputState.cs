@@ -13,12 +13,13 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class ProcessPlayerInputState : State, IProcessPlayerInputState
 	{
+		/// <summary>
+		/// This event fires after the player's command has been processed (but not executed), 
+		/// the current turn counter incremented and the last command list cleared.
+		/// </summary>
+		protected const long PeAfterLastCommandListClear = 1;
+
 		public virtual bool IncrementCurrTurn { get; set; }
-
-		protected virtual void ProcessEvents()
-		{
-
-		}
 
 		public override void Execute()
 		{
@@ -38,7 +39,7 @@ namespace EamonRT.Game.States
 				Globals.LastCommandList.RemoveAt(0);
 			}
 
-			ProcessEvents();
+			ProcessEvents(PeAfterLastCommandListClear);
 
 			if (GotoCleanup)
 			{

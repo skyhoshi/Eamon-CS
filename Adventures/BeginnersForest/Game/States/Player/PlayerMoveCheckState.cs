@@ -12,43 +12,50 @@ namespace BeginnersForest.Game.States
 	[ClassMappings]
 	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
-		protected override void ProcessEvents01()
+		protected override void ProcessEvents(long eventType)
 		{
-			// Exit gate
-
-			if (Globals.GameState.R2 == -2)
+			if (eventType == PeAfterBlockingArtifactCheck)
 			{
-				Globals.Out.Print("The path is washed out!");
-			}
+				// Exit gate
 
-			// Death by spooky water! / Death by moss!
+				if (Globals.GameState.R2 == -2)
+				{
+					Globals.Out.Print("The path is washed out!");
+				}
 
-			else if (Globals.GameState.R2 == -33 || Globals.GameState.R2 == -35)
-			{
-				var effectUid = Globals.GameState.R2 == -33 ? 3 : 4;
+				// Death by spooky water! / Death by moss!
 
-				Globals.Engine.PrintEffectDesc(effectUid);
+				else if (Globals.GameState.R2 == -33 || Globals.GameState.R2 == -35)
+				{
+					var effectUid = Globals.GameState.R2 == -33 ? 3 : 4;
 
-				Globals.GameState.Ro = 1;
+					Globals.Engine.PrintEffectDesc(effectUid);
 
-				Globals.GameState.R2 = Globals.GameState.Ro;
+					Globals.GameState.Ro = 1;
 
-				NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
-			}
+					Globals.GameState.R2 = Globals.GameState.Ro;
 
-			// Don't step on any beavers!
+					NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
+				}
 
-			else if (Globals.GameState.R2 == -34)
-			{
-				Globals.GameState.R2 = 33;
+				// Don't step on any beavers!
 
-				Globals.Engine.PrintEffectDesc(1);
+				else if (Globals.GameState.R2 == -34)
+				{
+					Globals.GameState.R2 = 33;
 
-				NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
+					Globals.Engine.PrintEffectDesc(1);
+
+					NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
+				}
+				else
+				{
+					base.ProcessEvents(eventType);
+				}
 			}
 			else
 			{
-				base.ProcessEvents01();
+				base.ProcessEvents(eventType);
 			}
 		}
 	}

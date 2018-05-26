@@ -17,10 +17,10 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class StatusCommand : Command, IStatusCommand
 	{
-		protected virtual void PlayerProcessEvents()
-		{
-
-		}
+		/// <summary>
+		/// This event fires after the player's status text has been printed.
+		/// </summary>
+		protected const long PpeAfterPlayerStatus = 1;
 
 		protected override void PlayerExecute()
 		{
@@ -72,7 +72,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-			PlayerProcessEvents();
+			PlayerProcessEvents(PpeAfterPlayerStatus);
 
 			if (NextState == null)
 			{

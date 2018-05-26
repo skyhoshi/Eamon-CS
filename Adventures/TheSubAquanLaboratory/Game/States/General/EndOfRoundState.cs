@@ -13,71 +13,74 @@ namespace TheSubAquanLaboratory.Game.States
 	[ClassMappings]
 	public class EndOfRoundState : EamonRT.Game.States.EndOfRoundState, IEndOfRoundState
 	{
-		protected override void ProcessEvents()
+		protected override void ProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
-			var room = Globals.RDB[Globals.GameState.Ro];
-
-			Debug.Assert(room != null);
-
-			// Energy mace fizzles
-
-			if (gameState.EnergyMaceCharge > 0)
+			if (eventType == PeAfterRoundEnd)
 			{
-				var energyMaceArtifact = Globals.ADB[80];
+				var room = Globals.RDB[Globals.GameState.Ro];
 
-				Debug.Assert(energyMaceArtifact != null);
+				Debug.Assert(room != null);
 
-				var monster = energyMaceArtifact.GetCarriedByMonster();
+				// Energy mace fizzles
 
-				if (energyMaceArtifact.IsInRoom(room) || energyMaceArtifact.IsCarriedByCharacter() || (monster != null && monster.IsInRoom(room)))
+				if (gameState.EnergyMaceCharge > 0)
 				{
-					if (--gameState.EnergyMaceCharge == 0)
+					var energyMaceArtifact = Globals.ADB[80];
+
+					Debug.Assert(energyMaceArtifact != null);
+
+					var monster = energyMaceArtifact.GetCarriedByMonster();
+
+					if (energyMaceArtifact.IsInRoom(room) || energyMaceArtifact.IsCarriedByCharacter() || (monster != null && monster.IsInRoom(room)))
 					{
-						var ac = energyMaceArtifact.GetCategories(0);
+						if (--gameState.EnergyMaceCharge == 0)
+						{
+							var ac = energyMaceArtifact.GetCategories(0);
 
-						Debug.Assert(ac != null);
+							Debug.Assert(ac != null);
 
-						ac.Field1 = 0;
+							ac.Field1 = 0;
 
-						ac.Field3 = 1;
+							ac.Field3 = 1;
 
-						ac.Field4 = 6;
+							ac.Field4 = 6;
 
-						energyMaceArtifact.Value = 15;
+							energyMaceArtifact.Value = 15;
 
-						Globals.Engine.PrintEffectDesc(31);
+							Globals.Engine.PrintEffectDesc(31);
+						}
+					}
+				}
+
+				// Laser scalpel fizzles
+
+				if (gameState.LaserScalpelCharge > 0)
+				{
+					var scalpelArtifact = Globals.ADB[76];
+
+					Debug.Assert(scalpelArtifact != null);
+
+					var monster = scalpelArtifact.GetCarriedByMonster();
+
+					if (scalpelArtifact.IsInRoom(room) || scalpelArtifact.IsCarriedByCharacter() || (monster != null && monster.IsInRoom(room)))
+					{
+						if (--gameState.LaserScalpelCharge == 0)
+						{
+							scalpelArtifact.Value = 15;
+
+							Globals.Engine.ConvertWeaponToGoldOrTreasure(scalpelArtifact, false);
+
+							Globals.Engine.PrintEffectDesc(32);
+						}
 					}
 				}
 			}
 
-			// Laser scalpel fizzles
-
-			if (gameState.LaserScalpelCharge > 0)
-			{
-				var scalpelArtifact = Globals.ADB[76];
-
-				Debug.Assert(scalpelArtifact != null);
-
-				var monster = scalpelArtifact.GetCarriedByMonster();
-
-				if (scalpelArtifact.IsInRoom(room) || scalpelArtifact.IsCarriedByCharacter() || (monster != null && monster.IsInRoom(room)))
-				{
-					if (--gameState.LaserScalpelCharge == 0)
-					{
-						scalpelArtifact.Value = 15;
-
-						Globals.Engine.ConvertWeaponToGoldOrTreasure(scalpelArtifact, false);
-
-						Globals.Engine.PrintEffectDesc(32);
-					}
-				}
-			}
-
-			base.ProcessEvents();
+			base.ProcessEvents(eventType);
 		}
 	}
 }

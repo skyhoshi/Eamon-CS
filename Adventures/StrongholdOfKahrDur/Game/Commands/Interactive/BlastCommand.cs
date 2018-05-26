@@ -13,7 +13,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 	[ClassMappings]
 	public class BlastCommand : EamonRT.Game.Commands.BlastCommand, IBlastCommand
 	{
-		protected override void PlayerProcessEvents01()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			var helmArtifact = Globals.ADB[25];
 
@@ -21,7 +21,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 			// Necromancer cannot be blasted unless wearing Wizard's Helm
 
-			if (DobjMonster != null && DobjMonster.Uid == 22 && !helmArtifact.IsWornByCharacter())
+			if (eventType == PpeAfterMonsterGetsAggravated && DobjMonster != null && DobjMonster.Uid == 22 && !helmArtifact.IsWornByCharacter())
 			{
 				var rl = Globals.Engine.RollDice01(1, 4, 56);
 
@@ -31,7 +31,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 			}
 			else
 			{
-				base.PlayerProcessEvents01();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 

@@ -19,10 +19,11 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class ExamineCommand : Command, IExamineCommand
 	{
-		protected virtual void PlayerProcessEvents()
-		{
-
-		}
+		/// <summary>
+		/// This event fires after an artifact's full description has been printed (but before
+		/// units are listed for drinkables/edibles).
+		/// </summary>
+		protected const long PpeAfterArtifactFullDescPrint = 1;
 
 		protected override void PlayerExecute()
 		{
@@ -70,7 +71,7 @@ namespace EamonRT.Game.Commands
 
 				DobjArtifact.Seen = true;
 
-				PlayerProcessEvents();
+				PlayerProcessEvents(PpeAfterArtifactFullDescPrint);
 
 				if (GotoCleanup)
 				{

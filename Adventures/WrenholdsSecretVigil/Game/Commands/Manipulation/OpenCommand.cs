@@ -15,11 +15,11 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, IOpenCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			// Try to open running device, all flee
 
-			if (DobjArtifact.Uid == 44)
+			if (eventType == PpeAfterArtifactOpenPrint && DobjArtifact.Uid == 44)
 			{
 				Globals.DeviceOpened = true;
 
@@ -27,7 +27,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 			else
 			{
-				base.PlayerProcessEvents();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 

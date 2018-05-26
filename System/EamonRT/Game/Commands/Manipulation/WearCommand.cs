@@ -19,10 +19,10 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class WearCommand : Command, IWearCommand
 	{
-		protected virtual void PlayerProcessEvents()
-		{
-
-		}
+		/// <summary>
+		/// This event fires after the player wears an artifact.
+		/// </summary>
+		protected const long PpeAfterArtifactWear = 1;
 
 		protected override void PlayerExecute()
 		{
@@ -107,7 +107,7 @@ namespace EamonRT.Game.Commands
 
 				Globals.Out.Print("{0} worn.", DobjArtifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
 
-				PlayerProcessEvents();
+				PlayerProcessEvents(PpeAfterArtifactWear);
 
 				if (GotoCleanup)
 				{

@@ -17,16 +17,16 @@ namespace ARuncibleCargo.Game.States
 	[ClassMappings]
 	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, IPrintPlayerRoomState
 	{
-		protected override void ProcessEvents()
+		protected override void ProcessEvents(long eventType)
 		{
-			if (ShouldPreTurnProcess())
+			RetCode rc;
+
+			var gameState = Globals.GameState as Framework.IGameState;
+
+			Debug.Assert(gameState != null);
+
+			if (eventType == PeBeforePlayerRoomPrint && ShouldPreTurnProcess())
 			{
-				RetCode rc;
-
-				var gameState = Globals.GameState as Framework.IGameState;
-
-				Debug.Assert(gameState != null);
-
 				var characterMonster = Globals.MDB[gameState.Cm];
 
 				Debug.Assert(characterMonster != null);
@@ -260,7 +260,7 @@ namespace ARuncibleCargo.Game.States
 				}
 			}
 
-			base.ProcessEvents();
+			base.ProcessEvents(eventType);
 		}
 	}
 }

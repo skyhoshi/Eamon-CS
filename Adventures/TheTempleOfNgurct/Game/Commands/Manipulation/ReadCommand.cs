@@ -20,11 +20,11 @@ namespace TheTempleOfNgurct.Game.Commands
 			PrintEnemiesNearby();
 		}
 
-		protected override void PlayerProcessEvents01()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			// Book
 
-			if (DobjArtifact.Uid == 61)
+			if (eventType == PpeAfterArtifactRead && DobjArtifact.Uid == 61)
 			{
 				Globals.Engine.RemoveWeight(DobjArtifact);
 
@@ -40,7 +40,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			}
 			else
 			{
-				base.PlayerProcessEvents01();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 

@@ -14,56 +14,63 @@ namespace StrongholdOfKahrDur.Game.Commands
 	[ClassMappings]
 	public class ExamineCommand : EamonRT.Game.Commands.ExamineCommand, IExamineCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
-			var eyeglassesArtifact = Globals.ADB[2];
-
-			Debug.Assert(eyeglassesArtifact != null);
-
-			var secretDoorArtifact = Globals.ADB[4];
-
-			Debug.Assert(secretDoorArtifact != null);
-
-			// Armoire (while wearing glasses)
-
-			if (DobjArtifact.Uid == 3 && eyeglassesArtifact.IsWornByCharacter() && !secretDoorArtifact.IsInRoom(ActorRoom))
+			if (eventType == PpeAfterArtifactFullDescPrint)
 			{
-				var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
+				var eyeglassesArtifact = Globals.ADB[2];
 
-				Debug.Assert(ac != null);
+				Debug.Assert(eyeglassesArtifact != null);
 
-				ac.SetOpen(false);
+				var secretDoorArtifact = Globals.ADB[4];
 
-				var command = Globals.CreateInstance<IOpenCommand>();
+				Debug.Assert(secretDoorArtifact != null);
 
-				CopyCommandData(command);
+				// Armoire (while wearing glasses)
 
-				NextState = command;
+				if (DobjArtifact.Uid == 3 && eyeglassesArtifact.IsWornByCharacter() && !secretDoorArtifact.IsInRoom(ActorRoom))
+				{
+					var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
-				GotoCleanup = true;
-			}
+					Debug.Assert(ac != null);
 
-			// Bookshelf/secret door in library (while wearing magic glasses)
+					ac.SetOpen(false);
 
-			else if (DobjArtifact.Uid == 11 && eyeglassesArtifact.IsWornByCharacter())
-			{
-				var secretDoorArtifact01 = Globals.ADB[10];
+					var command = Globals.CreateInstance<IOpenCommand>();
 
-				Debug.Assert(secretDoorArtifact01 != null);
+					CopyCommandData(command);
 
-				var ac = secretDoorArtifact01.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					NextState = command;
 
-				Debug.Assert(ac != null);
+					GotoCleanup = true;
+				}
 
-				secretDoorArtifact01.SetInRoom(ActorRoom);
+				// Bookshelf/secret door in library (while wearing magic glasses)
 
-				ac.SetOpen(true);
+				else if (DobjArtifact.Uid == 11 && eyeglassesArtifact.IsWornByCharacter())
+				{
+					var secretDoorArtifact01 = Globals.ADB[10];
 
-				ac.Field4 = 0;
+					Debug.Assert(secretDoorArtifact01 != null);
+
+					var ac = secretDoorArtifact01.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+
+					Debug.Assert(ac != null);
+
+					secretDoorArtifact01.SetInRoom(ActorRoom);
+
+					ac.SetOpen(true);
+
+					ac.Field4 = 0;
+				}
+				else
+				{
+					base.PlayerProcessEvents(eventType);
+				}
 			}
 			else
 			{
-				base.PlayerProcessEvents();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 	}

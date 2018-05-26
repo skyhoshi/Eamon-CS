@@ -35,82 +35,88 @@ namespace TheTrainingGround.Game.Commands
 			}
 		}
 
-		protected override void PlayerProcessEvents()
-		{
-			// Give obsidian scroll case to Emerald Warrior
-
-			if (IobjMonster.Uid == 14 && DobjArtifact.Uid == 51)
-			{
-				Globals.Engine.RemoveWeight(DobjArtifact);
-
-				DobjArtifact.SetInLimbo();
-
-				IobjMonster.SetInLimbo();
-
-				Globals.Engine.CheckEnemies();
-
-				Globals.Engine.PrintEffectDesc(14);
-
-				GotoCleanup = true;
-			}
-			else
-			{
-				base.PlayerProcessEvents();
-			}
-		}
-
-		protected override void PlayerProcessEvents02()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
-			// Buy potion from gnome
-
-			if (IobjMonster.Uid == 20)
+			if (eventType == PpeAfterEnforceMonsterWeightLimitsCheck)
 			{
-				if (GoldAmount >= 100)
+				// Give obsidian scroll case to Emerald Warrior
+
+				if (IobjMonster.Uid == 14 && DobjArtifact.Uid == 51)
 				{
-					var redPotionArtifact = Globals.ADB[40];
+					Globals.Engine.RemoveWeight(DobjArtifact);
 
-					Debug.Assert(redPotionArtifact != null);
+					DobjArtifact.SetInLimbo();
 
-					var bluePotionArtifact = Globals.ADB[41];
+					IobjMonster.SetInLimbo();
 
-					Debug.Assert(bluePotionArtifact != null);
+					Globals.Engine.CheckEnemies();
 
-					if (redPotionArtifact.IsCarriedByMonsterUid(20) || bluePotionArtifact.IsCarriedByMonsterUid(20))
-					{
-						Globals.Character.HeldGold -= GoldAmount;
+					Globals.Engine.PrintEffectDesc(14);
 
-						if (GoldAmount > 100)
-						{
-							Globals.Engine.PrintEffectDesc(30);
-						}
-
-						var potionArtifact = redPotionArtifact.IsCarriedByMonsterUid(20) ? redPotionArtifact : bluePotionArtifact;
-
-						potionArtifact.SetInRoomUid(gameState.Ro);
-
-						Globals.Engine.PrintEffectDesc(31);
-
-						NextState = Globals.CreateInstance<IStartState>();
-					}
-					else
-					{
-						Globals.Engine.PrintEffectDesc(29);
-					}
+					GotoCleanup = true;
 				}
 				else
 				{
-					Globals.Engine.PrintEffectDesc(28);
+					base.PlayerProcessEvents(eventType);
 				}
+			}
+			else if (eventType == PpeBeforeMonsterTakesGold)
+			{
+				// Buy potion from gnome
 
-				GotoCleanup = true;
+				if (IobjMonster.Uid == 20)
+				{
+					if (GoldAmount >= 100)
+					{
+						var redPotionArtifact = Globals.ADB[40];
+
+						Debug.Assert(redPotionArtifact != null);
+
+						var bluePotionArtifact = Globals.ADB[41];
+
+						Debug.Assert(bluePotionArtifact != null);
+
+						if (redPotionArtifact.IsCarriedByMonsterUid(20) || bluePotionArtifact.IsCarriedByMonsterUid(20))
+						{
+							Globals.Character.HeldGold -= GoldAmount;
+
+							if (GoldAmount > 100)
+							{
+								Globals.Engine.PrintEffectDesc(30);
+							}
+
+							var potionArtifact = redPotionArtifact.IsCarriedByMonsterUid(20) ? redPotionArtifact : bluePotionArtifact;
+
+							potionArtifact.SetInRoomUid(gameState.Ro);
+
+							Globals.Engine.PrintEffectDesc(31);
+
+							NextState = Globals.CreateInstance<IStartState>();
+						}
+						else
+						{
+							Globals.Engine.PrintEffectDesc(29);
+						}
+					}
+					else
+					{
+						Globals.Engine.PrintEffectDesc(28);
+					}
+
+					GotoCleanup = true;
+				}
+				else
+				{
+					base.PlayerProcessEvents(eventType);
+				}
 			}
 			else
 			{
-				base.PlayerProcessEvents02();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 

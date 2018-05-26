@@ -13,74 +13,80 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, IGiveCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
-			if (IobjMonster.Uid == 1)
+			if (eventType == PpeAfterEnforceMonsterWeightLimitsCheck)
 			{
-				// Give death dog the dead rabbit
-
-				if (DobjArtifact.Uid == 15)
+				if (IobjMonster.Uid == 1)
 				{
-					Globals.Engine.RemoveWeight(DobjArtifact);
+					// Give death dog the dead rabbit
 
-					DobjArtifact.SetInLimbo();
-
-					IobjMonster.Friendliness = (Enums.Friendliness)150;
-
-					IobjMonster.OrigFriendliness = (Enums.Friendliness)150;
-
-					Globals.Engine.CheckEnemies();
-
-					PrintGiveObjToActor(DobjArtifact, IobjMonster);
-
-					Globals.Engine.PrintEffectDesc(13);
-
-					if (IobjMonster.Friendliness == Enums.Friendliness.Friend)
+					if (DobjArtifact.Uid == 15)
 					{
-						Globals.Out.Print("{0} barks once and wags its tail!", IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf));
+						Globals.Engine.RemoveWeight(DobjArtifact);
+
+						DobjArtifact.SetInLimbo();
+
+						IobjMonster.Friendliness = (Enums.Friendliness)150;
+
+						IobjMonster.OrigFriendliness = (Enums.Friendliness)150;
+
+						Globals.Engine.CheckEnemies();
+
+						PrintGiveObjToActor(DobjArtifact, IobjMonster);
+
+						Globals.Engine.PrintEffectDesc(13);
+
+						if (IobjMonster.Friendliness == Enums.Friendliness.Friend)
+						{
+							Globals.Out.Print("{0} barks once and wags its tail!", IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf));
+						}
 					}
+					else
+					{
+						Globals.Engine.MonsterSmiles(IobjMonster);
+
+						Globals.Out.WriteLine();
+					}
+
+					GotoCleanup = true;
 				}
-				else
+
+				// Further disable bribing
+
+				else if (base.MonsterRefusesToAccept())
 				{
 					Globals.Engine.MonsterSmiles(IobjMonster);
 
 					Globals.Out.WriteLine();
+
+					GotoCleanup = true;
 				}
-
-				GotoCleanup = true;
+				else
+				{
+					base.PlayerProcessEvents(eventType);
+				}
 			}
-
-			// Further disable bribing
-
-			else if (base.MonsterRefusesToAccept())
+			else if (eventType == PpeBeforeMonsterTakesGold)
 			{
-				Globals.Engine.MonsterSmiles(IobjMonster);
+				// Disable bribing
 
-				Globals.Out.WriteLine();
+				if (IobjMonster.Uid == 1 || IobjMonster.Friendliness < Enums.Friendliness.Friend)
+				{
+					Globals.Engine.MonsterSmiles(IobjMonster);
 
-				GotoCleanup = true;
-			}
-			else
-			{
-				base.PlayerProcessEvents();
-			}
-		}
+					Globals.Out.WriteLine();
 
-		protected override void PlayerProcessEvents02()
-		{
-			// Disable bribing
-
-			if (IobjMonster.Uid == 1 || IobjMonster.Friendliness < Enums.Friendliness.Friend)
-			{
-				Globals.Engine.MonsterSmiles(IobjMonster);
-
-				Globals.Out.WriteLine();
-
-				GotoCleanup = true;
+					GotoCleanup = true;
+				}
+				else
+				{
+					base.PlayerProcessEvents(eventType);
+				}
 			}
 			else
 			{
-				base.PlayerProcessEvents02();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 

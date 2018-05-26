@@ -14,11 +14,11 @@ namespace StrongholdOfKahrDur.Game.Commands
 	[ClassMappings]
 	public class CloseCommand : EamonRT.Game.Commands.CloseCommand, ICloseCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			// If the armoire is closed then hide the secret passage
 
-			if (DobjArtifact.Uid == 3)
+			if (eventType == PpeAfterArtifactClose && DobjArtifact.Uid == 3)
 			{
 				var secretDoorArtifact = Globals.ADB[4];
 
@@ -36,7 +36,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 			}
 			else
 			{
-				base.PlayerProcessEvents();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 	}

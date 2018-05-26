@@ -17,18 +17,18 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class UseCommand : Command, IUseCommand
 	{
+		/// <summary>
+		/// This event fires before the player uses an artifact.
+		/// </summary>
+		protected const long PpeBeforeArtifactUse = 1;
+
 		public virtual bool IobjSupport { get; set; }
-
-		protected virtual void PlayerProcessEvents()
-		{
-
-		}
 
 		protected override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
-			PlayerProcessEvents();
+			PlayerProcessEvents(PpeBeforeArtifactUse);
 
 			if (GotoCleanup)
 			{

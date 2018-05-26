@@ -351,14 +351,14 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(monster != null);
 
-			Globals.Out.Print("{0} politely refuse{1}.",	monster.GetDecoratedName03(true, true, false, false, Globals.Buf), monster.EvalPlural("s", ""));
+			Globals.Out.Print("{0} politely refuse{1}.", monster.GetDecoratedName03(true, true, false, false, Globals.Buf), monster.EvalPlural("s", ""));
 		}
 
 		protected virtual void PrintGiveObjToActor(IArtifact artifact, IMonster monster)
 		{
 			Debug.Assert(artifact != null && monster != null);
 
-			Globals.Out.Print("You give {0} to {1}.",	artifact.GetDecoratedName03(false, true, false, false, Globals.Buf),	monster.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+			Globals.Out.Print("You give {0} to {1}.", artifact.GetDecoratedName03(false, true, false, false, Globals.Buf), monster.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 		}
 
 		protected virtual void PrintOpenObjWithKey(IArtifact artifact, IArtifact key)
@@ -754,6 +754,16 @@ namespace EamonRT.Game.Commands
 					});
 				}
 			}
+		}
+
+		protected virtual void PlayerProcessEvents(long eventType)
+		{
+
+		}
+
+		protected virtual void MonsterProcessEvents(long eventType)
+		{
+
 		}
 
 		/// <summary>

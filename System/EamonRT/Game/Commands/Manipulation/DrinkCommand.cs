@@ -19,15 +19,15 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class DrinkCommand : Command, IDrinkCommand
 	{
-		protected virtual void PlayerProcessEvents()
-		{
+		/// <summary>
+		/// This event fires before a check is made to see if an artifact has been fully drunk.
+		/// </summary>
+		protected const long PpeBeforeArtifactNowEmptyCheck = 1;
 
-		}
-
-		protected virtual void PlayerProcessEvents01()
-		{
-
-		}
+		/// <summary>
+		/// This event fires after the player drinks an artifact.
+		/// </summary>
+		protected const long PpeAfterArtifactDrink = 2;
 
 		protected override void PlayerExecute()
 		{
@@ -77,7 +77,7 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				PlayerProcessEvents();
+				PlayerProcessEvents(PpeBeforeArtifactNowEmptyCheck);
 
 				if (GotoCleanup)
 				{
@@ -139,7 +139,7 @@ namespace EamonRT.Game.Commands
 					}
 				}
 
-				PlayerProcessEvents01();
+				PlayerProcessEvents(PpeAfterArtifactDrink);
 
 				if (GotoCleanup)
 				{

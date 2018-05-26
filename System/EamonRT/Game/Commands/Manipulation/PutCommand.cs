@@ -18,12 +18,12 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class PutCommand : Command, IPutCommand
 	{
+		/// <summary>
+		/// This event fires after the player puts an artifact into a container.
+		/// </summary>
+		protected const long PpeAfterArtifactPut = 1;
+
 		public virtual bool GetCommandCalled { get; set; }
-
-		protected virtual void PlayerProcessEvents()
-		{
-
-		}
 
 		protected override void PlayerExecute()
 		{
@@ -157,7 +157,7 @@ namespace EamonRT.Game.Commands
 
 			Globals.Out.Print("Done.");
 
-			PlayerProcessEvents();
+			PlayerProcessEvents(PpeAfterArtifactPut);
 
 			if (GotoCleanup)
 			{

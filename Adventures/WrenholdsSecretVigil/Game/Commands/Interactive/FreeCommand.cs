@@ -13,7 +13,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class FreeCommand : EamonRT.Game.Commands.FreeCommand, IFreeCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			var deviceArtifact = Globals.ADB[44];
 
@@ -21,7 +21,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			// Free caged animals
 
-			if (DobjArtifact.Uid == 46 && (deviceArtifact.IsInRoom(ActorRoom) || deviceArtifact.IsEmbeddedInRoom(ActorRoom)))
+			if (eventType == PpeBeforeGuardMonsterCheck && DobjArtifact.Uid == 46 && (deviceArtifact.IsInRoom(ActorRoom) || deviceArtifact.IsEmbeddedInRoom(ActorRoom)))
 			{
 				Globals.Out.Print("The glowing cages won't open!");
 
@@ -29,7 +29,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 			else
 			{
-				base.PlayerProcessEvents();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 	}

@@ -13,16 +13,19 @@ namespace BeginnersForest.Game.Commands
 	[ClassMappings]
 	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
-		protected override void PlayerProcessEvents01()
+		protected override void PlayerProcessEvents(long eventType)
 		{
-			// Scroll vanishes
-
-			if (DobjArtifact.Uid == 3)
+			if (eventType == PpeAfterArtifactRead)
 			{
-				DobjArtifact.SetInLimbo();
+				// Scroll vanishes
+
+				if (DobjArtifact.Uid == 3)
+				{
+					DobjArtifact.SetInLimbo();
+				}
 			}
 
-			base.PlayerProcessEvents01();
+			base.PlayerProcessEvents(eventType);
 		}
 
 		protected override void PlayerExecute()

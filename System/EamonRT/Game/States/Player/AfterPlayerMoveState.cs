@@ -17,14 +17,15 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class AfterPlayerMoveState : State, IAfterPlayerMoveState
 	{
+		/// <summary>
+		/// This event fires after the player has moved to a new room and a check has
+		/// been made to see if a carried light source needs to be extinguished.
+		/// </summary>
+		protected const long PeAfterExtinguishLightSourceCheck = 1;
+
 		public virtual Enums.Direction Direction { get; set; }
 
 		public virtual IArtifact Artifact { get; set; }
-
-		protected virtual void ProcessEvents()
-		{
-
-		}
 
 		public override void Execute()
 		{
@@ -100,7 +101,7 @@ namespace EamonRT.Game.States
 				}
 			}
 
-			ProcessEvents();
+			ProcessEvents(PeAfterExtinguishLightSourceCheck);
 
 			if (NextState == null)
 			{

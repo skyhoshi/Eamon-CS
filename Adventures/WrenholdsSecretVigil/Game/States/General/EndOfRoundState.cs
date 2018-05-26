@@ -12,18 +12,18 @@ namespace WrenholdsSecretVigil.Game.States
 	[ClassMappings]
 	public class EndOfRoundState : EamonRT.Game.States.EndOfRoundState, IEndOfRoundState
 	{
-		protected override void ProcessEvents()
+		protected override void ProcessEvents(long eventType)
 		{
 			// Try to open running device, all flee
 
-			if (Globals.DeviceOpened)
+			if (eventType == PeAfterRoundEnd && Globals.DeviceOpened)
 			{
 				Globals.Out.Print("Your attempts to open the glowing device are unsuccessful.");
 
 				Globals.DeviceOpened = false;
 			}
 
-			base.ProcessEvents();
+			base.ProcessEvents(eventType);
 		}
 	}
 }

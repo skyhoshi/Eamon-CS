@@ -12,35 +12,42 @@ namespace TheTempleOfNgurct.Game.States
 	[ClassMappings]
 	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
-		protected override void ProcessEvents01()
+		protected override void ProcessEvents(long eventType)
 		{
-			if (Globals.GameState.R2 == -33)
+			if (eventType == PeAfterBlockingArtifactCheck)
 			{
-				Globals.Out.Print("The oak door is locked from the inside!");
-			}
-			else if (Globals.GameState.R2 == -55)
-			{
-				Globals.Out.Print("The cell door is locked from the outside!");
-			}
-
-			// Down the sewage chute
-
-			else if (Globals.GameState.R2 == -60)
-			{
-				Globals.Engine.PrintEffectDesc(24);
-
-				Globals.GameState.Die = 1;
-
-				NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
+				if (Globals.GameState.R2 == -33)
 				{
-					x.PrintLineSep = true;
-				});
+					Globals.Out.Print("The oak door is locked from the inside!");
+				}
+				else if (Globals.GameState.R2 == -55)
+				{
+					Globals.Out.Print("The cell door is locked from the outside!");
+				}
 
-				GotoCleanup = true;
+				// Down the sewage chute
+
+				else if (Globals.GameState.R2 == -60)
+				{
+					Globals.Engine.PrintEffectDesc(24);
+
+					Globals.GameState.Die = 1;
+
+					NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
+					{
+						x.PrintLineSep = true;
+					});
+
+					GotoCleanup = true;
+				}
+				else
+				{
+					base.ProcessEvents(eventType);
+				}
 			}
 			else
 			{
-				base.ProcessEvents01();
+				base.ProcessEvents(eventType);
 			}
 		}
 	}

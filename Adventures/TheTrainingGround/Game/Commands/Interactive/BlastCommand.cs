@@ -13,11 +13,11 @@ namespace TheTrainingGround.Game.Commands
 	[ClassMappings]
 	public class BlastCommand : EamonRT.Game.Commands.BlastCommand, IBlastCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			// BLAST Bozworth
 
-			if (DobjMonster != null && DobjMonster.Uid == 20)
+			if (eventType == PpeAfterPlayerSpellCastCheck && DobjMonster != null && DobjMonster.Uid == 20)
 			{
 				Globals.Engine.PrintEffectDesc(21);
 
@@ -31,7 +31,7 @@ namespace TheTrainingGround.Game.Commands
 			}
 			else
 			{
-				base.PlayerProcessEvents();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 

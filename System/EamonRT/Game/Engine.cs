@@ -1635,7 +1635,7 @@ namespace EamonRT.Game
 
 			var monsterList = GetMonsterList(() => true, m => m.Uid != monster.Uid && m.Uid != charMonster.Uid && m.IsInRoom(room));
 
-			var artifactList = GetArtifactList(() => true, a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || (a.IsInRoom(room) && monsterList.FirstOrDefault(m => m.Weapon == -a.Uid - 1) == null && (charMonster.Weapon > 0 || !a.IsCharOwned)))).OrderByDescending(a01 =>
+			var artifactList = GetArtifactList(() => true, a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || (a.IsInRoom(room) && monsterList.FirstOrDefault(m => m.Weapon == -a.Uid - 1) == null && (charMonster.Weapon > 0 || !a.IsCharOwned || monster.Friendliness == Enums.Friendliness.Friend)))).OrderByDescending(a01 =>
 			{
 				if (monster.Weapon != -a01.Uid - 1)
 				{

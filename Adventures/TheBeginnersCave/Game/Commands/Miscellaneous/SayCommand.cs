@@ -13,9 +13,9 @@ namespace TheBeginnersCave.Game.Commands
 	[ClassMappings]
 	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
 	{
-		protected override void PlayerProcessEvents01()
+		protected override void PlayerProcessEvents(long eventType)
 		{
-			if (ProcessedPhrase.IndexOf("trollsfire", StringComparison.OrdinalIgnoreCase) >= 0)
+			if (eventType == PpeAfterPlayerSay && ProcessedPhrase.IndexOf("trollsfire", StringComparison.OrdinalIgnoreCase) >= 0)
 			{
 				var command = Globals.CreateInstance<Framework.Commands.ITrollsfireCommand>();
 
@@ -25,7 +25,7 @@ namespace TheBeginnersCave.Game.Commands
 			}
 			else
 			{
-				base.PlayerProcessEvents01();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 	}

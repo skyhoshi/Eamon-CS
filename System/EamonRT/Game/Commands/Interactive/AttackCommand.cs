@@ -33,7 +33,7 @@ namespace EamonRT.Game.Commands
 
 		protected virtual void PrintHackToBits()
 		{
-			Globals.Out.Print("You {0} {1} to bits!",	BlastSpell ? "blast" : "hack", DobjArtifact.EvalPlural("it", "them"));
+			Globals.Out.Print("You {0} {1} to bits!", BlastSpell ? "blast" : "hack", DobjArtifact.EvalPlural("it", "them"));
 		}
 
 		protected virtual void BuildWhamHitObj()
@@ -48,7 +48,7 @@ namespace EamonRT.Game.Commands
 
 		protected virtual void BuildContentsSpillToFloor()
 		{
-			Globals.Buf.AppendFormat("; {0} contents spill to the {1}", DobjArtifact.EvalPlural("its", "their"), ActorRoom.Type == Enums.RoomType.Indoors ? "floor" : "ground");
+			Globals.Buf.AppendFormat("; {0} contents spill to the {1}", DobjArtifact.EvalPlural("its", "their"), ActorRoom.EvalRoomType("floor", "ground"));
 		}
 
 		protected override void PlayerExecute()

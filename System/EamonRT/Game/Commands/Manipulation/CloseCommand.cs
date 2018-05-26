@@ -16,10 +16,10 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class CloseCommand : Command, ICloseCommand
 	{
-		protected virtual void PlayerProcessEvents()
-		{
-
-		}
+		/// <summary>
+		/// This event fires after the player closes an artifact.
+		/// </summary>
+		protected const long PpeAfterArtifactClose = 1;
 
 		protected override void PlayerExecute()
 		{
@@ -95,7 +95,7 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				PlayerProcessEvents();
+				PlayerProcessEvents(PpeAfterArtifactClose);
 
 				if (GotoCleanup)
 				{

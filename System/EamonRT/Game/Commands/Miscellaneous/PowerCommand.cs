@@ -14,6 +14,12 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : Command, IPowerCommand
 	{
+		/// <summary>
+		/// This event fires after a check has been made to resolve the player's spell cast
+		/// attempt, and it resolves as successful.
+		/// </summary>
+		protected const long PpeAfterPlayerSpellCastCheck = 1;
+
 		public virtual bool CastSpell { get; set; }
 
 		protected virtual void PrintSonicBoom()
@@ -38,79 +44,82 @@ namespace EamonRT.Game.Commands
 				"YOU SUDDENLY FIND YOU CANNOT CARRY ALL OF THE ITEMS YOU ARE CARRYING, AND THEY ALL FALL TO THE GROUND.");
 		}
 
-		protected virtual void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			var rl = Globals.Engine.RollDice01(1, 100, 0);
 
-			if (Globals.IsRulesetVersion(5))
+			if (eventType == PpeAfterPlayerSpellCastCheck)
 			{
-				// Raise the dead / Make stuff vanish
-
-				if (Globals.Engine.ResurrectDeadBodies() || Globals.Engine.MakeArtifactsVanish())
+				if (Globals.IsRulesetVersion(5))
 				{
-					goto Cleanup;
-				}
+					// Raise the dead / Make stuff vanish
 
-				// 10% chance of death trap
-
-				if (rl < 11)
-				{
-					Globals.Out.Print("The section of {0} collapses and you die.", ActorRoom.EvalRoomType("tunnel you are in", "ground you are on"));
-
-					Globals.GameState.Die = 1;
-
-					NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
+					if (Globals.Engine.ResurrectDeadBodies() || Globals.Engine.MakeArtifactsVanish())
 					{
-						x.PrintLineSep = true;
-					});
+						goto Cleanup;
+					}
+
+					// 10% chance of death trap
+
+					if (rl < 11)
+					{
+						Globals.Out.Print("The section of {0} collapses and you die.", ActorRoom.EvalRoomType("tunnel you are in", "ground you are on"));
+
+						Globals.GameState.Die = 1;
+
+						NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
+						{
+							x.PrintLineSep = true;
+						});
+					}
+
+					// 75% chance of boom
+
+					else if (rl < 86)
+					{
+						PrintSonicBoom();
+					}
+
+					// 5% chance of full heal
+
+					else if (rl > 95)
+					{
+						Globals.Out.Print("All of your wounds are healed.");
+
+						ActorMonster.DmgTaken = 0;
+
+						Globals.Engine.CheckEnemies();
+					}
+
+					// 10% chance of SPEED spell
+
+					else
+					{
+						var command = Globals.CreateInstance<ISpeedCommand>(x =>
+						{
+							x.CastSpell = false;
+						});
+
+						CopyCommandData(command);
+
+						NextState = command;
+					}
 				}
-
-				// 75% chance of boom
-
-				else if (rl < 86)
-				{
-					PrintSonicBoom();
-				}
-
-				// 5% chance of full heal
-
-				else if (rl > 95)
-				{
-					Globals.Out.Print("All of your wounds are healed.");
-
-					ActorMonster.DmgTaken = 0;
-
-					Globals.Engine.CheckEnemies();
-				}
-
-				// 10% chance of SPEED spell
-
 				else
 				{
-					var command = Globals.CreateInstance<ISpeedCommand>(x =>
+					// 50% chance of boom
+
+					if (rl > 50)
 					{
-						x.CastSpell = false;
-					});
+						PrintSonicBoom();
+					}
 
-					CopyCommandData(command);
+					// 50% chance of fortune cookie
 
-					NextState = command;
-				}
-			}
-			else
-			{
-				// 50% chance of boom
-
-				if (rl > 50)
-				{
-					PrintSonicBoom();
-				}
-
-				// 50% chance of fortune cookie
-
-				else
-				{
-					PrintFortuneCookie();
+					else
+					{
+						PrintFortuneCookie();
+					}
 				}
 			}
 
@@ -126,7 +135,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			PlayerProcessEvents();
+			PlayerProcessEvents(PpeAfterPlayerSpellCastCheck);
 
 			if (GotoCleanup)
 			{

@@ -83,6 +83,11 @@ namespace EamonRT.Game.States
 			Globals.Out.Print("You can't do that with unfriendlies about!");
 		}
 
+		protected virtual void ProcessEvents(long eventType)
+		{
+
+		}
+
 		#endregion
 
 		#region Public Methods

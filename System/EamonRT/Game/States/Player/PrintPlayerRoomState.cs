@@ -15,10 +15,10 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class PrintPlayerRoomState : State, IPrintPlayerRoomState
 	{
-		protected virtual void ProcessEvents()
-		{
-
-		}
+		/// <summary>
+		/// This event fires before the player's room has been printed.
+		/// </summary>
+		protected const long PeBeforePlayerRoomPrint = 1;
 
 		protected virtual void BuildPrintedTooDarkToSeeDesc(StringBuilder buf)
 		{
@@ -51,7 +51,7 @@ namespace EamonRT.Game.States
 
 		public override void Execute()
 		{
-			ProcessEvents();
+			ProcessEvents(PeBeforePlayerRoomPrint);
 
 			if (GotoCleanup)
 			{

@@ -14,31 +14,34 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, IOpenCommand
 	{
-		protected override void PlayerProcessEvents01()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 
 			Debug.Assert(gameState != null);
 
-			// Large cabinet
-
-			if (DobjArtifact.Uid == 11 && !gameState.CabinetOpen)
+			if (eventType == PpeAfterArtifactOpen)
 			{
-				Globals.Engine.PrintEffectDesc(34);
+				// Large cabinet
 
-				gameState.CabinetOpen = true;
+				if (DobjArtifact.Uid == 11 && !gameState.CabinetOpen)
+				{
+					Globals.Engine.PrintEffectDesc(34);
+
+					gameState.CabinetOpen = true;
+				}
+
+				// Locker
+
+				if (DobjArtifact.Uid == 51 && !gameState.LockerOpen)
+				{
+					Globals.Engine.PrintEffectDesc(36);
+
+					gameState.LockerOpen = true;
+				}
 			}
 
-			// Locker
-
-			if (DobjArtifact.Uid == 51 && !gameState.LockerOpen)
-			{
-				Globals.Engine.PrintEffectDesc(36);
-
-				gameState.LockerOpen = true;
-			}
-
-			base.PlayerProcessEvents01();
+			base.PlayerProcessEvents(eventType);
 		}
 
 		protected override void PlayerExecute()

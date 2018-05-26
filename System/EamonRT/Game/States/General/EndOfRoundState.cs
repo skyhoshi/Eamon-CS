@@ -13,10 +13,10 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class EndOfRoundState : State, IEndOfRoundState
 	{
-		protected virtual void ProcessEvents()
-		{
-
-		}
+		/// <summary>
+		/// This event fires at the end of the current round, after all processing has been done.
+		/// </summary>
+		protected const long PeAfterRoundEnd = 1;
 
 		public override void Execute()
 		{
@@ -29,7 +29,7 @@ namespace EamonRT.Game.States
 				monster.InitGroupCount = monster.GroupCount;
 			}
 
-			ProcessEvents();
+			ProcessEvents(PeAfterRoundEnd);
 
 			if (NextState == null)
 			{

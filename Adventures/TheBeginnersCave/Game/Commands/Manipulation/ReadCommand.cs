@@ -17,56 +17,62 @@ namespace TheBeginnersCave.Game.Commands
 	{
 		protected virtual Framework.IGameState GameState { get; set; }
 
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
-			// saving throw vs. intellect for book trap warning
-
-			if (DobjArtifact.Uid == 9)
+			if (eventType == PpeBeforeArtifactReadTextPrint)
 			{
-				if (GameState.BookWarning == 0)
+				// saving throw vs. intellect for book trap warning
+
+				if (DobjArtifact.Uid == 9)
 				{
-					var rl = Globals.Engine.RollDice01(1, 22, 2);
-
-					if (rl < Globals.Character.GetStats(Enums.Stat.Intellect))
+					if (GameState.BookWarning == 0)
 					{
-						Globals.Engine.PrintEffectDesc(14);
+						var rl = Globals.Engine.RollDice01(1, 22, 2);
 
-						GameState.BookWarning = 1;
+						if (rl < Globals.Character.GetStats(Enums.Stat.Intellect))
+						{
+							Globals.Engine.PrintEffectDesc(14);
 
-						GotoCleanup = true;
+							GameState.BookWarning = 1;
+
+							GotoCleanup = true;
+						}
+					}
+					else
+					{
+						Globals.Engine.PrintEffectDesc(15);
 					}
 				}
 				else
 				{
-					Globals.Engine.PrintEffectDesc(15);
+					base.PlayerProcessEvents(eventType);
+				}
+			}
+			else if (eventType == PpeAfterArtifactRead)
+			{
+				// book trap
+
+				if (DobjArtifact.Uid == 9)
+				{
+					Globals.Out.Print(ActorRoom.Uid == 26 ? "You fall into the sea and are eaten by a big fish." : "You flop three times and die.");
+
+					GameState.Die = 1;
+
+					NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
+					{
+						x.PrintLineSep = true;
+					});
+
+					GotoCleanup = true;
+				}
+				else
+				{
+					base.PlayerProcessEvents(eventType);
 				}
 			}
 			else
 			{
-				base.PlayerProcessEvents();
-			}
-		}
-
-		protected override void PlayerProcessEvents01()
-		{
-			// book trap
-
-			if (DobjArtifact.Uid == 9)
-			{
-				Globals.Out.Print(ActorRoom.Uid == 26 ? "You fall into the sea and are eaten by a big fish." : "You flop three times and die.");
-
-				GameState.Die = 1;
-
-				NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
-				{
-					x.PrintLineSep = true;
-				});
-
-				GotoCleanup = true;
-			}
-			else
-			{
-				base.PlayerProcessEvents01();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 

@@ -12,11 +12,11 @@ namespace BeginnersForest.Game.Commands
 	[ClassMappings]
 	public class WearCommand : EamonRT.Game.Commands.WearCommand, IWearCommand
 	{
-		protected override void PlayerProcessEvents()
+		protected override void PlayerProcessEvents(long eventType)
 		{
 			// Magic Excercise Ring
 
-			if (DobjArtifact.Uid == 2 && Globals.GameState.Speed <= 0)
+			if (eventType == PpeAfterArtifactWear && DobjArtifact.Uid == 2 && Globals.GameState.Speed <= 0)
 			{
 				var command = Globals.CreateInstance<ISpeedCommand>(x =>
 				{
@@ -31,7 +31,7 @@ namespace BeginnersForest.Game.Commands
 			}
 			else
 			{
-				base.PlayerProcessEvents();
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 	}

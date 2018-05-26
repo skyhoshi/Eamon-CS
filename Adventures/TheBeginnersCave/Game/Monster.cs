@@ -24,7 +24,7 @@ namespace TheBeginnersCave.Game
 		/// logic would be sprinkled throughout a number of commands, to check for all the scenarios where the
 		/// Trollsfire effect might be activated/deactivated.  But realistically its all about the change in the
 		/// Weapon property.  This handles every possible thing that could deactivate Trollsfire (also activate it
-		/// for the pirate).  Fumbles, drops, gives, puts, takes, etc.  The Weapon property works in conjunction with
+		/// for the pirate).  Fumbles, drops, gives, puts, takes, readies, etc.  The Weapon property works along with
 		/// <see cref="Framework.IGameState.Trollsfire"/> and <see cref="Framework.Commands.ITrollsfireCommand"/> to
 		/// fully implement the Trollsfire sword.
 		/// </remarks>
@@ -49,7 +49,7 @@ namespace TheBeginnersCave.Game
 
 						if (Uid == Globals.GameState.Cm || Uid == 8)
 						{
-							// if going from wielding Trollsfire to not wielding Trollsfire and Trollsfire effect active
+							// if going from wielding Trollsfire to not wielding Trollsfire and the Trollsfire effect is active
 
 							if (base.Weapon == 10 && value != 10 && gameState.Trollsfire == 1)
 							{
@@ -63,7 +63,7 @@ namespace TheBeginnersCave.Game
 
 						if (Uid == 8)
 						{
-							// if going from not wielding Trollsfire to wielding Trollsfire and Trollsfire effect not active
+							// if going from not wielding Trollsfire to wielding Trollsfire and the Trollsfire effect is not active
 
 							if (base.Weapon != 10 && value == 10 && gameState.Trollsfire == 0)
 							{
