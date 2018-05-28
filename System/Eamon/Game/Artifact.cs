@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using Polenter.Serialization;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
@@ -39,6 +40,151 @@ namespace Eamon.Game
 		public virtual long Weight { get; set; }
 
 		public virtual long Location { get; set; }
+
+		/// <summary>
+		/// A convenience property representing the artifact type.
+		/// </summary>
+		/// <value>
+		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+		/// the artifact's type data field.  It uses the 0'th element of the <see cref="Categories"/>
+		/// array, which is consistent with how older Eamon games are implemented.
+		/// </value>
+		[ExcludeFromSerialization]
+		public virtual Enums.ArtifactType Type
+		{
+			get
+			{
+				var ac = GetCategories(0);
+
+				return ac != null ? ac.Type : Enums.ArtifactType.None;
+			}
+
+			set
+			{
+				var ac = GetCategories(0);
+
+				if (ac != null)
+				{
+					ac.Type = value;
+				}
+			}
+		}
+
+		/// <summary>
+		/// A convenience property representing the artifact Field1 field.
+		/// </summary>
+		/// <value>
+		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+		/// the artifact's Field1 data field.  It uses the 0'th element of the <see cref="Categories"/>
+		/// array, which is consistent with how older Eamon games are implemented.
+		/// </value>
+		[ExcludeFromSerialization]
+		public virtual long Field1
+		{
+			get
+			{
+				var ac = GetCategories(0);
+
+				return ac != null ? ac.Field1 : 0;
+			}
+
+			set
+			{
+				var ac = GetCategories(0);
+
+				if (ac != null)
+				{
+					ac.Field1 = value;
+				}
+			}
+		}
+
+		/// <summary>
+		/// A convenience property representing the artifact Field2 field.
+		/// </summary>
+		/// <value>
+		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+		/// the artifact's Field2 data field.  It uses the 0'th element of the <see cref="Categories"/>
+		/// array, which is consistent with how older Eamon games are implemented.
+		/// </value>
+		[ExcludeFromSerialization]
+		public virtual long Field2
+		{
+			get
+			{
+				var ac = GetCategories(0);
+
+				return ac != null ? ac.Field2 : 0;
+			}
+
+			set
+			{
+				var ac = GetCategories(0);
+
+				if (ac != null)
+				{
+					ac.Field2 = value;
+				}
+			}
+		}
+
+		/// <summary>
+		/// A convenience property representing the artifact Field3 field.
+		/// </summary>
+		/// <value>
+		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+		/// the artifact's Field3 data field.  It uses the 0'th element of the <see cref="Categories"/>
+		/// array, which is consistent with how older Eamon games are implemented.
+		/// </value>
+		[ExcludeFromSerialization]
+		public virtual long Field3
+		{
+			get
+			{
+				var ac = GetCategories(0);
+
+				return ac != null ? ac.Field3 : 0;
+			}
+
+			set
+			{
+				var ac = GetCategories(0);
+
+				if (ac != null)
+				{
+					ac.Field3 = value;
+				}
+			}
+		}
+
+		/// <summary>
+		/// A convenience property representing the artifact Field4 field.
+		/// </summary>
+		/// <value>
+		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+		/// the artifact's Field4 data field.  It uses the 0'th element of the <see cref="Categories"/>
+		/// array, which is consistent with how older Eamon games are implemented.
+		/// </value>
+		[ExcludeFromSerialization]
+		public virtual long Field4
+		{
+			get
+			{
+				var ac = GetCategories(0);
+
+				return ac != null ? ac.Field4 : 0;
+			}
+
+			set
+			{
+				var ac = GetCategories(0);
+
+				if (ac != null)
+				{
+					ac.Field4 = value;
+				}
+			}
+		}
 
 		public virtual Classes.IArtifactCategory[] Categories { get; set; }
 

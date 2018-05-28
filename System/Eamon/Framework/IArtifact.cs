@@ -30,6 +30,16 @@ namespace Eamon.Framework
 
 		long Location { get; set; }
 
+		Enums.ArtifactType Type { get; set; }
+
+		long Field1 { get; set; }
+
+		long Field2 { get; set; }
+
+		long Field3 { get; set; }
+
+		long Field4 { get; set; }
+
 		Classes.IArtifactCategory[] Categories { get; set; }
 
 		#endregion
