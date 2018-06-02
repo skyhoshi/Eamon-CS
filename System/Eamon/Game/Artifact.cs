@@ -41,14 +41,6 @@ namespace Eamon.Game
 
 		public virtual long Location { get; set; }
 
-		/// <summary>
-		/// A convenience property representing the artifact type.
-		/// </summary>
-		/// <remarks>
-		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
-		/// the artifact's type data field.  It uses the 0'th element of the <see cref="Categories"/>
-		/// array, which is consistent with how older Eamon games are implemented.
-		/// </remarks>
 		[ExcludeFromSerialization]
 		public virtual Enums.ArtifactType Type
 		{
@@ -70,14 +62,6 @@ namespace Eamon.Game
 			}
 		}
 
-		/// <summary>
-		/// A convenience property representing the artifact Field1 field.
-		/// </summary>
-		/// <remarks>
-		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
-		/// the artifact's Field1 data field.  It uses the 0'th element of the <see cref="Categories"/>
-		/// array, which is consistent with how older Eamon games are implemented.
-		/// </remarks>
 		[ExcludeFromSerialization]
 		public virtual long Field1
 		{
@@ -99,14 +83,6 @@ namespace Eamon.Game
 			}
 		}
 
-		/// <summary>
-		/// A convenience property representing the artifact Field2 field.
-		/// </summary>
-		/// <remarks>
-		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
-		/// the artifact's Field2 data field.  It uses the 0'th element of the <see cref="Categories"/>
-		/// array, which is consistent with how older Eamon games are implemented.
-		/// </remarks>
 		[ExcludeFromSerialization]
 		public virtual long Field2
 		{
@@ -128,14 +104,6 @@ namespace Eamon.Game
 			}
 		}
 
-		/// <summary>
-		/// A convenience property representing the artifact Field3 field.
-		/// </summary>
-		/// <remarks>
-		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
-		/// the artifact's Field3 data field.  It uses the 0'th element of the <see cref="Categories"/>
-		/// array, which is consistent with how older Eamon games are implemented.
-		/// </remarks>
 		[ExcludeFromSerialization]
 		public virtual long Field3
 		{
@@ -157,14 +125,6 @@ namespace Eamon.Game
 			}
 		}
 
-		/// <summary>
-		/// A convenience property representing the artifact Field4 field.
-		/// </summary>
-		/// <remarks>
-		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
-		/// the artifact's Field4 data field.  It uses the 0'th element of the <see cref="Categories"/>
-		/// array, which is consistent with how older Eamon games are implemented.
-		/// </remarks>
 		[ExcludeFromSerialization]
 		public virtual long Field4
 		{
