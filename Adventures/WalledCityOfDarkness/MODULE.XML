@@ -11,12 +11,12 @@
             <Simple name="Author" value="Tom Zuchowski" />
             <Simple name="VolLabel" value="TZ-001" />
             <Simple name="SerialNum" value="009" />
-            <Simple name="LastMod" value="06/01/2018 20:54:52" />
+            <Simple name="LastMod" value="06/02/2018 15:14:06" />
             <Simple name="IntroStory" value="0" />
             <Simple name="NumDirs" value="6" />
-            <Simple name="NumRooms" value="40" />
-            <Simple name="NumArtifacts" value="10" />
-            <Simple name="NumEffects" value="10" />
+            <Simple name="NumRooms" value="97" />
+            <Simple name="NumArtifacts" value="30" />
+            <Simple name="NumEffects" value="56" />
             <Simple name="NumMonsters" value="1" />
             <Simple name="NumHints" value="2" />
             <Simple name="Uid" value="1" />
