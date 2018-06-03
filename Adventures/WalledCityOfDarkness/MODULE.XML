@@ -12,7 +12,7 @@
             <Simple name="VolLabel" value="TZ-001" />
             <Simple name="SerialNum" value="009" />
             <Simple name="LastMod" value="06/03/2018 11:49:03" />
-            <Simple name="IntroStory" value="0" />
+            <Simple name="IntroStory" value="100" />
             <Simple name="NumDirs" value="6" />
             <Simple name="NumRooms" value="97" />
             <Simple name="NumArtifacts" value="54" />

@@ -15,7 +15,7 @@
             <Simple name="NumAnswers" value="8" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A DR&quot; or &quot;A GON&quot; for ATTACK DRAGON, &quot;REQ RAY FROM AL&quot; or &quot;REQ GUN FROM IEN&quot; for REQUEST RAY GUN FROM ALIEN, &quot;PUT PUM IN LAR&quot; or &quot;PUT PIE IN OVEN&quot; for PUT PUMPKIN PIE IN **999" />
+                <Simple value="1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A DR&quot; or &quot;A GON&quot; for ATTACK DRAGON, &quot;REQ RAY FROM AL&quot; or &quot;REQ GUN FROM IEN&quot; for REQUEST RAY GUN FROM ALIEN, &quot;PUT PUM IN LAR&quot; or &quot;PUT PIE IN OVEN&quot; for PUT PUMPKIN PIE IN **059" />
                 <Simple value="2. Sometimes items may be in a room but won't show up until you EXAMINE them.  Pay close attention to all descriptions.  Note:  LOOK only repeats the room description and -nothing- else.  Use EXAMINE to, well, examine things." />
                 <Simple value="3. Before you can manipulate items that are inside of other items, you must REMOVE them from that item.  There is no REMOVE ALL command, but if you ATTACK a (breakable) container, all of its contents will be emptied to the floor and you can GET ALL." />
                 <Simple value="4. Type SAVE and a number for a desired save position to Quick Save (save without having to verify).  Adding a description will rename that slot.  Examples:  &quot;SAVE 2&quot; or &quot;SAVE 5 Dark Room (NO GRUES)&quot;.  Also works with RESTORE.  (Type RESTORE 1, etc.)" />

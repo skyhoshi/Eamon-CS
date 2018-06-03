@@ -644,6 +644,237 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="59" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="LARGE OVEN." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="100" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="For the last day or so, you had been beset by feelings of uneasiness that you could not put a name to.*101" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="101" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="And so it happened that you searched through the rooms of the Main Hall for an itinerant seer by the name of Oracle Jones.*102" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="102" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Now, some say that Jones has no talent, but is merely a derelict cadging free whisky from the gullible.*103" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="103" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="But you know better.  You have seen what he can do when he has had a good belt to clear his vision.@@PB**104" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="104" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You find him seated at a table near the back bar.  &quot;My friend!&quot; he cries, &quot;I have had a vision!  I have news, my friend!  News for you!  Now, what was it...&quot;*105" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="105" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="As he strains to remember, you catch him peeking at you from the corner of his  eye.  Without a word, you slap a gold piece on the bar, and without a word, the barkeep hands you a bottle of rye.*106" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="106" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Silently, you splash some into a glass and set it in front of him.  In a shot Oracle grabs the glass and drains it in a single gulp.  His eyes fly open!@@PB**107" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="107" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="&quot;I see it!  I see it!&quot; he cries.  &quot;It's a message from ol' Tokas!  He's in a mess o' trouble!&quot;*108" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="108" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Now, this is news; and even as Oracle Jones says it, you know with a catch in your throat that this is the source of the uneasiness that has plagued you.*109" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="109" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="He begins to strain again, struggling to see more, as he pushes the empty shotglass back to you.  And without a word, you refill it.*110" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="110" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="He gulps it down, and again, his eyes fly open!@@PB**111" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="111" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Oracle gabbles, &quot;Yes!  Yes!  I can see it clearly now!  Tokas is in a bad way fer sure, an' he needs your help!  He says to hurry!&quot;*112" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="112" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="He's on a roll now.  Quickly, you pour him another drink.  Without looking down or even seeming to notice you, Oracle Jones knocks it back.*113" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="113" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="&quot;He says, he says to come to the city of Lumen where he's set up shop!  He says, look for him near the south gate!  Hurry, he says!&quot;@@PB**114" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="114" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="That's good enough for you.  You set the bottle on the table in front of Oracle Jones, and without once having said a single word, turn and hurry away.*115" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="115" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="It sounds like Hokas Tokas is in real trouble.@@PB**116" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="116" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You throw a few weapons together, and force a quick march to the city of Lumen.  It looks peaceful enough from outside, but when you pass through the open north gate -@@PB**117" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="117" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You are instantly plunged into pitch darkness!  You cannot move, but are held by an unseen, dark power!  You can feel it pawing though your things.*118" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="118" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Though you cannot hear it, you can sense its thoughts:  &quot;Gold!  You bring me gold, my pretty one!  And what's this?  Magic weapons?  Oh, ho!  Ho!  Hoho!  Hohohohohoho -&quot;*119" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="119" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="In that instant you feel the familiar presence of the mind of Hokas Tokas.  Your senses reel..." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
       </Items>
     </Collection>
     <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
@@ -652,6 +883,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="58" />
+    <Simple name="CurrUid" value="119" />
   </Properties>
 </Complex>

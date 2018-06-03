@@ -578,7 +578,7 @@
             <Simple name="Uid" value="17" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="armorer" />
-            <Simple name="Desc" value="A pot-bellied swordsman in the uniform of the city guard is sitting on a bench in the inner armory, his feet propped atop a small keg.  &quot;Let's see your pass from the duke,&quot; he says." />
+            <Simple name="Desc" value="A pot-bellied swordsman in the uniform of the city guard is sitting on a bench in the inner armory, his feet propped atop a small keg.  &quot;Let's see your pass from the Duke,&quot; he says." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="An" />
