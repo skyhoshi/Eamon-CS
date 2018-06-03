@@ -405,7 +405,7 @@
             </SingleArray>
             <Simple name="Uid" value="14" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Prancing Unicorn Pub" />
+            <Simple name="Name" value="Prancing Unicorn" />
             <Simple name="Desc" value="You have entered a busy public house.  Here is a large number of citizens; most are engaged in drowning the anxieties stemming from being trapped in a doomed city.  None notice you in their anguish." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
