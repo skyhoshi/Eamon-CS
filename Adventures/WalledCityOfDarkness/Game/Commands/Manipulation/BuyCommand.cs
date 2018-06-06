@@ -17,7 +17,10 @@ namespace WalledCityOfDarkness.Game.Commands
 	{
 		protected override void PlayerExecute()
 		{
-
+			if (NextState == null)
+			{
+				NextState = Globals.CreateInstance<IMonsterStartState>();
+			}
 		}
 
 		protected override void PlayerFinishParsing()

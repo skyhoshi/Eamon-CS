@@ -11,14 +11,14 @@
             <Simple name="Author" value="Tom Zuchowski" />
             <Simple name="VolLabel" value="TZ-001" />
             <Simple name="SerialNum" value="009" />
-            <Simple name="LastMod" value="06/03/2018 11:49:03" />
+            <Simple name="LastMod" value="06/05/2018 18:07:29" />
             <Simple name="IntroStory" value="100" />
             <Simple name="NumDirs" value="6" />
             <Simple name="NumRooms" value="97" />
             <Simple name="NumArtifacts" value="54" />
-            <Simple name="NumEffects" value="58" />
+            <Simple name="NumEffects" value="105" />
             <Simple name="NumMonsters" value="28" />
-            <Simple name="NumHints" value="2" />
+            <Simple name="NumHints" value="3" />
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Walled City Of Darkness" />

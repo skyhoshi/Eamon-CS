@@ -8,8 +8,6 @@
       <Items>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="1" />
-            <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="EAMON CS 1.4 GENERAL HELP." />
             <Simple name="NumAnswers" value="8" />
@@ -25,12 +23,17 @@
                 <Simple value="8. The POWER spell has been known to have strange and marvelous effects in many adventures.  When all else fails (or just for fun) try POWER." />
               </Items>
             </SingleArray>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="2" />
-            <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="EAMON CS 1.4 NEW COMMANDS." />
             <Simple name="NumAnswers" value="1" />
@@ -39,16 +42,49 @@
                 <Simple value="1. The GO command allows you to travel through any door/gate you encounter, including those that are free-standing (not associated with a room directional link)." />
               </Items>
             </SingleArray>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Read Tom Zuchowski's original game notes (necessarily abridged)." />
+            <Simple name="NumAnswers" value="1" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="Welcome to my fourth Eamon adventure!*060" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
       </Items>
     </Collection>
-    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]], System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e">
       <Properties>
         <Simple name="Capacity" value="0" />
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="2" />
+    <Simple name="CurrUid" value="3" />
   </Properties>
 </Complex>

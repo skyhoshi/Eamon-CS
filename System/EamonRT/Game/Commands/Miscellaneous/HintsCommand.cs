@@ -35,6 +35,13 @@ namespace EamonRT.Game.Commands
 			Globals.Out.Print("{0}", hints[i].Question);
 		}
 
+		protected virtual void PrintHintsAnswer(IList<IHint> hints, int i, int j)
+		{
+			Debug.Assert(hints != null);
+
+			Globals.Engine.PrintMacroReplacedPagedString(hints[i].GetAnswers(j), Globals.Buf);
+		}
+
 		protected override void PlayerExecute()
 		{
 			RetCode rc;
@@ -71,7 +78,7 @@ namespace EamonRT.Game.Commands
 
 						for (j = 0; j < hints[i].NumAnswers; j++)
 						{
-							Globals.Out.Print("{0}", hints[i].GetAnswers(j));
+							PrintHintsAnswer(hints, i, j);
 
 							if (j + 1 < hints[i].NumAnswers)
 							{
