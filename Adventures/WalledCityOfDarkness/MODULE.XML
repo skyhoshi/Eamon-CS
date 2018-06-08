@@ -22,7 +22,7 @@
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Walled City Of Darkness" />
-            <Simple name="Desc" value="+++ IMPLEMENT +++" />
+            <Simple name="Desc" value="TODO: write" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

@@ -12,6 +12,7 @@ namespace Eamon.Framework.Primitive.Enums
 		Quit,
 		StartOver,
 		FinishAdventure,
+		DeleteCharacter,
 		Error,
 		User1,
 		User2,

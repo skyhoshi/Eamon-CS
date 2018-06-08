@@ -264,7 +264,7 @@
             <Simple name="Uid" value="24" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="+++ IMPLEMENT +++" />
+            <Simple name="Desc" value="TODO: convert" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

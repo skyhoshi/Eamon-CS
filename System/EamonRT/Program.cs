@@ -1110,7 +1110,7 @@ namespace EamonRT
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 				}
 
-				if (Globals.ExportCharacterGoToMainHall)
+				if (Globals.ExportCharacterGoToMainHall || Globals.DeleteCharacter)
 				{
 					Globals.Directory.SetCurrentDirectory(Globals.Config.MhWorkDir);
 
@@ -1126,14 +1126,23 @@ namespace EamonRT
 
 					Debug.Assert(character != null);
 
-					if (Globals.ExportCharacter)
+					if (Globals.DeleteCharacter)
 					{
-						rc = character.CopyProperties(Globals.Character);
+						Globals.Database.RemoveCharacter(character.Uid);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						character.Dispose();
 					}
+					else
+					{
+						if (Globals.ExportCharacter)
+						{
+							rc = character.CopyProperties(Globals.Character);
 
-					character.Status = (Globals.GameState.Die != 1 ? Enums.Status.Alive : Enums.Status.Dead);
+							Debug.Assert(Globals.Engine.IsSuccess(rc));
+						}
+
+						character.Status = (Globals.GameState.Die != 1 ? Enums.Status.Alive : Enums.Status.Dead);
+					}
 
 					rc = Globals.Database.SaveCharacters(Globals.GetPrefixedFileName(Globals.Config.MhCharacterFileName), false);
 
@@ -1145,7 +1154,7 @@ namespace EamonRT
 
 					character = null;
 
-					if (Globals.GameState.Die != 1)
+					if (!Globals.DeleteCharacter && Globals.GameState.Die != 1)
 					{
 						Globals.Out.Print("{0}", Globals.LineSep);
 
