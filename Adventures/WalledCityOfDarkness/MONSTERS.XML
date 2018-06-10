@@ -683,7 +683,7 @@
             <Simple name="Desc" value="You face a glittering assemblage of glass rods and planes.  One arm of the glass warrior terminates in a wide round shield; the other in a long, sharp crystal splinter.  Its eyes are made of the most amazing blue glass goggles." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="The" />
+            <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
@@ -717,7 +717,7 @@
             <Simple name="Desc" value="You face an ethereal creature made from planes of white light.  Its weapon is a length of blue light that coruscates with a blinding brilliance." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="The" />
+            <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
@@ -751,7 +751,7 @@
             <Simple name="Desc" value="You detect a blacker shadow within the shadows of the room that moves with malevolence and purpose." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="The" />
+            <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
@@ -935,7 +935,7 @@
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
             <Simple name="Location" value="0" />
-            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="CombatCode" value="Attacks" />
             <Simple name="Armor" value="0" />
             <Simple name="Weapon" value="-1" />
             <Simple name="NwDice" value="1" />

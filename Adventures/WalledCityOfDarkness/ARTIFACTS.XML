@@ -14,7 +14,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Weight" value="1" />
             <Simple name="Location" value="2002" />
             <SingleArray name="Categories">
               <Items>
@@ -77,8 +77,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="-999" />
+            <Simple name="Value" value="1" />
+            <Simple name="Weight" value="900" />
             <Simple name="Location" value="22" />
             <SingleArray name="Categories">
               <Items>
@@ -109,8 +109,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="3" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="2022" />
             <SingleArray name="Categories">
               <Items>
@@ -141,7 +141,7 @@
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
+            <Simple name="Value" value="1" />
             <Simple name="Weight" value="999" />
             <Simple name="Location" value="78" />
             <SingleArray name="Categories">
@@ -173,8 +173,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="12" />
+            <Simple name="Weight" value="50" />
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
@@ -205,7 +205,7 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
+            <Simple name="Value" value="1" />
             <Simple name="Weight" value="-999" />
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
@@ -227,7 +227,7 @@
             <Simple name="Desc" value="You see a translucent, glowing wall.  Your hand passes right through it, as if it wasn't there!" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="The" />
+            <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
@@ -237,8 +237,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="7" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4040" />
             <SingleArray name="Categories">
               <Items>
@@ -269,8 +269,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="5" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4043" />
             <SingleArray name="Categories">
               <Items>
@@ -301,8 +301,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="20" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4006" />
             <SingleArray name="Categories">
               <Items>
@@ -333,8 +333,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="20" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4006" />
             <SingleArray name="Categories">
               <Items>
@@ -365,8 +365,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="20" />
+            <Simple name="Weight" value="50" />
             <Simple name="Location" value="4034" />
             <SingleArray name="Categories">
               <Items>
@@ -398,8 +398,8 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="-1" />
-            <Simple name="Weight" value="0" />
-            <Simple name="Location" value="408" />
+            <Simple name="Weight" value="15" />
+            <Simple name="Location" value="4008" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
@@ -429,8 +429,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="20" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4041" />
             <SingleArray name="Categories">
               <Items>
@@ -461,8 +461,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="15" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4006" />
             <SingleArray name="Categories">
               <Items>
@@ -493,8 +493,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="None" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="20" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4008" />
             <SingleArray name="Categories">
               <Items>
@@ -525,8 +525,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="20" />
+            <Simple name="Weight" value="15" />
             <Simple name="Location" value="4044" />
             <SingleArray name="Categories">
               <Items>
@@ -557,8 +557,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="12" />
+            <Simple name="Weight" value="10" />
             <Simple name="Location" value="4043" />
             <SingleArray name="Categories">
               <Items>
@@ -589,8 +589,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="20" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4002" />
             <SingleArray name="Categories">
               <Items>
@@ -621,8 +621,8 @@
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="16" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4036" />
             <SingleArray name="Categories">
               <Items>
@@ -653,8 +653,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="-999" />
+            <Simple name="Value" value="1" />
+            <Simple name="Weight" value="900" />
             <Simple name="Location" value="2067" />
             <SingleArray name="Categories">
               <Items>
@@ -685,8 +685,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="12" />
+            <Simple name="Weight" value="2" />
             <Simple name="Location" value="4044" />
             <SingleArray name="Categories">
               <Items>
@@ -718,7 +718,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="-1" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4044" />
             <SingleArray name="Categories">
               <Items>
@@ -749,8 +749,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="8" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4040" />
             <SingleArray name="Categories">
               <Items>
@@ -781,8 +781,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="6" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4043" />
             <SingleArray name="Categories">
               <Items>
@@ -814,7 +814,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="-1" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4006" />
             <SingleArray name="Categories">
               <Items>
@@ -846,7 +846,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="None" />
             <Simple name="Value" value="-1" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4008" />
             <SingleArray name="Categories">
               <Items>
@@ -878,7 +878,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="-1" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="4009" />
             <SingleArray name="Categories">
               <Items>
@@ -910,15 +910,15 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Weight" value="1" />
             <Simple name="Location" value="4014" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
-                    <Simple name="Field1" value="100" />
-                    <Simple name="Field2" value="5" />
+                    <Simple name="Field1" value="5" />
+                    <Simple name="Field2" value="1000" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
                   </Properties>
@@ -941,8 +941,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="30" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
@@ -973,7 +973,7 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
+            <Simple name="Value" value="50" />
             <Simple name="Weight" value="-999" />
             <Simple name="Location" value="2089" />
             <SingleArray name="Categories">
@@ -1005,7 +1005,7 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
+            <Simple name="Value" value="1" />
             <Simple name="Weight" value="-999" />
             <Simple name="Location" value="2091" />
             <SingleArray name="Categories">
@@ -1024,7 +1024,7 @@
             <Simple name="Uid" value="32" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="shadow" />
-            <Simple name="Desc" value="TODO: convert" />
+            <Simple name="Desc" value="As you look deeply into the shadow, a single black word is etched into your mind:                              &quot;Braak&quot;" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -1269,7 +1269,7 @@
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
-                    <Simple name="Field1" value="50" />
+                    <Simple name="Field1" value="80" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="2" />
                     <Simple name="Field4" value="6" />
@@ -1293,8 +1293,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="40" />
+            <Simple name="Weight" value="1" />
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
@@ -1326,7 +1326,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="-2" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Weight" value="2" />
             <Simple name="Location" value="-21" />
             <SingleArray name="Categories">
               <Items>
@@ -1358,7 +1358,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="-2" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Weight" value="2" />
             <Simple name="Location" value="-23" />
             <SingleArray name="Categories">
               <Items>
@@ -1389,8 +1389,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="YIes" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="50" />
+            <Simple name="Weight" value="900" />
             <Simple name="Location" value="2088" />
             <SingleArray name="Categories">
               <Items>
@@ -1399,8 +1399,8 @@
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1005" />
-                    <Simple name="Field3" value="0" />
-                    <Simple name="Field4" value="0" />
+                    <Simple name="Field3" value="10" />
+                    <Simple name="Field4" value="3" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1454,7 +1454,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="Es" />
             <Simple name="Value" value="-2" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Weight" value="1" />
             <Simple name="Location" value="92" />
             <SingleArray name="Categories">
               <Items>
@@ -1464,7 +1464,7 @@
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="0" />
-                    <Simple name="Field4" value="0" />
+                    <Simple name="Field4" value="7" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1485,8 +1485,8 @@
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="50" />
+            <Simple name="Weight" value="900" />
             <Simple name="Location" value="93" />
             <SingleArray name="Categories">
               <Items>
@@ -1496,7 +1496,7 @@
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
-                    <Simple name="Field4" value="0" />
+                    <Simple name="Field4" value="7" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1517,8 +1517,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="50" />
+            <Simple name="Weight" value="900" />
             <Simple name="Location" value="94" />
             <SingleArray name="Categories">
               <Items>
@@ -1527,8 +1527,8 @@
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1999" />
-                    <Simple name="Field3" value="0" />
-                    <Simple name="Field4" value="0" />
+                    <Simple name="Field3" value="50" />
+                    <Simple name="Field4" value="3" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1549,8 +1549,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="50" />
+            <Simple name="Weight" value="900" />
             <Simple name="Location" value="97" />
             <SingleArray name="Categories">
               <Items>
@@ -1589,7 +1589,7 @@
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
-                    <Simple name="Field1" value="50" />
+                    <Simple name="Field1" value="80" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="12" />
                     <Simple name="Field4" value="12" />
@@ -1613,7 +1613,7 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
+            <Simple name="Value" value="50" />
             <Simple name="Weight" value="-999" />
             <Simple name="Location" value="2068" />
             <SingleArray name="Categories">
@@ -1646,7 +1646,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Weight" value="1" />
             <Simple name="Location" value="4004" />
             <SingleArray name="Categories">
               <Items>
@@ -1678,7 +1678,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="-1" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Weight" value="1" />
             <Simple name="Location" value="4041" />
             <SingleArray name="Categories">
               <Items>
@@ -1709,8 +1709,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="2000" />
+            <Simple name="Weight" value="900" />
             <Simple name="Location" value="2023" />
             <SingleArray name="Categories">
               <Items>
