@@ -12,7 +12,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Agility" value="5" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -29,7 +29,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="1" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
@@ -46,7 +46,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Agility" value="5" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -63,7 +63,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="1" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
@@ -80,7 +80,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Agility" value="5" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -97,7 +97,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="1" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="3" />
             <Simple name="IsUidRecycled" value="True" />
@@ -114,7 +114,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Agility" value="5" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -131,7 +131,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="1" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
@@ -148,7 +148,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="50" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Agility" value="16" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
@@ -165,7 +165,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="1" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
@@ -182,7 +182,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="Es" />
             <Simple name="Hardiness" value="950" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Agility" value="20" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
@@ -199,7 +199,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="1" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
@@ -216,7 +216,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Agility" value="5" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -233,7 +233,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="1" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="7" />
             <Simple name="IsUidRecycled" value="True" />
@@ -250,7 +250,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Agility" value="5" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -267,7 +267,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="1" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
@@ -284,7 +284,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="YIes" />
             <Simple name="Hardiness" value="4" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Agility" value="4" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -301,7 +301,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="1" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
@@ -318,7 +318,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Agility" value="5" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -335,7 +335,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="1" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="10" />
             <Simple name="IsUidRecycled" value="True" />
@@ -352,7 +352,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="16" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Agility" value="10" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -369,7 +369,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="1" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="11" />
             <Simple name="IsUidRecycled" value="True" />
@@ -386,7 +386,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="2" />
+            <Simple name="Agility" value="5" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -403,7 +403,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="2" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="12" />
             <Simple name="IsUidRecycled" value="True" />
@@ -420,7 +420,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="2" />
+            <Simple name="Agility" value="5" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -437,7 +437,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="2" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="13" />
             <Simple name="IsUidRecycled" value="True" />
@@ -454,7 +454,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Agility" value="5" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -471,7 +471,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="1" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="14" />
             <Simple name="IsUidRecycled" value="True" />
@@ -488,7 +488,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Agility" value="5" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -505,7 +505,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="1" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="15" />
             <Simple name="IsUidRecycled" value="True" />
@@ -522,7 +522,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Agility" value="5" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -539,7 +539,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="1" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="16" />
             <Simple name="IsUidRecycled" value="True" />
@@ -556,7 +556,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="16" />
-            <Simple name="Agility" value="2" />
+            <Simple name="Agility" value="10" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -573,7 +573,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="2" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="17" />
             <Simple name="IsUidRecycled" value="True" />
@@ -590,7 +590,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="4" />
-            <Simple name="Agility" value="2" />
+            <Simple name="Agility" value="4" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="0" />
@@ -607,7 +607,7 @@
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="200" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="2" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="18" />
             <Simple name="IsUidRecycled" value="True" />
@@ -658,7 +658,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="16" />
-            <Simple name="Agility" value="0" />
+            <Simple name="Agility" value="16" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
@@ -692,7 +692,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="16" />
-            <Simple name="Agility" value="0" />
+            <Simple name="Agility" value="14" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
@@ -726,7 +726,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="16" />
-            <Simple name="Agility" value="0" />
+            <Simple name="Agility" value="18" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
@@ -760,7 +760,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="1057" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="3" />
+            <Simple name="Agility" value="16" />
             <Simple name="GroupCount" value="88" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
@@ -777,7 +777,7 @@
             <Simple name="OrigGroupCount" value="88" />
             <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="3" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="23" />
             <Simple name="IsUidRecycled" value="True" />
@@ -794,7 +794,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="1058" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="3" />
+            <Simple name="Agility" value="20" />
             <Simple name="GroupCount" value="352" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
@@ -811,7 +811,7 @@
             <Simple name="OrigGroupCount" value="352" />
             <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="3" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="24" />
             <Simple name="IsUidRecycled" value="True" />
@@ -828,7 +828,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="3" />
+            <Simple name="Agility" value="24" />
             <Simple name="GroupCount" value="512" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
@@ -845,7 +845,7 @@
             <Simple name="OrigGroupCount" value="512" />
             <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
-            <Simple name="Field1" value="0" />
+            <Simple name="Field1" value="3" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="25" />
             <Simple name="IsUidRecycled" value="True" />
@@ -862,7 +862,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="Es" />
             <Simple name="Hardiness" value="500" />
-            <Simple name="Agility" value="0" />
+            <Simple name="Agility" value="18" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
@@ -896,7 +896,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="5" />
-            <Simple name="Agility" value="0" />
+            <Simple name="Agility" value="20" />
             <Simple name="GroupCount" value="500" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
@@ -930,7 +930,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="16" />
-            <Simple name="Agility" value="0" />
+            <Simple name="Agility" value="10" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
