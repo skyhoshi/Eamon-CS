@@ -317,7 +317,13 @@ namespace EamonRT.Game.Parsing
 
 					command.Iobj = IobjData.Obj;
 
-					if (!ActorMonster.IsCharacterMonster() || ActorRoom.IsLit() || command.IsDarkEnabled)
+					Globals.Engine.CheckPlayerCommand(command);
+
+					if (command.Discarded)
+					{
+						NextState = command.NextState ?? Globals.CreateInstance<IStartState>();
+					}
+					else if (!ActorMonster.IsCharacterMonster() || ActorRoom.IsLit() || command.IsDarkEnabled)
 					{
 						command.FinishParsing();
 					}

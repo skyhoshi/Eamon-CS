@@ -2154,7 +2154,7 @@
         </Complex>
         <Complex type="Eamon.Game.Room, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="LightLvl" value="Light" />
+            <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
             <Simple name="Zone" value="1" />
             <SingleArray name="Dirs">
@@ -2734,7 +2734,7 @@
         </Complex>
         <Complex type="Eamon.Game.Room, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="LightLvl" value="Light" />
+            <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
             <Simple name="Zone" value="1" />
             <SingleArray name="Dirs">
@@ -2763,7 +2763,7 @@
         </Complex>
         <Complex type="Eamon.Game.Room, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="LightLvl" value="Light" />
+            <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
             <Simple name="Zone" value="1" />
             <SingleArray name="Dirs">
@@ -2792,7 +2792,7 @@
         </Complex>
         <Complex type="Eamon.Game.Room, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="LightLvl" value="Light" />
+            <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
             <Simple name="Zone" value="1" />
             <SingleArray name="Dirs">

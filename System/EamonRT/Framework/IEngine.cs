@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Eamon.Framework;
+using Eamon.Framework.Commands;
 using Classes = Eamon.Framework.Primitive.Classes;
 using Enums = Eamon.Framework.Primitive.Enums;
 
@@ -125,6 +126,20 @@ namespace EamonRT.Framework
 		bool CheckPlayerSpellCast(Enums.Spell spellValue, bool shouldAllowSkillGains);
 
 		void CheckPlayerSkillGains(Classes.IArtifactCategory ac, long af);
+
+		/// <summary>
+		/// Checks to see if the player command should be allowed to proceed.
+		/// </summary>
+		/// <param name="command">The command to check.</param>
+		/// <remarks>
+		/// This method takes the command identified during the parsing process and checks to see if it
+		/// should be allowed to proceed.  The method is called immediately once the command is identified;
+		/// the direct/indirect objects have not been parsed or resolved at this point.  You can examine 
+		/// the command passed and take whatever actions you deem necessary, including outputting text to
+		/// the player and/or setting the NextState command property.  If you want to abort the command
+		/// you should set its Discarded property to true.
+		/// </remarks>
+		void CheckPlayerCommand(ICommand command);
 
 		void TransportRoomContentsBetweenRooms(IRoom oldRoom, IRoom newRoom, bool includeEmbedded = true);
 

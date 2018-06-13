@@ -1897,6 +1897,13 @@ namespace EamonRT.Game
 			}
 		}
 
+		public virtual void CheckPlayerCommand(ICommand command)
+		{
+			Debug.Assert(command != null);
+
+			// do nothing
+		}
+
 		public virtual void TransportRoomContentsBetweenRooms(IRoom oldRoom, IRoom newRoom, bool includeEmbedded = true)
 		{
 			Debug.Assert(oldRoom != null);
