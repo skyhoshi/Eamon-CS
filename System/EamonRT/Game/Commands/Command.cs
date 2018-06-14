@@ -792,6 +792,16 @@ namespace EamonRT.Game.Commands
 
 		}
 
+		/// <summary>
+		/// Determines whether the command is allowed in the player's current room.
+		/// </summary>
+		/// <remarks>
+		/// This method works in conjunction with <see cref="PrintCantVerbHere"/> to disable commands
+		/// with custom error responses in different rooms.  Note that there is also a very powerful and
+		/// much more flexible option in <see cref="Framework.IEngine.CheckPlayerCommand(ICommand)"/>,
+		/// which can be used to accomplish these tasks.
+		/// </remarks>
+		/// <returns>If the command is allowed, returns true; else returns false.</returns>
 		protected virtual bool IsAllowedInRoom()
 		{
 			return true;
