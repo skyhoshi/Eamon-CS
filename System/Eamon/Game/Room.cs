@@ -38,25 +38,6 @@ namespace Eamon.Game
 
 		#region Protected Methods
 
-		#region Interface IDisposable
-
-		protected override void Dispose(bool disposing)
-		{
-			if (disposing)
-			{
-				// get rid of managed resources
-			}
-
-			if (IsUidRecycled && Uid > 0)
-			{
-				Globals.Database.FreeRoomUid(Uid);
-
-				Uid = 0;
-			}
-		}
-
-		#endregion
-
 		#region Class Room
 
 		protected virtual bool IsDirectionInObviousExitsList(long index)
@@ -79,6 +60,25 @@ namespace Eamon.Game
 		#endregion
 
 		#region Public Methods
+
+		#region Interface IDisposable
+
+		public override void Dispose(bool disposing)
+		{
+			if (disposing)
+			{
+				// get rid of managed resources
+			}
+
+			if (IsUidRecycled && Uid > 0)
+			{
+				Globals.Database.FreeRoomUid(Uid);
+
+				Uid = 0;
+			}
+		}
+
+		#endregion
 
 		#region Interface IGameBase
 

@@ -45,11 +45,11 @@ namespace Eamon.Game
 
 		#endregion
 
-		#region Protected Methods
+		#region Public Methods
 
 		#region Interface IDisposable
 
-		protected override void Dispose(bool disposing)
+		public override void Dispose(bool disposing)
 		{
 			if (disposing)
 			{
@@ -65,10 +65,6 @@ namespace Eamon.Game
 		}
 
 		#endregion
-
-		#endregion
-
-		#region Public Methods
 
 		#region Interface IComparable
 
