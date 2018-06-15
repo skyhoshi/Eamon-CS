@@ -191,10 +191,6 @@ namespace Eamon.Framework.Commands
 
 		bool ShouldAllowSkillGains();
 
-		// bool ShouldPreTurnProcess()
-
-		// void Execute()
-
 		string GetPrintedVerb();
 
 		bool IsEnabled(IMonster monster);

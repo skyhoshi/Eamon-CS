@@ -40,5 +40,7 @@ namespace EamonRT.Framework.States
 		string GetDarkName(IGameBase target, Enums.ArticleType articleType, string nameType, bool upshift, bool groupCountOne);
 
 		bool ShouldPreTurnProcess();
+
+		void Execute();
 	}
 }

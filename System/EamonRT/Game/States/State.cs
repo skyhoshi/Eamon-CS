@@ -153,7 +153,10 @@ namespace EamonRT.Game.States
 			return StateImpl.ShouldPreTurnProcess();
 		}
 
-		public abstract void Execute();
+		public virtual void Execute()
+		{
+			StateImpl.Execute();
+		}
 
 		#endregion
 

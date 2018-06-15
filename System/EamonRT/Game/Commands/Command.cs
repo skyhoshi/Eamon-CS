@@ -622,36 +622,12 @@ namespace EamonRT.Game.Commands
 
 		public override bool ShouldPreTurnProcess()
 		{
-			return true;
+			return CommandImpl.ShouldPreTurnProcess();
 		}
 
 		public override void Execute()
 		{
-			Debug.Assert(ActorMonster != null);
-
-			Debug.Assert(ActorRoom != null);
-
-			if (ActorMonster.IsCharacterMonster())
-			{
-				if (IsAllowedInRoom())
-				{
-					PlayerExecute();
-				}
-				else
-				{
-					PrintCantVerbHere();
-
-					NextState = Globals.CreateInstance<IStartState>();
-				}
-			}
-			else
-			{
-				Debug.Assert(IsMonsterEnabled);
-
-				MonsterExecute();
-			}
-
-			Globals.NextState = NextState;
+			CommandImpl.Execute();
 		}
 
 		public virtual string GetPrintedVerb()

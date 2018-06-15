@@ -194,9 +194,9 @@ namespace EamonRT.Framework.Commands
 
 		bool ShouldAllowSkillGains();
 
-		// bool ShouldPreTurnProcess()
+		bool ShouldPreTurnProcess();
 
-		// void Execute()
+		void Execute();
 
 		string GetPrintedVerb();
 

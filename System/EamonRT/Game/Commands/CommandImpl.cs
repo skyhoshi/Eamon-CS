@@ -820,6 +820,40 @@ namespace EamonRT.Game.Commands
 			return true;
 		}
 
+		public virtual bool ShouldPreTurnProcess()
+		{
+			return true;
+		}
+
+		public virtual void Execute()
+		{
+			Debug.Assert(Command.ActorMonster != null);
+
+			Debug.Assert(Command.ActorRoom != null);
+
+			if (Command.ActorMonster.IsCharacterMonster())
+			{
+				if (Command.IsAllowedInRoom())
+				{
+					Command.PlayerExecute();
+				}
+				else
+				{
+					Command.PrintCantVerbHere();
+
+					Command.NextState = Globals.CreateInstance<IStartState>();
+				}
+			}
+			else
+			{
+				Debug.Assert(Command.IsMonsterEnabled);
+
+				Command.MonsterExecute();
+			}
+
+			Globals.NextState = Command.NextState;
+		}
+
 		public virtual string GetPrintedVerb()
 		{
 			return Command.Verb.ToUpper();
