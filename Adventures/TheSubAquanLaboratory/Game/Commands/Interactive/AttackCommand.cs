@@ -71,7 +71,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 			}
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			var effectUid = 0L;
 			var n = 0L;

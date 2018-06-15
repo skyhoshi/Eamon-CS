@@ -14,7 +14,7 @@ namespace TheTrainingGround.Game.Commands
 	[ClassMappings]
 	public class ReadyCommand : EamonRT.Game.Commands.ReadyCommand, IReadyCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 

@@ -53,7 +53,7 @@ namespace ARuncibleCargo.Game.Commands
 			GotoCleanup = true;
 		}
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

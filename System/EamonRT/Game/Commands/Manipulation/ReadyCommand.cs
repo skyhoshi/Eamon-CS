@@ -17,7 +17,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class ReadyCommand : Command, IReadyCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -98,7 +98,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void MonsterExecute()
+		public override void MonsterExecute()
 		{
 			RetCode rc;
 
@@ -144,7 +144,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			PlayerResolveArtifact();
 		}

@@ -13,12 +13,12 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class InventoryCommand : EamonRT.Game.Commands.InventoryCommand, IInventoryCommand
 	{
-		protected override void PrintCantVerbHere()
+		public override void PrintCantVerbHere()
 		{
 			PrintEnemiesNearby();
 		}
 
-		protected override bool IsAllowedInRoom()
+		public override bool IsAllowedInRoom()
 		{
 			return DobjArtifact == null || Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) <= 0;
 		}

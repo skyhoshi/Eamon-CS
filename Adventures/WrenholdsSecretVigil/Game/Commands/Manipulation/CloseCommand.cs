@@ -14,7 +14,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class CloseCommand : EamonRT.Game.Commands.CloseCommand, ICloseCommand
 	{
-		protected override void PrintBrokeIt(IArtifact artifact)
+		public override void PrintBrokeIt(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 

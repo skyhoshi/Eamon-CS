@@ -27,7 +27,7 @@ namespace EamonRT.Game.Commands
 		/// </summary>
 		protected const long PpeAfterArtifactRead = 2;
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -108,7 +108,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			PlayerResolveArtifact();
 		}

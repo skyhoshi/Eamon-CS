@@ -17,7 +17,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	{
 		protected virtual long DmgTaken { get; set; }
 
-		protected override void PrintVerbItAll(IArtifact artifact)
+		public override void PrintVerbItAll(IArtifact artifact)
 		{
 			// Carcass
 
@@ -27,7 +27,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			}
 		}
 
-		protected override void PrintFeelBetter(IArtifact artifact)
+		public override void PrintFeelBetter(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -37,12 +37,12 @@ namespace TheTempleOfNgurct.Game.Commands
 			}
 		}
 
-		protected override void PrintCantVerbHere()
+		public override void PrintCantVerbHere()
 		{
 			PrintEnemiesNearby();
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
@@ -51,7 +51,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			base.PlayerExecute();
 		}
 
-		protected override bool IsAllowedInRoom()
+		public override bool IsAllowedInRoom()
 		{
 			return Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) <= 0;
 		}

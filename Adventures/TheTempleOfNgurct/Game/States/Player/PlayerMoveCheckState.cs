@@ -12,7 +12,7 @@ namespace TheTempleOfNgurct.Game.States
 	[ClassMappings]
 	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
-		protected override void ProcessEvents(long eventType)
+		public override void ProcessEvents(long eventType)
 		{
 			if (eventType == PeAfterBlockingArtifactCheck)
 			{

@@ -25,7 +25,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 			Globals.Engine.PrintEffectDesc(80 + (IsActorRoomInLab() ? 1 : 0));
 		}
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			if (eventType == PpeAfterPlayerSpellCastCheck)
 			{

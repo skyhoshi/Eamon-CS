@@ -16,7 +16,7 @@ namespace WalledCityOfDarkness.Game.Commands
 	[ClassMappings]
 	public class PayCommand : EamonRT.Game.Commands.Command, Framework.Commands.IPayCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			if (NextState == null)
 			{
@@ -24,7 +24,7 @@ namespace WalledCityOfDarkness.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 
 		}

@@ -13,7 +13,7 @@ namespace ARuncibleCargo.Game.States
 	[ClassMappings]
 	public class StartState : EamonRT.Game.States.StartState, IStartState
 	{
-		protected override void ProcessEvents(long eventType)
+		public override void ProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

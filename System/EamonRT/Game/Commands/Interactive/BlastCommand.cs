@@ -35,7 +35,7 @@ namespace EamonRT.Game.Commands
 
 		public virtual bool CheckAttack { get; set; }
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -102,7 +102,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			CommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch03;
 
@@ -117,7 +117,7 @@ namespace EamonRT.Game.Commands
 			PlayerResolveMonster();
 		}
 
-		protected override bool ShouldAllowSkillGains()
+		public override bool ShouldAllowSkillGains()
 		{
 			return DobjMonster != null || DobjArtifact.IsAttackable();
 		}

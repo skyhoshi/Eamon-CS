@@ -13,7 +13,7 @@ namespace TheBeginnersCave.Game.Commands
 	[ClassMappings]
 	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			if (eventType == PpeAfterPlayerSay && ProcessedPhrase.IndexOf("trollsfire", StringComparison.OrdinalIgnoreCase) >= 0)
 			{

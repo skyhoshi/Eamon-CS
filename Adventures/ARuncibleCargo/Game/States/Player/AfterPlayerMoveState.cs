@@ -13,7 +13,7 @@ namespace ARuncibleCargo.Game.States
 	[ClassMappings]
 	public class AfterPlayerMoveState : EamonRT.Game.States.AfterPlayerMoveState, IAfterPlayerMoveState
 	{
-		protected override void ProcessEvents(long eventType)
+		public override void ProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

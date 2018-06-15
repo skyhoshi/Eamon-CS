@@ -20,7 +20,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class InventoryCommand : Command, IInventoryCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -189,7 +189,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			if (CommandParser.CurrToken < CommandParser.Tokens.Length)
 			{

@@ -12,7 +12,7 @@ namespace WrenholdsSecretVigil.Game.States
 	[ClassMappings]
 	public class EndOfRoundState : EamonRT.Game.States.EndOfRoundState, IEndOfRoundState
 	{
-		protected override void ProcessEvents(long eventType)
+		public override void ProcessEvents(long eventType)
 		{
 			// Try to open running device, all flee
 

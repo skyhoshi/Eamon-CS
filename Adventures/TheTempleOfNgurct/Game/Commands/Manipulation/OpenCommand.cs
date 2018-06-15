@@ -16,7 +16,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, IOpenCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 
@@ -46,7 +46,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			}
 		}
 
-		protected override void PrintOpened(IArtifact artifact)
+		public override void PrintOpened(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -76,7 +76,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			}
 		}
 
-		protected override void PrintLocked(IArtifact artifact)
+		public override void PrintLocked(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -106,7 +106,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			}
 		}
 
-		protected override void PrintOpenObjWithKey(IArtifact artifact, IArtifact key)
+		public override void PrintOpenObjWithKey(IArtifact artifact, IArtifact key)
 		{
 			Debug.Assert(artifact != null && key != null);
 
@@ -124,12 +124,12 @@ namespace TheTempleOfNgurct.Game.Commands
 			}
 		}
 
-		protected override void PrintCantVerbHere()
+		public override void PrintCantVerbHere()
 		{
 			PrintEnemiesNearby();
 		}
 
-		protected override bool IsAllowedInRoom()
+		public override bool IsAllowedInRoom()
 		{
 			return Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) <= 0;
 		}

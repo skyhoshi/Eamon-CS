@@ -16,7 +16,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class ScoreCommand : EamonRT.Game.Commands.Command, Framework.Commands.IScoreCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

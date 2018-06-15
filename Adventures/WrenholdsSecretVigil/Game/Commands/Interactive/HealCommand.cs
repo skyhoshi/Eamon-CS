@@ -13,7 +13,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class HealCommand : EamonRT.Game.Commands.HealCommand, IHealCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

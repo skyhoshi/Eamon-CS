@@ -15,7 +15,7 @@ namespace WalledCityOfDarkness.Game.Commands
 	[ClassMappings]
 	public class SellCommand : EamonRT.Game.Commands.Command, Framework.Commands.ISellCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			if (NextState == null)
 			{
@@ -23,7 +23,7 @@ namespace WalledCityOfDarkness.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 
 		}

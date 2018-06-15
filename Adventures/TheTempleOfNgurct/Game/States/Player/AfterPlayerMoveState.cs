@@ -39,7 +39,7 @@ namespace TheTempleOfNgurct.Game.States
 			combatSystem.ExecuteCalculateDamage(numDice, numSides);
 		}
 
-		protected override void ProcessEvents(long eventType)
+		public override void ProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

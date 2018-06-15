@@ -23,7 +23,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 			return ch == 'U' || ch == 'D';
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -93,7 +93,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			PlayerResolveArtifact();
 		}

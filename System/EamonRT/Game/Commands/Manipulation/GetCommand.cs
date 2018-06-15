@@ -109,7 +109,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(GetAll || DobjArtifact != null);
 
@@ -180,7 +180,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void MonsterExecute()
+		public override void MonsterExecute()
 		{
 			RetCode rc;
 
@@ -239,7 +239,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			CommandParser.ParseName();
 

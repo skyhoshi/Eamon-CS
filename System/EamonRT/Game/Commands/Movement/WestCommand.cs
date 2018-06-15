@@ -14,7 +14,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class WestCommand : Command, IWestCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			NextState = Globals.CreateInstance<IBeforePlayerMoveState>(x =>
 			{

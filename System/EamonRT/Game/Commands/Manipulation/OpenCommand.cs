@@ -34,7 +34,7 @@ namespace EamonRT.Game.Commands
 			return true;
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -187,7 +187,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			PlayerResolveArtifact();
 		}

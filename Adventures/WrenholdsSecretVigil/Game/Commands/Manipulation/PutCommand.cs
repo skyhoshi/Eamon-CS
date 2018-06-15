@@ -16,7 +16,41 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class PutCommand : EamonRT.Game.Commands.PutCommand, IPutCommand
 	{
-		protected override void PrintBrokeIt(IArtifact artifact)
+		protected virtual void ConvertSlimeToContainer()
+		{
+			var ac = IobjArtifact.GetArtifactCategory(Enums.ArtifactType.Treasure);
+
+			Debug.Assert(ac != null);
+
+			ac.Type = Enums.ArtifactType.Container;
+
+			ac.Field1 = 0;
+
+			ac.Field2 = 1;
+
+			ac.Field3 = 9999;
+
+			ac.Field4 = 1;
+		}
+
+		protected virtual void ConvertSlimeToTreasure()
+		{
+			var ac = IobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
+
+			Debug.Assert(ac != null);
+
+			ac.Type = Enums.ArtifactType.Treasure;
+
+			ac.Field1 = 0;
+
+			ac.Field2 = 0;
+
+			ac.Field3 = 0;
+
+			ac.Field4 = 0;
+		}
+
+		public override void PrintBrokeIt(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -32,7 +66,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			if (eventType == PpeAfterArtifactPut)
 			{
@@ -82,41 +116,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		protected virtual void ConvertSlimeToContainer()
-		{
-			var ac = IobjArtifact.GetArtifactCategory(Enums.ArtifactType.Treasure);
-
-			Debug.Assert(ac != null);
-
-			ac.Type = Enums.ArtifactType.Container;
-
-			ac.Field1 = 0;
-
-			ac.Field2 = 1;
-
-			ac.Field3 = 9999;
-
-			ac.Field4 = 1;
-		}
-
-		protected virtual void ConvertSlimeToTreasure()
-		{
-			var ac = IobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
-
-			Debug.Assert(ac != null);
-
-			ac.Type = Enums.ArtifactType.Treasure;
-
-			ac.Field1 = 0;
-
-			ac.Field2 = 0;
-
-			ac.Field3 = 0;
-
-			ac.Field4 = 0;
-		}
-
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null && IobjArtifact != null);
 

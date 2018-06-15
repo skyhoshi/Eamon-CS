@@ -13,7 +13,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class FreeCommand : EamonRT.Game.Commands.FreeCommand, IFreeCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			var deviceArtifact = Globals.ADB[44];
 

@@ -12,7 +12,7 @@ namespace ARuncibleCargo.Game.Commands
 	[ClassMappings]
 	public class BlastCommand : EamonRT.Game.Commands.BlastCommand, IBlastCommand
 	{
-		protected override bool IsAllowedInRoom()
+		public override bool IsAllowedInRoom()
 		{
 			// Disable BlastCommand in water rooms
 

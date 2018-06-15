@@ -44,7 +44,7 @@ namespace EamonRT.Game.Commands
 				"YOU SUDDENLY FIND YOU CANNOT CARRY ALL OF THE ITEMS YOU ARE CARRYING, AND THEY ALL FALL TO THE GROUND.");
 		}
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			var rl = Globals.Engine.RollDice01(1, 100, 0);
 
@@ -128,7 +128,7 @@ namespace EamonRT.Game.Commands
 			;
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Power, ShouldAllowSkillGains()))
 			{

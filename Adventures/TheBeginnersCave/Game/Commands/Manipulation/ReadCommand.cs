@@ -17,7 +17,7 @@ namespace TheBeginnersCave.Game.Commands
 	{
 		protected virtual Framework.IGameState GameState { get; set; }
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			if (eventType == PpeBeforeArtifactReadTextPrint)
 			{
@@ -76,7 +76,7 @@ namespace TheBeginnersCave.Game.Commands
 			}
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 

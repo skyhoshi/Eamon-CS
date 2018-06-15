@@ -47,7 +47,7 @@ namespace EamonRT.Game.Commands
 			return !Globals.IsRulesetVersion(5) && (IobjMonster.Friendliness == Enums.Friendliness.Enemy || (IobjMonster.Friendliness == Enums.Friendliness.Neutral && DobjArtifact.Value < 3000));
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -351,7 +351,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			long i;
 

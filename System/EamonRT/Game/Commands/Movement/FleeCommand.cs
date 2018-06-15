@@ -43,7 +43,7 @@ namespace EamonRT.Game.Commands
 			return Globals.Engine.RollDice01(1, ActorMonster.GroupCount, 0);
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Enums.Direction), Direction));
 
@@ -134,7 +134,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void MonsterExecute()
+		public override void MonsterExecute()
 		{
 			RetCode rc;
 
@@ -239,7 +239,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			if (CommandParser.CurrToken < CommandParser.Tokens.Length)
 			{

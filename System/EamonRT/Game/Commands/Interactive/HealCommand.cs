@@ -19,7 +19,7 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool CastSpell { get; set; }
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjMonster != null);
 
@@ -93,7 +93,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			if (!Globals.IsRulesetVersion(5) && CommandParser.CurrToken < CommandParser.Tokens.Length)
 			{

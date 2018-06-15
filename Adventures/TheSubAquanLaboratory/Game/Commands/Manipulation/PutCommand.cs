@@ -14,7 +14,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class PutCommand : EamonRT.Game.Commands.PutCommand, IPutCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null && IobjArtifact != null);
 

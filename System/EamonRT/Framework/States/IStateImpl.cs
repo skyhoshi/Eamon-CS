@@ -1,16 +1,17 @@
 ﻿
-// IState.cs
+// IStateImpl.cs
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
+using Eamon.Framework;
+using Eamon.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 
-namespace Eamon.Framework.States
+namespace EamonRT.Framework.States
 {
-	public interface IState : IDisposable
+	public interface IStateImpl
 	{
-		#region Properties
+		IState State { get; set; }
 
 		bool GotoCleanup { get; set; }
 
@@ -21,10 +22,6 @@ namespace Eamon.Framework.States
 		bool PreserveNextState { get; set; }
 
 		bool Discarded { get; set; }
-
-		#endregion
-
-		#region Methods
 
 		void Dispose(bool disposing);
 
@@ -43,9 +40,5 @@ namespace Eamon.Framework.States
 		string GetDarkName(IGameBase target, Enums.ArticleType articleType, string nameType, bool upshift, bool groupCountOne);
 
 		bool ShouldPreTurnProcess();
-
-		void Execute();
-
-		#endregion
 	}
 }

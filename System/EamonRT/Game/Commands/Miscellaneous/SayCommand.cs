@@ -33,7 +33,7 @@ namespace EamonRT.Game.Commands
 
 		public virtual string ProcessedPhrase { get; set; }
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(OriginalPhrase));
 
@@ -70,7 +70,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			if (CommandParser.CurrToken < CommandParser.Tokens.Length)
 			{

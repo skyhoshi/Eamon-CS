@@ -17,7 +17,7 @@ namespace ARuncibleCargo.Game.States
 	[ClassMappings]
 	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, IPrintPlayerRoomState
 	{
-		protected override void ProcessEvents(long eventType)
+		public override void ProcessEvents(long eventType)
 		{
 			RetCode rc;
 

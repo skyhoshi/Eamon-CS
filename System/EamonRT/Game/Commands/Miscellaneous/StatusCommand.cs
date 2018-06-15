@@ -22,7 +22,7 @@ namespace EamonRT.Game.Commands
 		/// </summary>
 		protected const long PpeAfterPlayerStatus = 1;
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			var ar = Globals.GameState.Ar;
 

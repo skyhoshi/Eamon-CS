@@ -17,7 +17,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 

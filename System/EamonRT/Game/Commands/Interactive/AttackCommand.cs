@@ -51,7 +51,7 @@ namespace EamonRT.Game.Commands
 			Globals.Buf.AppendFormat("; {0} contents spill to the {1}", DobjArtifact.EvalPlural("its", "their"), ActorRoom.EvalRoomType("floor", "ground"));
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -291,7 +291,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void MonsterExecute()
+		public override void MonsterExecute()
 		{
 			Debug.Assert(DobjMonster != null);
 
@@ -319,7 +319,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			CommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch03;
 

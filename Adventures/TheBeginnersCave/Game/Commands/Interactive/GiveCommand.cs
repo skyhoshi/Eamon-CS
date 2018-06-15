@@ -12,7 +12,7 @@ namespace TheBeginnersCave.Game.Commands
 	[ClassMappings]
 	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, IGiveCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			if (eventType == PpeBeforeMonsterTakesGold && (IobjMonster.Uid == 1 || IobjMonster.Uid == 5 || IobjMonster.Uid == 7))
 			{

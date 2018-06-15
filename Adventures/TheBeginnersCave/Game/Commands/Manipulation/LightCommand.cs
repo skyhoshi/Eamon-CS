@@ -13,7 +13,7 @@ namespace TheBeginnersCave.Game.Commands
 	[ClassMappings]
 	public class LightCommand : EamonRT.Game.Commands.LightCommand, ILightCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 

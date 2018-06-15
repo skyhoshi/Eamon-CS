@@ -15,7 +15,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

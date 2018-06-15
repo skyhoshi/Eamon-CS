@@ -13,7 +13,7 @@ namespace TheTrainingGround.Game.Commands
 	[ClassMappings]
 	public class BlastCommand : EamonRT.Game.Commands.BlastCommand, IBlastCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			// BLAST Bozworth
 
@@ -35,7 +35,7 @@ namespace TheTrainingGround.Game.Commands
 			}
 		}
 
-		protected override bool ShouldAllowSkillGains()
+		public override bool ShouldAllowSkillGains()
 		{
 			// BLASTing Bozworth never increases skill
 

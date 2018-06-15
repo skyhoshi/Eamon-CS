@@ -15,7 +15,7 @@ namespace TheTrainingGround.Game.Commands
 	[ClassMappings]
 	public class UseCommand : EamonRT.Game.Commands.UseCommand, IUseCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 

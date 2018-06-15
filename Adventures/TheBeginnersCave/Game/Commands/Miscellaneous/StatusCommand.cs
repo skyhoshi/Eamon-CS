@@ -14,7 +14,7 @@ namespace TheBeginnersCave.Game.Commands
 	[ClassMappings]
 	public class StatusCommand : EamonRT.Game.Commands.StatusCommand, IStatusCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			if (eventType == PpeAfterPlayerStatus)
 			{

@@ -42,7 +42,7 @@ namespace EamonRT.Game.Commands
 			Globals.Engine.PrintMacroReplacedPagedString(hints[i].GetAnswers(j), Globals.Buf);
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 			int i, j;

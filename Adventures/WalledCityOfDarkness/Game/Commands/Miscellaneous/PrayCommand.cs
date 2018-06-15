@@ -16,7 +16,7 @@ namespace WalledCityOfDarkness.Game.Commands
 	[ClassMappings]
 	public class PrayCommand : EamonRT.Game.Commands.Command, Framework.Commands.IPrayCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			if (NextState == null)
 			{

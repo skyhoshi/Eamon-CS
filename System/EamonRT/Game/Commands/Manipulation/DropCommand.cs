@@ -59,7 +59,7 @@ namespace EamonRT.Game.Commands
 			PrintDropped(artifact);
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DropAll || DobjArtifact != null);
 
@@ -102,7 +102,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			CommandParser.ParseName();
 

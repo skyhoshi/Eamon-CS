@@ -1,16 +1,19 @@
 ﻿
-// ICommand.cs
+// ICommandImpl.cs
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using Eamon.Framework;
+using Eamon.Framework.Commands;
 using Eamon.Framework.Parsing;
-using Eamon.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 
-namespace Eamon.Framework.Commands
+namespace EamonRT.Framework.Commands
 {
-	public interface ICommand : IState
+	public interface ICommandImpl
 	{
+		ICommand Command { get; set; }
+
 		ICommandParser CommandParser { get; set; }
 
 		IMonster ActorMonster { get; set; }

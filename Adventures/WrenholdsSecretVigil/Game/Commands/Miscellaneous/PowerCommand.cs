@@ -12,7 +12,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			if (eventType == PpeAfterPlayerSpellCastCheck)
 			{
@@ -24,7 +24,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		protected override bool ShouldAllowSkillGains()
+		public override bool ShouldAllowSkillGains()
 		{
 			return false;
 		}

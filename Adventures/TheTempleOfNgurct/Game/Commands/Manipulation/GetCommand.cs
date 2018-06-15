@@ -19,7 +19,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class GetCommand : EamonRT.Game.Commands.GetCommand, IGetCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 
@@ -61,7 +61,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			CommandParser.ParseName();
 

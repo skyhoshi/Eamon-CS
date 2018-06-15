@@ -14,7 +14,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class SwCommand : Command, ISwCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			NextState = Globals.CreateInstance<IBeforePlayerMoveState>(x =>
 			{

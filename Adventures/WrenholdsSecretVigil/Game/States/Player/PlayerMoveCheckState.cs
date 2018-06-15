@@ -20,7 +20,7 @@ namespace WrenholdsSecretVigil.Game.States
 	{
 		protected virtual Framework.IGameState GameState { get; set; }
 
-		protected override void ProcessEvents(long eventType)
+		public override void ProcessEvents(long eventType)
 		{
 			RetCode rc;
 

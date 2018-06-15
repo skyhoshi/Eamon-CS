@@ -14,7 +14,7 @@ namespace TheBeginnersCave.Game.Commands
 	[ClassMappings]
 	public class SmileCommand : EamonRT.Game.Commands.SmileCommand, ISmileCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			// historical response from original
 

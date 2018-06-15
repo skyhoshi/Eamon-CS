@@ -15,7 +15,7 @@ namespace ARuncibleCargo.Game.Commands
 	[ClassMappings]
 	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 

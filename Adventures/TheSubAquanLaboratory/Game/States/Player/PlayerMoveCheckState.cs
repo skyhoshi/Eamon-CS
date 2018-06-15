@@ -14,12 +14,12 @@ namespace TheSubAquanLaboratory.Game.States
 	[ClassMappings]
 	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
-		protected override void PrintRideOffIntoSunset()
+		public override void PrintRideOffIntoSunset()
 		{
 			Globals.Out.Print("You successfully teleport back to the Main Hall.");
 		}
 
-		protected override void ProcessEvents(long eventType)
+		public override void ProcessEvents(long eventType)
 		{
 			if (eventType == PeAfterBlockingArtifactCheck)
 			{

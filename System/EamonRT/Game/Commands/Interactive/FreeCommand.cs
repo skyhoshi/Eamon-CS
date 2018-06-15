@@ -35,7 +35,7 @@ namespace EamonRT.Game.Commands
 				Key != null ? string.Format(" with {0}", Key.GetDecoratedName03(false, true, false, false, Globals.Buf01)) : "");
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
@@ -112,7 +112,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			CommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch01;
 

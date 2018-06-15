@@ -16,14 +16,14 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
-		protected override void PrintCantVerbObj(IGameBase obj)
+		public override void PrintCantVerbObj(IGameBase obj)
 		{
 			Debug.Assert(obj != null);
 
 			Globals.Out.Print("You stare at {0}, but you don't see any secret messages forming.", obj.GetDecoratedName03(false, true, false, false, Globals.Buf));
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			var rl = 0L;
 

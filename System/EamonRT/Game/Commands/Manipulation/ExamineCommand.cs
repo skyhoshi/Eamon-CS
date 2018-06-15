@@ -25,7 +25,7 @@ namespace EamonRT.Game.Commands
 		/// </summary>
 		protected const long PpeAfterArtifactFullDescPrint = 1;
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
@@ -119,7 +119,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			CommandParser.ParseName();
 

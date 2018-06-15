@@ -40,7 +40,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 			}
 		}
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

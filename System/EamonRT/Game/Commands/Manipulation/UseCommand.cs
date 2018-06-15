@@ -24,7 +24,7 @@ namespace EamonRT.Game.Commands
 
 		public virtual bool IobjSupport { get; set; }
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
@@ -103,7 +103,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			PlayerResolveArtifact();
 

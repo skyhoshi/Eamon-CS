@@ -16,7 +16,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class LookCommand : EamonRT.Game.Commands.LookCommand, ILookCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			ActorRoom.Seen = false;
 

@@ -13,12 +13,12 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class CloseCommand : EamonRT.Game.Commands.CloseCommand, ICloseCommand
 	{
-		protected override void PrintCantVerbHere()
+		public override void PrintCantVerbHere()
 		{
 			PrintEnemiesNearby();
 		}
 
-		protected override bool IsAllowedInRoom()
+		public override bool IsAllowedInRoom()
 		{
 			return Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) <= 0;
 		}

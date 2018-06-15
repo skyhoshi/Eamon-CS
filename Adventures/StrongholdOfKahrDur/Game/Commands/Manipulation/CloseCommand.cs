@@ -14,7 +14,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 	[ClassMappings]
 	public class CloseCommand : EamonRT.Game.Commands.CloseCommand, ICloseCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			// If the armoire is closed then hide the secret passage
 

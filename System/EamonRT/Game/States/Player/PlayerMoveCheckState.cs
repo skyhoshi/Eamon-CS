@@ -44,7 +44,7 @@ namespace EamonRT.Game.States
 
 		public virtual bool Fleeing { get; set; }
 
-		protected override void ProcessEvents(long eventType)
+		public override void ProcessEvents(long eventType)
 		{
 			RetCode rc;
 

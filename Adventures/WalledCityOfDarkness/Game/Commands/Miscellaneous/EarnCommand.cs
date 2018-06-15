@@ -16,7 +16,7 @@ namespace WalledCityOfDarkness.Game.Commands
 	[ClassMappings]
 	public class EarnCommand : EamonRT.Game.Commands.Command, Framework.Commands.IEarnCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			if (NextState == null)
 			{

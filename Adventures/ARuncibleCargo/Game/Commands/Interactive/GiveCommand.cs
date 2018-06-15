@@ -16,7 +16,12 @@ namespace ARuncibleCargo.Game.Commands
 	[ClassMappings]
 	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, IGiveCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		protected override bool MonsterRefusesToAccept()
+		{
+			return false;
+		}
+
+		public override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 
@@ -129,11 +134,6 @@ namespace ARuncibleCargo.Game.Commands
 			{
 				base.PlayerProcessEvents(eventType);
 			}
-		}
-
-		protected override bool MonsterRefusesToAccept()
-		{
-			return false;
 		}
 	}
 }

@@ -25,7 +25,7 @@ namespace EamonRT.Game.States
 
 		public virtual IArtifact Artifact { get; set; }
 
-		protected override void ProcessEvents(long eventType)
+		public override void ProcessEvents(long eventType)
 		{
 			if (eventType == PeAfterDestinationRoomSet)
 			{
