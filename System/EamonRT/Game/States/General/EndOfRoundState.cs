@@ -16,7 +16,7 @@ namespace EamonRT.Game.States
 		/// <summary>
 		/// This event fires at the end of the current round, after all processing has been done.
 		/// </summary>
-		protected const long PeAfterRoundEnd = 1;
+		public const long PeAfterRoundEnd = 1;
 
 		public override void Execute()
 		{

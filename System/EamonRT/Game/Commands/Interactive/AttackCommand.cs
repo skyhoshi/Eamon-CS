@@ -31,22 +31,22 @@ namespace EamonRT.Game.Commands
 
 		public virtual long AttackNumber { get; set; }
 
-		protected virtual void PrintHackToBits()
+		public virtual void PrintHackToBits()
 		{
 			Globals.Out.Print("You {0} {1} to bits!", BlastSpell ? "blast" : "hack", DobjArtifact.EvalPlural("it", "them"));
 		}
 
-		protected virtual void BuildWhamHitObj()
+		public virtual void BuildWhamHitObj()
 		{
 			Globals.Buf.SetPrint("Wham!  You hit {0}!", DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 		}
 
-		protected virtual void BuildSmashesToPieces()
+		public virtual void BuildSmashesToPieces()
 		{
 			Globals.Buf.SetFormat("{0}{1} {2} to pieces", Environment.NewLine, DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), DobjArtifact.EvalPlural("smashes", "smash"));
 		}
 
-		protected virtual void BuildContentsSpillToFloor()
+		public virtual void BuildContentsSpillToFloor()
 		{
 			Globals.Buf.AppendFormat("; {0} contents spill to the {1}", DobjArtifact.EvalPlural("its", "their"), ActorRoom.EvalRoomType("floor", "ground"));
 		}

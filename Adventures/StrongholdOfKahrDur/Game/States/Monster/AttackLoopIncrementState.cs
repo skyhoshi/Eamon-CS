@@ -13,7 +13,7 @@ namespace StrongholdOfKahrDur.Game.States
 	[ClassMappings]
 	public class AttackLoopIncrementState : EamonRT.Game.States.AttackLoopIncrementState, IAttackLoopIncrementState
 	{
-		protected override bool ShouldMonsterRearm(IMonster monster)
+		public override bool ShouldMonsterRearm(IMonster monster)
 		{
 			Debug.Assert(monster != null);
 

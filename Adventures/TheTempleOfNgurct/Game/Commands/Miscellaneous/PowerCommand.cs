@@ -16,7 +16,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
-		protected virtual void PrintAirCracklesWithEnergy()
+		public virtual void PrintAirCracklesWithEnergy()
 		{
 			Globals.Out.Print("The air crackles with magical energy!");
 		}

@@ -25,24 +25,24 @@ namespace EamonRT.Game.Commands
 		/// This event fires after a check has been made to enforce limits on the weight a
 		/// monster can carry.
 		/// </summary>
-		protected const long PpeAfterEnforceMonsterWeightLimitsCheck = 1;
+		public const long PpeAfterEnforceMonsterWeightLimitsCheck = 1;
 
 		/// <summary>
 		/// This event fires after a check has been made to see if the player is giving away
 		/// a readied weapon.
 		/// </summary>
-		protected const long PpeAfterPlayerGivesReadiedWeaponCheck = 2;
+		public const long PpeAfterPlayerGivesReadiedWeaponCheck = 2;
 
 		/// <summary>
 		/// This event fires before a monster takes the gold offered by the player.
 		/// </summary>
-		protected const long PpeBeforeMonsterTakesGold = 3;
+		public const long PpeBeforeMonsterTakesGold = 3;
 
 		public virtual bool GetCommandCalled { get; set; }
 
 		public virtual long GoldAmount { get; set; }
 
-		protected virtual bool MonsterRefusesToAccept()
+		public virtual bool MonsterRefusesToAccept()
 		{
 			return !Globals.IsRulesetVersion(5) && (IobjMonster.Friendliness == Enums.Friendliness.Enemy || (IobjMonster.Friendliness == Enums.Friendliness.Neutral && DobjArtifact.Value < 3000));
 		}

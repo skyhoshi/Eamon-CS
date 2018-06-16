@@ -14,7 +14,7 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class BurnDownSpeedSpellState : State, IBurnDownSpeedSpellState
 	{
-		protected virtual void PrintSpeedSpellExpired()
+		public virtual void PrintSpeedSpellExpired()
 		{
 			Globals.Out.Print("Your speed spell has{0} expired!", Globals.IsRulesetVersion(5) ? " just" : "");
 		}

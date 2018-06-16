@@ -15,7 +15,7 @@ namespace TheBeginnersCave.Game.Commands
 	[ClassMappings]
 	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
-		protected virtual Framework.IGameState GameState { get; set; }
+		public virtual Framework.IGameState GameState { get; set; }
 
 		public override void PlayerProcessEvents(long eventType)
 		{

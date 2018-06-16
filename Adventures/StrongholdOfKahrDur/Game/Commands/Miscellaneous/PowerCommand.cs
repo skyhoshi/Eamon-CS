@@ -14,7 +14,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
-		protected override void PrintFortuneCookie()
+		public override void PrintFortuneCookie()
 		{
 			Globals.Out.Print("The air crackles with magical energy but nothing interesting happens.");
 		}

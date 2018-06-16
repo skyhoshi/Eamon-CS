@@ -18,16 +18,16 @@ namespace EamonRT.Game.States
 		/// <summary>
 		/// This event fires before the player's room has been printed.
 		/// </summary>
-		protected const long PeBeforePlayerRoomPrint = 1;
+		public const long PeBeforePlayerRoomPrint = 1;
 
-		protected virtual void BuildPrintedTooDarkToSeeDesc(StringBuilder buf)
+		public virtual void BuildPrintedTooDarkToSeeDesc(StringBuilder buf)
 		{
 			Debug.Assert(buf != null);
 
 			buf.SetPrint("It's too dark to see.");
 		}
 
-		protected virtual void PrintPlayerRoom()
+		public virtual void PrintPlayerRoom()
 		{
 			var room = Globals.RDB[Globals.GameState.Ro];
 

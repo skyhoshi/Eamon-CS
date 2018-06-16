@@ -16,7 +16,7 @@ namespace BeginnersForest.Game.Commands
 	[ClassMappings]
 	public class HintsCommand : EamonRT.Game.Commands.HintsCommand, IHintsCommand
 	{
-		protected override void PrintHintsQuestion(IList<IHint> hints, int i)
+		public override void PrintHintsQuestion(IList<IHint> hints, int i)
 		{
 			Debug.Assert(hints != null);
 

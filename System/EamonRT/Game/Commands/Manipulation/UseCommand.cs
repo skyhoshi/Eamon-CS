@@ -20,7 +20,7 @@ namespace EamonRT.Game.Commands
 		/// <summary>
 		/// This event fires before the player uses an artifact.
 		/// </summary>
-		protected const long PpeBeforeArtifactUse = 1;
+		public const long PpeBeforeArtifactUse = 1;
 
 		public virtual bool IobjSupport { get; set; }
 

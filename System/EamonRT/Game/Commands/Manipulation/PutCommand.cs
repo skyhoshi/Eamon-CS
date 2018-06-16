@@ -21,7 +21,7 @@ namespace EamonRT.Game.Commands
 		/// <summary>
 		/// This event fires after the player puts an artifact into a container.
 		/// </summary>
-		protected const long PpeAfterArtifactPut = 1;
+		public const long PpeAfterArtifactPut = 1;
 
 		public virtual bool GetCommandCalled { get; set; }
 

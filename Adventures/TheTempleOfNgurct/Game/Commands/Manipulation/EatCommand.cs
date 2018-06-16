@@ -15,7 +15,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class EatCommand : EamonRT.Game.Commands.EatCommand, IEatCommand
 	{
-		protected virtual long DmgTaken { get; set; }
+		public virtual long DmgTaken { get; set; }
 
 		public override void PrintVerbItAll(IArtifact artifact)
 		{

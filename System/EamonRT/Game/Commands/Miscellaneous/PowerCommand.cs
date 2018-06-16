@@ -18,11 +18,11 @@ namespace EamonRT.Game.Commands
 		/// This event fires after a check has been made to resolve the player's spell cast
 		/// attempt, and it resolves as successful.
 		/// </summary>
-		protected const long PpeAfterPlayerSpellCastCheck = 1;
+		public const long PpeAfterPlayerSpellCastCheck = 1;
 
 		public virtual bool CastSpell { get; set; }
 
-		protected virtual void PrintSonicBoom()
+		public virtual void PrintSonicBoom()
 		{
 			if (Globals.IsRulesetVersion(5))
 			{
@@ -34,7 +34,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected virtual void PrintFortuneCookie()
+		public virtual void PrintFortuneCookie()
 		{
 			var rl = Globals.Engine.RollDice01(1, 100, 0);
 

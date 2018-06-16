@@ -17,9 +17,9 @@ namespace StrongholdOfKahrDur.Game.States
 	[ClassMappings]
 	public class BeforeNecromancerAttacksEnemyState : EamonRT.Game.States.State, Framework.States.IBeforeNecromancerAttacksEnemyState
 	{
-		protected virtual IRoom Room { get; set; }
+		public virtual IRoom Room { get; set; }
 
-		protected virtual void SummonMonster(long monsterUid)
+		public virtual void SummonMonster(long monsterUid)
 		{
 			// Necromancer summons other monsters...
 

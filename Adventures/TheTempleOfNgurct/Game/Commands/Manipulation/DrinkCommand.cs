@@ -17,9 +17,9 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class DrinkCommand : EamonRT.Game.Commands.DrinkCommand, IDrinkCommand
 	{
-		protected virtual long DmgTaken { get; set; }
+		public virtual long DmgTaken { get; set; }
 
-		protected virtual bool DrankItAll { get; set; }
+		public virtual bool DrankItAll { get; set; }
 
 		public override void PrintVerbItAll(IArtifact artifact)
 		{

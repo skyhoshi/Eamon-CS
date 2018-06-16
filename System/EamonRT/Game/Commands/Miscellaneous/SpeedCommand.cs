@@ -16,7 +16,7 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool CastSpell { get; set; }
 
-		protected virtual void PrintFeelNewAgility()
+		public virtual void PrintFeelNewAgility()
 		{
 			Globals.Out.Print("You can feel the new agility flowing through you!");
 		}

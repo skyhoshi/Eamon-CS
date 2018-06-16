@@ -15,7 +15,7 @@ namespace WalledCityOfDarkness.Game.Commands
 	[ClassMappings]
 	public class HintsCommand : EamonRT.Game.Commands.HintsCommand, IHintsCommand
 	{
-		protected override void PrintHintsAnswer(IList<IHint> hints, int i, int j)
+		public override void PrintHintsAnswer(IList<IHint> hints, int i, int j)
 		{
 			Debug.Assert(hints != null);
 

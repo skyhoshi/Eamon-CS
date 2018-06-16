@@ -15,7 +15,7 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class ArtifactLoopInitializeState : State, IArtifactLoopInitializeState
 	{
-		protected virtual void BuildLoopArtifactList(IMonster monster)
+		public virtual void BuildLoopArtifactList(IMonster monster)
 		{
 			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
 

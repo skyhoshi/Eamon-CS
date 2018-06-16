@@ -24,12 +24,12 @@ namespace EamonRT.Game.Commands
 		/// This event fires after a check has been made to resolve the player's spell cast
 		/// attempt, and it resolves as successful.
 		/// </summary>
-		protected const long PpeAfterPlayerSpellCastCheck = 1;
+		public const long PpeAfterPlayerSpellCastCheck = 1;
 
 		/// <summary>
 		/// This event fires after the monster targeted by the Blast spell gets aggravated.
 		/// </summary>
-		protected const long PpeAfterMonsterGetsAggravated = 2;
+		public const long PpeAfterMonsterGetsAggravated = 2;
 
 		public virtual bool CastSpell { get; set; }
 

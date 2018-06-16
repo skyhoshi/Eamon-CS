@@ -15,12 +15,12 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
-		protected virtual bool IsActorRoomInLab()
+		public virtual bool IsActorRoomInLab()
 		{
 			return ActorRoom.Uid == 18 || ActorRoom.Zone == 2;
 		}
 
-		protected override void PrintSonicBoom()
+		public override void PrintSonicBoom()
 		{
 			Globals.Engine.PrintEffectDesc(80 + (IsActorRoomInLab() ? 1 : 0));
 		}

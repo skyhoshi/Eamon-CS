@@ -22,14 +22,14 @@ namespace EamonRT.Game.Commands
 		/// This event fires after an artifact's open message has been printed (but before
 		/// inventory is listed for containers).
 		/// </summary>
-		protected const long PpeAfterArtifactOpenPrint = 1;
+		public const long PpeAfterArtifactOpenPrint = 1;
 
 		/// <summary>
 		/// This event fires after the player opens an artifact.
 		/// </summary>
-		protected const long PpeAfterArtifactOpen = 2;
+		public const long PpeAfterArtifactOpen = 2;
 
-		protected virtual bool ShouldPrintContainerInventory()
+		public virtual bool ShouldPrintContainerInventory()
 		{
 			return true;
 		}

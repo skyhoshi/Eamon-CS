@@ -19,7 +19,7 @@ namespace EamonRT.Game.Commands
 		/// <summary>
 		/// This event fires after the player closes an artifact.
 		/// </summary>
-		protected const long PpeAfterArtifactClose = 1;
+		public const long PpeAfterArtifactClose = 1;
 
 		public override void PlayerExecute()
 		{

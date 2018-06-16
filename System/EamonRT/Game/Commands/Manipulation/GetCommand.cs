@@ -20,11 +20,11 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class GetCommand : Command, IGetCommand
 	{
-		protected virtual IList<IArtifact> ArtifactList { get; set; }
+		public virtual IList<IArtifact> ArtifactList { get; set; }
 
 		public virtual bool GetAll { get; set; }
 
-		protected virtual void ProcessAction(Action action, ref bool nlFlag)
+		public virtual void ProcessAction(Action action, ref bool nlFlag)
 		{
 			Debug.Assert(action != null);
 
@@ -45,7 +45,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected virtual void ProcessArtifact(IArtifact artifact, Classes.IArtifactCategory ac, ref bool nlFlag)
+		public virtual void ProcessArtifact(IArtifact artifact, Classes.IArtifactCategory ac, ref bool nlFlag)
 		{
 			Debug.Assert(artifact != null);
 

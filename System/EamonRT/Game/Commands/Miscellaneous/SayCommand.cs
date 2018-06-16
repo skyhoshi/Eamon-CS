@@ -20,12 +20,12 @@ namespace EamonRT.Game.Commands
 		/// <summary>
 		/// This event fires before the player's said text is printed.
 		/// </summary>
-		protected const long PpeBeforePlayerSayTextPrint = 1;
+		public const long PpeBeforePlayerSayTextPrint = 1;
 
 		/// <summary>
 		/// This event fires after the player says something.
 		/// </summary>
-		protected const long PpeAfterPlayerSay = 2;
+		public const long PpeAfterPlayerSay = 2;
 
 		public virtual string OriginalPhrase { get; set; }
 

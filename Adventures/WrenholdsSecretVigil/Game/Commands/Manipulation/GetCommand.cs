@@ -17,61 +17,6 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class GetCommand : EamonRT.Game.Commands.GetCommand, IGetCommand
 	{
-		protected virtual void PrintCantGetSlime()
-		{
-			Globals.Out.Print("Corrosive slime is not something to get.");
-		}
-
-		protected virtual void PrintCantDetachRope()
-		{
-			Globals.Out.Print("You cannot detach the rope.");
-		}
-
-		protected override void ProcessArtifact(IArtifact artifact, IArtifactCategory ac, ref bool nlFlag)
-		{
-			Debug.Assert(artifact != null);
-
-			Debug.Assert(ac != null);
-
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			// Get slime
-
-			if (artifact.Uid == 24 || artifact.Uid == 25)
-			{
-				ProcessAction(() => PrintCantGetSlime(), ref nlFlag);
-			}
-
-			// Get rope
-
-			else if (artifact.Uid == 28)
-			{
-				Globals.Engine.PrintEffectDesc(25);
-
-				if (!gameState.PulledRope)
-				{
-					var monsters = Globals.Engine.GetMonsterList(() => true, m => m.Uid >= 14 && m.Uid <= 16);
-
-					foreach (var monster in monsters)
-					{
-						monster.SetInRoomUid(48);
-					}
-
-					// CheckEnemies intentionally omitted
-
-					gameState.PulledRope = true;
-				}
-
-				ProcessAction(() => PrintCantDetachRope(), ref nlFlag);
-			}
-			else
-			{
-				base.ProcessArtifact(artifact, ac, ref nlFlag);
-			}
-		}
-
 		public override void PrintReceived(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
@@ -220,6 +165,61 @@ namespace WrenholdsSecretVigil.Game.Commands
 			else
 			{
 				base.PrintTaken(artifact);
+			}
+		}
+
+		public virtual void PrintCantGetSlime()
+		{
+			Globals.Out.Print("Corrosive slime is not something to get.");
+		}
+
+		public virtual void PrintCantDetachRope()
+		{
+			Globals.Out.Print("You cannot detach the rope.");
+		}
+
+		public override void ProcessArtifact(IArtifact artifact, IArtifactCategory ac, ref bool nlFlag)
+		{
+			Debug.Assert(artifact != null);
+
+			Debug.Assert(ac != null);
+
+			var gameState = Globals.GameState as Framework.IGameState;
+
+			Debug.Assert(gameState != null);
+
+			// Get slime
+
+			if (artifact.Uid == 24 || artifact.Uid == 25)
+			{
+				ProcessAction(() => PrintCantGetSlime(), ref nlFlag);
+			}
+
+			// Get rope
+
+			else if (artifact.Uid == 28)
+			{
+				Globals.Engine.PrintEffectDesc(25);
+
+				if (!gameState.PulledRope)
+				{
+					var monsters = Globals.Engine.GetMonsterList(() => true, m => m.Uid >= 14 && m.Uid <= 16);
+
+					foreach (var monster in monsters)
+					{
+						monster.SetInRoomUid(48);
+					}
+
+					// CheckEnemies intentionally omitted
+
+					gameState.PulledRope = true;
+				}
+
+				ProcessAction(() => PrintCantDetachRope(), ref nlFlag);
+			}
+			else
+			{
+				base.ProcessArtifact(artifact, ac, ref nlFlag);
 			}
 		}
 	}

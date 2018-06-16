@@ -20,23 +20,23 @@ namespace EamonRT.Game.States
 		/// <summary>
 		/// This event fires before a check is made to see if the player can move to a room.
 		/// </summary>
-		protected const long PeBeforeCanMoveToRoomCheck = 1;
+		public const long PeBeforeCanMoveToRoomCheck = 1;
 
 		/// <summary>
 		/// This event fires after a check is made to see if a blocking artifact (for example,
 		/// a door) prevents the player's movement.
 		/// </summary>
-		protected const long PeAfterBlockingArtifactCheck = 2;
+		public const long PeAfterBlockingArtifactCheck = 2;
 
-		protected bool _found;
+		public bool _found;
 
-		protected long _roomUid;
+		public long _roomUid;
 
-		protected virtual IRoom Room { get; set; }
+		public virtual IRoom Room { get; set; }
 
-		protected virtual IMonster Monster { get; set; }
+		public virtual IMonster Monster { get; set; }
 
-		protected virtual long ArtUid { get; set; }
+		public virtual long ArtUid { get; set; }
 
 		public virtual Enums.Direction Direction { get; set; }
 

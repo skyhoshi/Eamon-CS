@@ -21,7 +21,7 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool GetCommandCalled { get; set; }
 
-		protected virtual bool IsDobjArtifactDisguisedMonster()
+		public virtual bool IsDobjArtifactDisguisedMonster()
 		{
 			return DobjArtifact.IsDisguisedMonster();
 		}

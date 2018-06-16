@@ -21,21 +21,21 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class HintsCommand : Command, IHintsCommand
 	{
-		protected virtual void PrintHintsQuestion(IList<IHint> hints, int i)
+		public virtual void PrintHintsQuestion(IList<IHint> hints, int i)
 		{
 			Debug.Assert(hints != null);
 
 			Globals.Out.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, hints[i].Question);
 		}
 
-		protected virtual void PrintHintsQuestion01(IList<IHint> hints, int i)
+		public virtual void PrintHintsQuestion01(IList<IHint> hints, int i)
 		{
 			Debug.Assert(hints != null);
 
 			Globals.Out.Print("{0}", hints[i].Question);
 		}
 
-		protected virtual void PrintHintsAnswer(IList<IHint> hints, int i, int j)
+		public virtual void PrintHintsAnswer(IList<IHint> hints, int i, int j)
 		{
 			Debug.Assert(hints != null);
 

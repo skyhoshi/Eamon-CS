@@ -23,7 +23,7 @@ namespace EamonRT.Game.Commands
 		/// This event fires after an artifact's full description has been printed (but before
 		/// units are listed for drinkables/edibles).
 		/// </summary>
-		protected const long PpeAfterArtifactFullDescPrint = 1;
+		public const long PpeAfterArtifactFullDescPrint = 1;
 
 		public override void PlayerExecute()
 		{

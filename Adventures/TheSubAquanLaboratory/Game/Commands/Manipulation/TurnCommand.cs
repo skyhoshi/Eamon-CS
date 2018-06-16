@@ -16,7 +16,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class TurnCommand : EamonRT.Game.Commands.Command, Framework.Commands.ITurnCommand
 	{
-		protected virtual bool IsCharUOrD(char ch)
+		public virtual bool IsCharUOrD(char ch)
 		{
 			ch = Char.ToUpper(ch);
 

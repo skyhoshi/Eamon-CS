@@ -17,7 +17,7 @@ namespace EamonRT.Game.States
 		/// This event fires after the player's command has been processed (but not executed), 
 		/// the current turn counter incremented and the last command list cleared.
 		/// </summary>
-		protected const long PeAfterLastCommandListClear = 1;
+		public const long PeAfterLastCommandListClear = 1;
 
 		public virtual bool IncrementCurrTurn { get; set; }
 

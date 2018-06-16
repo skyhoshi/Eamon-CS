@@ -15,11 +15,6 @@ namespace TheTrainingGround.Game.Commands
 	[ClassMappings]
 	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, IGiveCommand
 	{
-		protected override bool MonsterRefusesToAccept()
-		{
-			return ((IobjMonster.Uid == 5 && DobjArtifact.Uid == 8) || (IobjMonster.Uid == 14 && DobjArtifact.Uid == 51)) ? false : base.MonsterRefusesToAccept();
-		}
-
 		public override void PrintGiveObjToActor(IArtifact artifact, IMonster monster)
 		{
 			Debug.Assert(artifact != null && monster != null);
@@ -123,6 +118,11 @@ namespace TheTrainingGround.Game.Commands
 			{
 				base.PlayerProcessEvents(eventType);
 			}
+		}
+
+		public override bool MonsterRefusesToAccept()
+		{
+			return ((IobjMonster.Uid == 5 && DobjArtifact.Uid == 8) || (IobjMonster.Uid == 14 && DobjArtifact.Uid == 51)) ? false : base.MonsterRefusesToAccept();
 		}
 	}
 }

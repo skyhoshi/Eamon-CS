@@ -22,7 +22,7 @@ namespace EamonRT.Game.Commands
 		/// <summary>
 		/// This event fires after the player wears an artifact.
 		/// </summary>
-		protected const long PpeAfterArtifactWear = 1;
+		public const long PpeAfterArtifactWear = 1;
 
 		public override void PlayerExecute()
 		{
