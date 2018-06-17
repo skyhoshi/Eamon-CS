@@ -22,7 +22,7 @@ namespace EamonRT.Game.States
 
 		#region Public Properties
 
-		#region Interface IState
+		#region Interface IStateSignatures
 
 		public virtual bool GotoCleanup
 		{
@@ -95,23 +95,12 @@ namespace EamonRT.Game.States
 
 		#region Public Methods
 
-		#region Interface IDisposable
+		#region Interface IStateSignatures
 
 		public virtual void Dispose(bool disposing)
 		{
 			StateImpl.Dispose(disposing);
 		}
-
-		public void Dispose()      // virtual intentionally omitted
-		{
-			Dispose(true);
-
-			GC.SuppressFinalize(this);
-		}
-
-		#endregion
-
-		#region Interface IState
 
 		public virtual void PrintObjBlocksTheWay(IArtifact artifact)
 		{
@@ -156,6 +145,17 @@ namespace EamonRT.Game.States
 		public virtual void Execute()
 		{
 			StateImpl.Execute();
+		}
+
+		#endregion
+
+		#region Interface IDisposable
+
+		public void Dispose()      // virtual intentionally omitted
+		{
+			Dispose(true);
+
+			GC.SuppressFinalize(this);
 		}
 
 		#endregion

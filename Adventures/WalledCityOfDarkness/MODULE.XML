@@ -10,7 +10,7 @@
           <Properties>
             <Simple name="Author" value="Tom Zuchowski" />
             <Simple name="VolLabel" value="TZ-001" />
-            <Simple name="SerialNum" value="009" />
+            <Simple name="SerialNum" value="000" />
             <Simple name="LastMod" value="06/09/2018 14:03:06" />
             <Simple name="IntroStory" value="100" />
             <Simple name="NumDirs" value="6" />
