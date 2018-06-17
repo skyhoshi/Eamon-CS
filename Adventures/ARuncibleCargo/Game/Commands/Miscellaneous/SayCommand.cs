@@ -16,7 +16,7 @@ namespace ARuncibleCargo.Game.Commands
 	[ClassMappings]
 	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
 	{
-		protected virtual bool EnemiesInRoom()
+		public virtual bool EnemiesInRoom()
 		{
 			var result = false;
 
@@ -34,7 +34,7 @@ namespace ARuncibleCargo.Game.Commands
 			return result;
 		}
 
-		protected virtual void TravelByTrain(long newRoomUid, long effectUid)
+		public virtual void TravelByTrain(long newRoomUid, long effectUid)
 		{
 			// Train Routine
 
@@ -53,7 +53,7 @@ namespace ARuncibleCargo.Game.Commands
 			GotoCleanup = true;
 		}
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

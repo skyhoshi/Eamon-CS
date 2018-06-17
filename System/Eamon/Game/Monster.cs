@@ -91,9 +91,22 @@ namespace Eamon.Game
 
 		#region Protected Methods
 
+		#region Class Monster
+
+		protected virtual bool HasHumanNaturalAttackDescs()
+		{
+			return false;
+		}
+
+		#endregion
+
+		#endregion
+
+		#region Public Methods
+
 		#region Interface IDisposable
 
-		protected override void Dispose(bool disposing)
+		public override void Dispose(bool disposing)
 		{
 			if (disposing)
 			{
@@ -109,19 +122,6 @@ namespace Eamon.Game
 		}
 
 		#endregion
-
-		#region Class Monster
-
-		protected virtual bool HasHumanNaturalAttackDescs()
-		{
-			return false;
-		}
-
-		#endregion
-
-		#endregion
-
-		#region Public Methods
 
 		#region Interface IGameBase
 

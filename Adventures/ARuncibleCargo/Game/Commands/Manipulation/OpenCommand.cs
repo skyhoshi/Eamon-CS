@@ -15,7 +15,7 @@ namespace ARuncibleCargo.Game.Commands
 	[ClassMappings]
 	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, IOpenCommand
 	{
-		protected override void PrintOpened(IArtifact artifact)
+		public override void PrintOpened(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -27,7 +27,7 @@ namespace ARuncibleCargo.Game.Commands
 			}
 		}
 
-		protected override bool ShouldPrintContainerInventory()
+		public override bool ShouldPrintContainerInventory()
 		{
 			// Skip Cargo contents if empty
 
@@ -43,7 +43,7 @@ namespace ARuncibleCargo.Game.Commands
 			}
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 

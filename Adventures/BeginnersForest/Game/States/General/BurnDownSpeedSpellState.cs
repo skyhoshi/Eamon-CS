@@ -13,7 +13,7 @@ namespace BeginnersForest.Game.States
 	[ClassMappings]
 	public class BurnDownSpeedSpellState : EamonRT.Game.States.BurnDownSpeedSpellState, IBurnDownSpeedSpellState
 	{
-		protected override void PrintSpeedSpellExpired()
+		public override void PrintSpeedSpellExpired()
 		{
 			base.PrintSpeedSpellExpired();
 

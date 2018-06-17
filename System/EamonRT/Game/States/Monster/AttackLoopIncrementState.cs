@@ -15,7 +15,7 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class AttackLoopIncrementState : State, IAttackLoopIncrementState
 	{
-		protected virtual bool ShouldMonsterRearm(IMonster monster)
+		public virtual bool ShouldMonsterRearm(IMonster monster)
 		{
 			return true;
 		}

@@ -14,7 +14,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class DropCommand : EamonRT.Game.Commands.DropCommand, IDropCommand
 	{
-		protected override void PrintWearingRemoveFirst(IArtifact artifact)
+		public override void PrintWearingRemoveFirst(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 

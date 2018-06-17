@@ -23,9 +23,9 @@ namespace EamonRT.Game.Commands
 		/// This event fires after an artifact's full description has been printed (but before
 		/// units are listed for drinkables/edibles).
 		/// </summary>
-		protected const long PpeAfterArtifactFullDescPrint = 1;
+		public const long PpeAfterArtifactFullDescPrint = 1;
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
@@ -119,7 +119,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			CommandParser.ParseName();
 

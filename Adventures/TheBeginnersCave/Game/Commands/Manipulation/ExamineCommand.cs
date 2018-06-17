@@ -14,7 +14,7 @@ namespace TheBeginnersCave.Game.Commands
 	[ClassMappings]
 	public class ExamineCommand : EamonRT.Game.Commands.ExamineCommand, IExamineCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 

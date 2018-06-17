@@ -5,7 +5,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 using Eamon.Framework;
+using Eamon.Framework.Commands;
 using Classes = Eamon.Framework.Primitive.Classes;
 using Enums = Eamon.Framework.Primitive.Enums;
 
@@ -125,9 +127,39 @@ namespace EamonRT.Framework
 
 		void CheckPlayerSkillGains(Classes.IArtifactCategory ac, long af);
 
+		/// <summary>
+		/// Checks to see if the player command should be allowed to proceed.
+		/// </summary>
+		/// <param name="command">The command to check.</param>
+		/// <remarks>
+		/// This method takes the command identified during the parsing process and checks to see if it
+		/// should be allowed to proceed.  The method is called immediately once the command is identified;
+		/// the direct/indirect objects have not been parsed or resolved at this point.  You can examine 
+		/// the command passed and take whatever actions you deem necessary, including outputting text to
+		/// the player and/or setting the NextState command property.  If you want to abort the command
+		/// you should set its Discarded property to true.
+		/// </remarks>
+		void CheckPlayerCommand(ICommand command);
+
 		void TransportRoomContentsBetweenRooms(IRoom oldRoom, IRoom newRoom, bool includeEmbedded = true);
 
 		void TransportPlayerBetweenRooms(IRoom oldRoom, IRoom newRoom, IEffect effect);
+
+		/// <summary>
+		/// Prints the string passed in, after doing full macro replacement on it (if necessary).  If the
+		/// string contains page separators it will be printed a page at a time.
+		/// </summary>
+		/// <param name="str">The string to process and print.</param>
+		/// <param name="buf">The buffer used during string processing.</param>
+		/// <remarks>
+		/// Macro replacement is done using <see cref="Eamon.Framework.IEngine.ResolveUidMacros"/>.  If the
+		/// printed string contains the page break macro <see cref="Plugin.IPluginConstants.PageSep"/> it will
+		/// be split into pages and each page will be displayed, followed by a required user keypress.  The
+		/// passed in buffer is used during processing and its original contents will be overwritten.  The
+		/// passed in string will not be modified.  This method is used to print the intro story as well as
+		/// hints, such as the author's notes.
+		/// </remarks>
+		void PrintMacroReplacedPagedString(string str, StringBuilder buf);
 
 		void CreateArtifactSynonyms(long artifactUid, params string[] synonyms);
 

@@ -14,7 +14,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 	[ClassMappings]
 	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, IOpenCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			var eyeglassesArtifact = Globals.ADB[2];
 

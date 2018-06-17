@@ -15,7 +15,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class GetCommand : EamonRT.Game.Commands.GetCommand, IGetCommand
 	{
-		protected override void PrintCantVerbThat(IArtifact artifact)
+		public override void PrintCantVerbThat(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 

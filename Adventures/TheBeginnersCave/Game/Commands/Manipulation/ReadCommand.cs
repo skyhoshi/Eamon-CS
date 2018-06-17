@@ -15,9 +15,9 @@ namespace TheBeginnersCave.Game.Commands
 	[ClassMappings]
 	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
-		protected virtual Framework.IGameState GameState { get; set; }
+		public virtual Framework.IGameState GameState { get; set; }
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			if (eventType == PpeBeforeArtifactReadTextPrint)
 			{
@@ -76,7 +76,7 @@ namespace TheBeginnersCave.Game.Commands
 			}
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 

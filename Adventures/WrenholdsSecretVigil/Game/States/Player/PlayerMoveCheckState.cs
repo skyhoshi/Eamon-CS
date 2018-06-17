@@ -18,9 +18,9 @@ namespace WrenholdsSecretVigil.Game.States
 	[ClassMappings]
 	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
-		protected virtual Framework.IGameState GameState { get; set; }
+		public virtual Framework.IGameState GameState { get; set; }
 
-		protected override void ProcessEvents(long eventType)
+		public override void ProcessEvents(long eventType)
 		{
 			RetCode rc;
 

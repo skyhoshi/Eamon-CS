@@ -16,7 +16,7 @@ namespace TheBeginnersCave.Game.Commands
 	[ClassMappings]
 	public class TrollsfireCommand : EamonRT.Game.Commands.Command, Framework.Commands.ITrollsfireCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			// find Trollsfire in the game database
 

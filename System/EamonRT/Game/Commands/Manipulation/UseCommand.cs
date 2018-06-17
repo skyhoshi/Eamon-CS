@@ -20,11 +20,11 @@ namespace EamonRT.Game.Commands
 		/// <summary>
 		/// This event fires before the player uses an artifact.
 		/// </summary>
-		protected const long PpeBeforeArtifactUse = 1;
+		public const long PpeBeforeArtifactUse = 1;
 
 		public virtual bool IobjSupport { get; set; }
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
@@ -103,7 +103,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			PlayerResolveArtifact();
 

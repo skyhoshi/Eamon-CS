@@ -22,7 +22,7 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool GetCommandCalled { get; set; }
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -105,7 +105,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			CommandParser.ParseName();
 

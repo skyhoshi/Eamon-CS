@@ -19,7 +19,7 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool GoToMainHall { get; set; }
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -79,7 +79,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			if (CommandParser.CurrToken < CommandParser.Tokens.Length && string.Equals(CommandParser.Tokens[CommandParser.CurrToken], "hall", StringComparison.OrdinalIgnoreCase))
 			{

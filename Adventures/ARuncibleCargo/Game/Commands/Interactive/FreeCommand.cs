@@ -13,7 +13,7 @@ namespace ARuncibleCargo.Game.Commands
 	[ClassMappings]
 	public class FreeCommand : EamonRT.Game.Commands.FreeCommand, IFreeCommand
 	{
-		protected override void PrintMonsterFreed()
+		public override void PrintMonsterFreed()
 		{
 			// Swarmy
 

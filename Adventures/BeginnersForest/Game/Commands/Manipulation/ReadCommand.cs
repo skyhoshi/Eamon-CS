@@ -13,7 +13,7 @@ namespace BeginnersForest.Game.Commands
 	[ClassMappings]
 	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			if (eventType == PpeAfterArtifactRead)
 			{
@@ -28,7 +28,7 @@ namespace BeginnersForest.Game.Commands
 			base.PlayerProcessEvents(eventType);
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 

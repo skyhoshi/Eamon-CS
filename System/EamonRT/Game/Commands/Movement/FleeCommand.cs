@@ -24,26 +24,26 @@ namespace EamonRT.Game.Commands
 		/// This event fires after a check has been made to see if exits are available for fleeing,
 		/// and it resolves that there are.
 		/// </summary>
-		protected const long PpeAfterNumberOfExitsCheck = 1;
+		public const long PpeAfterNumberOfExitsCheck = 1;
 
 		public virtual Enums.Direction Direction { get; set; }
 
-		protected virtual void SetDoorGateFleeDesc()
+		public virtual void SetDoorGateFleeDesc()
 		{
 			Globals.Buf.Clear();
 		}
 
-		protected virtual bool ShouldMonsterFlee()
+		public virtual bool ShouldMonsterFlee()
 		{
 			return Globals.Engine.CheckNBTLHostility(ActorMonster);
 		}
 
-		protected virtual long GetMonsterFleeingMemberCount()
+		public virtual long GetMonsterFleeingMemberCount()
 		{
 			return Globals.Engine.RollDice01(1, ActorMonster.GroupCount, 0);
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Enums.Direction), Direction));
 
@@ -134,7 +134,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void MonsterExecute()
+		public override void MonsterExecute()
 		{
 			RetCode rc;
 
@@ -239,7 +239,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			if (CommandParser.CurrToken < CommandParser.Tokens.Length)
 			{

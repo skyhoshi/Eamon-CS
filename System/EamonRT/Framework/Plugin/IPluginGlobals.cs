@@ -70,5 +70,7 @@ namespace EamonRT.Framework.Plugin
 		bool ExportCharacterGoToMainHall { get; }
 
 		bool ExportCharacter { get; }
+
+		bool DeleteCharacter { get; }
 	}
 }

@@ -12,12 +12,12 @@ namespace ARuncibleCargo.Game.States
 	[ClassMappings]
 	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
-		protected override void PrintRideOffIntoSunset()
+		public override void PrintRideOffIntoSunset()
 		{
 			Globals.Out.Print("You ride off into the moonlight.");
 		}
 
-		protected override void ProcessEvents(long eventType)
+		public override void ProcessEvents(long eventType)
 		{
 			if (eventType == PeAfterBlockingArtifactCheck && Globals.GameState.R2 == -34)
 			{

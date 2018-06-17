@@ -18,7 +18,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class LightCommand : Command, ILightCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -117,7 +117,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			if (!ActorMonster.IsInRoomLit())
 			{

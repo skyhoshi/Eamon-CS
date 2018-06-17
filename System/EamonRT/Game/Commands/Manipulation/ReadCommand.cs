@@ -20,14 +20,14 @@ namespace EamonRT.Game.Commands
 		/// <summary>
 		/// This event fires before an artifact's read text is printed.
 		/// </summary>
-		protected const long PpeBeforeArtifactReadTextPrint = 1;
+		public const long PpeBeforeArtifactReadTextPrint = 1;
 
 		/// <summary>
 		/// This event fires after the player reads an artifact.
 		/// </summary>
-		protected const long PpeAfterArtifactRead = 2;
+		public const long PpeAfterArtifactRead = 2;
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -108,7 +108,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			PlayerResolveArtifact();
 		}

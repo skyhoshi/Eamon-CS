@@ -14,7 +14,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class ReadyCommand : EamonRT.Game.Commands.ReadyCommand, IReadyCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
@@ -22,7 +22,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			// Player readies Trollsfire
 
-			if (ActorMonster.Weapon == DobjArtifact.Uid && string.Equals(DobjArtifact.Name, "Trollsfire", StringComparison.OrdinalIgnoreCase))
+			if (ActorMonster.Weapon == DobjArtifact.Uid && string.Equals(DobjArtifact.Name, "Trollsfire", StringComparison.OrdinalIgnoreCase) && DobjArtifact.Field4 == 10)
 			{
 				Globals.Engine.PrintEffectDesc(6);
 			}

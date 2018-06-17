@@ -14,7 +14,7 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class MonsterLoopIncrementState : State, IMonsterLoopIncrementState
 	{
-		protected virtual bool ShouldProcessMonster(IMonster monster)
+		public virtual bool ShouldProcessMonster(IMonster monster)
 		{
 			Debug.Assert(monster != null);
 

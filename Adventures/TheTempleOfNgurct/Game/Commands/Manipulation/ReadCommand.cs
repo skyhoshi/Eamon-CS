@@ -15,12 +15,12 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
-		protected override void PrintCantVerbHere()
+		public override void PrintCantVerbHere()
 		{
 			PrintEnemiesNearby();
 		}
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			// Book
 
@@ -44,7 +44,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			}
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
@@ -93,7 +93,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			}
 		}
 
-		protected override bool IsAllowedInRoom()
+		public override bool IsAllowedInRoom()
 		{
 			return Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) <= 0;
 		}

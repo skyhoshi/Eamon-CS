@@ -12,7 +12,7 @@ namespace ARuncibleCargo.Game.Commands
 	[ClassMappings]
 	public class FleeCommand : EamonRT.Game.Commands.FleeCommand, IFleeCommand
 	{
-		protected override bool IsAllowedInRoom()
+		public override bool IsAllowedInRoom()
 		{
 			// Disable FleeCommand in water rooms
 

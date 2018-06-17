@@ -12,7 +12,7 @@ namespace BeginnersForest.Game.Commands
 	[ClassMappings]
 	public class WearCommand : EamonRT.Game.Commands.WearCommand, IWearCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			// Magic Excercise Ring
 

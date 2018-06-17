@@ -12,12 +12,12 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class FleeCommand : EamonRT.Game.Commands.FleeCommand, IFleeCommand
 	{
-		protected override bool ShouldMonsterFlee()
+		public override bool ShouldMonsterFlee()
 		{
 			return Globals.DeviceOpened || base.ShouldMonsterFlee();
 		}
 
-		protected override long GetMonsterFleeingMemberCount()
+		public override long GetMonsterFleeingMemberCount()
 		{
 			return Globals.DeviceOpened ? ActorMonster.GroupCount : base.GetMonsterFleeingMemberCount();
 		}

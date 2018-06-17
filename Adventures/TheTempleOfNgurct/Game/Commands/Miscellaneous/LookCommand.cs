@@ -15,7 +15,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class LookCommand : EamonRT.Game.Commands.LookCommand, ILookCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

@@ -21,12 +21,12 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool GetCommandCalled { get; set; }
 
-		protected virtual bool IsDobjArtifactDisguisedMonster()
+		public virtual bool IsDobjArtifactDisguisedMonster()
 		{
 			return DobjArtifact.IsDisguisedMonster();
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
@@ -139,7 +139,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 			{

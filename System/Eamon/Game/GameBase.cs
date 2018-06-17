@@ -35,19 +35,11 @@ namespace Eamon.Game
 
 		#endregion
 
-		#region Protected Methods
-
-		#region Interface IDisposable
-
-		protected abstract void Dispose(bool disposing);
-
-		#endregion
-
-		#endregion
-
 		#region Public Methods
 
 		#region Interface IDisposable
+
+		public abstract void Dispose(bool disposing);
 
 		public void Dispose()      // virtual intentionally omitted
 		{

@@ -14,7 +14,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class RemoveCommand : EamonRT.Game.Commands.RemoveCommand, IRemoveCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 

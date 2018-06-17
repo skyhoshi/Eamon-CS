@@ -14,7 +14,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class ExamineCommand : EamonRT.Game.Commands.ExamineCommand, IExamineCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			if (DobjArtifact != null)
 			{

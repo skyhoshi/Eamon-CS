@@ -24,18 +24,18 @@ namespace EamonRT.Game.Commands
 		/// This event fires after a check has been made to resolve the player's spell cast
 		/// attempt, and it resolves as successful.
 		/// </summary>
-		protected const long PpeAfterPlayerSpellCastCheck = 1;
+		public const long PpeAfterPlayerSpellCastCheck = 1;
 
 		/// <summary>
 		/// This event fires after the monster targeted by the Blast spell gets aggravated.
 		/// </summary>
-		protected const long PpeAfterMonsterGetsAggravated = 2;
+		public const long PpeAfterMonsterGetsAggravated = 2;
 
 		public virtual bool CastSpell { get; set; }
 
 		public virtual bool CheckAttack { get; set; }
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -102,7 +102,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			CommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch03;
 
@@ -117,7 +117,7 @@ namespace EamonRT.Game.Commands
 			PlayerResolveMonster();
 		}
 
-		protected override bool ShouldAllowSkillGains()
+		public override bool ShouldAllowSkillGains()
 		{
 			return DobjMonster != null || DobjArtifact.IsAttackable();
 		}

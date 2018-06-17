@@ -18,11 +18,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
 	{
-		protected virtual Classes.IArtifactCategory Ac { get; set; }
+		public virtual Classes.IArtifactCategory Ac { get; set; }
 
-		protected virtual long Damage { get; set; }
+		public virtual long Damage { get; set; }
 
-		protected virtual void ProcessWallAttack()
+		public virtual void ProcessWallAttack()
 		{
 			Ac = DobjArtifact.GetCategories(0);
 
@@ -71,7 +71,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 			}
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			var effectUid = 0L;
 			var n = 0L;

@@ -20,22 +20,22 @@ namespace EamonRT.Game.Commands
 		/// This event fires before a check is made to see if a guard monster prevents
 		/// a bound monster from being freed.
 		/// </summary>
-		protected const long PpeBeforeGuardMonsterCheck = 1;
+		public const long PpeBeforeGuardMonsterCheck = 1;
 
-		protected virtual IMonster Monster { get; set; }
+		public virtual IMonster Monster { get; set; }
 
-		protected virtual IMonster Guard { get; set; }
+		public virtual IMonster Guard { get; set; }
 
-		protected virtual IArtifact Key { get; set; }
+		public virtual IArtifact Key { get; set; }
 
-		protected virtual void PrintMonsterFreed()
+		public virtual void PrintMonsterFreed()
 		{
 			Globals.Out.Print("You have freed {0}{1}.",
 				Monster.GetDecoratedName03(false, true, false, false, Globals.Buf),
 				Key != null ? string.Format(" with {0}", Key.GetDecoratedName03(false, true, false, false, Globals.Buf01)) : "");
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
@@ -112,7 +112,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			CommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch01;
 

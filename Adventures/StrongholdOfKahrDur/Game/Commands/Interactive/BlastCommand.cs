@@ -13,7 +13,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 	[ClassMappings]
 	public class BlastCommand : EamonRT.Game.Commands.BlastCommand, IBlastCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			var helmArtifact = Globals.ADB[25];
 
@@ -35,7 +35,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 			}
 		}
 
-		protected override bool ShouldAllowSkillGains()
+		public override bool ShouldAllowSkillGains()
 		{
 			// When Necromancer is blasted only allow skill increases if wearing Wizard's Helm
 

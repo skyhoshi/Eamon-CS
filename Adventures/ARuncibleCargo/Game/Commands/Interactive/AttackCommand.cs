@@ -16,7 +16,7 @@ namespace ARuncibleCargo.Game.Commands
 	[ClassMappings]
 	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
@@ -76,7 +76,7 @@ namespace ARuncibleCargo.Game.Commands
 			}
 		}
 
-		protected override bool IsAllowedInRoom()
+		public override bool IsAllowedInRoom()
 		{
 			// Disable AttackCommand in water rooms
 

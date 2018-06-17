@@ -1,0 +1,971 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.MonsterDbTable, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IMonster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="2" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="tailor" />
+            <Simple name="Desc" value="The tailor looks up in fear at the sound of your step, then turns back to his work.  He appears to be sewing burial shrouds.  &quot;You'll have one soon enough, by the looks of you,&quot; he says, &quot;But until then, how can I be of service?&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="6" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="glassblower" />
+            <Simple name="Desc" value="You see the glassblower, busy at work heating a shapeless glass bulb over an alcohol flame.  Looking up from his work, he asks, &quot;Can I interest you in some glassware, sirrah?&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="8" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="silversmith" />
+            <Simple name="Desc" value="A bent, wizened little man works upon a silver chain at a bench behind a wooden rail.  &quot;How may I help you?&quot;, he asks, without looking up from his work." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="9" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="astrologer" />
+            <Simple name="Desc" value="The astrologer, seated behind the table, stares at you from beneath bushy white brows.  &quot;Dost thou require a forecast?&quot; he inquires.  His robe and pointed hat mimic the walls, being dark in color and fairly covered in arcane symbols." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="50" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="25" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="3" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="5" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Ali Kazam" />
+            <Simple name="Desc" value="You near a short, pudgy man of swarthy complexion.  He wears silk pyjamas and a turban, and he sports the silver amulet worn by a magician's senior apprentice.  &quot;What is your desire?&quot; he asks, sizing you up with a penetrating stare." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Hardiness" value="950" />
+            <Simple name="Agility" value="20" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="70" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="6" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="7" />
+            <Simple name="NwSides" value="7" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Hokas Tokas" />
+            <Simple name="Desc" value="You dimly make out your old friend Tokas through the thick haze of smoke.  He is seated in lotus position upon a cushion of smoke; his eyes are rolled up in his head, and he seems unaware that you have entered the sanctum." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="43" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="carpenter" />
+            <Simple name="Desc" value="The carpenter eagerly looks up from the draw-knife work that he is performing on a rough-cut wooden stanchion.  &quot;Good sir!&quot;, he says, &quot;What may I build for you today?&quot;  He eyes you carefully, and adds, &quot;A coffin, perhaps?&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="40" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="potter" />
+            <Simple name="Desc" value="The potter, spotted with bits of brown potting clay, comes forward.  &quot;How may I help you?&quot; he asks.  &quot;Some earthenware?  Perhaps a special commission, made to your specification?&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="YIes" />
+            <Simple name="Hardiness" value="4" />
+            <Simple name="Agility" value="4" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="41" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="apothecary" />
+            <Simple name="Desc" value="The elderly apothecary shuffles towards you.  He shouts, as the nearly deaf do, &quot;Yes, sir!  Yes, sir!  What potion do you require?  I have them all!  Have them all, sir!  Have them all!&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="36" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="leatherworker" />
+            <Simple name="Desc" value="The proprietor bows low.  &quot;Ah!&quot; he says, eying your harness, &quot;A man of arms!  And what bit of leather-work can I interest you in today?&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="10" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="34" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="blacksmith" />
+            <Simple name="Desc" value="The village smith stands by the anvil, shaping an enormous sledgehammer head with blows from his hammer.  A mighty man is he, with arms like iron bands.  &quot;And what would you be wanting?&quot; he asks." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="30" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="2" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="stableboy" />
+            <Simple name="Desc" value="The stableboy dully looks up from his task of shoveling equine end-product.  Seeing that you have no animal to stable and that you are not one of the owners of the weary animals here, he returns to his work." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="16" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="2" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="brewer" />
+            <Simple name="Desc" value="The brewer stares at you from across one of the vats.  &quot;No samples!&quot; he bellows.  &quot;Go next door!  No guests allowed!  So go away!&quot; he glowers belligerently." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="4" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="baker" />
+            <Simple name="Desc" value="The baker bows to you, and beams, &quot;Yes, sir!  What may I sell you today?  These rolls are freshly made!&quot;  He indicates a wicker basket that sits upon one end of the table." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="14" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="barkeep" />
+            <Simple name="Desc" value="The barkeep gives you a nod.  He asks, &quot;What's your pleasure, mister?&quot;  He wipes down the polished wooden bartop with an old rag.  &quot;The beer's been uncommonly good this month, since old Tokas was in and put a good word on it,&quot; he adds." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="5" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="44" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="1" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="pawnbroker" />
+            <Simple name="Desc" value="The pawnbroker flashes you an insincere smile as he sizes you up.  &quot;Buying, or selling?&quot; he somewhat rudely asks.  He continues to look you over, and adds, &quot;Selling, most likely, by the look of you.&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="10" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="72" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="3" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="2" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="armorer" />
+            <Simple name="Desc" value="A pot-bellied swordsman in the uniform of the city guard is sitting on a bench in the inner armory, his feet propped atop a small keg.  &quot;Let's see your pass from the Duke,&quot; he says." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="4" />
+            <Simple name="Agility" value="4" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="22" />
+            <Simple name="CombatCode" value="NeverFights" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="2" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="gardener" />
+            <Simple name="Desc" value="You behold a little old man on hands and knees, weeding the garden.  He eyes you with a twinkle in his eye." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="0" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="80" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="100" />
+            <Simple name="NwSides" value="100" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cockatrice" />
+            <Simple name="Desc" value="You face a medium-sized serpent with enormous golden eyes.  You notice that its scales look like tiny cobblestones.  It rests atop a crude nest of sorts, and behaves as if it were guarding the nest from you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="82" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="glass warrior" />
+            <Simple name="Desc" value="You face a glittering assemblage of glass rods and planes.  One arm of the glass warrior terminates in a wide round shield; the other in a long, sharp crystal splinter.  Its eyes are made of the most amazing blue glass goggles." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="14" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="94" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="10" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="light warrior" />
+            <Simple name="Desc" value="You face an ethereal creature made from planes of white light.  Its weapon is a length of blue light that coruscates with a blinding brilliance." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="18" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="75" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="shadow warrior" />
+            <Simple name="Desc" value="You detect a blacker shadow within the shadows of the room that moves with malevolence and purpose." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="1057" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="88" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="85" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="88" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="3" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="outer guardsman" />
+            <Simple name="Desc" value="You face the eighty-eight spears of the outer guard.  Their captain says, &quot;Not open for public adoration today!&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="1058" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="20" />
+            <Simple name="GroupCount" value="352" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="86" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="35" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="352" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="3" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="drug-crazed spearman" />
+            <Simple name="Desc" value="You encounter the three hundred fifty-two twitching spears of the inner guard.  Their captain declares, &quot;No admittance without proper credentials!&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="24" />
+            <Simple name="GroupCount" value="512" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="87" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="50" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="512" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="3" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="drug-maddened warrior" />
+            <Simple name="Desc" value="You approach the five hundred twelve drug-maddened warriors who guard the steps up to the altar.  Their captain proclaims, &quot;Only priests beyond this point!&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Hardiness" value="500" />
+            <Simple name="Agility" value="18" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="97" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="3" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="10" />
+            <Simple name="NwSides" value="10" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="nameless" />
+            <Simple name="Desc" value="You face the nameless as he sits on his dark throne.  Even as you watch, the formless black void of his being grows in extent as the malevolence in the room becomes almost palpable." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="5" />
+            <Simple name="Agility" value="20" />
+            <Simple name="GroupCount" value="500" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="96" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="5" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="500" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="27" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="damned soul" />
+            <Simple name="Desc" value="You face a great horde of hundreds of damned souls, brought here to stop your progress, and perhaps even to weaken you before the final confrontation." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="16" />
+            <Simple name="Agility" value="10" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="-1" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="200" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="28" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Lumen" />
+            <Simple name="Desc" value="A wondrous blue being stands before you, stretching and unkinking himself in his new-found freedom.  Suddenly he becomes motionless, and silently stares long and hard into your eyes." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="28" />
+  </Properties>
+</Complex>

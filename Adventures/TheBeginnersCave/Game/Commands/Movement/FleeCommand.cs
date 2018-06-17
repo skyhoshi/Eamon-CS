@@ -14,17 +14,17 @@ namespace TheBeginnersCave.Game.Commands
 	[ClassMappings]
 	public class FleeCommand : EamonRT.Game.Commands.FleeCommand, IFleeCommand
 	{
-		protected override void PrintCalmDown()
+		public override void PrintCalmDown()
 		{
 			Globals.Out.Print("What are you fleeing from?");
 		}
 
-		protected override void PrintNoPlaceToGo()
+		public override void PrintNoPlaceToGo()
 		{
 			Globals.Out.Print("There's no place to run!");
 		}
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			if (eventType == PpeAfterNumberOfExitsCheck)
 			{

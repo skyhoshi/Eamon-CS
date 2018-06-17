@@ -94,7 +94,7 @@ namespace EamonRT.Game.Plugin
 		{
 			get
 			{
-				return ExitType == Enums.ExitType.GoToMainHall || ExitType == Enums.ExitType.StartOver || ExitType == Enums.ExitType.FinishAdventure;
+				return ExitType == Enums.ExitType.GoToMainHall || ExitType == Enums.ExitType.StartOver || ExitType == Enums.ExitType.FinishAdventure || ExitType == Enums.ExitType.DeleteCharacter;
 			}
 		}
 
@@ -127,6 +127,14 @@ namespace EamonRT.Game.Plugin
 			get
 			{
 				return ExitType == Enums.ExitType.FinishAdventure;
+			}
+		}
+
+		public virtual bool DeleteCharacter
+		{
+			get
+			{
+				return ExitType == Enums.ExitType.DeleteCharacter;
 			}
 		}
 

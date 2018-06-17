@@ -16,7 +16,7 @@ namespace TheTempleOfNgurct.Game.States
 	[ClassMappings]
 	public class AfterPlayerMoveState : EamonRT.Game.States.AfterPlayerMoveState, IAfterPlayerMoveState
 	{
-		protected virtual IList<IMonster> GetTrapMonsterList(long numMonsters, long roomUid)
+		public virtual IList<IMonster> GetTrapMonsterList(long numMonsters, long roomUid)
 		{
 			var monsters = Globals.Engine.GetRandomMonsterList(numMonsters, m => m.IsCharacterMonster() || (m.Seen && m.IsInRoomUid(roomUid)));
 
@@ -25,7 +25,7 @@ namespace TheTempleOfNgurct.Game.States
 			return monsters;
 		}
 
-		protected virtual void ApplyTrapDamage(IMonster monster, long numDice, long numSides, bool omitArmor)
+		public virtual void ApplyTrapDamage(IMonster monster, long numDice, long numSides, bool omitArmor)
 		{
 			var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 			{
@@ -39,7 +39,7 @@ namespace TheTempleOfNgurct.Game.States
 			combatSystem.ExecuteCalculateDamage(numDice, numSides);
 		}
 
-		protected override void ProcessEvents(long eventType)
+		public override void ProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

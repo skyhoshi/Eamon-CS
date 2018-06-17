@@ -17,7 +17,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class GetCommand : EamonRT.Game.Commands.GetCommand, IGetCommand
 	{
-		protected override void PrintReceived(IArtifact artifact)
+		public override void PrintReceived(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -39,7 +39,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		protected override void PrintRetrieved(IArtifact artifact)
+		public override void PrintRetrieved(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -74,7 +74,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		protected override void PrintTaken(IArtifact artifact)
+		public override void PrintTaken(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -168,17 +168,17 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		protected virtual void PrintCantGetSlime()
+		public virtual void PrintCantGetSlime()
 		{
 			Globals.Out.Print("Corrosive slime is not something to get.");
 		}
 
-		protected virtual void PrintCantDetachRope()
+		public virtual void PrintCantDetachRope()
 		{
 			Globals.Out.Print("You cannot detach the rope.");
 		}
 
-		protected override void ProcessArtifact(IArtifact artifact, IArtifactCategory ac, ref bool nlFlag)
+		public override void ProcessArtifact(IArtifact artifact, IArtifactCategory ac, ref bool nlFlag)
 		{
 			Debug.Assert(artifact != null);
 

@@ -1897,6 +1897,13 @@ namespace EamonRT.Game
 			}
 		}
 
+		public virtual void CheckPlayerCommand(ICommand command)
+		{
+			Debug.Assert(command != null);
+
+			// do nothing
+		}
+
 		public virtual void TransportRoomContentsBetweenRooms(IRoom oldRoom, IRoom newRoom, bool includeEmbedded = true)
 		{
 			Debug.Assert(oldRoom != null);
@@ -1950,6 +1957,40 @@ namespace EamonRT.Game
 			gameState.Ro = newRoom.Uid;
 
 			gameState.R2 = gameState.Ro;
+		}
+
+		public virtual void PrintMacroReplacedPagedString(string str, StringBuilder buf)
+		{
+			Debug.Assert(str != null && buf != null);
+
+			buf.Clear();
+
+			var rc = ResolveUidMacros(str, buf, true, true);
+
+			Debug.Assert(IsSuccess(rc));
+
+			Globals.Out.WriteLine();
+
+			var pages = buf.ToString().Split(new string[] { Constants.PageSep }, StringSplitOptions.RemoveEmptyEntries);
+
+			for (var i = 0; i < pages.Length; i++)
+			{
+				if (i > 0)
+				{
+					Globals.Out.WriteLine("{0}{1}{0}", Environment.NewLine, Globals.LineSep);
+				}
+
+				Globals.Out.Write("{0}", pages[i]);
+
+				if (i < pages.Length - 1)
+				{
+					Globals.Out.WriteLine();
+
+					Globals.In.KeyPress(buf);
+				}
+			}
+
+			Globals.Out.WriteLine();
 		}
 
 		public virtual void CreateArtifactSynonyms(long artifactUid, params string[] synonyms)

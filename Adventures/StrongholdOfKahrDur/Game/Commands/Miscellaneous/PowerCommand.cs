@@ -14,12 +14,12 @@ namespace StrongholdOfKahrDur.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
-		protected override void PrintFortuneCookie()
+		public override void PrintFortuneCookie()
 		{
 			Globals.Out.Print("The air crackles with magical energy but nothing interesting happens.");
 		}
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

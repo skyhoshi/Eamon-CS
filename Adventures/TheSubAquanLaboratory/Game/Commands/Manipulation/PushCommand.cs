@@ -15,7 +15,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class PushCommand : EamonRT.Game.Commands.Command, Framework.Commands.IPushCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
@@ -320,7 +320,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			PlayerResolveArtifact();
 		}

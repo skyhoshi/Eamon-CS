@@ -21,21 +21,28 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class HintsCommand : Command, IHintsCommand
 	{
-		protected virtual void PrintHintsQuestion(IList<IHint> hints, int i)
+		public virtual void PrintHintsQuestion(IList<IHint> hints, int i)
 		{
 			Debug.Assert(hints != null);
 
 			Globals.Out.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, hints[i].Question);
 		}
 
-		protected virtual void PrintHintsQuestion01(IList<IHint> hints, int i)
+		public virtual void PrintHintsQuestion01(IList<IHint> hints, int i)
 		{
 			Debug.Assert(hints != null);
 
 			Globals.Out.Print("{0}", hints[i].Question);
 		}
 
-		protected override void PlayerExecute()
+		public virtual void PrintHintsAnswer(IList<IHint> hints, int i, int j)
+		{
+			Debug.Assert(hints != null);
+
+			Globals.Engine.PrintMacroReplacedPagedString(hints[i].GetAnswers(j), Globals.Buf);
+		}
+
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 			int i, j;
@@ -71,7 +78,7 @@ namespace EamonRT.Game.Commands
 
 						for (j = 0; j < hints[i].NumAnswers; j++)
 						{
-							Globals.Out.Print("{0}", hints[i].GetAnswers(j));
+							PrintHintsAnswer(hints, i, j);
 
 							if (j + 1 < hints[i].NumAnswers)
 							{

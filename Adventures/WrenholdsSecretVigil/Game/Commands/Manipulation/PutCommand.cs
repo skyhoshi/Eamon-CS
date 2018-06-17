@@ -16,7 +16,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class PutCommand : EamonRT.Game.Commands.PutCommand, IPutCommand
 	{
-		protected override void PrintBrokeIt(IArtifact artifact)
+		public override void PrintBrokeIt(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -32,7 +32,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			if (eventType == PpeAfterArtifactPut)
 			{
@@ -82,7 +82,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		protected virtual void ConvertSlimeToContainer()
+		public virtual void ConvertSlimeToContainer()
 		{
 			var ac = IobjArtifact.GetArtifactCategory(Enums.ArtifactType.Treasure);
 
@@ -99,7 +99,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			ac.Field4 = 1;
 		}
 
-		protected virtual void ConvertSlimeToTreasure()
+		public virtual void ConvertSlimeToTreasure()
 		{
 			var ac = IobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
 
@@ -116,7 +116,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			ac.Field4 = 0;
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null && IobjArtifact != null);
 

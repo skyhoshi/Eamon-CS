@@ -17,7 +17,7 @@ namespace EamonRT.Game.States
 		/// <summary>
 		/// This event fires before the player's command prompt is printed.
 		/// </summary>
-		protected const long PeBeforeCommandPromptPrint = 1;
+		public const long PeBeforeCommandPromptPrint = 1;
 
 		public override void Execute()
 		{

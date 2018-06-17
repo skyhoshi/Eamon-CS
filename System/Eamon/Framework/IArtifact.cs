@@ -30,14 +30,54 @@ namespace Eamon.Framework
 
 		long Location { get; set; }
 
+		/// <summary>
+		/// A convenience property representing the artifact type.
+		/// </summary>
+		/// <remarks>
+		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+		/// the artifact's type data field.  It uses the 0'th element of the <see cref="Categories"/>
+		/// array, which is consistent with how older Eamon games are implemented.
+		/// </remarks>
 		Enums.ArtifactType Type { get; set; }
 
+		/// <summary>
+		/// A convenience property representing the artifact Field1 data field.
+		/// </summary>
+		/// <remarks>
+		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+		/// the artifact's Field1 data field.  It uses the 0'th element of the <see cref="Categories"/>
+		/// array, which is consistent with how older Eamon games are implemented.
+		/// </remarks>
 		long Field1 { get; set; }
 
+		/// <summary>
+		/// A convenience property representing the artifact Field2 data field.
+		/// </summary>
+		/// <remarks>
+		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+		/// the artifact's Field2 data field.  It uses the 0'th element of the <see cref="Categories"/>
+		/// array, which is consistent with how older Eamon games are implemented.
+		/// </remarks>
 		long Field2 { get; set; }
 
+		/// <summary>
+		/// A convenience property representing the artifact Field3 data field.
+		/// </summary>
+		/// <remarks>
+		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+		/// the artifact's Field3 data field.  It uses the 0'th element of the <see cref="Categories"/>
+		/// array, which is consistent with how older Eamon games are implemented.
+		/// </remarks>
 		long Field3 { get; set; }
 
+		/// <summary>
+		/// A convenience property representing the artifact Field4 data field.
+		/// </summary>
+		/// <remarks>
+		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+		/// the artifact's Field4 data field.  It uses the 0'th element of the <see cref="Categories"/>
+		/// array, which is consistent with how older Eamon games are implemented.
+		/// </remarks>
 		long Field4 { get; set; }
 
 		Classes.IArtifactCategory[] Categories { get; set; }

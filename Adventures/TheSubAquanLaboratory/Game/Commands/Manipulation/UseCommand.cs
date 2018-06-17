@@ -13,7 +13,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class UseCommand : EamonRT.Game.Commands.UseCommand, IUseCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			ICommand command;
 

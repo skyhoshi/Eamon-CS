@@ -17,7 +17,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 	{
 		public virtual bool ExamineConsole { get; set; }
 
-		protected virtual void RevealArtifact(long artifactUid, bool examineConsole = false)
+		public virtual void RevealArtifact(long artifactUid, bool examineConsole = false)
 		{
 			var artifact = Globals.ADB[artifactUid];
 
@@ -40,7 +40,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 			}
 		}
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

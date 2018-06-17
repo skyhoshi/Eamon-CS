@@ -22,14 +22,14 @@ namespace EamonRT.Game.Commands
 		/// <summary>
 		/// This event fires before a check is made to see if an artifact has been fully eaten.
 		/// </summary>
-		protected const long PpeBeforeArtifactNowEmptyCheck = 1;
+		public const long PpeBeforeArtifactNowEmptyCheck = 1;
 
 		/// <summary>
 		/// This event fires after the player eats an artifact.
 		/// </summary>
-		protected const long PpeAfterArtifactEat = 2;
+		public const long PpeAfterArtifactEat = 2;
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -165,7 +165,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			PlayerResolveArtifact();
 		}

@@ -21,11 +21,11 @@ namespace EamonRT.Game.Commands
 		/// <summary>
 		/// This event fires after the player puts an artifact into a container.
 		/// </summary>
-		protected const long PpeAfterArtifactPut = 1;
+		public const long PpeAfterArtifactPut = 1;
 
 		public virtual bool GetCommandCalled { get; set; }
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			RetCode rc;
 
@@ -172,7 +172,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			PlayerResolveArtifact();
 

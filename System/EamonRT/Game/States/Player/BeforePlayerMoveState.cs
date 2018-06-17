@@ -19,13 +19,13 @@ namespace EamonRT.Game.States
 		/// <summary>
 		/// This event fires after the player's destination room Uid is calculated and stored.
 		/// </summary>
-		protected const long PeAfterDestinationRoomSet = 1;
+		public const long PeAfterDestinationRoomSet = 1;
 
 		public virtual Enums.Direction Direction { get; set; }
 
 		public virtual IArtifact Artifact { get; set; }
 
-		protected override void ProcessEvents(long eventType)
+		public override void ProcessEvents(long eventType)
 		{
 			if (eventType == PeAfterDestinationRoomSet)
 			{

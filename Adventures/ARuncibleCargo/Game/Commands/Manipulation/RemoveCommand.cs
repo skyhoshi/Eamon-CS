@@ -11,7 +11,7 @@ namespace ARuncibleCargo.Game.Commands
 	[ClassMappings]
 	public class RemoveCommand : EamonRT.Game.Commands.RemoveCommand, IRemoveCommand
 	{
-		protected override bool IsDobjArtifactDisguisedMonster()
+		public override bool IsDobjArtifactDisguisedMonster()
 		{
 			// Bill in oven, Lil in cell
 

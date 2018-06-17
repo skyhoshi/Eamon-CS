@@ -16,21 +16,21 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class SearchCommand : EamonRT.Game.Commands.Command, Framework.Commands.ISearchCommand
 	{
-		protected override void PrintCantVerbObj(IGameBase obj)
+		public override void PrintCantVerbObj(IGameBase obj)
 		{
 			Debug.Assert(obj != null);
 
 			Globals.Out.Print("You can only {0} dead bodies.", Verb);
 		}
 
-		protected virtual void PrintNothingFound(IArtifact artifact)
+		public virtual void PrintNothingFound(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
 			Globals.Out.Print("Searching {0} reveals nothing of interest.", artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
@@ -91,7 +91,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			PlayerResolveArtifact();
 		}

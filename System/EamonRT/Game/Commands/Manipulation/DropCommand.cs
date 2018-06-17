@@ -18,11 +18,11 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class DropCommand : Command, IDropCommand
 	{
-		protected virtual IList<IArtifact> ArtifactList { get; set; }
+		public virtual IList<IArtifact> ArtifactList { get; set; }
 
 		public virtual bool DropAll { get; set; }
 
-		protected virtual void ProcessLightSource()
+		public virtual void ProcessLightSource()
 		{
 			if (Globals.GameState.Ls > 0)
 			{
@@ -37,7 +37,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected virtual void ProcessArtifact(IArtifact artifact)
+		public virtual void ProcessArtifact(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -59,7 +59,7 @@ namespace EamonRT.Game.Commands
 			PrintDropped(artifact);
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DropAll || DobjArtifact != null);
 
@@ -102,7 +102,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			CommandParser.ParseName();
 

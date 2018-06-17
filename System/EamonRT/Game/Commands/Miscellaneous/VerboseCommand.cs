@@ -21,7 +21,7 @@ namespace EamonRT.Game.Commands
 
 		public virtual bool VerboseMonsters { get; set; }
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			var changed = false;
 
@@ -65,7 +65,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			if (CommandParser.CurrToken < CommandParser.Tokens.Length)
 			{

@@ -14,7 +14,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 	[ClassMappings]
 	public class ExamineCommand : EamonRT.Game.Commands.ExamineCommand, IExamineCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			if (eventType == PpeAfterArtifactFullDescPrint)
 			{

@@ -13,7 +13,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, IGiveCommand
 	{
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			if (eventType == PpeAfterEnforceMonsterWeightLimitsCheck)
 			{
@@ -90,7 +90,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		protected override bool MonsterRefusesToAccept()
+		public override bool MonsterRefusesToAccept()
 		{
 			return false;
 		}

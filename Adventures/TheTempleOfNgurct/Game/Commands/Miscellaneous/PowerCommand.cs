@@ -16,12 +16,12 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
-		protected virtual void PrintAirCracklesWithEnergy()
+		public virtual void PrintAirCracklesWithEnergy()
 		{
 			Globals.Out.Print("The air crackles with magical energy!");
 		}
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			var gameState = Globals.GameState as Framework.IGameState;
 

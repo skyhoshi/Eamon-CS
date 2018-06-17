@@ -15,7 +15,7 @@ namespace EamonRT.Game.States
 		/// <summary>
 		/// This event fires at the start of a new round, before any processing has been done.
 		/// </summary>
-		protected const long PeBeforeRoundStart = 1;
+		public const long PeBeforeRoundStart = 1;
 
 		public override void Execute()
 		{

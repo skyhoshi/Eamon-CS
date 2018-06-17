@@ -15,7 +15,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class WearCommand : EamonRT.Game.Commands.WearCommand, IWearCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 

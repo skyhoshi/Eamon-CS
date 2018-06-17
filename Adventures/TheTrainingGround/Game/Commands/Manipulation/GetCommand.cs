@@ -15,9 +15,9 @@ namespace TheTrainingGround.Game.Commands
 	[ClassMappings]
 	public class GetCommand : EamonRT.Game.Commands.GetCommand, IGetCommand
 	{
-		protected virtual bool RevealSecretPassage { get; set; }
+		public virtual bool RevealSecretPassage { get; set; }
 
-		protected override void PrintTaken(IArtifact artifact)
+		public override void PrintTaken(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -37,7 +37,7 @@ namespace TheTrainingGround.Game.Commands
 			}
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			base.PlayerExecute();
 

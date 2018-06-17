@@ -15,12 +15,12 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class WearCommand : EamonRT.Game.Commands.WearCommand, IWearCommand
 	{
-		protected override void PrintCantVerbHere()
+		public override void PrintCantVerbHere()
 		{
 			PrintEnemiesNearby();
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
@@ -38,7 +38,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			}
 		}
 
-		protected override bool IsAllowedInRoom()
+		public override bool IsAllowedInRoom()
 		{
 			return Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) <= 0;
 		}

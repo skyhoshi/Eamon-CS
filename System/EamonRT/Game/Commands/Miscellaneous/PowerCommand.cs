@@ -18,11 +18,11 @@ namespace EamonRT.Game.Commands
 		/// This event fires after a check has been made to resolve the player's spell cast
 		/// attempt, and it resolves as successful.
 		/// </summary>
-		protected const long PpeAfterPlayerSpellCastCheck = 1;
+		public const long PpeAfterPlayerSpellCastCheck = 1;
 
 		public virtual bool CastSpell { get; set; }
 
-		protected virtual void PrintSonicBoom()
+		public virtual void PrintSonicBoom()
 		{
 			if (Globals.IsRulesetVersion(5))
 			{
@@ -34,7 +34,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected virtual void PrintFortuneCookie()
+		public virtual void PrintFortuneCookie()
 		{
 			var rl = Globals.Engine.RollDice01(1, 100, 0);
 
@@ -44,7 +44,7 @@ namespace EamonRT.Game.Commands
 				"YOU SUDDENLY FIND YOU CANNOT CARRY ALL OF THE ITEMS YOU ARE CARRYING, AND THEY ALL FALL TO THE GROUND.");
 		}
 
-		protected override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(long eventType)
 		{
 			var rl = Globals.Engine.RollDice01(1, 100, 0);
 
@@ -128,7 +128,7 @@ namespace EamonRT.Game.Commands
 			;
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Power, ShouldAllowSkillGains()))
 			{

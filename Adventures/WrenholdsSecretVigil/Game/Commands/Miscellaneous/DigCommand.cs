@@ -14,12 +14,12 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class DigCommand : EamonRT.Game.Commands.Command, Framework.Commands.IDigCommand
 	{
-		protected override void PrintCantVerbHere()
+		public override void PrintCantVerbHere()
 		{
 			Globals.Out.Print("You cannot {0} here.", Verb);
 		}
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			var buriedArtifacts = Globals.Engine.GetArtifactList(() => true, a => a.CastTo<Framework.IArtifact>().IsBuriedInRoom(ActorRoom));
 
@@ -40,7 +40,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		protected override bool IsAllowedInRoom()
+		public override bool IsAllowedInRoom()
 		{
 			return ActorRoom.CastTo<Framework.IRoom>().IsDigCommandAllowedInRoom();
 		}

@@ -20,9 +20,9 @@ namespace EamonRT.Game.Commands
 		/// <summary>
 		/// This event fires after the player's status text has been printed.
 		/// </summary>
-		protected const long PpeAfterPlayerStatus = 1;
+		public const long PpeAfterPlayerStatus = 1;
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			var ar = Globals.GameState.Ar;
 

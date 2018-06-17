@@ -22,9 +22,9 @@ namespace EamonRT.Game.Commands
 		/// <summary>
 		/// This event fires after the player wears an artifact.
 		/// </summary>
-		protected const long PpeAfterArtifactWear = 1;
+		public const long PpeAfterArtifactWear = 1;
 
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
@@ -131,7 +131,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 			{

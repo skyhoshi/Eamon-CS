@@ -15,7 +15,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class LookCommand : Command, ILookCommand
 	{
-		protected override void PlayerExecute()
+		public override void PlayerExecute()
 		{
 			ActorRoom.Seen = false;
 
@@ -25,7 +25,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		protected override void PlayerFinishParsing()
+		public override void PlayerFinishParsing()
 		{
 			if (CommandParser.CurrToken < CommandParser.Tokens.Length)
 			{
