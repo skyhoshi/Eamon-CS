@@ -24,9 +24,9 @@ namespace WalledCityOfDarkness.Game.Helpers
 
 			// Unusually high weapon complexity for blue light/star wand
 
-			if (i == 0 && (Record.GetCategories(i).Type == Enums.ArtifactType.Weapon || Record.GetCategories(i).Type == Enums.ArtifactType.MagicWeapon))
+			if (i == 0 && (Record.Type == Enums.ArtifactType.Weapon || Record.Type == Enums.ArtifactType.MagicWeapon))
 			{
-				return Record.GetCategories(i).Field1 >= -50 && Record.GetCategories(i).Field1 <= 80;
+				return Record.Field1 >= -50 && Record.Field1 <= 80;
 			}
 			else
 			{

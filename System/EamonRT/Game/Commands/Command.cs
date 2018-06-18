@@ -3,15 +3,9 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using Eamon.Framework;
 using Eamon.Framework.Commands;
 using Eamon.Framework.Parsing;
-using EamonRT.Framework.Commands;
-using EamonRT.Framework.States;
 using EamonRT.Game.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;

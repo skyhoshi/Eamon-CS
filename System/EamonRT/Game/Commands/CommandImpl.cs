@@ -11,7 +11,6 @@ using Eamon.Framework;
 using Eamon.Framework.Commands;
 using Eamon.Framework.Parsing;
 using Eamon.Game.Attributes;
-using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
@@ -35,7 +34,7 @@ namespace EamonRT.Game.Commands
 	/// over to CommandImpl's version).
 	/// </para>
 	/// </remarks>
-	/// <seealso cref="EamonRT.Framework.Commands.ICommandImpl" />
+	/// <seealso cref="Eamon.Framework.Commands.ICommandImpl" />
 	/// <seealso cref="Eamon.Framework.Commands.ICommand" />
 	/// <seealso cref="EamonRT.Game.Commands.Command" />
 	[ClassMappings]
