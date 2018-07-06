@@ -25,12 +25,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 			Globals.Out.WriteLine();
 
 			Globals.Engine.PrintTitle("LIST CONFIG RECORD DETAILS", true);
-
+			
 			var helper = Globals.CreateInstance<IHelper<IConfig>>(x =>
 			{
 				x.Record = Globals.Config;
 			});
-
+			
 			helper.ListRecord(true, false, false, false, false, false);
 
 			Globals.Out.WriteLine();

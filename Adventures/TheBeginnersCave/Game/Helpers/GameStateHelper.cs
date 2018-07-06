@@ -5,11 +5,9 @@
 
 using System.Collections.Generic;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Helpers
 {
@@ -32,40 +30,23 @@ namespace TheBeginnersCave.Game.Helpers
 			}
 		}
 
-		protected virtual bool ValidateTrollsfire(IField field, IValidateArgs args)
+		protected virtual bool ValidateTrollsfire()
 		{
 			return Record.Trollsfire >= 0 && Record.Trollsfire <= 1;
 		}
 
-		protected virtual bool ValidateBookWarning(IField field, IValidateArgs args)
+		protected virtual bool ValidateBookWarning()
 		{
 			return Record.BookWarning >= 0 && Record.BookWarning <= 1;
 		}
 
-		protected override IList<IField> GetFields()
+		public GameStateHelper()
 		{
-			if (Fields == null)
+			FieldNames.AddRange(new List<string>()
 			{
-				var fields = base.GetFields();
-
-				fields.AddRange(new List<IField>()
-				{
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Trollsfire";
-						x.Validate = ValidateTrollsfire;
-						x.GetValue = () => Record.Trollsfire;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "BookWarning";
-						x.Validate = ValidateBookWarning;
-						x.GetValue = () => Record.BookWarning;
-					})
-				});
-			}
-
-			return Fields;
+				"Trollsfire",
+				"BookWarning",
+			});
 		}
 	}
 }

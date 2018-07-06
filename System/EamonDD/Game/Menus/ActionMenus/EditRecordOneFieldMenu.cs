@@ -8,7 +8,6 @@ using System.Diagnostics;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Extensions;
 using EamonDD.Framework.Menus.ActionMenus;
@@ -57,12 +56,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 			var editRecord01 = Globals.CloneInstance(EditRecord);
 
 			Debug.Assert(editRecord01 != null);
-
+			
 			var helper = Globals.CreateInstance<IHelper<T>>(x =>
 			{
 				x.Record = editRecord01;
 			});
-
+			
 			string editFieldName01 = null;
 
 			if (string.IsNullOrWhiteSpace(EditFieldName))
@@ -95,14 +94,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 				editFieldName01 = EditFieldName;
 			}
 
-			var args = Globals.CreateInstance<IInputArgs>(x =>
-			{
-				x.EditRec = true;
-				x.EditField = true;
-				x.FieldDesc = Globals.Config.FieldDesc;
-			});
+			helper.EditRec = true;
+			helper.EditField = true;
+			helper.FieldDesc = Globals.Config.FieldDesc;
 
-			helper.InputField(editFieldName01, args);
+			helper.InputField(editFieldName01);
 
 			Globals.Thread.Sleep(150);
 

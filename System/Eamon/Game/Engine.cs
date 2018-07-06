@@ -2104,31 +2104,31 @@ namespace Eamon.Game
 			return ap;
 		}
 
-		public virtual void AppendFieldDesc(IPrintDescArgs args, StringBuilder fullDesc, StringBuilder briefDesc)
+		public virtual void AppendFieldDesc(Enums.FieldDesc fieldDesc, StringBuilder buf, StringBuilder fullDesc, StringBuilder briefDesc)
 		{
-			AppendFieldDesc(args, fullDesc != null ? fullDesc.ToString() : null, briefDesc != null ? briefDesc.ToString() : null);
+			AppendFieldDesc(fieldDesc, buf, fullDesc != null ? fullDesc.ToString() : null, briefDesc != null ? briefDesc.ToString() : null);
 		}
 
-		public virtual void AppendFieldDesc(IPrintDescArgs args, string fullDesc, string briefDesc)
+		public virtual void AppendFieldDesc(Enums.FieldDesc fieldDesc, StringBuilder buf, string fullDesc, string briefDesc)
 		{
-			Debug.Assert(args != null && args.Buf != null && fullDesc != null);
+			Debug.Assert(buf != null && fullDesc != null);
 
 			if (briefDesc != null)
 			{
-				if (args.FieldDesc == Enums.FieldDesc.Full)
+				if (fieldDesc == Enums.FieldDesc.Full)
 				{
-					args.Buf.AppendFormat("{0}{1}{0}{0}{2}{0}", Environment.NewLine, fullDesc, briefDesc);
+					buf.AppendFormat("{0}{1}{0}{0}{2}{0}", Environment.NewLine, fullDesc, briefDesc);
 				}
-				else if (args.FieldDesc == Enums.FieldDesc.Brief)
+				else if (fieldDesc == Enums.FieldDesc.Brief)
 				{
-					args.Buf.AppendPrint("{0}", briefDesc);
+					buf.AppendPrint("{0}", briefDesc);
 				}
 			}
 			else
 			{
-				if (args.FieldDesc == Enums.FieldDesc.Full)
+				if (fieldDesc == Enums.FieldDesc.Full)
 				{
-					args.Buf.AppendPrint("{0}", fullDesc);
+					buf.AppendPrint("{0}", fullDesc);
 				}
 			}
 		}

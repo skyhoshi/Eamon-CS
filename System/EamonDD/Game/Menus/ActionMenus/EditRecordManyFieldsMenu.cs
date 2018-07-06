@@ -54,12 +54,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 			var editRecord01 = Globals.CloneInstance(EditRecord);
 
 			Debug.Assert(editRecord01 != null);
-
+			
 			var helper = Globals.CreateInstance<IHelper<T>>(x =>
 			{
 				x.Record = editRecord01;
 			});
-
+			
 			helper.InputRecord(true, Globals.Config.FieldDesc);
 
 			Globals.Thread.Sleep(150);

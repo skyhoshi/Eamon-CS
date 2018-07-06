@@ -94,12 +94,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				record01.IsUidRecycled = true;
 			}
-
+			
 			var helper = Globals.CreateInstance<IHelper<T>>(x =>
 			{
 				x.Record = record01;
 			});
-
+			
 			helper.ListRecord(true, true, false, true, false, false);
 
 			PrintPostListLineSep();

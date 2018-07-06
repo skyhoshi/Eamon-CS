@@ -5,7 +5,8 @@ ChangeLog: WrenholdsSecretVigil
 
 Date			Version			Who			Notes
 ----------------------------------------------------------------------------------------------------------------------------------
-20180527		1.4.0				MRP			Event Handler overhaul
+20180705		1.4.0				MRP			Helper/Args overhaul
+20180527							MRP			Event Handler overhaul
 20180505							MRP			ClassMappings overhaul
 20180403							MRP			Monster State/AttackCount overhaul
 20180307							MRP			Rename ArtifactClass to ArtifactCategory

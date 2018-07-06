@@ -45,12 +45,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				goto Cleanup;
 			}
-
+			
 			var helper = Globals.CreateInstance<IHelper<T>>(x =>
 			{
 				x.Record = record;
 			});
-
+			
 			helper.ListRecord(true, true, false, true, false, false);
 
 			PrintPostListLineSep();

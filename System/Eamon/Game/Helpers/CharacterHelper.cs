@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
@@ -26,38 +25,468 @@ namespace Eamon.Game.Helpers
 
 		#region Interface IHelper
 
+		#region GetPrintedName Methods
+
+		protected virtual string GetPrintedNameStatsElement()
+		{
+			var i = Index;
+
+			var stat = Globals.Engine.GetStats((Enums.Stat)i);
+
+			Debug.Assert(stat != null);
+
+			return stat.Name;
+		}
+
+		protected virtual string GetPrintedNameSpellAbilitiesElement()
+		{
+			var i = Index;
+
+			var spell = Globals.Engine.GetSpells((Enums.Spell)i);
+
+			Debug.Assert(spell != null);
+
+			return string.Format("{0} Spell Ability", spell.Name);
+		}
+
+		protected virtual string GetPrintedNameWeaponAbilitiesElement()
+		{
+			var i = Index;
+
+			var weapon = Globals.Engine.GetWeapons((Enums.Weapon)i);
+
+			Debug.Assert(weapon != null);
+
+			return string.Format("{0} Wpn Ability", weapon.Name);
+		}
+
+		protected virtual string GetPrintedNameArmorExpertise()
+		{
+			return "Armor Expertise";
+		}
+
+		protected virtual string GetPrintedNameHeldGold()
+		{
+			return "Held Gold";
+		}
+
+		protected virtual string GetPrintedNameBankGold()
+		{
+			return "Bank Gold";
+		}
+
+		protected virtual string GetPrintedNameArmorClass()
+		{
+			return "Armor Class";
+		}
+
+		protected virtual string GetPrintedNameWeaponsName()
+		{
+			var i = Index;
+
+			return string.Format("Wpn #{0} Name", i + 1);
+		}
+
+		protected virtual string GetPrintedNameWeaponsIsPlural()
+		{
+			var i = Index;
+
+			return string.Format("Wpn #{0} Is Plural", i + 1);
+		}
+
+		protected virtual string GetPrintedNameWeaponsPluralType()
+		{
+			var i = Index;
+
+			return string.Format("Wpn #{0} Plural Type", i + 1);
+		}
+
+		protected virtual string GetPrintedNameWeaponsArticleType()
+		{
+			var i = Index;
+
+			return string.Format("Wpn #{0} Article Type", i + 1);
+		}
+
+		protected virtual string GetPrintedNameWeaponsComplexity()
+		{
+			var i = Index;
+
+			return string.Format("Wpn #{0} Complexity", i + 1);
+		}
+
+		protected virtual string GetPrintedNameWeaponsType()
+		{
+			var i = Index;
+
+			return string.Format("Wpn #{0} Type", i + 1);
+		}
+
+		protected virtual string GetPrintedNameWeaponsDice()
+		{
+			var i = Index;
+
+			return string.Format("Wpn #{0} Dice", i + 1);
+		}
+
+		protected virtual string GetPrintedNameWeaponsSides()
+		{
+			var i = Index;
+
+			return string.Format("Wpn #{0} Sides", i + 1);
+		}
+
+		#endregion
+
+		#region GetName Methods
+
+		protected virtual string GetNameStats(bool addToNamesList)
+		{
+			var statValues = EnumUtil.GetValues<Enums.Stat>();
+
+			foreach (var sv in statValues)
+			{
+				Index = (long)sv;
+
+				GetName("StatsElement", addToNamesList);
+			}
+
+			return "Stats";
+		}
+
+		protected virtual string GetNameStatsElement(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("Stats[{0}].Element", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		protected virtual string GetNameSpellAbilities(bool addToNamesList)
+		{
+			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+
+			foreach (var sv in spellValues)
+			{
+				Index = (long)sv;
+
+				GetName("SpellAbilitiesElement", addToNamesList);
+			}
+
+			return "SpellAbilities";
+		}
+
+		protected virtual string GetNameSpellAbilitiesElement(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("SpellAbilities[{0}].Element", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		protected virtual string GetNameWeaponAbilities(bool addToNamesList)
+		{
+			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+
+			foreach (var wv in weaponValues)
+			{
+				Index = (long)wv;
+
+				GetName("WeaponAbilitiesElement", addToNamesList);
+			}
+
+			return "WeaponAbilities";
+		}
+
+		protected virtual string GetNameWeaponAbilitiesElement(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("WeaponAbilities[{0}].Element", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		protected virtual string GetNameWeapons(bool addToNamesList)
+		{
+			for (Index = 0; Index < Record.Weapons.Length; Index++)
+			{
+				GetName("WeaponsName", addToNamesList);
+				GetName("WeaponsIsPlural", addToNamesList);
+				GetName("WeaponsPluralType", addToNamesList);
+				GetName("WeaponsArticleType", addToNamesList);
+				GetName("WeaponsComplexity", addToNamesList);
+				GetName("WeaponsType", addToNamesList);
+				GetName("WeaponsDice", addToNamesList);
+				GetName("WeaponsSides", addToNamesList);
+			}
+
+			return "Weapons";
+		}
+
+		protected virtual string GetNameWeaponsName(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("Weapons[{0}].Name", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		protected virtual string GetNameWeaponsIsPlural(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("Weapons[{0}].IsPlural", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		protected virtual string GetNameWeaponsPluralType(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("Weapons[{0}].PluralType", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		protected virtual string GetNameWeaponsArticleType(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("Weapons[{0}].ArticleType", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		protected virtual string GetNameWeaponsComplexity(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("Weapons[{0}].Complexity", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		protected virtual string GetNameWeaponsType(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("Weapons[{0}].Type", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		protected virtual string GetNameWeaponsDice(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("Weapons[{0}].Dice", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		protected virtual string GetNameWeaponsSides(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("Weapons[{0}].Sides", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		#endregion
+
+		#region GetValue Methods
+
+		protected virtual object GetValueStatsElement()
+		{
+			var i = Index;
+
+			return Record.GetStats(i);
+		}
+
+		protected virtual object GetValueSpellAbilitiesElement()
+		{
+			var i = Index;
+
+			return Record.GetSpellAbilities(i);
+		}
+
+		protected virtual object GetValueWeaponAbilitiesElement()
+		{
+			var i = Index;
+
+			return Record.GetWeaponAbilities(i);
+		}
+
+		protected virtual object GetValueWeaponsName()
+		{
+			var i = Index;
+
+			return Record.GetWeapons(i).Name;
+		}
+
+		protected virtual object GetValueWeaponsIsPlural()
+		{
+			var i = Index;
+
+			return Record.GetWeapons(i).IsPlural;
+		}
+
+		protected virtual object GetValueWeaponsPluralType()
+		{
+			var i = Index;
+
+			return Record.GetWeapons(i).PluralType;
+		}
+
+		protected virtual object GetValueWeaponsArticleType()
+		{
+			var i = Index;
+
+			return Record.GetWeapons(i).ArticleType;
+		}
+
+		protected virtual object GetValueWeaponsComplexity()
+		{
+			var i = Index;
+
+			return Record.GetWeapons(i).Complexity;
+		}
+
+		protected virtual object GetValueWeaponsType()
+		{
+			var i = Index;
+
+			return Record.GetWeapons(i).Type;
+		}
+
+		protected virtual object GetValueWeaponsDice()
+		{
+			var i = Index;
+
+			return Record.GetWeapons(i).Dice;
+		}
+
+		protected virtual object GetValueWeaponsSides()
+		{
+			var i = Index;
+
+			return Record.GetWeapons(i).Sides;
+		}
+
+		#endregion
+
 		#region Validate Methods
 
-		protected virtual bool ValidateUid(IField field, IValidateArgs args)
+		protected virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
-		protected virtual bool ValidateName(IField field, IValidateArgs args)
+		protected virtual bool ValidateName()
 		{
 			return string.IsNullOrWhiteSpace(Record.Name) == false && Record.Name.Length <= Constants.CharNameLen;
 		}
 
-		protected virtual bool ValidateArticleType(IField field, IValidateArgs args)
+		protected virtual bool ValidateArticleType()
 		{
 			return Record.ArticleType == Enums.ArticleType.None;
 		}
 
-		protected virtual bool ValidateGender(IField field, IValidateArgs args)
+		protected virtual bool ValidateGender()
 		{
 			return Enum.IsDefined(typeof(Enums.Gender), Record.Gender);
 		}
 
-		protected virtual bool ValidateStatus(IField field, IValidateArgs args)
+		protected virtual bool ValidateStatus()
 		{
 			return Enum.IsDefined(typeof(Enums.Status), Record.Status);
 		}
 
-		protected virtual bool ValidateStats(IField field, IValidateArgs args)
+		protected virtual bool ValidateStats()
 		{
-			Debug.Assert(field != null && field.UserData != null);
+			var result = true;
 
-			var i = Convert.ToInt64(field.UserData);
+			var statValues = EnumUtil.GetValues<Enums.Stat>();
+
+			foreach (var sv in statValues)
+			{
+				Index = (long)sv;
+
+				result = ValidateField("StatsElement");
+
+				if (result == false)
+				{
+					break;
+				}
+			}
+
+			return result;
+		}
+
+		protected virtual bool ValidateStatsElement()
+		{
+			var i = Index;
 
 			var stat = Globals.Engine.GetStats((Enums.Stat)i);
 
@@ -66,11 +495,30 @@ namespace Eamon.Game.Helpers
 			return Record.GetStats(i) >= stat.MinValue && Record.GetStats(i) <= stat.MaxValue;
 		}
 
-		protected virtual bool ValidateSpellAbilities(IField field, IValidateArgs args)
+		protected virtual bool ValidateSpellAbilities()
 		{
-			Debug.Assert(field != null && field.UserData != null);
+			var result = true;
 
-			var i = Convert.ToInt64(field.UserData);
+			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+
+			foreach (var sv in spellValues)
+			{
+				Index = (long)sv;
+
+				result = ValidateField("SpellAbilitiesElement");
+
+				if (result == false)
+				{
+					break;
+				}
+			}
+
+			return result;
+		}
+
+		protected virtual bool ValidateSpellAbilitiesElement()
+		{
+			var i = Index;
 
 			var spell = Globals.Engine.GetSpells((Enums.Spell)i);
 
@@ -79,11 +527,30 @@ namespace Eamon.Game.Helpers
 			return Record.GetSpellAbilities(i) >= spell.MinValue && Record.GetSpellAbilities(i) <= spell.MaxValue;
 		}
 
-		protected virtual bool ValidateWeaponAbilities(IField field, IValidateArgs args)
+		protected virtual bool ValidateWeaponAbilities()
 		{
-			Debug.Assert(field != null && field.UserData != null);
+			var result = true;
 
-			var i = Convert.ToInt64(field.UserData);
+			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+
+			foreach (var wv in weaponValues)
+			{
+				Index = (long)wv;
+
+				result = ValidateField("WeaponAbilitiesElement");
+
+				if (result == false)
+				{
+					break;
+				}
+			}
+
+			return result;
+		}
+
+		protected virtual bool ValidateWeaponAbilitiesElement()
+		{
+			var i = Index;
 
 			var weapon = Globals.Engine.GetWeapons((Enums.Weapon)i);
 
@@ -92,35 +559,57 @@ namespace Eamon.Game.Helpers
 			return Record.GetWeaponAbilities(i) >= weapon.MinValue && Record.GetWeaponAbilities(i) <= weapon.MaxValue;
 		}
 
-		protected virtual bool ValidateArmorExpertise(IField field, IValidateArgs args)
+		protected virtual bool ValidateArmorExpertise()
 		{
 			return Record.ArmorExpertise >= 0 && Record.ArmorExpertise <= 79;
 		}
 
-		protected virtual bool ValidateHeldGold(IField field, IValidateArgs args)
+		protected virtual bool ValidateHeldGold()
 		{
 			return Record.HeldGold >= Constants.MinGoldValue && Record.HeldGold <= Constants.MaxGoldValue;
 		}
 
-		protected virtual bool ValidateBankGold(IField field, IValidateArgs args)
+		protected virtual bool ValidateBankGold()
 		{
 			return Record.BankGold >= Constants.MinGoldValue && Record.BankGold <= Constants.MaxGoldValue;
 		}
 
-		protected virtual bool ValidateArmorClass(IField field, IValidateArgs args)
+		protected virtual bool ValidateArmorClass()
 		{
 			return Enum.IsDefined(typeof(Enums.Armor), Record.ArmorClass);
 		}
 
-		protected virtual bool ValidateWeaponsName(IField field, IValidateArgs args)
+		protected virtual bool ValidateWeapons()
 		{
-			Debug.Assert(field != null && field.UserData != null);
+			var result = true;
 
+			for (Index = 0; Index < Record.Weapons.Length; Index++)
+			{
+				result = ValidateField("WeaponsName") &&
+								ValidateField("WeaponsIsPlural") &&
+								ValidateField("WeaponsPluralType") &&
+								ValidateField("WeaponsArticleType") &&
+								ValidateField("WeaponsComplexity") &&
+								ValidateField("WeaponsType") &&
+								ValidateField("WeaponsDice") &&
+								ValidateField("WeaponsSides");
+
+				if (result == false)
+				{
+					break;
+				}
+			}
+
+			return result;
+		}
+
+		protected virtual bool ValidateWeaponsName()
+		{
 			var result = true;
 
 			var activeWeapon = true;
 
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			for (var h = 0; h <= i; h++)
 			{
@@ -155,15 +644,13 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
-		protected virtual bool ValidateWeaponsIsPlural(IField field, IValidateArgs args)
+		protected virtual bool ValidateWeaponsIsPlural()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
 			var result = true;
 
 			var activeWeapon = true;
 
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			for (var h = 0; h <= i; h++)
 			{
@@ -183,15 +670,13 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
-		protected virtual bool ValidateWeaponsPluralType(IField field, IValidateArgs args)
+		protected virtual bool ValidateWeaponsPluralType()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
 			var result = true;
 
 			var activeWeapon = true;
 
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			for (var h = 0; h <= i; h++)
 			{
@@ -215,15 +700,13 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
-		protected virtual bool ValidateWeaponsArticleType(IField field, IValidateArgs args)
+		protected virtual bool ValidateWeaponsArticleType()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
 			var result = true;
 
 			var activeWeapon = true;
 
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			for (var h = 0; h <= i; h++)
 			{
@@ -247,15 +730,13 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
-		protected virtual bool ValidateWeaponsComplexity(IField field, IValidateArgs args)
+		protected virtual bool ValidateWeaponsComplexity()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
 			var result = true;
 
 			var activeWeapon = true;
 
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			for (var h = 0; h <= i; h++)
 			{
@@ -279,15 +760,13 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
-		protected virtual bool ValidateWeaponsType(IField field, IValidateArgs args)
+		protected virtual bool ValidateWeaponsType()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
 			var result = true;
 
 			var activeWeapon = true;
 
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			for (var h = 0; h <= i; h++)
 			{
@@ -311,15 +790,13 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
-		protected virtual bool ValidateWeaponsDice(IField field, IValidateArgs args)
+		protected virtual bool ValidateWeaponsDice()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
 			var result = true;
 
 			var activeWeapon = true;
 
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			for (var h = 0; h <= i; h++)
 			{
@@ -343,15 +820,13 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
-		protected virtual bool ValidateWeaponsSides(IField field, IValidateArgs args)
+		protected virtual bool ValidateWeaponsSides()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
 			var result = true;
 
 			var activeWeapon = true;
 
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			for (var h = 0; h <= i; h++)
 			{
@@ -377,16 +852,22 @@ namespace Eamon.Game.Helpers
 
 		#endregion
 
-		#region PrintFieldDesc Methods
+		#region ValidateInterdependencies Methods
 
-		protected virtual void PrintDescName(IField field, IPrintDescArgs args)
+		// do nothing
+
+		#endregion
+
+		#region PrintDesc Methods
+
+		protected virtual void PrintDescName()
 		{
 			var fullDesc = "Enter the name of the character.";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, null);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
-		protected virtual void PrintDescGender(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescGender()
 		{
 			var fullDesc = "Enter the gender of the character.";
 
@@ -399,10 +880,10 @@ namespace Eamon.Game.Helpers
 				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)genderValues[j], Globals.Engine.EvalGender(genderValues[j], "Male", "Female", "Neutral"));
 			}
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc.ToString());
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc.ToString());
 		}
 
-		protected virtual void PrintDescStatus(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescStatus()
 		{
 			var fullDesc = "Enter the status of the character.";
 
@@ -415,14 +896,12 @@ namespace Eamon.Game.Helpers
 				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)statusValues[j], Globals.Engine.GetStatusNames(statusValues[j]));
 			}
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc.ToString());
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc.ToString());
 		}
 
-		protected virtual void PrintDescStats(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescStatsElement()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			var stat = Globals.Engine.GetStats((Enums.Stat)i);
 
@@ -432,14 +911,12 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = string.Format("{0}-{1}=Valid value", stat.MinValue, stat.MaxValue);
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
-		protected virtual void PrintDescSpellAbilities(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescSpellAbilitiesElement()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			var spell = Globals.Engine.GetSpells((Enums.Spell)i);
 
@@ -449,14 +926,12 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = string.Format("{0}-{1}=Valid value", spell.MinValue, spell.MaxValue);
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
-		protected virtual void PrintDescWeaponAbilities(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescWeaponAbilitiesElement()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			var weapon = Globals.Engine.GetWeapons((Enums.Weapon)i);
 
@@ -466,37 +941,37 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = string.Format("{0}-{1}=Valid value", weapon.MinValue, weapon.MaxValue);
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
-		protected virtual void PrintDescArmorExpertise(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescArmorExpertise()
 		{
 			var fullDesc = "Enter the armor expertise of the character.";
 
 			var briefDesc = "0-79=Valid value";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
-		protected virtual void PrintDescHeldGold(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescHeldGold()
 		{
 			var fullDesc = "Enter the character's gold in hand.";
 
 			var briefDesc = string.Format("{0}-{1}=Valid value", Constants.MinGoldValue, Constants.MaxGoldValue);
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
-		protected virtual void PrintDescBankGold(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescBankGold()
 		{
 			var fullDesc = "Enter the character's gold in the bank.";
 
 			var briefDesc = string.Format("{0}-{1}=Valid value", Constants.MinGoldValue, Constants.MaxGoldValue);
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
-		protected virtual void PrintDescArmorClass(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescArmorClass()
 		{
 			var fullDesc = "Enter the armor class of the character.";
 
@@ -513,77 +988,65 @@ namespace Eamon.Game.Helpers
 				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)armorValues[j], armor.Name);
 			}
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc.ToString());
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc.ToString());
 		}
 
-		protected virtual void PrintDescWeaponsName(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescWeaponsName()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			var fullDesc = string.Format("Enter the character's weapon #{0} name.", i + 1);
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, null);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
-		protected virtual void PrintDescWeaponsIsPlural(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescWeaponsIsPlural()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			var fullDesc = string.Format("Enter the character's weapon #{0} Is Plural status.", i + 1);
 
 			var briefDesc = "0=Singular; 1=Plural";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
-		protected virtual void PrintDescWeaponsPluralType(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescWeaponsPluralType()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			var fullDesc = string.Format("Enter the character's weapon #{0} plural type.", i + 1);
 
 			var briefDesc = "0=No change; 1=Use 's'; 2=Use 'es'; 3=Use 'y' to 'ies'";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
-		protected virtual void PrintDescWeaponsArticleType(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescWeaponsArticleType()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			var fullDesc = string.Format("Enter the character's weapon #{0} article type.", i + 1);
 
 			var briefDesc = "0=No article; 1=Use 'a'; 2=Use 'an'; 3=Use 'some'; 4=Use 'the'";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
-		protected virtual void PrintDescWeaponsComplexity(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescWeaponsComplexity()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			var fullDesc = string.Format("Enter the character's weapon #{0} complexity.", i + 1);
 
 			var briefDesc = "-50-50=Valid value";          // TODO: eliminate hardcode
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
-		protected virtual void PrintDescWeaponsType(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescWeaponsType()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			var fullDesc = string.Format("Enter the character's weapon #{0} type.", i + 1);
 
@@ -600,53 +1063,44 @@ namespace Eamon.Game.Helpers
 				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)weaponValues[j], weapon.Name);
 			}
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc.ToString());
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc.ToString());
 		}
 
-		protected virtual void PrintDescWeaponsDice(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescWeaponsDice()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			var fullDesc = string.Format("Enter the character's weapon #{0} hit dice.", i + 1);
 
 			var briefDesc = "1-25=Valid value";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
-		protected virtual void PrintDescWeaponsSides(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescWeaponsSides()
 		{
-			Debug.Assert(field != null && field.UserData != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			var fullDesc = string.Format("Enter the character's weapon #{0} hit dice sides.", i + 1);
 
 			var briefDesc = "1-25=Valid value";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		#endregion
 
 		#region List Methods
 
-		protected virtual void ListUid(IField field, IListArgs args)
+		protected virtual void ListUid()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (!args.ExcludeROFields)
+				if (!ExcludeROFields)
 				{
-					if (args.NumberFields)
-					{
-						field.ListNum = args.ListNum++;
-					}
+					var listNum = NumberFields ? ListNum++ : 0;
 
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.Uid);
+					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Uid"), null), Record.Uid);
 				}
 			}
 			else
@@ -655,269 +1109,263 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		protected virtual void ListName(IField field, IListArgs args)
+		protected virtual void ListName()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.Name);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Name"), null), Record.Name);
 			}
 		}
 
-		protected virtual void ListGender(IField field, IListArgs args)
+		protected virtual void ListGender()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.EvalGender("Male", "Female", "Neutral"));
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Gender"), null), Record.EvalGender("Male", "Female", "Neutral"));
 			}
 		}
 
-		protected virtual void ListStatus(IField field, IListArgs args)
+		protected virtual void ListStatus()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Globals.Engine.GetStatusNames(Record.Status));
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Status"), null), Globals.Engine.GetStatusNames(Record.Status));
 			}
 		}
 
-		protected virtual void ListStats(IField field, IListArgs args)
+		protected virtual void ListStats()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null && args.Buf != null);
+			var statValues = EnumUtil.GetValues<Enums.Stat>();
 
-			var i = Convert.ToInt64(field.UserData);
-
-			if (args.FullDetail)
+			foreach (var sv in statValues)
 			{
-				var sv = (Enums.Stat)i;
+				Index = (long)sv;
 
-				if (args.LookupMsg)
+				ListField("StatsElement");
+			}
+
+			AddToListedNames = false;
+		}
+
+		protected virtual void ListStatsElement()
+		{
+			var i = Index;
+
+			var sv = (Enums.Stat)i;
+
+			if (FullDetail)
+			{
+				if (LookupMsg)
 				{
-					args.Buf.Clear();
+					Buf.Clear();
 
 					if (sv == Enums.Stat.Intellect)
 					{
 						var ibp = Record.GetIntellectBonusPct();
 
-						args.Buf.AppendFormat("Learning: {0}{1}%", ibp > 0 ? "+" : "", ibp);
+						Buf.AppendFormat("Learning: {0}{1}%", ibp > 0 ? "+" : "", ibp);
 					}
 					else if (sv == Enums.Stat.Hardiness)
 					{
-						args.Buf.AppendFormat("Weight Carryable: {0} G ({1} D)", Record.GetWeightCarryableGronds(), Record.GetWeightCarryableDos());
+						Buf.AppendFormat("Weight Carryable: {0} G ({1} D)", Record.GetWeightCarryableGronds(), Record.GetWeightCarryableDos());
 					}
 					else if (sv == Enums.Stat.Charisma)
 					{
 						var cmp = Record.GetCharmMonsterPct();
 
-						args.Buf.AppendFormat("Charm Monster: {0}{1}%", cmp > 0 ? "+" : "", cmp);
+						Buf.AppendFormat("Charm Monster: {0}{1}%", cmp > 0 ? "+" : "", cmp);
 					}
 				}
 
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				if (args.LookupMsg && args.Buf.Length > 0)
+				if (LookupMsg && Buf.Length > 0)
 				{
 					Globals.Out.Write("{0}{1}{2}",
 						Environment.NewLine,
-						Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null),
-						Globals.Engine.BuildValue(51, ' ', 8, Record.GetStats(i), null, args.Buf.ToString()));
+						Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("StatsElement"), null),
+						Globals.Engine.BuildValue(51, ' ', 8, Record.GetStats(i), null, Buf.ToString()));
 				}
 				else
 				{
 					Globals.Out.Write("{0}{1}{2}",
 						Environment.NewLine,
-						Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null),
+						Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("StatsElement"), null),
 						Record.GetStats(i));
 				}
 			}
 		}
 
-		protected virtual void ListSpellAbilities(IField field, IListArgs args)
+		protected virtual void ListSpellAbilities()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null);
+			var spellValues = EnumUtil.GetValues<Enums.Spell>();
 
-			var i = Convert.ToInt64(field.UserData);
-
-			if (args.FullDetail)
+			foreach (var sv in spellValues)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				Index = (long)sv;
+
+				ListField("SpellAbilitiesElement");
+			}
+
+			AddToListedNames = false;
+		}
+
+		protected virtual void ListSpellAbilitiesElement()
+		{
+			var i = Index;
+
+			if (FullDetail)
+			{
+				var listNum = NumberFields ? ListNum++ : 0;
 
 				Globals.Out.Write("{0}{1}{2}%",
 					Environment.NewLine,
-					Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null),
+					Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("SpellAbilitiesElement"), null),
 					Record.GetSpellAbilities(i));
 			}
 		}
 
-		protected virtual void ListWeaponAbilities(IField field, IListArgs args)
+		protected virtual void ListWeaponAbilities()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null);
+			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
 
-			var i = Convert.ToInt64(field.UserData);
-
-			if (args.FullDetail)
+			foreach (var wv in weaponValues)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				Index = (long)wv;
+
+				ListField("WeaponAbilitiesElement");
+			}
+
+			AddToListedNames = false;
+		}
+
+		protected virtual void ListWeaponAbilitiesElement()
+		{
+			var i = Index;
+
+			if (FullDetail)
+			{
+				var listNum = NumberFields ? ListNum++ : 0;
 
 				Globals.Out.Write("{0}{1}{2}%",
 					Environment.NewLine,
-					Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null),
+					Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponAbilitiesElement"), null),
 					Record.GetWeaponAbilities(i));
 			}
 		}
 
-		protected virtual void ListArmorExpertise(IField field, IListArgs args)
+		protected virtual void ListArmorExpertise()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}%", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.ArmorExpertise);
+				Globals.Out.Write("{0}{1}{2}%", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("ArmorExpertise"), null), Record.ArmorExpertise);
 			}
 		}
 
-		protected virtual void ListHeldGold(IField field, IListArgs args)
+		protected virtual void ListHeldGold()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.HeldGold);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("HeldGold"), null), Record.HeldGold);
 			}
 		}
 
-		protected virtual void ListBankGold(IField field, IListArgs args)
+		protected virtual void ListBankGold()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.BankGold);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("BankGold"), null), Record.BankGold);
 			}
 		}
 
-		protected virtual void ListArmorClass(IField field, IListArgs args)
+		protected virtual void ListArmorClass()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
 				var armor = Globals.Engine.GetArmors(Record.ArmorClass);
 
 				Debug.Assert(armor != null);
 
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), armor.Name);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("ArmorClass"), null), armor.Name);
 			}
 		}
 
-		protected virtual void ListWeaponsName(IField field, IListArgs args)
+		protected virtual void ListWeapons()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null);
-
-			var i = Convert.ToInt64(field.UserData);
-
-			if (args.FullDetail)
+			for (Index = 0; Index < Record.Weapons.Length; Index++)
 			{
-				if (!args.ExcludeROFields || i == 0 || Record.IsWeaponActive(i - 1))
-				{
-					if (args.NumberFields)
-					{
-						field.ListNum = args.ListNum++;
-					}
-
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.GetWeapons(i).Name);
-				}
+				ListField("WeaponsName");
+				ListField("WeaponsIsPlural");
+				ListField("WeaponsPluralType");
+				ListField("WeaponsArticleType");
+				ListField("WeaponsComplexity");
+				ListField("WeaponsType");
+				ListField("WeaponsDice");
+				ListField("WeaponsSides");
 			}
+
+			AddToListedNames = false;
 		}
 
-		protected virtual void ListWeaponsIsPlural(IField field, IListArgs args)
+		protected virtual void ListWeaponsName()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null);
+			var i = Index;
 
-			var i = Convert.ToInt64(field.UserData);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (!args.ExcludeROFields || Record.IsWeaponActive(i))
+				if (!ExcludeROFields || i == 0 || Record.IsWeaponActive(i - 1))
 				{
-					if (args.NumberFields)
-					{
-						field.ListNum = args.ListNum++;
-					}
+					var listNum = NumberFields ? ListNum++ : 0;
 
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Convert.ToInt64(Record.GetWeapons(i).IsPlural));
+					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponsName"), null), Record.GetWeapons(i).Name);
 				}
 			}
 		}
 
-		protected virtual void ListWeaponsPluralType(IField field, IListArgs args)
+		protected virtual void ListWeaponsIsPlural()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null);
+			var i = Index;
 
-			var i = Convert.ToInt64(field.UserData);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (!args.ExcludeROFields || Record.IsWeaponActive(i))
+				if (!ExcludeROFields || Record.IsWeaponActive(i))
 				{
-					if (args.NumberFields)
-					{
-						field.ListNum = args.ListNum++;
-					}
+					var listNum = NumberFields ? ListNum++ : 0;
 
-					if (args.LookupMsg)
+					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponsIsPlural"), null), Convert.ToInt64(Record.GetWeapons(i).IsPlural));
+				}
+			}
+		}
+
+		protected virtual void ListWeaponsPluralType()
+		{
+			var i = Index;
+
+			if (FullDetail)
+			{
+				if (!ExcludeROFields || Record.IsWeaponActive(i))
+				{
+					var listNum = NumberFields ? ListNum++ : 0;
+
+					if (LookupMsg)
 					{
 						Globals.Out.Write("{0}{1}{2}",
 							Environment.NewLine,
-							Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null),
+							Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponsPluralType"), null),
 							Globals.Engine.BuildValue(51, ' ', 8, (long)Record.GetWeapons(i).PluralType, null,
 							Record.GetWeapons(i).PluralType == Enums.PluralType.None ? "No change" :
 							Record.GetWeapons(i).PluralType == Enums.PluralType.S ? "Use 's'" :
@@ -927,32 +1375,27 @@ namespace Eamon.Game.Helpers
 					}
 					else
 					{
-						Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), (long)Record.GetWeapons(i).PluralType);
+						Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponsPluralType"), null), (long)Record.GetWeapons(i).PluralType);
 					}
 				}
 			}
 		}
 
-		protected virtual void ListWeaponsArticleType(IField field, IListArgs args)
+		protected virtual void ListWeaponsArticleType()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null);
+			var i = Index;
 
-			var i = Convert.ToInt64(field.UserData);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (!args.ExcludeROFields || Record.IsWeaponActive(i))
+				if (!ExcludeROFields || Record.IsWeaponActive(i))
 				{
-					if (args.NumberFields)
-					{
-						field.ListNum = args.ListNum++;
-					}
+					var listNum = NumberFields ? ListNum++ : 0;
 
-					if (args.LookupMsg)
+					if (LookupMsg)
 					{
 						Globals.Out.Write("{0}{1}{2}",
 							Environment.NewLine,
-							Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null),
+							Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponsArticleType"), null),
 							Globals.Engine.BuildValue(51, ' ', 8, (long)Record.GetWeapons(i).ArticleType, null,
 							Record.GetWeapons(i).ArticleType == Enums.ArticleType.None ? "No article" :
 							Record.GetWeapons(i).ArticleType == Enums.ArticleType.A ? "Use 'a'" :
@@ -963,91 +1406,71 @@ namespace Eamon.Game.Helpers
 					}
 					else
 					{
-						Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), (long)Record.GetWeapons(i).ArticleType);
+						Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponsArticleType"), null), (long)Record.GetWeapons(i).ArticleType);
 					}
 				}
 			}
 		}
 
-		protected virtual void ListWeaponsComplexity(IField field, IListArgs args)
+		protected virtual void ListWeaponsComplexity()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null);
+			var i = Index;
 
-			var i = Convert.ToInt64(field.UserData);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (!args.ExcludeROFields || Record.IsWeaponActive(i))
+				if (!ExcludeROFields || Record.IsWeaponActive(i))
 				{
-					if (args.NumberFields)
-					{
-						field.ListNum = args.ListNum++;
-					}
+					var listNum = NumberFields ? ListNum++ : 0;
 
-					Globals.Out.Write("{0}{1}{2}%", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.GetWeapons(i).Complexity);
+					Globals.Out.Write("{0}{1}{2}%", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponsComplexity"), null), Record.GetWeapons(i).Complexity);
 				}
 			}
 		}
 
-		protected virtual void ListWeaponsType(IField field, IListArgs args)
+		protected virtual void ListWeaponsType()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null);
+			var i = Index;
 
-			var i = Convert.ToInt64(field.UserData);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (!args.ExcludeROFields || Record.IsWeaponActive(i))
+				if (!ExcludeROFields || Record.IsWeaponActive(i))
 				{
 					var weapon = Globals.Engine.GetWeapons(Record.GetWeapons(i).Type);
 
-					if (args.NumberFields)
-					{
-						field.ListNum = args.ListNum++;
-					}
+					var listNum = NumberFields ? ListNum++ : 0;
 
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null),
+					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponsType"), null),
 						weapon != null ? weapon.Name : "0");
 				}
 			}
 		}
 
-		protected virtual void ListWeaponsDice(IField field, IListArgs args)
+		protected virtual void ListWeaponsDice()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null);
+			var i = Index;
 
-			var i = Convert.ToInt64(field.UserData);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (!args.ExcludeROFields || Record.IsWeaponActive(i))
+				if (!ExcludeROFields || Record.IsWeaponActive(i))
 				{
-					if (args.NumberFields)
-					{
-						field.ListNum = args.ListNum++;
-					}
+					var listNum = NumberFields ? ListNum++ : 0;
 
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.GetWeapons(i).Dice);
+					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponsDice"), null), Record.GetWeapons(i).Dice);
 				}
 			}
 		}
 
-		protected virtual void ListWeaponsSides(IField field, IListArgs args)
+		protected virtual void ListWeaponsSides()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null);
+			var i = Index;
 
-			var i = Convert.ToInt64(field.UserData);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (!args.ExcludeROFields || Record.IsWeaponActive(i))
+				if (!ExcludeROFields || Record.IsWeaponActive(i))
 				{
-					if (args.NumberFields)
-					{
-						field.ListNum = args.ListNum++;
-					}
+					var listNum = NumberFields ? ListNum++ : 0;
 
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.GetWeapons(i).Sides);
+					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponsSides"), null), Record.GetWeapons(i).Sides);
 				}
 			}
 		}
@@ -1056,38 +1479,34 @@ namespace Eamon.Game.Helpers
 
 		#region Input Methods
 
-		protected virtual void InputUid(IField field, IInputArgs args)
+		protected virtual void InputUid()
 		{
-			Debug.Assert(field != null && args != null);
-
-			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null), Record.Uid);
+			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
 
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputName(IField field, IInputArgs args)
+		protected virtual void InputName()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var name = Record.Name;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", name);
+				Buf.SetFormat(EditRec ? "{0}" : "", name);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("Name", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Name"), null));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.CharNameLen, null, '_', '\0', false, null, null, Globals.Engine.IsCharAnyButDquoteCommaColon, null);
+				var rc = Globals.In.ReadField(Buf, Constants.CharNameLen, null, '_', '\0', false, null, null, Globals.Engine.IsCharAnyButDquoteCommaColon, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.Name = args.Buf.Trim().ToString();
+				Record.Name = Buf.Trim().ToString();
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("Name"))
 				{
 					break;
 				}
@@ -1098,29 +1517,27 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputGender(IField field, IInputArgs args)
+		protected virtual void InputGender()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var gender = Record.Gender;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", (long)gender);
+				Buf.SetFormat(EditRec ? "{0}" : "", (long)gender);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("Gender", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "0"));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Gender"), "0"));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsChar0To2, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsChar0To2, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.Gender = (Enums.Gender)Convert.ToInt64(args.Buf.Trim().ToString());
+				Record.Gender = (Enums.Gender)Convert.ToInt64(Buf.Trim().ToString());
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("Gender"))
 				{
 					break;
 				}
@@ -1131,29 +1548,27 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputStatus(IField field, IInputArgs args)
+		protected virtual void InputStatus()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var status = Record.Status;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", (long)status);
+				Buf.SetFormat(EditRec ? "{0}" : "", (long)status);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("Status", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "1"));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Status"), "1"));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsChar0To3, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsChar0To3, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.Status = (Enums.Status)Convert.ToInt64(args.Buf.Trim().ToString());
+				Record.Status = (Enums.Status)Convert.ToInt64(Buf.Trim().ToString());
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("Status"))
 				{
 					break;
 				}
@@ -1164,35 +1579,45 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputStats(IField field, IInputArgs args)
+		protected virtual void InputStats()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null && args.Buf != null);
+			var statValues = EnumUtil.GetValues<Enums.Stat>();
 
-			var i = Convert.ToInt64(field.UserData);
+			foreach (var sv in statValues)
+			{
+				Index = (long)sv;
+
+				InputField("StatsElement");
+			}
+		}
+
+		protected virtual void InputStatsElement()
+		{
+			var i = Index;
 
 			var stat = Globals.Engine.GetStats((Enums.Stat)i);
 
 			Debug.Assert(stat != null);
 
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var value = Record.GetStats(i);
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", value);
+				Buf.SetFormat(EditRec ? "{0}" : "", value);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("StatsElement", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), stat.EmptyVal));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("StatsElement"), stat.EmptyVal));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, stat.EmptyVal, null, Globals.Engine.IsCharDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, stat.EmptyVal, null, Globals.Engine.IsCharDigit, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.SetStats(i, Convert.ToInt64(args.Buf.Trim().ToString()));
+				Record.SetStats(i, Convert.ToInt64(Buf.Trim().ToString()));
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("StatsElement"))
 				{
 					break;
 				}
@@ -1203,31 +1628,41 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputSpellAbilities(IField field, IInputArgs args)
+		protected virtual void InputSpellAbilities()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null && args.Buf != null);
+			var spellValues = EnumUtil.GetValues<Enums.Spell>();
 
-			var i = Convert.ToInt64(field.UserData);
+			foreach (var sv in spellValues)
+			{
+				Index = (long)sv;
 
-			var fieldDesc = args.FieldDesc;
+				InputField("SpellAbilitiesElement");
+			}
+		}
+
+		protected virtual void InputSpellAbilitiesElement()
+		{
+			var i = Index;
+
+			var fieldDesc = FieldDesc;
 
 			var value = Record.GetSpellAbilities(i);
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", value);
+				Buf.SetFormat(EditRec ? "{0}" : "", value);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("SpellAbilitiesElement", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "0"));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("SpellAbilitiesElement"), "0"));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsCharDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsCharDigit, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.SetSpellAbilities(i, Convert.ToInt64(args.Buf.Trim().ToString()));
+				Record.SetSpellAbilities(i, Convert.ToInt64(Buf.Trim().ToString()));
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("SpellAbilitiesElement"))
 				{
 					break;
 				}
@@ -1238,29 +1673,39 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputWeaponAbilities(IField field, IInputArgs args)
+		protected virtual void InputWeaponAbilities()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null && args.Buf != null);
+			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
 
-			var i = Convert.ToInt64(field.UserData);
+			foreach (var wv in weaponValues)
+			{
+				Index = (long)wv;
+
+				InputField("WeaponAbilitiesElement");
+			}
+		}
+
+		protected virtual void InputWeaponAbilitiesElement()
+		{
+			var i = Index;
 
 			var weapon = Globals.Engine.GetWeapons((Enums.Weapon)i);
 
 			Debug.Assert(weapon != null);
 
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var value = Record.GetWeaponAbilities(i);
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", value);
+				Buf.SetFormat(EditRec ? "{0}" : "", value);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("WeaponAbilitiesElement", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), weapon.EmptyVal));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("WeaponAbilitiesElement"), weapon.EmptyVal));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, weapon.EmptyVal, null, Globals.Engine.IsCharPlusMinusDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, weapon.EmptyVal, null, Globals.Engine.IsCharPlusMinusDigit, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -1268,14 +1713,14 @@ namespace Eamon.Game.Helpers
 
 				try
 				{
-					Record.SetWeaponAbilities(i, Convert.ToInt64(args.Buf.Trim().ToString()));
+					Record.SetWeaponAbilities(i, Convert.ToInt64(Buf.Trim().ToString()));
 				}
 				catch (Exception)
 				{
 					error = true;
 				}
 
-				if (!error && ValidateField(field, args.Vargs))
+				if (!error && ValidateField("WeaponAbilitiesElement"))
 				{
 					break;
 				}
@@ -1286,29 +1731,27 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputArmorExpertise(IField field, IInputArgs args)
+		protected virtual void InputArmorExpertise()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var armorExpertise = Record.ArmorExpertise;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", armorExpertise);
+				Buf.SetFormat(EditRec ? "{0}" : "", armorExpertise);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("ArmorExpertise", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "0"));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("ArmorExpertise"), "0"));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsCharDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsCharDigit, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.ArmorExpertise = Convert.ToInt64(args.Buf.Trim().ToString());
+				Record.ArmorExpertise = Convert.ToInt64(Buf.Trim().ToString());
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("ArmorExpertise"))
 				{
 					break;
 				}
@@ -1319,23 +1762,21 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputHeldGold(IField field, IInputArgs args)
+		protected virtual void InputHeldGold()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var heldGold = Record.HeldGold;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", heldGold);
+				Buf.SetFormat(EditRec ? "{0}" : "", heldGold);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("HeldGold", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "200"));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("HeldGold"), "200"));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "200", null, Globals.Engine.IsCharPlusMinusDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "200", null, Globals.Engine.IsCharPlusMinusDigit, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -1343,14 +1784,14 @@ namespace Eamon.Game.Helpers
 
 				try
 				{
-					Record.HeldGold = Convert.ToInt64(args.Buf.Trim().ToString());
+					Record.HeldGold = Convert.ToInt64(Buf.Trim().ToString());
 				}
 				catch (Exception)
 				{
 					error = true;
 				}
 
-				if (!error && ValidateField(field, args.Vargs))
+				if (!error && ValidateField("HeldGold"))
 				{
 					break;
 				}
@@ -1361,23 +1802,21 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputBankGold(IField field, IInputArgs args)
+		protected virtual void InputBankGold()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var bankGold = Record.BankGold;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", bankGold);
+				Buf.SetFormat(EditRec ? "{0}" : "", bankGold);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("BankGold", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "0"));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("BankGold"), "0"));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsCharPlusMinusDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsCharPlusMinusDigit, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -1385,14 +1824,14 @@ namespace Eamon.Game.Helpers
 
 				try
 				{
-					Record.BankGold = Convert.ToInt64(args.Buf.Trim().ToString());
+					Record.BankGold = Convert.ToInt64(Buf.Trim().ToString());
 				}
 				catch (Exception)
 				{
 					error = true;
 				}
 
-				if (!error && ValidateField(field, args.Vargs))
+				if (!error && ValidateField("BankGold"))
 				{
 					break;
 				}
@@ -1403,29 +1842,27 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputArmorClass(IField field, IInputArgs args)
+		protected virtual void InputArmorClass()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var armorClass = Record.ArmorClass;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", (long)armorClass);
+				Buf.SetFormat(EditRec ? "{0}" : "", (long)armorClass);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("ArmorClass", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "0"));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("ArmorClass"), "0"));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsCharDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsCharDigit, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.ArmorClass = (Enums.Armor)Convert.ToInt64(args.Buf.Trim().ToString());
+				Record.ArmorClass = (Enums.Armor)Convert.ToInt64(Buf.Trim().ToString());
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("ArmorClass"))
 				{
 					break;
 				}
@@ -1436,33 +1873,46 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputWeaponsName(IField field, IInputArgs args)
+		protected virtual void InputWeapons()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null && args.Buf != null);
+			for (Index = 0; Index < Record.Weapons.Length; Index++)
+			{
+				InputField("WeaponsName");
+				InputField("WeaponsIsPlural");
+				InputField("WeaponsPluralType");
+				InputField("WeaponsArticleType");
+				InputField("WeaponsComplexity");
+				InputField("WeaponsType");
+				InputField("WeaponsDice");
+				InputField("WeaponsSides");
+			}
+		}
 
-			var i = Convert.ToInt64(field.UserData);
+		protected virtual void InputWeaponsName()
+		{
+			var i = Index;
 
 			if (i == 0 || Record.IsWeaponActive(i - 1))
 			{
-				var fieldDesc = args.FieldDesc;
+				var fieldDesc = FieldDesc;
 
 				var name = Record.GetWeapons(i).Name;
 
 				while (true)
 				{
-					args.Buf.SetFormat(args.EditRec ? "{0}" : "", name);
+					Buf.SetFormat(EditRec ? "{0}" : "", name);
 
-					PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+					PrintFieldDesc("WeaponsName", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null));
+					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("WeaponsName"), null));
 
-					var rc = Globals.In.ReadField(args.Buf, Constants.CharWpnNameLen, null, '_', '\0', true, null, null, null, null);
+					var rc = Globals.In.ReadField(Buf, Constants.CharWpnNameLen, null, '_', '\0', true, null, null, null, null);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					Record.GetWeapons(i).Name = args.Buf.Trim().ToString();
+					Record.GetWeapons(i).Name = Buf.Trim().ToString();
 
-					if (ValidateField(field, args.Vargs))
+					if (ValidateField("WeaponsName"))
 					{
 						break;
 					}
@@ -1472,7 +1922,7 @@ namespace Eamon.Game.Helpers
 
 				if (Record.IsWeaponActive(i))
 				{
-					if (args.EditRec && (Record.GetWeapons(i).Dice == 0 || Record.GetWeapons(i).Sides == 0))
+					if (EditRec && (Record.GetWeapons(i).Dice == 0 || Record.GetWeapons(i).Sides == 0))
 					{
 						Record.GetWeapons(i).IsPlural = false;
 
@@ -1519,33 +1969,31 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		protected virtual void InputWeaponsIsPlural(IField field, IInputArgs args)
+		protected virtual void InputWeaponsIsPlural()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null && args.Buf != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			if (Record.IsWeaponActive(i))
 			{
-				var fieldDesc = args.FieldDesc;
+				var fieldDesc = FieldDesc;
 
 				var isPlural = Record.GetWeapons(i).IsPlural;
 
 				while (true)
 				{
-					args.Buf.SetFormat(args.EditRec ? "{0}" : "", Convert.ToInt64(isPlural));
+					Buf.SetFormat(EditRec ? "{0}" : "", Convert.ToInt64(isPlural));
 
-					PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+					PrintFieldDesc("WeaponsIsPlural", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "0"));
+					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("WeaponsIsPlural"), "0"));
 
-					var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsChar0Or1, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsChar0Or1, null);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					Record.GetWeapons(i).IsPlural = Convert.ToInt64(args.Buf.Trim().ToString()) != 0 ? true : false;
+					Record.GetWeapons(i).IsPlural = Convert.ToInt64(Buf.Trim().ToString()) != 0 ? true : false;
 
-					if (ValidateField(field, args.Vargs))
+					if (ValidateField("WeaponsIsPlural"))
 					{
 						break;
 					}
@@ -1561,27 +2009,25 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		protected virtual void InputWeaponsPluralType(IField field, IInputArgs args)
+		protected virtual void InputWeaponsPluralType()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null && args.Buf != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			if (Record.IsWeaponActive(i))
 			{
-				var fieldDesc = args.FieldDesc;
+				var fieldDesc = FieldDesc;
 
 				var pluralType = Record.GetWeapons(i).PluralType;
 
 				while (true)
 				{
-					args.Buf.SetFormat(args.EditRec ? "{0}" : "", (long)pluralType);
+					Buf.SetFormat(EditRec ? "{0}" : "", (long)pluralType);
 
-					PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+					PrintFieldDesc("WeaponsPluralType", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "1"));
+					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("WeaponsPluralType"), "1"));
 
-					var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharPlusMinusDigit, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharPlusMinusDigit, null);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -1589,14 +2035,14 @@ namespace Eamon.Game.Helpers
 
 					try
 					{
-						Record.GetWeapons(i).PluralType = (Enums.PluralType)Convert.ToInt64(args.Buf.Trim().ToString());
+						Record.GetWeapons(i).PluralType = (Enums.PluralType)Convert.ToInt64(Buf.Trim().ToString());
 					}
 					catch (Exception)
 					{
 						error = true;
 					}
 
-					if (!error && ValidateField(field, args.Vargs))
+					if (!error && ValidateField("WeaponsPluralType"))
 					{
 						break;
 					}
@@ -1612,27 +2058,25 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		protected virtual void InputWeaponsArticleType(IField field, IInputArgs args)
+		protected virtual void InputWeaponsArticleType()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null && args.Buf != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			if (Record.IsWeaponActive(i))
 			{
-				var fieldDesc = args.FieldDesc;
+				var fieldDesc = FieldDesc;
 
 				var articleType = Record.GetWeapons(i).ArticleType;
 
 				while (true)
 				{
-					args.Buf.SetFormat(args.EditRec ? "{0}" : "", (long)articleType);
+					Buf.SetFormat(EditRec ? "{0}" : "", (long)articleType);
 
-					PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+					PrintFieldDesc("WeaponsArticleType", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "1"));
+					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("WeaponsArticleType"), "1"));
 
-					var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharPlusMinusDigit, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharPlusMinusDigit, null);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -1640,14 +2084,14 @@ namespace Eamon.Game.Helpers
 
 					try
 					{
-						Record.GetWeapons(i).ArticleType = (Enums.ArticleType)Convert.ToInt64(args.Buf.Trim().ToString());
+						Record.GetWeapons(i).ArticleType = (Enums.ArticleType)Convert.ToInt64(Buf.Trim().ToString());
 					}
 					catch (Exception)
 					{
 						error = true;
 					}
 
-					if (!error && ValidateField(field, args.Vargs))
+					if (!error && ValidateField("WeaponsArticleType"))
 					{
 						break;
 					}
@@ -1663,27 +2107,25 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		protected virtual void InputWeaponsComplexity(IField field, IInputArgs args)
+		protected virtual void InputWeaponsComplexity()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null && args.Buf != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			if (Record.IsWeaponActive(i))
 			{
-				var fieldDesc = args.FieldDesc;
+				var fieldDesc = FieldDesc;
 
 				var complexity = Record.GetWeapons(i).Complexity;
 
 				while (true)
 				{
-					args.Buf.SetFormat(args.EditRec ? "{0}" : "", complexity);
+					Buf.SetFormat(EditRec ? "{0}" : "", complexity);
 
-					PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+					PrintFieldDesc("WeaponsComplexity", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "5"));
+					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("WeaponsComplexity"), "5"));
 
-					var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "5", null, Globals.Engine.IsCharPlusMinusDigit, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "5", null, Globals.Engine.IsCharPlusMinusDigit, null);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -1691,14 +2133,14 @@ namespace Eamon.Game.Helpers
 
 					try
 					{
-						Record.GetWeapons(i).Complexity = Convert.ToInt64(args.Buf.Trim().ToString());
+						Record.GetWeapons(i).Complexity = Convert.ToInt64(Buf.Trim().ToString());
 					}
 					catch (Exception)
 					{
 						error = true;
 					}
 
-					if (!error && ValidateField(field, args.Vargs))
+					if (!error && ValidateField("WeaponsComplexity"))
 					{
 						break;
 					}
@@ -1714,33 +2156,31 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		protected virtual void InputWeaponsType(IField field, IInputArgs args)
+		protected virtual void InputWeaponsType()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null && args.Buf != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			if (Record.IsWeaponActive(i))
 			{
-				var fieldDesc = args.FieldDesc;
+				var fieldDesc = FieldDesc;
 
 				var type = Record.GetWeapons(i).Type;
 
 				while (true)
 				{
-					args.Buf.SetFormat(args.EditRec ? "{0}" : "", (long)type);
+					Buf.SetFormat(EditRec ? "{0}" : "", (long)type);
 
-					PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+					PrintFieldDesc("WeaponsType", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "5"));
+					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("WeaponsType"), "5"));
 
-					var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "5", null, Globals.Engine.IsCharDigit, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "5", null, Globals.Engine.IsCharDigit, null);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					Record.GetWeapons(i).Type = (Enums.Weapon)Convert.ToInt64(args.Buf.Trim().ToString());
+					Record.GetWeapons(i).Type = (Enums.Weapon)Convert.ToInt64(Buf.Trim().ToString());
 
-					if (ValidateField(field, args.Vargs))
+					if (ValidateField("WeaponsType"))
 					{
 						break;
 					}
@@ -1756,33 +2196,31 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		protected virtual void InputWeaponsDice(IField field, IInputArgs args)
+		protected virtual void InputWeaponsDice()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null && args.Buf != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			if (Record.IsWeaponActive(i))
 			{
-				var fieldDesc = args.FieldDesc;
+				var fieldDesc = FieldDesc;
 
 				var dice = Record.GetWeapons(i).Dice;
 
 				while (true)
 				{
-					args.Buf.SetFormat(args.EditRec ? "{0}" : "", dice);
+					Buf.SetFormat(EditRec ? "{0}" : "", dice);
 
-					PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+					PrintFieldDesc("WeaponsDice", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "1"));
+					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("WeaponsDice"), "1"));
 
-					var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharDigit, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharDigit, null);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					Record.GetWeapons(i).Dice = Convert.ToInt64(args.Buf.Trim().ToString());
+					Record.GetWeapons(i).Dice = Convert.ToInt64(Buf.Trim().ToString());
 
-					if (ValidateField(field, args.Vargs))
+					if (ValidateField("WeaponsDice"))
 					{
 						break;
 					}
@@ -1798,33 +2236,31 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		protected virtual void InputWeaponsSides(IField field, IInputArgs args)
+		protected virtual void InputWeaponsSides()
 		{
-			Debug.Assert(field != null && field.UserData != null && args != null && args.Buf != null);
-
-			var i = Convert.ToInt64(field.UserData);
+			var i = Index;
 
 			if (Record.IsWeaponActive(i))
 			{
-				var fieldDesc = args.FieldDesc;
+				var fieldDesc = FieldDesc;
 
 				var sides = Record.GetWeapons(i).Sides;
 
 				while (true)
 				{
-					args.Buf.SetFormat(args.EditRec ? "{0}" : "", sides);
+					Buf.SetFormat(EditRec ? "{0}" : "", sides);
 
-					PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+					PrintFieldDesc("WeaponsSides", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "6"));
+					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("WeaponsSides"), "6"));
 
-					var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "6", null, Globals.Engine.IsCharDigit, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "6", null, Globals.Engine.IsCharDigit, null);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					Record.GetWeapons(i).Sides = Convert.ToInt64(args.Buf.Trim().ToString());
+					Record.GetWeapons(i).Sides = Convert.ToInt64(Buf.Trim().ToString());
 
-					if (ValidateField(field, args.Vargs))
+					if (ValidateField("WeaponsSides"))
 					{
 						break;
 					}
@@ -1842,311 +2278,17 @@ namespace Eamon.Game.Helpers
 
 		#endregion
 
-		protected override IList<IField> GetFields()
-		{
-			if (Fields == null)
-			{
-				Fields = new List<IField>()
-				{
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Uid";
-						x.Validate = ValidateUid;
-						x.List = ListUid;
-						x.Input = InputUid;
-						x.GetPrintedName = () => "Uid";
-						x.GetValue = () => Record.Uid;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "IsUidRecycled";
-						x.GetPrintedName = () => "Is Uid Recycled";
-						x.GetValue = () => Record.IsUidRecycled;
-					}),
-					GetNameField(),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Seen";
-						x.GetPrintedName = () => "Seen";
-						x.GetValue = () => Record.Seen;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "ArticleType";
-						x.Validate = ValidateArticleType;
-						x.GetPrintedName = () => "Article Type";
-						x.GetValue = () => Record.ArticleType;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Gender";
-						x.Validate = ValidateGender;
-						x.PrintDesc = PrintDescGender;
-						x.List = ListGender;
-						x.Input = InputGender;
-						x.GetPrintedName = () => "Gender";
-						x.GetValue = () => Record.Gender;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Status";
-						x.Validate = ValidateStatus;
-						x.PrintDesc = PrintDescStatus;
-						x.List = ListStatus;
-						x.Input = InputStatus;
-						x.GetPrintedName = () => "Status";
-						x.GetValue = () => Record.Status;
-					})
-				};
+		#region BuildValue Methods
 
-				var statValues = EnumUtil.GetValues<Enums.Stat>();
+		// do nothing
 
-				foreach (var sv in statValues)
-				{
-					var i = (long)sv;
-
-					var stat = Globals.Engine.GetStats(sv);
-
-					Debug.Assert(stat != null);
-
-					Fields.Add
-					(
-						Globals.CreateInstance<IField>(x =>
-						{
-							x.Name = string.Format("Stats[{0}]", i);
-							x.UserData = i;
-							x.Validate = ValidateStats;
-							x.PrintDesc = PrintDescStats;
-							x.List = ListStats;
-							x.Input = InputStats;
-							x.GetPrintedName = () => stat.Name;
-							x.GetValue = () => Record.GetStats(i);
-						})
-					);
-				}
-
-				var spellValues = EnumUtil.GetValues<Enums.Spell>();
-
-				foreach (var sv in spellValues)
-				{
-					var i = (long)sv;
-
-					var spell = Globals.Engine.GetSpells(sv);
-
-					Debug.Assert(spell != null);
-
-					Fields.Add
-					(
-						Globals.CreateInstance<IField>(x =>
-						{
-							x.Name = string.Format("SpellAbilities[{0}]", i);
-							x.UserData = i;
-							x.Validate = ValidateSpellAbilities;
-							x.PrintDesc = PrintDescSpellAbilities;
-							x.List = ListSpellAbilities;
-							x.Input = InputSpellAbilities;
-							x.GetPrintedName = () => string.Format("{0} Spell Ability", spell.Name);
-							x.GetValue = () => Record.GetSpellAbilities(i);
-						})
-					);
-				}
-
-				var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
-
-				foreach (var wv in weaponValues)
-				{
-					var i = (long)wv;
-
-					var weapon = Globals.Engine.GetWeapons(wv);
-
-					Debug.Assert(weapon != null);
-
-					Fields.Add
-					(
-						Globals.CreateInstance<IField>(x =>
-						{
-							x.Name = string.Format("WeaponAbilities[{0}]", i);
-							x.UserData = i;
-							x.Validate = ValidateWeaponAbilities;
-							x.PrintDesc = PrintDescWeaponAbilities;
-							x.List = ListWeaponAbilities;
-							x.Input = InputWeaponAbilities;
-							x.GetPrintedName = () => string.Format("{0} Wpn Ability", weapon.Name);
-							x.GetValue = () => Record.GetWeaponAbilities(i);
-						})
-					);
-				}
-
-				Fields.AddRange(new List<IField>()
-				{
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "ArmorExpertise";
-						x.Validate = ValidateArmorExpertise;
-						x.PrintDesc = PrintDescArmorExpertise;
-						x.List = ListArmorExpertise;
-						x.Input = InputArmorExpertise;
-						x.GetPrintedName = () => "Armor Expertise";
-						x.GetValue = () => Record.ArmorExpertise;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "HeldGold";
-						x.Validate = ValidateHeldGold;
-						x.PrintDesc = PrintDescHeldGold;
-						x.List = ListHeldGold;
-						x.Input = InputHeldGold;
-						x.GetPrintedName = () => "Held Gold";
-						x.GetValue = () => Record.HeldGold;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "BankGold";
-						x.Validate = ValidateBankGold;
-						x.PrintDesc = PrintDescBankGold;
-						x.List = ListBankGold;
-						x.Input = InputBankGold;
-						x.GetPrintedName = () => "Bank Gold";
-						x.GetValue = () => Record.BankGold;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "ArmorClass";
-						x.Validate = ValidateArmorClass;
-						x.PrintDesc = PrintDescArmorClass;
-						x.List = ListArmorClass;
-						x.Input = InputArmorClass;
-						x.GetPrintedName = () => "Armor Class";
-						x.GetValue = () => Record.ArmorClass;
-					})
-				});
-
-				for (var i = 0; i < Record.Weapons.Length; i++)
-				{
-					var j = i;
-
-					Fields.AddRange(new List<IField>()
-					{
-						Globals.CreateInstance<IField>(x =>
-						{
-							x.Name = string.Format("Weapons[{0}].Name", j);
-							x.UserData = j;
-							x.Validate = ValidateWeaponsName;
-							x.PrintDesc = PrintDescWeaponsName;
-							x.List = ListWeaponsName;
-							x.Input = InputWeaponsName;
-							x.GetPrintedName = () => string.Format("Wpn #{0} Name", j + 1);
-							x.GetValue = () => Record.GetWeapons(j).Name;
-						}),
-						Globals.CreateInstance<IField>(x =>
-						{
-							x.Name = string.Format("Weapons[{0}].IsPlural", j);
-							x.UserData = j;
-							x.Validate = ValidateWeaponsIsPlural;
-							x.PrintDesc = PrintDescWeaponsIsPlural;
-							x.List = ListWeaponsIsPlural;
-							x.Input = InputWeaponsIsPlural;
-							x.GetPrintedName = () => string.Format("Wpn #{0} Is Plural", j + 1);
-							x.GetValue = () => Record.GetWeapons(j).IsPlural;
-						}),
-						Globals.CreateInstance<IField>(x =>
-						{
-							x.Name = string.Format("Weapons[{0}].PluralType", j);
-							x.UserData = j;
-							x.Validate = ValidateWeaponsPluralType;
-							x.PrintDesc = PrintDescWeaponsPluralType;
-							x.List = ListWeaponsPluralType;
-							x.Input = InputWeaponsPluralType;
-							x.GetPrintedName = () => string.Format("Wpn #{0} Plural Type", j + 1);
-							x.GetValue = () => Record.GetWeapons(j).PluralType;
-						}),
-						Globals.CreateInstance<IField>(x =>
-						{
-							x.Name = string.Format("Weapons[{0}].ArticleType", j);
-							x.UserData = j;
-							x.Validate = ValidateWeaponsArticleType;
-							x.PrintDesc = PrintDescWeaponsArticleType;
-							x.List = ListWeaponsArticleType;
-							x.Input = InputWeaponsArticleType;
-							x.GetPrintedName = () => string.Format("Wpn #{0} Article Type", j + 1);
-							x.GetValue = () => Record.GetWeapons(j).ArticleType;
-						}),
-						Globals.CreateInstance<IField>(x =>
-						{
-							x.Name = string.Format("Weapons[{0}].Complexity", j);
-							x.UserData = j;
-							x.Validate = ValidateWeaponsComplexity;
-							x.PrintDesc = PrintDescWeaponsComplexity;
-							x.List = ListWeaponsComplexity;
-							x.Input = InputWeaponsComplexity;
-							x.GetPrintedName = () => string.Format("Wpn #{0} Complexity", j + 1);
-							x.GetValue = () => Record.GetWeapons(j).Complexity;
-						}),
-						Globals.CreateInstance<IField>(x =>
-						{
-							x.Name = string.Format("Weapons[{0}].Type", j);
-							x.UserData = j;
-							x.Validate = ValidateWeaponsType;
-							x.PrintDesc = PrintDescWeaponsType;
-							x.List = ListWeaponsType;
-							x.Input = InputWeaponsType;
-							x.GetPrintedName = () => string.Format("Wpn #{0} Type", j + 1);
-							x.GetValue = () => Record.GetWeapons(j).Type;
-						}),
-						Globals.CreateInstance<IField>(x =>
-						{
-							x.Name = string.Format("Weapons[{0}].Dice", j);
-							x.UserData = j;
-							x.Validate = ValidateWeaponsDice;
-							x.PrintDesc = PrintDescWeaponsDice;
-							x.List = ListWeaponsDice;
-							x.Input = InputWeaponsDice;
-							x.GetPrintedName = () => string.Format("Wpn #{0} Dice", j + 1);
-							x.GetValue = () => Record.GetWeapons(j).Dice;
-						}),
-						Globals.CreateInstance<IField>(x =>
-						{
-							x.Name = string.Format("Weapons[{0}].Sides", j);
-							x.UserData = j;
-							x.Validate = ValidateWeaponsSides;
-							x.PrintDesc = PrintDescWeaponsSides;
-							x.List = ListWeaponsSides;
-							x.Input = InputWeaponsSides;
-							x.GetPrintedName = () => string.Format("Wpn #{0} Sides", j + 1);
-							x.GetValue = () => Record.GetWeapons(j).Sides;
-						})
-					});
-				}
-			}
-
-			return Fields;
-		}
-
-		protected override IField GetNameField()
-		{
-			if (NameField == null)
-			{
-				NameField = Globals.CreateInstance<IField>(x =>
-				{
-					x.Name = "Name";
-					x.GetPrintedName = () => "Name";
-					x.Validate = ValidateName;
-					x.PrintDesc = PrintDescName;
-					x.List = ListName;
-					x.Input = InputName;
-					x.BuildValue = null;
-					x.GetValue = () => Record.Name;
-				});
-			}
-
-			return NameField;
-		}
+		#endregion
 
 		#endregion
 
 		#region Class CharacterHelper
 
-		protected virtual void SetCharacterUidIfInvalid(bool editRec)
+		protected virtual void SetCharacterUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -2154,7 +2296,7 @@ namespace Eamon.Game.Helpers
 
 				Record.IsUidRecycled = true;
 			}
-			else if (!editRec)
+			else if (!EditRec)
 			{
 				Record.IsUidRecycled = false;
 			}
@@ -2166,10 +2308,35 @@ namespace Eamon.Game.Helpers
 
 		#region Public Methods
 
+		#region Interface IHelper
+
+		// do nothing
+
+		#endregion
+
 		#region Class CharacterHelper
 
 		public CharacterHelper()
 		{
+			FieldNames = new List<string>()
+			{
+				"Uid",
+				"IsUidRecycled",
+				"Name",
+				"Seen",
+				"ArticleType",
+				"Gender",
+				"Status",
+				"Stats",
+				"SpellAbilities",
+				"WeaponAbilities",
+				"ArmorExpertise",
+				"HeldGold",
+				"BankGold",
+				"ArmorClass",
+				"Weapons",
+			};
+
 			SetUidIfInvalid = SetCharacterUidIfInvalid;
 		}
 

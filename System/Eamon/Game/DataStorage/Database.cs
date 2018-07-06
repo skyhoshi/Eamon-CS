@@ -7,7 +7,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.DataStorage;
 using Eamon.Framework.DataStorage.Generic;
 using Eamon.Framework.Helpers.Generic;
@@ -82,19 +81,17 @@ namespace Eamon.Game.DataStorage
 			{
 				var helper = Globals.CreateInstance<IHelper<T>>();
 
-				var args = Globals.CreateInstance<IValidateArgs>();
-
 				long i = 1;
 
 				foreach (var r in table01.Records)
 				{
 					helper.Record = r;
 
-					if (helper.ValidateRecord(args) == false)
+					if (helper.ValidateRecord() == false)
 					{
 						rc = RetCode.Failure;
 
-						Globals.Error.WriteLine("{0}Error: expected valid [{1} value], found [{2}]", Environment.NewLine, helper.GetErrorFieldName(args), helper.GetErrorFieldValue(args) ?? "null");
+						Globals.Error.WriteLine("{0}Error: expected valid [{1} value], found [{2}]", Environment.NewLine, helper.GetName(helper.ErrorFieldName), helper.GetValue(helper.ErrorFieldName) ?? "null");
 
 						Globals.Error.WriteLine("Error: Validate function call failed for record number {0}", i);
 

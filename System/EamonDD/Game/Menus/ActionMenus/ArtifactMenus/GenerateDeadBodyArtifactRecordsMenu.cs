@@ -156,6 +156,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 						x.IsListed = true;
 						x.Weight = 150;
 						x.GetCategories(0).Type = Enums.ArtifactType.DeadBody;
+						x.SetArtifactCategoryCount(1);
 					});
 
 					if (i == 0)

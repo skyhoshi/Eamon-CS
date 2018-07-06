@@ -5,11 +5,9 @@
 
 using System.Collections.Generic;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Helpers
 {
@@ -32,73 +30,41 @@ namespace ARuncibleCargo.Game.Helpers
 			}
 		}
 
-		protected virtual bool ValidateDreamCounter(IField field, IValidateArgs args)
+		protected virtual bool ValidateDreamCounter()
 		{
 			return Record.DreamCounter >= 0 && Record.DreamCounter <= 13;
 		}
 
-		protected virtual bool ValidateSwarmyCounter(IField field, IValidateArgs args)
+		protected virtual bool ValidateSwarmyCounter()
 		{
 			return Record.SwarmyCounter >= 1 && Record.SwarmyCounter <= 3;
 		}
 
-		protected virtual bool ValidateCargoOpenCounter(IField field, IValidateArgs args)
+		protected virtual bool ValidateCargoOpenCounter()
 		{
 			return Record.CargoOpenCounter >= 0 && Record.CargoOpenCounter <= 3;
 		}
 
-		protected virtual bool ValidateCargoInRoom(IField field, IValidateArgs args)
+		protected virtual bool ValidateCargoInRoom()
 		{
 			return Record.CargoInRoom >= 0 && Record.CargoInRoom <= 1;
 		}
 
-		protected virtual bool ValidateGiveAmazonMoney(IField field, IValidateArgs args)
+		protected virtual bool ValidateGiveAmazonMoney()
 		{
 			return Record.GiveAmazonMoney >= 0 && Record.GiveAmazonMoney <= 1;
 		}
 
-		protected override IList<IField> GetFields()
+		public GameStateHelper()
 		{
-			if (Fields == null)
+			FieldNames.AddRange(new List<string>()
 			{
-				var fields = base.GetFields();
-
-				fields.AddRange(new List<IField>()
-				{
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "DreamCounter";
-						x.Validate = ValidateDreamCounter;
-						x.GetValue = () => Record.DreamCounter;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "SwarmyCounter";
-						x.Validate = ValidateSwarmyCounter;
-						x.GetValue = () => Record.SwarmyCounter;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "CargoOpenCounter";
-						x.Validate = ValidateCargoOpenCounter;
-						x.GetValue = () => Record.CargoOpenCounter;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "CargoInRoom";
-						x.Validate = ValidateCargoInRoom;
-						x.GetValue = () => Record.CargoInRoom;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "GiveAmazonMoney";
-						x.Validate = ValidateGiveAmazonMoney;
-						x.GetValue = () => Record.GiveAmazonMoney;
-					})
-				});
-			}
-
-			return Fields;
+				"DreamCounter",
+				"SwarmyCounter",
+				"CargoOpenCounter",
+				"CargoInRoom",
+				"GiveAmazonMoney",
+			});
 		}
 	}
 }

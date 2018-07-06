@@ -5,9 +5,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
@@ -24,11 +26,13 @@ namespace Eamon.Game.Helpers.Generic
 
 		#region Protected Properties
 
-		protected virtual IList<IField> Fields { get; set; }
+		protected virtual IList<string> FieldNames { get; set; }
 
-		protected virtual IField NameField { get; set; }
+		protected virtual IList<string> ListedNames { get; set; }
 
-		protected virtual Action<bool> SetUidIfInvalid { get; set; }
+		protected virtual IList<string> Names { get; set; }
+
+		protected virtual Action SetUidIfInvalid { get; set; }
 
 		#endregion
 
@@ -45,12 +49,56 @@ namespace Eamon.Game.Helpers.Generic
 			{
 				if (_record != value)
 				{
-					FreeFields();
+					Clear();
 
 					_record = value;
 				}
 			}
 		}
+
+		public virtual long Index { get; set; }
+
+		public virtual StringBuilder Buf { get; set; }
+
+		public virtual StringBuilder Buf01 { get; set; }
+
+		public virtual bool EditRec { get; set; }
+
+		public virtual bool EditField { get; set; }
+
+		public virtual bool ShowDesc { get; set; }
+
+		public virtual Enums.FieldDesc FieldDesc { get; set; }
+
+		public virtual long BufSize { get; set; }
+
+		public virtual char FillChar { get; set; }
+
+		public virtual long Offset { get; set; }
+
+		public virtual string ErrorFieldName { get; set; }
+
+		public virtual string ErrorMessage { get; set; }
+
+		public virtual Type RecordType { get; set; }
+
+		public virtual IGameBase EditRecord { get; set; }
+
+		public virtual long NewRecordUid { get; set; }
+
+		public virtual bool FullDetail { get; set; }
+
+		public virtual bool ResolveEffects { get; set; }
+
+		public virtual bool LookupMsg { get; set; }
+
+		public virtual bool NumberFields { get; set; }
+
+		public virtual bool ExcludeROFields { get; set; }
+
+		public virtual bool AddToListedNames { get; set; }
+
+		public virtual long ListNum { get; set; }
 
 		#endregion
 
@@ -58,233 +106,39 @@ namespace Eamon.Game.Helpers.Generic
 
 		#region Interface IHelper
 
-		protected virtual void FreeFields()
+		protected virtual string GetPrintedNameIsUidRecycled()
 		{
-			Fields = null;
-
-			NameField = null;
+			return "Is Uid Recycled";
 		}
 
-		protected virtual IList<IField> GetFields()
+		protected virtual string GetPrintedNameDesc()
 		{
-			if (Fields == null)
-			{
-				Fields = new List<IField>();
-			}
-
-			return Fields;
+			return "Description";
 		}
 
-		protected virtual IField GetField(string name)
+		protected virtual string GetPrintedNameArticleType()
 		{
-			IField result;
+			return "Article Type";
+		}
 
-			if (string.IsNullOrWhiteSpace(name))
+		protected virtual string BuildValue(string fieldName)
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
+
+			var result = "";
+
+			var methodName = string.Format("BuildValue{0}", fieldName);
+
+			var methodInfo = GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+			if (methodInfo != null)
 			{
-				result = null;
+				Buf01.Clear();
 
-				// PrintError
-
-				goto Cleanup;
+				result = (string)methodInfo.Invoke(this, null);
 			}
-
-			result = GetFields().FirstOrDefault(f => f.Name == name);
-
-		Cleanup:
 
 			return result;
-		}
-
-		protected virtual IField GetField(long listNum)
-		{
-			IField result;
-
-			if (listNum == 0)
-			{
-				result = null;
-
-				// PrintError
-
-				goto Cleanup;
-			}
-
-			result = GetFields().FirstOrDefault(f => f.ListNum == listNum);
-
-		Cleanup:
-
-			return result;
-		}
-
-		protected virtual IField GetNameField()
-		{
-			if (NameField == null)
-			{
-				NameField = Globals.CreateInstance<IField>(x =>
-				{
-					x.Name = "Name";
-					x.GetPrintedName = () => "Name";
-					x.Validate = null;
-					x.PrintDesc = null;
-					x.List = null;
-					x.Input = null;
-					x.BuildValue = null;
-					x.GetValue = () => Record.Name;
-				});
-			}
-
-			return NameField;
-		}
-
-		protected virtual bool ValidateField(IField field, IValidateArgs args)
-		{
-			bool result;
-
-			if (field == null || args == null)
-			{
-				result = false;
-
-				// PrintError
-
-				goto Cleanup;
-			}
-
-			result = true;
-
-			if (field.Validate != null)
-			{
-				args.Clear();
-
-				result = field.Validate(field, args);
-
-				if (result == false)
-				{
-					args.ErrorField = field;
-				}
-			}
-
-		Cleanup:
-
-			return result;
-		}
-
-		protected virtual bool ValidateFieldInterdependencies(IField field, IValidateArgs args)
-		{
-			bool result;
-
-			if (field == null || args == null)
-			{
-				result = false;
-
-				// PrintError
-
-				goto Cleanup;
-			}
-
-			result = true;
-
-			if (field.ValidateInterdependencies != null)
-			{
-				args.Clear();
-
-				result = field.ValidateInterdependencies(field, args);
-
-				if (result == false)
-				{
-					args.ErrorField = field;
-				}
-			}
-
-		Cleanup:
-
-			return result;
-		}
-
-		protected virtual void PrintFieldDesc(IField field, bool editRec, bool editField, Enums.FieldDesc fieldDesc)
-		{
-			if (field == null || !Enum.IsDefined(typeof(Enums.FieldDesc), fieldDesc))
-			{
-				// PrintError
-
-				goto Cleanup;
-			}
-
-			if (field.PrintDesc != null)
-			{
-				PrintFieldDesc(field, Globals.CreateInstance<IPrintDescArgs>(x =>
-				{
-					x.EditRec = editRec;
-					x.EditField = editField;
-					x.FieldDesc = fieldDesc;
-				}));
-			}
-
-		Cleanup:
-
-			;
-		}
-
-		protected virtual void PrintFieldDesc(IField field, IPrintDescArgs args)
-		{
-			if (field == null || args == null)
-			{
-				// PrintError
-
-				goto Cleanup;
-			}
-
-			if (field.PrintDesc != null)
-			{
-				field.PrintDesc(field, args);
-
-				if (args.Buf.Length > 0)
-				{
-					Globals.Out.Write("{0}", args.Buf);
-				}
-			}
-
-		Cleanup:
-
-			;
-		}
-
-		protected virtual void ListField(IField field, IListArgs args)
-		{
-			if (field == null || args == null)
-			{
-				// PrintError
-
-				goto Cleanup;
-			}
-
-			field.ListNum = 0;
-
-			if (field.List != null)
-			{
-				field.List(field, args);
-			}
-
-		Cleanup:
-
-			;
-		}
-
-		protected virtual void InputField(IField field, IInputArgs args)
-		{
-			if (field == null || args == null)
-			{
-				// PrintError
-
-				goto Cleanup;
-			}
-
-			if (field.Input != null)
-			{
-				field.Input(field, args);
-			}
-
-		Cleanup:
-
-			;
 		}
 
 		#endregion
@@ -295,53 +149,126 @@ namespace Eamon.Game.Helpers.Generic
 
 		#region Interface IHelper
 
-		public virtual string GetFieldName(long listNum)
+		public virtual string GetFieldName(string name)
 		{
-			var field = GetField(listNum);
+			Debug.Assert(!string.IsNullOrWhiteSpace(name));
 
-			return field != null ? field.Name : null;
+			var result = string.Empty;
+
+			var delims = new char[] { '[', ']', '.' };
+
+			var tokens = name.Split(delims);
+
+			if (tokens.Length > 1)
+			{
+				Index = long.Parse(tokens[1]);
+
+				result = tokens[0] + tokens[3];
+			}
+			else
+			{
+				result = name;
+			}
+
+			return result;
 		}
 
-		public virtual IList<string> GetFieldNames(Func<string, bool> matchFunc = null)
+		public virtual string GetFieldName(long listNum)
+		{
+			return listNum >= 1 && listNum <= ListedNames.Count ? GetFieldName(ListedNames[(int)listNum - 1]) : null;
+		}
+
+		public virtual IList<string> GetNames(Func<string, bool> matchFunc = null)
 		{
 			if (matchFunc == null)
 			{
-				matchFunc = fn => true;
+				matchFunc = n => true;
 			}
 
-			return GetFields().Select(f => f.Name).Where(matchFunc).ToList();
-		}
+			Names.Clear();
 
-		public virtual string GetErrorFieldName(IValidateArgs args)
-		{
-			return args != null && args.ErrorField != null ? args.ErrorField.Name : null;
-		}
-
-		public virtual object GetErrorFieldValue(IValidateArgs args)
-		{
-			return args != null && args.ErrorField != null ? args.ErrorField.GetValue() : null;
-		}
-
-		public virtual bool ValidateRecord(IValidateArgs args)
-		{
-			bool result;
-
-			if (args == null)
+			foreach (var fieldName in FieldNames)
 			{
-				result = false;
-
-				// PrintError
-
-				goto Cleanup;
+				GetName(fieldName, true);
 			}
 
-			result = true;
+			return Names.Where(matchFunc).ToList();
+		}
 
-			var fields = GetFields();
+		public virtual string GetPrintedName(string fieldName)
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
 
-			foreach (var f in fields)
+			var result = fieldName;
+
+			var methodName = string.Format("GetPrintedName{0}", fieldName);
+
+			var methodInfo = GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+			if (methodInfo != null)
 			{
-				result = ValidateField(f, args);
+				result = (string)methodInfo.Invoke(this, null);
+			}
+
+			return result;
+		}
+
+		public virtual string GetName(string fieldName, bool addToNamesList = false)
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
+
+			var result = fieldName;
+
+			var methodName = string.Format("GetName{0}", fieldName);
+
+			var methodInfo = GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+			if (methodInfo != null)
+			{
+				result = (string)methodInfo.Invoke(this, new object[] { addToNamesList });
+			}
+			else if (addToNamesList)
+			{
+				Names.Add(fieldName);
+			}
+
+			return result;
+		}
+
+		public virtual object GetValue(string fieldName)
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
+
+			var result = default(object);
+
+			var methodName = string.Format("GetValue{0}", fieldName);
+
+			var methodInfo = GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+			if (methodInfo != null)
+			{
+				result = methodInfo.Invoke(this, null);
+			}
+			else
+			{
+				var propInfo = Record.GetType().GetProperty(fieldName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+				if (propInfo != null)
+				{
+					result = propInfo.GetValue(Record);
+				}
+			}
+
+			return result;
+		}
+
+		public virtual bool ValidateRecord()
+		{
+			var result = true;
+
+			foreach (var fieldName in FieldNames)
+			{
+				result = ValidateField(fieldName);
 
 				if (result == false)
 				{
@@ -349,36 +276,39 @@ namespace Eamon.Game.Helpers.Generic
 				}
 			}
 
-		Cleanup:
+			return result;
+		}
+
+		public virtual bool ValidateField(string fieldName)
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
+
+			var result = true;
+
+			var methodName = string.Format("Validate{0}", fieldName);
+
+			var methodInfo = GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+			if (methodInfo != null)
+			{
+				result = (bool)methodInfo.Invoke(this, null);
+
+				if (result == false && string.IsNullOrWhiteSpace(ErrorFieldName))
+				{
+					ErrorFieldName = fieldName;
+				}
+			}
 
 			return result;
 		}
 
-		public virtual bool ValidateField(string fieldName, IValidateArgs args)
+		public virtual bool ValidateRecordInterdependencies()
 		{
-			return ValidateField(GetField(fieldName), args);
-		}
+			var result = true;
 
-		public virtual bool ValidateRecordInterdependencies(IValidateArgs args)
-		{
-			bool result;
-
-			if (args == null)
+			foreach (var fieldName in FieldNames)
 			{
-				result = false;
-
-				// PrintError
-
-				goto Cleanup;
-			}
-
-			result = true;
-
-			var fields = GetFields();
-
-			foreach (var f in fields)
-			{
-				result = ValidateFieldInterdependencies(f, args);
+				result = ValidateFieldInterdependencies(fieldName);
 
 				if (result == false)
 				{
@@ -386,119 +316,273 @@ namespace Eamon.Game.Helpers.Generic
 				}
 			}
 
-		Cleanup:
-
 			return result;
 		}
 
-		public virtual bool ValidateFieldInterdependencies(string fieldName, IValidateArgs args)
+		public virtual bool ValidateFieldInterdependencies(string fieldName)
 		{
-			return ValidateFieldInterdependencies(GetField(fieldName), args);
+			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
+
+			var result = true;
+
+			var methodName = string.Format("ValidateInterdependencies{0}", fieldName);
+
+			var methodInfo = GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+			if (methodInfo != null)
+			{
+				result = (bool)methodInfo.Invoke(this, null);
+
+				if (result == false && string.IsNullOrWhiteSpace(ErrorFieldName))
+				{
+					ErrorFieldName = fieldName;
+				}
+			}
+
+			return result;
 		}
 
 		public virtual void PrintFieldDesc(string fieldName, bool editRec, bool editField, Enums.FieldDesc fieldDesc)
 		{
-			PrintFieldDesc(GetField(fieldName), editRec, editField, fieldDesc);
+			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
+
+			Debug.Assert(Enum.IsDefined(typeof(Enums.FieldDesc), fieldDesc));
+
+			var origEditRec = EditRec;
+
+			var origEditField = EditField;
+
+			var origFieldDesc = FieldDesc;
+
+			EditRec = editRec;
+
+			EditField = editField;
+
+			FieldDesc = fieldDesc;
+
+			PrintFieldDesc(fieldName);
+
+			EditRec = origEditRec;
+
+			EditField = origEditField;
+
+			FieldDesc = origFieldDesc;
 		}
 
-		public virtual void PrintFieldDesc(string fieldName, IPrintDescArgs args)
+		public virtual void PrintFieldDesc(string fieldName)
 		{
-			PrintFieldDesc(GetField(fieldName), args);
+			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
+
+			var methodName = string.Format("PrintDesc{0}", fieldName);
+
+			var methodInfo = GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+			if (methodInfo != null)
+			{
+				Buf01.Clear();
+
+				methodInfo.Invoke(this, null);
+
+				if (Buf01.Length > 0)
+				{
+					Globals.Out.Write("{0}", Buf01);
+				}
+			}
 		}
 
 		public virtual void ListRecord(bool fullDetail, bool showDesc, bool resolveEffects, bool lookupMsg, bool numberFields, bool excludeROFields)
 		{
-			ListRecord(Globals.CreateInstance<IListArgs>(x =>
-			{
-				x.FullDetail = fullDetail;
-				x.ShowDesc = showDesc;
-				x.ResolveEffects = resolveEffects;
-				x.LookupMsg = lookupMsg;
-				x.NumberFields = numberFields;
-				x.ExcludeROFields = excludeROFields;
-			}));
+			var origFullDetail = FullDetail;
+
+			var origShowDesc = ShowDesc;
+
+			var origResolveEffects = ResolveEffects;
+
+			var origLookupMsg = LookupMsg;
+
+			var origNumberFields = NumberFields;
+
+			var origExcludeROFields = ExcludeROFields;
+
+			FullDetail = fullDetail;
+
+			ShowDesc = showDesc;
+
+			ResolveEffects = resolveEffects;
+
+			LookupMsg = lookupMsg;
+
+			NumberFields = numberFields;
+
+			ExcludeROFields = excludeROFields;
+
+			ListRecord();
+
+			FullDetail = origFullDetail;
+
+			ShowDesc = origShowDesc;
+
+			ResolveEffects = origResolveEffects;
+
+			LookupMsg = origLookupMsg;
+
+			NumberFields = origNumberFields;
+
+			ExcludeROFields = origExcludeROFields;
 		}
 
-		public virtual void ListRecord(IListArgs args)
+		public virtual void ListRecord()
 		{
-			if (args == null)
+			foreach (var fieldName in FieldNames)
 			{
-				// PrintError
-
-				goto Cleanup;
+				ListField(fieldName);
 			}
-
-			var fields = GetFields();
-
-			foreach (var f in fields)
-			{
-				ListField(f, args);
-			}
-
-		Cleanup:
-
-			;
 		}
 
-		public virtual void ListField(string fieldName, IListArgs args)
+		public virtual void ListField(string fieldName)
 		{
-			ListField(GetField(fieldName), args);
+			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
+
+			var methodName = string.Format("List{0}", fieldName);
+
+			var methodInfo = GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+			if (methodInfo != null)
+			{
+				var origAddToListedNames = AddToListedNames;
+
+				var origListNum = ListNum;
+
+				AddToListedNames = true;
+
+				methodInfo.Invoke(this, null);
+
+				if (AddToListedNames && origListNum + 1 == ListNum)
+				{
+					ListedNames.Add(GetName(fieldName));
+				}
+
+				AddToListedNames = origAddToListedNames;
+			}
 		}
 
-		public virtual void ListErrorField(IValidateArgs args)
+		public virtual void ListErrorField()
 		{
 
 		}
 
 		public virtual void InputRecord(bool editRec, Enums.FieldDesc fieldDesc)
 		{
-			if (!Enum.IsDefined(typeof(Enums.FieldDesc), fieldDesc))
-			{
-				// PrintError
+			Debug.Assert(Enum.IsDefined(typeof(Enums.FieldDesc), fieldDesc));
 
-				goto Cleanup;
-			}
+			var origEditRec = EditRec;
 
-			InputRecord(Globals.CreateInstance<IInputArgs>(x =>
-			{
-				x.EditRec = editRec;
-				x.FieldDesc = fieldDesc;
-			}));
+			var origFieldDesc = FieldDesc;
 
-		Cleanup:
+			EditRec = editRec;
 
-			;
+			FieldDesc = fieldDesc;
+
+			InputRecord();
+
+			EditRec = origEditRec;
+
+			FieldDesc = origFieldDesc;
 		}
 
-		public virtual void InputRecord(IInputArgs args)
+		public virtual void InputRecord()
 		{
-			if (args == null)
-			{
-				// PrintError
-
-				goto Cleanup;
-			}
-
 			if (SetUidIfInvalid != null)
 			{
-				SetUidIfInvalid(args.EditRec);
+				SetUidIfInvalid();
 			}
 
-			var fields = GetFields();
-
-			foreach (var f in fields)
+			foreach (var fieldName in FieldNames)
 			{
-				InputField(f, args);
+				InputField(fieldName);
 			}
-
-		Cleanup:
-
-			;
 		}
 
-		public virtual void InputField(string fieldName, IInputArgs args)
+		public virtual void InputField(string fieldName)
 		{
-			InputField(GetField(fieldName), args);
+			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
+
+			var methodName = string.Format("Input{0}", fieldName);
+
+			var methodInfo = GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+			if (methodInfo != null)
+			{
+				methodInfo.Invoke(this, null);
+			}
+		}
+
+		public virtual void Clear()
+		{
+			ListedNames.Clear();
+
+			Names.Clear();
+
+			Index = -1;
+
+			Buf.Clear();
+
+			Buf01.Clear();
+
+			EditRec = false;
+
+			EditField = false;
+
+			ShowDesc = false;
+
+			FieldDesc = Enums.FieldDesc.None;
+
+			BufSize = 0;
+
+			FillChar = '\0';
+
+			Offset = 0;
+
+			ErrorFieldName = null;
+
+			ErrorMessage = "";
+
+			RecordType = null;
+
+			EditRecord = null;
+
+			NewRecordUid = 0;
+
+			FullDetail = false;
+
+			ResolveEffects = false;
+
+			LookupMsg = false;
+
+			NumberFields = false;
+
+			ExcludeROFields = false;
+
+			ListNum = 1;
+		}
+
+		#endregion
+
+		#region Class Helper
+
+		public Helper()
+		{
+			FieldNames = new List<string>();
+
+			ListedNames = new List<string>();
+
+			Names = new List<string>();
+
+			Buf = new StringBuilder(Constants.BufSize);
+
+			Buf01 = new StringBuilder(Constants.BufSize);
+
+			Clear();
 		}
 
 		#endregion

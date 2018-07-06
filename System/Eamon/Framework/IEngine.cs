@@ -931,9 +931,9 @@ namespace Eamon.Framework
 
 		double GetArmorPriceOrValue(Enums.Armor armor, bool calcPrice, ref bool isMarcosArmor);
 
-		void AppendFieldDesc(IPrintDescArgs args, StringBuilder fullDesc, StringBuilder briefDesc);
+		void AppendFieldDesc(Enums.FieldDesc fieldDesc, StringBuilder buf, StringBuilder fullDesc, StringBuilder briefDesc);
 
-		void AppendFieldDesc(IPrintDescArgs args, string fullDesc, string briefDesc);
+		void AppendFieldDesc(Enums.FieldDesc fieldDesc, StringBuilder buf, string fullDesc, string briefDesc);
 
 		void CopyArtifactCategoryFields(Classes.IArtifactCategory destAc, Classes.IArtifactCategory sourceAc);
 

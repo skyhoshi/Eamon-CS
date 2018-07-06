@@ -27,12 +27,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 				Globals.Out.WriteLine();
 
 				Globals.Engine.PrintTitle("LIST MODULE RECORD DETAILS", true);
-
+				
 				var helper = Globals.CreateInstance<IHelper<IModule>>(x =>
 				{
 					x.Record = Globals.Module;
 				});
-
+				
 				helper.ListRecord(true, Globals.Config.ShowDesc, Globals.Config.ResolveEffects, true, false, false);
 
 				Globals.Out.WriteLine();

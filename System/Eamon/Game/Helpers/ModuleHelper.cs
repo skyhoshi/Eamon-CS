@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
@@ -25,87 +24,155 @@ namespace Eamon.Game.Helpers
 
 		#region Interface IHelper
 
+		#region GetPrintedName Methods
+
+		protected virtual string GetPrintedNameVolLabel()
+		{
+			return "Volume Label";
+		}
+
+		protected virtual string GetPrintedNameSerialNum()
+		{
+			return "Serial Number";
+		}
+
+		protected virtual string GetPrintedNameLastMod()
+		{
+			return "Last Modified";
+		}
+
+		protected virtual string GetPrintedNameIntroStory()
+		{
+			return "Intro Story";
+		}
+
+		protected virtual string GetPrintedNameNumDirs()
+		{
+			return "Compass Directions";
+		}
+
+		protected virtual string GetPrintedNameNumRooms()
+		{
+			return "Number Of Rooms";
+		}
+
+		protected virtual string GetPrintedNameNumArtifacts()
+		{
+			return "Number Of Artifacts";
+		}
+
+		protected virtual string GetPrintedNameNumEffects()
+		{
+			return "Number Of Effects";
+		}
+
+		protected virtual string GetPrintedNameNumMonsters()
+		{
+			return "Number Of Monsters";
+		}
+
+		protected virtual string GetPrintedNameNumHints()
+		{
+			return "Number Of Hints";
+		}
+
+		#endregion
+
+		#region GetName Methods
+
+		// do nothing
+
+		#endregion
+
+		#region GetValue Methods
+
+		// do nothing
+
+		#endregion
+
 		#region Validate Methods
 
-		protected virtual bool ValidateUid(IField field, IValidateArgs args)
+		protected virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
-		protected virtual bool ValidateName(IField field, IValidateArgs args)
+		protected virtual bool ValidateName()
 		{
 			return string.IsNullOrWhiteSpace(Record.Name) == false && Record.Name.Length <= Constants.ModNameLen;
 		}
 
-		protected virtual bool ValidateDesc(IField field, IValidateArgs args)
+		protected virtual bool ValidateDesc()
 		{
 			return string.IsNullOrWhiteSpace(Record.Desc) == false && Record.Desc.Length <= Constants.ModDescLen;
 		}
 
-		protected virtual bool ValidateAuthor(IField field, IValidateArgs args)
+		protected virtual bool ValidateAuthor()
 		{
 			return string.IsNullOrWhiteSpace(Record.Author) == false && Record.Author.Length <= Constants.ModAuthorLen;
 		}
 
-		protected virtual bool ValidateVolLabel(IField field, IValidateArgs args)
+		protected virtual bool ValidateVolLabel()
 		{
 			return string.IsNullOrWhiteSpace(Record.VolLabel) == false && Record.VolLabel.Length <= Constants.ModVolLabelLen;
 		}
 
-		protected virtual bool ValidateSerialNum(IField field, IValidateArgs args)
+		protected virtual bool ValidateSerialNum()
 		{
 			return string.IsNullOrWhiteSpace(Record.SerialNum) == false && Record.SerialNum.Length <= Constants.ModSerialNumLen;
 		}
 
-		protected virtual bool ValidateLastMod(IField field, IValidateArgs args)
+		protected virtual bool ValidateLastMod()
 		{
 			return Record.LastMod != null && Record.LastMod <= DateTime.Now;
 		}
 
-		protected virtual bool ValidateIntroStory(IField field, IValidateArgs args)
+		protected virtual bool ValidateIntroStory()
 		{
 			return Record.IntroStory >= 0;
 		}
 
-		protected virtual bool ValidateNumDirs(IField field, IValidateArgs args)
+		protected virtual bool ValidateNumDirs()
 		{
 			return Record.NumDirs == 6 || Record.NumDirs == 10;
 		}
 
-		protected virtual bool ValidateNumRooms(IField field, IValidateArgs args)
+		protected virtual bool ValidateNumRooms()
 		{
 			return Record.NumRooms >= 0;
 		}
 
-		protected virtual bool ValidateNumArtifacts(IField field, IValidateArgs args)
+		protected virtual bool ValidateNumArtifacts()
 		{
 			return Record.NumArtifacts >= 0;
 		}
 
-		protected virtual bool ValidateNumEffects(IField field, IValidateArgs args)
+		protected virtual bool ValidateNumEffects()
 		{
 			return Record.NumEffects >= 0;
 		}
 
-		protected virtual bool ValidateNumMonsters(IField field, IValidateArgs args)
+		protected virtual bool ValidateNumMonsters()
 		{
 			return Record.NumMonsters >= 0;
 		}
 
-		protected virtual bool ValidateNumHints(IField field, IValidateArgs args)
+		protected virtual bool ValidateNumHints()
 		{
 			return Record.NumHints >= 0;
 		}
 
-		protected virtual bool ValidateInterdependenciesDesc(IField field, IValidateArgs args)
-		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
+		#endregion
 
+		#region ValidateInterdependencies Methods
+
+		protected virtual bool ValidateInterdependenciesDesc()
+		{
 			var result = true;
 
 			long invalidUid = 0;
 
-			var rc = Globals.Engine.ResolveUidMacros(Record.Desc, args.Buf, false, false, ref invalidUid);
+			var rc = Globals.Engine.ResolveUidMacros(Record.Desc, Buf, false, false, ref invalidUid);
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -113,13 +180,13 @@ namespace Eamon.Game.Helpers
 			{
 				result = false;
 
-				args.Buf.SetFormat(Constants.RecIdepErrorFmtStr, field.GetPrintedName(), "effect", invalidUid, "which doesn't exist");
+				Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Desc"), "effect", invalidUid, "which doesn't exist");
 
-				args.ErrorMessage = args.Buf.ToString();
+				ErrorMessage = Buf.ToString();
 
-				args.RecordType = typeof(IEffect);
+				RecordType = typeof(IEffect);
 
-				args.NewRecordUid = invalidUid;
+				NewRecordUid = invalidUid;
 
 				goto Cleanup;
 			}
@@ -129,10 +196,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
-		protected virtual bool ValidateInterdependenciesIntroStory(IField field, IValidateArgs args)
+		protected virtual bool ValidateInterdependenciesIntroStory()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
 			var result = true;
 
 			if (Record.IntroStory > 0)
@@ -145,13 +210,13 @@ namespace Eamon.Game.Helpers
 				{
 					result = false;
 
-					args.Buf.SetFormat(Constants.RecIdepErrorFmtStr, field.GetPrintedName(), "effect", effectUid, "which doesn't exist");
+					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("IntroStory"), "effect", effectUid, "which doesn't exist");
 
-					args.ErrorMessage = args.Buf.ToString();
+					ErrorMessage = Buf.ToString();
 
-					args.RecordType = typeof(IEffect);
+					RecordType = typeof(IEffect);
 
-					args.NewRecordUid = effectUid;
+					NewRecordUid = effectUid;
 
 					goto Cleanup;
 				}
@@ -164,79 +229,74 @@ namespace Eamon.Game.Helpers
 
 		#endregion
 
-		#region PrintFieldDesc Methods
+		#region PrintDesc Methods
 
-		protected virtual void PrintDescName(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescName()
 		{
 			var fullDesc = "Enter the name of the adventure.";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, null);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
-		protected virtual void PrintDescDesc(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescDesc()
 		{
 			var fullDesc = "Enter a detailed description of the adventure.";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, null);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
-		protected virtual void PrintDescAuthor(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescAuthor()
 		{
 			var fullDesc = "Enter the name(s) of the adventure's author(s).";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, null);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
-		protected virtual void PrintDescVolLabel(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescVolLabel()
 		{
 			var fullDesc = "Enter the volume label of the adventure, typically the author(s) initials followed by a private serial number.";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, null);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
-		protected virtual void PrintDescSerialNum(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescSerialNum()
 		{
-			var fullDesc = "Enter the global serial number of the adventure, typically assigned by The Powers That Be.";
+			var fullDesc = "Enter the global serial number of the adventure, typically assigned by an Eamon CS administrator.";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, null);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
-		protected virtual void PrintDescIntroStory(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescIntroStory()
 		{
 			var fullDesc = "Enter the effect uid of the introduction story for the module." + Environment.NewLine + Environment.NewLine + "You can link multiple effects together to create an extended story segment.";
 
 			var briefDesc = "(GE 0)=Valid value";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
-		protected virtual void PrintDescNumDirs(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescNumDirs()
 		{
 			var fullDesc = "Enter the number of compass directions to use for connections between rooms in the adventure." + Environment.NewLine + Environment.NewLine + "Typically, six directions are used for simpler indoor adventures while ten directions are used for more complex outdoor adventures, but this is only a rule of thumb not a requirement.";
 
 			var briefDesc = "6=Six compass directions; 10=Ten compass directions";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, briefDesc);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		#endregion
 
 		#region List Methods
 
-		protected virtual void ListUid(IField field, IListArgs args)
+		protected virtual void ListUid()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (!args.ExcludeROFields)
+				if (!ExcludeROFields)
 				{
-					if (args.NumberFields)
-					{
-						field.ListNum = args.ListNum++;
-					}
+					var listNum = NumberFields ? ListNum++ : 0;
 
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.Uid);
+					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Uid"), null), Record.Uid);
 				}
 			}
 			else
@@ -245,248 +305,183 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		protected virtual void ListName(IField field, IListArgs args)
+		protected virtual void ListName()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.Name);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Name"), null), Record.Name);
 			}
 		}
 
-		protected virtual void ListDesc(IField field, IListArgs args)
+		protected virtual void ListDesc()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			if (args.FullDetail && args.ShowDesc)
+			if (FullDetail && ShowDesc)
 			{
-				args.Buf.Clear();
+				Buf.Clear();
 
-				if (args.ResolveEffects)
+				if (ResolveEffects)
 				{
-					var rc = Globals.Engine.ResolveUidMacros(Record.Desc, args.Buf, true, true);
+					var rc = Globals.Engine.ResolveUidMacros(Record.Desc, Buf, true, true);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 				}
 				else
 				{
-					args.Buf.Append(Record.Desc);
+					Buf.Append(Record.Desc);
 				}
 
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), args.Buf);
+				Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Desc"), null), Buf);
 			}
 		}
 
-		protected virtual void ListAuthor(IField field, IListArgs args)
+		protected virtual void ListAuthor()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.Author);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Author"), null), Record.Author);
 			}
 		}
 
-		protected virtual void ListVolLabel(IField field, IListArgs args)
+		protected virtual void ListVolLabel()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.VolLabel);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("VolLabel"), null), Record.VolLabel);
 			}
 		}
 
-		protected virtual void ListSerialNum(IField field, IListArgs args)
+		protected virtual void ListSerialNum()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.SerialNum);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("SerialNum"), null), Record.SerialNum);
 			}
 		}
 
-		protected virtual void ListLastMod(IField field, IListArgs args)
+		protected virtual void ListLastMod()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			if (args.FullDetail && !args.ExcludeROFields)
+			if (FullDetail && !ExcludeROFields)
 			{
-				args.Buf.Clear();
+				Buf.Clear();
 
-				args.Buf.Append(Record.LastMod.ToString("MM/dd/yyyy HH:mm:ss"));
+				Buf.Append(Record.LastMod.ToString("MM/dd/yyyy HH:mm:ss"));
 
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), args.Buf);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("LastMod"), null), Buf);
 			}
 		}
 
-		protected virtual void ListIntroStory(IField field, IListArgs args)
+		protected virtual void ListIntroStory()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				if (args.LookupMsg && Record.IntroStory > 0)
+				if (LookupMsg && Record.IntroStory > 0)
 				{
-					args.Buf.Clear();
+					Buf.Clear();
 
 					var effect = Globals.EDB[Record.IntroStory];
 
 					if (effect != null)
 					{
-						args.Buf.Append(effect.Desc);
+						Buf.Append(effect.Desc);
 
-						if (args.Buf.Length > 40)
+						if (Buf.Length > 40)
 						{
-							args.Buf.Length = 40;
+							Buf.Length = 40;
 						}
 
-						if (args.Buf.Length == 40)
+						if (Buf.Length == 40)
 						{
-							args.Buf[39] = '.';
+							Buf[39] = '.';
 
-							args.Buf[38] = '.';
+							Buf[38] = '.';
 
-							args.Buf[37] = '.';
+							Buf[37] = '.';
 						}
 					}
 
 					Globals.Out.Write("{0}{1}{2}",
 						Environment.NewLine,
-						Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null),
-						Globals.Engine.BuildValue(51, ' ', 8, Record.IntroStory, null, effect != null ? args.Buf.ToString() : Globals.Engine.UnknownName));
+						Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("IntroStory"), null),
+						Globals.Engine.BuildValue(51, ' ', 8, Record.IntroStory, null, effect != null ? Buf.ToString() : Globals.Engine.UnknownName));
 				}
 				else
 				{
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.IntroStory);
+					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("IntroStory"), null), Record.IntroStory);
 				}
 			}
 		}
 
-		protected virtual void ListNumDirs(IField field, IListArgs args)
+		protected virtual void ListNumDirs()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail)
+			if (FullDetail)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.NumDirs);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("NumDirs"), null), Record.NumDirs);
 			}
 		}
 
-		protected virtual void ListNumRooms(IField field, IListArgs args)
+		protected virtual void ListNumRooms()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail && !args.ExcludeROFields)
+			if (FullDetail && !ExcludeROFields)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.NumRooms);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("NumRooms"), null), Record.NumRooms);
 			}
 		}
 
-		protected virtual void ListNumArtifacts(IField field, IListArgs args)
+		protected virtual void ListNumArtifacts()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail && !args.ExcludeROFields)
+			if (FullDetail && !ExcludeROFields)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.NumArtifacts);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("NumArtifacts"), null), Record.NumArtifacts);
 			}
 		}
 
-		protected virtual void ListNumEffects(IField field, IListArgs args)
+		protected virtual void ListNumEffects()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail && !args.ExcludeROFields)
+			if (FullDetail && !ExcludeROFields)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.NumEffects);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("NumEffects"), null), Record.NumEffects);
 			}
 		}
 
-		protected virtual void ListNumMonsters(IField field, IListArgs args)
+		protected virtual void ListNumMonsters()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail && !args.ExcludeROFields)
+			if (FullDetail && !ExcludeROFields)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.NumMonsters);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("NumMonsters"), null), Record.NumMonsters);
 			}
 		}
 
-		protected virtual void ListNumHints(IField field, IListArgs args)
+		protected virtual void ListNumHints()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (args.FullDetail && !args.ExcludeROFields)
+			if (FullDetail && !ExcludeROFields)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.NumHints);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("NumHints"), null), Record.NumHints);
 			}
 		}
 
@@ -494,38 +489,34 @@ namespace Eamon.Game.Helpers
 
 		#region Input Methods
 
-		protected virtual void InputUid(IField field, IInputArgs args)
+		protected virtual void InputUid()
 		{
-			Debug.Assert(field != null && args != null);
-
-			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null), Record.Uid);
+			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
 
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputName(IField field, IInputArgs args)
+		protected virtual void InputName()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var name = Record.Name;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", name);
+				Buf.SetFormat(EditRec ? "{0}" : "", name);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("Name", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Name"), null));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.ModNameLen, null, '_', '\0', false, null, null, null, null);
+				var rc = Globals.In.ReadField(Buf, Constants.ModNameLen, null, '_', '\0', false, null, null, null, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.Name = args.Buf.Trim().ToString();
+				Record.Name = Buf.Trim().ToString();
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("Name"))
 				{
 					break;
 				}
@@ -536,33 +527,31 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputDesc(IField field, IInputArgs args)
+		protected virtual void InputDesc()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var desc = Record.Desc;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", desc);
+				Buf.SetFormat(EditRec ? "{0}" : "", desc);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("Desc", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Desc"), null));
 
 				Globals.Out.WordWrap = false;
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.ModDescLen, null, '_', '\0', false, null, null, null, null);
+				var rc = Globals.In.ReadField(Buf, Constants.ModDescLen, null, '_', '\0', false, null, null, null, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
 				Globals.Out.WordWrap = true;
 
-				Record.Desc = args.Buf.Trim().ToString();
+				Record.Desc = Buf.Trim().ToString();
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("Desc"))
 				{
 					break;
 				}
@@ -573,29 +562,27 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputAuthor(IField field, IInputArgs args)
+		protected virtual void InputAuthor()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var author = Record.Author;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", author);
+				Buf.SetFormat(EditRec ? "{0}" : "", author);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("Author", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Author"), null));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.ModAuthorLen, null, '_', '\0', false, null, null, null, null);
+				var rc = Globals.In.ReadField(Buf, Constants.ModAuthorLen, null, '_', '\0', false, null, null, null, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.Author = args.Buf.Trim().ToString();
+				Record.Author = Buf.Trim().ToString();
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("Author"))
 				{
 					break;
 				}
@@ -606,29 +593,27 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputVolLabel(IField field, IInputArgs args)
+		protected virtual void InputVolLabel()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var volLabel = Record.VolLabel;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", volLabel);
+				Buf.SetFormat(EditRec ? "{0}" : "", volLabel);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("VolLabel", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("VolLabel"), null));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.ModVolLabelLen, null, '_', '\0', false, null, null, null, null);
+				var rc = Globals.In.ReadField(Buf, Constants.ModVolLabelLen, null, '_', '\0', false, null, null, null, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.VolLabel = args.Buf.Trim().ToString();
+				Record.VolLabel = Buf.Trim().ToString();
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("VolLabel"))
 				{
 					break;
 				}
@@ -639,29 +624,27 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputSerialNum(IField field, IInputArgs args)
+		protected virtual void InputSerialNum()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var serialNum = Record.SerialNum;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", serialNum);
+				Buf.SetFormat(EditRec ? "{0}" : "", serialNum);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("SerialNum", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "000"));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("SerialNum"), "000"));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.ModSerialNumLen, null, '_', '\0', true, "000", null, Globals.Engine.IsCharDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.ModSerialNumLen, null, '_', '\0', true, "000", null, Globals.Engine.IsCharDigit, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.SerialNum = args.Buf.Trim().ToString();
+				Record.SerialNum = Buf.Trim().ToString();
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("SerialNum"))
 				{
 					break;
 				}
@@ -672,43 +655,39 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputLastMod(IField field, IInputArgs args)
+		protected virtual void InputLastMod()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (!args.EditRec)
+			if (!EditRec)
 			{
 				Record.LastMod = DateTime.Now;
 			}
 
-			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null), Record.LastMod.ToString("MM/dd/yyyy HH:mm:ss"));
+			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("LastMod"), null), Record.LastMod.ToString("MM/dd/yyyy HH:mm:ss"));
 
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputIntroStory(IField field, IInputArgs args)
+		protected virtual void InputIntroStory()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var introStory = Record.IntroStory;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", introStory);
+				Buf.SetFormat(EditRec ? "{0}" : "", introStory);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("IntroStory", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "0"));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("IntroStory"), "0"));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsCharDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsCharDigit, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.IntroStory = Convert.ToInt64(args.Buf.Trim().ToString());
+				Record.IntroStory = Convert.ToInt64(Buf.Trim().ToString());
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("IntroStory"))
 				{
 					break;
 				}
@@ -719,29 +698,27 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputNumDirs(IField field, IInputArgs args)
+		protected virtual void InputNumDirs()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var numDirs = Record.NumDirs;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", numDirs);
+				Buf.SetFormat(EditRec ? "{0}" : "", numDirs);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("NumDirs", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), "6"));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("NumDirs"), "6"));
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.BufSize01, null, '_', '\0', true, "6", null, Globals.Engine.IsCharDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "6", null, Globals.Engine.IsCharDigit, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.NumDirs = Convert.ToInt64(args.Buf.Trim().ToString());
+				Record.NumDirs = Convert.ToInt64(Buf.Trim().ToString());
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("NumDirs"))
 				{
 					break;
 				}
@@ -752,236 +729,79 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputNumRooms(IField field, IInputArgs args)
+		protected virtual void InputNumRooms()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (!args.EditRec)
+			if (!EditRec)
 			{
 				Record.NumRooms = Globals.Database.GetRoomsCount();
 			}
 
-			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null), Record.NumRooms);
+			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("NumRooms"), null), Record.NumRooms);
 
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputNumArtifacts(IField field, IInputArgs args)
+		protected virtual void InputNumArtifacts()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (!args.EditRec)
+			if (!EditRec)
 			{
 				Record.NumArtifacts = Globals.Database.GetArtifactsCount();
 			}
 
-			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null), Record.NumArtifacts);
+			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("NumArtifacts"), null), Record.NumArtifacts);
 
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputNumEffects(IField field, IInputArgs args)
+		protected virtual void InputNumEffects()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (!args.EditRec)
+			if (!EditRec)
 			{
 				Record.NumEffects = Globals.Database.GetEffectsCount();
 			}
 
-			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null), Record.NumEffects);
+			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("NumEffects"), null), Record.NumEffects);
 
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputNumMonsters(IField field, IInputArgs args)
+		protected virtual void InputNumMonsters()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (!args.EditRec)
+			if (!EditRec)
 			{
 				Record.NumMonsters = Globals.Database.GetMonstersCount();
 			}
 
-			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null), Record.NumMonsters);
+			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("NumMonsters"), null), Record.NumMonsters);
 
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputNumHints(IField field, IInputArgs args)
+		protected virtual void InputNumHints()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (!args.EditRec)
+			if (!EditRec)
 			{
 				Record.NumHints = Globals.Database.GetHintsCount();
 			}
 
-			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null), Record.NumHints);
+			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("NumHints"), null), Record.NumHints);
 
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
 		#endregion
 
-		protected override IList<IField> GetFields()
-		{
-			if (Fields == null)
-			{
-				Fields = new List<IField>()
-				{
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Uid";
-						x.Validate = ValidateUid;
-						x.List = ListUid;
-						x.Input = InputUid;
-						x.GetPrintedName = () => "Uid";
-						x.GetValue = () => Record.Uid;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "IsUidRecycled";
-						x.GetPrintedName = () => "Is Uid Recycled";
-						x.GetValue = () => Record.IsUidRecycled;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Name";
-						x.Validate = ValidateName;
-						x.PrintDesc = PrintDescName;
-						x.List = ListName;
-						x.Input = InputName;
-						x.GetPrintedName = () => "Name";
-						x.GetValue = () => Record.Name;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Desc";
-						x.Validate = ValidateDesc;
-						x.ValidateInterdependencies = ValidateInterdependenciesDesc;
-						x.PrintDesc = PrintDescDesc;
-						x.List = ListDesc;
-						x.Input = InputDesc;
-						x.GetPrintedName = () => "Description";
-						x.GetValue = () => Record.Desc;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Author";
-						x.Validate = ValidateAuthor;
-						x.PrintDesc = PrintDescAuthor;
-						x.List = ListAuthor;
-						x.Input = InputAuthor;
-						x.GetPrintedName = () => "Author";
-						x.GetValue = () => Record.Author;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "VolLabel";
-						x.Validate = ValidateVolLabel;
-						x.PrintDesc = PrintDescVolLabel;
-						x.List = ListVolLabel;
-						x.Input = InputVolLabel;
-						x.GetPrintedName = () => "Volume Label";
-						x.GetValue = () => Record.VolLabel;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "SerialNum";
-						x.Validate = ValidateSerialNum;
-						x.PrintDesc = PrintDescSerialNum;
-						x.List = ListSerialNum;
-						x.Input = InputSerialNum;
-						x.GetPrintedName = () => "Serial Number";
-						x.GetValue = () => Record.SerialNum;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "LastMod";
-						x.Validate = ValidateLastMod;
-						x.List = ListLastMod;
-						x.Input = InputLastMod;
-						x.GetPrintedName = () => "Last Modified";
-						x.GetValue = () => Record.LastMod;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "IntroStory";
-						x.Validate = ValidateIntroStory;
-						x.ValidateInterdependencies = ValidateInterdependenciesIntroStory;
-						x.PrintDesc = PrintDescIntroStory;
-						x.List = ListIntroStory;
-						x.Input = InputIntroStory;
-						x.GetPrintedName = () => "Intro Story";
-						x.GetValue = () => Record.IntroStory;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "NumDirs";
-						x.Validate = ValidateNumDirs;
-						x.PrintDesc = PrintDescNumDirs;
-						x.List = ListNumDirs;
-						x.Input = InputNumDirs;
-						x.GetPrintedName = () => "Compass Directions";
-						x.GetValue = () => Record.NumDirs;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "NumRooms";
-						x.Validate = ValidateNumRooms;
-						x.List = ListNumRooms;
-						x.Input = InputNumRooms;
-						x.GetPrintedName = () => "Number Of Rooms";
-						x.GetValue = () => Record.NumRooms;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "NumArtifacts";
-						x.Validate = ValidateNumArtifacts;
-						x.List = ListNumArtifacts;
-						x.Input = InputNumArtifacts;
-						x.GetPrintedName = () => "Number Of Artifacts";
-						x.GetValue = () => Record.NumArtifacts;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "NumEffects";
-						x.Validate = ValidateNumEffects;
-						x.List = ListNumEffects;
-						x.Input = InputNumEffects;
-						x.GetPrintedName = () => "Number Of Effects";
-						x.GetValue = () => Record.NumEffects;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "NumMonsters";
-						x.Validate = ValidateNumMonsters;
-						x.List = ListNumMonsters;
-						x.Input = InputNumMonsters;
-						x.GetPrintedName = () => "Number Of Monsters";
-						x.GetValue = () => Record.NumMonsters;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "NumHints";
-						x.Validate = ValidateNumHints;
-						x.List = ListNumHints;
-						x.Input = InputNumHints;
-						x.GetPrintedName = () => "Number Of Hints";
-						x.GetValue = () => Record.NumHints;
-					})
-				};
-			}
+		#region BuildValue Methods
 
-			return Fields;
-		}
+		// do nothing
+
+		#endregion
 
 		#endregion
 
 		#region Class ModuleHelper
 
-		protected virtual void SetModuleUidIfInvalid(bool editRec)
+		protected virtual void SetModuleUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -989,7 +809,7 @@ namespace Eamon.Game.Helpers
 
 				Record.IsUidRecycled = true;
 			}
-			else if (!editRec)
+			else if (!EditRec)
 			{
 				Record.IsUidRecycled = false;
 			}
@@ -1003,22 +823,22 @@ namespace Eamon.Game.Helpers
 
 		#region Interface IHelper
 
-		public override void ListErrorField(IValidateArgs args)
+		public override void ListErrorField()
 		{
-			Debug.Assert(args != null && args.ErrorField != null && args.Buf != null);
+			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));
 
-			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetField("Uid").GetPrintedName(), null), Record.Uid);
+			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
 
-			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetField("Name").GetPrintedName(), null), Record.Name);
+			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Name"), null), Record.Name);
 
-			if (string.Equals(args.ErrorField.Name, "Desc", StringComparison.OrdinalIgnoreCase) || args.ShowDesc)
+			if (string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) || ShowDesc)
 			{
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetField("Desc").GetPrintedName(), null), Record.Desc);
+				Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null), Record.Desc);
 			}
 
-			if (string.Equals(args.ErrorField.Name, "IntroStory", StringComparison.OrdinalIgnoreCase))
+			if (string.Equals(ErrorFieldName, "IntroStory", StringComparison.OrdinalIgnoreCase))
 			{
-				Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '.', 0, args.ErrorField.GetPrintedName(), null), Record.IntroStory);
+				Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("IntroStory"), null), Record.IntroStory);
 			}
 		}
 
@@ -1028,6 +848,25 @@ namespace Eamon.Game.Helpers
 
 		public ModuleHelper()
 		{
+			FieldNames = new List<string>()
+			{
+				"Uid",
+				"IsUidRecycled",
+				"Name",
+				"Desc",
+				"Author",
+				"VolLabel",
+				"SerialNum",
+				"LastMod",
+				"IntroStory",
+				"NumDirs",
+				"NumRooms",
+				"NumArtifacts",
+				"NumEffects",
+				"NumMonsters",
+				"NumHints",
+			};
+
 			SetUidIfInvalid = SetModuleUidIfInvalid;
 		}
 

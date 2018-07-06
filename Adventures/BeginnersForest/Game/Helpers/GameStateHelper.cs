@@ -5,11 +5,9 @@
 
 using System.Collections.Generic;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game.Helpers
 {
@@ -32,51 +30,29 @@ namespace BeginnersForest.Game.Helpers
 			}
 		}
 
-		protected virtual bool ValidateQueenGiftEffectUid(IField field, IValidateArgs args)
+		protected virtual bool ValidateQueenGiftEffectUid()
 		{
 			return Record.QueenGiftEffectUid >= 5 && Record.QueenGiftEffectUid <= 6;
 		}
 
-		protected virtual bool ValidateQueenGiftArtifactUid(IField field, IValidateArgs args)
+		protected virtual bool ValidateQueenGiftArtifactUid()
 		{
 			return Record.QueenGiftArtifactUid == 7 || Record.QueenGiftArtifactUid == 15;
 		}
 
-		protected virtual bool ValidateSpookCounter(IField field, IValidateArgs args)
+		protected virtual bool ValidateSpookCounter()
 		{
 			return Record.SpookCounter >= 0 && Record.SpookCounter <= 10;
 		}
 
-		protected override IList<IField> GetFields()
+		public GameStateHelper()
 		{
-			if (Fields == null)
+			FieldNames.AddRange(new List<string>()
 			{
-				var fields = base.GetFields();
-
-				fields.AddRange(new List<IField>()
-				{
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "QueenGiftEffectUid";
-						x.Validate = ValidateQueenGiftEffectUid;
-						x.GetValue = () => Record.QueenGiftEffectUid;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "QueenGiftArtifactUid";
-						x.Validate = ValidateQueenGiftArtifactUid;
-						x.GetValue = () => Record.QueenGiftArtifactUid;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "SpookCounter";
-						x.Validate = ValidateSpookCounter;
-						x.GetValue = () => Record.SpookCounter;
-					})
-				});
-			}
-
-			return Fields;
+				"QueenGiftEffectUid",
+				"QueenGiftArtifactUid",
+				"SpookCounter",
+			});
 		}
 	}
 }

@@ -62,12 +62,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 				{
 					x.Uid = NewRecordUid;
 				});
-
+				
 				var helper = Globals.CreateInstance<IHelper<IModule>>(x =>
 				{
 					x.Record = module;
 				});
-
+				
 				helper.InputRecord(false, Globals.Config.FieldDesc);
 
 				Globals.Thread.Sleep(150);

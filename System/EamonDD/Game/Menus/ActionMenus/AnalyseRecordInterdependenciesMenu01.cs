@@ -17,12 +17,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			get
 			{
-				return AnalyseMenu.SkipFieldNames;
+				return AnalyseMenu.SkipNames;
 			}
 
 			set
 			{
-				AnalyseMenu.SkipFieldNames = value;
+				AnalyseMenu.SkipNames = value;
 			}
 		}
 
@@ -30,12 +30,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			get
 			{
-				return AnalyseMenu.ClearSkipFieldNames;
+				return AnalyseMenu.ClearSkipNames;
 			}
 
 			set
 			{
-				AnalyseMenu.ClearSkipFieldNames = value;
+				AnalyseMenu.ClearSkipNames = value;
 			}
 		}
 

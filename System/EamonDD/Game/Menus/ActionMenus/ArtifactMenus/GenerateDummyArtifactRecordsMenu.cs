@@ -48,7 +48,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 					x.Uid = Globals.Database.GetArtifactUid();
 					x.Name = string.Format("artifact {0}", x.Uid);
 					x.Desc = string.Format("You see artifact {0}.", x.Uid);
+					x.IsListed = true;
 					x.GetCategories(0).Type = Enums.ArtifactType.Treasure;
+					x.SetArtifactCategoryCount(1);
 				});
 
 				if (i == 0)

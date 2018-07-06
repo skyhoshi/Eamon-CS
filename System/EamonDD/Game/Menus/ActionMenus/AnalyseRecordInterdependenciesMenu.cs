@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Framework.Menus;
 using EamonDD.Framework.Menus.ActionMenus;
@@ -17,13 +16,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 {
 	public abstract class AnalyseRecordInterdependenciesMenu<T> : RecordMenu<T>, IAnalyseRecordInterdependenciesMenu<T> where T : class, IGameBase
 	{
-		public virtual IList<string> SkipFieldNames { get; set; }
+		public virtual IList<string> SkipNames { get; set; }
 
-		public virtual IValidateArgs ValidateArgs { get; set; }
+		public virtual IHelper<T> ValidateHelper { get; set; }
 
 		public virtual T ErrorRecord { get; set; }
 
-		public virtual bool ClearSkipFieldNames { get; set; }
+		public virtual bool ClearSkipNames { get; set; }
 
 		public virtual bool ModifyFlag { get; set; }
 
@@ -33,38 +32,44 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			Debug.Assert(ErrorRecord != null);
 
-			var helper = Globals.CreateInstance<IHelper<T>>(x =>
+			var errorHelper = Globals.CreateInstance<IHelper<T>>(x =>
 			{
 				x.Record = ErrorRecord;
+
+				x.Index = ValidateHelper.Index;
+
+				x.ShowDesc = ValidateHelper.ShowDesc;
+
+				x.ErrorFieldName = ValidateHelper.ErrorFieldName;
 			});
 
-			helper.ListErrorField(ValidateArgs);
+			errorHelper.ListErrorField();
 
-			Globals.Out.Print("{0}", ValidateArgs.ErrorMessage);
+			Globals.Out.Print("{0}", ValidateHelper.ErrorMessage);
 
 			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.Write("{0}S=Skip field, T=Edit this record, R={1} referred to record, X=Exit: ",
 				Environment.NewLine,
-				ValidateArgs.NewRecordUid > 0 ? "Add" : "Edit");
+				ValidateHelper.NewRecordUid > 0 ? "Add" : "Edit");
 
-			ValidateArgs.Buf.Clear();
+			ValidateHelper.Buf.Clear();
 
-			var rc = Globals.In.ReadField(ValidateArgs.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharSOrTOrROrX, Globals.Engine.IsCharSOrTOrROrX);
+			var rc = Globals.In.ReadField(ValidateHelper.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharSOrTOrROrX, Globals.Engine.IsCharSOrTOrROrX);
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-			if (ValidateArgs.Buf.Length == 0 || ValidateArgs.Buf[0] == 'X')
+			if (ValidateHelper.Buf.Length == 0 || ValidateHelper.Buf[0] == 'X')
 			{
 				ExitFlag = true;
 			}
-			else if (ValidateArgs.Buf[0] == 'S')
+			else if (ValidateHelper.Buf[0] == 'S')
 			{
-				var uniqueFieldName = string.Format("{0}_{1}_{2}", typeof(T).Name, ErrorRecord.Uid, helper.GetErrorFieldName(ValidateArgs));
+				var uniqueName = string.Format("{0}_{1}_{2}", typeof(T).Name, ErrorRecord.Uid, errorHelper.GetName(errorHelper.ErrorFieldName));
 
-				SkipFieldNames.Add(uniqueFieldName);
+				SkipNames.Add(uniqueName);
 			}
-			else if (ValidateArgs.Buf[0] == 'T')
+			else if (ValidateHelper.Buf[0] == 'T')
 			{
 				IMenu menu;
 
@@ -117,103 +122,103 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				menu.Execute();
 			}
-			else if (ValidateArgs.Buf[0] == 'R')
+			else if (ValidateHelper.Buf[0] == 'R')
 			{
 				IMenu menu;
 
 				ModifyFlag = true;
 
-				if (ValidateArgs.NewRecordUid > 0)
+				if (ValidateHelper.NewRecordUid > 0)
 				{
-					if (ValidateArgs.RecordType == typeof(IArtifact))
+					if (ValidateHelper.RecordType == typeof(IArtifact))
 					{
 						menu = Globals.CreateInstance<IAddArtifactRecordManualMenu>(x =>
 						{
-							x.NewRecordUid = ValidateArgs.NewRecordUid;
+							x.NewRecordUid = ValidateHelper.NewRecordUid;
 						});
 					}
-					else if (ValidateArgs.RecordType == typeof(IEffect))
+					else if (ValidateHelper.RecordType == typeof(IEffect))
 					{
 						menu = Globals.CreateInstance<IAddEffectRecordMenu>(x =>
 						{
-							x.NewRecordUid = ValidateArgs.NewRecordUid;
+							x.NewRecordUid = ValidateHelper.NewRecordUid;
 						});
 					}
-					else if (ValidateArgs.RecordType == typeof(IHint))
+					else if (ValidateHelper.RecordType == typeof(IHint))
 					{
 						menu = Globals.CreateInstance<IAddHintRecordMenu>(x =>
 						{
-							x.NewRecordUid = ValidateArgs.NewRecordUid;
+							x.NewRecordUid = ValidateHelper.NewRecordUid;
 						});
 					}
-					else if (ValidateArgs.RecordType == typeof(IModule))
+					else if (ValidateHelper.RecordType == typeof(IModule))
 					{
 						menu = Globals.CreateInstance<IAddModuleRecordMenu>(x =>
 						{
-							x.NewRecordUid = ValidateArgs.NewRecordUid;
+							x.NewRecordUid = ValidateHelper.NewRecordUid;
 						});
 					}
-					else if (ValidateArgs.RecordType == typeof(IMonster))
+					else if (ValidateHelper.RecordType == typeof(IMonster))
 					{
 						menu = Globals.CreateInstance<IAddMonsterRecordManualMenu>(x =>
 						{
-							x.NewRecordUid = ValidateArgs.NewRecordUid;
+							x.NewRecordUid = ValidateHelper.NewRecordUid;
 						});
 					}
 					else
 					{
-						Debug.Assert(ValidateArgs.RecordType == typeof(IRoom));
+						Debug.Assert(ValidateHelper.RecordType == typeof(IRoom));
 
 						menu = Globals.CreateInstance<IAddRoomRecordManualMenu>(x =>
 						{
-							x.NewRecordUid = ValidateArgs.NewRecordUid;
+							x.NewRecordUid = ValidateHelper.NewRecordUid;
 						});
 					}
 				}
 				else
 				{
-					if (ValidateArgs.RecordType == typeof(IArtifact))
+					if (ValidateHelper.RecordType == typeof(IArtifact))
 					{
 						menu = Globals.CreateInstance<IEditArtifactRecordManyFieldsMenu>(x =>
 						{
-							x.EditRecord = (IArtifact)ValidateArgs.EditRecord;
+							x.EditRecord = (IArtifact)ValidateHelper.EditRecord;
 						});
 					}
-					else if (ValidateArgs.RecordType == typeof(IEffect))
+					else if (ValidateHelper.RecordType == typeof(IEffect))
 					{
 						menu = Globals.CreateInstance<IEditEffectRecordMenu>(x =>
 						{
-							x.EditRecord = (IEffect)ValidateArgs.EditRecord;
+							x.EditRecord = (IEffect)ValidateHelper.EditRecord;
 						});
 					}
-					else if (ValidateArgs.RecordType == typeof(IHint))
+					else if (ValidateHelper.RecordType == typeof(IHint))
 					{
 						menu = Globals.CreateInstance<IEditHintRecordManyFieldsMenu>(x =>
 						{
-							x.EditRecord = (IHint)ValidateArgs.EditRecord;
+							x.EditRecord = (IHint)ValidateHelper.EditRecord;
 						});
 					}
-					else if (ValidateArgs.RecordType == typeof(IModule))
+					else if (ValidateHelper.RecordType == typeof(IModule))
 					{
 						menu = Globals.CreateInstance<IEditModuleRecordManyFieldsMenu>(x =>
 						{
-							x.EditRecord = (IModule)ValidateArgs.EditRecord;
+							x.EditRecord = (IModule)ValidateHelper.EditRecord;
 						});
 					}
-					else if (ValidateArgs.RecordType == typeof(IMonster))
+					else if (ValidateHelper.RecordType == typeof(IMonster))
 					{
 						menu = Globals.CreateInstance<IEditMonsterRecordManyFieldsMenu>(x =>
 						{
-							x.EditRecord = (IMonster)ValidateArgs.EditRecord;
+							x.EditRecord = (IMonster)ValidateHelper.EditRecord;
 						});
 					}
 					else
 					{
-						Debug.Assert(ValidateArgs.RecordType == typeof(IRoom));
+						Debug.Assert(ValidateHelper.RecordType == typeof(IRoom));
 
 						menu = Globals.CreateInstance<IEditRoomRecordManyFieldsMenu>(x =>
 						{
-							x.EditRecord = (IRoom)ValidateArgs.EditRecord;
+							x.EditRecord = (IRoom)ValidateHelper.EditRecord;
 						});
 					}
 				}
@@ -230,14 +235,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Globals.Engine.PrintTitle(Title, true);
 
-			var helper = Globals.CreateInstance<IHelper<T>>();
-
-			if (ClearSkipFieldNames)
+			if (ClearSkipNames)
 			{
-				SkipFieldNames.Clear();
+				SkipNames.Clear();
 			}
 
-			ValidateArgs.Clear();
+			ValidateHelper.Clear();
 
 			ModifyFlag = false;
 
@@ -249,18 +252,20 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				foreach (var record in RecordTable.Records)
 				{
-					helper.Record = record;
+					ValidateHelper.Record = record;
 
-					var fieldNames = helper.GetFieldNames((fn) =>
+					var names = ValidateHelper.GetNames((n) =>
 					{
-						var uniqueFieldName = string.Format("{0}_{1}_{2}", typeof(T).Name, record.Uid, fn);
+						var uniqueName = string.Format("{0}_{1}_{2}", typeof(T).Name, record.Uid, n);
 
-						return !SkipFieldNames.Contains(uniqueFieldName);
+						return !SkipNames.Contains(uniqueName);
 					});
 
-					foreach (var fieldName in fieldNames)
+					foreach (var name in names)
 					{
-						if (!helper.ValidateFieldInterdependencies(fieldName, ValidateArgs))
+						ValidateHelper.Clear();
+
+						if (!ValidateHelper.ValidateFieldInterdependencies(ValidateHelper.GetFieldName(name)))
 						{
 							ErrorRecord = record;
 
@@ -273,7 +278,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				if (ErrorRecord != null)
 				{
-					ValidateArgs.ShowDesc = Globals.Config.ShowDesc;
+					ValidateHelper.ShowDesc = Globals.Config.ShowDesc;
 
 					ProcessInterdependency();
 
@@ -293,11 +298,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		public AnalyseRecordInterdependenciesMenu()
 		{
-			SkipFieldNames = new List<string>();
+			SkipNames = new List<string>();
 
-			ValidateArgs = Globals.CreateInstance<IValidateArgs>();
+			ValidateHelper = Globals.CreateInstance<IHelper<T>>();
 
-			ClearSkipFieldNames = true;
+			ClearSkipNames = true;
 		}
 	}
 }
