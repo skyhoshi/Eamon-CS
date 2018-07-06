@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
@@ -24,27 +23,47 @@ namespace Eamon.Game.Helpers
 
 		#region Interface IHelper
 
+		#region GetPrintedName Methods
+
+		// do nothing
+
+		#endregion
+
+		#region GetName Methods
+
+		// do nothing
+
+		#endregion
+
+		#region GetValue Methods
+
+		// do nothing
+
+		#endregion
+
 		#region Validate Methods
 
-		protected virtual bool ValidateUid(IField field, IValidateArgs args)
+		protected virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
-		protected virtual bool ValidateDesc(IField field, IValidateArgs args)
+		protected virtual bool ValidateDesc()
 		{
 			return string.IsNullOrWhiteSpace(Record.Desc) == false && Record.Desc.Length <= Constants.EffDescLen;
 		}
 
-		protected virtual bool ValidateInterdependenciesDesc(IField field, IValidateArgs args)
-		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
+		#endregion
 
+		#region ValidateInterdependencies Methods
+
+		protected virtual bool ValidateInterdependenciesDesc()
+		{
 			var result = true;
 
 			long invalidUid = 0;
 
-			var rc = Globals.Engine.ResolveUidMacros(Record.Desc, args.Buf, false, false, ref invalidUid);
+			var rc = Globals.Engine.ResolveUidMacros(Record.Desc, Buf, false, false, ref invalidUid);
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -52,13 +71,13 @@ namespace Eamon.Game.Helpers
 			{
 				result = false;
 
-				args.Buf.SetFormat(Constants.RecIdepErrorFmtStr, field.GetPrintedName(), "effect", invalidUid, "which doesn't exist");
+				Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Desc"), "effect", invalidUid, "which doesn't exist");
 
-				args.ErrorMessage = args.Buf.ToString();
+				ErrorMessage = Buf.ToString();
 
-				args.RecordType = typeof(IEffect);
+				RecordType = typeof(IEffect);
 
-				args.NewRecordUid = invalidUid;
+				NewRecordUid = invalidUid;
 
 				goto Cleanup;
 			}
@@ -70,99 +89,85 @@ namespace Eamon.Game.Helpers
 
 		#endregion
 
-		#region PrintFieldDesc Methods
+		#region PrintDesc Methods
 
-		protected virtual void PrintDescDesc(IField field, IPrintDescArgs args)
+		protected virtual void PrintDescDesc()
 		{
 			var fullDesc = "Enter a detailed description of the effect.";
 
-			Globals.Engine.AppendFieldDesc(args, fullDesc, null);
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		#endregion
 
 		#region List Methods
 
-		protected virtual void ListUid(IField field, IListArgs args)
+		protected virtual void ListUid()
 		{
-			Debug.Assert(field != null && args != null);
-
-			if (!args.ExcludeROFields)
+			if (!ExcludeROFields)
 			{
-				if (args.NumberFields)
-				{
-					field.ListNum = args.ListNum++;
-				}
+				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), Record.Uid);
+				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Uid"), null), Record.Uid);
 			}
 		}
 
-		protected virtual void ListDesc(IField field, IListArgs args)
+		protected virtual void ListDesc()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
+			Buf.Clear();
 
-			args.Buf.Clear();
-
-			if (args.ResolveEffects)
+			if (ResolveEffects)
 			{
-				var rc = Globals.Engine.ResolveUidMacros(Record.Desc, args.Buf, true, true);
+				var rc = Globals.Engine.ResolveUidMacros(Record.Desc, Buf, true, true);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 			}
 			else
 			{
-				args.Buf.Append(Record.Desc);
+				Buf.Append(Record.Desc);
 			}
 
-			if (args.NumberFields)
-			{
-				field.ListNum = args.ListNum++;
-			}
+			var listNum = NumberFields ? ListNum++ : 0;
 
-			Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', field.ListNum, field.GetPrintedName(), null), args.Buf);
+			Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Desc"), null), Buf);
 		}
 
 		#endregion
 
 		#region Input Methods
 
-		protected virtual void InputUid(IField field, IInputArgs args)
+		protected virtual void InputUid()
 		{
-			Debug.Assert(field != null && args != null);
-
-			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null), Record.Uid);
+			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
 
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
-		protected virtual void InputDesc(IField field, IInputArgs args)
+		protected virtual void InputDesc()
 		{
-			Debug.Assert(field != null && args != null && args.Buf != null);
-
-			var fieldDesc = args.FieldDesc;
+			var fieldDesc = FieldDesc;
 
 			var desc = Record.Desc;
 
 			while (true)
 			{
-				args.Buf.SetFormat(args.EditRec ? "{0}" : "", desc);
+				Buf.SetFormat(EditRec ? "{0}" : "", desc);
 
-				PrintFieldDesc(field, args.EditRec, args.EditField, fieldDesc);
+				PrintFieldDesc("Desc", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, field.GetPrintedName(), null));
+				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Desc"), null));
 
 				Globals.Out.WordWrap = false;
 
-				var rc = Globals.In.ReadField(args.Buf, Constants.EffDescLen, null, '_', '\0', false, null, null, null, null);
+				var rc = Globals.In.ReadField(Buf, Constants.EffDescLen, null, '_', '\0', false, null, null, null, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
 				Globals.Out.WordWrap = true;
 
-				Record.Desc = args.Buf.ToString();      // Trim() intentionally omitted
+				Record.Desc = Buf.ToString();      // Trim() intentionally omitted
 
-				if (ValidateField(field, args.Vargs))
+				if (ValidateField("Desc"))
 				{
 					break;
 				}
@@ -175,49 +180,17 @@ namespace Eamon.Game.Helpers
 
 		#endregion
 
-		protected override IList<IField> GetFields()
-		{
-			if (Fields == null)
-			{
-				Fields = new List<IField>()
-				{
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Uid";
-						x.Validate = ValidateUid;
-						x.List = ListUid;
-						x.Input = InputUid;
-						x.GetPrintedName = () => "Uid";
-						x.GetValue = () => Record.Uid;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "IsUidRecycled";
-						x.GetPrintedName = () => "Is Uid Recycled";
-						x.GetValue = () => Record.IsUidRecycled;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Desc";
-						x.Validate = ValidateDesc;
-						x.ValidateInterdependencies = ValidateInterdependenciesDesc;
-						x.PrintDesc = PrintDescDesc;
-						x.List = ListDesc;
-						x.Input = InputDesc;
-						x.GetPrintedName = () => "Description";
-						x.GetValue = () => Record.Desc;
-					})
-				};
-			}
+		#region BuildValue Methods
 
-			return Fields;
-		}
+		// do nothing
+
+		#endregion
 
 		#endregion
 
 		#region Class EffectHelper
 
-		protected virtual void SetEffectUidIfInvalid(bool editRec)
+		protected virtual void SetEffectUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -225,7 +198,7 @@ namespace Eamon.Game.Helpers
 
 				Record.IsUidRecycled = true;
 			}
-			else if (!editRec)
+			else if (!EditRec)
 			{
 				Record.IsUidRecycled = false;
 			}
@@ -239,18 +212,7 @@ namespace Eamon.Game.Helpers
 
 		#region Interface IHelper
 
-		public override void ListErrorField(IValidateArgs args)
-		{
-			Debug.Assert(args != null && args.ErrorField != null && args.Buf != null);
-
-			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetField("Uid").GetPrintedName(), null), Record.Uid);
-
-			Globals.Out.WriteLine("{0}{1}{0}{0}{2}{3}",
-				Environment.NewLine,
-				Globals.Engine.BuildPrompt(27, '.', 0, GetField("Desc").GetPrintedName(), null),
-				Record.Desc,
-				string.Equals(args.ErrorField.Name, "Desc", StringComparison.OrdinalIgnoreCase) ? "" : Environment.NewLine);
-		}
+		// do nothing
 
 		#endregion
 
@@ -258,6 +220,13 @@ namespace Eamon.Game.Helpers
 
 		public EffectHelper()
 		{
+			FieldNames = new List<string>()
+			{
+				"Uid",
+				"IsUidRecycled",
+				"Desc"
+			};
+
 			SetUidIfInvalid = SetEffectUidIfInvalid;
 		}
 

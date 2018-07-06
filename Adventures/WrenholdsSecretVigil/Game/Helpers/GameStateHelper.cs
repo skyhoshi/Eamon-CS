@@ -5,11 +5,9 @@
 
 using System.Collections.Generic;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Helpers
 {
@@ -32,40 +30,23 @@ namespace WrenholdsSecretVigil.Game.Helpers
 			}
 		}
 
-		protected virtual bool ValidateMedallionCharges(IField field, IValidateArgs args)
+		protected virtual bool ValidateMedallionCharges()
 		{
 			return Record.MedallionCharges >= 0 && Record.MedallionCharges <= 15;
 		}
 
-		protected virtual bool ValidateSlimeBlasts(IField field, IValidateArgs args)
+		protected virtual bool ValidateSlimeBlasts()
 		{
 			return Record.SlimeBlasts >= 0 && Record.SlimeBlasts <= 3;
 		}
 
-		protected override IList<IField> GetFields()
+		public GameStateHelper()
 		{
-			if (Fields == null)
+			FieldNames.AddRange(new List<string>()
 			{
-				var fields = base.GetFields();
-
-				fields.AddRange(new List<IField>()
-				{
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "MedallionCharges";
-						x.Validate = ValidateMedallionCharges;
-						x.GetValue = () => Record.MedallionCharges;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "SlimeBlasts";
-						x.Validate = ValidateSlimeBlasts;
-						x.GetValue = () => Record.SlimeBlasts;
-					}),
-				});
-			}
-
-			return Fields;
+				"MedallionCharges",
+				"SlimeBlasts",
+			});
 		}
 	}
 }

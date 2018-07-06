@@ -5,10 +5,9 @@
 
 using System.Collections.Generic;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
-using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
+using Eamon.Game.Extensions;
 
 namespace StrongholdOfKahrDur.Game.Helpers
 {
@@ -31,29 +30,17 @@ namespace StrongholdOfKahrDur.Game.Helpers
 			}
 		}
 
-		protected virtual bool ValidateLichState(IField field, IValidateArgs args)
+		protected virtual bool ValidateLichState()
 		{
 			return Record.LichState >= 0 && Record.LichState <= 2;
 		}
 
-		protected override IList<IField> GetFields()
+		public GameStateHelper()
 		{
-			if (Fields == null)
+			FieldNames.AddRange(new List<string>()
 			{
-				var fields = base.GetFields();
-
-				fields.Add
-				(
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "LichState";
-						x.Validate = ValidateLichState;
-						x.GetValue = () => Record.LichState;
-					})
-				);
-			}
-
-			return Fields;
+				"LichState"
+			});
 		}
 	}
 }

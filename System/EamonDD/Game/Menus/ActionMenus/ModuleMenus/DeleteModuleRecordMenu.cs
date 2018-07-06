@@ -27,12 +27,12 @@ namespace EamonDD.Game.Menus.ActionMenus
 				Globals.Out.WriteLine();
 
 				Globals.Engine.PrintTitle("DELETE MODULE RECORD", true);
-
+				
 				var helper = Globals.CreateInstance<IHelper<IModule>>(x =>
 				{
 					x.Record = Globals.Module;
 				});
-
+				
 				helper.ListRecord(true, true, false, true, false, false);
 
 				Globals.Out.WriteLine();

@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Helpers.Generic;
@@ -24,85 +23,299 @@ namespace Eamon.Game.Helpers
 
 		#region Interface IHelper
 
+		#region GetPrintedName Methods
+
+		// do nothing
+
+		#endregion
+
+		#region GetName Methods
+
+		protected virtual string GetNameNBTL(bool addToNamesList)
+		{
+			var friendlinessValues = EnumUtil.GetValues<Enums.Friendliness>();
+
+			foreach (var fv in friendlinessValues)
+			{
+				Index = (long)fv;
+
+				GetName("NBTLElement", addToNamesList);
+			}
+
+			return "NBTL";
+		}
+
+		protected virtual string GetNameNBTLElement(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("NBTL[{0}].Element", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		protected virtual string GetNameDTTL(bool addToNamesList)
+		{
+			if (Globals.IsRulesetVersion(5))
+			{
+				var friendlinessValues = EnumUtil.GetValues<Enums.Friendliness>();
+
+				foreach (var fv in friendlinessValues)
+				{
+					Index = (long)fv;
+
+					GetName("DTTLElement", addToNamesList);
+				}
+			}
+
+			return "DTTL";
+		}
+
+		protected virtual string GetNameDTTLElement(bool addToNamesList)
+		{
+			string result = string.Empty;
+
+			if (Globals.IsRulesetVersion(5))
+			{
+				var i = Index;
+
+				result = string.Format("DTTL[{0}].Element", i);
+
+				if (addToNamesList)
+				{
+					Names.Add(result);
+				}
+			}
+
+			return result;
+		}
+
+		protected virtual string GetNameSa(bool addToNamesList)
+		{
+			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+
+			foreach (var sv in spellValues)
+			{
+				Index = (long)sv;
+
+				GetName("SaElement", addToNamesList);
+			}
+
+			return "Sa";
+		}
+
+		protected virtual string GetNameSaElement(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("Sa[{0}].Element", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		protected virtual string GetNameHeldWpnUids(bool addToNamesList)
+		{
+			for (Index = 0; Index < Record.HeldWpnUids.Length; Index++)
+			{
+				GetName("HeldWpnUidsElement", addToNamesList);
+			}
+
+			return "HeldWpnUids";
+		}
+
+		protected virtual string GetNameHeldWpnUidsElement(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("HeldWpnUids[{0}].Element", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		#endregion
+
+		#region GetValue Methods
+
+		protected virtual object GetValueNBTLElement()
+		{
+			var i = Index;
+
+			return Record.GetNBTL(i);
+		}
+
+		protected virtual object GetValueDTTLElement()
+		{
+			var i = Index;
+
+			return Record.GetDTTL(i);
+		}
+
+		protected virtual object GetValueSaElement()
+		{
+			var i = Index;
+
+			return Record.GetSa(i);
+		}
+
+		protected virtual object GetValueHeldWpnUidsElement()
+		{
+			var i = Index;
+
+			return Record.GetHeldWpnUids(i);
+		}
+
+		#endregion
+
 		#region Validate Methods
 
-		protected virtual bool ValidateUid(IField field, IValidateArgs args)
+		protected virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
-		protected virtual bool ValidateAr(IField field, IValidateArgs args)
+		protected virtual bool ValidateAr()
 		{
 			return Record.Ar >= 0;
 		}
 
-		protected virtual bool ValidateCm(IField field, IValidateArgs args)
+		protected virtual bool ValidateCm()
 		{
 			return Record.Cm > 0;
 		}
 
-		protected virtual bool ValidateLs(IField field, IValidateArgs args)
+		protected virtual bool ValidateLs()
 		{
 			return Record.Ls >= 0;
 		}
 
-		protected virtual bool ValidateSh(IField field, IValidateArgs args)
+		protected virtual bool ValidateSh()
 		{
 			return Record.Sh >= 0;
 		}
 
-		protected virtual bool ValidateLt(IField field, IValidateArgs args)
+		protected virtual bool ValidateLt()
 		{
 			return Enum.IsDefined(typeof(Enums.LightLevel), Record.Lt);
 		}
 
-		protected virtual bool ValidateSpeed(IField field, IValidateArgs args)
+		protected virtual bool ValidateSpeed()
 		{
 			return Record.Speed >= 0;
 		}
 
-		protected virtual bool ValidateWt(IField field, IValidateArgs args)
+		protected virtual bool ValidateWt()
 		{
 			return Record.Wt >= 0;
 		}
 
-		protected virtual bool ValidateCurrTurn(IField field, IValidateArgs args)
+		protected virtual bool ValidateCurrTurn()
 		{
 			return Record.CurrTurn >= 0;
 		}
 
-		protected virtual bool ValidateUsedWpnIdx(IField field, IValidateArgs args)
+		protected virtual bool ValidateUsedWpnIdx()
 		{
 			return Record.UsedWpnIdx >= 0 && Record.UsedWpnIdx < Record.HeldWpnUids.Length;
 		}
 
-		protected virtual bool ValidateNBTL(IField field, IValidateArgs args)
+		protected virtual bool ValidateNBTL()
 		{
-			Debug.Assert(field != null && field.UserData != null);
+			var result = true;
 
-			var i = Convert.ToInt64(field.UserData);
+			var friendlinessValues = EnumUtil.GetValues<Enums.Friendliness>();
 
-			Debug.Assert(Enum.IsDefined(typeof(Enums.Friendliness), i));
+			foreach (var fv in friendlinessValues)
+			{
+				Index = (long)fv;
+
+				result = ValidateField("NBTLElement");
+
+				if (result == false)
+				{
+					break;
+				}
+			}
+
+			return result;
+		}
+
+		protected virtual bool ValidateNBTLElement()
+		{
+			var i = Index;
 
 			return Record.GetNBTL(i) >= 0;
 		}
 
-		protected virtual bool ValidateDTTL(IField field, IValidateArgs args)
+		protected virtual bool ValidateDTTL()
 		{
-			Debug.Assert(field != null && field.UserData != null);
+			var result = true;
 
-			var i = Convert.ToInt64(field.UserData);
+			if (Globals.IsRulesetVersion(5))
+			{
+				var friendlinessValues = EnumUtil.GetValues<Enums.Friendliness>();
 
-			Debug.Assert(Enum.IsDefined(typeof(Enums.Friendliness), i));
+				foreach (var fv in friendlinessValues)
+				{
+					Index = (long)fv;
 
-			return Record.GetDTTL(i) >= 0;
+					result = ValidateField("DTTLElement");
+
+					if (result == false)
+					{
+						break;
+					}
+				}
+			}
+
+			return result;
 		}
 
-		protected virtual bool ValidateSa(IField field, IValidateArgs args)
+		protected virtual bool ValidateDTTLElement()
 		{
-			Debug.Assert(field != null && field.UserData != null);
+			var i = Index;
 
-			var i = Convert.ToInt64(field.UserData);
+			return !Globals.IsRulesetVersion(5) || Record.GetDTTL(i) >= 0;
+		}
+
+		protected virtual bool ValidateSa()
+		{
+			var result = true;
+
+			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+
+			foreach (var sv in spellValues)
+			{
+				Index = (long)sv;
+
+				result = ValidateField("SaElement");
+
+				if (result == false)
+				{
+					break;
+				}
+			}
+
+			return result;
+		}
+
+		protected virtual bool ValidateSaElement()
+		{
+			var i = Index;
 
 			var spell = Globals.Engine.GetSpells((Enums.Spell)i);
 
@@ -111,207 +324,67 @@ namespace Eamon.Game.Helpers
 			return Record.GetSa(i) >= spell.MinValue && Record.GetSa(i) <= spell.MaxValue;
 		}
 
-		protected virtual bool ValidateHeldWpnUids(IField field, IValidateArgs args)
+		protected virtual bool ValidateHeldWpnUids()
 		{
-			Debug.Assert(field != null && field.UserData != null);
+			var result = true;
 
-			var i = Convert.ToInt64(field.UserData);
+			for (Index = 0; Index < Record.HeldWpnUids.Length; Index++)
+			{
+				result = ValidateField("HeldWpnUidsElement");
 
-			Debug.Assert(i >= 0 && i < Record.HeldWpnUids.Length);
+				if (result == false)
+				{
+					break;
+				}
+			}
+
+			return result;
+		}
+
+		protected virtual bool ValidateHeldWpnUidsElement()
+		{
+			var i = Index;
 
 			return Record.GetHeldWpnUids(i) >= 0;
 		}
 
 		#endregion
 
-		protected override IList<IField> GetFields()
-		{
-			if (Fields == null)
-			{
-				Fields = new List<IField>()
-				{
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Uid";
-						x.Validate = ValidateUid;
-						x.GetValue = () => Record.Uid;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "IsUidRecycled";
-						x.GetValue = () => Record.IsUidRecycled;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Ar";
-						x.Validate = ValidateAr;
-						x.GetValue = () => Record.Ar;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Cm";
-						x.Validate = ValidateCm;
-						x.GetValue = () => Record.Cm;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Ls";
-						x.Validate = ValidateLs;
-						x.GetValue = () => Record.Ls;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Ro";
-						x.GetValue = () => Record.Ro;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "R2";
-						x.GetValue = () => Record.R2;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "R3";
-						x.GetValue = () => Record.R3;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Sh";
-						x.Validate = ValidateSh;
-						x.GetValue = () => Record.Sh;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Af";
-						x.GetValue = () => Record.Af;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Die";
-						x.GetValue = () => Record.Die;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Lt";
-						x.Validate = ValidateLt;
-						x.GetValue = () => Record.Lt;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Speed";
-						x.Validate = ValidateSpeed;
-						x.GetValue = () => Record.Speed;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Wt";
-						x.Validate = ValidateWt;
-						x.GetValue = () => Record.Wt;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Vr";
-						x.GetValue = () => Record.Vr;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Vm";
-						x.GetValue = () => Record.Vm;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Va";
-						x.GetValue = () => Record.Va;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "CurrTurn";
-						x.Validate = ValidateCurrTurn;
-						x.GetValue = () => Record.CurrTurn;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "UsedWpnIdx";
-						x.Validate = ValidateUsedWpnIdx;
-						x.GetValue = () => Record.UsedWpnIdx;
-					})
-				};
+		#region ValidateInterdependencies Methods
 
-				var friendlinessValues = EnumUtil.GetValues<Enums.Friendliness>();
+		// do nothing
 
-				foreach (var fv in friendlinessValues)
-				{
-					var i = (long)fv;
+		#endregion
 
-					Fields.Add
-					(
-						Globals.CreateInstance<IField>(x =>
-						{
-							x.Name = string.Format("NBTL[{0}]", i);
-							x.UserData = i;
-							x.Validate = ValidateNBTL;
-							x.GetValue = () => Record.GetNBTL(i);
-						})
-					);
+		#region PrintDesc Methods
 
-					if (Globals.IsRulesetVersion(5))
-					{
-						Fields.Add
-						(
-							Globals.CreateInstance<IField>(x =>
-							{
-								x.Name = string.Format("DTTL[{0}]", i);
-								x.UserData = i;
-								x.Validate = ValidateDTTL;
-								x.GetValue = () => Record.GetDTTL(i);
-							})
-						);
-					}
-				}
+		// do nothing
 
-				var spellValues = EnumUtil.GetValues<Enums.Spell>();
+		#endregion
 
-				foreach (var sv in spellValues)
-				{
-					var i = (long)sv;
+		#region List Methods
 
-					Fields.Add
-					(
-						Globals.CreateInstance<IField>(x =>
-						{
-							x.Name = string.Format("Sa[{0}]", i);
-							x.UserData = i;
-							x.Validate = ValidateSa;
-							x.GetValue = () => Record.GetSa(i);
-						})
-					);
-				}
+		// do nothing
 
-				for (var i = 0; i < Record.HeldWpnUids.Length; i++)
-				{
-					var j = i;
+		#endregion
 
-					Fields.Add
-					(
-						Globals.CreateInstance<IField>(x =>
-						{
-							x.Name = string.Format("HeldWpnUids[{0}]", j);
-							x.UserData = j;
-							x.Validate = ValidateHeldWpnUids;
-							x.GetValue = () => Record.GetHeldWpnUids(j);
-						})
-					);
-				}
-			}
+		#region Input Methods
 
-			return Fields;
-		}
+		// do nothing
+
+		#endregion
+
+		#region BuildValue Methods
+
+		// do nothing
+
+		#endregion
 
 		#endregion
 
 		#region Class GameStateHelper
 
-		protected virtual void SetGameStateUidIfInvalid(bool editRec)
+		protected virtual void SetGameStateUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -319,7 +392,7 @@ namespace Eamon.Game.Helpers
 
 				Record.IsUidRecycled = true;
 			}
-			else if (!editRec)
+			else if (!EditRec)
 			{
 				Record.IsUidRecycled = false;
 			}
@@ -331,10 +404,43 @@ namespace Eamon.Game.Helpers
 
 		#region Public Methods
 
+		#region Interface IHelper
+
+		// do nothing
+
+		#endregion
+
 		#region Class GameStateHelper
 
 		public GameStateHelper()
 		{
+			FieldNames = new List<string>()
+			{
+				"Uid",
+				"IsUidRecycled",
+				"Ar",
+				"Cm",
+				"Ls",
+				"Ro",
+				"R2",
+				"R3",
+				"Sh",
+				"Af",
+				"Die",
+				"Lt",
+				"Speed",
+				"Wt",
+				"Vr",
+				"Vm",
+				"Va",
+				"CurrTurn",
+				"UsedWpnIdx",
+				"NBTL",
+				"DTTL",
+				"Sa",
+				"HeldWpnUids",
+			};
+
 			SetUidIfInvalid = SetGameStateUidIfInvalid;
 		}
 

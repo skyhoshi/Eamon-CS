@@ -5,10 +5,9 @@
 
 using System.Collections.Generic;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
-using static TheTrainingGround.Game.Plugin.PluginContext;
+using Eamon.Game.Extensions;
 
 namespace TheTrainingGround.Game.Helpers
 {
@@ -31,29 +30,17 @@ namespace TheTrainingGround.Game.Helpers
 			}
 		}
 
-		protected virtual bool ValidateGenderChangeCounter(IField field, IValidateArgs args)
+		protected virtual bool ValidateGenderChangeCounter()
 		{
 			return Record.GenderChangeCounter >= 0 && Record.GenderChangeCounter <= 2;
 		}
 
-		protected override IList<IField> GetFields()
+		public GameStateHelper()
 		{
-			if (Fields == null)
+			FieldNames.AddRange(new List<string>()
 			{
-				var fields = base.GetFields();
-
-				fields.Add
-				(
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "GenderChangeCounter";
-						x.Validate = ValidateGenderChangeCounter;
-						x.GetValue = () => Record.GenderChangeCounter;
-					})
-				);
-			}
-
-			return Fields;
+				"GenderChangeCounter",
+			});
 		}
 	}
 }

@@ -5,19 +5,16 @@
 
 using System.Collections.Generic;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 
 namespace EamonDD.Framework.Menus.ActionMenus
 {
 	public interface IAnalyseRecordInterdependenciesMenu<T> : IRecordMenu<T> where T : class, IGameBase
 	{
-		IList<string> SkipFieldNames { get; set; }
-
-		IValidateArgs ValidateArgs { get; set; }
+		IList<string> SkipNames { get; set; }
 
 		T ErrorRecord { get; set; }
 
-		bool ClearSkipFieldNames { get; set; }
+		bool ClearSkipNames { get; set; }
 
 		bool ModifyFlag { get; set; }
 

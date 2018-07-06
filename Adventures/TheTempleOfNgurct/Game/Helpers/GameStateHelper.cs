@@ -5,11 +5,9 @@
 
 using System.Collections.Generic;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Helpers
 {
@@ -32,73 +30,41 @@ namespace TheTempleOfNgurct.Game.Helpers
 			}
 		}
 
-		protected virtual bool ValidateWanderingMonster(IField field, IValidateArgs args)
+		protected virtual bool ValidateWanderingMonster()
 		{
 			return Record.WanderingMonster >= 12 && Record.WanderingMonster <= 27;
 		}
 
-		protected virtual bool ValidateDwLoopCounter(IField field, IValidateArgs args)
+		protected virtual bool ValidateDwLoopCounter()
 		{
 			return Record.DwLoopCounter >= 0 && Record.DwLoopCounter <= 16;
 		}
 
-		protected virtual bool ValidateWandCharges(IField field, IValidateArgs args)
+		protected virtual bool ValidateWandCharges()
 		{
 			return Record.WandCharges >= 0 && Record.WandCharges <= 5;
 		}
 
-		protected virtual bool ValidateRegenerate(IField field, IValidateArgs args)
+		protected virtual bool ValidateRegenerate()
 		{
 			return Record.Regenerate >= 0 && Record.Regenerate <= 5;
 		}
 
-		protected virtual bool ValidateKeyRingRoomUid(IField field, IValidateArgs args)
+		protected virtual bool ValidateKeyRingRoomUid()
 		{
 			return Record.KeyRingRoomUid >= 0 && Record.KeyRingRoomUid <= 59;
 		}
 
-		protected override IList<IField> GetFields()
+		public GameStateHelper()
 		{
-			if (Fields == null)
+			FieldNames.AddRange(new List<string>()
 			{
-				var fields = base.GetFields();
-
-				fields.AddRange(new List<IField>()
-				{
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "WanderingMonster";
-						x.Validate = ValidateWanderingMonster;
-						x.GetValue = () => Record.WanderingMonster;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "DwLoopCounter";
-						x.Validate = ValidateDwLoopCounter;
-						x.GetValue = () => Record.DwLoopCounter;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "WandCharges";
-						x.Validate = ValidateWandCharges;
-						x.GetValue = () => Record.WandCharges;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "Regenerate";
-						x.Validate = ValidateRegenerate;
-						x.GetValue = () => Record.Regenerate;
-					}),
-					Globals.CreateInstance<IField>(x =>
-					{
-						x.Name = "KeyRingRoomUid";
-						x.Validate = ValidateKeyRingRoomUid;
-						x.GetValue = () => Record.KeyRingRoomUid;
-					})
-				});
-			}
-
-			return Fields;
+				"WanderingMonster",
+				"DwLoopCounter",
+				"WandCharges",
+				"Regenerate",
+				"KeyRingRoomUid",
+			});
 		}
 	}
 }

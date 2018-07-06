@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
-using Eamon.Framework.Args;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
@@ -102,11 +101,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 			}
 		}
 
-		protected virtual void CreateCharacter(ICharacter character, IValidateArgs args)
+		protected virtual void CreateCharacter(ICharacter character)
 		{
 			RetCode rc;
 
-			Debug.Assert(character != null && args != null);
+			Debug.Assert(character != null);
 
 			Globals.Out.Print("{0}", Globals.LineSep);
 
@@ -128,13 +127,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 
 			character.Gender = (Enums.Gender)Convert.ToInt64(Buf.Trim().ToString());
-
+			
 			var helper = Globals.CreateInstance<IHelper<ICharacter>>(x =>
 			{
 				x.Record = character;
 			});
-
-			Debug.Assert(helper.ValidateField("Gender", args));
+			
+			Debug.Assert(helper.ValidateField("Gender"));
 
 			Globals.Thread.Sleep(150);
 
@@ -320,8 +319,6 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			var character = Globals.CreateInstance<ICharacter>();
 
-			var args = Globals.CreateInstance<IValidateArgs>();
-
 			var menu = Globals.CreateInstance<IMainHallMenu>();
 
 			var effect = null as IEffect;
@@ -341,15 +338,15 @@ namespace EamonMH.Game.Menus.ActionMenus
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
 				character.Name = Buf.Trim().ToString();
-
+				
 				var helper = Globals.CreateInstance<IHelper<ICharacter>>(x =>
 				{
 					x.Record = character;
 				});
-
+				
 				Globals.Thread.Sleep(150);
 
-				if (helper.ValidateField("Name", args))
+				if (helper.ValidateField("Name"))
 				{
 					Globals.Out.Print("{0}", Globals.LineSep);
 
@@ -386,7 +383,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							Globals.CharacterName = character.Name;
 
-							CreateCharacter(character, args);
+							CreateCharacter(character);
 
 							menu.Execute();
 
