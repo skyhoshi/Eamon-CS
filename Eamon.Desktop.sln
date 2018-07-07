@@ -35,8 +35,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTrainingGround", "Advent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WrenholdsSecretVigil", "Adventures\WrenholdsSecretVigil\WrenholdsSecretVigil.csproj", "{E1B87EC7-1901-4D56-99D8-693F70DEB1D3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WalledCityOfDarkness", "Adventures\WalledCityOfDarkness\WalledCityOfDarkness.csproj", "{DF7F8550-8FFD-4371-AD39-68A9DDFEC817}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,10 +97,6 @@ Global
 		{E1B87EC7-1901-4D56-99D8-693F70DEB1D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1B87EC7-1901-4D56-99D8-693F70DEB1D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1B87EC7-1901-4D56-99D8-693F70DEB1D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF7F8550-8FFD-4371-AD39-68A9DDFEC817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF7F8550-8FFD-4371-AD39-68A9DDFEC817}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF7F8550-8FFD-4371-AD39-68A9DDFEC817}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF7F8550-8FFD-4371-AD39-68A9DDFEC817}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -122,7 +116,6 @@ Global
 		{BD5483A1-BCBC-4D75-AECD-C3AE19883A5B} = {25D7389F-FD50-4453-80D0-F5CCFAF12CEC}
 		{0D85F4D1-6040-4649-A000-8B89EB89D5DC} = {25D7389F-FD50-4453-80D0-F5CCFAF12CEC}
 		{E1B87EC7-1901-4D56-99D8-693F70DEB1D3} = {25D7389F-FD50-4453-80D0-F5CCFAF12CEC}
-		{DF7F8550-8FFD-4371-AD39-68A9DDFEC817} = {25D7389F-FD50-4453-80D0-F5CCFAF12CEC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F89D37E7-07F8-42EE-9CD7-0C3BA305A2CB}

@@ -398,18 +398,6 @@ namespace Eamon.Game.Helpers.Generic
 
 		public virtual void ListRecord(bool fullDetail, bool showDesc, bool resolveEffects, bool lookupMsg, bool numberFields, bool excludeROFields)
 		{
-			var origFullDetail = FullDetail;
-
-			var origShowDesc = ShowDesc;
-
-			var origResolveEffects = ResolveEffects;
-
-			var origLookupMsg = LookupMsg;
-
-			var origNumberFields = NumberFields;
-
-			var origExcludeROFields = ExcludeROFields;
-
 			Clear();
 
 			FullDetail = fullDetail;
@@ -425,18 +413,6 @@ namespace Eamon.Game.Helpers.Generic
 			ExcludeROFields = excludeROFields;
 
 			ListRecord(false);
-
-			FullDetail = origFullDetail;
-
-			ShowDesc = origShowDesc;
-
-			ResolveEffects = origResolveEffects;
-
-			LookupMsg = origLookupMsg;
-
-			NumberFields = origNumberFields;
-
-			ExcludeROFields = origExcludeROFields;
 		}
 
 		public virtual void ListRecord(bool callClear = true)
@@ -488,10 +464,6 @@ namespace Eamon.Game.Helpers.Generic
 		{
 			Debug.Assert(Enum.IsDefined(typeof(Enums.FieldDesc), fieldDesc));
 
-			var origEditRec = EditRec;
-
-			var origFieldDesc = FieldDesc;
-
 			Clear();
 
 			EditRec = editRec;
@@ -499,10 +471,6 @@ namespace Eamon.Game.Helpers.Generic
 			FieldDesc = fieldDesc;
 
 			InputRecord(false);
-
-			EditRec = origEditRec;
-
-			FieldDesc = origFieldDesc;
 		}
 
 		public virtual void InputRecord(bool callClear = true)
