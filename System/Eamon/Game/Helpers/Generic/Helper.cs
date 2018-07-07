@@ -167,6 +167,8 @@ namespace Eamon.Game.Helpers.Generic
 			}
 			else
 			{
+				Index = -1;
+
 				result = name;
 			}
 
@@ -229,7 +231,7 @@ namespace Eamon.Game.Helpers.Generic
 			}
 			else if (addToNamesList)
 			{
-				Names.Add(fieldName);
+				Names.Add(result);
 			}
 
 			return result;
@@ -264,6 +266,8 @@ namespace Eamon.Game.Helpers.Generic
 
 		public virtual bool ValidateRecord()
 		{
+			Clear();
+
 			var result = true;
 
 			foreach (var fieldName in FieldNames)
@@ -304,6 +308,8 @@ namespace Eamon.Game.Helpers.Generic
 
 		public virtual bool ValidateRecordInterdependencies()
 		{
+			Clear();
+
 			var result = true;
 
 			foreach (var fieldName in FieldNames)
@@ -404,6 +410,8 @@ namespace Eamon.Game.Helpers.Generic
 
 			var origExcludeROFields = ExcludeROFields;
 
+			Clear();
+
 			FullDetail = fullDetail;
 
 			ShowDesc = showDesc;
@@ -416,7 +424,7 @@ namespace Eamon.Game.Helpers.Generic
 
 			ExcludeROFields = excludeROFields;
 
-			ListRecord();
+			ListRecord(false);
 
 			FullDetail = origFullDetail;
 
@@ -431,8 +439,13 @@ namespace Eamon.Game.Helpers.Generic
 			ExcludeROFields = origExcludeROFields;
 		}
 
-		public virtual void ListRecord()
+		public virtual void ListRecord(bool callClear = true)
 		{
+			if (callClear)
+			{
+				Clear();
+			}
+
 			foreach (var fieldName in FieldNames)
 			{
 				ListField(fieldName);
@@ -479,19 +492,26 @@ namespace Eamon.Game.Helpers.Generic
 
 			var origFieldDesc = FieldDesc;
 
+			Clear();
+
 			EditRec = editRec;
 
 			FieldDesc = fieldDesc;
 
-			InputRecord();
+			InputRecord(false);
 
 			EditRec = origEditRec;
 
 			FieldDesc = origFieldDesc;
 		}
 
-		public virtual void InputRecord()
+		public virtual void InputRecord(bool callClear = true)
 		{
+			if (callClear)
+			{
+				Clear();
+			}
+
 			if (SetUidIfInvalid != null)
 			{
 				SetUidIfInvalid();

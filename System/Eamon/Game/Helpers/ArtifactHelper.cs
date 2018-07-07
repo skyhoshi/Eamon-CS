@@ -373,50 +373,50 @@ namespace Eamon.Game.Helpers
 			{
 				switch (Record.GetCategories(i).Type)
 				{
-				case Enums.ArtifactType.Weapon:
-				case Enums.ArtifactType.MagicWeapon:
+					case Enums.ArtifactType.Weapon:
+					case Enums.ArtifactType.MagicWeapon:
 
-					result = Record.GetCategories(i).Field1 >= -50 && Record.GetCategories(i).Field1 <= 50;
+						result = Record.GetCategories(i).Field1 >= -50 && Record.GetCategories(i).Field1 <= 50;
 
-					break;
+						break;
 
-				case Enums.ArtifactType.Container:
+					case Enums.ArtifactType.Container:
 
-					result = Record.GetCategories(i).Field1 >= -2;         // -2=Broken
+						result = Record.GetCategories(i).Field1 >= -2;         // -2=Broken
 
-					break;
+						break;
 
-				case Enums.ArtifactType.LightSource:
+					case Enums.ArtifactType.LightSource:
 
-					result = Record.GetCategories(i).Field1 >= -1;
+						result = Record.GetCategories(i).Field1 >= -1;
 
-					break;
+						break;
 
-				case Enums.ArtifactType.Readable:
-				case Enums.ArtifactType.BoundMonster:
-				case Enums.ArtifactType.DisguisedMonster:
+					case Enums.ArtifactType.Readable:
+					case Enums.ArtifactType.BoundMonster:
+					case Enums.ArtifactType.DisguisedMonster:
 
-					result = Record.GetCategories(i).Field1 > 0;
+						result = Record.GetCategories(i).Field1 > 0;
 
-					break;
+						break;
 
-				case Enums.ArtifactType.Wearable:
+					case Enums.ArtifactType.Wearable:
 
-					result = Globals.Engine.IsValidArtifactArmor(Record.GetCategories(i).Field1);
+						result = Globals.Engine.IsValidArtifactArmor(Record.GetCategories(i).Field1);
 
-					break;
+						break;
 
-				case Enums.ArtifactType.DeadBody:
+					case Enums.ArtifactType.DeadBody:
 
-					result = Record.GetCategories(i).Field1 >= 0 && Record.GetCategories(i).Field1 <= 1;
+						result = Record.GetCategories(i).Field1 >= 0 && Record.GetCategories(i).Field1 <= 1;
 
-					break;
+						break;
 
-				default:
+					default:
 
-					// do nothing
+						// do nothing
 
-					break;
+						break;
 				}
 			}
 			else
@@ -449,56 +449,56 @@ namespace Eamon.Game.Helpers
 			{
 				switch (Record.GetCategories(i).Type)
 				{
-				case Enums.ArtifactType.Weapon:
-				case Enums.ArtifactType.MagicWeapon:
+					case Enums.ArtifactType.Weapon:
+					case Enums.ArtifactType.MagicWeapon:
 
-					result = Enum.IsDefined(typeof(Enums.Weapon), Record.GetCategories(i).Field2);
+						result = Enum.IsDefined(typeof(Enums.Weapon), Record.GetCategories(i).Field2);
 
-					break;
+						break;
 
-				case Enums.ArtifactType.Container:
+					case Enums.ArtifactType.Container:
 
-					result = (Record.GetCategories(i).Field2 >= 0 && Record.GetCategories(i).Field2 <= 1) || Globals.Engine.IsArtifactFieldStrength(Record.GetCategories(i).Field2);
+						result = (Record.GetCategories(i).Field2 >= 0 && Record.GetCategories(i).Field2 <= 1) || Globals.Engine.IsArtifactFieldStrength(Record.GetCategories(i).Field2);
 
-					break;
+						break;
 
-				case Enums.ArtifactType.Drinkable:
-				case Enums.ArtifactType.Edible:
+					case Enums.ArtifactType.Drinkable:
+					case Enums.ArtifactType.Edible:
 
-					result = Record.GetCategories(i).Field2 >= 0;
+						result = Record.GetCategories(i).Field2 >= 0;
 
-					break;
+						break;
 
-				case Enums.ArtifactType.Readable:
-				case Enums.ArtifactType.DisguisedMonster:
+					case Enums.ArtifactType.Readable:
+					case Enums.ArtifactType.DisguisedMonster:
 
-					result = Record.GetCategories(i).Field2 > 0;
+						result = Record.GetCategories(i).Field2 > 0;
 
-					break;
+						break;
 
-				case Enums.ArtifactType.DoorGate:
+					case Enums.ArtifactType.DoorGate:
 
-					result = Record.GetCategories(i).Field2 >= -2;         // -2=Broken
+						result = Record.GetCategories(i).Field2 >= -2;         // -2=Broken
 
-					break;
+						break;
 
-				case Enums.ArtifactType.BoundMonster:
+					case Enums.ArtifactType.BoundMonster:
 
-					result = Record.GetCategories(i).Field2 >= -1;
+						result = Record.GetCategories(i).Field2 >= -1;
 
-					break;
+						break;
 
-				case Enums.ArtifactType.Wearable:
+					case Enums.ArtifactType.Wearable:
 
-					result = Enum.IsDefined(typeof(Enums.Clothing), Record.GetCategories(i).Field2);
+						result = Enum.IsDefined(typeof(Enums.Clothing), Record.GetCategories(i).Field2);
 
-					break;
+						break;
 
-				default:
+					default:
 
-					// do nothing
+						// do nothing
 
-					break;
+						break;
 				}
 			}
 			else
@@ -531,45 +531,45 @@ namespace Eamon.Game.Helpers
 			{
 				switch (Record.GetCategories(i).Type)
 				{
-				case Enums.ArtifactType.Weapon:
-				case Enums.ArtifactType.MagicWeapon:
+					case Enums.ArtifactType.Weapon:
+					case Enums.ArtifactType.MagicWeapon:
 
-					result = Record.GetCategories(i).Field3 >= 1 && Record.GetCategories(i).Field3 <= 25;
+						result = Record.GetCategories(i).Field3 >= 1 && Record.GetCategories(i).Field3 <= 25;
 
-					break;
+						break;
 
-				case Enums.ArtifactType.Container:
-				case Enums.ArtifactType.BoundMonster:
+					case Enums.ArtifactType.Container:
+					case Enums.ArtifactType.BoundMonster:
 
-					result = Record.GetCategories(i).Field3 >= 0;
+						result = Record.GetCategories(i).Field3 >= 0;
 
-					break;
+						break;
 
-				case Enums.ArtifactType.Drinkable:
-				case Enums.ArtifactType.Edible:
-				case Enums.ArtifactType.Readable:
+					case Enums.ArtifactType.Drinkable:
+					case Enums.ArtifactType.Edible:
+					case Enums.ArtifactType.Readable:
 
-					result = Record.GetCategories(i).Field3 >= 0 && Record.GetCategories(i).Field3 <= 1;
+						result = Record.GetCategories(i).Field3 >= 0 && Record.GetCategories(i).Field3 <= 1;
 
-					break;
+						break;
 
-				case Enums.ArtifactType.DoorGate:
+					case Enums.ArtifactType.DoorGate:
 
-					result = (Record.GetCategories(i).Field3 >= 0 && Record.GetCategories(i).Field3 <= 1) || Globals.Engine.IsArtifactFieldStrength(Record.GetCategories(i).Field3);
+						result = (Record.GetCategories(i).Field3 >= 0 && Record.GetCategories(i).Field3 <= 1) || Globals.Engine.IsArtifactFieldStrength(Record.GetCategories(i).Field3);
 
-					break;
+						break;
 
-				case Enums.ArtifactType.DisguisedMonster:
+					case Enums.ArtifactType.DisguisedMonster:
 
-					result = Record.GetCategories(i).Field3 > 0;
+						result = Record.GetCategories(i).Field3 > 0;
 
-					break;
+						break;
 
-				default:
+					default:
 
-					// do nothing
+						// do nothing
 
-					break;
+						break;
 				}
 			}
 			else
@@ -602,30 +602,30 @@ namespace Eamon.Game.Helpers
 			{
 				switch (Record.GetCategories(i).Type)
 				{
-				case Enums.ArtifactType.Weapon:
-				case Enums.ArtifactType.MagicWeapon:
+					case Enums.ArtifactType.Weapon:
+					case Enums.ArtifactType.MagicWeapon:
 
-					result = Record.GetCategories(i).Field4 >= 1 && Record.GetCategories(i).Field4 <= 25;
+						result = Record.GetCategories(i).Field4 >= 1 && Record.GetCategories(i).Field4 <= 25;
 
-					break;
+						break;
 
-				case Enums.ArtifactType.Container:
+					case Enums.ArtifactType.Container:
 
-					result = Record.GetCategories(i).Field4 >= 0;
+						result = Record.GetCategories(i).Field4 >= 0;
 
-					break;
+						break;
 
-				case Enums.ArtifactType.DoorGate:
+					case Enums.ArtifactType.DoorGate:
 
-					result = Record.GetCategories(i).Field4 >= 0 && Record.GetCategories(i).Field4 <= 1;
+						result = Record.GetCategories(i).Field4 >= 0 && Record.GetCategories(i).Field4 <= 1;
 
-					break;
+						break;
 
-				default:
+					default:
 
-					// do nothing
+						// do nothing
 
-					break;
+						break;
 				}
 			}
 			else
@@ -875,7 +875,7 @@ namespace Eamon.Game.Helpers
 			{
 				switch (Record.GetCategories(i).Type)
 				{
-				case Enums.ArtifactType.Container:
+					case Enums.ArtifactType.Container:
 					{
 						var artUid = Record.GetCategories(i).Field1;
 
@@ -902,7 +902,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-				case Enums.ArtifactType.Readable:
+					case Enums.ArtifactType.Readable:
 					{
 						var effectUid = Record.GetCategories(i).Field1;
 
@@ -929,7 +929,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-				case Enums.ArtifactType.DoorGate:
+					case Enums.ArtifactType.DoorGate:
 					{
 						var roomUid = Record.GetCategories(i).Field1;
 
@@ -956,7 +956,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-				case Enums.ArtifactType.BoundMonster:
+					case Enums.ArtifactType.BoundMonster:
 					{
 						var monUid = Record.GetCategories(i).Field1;
 
@@ -983,7 +983,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-				case Enums.ArtifactType.DisguisedMonster:
+					case Enums.ArtifactType.DisguisedMonster:
 					{
 						var monUid = Record.GetCategories(i).Field1;
 
@@ -1010,7 +1010,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-				default:
+					default:
 					{
 						// do nothing
 
@@ -1036,7 +1036,7 @@ namespace Eamon.Game.Helpers
 			{
 				switch (Record.GetCategories(i).Type)
 				{
-				case Enums.ArtifactType.Readable:
+					case Enums.ArtifactType.Readable:
 					{
 						var effectUid = Record.GetCategories(i).Field1;
 
@@ -1068,7 +1068,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-				case Enums.ArtifactType.DoorGate:
+					case Enums.ArtifactType.DoorGate:
 					{
 						var artUid = Record.GetCategories(i).Field2;
 
@@ -1095,7 +1095,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-				case Enums.ArtifactType.BoundMonster:
+					case Enums.ArtifactType.BoundMonster:
 					{
 						var artUid = Record.GetCategories(i).Field2;
 
@@ -1122,7 +1122,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-				case Enums.ArtifactType.DisguisedMonster:
+					case Enums.ArtifactType.DisguisedMonster:
 					{
 						var effectUid = Record.GetCategories(i).Field2;
 
@@ -1149,7 +1149,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-				default:
+					default:
 					{
 						// do nothing
 
@@ -1175,7 +1175,7 @@ namespace Eamon.Game.Helpers
 			{
 				switch (Record.GetCategories(i).Type)
 				{
-				case Enums.ArtifactType.BoundMonster:
+					case Enums.ArtifactType.BoundMonster:
 					{
 						var monUid = Record.GetCategories(i).Field3;
 
@@ -1202,7 +1202,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-				case Enums.ArtifactType.DisguisedMonster:
+					case Enums.ArtifactType.DisguisedMonster:
 					{
 						var effectUid = Record.GetCategories(i).Field2;
 
@@ -1234,7 +1234,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-				default:
+					default:
 					{
 						// do nothing
 
@@ -1388,118 +1388,118 @@ namespace Eamon.Game.Helpers
 
 			switch (Record.GetCategories(i).Type)
 			{
-			case Enums.ArtifactType.Weapon:
-			case Enums.ArtifactType.MagicWeapon:
+				case Enums.ArtifactType.Weapon:
+				case Enums.ArtifactType.MagicWeapon:
 
-				fullDesc.AppendFormat("Enter the artifact's weapon complexity (category #{0}).", i + 1);
+					fullDesc.AppendFormat("Enter the artifact's weapon complexity (category #{0}).", i + 1);
 
-				briefDesc.Append("-50-50=Valid value");
+					briefDesc.Append("-50-50=Valid value");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.Container:
+				case Enums.ArtifactType.Container:
 
-				fullDesc.AppendFormat("Enter the key uid of the artifact (category #{0}).{1}{1}This is the artifact uid of the key used to lock/unlock the container.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the key uid of the artifact (category #{0}).{1}{1}This is the artifact uid of the key used to lock/unlock the container.", i + 1, Environment.NewLine);
 
-				briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key artifact uid");
+					briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key artifact uid");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.LightSource:
+				case Enums.ArtifactType.LightSource:
 
-				fullDesc.AppendFormat("Enter the light counter of the artifact (category #{0}).{1}{1}This is the number of rounds before the light source is exhausted/goes out.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the light counter of the artifact (category #{0}).{1}{1}This is the number of rounds before the light source is exhausted/goes out.", i + 1, Environment.NewLine);
 
-				briefDesc.Append("-1=Never runs out; (GE 0)=Valid value");
+					briefDesc.Append("-1=Never runs out; (GE 0)=Valid value");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.Drinkable:
-			case Enums.ArtifactType.Edible:
+				case Enums.ArtifactType.Drinkable:
+				case Enums.ArtifactType.Edible:
 
-				fullDesc.AppendFormat("Enter the number of hits healed (or inflicted, if negative) for the artifact (category #{0}).", i + 1);
+					fullDesc.AppendFormat("Enter the number of hits healed (or inflicted, if negative) for the artifact (category #{0}).", i + 1);
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.Readable:
+				case Enums.ArtifactType.Readable:
 
-				fullDesc.AppendFormat("Enter the artifact's effect uid #1 (category #{0}).{1}{1}This is the first of one or more effects displayed when the artifact is read.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the artifact's effect uid #1 (category #{0}).{1}{1}This is the first of one or more effects displayed when the artifact is read.", i + 1, Environment.NewLine);
 
-				briefDesc.Append("(GT 0)=Effect uid");
+					briefDesc.Append("(GT 0)=Effect uid");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.DoorGate:
+				case Enums.ArtifactType.DoorGate:
 
-				fullDesc.AppendFormat("Enter the room uid beyond for the artifact (category #{0}).{1}{1}This is the room uid of the room on the opposite side of the door/gate.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the room uid beyond for the artifact (category #{0}).{1}{1}This is the room uid of the room on the opposite side of the door/gate.", i + 1, Environment.NewLine);
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.BoundMonster:
+				case Enums.ArtifactType.BoundMonster:
 
-				fullDesc.AppendFormat("Enter the monster uid of the artifact (category #{0}).{1}{1}This is the monster uid of the entity that is bound.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the monster uid of the artifact (category #{0}).{1}{1}This is the monster uid of the entity that is bound.", i + 1, Environment.NewLine);
 
-				briefDesc.Append("(GT 0)=Bound monster uid");
+					briefDesc.Append("(GT 0)=Bound monster uid");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.Wearable:
+				case Enums.ArtifactType.Wearable:
 
-				fullDesc.AppendFormat("Enter the armor class of the artifact (category #{0}).", i + 1);
+					fullDesc.AppendFormat("Enter the armor class of the artifact (category #{0}).", i + 1);
 
-				var armorValues = EnumUtil.GetValues<Enums.Armor>(a => a == Enums.Armor.ClothesShield || ((long)a) % 2 == 0);
+					var armorValues = EnumUtil.GetValues<Enums.Armor>(a => a == Enums.Armor.ClothesShield || ((long)a) % 2 == 0);
 
-				for (var j = 0; j < armorValues.Count; j++)
-				{
-					var armor = Globals.Engine.GetArmors(armorValues[j]);
+					for (var j = 0; j < armorValues.Count; j++)
+					{
+						var armor = Globals.Engine.GetArmors(armorValues[j]);
 
-					Debug.Assert(armor != null);
+						Debug.Assert(armor != null);
 
-					briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)armorValues[j], armor.Name);
-				}
+						briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)armorValues[j], armor.Name);
+					}
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.DisguisedMonster:
+				case Enums.ArtifactType.DisguisedMonster:
 
-				fullDesc.AppendFormat("Enter the monster uid of the artifact (category #{0}).{1}{1}This is the monster uid of the entity that is disguised.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the monster uid of the artifact (category #{0}).{1}{1}This is the monster uid of the entity that is disguised.", i + 1, Environment.NewLine);
 
-				briefDesc.Append("(GT 0)=Disguised monster uid");
+					briefDesc.Append("(GT 0)=Disguised monster uid");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.DeadBody:
+				case Enums.ArtifactType.DeadBody:
 
-				fullDesc.AppendFormat("Enter the takeable status of the artifact (category #{0}).{1}{1}Typically, dead bodies should not be takeable unless it serves some useful purpose.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the takeable status of the artifact (category #{0}).{1}{1}Typically, dead bodies should not be takeable unless it serves some useful purpose.", i + 1, Environment.NewLine);
 
-				briefDesc.Append("0=Not takeable; 1=Takeable");
+					briefDesc.Append("0=Not takeable; 1=Takeable");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			default:
+				default:
 
-				// do nothing
+					// do nothing
 
-				break;
+					break;
 			}
 		}
 
@@ -1513,107 +1513,107 @@ namespace Eamon.Game.Helpers
 
 			switch (Record.GetCategories(i).Type)
 			{
-			case Enums.ArtifactType.Weapon:
-			case Enums.ArtifactType.MagicWeapon:
+				case Enums.ArtifactType.Weapon:
+				case Enums.ArtifactType.MagicWeapon:
 
-				fullDesc.AppendFormat("Enter the artifact's weapon type (category #{0}).", i + 1);
+					fullDesc.AppendFormat("Enter the artifact's weapon type (category #{0}).", i + 1);
 
-				var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+					var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
 
-				for (var j = 0; j < weaponValues.Count; j++)
-				{
-					var weapon = Globals.Engine.GetWeapons(weaponValues[j]);
+					for (var j = 0; j < weaponValues.Count; j++)
+					{
+						var weapon = Globals.Engine.GetWeapons(weaponValues[j]);
 
-					Debug.Assert(weapon != null);
+						Debug.Assert(weapon != null);
 
-					briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)weaponValues[j], weapon.Name);
-				}
+						briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)weaponValues[j], weapon.Name);
+					}
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.Container:
+				case Enums.ArtifactType.Container:
 
-				fullDesc.AppendFormat("Enter the open/closed status of the artifact (category #{0}).{1}{1}Additionally, you can specify that the container must be forced open.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the open/closed status of the artifact (category #{0}).{1}{1}Additionally, you can specify that the container must be forced open.", i + 1, Environment.NewLine);
 
-				briefDesc.Append("0=Closed; 1=Open; (1000 + N)=Forced open with N hits damage");
+					briefDesc.Append("0=Closed; 1=Open; (1000 + N)=Forced open with N hits damage");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.Drinkable:
-			case Enums.ArtifactType.Edible:
+				case Enums.ArtifactType.Drinkable:
+				case Enums.ArtifactType.Edible:
 
-				fullDesc.AppendFormat("Enter the number of times the artifact can be used (category #{0}).", i + 1);
+					fullDesc.AppendFormat("Enter the number of times the artifact can be used (category #{0}).", i + 1);
 
-				briefDesc.Append("(GTE 0)=Valid value");
+					briefDesc.Append("(GTE 0)=Valid value");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.Readable:
+				case Enums.ArtifactType.Readable:
 
-				fullDesc.AppendFormat("Enter the number of sequential effects used by the artifact (category #{0}).", i + 1);
+					fullDesc.AppendFormat("Enter the number of sequential effects used by the artifact (category #{0}).", i + 1);
 
-				briefDesc.Append("(GT 0)=Valid value");
+					briefDesc.Append("(GT 0)=Valid value");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.DoorGate:
+				case Enums.ArtifactType.DoorGate:
 
-				fullDesc.AppendFormat("Enter the key uid of the artifact (category #{0}).{1}{1}This is the artifact uid of the key used to lock/unlock the door/gate.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the key uid of the artifact (category #{0}).{1}{1}This is the artifact uid of the key used to lock/unlock the door/gate.", i + 1, Environment.NewLine);
 
-				briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key artifact uid");
+					briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key artifact uid");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.BoundMonster:
+				case Enums.ArtifactType.BoundMonster:
 
-				fullDesc.AppendFormat("Enter the key uid of the artifact (category #{0}).{1}{1}This is the artifact uid of the key used to lock/unlock the bound monster.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the key uid of the artifact (category #{0}).{1}{1}This is the artifact uid of the key used to lock/unlock the bound monster.", i + 1, Environment.NewLine);
 
-				briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key artifact uid");
+					briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key artifact uid");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.Wearable:
+				case Enums.ArtifactType.Wearable:
 
-				fullDesc.AppendFormat("Enter the clothing type of the artifact (category #{0}).", i + 1);
+					fullDesc.AppendFormat("Enter the clothing type of the artifact (category #{0}).", i + 1);
 
-				var clothingValues = EnumUtil.GetValues<Enums.Clothing>();
+					var clothingValues = EnumUtil.GetValues<Enums.Clothing>();
 
-				for (var j = 0; j < clothingValues.Count; j++)
-				{
-					briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)clothingValues[j], Globals.Engine.GetClothingNames(clothingValues[j]));
-				}
+					for (var j = 0; j < clothingValues.Count; j++)
+					{
+						briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)clothingValues[j], Globals.Engine.GetClothingNames(clothingValues[j]));
+					}
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.DisguisedMonster:
+				case Enums.ArtifactType.DisguisedMonster:
 
-				fullDesc.AppendFormat("Enter the artifact's effect uid #1 (category #{0}).{1}{1}This is the first of one or more effects displayed when the disguised monster is revealed.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the artifact's effect uid #1 (category #{0}).{1}{1}This is the first of one or more effects displayed when the disguised monster is revealed.", i + 1, Environment.NewLine);
 
-				briefDesc.Append("(GT 0)=Effect uid");
+					briefDesc.Append("(GT 0)=Effect uid");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			default:
+				default:
 
-				// do nothing
+					// do nothing
 
-				break;
+					break;
 			}
 		}
 
@@ -1627,74 +1627,74 @@ namespace Eamon.Game.Helpers
 
 			switch (Record.GetCategories(i).Type)
 			{
-			case Enums.ArtifactType.Weapon:
-			case Enums.ArtifactType.MagicWeapon:
+				case Enums.ArtifactType.Weapon:
+				case Enums.ArtifactType.MagicWeapon:
 
-				fullDesc.AppendFormat("Enter the artifact's weapon hit dice (category #{0}).", i + 1);
+					fullDesc.AppendFormat("Enter the artifact's weapon hit dice (category #{0}).", i + 1);
 
-				briefDesc.Append("1-25=Valid value");
+					briefDesc.Append("1-25=Valid value");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.Container:
+				case Enums.ArtifactType.Container:
 
-				fullDesc.AppendFormat("Enter the maximum combined weight allowed inside the artifact (category #{0}).{1}{1}This is the total weight of items immediately inside the container (not including their contents).", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the maximum combined weight allowed inside the artifact (category #{0}).{1}{1}This is the total weight of items immediately inside the container (not including their contents).", i + 1, Environment.NewLine);
 
-				briefDesc.Append("(GE 0)=Valid value");
+					briefDesc.Append("(GE 0)=Valid value");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.Drinkable:
-			case Enums.ArtifactType.Edible:
-			case Enums.ArtifactType.Readable:
+				case Enums.ArtifactType.Drinkable:
+				case Enums.ArtifactType.Edible:
+				case Enums.ArtifactType.Readable:
 
-				fullDesc.AppendFormat("Enter the open/closed status of the artifact (category #{0}).", i + 1);
+					fullDesc.AppendFormat("Enter the open/closed status of the artifact (category #{0}).", i + 1);
 
-				briefDesc.Append("0=Closed; 1=Open");
+					briefDesc.Append("0=Closed; 1=Open");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.DoorGate:
+				case Enums.ArtifactType.DoorGate:
 
-				fullDesc.AppendFormat("Enter the open/closed status of the artifact (category #{0}).{1}{1}Additionally, you can specify that the door/gate must be forced open.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the open/closed status of the artifact (category #{0}).{1}{1}Additionally, you can specify that the door/gate must be forced open.", i + 1, Environment.NewLine);
 
-				briefDesc.Append("0=Open; 1=Closed; (1000 + N)=Forced open with N hits damage");
+					briefDesc.Append("0=Open; 1=Closed; (1000 + N)=Forced open with N hits damage");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.BoundMonster:
+				case Enums.ArtifactType.BoundMonster:
 
-				fullDesc.AppendFormat("Enter the guard uid of the artifact (category #{0}).{1}{1}This is the monster uid of the entity that is guarding the bound monster.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the guard uid of the artifact (category #{0}).{1}{1}This is the monster uid of the entity that is guarding the bound monster.", i + 1, Environment.NewLine);
 
-				briefDesc.Append("0=No guard; (GT 0)=Guard monster uid");
+					briefDesc.Append("0=No guard; (GT 0)=Guard monster uid");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.DisguisedMonster:
+				case Enums.ArtifactType.DisguisedMonster:
 
-				fullDesc.AppendFormat("Enter the number of sequential effects used by the artifact (category #{0}).", i + 1);
+					fullDesc.AppendFormat("Enter the number of sequential effects used by the artifact (category #{0}).", i + 1);
 
-				briefDesc.Append("(GT 0)=Valid value");
+					briefDesc.Append("(GT 0)=Valid value");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			default:
+				default:
 
-				// do nothing
+					// do nothing
 
-				break;
+					break;
 			}
 		}
 
@@ -1708,42 +1708,42 @@ namespace Eamon.Game.Helpers
 
 			switch (Record.GetCategories(i).Type)
 			{
-			case Enums.ArtifactType.Weapon:
-			case Enums.ArtifactType.MagicWeapon:
+				case Enums.ArtifactType.Weapon:
+				case Enums.ArtifactType.MagicWeapon:
 
-				fullDesc.AppendFormat("Enter the artifact's weapon hit dice sides (category #{0}).", i + 1);
+					fullDesc.AppendFormat("Enter the artifact's weapon hit dice sides (category #{0}).", i + 1);
 
-				briefDesc.Append("1-25=Valid value");
+					briefDesc.Append("1-25=Valid value");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.Container:
+				case Enums.ArtifactType.Container:
 
-				fullDesc.AppendFormat("Enter the maximum number of items allowed inside the artifact (category #{0}).{1}{1}Additionally, you can specify that the player can't put anything in the container.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the maximum number of items allowed inside the artifact (category #{0}).{1}{1}Additionally, you can specify that the player can't put anything in the container.", i + 1, Environment.NewLine);
 
-				briefDesc.Append("0=Player can't put anything inside; (GT 0)=Valid value");
+					briefDesc.Append("0=Player can't put anything inside; (GT 0)=Valid value");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			case Enums.ArtifactType.DoorGate:
+				case Enums.ArtifactType.DoorGate:
 
-				fullDesc.AppendFormat("Enter the normal/hidden status of the artifact (category #{0}).", i + 1);
+					fullDesc.AppendFormat("Enter the normal/hidden status of the artifact (category #{0}).", i + 1);
 
-				briefDesc.Append("0=Normal; 1=Hidden");
+					briefDesc.Append("0=Normal; 1=Hidden");
 
-				Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
-				break;
+					break;
 
-			default:
+				default:
 
-				// do nothing
+					// do nothing
 
-				break;
+					break;
 			}
 		}
 
@@ -2936,75 +2936,75 @@ namespace Eamon.Game.Helpers
 
 			switch (Record.GetCategories(i).Type)
 			{
-			case Enums.ArtifactType.Weapon:
-			case Enums.ArtifactType.MagicWeapon:
+				case Enums.ArtifactType.Weapon:
+				case Enums.ArtifactType.MagicWeapon:
 
-				var stringVal = string.Format("{0}%", Record.GetCategories(i).Field1);
+					var stringVal = string.Format("{0}%", Record.GetCategories(i).Field1);
 
-				Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, 0, stringVal, null));
+					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, 0, stringVal, null));
 
-				break;
+					break;
 
-			case Enums.ArtifactType.Container:
+				case Enums.ArtifactType.Container:
 
-				if (Record.GetCategories(i).Field1 > 0)
-				{
-					var artifact = Globals.ADB[Record.GetCategories(i).Field1];
+					if (Record.GetCategories(i).Field1 > 0)
+					{
+						var artifact = Globals.ADB[Record.GetCategories(i).Field1];
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, artifact != null ? Globals.Engine.Capitalize(artifact.Name) : Globals.Engine.UnknownName));
-				}
-				else
-				{
+						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, artifact != null ? Globals.Engine.Capitalize(artifact.Name) : Globals.Engine.UnknownName));
+					}
+					else
+					{
+						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, null));
+					}
+
+					break;
+
+				case Enums.ArtifactType.BoundMonster:
+				case Enums.ArtifactType.DisguisedMonster:
+
+					var monster = Globals.MDB[Record.GetCategories(i).Field1];
+
+					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, monster != null ? Globals.Engine.Capitalize(monster.Name) : Globals.Engine.UnknownName));
+
+					break;
+
+				case Enums.ArtifactType.DoorGate:
+
+					if (Record.GetCategories(i).Field1 > 0)
+					{
+						var room = Globals.RDB[Record.GetCategories(i).Field1];
+
+						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, room != null ? Globals.Engine.Capitalize(room.Name) : Globals.Engine.UnknownName));
+					}
+					else
+					{
+						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, null));
+					}
+
+					break;
+
+				case Enums.ArtifactType.Wearable:
+
+					var armor = Globals.Engine.GetArmors((Enums.Armor)Record.GetCategories(i).Field1);
+
+					Debug.Assert(armor != null);
+
+					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, armor.Name));
+
+					break;
+
+				case Enums.ArtifactType.DeadBody:
+
+					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, Record.GetCategories(i).Field1 == 1 ? "Takeable" : "Not Takeable"));
+
+					break;
+
+				default:
+
 					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, null));
-				}
 
-				break;
-
-			case Enums.ArtifactType.BoundMonster:
-			case Enums.ArtifactType.DisguisedMonster:
-
-				var monster = Globals.MDB[Record.GetCategories(i).Field1];
-
-				Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, monster != null ? Globals.Engine.Capitalize(monster.Name) : Globals.Engine.UnknownName));
-
-				break;
-
-			case Enums.ArtifactType.DoorGate:
-
-				if (Record.GetCategories(i).Field1 > 0)
-				{
-					var room = Globals.RDB[Record.GetCategories(i).Field1];
-
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, room != null ? Globals.Engine.Capitalize(room.Name) : Globals.Engine.UnknownName));
-				}
-				else
-				{
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, null));
-				}
-
-				break;
-
-			case Enums.ArtifactType.Wearable:
-
-				var armor = Globals.Engine.GetArmors((Enums.Armor)Record.GetCategories(i).Field1);
-
-				Debug.Assert(armor != null);
-
-				Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, armor.Name));
-
-				break;
-
-			case Enums.ArtifactType.DeadBody:
-
-				Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, Record.GetCategories(i).Field1 == 1 ? "Takeable" : "Not Takeable"));
-
-				break;
-
-			default:
-
-				Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, null));
-
-				break;
+					break;
 			}
 
 			return Buf01.ToString();
@@ -3016,57 +3016,57 @@ namespace Eamon.Game.Helpers
 
 			switch (Record.GetCategories(i).Type)
 			{
-			case Enums.ArtifactType.Weapon:
-			case Enums.ArtifactType.MagicWeapon:
+				case Enums.ArtifactType.Weapon:
+				case Enums.ArtifactType.MagicWeapon:
 
-				var weapon = Globals.Engine.GetWeapons((Enums.Weapon)Record.GetCategories(i).Field2);
+					var weapon = Globals.Engine.GetWeapons((Enums.Weapon)Record.GetCategories(i).Field2);
 
-				Debug.Assert(weapon != null);
+					Debug.Assert(weapon != null);
 
-				Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, weapon.Name));
+					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, weapon.Name));
 
-				break;
+					break;
 
-			case Enums.ArtifactType.Container:
+				case Enums.ArtifactType.Container:
 
-				var lookupMsg = string.Empty;
+					var lookupMsg = string.Empty;
 
-				if (Record.IsFieldStrength(Record.GetCategories(i).Field2))
-				{
-					lookupMsg = string.Format("Strength of {0}", Record.GetFieldStrength(Record.GetCategories(i).Field2));
-				}
+					if (Record.IsFieldStrength(Record.GetCategories(i).Field2))
+					{
+						lookupMsg = string.Format("Strength of {0}", Record.GetFieldStrength(Record.GetCategories(i).Field2));
+					}
 
-				Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, Record.IsFieldStrength(Record.GetCategories(i).Field2) ? lookupMsg : Record.GetCategories(i).Field2 == 1 ? "Open" : "Closed"));
+					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, Record.IsFieldStrength(Record.GetCategories(i).Field2) ? lookupMsg : Record.GetCategories(i).Field2 == 1 ? "Open" : "Closed"));
 
-				break;
+					break;
 
-			case Enums.ArtifactType.BoundMonster:
-			case Enums.ArtifactType.DoorGate:
+				case Enums.ArtifactType.BoundMonster:
+				case Enums.ArtifactType.DoorGate:
 
-				if (Record.GetCategories(i).Field2 > 0)
-				{
-					var artifact = Globals.ADB[Record.GetCategories(i).Field2];
+					if (Record.GetCategories(i).Field2 > 0)
+					{
+						var artifact = Globals.ADB[Record.GetCategories(i).Field2];
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, artifact != null ? Globals.Engine.Capitalize(artifact.Name) : Globals.Engine.UnknownName));
-				}
-				else
-				{
+						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, artifact != null ? Globals.Engine.Capitalize(artifact.Name) : Globals.Engine.UnknownName));
+					}
+					else
+					{
+						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, null));
+					}
+
+					break;
+
+				case Enums.ArtifactType.Wearable:
+
+					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, Globals.Engine.GetClothingNames((Enums.Clothing)Record.GetCategories(i).Field2)));
+
+					break;
+
+				default:
+
 					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, null));
-				}
 
-				break;
-
-			case Enums.ArtifactType.Wearable:
-
-				Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, Globals.Engine.GetClothingNames((Enums.Clothing)Record.GetCategories(i).Field2)));
-
-				break;
-
-			default:
-
-				Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, null));
-
-				break;
+					break;
 			}
 
 			return Buf01.ToString();
@@ -3078,47 +3078,47 @@ namespace Eamon.Game.Helpers
 
 			switch (Record.GetCategories(i).Type)
 			{
-			case Enums.ArtifactType.Drinkable:
-			case Enums.ArtifactType.Readable:
-			case Enums.ArtifactType.Edible:
+				case Enums.ArtifactType.Drinkable:
+				case Enums.ArtifactType.Readable:
+				case Enums.ArtifactType.Edible:
 
-				Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, Record.GetCategories(i).IsOpen() ? "Open" : "Closed"));
+					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, Record.GetCategories(i).IsOpen() ? "Open" : "Closed"));
 
-				break;
+					break;
 
-			case Enums.ArtifactType.BoundMonster:
+				case Enums.ArtifactType.BoundMonster:
 
-				if (Record.GetCategories(i).Field3 > 0)
-				{
-					var monster = Globals.MDB[Record.GetCategories(i).Field3];
+					if (Record.GetCategories(i).Field3 > 0)
+					{
+						var monster = Globals.MDB[Record.GetCategories(i).Field3];
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, monster != null ? Globals.Engine.Capitalize(monster.Name) : Globals.Engine.UnknownName));
-				}
-				else
-				{
+						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, monster != null ? Globals.Engine.Capitalize(monster.Name) : Globals.Engine.UnknownName));
+					}
+					else
+					{
+						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, null));
+					}
+
+					break;
+
+				case Enums.ArtifactType.DoorGate:
+
+					var lookupMsg = string.Empty;
+
+					if (Record.IsFieldStrength(Record.GetCategories(i).Field3))
+					{
+						lookupMsg = string.Format("Strength of {0}", Record.GetFieldStrength(Record.GetCategories(i).Field3));
+					}
+
+					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, Record.IsFieldStrength(Record.GetCategories(i).Field3) ? lookupMsg : Record.GetCategories(i).IsOpen() ? "Open" : "Closed"));
+
+					break;
+
+				default:
+
 					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, null));
-				}
 
-				break;
-
-			case Enums.ArtifactType.DoorGate:
-
-				var lookupMsg = string.Empty;
-
-				if (Record.IsFieldStrength(Record.GetCategories(i).Field3))
-				{
-					lookupMsg = string.Format("Strength of {0}", Record.GetFieldStrength(Record.GetCategories(i).Field3));
-				}
-
-				Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, Record.IsFieldStrength(Record.GetCategories(i).Field3) ? lookupMsg : Record.GetCategories(i).IsOpen() ? "Open" : "Closed"));
-
-				break;
-
-			default:
-
-				Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, null));
-
-				break;
+					break;
 			}
 
 			return Buf01.ToString();
@@ -3130,17 +3130,17 @@ namespace Eamon.Game.Helpers
 
 			switch (Record.GetCategories(i).Type)
 			{
-			case Enums.ArtifactType.DoorGate:
+				case Enums.ArtifactType.DoorGate:
 
-				Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field4, null, Record.GetCategories(i).Field4 == 1 ? "Hidden" : "Normal"));
+					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field4, null, Record.GetCategories(i).Field4 == 1 ? "Hidden" : "Normal"));
 
-				break;
+					break;
 
-			default:
+				default:
 
-				Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field4, null, null));
+					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field4, null, null));
 
-				break;
+					break;
 			}
 
 			return Buf01.ToString();

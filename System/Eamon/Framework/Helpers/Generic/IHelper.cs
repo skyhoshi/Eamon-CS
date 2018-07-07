@@ -90,7 +90,7 @@ namespace Eamon.Framework.Helpers.Generic
 
 		void ListRecord(bool fullDetail, bool showDesc, bool resolveEffects, bool lookupMsg, bool numberFields, bool excludeROFields);
 
-		void ListRecord();
+		void ListRecord(bool callClear = true);
 
 		void ListField(string fieldName);
 
@@ -98,7 +98,7 @@ namespace Eamon.Framework.Helpers.Generic
 
 		void InputRecord(bool editRec, Enums.FieldDesc fieldDesc);
 
-		void InputRecord();
+		void InputRecord(bool callClear = true);
 
 		void InputField(string fieldName);
 
