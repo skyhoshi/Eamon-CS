@@ -415,6 +415,11 @@ namespace Eamon.Game
 			return CanMoveToRoomUid(room.Uid, fleeing);
 		}
 
+		public virtual bool CanAttackWithMultipleWeapons()
+		{
+			return false;
+		}
+
 		public virtual long GetCarryingWeaponUid()
 		{
 			return IsCarryingWeapon() ? Weapon : 0;

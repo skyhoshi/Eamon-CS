@@ -414,9 +414,6 @@
     <AndroidAsset Include="Assets\Documentation\LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\Documentation\README.htm" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidAsset Include="Assets\Documentation\AUTHORS.txt" />
   </ItemGroup>
   <ItemGroup>

@@ -90,6 +90,8 @@ namespace Eamon.Framework
 
 		bool CanMoveToRoom(IRoom room, bool fleeing);
 
+		bool CanAttackWithMultipleWeapons();
+
 		long GetCarryingWeaponUid();
 
 		long GetDeadBodyUid();

@@ -5,6 +5,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Linq;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.States;
@@ -108,6 +109,8 @@ namespace EamonRT.Game.Combat
 
 		public virtual RTEnums.AttackResult FixedResult { get; set; }
 
+		public virtual RTEnums.WeaponRevealType WeaponRevealType { get; set; }
+
 		protected virtual void SetAttackDesc()
 		{
 			AttackDesc = "attack{0}";
@@ -135,7 +138,16 @@ namespace EamonRT.Game.Combat
 					DfMonster.EvalInRoomLightLevel("an unseen defender",
 					DfMonster.InitGroupCount > 1 ? DfMonster.GetDecoratedName02(false, true, false, true, Globals.Buf) : DfMonster.GetDecoratedName03(false, true, false, true, Globals.Buf));
 
-			Globals.Out.Write("{0}{1} {2} {3}.", Environment.NewLine, OfMonsterName, AttackDesc01, DfMonsterName);
+			Globals.Out.Write("{0}{1} {2} {3}{4}.",
+				Environment.NewLine,
+				OfMonsterName,
+				AttackDesc01,
+				DfMonsterName,
+					OfWeapon != null &&
+					(WeaponRevealType == RTEnums.WeaponRevealType.Always ||
+					(WeaponRevealType == RTEnums.WeaponRevealType.OnlyIfSeen && OfWeapon.Seen)) ?
+						" with " + OfWeapon.GetDecoratedName02(false, true, false, false, Globals.Buf) :
+						"");
 		}
 
 		protected virtual void PrintMiss()
@@ -162,7 +174,14 @@ namespace EamonRT.Game.Combat
 				OfMonster.IsCharacterMonster() ? "You" :
 				OfMonster.EvalInRoomLightLevel("The offender", OfMonster.GetDecoratedName03(true, true, false, true, Globals.Buf)),
 				OfMonster.IsCharacterMonster() ? "drop" : "drops",
-				OfMonster.IsCharacterMonster() || OfMonster.IsInRoomLit() ? OfWeapon.GetDecoratedName02(false, true, false, false, Globals.Buf01) : "a weapon");
+				OfMonster.IsCharacterMonster() || OfMonster.IsInRoomLit() ?
+					(
+						(WeaponRevealType == RTEnums.WeaponRevealType.Never || 
+						(WeaponRevealType == RTEnums.WeaponRevealType.OnlyIfSeen && !OfWeapon.Seen)) ? 
+							OfWeapon.GetDecoratedName02(false, true, false, false, Globals.Buf01) :
+							OfWeapon.GetDecoratedName03(false, true, false, false, Globals.Buf01)
+					) : 
+					"a weapon");
 		}
 
 		protected virtual void PrintWeaponHitsUser()
@@ -174,7 +193,14 @@ namespace EamonRT.Game.Combat
 		{
 			Globals.Out.Write("{0}  Sparks fly from {1}!",
 				Environment.NewLine,
-				OfMonster.IsCharacterMonster() || OfMonster.IsInRoomLit() ? OfWeapon.GetDecoratedName02(false, true, false, false, Globals.Buf) : "a weapon");
+				OfMonster.IsCharacterMonster() || OfMonster.IsInRoomLit() ? 
+					(
+						(WeaponRevealType == RTEnums.WeaponRevealType.Never ||
+						(WeaponRevealType == RTEnums.WeaponRevealType.OnlyIfSeen && !OfWeapon.Seen)) ?
+							OfWeapon.GetDecoratedName02(false, true, false, false, Globals.Buf) :
+							OfWeapon.GetDecoratedName03(false, true, false, false, Globals.Buf)
+					) : 
+					"a weapon");
 		}
 
 		protected virtual void PrintWeaponDamaged()
@@ -291,7 +317,24 @@ namespace EamonRT.Game.Combat
 
 			OfWeaponUid = OfMonster.Weapon;
 
-			if (OfWeaponUid > 0 && OfMonster.GroupCount > 1 && MemberNumber > 1)
+			if (OfWeaponUid > 0 && OfMonster.OrigGroupCount == 1 && AttackNumber > 1 && OfMonster.CanAttackWithMultipleWeapons())
+			{
+				var weaponList = OfMonster.GetCarriedList().Where(x => x.IsReadyableByMonster(OfMonster)).ToList();
+
+				var weaponCount = weaponList.Count;
+
+				if ((AttackNumber - 1) % weaponCount != 0)
+				{
+					OfWeapon = Globals.Engine.GetNthArtifact(weaponList, (AttackNumber - 1) % weaponCount, x => x.Uid != OfWeaponUid);
+
+					OfWeaponUid = OfWeapon.Uid;
+				}
+				else
+				{
+					OfWeapon = Globals.ADB[OfWeaponUid];
+				}
+			}
+			else if (OfWeaponUid > 0 && OfMonster.GroupCount > 1 && MemberNumber > 1)
 			{
 				OfWeapon = Globals.Engine.GetNthArtifact(OfMonster.GetCarriedList(), MemberNumber - 1, x => x.IsReadyableByMonster(OfMonster) && x.Uid != OfWeaponUid);
 

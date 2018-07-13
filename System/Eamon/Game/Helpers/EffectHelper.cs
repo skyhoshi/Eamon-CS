@@ -212,7 +212,18 @@ namespace Eamon.Game.Helpers
 
 		#region Interface IHelper
 
-		// do nothing
+		public override void ListErrorField()
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));
+
+			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
+
+			Globals.Out.WriteLine("{0}{1}{0}{0}{2}{3}",
+				Environment.NewLine,
+				Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null),
+				Record.Desc,
+				string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) ? "" : Environment.NewLine);
+		}
 
 		#endregion
 
