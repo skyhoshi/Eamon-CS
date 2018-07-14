@@ -1939,7 +1939,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class MonsterHelper
 
-		protected virtual void SetMonsterUidIfInvalid()
+		protected override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -2030,8 +2030,6 @@ namespace Eamon.Game.Helpers
 				"Field1",
 				"Field2",
 			};
-
-			SetUidIfInvalid = SetMonsterUidIfInvalid;
 		}
 
 		#endregion

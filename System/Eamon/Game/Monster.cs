@@ -473,6 +473,11 @@ namespace Eamon.Game
 			return room != null && room.IsLit();
 		}
 
+		public virtual bool ShouldShowContentsWhenExamined()
+		{
+			return false;
+		}
+
 		public virtual T EvalFriendliness<T>(T enemyValue, T neutralValue, T friendValue)
 		{
 			return Globals.Engine.EvalFriendliness(Friendliness, enemyValue, neutralValue, friendValue);

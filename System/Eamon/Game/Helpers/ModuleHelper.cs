@@ -801,7 +801,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class ModuleHelper
 
-		protected virtual void SetModuleUidIfInvalid()
+		protected override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -866,8 +866,6 @@ namespace Eamon.Game.Helpers
 				"NumMonsters",
 				"NumHints",
 			};
-
-			SetUidIfInvalid = SetModuleUidIfInvalid;
 		}
 
 		#endregion

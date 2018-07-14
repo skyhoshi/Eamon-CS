@@ -2288,7 +2288,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class CharacterHelper
 
-		protected virtual void SetCharacterUidIfInvalid()
+		protected override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -2336,8 +2336,6 @@ namespace Eamon.Game.Helpers
 				"ArmorClass",
 				"Weapons",
 			};
-
-			SetUidIfInvalid = SetCharacterUidIfInvalid;
 		}
 
 		#endregion

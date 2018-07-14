@@ -32,8 +32,6 @@ namespace Eamon.Game.Helpers.Generic
 
 		protected virtual IList<string> Names { get; set; }
 
-		protected virtual Action SetUidIfInvalid { get; set; }
-
 		#endregion
 
 		#region Public Properties
@@ -139,6 +137,15 @@ namespace Eamon.Game.Helpers.Generic
 			}
 
 			return result;
+		}
+
+		#endregion
+
+		#region Class Helper
+
+		protected virtual void SetUidIfInvalid()
+		{
+
 		}
 
 		#endregion
@@ -480,10 +487,7 @@ namespace Eamon.Game.Helpers.Generic
 				Clear();
 			}
 
-			if (SetUidIfInvalid != null)
-			{
-				SetUidIfInvalid();
-			}
+			SetUidIfInvalid();
 
 			foreach (var fieldName in FieldNames)
 			{

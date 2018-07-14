@@ -2926,9 +2926,9 @@ namespace Eamon.Game
 					x.Field1Name = "Monster Uid";
 					x.Field1EmptyVal = "1";
 					x.Field2Name = "Effect #1";
-					x.Field2EmptyVal = "0";
+					x.Field2EmptyVal = "1";
 					x.Field3Name = "Number Of Effects";
-					x.Field3EmptyVal = "0";
+					x.Field3EmptyVal = "1";
 					x.Field4Name = "Field4";
 					x.Field4EmptyVal = "0";
 				}),

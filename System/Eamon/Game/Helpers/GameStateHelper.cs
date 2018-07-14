@@ -384,7 +384,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class GameStateHelper
 
-		protected virtual void SetGameStateUidIfInvalid()
+		protected override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -440,8 +440,6 @@ namespace Eamon.Game.Helpers
 				"Sa",
 				"HeldWpnUids",
 			};
-
-			SetUidIfInvalid = SetGameStateUidIfInvalid;
 		}
 
 		#endregion

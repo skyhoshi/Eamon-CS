@@ -887,7 +887,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class FilesetHelper
 
-		protected virtual void SetFilesetUidIfInvalid()
+		protected override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -935,8 +935,6 @@ namespace Eamon.Game.Helpers
 				"HintFileName",
 				"GameStateFileName",
 			};
-
-			SetUidIfInvalid = SetFilesetUidIfInvalid;
 		}
 
 		#endregion

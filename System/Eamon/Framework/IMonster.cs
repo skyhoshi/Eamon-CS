@@ -108,6 +108,8 @@ namespace Eamon.Framework
 
 		bool IsInRoomLit();
 
+		bool ShouldShowContentsWhenExamined();
+
 		T EvalFriendliness<T>(T enemyValue, T neutralValue, T friendValue);
 
 		T EvalGender<T>(T maleValue, T femaleValue, T neutralValue);

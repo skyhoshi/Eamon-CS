@@ -240,6 +240,8 @@ namespace Eamon.Framework
 
 		bool IsUser3();
 
+		bool ShouldShowContentsWhenExamined();
+
 		string GetProvidingLightDesc();
 
 		string GetReadyWeaponDesc();

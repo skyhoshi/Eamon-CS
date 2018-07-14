@@ -31,7 +31,7 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact != null)
 			{
-				var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.DoorGate, Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible };
+				var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.DoorGate, Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible, Enums.ArtifactType.Container };
 
 				var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
 
@@ -86,6 +86,17 @@ namespace EamonRT.Game.Commands
 						ac.Type == Enums.ArtifactType.Drinkable ? " swallow" : " bite",
 						ac.Field2 != 1 ? "s" : "");
 				}
+
+				if (ac.Type == Enums.ArtifactType.Container && ac.IsOpen() && DobjArtifact.ShouldShowContentsWhenExamined())
+				{
+					var command = Globals.CreateInstance<IInventoryCommand>();
+
+					CopyCommandData(command);
+
+					NextState = command;
+
+					goto Cleanup;
+				}
 			}
 			else
 			{
@@ -98,6 +109,17 @@ namespace EamonRT.Game.Commands
 				Globals.Out.Write("{0}", Globals.Buf);
 
 				DobjMonster.Seen = true;
+
+				if (DobjMonster.Friendliness == Enums.Friendliness.Friend && DobjMonster.ShouldShowContentsWhenExamined())
+				{
+					var command = Globals.CreateInstance<IInventoryCommand>();
+
+					CopyCommandData(command);
+
+					NextState = command;
+
+					goto Cleanup;
+				}
 
 				var isUninjuredGroup = DobjMonster.GroupCount > 1 && DobjMonster.DmgTaken == 0;
 

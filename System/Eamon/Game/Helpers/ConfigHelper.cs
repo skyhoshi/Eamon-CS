@@ -320,7 +320,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class ConfigHelper
 
-		protected virtual void SetConfigUidIfInvalid()
+		protected override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -389,8 +389,6 @@ namespace Eamon.Game.Helpers
 				"DdEditingMonsters",
 				"DdEditingHints",
 			};
-
-			SetUidIfInvalid = SetConfigUidIfInvalid;
 		}
 
 		#endregion

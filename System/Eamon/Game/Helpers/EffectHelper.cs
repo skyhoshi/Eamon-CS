@@ -190,7 +190,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class EffectHelper
 
-		protected virtual void SetEffectUidIfInvalid()
+		protected override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -237,8 +237,6 @@ namespace Eamon.Game.Helpers
 				"IsUidRecycled",
 				"Desc"
 			};
-
-			SetUidIfInvalid = SetEffectUidIfInvalid;
 		}
 
 		#endregion

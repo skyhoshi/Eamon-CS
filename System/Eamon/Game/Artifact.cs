@@ -796,6 +796,11 @@ namespace Eamon.Game
 			return GetArtifactCategory(Enums.ArtifactType.User3) != null;
 		}
 
+		public virtual bool ShouldShowContentsWhenExamined()
+		{
+			return false;
+		}
+
 		public virtual string GetProvidingLightDesc()
 		{
 			return "(providing light)";

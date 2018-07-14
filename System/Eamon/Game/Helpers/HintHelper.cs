@@ -556,7 +556,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class HintHelper
 
-		protected virtual void SetHintUidIfInvalid()
+		protected override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -639,8 +639,6 @@ namespace Eamon.Game.Helpers
 				"NumAnswers",
 				"Answers",
 			};
-
-			SetUidIfInvalid = SetHintUidIfInvalid;
 		}
 
 		#endregion

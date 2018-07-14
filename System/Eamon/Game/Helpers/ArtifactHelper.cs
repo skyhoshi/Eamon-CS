@@ -3179,7 +3179,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class ArtifactHelper
 
-		protected virtual void SetArtifactUidIfInvalid()
+		protected override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -3246,8 +3246,6 @@ namespace Eamon.Game.Helpers
 				"Location",
 				"Categories",
 			};
-
-			SetUidIfInvalid = SetArtifactUidIfInvalid;
 		}
 
 		#endregion

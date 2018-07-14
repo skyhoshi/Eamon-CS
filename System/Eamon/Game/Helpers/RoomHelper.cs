@@ -792,7 +792,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class RoomHelper
 
-		protected virtual void SetRoomUidIfInvalid()
+		protected override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -853,8 +853,6 @@ namespace Eamon.Game.Helpers
 						"Zone",
 						"Dirs",
 			};
-
-			SetUidIfInvalid = SetRoomUidIfInvalid;
 		}
 
 		#endregion
