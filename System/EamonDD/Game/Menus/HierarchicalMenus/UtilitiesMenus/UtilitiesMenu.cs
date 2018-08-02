@@ -50,6 +50,15 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 					x.SubMenu = Globals.CreateInstance<IAnalyseAdventureRecordTreeMenu>();
 				}));
 			}
+			else
+			{
+				MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
+				{
+					x.SelectChar = (char)('1' + MenuItems.Count);
+					x.LineText = string.Format("{0}{1}. Adventure support.", Environment.NewLine, MenuItems.Count + 1);
+					x.SubMenu = Globals.CreateInstance<IAdventureSupportMenu>();
+				}));
+			}
 
 			MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{

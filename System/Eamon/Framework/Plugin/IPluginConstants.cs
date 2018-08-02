@@ -111,9 +111,15 @@ namespace Eamon.Framework.Plugin
 
 		string RecIdepErrorFmtStr { get; }
 
+		string AdventuresDir { get; }
+
+		string QuickLaunchDir { get; }
+
 		string DefaultWorkDir { get; }
 
 		string ProcessMutexName { get; }
+
+		string EamonDesktopSlnFile { get; }
 
 		string StackTraceFile { get; }
 

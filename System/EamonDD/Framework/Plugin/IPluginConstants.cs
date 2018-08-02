@@ -7,6 +7,8 @@ namespace EamonDD.Framework.Plugin
 {
 	public interface IPluginConstants : Eamon.Framework.Plugin.IPluginConstants
 	{
+		string DevenvExePath { get; }
+
 		string DdProgVersion { get; }
 	}
 }

@@ -604,6 +604,16 @@ namespace Eamon.Framework
 		bool IsCharAlnumSpace(char ch);
 
 		/// <summary>
+		/// Check whether a character is alphabetic, numeric digit, period or underscore.
+		/// </summary>
+		/// <param name="ch">The character value.</param>
+		/// <remarks>
+		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
+		/// </remarks>
+		/// <returns>Based on the character, either true or false.</returns>
+		bool IsCharAlnumPeriodUnderscore(char ch);
+
+		/// <summary>
 		/// Check whether a character is printable.
 		/// </summary>
 		/// <param name="ch">The character value.</param>

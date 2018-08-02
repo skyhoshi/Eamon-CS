@@ -612,6 +612,11 @@ namespace Eamon.Game
 			return Char.IsLetterOrDigit(ch) || Char.IsWhiteSpace(ch);
 		}
 
+		public virtual bool IsCharAlnumPeriodUnderscore(char ch)
+		{
+			return Char.IsLetterOrDigit(ch) || ch == '.' || ch == '_';
+		}
+
 		public virtual bool IsCharPrint(char ch)
 		{
 			return Char.IsControl(ch) == false;

@@ -20,5 +20,7 @@ namespace Eamon.Framework.Portability
 		string GetFileName(string path);
 
 		string GetFileNameWithoutExtension(string path);
+
+		string GetFullPath(string path);
 	}
 }

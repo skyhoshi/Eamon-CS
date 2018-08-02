@@ -15,6 +15,8 @@ namespace Eamon.Framework.Portability
 
 		void SetCurrentDirectory(string path);
 
+		string GetCurrentDirectory();
+
 		string[] GetFiles(string path);
 
 		string[] GetDirectories(string path);

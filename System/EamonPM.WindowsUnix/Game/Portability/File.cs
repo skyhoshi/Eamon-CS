@@ -24,6 +24,11 @@ namespace EamonPM.Game.Portability
 			System.IO.File.Delete(NormalizePath(path));
 		}
 
+		public virtual void Copy(string sourceFileName, string destFileName, bool overwrite)
+		{
+			System.IO.File.Copy(NormalizePath(sourceFileName), NormalizePath(destFileName), overwrite);
+		}
+
 		public virtual string ReadFirstLine(string path)
 		{
 			var firstLine = "";

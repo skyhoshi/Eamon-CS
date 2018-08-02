@@ -114,9 +114,15 @@ namespace Eamon.Game.Plugin
 
 		public virtual string RecIdepErrorFmtStr { get; protected set; } = "The {0} field refers to {1} uid {2}, {3}.";
 
+		public virtual string AdventuresDir { get; protected set; } = @"..\..\Adventures";
+
+		public virtual string QuickLaunchDir { get; protected set; } = @"..\..\QuickLaunch";
+
 		public virtual string DefaultWorkDir { get; protected set; } = ".";
 
 		public virtual string ProcessMutexName { get; protected set; }
+
+		public virtual string EamonDesktopSlnFile { get; protected set; } = @"..\..\Eamon.Desktop.sln";
 
 		public virtual string StackTraceFile { get; protected set; } = "STACKTRACE.TXT";
 

@@ -20,6 +20,8 @@ namespace EamonDD.Framework.Plugin
 
 		char WordWrapLastChar { get; set; }
 
+		string DevenvExePath { get; set; }
+
 		string ConfigFileName { get; set; }
 
 		new IEngine Engine { get; set; }

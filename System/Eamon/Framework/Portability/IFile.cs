@@ -11,6 +11,8 @@ namespace Eamon.Framework.Portability
 
 		void Delete(string path);
 
+		void Copy(string sourceFileName, string destFileName, bool overwrite);
+
 		string ReadFirstLine(string path);
 
 		string ReadAllText(string path);

@@ -207,6 +207,13 @@ namespace EamonDD.Game
 						}
 					}
 				}
+				else if (string.Equals(Globals.Argv[i], "--devenvExePath", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-dep", StringComparison.OrdinalIgnoreCase))
+				{
+					if (++i < Globals.Argv.Length && secondPass)
+					{
+						Globals.DevenvExePath = Globals.Argv[i].Trim();
+					}
+				}
 				else if (string.Equals(Globals.Argv[i], "--loadAdventure", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-la", StringComparison.OrdinalIgnoreCase))
 				{
 					if (secondPass)

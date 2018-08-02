@@ -22,6 +22,8 @@ namespace EamonDD.Game.Plugin
 
 		public virtual char WordWrapLastChar { get; set; }
 
+		public virtual string DevenvExePath { get; set; }
+
 		public virtual string ConfigFileName { get; set; }
 
 		public virtual new Framework.IEngine Engine
@@ -69,6 +71,8 @@ namespace EamonDD.Game.Plugin
 		public override void InitSystem()
 		{
 			base.InitSystem();
+
+			DevenvExePath = Constants.DevenvExePath;
 
 			ConfigFileName = "";
 
