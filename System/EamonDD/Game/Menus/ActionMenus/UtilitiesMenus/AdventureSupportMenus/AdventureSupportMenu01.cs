@@ -76,6 +76,8 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		protected virtual void GetAdventureName()
 		{
+			var invalidAdventureNames = new string[] { "Adventures", "Catalog", "Characters", "Contemporary", "Fantasy",	"SciFi", "Test", "Workbench", "WorkInProgress", "AdventureSupportMenu" };
+
 			Globals.Out.Print("You must enter a name for your new adventure (eg, The Beginner's Cave).  This should be the formal name of the adventure shown in the Main Hall's list of adventures.");
 
 			Globals.Out.Print("Note:  the name will be used to produce a shortened form suitable for use as a folder name under the Adventures directory and also as a C# namespace (eg, TheBeginnersCave).");
@@ -98,7 +100,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				AdventureName = new string((from char ch in tempStr where Globals.Engine.IsCharAlnum(ch) select ch).ToArray());
 
-				if (AdventureName.Length > 0 && Globals.Engine.IsCharDigit(AdventureName[0]))
+				if (AdventureName.Length > 0 && (Globals.Engine.IsCharDigit(AdventureName[0]) || invalidAdventureNames.FirstOrDefault(n => string.Equals(AdventureName, n, StringComparison.OrdinalIgnoreCase)) != null))
 				{
 					AdventureName = string.Empty;
 				}
