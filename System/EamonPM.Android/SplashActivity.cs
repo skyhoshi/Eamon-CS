@@ -123,11 +123,30 @@ namespace EamonPM
 
 			foreach (var dir in adventureDirs)
 			{
-				path = Path.Combine(App.BasePath, Path.Combine("Adventures", dir));
+				var dir01 = dir;
+
+				path = Path.Combine(App.BasePath, Path.Combine("Adventures", dir01));
 
 				Directory.CreateDirectory(path);
 
-				var adventureFiles = Assets.List(Path.Combine("Adventures", dir));
+				if (string.Equals(dir01, "AdventureTemplates", StringComparison.OrdinalIgnoreCase))
+				{
+					path = Path.Combine(path, "Standard");
+
+					Directory.CreateDirectory(path);
+
+					path = Path.Combine(path, "Adventures");
+
+					Directory.CreateDirectory(path);
+
+					path = Path.Combine(path, "YourAdventureName");
+
+					Directory.CreateDirectory(path);
+
+					dir01 = Path.Combine("AdventureTemplates", "Standard", "Adventures", "YourAdventureName");
+				}
+
+				var adventureFiles = Assets.List(Path.Combine("Adventures", dir01));
 
 				foreach (var file in adventureFiles)
 				{
@@ -135,7 +154,7 @@ namespace EamonPM
 
 					if (!File.Exists(fileName) || copyFiles)
 					{
-						fileName = Path.Combine(Path.Combine("Adventures", dir), file);
+						fileName = Path.Combine(Path.Combine("Adventures", dir01), file);
 
 						using (var streamReader = new StreamReader(Assets.Open(fileName)))
 						{

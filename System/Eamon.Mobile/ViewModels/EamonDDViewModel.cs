@@ -72,6 +72,12 @@ namespace Eamon.Mobile.ViewModels
 					Name = "EditWorkInProgress",
 
 					PluginArgs = new string[] { "-pfn", "EamonRT.dll", "-fsfn", "WIP.XML", "-rge" }
+				},
+				new BatchFile()
+				{
+					Name = "LoadAdventureSupportMenu",
+
+					PluginArgs = new string[] { "-pfn", "EamonRT.dll", "-rge" }
 				}
 			};
 

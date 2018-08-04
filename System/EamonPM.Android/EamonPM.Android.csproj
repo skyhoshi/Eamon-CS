@@ -506,6 +506,9 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\Adventures\WrenholdsSecretVigil\MONSTERS.XML" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\AdventureTemplates\Standard\Adventures\YourAdventureName\HINTS.XML" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -541,6 +544,7 @@
     <PreBuildEvent>xcopy "$(TargetDir)*.XML" "$(TargetDir)..\EamonPM.Android\Assets\System\Bin" /I /S /Y
 xcopy "$(TargetDir)..\..\Documentation\*.txt" "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /I /S /Y
 xcopy "$(TargetDir)..\..\Documentation\*.htm" "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\AdventureTemplates\Standard\Adventures" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\AdventureTemplates\Standard\Adventures" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\ARuncibleCargo\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\ARuncibleCargo" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\BeginnersForest\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\BeginnersForest" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\DemoAdventure\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\DemoAdventure" /I /S /Y

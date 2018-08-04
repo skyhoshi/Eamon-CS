@@ -235,7 +235,12 @@ namespace EamonPM
 
 				foreach (var fullDir in fullDirs)
 				{
-					dirList.Add(Path.GetFileNameWithoutExtension(fullDir));
+					var fileName = Path.GetFileNameWithoutExtension(fullDir);
+
+					if (!string.Equals(fileName, "AdventureTemplates", StringComparison.OrdinalIgnoreCase))
+					{
+						dirList.Add(fileName);
+					}
 				}
 
 				return dirList.ToArray();

@@ -24,8 +24,6 @@ namespace Eamon.Mobile.ViewModels
 
 		protected long _outputBufMaxSize;
 
-		protected string _adventureWorkDir;
-
 		protected bool _keepKeyboardVisible;
 
 		[ExcludeFromSerialization]
@@ -110,18 +108,6 @@ namespace Eamon.Mobile.ViewModels
 			}
 		}
 
-		public virtual string AdventureWorkDir
-		{
-			get
-			{
-				return _adventureWorkDir;
-			}
-			set
-			{
-				SetProperty(ref _adventureWorkDir, value);
-			}
-		}
-
 		public virtual bool KeepKeyboardVisible
 		{
 			get
@@ -174,8 +160,6 @@ namespace Eamon.Mobile.ViewModels
 			FontSize = 12;
 
 			OutputBufMaxSize = 32768;
-
-			AdventureWorkDir = "";
 
 			KeepKeyboardVisible = true;
 

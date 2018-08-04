@@ -253,21 +253,53 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		protected virtual void CopyQuickLaunchFiles()
 		{
-			var fileText = Globals.File.ReadAllText(AdvTemplateDir + @"\QuickLaunch\Unix\EamonDD\EditYourAdventureName.sh");
+			var fileText = string.Empty;
 
-			Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Unix\EamonDD\Edit" + AdventureName + ".sh", ReplaceMacros(fileText));
+			// Note: QuickLaunch files missing in Eamon CS Mobile
 
-			fileText = Globals.File.ReadAllText(AdvTemplateDir + @"\QuickLaunch\Unix\EamonRT\ResumeYourAdventureName.sh");
+			var srcFileName = AdvTemplateDir + @"\QuickLaunch\Unix\EamonDD\EditYourAdventureName.sh";
 
-			Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Unix\EamonRT\Resume" + AdventureName + ".sh", ReplaceMacros(fileText));
+			var destFileName = Constants.QuickLaunchDir + @"\Unix\EamonDD\Edit" + AdventureName + ".sh";
 
-			fileText = Globals.File.ReadAllText(AdvTemplateDir + @"\QuickLaunch\Windows\EamonDD\EditYourAdventureName.bat");
+			if (Globals.File.Exists(srcFileName))
+			{
+				fileText = Globals.File.ReadAllText(srcFileName);
 
-			Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Windows\EamonDD\Edit" + AdventureName + ".bat", ReplaceMacros(fileText));
+				Globals.File.WriteAllText(destFileName, ReplaceMacros(fileText));
+			}
 
-			fileText = Globals.File.ReadAllText(AdvTemplateDir + @"\QuickLaunch\Windows\EamonRT\ResumeYourAdventureName.bat");
+			srcFileName = AdvTemplateDir + @"\QuickLaunch\Unix\EamonRT\ResumeYourAdventureName.sh";
 
-			Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Windows\EamonRT\Resume" + AdventureName + ".bat", ReplaceMacros(fileText));
+			destFileName = Constants.QuickLaunchDir + @"\Unix\EamonRT\Resume" + AdventureName + ".sh";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				fileText = Globals.File.ReadAllText(srcFileName);
+
+				Globals.File.WriteAllText(destFileName, ReplaceMacros(fileText));
+			}
+
+			srcFileName = AdvTemplateDir + @"\QuickLaunch\Windows\EamonDD\EditYourAdventureName.bat";
+
+			destFileName = Constants.QuickLaunchDir + @"\Windows\EamonDD\Edit" + AdventureName + ".bat";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				fileText = Globals.File.ReadAllText(srcFileName);
+
+				Globals.File.WriteAllText(destFileName, ReplaceMacros(fileText));
+			}
+
+			srcFileName = AdvTemplateDir + @"\QuickLaunch\Windows\EamonRT\ResumeYourAdventureName.bat";
+
+			destFileName = Constants.QuickLaunchDir + @"\Windows\EamonRT\Resume" + AdventureName + ".bat";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				fileText = Globals.File.ReadAllText(srcFileName);
+
+				Globals.File.WriteAllText(destFileName, ReplaceMacros(fileText));
+			}
 		}
 
 		protected virtual void CreateAdventureFolder()
