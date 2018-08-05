@@ -94,7 +94,10 @@ namespace EamonMH.Game.Menus.ActionMenus
 							break;
 						}
 
-						Globals.Out.Print("{0}", Globals.LineSep);
+						if (i + 1 < filesets.Count)
+						{
+							Globals.Out.Print("{0}", Globals.LineSep);
+						}
 					}
 
 					i++;

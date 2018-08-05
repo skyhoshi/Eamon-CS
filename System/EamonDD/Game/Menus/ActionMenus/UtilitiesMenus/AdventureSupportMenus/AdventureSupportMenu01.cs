@@ -76,7 +76,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		protected virtual void GetAdventureName()
 		{
-			var invalidAdventureNames = new string[] { "Adventures", "Catalog", "Characters", "Contemporary", "Fantasy",	"SciFi", "Test", "Workbench", "WorkInProgress", "AdventureSupportMenu" };
+			var invalidAdventureNames = new string[] { "Adventures", "Catalog", "Characters", "Contemporary", "Fantasy", "SciFi", "Test", "Workbench", "WorkInProgress", "AdventureSupportMenu" };
 
 			Globals.Out.Print("You must enter a name for your new adventure (eg, The Beginner's Cave).  This should be the formal name of the adventure shown in the Main Hall's list of adventures.");
 
