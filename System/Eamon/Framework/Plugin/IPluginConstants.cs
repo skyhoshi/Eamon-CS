@@ -111,6 +111,8 @@ namespace Eamon.Framework.Plugin
 
 		string RecIdepErrorFmtStr { get; }
 
+		string AndroidAdventuresDir { get; }
+
 		string AdventuresDir { get; }
 
 		string QuickLaunchDir { get; }

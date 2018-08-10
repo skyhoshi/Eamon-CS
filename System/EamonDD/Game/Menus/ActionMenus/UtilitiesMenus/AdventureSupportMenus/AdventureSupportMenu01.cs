@@ -13,6 +13,7 @@ using System.Threading;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Automation;
+using Eamon.Game.Extensions;
 using Eamon.Game.Menus;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -22,6 +23,8 @@ namespace EamonDD.Game.Menus.ActionMenus
 	public abstract class AdventureSupportMenu01 : Menu, IAdventureSupportMenu01
 	{
 		protected virtual bool GotoCleanup { get; set; }
+
+		protected virtual bool AddAdventure { get; set; }
 
 		protected virtual string AdventureName { get; set; }
 
@@ -74,19 +77,115 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 		}
 
+		protected virtual void CheckForPrerequisites()
+		{
+			if (!Globals.File.Exists(Globals.DevenvExePath))
+			{
+				if (!AddAdventure)
+				{
+					Globals.Out.Print("{0}", Globals.LineSep);
+				}
+
+				Globals.Out.Print("Could not locate the Visual Studio 2017 devenv.exe program at the following path:");
+
+				Globals.Out.WordWrap = false;
+
+				Globals.Out.Print(Globals.DevenvExePath);
+
+				Globals.Out.WordWrap = true;
+
+				Globals.Out.Print("You may need to modify the LoadAdventureSupportMenu .bat or .sh file to use the -dep flag.  See the documentation section on creating custom adventures for more details.");
+
+				GotoCleanup = true;
+			}
+			else if (!Globals.File.Exists(Globals.Path.GetFullPath(@".\EamonVS.dll")))
+			{
+				if (!AddAdventure)
+				{
+					Globals.Out.Print("{0}", Globals.LineSep);
+				}
+
+				Globals.Out.Print("Could not locate the Eamon CS EamonVS.dll library at the following path:");
+
+				Globals.Out.WordWrap = false;
+
+				Globals.Out.Print(Globals.Path.GetFullPath(@".\EamonVS.dll"));
+
+				Globals.Out.WordWrap = true;
+
+				Globals.Out.Print("You may need to compile it using the Eamon.Desktop solution and Visual Studio 2017.");
+
+				GotoCleanup = true;
+			}
+			else if (!Globals.File.Exists(Globals.Path.GetFullPath(@".\envdte.dll")))
+			{
+				if (!AddAdventure)
+				{
+					Globals.Out.Print("{0}", Globals.LineSep);
+				}
+
+				Globals.Out.Print("Could not locate the Visual Studio 2017 envdte.dll library at the following path:");
+
+				Globals.Out.WordWrap = false;
+
+				Globals.Out.Print(Globals.Path.GetFullPath(@".\envdte.dll"));
+
+				Globals.Out.WordWrap = true;
+
+				Globals.Out.Print(@"This library is copied into System\Bin when the EamonVS project is compiled using the Eamon.Desktop solution and Visual Studio 2017.");
+
+				GotoCleanup = true;
+			}
+			else if (!Globals.File.Exists(Globals.Path.GetFullPath(Constants.EamonDesktopSlnFile)))
+			{
+				if (!AddAdventure)
+				{
+					Globals.Out.Print("{0}", Globals.LineSep);
+				}
+
+				Globals.Out.Print("Could not locate the Eamon.Desktop solution at the following path:");
+
+				Globals.Out.WordWrap = false;
+
+				Globals.Out.Print(Globals.Path.GetFullPath(Constants.EamonDesktopSlnFile));
+
+				Globals.Out.WordWrap = true;
+
+				Globals.Out.Print(@"This Eamon CS repository may be compromised since the solution should always be present.");
+
+				GotoCleanup = true;
+			}
+
+			if (GotoCleanup)
+			{
+				Globals.In.KeyPress(Buf);
+
+				Globals.Out.Print("{0}", Globals.LineSep);
+
+				Globals.Out.Print("The adventure was not {0}.", AddAdventure ? "created" : "deleted");
+			}
+		}
+
 		protected virtual void GetAdventureName()
 		{
-			var invalidAdventureNames = new string[] { "Adventures", "Catalog", "Characters", "Contemporary", "Fantasy", "SciFi", "Test", "Workbench", "WorkInProgress", "AdventureSupportMenu" };
+			var invalidAdventureNames = new string[] { "Adventures", "Catalog", "Characters", "Contemporary", "Fantasy", "SciFi", "Test", "Workbench", "WorkInProgress", "AdventureSupportMenu", "AdventureTemplates" };
 
-			Globals.Out.Print("You must enter a name for your new adventure (eg, The Beginner's Cave).  This should be the formal name of the adventure shown in the Main Hall's list of adventures.");
+			if (AddAdventure)
+			{
+				Globals.Out.Print("You must enter a name for your new adventure (eg, The Beginner's Cave).  This should be the formal name of the adventure shown in the Main Hall's list of adventures.");
 
-			Globals.Out.Print("Note:  the name will be used to produce a shortened form suitable for use as a folder name under the Adventures directory and also as a C# namespace (eg, TheBeginnersCave).");
+				Globals.Out.Print("Note:  the name will be used to produce a shortened form suitable for use as a folder name under the Adventures directory and also as a C# namespace (eg, TheBeginnersCave).");
+			}
+			else
+			{
+				Globals.Out.Print("You must enter the name of the adventure you wish to delete (eg, The Beginner's Cave).  This should be the formal name of the adventure shown in the Main Hall's list of adventures.");
+			}
 
 			AdventureName = string.Empty;
 
 			while (AdventureName.Length == 0)
 			{
-				Globals.Out.Write("{0}Enter the name of the new adventure: ", Environment.NewLine);
+				Globals.Out.Write("{0}Enter the name of the {1}adventure: ", Environment.NewLine, AddAdventure ? "new " : "");
 
 				Buf.Clear();
 
@@ -116,11 +215,19 @@ namespace EamonDD.Game.Menus.ActionMenus
 				}
 			}
 
-			if (Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
+			if (AddAdventure && Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
 			{
 				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Print("The adventure already exists.");
+
+				GotoCleanup = true;
+			}
+			else if (!AddAdventure && !Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
+			{
+				Globals.Out.Print("{0}", Globals.LineSep);
+
+				Globals.Out.Print("The adventure does not exist.");
 
 				GotoCleanup = true;
 			}
@@ -169,29 +276,36 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var advDbTextFiles = new string[] { "ADVENTURES.XML", "FANTASY.XML", "SCIFI.XML", "CONTEMPORARY.XML", "TEST.XML", "WIP.XML" };
 
-			var inputDefaultValue = "Y";
-
-			foreach (var advDbTextFile in advDbTextFiles)
+			if (AddAdventure)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				var inputDefaultValue = "Y";
 
-				Globals.Out.Write("{0}Add this game to adventure database \"{1}\" (Y/N) [{2}]: ", Environment.NewLine, advDbTextFile, inputDefaultValue);
-
-				Buf.Clear();
-
-				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, inputDefaultValue, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
-
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-				if (Buf.Length == 0 || Buf[0] != 'N')
+				foreach (var advDbTextFile in advDbTextFiles)
 				{
-					SelectedAdvDbTextFiles.Add(advDbTextFile);
+					Globals.Out.Print("{0}", Globals.LineSep);
 
-					if (!string.Equals(advDbTextFile, "ADVENTURES.XML", StringComparison.OrdinalIgnoreCase))
+					Globals.Out.Write("{0}Add this game to adventure database \"{1}\" (Y/N) [{2}]: ", Environment.NewLine, advDbTextFile, inputDefaultValue);
+
+					Buf.Clear();
+
+					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, inputDefaultValue, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+					if (Buf.Length == 0 || Buf[0] != 'N')
 					{
-						inputDefaultValue = "N";
+						SelectedAdvDbTextFiles.Add(advDbTextFile);
+
+						if (!string.Equals(advDbTextFile, "ADVENTURES.XML", StringComparison.OrdinalIgnoreCase))
+						{
+							inputDefaultValue = "N";
+						}
 					}
 				}
+			}
+			else
+			{
+				SelectedAdvDbTextFiles.AddRange(advDbTextFiles);
 			}
 
 			var customAdvDbTextFile = string.Empty;
@@ -202,7 +316,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				if (customAdvDbTextFile.Length == 0)
 				{
-					Globals.Out.Print("If you would like to add this adventure to one or more custom adventure databases, enter those file names now (eg, HORROR.XML).  To skip this step, or if you are done, just press enter.");
+					Globals.Out.Print("If you would like to {0} one or more custom adventure databases, enter those file names now (eg, HORROR.XML).  To skip this step, or if you are done, just press enter.", AddAdventure ? "add this adventure to" : "delete this adventure from");
 				}
 
 				Globals.Out.Write("{0}Enter name of custom adventure database: ", Environment.NewLine);
@@ -248,6 +362,32 @@ namespace EamonDD.Game.Menus.ActionMenus
 				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Print("The adventure was not created.");
+
+				GotoCleanup = true;
+			}
+		}
+
+		protected virtual void QueryToDeleteAdventure()
+		{
+			RetCode rc;
+
+			Globals.Out.Print("{0}", Globals.LineSep);
+
+			Globals.Out.Print("WARNING:  you are about to delete this adventure and all associated textfiles from storage.  If you have any doubts, you should select 'N' and backup your Eamon CS repository before proceeding.  This action is PERMANENT!");
+
+			Globals.Out.Write("{0}Would you like to delete this adventure from Eamon CS (Y/N): ", Environment.NewLine);
+
+			Buf.Clear();
+
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+
+			Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+			if (Buf.Length == 0 || Buf[0] != 'Y')
+			{
+				Globals.Out.Print("{0}", Globals.LineSep);
+
+				Globals.Out.Print("The adventure was not deleted.");
 
 				GotoCleanup = true;
 			}
@@ -304,9 +444,55 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 		}
 
+		protected virtual void DeleteQuickLaunchFiles()
+		{
+			// Note: QuickLaunch files missing in Eamon CS Mobile
+
+			var srcFileName = Constants.QuickLaunchDir + @"\Unix\EamonDD\Edit" + AdventureName + ".sh";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				Globals.File.Delete(srcFileName);
+			}
+
+			srcFileName = Constants.QuickLaunchDir + @"\Unix\EamonRT\Resume" + AdventureName + ".sh";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				Globals.File.Delete(srcFileName);
+			}
+
+			srcFileName = Constants.QuickLaunchDir + @"\Windows\EamonDD\Edit" + AdventureName + ".bat";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				Globals.File.Delete(srcFileName);
+			}
+
+			srcFileName = Constants.QuickLaunchDir + @"\Windows\EamonRT\Resume" + AdventureName + ".bat";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				Globals.File.Delete(srcFileName);
+			}
+		}
+
 		protected virtual void CreateAdventureFolder()
 		{
 			Globals.Directory.CreateDirectory(Constants.AdventuresDir + @"\" + AdventureName);
+		}
+
+		protected virtual void DeleteAdventureFolder()
+		{
+			if (Globals.Directory.Exists(@"..\..\Adventures\" + AdventureName))
+			{
+				Globals.Directory.Delete(@"..\..\Adventures\" + AdventureName, true);
+			}
+
+			if (Globals.Directory.Exists(Constants.AndroidAdventuresDir + @"\" + AdventureName))
+			{
+				Globals.Directory.Delete(Constants.AndroidAdventuresDir + @"\" + AdventureName, true);
+			}
 		}
 
 		protected virtual void CopyHintsXml()
@@ -332,42 +518,56 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				var fileset = Globals.CreateInstance<IFileset>(x =>
+				if (AddAdventure)
 				{
-					x.Uid = Globals.Database.GetFilesetUid();
+					var fileset = Globals.CreateInstance<IFileset>(x =>
+					{
+						x.Uid = Globals.Database.GetFilesetUid();
 
-					x.IsUidRecycled = true;
+						x.IsUidRecycled = true;
 
-					x.Name = AdventureName01;
+						x.Name = AdventureName01;
 
-					x.WorkDir = @"..\..\Adventures\" + AdventureName;
+						x.WorkDir = @"..\..\Adventures\" + AdventureName;
 
-					x.PluginFileName = this is IAddStandardAdventureMenu ? "EamonRT.dll" : AdventureName + ".dll";
+						x.PluginFileName = this is IAddStandardAdventureMenu ? "EamonRT.dll" : AdventureName + ".dll";
 
-					x.ConfigFileName = "NONE";
+						x.ConfigFileName = "NONE";
 
-					x.FilesetFileName = "NONE";
+						x.FilesetFileName = "NONE";
 
-					x.CharacterFileName = "NONE";
+						x.CharacterFileName = "NONE";
 
-					x.ModuleFileName = "MODULE.XML";
+						x.ModuleFileName = "MODULE.XML";
 
-					x.RoomFileName = "ROOMS.XML";
+						x.RoomFileName = "ROOMS.XML";
 
-					x.ArtifactFileName = "ARTIFACTS.XML";
+						x.ArtifactFileName = "ARTIFACTS.XML";
 
-					x.EffectFileName = "EFFECTS.XML";
+						x.EffectFileName = "EFFECTS.XML";
 
-					x.MonsterFileName = "MONSTERS.XML";
+						x.MonsterFileName = "MONSTERS.XML";
 
-					x.HintFileName = "HINTS.XML";
+						x.HintFileName = "HINTS.XML";
 
-					x.GameStateFileName = "NONE";
-				});
+						x.GameStateFileName = "NONE";
+					});
 
-				rc = Globals.Database.AddFileset(fileset);
+					rc = Globals.Database.AddFileset(fileset);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+				}
+				else
+				{
+					var fileset = Globals.Database.FilesetTable.Records.FirstOrDefault(fs => string.Equals(fs.WorkDir, @"..\..\Adventures\" + AdventureName, StringComparison.OrdinalIgnoreCase));
+
+					if (fileset != null)
+					{
+						Globals.Database.RemoveFileset(fileset.Uid);
+
+						fileset.Dispose();
+					}
+				}
 
 				rc = Globals.Database.SaveFilesets(fsfn, printOutput: false);
 
@@ -401,6 +601,30 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 		}
 
+		protected virtual void DeleteAdvBinaryFiles()
+		{
+			var srcFileName = @".\" + AdventureName + ".dll";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				Globals.File.Delete(srcFileName);
+			}
+
+			srcFileName = @".\" + AdventureName + ".pdb";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				Globals.File.Delete(srcFileName);
+			}
+
+			srcFileName = @".\" + AdventureName + ".deps.json";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				Globals.File.Delete(srcFileName);
+			}
+		}
+
 		protected virtual void PrintAdventureCreated()
 		{
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -408,9 +632,18 @@ namespace EamonDD.Game.Menus.ActionMenus
 			Globals.Out.Print("The adventure was successfully created.");
 		}
 
+		protected virtual void PrintAdventureDeleted()
+		{
+			Globals.Out.Print("{0}", Globals.LineSep);
+
+			Globals.Out.Print("The adventure was successfully deleted.");
+		}
+
 		public AdventureSupportMenu01()
 		{
 			Buf = Globals.Buf;
+
+			AddAdventure = this is IAddStandardAdventureMenu || this is IAddCustomAdventureMenu;
 
 			AdvTemplateDir = this is IAddStandardAdventureMenu ? 
 				Constants.AdventuresDir + @"\AdventureTemplates\Standard" : 

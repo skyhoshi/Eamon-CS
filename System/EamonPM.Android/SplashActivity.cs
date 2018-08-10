@@ -33,7 +33,7 @@ namespace EamonPM
 				- change the BuildGuid to upgrade the binary .apk file and the .XML datafiles in the filesystem (but not CHARACTERS.XML)
 			*/
 
-			static readonly string BuildGuid = "909F0701-3EE2-4CD5-A9ED-DA1716386D4B";
+			static readonly string BuildGuid = "CA59DEDB-8763-407F-B483-83E627B78063";
 
 			static readonly string TAG = "X:" + typeof (SplashActivity).Name;
 
@@ -59,102 +59,95 @@ namespace EamonPM
 
 			File.WriteAllText(guidFile, BuildGuid);
 
-			var binFiles = Assets.List(Path.Combine("System", "Bin"));
-
-			foreach (var file in binFiles)
+			if (copyFiles)
 			{
-				var fileName = Path.Combine(path, file);
+				var binFiles = Assets.List(Path.Combine("System", "Bin"));
 
-				if (!File.Exists(fileName) || (copyFiles && !fileName.EndsWith("CHARACTERS.XML", StringComparison.OrdinalIgnoreCase)))
-				{
-					fileName = Path.Combine(Path.Combine("System", "Bin"), file);
-
-					using (var streamReader = new StreamReader(Assets.Open(fileName)))
-					{
-						var fileBytes = default(byte[]);
-
-						using (var memoryStream = new MemoryStream())
-						{
-							streamReader.BaseStream.CopyTo(memoryStream);
-
-							fileBytes = memoryStream.ToArray();
-
-							fileName = Path.Combine(path, file);
-
-							File.WriteAllBytes(fileName, fileBytes);
-						}
-					}
-				}
-			}
-
-			path = Path.Combine(App.BasePath, "Documentation");
-
-			Directory.CreateDirectory(path);
-
-			var docFiles = Assets.List("Documentation");
-
-			foreach (var file in docFiles)
-			{
-				var fileName = Path.Combine(path, file);
-
-				if (!File.Exists(fileName) || copyFiles)
-				{
-					fileName = Path.Combine("Documentation", file);
-
-					using (var streamReader = new StreamReader(Assets.Open(fileName)))
-					{
-						var fileBytes = default(byte[]);
-
-						using (var memoryStream = new MemoryStream())
-						{
-							streamReader.BaseStream.CopyTo(memoryStream);
-
-							fileBytes = memoryStream.ToArray();
-
-							fileName = Path.Combine(path, file);
-
-							File.WriteAllBytes(fileName, fileBytes);
-						}
-					}
-				}
-			}
-
-			var adventureDirs = Assets.List("Adventures");
-
-			foreach (var dir in adventureDirs)
-			{
-				var dir01 = dir;
-
-				path = Path.Combine(App.BasePath, Path.Combine("Adventures", dir01));
-
-				Directory.CreateDirectory(path);
-
-				if (string.Equals(dir01, "AdventureTemplates", StringComparison.OrdinalIgnoreCase))
-				{
-					path = Path.Combine(path, "Standard");
-
-					Directory.CreateDirectory(path);
-
-					path = Path.Combine(path, "Adventures");
-
-					Directory.CreateDirectory(path);
-
-					path = Path.Combine(path, "YourAdventureName");
-
-					Directory.CreateDirectory(path);
-
-					dir01 = Path.Combine("AdventureTemplates", "Standard", "Adventures", "YourAdventureName");
-				}
-
-				var adventureFiles = Assets.List(Path.Combine("Adventures", dir01));
-
-				foreach (var file in adventureFiles)
+				foreach (var file in binFiles)
 				{
 					var fileName = Path.Combine(path, file);
 
-					if (!File.Exists(fileName) || copyFiles)
+					if (!fileName.EndsWith("CHARACTERS.XML", StringComparison.OrdinalIgnoreCase) || !File.Exists(fileName))
 					{
-						fileName = Path.Combine(Path.Combine("Adventures", dir01), file);
+						fileName = Path.Combine(Path.Combine("System", "Bin"), file);
+
+						using (var streamReader = new StreamReader(Assets.Open(fileName)))
+						{
+							var fileBytes = default(byte[]);
+
+							using (var memoryStream = new MemoryStream())
+							{
+								streamReader.BaseStream.CopyTo(memoryStream);
+
+								fileBytes = memoryStream.ToArray();
+
+								fileName = Path.Combine(path, file);
+
+								File.WriteAllBytes(fileName, fileBytes);
+							}
+						}
+					}
+				}
+
+				path = Path.Combine(App.BasePath, "Documentation");
+
+				Directory.CreateDirectory(path);
+
+				var docFiles = Assets.List("Documentation");
+
+				foreach (var file in docFiles)
+				{
+					var fileName = Path.Combine("Documentation", file);
+
+					using (var streamReader = new StreamReader(Assets.Open(fileName)))
+					{
+						var fileBytes = default(byte[]);
+
+						using (var memoryStream = new MemoryStream())
+						{
+							streamReader.BaseStream.CopyTo(memoryStream);
+
+							fileBytes = memoryStream.ToArray();
+
+							fileName = Path.Combine(path, file);
+
+							File.WriteAllBytes(fileName, fileBytes);
+						}
+					}
+				}
+
+				var adventureDirs = Assets.List("Adventures");
+
+				foreach (var dir in adventureDirs)
+				{
+					var dir01 = dir;
+
+					path = Path.Combine(App.BasePath, Path.Combine("Adventures", dir01));
+
+					Directory.CreateDirectory(path);
+
+					if (string.Equals(dir01, "AdventureTemplates", StringComparison.OrdinalIgnoreCase))
+					{
+						path = Path.Combine(path, "Standard");
+
+						Directory.CreateDirectory(path);
+
+						path = Path.Combine(path, "Adventures");
+
+						Directory.CreateDirectory(path);
+
+						path = Path.Combine(path, "YourAdventureName");
+
+						Directory.CreateDirectory(path);
+
+						dir01 = Path.Combine("AdventureTemplates", "Standard", "Adventures", "YourAdventureName");
+					}
+
+					var adventureFiles = Assets.List(Path.Combine("Adventures", dir01));
+
+					foreach (var file in adventureFiles)
+					{
+						var fileName = Path.Combine(Path.Combine("Adventures", dir01), file);
 
 						using (var streamReader = new StreamReader(Assets.Open(fileName)))
 						{

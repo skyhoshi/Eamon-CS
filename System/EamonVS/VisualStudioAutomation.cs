@@ -223,7 +223,7 @@ namespace EamonVS
 					{
 						Dte = CreateDteInstance();
 						return Dte != null;
-					}, 5, 250);
+					}, 50, 250);
 
 					if (result == RetCode.Success && Dte != null)
 					{
@@ -231,7 +231,7 @@ namespace EamonVS
 						{
 							Dte.UserControl = false;
 							return true;
-						}, 5, 250);
+						}, 50, 250);
 					}
 
 					if (result == RetCode.Success)
@@ -276,7 +276,7 @@ namespace EamonVS
 					{
 						Solution = Dte.Solution;
 						return Solution != null;
-					}, 5, 250);
+					}, 50, 250);
 
 					if (result == RetCode.Success && Solution != null)
 					{
@@ -284,7 +284,7 @@ namespace EamonVS
 						{
 							Solution.Open(SolutionFile);
 							return true;
-						}, 5, 250);
+						}, 50, 250);
 					}
 
 					if (result == RetCode.Success)
@@ -331,7 +331,7 @@ namespace EamonVS
 						{
 							Solution.AddFromFile(projName);
 							return true;
-						}, 5, 250);
+						}, 50, 250);
 
 						if (result == RetCode.Success)
 						{
@@ -343,7 +343,7 @@ namespace EamonVS
 							{
 								Solution.SaveAs(SolutionFile);
 								return true;
-							}, 5, 250);
+							}, 50, 250);
 
 							if (result == RetCode.Success)
 							{
@@ -389,21 +389,55 @@ namespace EamonVS
 					{
 						Console.Out.Write("Removing {0} project... ", Path.GetFileNameWithoutExtension(projName));
 
-						// TODO: implement
-
-						Console.Out.WriteLine("succeeded");
-
-						Console.Out.Write("Saving solution... ");
-
 						result = ExecuteWithRetry(() =>
 						{
-							Solution.SaveAs(SolutionFile);
+							for (var i = 1; i <= Solution.Projects.Count; i++)
+							{
+								var proj = Solution.Projects.Item(i);
+
+								if (string.Equals(proj.Name, Path.GetFileNameWithoutExtension(projName), StringComparison.OrdinalIgnoreCase))
+								{
+									Solution.Remove(proj);
+									goto Cleanup;
+								} 
+								else if (string.Equals(proj.Name, "Adventures", StringComparison.OrdinalIgnoreCase))
+								{
+									for (var j = 1; j <= proj.ProjectItems.Count; j++)
+									{
+										var subProj = proj.ProjectItems.Item(j);
+
+										if (string.Equals(subProj.Name, Path.GetFileNameWithoutExtension(projName), StringComparison.OrdinalIgnoreCase))
+										{
+											subProj.Remove();
+											goto Cleanup;
+										}
+									}
+								}
+							}
+						Cleanup:
 							return true;
-						}, 5, 250);
+						}, 50, 250);
 
 						if (result == RetCode.Success)
 						{
 							Console.Out.WriteLine("succeeded");
+
+							Console.Out.Write("Saving solution... ");
+
+							result = ExecuteWithRetry(() =>
+							{
+								Solution.SaveAs(SolutionFile);
+								return true;
+							}, 50, 250);
+
+							if (result == RetCode.Success)
+							{
+								Console.Out.WriteLine("succeeded");
+							}
+							else
+							{
+								Console.Out.WriteLine("failed");
+							}
 						}
 						else
 						{
@@ -442,7 +476,7 @@ namespace EamonVS
 						{
 							Dte.ExecuteCommand("Build.BuildSolution");
 							return true;
-						}, 5, 250);
+						}, 50, 250);
 
 						if (result == RetCode.Success)
 						{
@@ -497,7 +531,7 @@ namespace EamonVS
 					{
 						Solution.Close();
 						return true;
-					}, 5, 250);
+					}, 50, 250);
 
 					Solution = null;
 				}
@@ -508,7 +542,7 @@ namespace EamonVS
 					{
 						Dte.Quit();
 						return true;
-					}, 5, 250);
+					}, 50, 250);
 
 					Dte = null;
 				}

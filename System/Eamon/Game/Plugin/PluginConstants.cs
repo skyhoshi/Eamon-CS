@@ -114,6 +114,8 @@ namespace Eamon.Game.Plugin
 
 		public virtual string RecIdepErrorFmtStr { get; protected set; } = "The {0} field refers to {1} uid {2}, {3}.";
 
+		public virtual string AndroidAdventuresDir { get; protected set; } = @"..\EamonPM.Android\Assets\Adventures";
+
 		public virtual string AdventuresDir { get; protected set; } = @"..\..\Adventures";
 
 		public virtual string QuickLaunchDir { get; protected set; } = @"..\..\QuickLaunch";
