@@ -484,9 +484,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		protected virtual void DeleteAdventureFolder()
 		{
-			if (Globals.Directory.Exists(@"..\..\Adventures\" + AdventureName))
+			if (Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
 			{
-				Globals.Directory.Delete(@"..\..\Adventures\" + AdventureName, true);
+				Globals.Directory.Delete(Constants.AdventuresDir + @"\" + AdventureName, true);
 			}
 
 			if (Globals.Directory.Exists(Constants.AndroidAdventuresDir + @"\" + AdventureName))
@@ -528,7 +528,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 						x.Name = AdventureName01;
 
-						x.WorkDir = @"..\..\Adventures\" + AdventureName;
+						x.WorkDir = Constants.AdventuresDir + @"\" + AdventureName;
 
 						x.PluginFileName = this is IAddStandardAdventureMenu ? "EamonRT.dll" : AdventureName + ".dll";
 
@@ -559,7 +559,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				}
 				else
 				{
-					var fileset = Globals.Database.FilesetTable.Records.FirstOrDefault(fs => string.Equals(fs.WorkDir, @"..\..\Adventures\" + AdventureName, StringComparison.OrdinalIgnoreCase));
+					var fileset = Globals.Database.FilesetTable.Records.FirstOrDefault(fs => string.Equals(fs.WorkDir, Constants.AdventuresDir + @"\" + AdventureName, StringComparison.OrdinalIgnoreCase));
 
 					if (fileset != null)
 					{

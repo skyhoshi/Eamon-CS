@@ -47,7 +47,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var advCharList = new List<AdventuringCharacter>();
 
-			var adventureDirs = Globals.Directory.GetDirectories(@"..\..\Adventures");
+			var adventureDirs = Globals.Directory.GetDirectories(Constants.AdventuresDir);
 
 			var j = (long)adventureDirs.Length;
 
