@@ -121,7 +121,7 @@ namespace Eamon.Framework.Plugin
 
 		string ProcessMutexName { get; }
 
-		string EamonDesktopSlnFile { get; }
+		string EamonAdventuresSlnFile { get; }
 
 		string StackTraceFile { get; }
 

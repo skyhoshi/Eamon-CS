@@ -5,6 +5,7 @@
 
 using Eamon.Framework;
 using Eamon.Game.Attributes;
+using static YourAdventureName.Game.Plugin.PluginContext;
 
 namespace YourAdventureName.Game
 {

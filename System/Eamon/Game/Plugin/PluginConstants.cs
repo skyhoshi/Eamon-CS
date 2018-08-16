@@ -124,7 +124,7 @@ namespace Eamon.Game.Plugin
 
 		public virtual string ProcessMutexName { get; protected set; }
 
-		public virtual string EamonDesktopSlnFile { get; protected set; } = @"..\..\Eamon.Desktop.sln";
+		public virtual string EamonAdventuresSlnFile { get; protected set; } = @"..\..\Eamon.Adventures.sln";
 
 		public virtual string StackTraceFile { get; protected set; } = "STACKTRACE.TXT";
 

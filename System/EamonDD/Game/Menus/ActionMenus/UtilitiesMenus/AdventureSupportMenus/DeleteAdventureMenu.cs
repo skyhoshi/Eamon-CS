@@ -3,8 +3,10 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using Eamon;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -14,6 +16,32 @@ namespace EamonDD.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class DeleteAdventureMenu : AdventureSupportMenu01, IDeleteAdventureMenu
 	{
+		protected virtual void QueryToDeleteAdventure()
+		{
+			RetCode rc;
+
+			Globals.Out.Print("{0}", Globals.LineSep);
+
+			Globals.Out.Print("WARNING:  you are about to delete this adventure and all associated textfiles from storage.  If you have any doubts, you should select 'N' and backup your Eamon CS repository before proceeding.  This action is PERMANENT!");
+
+			Globals.Out.Write("{0}Would you like to delete this adventure from Eamon CS (Y/N): ", Environment.NewLine);
+
+			Buf.Clear();
+
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+
+			Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+			if (Buf.Length == 0 || Buf[0] != 'Y')
+			{
+				Globals.Out.Print("{0}", Globals.LineSep);
+
+				Globals.Out.Print("The adventure was not deleted.");
+
+				GotoCleanup = true;
+			}
+		}
+
 		protected virtual void RemoveProjectFromSolution()
 		{
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -40,6 +68,59 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				GotoCleanup = true;
 			}
+		}
+
+		protected virtual void DeleteAdventureFolder()
+		{
+			if (Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
+			{
+				Globals.Directory.Delete(Constants.AdventuresDir + @"\" + AdventureName, true);
+			}
+
+			if (Globals.Directory.Exists(Constants.AndroidAdventuresDir + @"\" + AdventureName))
+			{
+				Globals.Directory.Delete(Constants.AndroidAdventuresDir + @"\" + AdventureName, true);
+			}
+		}
+
+		protected virtual void DeleteQuickLaunchFiles()
+		{
+			// Note: QuickLaunch files missing in Eamon CS Mobile
+
+			var srcFileName = Constants.QuickLaunchDir + @"\Unix\EamonDD\Edit" + AdventureName + ".sh";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				Globals.File.Delete(srcFileName);
+			}
+
+			srcFileName = Constants.QuickLaunchDir + @"\Unix\EamonRT\Resume" + AdventureName + ".sh";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				Globals.File.Delete(srcFileName);
+			}
+
+			srcFileName = Constants.QuickLaunchDir + @"\Windows\EamonDD\Edit" + AdventureName + ".bat";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				Globals.File.Delete(srcFileName);
+			}
+
+			srcFileName = Constants.QuickLaunchDir + @"\Windows\EamonRT\Resume" + AdventureName + ".bat";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				Globals.File.Delete(srcFileName);
+			}
+		}
+
+		protected virtual void PrintAdventureDeleted()
+		{
+			Globals.Out.Print("{0}", Globals.LineSep);
+
+			Globals.Out.Print("The adventure was successfully deleted.");
 		}
 
 		public override void Execute()

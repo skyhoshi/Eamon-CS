@@ -400,19 +400,6 @@ namespace EamonVS
 									Solution.Remove(proj);
 									goto Cleanup;
 								} 
-								else if (string.Equals(proj.Name, "Adventures", StringComparison.OrdinalIgnoreCase))
-								{
-									for (var j = 1; j <= proj.ProjectItems.Count; j++)
-									{
-										var subProj = proj.ProjectItems.Item(j);
-
-										if (string.Equals(subProj.Name, Path.GetFileNameWithoutExtension(projName), StringComparison.OrdinalIgnoreCase))
-										{
-											subProj.Remove();
-											goto Cleanup;
-										}
-									}
-								}
 							}
 						Cleanup:
 							return true;
@@ -474,7 +461,7 @@ namespace EamonVS
 
 						result = ExecuteWithRetry(() =>
 						{
-							Dte.ExecuteCommand("Build.BuildSolution");
+							Dte.ExecuteCommand("Build.RebuildSolution");
 							return true;
 						}, 50, 250);
 

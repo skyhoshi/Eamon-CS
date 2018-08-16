@@ -120,7 +120,7 @@ namespace EamonPM
 				{
 					rc = RetCode.InvalidArg;
 
-					ClassMappings.Error.WriteLine("{0}Usage: EamonPM.WindowsUnix.exe -pfn PluginFileName [PluginArgs]", Environment.NewLine);
+					ClassMappings.Error.WriteLine("{0}Usage: dotnet EamonPM.WindowsUnix.dll -pfn PluginFileName [PluginArgs]", Environment.NewLine);
 
 					goto Cleanup;
 				}
@@ -131,6 +131,21 @@ namespace EamonPM
 					{
 						if (args == null || args.Length < 2 || !string.Equals(args[0], "-pfn", StringComparison.OrdinalIgnoreCase))
 						{
+							goto Cleanup;
+						}
+
+						var systemBinDir = string.Format("{0}System{0}Bin", Path.DirectorySeparatorChar);
+
+						var currWorkDir = Directory.GetCurrentDirectory();
+
+						// if current working directory invalid, bail out
+
+						if (!currWorkDir.EndsWith(systemBinDir) || currWorkDir.Length <= systemBinDir.Length || !Directory.Exists(Constants.AdventuresDir.Replace('\\', Path.DirectorySeparatorChar)))
+						{
+							rc = RetCode.Failure;
+
+							ClassMappings.Error.WriteLine("{0}Usage: to run Eamon CS change your working directory to System{1}Bin", Environment.NewLine, Path.DirectorySeparatorChar);
+
 							goto Cleanup;
 						}
 

@@ -122,6 +122,17 @@ namespace EamonPM
 					goto Cleanup;
 				}
 
+				var systemBinDir = string.Format("{0}System{0}Bin", Path.DirectorySeparatorChar);
+
+				var currWorkDir = Directory.GetCurrentDirectory();
+
+				// if current working directory invalid, bail out
+
+				if (!currWorkDir.EndsWith(systemBinDir) || currWorkDir.Length <= systemBinDir.Length || !Directory.Exists(Constants.AdventuresDir.Replace('\\', Path.DirectorySeparatorChar)))
+				{
+					goto Cleanup;
+				}
+
 				try
 				{
 					App.ExecutePlugin(args, true);

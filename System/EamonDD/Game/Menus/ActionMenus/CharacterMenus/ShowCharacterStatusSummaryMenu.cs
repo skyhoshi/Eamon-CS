@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
@@ -59,6 +60,20 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				if (Globals.File.Exists(Globals.GetPrefixedFileName(chrfn)))
 				{
+					try
+					{
+						var fileName = Globals.Path.GetFullPath(@".\" + Globals.Path.GetFileNameWithoutExtension(adventureDirs[i]) + ".dll");
+
+						if (Globals.File.Exists(fileName))
+						{
+							Assembly.LoadFrom(fileName);
+						}
+					}
+					catch (Exception)
+					{
+						// do nothing
+					}
+
 					var modfn = Globals.Path.Combine(adventureDirs[i], "MODULE.XML");
 
 					rc = Globals.PushDatabase();

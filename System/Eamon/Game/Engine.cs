@@ -642,6 +642,11 @@ namespace Eamon.Game
 			return ch != '"' && ch != ',' && ch != ':';
 		}
 
+		public virtual bool IsCharAnyButBackForwardSlash(char ch)
+		{
+			return ch != '\\' && ch != '/';
+		}
+
 		public virtual char ModifyCharToUpper(char ch)
 		{
 			return Char.ToUpper(ch);

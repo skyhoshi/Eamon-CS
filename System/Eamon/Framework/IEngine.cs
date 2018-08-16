@@ -664,6 +664,16 @@ namespace Eamon.Framework
 		bool IsCharAnyButDquoteCommaColon(char ch);
 
 		/// <summary>
+		/// Check whether a character is any character but one of ['\', '/'].
+		/// </summary>
+		/// <param name="ch">The character value.</param>
+		/// <remarks>
+		/// This method is used by <see cref="Portability.ITextReader.ReadField"/> for input validation and termination.
+		/// </remarks>
+		/// <returns>Based on the character, either true or false.</returns>
+		bool IsCharAnyButBackForwardSlash(char ch);
+
+		/// <summary>
 		/// Given a character, produce its upper case equivalent, if any.
 		/// </summary>
 		/// <param name="ch">The character value.</param>
