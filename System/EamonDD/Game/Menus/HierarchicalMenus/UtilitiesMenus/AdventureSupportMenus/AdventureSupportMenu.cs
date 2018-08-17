@@ -44,6 +44,13 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 					x.LineText = string.Format("{0}{1}. Add a custom adventure.", Environment.NewLine, MenuItems.Count + 1);
 					x.SubMenu = Globals.CreateInstance<IAddCustomAdventureMenu>();
 				}));
+
+				MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
+				{
+					x.SelectChar = (char)('1' + MenuItems.Count);
+					x.LineText = string.Format("{0}{1}. Add custom adventure classes.", Environment.NewLine, MenuItems.Count + 1);
+					x.SubMenu = Globals.CreateInstance<IAddCustomAdventureClassesMenu>();
+				}));
 			}
 
 			MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
@@ -58,7 +65,7 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 				MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
 				{
 					x.SelectChar = (char)('1' + MenuItems.Count);
-					x.LineText = string.Format("{0}{1}. Delete custom adventure unused classes.", Environment.NewLine, MenuItems.Count + 1);
+					x.LineText = string.Format("{0}{1}. Delete custom adventure classes.", Environment.NewLine, MenuItems.Count + 1);
 					x.SubMenu = Globals.CreateInstance<IDeleteCustomAdventureClassesMenu>();
 				}));
 			}

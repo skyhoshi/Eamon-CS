@@ -461,7 +461,7 @@ namespace EamonVS
 
 						result = ExecuteWithRetry(() =>
 						{
-							Dte.ExecuteCommand("Build.RebuildSolution");
+							Dte.ExecuteCommand("Build.CleanSolution");
 							return true;
 						}, 50, 250);
 
@@ -473,7 +473,38 @@ namespace EamonVS
 							{
 								if (Solution.SolutionBuild.BuildState == EnvDTE.vsBuildState.vsBuildStateDone)
 								{
-									Console.Out.WriteLine("succeeded");
+									result = ExecuteWithRetry(() =>
+									{
+										Dte.ExecuteCommand("Build.RebuildSolution");
+										return true;
+									}, 50, 250);
+
+									if (result == RetCode.Success)
+									{
+										result = ExecuteWithRetry(() => Solution.SolutionBuild.BuildState == EnvDTE.vsBuildState.vsBuildStateDone, 1200, 250);
+
+										if (result == RetCode.Success)
+										{
+											if (Solution.SolutionBuild.BuildState == EnvDTE.vsBuildState.vsBuildStateDone)
+											{
+												Console.Out.WriteLine("succeeded");
+											}
+											else
+											{
+												Console.Out.WriteLine("timed out");
+
+												result = RetCode.Failure;
+											}
+										}
+										else
+										{
+											Console.Out.WriteLine("failed");
+										}
+									}
+									else
+									{
+										Console.Out.WriteLine("failed");
+									}
 								}
 								else
 								{

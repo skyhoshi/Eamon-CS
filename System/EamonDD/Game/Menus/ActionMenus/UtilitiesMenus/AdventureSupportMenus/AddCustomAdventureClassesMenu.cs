@@ -1,12 +1,11 @@
 ﻿
-// DeleteCustomAdventureClassesMenu.cs
+// AddCustomAdventureClassesMenu.cs
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using Eamon;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
@@ -15,9 +14,9 @@ using static EamonDD.Game.Plugin.PluginContext;
 namespace EamonDD.Game.Menus.ActionMenus
 {
 	[ClassMappings]
-	public class DeleteCustomAdventureClassesMenu : AdventureSupportMenu01, IDeleteCustomAdventureClassesMenu
+	public class AddCustomAdventureClassesMenu : AdventureSupportMenu01, IAddCustomAdventureClassesMenu
 	{
-		protected virtual void CheckForUnusedClasses()
+		protected virtual void CheckForMissingClasses()
 		{
 			RetCode rc;
 
@@ -31,15 +30,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				var gameFileName = Constants.AdventuresDir + @"\" + AdventureName + @"\Game\" + genClass + ".cs";
 
-				var equalContent = Globals.File.Exists(origFileName) && Globals.File.Exists(gameFileName) && ReplaceMacros(Globals.File.ReadAllText(origFileName)).SequenceEqual(Globals.File.ReadAllText(gameFileName));
-
-				if (equalContent)
+				if (!Globals.File.Exists(gameFileName))
 				{
 					Globals.Out.Print("{0}", Globals.LineSep);
 
-					Globals.Out.Print("The {0} class appears to be empty.", AdventureName + ".Game." + genClass);
+					Globals.Out.Print("The {0} class appears to be missing.", AdventureName + ".Game." + genClass);
 
-					Globals.Out.Write("{0}Would you like to delete it (Y/N): ", Environment.NewLine);
+					Globals.Out.Write("{0}Would you like to add it (Y/N): ", Environment.NewLine);
 
 					Buf.Clear();
 
@@ -58,13 +55,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 			{
 				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("The custom adventure library (.dll) has no unused generated classes.");
+				Globals.Out.Print("The custom adventure library (.dll) has no missing generated classes.");
 
 				GotoCleanup = true;
 			}
 		}
 
-		protected virtual void DeleteSelectedClasses()
+		protected virtual void AddSelectedClasses()
 		{
 			Globals.Out.Print("{0}", Globals.LineSep);
 
@@ -72,19 +69,18 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			foreach (var selectedClass in SelectedClasses)
 			{
-				var fileName = Constants.AdventuresDir + @"\" + AdventureName + @"\Game\" + selectedClass + ".cs";
+				var fileText = string.Empty;
 
-				if (Globals.File.Exists(fileName))
+				if (string.Equals(selectedClass, "GameState", StringComparison.OrdinalIgnoreCase))
 				{
-					Globals.File.Delete(fileName);
+					fileText = Globals.File.ReadAllText(AdvTemplateDir + @"\Adventures\YourAdventureName\Framework\IGameState.cs");
+
+					Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\Framework\IGameState.cs", ReplaceMacros(fileText));
 				}
 
-				fileName = Constants.AdventuresDir + @"\" + AdventureName + @"\Framework\I" + selectedClass + ".cs";
+				fileText = Globals.File.ReadAllText(AdvTemplateDir + @"\Adventures\YourAdventureName\Game\" + selectedClass + ".cs");
 
-				if (Globals.File.Exists(fileName))
-				{
-					Globals.File.Delete(fileName);
-				}
+				Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\Game\" + selectedClass + ".cs", ReplaceMacros(fileText));
 			}
 		}
 
@@ -92,7 +88,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			Globals.Out.WriteLine();
 
-			Globals.Engine.PrintTitle("DELETE CUSTOM ADVENTURE CLASSES", true);
+			Globals.Engine.PrintTitle("ADD CUSTOM ADVENTURE CLASSES", true);
 
 			Debug.Assert(!Globals.Engine.IsAdventureFilesetLoaded());
 
@@ -118,7 +114,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			GetAuthorInitials();
 
-			CheckForUnusedClasses();
+			CheckForMissingClasses();
 
 			if (GotoCleanup)
 			{
@@ -132,7 +128,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				goto Cleanup;
 			}
 
-			DeleteSelectedClasses();
+			AddSelectedClasses();
 
 			UpdateXmlFileClasses();
 
@@ -157,7 +153,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			Globals.Directory.SetCurrentDirectory(workDir);
 		}
 
-		public DeleteCustomAdventureClassesMenu()
+		public AddCustomAdventureClassesMenu()
 		{
 
 		}

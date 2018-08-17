@@ -9,7 +9,8 @@ namespace EamonDD.Framework.Primitive.Enums
 	{
 		None = 0,
 		AddAdventure,
+		AddClasses,
 		DeleteAdventure,
-		DeleteUnusedClasses
+		DeleteClasses
 	}
 }

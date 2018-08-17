@@ -28,9 +28,21 @@ namespace EamonPM.Game.Portability
 			return string.Equals(NormalizePath(path1), NormalizePath(path2), System.IO.Path.DirectorySeparatorChar == '\\' ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal);
 		}
 
-		public virtual string Combine(string path1, string path2)
+		public virtual string Combine(params string[] paths)
 		{
-			return System.IO.Path.Combine(NormalizePath(path1), NormalizePath(path2));
+			string[] normalizedPaths = null;
+
+			if (paths != null)
+			{
+				normalizedPaths = new string[paths.Length];
+
+				for (var i = 0; i < paths.Length; i++)
+				{
+					normalizedPaths[i] = NormalizePath(paths[i]);
+				}
+			}
+
+			return System.IO.Path.Combine(normalizedPaths);
 		}
 
 		public virtual string GetDirectoryName(string path)

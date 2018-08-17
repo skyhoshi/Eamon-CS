@@ -39,6 +39,8 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		protected virtual IList<string> SelectedAdvDbTextFiles { get; set; }
 
+		protected virtual IList<string> SelectedClasses { get; set; }
+
 		protected virtual Assembly VsaAssembly { get; set; }
 
 		protected virtual IVisualStudioAutomation VsaObject { get; set; }
@@ -205,7 +207,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 			else
 			{
-				if (SupportMenuType == DDEnums.SupportMenuType.DeleteUnusedClasses)
+				if (SupportMenuType == DDEnums.SupportMenuType.AddClasses)
+				{
+					Globals.Out.Print("Note:  this menu option will attempt to add missing custom classes that were generated automatically when the adventure was created.  You will be shown each class detected to be missing and asked if you want to add it; the actual addition will occur after you are given a final warning.  For any classes added, the corresponding .XML textfile (if any) will be updated appropriately.");
+				}
+				else if (SupportMenuType == DDEnums.SupportMenuType.DeleteClasses)
 				{
 					Globals.Out.Print("Note:  this menu option will attempt to remove unused classes that were generated automatically when the adventure was created.  You will be shown each class detected to be empty and asked if you want to delete it; the actual deletion will occur after you are given a final warning.  For any classes deleted, the corresponding .XML textfile (if any) will be updated appropriately.");
 				}
@@ -263,7 +269,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				GotoCleanup = true;
 			}
-			else if (SupportMenuType == DDEnums.SupportMenuType.DeleteUnusedClasses)
+			else if (SupportMenuType == DDEnums.SupportMenuType.AddClasses || SupportMenuType == DDEnums.SupportMenuType.DeleteClasses)
 			{
 				if (!Globals.File.Exists(Constants.AdventuresDir + @"\" + AdventureName + @"\" + AdventureName + @".csproj"))
 				{
@@ -426,6 +432,42 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 		}
 
+		protected virtual void QueryToProcessAdventure()
+		{
+			RetCode rc;
+
+			Globals.Out.Print("{0}", Globals.LineSep);
+
+			Globals.Out.Print("WARNING:  you are about to {0} the following classes and update any associated .XML files.  If you have any doubts, you should select 'N' and backup your Eamon CS repository before proceeding.  This action is PERMANENT!", SupportMenuType == DDEnums.SupportMenuType.DeleteClasses ? "delete" : "add");
+
+			foreach (var selectedClass in SelectedClasses)
+			{
+				Globals.Out.Write("{0}{1}.Game.{2}", Environment.NewLine, AdventureName, selectedClass);
+			}
+
+			Globals.Out.WriteLine();
+
+			Globals.Out.Write("{0}Would you like to {1} these classes {2} the adventure (Y/N): ", 
+				Environment.NewLine, 
+				SupportMenuType == DDEnums.SupportMenuType.DeleteClasses ? "delete" : "add",
+				SupportMenuType == DDEnums.SupportMenuType.DeleteClasses ? "from" : "to");
+
+			Buf.Clear();
+
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+
+			Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+			if (Buf.Length == 0 || Buf[0] != 'Y')
+			{
+				Globals.Out.Print("{0}", Globals.LineSep);
+
+				Globals.Out.Print("The adventure was not processed.");
+
+				GotoCleanup = true;
+			}
+		}
+
 		protected virtual void CopyQuickLaunchFiles()
 		{
 			var fileText = string.Empty;
@@ -566,6 +608,30 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 		}
 
+		protected virtual void UpdateXmlFileClasses()
+		{
+			foreach (var selectedClass in SelectedClasses)
+			{
+				var fileName = Constants.AdventuresDir + @"\" + AdventureName + @"\" + selectedClass.ToUpper() + (string.Equals(selectedClass, "Module", StringComparison.OrdinalIgnoreCase) ? ".XML" : "S.XML");
+
+				if (Globals.File.Exists(fileName))
+				{
+					if (SupportMenuType == DDEnums.SupportMenuType.AddClasses)
+					{
+						var fileText = Globals.File.ReadAllText(fileName);
+
+						Globals.File.WriteAllText(fileName, fileText.Replace("Eamon.Game." + selectedClass + ", Eamon", AdventureName + ".Game." + selectedClass + ", " + AdventureName));
+					}
+					else if (SupportMenuType == DDEnums.SupportMenuType.DeleteClasses)
+					{
+						var fileText = Globals.File.ReadAllText(fileName);
+
+						Globals.File.WriteAllText(fileName, fileText.Replace(AdventureName + ".Game." + selectedClass + ", " + AdventureName, "Eamon.Game." + selectedClass + ", Eamon"));
+					}
+				}
+			}
+		}
+
 		protected virtual void RebuildSolution()
 		{
 			LoadVsaAssemblyIfNecessary();
@@ -582,7 +648,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			{
 				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("The adventure was not created.");
+				Globals.Out.Print("The adventure was not {0}.", SupportMenuType == DDEnums.SupportMenuType.AddAdventure ? "created" : "processed");
 
 				GotoCleanup = true;
 			}
@@ -619,13 +685,21 @@ namespace EamonDD.Game.Menus.ActionMenus
 			Globals.Out.Print("The adventure was successfully created.");
 		}
 
+		protected virtual void PrintAdventureProcessed()
+		{
+			Globals.Out.Print("{0}", Globals.LineSep);
+
+			Globals.Out.Print("The adventure was successfully processed.");
+		}
+
 		public AdventureSupportMenu01()
 		{
 			Buf = Globals.Buf;
 
 			SupportMenuType = this is IAddStandardAdventureMenu || this is IAddCustomAdventureMenu ? DDEnums.SupportMenuType.AddAdventure :
+									this is IAddCustomAdventureClassesMenu ? DDEnums.SupportMenuType.AddClasses :
 									this is IDeleteAdventureMenu ? DDEnums.SupportMenuType.DeleteAdventure :
-									DDEnums.SupportMenuType.DeleteUnusedClasses;
+									DDEnums.SupportMenuType.DeleteClasses;
 
 			AdvTemplateDir = this is IAddStandardAdventureMenu ? 
 				Constants.AdventuresDir + @"\AdventureTemplates\Standard" : 

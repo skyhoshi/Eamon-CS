@@ -11,7 +11,7 @@ namespace Eamon.Framework.Portability
 
 		bool EqualPaths(string path1, string path2);
 
-		string Combine(string path1, string path2);
+		string Combine(params string[] paths);
 
 		string GetDirectoryName(string path);
 
