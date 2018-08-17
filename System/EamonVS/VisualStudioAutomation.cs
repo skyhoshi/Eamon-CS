@@ -190,12 +190,12 @@ namespace EamonVS
 					result = false;
 				}
 
+				Thread.Sleep(result ? 1000 : (int)sleepMs);
+
 				if (result)
 				{
 					break;
 				}
-
-				Thread.Sleep((int)sleepMs);
 			}
 
 			if (!result && savedEx != null)
