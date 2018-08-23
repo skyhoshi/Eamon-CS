@@ -64,3 +64,23 @@ namespace EamonRT.Game.States
 		}
 	}
 }
+
+/* EamonCsCodeTemplate
+
+// DefaultMonsterDecisionState.cs
+
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+
+using Eamon.Game.Attributes;
+using EamonRT.Framework.States;
+using static YourAdventureName.Game.Plugin.PluginContext;
+
+namespace YourAdventureName.Game.States
+{
+	[ClassMappings]
+	public class DefaultMonsterDecisionState : EamonRT.Game.States.DefaultMonsterDecisionState, IDefaultMonsterDecisionState
+	{
+
+	}
+}
+EamonCsCodeTemplate */

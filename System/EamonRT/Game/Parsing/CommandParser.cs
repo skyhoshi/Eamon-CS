@@ -350,3 +350,23 @@ namespace EamonRT.Game.Parsing
 		}
 	}
 }
+
+/* EamonCsCodeTemplate
+
+// CommandParser.cs
+
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+
+using Eamon.Game.Attributes;
+using Eamon.Framework.Parsing;
+using static YourAdventureName.Game.Plugin.PluginContext;
+
+namespace YourAdventureName.Game.Parsing
+{
+	[ClassMappings]
+	public class CommandParser : EamonRT.Game.Parsing.CommandParser, ICommandParser
+	{
+
+	}
+}
+EamonCsCodeTemplate */

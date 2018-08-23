@@ -199,3 +199,23 @@ namespace EamonRT.Game.States
 		}
 	}
 }
+
+/* EamonCsCodeTemplate
+
+// StateImpl.cs
+
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+
+using Eamon.Game.Attributes;
+using Eamon.Framework.States;
+using static YourAdventureName.Game.Plugin.PluginContext;
+
+namespace YourAdventureName.Game.States
+{
+	[ClassMappings]
+	public class StateImpl : EamonRT.Game.States.StateImpl, IStateImpl
+	{
+
+	}
+}
+EamonCsCodeTemplate */

@@ -862,3 +862,23 @@ namespace EamonRT.Game.Combat
 		}
 	}
 }
+
+/* EamonCsCodeTemplate
+
+// CombatSystem.cs
+
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+
+using Eamon.Game.Attributes;
+using EamonRT.Framework.Combat;
+using static YourAdventureName.Game.Plugin.PluginContext;
+
+namespace YourAdventureName.Game.Combat
+{
+	[ClassMappings]
+	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, ICombatSystem
+	{
+
+	}
+}
+EamonCsCodeTemplate */
