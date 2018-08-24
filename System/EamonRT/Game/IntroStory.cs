@@ -185,23 +185,3 @@ namespace EamonRT.Game
 		}
 	}
 }
-
-/* EamonCsCodeTemplate
-
-// IntroStory.cs
-
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
-
-using Eamon.Game.Attributes;
-using EamonRT.Framework;
-using static YourAdventureName.Game.Plugin.PluginContext;
-
-namespace YourAdventureName.Game
-{
-	[ClassMappings]
-	public class IntroStory : EamonRT.Game.IntroStory, IIntroStory
-	{
-
-	}
-}
-EamonCsCodeTemplate */

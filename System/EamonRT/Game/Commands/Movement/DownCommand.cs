@@ -36,23 +36,3 @@ namespace EamonRT.Game.Commands
 		}
 	}
 }
-
-/* EamonCsCodeTemplate
-
-// DownCommand.cs
-
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
-
-using Eamon.Game.Attributes;
-using EamonRT.Framework.Commands;
-using static YourAdventureName.Game.Plugin.PluginContext;
-
-namespace YourAdventureName.Game.Commands
-{
-	[ClassMappings]
-	public class DownCommand : EamonRT.Game.Commands.DownCommand, IDownCommand
-	{
-
-	}
-}
-EamonCsCodeTemplate */

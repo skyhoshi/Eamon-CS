@@ -70,23 +70,3 @@ namespace EamonRT.Game.States
 		}
 	}
 }
-
-/* EamonCsCodeTemplate
-
-// PlayerDeadState.cs
-
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
-
-using Eamon.Game.Attributes;
-using EamonRT.Framework.States;
-using static YourAdventureName.Game.Plugin.PluginContext;
-
-namespace YourAdventureName.Game.States
-{
-	[ClassMappings]
-	public class PlayerDeadState : EamonRT.Game.States.PlayerDeadState, IPlayerDeadState
-	{
-
-	}
-}
-EamonCsCodeTemplate */

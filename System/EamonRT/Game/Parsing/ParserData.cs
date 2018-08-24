@@ -69,23 +69,3 @@ namespace EamonRT.Game.Parsing
 		public virtual Action MonsterNotFoundFunc { get; set; }
 	}
 }
-
-/* EamonCsCodeTemplate
-
-// ParserData.cs
-
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
-
-using Eamon.Game.Attributes;
-using Eamon.Framework.Parsing;
-using static YourAdventureName.Game.Plugin.PluginContext;
-
-namespace YourAdventureName.Game.Parsing
-{
-	[ClassMappings]
-	public class ParserData : EamonRT.Game.Parsing.ParserData, IParserData
-	{
-
-	}
-}
-EamonCsCodeTemplate */
