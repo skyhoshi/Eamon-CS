@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EamonRT</name>
+    </assembly>
+    <members>
+        <member name="M:EamonRT.Framework.IEngine.CheckPlayerCommand(Eamon.Framework.Commands.ICommand)">
+            <summary>
+            Checks to see if the player command should be allowed to proceed.
+            </summary>
+            <param name="command">The command to check.</param>
+            <remarks>
+            This method takes the command identified during the parsing process and checks to see if it
+            should be allowed to proceed.  The method is called immediately once the command is identified;
+            the direct/indirect objects have not been parsed or resolved at this point.  You can examine 
+            the command passed and take whatever actions you deem necessary, including outputting text to
+            the player and/or setting the NextState command property.  If you want to abort the command
+            you should set its Discarded property to true.
+            </remarks>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.PrintMacroReplacedPagedString(System.String,System.Text.StringBuilder)">
+            <summary>
+            Prints the string passed in, after doing full macro replacement on it (if necessary).  If the
+            string contains page separators it will be printed a page at a time.
+            </summary>
+            <param name="str">The string to process and print.</param>
+            <param name="buf">The buffer used during string processing.</param>
+            <remarks>
+            Macro replacement is done using <see cref="M:Eamon.Framework.IEngine.ResolveUidMacros(System.String,System.Text.StringBuilder,System.Boolean,System.Boolean,System.Int64@)"/>.  If the
+            printed string contains the page break macro <see cref="P:EamonRT.Framework.Plugin.IPluginConstants.PageSep"/> it will
+            be split into pages and each page will be displayed, followed by a required user keypress.  The
+            passed in buffer is used during processing and its original contents will be overwritten.  The
+            passed in string will not be modified.  This method is used to print the intro story as well as
+            hints, such as the author's notes.
+            </remarks>
+        </member>
+        <member name="M:EamonRT.Game.Commands.Command.PlayerExecute">
+            <summary>
+            The main entry point that resolves player character use of the Command.
+            </summary>
+        </member>
+        <member name="M:EamonRT.Game.Commands.Command.MonsterExecute">
+            <summary>
+            The main entry point that resolves non-player character use of the Command.
+            </summary>
+        </member>
+        <member name="M:EamonRT.Game.Commands.Command.IsAllowedInRoom">
+            <summary>
+            Determines whether the command is allowed in the player's current room.
+            </summary>
+            <remarks>
+            This method works in conjunction with <see cref="M:EamonRT.Game.Commands.Command.PrintCantVerbHere"/> to disable commands
+            with custom error responses in different rooms.  Note that there is also a very powerful and
+            much more flexible option in <see cref="M:EamonRT.Framework.IEngine.CheckPlayerCommand(Eamon.Framework.Commands.ICommand)"/>,
+            which can be used to accomplish these tasks.
+            </remarks>
+            <returns>If the command is allowed, returns true; else returns false.</returns>
+        </member>
+        <member name="T:EamonRT.Game.Commands.CommandImpl">
+            <summary>
+            An implementation of the Command class that can be subclassed and overridden at the game level.
+            </summary>
+            <remarks>
+            This class was introduced to allow the logic in the abstract base class Command to be overridden
+            by the game designer.  This can already be done on a Command by Command basis, that is, you have to
+            override each Command individually to create derived behavior.  But now you can override CommandImpl
+            and every class derived from Command will inherit the modified behavior automatically.
+            <para>
+            Note that when subclassing and writing code in CommandImpl, you should never access its methods or
+            properties directly; always access them indirectly using the Command property.  For example, use
+            Command.PrintNotEnoughGold() or Command.ActorRoom, etc.  The reason for this is if a subclass of
+            Command has overridden the property or method you don't want to use CommandImpl's version, you want
+            that classes' override (if there is no override in the subclass, then Command will just thunk back
+            over to CommandImpl's version).
+            </para>
+            </remarks>
+            <seealso cref="T:Eamon.Framework.Commands.ICommandImpl" />
+            <seealso cref="T:Eamon.Framework.Commands.ICommand" />
+            <seealso cref="T:EamonRT.Game.Commands.Command" />
+        </member>
+        <member name="F:EamonRT.Game.Commands.BlastCommand.PpeAfterPlayerSpellCastCheck">
+            <summary>
+            This event fires after a check has been made to resolve the player's spell cast
+            attempt, and it resolves as successful.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.BlastCommand.PpeAfterMonsterGetsAggravated">
+            <summary>
+            This event fires after the monster targeted by the Blast spell gets aggravated.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.FreeCommand.PpeBeforeGuardMonsterCheck">
+            <summary>
+            This event fires before a check is made to see if a guard monster prevents
+            a bound monster from being freed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.GiveCommand.PpeAfterEnforceMonsterWeightLimitsCheck">
+            <summary>
+            This event fires after a check has been made to enforce limits on the weight a
+            monster can carry.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.GiveCommand.PpeAfterPlayerGivesReadiedWeaponCheck">
+            <summary>
+            This event fires after a check has been made to see if the player is giving away
+            a readied weapon.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.GiveCommand.PpeBeforeMonsterTakesGold">
+            <summary>
+            This event fires before a monster takes the gold offered by the player.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.CloseCommand.PpeAfterArtifactClose">
+            <summary>
+            This event fires after the player closes an artifact.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.DrinkCommand.PpeBeforeArtifactNowEmptyCheck">
+            <summary>
+            This event fires before a check is made to see if an artifact has been fully drunk.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.DrinkCommand.PpeAfterArtifactDrink">
+            <summary>
+            This event fires after the player drinks an artifact.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.EatCommand.PpeBeforeArtifactNowEmptyCheck">
+            <summary>
+            This event fires before a check is made to see if an artifact has been fully eaten.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.EatCommand.PpeAfterArtifactEat">
+            <summary>
+            This event fires after the player eats an artifact.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.ExamineCommand.PpeAfterArtifactFullDescPrint">
+            <summary>
+            This event fires after an artifact's full description has been printed (but before
+            units are listed for drinkables/edibles).
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.OpenCommand.PpeAfterArtifactOpenPrint">
+            <summary>
+            This event fires after an artifact's open message has been printed (but before
+            inventory is listed for containers).
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.OpenCommand.PpeAfterArtifactOpen">
+            <summary>
+            This event fires after the player opens an artifact.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.PutCommand.PpeAfterArtifactPut">
+            <summary>
+            This event fires after the player puts an artifact into a container.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.ReadCommand.PpeBeforeArtifactReadTextPrint">
+            <summary>
+            This event fires before an artifact's read text is printed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.ReadCommand.PpeAfterArtifactRead">
+            <summary>
+            This event fires after the player reads an artifact.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.UseCommand.PpeBeforeArtifactUse">
+            <summary>
+            This event fires before the player uses an artifact.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.WearCommand.PpeAfterArtifactWear">
+            <summary>
+            This event fires after the player wears an artifact.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.PowerCommand.PpeAfterPlayerSpellCastCheck">
+            <summary>
+            This event fires after a check has been made to resolve the player's spell cast
+            attempt, and it resolves as successful.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.SayCommand.PpeBeforePlayerSayTextPrint">
+            <summary>
+            This event fires before the player's said text is printed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.SayCommand.PpeAfterPlayerSay">
+            <summary>
+            This event fires after the player says something.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.StatusCommand.PpeAfterPlayerStatus">
+            <summary>
+            This event fires after the player's status text has been printed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.FleeCommand.PpeAfterNumberOfExitsCheck">
+            <summary>
+            This event fires after a check has been made to see if exits are available for fleeing,
+            and it resolves that there are.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.EndOfRoundState.PeAfterRoundEnd">
+            <summary>
+            This event fires at the end of the current round, after all processing has been done.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.StartState.PeBeforeRoundStart">
+            <summary>
+            This event fires at the start of a new round, before any processing has been done.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.AfterPlayerMoveState.PeAfterExtinguishLightSourceCheck">
+            <summary>
+            This event fires after the player has moved to a new room and a check has
+            been made to see if a carried light source needs to be extinguished.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.BeforePlayerMoveState.PeAfterDestinationRoomSet">
+            <summary>
+            This event fires after the player's destination room Uid is calculated and stored.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.GetPlayerInputState.PeBeforeCommandPromptPrint">
+            <summary>
+            This event fires before the player's command prompt is printed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.PlayerMoveCheckState.PeBeforeCanMoveToRoomCheck">
+            <summary>
+            This event fires before a check is made to see if the player can move to a room.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.PlayerMoveCheckState.PeAfterBlockingArtifactCheck">
+            <summary>
+            This event fires after a check is made to see if a blocking artifact (for example,
+            a door) prevents the player's movement.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.PrintPlayerRoomState.PeBeforePlayerRoomPrint">
+            <summary>
+            This event fires before the player's room has been printed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.ProcessPlayerInputState.PeAfterLastCommandListClear">
+            <summary>
+            This event fires after the player's command has been processed (but not executed), 
+            the current turn counter incremented and the last command list cleared.
+            </summary>
+        </member>
+        <member name="T:EamonRT.Game.States.StateImpl">
+            <summary>
+            An implementation of the State class that can be subclassed and overridden at the game level.
+            </summary>
+            <remarks>
+            This class was introduced to allow the logic in the abstract base class State to be overridden
+            by the game designer.  This can already be done on a State by State basis, that is, you have to
+            override each State individually to create derived behavior.  But now you can override StateImpl
+            and every class derived from State will inherit the modified behavior automatically.
+            <para>
+            Note that when subclassing and writing code in StateImpl, you should never access its methods or
+            properties directly; always access them indirectly using the State property.  For example, use
+            State.PrintCantGoThatWay() or State.NextState, etc.  The reason for this is if a subclass of
+            State has overridden the property or method you don't want to use StateImpl's version, you want
+            that classes' override (if there is no override in the subclass, then State will just thunk back
+            over to StateImpl's version).
+            </para>
+            </remarks>
+            <seealso cref="T:Eamon.Framework.States.IStateImpl" />
+            <seealso cref="T:Eamon.Framework.States.IState" />
+            <seealso cref="T:EamonRT.Game.States.State" />
+        </member>
+    </members>
+</doc>

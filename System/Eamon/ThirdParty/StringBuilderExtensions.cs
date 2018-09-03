@@ -420,7 +420,7 @@ namespace System.Text
         /// <returns>
         /// The zero-based index position of the <paramref name="value"/> parameter if that string is found, 
         /// or -1 if it is not. If <paramref name="value"/> is <see cref="System.String.Empty"/>, the return value 
-        /// is <paramref name="startIndex"/>.
+        /// is 0.
         /// </returns>
         /// <exception cref="System.ArgumentNullException"><paramref name="value"/> is null.</exception>
         public static int IndexOf(this StringBuilder sb, string value, bool ignoreCase = false)

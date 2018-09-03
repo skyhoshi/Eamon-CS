@@ -43,11 +43,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 				goto Cleanup;
 			}
 
-			CopyQuickLaunchFiles();
+			CreateQuickLaunchFiles();
 
 			CreateAdventureFolder();
 
-			CopyHintsXml();
+			CreateHintsXml();
 
 			UpdateAdvDbTextFiles();
 

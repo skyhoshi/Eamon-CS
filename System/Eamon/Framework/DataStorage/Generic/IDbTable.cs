@@ -161,6 +161,7 @@ namespace Eamon.Framework.DataStorage.Generic
 		/// <see cref="Records"/> and (if necessary) <see cref="Cache"/>.  The record, if found, is returned;
 		/// otherwise null is returned.  Take a look at the comments for <see cref="FindRecord(Type, bool)"/>
 		/// and <see cref="RemoveRecord(long)"/> because they also apply to this method.
+		/// </remarks>
 		/// <returns>The first record matching the provided interface type or null if not found.</returns>
 		T RemoveRecord(Type type, bool exactMatch = false);
 

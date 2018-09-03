@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TheBeginnersCave</name>
+    </assembly>
+    <members>
+        <member name="T:TheBeginnersCave.Framework.Commands.ITrollsfireCommand">
+            <summary>
+            This is the command used by the player to activate/deactivate the Trollsfire sword.
+            </summary>
+            <remarks>
+            The TrollsfireCommand concrete implements this interface, which is used for dependency injection.  You will
+            notice that nowhere in The Beginner's Cave is this command explicitly added to a list of available commands;
+            rather, this is accomplished in <see cref="M:EamonRT.Framework.IEngine.CreateCommands"/>, which reflectively
+            probes for all classes derived from <see cref="T:Eamon.Framework.Commands.ICommand"/> and adds any found.
+            </remarks>
+            <seealso cref="T:TheBeginnersCave.Game.Commands.TrollsfireCommand" />
+        </member>
+        <member name="P:TheBeginnersCave.Framework.IGameState.Trollsfire">
+            <summary>
+            Gets or sets the Trollsfire property.
+            </summary>
+            <value>
+            If Trollsfire is activated, this is one (1); else it is zero (0).
+            </value>
+            <remarks>
+            The Trollsfire property controls whether the Trollsfire sword is alight (1) or extinguished (0).  It works in 
+            conjunction with <see cref="P:TheBeginnersCave.Game.Monster.Weapon"/> and <see cref="T:TheBeginnersCave.Framework.Commands.ITrollsfireCommand"/> to fully implement
+            the "Trollsfire effect".  When Trollsfire is activated the string "(alight)" is added to its StateDesc property
+            and its weapon dice value is set to 10.  When deactivated, the "(alight)" string is removed and the weapon dice
+            value is set to 6.  The Trollsfire property uses a complex setter to perform these actions automatically.
+            </remarks>
+        </member>
+        <member name="T:TheBeginnersCave.Game.Commands.TrollsfireCommand">
+            <seealso cref="T:TheBeginnersCave.Framework.Commands.ITrollsfireCommand" />
+        </member>
+        <member name="P:TheBeginnersCave.Game.Monster.Weapon">
+            <summary>
+            Gets or sets the Weapon property.
+            </summary>
+            <remarks>
+            This complex override of the Monster's Weapon property demonstrates how easy it is to produce special
+            behaviors in Eamon CS with highly localized changes to default engine behavior.  In a BASIC Eamon this
+            logic would be sprinkled throughout a number of commands, to check for all the scenarios where the
+            Trollsfire effect might be activated/deactivated.  But realistically its all about the change in the
+            Weapon property.  This handles every possible thing that could deactivate Trollsfire (also activate it
+            for the pirate).  Fumbles, drops, gives, puts, takes, readies, etc.  The Weapon property works along with
+            <see cref="P:TheBeginnersCave.Framework.IGameState.Trollsfire"/> and <see cref="T:TheBeginnersCave.Framework.Commands.ITrollsfireCommand"/> to
+            fully implement the Trollsfire sword.
+            </remarks>
+        </member>
+    </members>
+</doc>

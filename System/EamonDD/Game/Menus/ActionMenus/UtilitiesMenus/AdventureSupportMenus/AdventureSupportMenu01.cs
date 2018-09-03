@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using Eamon;
 using Eamon.Framework;
@@ -25,6 +26,8 @@ namespace EamonDD.Game.Menus.ActionMenus
 	{
 		protected virtual bool GotoCleanup { get; set; }
 
+		protected virtual bool IncludeInterface { get; set; }
+
 		protected virtual DDEnums.SupportMenuType SupportMenuType { get; set; }
 
 		protected virtual string AdventureName { get; set; }
@@ -35,11 +38,137 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		protected virtual string AuthorInitials { get; set; }
 
-		protected virtual string AdvTemplateDir { get; set; }
+		protected virtual string ParentClassFileName { get; set; }
+
+		protected virtual string HintsXmlText { get; set; } =
+@"<Complex name=""Root"" type=""Eamon.Game.DataStorage.HintDbTable, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null"">
+  <Properties>
+    <Collection name=""Records"" type=""Eamon.ThirdParty.BTree`1[[Eamon.Framework.IHint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null"">
+      <Properties>
+        <Simple name=""IsReadOnly"" value=""False"" />
+        <Simple name=""AllowDuplicates"" value=""False"" />
+      </Properties>
+      <Items>
+        <Complex type=""YourAdventureName.Game.Hint, YourAdventureName, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null"">
+          <Properties>
+            <Simple name=""Uid"" value=""1"" />
+            <Simple name=""IsUidRecycled"" value=""True"" />
+            <Simple name=""Active"" value=""True"" />
+            <Simple name=""Question"" value=""EAMON CS 1.4 GENERAL HELP."" />
+            <Simple name=""NumAnswers"" value=""8"" />
+            <SingleArray name=""Answers"">
+              <Items>
+                <Simple value=""1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A DR&quot; or &quot;A GON&quot; for ATTACK DRAGON, &quot;REQ RAY FROM AL&quot; or &quot;REQ GUN FROM IEN&quot; for REQUEST RAY GUN FROM ALIEN, &quot;PUT PUM IN LAR&quot; or &quot;PUT PIE IN OVEN&quot; for PUT PUMPKIN PIE IN **999"" />
+                <Simple value=""2. Sometimes items may be in a room but won't show up until you EXAMINE them.  Pay close attention to all descriptions.  Note:  LOOK only repeats the room description and -nothing- else.  Use EXAMINE to, well, examine things."" />
+                <Simple value=""3. Before you can manipulate items that are inside of other items, you must REMOVE them from that item.  There is no REMOVE ALL command, but if you ATTACK a (breakable) container, all of its contents will be emptied to the floor and you can GET ALL."" />
+                <Simple value=""4. Type SAVE and a number for a desired save position to Quick Save (save without having to verify).  Adding a description will rename that slot.  Examples:  &quot;SAVE 2&quot; or &quot;SAVE 5 Dark Room (NO GRUES)&quot;.  Also works with RESTORE.  (Type RESTORE 1, etc.)"" />
+                <Simple value=""5. You can INVENTORY companions (normally anyone whom, when you SMILE, smiles back at you) to see what they are carrying and wearing.  You can then REQUEST those items from them.  You can also INVENTORY containers to get a list of contents."" />
+                <Simple value=""6. If you GIVE food or a beverage to a friend, they will take a bite or drink and give it back to you."" />
+                <Simple value=""7. To give money to someone, type GIVE and an amount.  For example, GIVE 1000 TO IRS AGENT would pay 1000 gold coins to the nice IRS Agent.  In most standard adventures, if you GIVE 5000 or more, a neutral monster will -usually- become your friend."" />
+                <Simple value=""8. The POWER spell has been known to have strange and marvelous effects in many adventures.  When all else fails (or just for fun) try POWER."" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type=""YourAdventureName.Game.Hint, YourAdventureName, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null"">
+          <Properties>
+            <Simple name=""Uid"" value=""2"" />
+            <Simple name=""IsUidRecycled"" value=""True"" />
+            <Simple name=""Active"" value=""True"" />
+            <Simple name=""Question"" value=""EAMON CS 1.4 NEW COMMANDS."" />
+            <Simple name=""NumAnswers"" value=""1"" />
+            <SingleArray name=""Answers"">
+              <Items>
+                <Simple value=""1. The GO command allows you to travel through any door/gate you encounter, including those that are free-standing (not associated with a room directional link)."" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name=""FreeUids"" type=""System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"">
+      <Properties>
+        <Simple name=""Capacity"" value=""0"" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name=""CurrUid"" value=""2"" />
+  </Properties>
+</Complex>";
+
+		protected virtual string EditAdventureShText { get; set; }
+
+		protected virtual string ResumeAdventureShText { get; set; }
+
+		protected virtual string EditAdventureBatText { get; set; } =
+@"@echo off
+cd ..\..\..\System\Bin
+dotnet .\EamonPM.WindowsUnix.dll -pfn YourLibraryName.dll -wd ..\..\Adventures\YourAdventureName -la -rge
+";
+
+		protected virtual string ResumeAdventureBatText { get; set; } =
+@"@echo off
+cd ..\..\..\System\Bin
+dotnet .\EamonPM.WindowsUnix.dll -pfn YourLibraryName.dll -wd ..\..\Adventures\YourAdventureName
+";
+
+		protected virtual string InterfaceCsText { get; set; } =
+@"
+// YourInterfaceName.cs
+
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+
+using static YourAdventureName.Game.Plugin.PluginContext;
+
+namespace YourAdventureName.YourFrameworkNamespaceName
+{
+	public interface YourInterfaceName : EamonLibraryName.YourFrameworkNamespaceName.YourInterfaceName
+	{
+
+	}
+}";
+
+		protected virtual string ClassWithInterfaceCsText { get; set; } =
+@"
+// YourClassName.cs
+
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+
+YourEamonUsingStatementusing Eamon.Game.Attributes;
+YourEamonRTUsingStatementusing static YourAdventureName.Game.Plugin.PluginContext;
+
+namespace YourAdventureName.YourGameNamespaceName
+{
+	[ClassMappings(typeof(YourInterfaceName))]
+	public class YourClassName : EamonLibraryName.YourGameNamespaceName.YourClassName, YourFrameworkNamespaceName.YourInterfaceName
+	{
+
+	}
+}
+";
+
+		protected virtual string ClassCsText { get; set; } =
+@"
+// YourClassName.cs
+
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+
+YourEamonUsingStatementusing Eamon.Game.Attributes;
+YourEamonRTUsingStatementusing static YourAdventureName.Game.Plugin.PluginContext;
+
+namespace YourAdventureName.YourGameNamespaceName
+{
+	[ClassMappings]
+	public class YourClassName : EamonLibraryName.YourGameNamespaceName.YourClassName, YourInterfaceName
+	{
+
+	}
+}
+";
 
 		protected virtual IList<string> SelectedAdvDbTextFiles { get; set; }
 
-		protected virtual IList<string> SelectedClasses { get; set; }
+		protected virtual IList<string> SelectedClassFiles { get; set; }
 
 		protected virtual Assembly VsaAssembly { get; set; }
 
@@ -209,11 +338,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 			{
 				if (SupportMenuType == DDEnums.SupportMenuType.AddClasses)
 				{
-					Globals.Out.Print("Note:  this menu option will attempt to add missing custom classes that were generated automatically when the adventure was created.  You will be shown each class detected to be missing and asked if you want to add it; the actual addition will occur after you are given a final warning.  For any classes added, the corresponding .XML textfile (if any) will be updated appropriately.");
+					Globals.Out.Print(@"Note:  this menu option will allow you to enter the file paths for interfaces or classes you wish to add to the adventure; the actual addition will occur after you are given a final warning.  Your working directory is System and you should enter relative file paths (eg, .\Eamon\Game\Monster.cs or .\EamonRT\Game\Combat\CombatSystem.cs).  For any classes added, the corresponding .XML textfiles (if any) will be updated appropriately.");
 				}
 				else if (SupportMenuType == DDEnums.SupportMenuType.DeleteClasses)
 				{
-					Globals.Out.Print("Note:  this menu option will attempt to remove unused classes that were generated automatically when the adventure was created.  You will be shown each class detected to be empty and asked if you want to delete it; the actual deletion will occur after you are given a final warning.  For any classes deleted, the corresponding .XML textfile (if any) will be updated appropriately.");
+					Globals.Out.Print(@"Note:  this menu option will allow you to enter the file paths for interfaces or classes you wish to remove from the adventure; the actual deletion will occur after you are given a final warning.  Your working directory is the adventure folder for the game you've selected and you should enter relative file paths (eg, .\Game\Monster.cs).  For any classes deleted, the corresponding .XML textfiles (if any) will be updated appropriately.");
 				}
 
 				Globals.Out.Print("You must enter the name of the adventure you wish to {0} (eg, The Beginner's Cave).  This should be the formal name of the adventure shown in the Main Hall's list of adventures; input should always be properly title-cased.", SupportMenuType == DDEnums.SupportMenuType.DeleteAdventure ? "delete" : "process");
@@ -361,7 +490,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 					{
 						SelectedAdvDbTextFiles.Add(advDbTextFile);
 
-						if (!string.Equals(advDbTextFile, "ADVENTURES.XML", StringComparison.OrdinalIgnoreCase))
+						if (!string.Equals(advDbTextFile, "ADVENTURES.XML"))
 						{
 							inputDefaultValue = "N";
 						}
@@ -396,9 +525,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				if (customAdvDbTextFile.Length > 0)
 				{
-					if (!SelectedAdvDbTextFiles.Contains(customAdvDbTextFile))
+					if (SelectedAdvDbTextFiles.FirstOrDefault(fn => string.Equals(fn, customAdvDbTextFile, StringComparison.OrdinalIgnoreCase)) == null)
 					{
-						SelectedAdvDbTextFiles.Add(customAdvDbTextFile);
+							SelectedAdvDbTextFiles.Add(customAdvDbTextFile);
 					}
 				}
 				else
@@ -440,9 +569,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Globals.Out.Print("WARNING:  you are about to {0} the following classes and update any associated .XML files.  If you have any doubts, you should select 'N' and backup your Eamon CS repository before proceeding.  This action is PERMANENT!", SupportMenuType == DDEnums.SupportMenuType.DeleteClasses ? "delete" : "add");
 
-			foreach (var selectedClass in SelectedClasses)
+			foreach (var selectedClassFile in SelectedClassFiles)
 			{
-				Globals.Out.Write("{0}{1}.Game.{2}", Environment.NewLine, AdventureName, selectedClass);
+				Globals.Out.Write("{0}{1}", Environment.NewLine, selectedClassFile);
 			}
 
 			Globals.Out.WriteLine();
@@ -468,54 +597,38 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 		}
 
-		protected virtual void CopyQuickLaunchFiles()
+		protected virtual void CreateQuickLaunchFiles()
 		{
-			var fileText = string.Empty;
+			var yourLibraryName = this is IAddCustomAdventureMenu ? AdventureName : "EamonRT";
 
 			// Note: QuickLaunch files missing in Eamon CS Mobile
 
-			var srcFileName = AdvTemplateDir + @"\QuickLaunch\Unix\EamonDD\EditYourAdventureName.sh";
-
-			var destFileName = Constants.QuickLaunchDir + @"\Unix\EamonDD\Edit" + AdventureName + ".sh";
-
-			if (Globals.File.Exists(srcFileName))
+			if (Globals.Directory.Exists(Constants.QuickLaunchDir + @"\Unix\EamonDD"))
 			{
-				fileText = Globals.File.ReadAllText(srcFileName);
+				var fileText = EditAdventureShText.Replace("YourLibraryName", yourLibraryName);
 
-				Globals.File.WriteAllText(destFileName, ReplaceMacros(fileText));
+				Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Unix\EamonDD\Edit" + AdventureName + ".sh", ReplaceMacros(fileText));
 			}
 
-			srcFileName = AdvTemplateDir + @"\QuickLaunch\Unix\EamonRT\ResumeYourAdventureName.sh";
-
-			destFileName = Constants.QuickLaunchDir + @"\Unix\EamonRT\Resume" + AdventureName + ".sh";
-
-			if (Globals.File.Exists(srcFileName))
+			if (Globals.Directory.Exists(Constants.QuickLaunchDir + @"\Unix\EamonRT"))
 			{
-				fileText = Globals.File.ReadAllText(srcFileName);
+				var fileText = ResumeAdventureShText.Replace("YourLibraryName", yourLibraryName);
 
-				Globals.File.WriteAllText(destFileName, ReplaceMacros(fileText));
+				Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Unix\EamonRT\Resume" + AdventureName + ".sh", ReplaceMacros(fileText));
 			}
 
-			srcFileName = AdvTemplateDir + @"\QuickLaunch\Windows\EamonDD\EditYourAdventureName.bat";
-
-			destFileName = Constants.QuickLaunchDir + @"\Windows\EamonDD\Edit" + AdventureName + ".bat";
-
-			if (Globals.File.Exists(srcFileName))
+			if (Globals.Directory.Exists(Constants.QuickLaunchDir + @"\Windows\EamonDD"))
 			{
-				fileText = Globals.File.ReadAllText(srcFileName);
+				var fileText = EditAdventureBatText.Replace("YourLibraryName", yourLibraryName);
 
-				Globals.File.WriteAllText(destFileName, ReplaceMacros(fileText));
+				Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Windows\EamonDD\Edit" + AdventureName + ".bat", ReplaceMacros(fileText));
 			}
 
-			srcFileName = AdvTemplateDir + @"\QuickLaunch\Windows\EamonRT\ResumeYourAdventureName.bat";
-
-			destFileName = Constants.QuickLaunchDir + @"\Windows\EamonRT\Resume" + AdventureName + ".bat";
-
-			if (Globals.File.Exists(srcFileName))
+			if (Globals.Directory.Exists(Constants.QuickLaunchDir + @"\Windows\EamonRT"))
 			{
-				fileText = Globals.File.ReadAllText(srcFileName);
+				var fileText = ResumeAdventureBatText.Replace("YourLibraryName", yourLibraryName);
 
-				Globals.File.WriteAllText(destFileName, ReplaceMacros(fileText));
+				Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Windows\EamonRT\Resume" + AdventureName + ".bat", ReplaceMacros(fileText));
 			}
 		}
 
@@ -524,10 +637,104 @@ namespace EamonDD.Game.Menus.ActionMenus
 			Globals.Directory.CreateDirectory(Constants.AdventuresDir + @"\" + AdventureName);
 		}
 
-		protected virtual void CopyHintsXml()
+		protected virtual void CreateCustomClassFile()
 		{
-			var fileText = Globals.File.ReadAllText(AdvTemplateDir + @"\Adventures\YourAdventureName\HINTS.XML");
+			Debug.Assert(!string.IsNullOrWhiteSpace(ParentClassFileName));
 
+			var eamonLibraryName = ParentClassFileName.StartsWith(@"..\Eamon\") ? "Eamon" : "EamonRT";
+
+			if (ParentClassFileName.Contains(@"\Game\"))
+			{
+				var yourClassName = Globals.Path.GetFileNameWithoutExtension(ParentClassFileName);
+
+				var yourInterfaceName = "I" + yourClassName;
+
+				var fileText = Globals.File.ReadAllText(ParentClassFileName);
+
+				var matches = Regex.Matches(fileText, @".*namespace (.+[^ {\n\r\t])");
+
+				if (matches.Count == 1 && matches[0].Groups.Count == 2)
+				{
+					var yourGameNamespaceName = matches[0].Groups[1].Value + ".";
+
+					var yourFrameworkNamespaceName = yourGameNamespaceName.Replace(".Game.", ".Framework.");
+
+					yourGameNamespaceName = yourGameNamespaceName.Replace(eamonLibraryName + ".", "").TrimEnd('.');
+
+					yourFrameworkNamespaceName = yourFrameworkNamespaceName.Replace(eamonLibraryName + ".", "").TrimEnd('.');
+
+					var childClassFileName = ParentClassFileName.Replace(@"..\" + eamonLibraryName, Constants.AdventuresDir + @"\" + AdventureName);
+
+					var childClassPath = Globals.Path.GetDirectoryName(childClassFileName);
+
+					Globals.Directory.CreateDirectory(childClassPath);
+
+					if (IncludeInterface)
+					{
+						var childInterfaceFileName = childClassFileName.Replace(@"\Game\", @"\Framework\").Replace(@"\" + yourClassName + ".cs", @"\" + yourInterfaceName + ".cs");
+
+						var childInterfacePath = Globals.Path.GetDirectoryName(childInterfaceFileName);
+
+						Globals.Directory.CreateDirectory(childInterfacePath);
+
+						fileText = InterfaceCsText.Replace("EamonLibraryName", eamonLibraryName).Replace("YourFrameworkNamespaceName", yourFrameworkNamespaceName).Replace("YourInterfaceName", yourInterfaceName);
+
+						Globals.File.WriteAllText(childInterfaceFileName, ReplaceMacros(fileText));
+					}
+
+					var yourEamonUsingStatement = string.Empty;
+
+					var yourEamonRTUsingStatement = string.Empty;
+
+					if (string.Equals(eamonLibraryName, "Eamon"))
+					{
+						yourEamonUsingStatement = string.Format("using {0}.{1};{2}", eamonLibraryName, yourFrameworkNamespaceName, Environment.NewLine);
+					}
+					else
+					{
+						yourEamonRTUsingStatement = string.Format("using {0}.{1};{2}", eamonLibraryName, yourFrameworkNamespaceName, Environment.NewLine);
+					}
+
+					fileText = IncludeInterface ? ClassWithInterfaceCsText : ClassCsText;
+
+					fileText = fileText.Replace("EamonLibraryName", eamonLibraryName).Replace("YourEamonUsingStatement", yourEamonUsingStatement).Replace("YourEamonRTUsingStatement", yourEamonRTUsingStatement).Replace("YourFrameworkNamespaceName", yourFrameworkNamespaceName).Replace("YourGameNamespaceName", yourGameNamespaceName).Replace("YourInterfaceName", yourInterfaceName).Replace("YourClassName", yourClassName);
+
+					Globals.File.WriteAllText(childClassFileName, ReplaceMacros(fileText));
+				}
+			}
+			else
+			{
+				var yourInterfaceName = Globals.Path.GetFileNameWithoutExtension(ParentClassFileName);
+
+				var fileText = Globals.File.ReadAllText(ParentClassFileName);
+
+				var matches = Regex.Matches(fileText, @".*namespace (.+[^ {\n\r\t])");
+
+				if (matches.Count == 1 && matches[0].Groups.Count == 2)
+				{
+					var yourFrameworkNamespaceName = matches[0].Groups[1].Value + ".";
+
+					yourFrameworkNamespaceName = yourFrameworkNamespaceName.Replace(eamonLibraryName + ".", "").TrimEnd('.');
+
+					var childInterfaceFileName = ParentClassFileName.Replace(@"..\" + eamonLibraryName, Constants.AdventuresDir + @"\" + AdventureName);
+
+					var childInterfacePath = Globals.Path.GetDirectoryName(childInterfaceFileName);
+
+					Globals.Directory.CreateDirectory(childInterfacePath);
+
+					fileText = InterfaceCsText.Replace("EamonLibraryName", eamonLibraryName).Replace("YourFrameworkNamespaceName", yourFrameworkNamespaceName).Replace("YourInterfaceName", yourInterfaceName);
+
+					Globals.File.WriteAllText(childInterfaceFileName, ReplaceMacros(fileText));
+				}
+			}
+		}
+
+		protected virtual void CreateHintsXml()
+		{
+			var yourAdventureName = this is IAddCustomAdventureMenu ? AdventureName : "Eamon";
+
+			var fileText = HintsXmlText.Replace("YourAdventureName", yourAdventureName);
+				
 			Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\HINTS.XML", ReplaceMacros(fileText));
 		}
 
@@ -610,9 +817,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		protected virtual void UpdateXmlFileClasses()
 		{
-			foreach (var selectedClass in SelectedClasses)
+			foreach (var selectedClassFile in SelectedClassFiles)
 			{
-				var fileName = Constants.AdventuresDir + @"\" + AdventureName + @"\" + selectedClass.ToUpper() + (string.Equals(selectedClass, "Module", StringComparison.OrdinalIgnoreCase) ? ".XML" : "S.XML");
+				var className = Globals.Path.GetFileNameWithoutExtension(selectedClassFile);
+
+				var fileName = @".\" + className.ToUpper() + (string.Equals(className, "Module") ? ".XML" : "S.XML");
 
 				if (Globals.File.Exists(fileName))
 				{
@@ -620,13 +829,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 					{
 						var fileText = Globals.File.ReadAllText(fileName);
 
-						Globals.File.WriteAllText(fileName, fileText.Replace("Eamon.Game." + selectedClass + ", Eamon", AdventureName + ".Game." + selectedClass + ", " + AdventureName));
+						Globals.File.WriteAllText(fileName, fileText.Replace("Eamon.Game." + className + ", Eamon", AdventureName + ".Game." + className + ", " + AdventureName));
 					}
 					else if (SupportMenuType == DDEnums.SupportMenuType.DeleteClasses)
 					{
 						var fileText = Globals.File.ReadAllText(fileName);
 
-						Globals.File.WriteAllText(fileName, fileText.Replace(AdventureName + ".Game." + selectedClass + ", " + AdventureName, "Eamon.Game." + selectedClass + ", Eamon"));
+						Globals.File.WriteAllText(fileName, fileText.Replace(AdventureName + ".Game." + className + ", " + AdventureName, "Eamon.Game." + className + ", Eamon"));
 					}
 				}
 			}
@@ -670,6 +879,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 				Globals.File.Delete(srcFileName);
 			}
 
+			srcFileName = @".\" + AdventureName + ".xml";
+
+			if (Globals.File.Exists(srcFileName))
+			{
+				Globals.File.Delete(srcFileName);
+			}
+
 			srcFileName = @".\" + AdventureName + ".deps.json";
 
 			if (Globals.File.Exists(srcFileName))
@@ -701,9 +917,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 									this is IDeleteAdventureMenu ? DDEnums.SupportMenuType.DeleteAdventure :
 									DDEnums.SupportMenuType.DeleteClasses;
 
-			AdvTemplateDir = this is IAddStandardAdventureMenu ? 
-				Constants.AdventuresDir + @"\AdventureTemplates\Standard" : 
-				Constants.AdventuresDir + @"\AdventureTemplates\Custom";
+			EditAdventureShText = string.Format(@"#!/bin/sh{0}cd ../../../System/Bin{0}xterm -e dotnet ./EamonPM.WindowsUnix.dll -pfn YourLibraryName.dll -wd ../../Adventures/YourAdventureName -la -rge{0}", '\n');
+
+			ResumeAdventureShText = string.Format(@"#!/bin/sh{0}cd ../../../System/Bin{0}xterm -e dotnet ./EamonPM.WindowsUnix.dll -pfn YourLibraryName.dll -wd ../../Adventures/YourAdventureName{0}", '\n');
 		}
 	}
 }

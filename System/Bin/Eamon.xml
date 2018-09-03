@@ -1,0 +1,2466 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Eamon</name>
+    </assembly>
+    <members>
+        <member name="T:Eamon.Framework.DataStorage.Generic.IDbTable`1">
+            <summary>
+            Represents a collection of records of type T in a database.
+            </summary>
+            <typeparam name="T">The interface type of the records.</typeparam>
+            <remarks>
+            This defines the concept of a database table in Eamon CS.  It is integral to the storage of all
+            game-related records (rooms, artifacts, monsters, etc), both in memory and in filesystem.  The
+            <see cref="T:Eamon.Framework.DataStorage.IDatabase"/> interface exposes a set of IDbTables, one for each record type derived
+            from <see cref="T:Eamon.Framework.IGameBase"/>.  The database table class heirarchy is derived from the abstract
+            class <see cref="T:Eamon.Game.DataStorage.Generic.DbTable`1"/>.  If you look inside the various game
+            .XML files you will see that they consist of the serialized concretes of IDbTable mentioned
+            below in the See Also section.
+            </remarks>
+            <seealso cref = "T:Eamon.Game.DataStorage.ConfigDbTable" />
+            <seealso cref = "T:Eamon.Game.DataStorage.FilesetDbTable" />
+            <seealso cref = "T:Eamon.Game.DataStorage.CharacterDbTable" />
+            <seealso cref = "T:Eamon.Game.DataStorage.ModuleDbTable" />
+            <seealso cref = "T:Eamon.Game.DataStorage.RoomDbTable" />
+            <seealso cref = "T:Eamon.Game.DataStorage.ArtifactDbTable" />
+            <seealso cref = "T:Eamon.Game.DataStorage.EffectDbTable" />
+            <seealso cref = "T:Eamon.Game.DataStorage.MonsterDbTable" />
+            <seealso cref = "T:Eamon.Game.DataStorage.HintDbTable" />
+            <seealso cref = "T:Eamon.Game.DataStorage.GameStateDbTable" />
+        </member>
+        <member name="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Records">
+            <summary>
+            This is the collection of records stored in the database table.
+            </summary>
+            <remarks>
+            The records stored here are keyed using their Uid property, which as the name implies is
+            expected to be unique.  Records can be added, removed or modified dynamically at runtime
+            as needed.  If you look in the various .XML game files you will see that you can actually
+            store records of type T, or any derivative of T.  This is why, for example, if you look
+            in MONSTERS.XML for "Test Adventure" and "A Runcible Cargo" you will see records of type
+            <see cref="T:Eamon.Game.Monster"/> and <see cref="!:ARuncibleCargo.Game.Monster"/>, respectively.
+            This polymorphic behavior is at the heart of custom adventure development in Eamon CS.
+            </remarks>
+        </member>
+        <member name="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.FreeUids">
+            <summary>
+            A collection of Uids available for reuse by new instances of this record type; may be empty.
+            </summary>
+            <remarks>
+            This property is intended to be used in conjunction with <see cref="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.GetRecordUid(System.Boolean)"/> and
+            <see cref="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.FreeRecordUid(System.Int64)"/>.  As a general rule you should rely on these methods to 
+            manipulate the FreeUids list.
+            </remarks>
+        </member>
+        <member name="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Cache">
+            <summary>
+            A quick-lookup cache of records stored in most recently used (MRU) order.
+            </summary>
+            <remarks>
+            This cache contains the records of type T most recently used by the system.  The <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Records"/>
+            collection is currently implemented as a B-Plus Tree, but lookups amount to full table scans so the cache
+            is always checked first.  The size of the cache is set by <see cref="P:Eamon.Framework.IEngine.NumCacheItems"/> and old
+            records will fall out as new records are added.
+            </remarks>
+        </member>
+        <member name="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.CurrUid">
+            <summary>
+            A sequence number used to store the last unique ID allocated to a record of type T.
+            </summary>
+            <remarks>
+            Each record type gets its own sequence number to draw Uids from.  Uids start at one (1), and zero (0)
+            is considered null or invalid.  The <see cref="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.GetRecordUid(System.Boolean)"/> and <see cref="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.FreeRecordUid(System.Int64)"/> 
+            methods should be used to manage all Uid allocations and deallocations, respectively.  When a Uid is
+            freed, either CurrUid is decremented (when Uid equals CurrUid), or the Uid is added to
+            <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.FreeUids"/> for later reuse.  
+            </remarks>
+        </member>
+        <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.FreeRecords(System.Boolean)">
+            <summary>
+            Fully reinitializes the IDbTable and restores it to its initial (empty) state.
+            </summary>
+            <param name="dispose">Optionally call Dispose method on every freed record.</param>
+            <remarks>
+            This method clears out anything stored in <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Records"/>, optionally calling Dispose on every record
+            freed.  It also clears the <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Cache"/> and <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.FreeUids"/>, and resets <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.CurrUid"/>
+            to zero (0).  The empty IDbTable is ready to be reused.
+            </remarks>
+            <returns>Success</returns>
+        </member>
+        <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.GetRecordsCount">
+            <summary>
+            Gets the number of records of type T stored in the Records collection.
+            </summary>
+        </member>
+        <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.FindRecord(System.Int64)">
+            <summary>
+            Gets a record from the Records collection.
+            </summary>
+            <param name="uid">The Uid of the record to find.</param>
+            <remarks>
+            This method finds and returns a record of type T with the given Uid.  If the record is not found, the
+            method returns null.  The search begins in the <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Cache"/> and on failure, <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Records"/>
+            is searched.  Any record found is either moved or added to the head of the Cache; on overflow, the least
+            recently used (LRU) record will be ejected.
+            </remarks>
+            <returns>The record with the given Uid or null if not found.</returns>
+        </member>
+        <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.FindRecord(System.Type,System.Boolean)">
+            <summary>
+            Gets a record from the Records collection based on interface type.
+            </summary>
+            <param name="type">The interface type to find.</param>
+            <param name="exactMatch">Optionally try to find a record directly implementing the interface.</param>
+            <remarks>
+            This method finds and returns the first record of type T that matches the provided interface type.  If
+            the record directly implements the interface, it will always match.  If the interface is an ancestor then
+            exactMatch must be false for a match to occur.
+            or an ancestor.
+            </remarks>
+            <returns>The first record matching the provided interface type or null if not found.</returns>
+        </member>
+        <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.AddRecord(`0,System.Boolean)">
+            <summary>
+            Adds a record to the Records collection.
+            </summary>
+            <param name="record">The record to add.</param>
+            <param name="makeCopy">Optionally clone the record and add the clone instead.</param>
+            <remarks>
+            This method adds a record of type T to <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Records"/>.  It is assumed the record has been properly
+            initialized and its Uid has been assigned.  If a record with the same Uid already exists in the collection
+            the attempt to add the new one will fail.  You can optionally choose to do a deep clone of the record and
+            add the clone instead if you would prefer.
+            </remarks>
+            <returns>Success, InvalidArg, AlreadyExists, OutOfMemory</returns>
+        </member>
+        <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.RemoveRecord(System.Int64)">
+            <summary>
+            Removes a record from the Records collection.
+            </summary>
+            <param name="uid">The Uid of the record to remove.</param>
+            <remarks>
+            This method removes a record of type T with the given Uid from <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Records"/> and (if necessary)
+            <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Cache"/> and returns it.  If the record is not found, the method returns null.  If the record
+            is no longer needed and its IsUidRecycled property is true, you should call Dispose on the record to
+            ensure the Uid is freed; otherwise you must do this manually using <see cref="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.FreeRecordUid(System.Int64)"/>.
+            </remarks>
+            <returns>The record with the given Uid or null if not found.</returns>
+        </member>
+        <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.RemoveRecord(System.Type,System.Boolean)">
+            <summary>
+            Removes a record from the Records collection based on interface type.
+            </summary>
+            <param name="type">The interface type to remove.</param>
+            <param name="exactMatch">Optionally try to find a record directly implementing the interface.</param>
+            <remarks>
+            This method removes the first record of type T that matches the provided interface type from both
+            <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Records"/> and (if necessary) <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Cache"/>.  The record, if found, is returned;
+            otherwise null is returned.  Take a look at the comments for <see cref="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.FindRecord(System.Type,System.Boolean)"/>
+            and <see cref="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.RemoveRecord(System.Int64)"/> because they also apply to this method.
+            </remarks>
+            <returns>The first record matching the provided interface type or null if not found.</returns>
+        </member>
+        <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.GetRecordUid(System.Boolean)">
+            <summary>
+            Gets the next available record Uid.
+            </summary>
+            <param name="allocate">Optionally allocate the Uid for use (this is the default).</param>
+            <remarks>
+            This method manages the allocation of Uids for records of type T.  If the allocate parameter is
+            true, then a Uid will be allocated; otherwise, it simply returns the value of <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.CurrUid"/>,
+            the most recently allocated Uid.  During allocation, if the <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.FreeUids"/> list is not empty,
+            the head of the list is removed and returned.  Otherwise, the CurrUid is incremented and returned.
+            Records that have Uids allocated by this method should always set IsUidRecycled to true.  Then either
+            the record's Dispose method or <see cref="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.FreeRecordUid(System.Int64)"/> can be called (but not both) to free
+            the Uid so it can later be reused.
+            </remarks>
+            <returns>Either the next allocated Uid or most recently allocated Uid; else returns -1 on failure.</returns>
+        </member>
+        <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.FreeRecordUid(System.Int64)">
+            <summary>
+            Frees a record Uid, making it available again for use.
+            </summary>
+            <param name="uid">The record Uid to free.</param>
+            <remarks>
+            This method is used to free a Uid allocated to a record of type T, making it available again for use.  
+            You should always free any Uid allocated with <see cref="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.GetRecordUid(System.Boolean)"/>, either indirectly using
+            the record's Dispose method or directly using FreeRecordUid (but never both).  When the Uid is equal to
+            <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.CurrUid"/>, the latter is simply decremented; otherwise it is added to the tail of the 
+            <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.FreeUids"/> list.  Due to the minimal validation done on the passed in Uid, it is the
+            caller's responsibility to ensure it is valid.
+            </remarks>
+        </member>
+        <member name="T:Eamon.Framework.Delegates">
+            <summary>
+            A collection of C# delegate signatures.
+            </summary>
+            <remarks>
+            These delegates are used by <see cref="T:Eamon.Framework.Parsing.IParserData"/> to support player command parsing, 
+            direct object and indirect object resolution.  There are methods that match these signatures in
+            <see cref="T:Eamon.Framework.IEngine"/> and <see cref="!:EamonRT.Framework.IEngine"/> that the parser uses as default
+            implementations; these are detailed below.
+            </remarks>
+        </member>
+        <member name="T:Eamon.Framework.Delegates.GetArtifactListFunc">
+            <summary>
+            Queries the game database for a list of artifacts matching a criteria set.
+            </summary>
+            <param name="shouldQueryFunc">
+            The should query function; this is evaluated before proceeding with the main query. If it returns true,
+            the main query proceeds; if false, the main query never happens and an empty list is returned.  Typically
+            this will be a simple lambda like () => true, but it can vary based on the given circumstances (eg, maybe
+            the room is dark).
+            </param>
+            <param name="whereClauseFuncs">
+            The set of methods used to match artifacts in the game database.  Each method is used as a query Where
+            clause and the resulting artifacts are added to the list.  This means the database is queried once for
+            each member of the set.  Note that depending on the methods it is possible for the same artifact to
+            show up in the list more than once.
+            </param>
+            <returns>A list of artifacts matching the given criteria set.  At minimum an empty list should be returned (never null).</returns>
+            <seealso cref="M:Eamon.Framework.IEngine.GetArtifactList(System.Func{System.Boolean},System.Func{Eamon.Framework.IArtifact,System.Boolean}[])"/>
+        </member>
+        <member name="T:Eamon.Framework.Delegates.GetMonsterListFunc">
+            <summary>
+            Queries the game database for a list of monsters matching a criteria set.
+            </summary>
+            <param name="shouldQueryFunc">
+            The should query function; this is evaluated before proceeding with the main query. If it returns true,
+            the main query proceeds; if false, the main query never happens and an empty list is returned.  Typically
+            this will be a simple lambda like () => true, but it can vary based on the given circumstances (eg, maybe
+            the room is dark).
+            </param>
+            <param name="whereClauseFuncs">
+            The set of methods used to match monsters in the game database.  Each method is used as a query Where
+            clause and the resulting monsters are added to the list.  This means the database is queried once for
+            each member of the set.  Note that depending on the methods it is possible for the same monster to
+            show up in the list more than once.
+            </param>
+            <returns>A list of monsters matching the given criteria set.  At minimum an empty list should be returned (never null).</returns>
+            <seealso cref="M:Eamon.Framework.IEngine.GetMonsterList(System.Func{System.Boolean},System.Func{Eamon.Framework.IMonster,System.Boolean}[])"/>
+        </member>
+        <member name="T:Eamon.Framework.Delegates.FilterArtifactListFunc">
+            <summary>
+            Filters a given artifact list, returning all records matching a given name.
+            </summary>
+            <param name="artifactList">The list of artifacts to filter.</param>
+            <param name="name">The name to search for.</param>
+            <remarks>
+            The passed in artifact list may be searched using a variety of techniques, including direct artifact name
+            match, plural name match and synonym match.  These techniques may be augmented with partial matching (that
+            is, start or end of string) if all else fails.  The passed in artifact list will not be altered and the
+            returned list can contain multiple artifacts.
+            </remarks>
+            <returns>A list of artifacts matching the given name.  At minimum an empty list should be returned (never null).</returns>
+            <seealso cref="!:EamonRT.Framework.IEngine.FilterArtifactList"/>
+        </member>
+        <member name="T:Eamon.Framework.Delegates.FilterMonsterListFunc">
+            <summary>
+            Filters a given monster list, returning all records matching a given name.
+            </summary>
+            <param name="monsterList">The list of monsters to filter.</param>
+            <param name="name">The name to search for.</param>
+            <remarks>
+            The passed in monster list may be searched using a variety of techniques, including direct monster name
+            match, plural name match and synonym match.  These techniques may be augmented with partial matching (that
+            is, start or end of string) if all else fails.  The passed in monster list will not be altered and the
+            returned list can contain multiple monsters.
+            </remarks>
+            <returns>A list of monsters matching the given name.  At minimum an empty list should be returned (never null).</returns>
+            <seealso cref="!:EamonRT.Framework.IEngine.FilterMonsterList"/>
+        </member>
+        <member name="T:Eamon.Framework.Delegates.FilterRecordListFunc">
+            <summary>
+            Filters a given record list, returning all records matching a given name.
+            </summary>
+            <param name="recordList">The list of records to filter.  These records can be artifacts, monsters or both.</param>
+            <param name="name">The name to search for.</param>
+            <remarks>
+            The passed in record list may be searched using a variety of techniques, including direct record name match,
+            plural name match and synonym match.  These techniques may be augmented with partial matching (that is, start
+            or end of string) if all else fails.  The passed in record list will not be altered and the returned list can
+            contain multiple records.
+            </remarks>
+            <returns>A list of records matching the given name.  At minimum an empty list should be returned (never null).</returns>
+            <seealso cref="!:EamonRT.Framework.IEngine.FilterRecordList"/>
+        </member>
+        <member name="T:Eamon.Framework.Delegates.RevealEmbeddedArtifactFunc">
+            <summary>
+            Reveals an embedded artifact, moving it into its containing room and printing its description if necessary.
+            </summary>
+            <param name="room">The room containing the embedded artifact.</param>
+            <param name="artifact">The embedded artifact to reveal.</param>
+            <remarks>
+            If the artifact is embedded within the room, it is revealed; moved into the room's regular inventory list, and
+            its description is printed if it hasn't been seen.  While this task is typically performed during resolution of
+            the direct or indirect object during player command parsing, you can reveal embedded artifacts at any appropriate
+            point during the game by calling the method explicitly.
+            </remarks>
+            <seealso cref="!:EamonRT.Framework.IEngine.RevealEmbeddedArtifact"/>
+        </member>
+        <member name="P:Eamon.Framework.IArtifact.Type">
+            <summary>
+            A convenience property representing the artifact type.
+            </summary>
+            <remarks>
+            This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+            the artifact's type data field.  It uses the 0'th element of the <see cref="P:Eamon.Framework.IArtifact.Categories"/>
+            array, which is consistent with how older Eamon games are implemented.
+            </remarks>
+        </member>
+        <member name="P:Eamon.Framework.IArtifact.Field1">
+            <summary>
+            A convenience property representing the artifact Field1 data field.
+            </summary>
+            <remarks>
+            This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+            the artifact's Field1 data field.  It uses the 0'th element of the <see cref="P:Eamon.Framework.IArtifact.Categories"/>
+            array, which is consistent with how older Eamon games are implemented.
+            </remarks>
+        </member>
+        <member name="P:Eamon.Framework.IArtifact.Field2">
+            <summary>
+            A convenience property representing the artifact Field2 data field.
+            </summary>
+            <remarks>
+            This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+            the artifact's Field2 data field.  It uses the 0'th element of the <see cref="P:Eamon.Framework.IArtifact.Categories"/>
+            array, which is consistent with how older Eamon games are implemented.
+            </remarks>
+        </member>
+        <member name="P:Eamon.Framework.IArtifact.Field3">
+            <summary>
+            A convenience property representing the artifact Field3 data field.
+            </summary>
+            <remarks>
+            This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+            the artifact's Field3 data field.  It uses the 0'th element of the <see cref="P:Eamon.Framework.IArtifact.Categories"/>
+            array, which is consistent with how older Eamon games are implemented.
+            </remarks>
+        </member>
+        <member name="P:Eamon.Framework.IArtifact.Field4">
+            <summary>
+            A convenience property representing the artifact Field4 data field.
+            </summary>
+            <remarks>
+            This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+            the artifact's Field4 data field.  It uses the 0'th element of the <see cref="P:Eamon.Framework.IArtifact.Categories"/>
+            array, which is consistent with how older Eamon games are implemented.
+            </remarks>
+        </member>
+        <member name="P:Eamon.Framework.IEngine.MacroFuncs">
+            <summary>
+            A collection of functions used to resolve macros embedded in Desc and StateDesc properties for various record types.
+            </summary>
+            <remarks>
+            You can embed macros in the Desc or StateDesc properties of the various record types to produce dynamically
+            generated strings for output during gameplay.  Eamon CS supports the standard macros found in Eamon Deluxe,
+            plus a new type based on lookups done in the MacroFuncs dictionary:
+            <list type="table">
+            <listheader><term>Macro</term><description>Result</description></listheader>
+            <item><term>*XXX</term><description>Injects [CRLF + CRLF + effect Uid XXX] into the property string (no brackets)</description></item>
+            <item><term>**XXX</term><description>Injects [effect Uid XXX] into the property string</description></item>
+            <item><term>@XXX</term><description>Injects [CRLF + CRLF + string returned by Func w/Key XXX] into the property string</description></item>
+            <item><term>@@XXX</term><description>Injects [string returned by Func w/Key XXX] into the property string</description></item>
+            </list>
+            The functions stored in MacroFuncs are typically lambdas but can be any valid function returning a string.  This
+            mechanism is incredibly powerful as it can exploit all facets of the game engine to calculate the string returned.
+            Also, the dictionary can be manipulated during gameplay with old functions removed and/or new functions added if
+            beneficial.
+            <para>
+            However, there are a few things to keep in mind.  You can run EamonDD in a mode where it will display resolved macros;
+            the option is called Resolve Effects and it exists off the CONFIG RECORD MENU.  If you load the MacroFuncs dictionary
+            during gameplay (typically in InitArtifacts or InitMonsters, but this isn't a requirement), EamonDD will NOT be able
+            to resolve any function macro so it will remain.  But there are scenarios where you can load MacroFuncs in such a
+            way that functions are available to EamonDD, which will then use them to resolve macros.  The upshot of this is that
+            you should always write the functions installed in MacroFuncs in such a way that they are insensitive to whether they
+            are being executed by EamonRT or EamonDD.  The best way to do this is to be aggressive about checking for null at all
+            times and return default strings when appropriate.  There are many examples of macro functions written for the various
+            Eamon CS adventures; the See Also list below is a good place to start.
+            </para>
+            </remarks>
+            <seealso cref="!:WrenholdsSecretVigil.Game.Engine.Engine()"/>
+            <seealso cref="!:ARuncibleCargo.Game.Engine.InitArtifacts()"/>
+            <seealso cref="!:TheTempleOfNgurct.Game.Engine.InitMonsters()"/>
+        </member>
+        <member name="P:Eamon.Framework.IEngine.Preps">
+            <summary>
+            An array of sentence prepositions (eg, "to", "from", "inside", etc).
+            </summary>
+            <remarks>
+            Other than to check the Length, you should never access this array directly; always use <see cref="M:Eamon.Framework.IEngine.GetPreps(System.Int64)"/>.
+            </remarks>
+        </member>
+        <member name="P:Eamon.Framework.IEngine.Articles">
+            <summary>
+            An array of sentence articles (eg, "a", "some", "the", etc).
+            </summary>
+            <remarks>
+            Other than to check the Length, you should never access this array directly; always use <see cref="M:Eamon.Framework.IEngine.GetArticles(System.Int64)"/>.
+            </remarks>
+        </member>
+        <member name="P:Eamon.Framework.IEngine.NumCacheItems">
+            <summary>
+            Each record type has a quick-lookup cache in the database that stores this many items.
+            </summary>
+            <remarks>
+            The database uses B-Plus Trees as the backing store, one tree and one quick-lookup cache per record type.  Using a
+            cache speeds up the record access times since the actual "search" on the tree is more like a full-table scan (this
+            might get fixed at some point).  This value is initialized using <see cref="P:Eamon.Framework.Plugin.IPluginConstants.NumCacheItems"/>.
+            </remarks>
+            <seealso cref="T:Eamon.Framework.DataStorage.Generic.IDbTable`1"/>
+            <seealso cref="T:Eamon.Framework.DataStorage.IDatabase"/>
+        </member>
+        <member name="P:Eamon.Framework.IEngine.UnknownName">
+            <summary>
+            A generic string representing an unknown name (eg, "???").
+            </summary>
+            <remarks>
+            Typically the fallback value when a record with a given Uid is looked up for its Name property, but not found.
+            </remarks>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetPreps(System.Int64)">
+            <summary>
+            Gets the sentence preposition (eg, "to", "from", "inside", etc).
+            </summary>
+            <param name="index">The index into the Preps array.</param>
+            <remarks>
+            This method looks up and returns the preposition associated with a given index.  It is a Getter method that
+            can be overridden in a subclass to intercept array accesses or provide other specialized behavior.  You must
+            ensure the passed index is valid for the Preps array or an exception will be thrown.
+            </remarks>
+            <returns>The preposition associated with a given index.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetArticles(System.Int64)">
+            <summary>
+            Gets the sentence article (eg, "a", "some", "the", etc).
+            </summary>
+            <param name="index">The index into the Articles array.</param>
+            <remarks>
+            This method looks up and returns the article associated with a given index.  It is a Getter method that
+            can be overridden in a subclass to intercept array accesses or provide other specialized behavior.  You must
+            ensure the passed index is valid for the Articles array or an exception will be thrown.
+            </remarks>
+            <returns>The article associated with a given index.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetStatusNames(System.Int64)">
+            <summary>
+            Gets the name for a given Status.
+            </summary>
+            <param name="index">The index into the StatusNames array.</param>
+            <remarks>
+            This method looks up and returns the name associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.Status"/>.  It is a Getter
+            method that can be overridden in a subclass to intercept array accesses or provide other specialized behavior.
+            </remarks>
+            <returns>The name associated with a given Status.</returns>
+            <seealso cref="M:Eamon.Framework.IEngine.GetStatusNames(Eamon.Framework.Primitive.Enums.Status)"/>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetStatusNames(Eamon.Framework.Primitive.Enums.Status)">
+            <summary>
+            Gets the name for a given Status.
+            </summary>
+            <param name="status">The Status value.</param>
+            <remarks>
+            This method looks up and returns the name associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.Status"/>.  It is a convenience
+            wrapper around the <see cref="M:Eamon.Framework.IEngine.GetStatusNames(System.Int64)"/> Getter method; as a rule it shouldn't be overridden.  The lower-level
+            method is called by casting the passed in Status to a long.
+            </remarks>
+            <returns>The name associated with a given Status.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetClothingNames(System.Int64)">
+            <summary>
+            Gets the name for a given Clothing.
+            </summary>
+            <param name="index">The index into the ClothingNames array.</param>
+            <remarks>
+            This method looks up and returns the name associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.Clothing"/>.  It is a Getter
+            method that can be overridden in a subclass to intercept array accesses or provide other specialized behavior.
+            </remarks>
+            <returns>The name associated with a given Clothing.</returns>
+            <seealso cref="M:Eamon.Framework.IEngine.GetClothingNames(Eamon.Framework.Primitive.Enums.Clothing)"/>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetClothingNames(Eamon.Framework.Primitive.Enums.Clothing)">
+            <summary>
+            Gets the name for a given Clothing.
+            </summary>
+            <param name="clothing">The Clothing value.</param>
+            <remarks>
+            This method looks up and returns the name associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.Clothing"/>.  It is a convenience
+            wrapper around the <see cref="M:Eamon.Framework.IEngine.GetClothingNames(System.Int64)"/> Getter method; as a rule it shouldn't be overridden.  The lower-level
+            method is called by casting the passed in Clothing to a long.
+            </remarks>
+            <returns>The name associated with a given Clothing.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetCombatCodeDescs(System.Int64)">
+            <summary>
+            Gets the description for a given CombatCode.
+            </summary>
+            <param name="index">The index into the CombatCodeDescs array.</param>
+            <remarks>
+            This method looks up and returns the description associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.CombatCode"/>.  It is a Getter
+            method that can be overridden in a subclass to intercept array accesses or provide other specialized behavior.
+            </remarks>
+            <returns>The description associated with a given CombatCode.</returns>
+            <seealso cref="M:Eamon.Framework.IEngine.GetCombatCodeDescs(Eamon.Framework.Primitive.Enums.CombatCode)"/>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetCombatCodeDescs(Eamon.Framework.Primitive.Enums.CombatCode)">
+            <summary>
+            Gets the description for a given CombatCode.
+            </summary>
+            <param name="combatCode">The CombatCode value.</param>
+            <remarks>
+            This method looks up and returns the description associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.CombatCode"/>.  It is a convenience
+            wrapper around the <see cref="M:Eamon.Framework.IEngine.GetCombatCodeDescs(System.Int64)"/> Getter method; as a rule it shouldn't be overridden.  The lower-level
+            method is called by casting the passed in CombatCode to a long.
+            </remarks>
+            <returns>The description associated with a given CombatCode.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetLightLevelNames(System.Int64)">
+            <summary>
+            Gets the name for a given LightLevel.
+            </summary>
+            <param name="index">The index into the LightLevelNames array.</param>
+            <remarks>
+            This method looks up and returns the name associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.LightLevel"/>.  It is a Getter
+            method that can be overridden in a subclass to intercept array accesses or provide other specialized behavior.
+            </remarks>
+            <returns>The name associated with a given LightLevel.</returns>
+            <seealso cref="M:Eamon.Framework.IEngine.GetLightLevelNames(Eamon.Framework.Primitive.Enums.LightLevel)"/>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetLightLevelNames(Eamon.Framework.Primitive.Enums.LightLevel)">
+            <summary>
+            Gets the name for a given LightLevel.
+            </summary>
+            <param name="lightLevel">The LightLevel value.</param>
+            <remarks>
+            This method looks up and returns the name associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.LightLevel"/>.  It is a convenience
+            wrapper around the <see cref="M:Eamon.Framework.IEngine.GetLightLevelNames(System.Int64)"/> Getter method; as a rule it shouldn't be overridden.  The lower-level
+            method is called by casting the passed in LightLevel to a long.
+            </remarks>
+            <returns>The name associated with a given LightLevel.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetStats(System.Int64)">
+            <summary>
+            Gets the data for a given Stat.
+            </summary>
+            <param name="index">The index into the Stats array.</param>
+            <remarks>
+            This method looks up and returns the data associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.Stat"/>.  It is a Getter
+            method that can be overridden in a subclass to intercept array accesses or provide other specialized behavior.
+            </remarks>
+            <returns>The data associated with a given Stat.</returns>
+            <seealso cref="M:Eamon.Framework.IEngine.GetStats(Eamon.Framework.Primitive.Enums.Stat)"/>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetStats(Eamon.Framework.Primitive.Enums.Stat)">
+            <summary>
+            Gets the data for a given Stat.
+            </summary>
+            <param name="stat">The Stat value.</param>
+            <remarks>
+            This method looks up and returns the data associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.Stat"/>.  It is a convenience
+            wrapper around the <see cref="M:Eamon.Framework.IEngine.GetStats(System.Int64)"/> Getter method; as a rule it shouldn't be overridden.  The lower-level
+            method is called by casting the passed in Stat to a long.
+            </remarks>
+            <returns>The data associated with a given Stat.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetSpells(System.Int64)">
+            <summary>
+            Gets the data for a given Spell.
+            </summary>
+            <param name="index">The index into the Spells array.</param>
+            <remarks>
+            This method looks up and returns the data associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.Spell"/>.  It is a Getter
+            method that can be overridden in a subclass to intercept array accesses or provide other specialized behavior.
+            </remarks>
+            <returns>The data associated with a given Spell.</returns>
+            <seealso cref="M:Eamon.Framework.IEngine.GetSpells(Eamon.Framework.Primitive.Enums.Spell)"/>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetSpells(Eamon.Framework.Primitive.Enums.Spell)">
+            <summary>
+            Gets the data for a given Spell.
+            </summary>
+            <param name="spell">The Spell value.</param>
+            <remarks>
+            This method looks up and returns the data associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.Spell"/>.  It is a convenience
+            wrapper around the <see cref="M:Eamon.Framework.IEngine.GetSpells(System.Int64)"/> Getter method; as a rule it shouldn't be overridden.  The lower-level
+            method is called by casting the passed in Spell to a long.
+            </remarks>
+            <returns>The data associated with a given Spell.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetWeapons(System.Int64)">
+            <summary>
+            Gets the data for a given Weapon.
+            </summary>
+            <param name="index">The index into the Weapons array.</param>
+            <remarks>
+            This method looks up and returns the data associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.Weapon"/>.  It is a Getter
+            method that can be overridden in a subclass to intercept array accesses or provide other specialized behavior.
+            </remarks>
+            <returns>The data associated with a given Weapon.</returns>
+            <seealso cref="M:Eamon.Framework.IEngine.GetWeapons(Eamon.Framework.Primitive.Enums.Weapon)"/>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetWeapons(Eamon.Framework.Primitive.Enums.Weapon)">
+            <summary>
+            Gets the data for a given Weapon.
+            </summary>
+            <param name="weapon">The Weapon value.</param>
+            <remarks>
+            This method looks up and returns the data associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.Weapon"/>.  It is a convenience
+            wrapper around the <see cref="M:Eamon.Framework.IEngine.GetWeapons(System.Int64)"/> Getter method; as a rule it shouldn't be overridden.  The lower-level
+            method is called by casting the passed in Weapon to a long.
+            </remarks>
+            <returns>The data associated with a given Weapon.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetArmors(System.Int64)">
+            <summary>
+            Gets the data for a given Armor.
+            </summary>
+            <param name="index">The index into the Armors array.</param>
+            <remarks>
+            This method looks up and returns the data associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.Armor"/>.  It is a Getter
+            method that can be overridden in a subclass to intercept array accesses or provide other specialized behavior.
+            </remarks>
+            <returns>The data associated with a given Armor.</returns>
+            <seealso cref="M:Eamon.Framework.IEngine.GetArmors(Eamon.Framework.Primitive.Enums.Armor)"/>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetArmors(Eamon.Framework.Primitive.Enums.Armor)">
+            <summary>
+            Gets the data for a given Armor.
+            </summary>
+            <param name="armor">The Armor value.</param>
+            <remarks>
+            This method looks up and returns the data associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.Armor"/>.  It is a convenience
+            wrapper around the <see cref="M:Eamon.Framework.IEngine.GetArmors(System.Int64)"/> Getter method; as a rule it shouldn't be overridden.  The lower-level
+            method is called by casting the passed in Armor to a long.
+            </remarks>
+            <returns>The data associated with a given Armor.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetDirections(System.Int64)">
+            <summary>
+            Gets the data for a given Direction.
+            </summary>
+            <param name="index">The index into the Directions array.</param>
+            <remarks>
+            This method looks up and returns the data associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.Direction"/>.  It is a Getter
+            method that can be overridden in a subclass to intercept array accesses or provide other specialized behavior.
+            </remarks>
+            <returns>The data associated with a given Direction.</returns>
+            <seealso cref="M:Eamon.Framework.IEngine.GetDirections(Eamon.Framework.Primitive.Enums.Direction)"/>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetDirections(Eamon.Framework.Primitive.Enums.Direction)">
+            <summary>
+            Gets the data for a given Direction.
+            </summary>
+            <param name="direction">The Direction value.</param>
+            <remarks>
+            This method looks up and returns the data associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.Direction"/>.  It is a convenience
+            wrapper around the <see cref="M:Eamon.Framework.IEngine.GetDirections(System.Int64)"/> Getter method; as a rule it shouldn't be overridden.  The lower-level
+            method is called by casting the passed in Direction to a long.
+            </remarks>
+            <returns>The data associated with a given Direction.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetArtifactTypes(System.Int64)">
+            <summary>
+            Gets the data for a given ArtifactType.
+            </summary>
+            <param name="index">The index into the ArtifactTypes array.</param>
+            <remarks>
+            This method looks up and returns the data associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.ArtifactType"/>.  It is a Getter
+            method that can be overridden in a subclass to intercept array accesses or provide other specialized behavior.
+            </remarks>
+            <returns>The data associated with a given ArtifactType.</returns>
+            <seealso cref="M:Eamon.Framework.IEngine.GetArtifactTypes(Eamon.Framework.Primitive.Enums.ArtifactType)"/>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetArtifactTypes(Eamon.Framework.Primitive.Enums.ArtifactType)">
+            <summary>
+            Gets the data for a given ArtifactType.
+            </summary>
+            <param name="artifactType">The ArtifactType value.</param>
+            <remarks>
+            This method looks up and returns the data associated with a given <see cref="T:Eamon.Framework.Primitive.Enums.ArtifactType"/>.  It is a convenience
+            wrapper around the <see cref="M:Eamon.Framework.IEngine.GetArtifactTypes(System.Int64)"/> Getter method; as a rule it shouldn't be overridden.  The lower-level
+            method is called by casting the passed in ArtifactType to a long.
+            </remarks>
+            <returns>The data associated with a given ArtifactType.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsSuccess(Eamon.RetCode)">
+            <summary>
+            Check whether an operation succeeded.
+            </summary>
+            <param name="rc">The RetCode value.</param>
+            <returns>If the operation succeeded, returns true; else returns false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsFailure(Eamon.RetCode)">
+            <summary>
+            Check whether an operation failed.
+            </summary>
+            <param name="rc">The RetCode value.</param>
+            <returns>If the operation failed, returns true; else returns false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsValidPluralType(Eamon.Framework.Primitive.Enums.PluralType)">
+            <summary>
+            Check whether a plural type is valid.
+            </summary>
+            <param name="pluralType">The PluralType value.</param>
+            <remarks>
+            This method checks to see if the supplied plural type is either (1) a member of <see cref="T:Eamon.Framework.Primitive.Enums.PluralType"/> or (2) a
+            customized plural name built using an effect record (of the form 1000 + effectUid).
+            </remarks>
+            <returns>If the plural type is valid, returns true; else returns false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsValidArtifactType(Eamon.Framework.Primitive.Enums.ArtifactType)">
+            <summary>
+            Check whether an artifact type is valid.
+            </summary>
+            <param name="artifactType">The ArtifactType value.</param>
+            <remarks>
+            This method checks to see if the supplied artifact type is a member of <see cref="T:Eamon.Framework.Primitive.Enums.ArtifactType"/>.  The None value
+            is not considered valid.
+            </remarks>
+            <returns>If the artifact type is valid, returns true; else returns false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsValidArtifactArmor(System.Int64)">
+            <summary>
+            Check whether an armor value is valid for an wearable artifact.
+            </summary>
+            <param name="armor">The armor value.</param>
+            <remarks>
+            This method checks to see if the supplied armor value is valid for a wearable artifact.  The armor value must be a member
+            of <see cref="T:Eamon.Framework.Primitive.Enums.Armor"/> and also either (1) a shield only or (2) armor only.  This excludes "combo armors" that contain
+            both armor and shield.
+            </remarks>
+            <returns>If the armor value is valid, returns true; else returns false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsValidMonsterArmor(System.Int64)">
+            <summary>
+            Check whether an armor value is valid for a monster.
+            </summary>
+            <param name="armor">The armor value.</param>
+            <remarks>
+            This method checks to see if the supplied armor value is valid for a monster; always the case for any armor value >= 0.
+            </remarks>
+            <returns>If the armor value is valid, returns true; else returns false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsValidMonsterCourage(System.Int64)">
+            <summary>
+            Check whether a courage value is valid for a monster.
+            </summary>
+            <param name="courage">The courage value.</param>
+            <remarks>
+            This method checks to see if the supplied courage value is valid for a monster; always the case for any courage value >= 0
+            and &lt;= 200.
+            </remarks>
+            <returns>If the courage value is valid, returns true; else returns false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharYOrN(System.Char)">
+            <summary>
+            Check whether a character is one of ['Y', 'N'].
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharSOrTOrROrX(System.Char)">
+            <summary>
+            Check whether a character is one of ['S', 'T', 'R', 'X'].
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsChar0Or1(System.Char)">
+            <summary>
+            Check whether a character is one of ['0', '1'].
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsChar0To2(System.Char)">
+            <summary>
+            Check whether a character is one of ['0', '1', '2'].
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsChar0To3(System.Char)">
+            <summary>
+            Check whether a character is one of ['0', '1', '2', '3'].
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsChar1To3(System.Char)">
+            <summary>
+            Check whether a character is one of ['1', '2', '3'].
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharDigit(System.Char)">
+            <summary>
+            Check whether a character is a numeric digit.
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharDigitOrX(System.Char)">
+            <summary>
+            Check whether a character is a numeric digit or 'X'.
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharPlusMinusDigit(System.Char)">
+            <summary>
+            Check whether a character is a numeric digit or one of ['+', '-'].
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharAlpha(System.Char)">
+            <summary>
+            Check whether a character is alphabetic.
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharAlphaSpace(System.Char)">
+            <summary>
+            Check whether a character is alphabetic or space.
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharAlnum(System.Char)">
+            <summary>
+            Check whether a character is alphabetic or numeric digit.
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharAlnumSpace(System.Char)">
+            <summary>
+            Check whether a character is alphabetic, numeric digit or space.
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharAlnumPeriodUnderscore(System.Char)">
+            <summary>
+            Check whether a character is alphabetic, numeric digit, period or underscore.
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharPrint(System.Char)">
+            <summary>
+            Check whether a character is printable.
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharPound(System.Char)">
+            <summary>
+            Check whether a character is '#'.
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharQuote(System.Char)">
+            <summary>
+            Check whether a character is a quote.
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharAny(System.Char)">
+            <summary>
+            Check whether a character is any character at all.
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>For any valid character, returns true; else returns false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharAnyButDquoteCommaColon(System.Char)">
+            <summary>
+            Check whether a character is any character but one of ['"', ',', ':'].
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.IsCharAnyButBackForwardSlash(System.Char)">
+            <summary>
+            Check whether a character is any character but one of ['\', '/'].
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input validation and termination.
+            </remarks>
+            <returns>Based on the character, either true or false.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.ModifyCharToUpper(System.Char)">
+            <summary>
+            Given a character, produce its upper case equivalent, if any.
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input modification.
+            </remarks>
+            <returns>If the character has an upper case equivalent, returns that; else returns the original character.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.ModifyCharToNullOrX(System.Char)">
+            <summary>
+            Given a character, produce either 'X' or '\0'.
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input modification.
+            </remarks>
+            <returns>If the character is 'X', returns that; else returns '\0'.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.ModifyCharToNull(System.Char)">
+            <summary>
+            Given a character, produce '\0'.
+            </summary>
+            <param name="ch">The character value.</param>
+            <remarks>
+            This method is used by <see cref="M:Eamon.Framework.Portability.ITextReader.ReadField(System.Text.StringBuilder,System.Int64,System.Char[],System.Char,System.Char,System.Boolean,System.String,System.Func{System.Char,System.Char},System.Func{System.Char,System.Boolean},System.Func{System.Char,System.Boolean})"/> for input modification.
+            </remarks>
+            <returns>For any character, returns '\0'.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetGameState">
+            <summary>
+            Gets the IGameState record.
+            </summary>
+            <remarks>
+            This method returns a record of type <see cref="T:Eamon.Framework.IGameState"/>; there should be at most one of these in the database when
+            running a game using EamonRT (or a derivative).  Note that when running an EamonRT derivative the returned record may be
+            cast to a derived IGameState defined in the derived game library, if any.  There are many examples of this, one of
+            which is <see cref="!:StrongholdOfKahrDur.Framework.IGameState"/>.  This allows you to easily access any game-specific
+            methods or properties you've defined in your customized IGameState.
+            <para>
+            In other circumstances, this method will return null if no IGameState record is found in the database.  When running
+            EamonDD this record should never exist and thus null will always be returned.</para>
+            </remarks>
+            <returns>
+            A record of type IGameState (or a game-specific subclass of it) or null.
+            </returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetModule">
+            <summary>
+            Gets the IModule record.
+            </summary>
+            <remarks>
+            This method returns a record of type <see cref="T:Eamon.Framework.IModule"/>; there should be at most one of these in the database when
+            editing an adventure using EamonDD or running a game using EamonRT (or a derivative).  Note that when running an EamonRT
+            derivative the returned record may be cast to a derived IModule defined in the derived game library, if any (it would
+            have been loaded out of the game's MODULE.XML file).  This allows you to easily access any game-specific methods or
+            properties you've defined in your customized IModule.
+            <para>
+            In other circumstances, this method will return null if no IModule record is found in the database.  This can occur
+            in EamonDD when an adventure is not being edited.</para>
+            </remarks>
+            <returns>
+            A record of type IModule (or a game-specific subclass of it) or null.
+            </returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.EvalFriendliness``1(Eamon.Framework.Primitive.Enums.Friendliness,``0,``0,``0)">
+            <summary>
+            Evaluates the friendliness, returning a value of type T.
+            </summary>
+            <typeparam name="T">The type of the value returned.</typeparam>
+            <param name="friendliness">The friendliness.</param>
+            <param name="enemyValue">The enemy value.</param>
+            <param name="neutralValue">The neutral value.</param>
+            <param name="friendValue">The friend value.</param>
+            <remarks>
+            This is a convenience macro that switches on the input friendliness value, returning
+            the corresponding value of type T.
+            </remarks>
+            <returns>If friendliness is Enemy, returns enemyValue; if Neutral, returns neutralValue; else returns friendValue.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.EvalGender``1(Eamon.Framework.Primitive.Enums.Gender,``0,``0,``0)">
+            <summary>
+            Evaluates the gender, returning a value of type T.
+            </summary>
+            <typeparam name="T">The type of the value returned.</typeparam>
+            <param name="gender">The gender.</param>
+            <param name="maleValue">The male value.</param>
+            <param name="femaleValue">The female value.</param>
+            <param name="neutralValue">The neutral value.</param>
+            <remarks>
+            This is a convenience macro that switches on the input gender value, returning
+            the corresponding value of type T.
+            </remarks>
+            <returns>If gender is Male, returns maleValue; if Female, returns femaleValue; else returns neutralValue.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.EvalRoomType``1(Eamon.Framework.Primitive.Enums.RoomType,``0,``0)">
+            <summary>
+            Evaluates the room type, returning a value of type T.
+            </summary>
+            <typeparam name="T">The type of the value returned.</typeparam>
+            <param name="roomType">The room type.</param>
+            <param name="indoorsValue">The indoors value.</param>
+            <param name="outdoorsValue">The outdoors value.</param>
+            <remarks>
+            This is a convenience macro that switches on the input roomType value, returning
+            the corresponding value of type T.
+            </remarks>
+            <returns>If roomType is Indoors, returns indoorsValue; else returns outdoorsValue.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.EvalLightLevel``1(Eamon.Framework.Primitive.Enums.LightLevel,``0,``0)">
+            <summary>
+            Evaluates the light level, returning a value of type T.
+            </summary>
+            <typeparam name="T">The type of the value returned.</typeparam>
+            <param name="lightLevel">The light level.</param>
+            <param name="darkValue">The dark value.</param>
+            <param name="lightValue">The light value.</param>
+            <remarks>
+            This is a convenience macro that switches on the input lightLevel value, returning
+            the corresponding value of type T.
+            </remarks>
+            <returns>If lightLevel is Dark, returns darkValue; else returns lightValue.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.EvalPlural``1(System.Boolean,``0,``0)">
+            <summary>
+            Evaluates the plural value, returning a value of type T.
+            </summary>
+            <typeparam name="T">The type of the value returned.</typeparam>
+            <param name="isPlural">If set to <c>true</c> then is plural.</param>
+            <param name="singularValue">The singular value.</param>
+            <param name="pluralValue">The plural value.</param>
+            <remarks>
+            This is a convenience macro that switches on the input isPlural value, returning
+            the corresponding value of type T.
+            </remarks>
+            <returns>If isPlural is false, returns singularValue; else returns pluralValue.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetBlastDesc">
+            <summary>
+            Gets the Blast spell description.
+            </summary>
+            <remarks>
+            This method, like all others, can be overridden in a game to provide customization.
+            </remarks>
+            <returns>The string printed when a Blast spell is successfully cast.</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.RollDice(System.Int64,System.Int64,System.Int64[]@)">
+            <summary>
+            Rolls a number of dice, storing the resulting values in an array.
+            </summary>
+            <param name="numDice">The number dice to roll.</param>
+            <param name="numSides">The number sides per die.</param>
+            <param name="dieRolls">The array of die roll results.</param>
+            <returns>Success, InvalidArg</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.RollDice(System.Int64,System.Int64,System.Int64,System.Int64@)">
+            <summary>
+            Rolls a number of dice, returning a sum of the results.
+            </summary>
+            <param name="numDice">The number dice to roll.</param>
+            <param name="numSides">The number sides per die.</param>
+            <param name="modifier">An optional modifier to add to the sum; may be any value (including 0).</param>
+            <param name="result">The summed result of the die rolls, plus the modifier (if any).</param>
+            <remarks>
+            This is the dice-rolling function for Eamon CS.  It rolls a number of dice, each with a given number of sides
+            and sums the results.  An optional modifier is then added in; this modifier may be negative, positive or zero.
+            The common roleplaying game nomenclature would be to roll XdY+Z.  While you can use this method directly, there
+            is a convenience method <see cref="M:Eamon.Framework.IEngine.RollDice01(System.Int64,System.Int64,System.Int64)"/> that is recommended.</remarks>
+            <returns>Success, InvalidArg</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.RollDice01(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Rolls a number of dice, returning a sum of the results.
+            </summary>
+            <param name="numDice">The number dice to roll.</param>
+            <param name="numSides">The number sides per die.</param>
+            <param name="modifier">An optional modifier to add to the sum; may be any value (including 0).</param>
+            <remarks>
+            This is a convenience wrapper around <see cref="M:Eamon.Framework.IEngine.RollDice(System.Int64,System.Int64,System.Int64,System.Int64@)"/> which should be used
+            whenever possible.</remarks>
+            <returns>The summed result of the die rolls, plus the modifier (if any).</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.SumHighestRolls(System.Int64[],System.Int64,System.Int64@)">
+            <summary>
+            Given an array of die rolls, sum the highest of them and return the result.
+            </summary>
+            <param name="dieRolls">The array of die rolls.</param>
+            <param name="numRollsToSum">The number of die rolls to sum.</param>
+            <param name="result">The summed result of the highest die rolls.</param>
+            <remarks>
+            This method takes an array of die rolls, sorts the array in place from lowest to highest roll, then sums the
+            requested number of rolls and returns the result.
+            <para>
+            It is intended to be used in conjunction with the <see cref="M:Eamon.Framework.IEngine.RollDice(System.Int64,System.Int64,System.Int64[]@)"/> method.</para>
+            </remarks>
+            <returns>Success, InvalidArg</returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.UnlinkOnFailure">
+            <summary>
+            Deletes a set of game-related files from the filesystem.
+            </summary>
+            <remarks>
+            This method is called by EamonRT during game startup if any of the following are true:
+            <list type="bullet">
+            <item><description>The Character record read from FRESHMEAT.XML is missing.</description></item>
+            <item><description>The Module record read from MODULE.XML is missing.</description></item>
+            <item><description>The Room record (where the game begins) read from ROOMS.XML is missing.</description></item>
+            </list>
+            The above cases are considered fatal errors and this method is called to clean up the filesystem before the
+            game aborts.  The exact files deleted are EAMONCFG.XML, FRESHMEAT.XML and SAVEGAME.XML.  These files are created
+            during the transfer of the player into the adventure and are no longer needed once shutdown completes.
+            </remarks>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.Armor">
+            <summary>
+            An enumeration of character Armor Classes.
+            </summary>
+            <remarks>
+            These armor classes parallel those found in Eamon Deluxe.  You can take a look through the
+            documentation for EDX or wait for the Eamon CS Dungeon Designer's Manual, which will have
+            more details.
+            </remarks>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.ArticleType">
+            <summary>
+            An enumeration of Article Types.
+            </summary>
+            <remarks>
+            These article types are applied to artifacts and monsters and improve the aesthetics of the
+            output, making it more natural to read.  You can modify any record at runtime to change its
+            article type, if desired.
+            </remarks>
+            <seealso cref="T:Eamon.Framework.Primitive.Enums.PluralType"/>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ArticleType.None">
+            <summary>
+            No article is ever applied.  For example, "Trollsfire" or "Heinrich".
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ArticleType.A">
+            <summary>
+            The name is preceded by "a".  For example, "a flashlight" or "a wolverine".
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ArticleType.An">
+            <summary>
+            The name is preceded by "an".  For example, "an axe" or "an orc".
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ArticleType.Some">
+            <summary>
+            The name is preceded by "some".  For example, "some leather armor", "some silver cups" or "some green slime".
+            </summary>
+            <remarks>
+            For artifacts, it is important to distinguish between singular artifacts (like the leather armor)
+            and plural artifacts (the silver cups).  Plural artifacts should be named as singular; this article
+            type combined with the right plural type will produce the correct name.  The situation for monsters
+            is similar; it is important to distinguish between singular monsters (like the green slime) and group
+            monsters.  Group monsters have their own plural syntax (eg, "seven kobolds").  Group monsters should
+            be named as singular, but with a singular article type (eg, "a kobold"), and the right plural type.
+            </remarks>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ArticleType.The">
+            <summary>
+            The name is preceded by "the".  For example, "the Rings of Xylo" or "the Emerald Warrior".
+            </summary>
+            <remarks>
+            Typically only applied to unique artifacts or monsters, or those with special importance in the game.
+            </remarks>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.ArtifactType">
+            <summary>
+            An enumeration of Artifact Types.
+            </summary>
+            <remarks>
+            These artifact types parallel those found in Eamon Deluxe, but Eamon CS supports a multiple
+            artifact type paradigm.  You can take a look through the documentation for EDX or wait for
+            the Eamon CS Dungeon Designer's Manual, which will have more details.
+            </remarks>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.Clothing">
+            <summary>
+            An enumeration of Clothing Types.
+            </summary>
+            <remarks>
+            These clothing types parallel those found in Eamon Deluxe.  You can take a look through the
+            documentation for EDX or wait for the Eamon CS Dungeon Designer's Manual, which will have
+            more details.
+            </remarks>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.CombatCode">
+            <summary>
+            An enumeration of monster Combat Codes.
+            </summary>
+            <remarks>
+            These represent the behavior of monsters while in combat.  Their effect on gameplay is intended to parallel
+            the Combat Code setting found in Eamon Deluxe.
+            </remarks>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.CombatCode.NeverFights">
+            <summary>
+            The monster will never fight.
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.CombatCode.NaturalWeapons">
+            <summary>
+            The monster will favor weapons but fall back to natural weapons if necessary.
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.CombatCode.Weapons">
+            <summary>
+            The monster will use either weapons or natural weapons (but never both).
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.CombatCode.Attacks">
+            <summary>
+            The monster will be described as "attacking"; otherwise mirrors the Weapons setting.
+            </summary>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.Direction">
+            <summary>
+            An enumeration of (compass) Directions.
+            </summary>
+            <remarks>
+            These represent the possible directional links between rooms in a game.  Each room contains an
+            array that is indexed using these Direction values.  The array will always be created assuming
+            a 10-direction game; for 6-direction games, the last four (4) elements will be unused.
+            </remarks>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.Friendliness">
+            <summary>
+            An enumeration of monster friendliness values.  
+            </summary>
+            <remarks>
+            Each monster in a game has a reaction to the player character, as defined by this enum.  This is pretty
+            standard to Eamon in general and Eamon CS is no different.
+            </remarks>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.Friendliness.Enemy">
+            <summary>
+            The monster is hostile to the player character and all Friend monsters.  The monster attacks on sight
+            and flees the room or pursues based on courage.
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.Friendliness.Neutral">
+            <summary>
+            The monster ignores all other monsters and refuses to flee the room, or attack either Friend or Enemy.
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.Friendliness.Friend">
+            <summary>
+            The monster is friendly, follows the player character around and attacks Enemy monsters.
+            </summary>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.Gender">
+            <summary>
+            An enumeration of character/monster genders.
+            </summary>
+            <remarks>
+            Each character or monster in a game is assigned a gender value.  For player characters this
+            is of course set during creation in the Main Hall.  As with all other properties, the gender
+            value can be manipulated during gameplay (and, in at least one ECS adventure, actually is!)
+            </remarks>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.Gender.Male">
+            <summary>
+            The character or monster is male.
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.Gender.Female">
+            <summary>
+            The character or monster is female.
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.Gender.Neutral">
+            <summary>
+            The monster is neutral/indeterminate.  Not available to player characters.
+            </summary>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.LightLevel">
+            <summary>
+            An enumeration of room Light Levels.
+            </summary>
+            <remarks>
+            These represent the possible ambient light levels found in rooms in a game.  Each room has its
+            own light level value which can be manipulated during gameplay if desired.
+            </remarks>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.LightLevel.Dark">
+            <summary>
+            Dark rooms are very restrictive on the kind of activities allowed.
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.LightLevel.Light">
+            <summary>
+            Lit rooms allow the full range of commands.
+            </summary>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.PluralType">
+            <summary>
+            An enumeration of Plural Types.
+            </summary>
+            <remarks>
+            These plural types are applied to artifacts and monsters and improve the aesthetics of the
+            output, making it more natural to read.  You can modify any record at runtime to change its
+            plural type, if desired.  The plural type is only applicable to plural artifacts and group
+            monsters, although if possible you should still assign the correct one even when it won't
+            be used.  If you have a special situation where none of the following values applies (eg,
+            "Rings of Xylo"), customized plural names can be created using effects.
+            </remarks>
+            <seealso cref="T:Eamon.Framework.Primitive.Enums.ArticleType"/>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.PluralType.None">
+            <summary>
+            No plural type is ever applied.  For example, "aircraft" or "moose".
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.PluralType.S">
+            <summary>
+            The name is followed by "s".  For example, "flashlights" or "wolverines".
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.PluralType.Es">
+            <summary>
+            The name is followed by "es".  For example, "crucifixes" or "finches".
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.PluralType.YIes">
+            <summary>
+            The name ends with "y" - which is dropped - and is followed by "ies".  For example, "factories" or "canaries".
+            </summary>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.RoomType">
+            <summary>
+            An enumeration of Room Types.
+            </summary>
+            <remarks>
+            These represent the possible types of rooms found in a game.  Each room has its own room type value
+            which can be manipulated during gameplay if desired.
+            </remarks>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.RoomType.Indoors">
+            <summary>
+            The room is considered indoors; the adjacent rooms list is prefixed with "Obvious exits".
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.RoomType.Outdoors">
+            <summary>
+            The room is considered outdoors; the adjacent rooms list is prefixed with "Obvious paths".
+            </summary>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.Spell">
+            <summary>
+            An enumeration of character Spells.
+            </summary>
+            <remarks>
+            These spells should be familiar to anyone who has been involved with Eamon before.  The Eamon CS
+            Dungeon Designer's Manual will have more details.
+            </remarks>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.Stat">
+            <summary>
+            An enumeration of character Stats.  
+            </summary>
+            <remarks>
+            The last three should be familiar to anyone who has been involved with Eamon before; Intellect
+            is unique to Eamon CS, and represents the character's mental capacity, wisdom and/or intelligence.
+            </remarks>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.Status">
+            <summary>
+            An enumeration of (character) Statuses.
+            </summary>
+            <remarks>
+            These represent the possible states that a player character can be in.  Each character has an
+            associated Status that is set based on various game activities.
+            </remarks>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.Status.Unknown">
+            <summary>
+            The state of the character is indeterminate (in practice, this Status is unused).
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.Status.Alive">
+            <summary>
+            The character is available for use; this is the default Status.
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.Status.Dead">
+            <summary>
+            The character is not available for use; this is trivially reversible, however.
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.Status.Adventuring">
+            <summary>
+            The character is out on an adventure.
+            </summary>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.Weapon">
+            <summary>
+            An enumeration of character Weapon Skills.
+            </summary>
+            <remarks>
+            These weapon skills should be familiar to anyone who has been involved with Eamon before.  The Eamon CS
+            Dungeon Designer's Manual will have more details.
+            </remarks>
+        </member>
+        <member name="P:Eamon.Game.Engine.StatusNames">
+            <summary>
+            An array containing the name for each Status.
+            </summary>
+            <remarks>
+            This array contains the name for each member of <see cref="T:Eamon.Framework.Primitive.Enums.Status"/>.  You should never access this array directly;
+            always use the Getter methods mentioned below.
+            </remarks>
+            <seealso cref="M:Eamon.Framework.IEngine.GetStatusNames(System.Int64)"/>
+            <seealso cref="M:Eamon.Framework.IEngine.GetStatusNames(Eamon.Framework.Primitive.Enums.Status)"/>
+        </member>
+        <member name="P:Eamon.Game.Engine.ClothingNames">
+            <summary>
+            An array containing the name for each Clothing.
+            </summary>
+            <remarks>
+            This array contains the name for each member of <see cref="T:Eamon.Framework.Primitive.Enums.Clothing"/>.  You should never access this array directly;
+            always use the Getter methods mentioned below.
+            </remarks>
+            <seealso cref="M:Eamon.Framework.IEngine.GetClothingNames(System.Int64)"/>
+            <seealso cref="M:Eamon.Framework.IEngine.GetClothingNames(Eamon.Framework.Primitive.Enums.Clothing)"/>
+        </member>
+        <member name="P:Eamon.Game.Engine.CombatCodeDescs">
+            <summary>
+            An array containing the description for each CombatCode.
+            </summary>
+            <remarks>
+            This array contains the description for each member of <see cref="T:Eamon.Framework.Primitive.Enums.CombatCode"/>.  You should never access this array directly;
+            always use the Getter methods mentioned below.
+            </remarks>
+            <seealso cref="M:Eamon.Framework.IEngine.GetCombatCodeDescs(System.Int64)"/>
+            <seealso cref="M:Eamon.Framework.IEngine.GetCombatCodeDescs(Eamon.Framework.Primitive.Enums.CombatCode)"/>
+        </member>
+        <member name="P:Eamon.Game.Engine.LightLevelNames">
+            <summary>
+            An array containing the name for each LightLevel.
+            </summary>
+            <remarks>
+            This array contains the name for each member of <see cref="T:Eamon.Framework.Primitive.Enums.LightLevel"/>.  You should never access this array directly;
+            always use the Getter methods mentioned below.
+            </remarks>
+            <seealso cref="M:Eamon.Framework.IEngine.GetLightLevelNames(System.Int64)"/>
+            <seealso cref="M:Eamon.Framework.IEngine.GetLightLevelNames(Eamon.Framework.Primitive.Enums.LightLevel)"/>
+        </member>
+        <member name="P:Eamon.Game.Engine.Stats">
+            <summary>
+            An array containing data for each Stat.
+            </summary>
+            <remarks>
+            This array contains data for each member of <see cref="T:Eamon.Framework.Primitive.Enums.Stat"/>.  You can subclass <see cref="T:Eamon.Framework.Primitive.Classes.IStat"/> and provide
+            your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="T:Eamon.Framework.IEngine"/>.  Other than that
+            specialized case, you should never access this array directly; always use the Getter methods mentioned below.
+            </remarks>
+            <seealso cref="M:Eamon.Framework.IEngine.GetStats(System.Int64)"/>
+            <seealso cref="M:Eamon.Framework.IEngine.GetStats(Eamon.Framework.Primitive.Enums.Stat)"/>
+        </member>
+        <member name="P:Eamon.Game.Engine.Spells">
+            <summary>
+            An array containing data for each Spell.
+            </summary>
+            <remarks>
+            This array contains data for each member of <see cref="T:Eamon.Framework.Primitive.Enums.Spell"/>.  You can subclass <see cref="T:Eamon.Framework.Primitive.Classes.ISpell"/> and provide
+            your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="T:Eamon.Framework.IEngine"/>.  Other than that
+            specialized case, you should never access this array directly; always use the Getter methods mentioned below.
+            </remarks>
+            <seealso cref="M:Eamon.Framework.IEngine.GetSpells(System.Int64)"/>
+            <seealso cref="M:Eamon.Framework.IEngine.GetSpells(Eamon.Framework.Primitive.Enums.Spell)"/>
+        </member>
+        <member name="P:Eamon.Game.Engine.Weapons">
+            <summary>
+            An array containing data for each Weapon.
+            </summary>
+            <remarks>
+            This array contains data for each member of <see cref="T:Eamon.Framework.Primitive.Enums.Weapon"/>.  You can subclass <see cref="T:Eamon.Framework.Primitive.Classes.IWeapon"/> and provide
+            your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="T:Eamon.Framework.IEngine"/>.  Other than that
+            specialized case, you should never access this array directly; always use the Getter methods mentioned below.
+            </remarks>
+            <seealso cref="M:Eamon.Framework.IEngine.GetWeapons(System.Int64)"/>
+            <seealso cref="M:Eamon.Framework.IEngine.GetWeapons(Eamon.Framework.Primitive.Enums.Weapon)"/>
+        </member>
+        <member name="P:Eamon.Game.Engine.Armors">
+            <summary>
+            An array containing data for each Armor.
+            </summary>
+            <remarks>
+            This array contains data for each member of <see cref="T:Eamon.Framework.Primitive.Enums.Armor"/>.  You can subclass <see cref="T:Eamon.Framework.Primitive.Classes.IArmor"/> and provide
+            your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="T:Eamon.Framework.IEngine"/>.  Other than that
+            specialized case, you should never access this array directly; always use the Getter methods mentioned below.
+            </remarks>
+            <seealso cref="M:Eamon.Framework.IEngine.GetArmors(System.Int64)"/>
+            <seealso cref="M:Eamon.Framework.IEngine.GetArmors(Eamon.Framework.Primitive.Enums.Armor)"/>
+        </member>
+        <member name="P:Eamon.Game.Engine.Directions">
+            <summary>
+            An array containing data for each Direction.
+            </summary>
+            <remarks>
+            This array contains data for each member of <see cref="T:Eamon.Framework.Primitive.Enums.Direction"/>.  You can subclass <see cref="T:Eamon.Framework.Primitive.Classes.IDirection"/> and provide
+            your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="T:Eamon.Framework.IEngine"/>.  Other than that
+            specialized case, you should never access this array directly; always use the Getter methods mentioned below.
+            </remarks>
+            <seealso cref="M:Eamon.Framework.IEngine.GetDirections(System.Int64)"/>
+            <seealso cref="M:Eamon.Framework.IEngine.GetDirections(Eamon.Framework.Primitive.Enums.Direction)"/>
+        </member>
+        <member name="P:Eamon.Game.Engine.ArtifactTypes">
+            <summary>
+            An array containing data for each Artifact Type.
+            </summary>
+            <remarks>
+            This array contains data for each member of <see cref="T:Eamon.Framework.Primitive.Enums.ArtifactType"/>.  You can subclass <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactType"/> and provide
+            your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="T:Eamon.Framework.IEngine"/>.  Other than that
+            specialized case, you should never access this array directly; always use the Getter methods mentioned below.
+            </remarks>
+            <seealso cref="M:Eamon.Framework.IEngine.GetArtifactTypes(System.Int64)"/>
+            <seealso cref="M:Eamon.Framework.IEngine.GetArtifactTypes(Eamon.Framework.Primitive.Enums.ArtifactType)"/>
+        </member>
+        <member name="P:Eamon.Game.Engine.MacroFuncs">
+            <summary>
+            A collection of functions used to resolve macros embedded in Desc and StateDesc properties for various record types.
+            </summary>
+            <remarks>
+            There is a detailed writeup on this property in <see cref="P:Eamon.Framework.IEngine.MacroFuncs"/>.  As a general rule you should feel
+            free to manipulate this dictionary at any point during gameplay, although typically it is only loaded during game
+            startup.  There are no Getter/Setter methods so all access is direct.
+            </remarks>
+        </member>
+        <member name="P:Eamon.Game.Engine.Preps">
+            <summary>
+            An array containing sentence prepositions (eg, "to", "from", "inside", etc).
+            </summary>
+            <remarks>
+            This array contains the sentence prepositions recognized by the game's parser <see cref="T:Eamon.Framework.Parsing.ICommandParser"/>.  You should never
+            access this array directly (other than to check its Length); always use the Getter method mentioned below.
+            </remarks>
+            <seealso cref="M:Eamon.Framework.IEngine.GetPreps(System.Int64)"/>
+        </member>
+        <member name="P:Eamon.Game.Engine.Articles">
+            <summary>
+            An array containing sentence articles (eg, "a", "some", "the", etc).
+            </summary>
+            <remarks>
+            This array contains the sentence articles recognized by the game's parser <see cref="T:Eamon.Framework.Parsing.ICommandParser"/>.  You should never
+            access this array directly (other than to check its Length); always use the Getter method mentioned below.
+            </remarks>
+            <seealso cref="M:Eamon.Framework.IEngine.GetArticles(System.Int64)"/>
+        </member>
+        <member name="T:Eamon.ThirdParty.BTree`1">
+            <summary>
+            A sorted collection (set) data structure using b-trees.
+            </summary>
+            <typeparam name="T">The type of items in the collection.</typeparam>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.#ctor">
+            <summary>
+            Initializes a new BTree instance.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.#ctor(System.Int32)">
+            <summary>
+            Initializes a new BTree instance.
+            </summary>
+            <param name="nodeCapacity">The node capacity.</param>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.#ctor(System.Collections.Generic.IComparer{`0},System.Int32)">
+            <summary>
+            Initializes a new BTree instance with the specified comparer.
+            </summary>
+            <param name="comparer"></param>
+            <param name="nodeCapacity"></param>
+        </member>
+        <member name="P:Eamon.ThirdParty.BTree`1.Count">
+            <summary>
+            Gets the number of items in the collection.
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.BTree`1.Comparer">
+            <summary>
+            Gets the comparer used to order items in the collection.
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.BTree`1.IsReadOnly">
+            <summary>
+            Gets or sets indication whether this collection is readonly or mutable.
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.BTree`1.AllowDuplicates">
+            <summary>
+            Gets or sets indication whether this collection allows duplicate values.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.At(System.Int32)">
+            <summary>
+            Gets the item at the specified index. O(log N)
+            </summary>
+            <param name="index">The index for the item to retrieve.</param>
+            <returns>The value of the item at the specified index.</returns>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Contains(`0)">
+            <summary>
+            Gets a value indicating whether the specified value is in the collection. O(log N)
+            </summary>
+            <param name="value">The value.</param>
+            <returns>True if the collection contains at item with the value; Otherwise, false.</returns>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Add(`0)">
+            <summary>
+            Adds the specified value to the collection. O(log N)
+            </summary>
+            <param name="value">The value to add.</param>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Clear">
+            <summary>
+            Clears the collection of all elements. O(1)
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Remove(`0)">
+            <summary>
+            Removes the specified key value from the collection. O(log N)
+            </summary>
+            <param name="value">The key value to remove.</param>
+            <returns>True if the value was added; otherwise, false.</returns>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.RemoveAt(System.Int32)">
+            <summary>
+            Removes the item at the specified index. O(log N)
+            </summary>
+            <param name="index">The index from which to remove.</param>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.GetEnumerator">
+            <summary>
+            Gets an enumerator for the collection. O(1), move next: O(1)
+            </summary>
+            <returns>An enumerator for the collection.</returns>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copies the collection into the specified array. O(N)
+            </summary>
+            <param name="array">The array into which to copy.</param>
+            <param name="arrayIndex">The index at which to start copying.</param>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.FirstIndexWhereGreaterThan(`0)">
+            <summary>
+            Gets the index of the first item greater than the specified value. O(log N), move next: O(1)
+            </summary>
+            <param name="value">The value for which to find the index.</param>
+            <returns>The index of the first item greater than the specified value, or Count if no such item exists.</returns>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.LastIndexWhereLessThan(`0)">
+            <summary>
+            Gets the index of the last item less than the specified key. O(log N), move next: O(1)
+            </summary>
+            <param name="value">The value for which to find the index.</param>
+            <returns>The index of the last item less than the specified value, or -1 if no such item exists.</returns>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.WhereGreaterOrEqual(`0)">
+            <summary>
+            Get all items equal to or greater than the specified value, starting with the lowest index and moving forwards. O(log N), move next: O(1)
+            </summary>
+            <param name="value">The value.</param>
+            <returns>All items having values equal to or greater than the specified value.</returns>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.WhereLessOrEqualBackwards(`0)">
+            <summary>
+            Get all items less than or equal to the specified value, starting with the highest index and moving backwards. O(log N), move next: O(1)
+            </summary>
+            <param name="value">The key value.</param>
+            <returns>All items having values equal to or greater than the specified value.</returns>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.ForwardFromIndex(System.Int32)">
+            <summary>
+            Get all items starting at the index, and moving forward. O(log N), move next: O(1)
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.BackwardFromIndex(System.Int32)">
+            <summary>
+            Get all items starting at the index, and moving backward. O(log N), move next: O(1)
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Node.#ctor(System.Int32)">
+            <summary>
+            Initialize the first node in the BTree structure.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Node.GetKey(System.Int32)">
+            <summary>
+            Gets the key at the specified position.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Node.LeafAt(Eamon.ThirdParty.BTree{`0}.Node,System.Int32@)">
+            <summary>
+            Get the leaf node at the specified index in the tree defined by the specified root.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Node.Find(Eamon.ThirdParty.BTree{`0}.Node,`0,System.Collections.Generic.IComparer{`0},System.Int32,Eamon.ThirdParty.BTree{`0}.Node@,System.Int32@)">
+            <summary>
+            Find the node and index in the tree defined by the specified root.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Node.Insert(`0,Eamon.ThirdParty.BTree{`0}.Node,System.Int32,Eamon.ThirdParty.BTree{`0}.Node@)">
+            <summary>
+            Insert a new key into the leaf node at the specified position.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Node.Remove(Eamon.ThirdParty.BTree{`0}.Node,System.Int32,Eamon.ThirdParty.BTree{`0}.Node@)">
+            <summary>
+            Remove the item from the node at the specified position.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Node.ForwardFromIndex(Eamon.ThirdParty.BTree{`0}.Node,System.Int32)">
+            <summary>
+            Get all items starting at the index, and moving forward.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Node.BackwardFromIndex(Eamon.ThirdParty.BTree{`0}.Node,System.Int32)">
+            <summary>
+            Get all items starting at the index, and moving backward.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Node.Clear(Eamon.ThirdParty.BTree{`0}.Node)">
+            <summary>
+            Clear all values from the specified node.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Node.GetRootIndex(Eamon.ThirdParty.BTree{`0}.Node,System.Int32)">
+            <summary>
+            Get the index relative to the root node, for the position in the specified leaf.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.BTree`1.Node.MoveToDuplicatesBoundary(`0,System.Collections.Generic.IComparer{`0},System.Int32,Eamon.ThirdParty.BTree{`0}.Node@,System.Int32@)">
+            <summary>
+            (Assumes: key is a duplicate in node at pos) Move to the side on the range of duplicates,
+            as indicated by the sign of duplicatesBias.
+            </summary>
+            <param name="key"></param>
+            <param name="keyComparer"></param>
+            <param name="duplicatesBias"></param>
+            <param name="node"></param>
+            <param name="pos"></param>
+        </member>
+        <member name="T:Eamon.ThirdParty.ISortedCollection`1">
+            <summary>
+            Represents a generic interface of an ordered collection.
+            </summary>
+            <typeparam name="T">The type of elements in the collection.</typeparam>
+        </member>
+        <member name="P:Eamon.ThirdParty.ISortedCollection`1.Comparer">
+            <summary>
+            Gets the comparer used to order items in the collection.
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.ISortedCollection`1.AllowDuplicates">
+            <summary>
+            Gets indication of whether the collection allows duplicate values.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedCollection`1.WhereGreaterOrEqual(`0)">
+            <summary>
+            Get all items equal to or greater than the specified value, starting with the lowest index and moving forwards.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedCollection`1.WhereLessOrEqualBackwards(`0)">
+            <summary>
+            Get all items less than or equal to the specified value, starting with the highest index and moving backwards.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedCollection`1.FirstIndexWhereGreaterThan(`0)">
+            <summary>
+            Gets the index of the first item greater than the specified value.
+            /// </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedCollection`1.LastIndexWhereLessThan(`0)">
+            <summary>
+            Gets the index of the last item less than the specified key.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedCollection`1.At(System.Int32)">
+            <summary>
+            Gets the item at the specified index.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedCollection`1.RemoveAt(System.Int32)">
+            <summary>
+            Removes the item at the specified index.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedCollection`1.ForwardFromIndex(System.Int32)">
+            <summary>
+            Get all items starting at the index, and moving forward.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedCollection`1.BackwardFromIndex(System.Int32)">
+            <summary>
+            Get all items starting at the index, and moving backward.
+            </summary>
+        </member>
+        <member name="T:Eamon.ThirdParty.ISortedDictionary`2">
+            <summary>
+            Represents a generic interface of ordered key/value pairs.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedDictionary`2.WhereGreaterOrEqual(`0)">
+            <summary>
+            Get all items having a key equal to or greater than the specified key, starting with the lowest index and moving forwards.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedDictionary`2.WhereLessOrEqualBackwards(`0)">
+            <summary>
+            Get all items less than or equal to the specified value, starting with the highest index and moving backwards.
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.ISortedDictionary`2.Keys">
+            <summary>
+            Gets the sorted collection of keys.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedDictionary`2.At(System.Int32)">
+            <summary>
+            Gets the item at the specified index.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedDictionary`2.RemoveAt(System.Int32)">
+            <summary>
+            Removes the item at the specified index.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedDictionary`2.SetValueAt(System.Int32,`1)">
+            <summary>
+            Sets the value at the specified index.
+            </summary>
+            <param name="index"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedDictionary`2.ForwardFromIndex(System.Int32)">
+            <summary>
+            Get all items starting at the index, and moving forward.
+            </summary>
+        </member>
+        <member name="M:Eamon.ThirdParty.ISortedDictionary`2.BackwardFromIndex(System.Int32)">
+            <summary>
+            Get all items starting at the index, and moving backward.
+            </summary>
+        </member>
+        <member name="T:Eamon.ThirdParty.SR">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.SR.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.SR.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.SR.btreeCapacityError">
+            <summary>
+              Looks up a localized string similar to Btree node capacity must be 3 or larger..
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.SR.collectionMustBeEmptyToClearAllowDuplicates">
+            <summary>
+              Looks up a localized string similar to Collection must be empty to set allow duplicates to false..
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.SR.duplicateNotAllowedError">
+            <summary>
+              Looks up a localized string similar to Duplicates are not allowed..
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.SR.immutableError">
+            <summary>
+              Looks up a localized string similar to An operation that modifies the collection was invoked while IsReadOnly was true..
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.SR.indexOutOfRangeError">
+            <summary>
+              Looks up a localized string similar to Index out of range..
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.SR.keyNotFoundError">
+            <summary>
+              Looks up a localized string similar to Key was not found..
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.SR.nullArgumentError">
+            <summary>
+              Looks up a localized string similar to Argument cannot be null..
+            </summary>
+        </member>
+        <member name="T:Eamon.ThirdParty.TrentTobler.SR">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.TrentTobler.SR.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.TrentTobler.SR.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.TrentTobler.SR.btreeCapacityError">
+            <summary>
+              Looks up a localized string similar to Btree node capacity must be 3 or larger..
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.TrentTobler.SR.collectionMustBeEmptyToClearAllowDuplicates">
+            <summary>
+              Looks up a localized string similar to Collection must be empty to set allow duplicates to false..
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.TrentTobler.SR.duplicateNotAllowedError">
+            <summary>
+              Looks up a localized string similar to Duplicates are not allowed..
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.TrentTobler.SR.immutableError">
+            <summary>
+              Looks up a localized string similar to An operation that modifies the collection was invoked while IsReadOnly was true..
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.TrentTobler.SR.indexOutOfRangeError">
+            <summary>
+              Looks up a localized string similar to Index out of range..
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.TrentTobler.SR.keyNotFoundError">
+            <summary>
+              Looks up a localized string similar to Key was not found..
+            </summary>
+        </member>
+        <member name="P:Eamon.ThirdParty.TrentTobler.SR.nullArgumentError">
+            <summary>
+              Looks up a localized string similar to Argument cannot be null..
+            </summary>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.Remove(System.Text.StringBuilder,System.Char[])">
+            <summary>
+            Removes all occurences of specified characters from <see cref="T:System.Text.StringBuilder"/>.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to remove from.</param>
+            <param name="removeChars">A Unicode characters to remove.</param>
+            <returns>
+            Returns <see cref="T:System.Text.StringBuilder"/> without specified Unicode characters.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="removeChars"/> is null.</exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.Remove(System.Text.StringBuilder,System.Int32)">
+            <summary>
+            Removes the range of characters from the specified index to the end of <see cref="T:System.Text.StringBuilder"/>.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to remove from.</param>
+            <param name="startIndex">The zero-based position to begin deleting characters.</param>
+            <returns>A reference to this instance after the excise operation has completed.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If <paramref name="startIndex"/> is less than zero, or <paramref name="startIndex"/> is greater
+            than the length - 1 of this instance.
+            </exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.TrimStart(System.Text.StringBuilder,System.Char[])">
+            <summary>
+            Removes all leading occurrences of a set of characters specified in an array 
+            from the current <see cref="T:System.Text.StringBuilder"/> object.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to remove from.</param>
+            <param name="trimChars">An array of Unicode characters to remove, or null.</param>
+            <returns>
+            The <see cref="T:System.Text.StringBuilder"/> object that contains a list of characters 
+            that remains after all occurrences of the characters in the <paramref name="trimChars"/> parameter 
+            are removed from the end of the current string. If <paramref name="trimChars"/> is null or an empty array, 
+            Unicode white-space characters are removed instead.
+            </returns>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.TrimEnd(System.Text.StringBuilder,System.Char[])">
+            <summary>
+            Removes all trailing occurrences of a set of characters specified in an array 
+            from the current <see cref="T:System.Text.StringBuilder"/> object.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to remove from.</param>
+            <param name="trimChars">An array of Unicode characters to remove, or null.</param>
+            <returns>
+            The <see cref="T:System.Text.StringBuilder"/> object that contains a list of characters that remains 
+            after all occurrences of the characters in the <paramref name="trimChars"/> parameter are removed 
+            from the end of the current string. If <paramref name="trimChars"/> is null or an empty array, 
+            Unicode white-space characters are removed instead.
+            </returns>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.Trim(System.Text.StringBuilder)">
+            <summary>
+            Removes all leading and trailing white-space characters from the current <see cref="T:System.Text.StringBuilder"/> object.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to remove from.</param>
+            <returns>
+            The <see cref="T:System.Text.StringBuilder"/> object that contains a list of characters 
+            that remains after all white-space characters are removed 
+            from the start and end of the current StringBuilder.
+            </returns>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.Trim(System.Text.StringBuilder,System.Char[])">
+            <summary>
+            Removes all leading and trailing occurrences of a set of characters specified in an array
+            from the current <see cref="T:System.Text.StringBuilder"/> object.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to </param>
+            <param name="trimChars">An array of Unicode characters to remove, or null.</param>
+            <returns>
+            The <see cref="T:System.Text.StringBuilder"/> object that contains a list of characters that remains 
+            after all occurrences of the characters in the <paramref name="trimChars"/> parameter are removed 
+            from the end of the current StringBuilder. If <paramref name="trimChars"/> is null or an empty array, 
+            Unicode white-space characters are removed instead.
+            </returns>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.IndexOf(System.Text.StringBuilder,System.Char)">
+            <summary>
+            Reports the zero-based index position of the first occurrence of the specified Unicode
+            character within this instance.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to </param>
+            <param name="value">A Unicode character to seek.</param>
+            <returns>
+            The zero-based index position of <paramref name="value"/> if that character is found, or -1
+            if it is not.
+            </returns>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.IndexOf(System.Text.StringBuilder,System.Char,System.Int32)">
+            <summary>
+            Reports the zero-based index position of the first occurrence of the specified Unicode
+            character within this intance. The search starts at a specified character position.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="value">A Unicode character to seek.</param>
+            <param name="startIndex">The search starting position.</param>
+            <returns>
+            The zero-based index position of <paramref name="value"/> if that character is found, or -1
+            if it is not.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            The current instance <see cref="P:System.Text.StringBuilder.Length"/> does not equal 0, and <paramref name="startIndex"/> 
+            is less than 0 (zero) or greater than the length of the <see cref="T:System.Text.StringBuilder"/>.
+            </exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.IndexOf(System.Text.StringBuilder,System.Char,System.Int32,System.Int32)">
+            <summary>
+            Reports the zero-based index of the first occurrence of the specified Unicode
+            character in this <see cref="T:System.Text.StringBuilder"/>. The search starts 
+            at a specified character position and examines a specified number of character positions.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="value">A Unicode character to seek.</param>
+            <param name="startIndex">The search starting position.</param>
+            <param name="count">The number of character positions to examine.</param>
+            <returns>
+            The zero-based index position of <paramref name="value"/> if that character is found, or -1 
+            if it is not.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            The current instance <see cref="P:System.Text.StringBuilder.Length"/> does not equal 0, and <paramref name="count"/> 
+            or <paramref name="startIndex"/> is negative.-or- <paramref name="startIndex"/> is greater than 
+            the length of this <see cref="T:System.Text.StringBuilder"/>.
+            -or-The current instance <see cref="P:System.Text.StringBuilder.Length"/> does not equal 0, and <paramref name="count"/> 
+            is greater than the length of this string minus <paramref name="startIndex"/>. 
+            </exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.IndexOf(System.Text.StringBuilder,System.String,System.Boolean)">
+            <summary>
+            Reports the zero-based index of the first occurrence of the specified string in the current <see cref="T:System.Text.StringBuilder"/> object.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="value">The string to seek.</param>
+            <param name="ignoreCase">true to ignore case during the comparison; otherwise, false.</param>
+            <returns>
+            The zero-based index position of the <paramref name="value"/> parameter if that string is found, 
+            or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return value 
+            is 0.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value"/> is null.</exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.IndexOf(System.Text.StringBuilder,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Reports the zero-based index of the first occurrence of the specified string in the current <see cref="T:System.Text.StringBuilder"/> object. 
+            Parameter specifies the starting search position in the current <see cref="T:System.Text.StringBuilder"/>.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="value">The string to seek. </param>
+            <param name="startIndex">The search starting position.</param>
+            <param name="ignoreCase">true to ignore case during the comparison; otherwise, false.</param>
+            <returns>
+            The zero-based index position of the <paramref name="value"/> parameter if that string is found, 
+            or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, the return value 
+            is <paramref name="startIndex"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value"/> is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="startIndex"/> is less than 0 (zero) or greater than the length of this <see cref="T:System.Text.StringBuilder"/>.
+            </exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.IndexOf(System.Text.StringBuilder,System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Reports the zero-based index of the first occurrence of the specified string in the current <see cref="T:System.Text.StringBuilder"/> object. 
+            The search starts at a specified character position and examines a specified number of character positions.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="value">The string to seek.</param>
+            <param name="startIndex">The search starting position.</param>
+            <param name="count">The number of character positions to examine.</param>
+            <param name="ignoreCase">true to ignore case during the comparison; otherwise, false.</param>
+            <returns>
+            The zero-based index position of the <paramref name="value"/> parameter if that string is found, 
+            or -1 if it is not. If <paramref name="value"/> is <see cref="F:System.String.Empty"/>, 
+            the return value is <paramref name="startIndex"/>.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">value is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="count"/> or <paramref name="startIndex"/> is negative.-or- <paramref name="startIndex"/> is 
+            greater than the length of this instance.-or-<paramref name="count"/> is greater than the length of 
+            this <see cref="T:System.Text.StringBuilder"/> minus <paramref name="startIndex"/>.
+            </exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.IndexOfAny(System.Text.StringBuilder,System.Char[])">
+            <summary>
+            Reports the zero-based index of the first occurrence in this instance 
+            of any character in a specified array of Unicode characters.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="anyOf">A Unicode character array containing one or more characters to seek.</param>
+            <returns>
+            The zero-based index position of the first occurrence in this instance
+            where any character in <paramref name="anyOf"/> was found; -1 if no character in <paramref name="anyOf"/> was found.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">anyOf is null.</exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.IndexOfAny(System.Text.StringBuilder,System.Char[],System.Int32)">
+            <summary>
+            Reports the zero-based index of the first occurrence in this instance of any character 
+            in a specified array of Unicode characters. The search starts at a specified character position.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="anyOf">A Unicode character array containing one or more characters to seek.</param>
+            <param name="startIndex">The search starting position.</param>
+            <returns>
+            The zero-based index position of the first occurrence in this instance
+            where any character in <paramref name="anyOf"/> was found; -1 if no character in <paramref name="anyOf"/> was found.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="anyOf"/> is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="startIndex"/> is negative.-or-<paramref name="startIndex"/> is greater 
+            than the number of characters in this instance.
+            </exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.IndexOfAny(System.Text.StringBuilder,System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Reports the zero-based index of the first occurrence in this instance of any character 
+            in a specified array of Unicode characters. The search starts at a specified character position and examines a specified number of character positions.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="anyOf">A Unicode character array containing one or more characters to seek.</param>
+            <param name="startIndex">The search starting position.</param>
+            <param name="count">The number of character positions to examine.</param>
+            <returns>
+            The zero-based index position of the first occurrence in this instance
+            where any character in <paramref name="anyOf"/> was found; -1 if no character in <paramref name="anyOf"/> was found.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="anyOf"/> is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="count"/> or <paramref name="startIndex"/> is negative.
+            -or-<paramref name="count"/> + <paramref name="startIndex"/> is greater than the number of characters in this instance.
+            </exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.LastIndexOf(System.Text.StringBuilder,System.Char)">
+            <summary>
+            Reports the zero-based index of the last occurrence of the specified Unicode
+            character within this instance.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to </param>
+            <param name="value">A Unicode character to seek.</param>
+            <returns>
+            The zero-based index position of <paramref name="value"/> if that character is found, or -1
+            if it is not.
+            </returns>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.LastIndexOf(System.Text.StringBuilder,System.Char,System.Int32)">
+            <summary>
+            Reports the zero-based index position of the last occurrence of the specified Unicode character 
+            in a substring within this instance. The search starts at a specified character position and 
+            proceeds backward toward the beginning of the <see cref="T:System.Text.StringBuilder"/> 
+            for a specified number of character positions.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="value">A Unicode character to seek.</param>
+            <param name="startIndex">
+            The starting position of the search. The search proceeds from <paramref name="startIndex"/> toward the beginning 
+            of this instance.
+            </param>
+            <returns>
+            The zero-based index position of <paramref name="value"/> if that character is found, or -1
+            if it is not.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            The current instance <see cref="P:System.Text.StringBuilder.Length"/> does not equal 0, 
+            and <paramref name="startIndex"/> is less than zero or greater than or equal to the length of this instance.
+            </exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.LastIndexOf(System.Text.StringBuilder,System.Char,System.Int32,System.Int32)">
+            <summary>
+            Reports the zero-based index of the last occurrence of the specified Unicode
+            character in this <see cref="T:System.Text.StringBuilder"/>. The search starts 
+            at a specified character position and examines a specified number of character positions.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="value">A Unicode character to seek.</param>
+            <param name="startIndex">The search starting position.</param>
+            <param name="count">The number of character positions to examine.</param>
+            <returns>
+            The zero-based index position of <paramref name="value"/> if that character is found, or -1 
+            if it is not.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            The current instance <see cref="P:System.Text.StringBuilder.Length"/> does not equal 0, 
+            and <paramref name="startIndex"/> is less than zero or greater than or equal to the length of this instance.
+            -or-The current instance <see cref="P:System.Text.StringBuilder.Length"/> 
+            does not equal 0, and <paramref name="startIndex"/> - <paramref name="count"/> + 1 is less than zero.
+            </exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.LastIndexOf(System.Text.StringBuilder,System.String,System.Boolean)">
+            <summary>
+            Reports the zero-based index of the last occurrence of the specified string 
+            in the current <see cref="T:System.Text.StringBuilder"/> object.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to </param>
+            <param name="value">The string to seek.</param>
+            <param name="ignoreCase">true to ignore case during the comparison; otherwise, false.</param>
+            <returns>
+            The zero-based index position of the value parameter if that string is found, 
+            or -1 if it is not. If value is <see cref="F:System.String.Empty"/>, the return value is startIndex.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">value is null.</exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.LastIndexOf(System.Text.StringBuilder,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Reports the zero-based index of the last occurrence of the specified string in the current <see cref="T:System.Text.StringBuilder"/> object. 
+            Parameter specifies the starting search position in the current <see cref="T:System.Text.StringBuilder"/>.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="value">The string to seek. </param>
+            <param name="startIndex">The search starting position.</param>
+            <param name="ignoreCase">true to ignore case during the comparison; otherwise, false.</param>
+            <returns>
+            The zero-based index position of the value parameter if that string is found, 
+            or -1 if it is not. If value is <see cref="F:System.String.Empty"/>, the return value is startIndex.
+            </returns>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.LastIndexOf(System.Text.StringBuilder,System.String,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Reports the zero-based index of the last occurrence of the specified string in the current <see cref="T:System.Text.StringBuilder"/> object. 
+            The search starts at a specified character position and examines a specified number of character positions.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="value">The string to seek.</param>
+            <param name="startIndex">The search starting position.</param>
+            <param name="count">The number of character positions to examine.</param>
+            <param name="ignoreCase">true to ignore case during the comparison; otherwise, false.</param>
+            <returns>
+            The zero-based index position of the value parameter if that string is found, 
+            or -1 if it is not. If value is <see cref="F:System.String.Empty"/>, the return value is startIndex.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">value is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            startIndex is less than 0 (zero) or greater than the length of this string.
+            </exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.LastIndexOfAny(System.Text.StringBuilder,System.Char[])">
+            <summary>
+            Reports the zero-based index of the last occurrence in this instance 
+            of any character in a specified array of Unicode characters.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="anyOf">A Unicode character array containing one or more characters to seek.</param>
+            <returns>
+            The zero-based index position of the last occurrence in this instance
+            where any character in <paramref name="anyOf"/> was found; -1 if no character in <paramref name="anyOf"/> was found.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="anyOf"/> is null.</exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.LastIndexOfAny(System.Text.StringBuilder,System.Char[],System.Int32)">
+            <summary>
+            Reports the zero-based index of the last occurrence in this instance of any character 
+            in a specified array of Unicode characters. The search starts at a specified character position.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="anyOf">A Unicode character array containing one or more characters to seek.</param>
+            <param name="startIndex">The search starting position.</param>
+            <returns>
+            The zero-based index position of the last occurrence in this instance
+            where any character in <paramref name="anyOf"/> was found; -1 if no character in <paramref name="anyOf"/> was found.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="anyOf"/> is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="startIndex"/> is negative.-or- <paramref name="startIndex"/> is greater 
+            than the number of characters in this instance.
+            </exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.LastIndexOfAny(System.Text.StringBuilder,System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Reports the zero-based index of the last occurrence in this instance of any character 
+            in a specified array of Unicode characters. The search starts at a specified character position and examines a specified number of character positions.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to search.</param>
+            <param name="anyOf">A Unicode character array containing one or more characters to seek.</param>
+            <param name="startIndex">The search starting position.</param>
+            <param name="count">The number of character positions to examine.</param>
+            <returns>
+            The zero-based index position of the last occurrence in this instance
+            where any character in <paramref name="anyOf"/> was found; -1 if no character in <paramref name="anyOf"/> was found.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="anyOf"/> is null.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            <paramref name="count"/> or <paramref name="startIndex"/> is negative.
+            -or-<paramref name="count"/> + <paramref name="startIndex"/> is greater than the number of characters in this instance.
+            </exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.StartsWith(System.Text.StringBuilder,System.String,System.Boolean)">
+            <summary>
+            Determines whether this instance of <see cref="T:System.Text.StringBuilder"/> starts with the specified string.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to compare.</param>
+            <param name="value">The string to compare.</param>
+            <param name="ignoreCase">true to ignore case during the comparison; otherwise, false.</param>
+            <returns>
+            true if the <paramref name="value"/> parameter matches the beginning of this string; otherwise, false.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value"/> is null.</exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.EndsWith(System.Text.StringBuilder,System.String,System.Boolean)">
+            <summary>
+            Determines whether this instance of <see cref="T:System.Text.StringBuilder"/> ends with the specified string.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to compare.</param>
+            <param name="value">The string to compare to the substring at the end of this instance.</param>
+            <param name="ignoreCase">true to ignore case during the comparison; otherwise, false.</param>
+            <returns>
+            true if the <paramref name="value"/> parameter matches the beginning of this string; otherwise, false.
+            </returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value"/> is null.</exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.ToLower(System.Text.StringBuilder)">
+            <summary>
+            Returns a <see cref="T:System.Text.StringBuilder"/> converted to lowercase.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to convert to lowercase.</param>
+            <returns>The <see cref="T:System.Text.StringBuilder"/> converted to lowercase.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.ToLower(System.Text.StringBuilder,System.Globalization.CultureInfo)">
+            <summary>
+            Returns a <see cref="T:System.Text.StringBuilder"/> converted to lowercase, using the casing rules of the specified culture.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to convert to lowercase.</param>
+            <param name="culture">An object that supplies culture-specific casing rules.</param>
+            <returns>The <see cref="T:System.Text.StringBuilder"/> converted to lowercase using specified culture.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="culture"/>is null.</exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.ToLowerInvariant(System.Text.StringBuilder)">
+            <summary>
+            Returns a <see cref="T:System.Text.StringBuilder"/> converted to lowercase, using the casing rules of the invarian culture.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to convert to lowercase.</param>
+            <returns>The <see cref="T:System.Text.StringBuilder"/> converted to lowercase using invariant culture.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.ToUpper(System.Text.StringBuilder)">
+            <summary>
+            Returns a <see cref="T:System.Text.StringBuilder"/> converted to uppercase.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to convert to uppercase.</param>
+            <returns>The <see cref="T:System.Text.StringBuilder"/> converted to uppercase.</returns>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.ToUpper(System.Text.StringBuilder,System.Globalization.CultureInfo)">
+            <summary>
+            Returns a <see cref="T:System.Text.StringBuilder"/> converted to uppercase, using the casing rules of the specified culture.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to convert to uppercase.</param>
+            <param name="culture">An object that supplies culture-specific casing rules.</param>
+            <returns>The <see cref="T:System.Text.StringBuilder"/> converted to uppercase using specified culture.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="culture"/>is null.</exception>
+        </member>
+        <member name="M:System.Text.StringBuilderExtensions.ToUpperInvariant(System.Text.StringBuilder)">
+            <summary>
+            Returns a <see cref="T:System.Text.StringBuilder"/> converted to uppercase, using the casing rules of the invariant culture.
+            </summary>
+            <param name="sb">A <see cref="T:System.Text.StringBuilder"/> to convert to uppercase.</param>
+            <returns>The <see cref="T:System.Text.StringBuilder"/> converted to uppercase using invariant culture.</returns>
+        </member>
+    </members>
+</doc>

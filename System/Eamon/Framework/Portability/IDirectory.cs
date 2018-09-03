@@ -11,6 +11,8 @@ namespace Eamon.Framework.Portability
 
 		void Delete(string path, bool recursive);
 
+		void DeleteEmptySubdirectories(string path, bool recursive);
+
 		void CreateDirectory(string path);
 
 		void SetCurrentDirectory(string path);

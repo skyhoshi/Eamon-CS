@@ -426,7 +426,7 @@ namespace Eamon.Framework
 		/// <param name="courage">The courage value.</param>
 		/// <remarks>
 		/// This method checks to see if the supplied courage value is valid for a monster; always the case for any courage value >= 0
-		/// and <= 200.
+		/// and &lt;= 200.
 		/// </remarks>
 		/// <returns>If the courage value is valid, returns true; else returns false.</returns>
 		bool IsValidMonsterCourage(long courage);

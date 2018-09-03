@@ -6,7 +6,8 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Eamon;
+using System.Linq;
+using System.Text;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -16,71 +17,120 @@ namespace EamonDD.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class AddCustomAdventureClassesMenu : AdventureSupportMenu01, IAddCustomAdventureClassesMenu
 	{
-		protected virtual void CheckForMissingClasses()
+		protected virtual IList<bool> IncludeInterfaces { get; set; }
+
+		protected virtual void SelectClassFilesToAdd()
 		{
-			RetCode rc;
+			var invalidClassFileNames = new string[] { "Program.cs", "IPluginClassMappings.cs", "IPluginConstants.cs", "IPluginGlobals.cs", "PluginClassMappings.cs", "PluginConstants.cs", "PluginContext.cs", "PluginGlobals.cs" };
 
-			var generatedClasses = new string[] { "Artifact", "Effect", "Engine", "GameState", "Hint", "Module", "Monster", "Room" };
+			SelectedClassFiles = new List<string>();
 
-			SelectedClasses = new List<string>();
+			IncludeInterfaces = new List<bool>();
 
-			foreach (var genClass in generatedClasses)
-			{
-				var origFileName = AdvTemplateDir + @"\Adventures\YourAdventureName\Game\" + genClass + ".cs";
+			var classFileName = string.Empty;
 
-				var gameFileName = Constants.AdventuresDir + @"\" + AdventureName + @"\Game\" + genClass + ".cs";
-
-				if (!Globals.File.Exists(gameFileName))
-				{
-					Globals.Out.Print("{0}", Globals.LineSep);
-
-					Globals.Out.Print("The {0} class appears to be missing.", AdventureName + ".Game." + genClass);
-
-					Globals.Out.Write("{0}Would you like to add it (Y/N): ", Environment.NewLine);
-
-					Buf.Clear();
-
-					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-					if (Buf.Length > 0 && Buf[0] == 'Y')
-					{
-						SelectedClasses.Add(genClass);
-					}
-				}
-			}
-
-			if (SelectedClasses.Count == 0)
+			while (true)
 			{
 				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("The custom adventure library (.dll) has no missing generated classes.");
+				Globals.Out.Write("{0}Enter file name of interface/class: ", Environment.NewLine);
+
+				Buf.Clear();
+
+				Globals.Out.WordWrap = false;
+
+				var rc = Globals.In.ReadField(Buf, 120, null, '_', '\0', true, null, null, null, null);
+
+				Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+				Globals.Out.WordWrap = true;
+
+				classFileName = Buf.Trim().ToString().Replace('/', '\\');
+
+				if (classFileName.Length == 0)
+				{
+					goto Cleanup;
+				}
+
+				if (!classFileName.StartsWith(@".\Eamon\") && !classFileName.StartsWith(@".\EamonRT\"))
+				{
+					classFileName = string.Empty;
+				}
+				else if (!classFileName.Contains(@"\Game\") && !classFileName.Contains(@"\Framework\"))
+				{
+					classFileName = string.Empty;
+				}
+				else 
+				{
+					var destClassFileName = classFileName.Replace(classFileName.StartsWith(@".\Eamon\") ? @".\Eamon\" : @".\EamonRT\", Constants.AdventuresDir + @"\" + AdventureName + @"\").Replace(@"..\..\", @"..\");
+
+					if (!classFileName.EndsWith(".cs") || classFileName.Contains(@"\..") || invalidClassFileNames.FirstOrDefault(fn => string.Equals(fn, Globals.Path.GetFileName(classFileName), StringComparison.OrdinalIgnoreCase)) != null || SelectedClassFiles.FirstOrDefault(fn => string.Equals(fn, classFileName, StringComparison.OrdinalIgnoreCase)) != null || !Globals.File.Exists(classFileName) || Globals.File.Exists(destClassFileName))
+					{
+						classFileName = string.Empty;
+					}
+				}
+
+				Globals.Out.Print("{0}", Globals.LineSep);
+
+				if (classFileName.Length > 0)
+				{
+					SelectedClassFiles.Add(classFileName);
+
+					var includeInterface = false;
+
+					if (classFileName.Contains(@"\Game\"))
+					{
+						Globals.Out.Write("{0}Would you like to add a custom interface for this class (Y/N) [N]: ", Environment.NewLine);
+
+						Buf.Clear();
+
+						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, "N", Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+
+						Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+						if (Buf.Length > 0 && Buf[0] == 'Y')
+						{
+							includeInterface = true;
+						}
+
+						Globals.Out.Print("{0}", Globals.LineSep);
+					}
+
+					IncludeInterfaces.Add(includeInterface);
+
+					Globals.Out.Print("The file name path was added to the selected class files list.");
+				}
+				else
+				{
+					Globals.Out.Print("The file name path was invalid or the source/destination file was not found, or already exists.");
+				}
+			}
+
+		Cleanup:
+
+			if (SelectedClassFiles.Count == 0)
+			{
+				Globals.Out.Print("{0}", Globals.LineSep);
+
+				Globals.Out.Print("The adventure was not processed.");
 
 				GotoCleanup = true;
 			}
 		}
 
-		protected virtual void AddSelectedClasses()
+		protected virtual void AddSelectedClassFiles()
 		{
 			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.WriteLine();
 
-			foreach (var selectedClass in SelectedClasses)
+			for (var i = 0; i < SelectedClassFiles.Count; i++)
 			{
-				var fileText = string.Empty;
+				ParentClassFileName = SelectedClassFiles[i].Replace(@".\", @"..\");
 
-				if (string.Equals(selectedClass, "GameState", StringComparison.OrdinalIgnoreCase))
-				{
-					fileText = Globals.File.ReadAllText(AdvTemplateDir + @"\Adventures\YourAdventureName\Framework\IGameState.cs");
+				IncludeInterface = IncludeInterfaces[i];
 
-					Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\Framework\IGameState.cs", ReplaceMacros(fileText));
-				}
-
-				fileText = Globals.File.ReadAllText(AdvTemplateDir + @"\Adventures\YourAdventureName\Game\" + selectedClass + ".cs");
-
-				Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\Game\" + selectedClass + ".cs", ReplaceMacros(fileText));
+				CreateCustomClassFile();
 			}
 		}
 
@@ -114,12 +164,16 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			GetAuthorInitials();
 
-			CheckForMissingClasses();
+			Globals.Directory.SetCurrentDirectory("..");
+
+			SelectClassFilesToAdd();
 
 			if (GotoCleanup)
 			{
 				goto Cleanup;
 			}
+
+			Globals.Directory.SetCurrentDirectory(workDir);
 
 			QueryToProcessAdventure();
 
@@ -128,9 +182,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 				goto Cleanup;
 			}
 
-			AddSelectedClasses();
+			AddSelectedClassFiles();
+
+			Globals.Directory.SetCurrentDirectory(Constants.AdventuresDir + @"\" + AdventureName);
 
 			UpdateXmlFileClasses();
+
+			Globals.Directory.SetCurrentDirectory(workDir);
 
 			DeleteAdvBinaryFiles();
 

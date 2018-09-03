@@ -30,7 +30,6 @@ namespace EamonVS
 		public virtual string SolutionFile { get; set; }
 
 		/// <summary>Creates and returns a DTE instance of specified VS version.</summary>
-		/// <param name="devenvPath">The full path to the devenv.exe.
 		/// <returns>DTE instance or <see langword="null"> if not found.</see></returns>
 		protected virtual EnvDTE.DTE CreateDteInstance()
 		{
@@ -74,8 +73,8 @@ namespace EamonVS
 		/// After starting devenv.exe, the DTE object is not ready. We need to try repeatedly and fail after the
 		/// timeout.
 		/// </remarks>
-		/// <param name="processId">
-		/// <param name="timeout">Timeout in seconds.
+		/// <param name="processId">The process id of devenv.exe</param>
+		/// <param name="timeout">Timeout in seconds.</param>
 		/// <returns>
 		/// Retrieved DTE object or <see langword="null"> if not found.
 		/// </see></returns>
@@ -99,7 +98,7 @@ namespace EamonVS
 		/// <summary>
 		/// Gets the DTE object from any devenv process.
 		/// </summary>
-		/// <param name="processId">
+		/// <param name="processId">The process id of devenv.exe</param>
 		/// <returns>
 		/// Retrieved DTE object or <see langword="null"> if not found.
 		/// </see></returns>
@@ -329,25 +328,48 @@ namespace EamonVS
 
 						result = ExecuteWithRetry(() =>
 						{
-							Solution.AddFromFile(projName);
+							for (var i = 1; i <= Solution.Projects.Count; i++)
+							{
+								var proj = Solution.Projects.Item(i);
+
+								if (string.Equals(proj.Name, Path.GetFileNameWithoutExtension(projName), StringComparison.OrdinalIgnoreCase))
+								{
+									Solution.Remove(proj);
+									goto Cleanup;
+								}
+							}
+						Cleanup:
 							return true;
 						}, 50, 250);
 
 						if (result == RetCode.Success)
 						{
-							Console.Out.WriteLine("succeeded");
-
-							Console.Out.Write("Saving solution... ");
-
 							result = ExecuteWithRetry(() =>
 							{
-								Solution.SaveAs(SolutionFile);
+								Solution.AddFromFile(projName);
 								return true;
 							}, 50, 250);
 
 							if (result == RetCode.Success)
 							{
 								Console.Out.WriteLine("succeeded");
+
+								Console.Out.Write("Saving solution... ");
+
+								result = ExecuteWithRetry(() =>
+								{
+									Solution.SaveAs(SolutionFile);
+									return true;
+								}, 50, 250);
+
+								if (result == RetCode.Success)
+								{
+									Console.Out.WriteLine("succeeded");
+								}
+								else
+								{
+									Console.Out.WriteLine("failed");
+								}
 							}
 							else
 							{
