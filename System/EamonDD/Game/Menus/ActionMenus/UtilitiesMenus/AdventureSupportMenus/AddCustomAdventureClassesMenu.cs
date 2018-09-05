@@ -52,7 +52,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 					goto Cleanup;
 				}
 
-				if (!classFileName.StartsWith(@".\Eamon\") && !classFileName.StartsWith(@".\EamonRT\"))
+				if (!classFileName.StartsWith(@".\Eamon\") && !classFileName.StartsWith(@".\EamonDD\") && !classFileName.StartsWith(@".\EamonRT\"))
 				{
 					classFileName = string.Empty;
 				}
@@ -62,7 +62,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				}
 				else 
 				{
-					var destClassFileName = classFileName.Replace(classFileName.StartsWith(@".\Eamon\") ? @".\Eamon\" : @".\EamonRT\", Constants.AdventuresDir + @"\" + AdventureName + @"\").Replace(@"..\..\", @"..\");
+					var destClassFileName = classFileName.Replace(classFileName.StartsWith(@".\Eamon\") ? @".\Eamon\" : classFileName.StartsWith(@".\EamonDD\") ? @".\EamonDD\" : @".\EamonRT\", Constants.AdventuresDir + @"\" + AdventureName + @"\").Replace(@"..\..\", @"..\");
 
 					if (!classFileName.EndsWith(".cs") || classFileName.Contains(@"\..") || invalidClassFileNames.FirstOrDefault(fn => string.Equals(fn, Globals.Path.GetFileName(classFileName), StringComparison.OrdinalIgnoreCase)) != null || SelectedClassFiles.FirstOrDefault(fn => string.Equals(fn, classFileName, StringComparison.OrdinalIgnoreCase)) != null || !Globals.File.Exists(classFileName) || Globals.File.Exists(destClassFileName))
 					{

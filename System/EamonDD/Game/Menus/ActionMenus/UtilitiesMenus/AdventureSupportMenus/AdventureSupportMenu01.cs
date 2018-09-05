@@ -641,7 +641,7 @@ namespace YourAdventureName.YourGameNamespaceName
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(ParentClassFileName));
 
-			var eamonLibraryName = ParentClassFileName.StartsWith(@"..\Eamon\") ? "Eamon" : "EamonRT";
+			var eamonLibraryName = ParentClassFileName.StartsWith(@"..\Eamon\") ? "Eamon" : ParentClassFileName.StartsWith(@"..\EamonDD\") ? "EamonDD" : "EamonRT";
 
 			if (ParentClassFileName.Contains(@"\Game\"))
 			{

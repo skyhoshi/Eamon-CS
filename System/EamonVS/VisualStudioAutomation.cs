@@ -493,7 +493,20 @@ namespace EamonVS
 
 							if (result == RetCode.Success)
 							{
-								if (Solution.SolutionBuild.BuildState == EnvDTE.vsBuildState.vsBuildStateDone)
+								while (true)
+								{
+									try
+									{
+										result = Solution.SolutionBuild.BuildState == EnvDTE.vsBuildState.vsBuildStateDone ? RetCode.Success : RetCode.Failure;
+										break;
+									}
+									catch (Exception)
+									{
+										Thread.Sleep(250);
+									}
+								}
+
+								if (result == RetCode.Success)
 								{
 									result = ExecuteWithRetry(() =>
 									{
@@ -507,15 +520,26 @@ namespace EamonVS
 
 										if (result == RetCode.Success)
 										{
-											if (Solution.SolutionBuild.BuildState == EnvDTE.vsBuildState.vsBuildStateDone)
+											while (true)
+											{
+												try
+												{
+													result = Solution.SolutionBuild.BuildState == EnvDTE.vsBuildState.vsBuildStateDone ? RetCode.Success : RetCode.Failure;
+													break;
+												}
+												catch (Exception)
+												{
+													Thread.Sleep(250);
+												}
+											}
+
+											if (result == RetCode.Success)
 											{
 												Console.Out.WriteLine("succeeded");
 											}
 											else
 											{
 												Console.Out.WriteLine("timed out");
-
-												result = RetCode.Failure;
 											}
 										}
 										else
@@ -531,8 +555,6 @@ namespace EamonVS
 								else
 								{
 									Console.Out.WriteLine("timed out");
-
-									result = RetCode.Failure;
 								}
 							}
 							else
