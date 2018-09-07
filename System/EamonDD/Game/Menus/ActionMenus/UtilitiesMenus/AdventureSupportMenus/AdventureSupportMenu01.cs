@@ -843,17 +843,22 @@ namespace YourAdventureName.YourGameNamespaceName
 
 		protected virtual void RebuildSolution()
 		{
+			var result = RetCode.Failure;
+
 			LoadVsaAssemblyIfNecessary();
 
 			GetVsaObjectIfNecessary();
 
 			if (VsaObject != null)
 			{
-				VsaObject.RebuildSolution();
+				var libraryName = Globals.Path.GetFullPath(@".\" + AdventureName + ".dll");
+
+				result = VsaObject.RebuildSolution(libraryName);
 
 				VsaObject.Shutdown();
 			}
-			else
+
+			if (result == RetCode.Failure)
 			{
 				Globals.Out.Print("{0}", Globals.LineSep);
 

@@ -465,9 +465,11 @@ namespace EamonVS
 			return result;
 		}
 
-		public virtual RetCode RebuildSolution()
+		public virtual RetCode RebuildSolution(string libraryName)
 		{
 			RetCode result;
+
+			Debug.Assert(!string.IsNullOrWhiteSpace(libraryName));
 
 			try
 			{
@@ -498,6 +500,7 @@ namespace EamonVS
 									try
 									{
 										result = Solution.SolutionBuild.BuildState == EnvDTE.vsBuildState.vsBuildStateDone ? RetCode.Success : RetCode.Failure;
+
 										break;
 									}
 									catch (Exception)
@@ -525,6 +528,7 @@ namespace EamonVS
 												try
 												{
 													result = Solution.SolutionBuild.BuildState == EnvDTE.vsBuildState.vsBuildStateDone ? RetCode.Success : RetCode.Failure;
+
 													break;
 												}
 												catch (Exception)
@@ -535,7 +539,19 @@ namespace EamonVS
 
 											if (result == RetCode.Success)
 											{
-												Console.Out.WriteLine("succeeded");
+												if (!File.Exists(libraryName))
+												{
+													result = RetCode.Failure;
+												}
+
+												if (result == RetCode.Success)
+												{
+													Console.Out.WriteLine("succeeded");
+												}
+												else
+												{
+													Console.Out.WriteLine("failed");
+												}
 											}
 											else
 											{

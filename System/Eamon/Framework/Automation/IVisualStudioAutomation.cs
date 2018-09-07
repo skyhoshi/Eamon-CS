@@ -15,7 +15,7 @@ namespace Eamon.Framework.Automation
 
 		RetCode RemoveProjectFromSolution(string projName);
 
-		RetCode RebuildSolution();
+		RetCode RebuildSolution(string libraryName);
 
 		RetCode Shutdown();
 	}
