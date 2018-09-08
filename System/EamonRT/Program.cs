@@ -1124,7 +1124,7 @@ namespace EamonRT
 
 					character = Globals.CHRDB[Globals.Character.Uid];
 
-					if (character != null)
+					if (character != null && string.Equals(Globals.Character.Name, character.Name, StringComparison.OrdinalIgnoreCase))
 					{
 						if (Globals.DeleteCharacter)
 						{
