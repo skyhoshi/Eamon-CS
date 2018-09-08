@@ -1124,41 +1124,48 @@ namespace EamonRT
 
 					character = Globals.CHRDB[Globals.Character.Uid];
 
-					Debug.Assert(character != null);
-
-					if (Globals.DeleteCharacter)
+					if (character != null)
 					{
-						Globals.Database.RemoveCharacter(character.Uid);
+						if (Globals.DeleteCharacter)
+						{
+							Globals.Database.RemoveCharacter(character.Uid);
 
-						character.Dispose();
+							character.Dispose();
+						}
+						else
+						{
+							if (Globals.ExportCharacter)
+							{
+								rc = character.CopyProperties(Globals.Character);
+
+								Debug.Assert(Globals.Engine.IsSuccess(rc));
+							}
+
+							character.Status = (Globals.GameState.Die != 1 ? Enums.Status.Alive : Enums.Status.Dead);
+						}
+
+						rc = Globals.Database.SaveCharacters(Globals.GetPrefixedFileName(Globals.Config.MhCharacterFileName), false);
+
+						Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+						rc = Globals.PopDatabase();
+
+						Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+						character = null;
+
+						if (!Globals.DeleteCharacter && Globals.GameState.Die != 1)
+						{
+							Globals.Out.Print("{0}", Globals.LineSep);
+
+							Globals.TransferProtocol.SendCharacterToMainHall(Globals.FilePrefix, Globals.Config.MhFilesetFileName, Globals.Config.MhCharacterFileName, Globals.Config.MhEffectFileName, Globals.Character.Name);
+						}
 					}
 					else
 					{
-						if (Globals.ExportCharacter)
-						{
-							rc = character.CopyProperties(Globals.Character);
+						rc = Globals.PopDatabase();
 
-							Debug.Assert(Globals.Engine.IsSuccess(rc));
-						}
-
-						character.Status = (Globals.GameState.Die != 1 ? Enums.Status.Alive : Enums.Status.Dead);
-					}
-
-					rc = Globals.Database.SaveCharacters(Globals.GetPrefixedFileName(Globals.Config.MhCharacterFileName), false);
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-					rc = Globals.PopDatabase();
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-					character = null;
-
-					if (!Globals.DeleteCharacter && Globals.GameState.Die != 1)
-					{
-						Globals.Out.Print("{0}", Globals.LineSep);
-
-						Globals.TransferProtocol.SendCharacterToMainHall(Globals.FilePrefix, Globals.Config.MhFilesetFileName, Globals.Config.MhCharacterFileName, Globals.Config.MhEffectFileName, Globals.Character.Name);
+						Debug.Assert(Globals.Engine.IsSuccess(rc));
 					}
 				}
 
