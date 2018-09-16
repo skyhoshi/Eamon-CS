@@ -673,13 +673,16 @@ namespace YourAdventureName.YourGameNamespaceName
 					{
 						var childInterfaceFileName = childClassFileName.Replace(@"\Game\", @"\Framework\").Replace(@"\" + yourClassName + ".cs", @"\" + yourInterfaceName + ".cs");
 
-						var childInterfacePath = Globals.Path.GetDirectoryName(childInterfaceFileName);
+						if (!Globals.File.Exists(childInterfaceFileName))
+						{
+							var childInterfacePath = Globals.Path.GetDirectoryName(childInterfaceFileName);
 
-						Globals.Directory.CreateDirectory(childInterfacePath);
+							Globals.Directory.CreateDirectory(childInterfacePath);
 
-						fileText = InterfaceCsText.Replace("EamonLibraryName", eamonLibraryName).Replace("YourFrameworkNamespaceName", yourFrameworkNamespaceName).Replace("YourInterfaceName", yourInterfaceName);
+							fileText = InterfaceCsText.Replace("EamonLibraryName", eamonLibraryName).Replace("YourFrameworkNamespaceName", yourFrameworkNamespaceName).Replace("YourInterfaceName", yourInterfaceName);
 
-						Globals.File.WriteAllText(childInterfaceFileName, ReplaceMacros(fileText));
+							Globals.File.WriteAllText(childInterfaceFileName, ReplaceMacros(fileText));
+						}
 					}
 
 					var yourEamonUsingStatement = string.Empty;
