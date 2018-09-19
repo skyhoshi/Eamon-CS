@@ -44,6 +44,8 @@ namespace Eamon.Framework
 
 		long CurrTurn { get; set; }
 
+		long PauseCombatMs { get; set; }
+
 		long UsedWpnIdx { get; set; }
 
 		long[] NBTL { get; set; }

@@ -168,6 +168,8 @@ namespace EamonRT.Game.Commands
 					if (monsters.Contains(charMonster))
 					{
 						Globals.Out.Print("{0} {1} to flee, but can't find {2}!", monsterName, rl > 1 ? "try" : "tries", ActorRoom.EvalRoomType("an exit", "a path"));
+
+						Globals.Thread.Sleep(Globals.GameState.PauseCombatMs);
 					}
 
 					goto Cleanup;
@@ -187,6 +189,8 @@ namespace EamonRT.Game.Commands
 					if (monsters.Contains(charMonster))
 					{
 						Globals.Out.Print("{0} {1}!", monsterName, rl > 1 ? "flee" : "flees");
+
+						Globals.Thread.Sleep(Globals.GameState.PauseCombatMs);
 					}
 
 					if (Globals.Engine.EnforceMonsterWeightLimits)
@@ -222,6 +226,8 @@ namespace EamonRT.Game.Commands
 						}
 
 						Globals.Out.Print("{0} {1}{2}!", monsterName, rl > 1 ? "flee" : "flees", Globals.Buf);
+
+						Globals.Thread.Sleep(Globals.GameState.PauseCombatMs);
 					}
 
 					ActorMonster.Location = roomUid;

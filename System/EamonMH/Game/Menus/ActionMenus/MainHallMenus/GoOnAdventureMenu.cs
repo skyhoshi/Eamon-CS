@@ -277,7 +277,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-						Globals.Out.Print("You are about to adventure in {0}!", fileset.Name);
+						Globals.Out.Print("You are about to adventure in {0}{1}", fileset.Name, fileset.Name.Length > 0 && Char.IsPunctuation(fileset.Name[fileset.Name.Length - 1]) ? "" : "!");
 
 						IDatabase database = null;
 

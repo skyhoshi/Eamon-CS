@@ -850,6 +850,8 @@ namespace EamonRT.Game.Combat
 
 				ExecuteStateMachine();
 			}
+
+			Globals.Thread.Sleep(Globals.GameState.PauseCombatMs);
 		}
 
 		public CombatSystem()

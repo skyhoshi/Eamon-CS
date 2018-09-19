@@ -228,6 +228,11 @@ namespace Eamon.Game.Helpers
 			return Record.CurrTurn >= 0;
 		}
 
+		protected virtual bool ValidatePauseCombatMs()
+		{
+			return Record.PauseCombatMs >= 0 && Record.PauseCombatMs <= 10000;
+		}
+
 		protected virtual bool ValidateUsedWpnIdx()
 		{
 			return Record.UsedWpnIdx >= 0 && Record.UsedWpnIdx < Record.HeldWpnUids.Length;
@@ -434,6 +439,7 @@ namespace Eamon.Game.Helpers
 				"Vm",
 				"Va",
 				"CurrTurn",
+				"PauseCombatMs",
 				"UsedWpnIdx",
 				"NBTL",
 				"DTTL",

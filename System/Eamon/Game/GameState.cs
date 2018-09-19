@@ -51,6 +51,8 @@ namespace Eamon.Game
 
 		public virtual long CurrTurn { get; set; }
 
+		public virtual long PauseCombatMs { get; set; }
+
 		public virtual long UsedWpnIdx { get; set; }
 
 		public virtual long[] NBTL { get; set; }

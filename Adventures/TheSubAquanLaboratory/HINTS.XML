@@ -33,10 +33,11 @@
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Question" value="EAMON CS 1.4 NEW COMMANDS." />
-            <Simple name="NumAnswers" value="1" />
+            <Simple name="NumAnswers" value="2" />
             <SingleArray name="Answers">
               <Items>
                 <Simple value="1. The GO command allows you to travel through any door/gate you encounter, including those that are free-standing (not associated with a room directional link)." />
+                <Simple value="2. The PAUSE command allows you to inject wait periods into the game to slow down text output.  The time is specified in millisecs and currently only combat is supported.  Example:  &quot;PAUSE combat 2500&quot; pauses 2.5 seconds between attacks." />
               </Items>
             </SingleArray>
           </Properties>

@@ -132,6 +132,11 @@ namespace EamonRT.Game.Commands
 					var monsterName = ActorRoom.EvalLightLevel("An unseen offender", ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01)));
 
 					Globals.Out.Print("{0} readies {1}.", monsterName, ActorRoom.EvalLightLevel("a weapon", DobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf)));
+
+					if (Globals.Engine.CheckNBTLHostility(ActorMonster))
+					{
+						Globals.Thread.Sleep(Globals.GameState.PauseCombatMs);
+					}
 				}
 			}
 
