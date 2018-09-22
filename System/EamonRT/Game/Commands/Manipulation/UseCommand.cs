@@ -22,8 +22,6 @@ namespace EamonRT.Game.Commands
 		/// </summary>
 		public const long PpeBeforeArtifactUse = 1;
 
-		public virtual bool IobjSupport { get; set; }
-
 		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
@@ -107,7 +105,7 @@ namespace EamonRT.Game.Commands
 		{
 			PlayerResolveArtifact();
 
-			if (DobjArtifact != null && IobjSupport && CommandParser.CurrToken < CommandParser.Tokens.Length)
+			if (DobjArtifact != null && IsIobjEnabled && CommandParser.CurrToken < CommandParser.Tokens.Length)
 			{
 				CommandParser.ObjData = CommandParser.IobjData;
 

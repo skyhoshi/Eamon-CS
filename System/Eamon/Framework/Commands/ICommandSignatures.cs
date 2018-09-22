@@ -42,6 +42,8 @@ namespace Eamon.Framework.Commands
 
 		bool IsListed { get; set; }
 
+		bool IsIobjEnabled { get; set; }
+
 		bool IsDarkEnabled { get; set; }
 
 		bool IsPlayerEnabled { get; set; }

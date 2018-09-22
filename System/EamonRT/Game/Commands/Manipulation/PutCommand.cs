@@ -190,6 +190,8 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 190;
 
+			IsIobjEnabled = true;
+
 			if (Globals.IsRulesetVersion(5))
 			{
 				IsPlayerEnabled = false;

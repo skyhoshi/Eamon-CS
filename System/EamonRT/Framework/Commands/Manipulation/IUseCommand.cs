@@ -9,6 +9,6 @@ namespace EamonRT.Framework.Commands
 {
 	public interface IUseCommand : ICommand
 	{
-		bool IobjSupport { get; set; }
+	
 	}
 }

@@ -98,6 +98,8 @@ namespace EamonRT.Game.Commands
 
 		public virtual bool IsListed { get; set; }
 
+		public virtual bool IsIobjEnabled { get; set; }
+
 		public virtual bool IsDarkEnabled { get; set; }
 
 		public virtual bool IsPlayerEnabled { get; set; }
@@ -393,7 +395,7 @@ namespace EamonRT.Game.Commands
 
 		public virtual void PrintNotEnoughGold()
 		{
-			if (Globals.IsRulesetVersion(5))
+			if (Globals.IsRulesetVersion(5) || Globals.Character.HeldGold < 0)
 			{
 				Globals.Out.Print("You aren't carrying that much gold of your own!");
 			}

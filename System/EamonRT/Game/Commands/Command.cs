@@ -204,6 +204,19 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		public virtual bool IsIobjEnabled
+		{
+			get
+			{
+				return CommandImpl.IsIobjEnabled;
+			}
+
+			set
+			{
+				CommandImpl.IsIobjEnabled = value;
+			}
+		}
+
 		public virtual bool IsDarkEnabled
 		{
 			get

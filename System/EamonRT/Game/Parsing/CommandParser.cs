@@ -142,7 +142,7 @@ namespace EamonRT.Game.Parsing
 
 				if (CurrToken < Tokens.Length)
 				{
-					PrepTokenIndex = Globals.Engine.FindIndex(Tokens, token => Globals.Engine.Preps.FirstOrDefault(prep => string.Equals(prep, token, StringComparison.OrdinalIgnoreCase)) != null);
+					PrepTokenIndex = command.IsIobjEnabled ? Globals.Engine.FindIndex(Tokens, token => Globals.Engine.Preps.FirstOrDefault(prep => string.Equals(prep, token, StringComparison.OrdinalIgnoreCase)) != null) : -1;
 
 					if (PrepTokenIndex > CurrToken)
 					{

@@ -117,7 +117,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 		public UseCommand()
 		{
-			IobjSupport = true;
+			IsIobjEnabled = true;
 		}
 	}
 }

@@ -436,6 +436,8 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 280;
 
+			IsIobjEnabled = true;
+
 			Name = "GiveCommand";
 
 			Verb = "give";
