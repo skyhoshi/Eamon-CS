@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
-using Eamon.Framework.Helpers.Generic;
+using Eamon.Framework.Helpers;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Menus;
@@ -72,7 +72,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				Globals.Out.Print("{0}", Globals.LineSep);
 			}
 
-			var helper = Globals.CreateInstance<IHelper<IMonster>>();
+			var helper = Globals.CreateInstance<IMonsterHelper>();
 
 			var j = 0;
 

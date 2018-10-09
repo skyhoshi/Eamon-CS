@@ -13,7 +13,7 @@ using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class ListRecordNameMenu<T> : RecordMenu<T>, IListRecordNameMenu<T> where T : class, IGameBase
+	public abstract class ListRecordNameMenu<T, U> : RecordMenu<T>, IListRecordNameMenu<T> where T : class, IGameBase where U : class, IHelper<T>
 	{
 		public override void Execute()
 		{
@@ -25,7 +25,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Globals.Engine.PrintTitle(Title, true);
 
-			var helper = Globals.CreateInstance<IHelper<T>>();
+			var helper = Globals.CreateInstance<U>();
 
 			var j = RecordTable.GetRecordsCount();
 

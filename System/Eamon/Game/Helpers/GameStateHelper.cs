@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
-using Eamon.Framework.Helpers.Generic;
+using Eamon.Framework.Helpers;
 using Eamon.Game.Attributes;
 using Eamon.Game.Helpers.Generic;
 using Eamon.Game.Utilities;
@@ -16,8 +16,8 @@ using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game.Helpers
 {
-	[ClassMappings(typeof(IHelper<IGameState>))]
-	public class GameStateHelper : Helper<IGameState>
+	[ClassMappings]
+	public class GameStateHelper : Helper<IGameState>, IGameStateHelper
 	{
 		#region Protected Methods
 

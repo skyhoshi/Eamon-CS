@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
-using Eamon.Framework.Helpers.Generic;
+using Eamon.Framework.Helpers;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -16,7 +16,7 @@ using static EamonDD.Game.Plugin.PluginContext;
 namespace EamonDD.Game.Menus.ActionMenus
 {
 	[ClassMappings]
-	public class AddModuleRecordMenu : AddRecordManualMenu<IModule>, IAddModuleRecordMenu
+	public class AddModuleRecordMenu : AddRecordManualMenu<IModule, IModuleHelper>, IAddModuleRecordMenu
 	{
 		public override void Execute()
 		{
@@ -63,7 +63,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 					x.Uid = NewRecordUid;
 				});
 				
-				var helper = Globals.CreateInstance<IHelper<IModule>>(x =>
+				var helper = Globals.CreateInstance<IModuleHelper>(x =>
 				{
 					x.Record = module;
 				});

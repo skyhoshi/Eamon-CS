@@ -15,7 +15,7 @@ using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class ListRecordDetailMenu<T> : RecordMenu<T>, IListRecordDetailMenu<T> where T : class, IGameBase
+	public abstract class ListRecordDetailMenu<T, U> : RecordMenu<T>, IListRecordDetailMenu<T> where T : class, IGameBase where U : class, IHelper<T>
 	{
 		public override void Execute()
 		{
@@ -53,7 +53,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			recUids[1] = Convert.ToInt64(Buf.Trim().ToString());
 
-			var helper = Globals.CreateInstance<IHelper<T>>();
+			var helper = Globals.CreateInstance<U>();
 
 			var records = RecordTable.Records.Where(x => x.Uid >= recUids[0] && x.Uid <= recUids[1]);
 

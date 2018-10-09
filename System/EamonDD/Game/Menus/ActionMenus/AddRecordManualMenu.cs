@@ -16,7 +16,7 @@ using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class AddRecordManualMenu<T> : RecordMenu<T>, IAddRecordManualMenu<T> where T : class, IGameBase
+	public abstract class AddRecordManualMenu<T, U> : RecordMenu<T>, IAddRecordManualMenu<T> where T : class, IGameBase where U : class, IHelper<T>
 	{
 		public virtual long NewRecordUid { get; set; }
 
@@ -64,7 +64,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				x.Uid = NewRecordUid;
 			});
 			
-			var helper = Globals.CreateInstance<IHelper<T>>(x =>
+			var helper = Globals.CreateInstance<U>(x =>
 			{
 				x.Record = record;
 			});

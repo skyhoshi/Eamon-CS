@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
-using Eamon.Framework.Helpers.Generic;
+using Eamon.Framework.Helpers;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Helpers.Generic;
@@ -16,8 +16,8 @@ using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game.Helpers
 {
-	[ClassMappings(typeof(IHelper<IEffect>))]
-	public class EffectHelper : Helper<IEffect>
+	[ClassMappings]
+	public class EffectHelper : Helper<IEffect>, IEffectHelper
 	{
 		#region Protected Methods
 

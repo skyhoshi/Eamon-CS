@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
-using Eamon.Framework.Helpers.Generic;
+using Eamon.Framework.Helpers;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
@@ -128,7 +128,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			character.Gender = (Enums.Gender)Convert.ToInt64(Buf.Trim().ToString());
 			
-			var helper = Globals.CreateInstance<IHelper<ICharacter>>(x =>
+			var helper = Globals.CreateInstance<ICharacterHelper>(x =>
 			{
 				x.Record = character;
 			});
@@ -339,7 +339,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				character.Name = Buf.Trim().ToString();
 				
-				var helper = Globals.CreateInstance<IHelper<ICharacter>>(x =>
+				var helper = Globals.CreateInstance<ICharacterHelper>(x =>
 				{
 					x.Record = character;
 				});

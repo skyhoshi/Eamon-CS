@@ -9,6 +9,7 @@ using System.IO;
 using Eamon.Framework;
 using Eamon.Framework.DataStorage;
 using Eamon.Framework.DataStorage.Generic;
+using Eamon.Framework.Helpers;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Game.Attributes;
 using static Eamon.Game.Plugin.PluginContext;
@@ -38,7 +39,7 @@ namespace Eamon.Game.DataStorage
 
 		public virtual IDbTable<IGameState> GameStateTable { get; set; }
 
-		public virtual RetCode LoadRecords<T>(ref IDbTable<T> table, string fileName, bool validate = true, bool printOutput = true) where T : class, IGameBase
+		public virtual RetCode LoadRecords<T, U>(ref IDbTable<T> table, string fileName, bool validate = true, bool printOutput = true) where T : class, IGameBase where U : class, IHelper<T>
 		{
 			IDbTable<T> table01;
 			RetCode rc;
@@ -79,7 +80,7 @@ namespace Eamon.Game.DataStorage
 
 			if (validate)
 			{
-				var helper = Globals.CreateInstance<IHelper<T>>();
+				var helper = Globals.CreateInstance<U>();
 
 				long i = 1;
 
@@ -132,7 +133,7 @@ namespace Eamon.Game.DataStorage
 
 			var table = ConfigTable;
 
-			rc = LoadRecords(ref table, fileName, validate, printOutput);
+			rc = LoadRecords<IConfig, IConfigHelper>(ref table, fileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -150,7 +151,7 @@ namespace Eamon.Game.DataStorage
 
 			var table = FilesetTable;
 
-			rc = LoadRecords(ref table, fileName, validate, printOutput);
+			rc = LoadRecords<IFileset, IFilesetHelper>(ref table, fileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -168,7 +169,7 @@ namespace Eamon.Game.DataStorage
 
 			var table = CharacterTable;
 
-			rc = LoadRecords(ref table, fileName, validate, printOutput);
+			rc = LoadRecords<ICharacter, ICharacterHelper>(ref table, fileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -186,7 +187,7 @@ namespace Eamon.Game.DataStorage
 
 			var table = ModuleTable;
 
-			rc = LoadRecords(ref table, fileName, validate, printOutput);
+			rc = LoadRecords<IModule, IModuleHelper>(ref table, fileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -204,7 +205,7 @@ namespace Eamon.Game.DataStorage
 
 			var table = RoomTable;
 
-			rc = LoadRecords(ref table, fileName, validate, printOutput);
+			rc = LoadRecords<IRoom, IRoomHelper>(ref table, fileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -222,7 +223,7 @@ namespace Eamon.Game.DataStorage
 
 			var table = ArtifactTable;
 
-			rc = LoadRecords(ref table, fileName, validate, printOutput);
+			rc = LoadRecords<IArtifact, IArtifactHelper>(ref table, fileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -240,7 +241,7 @@ namespace Eamon.Game.DataStorage
 
 			var table = EffectTable;
 
-			rc = LoadRecords(ref table, fileName, validate, printOutput);
+			rc = LoadRecords<IEffect, IEffectHelper>(ref table, fileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -258,7 +259,7 @@ namespace Eamon.Game.DataStorage
 
 			var table = MonsterTable;
 
-			rc = LoadRecords(ref table, fileName, validate, printOutput);
+			rc = LoadRecords<IMonster, IMonsterHelper>(ref table, fileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -276,7 +277,7 @@ namespace Eamon.Game.DataStorage
 
 			var table = HintTable;
 
-			rc = LoadRecords(ref table, fileName, validate, printOutput);
+			rc = LoadRecords<IHint, IHintHelper>(ref table, fileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -294,7 +295,7 @@ namespace Eamon.Game.DataStorage
 
 			var table = GameStateTable;
 
-			rc = LoadRecords(ref table, fileName, validate, printOutput);
+			rc = LoadRecords<IGameState, IGameStateHelper>(ref table, fileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))
 			{

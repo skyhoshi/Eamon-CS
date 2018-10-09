@@ -10,7 +10,7 @@ using System.Text;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.DataStorage;
-using Eamon.Framework.Helpers.Generic;
+using Eamon.Framework.Helpers;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
 using EamonMH.Framework.Menus.ActionMenus;
@@ -61,7 +61,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				var i = 0;
 
-				var helper = Globals.CreateInstance<IHelper<IFileset>>();
+				var helper = Globals.CreateInstance<IFilesetHelper>();
 
 				var filesets = Globals.Database.FilesetTable.Records;
 

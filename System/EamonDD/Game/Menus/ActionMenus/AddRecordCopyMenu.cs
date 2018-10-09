@@ -15,7 +15,7 @@ using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class AddRecordCopyMenu<T> : RecordMenu<T>, IAddRecordCopyMenu<T> where T : class, IGameBase
+	public abstract class AddRecordCopyMenu<T, U> : RecordMenu<T>, IAddRecordCopyMenu<T> where T : class, IGameBase where U : class, IHelper<T>
 	{
 		public override void Execute()
 		{
@@ -95,7 +95,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				record01.IsUidRecycled = true;
 			}
 			
-			var helper = Globals.CreateInstance<IHelper<T>>(x =>
+			var helper = Globals.CreateInstance<U>(x =>
 			{
 				x.Record = record01;
 			});

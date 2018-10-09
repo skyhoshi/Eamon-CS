@@ -14,7 +14,7 @@ using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class AnalyseRecordInterdependenciesMenu<T> : RecordMenu<T>, IAnalyseRecordInterdependenciesMenu<T> where T : class, IGameBase
+	public abstract class AnalyseRecordInterdependenciesMenu<T, U> : RecordMenu<T>, IAnalyseRecordInterdependenciesMenu<T> where T : class, IGameBase where U : class, IHelper<T>
 	{
 		public virtual IList<string> SkipNames { get; set; }
 
@@ -32,7 +32,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			Debug.Assert(ErrorRecord != null);
 
-			var errorHelper = Globals.CreateInstance<IHelper<T>>(x =>
+			var errorHelper = Globals.CreateInstance<U>(x =>
 			{
 				x.Record = ErrorRecord;
 
@@ -300,7 +300,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			SkipNames = new List<string>();
 
-			ValidateHelper = Globals.CreateInstance<IHelper<T>>();
+			ValidateHelper = Globals.CreateInstance<U>();
 
 			ClearSkipNames = true;
 		}

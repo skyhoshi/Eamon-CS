@@ -7,8 +7,7 @@ using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon;
-using Eamon.Framework;
-using Eamon.Framework.Helpers.Generic;
+using Eamon.Framework.Helpers;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -39,7 +38,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				Debug.Assert(editModule01 != null);
 				
-				var helper = Globals.CreateInstance<IHelper<IModule>>(x =>
+				var helper = Globals.CreateInstance<IModuleHelper>(x =>
 				{
 					x.Record = editModule01;
 				});

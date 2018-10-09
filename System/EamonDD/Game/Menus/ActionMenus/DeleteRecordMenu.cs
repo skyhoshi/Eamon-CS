@@ -16,7 +16,7 @@ using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class DeleteRecordMenu<T> : RecordMenu<T>, IDeleteRecordMenu<T> where T : class, IGameBase
+	public abstract class DeleteRecordMenu<T, U> : RecordMenu<T>, IDeleteRecordMenu<T> where T : class, IGameBase where U : class, IHelper<T>
 	{
 		public override void Execute()
 		{
@@ -56,7 +56,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				goto Cleanup;
 			}
 
-			var helper = Globals.CreateInstance<IHelper<T>>(x =>
+			var helper = Globals.CreateInstance<U>(x =>
 			{
 				x.Record = record;
 			});

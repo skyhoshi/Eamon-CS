@@ -15,7 +15,7 @@ using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
 {
-	public abstract class EditRecordOneFieldMenu<T> : RecordMenu<T>, IEditRecordOneFieldMenu<T> where T : class, IGameBase
+	public abstract class EditRecordOneFieldMenu<T, U> : RecordMenu<T>, IEditRecordOneFieldMenu<T> where T : class, IGameBase where U : class, IHelper<T>
 	{
 		public virtual T EditRecord { get; set; }
 
@@ -57,7 +57,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Debug.Assert(editRecord01 != null);
 			
-			var helper = Globals.CreateInstance<IHelper<T>>(x =>
+			var helper = Globals.CreateInstance<U>(x =>
 			{
 				x.Record = editRecord01;
 			});

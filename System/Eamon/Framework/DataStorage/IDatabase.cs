@@ -5,6 +5,7 @@
 
 using System;
 using Eamon.Framework.DataStorage.Generic;
+using Eamon.Framework.Helpers.Generic;
 
 namespace Eamon.Framework.DataStorage
 {
@@ -30,7 +31,7 @@ namespace Eamon.Framework.DataStorage
 
 		IDbTable<IGameState> GameStateTable { get; set; }
 
-		RetCode LoadRecords<T>(ref IDbTable<T> table, string fileName, bool validate = true, bool printOutput = true) where T : class, IGameBase;
+		RetCode LoadRecords<T, U>(ref IDbTable<T> table, string fileName, bool validate = true, bool printOutput = true) where T : class, IGameBase where U : class, IHelper<T>;
 
 		RetCode LoadConfigs(string fileName, bool validate = true, bool printOutput = true);
 
