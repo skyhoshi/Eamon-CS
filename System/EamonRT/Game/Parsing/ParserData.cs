@@ -6,8 +6,8 @@
 using System;
 using System.Collections.Generic;
 using Eamon.Framework;
-using Eamon.Framework.Parsing;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Parsing;
 
 namespace EamonRT.Game.Parsing
 {

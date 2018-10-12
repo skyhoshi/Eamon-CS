@@ -10,7 +10,6 @@ using System.Linq;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
-using Eamon.Framework.Commands;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Utilities;
@@ -1668,6 +1667,60 @@ namespace EamonRT.Game
 					new List<IMonster>();
 
 			return monsterList;
+		}
+
+		public virtual RetCode BuildCommandList(IList<ICommand> commands, Enums.CommandType cmdType, StringBuilder buf, ref bool newSeen)
+		{
+			StringBuilder buf02, buf03;
+			RetCode rc;
+			int i;
+
+			if (commands == null || !Enum.IsDefined(typeof(Enums.CommandType), cmdType) || buf == null)
+			{
+				rc = RetCode.InvalidArg;
+
+				// PrintError
+
+				goto Cleanup;
+			}
+
+			rc = RetCode.Success;
+
+			buf02 = new StringBuilder(Constants.BufSize);
+
+			buf03 = new StringBuilder(Constants.BufSize);
+
+			i = 0;
+
+			foreach (var c in commands)
+			{
+				if (cmdType == Enums.CommandType.None || c.Type == cmdType)
+				{
+					i++;
+
+					buf02.SetFormat("{0}{1}",
+						c.GetPrintedVerb(),
+						c.IsNew ? " (*)" : "");
+
+					buf03.AppendFormat("{0,-15}{1}",
+						buf02.ToString(),
+						(i % 5) == 0 ? Environment.NewLine : "");
+
+					if (c.IsNew)
+					{
+						newSeen = true;
+					}
+				}
+			}
+
+			buf.AppendFormat("{0}{1}{2}",
+				buf03.Length > 0 ? Environment.NewLine : "",
+				buf03.Length > 0 ? buf03.ToString() : "(None)",
+				i == 0 || (i % 5) != 0 ? Environment.NewLine : "");
+
+			Cleanup:
+
+			return rc;
 		}
 
 		public virtual bool ResurrectDeadBodies(params Func<IArtifact, bool>[] whereClauseFuncs)

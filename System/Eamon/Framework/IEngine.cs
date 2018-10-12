@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Eamon.Framework.Args;
-using Eamon.Framework.Commands;
 using Classes = Eamon.Framework.Primitive.Classes;
 using Enums = Eamon.Framework.Primitive.Enums;
 
@@ -892,8 +891,6 @@ namespace Eamon.Framework
 		/// </remarks>
 		/// <returns>Success, InvalidArg</returns>
 		RetCode SumHighestRolls(long[] dieRolls, long numRollsToSum, ref long result);
-
-		RetCode BuildCommandList(IList<ICommand> commands, Enums.CommandType cmdType, StringBuilder buf, ref bool newSeen);
 
 		string Capitalize(string str);
 

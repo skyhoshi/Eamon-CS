@@ -6,8 +6,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Eamon;
 using Eamon.Framework;
-using Eamon.Framework.Commands;
+using EamonRT.Framework.Commands;
 using Classes = Eamon.Framework.Primitive.Classes;
 using Enums = Eamon.Framework.Primitive.Enums;
 
@@ -114,6 +115,8 @@ namespace EamonRT.Framework
 		IList<IArtifact> GetReadyableWeaponList(IMonster monster);
 
 		IList<IMonster> GetHostileMonsterList(IMonster monster);
+
+		RetCode BuildCommandList(IList<ICommand> commands, Enums.CommandType cmdType, StringBuilder buf, ref bool newSeen);
 
 		bool ResurrectDeadBodies(params Func<IArtifact, bool>[] whereClauseFuncs);
 

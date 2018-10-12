@@ -4,7 +4,7 @@
         <name>EamonRT</name>
     </assembly>
     <members>
-        <member name="M:EamonRT.Framework.IEngine.CheckPlayerCommand(Eamon.Framework.Commands.ICommand)">
+        <member name="M:EamonRT.Framework.IEngine.CheckPlayerCommand(EamonRT.Framework.Commands.ICommand)">
             <summary>
             Checks to see if the player command should be allowed to proceed.
             </summary>
@@ -51,7 +51,7 @@
             <remarks>
             This method works in conjunction with <see cref="M:EamonRT.Game.Commands.Command.PrintCantVerbHere"/> to disable commands
             with custom error responses in different rooms.  Note that there is also a very powerful and
-            much more flexible option in <see cref="M:EamonRT.Framework.IEngine.CheckPlayerCommand(Eamon.Framework.Commands.ICommand)"/>,
+            much more flexible option in <see cref="M:EamonRT.Framework.IEngine.CheckPlayerCommand(EamonRT.Framework.Commands.ICommand)"/>,
             which can be used to accomplish these tasks.
             </remarks>
             <returns>If the command is allowed, returns true; else returns false.</returns>
@@ -74,8 +74,8 @@
             over to CommandImpl's version).
             </para>
             </remarks>
-            <seealso cref="T:Eamon.Framework.Commands.ICommandImpl" />
-            <seealso cref="T:Eamon.Framework.Commands.ICommand" />
+            <seealso cref="T:EamonRT.Framework.Commands.ICommandImpl" />
+            <seealso cref="T:EamonRT.Framework.Commands.ICommand" />
             <seealso cref="T:EamonRT.Game.Commands.Command" />
         </member>
         <member name="F:EamonRT.Game.Commands.BlastCommand.PpeAfterPlayerSpellCastCheck">
@@ -272,8 +272,8 @@
             over to StateImpl's version).
             </para>
             </remarks>
-            <seealso cref="T:Eamon.Framework.States.IStateImpl" />
-            <seealso cref="T:Eamon.Framework.States.IState" />
+            <seealso cref="T:EamonRT.Framework.States.IStateImpl" />
+            <seealso cref="T:EamonRT.Framework.States.IState" />
             <seealso cref="T:EamonRT.Game.States.State" />
         </member>
     </members>

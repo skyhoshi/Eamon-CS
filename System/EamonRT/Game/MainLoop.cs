@@ -8,9 +8,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Eamon.Framework;
-using Eamon.Framework.Commands;
 using Eamon.Game.Attributes;
 using EamonRT.Framework;
+using EamonRT.Framework.Commands;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game

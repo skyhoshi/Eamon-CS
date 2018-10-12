@@ -5,7 +5,7 @@
 
 using System;
 using Eamon.Framework;
-using Eamon.Framework.States;
+using EamonRT.Framework.States;
 using RTEnums = EamonRT.Framework.Primitive.Enums;
 
 namespace EamonRT.Framework.Combat

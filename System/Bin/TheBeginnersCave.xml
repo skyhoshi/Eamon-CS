@@ -12,7 +12,7 @@
             The TrollsfireCommand concrete implements this interface, which is used for dependency injection.  You will
             notice that nowhere in The Beginner's Cave is this command explicitly added to a list of available commands;
             rather, this is accomplished in <see cref="M:EamonRT.Framework.IEngine.CreateCommands"/>, which reflectively
-            probes for all classes derived from <see cref="T:Eamon.Framework.Commands.ICommand"/> and adds any found.
+            probes for all classes derived from <see cref="T:EamonRT.Framework.Commands.ICommand"/> and adds any found.
             </remarks>
             <seealso cref="T:TheBeginnersCave.Game.Commands.TrollsfireCommand" />
         </member>

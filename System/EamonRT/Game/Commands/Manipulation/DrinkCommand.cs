@@ -6,7 +6,6 @@
 using System;
 using System.Diagnostics;
 using Eamon;
-using Eamon.Framework.Commands;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;

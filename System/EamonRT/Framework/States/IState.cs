@@ -5,7 +5,7 @@
 
 using System;
 
-namespace Eamon.Framework.States
+namespace EamonRT.Framework.States
 {
 	public interface IState : IStateSignatures, IDisposable
 	{

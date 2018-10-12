@@ -5,8 +5,9 @@
 
 using System;
 using System.Collections.Generic;
+using Eamon.Framework;
 
-namespace Eamon.Framework.Parsing
+namespace EamonRT.Framework.Parsing
 {
 	public interface IParserData
 	{

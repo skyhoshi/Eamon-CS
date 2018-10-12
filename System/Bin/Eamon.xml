@@ -196,7 +196,7 @@
             A collection of C# delegate signatures.
             </summary>
             <remarks>
-            These delegates are used by <see cref="T:Eamon.Framework.Parsing.IParserData"/> to support player command parsing, 
+            These delegates are used by <see cref="!:Parsing.IParserData"/> to support player command parsing, 
             direct object and indirect object resolution.  There are methods that match these signatures in
             <see cref="T:Eamon.Framework.IEngine"/> and <see cref="!:EamonRT.Framework.IEngine"/> that the parser uses as default
             implementations; these are detailed below.
@@ -1592,7 +1592,7 @@
             An array containing sentence prepositions (eg, "to", "from", "inside", etc).
             </summary>
             <remarks>
-            This array contains the sentence prepositions recognized by the game's parser <see cref="T:Eamon.Framework.Parsing.ICommandParser"/>.  You should never
+            This array contains the sentence prepositions recognized by the game's parser <see cref="!:Framework.Parsing.ICommandParser"/>.  You should never
             access this array directly (other than to check its Length); always use the Getter method mentioned below.
             </remarks>
             <seealso cref="M:Eamon.Framework.IEngine.GetPreps(System.Int64)"/>
@@ -1602,7 +1602,7 @@
             An array containing sentence articles (eg, "a", "some", "the", etc).
             </summary>
             <remarks>
-            This array contains the sentence articles recognized by the game's parser <see cref="T:Eamon.Framework.Parsing.ICommandParser"/>.  You should never
+            This array contains the sentence articles recognized by the game's parser <see cref="!:Framework.Parsing.ICommandParser"/>.  You should never
             access this array directly (other than to check its Length); always use the Getter method mentioned below.
             </remarks>
             <seealso cref="M:Eamon.Framework.IEngine.GetArticles(System.Int64)"/>

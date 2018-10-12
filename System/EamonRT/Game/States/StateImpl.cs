@@ -7,9 +7,9 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Framework;
-using Eamon.Framework.States;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
+using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -32,8 +32,8 @@ namespace EamonRT.Game.States
 	/// over to StateImpl's version).
 	/// </para>
 	/// </remarks>
-	/// <seealso cref="Eamon.Framework.States.IStateImpl" />
-	/// <seealso cref="Eamon.Framework.States.IState" />
+	/// <seealso cref="EamonRT.Framework.States.IStateImpl" />
+	/// <seealso cref="EamonRT.Framework.States.IState" />
 	/// <seealso cref="EamonRT.Game.States.State" />
 	[ClassMappings]
 	public class StateImpl : IStateImpl
