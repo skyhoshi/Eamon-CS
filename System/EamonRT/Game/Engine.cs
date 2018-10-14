@@ -1950,7 +1950,7 @@ namespace EamonRT.Game
 			}
 		}
 
-		public virtual void CheckPlayerCommand(ICommand command, bool afterFinishParsing)
+		public virtual void CheckPlayerCommand(ICommand command)
 		{
 			Debug.Assert(command != null);
 
