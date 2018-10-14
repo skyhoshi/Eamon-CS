@@ -316,7 +316,10 @@ namespace EamonRT.Game.Parsing
 
 					command.Iobj = IobjData.Obj;
 
-					Globals.Engine.CheckPlayerCommand(command, false);
+					if (ActorMonster.IsCharacterMonster())
+					{
+						Globals.Engine.CheckPlayerCommand(command, false);
+					}
 
 					if (command.Discarded)
 					{
@@ -326,7 +329,7 @@ namespace EamonRT.Game.Parsing
 					{
 						command.FinishParsing();
 
-						if (!command.Discarded)
+						if (!command.Discarded && ActorMonster.IsCharacterMonster())
 						{
 							Globals.Engine.CheckPlayerCommand(command, true);
 
