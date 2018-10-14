@@ -134,15 +134,17 @@ namespace EamonRT.Framework
 		/// Checks to see if the player command should be allowed to proceed.
 		/// </summary>
 		/// <param name="command">The command to check.</param>
+		/// <param name="afterFinishParsing">A flag indicating whether the direct/indirect objects have been resolved.</param>
 		/// <remarks>
 		/// This method takes the command identified during the parsing process and checks to see if it
-		/// should be allowed to proceed.  The method is called immediately once the command is identified;
-		/// the direct/indirect objects have not been parsed or resolved at this point.  You can examine 
-		/// the command passed and take whatever actions you deem necessary, including outputting text to
-		/// the player and/or setting the NextState command property.  If you want to abort the command
-		/// you should set its Discarded property to true.
+		/// should be allowed to proceed.  If afterFinishParsing is false, the method is called immediately
+		/// once the command is identified; the direct/indirect objects have not been parsed or resolved at
+		/// this point.  If the flag is true, the direct/indirect objects have been parsed and resolved.
+		/// You can examine the command passed and take whatever actions you deem necessary, including
+		/// outputting text to the player and/or setting the NextState command property.  If you want to
+		/// abort the command you should set its Discarded property to true.
 		/// </remarks>
-		void CheckPlayerCommand(ICommand command);
+		void CheckPlayerCommand(ICommand command, bool afterFinishParsing);
 
 		void TransportRoomContentsBetweenRooms(IRoom oldRoom, IRoom newRoom, bool includeEmbedded = true);
 

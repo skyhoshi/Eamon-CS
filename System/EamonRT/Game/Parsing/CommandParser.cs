@@ -316,7 +316,7 @@ namespace EamonRT.Game.Parsing
 
 					command.Iobj = IobjData.Obj;
 
-					Globals.Engine.CheckPlayerCommand(command);
+					Globals.Engine.CheckPlayerCommand(command, false);
 
 					if (command.Discarded)
 					{
@@ -325,6 +325,16 @@ namespace EamonRT.Game.Parsing
 					else if (!ActorMonster.IsCharacterMonster() || ActorRoom.IsLit() || command.IsDarkEnabled)
 					{
 						command.FinishParsing();
+
+						if (!command.Discarded)
+						{
+							Globals.Engine.CheckPlayerCommand(command, true);
+
+							if (command.Discarded)
+							{
+								NextState = command.NextState ?? Globals.CreateInstance<IStartState>();
+							}
+						}
 					}
 					else
 					{
