@@ -318,7 +318,7 @@ namespace EamonRT.Game.Parsing
 
 					if (ActorMonster.IsCharacterMonster())
 					{
-						Globals.Engine.CheckPlayerCommand(command);
+						Globals.Engine.CheckPlayerCommand(command, false);
 					}
 
 					if (command.Discarded)
@@ -331,7 +331,7 @@ namespace EamonRT.Game.Parsing
 
 						if (!command.Discarded && ActorMonster.IsCharacterMonster())
 						{
-							Globals.Engine.CheckPlayerCommand(command);
+							Globals.Engine.CheckPlayerCommand(command, true);
 
 							if (command.Discarded)
 							{

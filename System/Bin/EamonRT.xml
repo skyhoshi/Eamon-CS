@@ -4,16 +4,18 @@
         <name>EamonRT</name>
     </assembly>
     <members>
-        <member name="M:EamonRT.Framework.IEngine.CheckPlayerCommand(EamonRT.Framework.Commands.ICommand)">
+        <member name="M:EamonRT.Framework.IEngine.CheckPlayerCommand(EamonRT.Framework.Commands.ICommand,System.Boolean)">
             <summary>
             Checks to see if the player command should be allowed to proceed.
             </summary>
             <param name="command">The command to check.</param>
+            <param name="afterFinishParsing">A flag indicating whether the direct/indirect objects have been resolved.</param>
             <remarks>
             This method takes the command identified during the parsing process and checks to see if it
-            should be allowed to proceed.  The method is called multiple times, and the direct/indirect
-            objects may or may not be parsed and resolved, so you should harden your code to handle either
-            case.  You can examine the command passed and take whatever actions you deem necessary, including
+            should be allowed to proceed.  If afterFinishParsing is false, the method is called immediately
+            once the command is identified; the direct/indirect objects have not been parsed or resolved at
+            this point.  If the flag is true, the direct/indirect objects have been parsed and resolved.
+            You can examine the command passed and take whatever actions you deem necessary, including
             outputting text to the player and/or setting the NextState command property.  If you want to
             abort the command you should set its Discarded property to true.
             </remarks>
@@ -51,7 +53,7 @@
             <remarks>
             This method works in conjunction with <see cref="M:EamonRT.Game.Commands.Command.PrintCantVerbHere"/> to disable commands
             with custom error responses in different rooms.  Note that there is also a very powerful and
-            much more flexible option in <see cref="M:EamonRT.Framework.IEngine.CheckPlayerCommand(EamonRT.Framework.Commands.ICommand)"/>,
+            much more flexible option in <see cref="M:EamonRT.Framework.IEngine.CheckPlayerCommand(EamonRT.Framework.Commands.ICommand,System.Boolean)"/>,
             which can be used to accomplish these tasks.
             </remarks>
             <returns>If the command is allowed, returns true; else returns false.</returns>
