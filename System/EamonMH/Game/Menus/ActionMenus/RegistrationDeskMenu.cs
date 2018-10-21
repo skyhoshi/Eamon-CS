@@ -69,9 +69,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 				{
 					var chrfn = Globals.Path.Combine(fileset.WorkDir, "FRESHMEAT.XML");
 
-					if (Globals.File.Exists(Globals.GetPrefixedFileName(chrfn)))
+					if (Globals.File.Exists(chrfn))
 					{
-						rc = Globals.Database.LoadCharacters(Globals.GetPrefixedFileName(chrfn), printOutput: false);
+						rc = Globals.Database.LoadCharacters(chrfn, printOutput: false);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 

@@ -63,7 +63,7 @@ namespace ARuncibleCargo.Game.States
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					rc = Globals.RestoreDatabase(Globals.GetPrefixedFileName(Constants.SnapshotFileName));
+					rc = Globals.RestoreDatabase(Constants.SnapshotFileName);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 

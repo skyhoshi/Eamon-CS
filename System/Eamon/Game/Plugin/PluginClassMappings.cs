@@ -69,7 +69,7 @@ namespace Eamon.Game.Plugin
 
 			try
 			{
-				File.WriteAllText(GetPrefixedFileName(stackTraceFile), ex.ToString());
+				File.WriteAllText(stackTraceFile, ex.ToString());
 			}
 			catch (Exception)
 			{

@@ -167,7 +167,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						var chrfn = Globals.Path.Combine(fileset.WorkDir, "FRESHMEAT.XML");
 
-						rc = Globals.Database.LoadCharacters(Globals.GetPrefixedFileName(chrfn), printOutput: false);
+						rc = Globals.Database.LoadCharacters(chrfn, printOutput: false);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -192,13 +192,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-						rc = Globals.Database.SaveCharacters(Globals.GetPrefixedFileName(chrfn), false);
+						rc = Globals.Database.SaveCharacters(chrfn, false);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
 						var fsfn = Globals.Path.Combine(fileset.WorkDir, "SAVEGAME.XML");
 
-						rc = Globals.Database.LoadFilesets(Globals.GetPrefixedFileName(fsfn), printOutput: false);
+						rc = Globals.Database.LoadFilesets(fsfn, printOutput: false);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -206,18 +206,18 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						foreach (var fileset01 in filesets)
 						{
-							fileset01.DeleteFiles(null, true);
+							fileset01.DeleteFiles(null);
 						}
 
 						Globals.Database.FreeFilesets();
 
-						rc = Globals.Database.SaveFilesets(Globals.GetPrefixedFileName(fsfn), false);
+						rc = Globals.Database.SaveFilesets(fsfn, false);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
 						var cfgfn = Globals.Path.Combine(fileset.WorkDir, "EAMONCFG.XML");
 
-						rc = Globals.Database.LoadConfigs(Globals.GetPrefixedFileName(cfgfn), printOutput: false);
+						rc = Globals.Database.LoadConfigs(cfgfn, printOutput: false);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -273,7 +273,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-						rc = Globals.Database.SaveConfigs(Globals.GetPrefixedFileName(cfgfn), false);
+						rc = Globals.Database.SaveConfigs(cfgfn, false);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -291,7 +291,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						// silently sync characters file with newly created files above
 
-						rc = Globals.Database.SaveCharacters(Globals.GetPrefixedFileName(Globals.Config.MhCharacterFileName), false);
+						rc = Globals.Database.SaveCharacters(Globals.Config.MhCharacterFileName, false);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 

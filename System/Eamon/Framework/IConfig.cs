@@ -84,7 +84,7 @@ namespace Eamon.Framework
 
 		#region Methods
 
-		RetCode LoadGameDatabase(bool useFilePrefix, bool validate = true, bool printOutput = true);
+		RetCode LoadGameDatabase(bool validate = true, bool printOutput = true);
 
 		RetCode SaveGameDatabase(bool printOutput = true);
 

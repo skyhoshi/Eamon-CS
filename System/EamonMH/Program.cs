@@ -203,7 +203,7 @@ namespace EamonMH
 					{
 						Globals.Out.Print("{0}", Globals.LineSep);
 
-						rc = Globals.Database.LoadConfigs(Globals.GetPrefixedFileName(Globals.ConfigFileName));
+						rc = Globals.Database.LoadConfigs(Globals.ConfigFileName);
 
 						if (Globals.Engine.IsFailure(rc))
 						{
@@ -286,7 +286,7 @@ namespace EamonMH
 						goto Cleanup;
 					}
 
-					rc = Globals.Database.LoadCharacters(Globals.GetPrefixedFileName(Globals.Config.MhCharacterFileName));
+					rc = Globals.Database.LoadCharacters(Globals.Config.MhCharacterFileName);
 
 					if (Globals.Engine.IsFailure(rc))
 					{
@@ -361,7 +361,7 @@ namespace EamonMH
 
 						if (Globals.CharactersModified)
 						{
-							rc = Globals.Database.SaveCharacters(Globals.GetPrefixedFileName(Globals.Config.MhCharacterFileName));
+							rc = Globals.Database.SaveCharacters(Globals.Config.MhCharacterFileName);
 
 							if (Globals.Engine.IsFailure(rc))
 							{
@@ -389,7 +389,7 @@ namespace EamonMH
 
 						if (Globals.ConfigFileName.Length > 0 && Globals.ConfigsModified)
 						{
-							rc = Globals.Database.SaveConfigs(Globals.GetPrefixedFileName(Globals.ConfigFileName));
+							rc = Globals.Database.SaveConfigs(Globals.ConfigFileName);
 
 							if (Globals.Engine.IsFailure(rc))
 							{

@@ -287,7 +287,7 @@ namespace EamonRT.Game.Commands
 				}
 			}
 
-			rc = Globals.Database.SaveConfigs(Globals.GetPrefixedFileName(fileset.ConfigFileName), false);
+			rc = Globals.Database.SaveConfigs(fileset.ConfigFileName, false);
 
 			if (Globals.Engine.IsFailure(rc))
 			{
