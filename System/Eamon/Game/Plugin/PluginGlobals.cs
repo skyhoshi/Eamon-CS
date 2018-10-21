@@ -631,48 +631,32 @@ namespace Eamon.Game.Plugin
 
 				if (firstLine.Contains("Version=1.3.0.0"))
 				{
-					if (fileName.StartsWith("ARTIFACTS", StringComparison.OrdinalIgnoreCase) || fileName.StartsWith("SNAPSHOT", StringComparison.OrdinalIgnoreCase))
-					{
-						ReplaceTextfileValues
-						(
-							fileName,
-							new string[]
-							{
-								"Version=1.3.0.0",
-								"<SingleArray name=\"Classes\">",
-								"Eamon.Game.Primitive.Classes.ArtifactClass",
-								"<Simple name=\"Field5\"",
-								"<Simple name=\"Field6\"",
-								"<Simple name=\"Field7\"",
-								"<Simple name=\"Field8\"",
-							},
-							new string[]
-							{
-								"Version=1.4.0.0",
-								"<SingleArray name=\"Categories\">",
-								"Eamon.Game.Primitive.Classes.ArtifactCategory",
-								"<Simple name=\"Field1\"",
-								"<Simple name=\"Field2\"",
-								"<Simple name=\"Field3\"",
-								"<Simple name=\"Field4\"",
-							}
-						);
-					}
-					else
-					{
-						ReplaceTextfileValues
-						(
-							fileName,
-							new string[]
-							{
-								"Version=1.3.0.0"
-							},
-							new string[]
-							{
-								"Version=1.4.0.0"
-							}
-						);
-					}
+					ReplaceTextfileValues
+					(
+						fileName,
+						new string[]
+						{
+							"Version=1.3.0.0",
+							"EAMON CS 1.3",
+							"<SingleArray name=\"Classes\">",
+							"Eamon.Game.Primitive.Classes.ArtifactClass",
+							"<Simple name=\"Field5\"",
+							"<Simple name=\"Field6\"",
+							"<Simple name=\"Field7\"",
+							"<Simple name=\"Field8\"",
+						},
+						new string[]
+						{
+							"Version=1.4.0.0",
+							"EAMON CS 1.4",
+							"<SingleArray name=\"Categories\">",
+							"Eamon.Game.Primitive.Classes.ArtifactCategory",
+							"<Simple name=\"Field1\"",
+							"<Simple name=\"Field2\"",
+							"<Simple name=\"Field3\"",
+							"<Simple name=\"Field4\"",
+						}
+					);
 				}
 				else
 				{

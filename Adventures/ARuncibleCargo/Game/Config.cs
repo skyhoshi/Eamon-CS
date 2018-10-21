@@ -20,7 +20,7 @@ namespace ARuncibleCargo.Game
 
 			try
 			{
-				Globals.File.Delete(Globals.GetPrefixedFileName(Constants.SnapshotFileName));
+				Globals.File.Delete(Constants.SnapshotFileName);
 			}
 			catch (Exception ex)
 			{

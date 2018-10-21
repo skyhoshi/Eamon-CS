@@ -22,7 +22,7 @@ namespace ARuncibleCargo.Game
 
 			// Snapshot game state so it can be reverted when player wakes up
 
-			rc = Globals.SaveDatabase(Globals.GetPrefixedFileName(Constants.SnapshotFileName));
+			rc = Globals.SaveDatabase(Constants.SnapshotFileName);
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 		}

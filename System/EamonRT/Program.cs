@@ -190,7 +190,7 @@ namespace EamonRT
 			{
 				Globals.Out.Print("{0}", Globals.LineSep);
 
-				rc = Globals.Database.LoadConfigs(Globals.GetPrefixedFileName(Globals.ConfigFileName));
+				rc = Globals.Database.LoadConfigs(Globals.ConfigFileName);
 
 				if (Globals.Engine.IsFailure(rc))
 				{
@@ -337,7 +337,7 @@ namespace EamonRT
 
 			if (Globals.Config.DdEditingCharacters)
 			{
-				rc = Globals.Database.LoadCharacters(Globals.GetPrefixedFileName(Globals.Config.DdCharacterFileName));
+				rc = Globals.Database.LoadCharacters(Globals.Config.DdCharacterFileName);
 
 				if (Globals.Engine.IsFailure(rc))
 				{
@@ -627,7 +627,7 @@ namespace EamonRT
 
 				if (Globals.CharactersModified)
 				{
-					rc = Globals.Database.SaveCharacters(Globals.GetPrefixedFileName(Globals.Config.DdCharacterFileName));
+					rc = Globals.Database.SaveCharacters(Globals.Config.DdCharacterFileName);
 
 					if (Globals.Engine.IsFailure(rc))
 					{
@@ -655,7 +655,7 @@ namespace EamonRT
 
 				if (Globals.ConfigFileName.Length > 0 && Globals.ConfigsModified)
 				{
-					rc = Globals.Database.SaveConfigs(Globals.GetPrefixedFileName(Globals.ConfigFileName));
+					rc = Globals.Database.SaveConfigs(Globals.ConfigFileName);
 
 					if (Globals.Engine.IsFailure(rc))
 					{
@@ -816,7 +816,7 @@ namespace EamonRT
 			{
 				Globals.Out.Print("{0}", Globals.LineSep);
 
-				rc = Globals.Database.LoadConfigs(Globals.GetPrefixedFileName(Globals.ConfigFileName));
+				rc = Globals.Database.LoadConfigs(Globals.ConfigFileName);
 
 				if (Globals.Engine.IsFailure(rc))
 				{
@@ -952,7 +952,7 @@ namespace EamonRT
 
 			Globals.Out.Print("{0}", Globals.LineSep);
 
-			rc = Globals.Config.LoadGameDatabase(false);
+			rc = Globals.Config.LoadGameDatabase();
 
 			if (Globals.Engine.IsFailure(rc))
 			{
@@ -1118,7 +1118,7 @@ namespace EamonRT
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					rc = Globals.Database.LoadCharacters(Globals.GetPrefixedFileName(Globals.Config.MhCharacterFileName), printOutput: false);
+					rc = Globals.Database.LoadCharacters(Globals.Config.MhCharacterFileName, printOutput: false);
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -1144,7 +1144,7 @@ namespace EamonRT
 							character.Status = (Globals.GameState.Die != 1 ? Enums.Status.Alive : Enums.Status.Dead);
 						}
 
-						rc = Globals.Database.SaveCharacters(Globals.GetPrefixedFileName(Globals.Config.MhCharacterFileName), false);
+						rc = Globals.Database.SaveCharacters(Globals.Config.MhCharacterFileName, false);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
