@@ -22,7 +22,9 @@ namespace Eamon.Game.Plugin
 
 		public virtual int CharNameLen { get; protected set; } = 32;
 
-		public virtual int CharWpnNameLen { get; protected set; } = 40;
+		public virtual int CharArtNameLen { get; protected set; } = 40;
+
+		public virtual int CharArtDescLen { get; protected set; } = 256;
 
 		public virtual int EffDescLen { get; protected set; } = 256;
 
@@ -128,7 +130,7 @@ namespace Eamon.Game.Plugin
 
 		public virtual string StackTraceFile { get; protected set; } = "STACKTRACE.TXT";
 
-		public virtual string ProgVersion { get; protected set; } = "1.4.0";
+		public virtual string ProgVersion { get; protected set; } = "1.5.0";
 
 		public virtual long InfiniteDrinkableEdible { get; protected set; } = 9999;
 

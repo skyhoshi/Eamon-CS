@@ -223,7 +223,7 @@ ChangeLog: YourAdventureName
 
 Date			Version			Who			Notes
 ----------------------------------------------------------------------------------------------------------------------------------
-20XXXXXX		1.4.0				YourAuthorInitials			Code complete 1.4.0
+20XXXXXX		1.5.0				YourAuthorInitials			Code complete 1.5.0
 ";
 
 		protected virtual string AdventureCsprojText { get; set; } =
@@ -231,7 +231,7 @@ Date			Version			Who			Notes
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.4.0.0</Version>
+    <Version>1.5.0.0</Version>
     <Authors>YourAuthorName</Authors>
     <Company>YourAuthorName</Company>
     <Product>The Wonderful World of Eamon CS</Product>

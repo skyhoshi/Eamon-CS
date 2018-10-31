@@ -1,15 +1,17 @@
 ﻿
-// ICharacterWeapon.cs
+// ICharacterArtifact.cs
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 namespace Eamon.Framework.Primitive.Classes
 {
-	public interface ICharacterWeapon
+	public interface ICharacterArtifact
 	{
 		ICharacter Parent { get; set; }
 
 		string Name { get; set; }
+
+		string Desc { get; set; }
 
 		bool IsPlural { get; set; }
 
@@ -17,14 +19,22 @@ namespace Eamon.Framework.Primitive.Classes
 
 		Enums.ArticleType ArticleType { get; set; }
 
-		long Complexity { get; set; }
+		long Value { get; set; }
 
-		Enums.Weapon Type { get; set; }
+		long Weight { get; set; }
 
-		long Dice { get; set; }
+		Enums.ArtifactType Type { get; set; }
 
-		long Sides { get; set; }
+		long Field1 { get; set; }
+
+		long Field2 { get; set; }
+
+		long Field3 { get; set; }
+
+		long Field4 { get; set; }
 
 		bool IsActive();
+
+		void ClearExtraFields();
 	}
 }

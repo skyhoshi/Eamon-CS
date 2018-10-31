@@ -105,7 +105,7 @@ namespace BeginnersForest.Game
 			}
 		}
 
-		public override IArtifact ConvertWeaponToArtifact(Classes.ICharacterWeapon weapon)
+		public override IArtifact ConvertWeaponToArtifact(Classes.ICharacterArtifact weapon)
 		{
 			var artifact = base.ConvertWeaponToArtifact(weapon);
 

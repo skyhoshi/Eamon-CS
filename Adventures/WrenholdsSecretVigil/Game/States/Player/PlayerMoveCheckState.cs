@@ -201,7 +201,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 							Globals.Buf.Clear();
 
-							rc = Globals.In.ReadField(Globals.Buf, Constants.CharWpnNameLen, null, ' ', '\0', false, null, null, null, null);
+							rc = Globals.In.ReadField(Globals.Buf, Constants.CharArtNameLen, null, ' ', '\0', false, null, null, null, null);
 
 							Debug.Assert(Globals.Engine.IsSuccess(rc));
 

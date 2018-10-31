@@ -1,6 +1,6 @@
 
 To give full credit, the following is based on the Eamon Deluxe documentation.
-This important information has changed in Eamon CS 1.4.0 and is reprinted here
+This important information has changed in Eamon CS 1.5.0 and is reprinted here
 in hopes it will be useful.
 
 4.4    ARTIFACT TYPES
@@ -31,27 +31,27 @@ is all USER fields, the rest of the format fields 1-4 contain the following.
 
   Format 1             Format 2               Format 3
 1-Weapon Odds        1-Key No.                1-Light Counter
-2-Weapon Type        2-Open/Closed(1/0)       2-(USER #6)
-3-# of Dice          3-# of items inside      3-(USER #7)
-4-# of Dice Sides    4-# items it can hold    4-(USER #8)
+2-Weapon Type        2-Open/Closed(1/0)       2-(USER #2)
+3-# of Dice          3-# of items inside      3-(USER #3)
+4-# of Dice Sides    4-# items it can hold    4-(USER #4)
 
   Format 4             Format 5               Format 6
 1-# of Heal Points   1-1st Effect           1-Room Beyond
 2-# of Drinks/Bites  2-# of Effects         2-Key #
 3-Open/Closed(1/0)   3-Open/Closed(1/0)     3-Open/Closed(0/1)
-4-(USER #8)          4-(USER #8)            4-Hidden?
+4-(USER #4)          4-(USER #4)            4-Hidden?
 
   Format 7             Format 8               Format 9
 1-Monster #          1-Armor Class          1-Monster #
 2-Key #              2-Armor Type           2-1st Effect
-3-Guard #            3-(USER #7)            3-# of Effects
-4-(USER #8)          4-(USER #8)            4-(USER #8)
+3-Guard #            3-(USER #3)            3-# of Effects
+4-(USER #4)          4-(USER #4)            4-(USER #4)
 
   Format 10
 1-'Takeable' status*
-2-(USER #6)
-3-(USER #7)
-4-(USER #8)
+2-(USER #2)
+3-(USER #3)
+4-(USER #4)
 
 * -- 0=Can't be taken, 1=Can be. Should ALWAYS be 0 unless the body serves some 
 sort of special function (such as collecting rewards, etc.).

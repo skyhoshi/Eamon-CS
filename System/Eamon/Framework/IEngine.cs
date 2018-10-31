@@ -944,13 +944,15 @@ namespace Eamon.Framework
 
 		double GetWeaponPriceOrValue(string name, long complexity, Enums.Weapon type, long dice, long sides, bool calcPrice, ref bool isMarcosWeapon);
 
-		double GetWeaponPriceOrValue(Classes.ICharacterWeapon weapon, bool calcPrice, ref bool isMarcosWeapon);
+		double GetWeaponPriceOrValue(Classes.ICharacterArtifact weapon, bool calcPrice, ref bool isMarcosWeapon);
 
 		double GetArmorPriceOrValue(Enums.Armor armor, bool calcPrice, ref bool isMarcosArmor);
 
 		void AppendFieldDesc(Enums.FieldDesc fieldDesc, StringBuilder buf, StringBuilder fullDesc, StringBuilder briefDesc);
 
 		void AppendFieldDesc(Enums.FieldDesc fieldDesc, StringBuilder buf, string fullDesc, string briefDesc);
+
+		void CopyCharacterArtifactFields(Classes.ICharacterArtifact destCa, Classes.ICharacterArtifact sourceCa);
 
 		void CopyArtifactCategoryFields(Classes.IArtifactCategory destAc, Classes.IArtifactCategory sourceAc);
 

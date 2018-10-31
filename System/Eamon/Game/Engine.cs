@@ -1994,11 +1994,11 @@ namespace Eamon.Game
 			return wp;
 		}
 
-		public virtual double GetWeaponPriceOrValue(Classes.ICharacterWeapon weapon, bool calcPrice, ref bool isMarcosWeapon)
+		public virtual double GetWeaponPriceOrValue(Classes.ICharacterArtifact weapon, bool calcPrice, ref bool isMarcosWeapon)
 		{
 			Debug.Assert(weapon != null);
 
-			return GetWeaponPriceOrValue(weapon.Name, weapon.Complexity, weapon.Type, weapon.Dice, weapon.Sides, calcPrice, ref isMarcosWeapon);
+			return GetWeaponPriceOrValue(weapon.Name, weapon.Field1, (Enums.Weapon)weapon.Field2, weapon.Field3, weapon.Field4, calcPrice, ref isMarcosWeapon);
 		}
 
 		public virtual double GetArmorPriceOrValue(Enums.Armor armor, bool calcPrice, ref bool isMarcosArmor)
@@ -2086,6 +2086,37 @@ namespace Eamon.Game
 					buf.AppendPrint("{0}", fullDesc);
 				}
 			}
+		}
+
+		public virtual void CopyCharacterArtifactFields(Classes.ICharacterArtifact destCa, Classes.ICharacterArtifact sourceCa)
+		{
+			Debug.Assert(destCa != null);
+
+			Debug.Assert(sourceCa != null);
+
+			destCa.Name = Globals.CloneInstance(sourceCa.Name);
+
+			destCa.Desc = Globals.CloneInstance(sourceCa.Desc);
+
+			destCa.IsPlural = sourceCa.IsPlural;
+
+			destCa.PluralType = sourceCa.PluralType;
+
+			destCa.ArticleType = sourceCa.ArticleType;
+
+			destCa.Value = sourceCa.Value;
+
+			destCa.Weight = sourceCa.Weight;
+
+			destCa.Type = sourceCa.Type;
+
+			destCa.Field1 = sourceCa.Field1;
+
+			destCa.Field2 = sourceCa.Field2;
+
+			destCa.Field3 = sourceCa.Field3;
+
+			destCa.Field4 = sourceCa.Field4;
 		}
 
 		public virtual void CopyArtifactCategoryFields(Classes.IArtifactCategory destAc, Classes.IArtifactCategory sourceAc)

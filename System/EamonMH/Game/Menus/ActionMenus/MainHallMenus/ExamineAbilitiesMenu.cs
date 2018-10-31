@@ -146,9 +146,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 						Globals.Out.Write("{0} {1} {2,3}%{3,14}D{4,-12}{5,3}%",
 							Environment.NewLine,
 							Globals.Engine.Capitalize(Globals.Character.GetWeapons(i).Name.PadTRight(29, ' ')),
-							Globals.Character.GetWeapons(i).Complexity,
-							Globals.Character.GetWeapons(i).Dice,
-							Globals.Character.GetWeapons(i).Sides,
+							Globals.Character.GetWeapons(i).Field1,
+							Globals.Character.GetWeapons(i).Field3,
+							Globals.Character.GetWeapons(i).Field4,
 							odds);
 					}
 					else

@@ -631,32 +631,107 @@ namespace Eamon.Game.Plugin
 
 				if (firstLine.Contains("Version=1.3.0.0"))
 				{
-					ReplaceTextfileValues
-					(
-						fileName,
-						new string[]
-						{
-							"Version=1.3.0.0",
-							"EAMON CS 1.3",
-							"<SingleArray name=\"Classes\">",
-							"Eamon.Game.Primitive.Classes.ArtifactClass",
-							"<Simple name=\"Field5\"",
-							"<Simple name=\"Field6\"",
-							"<Simple name=\"Field7\"",
-							"<Simple name=\"Field8\"",
-						},
-						new string[]
-						{
-							"Version=1.4.0.0",
-							"EAMON CS 1.4",
-							"<SingleArray name=\"Categories\">",
-							"Eamon.Game.Primitive.Classes.ArtifactCategory",
-							"<Simple name=\"Field1\"",
-							"<Simple name=\"Field2\"",
-							"<Simple name=\"Field3\"",
-							"<Simple name=\"Field4\"",
-						}
-					);
+					if (firstLine.Contains("Game.DataStorage.ArtifactDbTable") || firstLine.Contains("Game.DataStorage.Database"))
+					{
+						ReplaceTextfileValues
+						(
+							fileName,
+							new string[]
+							{
+								"Version=1.3.0.0",
+								"EAMON CS 1.3",
+								"<SingleArray name=\"Classes\">",
+								"Eamon.Game.Primitive.Classes.ArtifactClass",
+								"<Simple name=\"Field5\"",
+								"<Simple name=\"Field6\"",
+								"<Simple name=\"Field7\"",
+								"<Simple name=\"Field8\"",
+							},
+							new string[]
+							{
+								"Version=1.4.0.0",
+								"EAMON CS 1.4",
+								"<SingleArray name=\"Categories\">",
+								"Eamon.Game.Primitive.Classes.ArtifactCategory",
+								"<Simple name=\"Field1\"",
+								"<Simple name=\"Field2\"",
+								"<Simple name=\"Field3\"",
+								"<Simple name=\"Field4\"",
+							}
+						);
+					}
+					else
+					{
+						ReplaceTextfileValues
+						(
+							fileName,
+							new string[]
+							{
+								"Version=1.3.0.0",
+								"EAMON CS 1.3",
+							},
+							new string[]
+							{
+								"Version=1.4.0.0",
+								"EAMON CS 1.4",
+							}
+						);
+					}
+				}
+				else if (firstLine.Contains("Version=1.4.0.0"))
+				{
+					if (firstLine.Contains("Game.DataStorage.CharacterDbTable") || firstLine.Contains("Game.DataStorage.Database"))
+					{
+						ReplaceTextfileValues
+						(
+							fileName,
+							new string[]
+							{
+								"Version=1.4.0.0",
+								"EAMON CS 1.4",
+								"Eamon.Game.Primitive.Classes.CharacterWeapon",
+								"<Simple name=\"Complexity\"",
+								"<Simple name=\"Type\" value=\"Axe\"",
+								"<Simple name=\"Type\" value=\"Bow\"",
+								"<Simple name=\"Type\" value=\"Club\"",
+								"<Simple name=\"Type\" value=\"Spear\"",
+								"<Simple name=\"Type\" value=\"Sword\"",
+								"<Simple name=\"Dice\"",
+								"<Simple name=\"Sides\"",
+							},
+							new string[]
+							{
+								"Version=1.5.0.0",
+								"EAMON CS 1.5",
+								"Eamon.Game.Primitive.Classes.CharacterArtifact",
+								"<Simple name=\"Field1\"",
+								"<Simple name=\"Field2\" value=\"1\"",
+								"<Simple name=\"Field2\" value=\"2\"",
+								"<Simple name=\"Field2\" value=\"3\"",
+								"<Simple name=\"Field2\" value=\"4\"",
+								"<Simple name=\"Field2\" value=\"5\"",
+								"<Simple name=\"Field3\"",
+								"<Simple name=\"Field4\"",
+							}
+						);
+					}
+					else
+					{
+						ReplaceTextfileValues
+						(
+							fileName,
+							new string[]
+							{
+								"Version=1.4.0.0",
+								"EAMON CS 1.4",
+							},
+							new string[]
+							{
+								"Version=1.5.0.0",
+								"EAMON CS 1.5",
+							}
+						);
+					}
 				}
 				else
 				{

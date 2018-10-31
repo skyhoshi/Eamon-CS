@@ -164,15 +164,15 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 								Debug.Assert(weapon != null);
 
-								var cw = Globals.CreateInstance<Classes.ICharacterWeapon>(x =>
+								var cw = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
 								{
 									x.Name = Globals.CloneInstance(weapon.MarcosName ?? weapon.Name).ToLower();
 									x.IsPlural = weapon.MarcosIsPlural;
 									x.PluralType = weapon.MarcosPluralType;
 									x.ArticleType = weapon.MarcosArticleType;
-									x.Type = (Enums.Weapon)i;
-									x.Dice = weapon.MarcosDice;
-									x.Sides = weapon.MarcosSides;
+									x.Field2 = i;
+									x.Field3 = weapon.MarcosDice;
+									x.Field4 = weapon.MarcosSides;
 								});
 
 								Globals.Out.Print("Marcos says, \"Well, I just happen to have three {0}s in, of varying quality.  I've got a very good one for {1} GP, a fair one for {2} GP, and a kinda shabby one for {3} GP.  Which do you want?\"",
@@ -201,7 +201,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 									{
 										ap = Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice, (double)Rtio);
 
-										cw.Complexity = 10;
+										cw.Field1 = 10;
 									}
 									else if (Buf[0] == 'F')
 									{
@@ -213,7 +213,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 										ap = Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice * 0.60, (double)Rtio);
 
-										cw.Complexity = -10;
+										cw.Field1 = -10;
 									}
 
 									if (ap > Globals.Character.HeldGold)
@@ -343,8 +343,8 @@ namespace EamonMH.Game.Menus.ActionMenus
 								ti = Math.Min(ap, bp) / 4;
 
 								Globals.Out.Print("Marcos examines your weapon and says, \"{0}Well, {1}I can give you {2} gold piece{3} for it, take it or leave it.\"",
-									Globals.Character.GetWeapons(i).Dice * Globals.Character.GetWeapons(i).Sides > 25 ? "Very nice, this is a magical weapon.  " :
-									Globals.Character.GetWeapons(i).Dice * Globals.Character.GetWeapons(i).Sides > 15 || Globals.Character.GetWeapons(i).Complexity > 10 ? "Hey, this is a pretty good weapon!  " : "",
+									Globals.Character.GetWeapons(i).Field3 * Globals.Character.GetWeapons(i).Field4 > 25 ? "Very nice, this is a magical weapon.  " :
+									Globals.Character.GetWeapons(i).Field3 * Globals.Character.GetWeapons(i).Field4 > 15 || Globals.Character.GetWeapons(i).Field1 > 10 ? "Hey, this is a pretty good weapon!  " : "",
 									imw ? "you've banged it up a bit, but " : "",
 									ti,
 									ti != 1 ? "s" : "");
@@ -376,7 +376,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 										i++;
 									}
 
-									Globals.Character.SetWeapons(i, Globals.CreateInstance<Classes.ICharacterWeapon>(x =>
+									Globals.Character.SetWeapons(i, Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
 									{
 										x.Parent = Globals.Character;
 									}));
@@ -613,6 +613,16 @@ namespace EamonMH.Game.Menus.ActionMenus
 						if (Globals.Character.ArmorClass != (Enums.Armor)(a2 * 2 + sh))
 						{
 							Globals.Character.ArmorClass = (Enums.Armor)(a2 * 2 + sh);
+
+							Globals.Character.Armor = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+							{
+								x.Parent = Globals.Character;
+							});
+
+							Globals.Character.Shield = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+							{
+								x.Parent = Globals.Character;
+							});
 
 							Globals.CharactersModified = true;
 						}

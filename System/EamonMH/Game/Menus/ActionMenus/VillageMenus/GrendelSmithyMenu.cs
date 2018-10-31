@@ -65,16 +65,16 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 		protected virtual void UpdateCharacterWeapon(long i, long ap, string name, long type, long complexity, long dice, long sides)
 		{
-			var cw = Globals.CreateInstance<Classes.ICharacterWeapon>(x =>
+			var cw = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
 			{
 				x.Name = name;
 				x.IsPlural = false;
 				x.PluralType = Enums.PluralType.None;
 				x.ArticleType = Enums.ArticleType.None;
-				x.Type = (Enums.Weapon)type;
-				x.Complexity = complexity;
-				x.Dice = dice;
-				x.Sides = sides;
+				x.Field1 = complexity;
+				x.Field2 = type;
+				x.Field3 = dice;
+				x.Field4 = sides;
 			});
 
 			Globals.Character.SetWeapons(i, cw);
@@ -240,7 +240,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.CharWpnNameLen, null, ' ', '\0', false, null, null, null, null);
+				rc = Globals.In.ReadField(Buf, Constants.CharArtNameLen, null, ' ', '\0', false, null, null, null, null);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 

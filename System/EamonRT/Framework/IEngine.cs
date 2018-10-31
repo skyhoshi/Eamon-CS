@@ -56,9 +56,9 @@ namespace EamonRT.Framework
 
 		void InitMonsterScaledHardinessValues();
 
-		IArtifact ConvertWeaponToArtifact(Classes.ICharacterWeapon weapon);
+		IArtifact ConvertWeaponToArtifact(Classes.ICharacterArtifact weapon);
 
-		Classes.ICharacterWeapon ConvertArtifactToWeapon(IArtifact artifact);
+		Classes.ICharacterArtifact ConvertArtifactToWeapon(IArtifact artifact);
 
 		IMonster ConvertArtifactToMonster(IArtifact artifact, Action<IMonster> initialize = null, bool addToDatabase = false);
 

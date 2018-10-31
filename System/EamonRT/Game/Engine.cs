@@ -82,37 +82,66 @@ namespace EamonRT.Game
 
 			if (a2 > 0)
 			{
+				var armor = Globals.Character.Armor;
+
+				Debug.Assert(armor != null);
+
 				var artifact = Globals.CreateInstance<IArtifact>(y =>
 				{
 					y.SetArtifactCategoryCount(1);
 
 					y.Uid = Globals.Database.GetArtifactUid();
 
-					y.Name = string.Format("{0} armor", armorNames[s]);
+					y.Name = armor.IsActive() ? Globals.CloneInstance(armor.Name) : string.Format("{0} armor", armorNames[s]);
+
+					Debug.Assert(!string.IsNullOrWhiteSpace(y.Name));
+
+					y.Desc = armor.IsActive() && !string.IsNullOrWhiteSpace(armor.Desc) ? Globals.CloneInstance(armor.Desc) : null;
 
 					y.Seen = true;
 
 					y.IsCharOwned = true;
 
-					y.IsPlural = false;
-
 					y.IsListed = true;
 
-					y.PluralType = Enums.PluralType.None;
+					if (armor.IsActive())
+					{
+						y.IsPlural = armor.IsPlural;
 
-					y.ArticleType = Enums.ArticleType.Some;
+						y.PluralType = armor.PluralType;
 
-					y.GetCategories(0).Field1 = a2 * 2;
+						y.ArticleType = armor.ArticleType;
 
-					y.GetCategories(0).Field2 = 0;
+						y.GetCategories(0).Field1 = armor.Field1;
 
-					y.GetCategories(0).Type = Enums.ArtifactType.Wearable;
+						y.GetCategories(0).Field2 = armor.Field2;
 
-					var ima = false;
+						y.GetCategories(0).Type = armor.Type;
 
-					y.Value = (long)GetArmorPriceOrValue(Globals.Character.ArmorClass, false, ref ima);
+						y.Value = armor.Value;
 
-					y.Weight = (a2 == 1 ? 15 : a2 == 2 ? 25 : 35);
+						y.Weight = armor.Weight;
+					}
+					else
+					{
+						y.IsPlural = false;
+
+						y.PluralType = Enums.PluralType.None;
+
+						y.ArticleType = Enums.ArticleType.Some;
+
+						y.GetCategories(0).Field1 = a2 * 2;
+
+						y.GetCategories(0).Field2 = 0;
+
+						y.GetCategories(0).Type = Enums.ArtifactType.Wearable;
+
+						var ima = false;
+
+						y.Value = (long)GetArmorPriceOrValue(Globals.Character.ArmorClass, false, ref ima);
+
+						y.Weight = (a2 == 1 ? 15 : a2 == 2 ? 25 : 35);
+					}
 
 					if (Globals.GameState.Wt + y.Weight <= 10 * Globals.Character.GetStats(Enums.Stat.Hardiness))
 					{
@@ -140,35 +169,64 @@ namespace EamonRT.Game
 
 			if (x == 1)
 			{
+				var shield = Globals.Character.Shield;
+
+				Debug.Assert(shield != null);
+
 				var artifact = Globals.CreateInstance<IArtifact>(y =>
 				{
 					y.SetArtifactCategoryCount(1);
 
 					y.Uid = Globals.Database.GetArtifactUid();
 
-					y.Name = "shield";
+					y.Name = shield.IsActive() ? Globals.CloneInstance(shield.Name) : "shield";
+
+					Debug.Assert(!string.IsNullOrWhiteSpace(y.Name));
+
+					y.Desc = shield.IsActive() && !string.IsNullOrWhiteSpace(shield.Desc) ? Globals.CloneInstance(shield.Desc) : null;
 
 					y.Seen = true;
 
 					y.IsCharOwned = true;
 
-					y.IsPlural = false;
-
 					y.IsListed = true;
 
-					y.PluralType = Enums.PluralType.S;
+					if (shield.IsActive())
+					{
+						y.IsPlural = shield.IsPlural;
 
-					y.ArticleType = Enums.ArticleType.A;
+						y.PluralType = shield.PluralType;
 
-					y.GetCategories(0).Field1 = 1;
+						y.ArticleType = shield.ArticleType;
 
-					y.GetCategories(0).Field2 = 0;
+						y.GetCategories(0).Field1 = shield.Field1;
 
-					y.GetCategories(0).Type = Enums.ArtifactType.Wearable;
+						y.GetCategories(0).Field2 = shield.Field2;
 
-					y.Value = Constants.ShieldPrice;
+						y.GetCategories(0).Type = shield.Type;
 
-					y.Weight = 15;
+						y.Value = shield.Value;
+
+						y.Weight = shield.Weight;
+					}
+					else
+					{
+						y.IsPlural = false;
+
+						y.PluralType = Enums.PluralType.S;
+
+						y.ArticleType = Enums.ArticleType.A;
+
+						y.GetCategories(0).Field1 = 1;
+
+						y.GetCategories(0).Field2 = 0;
+
+						y.GetCategories(0).Type = Enums.ArtifactType.Wearable;
+
+						y.Value = Constants.ShieldPrice;
+
+						y.Weight = 15;
+					}
 
 					if (Globals.GameState.Wt + y.Weight <= 10 * Globals.Character.GetStats(Enums.Stat.Hardiness))
 					{
@@ -513,7 +571,7 @@ namespace EamonRT.Game
 			}
 		}
 
-		public virtual IArtifact ConvertWeaponToArtifact(Classes.ICharacterWeapon weapon)
+		public virtual IArtifact ConvertWeaponToArtifact(Classes.ICharacterArtifact weapon)
 		{
 			Debug.Assert(weapon != null);
 
@@ -527,35 +585,48 @@ namespace EamonRT.Game
 
 				Debug.Assert(!string.IsNullOrWhiteSpace(x.Name));
 
+				x.Desc = !string.IsNullOrWhiteSpace(weapon.Desc) ? Globals.CloneInstance(weapon.Desc) : null;
+
 				x.Seen = true;
 
 				x.IsCharOwned = true;
 
-				x.IsPlural = weapon.IsPlural;
-
 				x.IsListed = true;
+
+				x.IsPlural = weapon.IsPlural;
 
 				x.PluralType = weapon.PluralType;
 
 				x.ArticleType = weapon.ArticleType;
 
-				x.GetCategories(0).Field1 = weapon.Complexity;
+				x.GetCategories(0).Field1 = weapon.Field1;
 
-				x.GetCategories(0).Field2 = (long)weapon.Type;
+				x.GetCategories(0).Field2 = weapon.Field2;
 
-				x.GetCategories(0).Field3 = weapon.Dice;
+				x.GetCategories(0).Field3 = weapon.Field3;
 
-				x.GetCategories(0).Field4 = weapon.Sides;
+				x.GetCategories(0).Field4 = weapon.Field4;
 
-				var d = weapon.Dice * weapon.Sides;
+				if (weapon.Type != 0)
+				{
+					x.GetCategories(0).Type = weapon.Type;
 
-				x.GetCategories(0).Type = (weapon.Complexity >= 15 || d >= 25) ? Enums.ArtifactType.MagicWeapon : Enums.ArtifactType.Weapon;
+					x.Value = weapon.Value;
 
-				var imw = false;
+					x.Weight = weapon.Weight;
+				}
+				else
+				{
+					var d = weapon.Field3 * weapon.Field4;
 
-				x.Value = (long)GetWeaponPriceOrValue(weapon, false, ref imw);
+					x.GetCategories(0).Type = (weapon.Field1 >= 15 || d >= 25) ? Enums.ArtifactType.MagicWeapon : Enums.ArtifactType.Weapon;
 
-				x.Weight = 15;
+					var imw = false;
+
+					x.Value = (long)GetWeaponPriceOrValue(weapon, false, ref imw);
+
+					x.Weight = 15;
+				}
 
 				if (Globals.GameState.Wt + x.Weight <= 10 * Globals.Character.GetStats(Enums.Stat.Hardiness))
 				{
@@ -576,7 +647,7 @@ namespace EamonRT.Game
 			return artifact;
 		}
 
-		public virtual Classes.ICharacterWeapon ConvertArtifactToWeapon(IArtifact artifact)
+		public virtual Classes.ICharacterArtifact ConvertArtifactToWeapon(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
@@ -584,11 +655,25 @@ namespace EamonRT.Game
 
 			Debug.Assert(ac != null);
 
-			var weapon = Globals.CreateInstance<Classes.ICharacterWeapon>(x =>
+			var weapon = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
 			{
 				x.Name = artifact.Name.Trim().TrimEnd('#');
 
 				Debug.Assert(!string.IsNullOrWhiteSpace(x.Name));
+
+				if (!string.IsNullOrWhiteSpace(artifact.Desc))
+				{
+					Globals.Buf.Clear();
+
+					var rc = Globals.Engine.ResolveUidMacros(artifact.Desc, Globals.Buf, true, true);
+
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+					if (Globals.Buf.Length <= Constants.CharArtDescLen)
+					{
+						x.Desc = Globals.CloneInstance(Globals.Buf.ToString());
+					}
+				}
 
 				x.IsPlural = artifact.IsPlural;
 
@@ -596,13 +681,19 @@ namespace EamonRT.Game
 
 				x.ArticleType = artifact.ArticleType;
 
-				x.Complexity = ac.Field1;
+				x.Value = artifact.Value;
 
-				x.Type = (Enums.Weapon)ac.Field2;
+				x.Weight = artifact.Weight;
 
-				x.Dice = ac.Field3;
+				x.Type = ac.Type;
 
-				x.Sides = ac.Field4;
+				x.Field1 = ac.Field1;
+
+				x.Field2 = ac.Field2;
+
+				x.Field3 = ac.Field3;
+
+				x.Field4 = ac.Field4;
 			});
 
 			return weapon;
@@ -728,7 +819,7 @@ namespace EamonRT.Game
 
 			for (var i = 0; i < Globals.Character.Weapons.Length; i++)
 			{
-				Globals.Character.SetWeapons(i, (i < weaponList.Count ? ConvertArtifactToWeapon(weaponList[i]) : Globals.CreateInstance<Classes.ICharacterWeapon>()));
+				Globals.Character.SetWeapons(i, (i < weaponList.Count ? ConvertArtifactToWeapon(weaponList[i]) : Globals.CreateInstance<Classes.ICharacterArtifact>()));
 
 				Globals.Character.GetWeapons(i).Parent = Globals.Character;
 			}
@@ -756,6 +847,16 @@ namespace EamonRT.Game
 
 			Globals.Character.ArmorClass = Enums.Armor.SkinClothes;
 
+			Globals.Character.Armor = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+			{
+				x.Parent = Globals.Character;
+			});
+
+			Globals.Character.Shield = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+			{
+				x.Parent = Globals.Character;
+			});
+
 			foreach (var artUid in artUids)
 			{
 				if (artUid > 0)
@@ -769,6 +870,46 @@ namespace EamonRT.Game
 					Debug.Assert(ac != null);
 
 					Globals.Character.ArmorClass += ac.Field1;
+
+					var ca = (artUid == Globals.GameState.Ar) ? Globals.Character.Armor : Globals.Character.Shield;
+
+					ca.Name = artifact.Name.Trim().TrimEnd('#');
+
+					Debug.Assert(!string.IsNullOrWhiteSpace(ca.Name));
+
+					if (!string.IsNullOrWhiteSpace(artifact.Desc))
+					{
+						Globals.Buf.Clear();
+
+						var rc = Globals.Engine.ResolveUidMacros(artifact.Desc, Globals.Buf, true, true);
+
+						Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+						if (Globals.Buf.Length <= Constants.CharArtDescLen)
+						{
+							ca.Desc = Globals.CloneInstance(Globals.Buf.ToString());
+						}
+					}
+
+					ca.IsPlural = artifact.IsPlural;
+
+					ca.PluralType = artifact.PluralType;
+
+					ca.ArticleType = artifact.ArticleType;
+
+					ca.Value = artifact.Value;
+
+					ca.Weight = artifact.Weight;
+
+					ca.Type = ac.Type;
+
+					ca.Field1 = ac.Field1;
+
+					ca.Field2 = ac.Field2;
+
+					ca.Field3 = ac.Field3;
+
+					ca.Field4 = ac.Field4;
 
 					artifact.SetInLimbo();
 				}

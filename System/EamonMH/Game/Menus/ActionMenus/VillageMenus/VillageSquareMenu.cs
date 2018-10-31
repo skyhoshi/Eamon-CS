@@ -63,7 +63,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					var rl = Globals.Engine.RollDice01(1, wc, 0);
 
-					Globals.Character.GetWeapons(rl - 1).Sides++;
+					Globals.Character.GetWeapons(rl - 1).Field4++;
+
+					// ClearExtraFields call omitted
 
 					AddedPotency = true;
 				}

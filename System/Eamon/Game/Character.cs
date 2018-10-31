@@ -90,7 +90,11 @@ namespace Eamon.Game
 
 		public virtual Enums.Armor ArmorClass { get; set; }
 
-		public virtual Classes.ICharacterWeapon[] Weapons { get; set; }
+		public virtual Classes.ICharacterArtifact Armor { get; set; }
+
+		public virtual Classes.ICharacterArtifact Shield { get; set; }
+
+		public virtual Classes.ICharacterArtifact[] Weapons { get; set; }
 
 		#endregion
 
@@ -121,6 +125,10 @@ namespace Eamon.Game
 
 		public override void SetParentReferences()
 		{
+			Armor.Parent = this;
+
+			Shield.Parent = this;
+
 			foreach (var w in Weapons)
 			{
 				w.Parent = this;
@@ -255,7 +263,7 @@ namespace Eamon.Game
 			return GetWeaponAbilities((long)weapon);
 		}
 
-		public virtual Classes.ICharacterWeapon GetWeapons(long index)
+		public virtual Classes.ICharacterArtifact GetWeapons(long index)
 		{
 			return Weapons[index];
 		}
@@ -295,7 +303,7 @@ namespace Eamon.Game
 			SetWeaponAbilities((long)weapon, value);
 		}
 
-		public virtual void SetWeapons(long index, Classes.ICharacterWeapon value)
+		public virtual void SetWeapons(long index, Classes.ICharacterArtifact value)
 		{
 			Weapons[index] = value;
 		}
@@ -360,6 +368,16 @@ namespace Eamon.Game
 			return Globals.Engine.GetMerchantAdjustedCharisma(GetStats(Enums.Stat.Charisma));
 		}
 
+		public virtual bool IsArmorActive()
+		{
+			return Armor.IsActive();
+		}
+
+		public virtual bool IsShieldActive()
+		{
+			return Shield.IsActive();
+		}
+
 		public virtual bool IsWeaponActive(long index)
 		{
 			Debug.Assert(index >= 0 && index < Weapons.Length);
@@ -372,7 +390,7 @@ namespace Eamon.Game
 			return Globals.Engine.EvalGender(Gender, maleValue, femaleValue, neutralValue);
 		}
 
-		public virtual RetCode GetBaseOddsToHit(Classes.ICharacterWeapon weapon, ref long baseOddsToHit)
+		public virtual RetCode GetBaseOddsToHit(Classes.ICharacterArtifact weapon, ref long baseOddsToHit)
 		{
 			long ar1, sh1, af, x, a, d, f, odds;
 			RetCode rc;
@@ -426,9 +444,9 @@ namespace Eamon.Game
 
 			x = GetStats(Enums.Stat.Agility);
 
-			a = GetWeaponAbilities(weapon.Type);
+			a = GetWeaponAbilities((Enums.Weapon)weapon.Field2);
 
-			d = weapon.Complexity;
+			d = weapon.Field1;
 
 			if (x > 30)
 			{
@@ -516,7 +534,7 @@ namespace Eamon.Game
 			{
 				if (IsWeaponActive(i))
 				{
-					weapon = Globals.Engine.GetWeapons(GetWeapons(i).Type);
+					weapon = Globals.Engine.GetWeapons((Enums.Weapon)GetWeapons(i).Field2);
 
 					Debug.Assert(weapon != null);
 
@@ -525,9 +543,9 @@ namespace Eamon.Game
 						i + 1,
 						capitalize ? Globals.Engine.Capitalize(GetWeapons(i).Name.PadTRight(31, ' ')) : GetWeapons(i).Name.PadTRight(31, ' '),
 						weapon.Name,
-						GetWeapons(i).Complexity,
-						GetWeapons(i).Dice,
-						GetWeapons(i).Sides);
+						GetWeapons(i).Field1,
+						GetWeapons(i).Field3,
+						GetWeapons(i).Field4);
 				}
 				else
 				{
@@ -760,25 +778,15 @@ namespace Eamon.Game
 
 			ArmorClass = character.ArmorClass;
 
+			Globals.Engine.CopyCharacterArtifactFields(Armor, character.Armor);
+
+			Globals.Engine.CopyCharacterArtifactFields(Shield, character.Shield);
+
 			Debug.Assert(Weapons.Length == character.Weapons.Length);
 
 			for (var i = 0; i < Weapons.Length; i++)
 			{
-				GetWeapons(i).Name = Globals.CloneInstance(character.GetWeapons(i).Name);
-
-				GetWeapons(i).IsPlural = character.GetWeapons(i).IsPlural;
-
-				GetWeapons(i).PluralType = character.GetWeapons(i).PluralType;
-
-				GetWeapons(i).ArticleType = character.GetWeapons(i).ArticleType;
-
-				GetWeapons(i).Complexity = character.GetWeapons(i).Complexity;
-
-				GetWeapons(i).Type = character.GetWeapons(i).Type;
-
-				GetWeapons(i).Dice = character.GetWeapons(i).Dice;
-
-				GetWeapons(i).Sides = character.GetWeapons(i).Sides;
+				Globals.Engine.CopyCharacterArtifactFields(GetWeapons(i), character.GetWeapons(i));
 			}
 
 		Cleanup:
@@ -798,21 +806,31 @@ namespace Eamon.Game
 
 			WeaponAbilities = new long[(long)EnumUtil.GetLastValue<Enums.Weapon>() + 1];
 
-			Weapons = new Classes.ICharacterWeapon[]
+			Armor = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
 			{
-				Globals.CreateInstance<Classes.ICharacterWeapon>(x =>
+				x.Parent = this;
+			});
+
+			Shield = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+			{
+				x.Parent = this;
+			});
+
+			Weapons = new Classes.ICharacterArtifact[]
+			{
+				Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
 				{
 					x.Parent = this;
 				}),
-				Globals.CreateInstance<Classes.ICharacterWeapon>(x =>
+				Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
 				{
 					x.Parent = this;
 				}),
-				Globals.CreateInstance<Classes.ICharacterWeapon>(x =>
+				Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
 				{
 					x.Parent = this;
 				}),
-				Globals.CreateInstance<Classes.ICharacterWeapon>(x =>
+				Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
 				{
 					x.Parent = this;
 				})

@@ -1,5 +1,5 @@
 ﻿
-// CharacterWeapon.cs
+// CharacterArtifact.cs
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
@@ -13,12 +13,14 @@ using Enums = Eamon.Framework.Primitive.Enums;
 namespace Eamon.Game.Primitive.Classes
 {
 	[ClassMappings]
-	public class CharacterWeapon : ICharacterWeapon
+	public class CharacterArtifact : ICharacterArtifact
 	{
 		[ExcludeFromSerialization]
 		public virtual ICharacter Parent { get; set; }
 
 		public virtual string Name { get; set; }
+
+		public virtual string Desc { get; set; }
 
 		public virtual bool IsPlural { get; set; }
 
@@ -26,22 +28,41 @@ namespace Eamon.Game.Primitive.Classes
 
 		public virtual Enums.ArticleType ArticleType { get; set; }
 
-		public virtual long Complexity { get; set; }
+		public virtual long Value { get; set; }
 
-		public virtual Enums.Weapon Type { get; set; }
+		public virtual long Weight { get; set; }
 
-		public virtual long Dice { get; set; }
+		public virtual Enums.ArtifactType Type { get; set; }
 
-		public virtual long Sides { get; set; }
+		public virtual long Field1 { get; set; }
+
+		public virtual long Field2 { get; set; }
+
+		public virtual long Field3 { get; set; }
+
+		public virtual long Field4 { get; set; }
 
 		public virtual bool IsActive()
 		{
 			return !string.IsNullOrWhiteSpace(Name) && !string.Equals(Name, "NONE", StringComparison.OrdinalIgnoreCase);
 		}
 
-		public CharacterWeapon()
+		public virtual void ClearExtraFields()
+		{
+			Desc = "";
+
+			Value = 0;
+
+			Weight = 0;
+
+			Type = 0;
+		}
+
+		public CharacterArtifact()
 		{
 			Name = "NONE";
+
+			Desc = "";
 		}
 	}
 }

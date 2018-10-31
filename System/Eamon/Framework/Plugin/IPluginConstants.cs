@@ -19,7 +19,9 @@ namespace Eamon.Framework.Plugin
 
 		int CharNameLen { get; }
 
-		int CharWpnNameLen { get; }
+		int CharArtNameLen { get; }
+
+		int CharArtDescLen { get; }
 
 		int EffDescLen { get; }
 

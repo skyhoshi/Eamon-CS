@@ -33,7 +33,11 @@ namespace Eamon.Framework
 
 		Enums.Armor ArmorClass { get; set; }
 
-		Classes.ICharacterWeapon[] Weapons { get; set; }
+		Classes.ICharacterArtifact Armor { get; set; }
+
+		Classes.ICharacterArtifact Shield { get; set; }
+
+		Classes.ICharacterArtifact[] Weapons { get; set; }
 
 		#endregion
 
@@ -51,7 +55,7 @@ namespace Eamon.Framework
 
 		long GetWeaponAbilities(Enums.Weapon weapon);
 
-		Classes.ICharacterWeapon GetWeapons(long index);
+		Classes.ICharacterArtifact GetWeapons(long index);
 
 		string GetSynonyms(long index);
 
@@ -67,7 +71,7 @@ namespace Eamon.Framework
 
 		void SetWeaponAbilities(Enums.Weapon weapon, long value);
 
-		void SetWeapons(long index, Classes.ICharacterWeapon value);
+		void SetWeapons(long index, Classes.ICharacterArtifact value);
 
 		void SetSynonyms(long index, string value);
 
@@ -93,11 +97,15 @@ namespace Eamon.Framework
 
 		long GetMerchantAdjustedCharisma();
 
+		bool IsArmorActive();
+
+		bool IsShieldActive();
+
 		bool IsWeaponActive(long index);
 
 		T EvalGender<T>(T maleValue, T femaleValue, T neutralValue);
 
-		RetCode GetBaseOddsToHit(Classes.ICharacterWeapon weapon, ref long baseOddsToHit);
+		RetCode GetBaseOddsToHit(Classes.ICharacterArtifact weapon, ref long baseOddsToHit);
 
 		RetCode GetBaseOddsToHit(long index, ref long baseOddsToHit);
 
