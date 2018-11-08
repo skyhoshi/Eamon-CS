@@ -105,6 +105,8 @@ namespace EamonRT.Framework.Commands
 
 		void PrintWearingRemoveFirst01(IArtifact artifact);
 
+		void PrintCantWearShieldWithWeapon(IArtifact shield, IArtifact weapon);
+
 		void PrintVerbItAll(IArtifact artifact);
 
 		void PrintNoneLeft(IArtifact artifact);
@@ -122,6 +124,8 @@ namespace EamonRT.Framework.Commands
 		void PrintNotWeapon(IArtifact artifact);
 
 		void PrintNotReadyableWeapon(IArtifact artifact);
+
+		void PrintCantReadyWeaponWithShield(IArtifact weapon, IArtifact shield);
 
 		void PrintPolitelyRefuses(IMonster monster);
 

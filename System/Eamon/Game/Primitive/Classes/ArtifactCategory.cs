@@ -30,6 +30,8 @@ namespace Eamon.Game.Primitive.Classes
 
 		public virtual long Field4 { get; set; }
 
+		public virtual long Field5 { get; set; }
+
 		public virtual bool IsOpenable()
 		{
 			return Type == Enums.ArtifactType.Container || Type == Enums.ArtifactType.Drinkable || Type == Enums.ArtifactType.Edible || Type == Enums.ArtifactType.Readable || Type == Enums.ArtifactType.DoorGate;

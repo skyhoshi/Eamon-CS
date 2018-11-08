@@ -95,6 +95,15 @@ namespace Eamon.Game.Helpers
 			return string.Format("Cat #{0} {1}", i + 1, artType != null ? artType.Field4Name : "Field4");
 		}
 
+		protected virtual string GetPrintedNameCategoriesField5()
+		{
+			var i = Index;
+
+			var artType = Globals.Engine.GetArtifactTypes(Record.GetCategories(i).Type);
+
+			return string.Format("Cat #{0} {1}", i + 1, artType != null ? artType.Field5Name : "Field5");
+		}
+
 		#endregion
 
 		#region GetName Methods
@@ -108,6 +117,7 @@ namespace Eamon.Game.Helpers
 				GetName("CategoriesField2", addToNamesList);
 				GetName("CategoriesField3", addToNamesList);
 				GetName("CategoriesField4", addToNamesList);
+				GetName("CategoriesField5", addToNamesList);
 			}
 
 			return "Categories";
@@ -183,6 +193,20 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		protected virtual string GetNameCategoriesField5(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("Categories[{0}].Field5", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
 		#endregion
 
 		#region GetValue Methods
@@ -220,6 +244,13 @@ namespace Eamon.Game.Helpers
 			var i = Index;
 
 			return Record.GetCategories(i).Field4;
+		}
+
+		protected virtual object GetValueCategoriesField5()
+		{
+			var i = Index;
+
+			return Record.GetCategories(i).Field5;
 		}
 
 		#endregion
@@ -286,7 +317,8 @@ namespace Eamon.Game.Helpers
 								ValidateField("CategoriesField1") &&
 								ValidateField("CategoriesField2") &&
 								ValidateField("CategoriesField3") &&
-								ValidateField("CategoriesField4");
+								ValidateField("CategoriesField4") &&
+								ValidateField("CategoriesField5");
 
 				if (result == false)
 				{
@@ -636,6 +668,55 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		protected virtual bool ValidateCategoriesField5()
+		{
+			var result = true;
+
+			var activeCategory = true;
+
+			var i = Index;
+
+			for (var h = 1; h <= i; h++)
+			{
+				if (Record.GetCategories(h).Type == Enums.ArtifactType.None)
+				{
+					activeCategory = false;
+
+					break;
+				}
+			}
+
+			if (activeCategory)
+			{
+				switch (Record.GetCategories(i).Type)
+				{
+					case Enums.ArtifactType.Weapon:
+					case Enums.ArtifactType.MagicWeapon:
+
+						if (Record.GetCategories(i).Field5 == 0)	// auto-upgrade old weapons
+						{
+							Record.GetCategories(i).Field5 = Record.GetCategories(i).Field2 == (long)Enums.Weapon.Bow ? 2 : 1;
+						}
+
+						result = Record.GetCategories(i).Field5 >= 1 && Record.GetCategories(i).Field5 <= 2;
+
+						break;
+
+					default:
+
+						// do nothing
+
+						break;
+				}
+			}
+			else
+			{
+				result = Record.GetCategories(i).Field5 == 0;
+			}
+
+			return result;
+		}
+
 		#endregion
 
 		#region ValidateInterdependencies Methods
@@ -852,7 +933,8 @@ namespace Eamon.Game.Helpers
 								ValidateFieldInterdependencies("CategoriesField1") &&
 								ValidateFieldInterdependencies("CategoriesField2") &&
 								ValidateFieldInterdependencies("CategoriesField3") &&
-								ValidateFieldInterdependencies("CategoriesField4");
+								ValidateFieldInterdependencies("CategoriesField4") &&
+								ValidateFieldInterdependencies("CategoriesField5");
 
 				if (result == false)
 				{
@@ -1747,6 +1829,35 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		protected virtual void PrintDescCategoriesField5()
+		{
+			var i = Index;
+
+			var fullDesc = new StringBuilder(Constants.BufSize);
+
+			var briefDesc = new StringBuilder(Constants.BufSize);
+
+			switch (Record.GetCategories(i).Type)
+			{
+				case Enums.ArtifactType.Weapon:
+				case Enums.ArtifactType.MagicWeapon:
+
+					fullDesc.AppendFormat("Enter the artifact's weapon number of hands required (category #{0}).", i + 1);
+
+					briefDesc.Append("1-2=Valid value");
+
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+
+					break;
+
+				default:
+
+					// do nothing
+
+					break;
+			}
+		}
+
 		#endregion
 
 		#region List Methods
@@ -1990,6 +2101,7 @@ namespace Eamon.Game.Helpers
 				ListField("CategoriesField2");
 				ListField("CategoriesField3");
 				ListField("CategoriesField4");
+				ListField("CategoriesField5");
 			}
 
 			AddToListedNames = false;
@@ -2115,6 +2227,31 @@ namespace Eamon.Game.Helpers
 					else
 					{
 						Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField4"), null), Record.GetCategories(i).Field4);
+					}
+				}
+			}
+		}
+
+		protected virtual void ListCategoriesField5()
+		{
+			var i = Index;
+
+			if (FullDetail)
+			{
+				if (!ExcludeROFields || Record.GetCategories(i).Type != Enums.ArtifactType.None)
+				{
+					var listNum = NumberFields ? ListNum++ : 0;
+
+					if (LookupMsg)
+					{
+						Globals.Out.Write("{0}{1}{2}",
+							Environment.NewLine,
+							Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField5"), null),
+							BuildValue(51, ' ', 8, "CategoriesField5"));
+					}
+					else
+					{
+						Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField5"), null), Record.GetCategories(i).Field5);
 					}
 				}
 			}
@@ -2555,6 +2692,7 @@ namespace Eamon.Game.Helpers
 				InputField("CategoriesField2");
 				InputField("CategoriesField3");
 				InputField("CategoriesField4");
+				InputField("CategoriesField5");
 			}
 		}
 
@@ -2614,6 +2752,8 @@ namespace Eamon.Game.Helpers
 						Record.GetCategories(i).Field3 = Convert.ToInt64(artType.Field3EmptyVal);
 
 						Record.GetCategories(i).Field4 = Convert.ToInt64(artType.Field4EmptyVal);
+
+						Record.GetCategories(i).Field5 = Convert.ToInt64(artType.Field5EmptyVal);
 					}
 				}
 				else
@@ -2629,6 +2769,8 @@ namespace Eamon.Game.Helpers
 						Record.GetCategories(k).Field3 = 0;
 
 						Record.GetCategories(k).Field4 = 0;
+
+						Record.GetCategories(k).Field5 = 0;
 					}
 				}
 
@@ -2849,6 +2991,59 @@ namespace Eamon.Game.Helpers
 			else
 			{
 				Record.GetCategories(i).Field4 = 0;
+			}
+		}
+
+		protected virtual void InputCategoriesField5()
+		{
+			var i = Index;
+
+			if (Record.GetCategories(i).Type != Enums.ArtifactType.None)
+			{
+				var artType = Globals.Engine.GetArtifactTypes(Record.GetCategories(i).Type);
+
+				Debug.Assert(artType != null);
+
+				var fieldDesc = FieldDesc;
+
+				var field5 = Record.GetCategories(i).Field5;
+
+				while (true)
+				{
+					Buf.SetFormat(EditRec ? "{0}" : "", field5);
+
+					PrintFieldDesc("CategoriesField5", EditRec, EditField, fieldDesc);
+
+					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("CategoriesField5"), artType.Field5EmptyVal));
+
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType.Field5EmptyVal, null, Globals.Engine.IsCharPlusMinusDigit, null);
+
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+					var error = false;
+
+					try
+					{
+						Record.GetCategories(i).Field5 = Convert.ToInt64(Buf.Trim().ToString());
+					}
+					catch (Exception)
+					{
+						error = true;
+					}
+
+					if (!error && ValidateField("CategoriesField5"))
+					{
+						break;
+					}
+
+					fieldDesc = Enums.FieldDesc.Brief;
+				}
+
+				Globals.Out.Print("{0}", Globals.LineSep);
+			}
+			else
+			{
+				Record.GetCategories(i).Field5 = 0;
 			}
 		}
 
@@ -3146,6 +3341,22 @@ namespace Eamon.Game.Helpers
 			return Buf01.ToString();
 		}
 
+		protected virtual string BuildValueCategoriesField5()
+		{
+			var i = Index;
+
+			switch (Record.GetCategories(i).Type)
+			{
+				default:
+
+					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field5, null, null));
+
+					break;
+			}
+
+			return Buf01.ToString();
+		}
+
 		protected virtual string BuildValue(long bufSize, char fillChar, long offset, string fieldName)
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
@@ -3200,6 +3411,11 @@ namespace Eamon.Game.Helpers
 		#region Public Methods
 
 		#region Interface IHelper
+
+		public override bool ValidateRecordAfterDatabaseLoaded()
+		{
+			return true;
+		}
 
 		public override void ListErrorField()
 		{

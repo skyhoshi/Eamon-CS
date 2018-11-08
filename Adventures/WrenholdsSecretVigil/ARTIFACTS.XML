@@ -1,12 +1,12 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -18,13 +18,14 @@
             <Simple name="Location" value="21" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -38,7 +39,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -50,13 +51,14 @@
             <Simple name="Location" value="19" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -70,7 +72,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -82,13 +84,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="19" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -102,7 +105,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -114,13 +117,14 @@
             <Simple name="Location" value="1049" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -134,7 +138,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -146,13 +150,14 @@
             <Simple name="Location" value="1020" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -166,7 +171,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -178,13 +183,14 @@
             <Simple name="Location" value="2057" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -198,7 +204,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -210,13 +216,14 @@
             <Simple name="Location" value="-4" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="2" />
                     <Simple name="Field4" value="5" />
+                    <Simple name="Field5" value="2" />
                   </Properties>
                 </Complex>
               </Items>
@@ -230,7 +237,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -242,13 +249,14 @@
             <Simple name="Location" value="39" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="BoundMonster" />
                     <Simple name="Field1" value="4" />
                     <Simple name="Field2" value="12" />
                     <Simple name="Field3" value="3" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -262,7 +270,7 @@
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -274,13 +282,14 @@
             <Simple name="Location" value="1020" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -294,7 +303,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -306,13 +315,14 @@
             <Simple name="Location" value="1031" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -326,7 +336,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -338,13 +348,14 @@
             <Simple name="Location" value="39" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="BoundMonster" />
                     <Simple name="Field1" value="5" />
                     <Simple name="Field2" value="12" />
                     <Simple name="Field3" value="3" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -358,7 +369,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -370,13 +381,14 @@
             <Simple name="Location" value="-4" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -390,7 +402,7 @@
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -402,13 +414,14 @@
             <Simple name="Location" value="-9" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="5" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
@@ -422,7 +435,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -434,13 +447,14 @@
             <Simple name="Location" value="-12" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="8" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
@@ -454,7 +468,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -466,13 +480,14 @@
             <Simple name="Location" value="4003" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="1" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -486,7 +501,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -498,13 +513,14 @@
             <Simple name="Location" value="4014" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="22" />
                     <Simple name="Field2" value="1900" />
                     <Simple name="Field3" value="10" />
                     <Simple name="Field4" value="5" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -518,7 +534,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -530,13 +546,14 @@
             <Simple name="Location" value="4018" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="19" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="10999" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -550,7 +567,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -562,13 +579,14 @@
             <Simple name="Location" value="4025" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Wearable" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -582,7 +600,7 @@
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -594,13 +612,14 @@
             <Simple name="Location" value="4039" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -614,7 +633,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -626,13 +645,14 @@
             <Simple name="Location" value="4040" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="21" />
                     <Simple name="Field2" value="10999" />
                     <Simple name="Field3" value="20" />
                     <Simple name="Field4" value="5" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -646,7 +666,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -658,13 +678,14 @@
             <Simple name="Location" value="4008" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -678,7 +699,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -690,13 +711,14 @@
             <Simple name="Location" value="4013" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -710,7 +732,7 @@
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -722,13 +744,14 @@
             <Simple name="Location" value="-11" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -742,7 +765,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -754,13 +777,14 @@
             <Simple name="Location" value="21" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -774,7 +798,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -786,13 +810,14 @@
             <Simple name="Location" value="44" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -806,7 +831,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -818,13 +843,14 @@
             <Simple name="Location" value="2058" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -838,7 +864,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -850,13 +876,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -870,7 +897,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -882,13 +909,14 @@
             <Simple name="Location" value="2058" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -902,7 +930,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -914,13 +942,14 @@
             <Simple name="Location" value="2058" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -934,7 +963,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -946,13 +975,14 @@
             <Simple name="Location" value="2059" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Edible" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -966,7 +996,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -978,13 +1008,14 @@
             <Simple name="Location" value="2059" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="32" />
                     <Simple name="Field2" value="1999" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -998,7 +1029,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1010,13 +1041,14 @@
             <Simple name="Location" value="-19" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="7" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1030,7 +1062,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1042,13 +1074,14 @@
             <Simple name="Location" value="2061" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="-1" />
                     <Simple name="Field2" value="10999" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1062,7 +1095,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1074,13 +1107,14 @@
             <Simple name="Location" value="-23" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1094,7 +1128,7 @@
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1106,13 +1140,14 @@
             <Simple name="Location" value="2057" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="9999" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1126,7 +1161,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1138,13 +1173,14 @@
             <Simple name="Location" value="2057" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1158,7 +1194,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1170,13 +1206,14 @@
             <Simple name="Location" value="2057" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="34" />
                     <Simple name="Field2" value="10999" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1190,7 +1227,7 @@
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1202,13 +1239,14 @@
             <Simple name="Location" value="1037" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1222,7 +1260,7 @@
             <Simple name="ArticleType" value="The" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1234,13 +1272,14 @@
             <Simple name="Location" value="2066" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="67" />
                     <Simple name="Field2" value="27" />
                     <Simple name="Field3" value="10999" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1254,7 +1293,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1266,13 +1305,14 @@
             <Simple name="Location" value="2067" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="68" />
                     <Simple name="Field2" value="38" />
                     <Simple name="Field3" value="10999" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1286,7 +1326,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1298,13 +1338,14 @@
             <Simple name="Location" value="2068" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="26" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1318,7 +1359,7 @@
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1330,13 +1371,14 @@
             <Simple name="Location" value="68" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1350,7 +1392,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1362,13 +1404,14 @@
             <Simple name="Location" value="46" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="-1" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="10" />
                     <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1382,7 +1425,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1394,13 +1437,14 @@
             <Simple name="Location" value="2069" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="45" />
                     <Simple name="Field2" value="10999" />
                     <Simple name="Field3" value="10" />
                     <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1414,7 +1458,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1426,13 +1470,14 @@
             <Simple name="Location" value="-26" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1446,7 +1491,7 @@
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1458,13 +1503,14 @@
             <Simple name="Location" value="69" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="BoundMonster" />
                     <Simple name="Field1" value="26" />
                     <Simple name="Field2" value="47" />
                     <Simple name="Field3" value="24" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1478,7 +1524,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1490,13 +1536,14 @@
             <Simple name="Location" value="-25" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1510,7 +1557,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1522,13 +1569,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1542,7 +1590,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1554,13 +1602,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="45" />
                     <Simple name="Field2" value="1999" />
                     <Simple name="Field3" value="10" />
                     <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1574,7 +1623,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1586,13 +1635,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
                     <Simple name="Field1" value="30" />
                     <Simple name="Field2" value="2" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="15" />
+                    <Simple name="Field5" value="2" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1606,7 +1656,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1618,13 +1668,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1638,7 +1689,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1650,13 +1701,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1670,7 +1722,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1682,13 +1734,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1702,7 +1755,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1714,13 +1767,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1734,7 +1788,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1746,13 +1800,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1766,7 +1821,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1778,13 +1833,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1798,7 +1854,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1810,13 +1866,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1830,7 +1887,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1842,13 +1899,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1862,7 +1920,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1874,13 +1932,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1894,7 +1953,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1906,13 +1965,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1926,7 +1986,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1938,13 +1998,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1958,7 +2019,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1970,13 +2031,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -1990,7 +2052,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2002,13 +2064,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -2022,7 +2085,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2034,13 +2097,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -2054,7 +2118,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2066,13 +2130,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -2086,7 +2151,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2098,13 +2163,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -2118,7 +2184,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2130,13 +2196,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -2150,7 +2217,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2162,13 +2229,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -2182,7 +2250,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2194,13 +2262,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -2214,7 +2283,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2226,13 +2295,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -2246,7 +2316,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2258,13 +2328,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -2278,7 +2349,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2290,13 +2361,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -2310,7 +2382,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2322,13 +2394,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -2342,7 +2415,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2354,13 +2427,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -2374,7 +2448,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2386,13 +2460,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
@@ -2406,7 +2481,7 @@
             <Simple name="ArticleType" value="The" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Artifact, WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2418,13 +2493,14 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>

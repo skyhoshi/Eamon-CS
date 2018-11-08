@@ -146,6 +146,27 @@ namespace Eamon.Game
 			}
 		}
 
+		[ExcludeFromSerialization]
+		public virtual long Field5
+		{
+			get
+			{
+				var ac = GetCategories(0);
+
+				return ac != null ? ac.Field5 : 0;
+			}
+
+			set
+			{
+				var ac = GetCategories(0);
+
+				if (ac != null)
+				{
+					ac.Field5 = value;
+				}
+			}
+		}
+
 		public virtual Classes.IArtifactCategory[] Categories { get; set; }
 
 		#endregion

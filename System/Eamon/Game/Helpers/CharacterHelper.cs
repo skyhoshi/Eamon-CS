@@ -137,6 +137,13 @@ namespace Eamon.Game.Helpers
 			return string.Format("Wpn #{0} Sides", i + 1);
 		}
 
+		protected virtual string GetPrintedNameWeaponsField5()
+		{
+			var i = Index;
+
+			return string.Format("Wpn #{0} Number Of Hands", i + 1);
+		}
+
 		#endregion
 
 		#region GetName Methods
@@ -513,6 +520,7 @@ namespace Eamon.Game.Helpers
 				GetName("WeaponsField2", addToNamesList);
 				GetName("WeaponsField3", addToNamesList);
 				GetName("WeaponsField4", addToNamesList);
+				GetName("WeaponsField5", addToNamesList);
 			}
 
 			return "Weapons";
@@ -677,6 +685,20 @@ namespace Eamon.Game.Helpers
 			var i = Index;
 
 			var result = string.Format("Weapons[{0}].Field4", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		protected virtual string GetNameWeaponsField5(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("Weapons[{0}].Field5", i);
 
 			if (addToNamesList)
 			{
@@ -893,6 +915,13 @@ namespace Eamon.Game.Helpers
 			var i = Index;
 
 			return Record.GetWeapons(i).Field4;
+		}
+
+		protected virtual object GetValueWeaponsField5()
+		{
+			var i = Index;
+
+			return Record.GetWeapons(i).Field5;
 		}
 
 		#endregion
@@ -1397,7 +1426,8 @@ namespace Eamon.Game.Helpers
 								ValidateField("WeaponsField1") &&
 								ValidateField("WeaponsField2") &&
 								ValidateField("WeaponsField3") &&
-								ValidateField("WeaponsField4");
+								ValidateField("WeaponsField4") &&
+								ValidateField("WeaponsField5");
 
 				if (result == false)
 				{
@@ -1771,6 +1801,41 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		protected virtual bool ValidateWeaponsField5()
+		{
+			var result = true;
+
+			var activeWeapon = true;
+
+			var i = Index;
+
+			for (var h = 0; h <= i; h++)
+			{
+				if (!Record.IsWeaponActive(h))
+				{
+					activeWeapon = false;
+
+					break;
+				}
+			}
+
+			if (activeWeapon)
+			{
+				if (Record.GetWeapons(i).Field5 == 0)  // auto-upgrade old weapons
+				{
+					Record.GetWeapons(i).Field5 = Record.GetWeapons(i).Field2 == (long)Enums.Weapon.Bow ? 2 : 1;
+				}
+
+				result = Record.GetWeapons(i).Field5 >= 1 && Record.GetWeapons(i).Field5 <= 2;
+			}
+			else
+			{
+				result = Record.GetWeapons(i).Field5 == 0;
+			}
+
+			return result;
+		}
+
 		#endregion
 
 		#region ValidateInterdependencies Methods
@@ -2009,6 +2074,17 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		protected virtual void PrintDescWeaponsField5()
+		{
+			var i = Index;
+
+			var fullDesc = string.Format("Enter the character's weapon #{0} number of hands required.", i + 1);
+
+			var briefDesc = "1-2=Valid value";
+
+			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+		}
+
 		#endregion
 
 		#region List Methods
@@ -2237,6 +2313,7 @@ namespace Eamon.Game.Helpers
 				ListField("WeaponsField2");
 				ListField("WeaponsField3");
 				ListField("WeaponsField4");
+				ListField("WeaponsField5");
 			}
 
 			AddToListedNames = false;
@@ -2392,6 +2469,21 @@ namespace Eamon.Game.Helpers
 					var listNum = NumberFields ? ListNum++ : 0;
 
 					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponsField4"), null), Record.GetWeapons(i).Field4);
+				}
+			}
+		}
+
+		protected virtual void ListWeaponsField5()
+		{
+			var i = Index;
+
+			if (FullDetail)
+			{
+				if (!ExcludeROFields || Record.IsWeaponActive(i))
+				{
+					var listNum = NumberFields ? ListNum++ : 0;
+
+					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponsField5"), null), Record.GetWeapons(i).Field5);
 				}
 			}
 		}
@@ -2819,6 +2911,7 @@ namespace Eamon.Game.Helpers
 				InputField("WeaponsField2");
 				InputField("WeaponsField3");
 				InputField("WeaponsField4");
+				InputField("WeaponsField5");
 			}
 		}
 
@@ -2874,6 +2967,8 @@ namespace Eamon.Game.Helpers
 
 						Record.GetWeapons(i).Field4 = 6;
 
+						Record.GetWeapons(i).Field5 = 1;
+
 						clearExtraFields = true;
 					}
 
@@ -2901,6 +2996,8 @@ namespace Eamon.Game.Helpers
 						Record.GetWeapons(k).Field3 = 0;
 
 						Record.GetWeapons(k).Field4 = 0;
+
+						Record.GetWeapons(k).Field5 = 0;
 
 						Record.GetWeapons(k).ClearExtraFields();
 					}
@@ -3258,6 +3355,51 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		protected virtual void InputWeaponsField5()
+		{
+			var i = Index;
+
+			if (Record.IsWeaponActive(i))
+			{
+				var fieldDesc = FieldDesc;
+
+				var field5 = Record.GetWeapons(i).Field5;
+
+				while (true)
+				{
+					Buf.SetFormat(EditRec ? "{0}" : "", field5);
+
+					PrintFieldDesc("WeaponsField5", EditRec, EditField, fieldDesc);
+
+					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("WeaponsField5"), "1"));
+
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharDigit, null);
+
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+					Record.GetWeapons(i).Field5 = Convert.ToInt64(Buf.Trim().ToString());
+
+					if (ValidateField("WeaponsField5"))
+					{
+						break;
+					}
+
+					fieldDesc = Enums.FieldDesc.Brief;
+				}
+
+				if (Record.GetWeapons(i).Field5 != field5)
+				{
+					Record.GetWeapons(i).ClearExtraFields();
+				}
+
+				Globals.Out.Print("{0}", Globals.LineSep);
+			}
+			else
+			{
+				Record.GetWeapons(i).Field5 = 0;
+			}
+		}
+
 		#endregion
 
 		#region BuildValue Methods
@@ -3292,7 +3434,10 @@ namespace Eamon.Game.Helpers
 
 		#region Interface IHelper
 
-		// do nothing
+		public override bool ValidateRecordAfterDatabaseLoaded()
+		{
+			return true;
+		}
 
 		#endregion
 

@@ -1,21 +1,14 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="1" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="broken door" />
-            <Null name="Synonyms" />
-            <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="It is an average insulated door except that it is splintered and broken where the hinges once were.  Through it all, a small sign has remained nailed to it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -25,29 +18,30 @@
             <Simple name="Location" value="2001" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="2" />
+            <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sign" />
+            <Simple name="Name" value="broken door" />
+            <Simple name="Desc" value="It is an average insulated door except that it is splintered and broken where the hinges once were.  Through it all, a small sign has remained nailed to it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="A sign has been hastily attached to the broken door with rusty nails.  The message on it is faded but you could still READ it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -57,29 +51,30 @@
             <Simple name="Location" value="2001" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="1" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="3" />
+            <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="mailbox" />
+            <Simple name="Name" value="sign" />
+            <Simple name="Desc" value="A sign has been hastily attached to the broken door with rusty nails.  The message on it is faded but you could still READ it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The mailbox is a small, black aluminum receptacle mounted to the side of the building.  It has almost rusted shut from lack of use, but will still OPEN." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -89,29 +84,30 @@
             <Simple name="Location" value="2001" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="5" />
                     <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="4" />
+            <Simple name="Uid" value="3" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="piece of paper" />
+            <Simple name="Name" value="mailbox" />
+            <Simple name="Desc" value="The mailbox is a small, black aluminum receptacle mounted to the side of the building.  It has almost rusted shut from lack of use, but will still OPEN." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a piece of paper that has been folded neatly in half.  You unfold it and see that it has some writing on it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -121,29 +117,30 @@
             <Simple name="Location" value="1003" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="2" />
                     <Simple name="Field2" value="8" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="5" />
+            <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="door" />
+            <Simple name="Name" value="piece of paper" />
+            <Simple name="Desc" value="You see a piece of paper that has been folded neatly in half.  You unfold it and see that it has some writing on it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The door is made of a solid oak and reinforced by steel bands.  It has a brass knob with a small keyhole under it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -153,29 +150,30 @@
             <Simple name="Location" value="2002" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="4" />
                     <Simple name="Field2" value="6" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="6" />
+            <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="brass key" />
+            <Simple name="Name" value="door" />
+            <Simple name="Desc" value="The door is made of a solid oak and reinforced by steel bands.  It has a brass knob with a small keyhole under it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a small old fashioned key made of brass.  It has a little smiley face tag attached to it which reads, &quot;Office&quot;." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -185,29 +183,30 @@
             <Simple name="Location" value="-2" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="7" />
+            <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="toilet" />
+            <Simple name="Name" value="brass key" />
+            <Simple name="Desc" value="You see a small old fashioned key made of brass.  It has a little smiley face tag attached to it which reads, &quot;Office&quot;." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The toilet is a dirty white color and the porcelain is a bit chipped.  It appears to be functional and you notice nothing special or unusual about it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -217,29 +216,30 @@
             <Simple name="Location" value="2003" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="10" />
                     <Simple name="Field4" value="3" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="8" />
+            <Simple name="Uid" value="7" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sink" />
+            <Simple name="Name" value="toilet" />
+            <Simple name="Desc" value="The toilet is a dirty white color and the porcelain is a bit chipped.  It appears to be functional and you notice nothing special or unusual about it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The sink is made of stainless steel and has a cabinet below it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -249,29 +249,30 @@
             <Simple name="Location" value="2003" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="9" />
+            <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="cabinet" />
+            <Simple name="Name" value="sink" />
+            <Simple name="Desc" value="The sink is made of stainless steel and has a cabinet below it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a cabinet which has been crudely constructed from old crooked boards.  It looks as though it hasn't been opened in ages." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -281,29 +282,30 @@
             <Simple name="Location" value="2003" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="20" />
                     <Simple name="Field4" value="2" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="10" />
+            <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="wrench" />
+            <Simple name="Name" value="cabinet" />
+            <Simple name="Desc" value="You see a cabinet which has been crudely constructed from old crooked boards.  It looks as though it hasn't been opened in ages." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a rusty pipe wrench which could also be used as a weapon.  Eamon Deluxe monsters are &quot;smart&quot;, GIVE WRENCH TO EDDIE, then REQUEST his mace and he will READY the wrench (or a better weapon) if he is carrying one." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -313,29 +315,30 @@
             <Simple name="Location" value="1009" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="15" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="11" />
+            <Simple name="Uid" value="10" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="kitchen knife" />
+            <Simple name="Name" value="wrench" />
+            <Simple name="Desc" value="You see a rusty pipe wrench which could also be used as a weapon.  Eamon Deluxe monsters are &quot;smart&quot;, GIVE WRENCH TO EDDIE, then REQUEST his mace and he will READY the wrench (or a better weapon) if he is carrying one." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a kitchen knife that someone has left sitting out.  It has a long, although rather dull, blade and would not make a very good weapon until sharpened." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -345,29 +348,30 @@
             <Simple name="Location" value="7" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-15" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="4" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="12" />
+            <Simple name="Uid" value="11" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sandwich" />
+            <Simple name="Name" value="kitchen knife" />
+            <Simple name="Desc" value="You see a kitchen knife that someone has left sitting out.  It has a long, although rather dull, blade and would not make a very good weapon until sharpened." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="Someone has left a fresh ham and cheese sitting here.  It has one large bite taken out of it and looks like it was just made." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -377,29 +381,30 @@
             <Simple name="Location" value="7" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Edible" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="13" />
+            <Simple name="Uid" value="12" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="desk" />
+            <Simple name="Name" value="sandwich" />
+            <Simple name="Desc" value="Someone has left a fresh ham and cheese sitting here.  It has one large bite taken out of it and looks like it was just made." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an expensive, well-crafted oak desk in the center of the room.  It has a single drawer (OPEN DESK) and an old typewriter sits on top of it.  You are suddenly alarmed by what appears to be freshly spattered blood on one corner of it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -409,29 +414,30 @@
             <Simple name="Location" value="4" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="6" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="10" />
                     <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="14" />
+            <Simple name="Uid" value="13" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="typewriter" />
+            <Simple name="Name" value="desk" />
+            <Simple name="Desc" value="You see an expensive, well-crafted oak desk in the center of the room.  It has a single drawer (OPEN DESK) and an old typewriter sits on top of it.  You are suddenly alarmed by what appears to be freshly spattered blood on one corner of it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a very old Smith-Corona, possibly an antique.  Sam Slicker would probably pay a decent price for this relic." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -441,29 +447,30 @@
             <Simple name="Location" value="2004" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="15" />
+            <Simple name="Uid" value="14" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="shelf" />
+            <Simple name="Name" value="typewriter" />
+            <Simple name="Desc" value="You see a very old Smith-Corona, possibly an antique.  Sam Slicker would probably pay a decent price for this relic." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="Some" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The shelves have dust marks which give the impression that not so long ago they were filled with books.  Only one book remains now.  Odd, that book appears to be connected to the back of the shelves.  (EXAMINE BOOK)" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -473,29 +480,30 @@
             <Simple name="Location" value="4" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="16" />
+            <Simple name="Uid" value="15" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="pile of ashes" />
+            <Simple name="Name" value="shelf" />
+            <Simple name="Desc" value="The shelves have dust marks which give the impression that not so long ago they were filled with books.  Only one book remains now.  Odd, that book appears to be connected to the back of the shelves.  (EXAMINE BOOK)" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The pile of ashes is still warm and appears to have been made from a large amount of paper.  Unfortunately, everything has been burnt beyond recognition." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -505,29 +513,30 @@
             <Simple name="Location" value="2004" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="17" />
+            <Simple name="Uid" value="16" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="book (a secret door north)" />
+            <Simple name="Name" value="pile of ashes" />
+            <Simple name="Desc" value="The pile of ashes is still warm and appears to have been made from a large amount of paper.  Unfortunately, everything has been burnt beyond recognition." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="By pulling on the book, you cause the set of shelves on the north wall to swing open, revealing a secret door!" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -537,29 +546,30 @@
             <Simple name="Location" value="2004" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="5" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="18" />
+            <Simple name="Uid" value="17" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="diary" />
+            <Simple name="Name" value="book (a secret door north)" />
+            <Simple name="Desc" value="By pulling on the book, you cause the set of shelves on the north wall to swing open, revealing a secret door!" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The only thing inside the desk is a small diary.  It is leather bound and full of writing." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -569,29 +579,30 @@
             <Simple name="Location" value="1013" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="12" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="19" />
+            <Simple name="Uid" value="18" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="giant club" />
+            <Simple name="Name" value="diary" />
+            <Simple name="Desc" value="The only thing inside the desk is a small diary.  It is leather bound and full of writing." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The ogre's weapon is a giant hunk of wood with nails in the end." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -601,29 +612,30 @@
             <Simple name="Location" value="-2" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="2" />
                     <Simple name="Field4" value="4" />
+                    <Simple name="Field5" value="2" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="20" />
+            <Simple name="Uid" value="19" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="secret door in the south wall" />
+            <Simple name="Name" value="giant club" />
+            <Simple name="Desc" value="The ogre's weapon is a giant hunk of wood with nails in the end." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You press a loose brick and the south wall swings open, revealing a hidden passage." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -633,29 +645,30 @@
             <Simple name="Location" value="2008" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="9" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="21" />
+            <Simple name="Uid" value="20" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="lantern" />
+            <Simple name="Name" value="secret door in the south wall" />
+            <Simple name="Desc" value="You press a loose brick and the south wall swings open, revealing a hidden passage." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a tarnished old lantern.  The glass is cracked and it has a few dents in it but it still looks like it will light." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -665,29 +678,30 @@
             <Simple name="Location" value="1009" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="LightSource" />
                     <Simple name="Field1" value="200" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="22" />
+            <Simple name="Uid" value="21" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="spear" />
+            <Simple name="Name" value="lantern" />
+            <Simple name="Desc" value="You see a tarnished old lantern.  The glass is cracked and it has a few dents in it but it still looks like it will light." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a very poor quality spear.  The shaft is made from a crooked stick and the tip is loosely fashioned at the end of it.  It would make a terrible weapon." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -697,29 +711,30 @@
             <Simple name="Location" value="-3" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="3" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="23" />
+            <Simple name="Uid" value="22" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Headchopper" />
+            <Simple name="Name" value="spear" />
+            <Simple name="Desc" value="You see a very poor quality spear.  The shaft is made from a crooked stick and the tip is loosely fashioned at the end of it.  It would make a terrible weapon." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="None" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="One of the Ogres dropped a large axe.  For its size, it seems extremely light and the blade is razor sharp.  A faint green glow seems to indicate that it is a magic weapon!" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -729,29 +744,30 @@
             <Simple name="Location" value="-3" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
                     <Simple name="Field1" value="25" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="2" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="24" />
+            <Simple name="Uid" value="23" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="broken sword" />
+            <Simple name="Name" value="Headchopper" />
+            <Simple name="Desc" value="One of the Ogres dropped a large axe.  For its size, it seems extremely light and the blade is razor sharp.  A faint green glow seems to indicate that it is a magic weapon!" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The sword was a poor Marcos style generic model.  It is now covered with fresh blood and the blade has been broken off at the hilt." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -761,29 +777,30 @@
             <Simple name="Location" value="2014" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-30" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="25" />
+            <Simple name="Uid" value="24" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="spear" />
+            <Simple name="Name" value="broken sword" />
+            <Simple name="Desc" value="The sword was a poor Marcos style generic model.  It is now covered with fresh blood and the blade has been broken off at the hilt." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="One of the giants dropped a wicked looking spear.  Its razor sharp tip gleams menacingly." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -793,29 +810,30 @@
             <Simple name="Location" value="-4" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="26" />
+            <Simple name="Uid" value="25" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="battle axe" />
+            <Simple name="Name" value="spear" />
+            <Simple name="Desc" value="One of the giants dropped a wicked looking spear.  Its razor sharp tip gleams menacingly." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an axe that one of the giants dropped.  It is a plain, standard Marcos type with a chipped blade." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -825,29 +843,30 @@
             <Simple name="Location" value="-4" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="5" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="27" />
+            <Simple name="Uid" value="26" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="pointed stick" />
+            <Simple name="Name" value="battle axe" />
+            <Simple name="Desc" value="You see an axe that one of the giants dropped.  It is a plain, standard Marcos type with a chipped blade." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="One of the giants dropped a long stick with a sharp point carved into the end." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -857,29 +876,30 @@
             <Simple name="Location" value="-4" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-15" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="4" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="28" />
+            <Simple name="Uid" value="27" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="slingshot" />
+            <Simple name="Name" value="pointed stick" />
+            <Simple name="Desc" value="One of the giants dropped a long stick with a sharp point carved into the end." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="Black Bob was using a sling shot as a weapon.  It is well crafted and has a good supply of stones to go with it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -889,29 +909,30 @@
             <Simple name="Location" value="-5" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="2" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="2" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="29" />
+            <Simple name="Uid" value="28" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="mace" />
+            <Simple name="Name" value="slingshot" />
+            <Simple name="Desc" value="Black Bob was using a sling shot as a weapon.  It is well crafted and has a good supply of stones to go with it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see Nice Guy Eddie's weapon, a wicked spiked club.  The spikes are well sharpened and the weapon is very well balanced." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -921,29 +942,30 @@
             <Simple name="Location" value="-6" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="25" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="2" />
                     <Simple name="Field4" value="4" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="30" />
+            <Simple name="Uid" value="29" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="goose shield" />
+            <Simple name="Name" value="mace" />
+            <Simple name="Desc" value="You see Nice Guy Eddie's weapon, a wicked spiked club.  The spikes are well sharpened and the weapon is very well balanced." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="Nice Guy Eddie was carrying a sturdy shield with a large goose painted on the front of it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -953,29 +975,30 @@
             <Simple name="Location" value="-1005" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Wearable" />
                     <Simple name="Field1" value="1" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="31" />
+            <Simple name="Uid" value="30" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="secret message" />
+            <Simple name="Name" value="goose shield" />
+            <Simple name="Desc" value="Nice Guy Eddie was carrying a sturdy shield with a large goose painted on the front of it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="Nice Guy Eddie was carrying a folded piece of paper with your name on it!" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -985,29 +1008,30 @@
             <Simple name="Location" value="-6" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="16" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="32" />
+            <Simple name="Uid" value="31" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="hunting knife" />
+            <Simple name="Name" value="secret message" />
+            <Simple name="Desc" value="Nice Guy Eddie was carrying a folded piece of paper with your name on it!" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a sharp knife with a 12-inch blade that belonged to Newt Traal." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1017,29 +1041,30 @@
             <Simple name="Location" value="-7" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-15" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="33" />
+            <Simple name="Uid" value="32" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="long sword" />
+            <Simple name="Name" value="hunting knife" />
+            <Simple name="Desc" value="You see a sharp knife with a 12-inch blade that belonged to Newt Traal." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see Andy's weapon, an average Marcos style long sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1049,29 +1074,30 @@
             <Simple name="Location" value="-8" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="4" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="34" />
+            <Simple name="Uid" value="33" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="cell door" />
+            <Simple name="Name" value="long sword" />
+            <Simple name="Desc" value="You see Andy's weapon, an average Marcos style long sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The cell door is made out of roughly forged metals but looks pretty sturdy." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1081,29 +1107,30 @@
             <Simple name="Location" value="2016" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="17" />
                     <Simple name="Field2" value="35" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="35" />
+            <Simple name="Uid" value="34" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="skeleton key" />
+            <Simple name="Name" value="cell door" />
+            <Simple name="Desc" value="The cell door is made out of roughly forged metals but looks pretty sturdy." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The guard was carrying a small skeleton key which obviously opens the cell." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1113,29 +1140,30 @@
             <Simple name="Location" value="-9" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="36" />
+            <Simple name="Uid" value="35" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="rack" />
+            <Simple name="Name" value="skeleton key" />
+            <Simple name="Desc" value="The guard was carrying a small skeleton key which obviously opens the cell." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The rack is a horrible torture device used to stretch victims far beyond their limits." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1145,29 +1173,30 @@
             <Simple name="Location" value="2017" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="37" />
+            <Simple name="Uid" value="36" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="pile of straw" />
+            <Simple name="Name" value="rack" />
+            <Simple name="Desc" value="The rack is a horrible torture device used to stretch victims far beyond their limits." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see nothing special about the pile of straw except for maybe the rare species of flea which inhabit it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1177,29 +1206,30 @@
             <Simple name="Location" value="2017" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="38" />
+            <Simple name="Uid" value="37" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="prisoner" />
+            <Simple name="Name" value="pile of straw" />
+            <Simple name="Desc" value="You see nothing special about the pile of straw except for maybe the rare species of flea which inhabit it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a poor man with cuts and bruises all over his body.  He is shackled to the wall and pleads with you to release him." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1209,29 +1239,30 @@
             <Simple name="Location" value="17" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="BoundMonster" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="9" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="39" />
+            <Simple name="Uid" value="38" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="whip" />
+            <Simple name="Name" value="prisoner" />
+            <Simple name="Desc" value="You see a poor man with cuts and bruises all over his body.  He is shackled to the wall and pleads with you to release him." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The Interrogator has dropped a small black whip.  It looks like it would make a poor quality weapon." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1241,29 +1272,30 @@
             <Simple name="Location" value="-10" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-25" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="3" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="40" />
+            <Simple name="Uid" value="39" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="bamboo shoot" />
+            <Simple name="Name" value="whip" />
+            <Simple name="Desc" value="The Interrogator has dropped a small black whip.  It looks like it would make a poor quality weapon." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="Some" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an array of bamboo shoots for putting under people's fingernails." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -1273,29 +1305,30 @@
             <Simple name="Location" value="-10" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="41" />
+            <Simple name="Uid" value="40" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="card" />
+            <Simple name="Name" value="bamboo shoot" />
+            <Simple name="Desc" value="You see an array of bamboo shoots for putting under people's fingernails." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The prisoner seems to have been carrying a card with your name on it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1305,29 +1338,30 @@
             <Simple name="Location" value="-11" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="17" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="42" />
+            <Simple name="Uid" value="41" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sea shell" />
+            <Simple name="Name" value="card" />
+            <Simple name="Desc" value="The prisoner seems to have been carrying a card with your name on it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="Some" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a large assortment of pretty shells of all different colors.  You could probably sell them to craft workers back at the Main Hall for a decent amount." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -1337,29 +1371,30 @@
             <Simple name="Location" value="2019" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="43" />
+            <Simple name="Uid" value="42" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="wooden trunk" />
+            <Simple name="Name" value="sea shell" />
+            <Simple name="Desc" value="You see a large assortment of pretty shells of all different colors.  You could probably sell them to craft workers back at the Main Hall for a decent amount." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a large wooden trunk with leather and steel bands keeping it closed and secure." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1369,29 +1404,30 @@
             <Simple name="Location" value="10" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1010" />
                     <Simple name="Field3" value="50" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="44" />
+            <Simple name="Uid" value="43" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="old chest" />
+            <Simple name="Name" value="wooden trunk" />
+            <Simple name="Desc" value="You see a large wooden trunk with leather and steel bands keeping it closed and secure." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an old chest with leather and steel bands keeping it closed and secure." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1401,29 +1437,30 @@
             <Simple name="Location" value="11" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DisguisedMonster" />
                     <Simple name="Field1" value="11" />
                     <Simple name="Field2" value="18" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="45" />
+            <Simple name="Uid" value="44" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="ring" />
+            <Simple name="Name" value="old chest" />
+            <Simple name="Desc" value="You see an old chest with leather and steel bands keeping it closed and secure." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You find a solid gold &quot;decoder&quot; ring which must have come from some young prince's breakfast cereal.  This is an example of clothing type #5 (jewelry) and, of course, you can WEAR it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1433,29 +1470,30 @@
             <Simple name="Location" value="1043" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Wearable" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="46" />
+            <Simple name="Uid" value="45" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="wooden door" />
+            <Simple name="Name" value="ring" />
+            <Simple name="Desc" value="You find a solid gold &quot;decoder&quot; ring which must have come from some young prince's breakfast cereal.  This is an example of clothing type #5 (jewelry) and, of course, you can WEAR it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="A plain wooden door blocks your passage to the south.  It has no keyhole but it doesn't look very sturdy and could easily be forced open.  (Note:  Just as you can ATTACK doors and containers, you can also BLAST them as well.)" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1465,29 +1503,30 @@
             <Simple name="Location" value="13" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="14" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="1020" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="47" />
+            <Simple name="Uid" value="46" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="healing potion" />
+            <Simple name="Name" value="wooden door" />
+            <Simple name="Desc" value="A plain wooden door blocks your passage to the south.  It has no keyhole but it doesn't look very sturdy and could easily be forced open.  (Note:  Just as you can ATTACK doors and containers, you can also BLAST them as well.)" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a white bottle with a black label that reads, &quot;HEALING POTION&quot;." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1497,29 +1536,30 @@
             <Simple name="Location" value="10" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="48" />
+            <Simple name="Uid" value="47" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="message#1" />
+            <Simple name="Name" value="healing potion" />
+            <Simple name="Desc" value="You see a white bottle with a black label that reads, &quot;HEALING POTION&quot;." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="None" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a message tacked over the sink.  It says, &quot;Try to READ me, I have been put here to deliberately generate a game error.&quot;" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1529,29 +1569,30 @@
             <Simple name="Location" value="3" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="9000" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="49" />
+            <Simple name="Uid" value="48" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="message#2" />
+            <Simple name="Name" value="message#1" />
+            <Simple name="Desc" value="You see a message tacked over the sink.  It says, &quot;Try to READ me, I have been put here to deliberately generate a game error.&quot;" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a second message, also tacked over the sink.  It says, &quot;Try to READ me too, as I have also been put here to deliberately generate a game error.&quot;" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1561,29 +1602,30 @@
             <Simple name="Location" value="3" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="20" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="50" />
+            <Simple name="Uid" value="49" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="dead rat" />
+            <Simple name="Name" value="message#2" />
+            <Simple name="Desc" value="You see a second message, also tacked over the sink.  It says, &quot;Try to READ me too, as I have also been put here to deliberately generate a game error.&quot;" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a dead rat that was floating in the toilet.  This is an example of (yech!!) a dead body that can be picked up." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1593,29 +1635,30 @@
             <Simple name="Location" value="1007" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="1" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="51" />
+            <Simple name="Uid" value="50" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="dead wumpus" />
+            <Simple name="Name" value="dead rat" />
+            <Simple name="Desc" value="You see a dead rat that was floating in the toilet.  This is an example of (yech!!) a dead body that can be picked up." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a poor dead wumpus all shriveled up in the corner.  This is an example of a normal dead body artifact.  It can't be picked up and will be totally ignored by GET ALL, but note that you can ATTACK bodies." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1625,29 +1668,30 @@
             <Simple name="Location" value="8" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="52" />
+            <Simple name="Uid" value="51" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="rubber chicken" />
+            <Simple name="Name" value="dead wumpus" />
+            <Simple name="Desc" value="You see a poor dead wumpus all shriveled up in the corner.  This is an example of a normal dead body artifact.  It can't be picked up and will be totally ignored by GET ALL, but note that you can ATTACK bodies." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a rubber chicken, commonly used as a joke gift or as a prop by comedians and other entertainers.  Charles was carrying it as a crude form of defense." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1657,29 +1701,30 @@
             <Simple name="Location" value="-13" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-5" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="4" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="53" />
+            <Simple name="Uid" value="52" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="pirate hat" />
+            <Simple name="Name" value="rubber chicken" />
+            <Simple name="Desc" value="You see a rubber chicken, commonly used as a joke gift or as a prop by comedians and other entertainers.  Charles was carrying it as a crude form of defense." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="It appears some careless buccaneer has dropped his headwear here.  It is in very good condition and a tag sewn onto the inside simply reads, &quot;ROBERTS&quot;." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1689,29 +1734,30 @@
             <Simple name="Location" value="18" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Wearable" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="54" />
+            <Simple name="Uid" value="53" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="eye patch" />
+            <Simple name="Name" value="pirate hat" />
+            <Simple name="Desc" value="It appears some careless buccaneer has dropped his headwear here.  It is in very good condition and a tag sewn onto the inside simply reads, &quot;ROBERTS&quot;." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a black eye patch with a skull and cross bones insignia on it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1721,29 +1767,30 @@
             <Simple name="Location" value="-12" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Wearable" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="55" />
+            <Simple name="Uid" value="54" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="bed" />
+            <Simple name="Name" value="eye patch" />
+            <Simple name="Desc" value="You see a black eye patch with a skull and cross bones insignia on it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see what was once an elegant bed with silk sheets.  The box spring is broken in the center, the mattress and sheets have been shredded chaotically and there is a big greasy stain where the ogre was sleeping." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1753,29 +1800,30 @@
             <Simple name="Location" value="2006" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="56" />
+            <Simple name="Uid" value="55" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="table" />
+            <Simple name="Name" value="bed" />
+            <Simple name="Desc" value="You see what was once an elegant bed with silk sheets.  The box spring is broken in the center, the mattress and sheets have been shredded chaotically and there is a big greasy stain where the ogre was sleeping." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an average bedside table with a single drawer that has a brass keyhole.  This an example of a container artifact that can either be opened with the proper key or forced open by using ATTACK or BLAST." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1785,29 +1833,30 @@
             <Simple name="Location" value="2006" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="6" />
                     <Simple name="Field2" value="1010" />
                     <Simple name="Field3" value="10" />
                     <Simple name="Field4" value="4" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="57" />
+            <Simple name="Uid" value="56" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="postcard" />
+            <Simple name="Name" value="table" />
+            <Simple name="Desc" value="You see an average bedside table with a single drawer that has a brass keyhole.  This an example of a container artifact that can either be opened with the proper key or forced open by using ATTACK or BLAST." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="There was a small postcard inside the drawer.  It appears to have suffered greatly during the mailing process, being folded multiple times, splattered with what looks like blood and... is that a lightning bolt burn on one edge?!?  **023" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1817,29 +1866,30 @@
             <Simple name="Location" value="1056" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="24" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="58" />
+            <Simple name="Uid" value="57" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="wood stove" />
+            <Simple name="Name" value="postcard" />
+            <Simple name="Desc" value="There was a small postcard inside the drawer.  It appears to have suffered greatly during the mailing process, being folded multiple times, splattered with what looks like blood and... is that a lightning bolt burn on one edge?!?  **023" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a cast iron wood stove used for both cooking and heat.  Too bad it is much too heavy to move or you could get a hefty price for it back at the Main Hall." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1849,29 +1899,30 @@
             <Simple name="Location" value="2007" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="59" />
+            <Simple name="Uid" value="58" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="kitchen table" />
+            <Simple name="Name" value="wood stove" />
+            <Simple name="Desc" value="You see a cast iron wood stove used for both cooking and heat.  Too bad it is much too heavy to move or you could get a hefty price for it back at the Main Hall." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The kitchen table is old and has suffered much abuse.  The legs wobble, a large crack runs through the center and someone has carved &quot;ROCKY THE ROCK WAS HERE&quot; across the top of it." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1881,29 +1932,30 @@
             <Simple name="Location" value="2007" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="60" />
+            <Simple name="Uid" value="59" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="cupboard" />
+            <Simple name="Name" value="kitchen table" />
+            <Simple name="Desc" value="The kitchen table is old and has suffered much abuse.  The legs wobble, a large crack runs through the center and someone has carved &quot;ROCKY THE ROCK WAS HERE&quot; across the top of it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="Some" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The cupboards have been carved out of a soft pine and seem much newer than the rest of the kitchen.  They are completely bare however and don't look like they have seen much use." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -1913,29 +1965,63 @@
             <Simple name="Location" value="2007" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="100" />
                     <Simple name="Field4" value="10" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
+            <Simple name="Uid" value="60" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cupboard" />
+            <Simple name="Desc" value="The cupboards have been carved out of a soft pine and seem much newer than the rest of the kitchen.  They are completely bare however and don't look like they have seen much use." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="2015" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
             <Simple name="Uid" value="61" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="large table" />
+            <Simple name="Desc" value="The table is made of heavy wood and appears to have suffered much abuse.  Stale wads of chewing gum cover the bottom of it, while a mixture of crude sexual drawings and unintelligible scribbling adorn the top." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The table is made of heavy wood and appears to have suffered much abuse.  Stale wads of chewing gum cover the bottom of it, while a mixture of crude sexual drawings and unintelligible scribbling adorn the top." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1945,49 +2031,25 @@
             <Simple name="Location" value="2015" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
             <Simple name="Uid" value="62" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="chalk board" />
+            <Simple name="Desc" value="The chalk board is dusty but otherwise in decent shape.  Someone has hastily erased the latest diagrams and scribbling, however, leaving nothing behind for you to read." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
-            <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The chalk board is dusty but otherwise in decent shape.  Someone has hastily erased the latest diagrams and scribbling, however, leaving nothing behind for you to read." />
-            <Simple name="IsCharOwned" value="False" />
-            <Simple name="IsPlural" value="False" />
-            <Simple name="IsListed" value="True" />
-            <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="-999" />
-            <Simple name="Location" value="2015" />
-            <SingleArray name="Categories">
-              <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-                  <Properties>
-                    <Simple name="Type" value="Treasure" />
-                    <Simple name="Field1" value="0" />
-                    <Simple name="Field2" value="0" />
-                    <Simple name="Field3" value="0" />
-                    <Simple name="Field4" value="0" />
-                  </Properties>
-                </Complex>
-              </Items>
-            </SingleArray>
           </Properties>
         </Complex>
       </Items>

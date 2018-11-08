@@ -309,6 +309,13 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		public virtual void PrintCantWearShieldWithWeapon(IArtifact shield, IArtifact weapon)
+		{
+			Debug.Assert(shield != null && weapon != null);
+
+			Globals.Out.Print("You can't wear {0} while using {1}.", shield.GetDecoratedName03(false, true, false, false, Globals.Buf), weapon.GetDecoratedName02(false, false, false, false, Globals.Buf01));
+		}
+
 		public virtual void PrintVerbItAll(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
@@ -369,7 +376,14 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Print("{0} a weapon that you can wield.", artifact.EvalPlural("That isn't", "They aren't"));
+			Globals.Out.Print("{0} a weapon that you can use.", artifact.EvalPlural("That isn't", "They aren't"));
+		}
+
+		public virtual void PrintCantReadyWeaponWithShield(IArtifact weapon, IArtifact shield)
+		{
+			Debug.Assert(weapon != null && shield != null);
+
+			Globals.Out.Print("You can't use {0} while wearing {1}.", weapon.GetDecoratedName03(false, true, false, false, Globals.Buf), shield.GetDecoratedName02(false, false, false, false, Globals.Buf01));
 		}
 
 		public virtual void PrintPolitelyRefuses(IMonster monster)

@@ -173,6 +173,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 									x.Field2 = i;
 									x.Field3 = weapon.MarcosDice;
 									x.Field4 = weapon.MarcosSides;
+									x.Field5 = weapon.MarcosNumHands;
 								});
 
 								Globals.Out.Print("Marcos says, \"Well, I just happen to have three {0}s in, of varying quality.  I've got a very good one for {1} GP, a fair one for {2} GP, and a kinda shabby one for {3} GP.  Which do you want?\"",

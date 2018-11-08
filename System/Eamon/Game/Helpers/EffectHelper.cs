@@ -212,6 +212,11 @@ namespace Eamon.Game.Helpers
 
 		#region Interface IHelper
 
+		public override bool ValidateRecordAfterDatabaseLoaded()
+		{
+			return true;
+		}
+
 		public override void ListErrorField()
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));

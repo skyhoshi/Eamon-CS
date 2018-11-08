@@ -909,7 +909,10 @@ namespace Eamon.Game.Helpers
 
 		#region Interface IHelper
 
-		// do nothing
+		public override bool ValidateRecordAfterDatabaseLoaded()
+		{
+			return true;
+		}
 
 		#endregion
 

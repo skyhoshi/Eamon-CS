@@ -32,5 +32,9 @@ namespace Eamon.Game.Primitive.Classes
 		public virtual string Field4Name { get; set; }
 
 		public virtual string Field4EmptyVal { get; set; }
+
+		public virtual string Field5Name { get; set; }
+
+		public virtual string Field5EmptyVal { get; set; }
 	}
 }

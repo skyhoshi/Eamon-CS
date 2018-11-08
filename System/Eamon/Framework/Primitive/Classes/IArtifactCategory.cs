@@ -19,6 +19,8 @@ namespace Eamon.Framework.Primitive.Classes
 
 		long Field4 { get; set; }
 
+		long Field5 { get; set; }
+
 		bool IsOpenable();
 
 		bool IsLockable();

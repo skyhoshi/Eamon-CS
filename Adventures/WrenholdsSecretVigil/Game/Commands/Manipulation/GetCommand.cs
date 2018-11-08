@@ -161,6 +161,8 @@ namespace WrenholdsSecretVigil.Game.Commands
 				ac.Field3 = 0;
 
 				ac.Field4 = 0;
+
+				ac.Field5 = 0;
 			}
 			else
 			{

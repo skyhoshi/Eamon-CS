@@ -80,6 +80,10 @@ namespace Eamon.Framework.Helpers.Generic
 
 		bool ValidateField(string fieldName);
 
+		bool ValidateRecordAfterDatabaseLoaded();
+
+		bool ValidateFieldAfterDatabaseLoaded(string fieldName);
+
 		bool ValidateRecordInterdependencies();
 
 		bool ValidateFieldInterdependencies(string fieldName);

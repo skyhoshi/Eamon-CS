@@ -63,6 +63,21 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
+				// can't use two-handed weapon while wearing shield
+
+				if (Globals.GameState.Sh > 0 && ac.Field5 > 1)
+				{
+					var shield = Globals.ADB[Globals.GameState.Sh];
+
+					Debug.Assert(shield != null);
+
+					PrintCantReadyWeaponWithShield(DobjArtifact, shield);
+
+					NextState = Globals.CreateInstance<IStartState>();
+
+					goto Cleanup;
+				}
+
 				var wpnArtifact = Globals.ADB[ActorMonster.Weapon];
 
 				if (wpnArtifact != null)

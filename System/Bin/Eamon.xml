@@ -349,6 +349,16 @@
             array, which is consistent with how older Eamon games are implemented.
             </remarks>
         </member>
+        <member name="P:Eamon.Framework.IArtifact.Field5">
+            <summary>
+            A convenience property representing the artifact Field5 data field.
+            </summary>
+            <remarks>
+            This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+            the artifact's Field5 data field.  It uses the 0'th element of the <see cref="P:Eamon.Framework.IArtifact.Categories"/>
+            array, which is consistent with how older Eamon games are implemented.
+            </remarks>
+        </member>
         <member name="P:Eamon.Framework.IEngine.MacroFuncs">
             <summary>
             A collection of functions used to resolve macros embedded in Desc and StateDesc properties for various record types.

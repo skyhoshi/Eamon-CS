@@ -1062,6 +1062,17 @@ namespace EamonRT
 					goto Cleanup;
 				}
 
+				rc = Globals.Engine.ValidateRecordsAfterDatabaseLoaded();
+
+				if (Globals.Engine.IsFailure(rc))
+				{
+					Globals.Error.Write("Error: ValidateRecordsAfterDatabaseLoaded function call failed");
+
+					Globals.Engine.UnlinkOnFailure();
+
+					goto Cleanup;
+				}
+
 				var printIntroOutput = Globals.IntroStory.ShouldPrintOutput;
 
 				Globals.Out.WriteLine("{0}{1}{0}", Environment.NewLine, Globals.LineSep);

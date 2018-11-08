@@ -96,6 +96,23 @@ namespace EamonRT.Game.Commands
 							goto Cleanup;
 						}
 
+						// can't wear shield while using two-handed weapon
+
+						var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
+
+						var weapon = ActorMonster.Weapon > 0 ? Globals.ADB[ActorMonster.Weapon] : null;
+
+						var weaponAc = weapon != null ? weapon.GetArtifactCategory(artTypes) : null;
+
+						if (weaponAc != null && weaponAc.Field5 > 1)
+						{
+							PrintCantWearShieldWithWeapon(DobjArtifact, weapon);
+
+							NextState = Globals.CreateInstance<IStartState>();
+
+							goto Cleanup;
+						}
+
 						Globals.GameState.Sh = DobjArtifact.Uid;
 
 						ActorMonster.Armor = (arAc != null ? arAc.Field1 / 2 : 0) + dobjAc.Field1;

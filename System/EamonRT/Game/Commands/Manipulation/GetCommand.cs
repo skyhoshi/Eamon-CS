@@ -119,6 +119,8 @@ namespace EamonRT.Game.Commands
 			{
 				var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Container, Enums.ArtifactType.DeadBody, Enums.ArtifactType.BoundMonster, Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
 
+				var artTypes01 = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
+
 				var nlFlag = false;
 
 				IArtifact wpnArtifact = null;
@@ -136,12 +138,11 @@ namespace EamonRT.Game.Commands
 
 					ProcessArtifact(artifact, ac, ref nlFlag);
 
-					if (artifact.IsReadyableByCharacter() && artifact.IsCarriedByCharacter())
+					var ac01 = artifact.GetArtifactCategory(artTypes01);
+
+					if (artifact.IsReadyableByCharacter() && artifact.IsCarriedByCharacter() && (wpnArtifact == null || Globals.Engine.WeaponPowerCompare(artifact, wpnArtifact) > 0) && (!GetAll || ArtifactList.Count == 1 || Globals.GameState.Sh < 1 || ac01.Field5 < 2))
 					{
-						if (wpnArtifact == null || Globals.Engine.WeaponPowerCompare(artifact, wpnArtifact) > 0)
-						{
-							wpnArtifact = artifact;
-						}
+						wpnArtifact = artifact;
 					}
 				}
 

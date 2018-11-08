@@ -391,6 +391,11 @@ namespace EamonRT.Game.Commands
 			CommandImpl.PrintWearingRemoveFirst01(artifact);
 		}
 
+		public virtual void PrintCantWearShieldWithWeapon(IArtifact shield, IArtifact weapon)
+		{
+			CommandImpl.PrintCantWearShieldWithWeapon(shield, weapon);
+		}
+
 		public virtual void PrintVerbItAll(IArtifact artifact)
 		{
 			CommandImpl.PrintVerbItAll(artifact);
@@ -434,6 +439,11 @@ namespace EamonRT.Game.Commands
 		public virtual void PrintNotReadyableWeapon(IArtifact artifact)
 		{
 			CommandImpl.PrintNotReadyableWeapon(artifact);
+		}
+
+		public virtual void PrintCantReadyWeaponWithShield(IArtifact weapon, IArtifact shield)
+		{
+			CommandImpl.PrintCantReadyWeaponWithShield(weapon, shield);
 		}
 
 		public virtual void PrintPolitelyRefuses(IMonster monster)

@@ -1,21 +1,14 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="1" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sword" />
-            <Null name="Synonyms" />
-            <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -25,29 +18,30 @@
             <Simple name="Location" value="-8" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="2" />
+            <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="axe" />
+            <Simple name="Name" value="sword" />
+            <Simple name="Desc" value="You see a sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an axe." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -57,29 +51,30 @@
             <Simple name="Location" value="-9" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="3" />
+            <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="mace" />
+            <Simple name="Name" value="axe" />
+            <Simple name="Desc" value="You see an axe." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a huge mace." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -89,29 +84,30 @@
             <Simple name="Location" value="-10" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="4" />
+            <Simple name="Uid" value="3" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="mace" />
+            <Simple name="Desc" value="You see a huge mace." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a mace." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -121,29 +117,30 @@
             <Simple name="Location" value="-11" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="5" />
+            <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sword" />
+            <Simple name="Name" value="mace" />
+            <Simple name="Desc" value="You see a mace." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -153,29 +150,30 @@
             <Simple name="Location" value="-12" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="6" />
+            <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="sword" />
+            <Simple name="Desc" value="You see a sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -185,29 +183,30 @@
             <Simple name="Location" value="-14" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="7" />
+            <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="axe" />
+            <Simple name="Name" value="sword" />
+            <Simple name="Desc" value="You see a sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an axe." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -217,29 +216,30 @@
             <Simple name="Location" value="-15" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="8" />
+            <Simple name="Uid" value="7" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="mace" />
+            <Simple name="Name" value="axe" />
+            <Simple name="Desc" value="You see an axe." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a mace." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -249,29 +249,30 @@
             <Simple name="Location" value="-16" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="9" />
+            <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sword" />
+            <Simple name="Name" value="mace" />
+            <Simple name="Desc" value="You see a mace." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -281,29 +282,30 @@
             <Simple name="Location" value="-17" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="10" />
+            <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="axe" />
+            <Simple name="Name" value="sword" />
+            <Simple name="Desc" value="You see a sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an axe." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -313,29 +315,30 @@
             <Simple name="Location" value="-18" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="11" />
+            <Simple name="Uid" value="10" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Joubert's sword" />
+            <Simple name="Name" value="axe" />
+            <Simple name="Desc" value="You see an axe." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="None" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see Joubert's sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -345,29 +348,30 @@
             <Simple name="Location" value="-19" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="2" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="12" />
+            <Simple name="Uid" value="11" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="axe" />
+            <Simple name="Name" value="Joubert's sword" />
+            <Simple name="Desc" value="You see Joubert's sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an axe." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -377,29 +381,30 @@
             <Simple name="Location" value="-21" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="13" />
+            <Simple name="Uid" value="12" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="club" />
+            <Simple name="Name" value="axe" />
+            <Simple name="Desc" value="You see an axe." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a club." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -409,29 +414,30 @@
             <Simple name="Location" value="-22" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="2" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="14" />
+            <Simple name="Uid" value="13" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sword" />
+            <Simple name="Name" value="club" />
+            <Simple name="Desc" value="You see a club." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -441,29 +447,30 @@
             <Simple name="Location" value="-23" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="15" />
+            <Simple name="Uid" value="14" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="axe" />
+            <Simple name="Name" value="sword" />
+            <Simple name="Desc" value="You see a sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an axe." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -473,29 +480,30 @@
             <Simple name="Location" value="-24" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="16" />
+            <Simple name="Uid" value="15" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="mace" />
+            <Simple name="Name" value="axe" />
+            <Simple name="Desc" value="You see an axe." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a mace." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -505,29 +513,30 @@
             <Simple name="Location" value="-25" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="17" />
+            <Simple name="Uid" value="16" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="axe" />
+            <Simple name="Name" value="mace" />
+            <Simple name="Desc" value="You see a mace." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an axe." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -537,29 +546,30 @@
             <Simple name="Location" value="-26" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="18" />
+            <Simple name="Uid" value="17" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="axe" />
+            <Simple name="Desc" value="You see an axe." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an axe." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -569,29 +579,30 @@
             <Simple name="Location" value="-20" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="19" />
+            <Simple name="Uid" value="18" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="poker" />
+            <Simple name="Name" value="axe" />
+            <Simple name="Desc" value="You see an axe." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a red-hot poker." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -601,29 +612,30 @@
             <Simple name="Location" value="-31" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-20" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="4" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="20" />
+            <Simple name="Uid" value="19" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sword" />
+            <Simple name="Name" value="poker" />
+            <Simple name="Desc" value="You see a red-hot poker." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -633,29 +645,30 @@
             <Simple name="Location" value="-32" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="21" />
+            <Simple name="Uid" value="20" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="sword" />
+            <Simple name="Desc" value="You see a sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -665,29 +678,30 @@
             <Simple name="Location" value="-33" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="22" />
+            <Simple name="Uid" value="21" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Bloodthirst" />
+            <Simple name="Name" value="sword" />
+            <Simple name="Desc" value="You see a sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="None" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see Bloodthirst, the priest's sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -697,29 +711,30 @@
             <Simple name="Location" value="-34" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
                     <Simple name="Field1" value="20" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="2" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="23" />
+            <Simple name="Uid" value="22" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Necronis" />
+            <Simple name="Name" value="Bloodthirst" />
+            <Simple name="Desc" value="You see Bloodthirst, the priest's sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see Necronis, the priest's sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -729,29 +744,30 @@
             <Simple name="Location" value="-36" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
                     <Simple name="Field1" value="20" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="2" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="24" />
+            <Simple name="Uid" value="23" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Wrath Of Ngurct" />
+            <Simple name="Name" value="Necronis" />
+            <Simple name="Desc" value="You see Necronis, the priest's sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see &quot;Wrath Of Ngurct,&quot; the high priest's sword.  The blade seems to pulse and quiver; the hilt is inlaid with rubies." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -761,29 +777,30 @@
             <Simple name="Location" value="-35" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
                     <Simple name="Field1" value="25" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="3" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="25" />
+            <Simple name="Uid" value="24" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="axe" />
+            <Simple name="Name" value="Wrath Of Ngurct" />
+            <Simple name="Desc" value="You see &quot;Wrath Of Ngurct,&quot; the high priest's sword.  The blade seems to pulse and quiver; the hilt is inlaid with rubies." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an axe." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -793,29 +810,30 @@
             <Simple name="Location" value="-37" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="26" />
+            <Simple name="Uid" value="25" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="mace" />
+            <Simple name="Name" value="axe" />
+            <Simple name="Desc" value="You see an axe." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a mace." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -825,29 +843,30 @@
             <Simple name="Location" value="-38" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="10" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="27" />
+            <Simple name="Uid" value="26" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sword" />
+            <Simple name="Name" value="mace" />
+            <Simple name="Desc" value="You see a mace." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a crummy sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -857,29 +876,30 @@
             <Simple name="Location" value="-39" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="28" />
+            <Simple name="Uid" value="27" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="sword" />
+            <Simple name="Desc" value="You see a crummy sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a crummy sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -889,29 +909,30 @@
             <Simple name="Location" value="-40" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="29" />
+            <Simple name="Uid" value="28" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="axe" />
+            <Simple name="Name" value="sword" />
+            <Simple name="Desc" value="You see a crummy sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a dull axe." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -921,29 +942,30 @@
             <Simple name="Location" value="-41" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="30" />
+            <Simple name="Uid" value="29" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sword" />
+            <Simple name="Name" value="axe" />
+            <Simple name="Desc" value="You see a dull axe." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a crummy sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -953,29 +975,30 @@
             <Simple name="Location" value="-42" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="31" />
+            <Simple name="Uid" value="30" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="axe" />
+            <Simple name="Name" value="sword" />
+            <Simple name="Desc" value="You see a crummy sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an axe." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -985,29 +1008,30 @@
             <Simple name="Location" value="-43" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="32" />
+            <Simple name="Uid" value="31" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="mace" />
+            <Simple name="Name" value="axe" />
+            <Simple name="Desc" value="You see an axe." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a mace." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1017,29 +1041,30 @@
             <Simple name="Location" value="-44" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="33" />
+            <Simple name="Uid" value="32" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sword" />
+            <Simple name="Name" value="mace" />
+            <Simple name="Desc" value="You see a mace." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1049,29 +1074,30 @@
             <Simple name="Location" value="-45" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="34" />
+            <Simple name="Uid" value="33" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="double-bladed axe" />
+            <Simple name="Name" value="sword" />
+            <Simple name="Desc" value="You see a sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see the minotaur's double-bladed axe on the ground.  It is highly polished steel; the edge is hard and razor-sharp.  Four sapphires (uncut) adorn the hilts." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1081,29 +1107,30 @@
             <Simple name="Location" value="-46" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="15" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="10" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="35" />
+            <Simple name="Uid" value="34" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="ankh" />
+            <Simple name="Name" value="double-bladed axe" />
+            <Simple name="Desc" value="You see the minotaur's double-bladed axe on the ground.  It is highly polished steel; the edge is hard and razor-sharp.  Four sapphires (uncut) adorn the hilts." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The mummy drops the silver ankh it clutched in deathbed irony." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1113,29 +1140,30 @@
             <Simple name="Location" value="-47" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="36" />
+            <Simple name="Uid" value="35" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="club" />
+            <Simple name="Name" value="ankh" />
+            <Simple name="Desc" value="The mummy drops the silver ankh it clutched in deathbed irony." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a club." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1145,29 +1173,30 @@
             <Simple name="Location" value="-48" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-20" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="37" />
+            <Simple name="Uid" value="36" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="club" />
+            <Simple name="Desc" value="You see a club." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a club." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1177,29 +1206,30 @@
             <Simple name="Location" value="-49" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-20" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="38" />
+            <Simple name="Uid" value="37" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Belisarius' sword" />
+            <Simple name="Name" value="club" />
+            <Simple name="Desc" value="You see a club." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="None" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a finely-wrought but unornamented sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1209,29 +1239,30 @@
             <Simple name="Location" value="-50" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="39" />
+            <Simple name="Uid" value="38" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="dagger" />
+            <Simple name="Name" value="Belisarius' sword" />
+            <Simple name="Desc" value="You see a finely-wrought but unornamented sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a jeweled dagger." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1241,29 +1272,30 @@
             <Simple name="Location" value="-55" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="40" />
+            <Simple name="Uid" value="39" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Gonzales' sword" />
+            <Simple name="Name" value="dagger" />
+            <Simple name="Desc" value="You see a jeweled dagger." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="None" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see Gonzales' sword; it's a good off the rack sword." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1273,29 +1305,30 @@
             <Simple name="Location" value="-56" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="41" />
+            <Simple name="Uid" value="40" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Alkanda's scimitar" />
+            <Simple name="Name" value="Gonzales' sword" />
+            <Simple name="Desc" value="You see Gonzales' sword; it's a good off the rack sword." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see Alkanda's scimitar.  The blade is black and wickedly curved.  The hilt is studded with dark gems -- opals, dark sapphire, stygian beryl.  The grip is wrapped with human leather." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1305,29 +1338,30 @@
             <Simple name="Location" value="-57" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
                     <Simple name="Field1" value="25" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="2" />
                     <Simple name="Field4" value="10" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="42" />
+            <Simple name="Uid" value="41" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Hero's sword" />
+            <Simple name="Name" value="Alkanda's scimitar" />
+            <Simple name="Desc" value="You see Alkanda's scimitar.  The blade is black and wickedly curved.  The hilt is studded with dark gems -- opals, dark sapphire, stygian beryl.  The grip is wrapped with human leather." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see Hero's sword.  It's a huge two-handed broadsword; the blade's five feet long.  The hilt is heavy, hammered brass, and bears a single diamond." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1337,29 +1371,30 @@
             <Simple name="Location" value="-58" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="12" />
+                    <Simple name="Field5" value="2" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="43" />
+            <Simple name="Uid" value="42" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="frying pan" />
+            <Simple name="Name" value="Hero's sword" />
+            <Simple name="Desc" value="You see Hero's sword.  It's a huge two-handed broadsword; the blade's five feet long.  The hilt is heavy, hammered brass, and bears a single diamond." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a frying pan." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1369,29 +1404,30 @@
             <Simple name="Location" value="-60" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-15" />
                     <Simple name="Field2" value="3" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="44" />
+            <Simple name="Uid" value="43" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="axe" />
+            <Simple name="Name" value="frying pan" />
+            <Simple name="Desc" value="You see a frying pan." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an axe." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1401,29 +1437,30 @@
             <Simple name="Location" value="-61" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="45" />
+            <Simple name="Uid" value="44" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="coins" />
+            <Simple name="Name" value="axe" />
+            <Simple name="Desc" value="You see an axe." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="Some" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a mess of silver, copper and a couple gold coins on a bunk." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -1433,29 +1470,30 @@
             <Simple name="Location" value="35" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="46" />
+            <Simple name="Uid" value="45" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="copper coin" />
+            <Simple name="Name" value="coins" />
+            <Simple name="Desc" value="You see a mess of silver, copper and a couple gold coins on a bunk." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="There's a pile of copper coins by one of the old bunks." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -1465,29 +1503,30 @@
             <Simple name="Location" value="4" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="47" />
+            <Simple name="Uid" value="46" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="copper ingot" />
+            <Simple name="Name" value="copper coin" />
+            <Simple name="Desc" value="There's a pile of copper coins by one of the old bunks." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see five copper ingots on a table." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -1497,29 +1536,30 @@
             <Simple name="Location" value="6" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="48" />
+            <Simple name="Uid" value="47" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="bag of coins" />
+            <Simple name="Name" value="copper ingot" />
+            <Simple name="Desc" value="You see five copper ingots on a table." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="There's a bag of silver coins on the table." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1529,29 +1569,30 @@
             <Simple name="Location" value="6" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="49" />
+            <Simple name="Uid" value="48" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="idol" />
+            <Simple name="Name" value="bag of coins" />
+            <Simple name="Desc" value="There's a bag of silver coins on the table." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a foot-tall black stone idol of a truly hideous monster; its fangs are bared and dripping, its talons curled to strike, its eyes glowing with a hidden fire." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1561,29 +1602,30 @@
             <Simple name="Location" value="6" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="50" />
+            <Simple name="Uid" value="49" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="statue" />
+            <Simple name="Name" value="idol" />
+            <Simple name="Desc" value="You see a foot-tall black stone idol of a truly hideous monster; its fangs are bared and dripping, its talons curled to strike, its eyes glowing with a hidden fire." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a statue of a truly hideous monster; its fangs bared and dripping gore, its talons curled to strike, its eyes glowing with a hidden fire.  It is so well crafted, it looks almost alive." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1593,29 +1635,30 @@
             <Simple name="Location" value="48" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="51" />
+            <Simple name="Uid" value="50" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="brown potion" />
+            <Simple name="Name" value="statue" />
+            <Simple name="Desc" value="You see a statue of a truly hideous monster; its fangs bared and dripping gore, its talons curled to strike, its eyes glowing with a hidden fire.  It is so well crafted, it looks almost alive." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a brown potion." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1625,29 +1668,63 @@
             <Simple name="Location" value="36" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
+            <Simple name="Uid" value="51" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="brown potion" />
+            <Simple name="Desc" value="You see a brown potion." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="2" />
+            <Simple name="Location" value="42" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Drinkable" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
             <Simple name="Uid" value="52" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="red potion" />
+            <Simple name="Desc" value="You see a red potion." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a red potion." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1657,61 +1734,30 @@
             <Simple name="Location" value="42" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
             <Simple name="Uid" value="53" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="yellow potion" />
+            <Simple name="Desc" value="You see a yellow potion." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
-            <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a yellow potion." />
-            <Simple name="IsCharOwned" value="False" />
-            <Simple name="IsPlural" value="False" />
-            <Simple name="IsListed" value="True" />
-            <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="2" />
-            <Simple name="Location" value="42" />
-            <SingleArray name="Categories">
-              <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-                  <Properties>
-                    <Simple name="Type" value="Drinkable" />
-                    <Simple name="Field1" value="0" />
-                    <Simple name="Field2" value="1" />
-                    <Simple name="Field3" value="0" />
-                    <Simple name="Field4" value="0" />
-                  </Properties>
-                </Complex>
-              </Items>
-            </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="54" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="chest" />
-            <Null name="Synonyms" />
-            <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a large chest, wrapped with iron bands and locked with a steel padlock." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1721,29 +1767,30 @@
             <Simple name="Location" value="41" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Container" />
                     <Simple name="Field1" value="73" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="55" />
+            <Simple name="Uid" value="54" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="jewel" />
+            <Simple name="Name" value="chest" />
+            <Simple name="Desc" value="You see a large chest, wrapped with iron bands and locked with a steel padlock." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="Some" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a dazzling assortment of jewels of every type and color; emeralds, rubies, diamonds, sapphires, moonstones, beryls, crafted into necklaces, brooches, jeweled daggers:  lots and lots of goodies." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -1753,29 +1800,30 @@
             <Simple name="Location" value="1054" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="56" />
+            <Simple name="Uid" value="55" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="gold bar" />
+            <Simple name="Name" value="jewel" />
+            <Simple name="Desc" value="You see a dazzling assortment of jewels of every type and color; emeralds, rubies, diamonds, sapphires, moonstones, beryls, crafted into necklaces, brooches, jeweled daggers:  lots and lots of goodies." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a glittering stack of gold bars." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -1785,29 +1833,30 @@
             <Simple name="Location" value="41" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="57" />
+            <Simple name="Uid" value="56" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sack of coins" />
+            <Simple name="Name" value="gold bar" />
+            <Simple name="Desc" value="You see a glittering stack of gold bars." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a bulging sack prominently labelled &quot;gold coins.&quot;" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1817,29 +1866,30 @@
             <Simple name="Location" value="41" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="58" />
+            <Simple name="Uid" value="57" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="semi-precious stone" />
+            <Simple name="Name" value="sack of coins" />
+            <Simple name="Desc" value="You see a bulging sack prominently labelled &quot;gold coins.&quot;" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="Some" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a collection of semi-precious stones by a bunk -- agates, and jasper, and jade." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -1849,29 +1899,30 @@
             <Simple name="Location" value="35" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="59" />
+            <Simple name="Uid" value="58" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="coins" />
+            <Simple name="Name" value="semi-precious stone" />
+            <Simple name="Desc" value="You see a collection of semi-precious stones by a bunk -- agates, and jasper, and jade." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a slew of copper and silver coins that were spilled when you walked in." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -1881,29 +1932,30 @@
             <Simple name="Location" value="34" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="60" />
+            <Simple name="Uid" value="59" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="stickpin" />
+            <Simple name="Name" value="coins" />
+            <Simple name="Desc" value="You see a slew of copper and silver coins that were spilled when you walked in." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a ruby stickpin on the officer's uniform lapel." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1913,29 +1965,30 @@
             <Simple name="Location" value="36" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="61" />
+            <Simple name="Uid" value="60" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="book" />
+            <Simple name="Name" value="stickpin" />
+            <Simple name="Desc" value="You see a ruby stickpin on the officer's uniform lapel." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a very old book, left lying out on a table.  It's open to the dedication page, which reads:  &quot;To all followers of Ngurct, to whom these secrets are known&quot; and, of course, there's more in the book than that." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1945,29 +1998,30 @@
             <Simple name="Location" value="43" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="6" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="62" />
+            <Simple name="Uid" value="61" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="black potion" />
+            <Simple name="Name" value="book" />
+            <Simple name="Desc" value="You see a very old book, left lying out on a table.  It's open to the dedication page, which reads:  &quot;To all followers of Ngurct, to whom these secrets are known&quot; and, of course, there's more in the book than that." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a black potion." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -1977,29 +2031,30 @@
             <Simple name="Location" value="42" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="63" />
+            <Simple name="Uid" value="62" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="fireball wand" />
+            <Simple name="Name" value="black potion" />
+            <Simple name="Desc" value="You see a black potion." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a body on the floor; it is that of a dead mage.  His head hangs by but a thread; his throat is ripped out.  In his hand you see a blood-stained wand:  from the charred walls you deduce that it's a fireball wand." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2009,29 +2064,30 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="2" />
                     <Simple name="Field3" value="6" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="64" />
+            <Simple name="Uid" value="63" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="ring" />
+            <Simple name="Name" value="fireball wand" />
+            <Simple name="Desc" value="You see a body on the floor; it is that of a dead mage.  His head hangs by but a thread; his throat is ripped out.  In his hand you see a blood-stained wand:  from the charred walls you deduce that it's a fireball wand." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="On the mage's finger you see a golden ring; it bears a ruby that glints and flickers.  On the inside is an insription in odd but readable script." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2041,29 +2097,30 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Wearable" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="65" />
+            <Simple name="Uid" value="64" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="scarab" />
+            <Simple name="Name" value="ring" />
+            <Simple name="Desc" value="On the mage's finger you see a golden ring; it bears a ruby that glints and flickers.  On the inside is an insription in odd but readable script." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You find a silver scarab in the sarcophagus!" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2073,29 +2130,30 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="66" />
+            <Simple name="Uid" value="65" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="diamond" />
+            <Simple name="Name" value="scarab" />
+            <Simple name="Desc" value="You find a silver scarab in the sarcophagus!" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="Some" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="A scintillating pile of uncut, polished diamonds attracts your attention." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -2105,29 +2163,30 @@
             <Simple name="Location" value="59" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="67" />
+            <Simple name="Uid" value="66" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="carcass" />
+            <Simple name="Name" value="diamond" />
+            <Simple name="Desc" value="A scintillating pile of uncut, polished diamonds attracts your attention." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a carcass roasting on a spit.  Somehow the haunch looks familiar." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2137,29 +2196,30 @@
             <Simple name="Location" value="54" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Edible" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="68" />
+            <Simple name="Uid" value="67" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="roast pig" />
+            <Simple name="Name" value="carcass" />
+            <Simple name="Desc" value="You see a carcass roasting on a spit.  Somehow the haunch looks familiar." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a steaming roast pig, just out of the oven." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2169,29 +2229,30 @@
             <Simple name="Location" value="54" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Edible" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="69" />
+            <Simple name="Uid" value="68" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="wine" />
+            <Simple name="Name" value="roast pig" />
+            <Simple name="Desc" value="You see a steaming roast pig, just out of the oven." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="Some" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a flagon of wine on the table.  A whiff near takes your head off." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2201,29 +2262,30 @@
             <Simple name="Location" value="37" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="9999" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="70" />
+            <Simple name="Uid" value="69" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="iron key" />
+            <Simple name="Name" value="wine" />
+            <Simple name="Desc" value="You see a flagon of wine on the table.  A whiff near takes your head off." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an iron key hanging from a peg on the wall." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2233,29 +2295,30 @@
             <Simple name="Location" value="36" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="71" />
+            <Simple name="Uid" value="70" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="key" />
+            <Simple name="Name" value="iron key" />
+            <Simple name="Desc" value="You see an iron key hanging from a peg on the wall." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="Some" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a ring of keys on the table by the book." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -2265,29 +2328,30 @@
             <Simple name="Location" value="43" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="72" />
+            <Simple name="Uid" value="71" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="ring of keys" />
+            <Simple name="Name" value="key" />
+            <Simple name="Desc" value="You see a ring of keys on the table by the book." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You find a ring of keys under the dead guard's body." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2297,29 +2361,30 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="73" />
+            <Simple name="Uid" value="72" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="steel key" />
+            <Simple name="Name" value="ring of keys" />
+            <Simple name="Desc" value="You find a ring of keys under the dead guard's body." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a steel key glinting in a corner." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2329,29 +2394,30 @@
             <Simple name="Location" value="59" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="74" />
+            <Simple name="Uid" value="73" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="silver dagger" />
+            <Simple name="Name" value="steel key" />
+            <Simple name="Desc" value="You see a steel key glinting in a corner." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an intricately crafted silver dagger." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2361,29 +2427,30 @@
             <Simple name="Location" value="49" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="75" />
+            <Simple name="Uid" value="74" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="silk robe" />
+            <Simple name="Name" value="silver dagger" />
+            <Simple name="Desc" value="You see an intricately crafted silver dagger." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="Some" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see an assortment of beautiful silk robes on a rack against the wall." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -2393,29 +2460,30 @@
             <Simple name="Location" value="49" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="76" />
+            <Simple name="Uid" value="75" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="blade blank" />
+            <Simple name="Name" value="silk robe" />
+            <Simple name="Desc" value="You see an assortment of beautiful silk robes on a rack against the wall." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="A stack of old, rusty blade blanks leans against one wall.  They're still in good shape." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
@@ -2425,29 +2493,30 @@
             <Simple name="Location" value="5" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="77" />
+            <Simple name="Uid" value="76" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="medallion" />
+            <Simple name="Name" value="blade blank" />
+            <Simple name="Desc" value="A stack of old, rusty blade blanks leans against one wall.  They're still in good shape." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a gold medallion with a truly hideous monster's -- face? -- on it:  fangs dripping gore, and all that.  Its chain is broken, and it's lying next to the demised girl on the bed." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2457,29 +2526,30 @@
             <Simple name="Location" value="51" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="78" />
+            <Simple name="Uid" value="77" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sacrificial dagger" />
+            <Simple name="Name" value="medallion" />
+            <Simple name="Desc" value="You see a gold medallion with a truly hideous monster's -- face? -- on it:  fangs dripping gore, and all that.  Its chain is broken, and it's lying next to the demised girl on the bed." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see the sacrificial dagger of Ngurct on the ground; the hilt and grip are jeweled; the deeply fluted blade is made of solid gold." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2489,29 +2559,30 @@
             <Simple name="Location" value="-30" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="2" />
                     <Simple name="Field4" value="2" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="79" />
+            <Simple name="Uid" value="78" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="candelabra" />
+            <Simple name="Name" value="sacrificial dagger" />
+            <Simple name="Desc" value="You see the sacrificial dagger of Ngurct on the ground; the hilt and grip are jeweled; the deeply fluted blade is made of solid gold." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a gold candelabra; it has held stinking blood-red candles before; it is covered with old wax." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2521,29 +2592,30 @@
             <Simple name="Location" value="49" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="80" />
+            <Simple name="Uid" value="79" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sapphire ring" />
+            <Simple name="Name" value="candelabra" />
+            <Simple name="Desc" value="You see a gold candelabra; it has held stinking blood-red candles before; it is covered with old wax." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a ring set with a large faceted sapphire on a table by the bed." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2553,29 +2625,30 @@
             <Simple name="Location" value="53" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Wearable" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="81" />
+            <Simple name="Uid" value="80" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="bound slave girl" />
+            <Simple name="Name" value="sapphire ring" />
+            <Simple name="Desc" value="You see a ring set with a large faceted sapphire on a table by the bed." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a slave girl tied loosely to the bed.  Her torso is criss-crossed with shallow lacerations." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2585,29 +2658,30 @@
             <Simple name="Location" value="53" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="BoundMonster" />
                     <Simple name="Field1" value="54" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="33" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="82" />
+            <Simple name="Uid" value="81" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="hieroglyphics" />
+            <Simple name="Name" value="bound slave girl" />
+            <Simple name="Desc" value="You see a slave girl tied loosely to the bed.  Her torso is criss-crossed with shallow lacerations." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="Some" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The south wall of the chamber is covered with strange hieroglyphs." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="False" />
@@ -2617,29 +2691,30 @@
             <Simple name="Location" value="2038" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="83" />
+            <Simple name="Uid" value="82" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="secret door" />
+            <Simple name="Name" value="hieroglyphics" />
+            <Simple name="Desc" value="The south wall of the chamber is covered with strange hieroglyphs." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You have found a secret door in the north wall!" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2649,29 +2724,30 @@
             <Simple name="Location" value="2024" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="41" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="84" />
+            <Simple name="Uid" value="83" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="secret door" />
+            <Simple name="Desc" value="You have found a secret door in the north wall!" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You have found a secret door in the south wall!" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2681,29 +2757,30 @@
             <Simple name="Location" value="2048" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="49" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="85" />
+            <Simple name="Uid" value="84" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="oak door" />
+            <Simple name="Name" value="secret door" />
+            <Simple name="Desc" value="You have found a secret door in the south wall!" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see a strong oak door south." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2713,29 +2790,30 @@
             <Simple name="Location" value="18" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="33" />
                     <Simple name="Field2" value="70" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="86" />
+            <Simple name="Uid" value="85" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="cell door" />
+            <Simple name="Name" value="oak door" />
+            <Simple name="Desc" value="You see a strong oak door south." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="On the south wall is a cell door locked with a huge padlock:  from within come imploring cries -- &quot;Free us!&quot;" />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2745,29 +2823,30 @@
             <Simple name="Location" value="56" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="55" />
                     <Simple name="Field2" value="72" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="87" />
+            <Simple name="Uid" value="86" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="cell door" />
+            <Simple name="Desc" value="On the south wall is a cell door locked with a huge padlock:  from within come imploring cries -- &quot;Free us!&quot;" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The door to the east is @@002." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2777,29 +2856,30 @@
             <Simple name="Location" value="26" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="45" />
                     <Simple name="Field2" value="71" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="88" />
+            <Simple name="Uid" value="87" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="cell door" />
+            <Simple name="Desc" value="The door to the east is @@002." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheTempleOfNgurct.Game.Artifact, TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="The door to the west is evidently @@003." />
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
@@ -2809,17 +2889,25 @@
             <Simple name="Location" value="27" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="46" />
                     <Simple name="Field2" value="71" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
+            <Simple name="Uid" value="88" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cell door" />
+            <Simple name="Desc" value="The door to the west is evidently @@003." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
       </Items>

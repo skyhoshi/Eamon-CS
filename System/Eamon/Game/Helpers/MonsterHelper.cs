@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Helpers;
@@ -229,6 +230,47 @@ namespace Eamon.Game.Helpers
 		protected virtual bool ValidateDmgTaken()
 		{
 			return Record.DmgTaken >= 0;
+		}
+
+		#endregion
+
+		#region ValidateAfterDatabaseLoaded Methods
+
+		protected virtual bool ValidateAfterDatabaseLoadedWeapon()
+		{
+			var result = true;
+
+			if (Record.Weapon > 0)
+			{
+				var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
+
+				var weapon = Globals.ADB[Record.Weapon];
+
+				Debug.Assert(weapon != null);
+
+				var ac = weapon.GetArtifactCategory(artTypes);
+
+				Debug.Assert(ac != null);
+
+				if (ac.Field5 > 1)
+				{
+					var shield = Record.GetWornList().FirstOrDefault(a =>
+					{
+						var ac01 = a.GetArtifactCategory(Enums.ArtifactType.Wearable);
+
+						Debug.Assert(ac01 != null);
+
+						return ac01.Field1 == 1;
+					});
+
+					if (shield != null)
+					{
+						result = false;
+					}
+				}
+			}
+
+			return result;
 		}
 
 		#endregion
@@ -1960,6 +2002,13 @@ namespace Eamon.Game.Helpers
 		#region Public Methods
 
 		#region Interface IHelper
+
+		public override bool ValidateRecordAfterDatabaseLoaded()
+		{
+			Clear();
+
+			return ValidateFieldAfterDatabaseLoaded("Weapon");
+		}
 
 		public override void ListErrorField()
 		{

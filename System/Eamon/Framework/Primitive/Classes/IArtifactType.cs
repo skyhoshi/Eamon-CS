@@ -28,5 +28,9 @@ namespace Eamon.Framework.Primitive.Classes
 		string Field4Name { get; set; }
 
 		string Field4EmptyVal { get; set; }
+
+		string Field5Name { get; set; }
+
+		string Field5EmptyVal { get; set; }
 	}
 }

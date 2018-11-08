@@ -180,6 +180,19 @@ namespace EamonRT.Game.Commands
 				{
 					monster.InitGroupCount = monster.GroupCount;
 				}
+
+				rc = Globals.Engine.ValidateRecordsAfterDatabaseLoaded();
+
+				if (Globals.Engine.IsFailure(rc))
+				{
+					Globals.Error.Write("Error: ValidateRecordsAfterDatabaseLoaded function call failed");
+
+					Globals.ExitType = Enums.ExitType.Error;
+
+					Globals.MainLoop.ShouldShutdown = false;
+
+					goto Cleanup;
+				}
 			}
 			finally
 			{

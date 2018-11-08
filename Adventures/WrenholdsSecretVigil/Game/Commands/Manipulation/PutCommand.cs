@@ -97,6 +97,8 @@ namespace WrenholdsSecretVigil.Game.Commands
 			ac.Field3 = 9999;
 
 			ac.Field4 = 1;
+
+			ac.Field5 = 0;
 		}
 
 		public virtual void ConvertSlimeToTreasure()
@@ -114,6 +116,8 @@ namespace WrenholdsSecretVigil.Game.Commands
 			ac.Field3 = 0;
 
 			ac.Field4 = 0;
+
+			ac.Field5 = 0;
 		}
 
 		public override void PlayerExecute()

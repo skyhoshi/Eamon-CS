@@ -42,6 +42,8 @@ namespace Eamon.Game.Primitive.Classes
 
 		public virtual long Field4 { get; set; }
 
+		public virtual long Field5 { get; set; }
+
 		public virtual bool IsActive()
 		{
 			return !string.IsNullOrWhiteSpace(Name) && !string.Equals(Name, "NONE", StringComparison.OrdinalIgnoreCase);

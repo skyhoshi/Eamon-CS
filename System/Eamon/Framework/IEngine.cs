@@ -932,6 +932,8 @@ namespace Eamon.Framework
 
 		void PrintEffectDesc(long effectUid, bool printFinalNewLine = true);
 
+		RetCode ValidateRecordsAfterDatabaseLoaded();
+
 		RetCode GetRecordNameList(IList<IGameBase> records, Enums.ArticleType articleType, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
 
 		RetCode GetRecordNameCount(IList<IGameBase> records, string name, bool exactMatch, ref long count);
@@ -942,7 +944,7 @@ namespace Eamon.Framework
 
 		RetCode ResolveUidMacros(string str, StringBuilder buf, bool resolveFuncs, bool recurse);
 
-		double GetWeaponPriceOrValue(string name, long complexity, Enums.Weapon type, long dice, long sides, bool calcPrice, ref bool isMarcosWeapon);
+		double GetWeaponPriceOrValue(string name, long complexity, Enums.Weapon type, long dice, long sides, long numHands, bool calcPrice, ref bool isMarcosWeapon);
 
 		double GetWeaponPriceOrValue(Classes.ICharacterArtifact weapon, bool calcPrice, ref bool isMarcosWeapon);
 

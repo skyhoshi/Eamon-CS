@@ -80,6 +80,16 @@ namespace Eamon.Framework
 		/// </remarks>
 		long Field4 { get; set; }
 
+		/// <summary>
+		/// A convenience property representing the artifact Field5 data field.
+		/// </summary>
+		/// <remarks>
+		/// This property is designed to mimic the behavior of Eamon Deluxe, allowing easy access to
+		/// the artifact's Field5 data field.  It uses the 0'th element of the <see cref="Categories"/>
+		/// array, which is consistent with how older Eamon games are implemented.
+		/// </remarks>
+		long Field5 { get; set; }
+
 		Classes.IArtifactCategory[] Categories { get; set; }
 
 		#endregion

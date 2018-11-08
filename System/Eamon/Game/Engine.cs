@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Eamon.Framework;
 using Eamon.Framework.Args;
+using Eamon.Framework.Helpers;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Utilities;
@@ -1567,6 +1568,43 @@ namespace Eamon.Game
 			PrintEffectDesc(effect, printFinalNewLine);
 		}
 
+		public virtual RetCode ValidateRecordsAfterDatabaseLoaded()
+		{
+			RetCode rc;
+
+			rc = RetCode.Success;
+
+			// Note: currently only validating Monster records but could do any type if needed
+
+			var monsterHelper = Globals.CreateInstance<IMonsterHelper>();
+
+			var monsters = Globals.Database.MonsterTable.Records.ToList();
+
+			long i = 1;
+
+			foreach (var r in monsters)
+			{
+				monsterHelper.Record = r;
+
+				if (monsterHelper.ValidateRecordAfterDatabaseLoaded() == false)
+				{
+					rc = RetCode.Failure;
+
+					Globals.Error.WriteLine("{0}Error: expected valid [{1} value], found [{2}]", Environment.NewLine, monsterHelper.GetName(monsterHelper.ErrorFieldName), monsterHelper.GetValue(monsterHelper.ErrorFieldName) ?? "null");
+
+					Globals.Error.WriteLine("Error: ValidateAfterDatabaseLoaded function call failed for Monster record number {0}", i);
+
+					goto Cleanup;
+				}
+
+				i++;
+			}
+
+		Cleanup:
+
+			return rc;
+		}
+
 		public virtual RetCode GetRecordNameList(IList<IGameBase> records, Enums.ArticleType articleType, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
 		{
 			StringBuilder buf01;
@@ -1909,7 +1947,7 @@ namespace Eamon.Game
 			return ResolveUidMacros(str, buf, resolveFuncs, recurse, ref invalidUid);
 		}
 
-		public virtual double GetWeaponPriceOrValue(string name, long complexity, Enums.Weapon type, long dice, long sides, bool calcPrice, ref bool isMarcosWeapon)
+		public virtual double GetWeaponPriceOrValue(string name, long complexity, Enums.Weapon type, long dice, long sides, long numHands, bool calcPrice, ref bool isMarcosWeapon)
 		{
 			double wp;
 
@@ -1944,7 +1982,7 @@ namespace Eamon.Game
 				wp *= 0.60;
 			}
 
-			isMarcosWeapon = string.Equals(name, weapon.MarcosName ?? weapon.Name, StringComparison.OrdinalIgnoreCase) && (complexity == -10 || complexity == 0 || complexity == 10) && dice == weapon.MarcosDice && sides == weapon.MarcosSides;
+			isMarcosWeapon = string.Equals(name, weapon.MarcosName ?? weapon.Name, StringComparison.OrdinalIgnoreCase) && (complexity == -10 || complexity == 0 || complexity == 10) && dice == weapon.MarcosDice && sides == weapon.MarcosSides && numHands == weapon.MarcosNumHands;
 
 			if (!isMarcosWeapon)
 			{
@@ -1998,7 +2036,7 @@ namespace Eamon.Game
 		{
 			Debug.Assert(weapon != null);
 
-			return GetWeaponPriceOrValue(weapon.Name, weapon.Field1, (Enums.Weapon)weapon.Field2, weapon.Field3, weapon.Field4, calcPrice, ref isMarcosWeapon);
+			return GetWeaponPriceOrValue(weapon.Name, weapon.Field1, (Enums.Weapon)weapon.Field2, weapon.Field3, weapon.Field4, weapon.Field5, calcPrice, ref isMarcosWeapon);
 		}
 
 		public virtual double GetArmorPriceOrValue(Enums.Armor armor, bool calcPrice, ref bool isMarcosArmor)
@@ -2117,6 +2155,8 @@ namespace Eamon.Game
 			destCa.Field3 = sourceCa.Field3;
 
 			destCa.Field4 = sourceCa.Field4;
+
+			destCa.Field5 = sourceCa.Field5;
 		}
 
 		public virtual void CopyArtifactCategoryFields(Classes.IArtifactCategory destAc, Classes.IArtifactCategory sourceAc)
@@ -2132,6 +2172,8 @@ namespace Eamon.Game
 			destAc.Field3 = sourceAc.Field3;
 
 			destAc.Field4 = sourceAc.Field4;
+
+			destAc.Field5 = sourceAc.Field5;
 		}
 
 		public virtual IList<IArtifact> GetArtifactList(Func<bool> shouldQueryFunc, params Func<IArtifact, bool>[] whereClauseFuncs)
@@ -2302,6 +2344,8 @@ namespace Eamon.Game
 					ac.Field3 = 0;
 
 					ac.Field4 = 0;
+
+					ac.Field5 = 0;
 				}
 				else
 				{
@@ -2477,6 +2521,7 @@ namespace Eamon.Game
 					x.MarcosPrice = Constants.AxePrice;
 					x.MarcosDice = 1;
 					x.MarcosSides = 6;
+					x.MarcosNumHands = 1;
 					x.MinValue = -50;
 					x.MaxValue = 122;
 				}),
@@ -2491,6 +2536,7 @@ namespace Eamon.Game
 					x.MarcosPrice = Constants.BowPrice;
 					x.MarcosDice = 1;
 					x.MarcosSides = 6;
+					x.MarcosNumHands = 2;
 					x.MinValue = -50;
 					x.MaxValue = 122;
 				}),
@@ -2505,6 +2551,7 @@ namespace Eamon.Game
 					x.MarcosPrice = Constants.MacePrice;
 					x.MarcosDice = 1;
 					x.MarcosSides = 4;
+					x.MarcosNumHands = 1;
 					x.MinValue = -50;
 					x.MaxValue = 122;
 				}),
@@ -2519,6 +2566,7 @@ namespace Eamon.Game
 					x.MarcosPrice = Constants.SpearPrice;
 					x.MarcosDice = 1;
 					x.MarcosSides = 5;
+					x.MarcosNumHands = 1;
 					x.MinValue = -50;
 					x.MaxValue = 122;
 				}),
@@ -2533,6 +2581,7 @@ namespace Eamon.Game
 					x.MarcosPrice = Constants.SwordPrice;
 					x.MarcosDice = 1;
 					x.MarcosSides = 8;
+					x.MarcosNumHands = 1;
 					x.MinValue = -50;
 					x.MaxValue = 122;
 				})
@@ -2749,6 +2798,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "0";
 					x.Field4Name = "Field4";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2763,6 +2814,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "0";
 					x.Field4Name = "Field4";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2777,6 +2830,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "1";
 					x.Field4Name = "Sides";
 					x.Field4EmptyVal = "6";
+					x.Field5Name = "Number Of Hands";
+					x.Field5EmptyVal = "1";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2791,6 +2846,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "1";
 					x.Field4Name = "Sides";
 					x.Field4EmptyVal = "10";
+					x.Field5Name = "Number Of Hands";
+					x.Field5EmptyVal = "1";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2805,6 +2862,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "0";
 					x.Field4Name = "Max Items Inside";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2819,6 +2878,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "0";
 					x.Field4Name = "Field4";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2833,6 +2894,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "1";
 					x.Field4Name = "Field4";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2847,6 +2910,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "1";
 					x.Field4Name = "Field4";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2861,6 +2926,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "1";
 					x.Field4Name = "Hidden";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2875,6 +2942,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "1";
 					x.Field4Name = "Field4";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2889,6 +2958,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "0";
 					x.Field4Name = "Field4";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2903,6 +2974,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "0";
 					x.Field4Name = "Field4";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2917,6 +2990,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "1";
 					x.Field4Name = "Field4";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2931,6 +3006,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "0";
 					x.Field4Name = "Field4";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2945,6 +3022,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "0";
 					x.Field4Name = "Field4";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2959,6 +3038,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "0";
 					x.Field4Name = "Field4";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<Classes.IArtifactType>(x =>
 				{
@@ -2973,6 +3054,8 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "0";
 					x.Field4Name = "Field4";
 					x.Field4EmptyVal = "0";
+					x.Field5Name = "Field5";
+					x.Field5EmptyVal = "0";
 				})
 			};
 

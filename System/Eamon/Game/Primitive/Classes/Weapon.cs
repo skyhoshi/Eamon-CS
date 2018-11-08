@@ -30,6 +30,8 @@ namespace Eamon.Game.Primitive.Classes
 
 		public virtual long MarcosSides { get; set; }
 
+		public virtual long MarcosNumHands { get; set; }
+
 		public virtual long MinValue { get; set; }
 
 		public virtual long MaxValue { get; set; }

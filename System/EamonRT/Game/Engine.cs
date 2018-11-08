@@ -43,6 +43,8 @@ namespace EamonRT.Game
 		{
 			long cw = -1;
 
+			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
+
 			foreach (var weapon in Globals.Character.Weapons)
 			{
 				if (weapon.IsActive())
@@ -51,7 +53,11 @@ namespace EamonRT.Game
 
 					Debug.Assert(artifact != null);
 
-					if (artifact.IsCarriedByCharacter() && (cw == -1 || WeaponPowerCompare(artifact.Uid, cw) > 0))
+					var ac = artifact.GetArtifactCategory(artTypes);
+
+					Debug.Assert(ac != null);
+
+					if (artifact.IsCarriedByCharacter() && (cw == -1 || WeaponPowerCompare(artifact.Uid, cw) > 0) && (Globals.GameState.Sh < 1 || ac.Field5 < 2))
 					{
 						cw = artifact.Uid;
 
@@ -607,6 +613,8 @@ namespace EamonRT.Game
 
 				x.GetCategories(0).Field4 = weapon.Field4;
 
+				x.GetCategories(0).Field5 = weapon.Field5;
+
 				if (weapon.Type != 0)
 				{
 					x.GetCategories(0).Type = weapon.Type;
@@ -694,6 +702,8 @@ namespace EamonRT.Game
 				x.Field3 = ac.Field3;
 
 				x.Field4 = ac.Field4;
+
+				x.Field5 = ac.Field5;
 			});
 
 			return weapon;
@@ -785,9 +795,9 @@ namespace EamonRT.Game
 
 				x.OrigGroupCount = 1;
 
-				x.Weapon = ConvertWeaponsToArtifacts();
-
 				x.Armor = ConvertArmorToArtifacts();
+
+				x.Weapon = ConvertWeaponsToArtifacts();
 
 				x.Friendliness = Enums.Friendliness.Friend;
 
@@ -910,6 +920,8 @@ namespace EamonRT.Game
 					ca.Field3 = ac.Field3;
 
 					ca.Field4 = ac.Field4;
+
+					ca.Field5 = ac.Field5;
 
 					artifact.SetInLimbo();
 				}
@@ -1790,6 +1802,30 @@ namespace EamonRT.Game
 					return long.MaxValue;
 				}
 			}).ToList();
+
+			// filter out two-handed weapons if monster wearing shield
+
+			var shield = monster.GetWornList().FirstOrDefault(a =>
+			{
+				var ac = a.GetArtifactCategory(Enums.ArtifactType.Wearable);
+
+				Debug.Assert(ac != null);
+
+				return ac.Field1 == 1;
+			});
+
+			if (shield != null)
+			{
+				artifactList = artifactList.Where(a =>
+				{
+					var ac = a.GetArtifactCategory(artTypes);
+
+					Debug.Assert(ac != null);
+
+					return ac.Field5 < 2;
+					
+				}).ToList();
+			}
 
 			return artifactList;
 		}

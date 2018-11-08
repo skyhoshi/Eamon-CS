@@ -313,6 +313,48 @@ namespace Eamon.Game.Helpers.Generic
 			return result;
 		}
 
+		public virtual bool ValidateRecordAfterDatabaseLoaded()
+		{
+			Clear();
+
+			var result = true;
+
+			foreach (var fieldName in FieldNames)
+			{
+				result = ValidateFieldAfterDatabaseLoaded(fieldName);
+
+				if (result == false)
+				{
+					break;
+				}
+			}
+
+			return result;
+		}
+
+		public virtual bool ValidateFieldAfterDatabaseLoaded(string fieldName)
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
+
+			var result = true;
+
+			var methodName = string.Format("ValidateAfterDatabaseLoaded{0}", fieldName);
+
+			var methodInfo = GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+			if (methodInfo != null)
+			{
+				result = (bool)methodInfo.Invoke(this, null);
+
+				if (result == false && string.IsNullOrWhiteSpace(ErrorFieldName))
+				{
+					ErrorFieldName = fieldName;
+				}
+			}
+
+			return result;
+		}
+
 		public virtual bool ValidateRecordInterdependencies()
 		{
 			Clear();

@@ -25,6 +25,8 @@ namespace Eamon.Framework.Primitive.Classes
 
 		long MarcosSides { get; set; }
 
+		long MarcosNumHands { get; set; }
+
 		long MinValue { get; set; }
 
 		long MaxValue { get; set; }

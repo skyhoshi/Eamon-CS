@@ -260,13 +260,18 @@ namespace Eamon.Game.Plugin
 
 		protected virtual void RestoreRecords(IList<IGameBase> records)
 		{
-			// Note: may want to be really rigorous here and also validate records
-
 			if (records != null)
 			{
 				foreach (var r in records)
 				{
 					r.SetParentReferences();
+
+					// Note: may want to be really rigorous here and also validate record
+
+					if (r is IMonster)
+					{
+						// Note: may want to be really rigorous here and also validate weapon/shield combo
+					}
 				}
 			}
 		}
