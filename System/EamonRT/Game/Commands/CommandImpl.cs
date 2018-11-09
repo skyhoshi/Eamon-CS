@@ -313,7 +313,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(shield != null && weapon != null);
 
-			Globals.Out.Print("You can't wear {0} while using {1}.", shield.GetDecoratedName03(false, true, false, false, Globals.Buf), weapon.GetDecoratedName02(false, false, false, false, Globals.Buf01));
+			Globals.Out.Print("You can't wear {0} while using {1}.", shield.GetDecoratedName03(false, true, false, false, Globals.Buf), weapon.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 		}
 
 		public virtual void PrintVerbItAll(IArtifact artifact)
@@ -383,7 +383,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(weapon != null && shield != null);
 
-			Globals.Out.Print("You can't use {0} while wearing {1}.", weapon.GetDecoratedName03(false, true, false, false, Globals.Buf), shield.GetDecoratedName02(false, false, false, false, Globals.Buf01));
+			Globals.Out.Print("You can't use {0} while wearing {1}.", weapon.GetDecoratedName03(false, true, false, false, Globals.Buf), shield.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 		}
 
 		public virtual void PrintPolitelyRefuses(IMonster monster)

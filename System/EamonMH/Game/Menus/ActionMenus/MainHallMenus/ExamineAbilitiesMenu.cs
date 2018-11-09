@@ -124,11 +124,12 @@ namespace EamonMH.Game.Menus.ActionMenus
 				Globals.Character.GetWeightCarryableDos(),
 				" Dos)");
 
-			Globals.Out.Write("{0}{1}{2,25}{3,15}{4,20}",
+			Globals.Out.Write("{0}{1}{2,25}{3,10}{4,9}{5,20}",
 				Environment.NewLine,
 				"Weapon Names:",
 				"Complexity:",
 				"Damage:",
+				"Hands:",
 				"Base Odds to hit:");
 
 			long odds = 0;
@@ -143,12 +144,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-						Globals.Out.Write("{0} {1} {2,3}%{3,14}D{4,-12}{5,3}%",
+						Globals.Out.Write("{0} {1} {2,3}%{3,9}D{4,-8}{5,-13}{6,3}%",
 							Environment.NewLine,
 							Globals.Engine.Capitalize(Globals.Character.GetWeapons(i).Name.PadTRight(29, ' ')),
 							Globals.Character.GetWeapons(i).Field1,
 							Globals.Character.GetWeapons(i).Field3,
 							Globals.Character.GetWeapons(i).Field4,
+							Globals.Character.GetWeapons(i).Field5,
 							odds);
 					}
 					else

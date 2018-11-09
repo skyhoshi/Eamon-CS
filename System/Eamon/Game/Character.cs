@@ -538,14 +538,15 @@ namespace Eamon.Game
 
 					Debug.Assert(weapon != null);
 
-					buf.AppendFormat("{0}{1,2}. {2} ({3,-8}/{4,3}%/{5,2}D{6,-2})",
+					buf.AppendFormat("{0}{1,2}. {2} ({3,-8}/{4,3}%/{5,2}D{6,-2}/{7}H)",
 						Environment.NewLine,
 						i + 1,
 						capitalize ? Globals.Engine.Capitalize(GetWeapons(i).Name.PadTRight(31, ' ')) : GetWeapons(i).Name.PadTRight(31, ' '),
 						weapon.Name,
 						GetWeapons(i).Field1,
 						GetWeapons(i).Field3,
-						GetWeapons(i).Field4);
+						GetWeapons(i).Field4,
+						GetWeapons(i).Field5);
 				}
 				else
 				{

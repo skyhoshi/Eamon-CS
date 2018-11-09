@@ -329,7 +329,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("\"I can make you a {0}D{1} {2} with complexity of {3}% called {4} for {5} gold piece{6}.  Should I proceed?\"", wpnDice, wpnSides, wpnName, wpnComplexity, wpnName01, ap, ap != 1 ? "s" : "");
+				Globals.Out.Print("\"I can make you a {0}H {1}D{2} {3} with complexity of {4}% called {5} for {6} gold piece{7}.  Should I proceed?\"", j == (long)Enums.Weapon.Bow ? 2 : 1, wpnDice, wpnSides, wpnName, wpnComplexity, wpnName01, ap, ap != 1 ? "s" : "");
 
 				Globals.Out.Print("{0}", Globals.LineSep);
 

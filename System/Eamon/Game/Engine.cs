@@ -1722,14 +1722,15 @@ namespace Eamon.Game
 
 					Debug.Assert(weapon != null);
 
-					buf.AppendFormat("{0}{1,2}. {2} ({3,-8}/{4,3}%/{5,2}D{6,-2})",
+					buf.AppendFormat("{0}{1,2}. {2} ({3,-8}/{4,3}%/{5,2}D{6,-2}/{7}H)",
 						Environment.NewLine,
 						i + 1,
 						capitalize ? Capitalize(a.Name.PadTRight(31, ' ')) : a.Name.PadTRight(31, ' '),
 						weapon.Name,
 						ac.Field1,
 						ac.Field3,
-						ac.Field4);
+						ac.Field4,
+						ac.Field5);
 				}
 				else
 				{
