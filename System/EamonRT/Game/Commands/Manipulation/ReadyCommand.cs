@@ -43,7 +43,10 @@ namespace EamonRT.Game.Commands
 				{
 					PrintNotReadyableWeapon(DobjArtifact);
 
-					NextState = Globals.CreateInstance<IStartState>();
+					if (Globals.LastCommandList.Count == 1 || (Globals.LastCommandList.Count == 2 && Globals.LastCommandList[0] is IUseCommand))
+					{
+						NextState = Globals.CreateInstance<IStartState>();
+					}
 
 					goto Cleanup;
 				}
@@ -73,7 +76,10 @@ namespace EamonRT.Game.Commands
 
 					PrintCantReadyWeaponWithShield(DobjArtifact, shield);
 
-					NextState = Globals.CreateInstance<IStartState>();
+					if (Globals.LastCommandList.Count == 1 || (Globals.LastCommandList.Count == 2 && Globals.LastCommandList[0] is IUseCommand))
+					{
+						NextState = Globals.CreateInstance<IStartState>();
+					}
 
 					goto Cleanup;
 				}

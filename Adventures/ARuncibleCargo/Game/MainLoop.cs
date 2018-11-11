@@ -20,6 +20,15 @@ namespace ARuncibleCargo.Game
 
 			base.Startup();
 
+			// Move any Artifacts dropped in StartRoom to the Private Quarters
+
+			var artifactList = Globals.Engine.GetArtifactList(() => true, a => a.IsCharOwned && a.IsInRoomUid(Globals.Engine.StartRoom));
+
+			foreach (var artifact in artifactList)
+			{
+				artifact.SetInRoomUid(7);
+			}
+
 			// Snapshot game state so it can be reverted when player wakes up
 
 			rc = Globals.SaveDatabase(Constants.SnapshotFileName);

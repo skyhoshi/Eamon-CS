@@ -27,7 +27,7 @@ are as follows:
 All of the formats have the same information in the Artifact object, including
 Value, Weight, Location, etc.  The Type and remaining format fields are stored
 in one or more ArtifactCategory objects, referenced by the Artifact.  Format #0
-is all USER fields, the rest of the format fields 1-4 contain the following.
+is all USER fields, the rest of the format fields 1-5 contain the following.
 
   Format 1             Format 2               Format 3
 1-Weapon Odds        1-Key No.                1-Light Counter
