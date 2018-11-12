@@ -108,6 +108,8 @@ namespace EamonRT.Game.Commands
 						{
 							PrintCantWearShieldWithWeapon(DobjArtifact, weapon);
 
+							NextState = Globals.CreateInstance<IStartState>();
+
 							goto Cleanup;
 						}
 
