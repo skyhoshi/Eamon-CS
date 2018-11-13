@@ -1159,6 +1159,8 @@ namespace Eamon.Game
 
 		Cleanup:
 
+			_lastArtifactCategory = null;
+
 			return rc;
 		}
 
