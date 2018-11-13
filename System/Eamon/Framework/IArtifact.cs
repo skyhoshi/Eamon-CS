@@ -90,6 +90,176 @@ namespace Eamon.Framework
 		/// </remarks>
 		long Field5 { get; set; }
 
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType Gold.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the Gold
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory Gold { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType Treasure.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the Treasure
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory Treasure { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType Weapon.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the Weapon
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory Weapon { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType MagicWeapon.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the MagicWeapon
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory MagicWeapon { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType Container.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the Container
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory Container { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType LightSource.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the LightSource
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory LightSource { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType Drinkable.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the Drinkable
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory Drinkable { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType Readable.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the Readable
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory Readable { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType DoorGate.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the DoorGate
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory DoorGate { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType Edible.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the Edible
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory Edible { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType BoundMonster.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the BoundMonster
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory BoundMonster { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType Wearable.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the Wearable
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory Wearable { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType DisguisedMonster.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the DisguisedMonster
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory DisguisedMonster { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType DeadBody.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the DeadBody
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory DeadBody { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType User1.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the User1
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory User1 { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType User2.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the User2
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory User2 { get; }
+
+		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for ArtifactType User3.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the User3
+		/// ArtifactType.  It is fully compatible with the EDX convenience properties, but more
+		/// intended for new games.  If the artifact has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory User3 { get; }
+
 		Classes.IArtifactCategory[] Categories { get; set; }
 
 		#endregion

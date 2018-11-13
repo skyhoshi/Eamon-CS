@@ -21,6 +21,12 @@ namespace Eamon.Game
 	[ClassMappings]
 	public class Artifact : GameBase, IArtifact
 	{
+		#region Protected Fields
+
+		protected Classes.IArtifactCategory _lastArtifactCategory;
+
+		#endregion
+
 		#region Public Properties
 
 		#region Interface IArtifact
@@ -164,6 +170,159 @@ namespace Eamon.Game
 				{
 					ac.Field5 = value;
 				}
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory Gold
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.Gold);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory Treasure
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.Treasure);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory Weapon
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.Weapon);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory MagicWeapon
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.MagicWeapon);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory Container
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.Container);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory LightSource
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.LightSource);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory Drinkable
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.Drinkable);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory Readable
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.Readable);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory DoorGate
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.DoorGate);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory Edible
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.Edible);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory BoundMonster
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.BoundMonster);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory Wearable
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.Wearable);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory DisguisedMonster
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.DisguisedMonster);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory DeadBody
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.DeadBody);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory User1
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.User1);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory User2
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.User2);
+			}
+		}
+
+		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory User3
+		{
+			get
+			{
+				return GetArtifactCategory(Enums.ArtifactType.User3);
 			}
 		}
 
@@ -386,7 +545,9 @@ namespace Eamon.Game
 
 		public virtual Classes.IArtifactCategory GetCategories(long index)
 		{
-			return Categories[index];
+			_lastArtifactCategory = Categories[index];
+
+			return _lastArtifactCategory;
 		}
 
 		public virtual string GetSynonyms(long index)
@@ -859,14 +1020,24 @@ namespace Eamon.Game
 
 		public virtual Classes.IArtifactCategory GetArtifactCategory(Enums.ArtifactType artifactType)
 		{
-			if (GetCategories(0) != null && GetCategories(0).Type != Enums.ArtifactType.None)
+			Classes.IArtifactCategory result = null;
+
+			if (_lastArtifactCategory != null && _lastArtifactCategory.Type == artifactType)
 			{
-				return Categories.FirstOrDefault(ac => ac != null && ac.Type == artifactType);
+				result = _lastArtifactCategory;
+			}
+			else if (GetCategories(0) != null && GetCategories(0).Type != Enums.ArtifactType.None)
+			{
+				result = Categories.FirstOrDefault(ac => ac != null && ac.Type == artifactType);
 			}
 			else
 			{
-				return null;
+				result = null;
 			}
+
+			_lastArtifactCategory = result;
+
+			return result;
 		}
 
 		public virtual Classes.IArtifactCategory GetArtifactCategory(Enums.ArtifactType[] artifactTypes, bool categoryArrayPrecedence = true)
@@ -905,6 +1076,8 @@ namespace Eamon.Game
 			}
 
 		Cleanup:
+
+			_lastArtifactCategory = result;
 
 			return result;
 		}
