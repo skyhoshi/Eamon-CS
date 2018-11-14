@@ -380,45 +380,11 @@ namespace Eamon.Framework
 
 		bool IsUnmovable01();
 
-		bool IsGold();
-
-		bool IsTreasure();
-
-		bool IsWeapon();
-
 		bool IsWeapon01();
-
-		bool IsMagicWeapon();
-
-		bool IsContainer();
-
-		bool IsLightSource();
-
-		bool IsDrinkable();
-
-		bool IsReadable();
-
-		bool IsDoorGate();
-
-		bool IsEdible();
-
-		bool IsBoundMonster();
-
-		bool IsWearable();
 
 		bool IsArmor();
 
 		bool IsShield();
-
-		bool IsDisguisedMonster();
-
-		bool IsDeadBody();
-
-		bool IsUser1();
-
-		bool IsUser2();
-
-		bool IsUser3();
 
 		bool ShouldShowContentsWhenExamined();
 

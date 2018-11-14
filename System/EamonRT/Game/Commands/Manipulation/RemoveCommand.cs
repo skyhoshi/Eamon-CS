@@ -22,7 +22,7 @@ namespace EamonRT.Game.Commands
 
 		public virtual bool IsDobjArtifactDisguisedMonster()
 		{
-			return DobjArtifact.IsDisguisedMonster();
+			return DobjArtifact.DisguisedMonster != null;
 		}
 
 		public override void PlayerExecute()

@@ -226,7 +226,7 @@ namespace Eamon.Game.Helpers
 
 						goto Cleanup;
 					}
-					else if (!artifact.IsDoorGate())
+					else if (artifact.DoorGate == null)
 					{
 						result = false;
 

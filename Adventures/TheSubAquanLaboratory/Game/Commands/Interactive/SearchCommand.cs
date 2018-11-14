@@ -69,7 +69,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 				default:
 
-					if (DobjArtifact.IsDeadBody() && DobjArtifact.Uid != 107)
+					if (DobjArtifact.DeadBody != null && DobjArtifact.Uid != 107)
 					{
 						PrintNothingFound(DobjArtifact);
 					}

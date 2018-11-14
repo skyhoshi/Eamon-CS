@@ -79,7 +79,7 @@ namespace EamonRT.Game.Commands
 
 				if (!DobjArtifact.IsCarriedByCharacter())
 				{
-					if (!DobjArtifact.IsDisguisedMonster() || !GetCommandCalled)
+					if (DobjArtifact.DisguisedMonster == null || !GetCommandCalled)
 					{
 						NextState = Globals.CreateInstance<IStartState>();
 					}
@@ -127,7 +127,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (DobjArtifact.IsDeadBody())
+				if (DobjArtifact.DeadBody != null)
 				{
 					PrintPolitelyRefuses(IobjMonster);
 
@@ -136,7 +136,7 @@ namespace EamonRT.Game.Commands
 
 				if (Globals.GameState.Ls == DobjArtifact.Uid)
 				{
-					Debug.Assert(DobjArtifact.IsLightSource());
+					Debug.Assert(DobjArtifact.LightSource != null);
 
 					Globals.Engine.LightOut(DobjArtifact);
 				}

@@ -1064,7 +1064,7 @@ namespace EamonRT.Game
 
 				foreach (var artifact in artifacts)
 				{
-					var m = artifact.IsGold() ? artifact.Value : GetMerchantBidPrice(artifact.Value, rtio);
+					var m = artifact.Gold != null ? artifact.Value : GetMerchantBidPrice(artifact.Value, rtio);
 
 					if (m < 0)
 					{
@@ -1906,7 +1906,7 @@ namespace EamonRT.Game
 			{
 				whereClauseFuncs = new Func<IArtifact, bool>[]
 				{
-					a => (a.IsCarriedByCharacter() || a.IsInRoomUid(Globals.GameState.Ro)) && a.IsDeadBody()
+					a => (a.IsCarriedByCharacter() || a.IsInRoomUid(Globals.GameState.Ro)) && a.DeadBody != null
 				};
 			}
 

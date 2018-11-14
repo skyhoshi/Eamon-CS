@@ -898,7 +898,7 @@ namespace Eamon.Game.Helpers
 
 									goto Cleanup;
 								}
-								else if (!artifact.IsContainer())
+								else if (artifact.Container == null)
 								{
 									result = false;
 

@@ -872,71 +872,11 @@ namespace Eamon.Game
 			return Globals.Engine.IsUnmovable01(Weight);
 		}
 
-		public virtual bool IsGold()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.Gold) != null;
-		}
-
-		public virtual bool IsTreasure()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.Treasure) != null;
-		}
-
-		public virtual bool IsWeapon()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.Weapon) != null;
-		}
-
 		public virtual bool IsWeapon01()
 		{
 			var ac = GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon });
 
 			return ac != null;
-		}
-
-		public virtual bool IsMagicWeapon()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.MagicWeapon) != null;
-		}
-
-		public virtual bool IsContainer()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.Container) != null;
-		}
-
-		public virtual bool IsLightSource()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.LightSource) != null;
-		}
-
-		public virtual bool IsDrinkable()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.Drinkable) != null;
-		}
-
-		public virtual bool IsReadable()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.Readable) != null;
-		}
-
-		public virtual bool IsDoorGate()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.DoorGate) != null;
-		}
-
-		public virtual bool IsEdible()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.Edible) != null;
-		}
-
-		public virtual bool IsBoundMonster()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.BoundMonster) != null;
-		}
-
-		public virtual bool IsWearable()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.Wearable) != null;
 		}
 
 		public virtual bool IsArmor()
@@ -951,31 +891,6 @@ namespace Eamon.Game
 			var ac = GetArtifactCategory(Enums.ArtifactType.Wearable);
 
 			return ac != null && ac.Field1 == 1;
-		}
-
-		public virtual bool IsDisguisedMonster()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.DisguisedMonster) != null;
-		}
-
-		public virtual bool IsDeadBody()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.DeadBody) != null;
-		}
-
-		public virtual bool IsUser1()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.User1) != null;
-		}
-
-		public virtual bool IsUser2()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.User2) != null;
-		}
-
-		public virtual bool IsUser3()
-		{
-			return GetArtifactCategory(Enums.ArtifactType.User3) != null;
 		}
 
 		public virtual bool ShouldShowContentsWhenExamined()
@@ -1409,7 +1324,7 @@ namespace Eamon.Game
 
 				foreach (var a in list)
 				{
-					if (a.IsContainer())
+					if (a.Container != null)
 					{
 						list01.AddRange(a.GetContainedList(artifactFindFunc, recurse));
 					}
@@ -1429,7 +1344,7 @@ namespace Eamon.Game
 
 			var queue = new Queue<IArtifact>();
 
-			if (IsContainer())
+			if (Container != null)
 			{
 				queue.AddRange(GetContainedList());
 			}
@@ -1445,7 +1360,7 @@ namespace Eamon.Game
 					weight += a.Weight;
 				}
 
-				if (recurse && a.IsContainer())
+				if (recurse && a.Container != null)
 				{
 					queue.AddRange(a.GetContainedList());
 				}

@@ -57,7 +57,7 @@ namespace EamonRT.Game.Commands
 
 			if (!DobjArtifact.IsCarriedByCharacter())
 			{
-				if (!DobjArtifact.IsDisguisedMonster())
+				if (DobjArtifact.DisguisedMonster == null)
 				{
 					NextState = Globals.CreateInstance<IStartState>();
 				}

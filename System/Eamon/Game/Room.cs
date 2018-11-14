@@ -295,7 +295,7 @@ namespace Eamon.Game
 
 				foreach (var a in list)
 				{
-					if (a.IsContainer())
+					if (a.Container != null)
 					{
 						list01.AddRange(a.GetContainedList(artifactFindFunc, recurse));
 					}
@@ -322,7 +322,7 @@ namespace Eamon.Game
 
 				foreach (var a in list)
 				{
-					if (a.IsContainer())
+					if (a.Container != null)
 					{
 						list01.AddRange(a.GetContainedList(artifactFindFunc, recurse));
 					}
@@ -381,7 +381,7 @@ namespace Eamon.Game
 
 						Debug.Assert(a != null);
 
-						if (a.IsContainer())
+						if (a.Container != null)
 						{
 							list01.AddRange(a.GetContainedList(artifactFindFunc, recurse));
 						}

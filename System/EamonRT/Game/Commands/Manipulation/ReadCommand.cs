@@ -46,7 +46,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (DobjArtifact.IsDisguisedMonster())
+				if (DobjArtifact.DisguisedMonster != null)
 				{
 					Globals.Engine.RevealDisguisedMonster(DobjArtifact);
 

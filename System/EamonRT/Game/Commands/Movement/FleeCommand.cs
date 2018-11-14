@@ -47,7 +47,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Enums.Direction), Direction));
 
-			if (DobjArtifact != null && !DobjArtifact.IsDoorGate())
+			if (DobjArtifact != null && DobjArtifact.DoorGate == null)
 			{
 				PrintDontFollowYou();
 

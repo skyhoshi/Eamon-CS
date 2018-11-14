@@ -81,7 +81,7 @@ namespace EamonRT.Game.Commands
 				{
 					var lsArtifact = Globals.ADB[Globals.GameState.Ls];
 
-					Debug.Assert(lsArtifact != null && lsArtifact.IsLightSource());
+					Debug.Assert(lsArtifact != null && lsArtifact.LightSource != null);
 
 					Globals.Engine.LightOut(lsArtifact);
 				}

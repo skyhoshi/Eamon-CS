@@ -628,7 +628,7 @@ namespace Eamon.Game
 
 				foreach (var a in list)
 				{
-					if (a.IsContainer())
+					if (a.Container != null)
 					{
 						list01.AddRange(a.GetContainedList(artifactFindFunc, recurse));
 					}
@@ -662,7 +662,7 @@ namespace Eamon.Game
 
 				foreach (var a in list)
 				{
-					if (a.IsContainer())
+					if (a.Container != null)
 					{
 						list01.AddRange(a.GetContainedList(artifactFindFunc, recurse));
 					}
@@ -696,7 +696,7 @@ namespace Eamon.Game
 
 				foreach (var a in list)
 				{
-					if (a.IsContainer())
+					if (a.Container != null)
 					{
 						list01.AddRange(a.GetContainedList(artifactFindFunc, recurse));
 					}
@@ -728,7 +728,7 @@ namespace Eamon.Game
 
 				Debug.Assert(!Globals.Engine.IsUnmovable01(w));
 
-				if (recurse && a.IsContainer())
+				if (recurse && a.Container != null)
 				{
 					rc = a.GetContainerInfo(ref c, ref w, recurse);
 
