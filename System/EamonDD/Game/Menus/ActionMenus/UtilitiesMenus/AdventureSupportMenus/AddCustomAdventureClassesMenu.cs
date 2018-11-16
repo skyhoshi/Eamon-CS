@@ -68,7 +68,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				{
 					var destClassFileName = classFileName.Replace(classFileName.StartsWith(@".\Eamon\") ? @".\Eamon\" : classFileName.StartsWith(@".\EamonDD\") ? @".\EamonDD\" : @".\EamonRT\", Constants.AdventuresDir + @"\" + AdventureName + @"\").Replace(@"..\..\", @"..\");
 
-					if (!classFileName.EndsWith(".cs") || classFileName.Contains(@"\..") || invalidClassFileNames.FirstOrDefault(fn => string.Equals(fn, Globals.Path.GetFileName(classFileName), StringComparison.OrdinalIgnoreCase)) != null || SelectedClassFiles.FirstOrDefault(fn => string.Equals(fn, classFileName, StringComparison.OrdinalIgnoreCase)) != null || Globals.File.Exists(destClassFileName))
+					if (!classFileName.EndsWith(".cs") || classFileName.Contains(@"\.") || invalidClassFileNames.FirstOrDefault(fn => string.Equals(fn, Globals.Path.GetFileName(classFileName), StringComparison.OrdinalIgnoreCase)) != null || SelectedClassFiles.FirstOrDefault(fn => string.Equals(fn, classFileName, StringComparison.OrdinalIgnoreCase)) != null || Globals.File.Exists(destClassFileName))
 					{
 						classFileName = string.Empty;
 					}
