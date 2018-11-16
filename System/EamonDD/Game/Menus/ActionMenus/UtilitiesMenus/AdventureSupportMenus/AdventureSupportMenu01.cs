@@ -129,6 +129,22 @@ namespace YourAdventureName.YourFrameworkNamespaceName
 	}
 }";
 
+		protected virtual string InterfaceCsText01 { get; set; } =
+@"
+// YourInterfaceName.cs
+
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+
+YourEamonRTUsingStatementusing static YourAdventureName.Game.Plugin.PluginContext;
+
+namespace YourAdventureName.YourFrameworkNamespaceName
+{
+	public interface YourInterfaceName : EamonRTInterfaceName
+	{
+
+	}
+}";
+
 		protected virtual string ClassWithInterfaceCsText { get; set; } =
 @"
 // YourClassName.cs
@@ -142,6 +158,25 @@ namespace YourAdventureName.YourGameNamespaceName
 {
 	[ClassMappings(typeof(YourInterfaceName))]
 	public class YourClassName : EamonLibraryName.YourGameNamespaceName.YourClassName, YourFrameworkNamespaceName.YourInterfaceName
+	{
+
+	}
+}
+";
+
+		protected virtual string ClassWithInterfaceCsText01 { get; set; } =
+@"
+// YourClassName.cs
+
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+
+using Eamon.Game.Attributes;
+using static YourAdventureName.Game.Plugin.PluginContext;
+
+namespace YourAdventureName.YourGameNamespaceName
+{
+	[ClassMappings]
+	public class YourClassName : EamonLibraryName.YourGameNamespaceName.EamonRTClassName, YourFrameworkNamespaceName.YourInterfaceName
 	{
 
 	}
@@ -642,6 +677,8 @@ namespace YourAdventureName.YourGameNamespaceName
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(ParentClassFileName));
 
+			var parentClassFileExists = Globals.File.Exists(ParentClassFileName);
+
 			var eamonLibraryName = ParentClassFileName.StartsWith(@"..\Eamon\") ? "Eamon" : ParentClassFileName.StartsWith(@"..\EamonDD\") ? "EamonDD" : "EamonRT";
 
 			if (ParentClassFileName.Contains(@"\Game\"))
@@ -650,7 +687,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				var yourInterfaceName = "I" + yourClassName;
 
-				var fileText = Globals.File.ReadAllText(ParentClassFileName);
+				var fileText = parentClassFileExists ? Globals.File.ReadAllText(ParentClassFileName) : ParentClassFileName.Contains(@"\States\") ? "namespace EamonRT.Game.States" : "namespace EamonRT.Game.Commands";
 
 				var matches = Regex.Matches(fileText, @".*namespace (.+[^ {\n\r\t])");
 
@@ -670,22 +707,6 @@ namespace YourAdventureName.YourGameNamespaceName
 
 					Globals.Directory.CreateDirectory(childClassPath);
 
-					if (IncludeInterface)
-					{
-						var childInterfaceFileName = childClassFileName.Replace(@"\Game\", @"\Framework\").Replace(@"\" + yourClassName + ".cs", @"\" + yourInterfaceName + ".cs");
-
-						if (!Globals.File.Exists(childInterfaceFileName))
-						{
-							var childInterfacePath = Globals.Path.GetDirectoryName(childInterfaceFileName);
-
-							Globals.Directory.CreateDirectory(childInterfacePath);
-
-							fileText = InterfaceCsText.Replace("EamonLibraryName", eamonLibraryName).Replace("YourFrameworkNamespaceName", yourFrameworkNamespaceName).Replace("YourInterfaceName", yourInterfaceName);
-
-							Globals.File.WriteAllText(childInterfaceFileName, ReplaceMacros(fileText));
-						}
-					}
-
 					var yourEamonUsingStatement = string.Empty;
 
 					var yourEamonRTUsingStatement = string.Empty;
@@ -699,9 +720,43 @@ namespace YourAdventureName.YourGameNamespaceName
 						yourEamonRTUsingStatement = string.Format("using {0}.{1};{2}", eamonLibraryName, yourFrameworkNamespaceName, Environment.NewLine);
 					}
 
-					fileText = IncludeInterface ? ClassWithInterfaceCsText : ClassCsText;
+					if (IncludeInterface)
+					{
+						var childInterfaceFileName = childClassFileName.Replace(@"\Game\", @"\Framework\").Replace(@"\" + yourClassName + ".cs", @"\" + yourInterfaceName + ".cs");
 
-					fileText = fileText.Replace("EamonLibraryName", eamonLibraryName).Replace("YourEamonUsingStatement", yourEamonUsingStatement).Replace("YourEamonRTUsingStatement", yourEamonRTUsingStatement).Replace("YourFrameworkNamespaceName", yourFrameworkNamespaceName).Replace("YourGameNamespaceName", yourGameNamespaceName).Replace("YourInterfaceName", yourInterfaceName).Replace("YourClassName", yourClassName);
+						if (!Globals.File.Exists(childInterfaceFileName))
+						{
+							var childInterfacePath = Globals.Path.GetDirectoryName(childInterfaceFileName);
+
+							Globals.Directory.CreateDirectory(childInterfacePath);
+
+							if (parentClassFileExists)
+							{
+								fileText = InterfaceCsText.Replace("EamonLibraryName", eamonLibraryName).Replace("YourFrameworkNamespaceName", yourFrameworkNamespaceName).Replace("YourInterfaceName", yourInterfaceName);
+							}
+							else
+							{
+								var eamonRTInterfaceName = ParentClassFileName.Contains(@"\States\") ? "IState" : "ICommand";
+
+								fileText = InterfaceCsText01.Replace("YourEamonRTUsingStatement", yourEamonRTUsingStatement).Replace("EamonRTInterfaceName", eamonRTInterfaceName).Replace("YourFrameworkNamespaceName", yourFrameworkNamespaceName).Replace("YourInterfaceName", yourInterfaceName);
+							}
+
+							Globals.File.WriteAllText(childInterfaceFileName, ReplaceMacros(fileText));
+						}
+					}
+
+					if (parentClassFileExists)
+					{
+						fileText = IncludeInterface ? ClassWithInterfaceCsText : ClassCsText;
+
+						fileText = fileText.Replace("EamonLibraryName", eamonLibraryName).Replace("YourEamonUsingStatement", yourEamonUsingStatement).Replace("YourEamonRTUsingStatement", yourEamonRTUsingStatement).Replace("YourFrameworkNamespaceName", yourFrameworkNamespaceName).Replace("YourGameNamespaceName", yourGameNamespaceName).Replace("YourInterfaceName", yourInterfaceName).Replace("YourClassName", yourClassName);
+					}
+					else
+					{
+						var eamonRTClassName = ParentClassFileName.Contains(@"\States\") ? "State" : "Command";
+
+						fileText = ClassWithInterfaceCsText01.Replace("EamonLibraryName", eamonLibraryName).Replace("EamonRTClassName", eamonRTClassName).Replace("YourFrameworkNamespaceName", yourFrameworkNamespaceName).Replace("YourGameNamespaceName", yourGameNamespaceName).Replace("YourInterfaceName", yourInterfaceName).Replace("YourClassName", yourClassName);
+					}
 
 					Globals.File.WriteAllText(childClassFileName, ReplaceMacros(fileText));
 				}
@@ -710,7 +765,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			{
 				var yourInterfaceName = Globals.Path.GetFileNameWithoutExtension(ParentClassFileName);
 
-				var fileText = Globals.File.ReadAllText(ParentClassFileName);
+				var fileText = parentClassFileExists ? Globals.File.ReadAllText(ParentClassFileName) : ParentClassFileName.Contains(@"\States\") ? "namespace EamonRT.Framework.States" : "namespace EamonRT.Framework.Commands";
 
 				var matches = Regex.Matches(fileText, @".*namespace (.+[^ {\n\r\t])");
 
@@ -726,7 +781,18 @@ namespace YourAdventureName.YourGameNamespaceName
 
 					Globals.Directory.CreateDirectory(childInterfacePath);
 
-					fileText = InterfaceCsText.Replace("EamonLibraryName", eamonLibraryName).Replace("YourFrameworkNamespaceName", yourFrameworkNamespaceName).Replace("YourInterfaceName", yourInterfaceName);
+					var yourEamonRTUsingStatement = string.Format("using {0}.{1};{2}", eamonLibraryName, yourFrameworkNamespaceName, Environment.NewLine);
+
+					if (parentClassFileExists)
+					{
+						fileText = InterfaceCsText.Replace("EamonLibraryName", eamonLibraryName).Replace("YourFrameworkNamespaceName", yourFrameworkNamespaceName).Replace("YourInterfaceName", yourInterfaceName);
+					}
+					else
+					{
+						var eamonRTInterfaceName = ParentClassFileName.Contains(@"\States\") ? "IState" : "ICommand";
+
+						fileText = InterfaceCsText01.Replace("YourEamonRTUsingStatement", yourEamonRTUsingStatement).Replace("EamonRTInterfaceName", eamonRTInterfaceName).Replace("YourFrameworkNamespaceName", yourFrameworkNamespaceName).Replace("YourInterfaceName", yourInterfaceName);
+					}
 
 					Globals.File.WriteAllText(childInterfaceFileName, ReplaceMacros(fileText));
 				}

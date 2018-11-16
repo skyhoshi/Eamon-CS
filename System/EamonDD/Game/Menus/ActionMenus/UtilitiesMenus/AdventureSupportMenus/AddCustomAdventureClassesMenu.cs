@@ -29,6 +29,8 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var classFileName = string.Empty;
 
+			var includeInterface = false;
+
 			while (true)
 			{
 				Globals.Out.Print("{0}", Globals.LineSep);
@@ -52,6 +54,8 @@ namespace EamonDD.Game.Menus.ActionMenus
 					goto Cleanup;
 				}
 
+				includeInterface = false;
+
 				if (!classFileName.StartsWith(@".\Eamon\") && !classFileName.StartsWith(@".\EamonDD\") && !classFileName.StartsWith(@".\EamonRT\"))
 				{
 					classFileName = string.Empty;
@@ -64,9 +68,45 @@ namespace EamonDD.Game.Menus.ActionMenus
 				{
 					var destClassFileName = classFileName.Replace(classFileName.StartsWith(@".\Eamon\") ? @".\Eamon\" : classFileName.StartsWith(@".\EamonDD\") ? @".\EamonDD\" : @".\EamonRT\", Constants.AdventuresDir + @"\" + AdventureName + @"\").Replace(@"..\..\", @"..\");
 
-					if (!classFileName.EndsWith(".cs") || classFileName.Contains(@"\..") || invalidClassFileNames.FirstOrDefault(fn => string.Equals(fn, Globals.Path.GetFileName(classFileName), StringComparison.OrdinalIgnoreCase)) != null || SelectedClassFiles.FirstOrDefault(fn => string.Equals(fn, classFileName, StringComparison.OrdinalIgnoreCase)) != null || !Globals.File.Exists(classFileName) || Globals.File.Exists(destClassFileName))
+					if (!classFileName.EndsWith(".cs") || classFileName.Contains(@"\..") || invalidClassFileNames.FirstOrDefault(fn => string.Equals(fn, Globals.Path.GetFileName(classFileName), StringComparison.OrdinalIgnoreCase)) != null || SelectedClassFiles.FirstOrDefault(fn => string.Equals(fn, classFileName, StringComparison.OrdinalIgnoreCase)) != null || Globals.File.Exists(destClassFileName))
 					{
 						classFileName = string.Empty;
+					}
+
+					if (!Globals.File.Exists(classFileName))
+					{
+						if (classFileName.StartsWith(@".\EamonRT\Game\States\") || classFileName.StartsWith(@".\EamonRT\Game\Commands\") || classFileName.StartsWith(@".\EamonRT\Framework\States\") || classFileName.StartsWith(@".\EamonRT\Framework\Commands\"))
+						{
+							Globals.Out.Print("{0}", Globals.LineSep);
+
+							Globals.Out.Write("{0}Would you like to derive directly from {1} (Y/N) [N]: ", Environment.NewLine, 
+								classFileName.Contains(@"\Game\States\") ? "State" :	
+								classFileName.Contains(@"\Game\Commands\") ? "Command" :	
+								classFileName.Contains(@"\Framework\States\") ? "IState" : 
+								"ICommand");
+
+							Buf.Clear();
+
+							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, "N", Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+
+							Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+							if (Buf.Length > 0 && Buf[0] == 'Y')
+							{
+								if (classFileName.Contains(@"\Game\"))
+								{
+									includeInterface = true;
+								}
+							}
+							else
+							{
+								classFileName = string.Empty;
+							}
+						}
+						else
+						{
+							classFileName = string.Empty;
+						}
 					}
 				}
 
@@ -76,9 +116,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				{
 					SelectedClassFiles.Add(classFileName);
 
-					var includeInterface = false;
-
-					if (classFileName.Contains(@"\Game\"))
+					if (!includeInterface && classFileName.Contains(@"\Game\"))
 					{
 						Globals.Out.Write("{0}Would you like to add a custom interface for this class (Y/N) [N]: ", Environment.NewLine);
 
