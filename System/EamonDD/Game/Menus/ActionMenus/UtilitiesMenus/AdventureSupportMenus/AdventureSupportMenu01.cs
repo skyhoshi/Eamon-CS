@@ -362,7 +362,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 		protected virtual void GetAdventureName()
 		{
-			var invalidAdventureNames = new string[] { "Adventures", "Catalog", "Characters", "Contemporary", "Fantasy", "SciFi", "Test", "Workbench", "WorkInProgress", "AdventureSupportMenu", "AdventureTemplates", "YourAdventureName", "YourAuthorName", "YourAuthorInitials" };
+			var invalidAdventureNames = new string[] { "Adventures", "Catalog", "Characters", "Contemporary", "Fantasy", "SciFi", "Test", "Workbench", "WorkInProgress", "AdventureSupportMenu", "LoadAdventureSupportMenu", "YourAdventureName", "YourAuthorName", "YourAuthorInitials" };
 
 			if (SupportMenuType == DDEnums.SupportMenuType.AddAdventure)
 			{

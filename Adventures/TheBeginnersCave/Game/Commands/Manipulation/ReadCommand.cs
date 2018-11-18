@@ -15,17 +15,19 @@ namespace TheBeginnersCave.Game.Commands
 	[ClassMappings]
 	public class ReadCommand : EamonRT.Game.Commands.ReadCommand, IReadCommand
 	{
-		public virtual Framework.IGameState GameState { get; set; }
-
 		public override void PlayerProcessEvents(long eventType)
 		{
+			var gameState = Globals.GameState as Framework.IGameState;
+
+			Debug.Assert(gameState != null);
+
 			if (eventType == PpeBeforeArtifactReadTextPrint)
 			{
 				// saving throw vs. intellect for book trap warning
 
 				if (DobjArtifact.Uid == 9)
 				{
-					if (GameState.BookWarning == 0)
+					if (gameState.BookWarning == 0)
 					{
 						var rl = Globals.Engine.RollDice01(1, 22, 2);
 
@@ -33,7 +35,7 @@ namespace TheBeginnersCave.Game.Commands
 						{
 							Globals.Engine.PrintEffectDesc(14);
 
-							GameState.BookWarning = 1;
+							gameState.BookWarning = 1;
 
 							GotoCleanup = true;
 						}
@@ -56,7 +58,7 @@ namespace TheBeginnersCave.Game.Commands
 				{
 					Globals.Out.Print(ActorRoom.Uid == 26 ? "You fall into the sea and are eaten by a big fish." : "You flop three times and die.");
 
-					GameState.Die = 1;
+					gameState.Die = 1;
 
 					NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 					{
@@ -94,13 +96,6 @@ namespace TheBeginnersCave.Game.Commands
 			{
 				base.PlayerExecute();
 			}
-		}
-
-		public ReadCommand()
-		{
-			GameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(GameState != null);
 		}
 	}
 }

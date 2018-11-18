@@ -18,11 +18,13 @@ namespace WrenholdsSecretVigil.Game.States
 	[ClassMappings]
 	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
-		public virtual Framework.IGameState GameState { get; set; }
-
 		public override void ProcessEvents(long eventType)
 		{
 			RetCode rc;
+
+			var gameState = Globals.GameState as Framework.IGameState;
+
+			Debug.Assert(gameState != null);
 
 			if (eventType == PeBeforeCanMoveToRoomCheck)
 			{
@@ -40,22 +42,22 @@ namespace WrenholdsSecretVigil.Game.States
 
 				// Auto-reveal secret doors if necessary
 
-				if (GameState.R2 == 5 && GameState.Ro == 8 && room5.GetDirs(Enums.Direction.South) == -8)
+				if (gameState.R2 == 5 && gameState.Ro == 8 && room5.GetDirs(Enums.Direction.South) == -8)
 				{
 					room5.SetDirs(Enums.Direction.South, 8);
 				}
-				else if (GameState.R2 == 40 && GameState.Ro == 41 && room40.GetDirs(Enums.Direction.South) == -41)
+				else if (gameState.R2 == 40 && gameState.Ro == 41 && room40.GetDirs(Enums.Direction.South) == -41)
 				{
 					room40.SetDirs(Enums.Direction.South, 41);
 				}
-				else if (GameState.R2 == 45 && GameState.Ro == 43 && room45.GetDirs(Enums.Direction.East) == -43)
+				else if (gameState.R2 == 45 && gameState.Ro == 43 && room45.GetDirs(Enums.Direction.East) == -43)
 				{
 					room45.SetDirs(Enums.Direction.East, 43);
 				}
 
 				// Falling down a drop-off (injury)
 
-				if (GameState.R2 == 25 && (GameState.Ro == 24 || GameState.Ro == 27) && Direction != Enums.Direction.Down)
+				if (gameState.R2 == 25 && (gameState.Ro == 24 || gameState.Ro == 27) && Direction != Enums.Direction.Down)
 				{
 					Globals.Engine.PrintEffectDesc(24);
 
@@ -70,7 +72,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 					combatSystem.ExecuteCalculateDamage(1, 1);
 
-					if (GameState.Die > 0)
+					if (gameState.Die > 0)
 					{
 						GotoCleanup = true;
 					}
@@ -78,7 +80,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 				// Falling down a drop-off (no injury)
 
-				else if (GameState.R2 == 18 && GameState.Ro == 17 && Direction != Enums.Direction.Down)
+				else if (gameState.R2 == 18 && gameState.Ro == 17 && Direction != Enums.Direction.Down)
 				{
 					Globals.Engine.PrintEffectDesc(5);
 				}
@@ -95,22 +97,22 @@ namespace WrenholdsSecretVigil.Game.States
 
 				// Down the airshaft
 
-				if (GameState.R2 == -100)
+				if (gameState.R2 == -100)
 				{
 					Globals.Engine.PrintEffectDesc(42);
 
-					GameState.R2 = 36;
+					gameState.R2 = 36;
 
 					NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 				}
 
 				// Over the cliff
 
-				else if (GameState.R2 == -101)
+				else if (gameState.R2 == -101)
 				{
 					Globals.Engine.PrintEffectDesc(1);
 
-					GameState.Die = 1;
+					gameState.Die = 1;
 
 					NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 					{
@@ -120,15 +122,15 @@ namespace WrenholdsSecretVigil.Game.States
 
 				// Up rope rings bell
 
-				else if (GameState.R2 == -102)
+				else if (gameState.R2 == -102)
 				{
 					Globals.Engine.RevealEmbeddedArtifact(Room, ropeArtifact);
 
 					Globals.Engine.PrintEffectDesc(25);
 
-					GameState.R2 = GameState.Ro;
+					gameState.R2 = gameState.Ro;
 
-					if (!GameState.PulledRope)
+					if (!gameState.PulledRope)
 					{
 						var monsters = Globals.Engine.GetMonsterList(() => true, m => m.Uid >= 14 && m.Uid <= 16);
 
@@ -139,12 +141,12 @@ namespace WrenholdsSecretVigil.Game.States
 
 						// CheckEnemies intentionally omitted
 
-						GameState.PulledRope = true;
+						gameState.PulledRope = true;
 					}
 
 					PrintCantGoThatWay();
 				}
-				else if (GameState.R2 == Constants.DirectionExit)
+				else if (gameState.R2 == Constants.DirectionExit)
 				{
 					Globals.Out.Write("{0}Leave this adventure (Y/N): ", Environment.NewLine);
 
@@ -191,7 +193,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 							Debug.Assert(magicBowArtifact != null);
 
-							GameState.Wt += magicBowArtifact.Weight;
+							gameState.Wt += magicBowArtifact.Weight;
 
 							magicBowArtifact.SetCarriedByCharacter();
 
@@ -225,7 +227,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 							Globals.Character.HeldGold += 2000;
 
-							GameState.Die = 0;
+							gameState.Die = 0;
 
 							Globals.ExitType = Enums.ExitType.FinishAdventure;
 
@@ -240,7 +242,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 							Globals.Out.Print("You are dead.");
 
-							GameState.Die = 1;
+							gameState.Die = 1;
 
 							NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 							{
@@ -258,13 +260,6 @@ namespace WrenholdsSecretVigil.Game.States
 			{
 				base.ProcessEvents(eventType);
 			}
-		}
-
-		public PlayerMoveCheckState()
-		{
-			GameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(GameState != null);
 		}
 	}
 }

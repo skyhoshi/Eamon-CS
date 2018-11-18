@@ -19,7 +19,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 	{
 		protected virtual void SelectClassFilesToDelete()
 		{
-			var invalidClassFileNames = new string[] { "Program.cs", "IPluginClassMappings.cs", "IPluginConstants.cs", "IPluginGlobals.cs", "PluginClassMappings.cs", "PluginConstants.cs", "PluginContext.cs", "PluginGlobals.cs" };
+			var invalidClassFileNames = new string[] { "Program.cs", "Engine.cs", "IPluginClassMappings.cs", "IPluginConstants.cs", "IPluginGlobals.cs", "PluginClassMappings.cs", "PluginConstants.cs", "PluginContext.cs", "PluginGlobals.cs" };
 
 			SelectedClassFiles = new List<string>();
 
