@@ -20,13 +20,9 @@ namespace EamonRT.Framework.States
 
 		bool PreserveNextState { get; set; }
 
-		bool Discarded { get; set; }
-
 		#endregion
 
 		#region Methods
-
-		void Dispose(bool disposing);
 
 		void PrintObjBlocksTheWay(IArtifact artifact);
 

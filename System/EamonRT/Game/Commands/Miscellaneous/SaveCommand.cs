@@ -385,8 +385,6 @@ namespace EamonRT.Game.Commands
 
 			if (SaveSlot < 1 || SaveSlot > filesetsCount + 1)
 			{
-				CommandParser.NextState.Discarded = true;
-
 				CommandParser.NextState = Globals.CreateInstance<IStartState>();
 			}
 		}

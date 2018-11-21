@@ -280,8 +280,6 @@ namespace EamonRT.Game.Commands
 
 			if (SaveSlot < 1 || SaveSlot > filesetsCount)
 			{
-				CommandParser.NextState.Discarded = true;
-
 				if (Globals.GameState.Die == 1)
 				{
 					CommandParser.NextState = Globals.CreateInstance<IPlayerDeadState>(x =>

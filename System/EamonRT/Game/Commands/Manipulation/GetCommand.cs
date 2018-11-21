@@ -39,8 +39,6 @@ namespace EamonRT.Game.Commands
 
 			if (!PreserveNextState && NextState != null)
 			{
-				NextState.Dispose();
-
 				NextState = null;
 			}
 		}

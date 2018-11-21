@@ -71,8 +71,6 @@ namespace TheTempleOfNgurct.Game.Commands
 				{
 					PrintEnemiesNearby();
 
-					CommandParser.NextState.Discarded = true;
-
 					CommandParser.NextState = Globals.CreateInstance<IStartState>();
 				}
 				else
@@ -86,15 +84,11 @@ namespace TheTempleOfNgurct.Game.Commands
 				{
 					PrintEnemiesNearby();
 
-					CommandParser.NextState.Discarded = true;
-
 					CommandParser.NextState = Globals.CreateInstance<IStartState>();
 				}
 				else
 				{
 					Globals.Out.Print("They are bolted firmly to the walls.");
-
-					CommandParser.NextState.Discarded = true;
 
 					CommandParser.NextState = Globals.CreateInstance<IMonsterStartState>();
 				}

@@ -511,15 +511,11 @@ namespace EamonRT.Game.Commands
 			{
 				Command.PrintDoYouMeanObj1OrObj2(Command.CommandParser.ObjData.FilterArtifactList[0], Command.CommandParser.ObjData.FilterArtifactList[1]);
 
-				Command.CommandParser.NextState.Discarded = true;
-
 				Command.CommandParser.NextState = Globals.CreateInstance<IStartState>();
 			}
 			else if (Command.CommandParser.ObjData.FilterArtifactList.Count < 1)
 			{
 				Command.CommandParser.ObjData.ArtifactNotFoundFunc();
-
-				Command.CommandParser.NextState.Discarded = true;
 
 				Command.CommandParser.NextState = Globals.CreateInstance<IStartState>();
 			}
@@ -536,8 +532,6 @@ namespace EamonRT.Game.Commands
 			if (Command.CommandParser.ObjData.FilterArtifactList.Count > 1)
 			{
 				Command.PrintDoYouMeanObj1OrObj2(Command.CommandParser.ObjData.FilterArtifactList[0], Command.CommandParser.ObjData.FilterArtifactList[1]);
-
-				Command.CommandParser.NextState.Discarded = true;
 
 				Command.CommandParser.NextState = Globals.CreateInstance<IStartState>();
 			}
@@ -559,15 +553,11 @@ namespace EamonRT.Game.Commands
 			{
 				Command.PrintDoYouMeanObj1OrObj2(Command.CommandParser.ObjData.FilterArtifactList[0], Command.CommandParser.ObjData.FilterArtifactList[1]);
 
-				Command.CommandParser.NextState.Discarded = true;
-
 				Command.CommandParser.NextState = Globals.CreateInstance<IStartState>();
 			}
 			else if (Command.CommandParser.ObjData.FilterArtifactList.Count < 1)
 			{
 				Command.CommandParser.ObjData.ArtifactNotFoundFunc();
-
-				Command.CommandParser.NextState.Discarded = true;
 
 				Command.CommandParser.NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
@@ -585,8 +575,6 @@ namespace EamonRT.Game.Commands
 			{
 				Command.CommandParser.ObjData.MonsterNotFoundFunc();
 
-				Command.CommandParser.NextState.Discarded = true;
-
 				Command.CommandParser.NextState = Globals.CreateInstance<IStartState>();
 			}
 			else
@@ -601,15 +589,11 @@ namespace EamonRT.Game.Commands
 			{
 				Command.CommandParser.ObjData.MonsterNotFoundFunc();
 
-				Command.CommandParser.NextState.Discarded = true;
-
 				Command.CommandParser.NextState = Globals.CreateInstance<IStartState>();
 			}
 			else
 			{
 				Command.PrintCantVerbObj(Command.CommandParser.ObjData.FilterMonsterList[0]);
-
-				Command.CommandParser.NextState.Discarded = true;
 
 				Command.CommandParser.NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
@@ -620,8 +604,6 @@ namespace EamonRT.Game.Commands
 			if (Command.CommandParser.ObjData.FilterMonsterList.Count < 1)
 			{
 				Command.CommandParser.ObjData.MonsterNotFoundFunc();
-
-				Command.CommandParser.NextState.Discarded = true;
 
 				Command.CommandParser.NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
@@ -714,8 +696,6 @@ namespace EamonRT.Game.Commands
 				}
 				else
 				{
-					Command.CommandParser.NextState.Discarded = true;
-
 					Command.CommandParser.NextState = Globals.CreateInstance<IErrorState>(x =>
 					{
 						x.ErrorMessage = string.Format("{0}: string.IsNullOrWhiteSpace(Command.CommandParser.{1}.Name)", Command.Name, Command.CommandParser.GetActiveObjData());
@@ -785,8 +765,6 @@ namespace EamonRT.Game.Commands
 				}
 				else
 				{
-					Command.CommandParser.NextState.Discarded = true;
-
 					Command.CommandParser.NextState = Globals.CreateInstance<IErrorState>(x =>
 					{
 						x.ErrorMessage = string.Format("{0}: string.IsNullOrWhiteSpace(Command.CommandParser.{1}.Name)", Command.Name, Command.CommandParser.GetActiveObjData());

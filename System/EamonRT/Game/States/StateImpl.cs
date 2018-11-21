@@ -48,18 +48,6 @@ namespace EamonRT.Game.States
 
 		public virtual bool PreserveNextState { get; set; }
 
-		public virtual bool Discarded { get; set; }
-
-		public virtual void Dispose(bool disposing)
-		{
-			if (disposing)
-			{
-				// get rid of managed resources
-			}
-
-			// get rid of unmanaged resources
-		}
-
 		public virtual void PrintObjBlocksTheWay(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);

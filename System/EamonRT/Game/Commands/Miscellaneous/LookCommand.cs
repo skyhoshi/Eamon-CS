@@ -33,16 +33,9 @@ namespace EamonRT.Game.Commands
 
 				CopyCommandData(command);
 
-				CommandParser.NextState.Discarded = true;
-
 				CommandParser.NextState = command;
 
 				command.FinishParsing();
-
-				if (command.Discarded)
-				{
-					command.Dispose();
-				}
 			}
 		}
 

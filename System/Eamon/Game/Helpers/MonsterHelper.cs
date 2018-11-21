@@ -240,13 +240,11 @@ namespace Eamon.Game.Helpers
 		{
 			var result = true;
 
-			if (Record.Weapon > 0)
+			var weapon = Record.Weapon > 0 ? Globals.ADB[Record.Weapon] : null;
+
+			if (weapon != null)
 			{
 				var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
-
-				var weapon = Globals.ADB[Record.Weapon];
-
-				Debug.Assert(weapon != null);
 
 				var ac = weapon.GetArtifactCategory(artTypes);
 

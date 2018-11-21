@@ -75,19 +75,6 @@ namespace EamonRT.Game.States
 			}
 		}
 
-		public virtual bool Discarded
-		{
-			get
-			{
-				return StateImpl.Discarded;
-			}
-
-			set
-			{
-				StateImpl.Discarded = value;
-			}
-		}
-
 		#endregion
 
 		#endregion
@@ -95,11 +82,6 @@ namespace EamonRT.Game.States
 		#region Public Methods
 
 		#region Interface IStateSignatures
-
-		public virtual void Dispose(bool disposing)
-		{
-			StateImpl.Dispose(disposing);
-		}
 
 		public virtual void PrintObjBlocksTheWay(IArtifact artifact)
 		{
@@ -144,17 +126,6 @@ namespace EamonRT.Game.States
 		public virtual void Execute()
 		{
 			StateImpl.Execute();
-		}
-
-		#endregion
-
-		#region Interface IDisposable
-
-		public void Dispose()      // virtual intentionally omitted
-		{
-			Dispose(true);
-
-			GC.SuppressFinalize(this);
 		}
 
 		#endregion

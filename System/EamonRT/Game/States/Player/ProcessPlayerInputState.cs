@@ -32,12 +32,7 @@ namespace EamonRT.Game.States
 				Debug.Assert(Globals.GameState.CurrTurn > 0);
 			}
 
-			while (Globals.LastCommandList.Count > 0)
-			{
-				Globals.LastCommandList[0].Dispose();
-
-				Globals.LastCommandList.RemoveAt(0);
-			}
+			Globals.LastCommandList.Clear();
 
 			ProcessEvents(PeAfterLastCommandListClear);
 

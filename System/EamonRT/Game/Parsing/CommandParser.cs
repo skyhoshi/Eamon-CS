@@ -321,34 +321,30 @@ namespace EamonRT.Game.Parsing
 						Globals.Engine.CheckPlayerCommand(command, false);
 					}
 
-					if (command.Discarded)
+					if (NextState != command)
 					{
-						NextState = command.NextState ?? Globals.CreateInstance<IStartState>();
+						if (NextState == null)
+						{
+							NextState = Globals.CreateInstance<IStartState>();
+						}
 					}
 					else if (!ActorMonster.IsCharacterMonster() || ActorRoom.IsLit() || command.IsDarkEnabled)
 					{
 						command.FinishParsing();
 
-						if (!command.Discarded && ActorMonster.IsCharacterMonster())
+						if (NextState == command && ActorMonster.IsCharacterMonster())
 						{
 							Globals.Engine.CheckPlayerCommand(command, true);
 
-							if (command.Discarded)
+							if (NextState == null)
 							{
-								NextState = command.NextState ?? Globals.CreateInstance<IStartState>();
+								NextState = Globals.CreateInstance<IStartState>();
 							}
 						}
 					}
 					else
 					{
-						command.Discarded = true;
-
 						NextState = Globals.CreateInstance<IStartState>();
-					}
-
-					if (command.Discarded)
-					{
-						command.Dispose();
 					}
 				}
 			}

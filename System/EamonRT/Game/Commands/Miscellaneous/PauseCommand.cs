@@ -46,8 +46,6 @@ namespace EamonRT.Game.Commands
 			{
 				Globals.Out.Print("Usage: PAUSE Combat [Milliseconds] where 0 <= Milliseconds <= 10000.");
 
-				CommandParser.NextState.Discarded = true;
-
 				CommandParser.NextState = Globals.CreateInstance<IStartState>();
 			}
 		}

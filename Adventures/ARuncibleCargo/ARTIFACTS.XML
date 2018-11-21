@@ -1682,7 +1682,7 @@
             </SingleArray>
             <Simple name="Uid" value="51" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="room 14 door" />
+            <Simple name="Name" value="Room 14 door" />
             <Simple name="Desc" value="This ornate door, marked number 14, is firmly locked and sturdy enough that you doubt it can be knocked from its tarnished, brass hinges." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
@@ -1748,7 +1748,7 @@
             </SingleArray>
             <Simple name="Uid" value="53" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="room 14 key" />
+            <Simple name="Name" value="Room 14 key" />
             <Simple name="Desc" value="This steel key is too plain to be described, save for the fact that it bears a fine velvet tag bearing the number &quot;14&quot; embroidered upon it.  And that it is so finely constructed that it undoubtedly would fetch quite a reasonable price." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
@@ -2265,7 +2265,7 @@
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
-                    <Simple name="Field1" value="41" />
+                    <Simple name="Field1" value="-1" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="0" />
@@ -2276,7 +2276,7 @@
             </SingleArray>
             <Simple name="Uid" value="69" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="room 14 window" />
+            <Simple name="Name" value="Room 14 window" />
             <Simple name="Desc" value="As you peer through the thick window into the blackness outside, you can faintly make out the profile of a tall and painfully thin pale figure standing just outside the edge of the forest.  Its eyes are agape, silent, unblinking, casting their gaze at you." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />

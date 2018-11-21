@@ -16,8 +16,8 @@
             once the command is identified; the direct/indirect objects have not been parsed or resolved at
             this point.  If the flag is true, the direct/indirect objects have been parsed and resolved.
             You can examine the command passed and take whatever actions you deem necessary, including
-            outputting text to the player and/or setting the NextState command property.  If you want to
-            abort the command you should set its Discarded property to true.
+            outputting text to the player.  If you want to abort or redirect the command you should set
+            its CommandParser.NextState property to some other state (or null).
             </remarks>
         </member>
         <member name="M:EamonRT.Framework.IEngine.PrintMacroReplacedPagedString(System.String,System.Text.StringBuilder)">
