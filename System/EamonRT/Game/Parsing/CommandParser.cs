@@ -319,30 +319,30 @@ namespace EamonRT.Game.Parsing
 					if (ActorMonster.IsCharacterMonster())
 					{
 						Globals.Engine.CheckPlayerCommand(command, false);
-					}
 
-					if (NextState != command)
-					{
-						if (NextState == null)
+						if (NextState == command)
 						{
-							NextState = Globals.CreateInstance<IStartState>();
-						}
-					}
-					else if (!ActorMonster.IsCharacterMonster() || ActorRoom.IsLit() || command.IsDarkEnabled)
-					{
-						command.FinishParsing();
-
-						if (NextState == command && ActorMonster.IsCharacterMonster())
-						{
-							Globals.Engine.CheckPlayerCommand(command, true);
-
-							if (NextState == null)
+							if (ActorRoom.IsLit() || command.IsDarkEnabled)
 							{
-								NextState = Globals.CreateInstance<IStartState>();
+								command.FinishParsing();
+
+								if (NextState == command)
+								{
+									Globals.Engine.CheckPlayerCommand(command, true);
+								}
+							}
+							else
+							{
+								NextState = null;
 							}
 						}
 					}
 					else
+					{
+						command.FinishParsing();
+					}
+
+					if (NextState == null)
 					{
 						NextState = Globals.CreateInstance<IStartState>();
 					}
