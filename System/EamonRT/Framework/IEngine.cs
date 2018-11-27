@@ -78,6 +78,8 @@ namespace EamonRT.Framework
 
 		void DeadMenu(IMonster monster, bool printLineSep, ref bool restoreGame);
 
+		void DropArtifact(IMonster monster, IArtifact artifact, IRoom room, bool suppressOutput = false);
+
 		void LightOut(IArtifact artifact);
 
 		void MonsterGetsAggravated(IMonster monster, bool printFinalNewLine = true);

@@ -330,10 +330,10 @@
           <Properties>
             <Simple name="Uid" value="11" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="behemoth of the Bandit's Guild" />
+            <Simple name="Name" value="Behemoth of the Bandit's Guild" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="The" />
             <Simple name="StateDesc" value="" />
             <Simple name="Desc" value="Towering above you is a seeming giant of a man, eight feet in height and breadth, cloaked in Bandit's Guild colors.  Beneath his enormous brow, his tiny eyes suggest a dead innocence subverted by a perverting evil.  Hatred is all that remains." />
             <Simple name="IsListed" value="True" />

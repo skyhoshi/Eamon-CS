@@ -31,7 +31,7 @@ namespace TheBeginnersCave.Game.Commands
 					{
 						var rl = Globals.Engine.RollDice01(1, 22, 2);
 
-						if (rl < Globals.Character.GetStats(Enums.Stat.Intellect))
+						if (rl <= Globals.Character.GetStats(Enums.Stat.Intellect))
 						{
 							Globals.Engine.PrintEffectDesc(14);
 

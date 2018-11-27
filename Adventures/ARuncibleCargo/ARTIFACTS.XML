@@ -758,7 +758,7 @@
             </SingleArray>
             <Simple name="Uid" value="23" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="behemoth's makeshift mace" />
+            <Simple name="Name" value="Behemoth's makeshift mace" />
             <Simple name="Desc" value="Only a giant could deftly wield this foul weapon, constructed from a host of maces and axes tethered to a log by rusting, iron chains.  If the direct blow of this contraption doesn't kill its prey, ultimately tetanus will finish the job." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />

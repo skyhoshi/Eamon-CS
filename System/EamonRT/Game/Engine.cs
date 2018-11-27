@@ -673,9 +673,9 @@ namespace EamonRT.Game
 				{
 					Globals.Buf.Clear();
 
-					var rc = Globals.Engine.ResolveUidMacros(artifact.Desc, Globals.Buf, true, true);
+					var rc = ResolveUidMacros(artifact.Desc, Globals.Buf, true, true);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(IsSuccess(rc));
 
 					if (Globals.Buf.Length <= Constants.CharArtDescLen)
 					{
@@ -891,9 +891,9 @@ namespace EamonRT.Game
 					{
 						Globals.Buf.Clear();
 
-						var rc = Globals.Engine.ResolveUidMacros(artifact.Desc, Globals.Buf, true, true);
+						var rc = ResolveUidMacros(artifact.Desc, Globals.Buf, true, true);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(IsSuccess(rc));
 
 						if (Globals.Buf.Length <= Constants.CharArtDescLen)
 						{
@@ -1150,6 +1150,61 @@ namespace EamonRT.Game
 			else
 			{
 				restoreGame = true;
+			}
+		}
+
+		public virtual void DropArtifact(IMonster monster, IArtifact artifact, IRoom room, bool suppressOutput = false)
+		{
+			Debug.Assert(monster != null && monster.IsCharacterMonster());
+
+			Debug.Assert(artifact != null && artifact.IsCarriedByCharacter());
+
+			Debug.Assert(room != null);
+
+			if (suppressOutput)
+			{
+				Globals.Out.EnableOutput = false;
+			}
+
+			if (Globals.GameState.Ar > 0 && artifact.Uid == Globals.GameState.Ar)
+			{
+				Debug.Assert(artifact.Wearable != null);
+
+				Globals.GameState.Ar = 0;
+			}
+
+			if (Globals.GameState.Ls > 0 && artifact.Uid == Globals.GameState.Ls)
+			{
+				Debug.Assert(artifact.LightSource != null);
+
+				LightOut(artifact);
+			}
+
+			if (Globals.GameState.Sh > 0 && artifact.Uid == Globals.GameState.Sh)
+			{
+				Debug.Assert(artifact.Wearable != null);
+
+				Globals.GameState.Sh = 0;
+			}
+
+			RemoveWeight(artifact);
+
+			artifact.SetInRoom(room);
+
+			if (monster.Weapon == artifact.Uid)
+			{
+				Debug.Assert(artifact.IsWeapon01());
+
+				var rc = artifact.RemoveStateDesc(artifact.GetReadyWeaponDesc());
+
+				Debug.Assert(IsSuccess(rc));
+
+				monster.Weapon = -1;
+			}
+
+			if (suppressOutput)
+			{
+				Globals.Out.EnableOutput = true;
 			}
 		}
 
