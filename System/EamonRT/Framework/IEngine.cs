@@ -78,7 +78,7 @@ namespace EamonRT.Framework
 
 		void DeadMenu(IMonster monster, bool printLineSep, ref bool restoreGame);
 
-		void DropArtifact(IMonster monster, IArtifact artifact, IRoom room, bool suppressOutput = false);
+		void DropArtifact(IMonster monster, IArtifact artifact, IRoom room, Action<IMonster, IArtifact> printDroppedFunc = null);
 
 		void LightOut(IArtifact artifact);
 

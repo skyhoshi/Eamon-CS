@@ -53,9 +53,7 @@ namespace EamonRT.Game.Commands
 
 				foreach (var artifact in ArtifactList)
 				{
-					Globals.Engine.DropArtifact(ActorMonster, artifact, ActorRoom);
-
-					PrintDropped(artifact);
+					Globals.Engine.DropArtifact(ActorMonster, artifact, ActorRoom, (m, a) => PrintDropped(a));
 				}
 
 				Globals.Out.WriteLine();

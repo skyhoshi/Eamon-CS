@@ -1153,41 +1153,57 @@ namespace EamonRT.Game
 			}
 		}
 
-		public virtual void DropArtifact(IMonster monster, IArtifact artifact, IRoom room, bool suppressOutput = false)
+		public virtual void DropArtifact(IMonster monster, IArtifact artifact, IRoom room, Action<IMonster, IArtifact> printDroppedFunc = null)
 		{
-			Debug.Assert(monster != null && monster.IsCharacterMonster());
+			Debug.Assert(monster != null && artifact != null && room != null);
 
-			Debug.Assert(artifact != null && artifact.IsCarriedByCharacter());
-
-			Debug.Assert(room != null);
-
-			if (suppressOutput)
+			if (printDroppedFunc == null)
 			{
 				Globals.Out.EnableOutput = false;
 			}
 
-			if (Globals.GameState.Ar > 0 && artifact.Uid == Globals.GameState.Ar)
+			if (monster.IsCharacterMonster())
 			{
-				Debug.Assert(artifact.Wearable != null);
+				Debug.Assert(artifact.IsCarriedByCharacter() || artifact.IsWornByCharacter());
 
-				Globals.GameState.Ar = 0;
+				if (Globals.GameState.Ar > 0 && artifact.Uid == Globals.GameState.Ar)
+				{
+					Debug.Assert(artifact.Wearable != null);
+
+					monster.Armor -= (artifact.Wearable.Field1 / 2);
+
+					Globals.GameState.Ar = 0;
+				}
+
+				if (Globals.GameState.Ls > 0 && artifact.Uid == Globals.GameState.Ls)
+				{
+					Debug.Assert(artifact.LightSource != null);
+
+					LightOut(artifact);
+				}
+
+				if (Globals.GameState.Sh > 0 && artifact.Uid == Globals.GameState.Sh)
+				{
+					Debug.Assert(artifact.Wearable != null);
+
+					monster.Armor -= artifact.Wearable.Field1;
+
+					Globals.GameState.Sh = 0;
+				}
+
+				RemoveWeight(artifact);
+			}
+			else
+			{
+				Debug.Assert(artifact.IsCarriedByMonster(monster) || artifact.IsWornByMonster(monster));
+
+				if (artifact.IsWornByMonster(monster) && artifact.Wearable != null && artifact.Wearable.Field1 > 0)
+				{
+					monster.Armor -= (artifact.Wearable.Field1 > 1 ? artifact.Wearable.Field1 / 2 : artifact.Wearable.Field1);
+				}
 			}
 
-			if (Globals.GameState.Ls > 0 && artifact.Uid == Globals.GameState.Ls)
-			{
-				Debug.Assert(artifact.LightSource != null);
-
-				LightOut(artifact);
-			}
-
-			if (Globals.GameState.Sh > 0 && artifact.Uid == Globals.GameState.Sh)
-			{
-				Debug.Assert(artifact.Wearable != null);
-
-				Globals.GameState.Sh = 0;
-			}
-
-			RemoveWeight(artifact);
+			Debug.Assert(IsValidMonsterArmor(monster.Armor));
 
 			artifact.SetInRoom(room);
 
@@ -1202,7 +1218,11 @@ namespace EamonRT.Game
 				monster.Weapon = -1;
 			}
 
-			if (suppressOutput)
+			if (printDroppedFunc != null)
+			{
+				printDroppedFunc(monster, artifact);
+			}
+			else
 			{
 				Globals.Out.EnableOutput = true;
 			}
