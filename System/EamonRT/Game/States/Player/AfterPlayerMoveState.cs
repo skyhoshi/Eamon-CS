@@ -72,33 +72,7 @@ namespace EamonRT.Game.States
 
 			if (room.LightLvl > 0 && Globals.GameState.Ls > 0)
 			{
-				artifact = Globals.ADB[Globals.GameState.Ls];
-
-				Debug.Assert(artifact != null);
-
-				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.LightSource);
-
-				Debug.Assert(ac != null);
-
-				if (ac.Field1 != -1)
-				{
-					Globals.Out.Write("{0}It's not dark here.  Extinguish {1} (Y/N): ", Environment.NewLine, artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
-
-					Globals.Buf.Clear();
-
-					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-					if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'Y')
-					{
-						rc = artifact.RemoveStateDesc(artifact.GetProvidingLightDesc());
-
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-						Globals.GameState.Ls = 0;
-					}
-				}
+				Globals.Engine.CheckToExtinguishLightSource();
 			}
 
 			ProcessEvents(PeAfterExtinguishLightSourceCheck);

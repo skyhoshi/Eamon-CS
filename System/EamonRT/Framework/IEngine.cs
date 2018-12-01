@@ -78,8 +78,6 @@ namespace EamonRT.Framework
 
 		void DeadMenu(IMonster monster, bool printLineSep, ref bool restoreGame);
 
-		void DropArtifact(IMonster monster, IArtifact artifact, IRoom room, Action<IMonster, IArtifact> printDroppedFunc = null);
-
 		void LightOut(IArtifact artifact);
 
 		void MonsterGetsAggravated(IMonster monster, bool printFinalNewLine = true);
@@ -147,6 +145,8 @@ namespace EamonRT.Framework
 		/// its CommandParser.NextState property to some other state (or null).
 		/// </remarks>
 		void CheckPlayerCommand(ICommand command, bool afterFinishParsing);
+
+		void CheckToExtinguishLightSource();
 
 		void TransportRoomContentsBetweenRooms(IRoom oldRoom, IRoom newRoom, bool includeEmbedded = true);
 

@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
-using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -23,6 +22,43 @@ namespace EamonRT.Game.Commands
 
 		public virtual bool DropAll { get; set; }
 
+		public virtual void ProcessLightSource()
+		{
+			if (Globals.GameState.Ls > 0)
+			{
+				var lsArtifact = Globals.ADB[Globals.GameState.Ls];
+
+				Debug.Assert(lsArtifact != null && lsArtifact.LightSource != null);
+
+				if ((DropAll || lsArtifact == DobjArtifact) && lsArtifact.IsCarriedByCharacter())
+				{
+					Globals.Engine.LightOut(lsArtifact);
+				}
+			}
+		}
+
+		public virtual void ProcessArtifact(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Engine.RemoveWeight(artifact);
+
+			artifact.SetInRoom(ActorRoom);
+
+			if (ActorMonster.Weapon == artifact.Uid)
+			{
+				Debug.Assert(artifact.IsWeapon01());
+
+				var rc = artifact.RemoveStateDesc(artifact.GetReadyWeaponDesc());
+
+				Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+				ActorMonster.Weapon = -1;
+			}
+
+			PrintDropped(artifact);
+		}
+
 		public override void PlayerExecute()
 		{
 			Debug.Assert(DropAll || DobjArtifact != null);
@@ -36,24 +72,15 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
+			ProcessLightSource();
+
 			ArtifactList = DropAll ? ActorMonster.GetCarriedList() : new List<IArtifact>() { DobjArtifact };
 
 			if (ArtifactList.Count > 0)
 			{
-				var lsIndex = ArtifactList.FindIndex(a => a.Uid == Globals.GameState.Ls);
-
-				if (lsIndex > 0)
-				{
-					var lsArtifact = ArtifactList[lsIndex];
-					
-					ArtifactList.RemoveAt(lsIndex);
-
-					ArtifactList.Insert(0, lsArtifact);
-				}
-
 				foreach (var artifact in ArtifactList)
 				{
-					Globals.Engine.DropArtifact(ActorMonster, artifact, ActorRoom, (m, a) => PrintDropped(a));
+					ProcessArtifact(artifact);
 				}
 
 				Globals.Out.WriteLine();
@@ -74,6 +101,35 @@ namespace EamonRT.Game.Commands
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 		}
+
+		/*
+		public override void MonsterExecute()
+		{
+			// Note: just the starting point for a real implementation
+
+			Debug.Assert(artifact.IsCarriedByMonster(monster) || artifact.IsWornByMonster(monster));
+
+			if (artifact.IsWornByMonster(monster) && artifact.Wearable != null && artifact.Wearable.Field1 > 0)
+			{
+				monster.Armor -= (artifact.Wearable.Field1 > 1 ? artifact.Wearable.Field1 / 2 : artifact.Wearable.Field1);
+			}
+
+			Debug.Assert(IsValidMonsterArmor(monster.Armor));
+
+			artifact.SetInRoom(room);
+
+			if (monster.Weapon == artifact.Uid)
+			{
+				Debug.Assert(artifact.IsWeapon01());
+
+				var rc = artifact.RemoveStateDesc(artifact.GetReadyWeaponDesc());
+
+				Debug.Assert(IsSuccess(rc));
+
+				monster.Weapon = -1;
+			}
+		}
+		*/
 
 		public override void PlayerFinishParsing()
 		{

@@ -1153,81 +1153,6 @@ namespace EamonRT.Game
 			}
 		}
 
-		public virtual void DropArtifact(IMonster monster, IArtifact artifact, IRoom room, Action<IMonster, IArtifact> printDroppedFunc = null)
-		{
-			Debug.Assert(monster != null && artifact != null && room != null);
-
-			if (printDroppedFunc == null)
-			{
-				Globals.Out.EnableOutput = false;
-			}
-
-			if (monster.IsCharacterMonster())
-			{
-				Debug.Assert(artifact.IsCarriedByCharacter() || artifact.IsWornByCharacter());
-
-				if (Globals.GameState.Ar > 0 && artifact.Uid == Globals.GameState.Ar)
-				{
-					Debug.Assert(artifact.Wearable != null);
-
-					monster.Armor -= (artifact.Wearable.Field1 / 2);
-
-					Globals.GameState.Ar = 0;
-				}
-
-				if (Globals.GameState.Ls > 0 && artifact.Uid == Globals.GameState.Ls)
-				{
-					Debug.Assert(artifact.LightSource != null);
-
-					LightOut(artifact);
-				}
-
-				if (Globals.GameState.Sh > 0 && artifact.Uid == Globals.GameState.Sh)
-				{
-					Debug.Assert(artifact.Wearable != null);
-
-					monster.Armor -= artifact.Wearable.Field1;
-
-					Globals.GameState.Sh = 0;
-				}
-
-				RemoveWeight(artifact);
-			}
-			else
-			{
-				Debug.Assert(artifact.IsCarriedByMonster(monster) || artifact.IsWornByMonster(monster));
-
-				if (artifact.IsWornByMonster(monster) && artifact.Wearable != null && artifact.Wearable.Field1 > 0)
-				{
-					monster.Armor -= (artifact.Wearable.Field1 > 1 ? artifact.Wearable.Field1 / 2 : artifact.Wearable.Field1);
-				}
-			}
-
-			Debug.Assert(IsValidMonsterArmor(monster.Armor));
-
-			artifact.SetInRoom(room);
-
-			if (monster.Weapon == artifact.Uid)
-			{
-				Debug.Assert(artifact.IsWeapon01());
-
-				var rc = artifact.RemoveStateDesc(artifact.GetReadyWeaponDesc());
-
-				Debug.Assert(IsSuccess(rc));
-
-				monster.Weapon = -1;
-			}
-
-			if (printDroppedFunc != null)
-			{
-				printDroppedFunc(monster, artifact);
-			}
-			else
-			{
-				Globals.Out.EnableOutput = true;
-			}
-		}
-
 		public virtual void LightOut(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
@@ -2207,6 +2132,39 @@ namespace EamonRT.Game
 			Debug.Assert(command != null);
 
 			// do nothing
+		}
+
+		public virtual void CheckToExtinguishLightSource()
+		{
+			Debug.Assert(Globals.GameState.Ls > 0);
+
+			var artifact = Globals.ADB[Globals.GameState.Ls];
+
+			Debug.Assert(artifact != null);
+
+			var ac = artifact.GetArtifactCategory(Enums.ArtifactType.LightSource);
+
+			Debug.Assert(ac != null);
+
+			if (ac.Field1 != -1)
+			{
+				Globals.Out.Write("{0}It's not dark here.  Extinguish {1} (Y/N): ", Environment.NewLine, artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+
+				Globals.Buf.Clear();
+
+				var rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, ModifyCharToUpper, IsCharYOrN, null);
+
+				Debug.Assert(IsSuccess(rc));
+
+				if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'Y')
+				{
+					rc = artifact.RemoveStateDesc(artifact.GetProvidingLightDesc());
+
+					Debug.Assert(IsSuccess(rc));
+
+					Globals.GameState.Ls = 0;
+				}
+			}
 		}
 
 		public virtual void TransportRoomContentsBetweenRooms(IRoom oldRoom, IRoom newRoom, bool includeEmbedded = true)
