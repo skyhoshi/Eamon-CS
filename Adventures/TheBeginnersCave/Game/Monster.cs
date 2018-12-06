@@ -37,7 +37,7 @@ namespace TheBeginnersCave.Game
 
 			set
 			{
-				if (base.Weapon != value)
+				if (Globals.EnableCalculatedProperties && base.Weapon != value)
 				{
 					var gameState = Globals.GameState as Framework.IGameState;
 
@@ -73,9 +73,9 @@ namespace TheBeginnersCave.Game
 							}
 						}
 					}
-
-					base.Weapon = value;
 				}
+
+				base.Weapon = value;
 			}
 		}
 

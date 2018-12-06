@@ -32,7 +32,7 @@ namespace TheBeginnersCave.Game
 
 				// if toggling the Trollsfire effect
 
-				if (_trollsfire != value)
+				if (Globals.EnableCalculatedProperties && _trollsfire != value)
 				{
 					// find Trollsfire in the game database
 
@@ -72,11 +72,11 @@ namespace TheBeginnersCave.Game
 
 						ac.Field4 = 6;
 					}
-
-					// store change to Trollsfire property in backing field
-
-					_trollsfire = value;
 				}
+
+				// store change to Trollsfire property in backing field
+
+				_trollsfire = value;
 			}
 		}
 

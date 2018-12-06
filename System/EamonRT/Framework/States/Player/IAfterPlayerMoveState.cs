@@ -13,5 +13,7 @@ namespace EamonRT.Framework.States
 		Enums.Direction Direction { get; set; }
 
 		IArtifact Artifact { get; set; }
+
+		bool MoveMonsters { get; set; }
 	}
 }

@@ -27,6 +27,8 @@ namespace EamonRT.Game.States
 
 		public virtual IArtifact Artifact { get; set; }
 
+		public virtual bool MoveMonsters { get; set; }
+
 		public override void Execute()
 		{
 			IArtifact artifact;
@@ -38,7 +40,10 @@ namespace EamonRT.Game.States
 
 			Globals.GameState.Ro = Globals.GameState.R2;
 
-			Globals.Engine.MoveMonsters();
+			if (MoveMonsters)
+			{
+				Globals.Engine.MoveMonsters();
+			}
 
 			Globals.Engine.CheckEnemies();
 
@@ -88,6 +93,8 @@ namespace EamonRT.Game.States
 		public AfterPlayerMoveState()
 		{
 			Name = "AfterPlayerMoveState";
+
+			MoveMonsters = true;
 		}
 	}
 }

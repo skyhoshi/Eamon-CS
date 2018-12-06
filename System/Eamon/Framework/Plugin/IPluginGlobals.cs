@@ -50,6 +50,8 @@ namespace Eamon.Framework.Plugin
 
 		long RulesetVersion { get; set; }
 
+		bool EnableCalculatedProperties { get; }
+
 		bool LineWrapUserInput { get; set; }
 
 		bool RunGameEditor { get; set; }

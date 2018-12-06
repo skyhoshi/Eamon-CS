@@ -10,6 +10,8 @@ namespace EamonPM.Game.Portability
 {
 	public class SharpSerializer : ISharpSerializer
 	{
+		public virtual bool IsActive { get; protected set; }
+
 		protected virtual string NormalizePath(string path)
 		{
 			return path != null ? path.Replace(System.IO.Path.DirectorySeparatorChar == '\\' ? '/' : '\\', System.IO.Path.DirectorySeparatorChar) : null;
@@ -27,7 +29,16 @@ namespace EamonPM.Game.Portability
 		{
 			var sharpSerializer = new Polenter.Serialization.SharpSerializer(binaryMode);
 
-			sharpSerializer.Serialize(data, stream);
+			try
+			{
+				IsActive = true;
+
+				sharpSerializer.Serialize(data, stream);
+			}
+			finally
+			{
+				IsActive = false;
+			}
 		}
 
 		public virtual object Deserialize(string fileName, bool binaryMode = false)
@@ -42,7 +53,20 @@ namespace EamonPM.Game.Portability
 		{
 			var sharpSerializer = new Polenter.Serialization.SharpSerializer(binaryMode);
 
-			return sharpSerializer.Deserialize(stream);
+			object result = null;
+
+			try
+			{
+				IsActive = true;
+
+				result = sharpSerializer.Deserialize(stream);
+			}
+			finally
+			{
+				IsActive = false;
+			}
+
+			return result;
 		}
 	}
 }

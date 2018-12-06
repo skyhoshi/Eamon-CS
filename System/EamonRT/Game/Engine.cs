@@ -2200,6 +2200,8 @@ namespace EamonRT.Game
 			}
 		}
 
+		// Note: this method should only be used when oldRoom and newRoom are logically equivalent
+
 		public virtual void TransportPlayerBetweenRooms(IRoom oldRoom, IRoom newRoom, IEffect effect)
 		{
 			Debug.Assert(oldRoom != null);

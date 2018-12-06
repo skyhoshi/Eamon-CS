@@ -9,6 +9,8 @@ namespace Eamon.Framework.Portability
 {
 	public interface ISharpSerializer
 	{
+		bool IsActive { get; }
+
 		void Serialize(object data, string fileName, bool binaryMode = false);
 
 		void Serialize(object data, Stream stream, bool binaryMode = false);

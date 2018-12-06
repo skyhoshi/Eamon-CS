@@ -3,7 +3,9 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using System.Collections.Generic;
 using System.Linq;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
@@ -15,9 +17,14 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class SmileCommand : Command, ISmileCommand
 	{
+		public virtual IList<IMonster> GetMonsterSmilesList()
+		{
+			return Globals.Engine.GetMonsterList(ActorRoom.IsLit, m => m.IsInRoom(ActorRoom) && m != ActorMonster);
+		}
+
 		public override void PlayerExecute()
 		{
-			var monsters = Globals.Engine.GetMonsterList(ActorRoom.IsLit, m => m.IsInRoom(ActorRoom) && m != ActorMonster);
+			var monsters = GetMonsterSmilesList();
 
 			if (monsters.Count() > 0)
 			{

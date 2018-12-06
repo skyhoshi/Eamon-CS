@@ -51,6 +51,14 @@ namespace Eamon.Game.Plugin
 
 		public virtual long RulesetVersion { get; set; }
 
+		public virtual bool EnableCalculatedProperties
+		{
+			get
+			{
+				return SharpSerializer == null || SharpSerializer.IsActive == false;
+			}
+		}
+
 		public virtual bool EnableStdio { get; set; } = true;
 
 		public virtual bool IgnoreMutex { get; set; }

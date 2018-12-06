@@ -43,6 +43,8 @@ namespace Eamon.Framework.Plugin
 
 		long RulesetVersion { get; set; }
 
+		bool EnableCalculatedProperties { get; }
+
 		bool EnableStdio { get; set; }
 
 		bool IgnoreMutex { get; set; }

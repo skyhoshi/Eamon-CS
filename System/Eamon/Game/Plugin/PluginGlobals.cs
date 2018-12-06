@@ -210,6 +210,14 @@ namespace Eamon.Game.Plugin
 			}
 		}
 
+		public virtual bool EnableCalculatedProperties
+		{
+			get
+			{
+				return ClassMappings.EnableCalculatedProperties;
+			}
+		}
+
 		public virtual bool LineWrapUserInput { get; set; }
 
 		public virtual bool RunGameEditor
