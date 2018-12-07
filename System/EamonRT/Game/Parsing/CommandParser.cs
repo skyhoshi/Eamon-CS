@@ -302,9 +302,11 @@ namespace EamonRT.Game.Parsing
 				{
 					CurrToken++;
 
-					NextState = Globals.CloneInstance(command);
+					NextState = Activator.CreateInstance(command.GetType()) as IState;
 
 					command = NextState as ICommand;
+
+					Debug.Assert(command != null);
 
 					command.CommandParser = this;
 
