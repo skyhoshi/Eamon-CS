@@ -51,7 +51,7 @@ namespace WrenholdsSecretVigil.Game
 			}
 			else
 			{
-				var rl = Globals.Engine.RollDice01(1, 3, 6);
+				var rl = Globals.Engine.RollDice(1, 3, 6);
 
 				var x = DmgTaken;
 

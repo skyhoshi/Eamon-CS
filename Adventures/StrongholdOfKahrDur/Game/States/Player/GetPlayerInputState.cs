@@ -27,13 +27,13 @@ namespace StrongholdOfKahrDur.Game.States
 
 				// Flavor effects
 
-				var rl = Globals.Engine.RollDice01(1, 100, 0);
+				var rl = Globals.Engine.RollDice(1, 100, 0);
 
 				var r = 5 + 5 * (!room.Seen ? 1 : 0);
 
 				if (rl < r && !necromancerMonster.IsInLimbo())
 				{
-					rl = Globals.Engine.RollDice01(1, 5, 64);
+					rl = Globals.Engine.RollDice(1, 5, 64);
 
 					Globals.Engine.PrintEffectDesc(rl);
 				}

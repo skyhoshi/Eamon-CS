@@ -42,7 +42,7 @@ namespace EamonRT.Game.States
 						characterMonster.Agility = stat.MinValue;
 					}
 
-					var rl = Globals.Engine.RollDice01(1, 100, 0);
+					var rl = Globals.Engine.RollDice(1, 100, 0);
 
 					if (rl > 80 || !Globals.IsRulesetVersion(5))
 					{

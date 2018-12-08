@@ -29,7 +29,7 @@ namespace TheBeginnersCave.Game.Commands
 				{
 					if (gameState.BookWarning == 0)
 					{
-						var rl = Globals.Engine.RollDice01(1, 22, 2);
+						var rl = Globals.Engine.RollDice(1, 22, 2);
 
 						if (rl <= Globals.Character.GetStats(Enums.Stat.Intellect))
 						{

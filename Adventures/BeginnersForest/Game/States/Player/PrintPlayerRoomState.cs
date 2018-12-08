@@ -29,7 +29,7 @@ namespace BeginnersForest.Game.States
 
 				if (gameState.Ro > 1 && gameState.Ro < 5 && gameState.SpookCounter < 10 && spookMonster.GroupCount < 4)
 				{
-					var rl = Globals.Engine.RollDice01(1, 100, 0);
+					var rl = Globals.Engine.RollDice(1, 100, 0);
 
 					if (rl < 35)
 					{

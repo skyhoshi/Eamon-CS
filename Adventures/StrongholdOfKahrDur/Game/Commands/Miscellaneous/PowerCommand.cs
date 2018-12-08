@@ -76,7 +76,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				if (ActorRoom.Uid > 93 && ActorRoom.Uid < 110)
 				{
-					var monsters = Globals.Engine.GetMonsterList(() => true, m => !m.IsCharacterMonster() && m.Friendliness == Enums.Friendliness.Friend && m.Seen && (m.Location < 94 || m.Location > 109));
+					var monsters = Globals.Engine.GetMonsterList(m => !m.IsCharacterMonster() && m.Friendliness == Enums.Friendliness.Friend && m.Seen && (m.Location < 94 || m.Location > 109));
 
 					if (monsters.Count > 0)
 					{
@@ -101,7 +101,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				if (ActorRoom.Uid < 94 || ActorRoom.Uid > 109)
 				{
-					var monsters = Globals.Engine.GetMonsterList(() => true, m => !m.IsCharacterMonster() && m.Friendliness == Enums.Friendliness.Friend && m.Seen && (m.Location > 93 && m.Location < 110));
+					var monsters = Globals.Engine.GetMonsterList(m => !m.IsCharacterMonster() && m.Friendliness == Enums.Friendliness.Friend && m.Seen && (m.Location > 93 && m.Location < 110));
 
 					if (monsters.Count > 0)
 					{

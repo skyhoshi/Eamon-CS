@@ -86,7 +86,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					Globals.Out.WriteLine(" ");
 
-					var rl = Globals.Engine.RollDice01(1, 100, 0);
+					var rl = Globals.Engine.RollDice(1, 100, 0);
 
 					if (rl > 80)
 					{

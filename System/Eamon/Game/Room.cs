@@ -287,7 +287,7 @@ namespace Eamon.Game
 				};
 			}
 
-			var list = Globals.Engine.GetArtifactList(() => true, a => roomFindFunc(a));
+			var list = Globals.Engine.GetArtifactList(a => roomFindFunc(a));
 
 			if (recurse && list.Count > 0)
 			{
@@ -314,7 +314,7 @@ namespace Eamon.Game
 				roomFindFunc = a => a.IsEmbeddedInRoom(this);
 			}
 
-			var list = Globals.Engine.GetArtifactList(() => true, a => roomFindFunc(a));
+			var list = Globals.Engine.GetArtifactList(a => roomFindFunc(a));
 
 			if (recurse && list.Count > 0)
 			{
@@ -359,9 +359,9 @@ namespace Eamon.Game
 
 			var list = new List<IGameBase>();
 
-			list.AddRange(Globals.Engine.GetMonsterList(() => true, m => roomFindFunc(m)));
+			list.AddRange(Globals.Engine.GetMonsterList(m => roomFindFunc(m)));
 
-			list.AddRange(Globals.Engine.GetArtifactList(() => true, a => roomFindFunc(a)));
+			list.AddRange(Globals.Engine.GetArtifactList(a => roomFindFunc(a)));
 
 			if (recurse && list.Count > 0)
 			{
@@ -479,14 +479,14 @@ namespace Eamon.Game
 				monsterFindFunc = IsMonsterListedInRoom;
 			}
 
-			var monsters = Globals.Engine.GetMonsterList(() => true, m => monsterFindFunc(m));
+			var monsters = Globals.Engine.GetMonsterList(m => monsterFindFunc(m));
 
 			if (artifactFindFunc == null)
 			{
 				artifactFindFunc = IsArtifactListedInRoom;
 			}
 
-			var artifacts = Globals.Engine.GetArtifactList(() => true, a => artifactFindFunc(a));
+			var artifacts = Globals.Engine.GetArtifactList(a => artifactFindFunc(a));
 
 			buf.AppendFormat("{0}[{1}]", Environment.NewLine, Name);
 

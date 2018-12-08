@@ -136,7 +136,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Character.HeldGold -= ap;
 
-			var sa = Globals.Engine.RollDice01(1, 51, 24);
+			var sa = Globals.Engine.RollDice(1, 51, 24);
 
 			sa += (long)Math.Round((51.0 / 100.0) * (double)Globals.Character.GetIntellectBonusPct());
 

@@ -40,7 +40,7 @@ namespace EamonRT.Game.Commands
 
 		public virtual long GetMonsterFleeingMemberCount()
 		{
-			return Globals.Engine.RollDice01(1, ActorMonster.GroupCount, 0);
+			return Globals.Engine.RollDice(1, ActorMonster.GroupCount, 0);
 		}
 
 		public override void PlayerExecute()
@@ -146,7 +146,7 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(charMonster != null);
 
-				var monsters = Globals.Engine.GetMonsterList(() => true, m => m.IsInRoom(ActorRoom) && m != ActorMonster);
+				var monsters = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m != ActorMonster);
 
 				var numExits = 0L;
 

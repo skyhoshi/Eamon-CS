@@ -32,9 +32,9 @@ namespace TheTempleOfNgurct.Game
 		{
 			// Sets up wandering monsters and fireball wand charges
 
-			WanderingMonster = Globals.Engine.RollDice01(1, 14, 11);
+			WanderingMonster = Globals.Engine.RollDice(1, 14, 11);
 
-			WandCharges = Globals.Engine.RollDice01(1, 4, 1);
+			WandCharges = Globals.Engine.RollDice(1, 4, 1);
 		}
 	}
 }

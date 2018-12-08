@@ -206,12 +206,6 @@
             <summary>
             Queries the game database for a list of artifacts matching a criteria set.
             </summary>
-            <param name="shouldQueryFunc">
-            The should query function; this is evaluated before proceeding with the main query. If it returns true,
-            the main query proceeds; if false, the main query never happens and an empty list is returned.  Typically
-            this will be a simple lambda like () => true, but it can vary based on the given circumstances (eg, maybe
-            the room is dark).
-            </param>
             <param name="whereClauseFuncs">
             The set of methods used to match artifacts in the game database.  Each method is used as a query Where
             clause and the resulting artifacts are added to the list.  This means the database is queried once for
@@ -219,18 +213,12 @@
             show up in the list more than once.
             </param>
             <returns>A list of artifacts matching the given criteria set.  At minimum an empty list should be returned (never null).</returns>
-            <seealso cref="M:Eamon.Framework.IEngine.GetArtifactList(System.Func{System.Boolean},System.Func{Eamon.Framework.IArtifact,System.Boolean}[])"/>
+            <seealso cref="M:Eamon.Framework.IEngine.GetArtifactList(System.Func{Eamon.Framework.IArtifact,System.Boolean}[])"/>
         </member>
         <member name="T:Eamon.Framework.Delegates.GetMonsterListFunc">
             <summary>
             Queries the game database for a list of monsters matching a criteria set.
             </summary>
-            <param name="shouldQueryFunc">
-            The should query function; this is evaluated before proceeding with the main query. If it returns true,
-            the main query proceeds; if false, the main query never happens and an empty list is returned.  Typically
-            this will be a simple lambda like () => true, but it can vary based on the given circumstances (eg, maybe
-            the room is dark).
-            </param>
             <param name="whereClauseFuncs">
             The set of methods used to match monsters in the game database.  Each method is used as a query Where
             clause and the resulting monsters are added to the list.  This means the database is queried once for
@@ -238,7 +226,7 @@
             show up in the list more than once.
             </param>
             <returns>A list of monsters matching the given criteria set.  At minimum an empty list should be returned (never null).</returns>
-            <seealso cref="M:Eamon.Framework.IEngine.GetMonsterList(System.Func{System.Boolean},System.Func{Eamon.Framework.IMonster,System.Boolean}[])"/>
+            <seealso cref="M:Eamon.Framework.IEngine.GetMonsterList(System.Func{Eamon.Framework.IMonster,System.Boolean}[])"/>
         </member>
         <member name="T:Eamon.Framework.Delegates.FilterArtifactListFunc">
             <summary>
@@ -1289,31 +1277,17 @@
             <param name="dieRolls">The array of die roll results.</param>
             <returns>Success, InvalidArg</returns>
         </member>
-        <member name="M:Eamon.Framework.IEngine.RollDice(System.Int64,System.Int64,System.Int64,System.Int64@)">
+        <member name="M:Eamon.Framework.IEngine.RollDice(System.Int64,System.Int64,System.Int64)">
             <summary>
             Rolls a number of dice, returning a sum of the results.
             </summary>
             <param name="numDice">The number dice to roll.</param>
             <param name="numSides">The number sides per die.</param>
             <param name="modifier">An optional modifier to add to the sum; may be any value (including 0).</param>
-            <param name="result">The summed result of the die rolls, plus the modifier (if any).</param>
             <remarks>
             This is the dice-rolling function for Eamon CS.  It rolls a number of dice, each with a given number of sides
             and sums the results.  An optional modifier is then added in; this modifier may be negative, positive or zero.
-            The common roleplaying game nomenclature would be to roll XdY+Z.  While you can use this method directly, there
-            is a convenience method <see cref="M:Eamon.Framework.IEngine.RollDice01(System.Int64,System.Int64,System.Int64)"/> that is recommended.</remarks>
-            <returns>Success, InvalidArg</returns>
-        </member>
-        <member name="M:Eamon.Framework.IEngine.RollDice01(System.Int64,System.Int64,System.Int64)">
-            <summary>
-            Rolls a number of dice, returning a sum of the results.
-            </summary>
-            <param name="numDice">The number dice to roll.</param>
-            <param name="numSides">The number sides per die.</param>
-            <param name="modifier">An optional modifier to add to the sum; may be any value (including 0).</param>
-            <remarks>
-            This is a convenience wrapper around <see cref="M:Eamon.Framework.IEngine.RollDice(System.Int64,System.Int64,System.Int64,System.Int64@)"/> which should be used
-            whenever possible.</remarks>
+            The common roleplaying game nomenclature would be to roll XdY+Z.</remarks>
             <returns>The summed result of the die rolls, plus the modifier (if any).</returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.SumHighestRolls(System.Int64[],System.Int64,System.Int64@)">

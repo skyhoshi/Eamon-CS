@@ -32,7 +32,7 @@ namespace TheSubAquanLaboratory.Game.States
 				{
 					Globals.Out.Print("The electrified floor zaps everyone in the chamber!");
 
-					var monsters = Globals.Engine.GetMonsterList(() => true, m => m.IsCharacterMonster(), m => m.Location == Globals.GameState.Ro && !m.IsCharacterMonster());
+					var monsters = Globals.Engine.GetMonsterList(m => m.IsCharacterMonster(), m => m.Location == Globals.GameState.Ro && !m.IsCharacterMonster());
 
 					for (var i = 0; i < monsters.Count; i++)
 					{
@@ -76,7 +76,7 @@ namespace TheSubAquanLaboratory.Game.States
 							{
 								Globals.Out.Print("The chamber has entirely flooded!");
 
-								var monsters = Globals.Engine.GetMonsterList(() => true, m => m.Location == gameState.Ro && !m.IsCharacterMonster());
+								var monsters = Globals.Engine.GetMonsterList(m => m.Location == gameState.Ro && !m.IsCharacterMonster());
 
 								for (var i = 0; i < monsters.Count; i++)
 								{

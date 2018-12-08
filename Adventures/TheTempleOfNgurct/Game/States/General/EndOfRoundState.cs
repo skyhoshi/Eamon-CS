@@ -43,7 +43,7 @@ namespace TheTempleOfNgurct.Game.States
 
 				// Bring in wandering monsters
 
-				var rl = Globals.Engine.RollDice01(1, 100, 0);
+				var rl = Globals.Engine.RollDice(1, 100, 0);
 
 				if (rl <= 4 && gameState.Ro != 58)        // rl <= 7
 				{

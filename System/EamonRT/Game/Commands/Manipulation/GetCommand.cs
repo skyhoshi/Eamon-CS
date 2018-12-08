@@ -218,7 +218,7 @@ namespace EamonRT.Game.Commands
 
 					Debug.Assert(charMonster != null);
 
-					var monsters = Globals.Engine.GetMonsterList(() => true, m => m.IsInRoom(ActorRoom) && m != ActorMonster);
+					var monsters = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m != ActorMonster);
 
 					if (monsters.Contains(charMonster))
 					{

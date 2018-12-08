@@ -125,7 +125,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					foreach (var m in monsters)
 					{
-						var rl = Globals.Engine.RollDice01(1, 100, 0);
+						var rl = Globals.Engine.RollDice(1, 100, 0);
 
 						var savedVsFire = (m.Hardiness / 4) > 4 && rl < 51;
 

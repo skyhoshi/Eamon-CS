@@ -36,7 +36,7 @@ namespace WrenholdsSecretVigil.Game
 		{
 			// Dial back the medallion's power ... 8-15 charges only
 
-			MedallionCharges = Globals.Engine.RollDice01(1, 8, 7);
+			MedallionCharges = Globals.Engine.RollDice(1, 8, 7);
 
 			MonsterCurses = new bool[6];
 		}

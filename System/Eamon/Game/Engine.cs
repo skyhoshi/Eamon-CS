@@ -504,7 +504,7 @@ namespace Eamon.Game
 
 		public virtual long GetMerchantAdjustedCharisma(long charisma)
 		{
-			var j = RollDice01(1, 11, -6);
+			var j = RollDice(1, 11, -6);
 
 			var c2 = charisma + j;
 
@@ -1159,29 +1159,18 @@ namespace Eamon.Game
 			return rc;
 		}
 
-		public virtual RetCode RollDice(long numDice, long numSides, long modifier, ref long result)
+		public virtual long RollDice(long numDice, long numSides, long modifier)
 		{
-			RetCode rc;
+			var result = 0L;
 
-			long[] dieRolls = new long[numDice > 0 ? numDice : 1];
+			var dieRolls = new long[numDice > 0 ? numDice : 1];
 
-			rc = RollDice(numDice, numSides, ref dieRolls);
+			var rc = RollDice(numDice, numSides, ref dieRolls);
 
 			if (IsSuccess(rc))
 			{
 				result = dieRolls.Sum() + modifier;
 			}
-
-			return rc;
-		}
-
-		public virtual long RollDice01(long numDice, long numSides, long modifier)
-		{
-			long result = 0;
-
-			var rc = RollDice(numDice, numSides, modifier, ref result);
-
-			Debug.Assert(IsSuccess(rc));
 
 			return result;
 		}
@@ -2177,66 +2166,51 @@ namespace Eamon.Game
 			destAc.Field5 = sourceAc.Field5;
 		}
 
-		public virtual IList<IArtifact> GetArtifactList(Func<bool> shouldQueryFunc, params Func<IArtifact, bool>[] whereClauseFuncs)
+		public virtual IList<IArtifact> GetArtifactList(params Func<IArtifact, bool>[] whereClauseFuncs)
 		{
-			Debug.Assert(shouldQueryFunc != null);
-
 			Debug.Assert(whereClauseFuncs != null);
 
 			var artifactList = new List<IArtifact>();
 
-			if (shouldQueryFunc())
+			foreach (var whereClauseFunc in whereClauseFuncs)
 			{
-				foreach (var whereClauseFunc in whereClauseFuncs)
-				{
-					Debug.Assert(whereClauseFunc != null);
+				Debug.Assert(whereClauseFunc != null);
 
-					artifactList.AddRange(Globals.Database.ArtifactTable.Records.Where(whereClauseFunc));
-				}
+				artifactList.AddRange(Globals.Database.ArtifactTable.Records.Where(whereClauseFunc));
 			}
 
 			return artifactList;
 		}
 
-		public virtual IList<IMonster> GetMonsterList(Func<bool> shouldQueryFunc, params Func<IMonster, bool>[] whereClauseFuncs)
+		public virtual IList<IMonster> GetMonsterList(params Func<IMonster, bool>[] whereClauseFuncs)
 		{
-			Debug.Assert(shouldQueryFunc != null);
-
 			Debug.Assert(whereClauseFuncs != null);
 
 			var monsterList = new List<IMonster>();
 
-			if (shouldQueryFunc())
+			foreach (var whereClauseFunc in whereClauseFuncs)
 			{
-				foreach (var whereClauseFunc in whereClauseFuncs)
-				{
-					Debug.Assert(whereClauseFunc != null);
+				Debug.Assert(whereClauseFunc != null);
 
-					monsterList.AddRange(Globals.Database.MonsterTable.Records.Where(whereClauseFunc));
-				}
+				monsterList.AddRange(Globals.Database.MonsterTable.Records.Where(whereClauseFunc));
 			}
 
 			return monsterList;
 		}
 
-		public virtual IList<IGameBase> GetRecordList(Func<bool> shouldQueryFunc, params Func<IGameBase, bool>[] whereClauseFuncs)
+		public virtual IList<IGameBase> GetRecordList(params Func<IGameBase, bool>[] whereClauseFuncs)
 		{
-			Debug.Assert(shouldQueryFunc != null);
-
 			Debug.Assert(whereClauseFuncs != null);
 
 			var recordList = new List<IGameBase>();
 
-			if (shouldQueryFunc())
+			foreach (var whereClauseFunc in whereClauseFuncs)
 			{
-				foreach (var whereClauseFunc in whereClauseFuncs)
-				{
-					Debug.Assert(whereClauseFunc != null);
+				Debug.Assert(whereClauseFunc != null);
 
-					recordList.AddRange(Globals.Database.ArtifactTable.Records.Where(whereClauseFunc));
+				recordList.AddRange(Globals.Database.ArtifactTable.Records.Where(whereClauseFunc));
 
-					recordList.AddRange(Globals.Database.MonsterTable.Records.Where(whereClauseFunc));
-				}
+				recordList.AddRange(Globals.Database.MonsterTable.Records.Where(whereClauseFunc));
 			}
 
 			return recordList;

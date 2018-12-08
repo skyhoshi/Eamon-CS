@@ -302,7 +302,7 @@ namespace EamonRT.Game.Combat
 			}
 			else
 			{
-				_rl = Globals.Engine.RollDice01(1, 100, 0);
+				_rl = Globals.Engine.RollDice(1, 100, 0);
 			}
 		}
 
@@ -416,7 +416,7 @@ namespace EamonRT.Game.Combat
 
 			PrintFumble();
 
-			_rl = Globals.Engine.RollDice01(1, 100, 0);
+			_rl = Globals.Engine.RollDice(1, 100, 0);
 
 			if ((Globals.IsRulesetVersion(5) && _rl < 36) || (!Globals.IsRulesetVersion(5) && _rl < 41))
 			{
@@ -510,7 +510,7 @@ namespace EamonRT.Game.Combat
 
 			OfMonster.Weapon = -1;
 
-			_rl = Globals.Engine.RollDice01(1, 100, 0);
+			_rl = Globals.Engine.RollDice(1, 100, 0);
 
 			if (_rl > 50 || OfAc.Field4 <= 0)
 			{
@@ -523,7 +523,7 @@ namespace EamonRT.Game.Combat
 
 			DfMonster = OfMonster;
 
-			_rl = Globals.Engine.RollDice01(1, 5, 95);
+			_rl = Globals.Engine.RollDice(1, 5, 95);
 
 			CombatState = RTEnums.CombatState.AttackHit;
 
@@ -564,7 +564,7 @@ namespace EamonRT.Game.Combat
 
 			if (OfMonster != DfMonster || !Globals.IsRulesetVersion(5))
 			{
-				_rl = Globals.Engine.RollDice01(1, 100, 0);
+				_rl = Globals.Engine.RollDice(1, 100, 0);
 
 				if (_rl == 100)
 				{
@@ -628,7 +628,7 @@ namespace EamonRT.Game.Combat
 
 			for (var i = 0; i < D; i++)
 			{
-				_d2 += (long)Math.Round(yy * (MaxDamage ? S : Globals.Engine.RollDice01(1, S, 0)));
+				_d2 += (long)Math.Round(yy * (MaxDamage ? S : Globals.Engine.RollDice(1, S, 0)));
 			}
 
 			_d2 += (long)Math.Round(yy * M);
@@ -648,7 +648,7 @@ namespace EamonRT.Game.Combat
 			}
 			else
 			{
-				_d2 = MaxDamage ? (D * S) + M : Globals.Engine.RollDice01(D, S, M);
+				_d2 = MaxDamage ? (D * S) + M : Globals.Engine.RollDice(D, S, M);
 			}
 
 			_d2 -= (A * DfMonster.Armor);

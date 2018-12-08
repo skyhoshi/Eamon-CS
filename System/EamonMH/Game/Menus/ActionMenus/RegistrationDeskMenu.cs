@@ -174,7 +174,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					Debug.Assert(stat != null);
 
-					character.Stats[(long)sv] = Globals.Engine.RollDice01(3, 8, 0);
+					character.Stats[(long)sv] = Globals.Engine.RollDice(3, 8, 0);
 
 					Globals.Out.Write("{0}{1,27}{2}{3}",
 						Environment.NewLine,
@@ -352,7 +352,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					if (effect == null)
 					{
-						var effectUid = Globals.Engine.RollDice01(1, Globals.Database.GetEffectsCount(), 0);
+						var effectUid = Globals.Engine.RollDice(1, Globals.Database.GetEffectsCount(), 0);
 
 						effect = Globals.EDB[effectUid];
 					}

@@ -93,7 +93,7 @@ namespace StrongholdOfKahrDur.Game.States
 				x.OmitArmor = true;
 			});
 
-			var rl = Globals.Engine.RollDice01(1, 7, 0);
+			var rl = Globals.Engine.RollDice(1, 7, 0);
 
 			Globals.Engine.PrintEffectDesc(69 + rl);
 

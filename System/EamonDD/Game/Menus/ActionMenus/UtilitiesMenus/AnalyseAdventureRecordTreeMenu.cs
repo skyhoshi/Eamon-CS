@@ -71,14 +71,14 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			RecordTreeStrings.Add(string.Format("{0}{1}[{2}{3}: {4}", Environment.NewLine, indentString, tag, room.Uid, room.Name));
 
-			var monsterList = Globals.Engine.GetMonsterList(() => true, m => m.IsInRoom(room));
+			var monsterList = Globals.Engine.GetMonsterList(m => m.IsInRoom(room));
 
 			foreach (var monster in monsterList)
 			{
 				AnalyseMonsterRecordTree(monster, "M", indentLevel + 1);
 			}
 
-			var artifactList = Globals.Engine.GetArtifactList(() => true, a => a.IsInRoom(room) || a.IsEmbeddedInRoom(room));
+			var artifactList = Globals.Engine.GetArtifactList(a => a.IsInRoom(room) || a.IsEmbeddedInRoom(room));
 
 			foreach (var artifact in artifactList)
 			{
@@ -113,14 +113,14 @@ namespace EamonDD.Game.Menus.ActionMenus
 				AnalyseRoomRecordTree(room, "R", 1);
 			}
 
-			var monsterList = Globals.Engine.GetMonsterList(() => true, m => !m.IsInRoom());
+			var monsterList = Globals.Engine.GetMonsterList(m => !m.IsInRoom());
 
 			foreach (var monster in monsterList)
 			{
 				AnalyseMonsterRecordTree(monster, "M", 1);
 			}
 
-			var artifactList = Globals.Engine.GetArtifactList(() => true, a => !a.IsInRoom() && !a.IsEmbeddedInRoom() && !a.IsCarriedByMonster() && !a.IsWornByMonster() && !a.IsCarriedByContainer());
+			var artifactList = Globals.Engine.GetArtifactList(a => !a.IsInRoom() && !a.IsEmbeddedInRoom() && !a.IsCarriedByMonster() && !a.IsWornByMonster() && !a.IsCarriedByContainer());
 
 			foreach (var artifact in artifactList)
 			{

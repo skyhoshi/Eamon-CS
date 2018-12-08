@@ -55,7 +55,7 @@ namespace EamonRT.Game.States
 				goto Cleanup;
 			}
 
-			var rl = Globals.Engine.RollDice01(1, monsterList.Count, 0);
+			var rl = Globals.Engine.RollDice(1, monsterList.Count, 0);
 
 			var command = Globals.CreateInstance<IAttackCommand>(x =>
 			{

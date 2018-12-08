@@ -1316,7 +1316,7 @@ namespace Eamon.Game
 				artifactFindFunc = a => a.IsCarriedByContainer(this);
 			}
 
-			var list = Globals.Engine.GetArtifactList(() => true, a => artifactFindFunc(a));
+			var list = Globals.Engine.GetArtifactList(a => artifactFindFunc(a));
 
 			if (recurse && list.Count > 0)
 			{

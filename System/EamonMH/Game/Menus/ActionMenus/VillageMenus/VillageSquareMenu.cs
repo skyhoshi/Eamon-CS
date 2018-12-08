@@ -61,7 +61,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 				{
 					Globals.Out.Print("\"For your generosity I will increase the potency of one of your weapons!\"");
 
-					var rl = Globals.Engine.RollDice01(1, wc, 0);
+					var rl = Globals.Engine.RollDice(1, wc, 0);
 
 					Globals.Character.GetWeapons(rl - 1).Field4++;
 

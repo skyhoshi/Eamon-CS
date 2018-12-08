@@ -32,7 +32,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 				new Func<IMonster, bool>[] { m => m == ActorMonster, m => m.IsInRoom(ActorRoom) && m.Friendliness == Enums.Friendliness.Friend && ((m.Weapon > -1 && m.Weapon <= Globals.Database.GetArtifactsCount()) || m.CombatCode == Enums.CombatCode.NaturalWeapons) && m != ActorMonster } :
 				new Func<IMonster, bool>[] { m => m == ActorMonster };
 
-			var monsters = Globals.Engine.GetMonsterList(() => true, whereClauseFuncs);
+			var monsters = Globals.Engine.GetMonsterList(whereClauseFuncs);
 
 			for (var i = 0; i < monsters.Count; i++)
 			{
@@ -67,7 +67,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 					sides = wpnAc != null ? wpnAc.Field4 : monster.NwSides;
 				}
 
-				Damage += Globals.Engine.RollDice01(dice, sides, 0);
+				Damage += Globals.Engine.RollDice(dice, sides, 0);
 			}
 		}
 
@@ -190,7 +190,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							Globals.Out.Print("Enemies storm into the room!");
 
-							var monsters = Globals.Engine.GetMonsterList(() => true, m => m.Uid >= 20 && m.Uid <= 22);
+							var monsters = Globals.Engine.GetMonsterList(m => m.Uid >= 20 && m.Uid <= 22);
 
 							foreach (var monster in monsters)
 							{

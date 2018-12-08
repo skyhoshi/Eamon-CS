@@ -123,7 +123,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 					{
 						Globals.Out.Print("The witch begins an incantation and you are enveloped by a hazy white cloud.");
 
-						var rl = Globals.Engine.RollDice01(1, 24, 0);
+						var rl = Globals.Engine.RollDice(1, 24, 0);
 
 						if (rl >= Globals.Character.GetStats(Enums.Stat.Charisma))
 						{

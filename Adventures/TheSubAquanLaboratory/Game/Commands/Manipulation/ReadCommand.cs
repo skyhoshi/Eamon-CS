@@ -54,7 +54,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Display screen
 
-					rl = Globals.Engine.RollDice01(1, 100, 0);
+					rl = Globals.Engine.RollDice(1, 100, 0);
 
 					if (rl < 34)
 					{
@@ -76,21 +76,21 @@ namespace TheSubAquanLaboratory.Game.Commands
 						var d = new long[]
 						{
 							0L,
-							Globals.Engine.RollDice01(1, 9, 0),
-							Globals.Engine.RollDice01(1, 99, 0),
-							Globals.Engine.RollDice01(1, 30, 0),
-							Globals.Engine.RollDice01(1, 100, 0),
-							Globals.Engine.RollDice01(1, 2, 0),
-							Globals.Engine.RollDice01(1, 2, -1) + 3,
-							Globals.Engine.RollDice01(1, 90, 0),
-							Globals.Engine.RollDice01(1, 180, 0),
-							Globals.Engine.RollDice01(1, 59, 0),
-							Globals.Engine.RollDice01(1, 59, 0),
-							Globals.Engine.RollDice01(1, 59, 0),
-							Globals.Engine.RollDice01(1, 59, 0),
-							Globals.Engine.RollDice01(1, 10, 0),
-							Globals.Engine.RollDice01(1, 20, 0),
-							Globals.Engine.RollDice01(1, 100, 0)
+							Globals.Engine.RollDice(1, 9, 0),
+							Globals.Engine.RollDice(1, 99, 0),
+							Globals.Engine.RollDice(1, 30, 0),
+							Globals.Engine.RollDice(1, 100, 0),
+							Globals.Engine.RollDice(1, 2, 0),
+							Globals.Engine.RollDice(1, 2, -1) + 3,
+							Globals.Engine.RollDice(1, 90, 0),
+							Globals.Engine.RollDice(1, 180, 0),
+							Globals.Engine.RollDice(1, 59, 0),
+							Globals.Engine.RollDice(1, 59, 0),
+							Globals.Engine.RollDice(1, 59, 0),
+							Globals.Engine.RollDice(1, 59, 0),
+							Globals.Engine.RollDice(1, 10, 0),
+							Globals.Engine.RollDice(1, 20, 0),
+							Globals.Engine.RollDice(1, 100, 0)
 						};
 
 						var nsd = d[5] == 1 ? "North" : "South";
@@ -129,7 +129,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Terminals
 
-					rl = Globals.Engine.RollDice01(1, 100, 0);
+					rl = Globals.Engine.RollDice(1, 100, 0);
 
 					if (rl < 51)
 					{
@@ -144,7 +144,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 					}
 					else
 					{
-						rl = Globals.Engine.RollDice01(1, 100, 0);
+						rl = Globals.Engine.RollDice(1, 100, 0);
 
 						Globals.Out.Print("As you watch, the terminal screen prints:");
 

@@ -21,7 +21,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			var buriedArtifacts = Globals.Engine.GetArtifactList(() => true, a => a.CastTo<Framework.IArtifact>().IsBuriedInRoom(ActorRoom));
+			var buriedArtifacts = Globals.Engine.GetArtifactList(a => a.CastTo<Framework.IArtifact>().IsBuriedInRoom(ActorRoom));
 
 			if (buriedArtifacts.Count > 0)
 			{

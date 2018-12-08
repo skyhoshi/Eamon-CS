@@ -375,7 +375,7 @@ namespace EamonRT.Game
 			RetCode rc;
 			long c, w;
 
-			var artifacts = GetArtifactList(() => true, a => a.IsCarriedByCharacter() || a.IsWornByCharacter());
+			var artifacts = GetArtifactList(a => a.IsCarriedByCharacter() || a.IsWornByCharacter());
 
 			foreach (var artifact in artifacts)
 			{
@@ -449,14 +449,14 @@ namespace EamonRT.Game
 
 		public virtual void AddMissingDescs()
 		{
-			var monsters = GetMonsterList(() => true, m => string.IsNullOrWhiteSpace(m.Desc) || string.Equals(m.Desc, "NONE", StringComparison.OrdinalIgnoreCase));
+			var monsters = GetMonsterList(m => string.IsNullOrWhiteSpace(m.Desc) || string.Equals(m.Desc, "NONE", StringComparison.OrdinalIgnoreCase));
 
 			foreach (var monster in monsters)
 			{
 				monster.Desc = string.Format("{0} {1}.", monster.EvalPlural("This is", "These are"), monster.GetDecoratedName02(false, true, false, false, Globals.Buf));
 			}
 
-			var artifacts = GetArtifactList(() => true, a => string.IsNullOrWhiteSpace(a.Desc) || string.Equals(a.Desc, "NONE", StringComparison.OrdinalIgnoreCase));
+			var artifacts = GetArtifactList(a => string.IsNullOrWhiteSpace(a.Desc) || string.Equals(a.Desc, "NONE", StringComparison.OrdinalIgnoreCase));
 
 			foreach (var artifact in artifacts)
 			{
@@ -942,7 +942,7 @@ namespace EamonRT.Game
 
 			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
 
-			var artifacts = GetArtifactList(() => true, a => a.IsWornByCharacter());
+			var artifacts = GetArtifactList(a => a.IsWornByCharacter());
 
 			foreach (var artifact in artifacts)
 			{
@@ -953,7 +953,7 @@ namespace EamonRT.Game
 			{
 				c = 0;
 
-				artifacts = GetArtifactList(() => true, a => a.IsCarriedByCharacter());
+				artifacts = GetArtifactList(a => a.IsCarriedByCharacter());
 
 				foreach (var artifact in artifacts)
 				{
@@ -961,7 +961,7 @@ namespace EamonRT.Game
 
 					if (ac != null)
 					{
-						var artifacts01 = GetArtifactList(() => true, a => a.IsCarriedByContainer(artifact));
+						var artifacts01 = GetArtifactList(a => a.IsCarriedByContainer(artifact));
 
 						foreach (var artifact01 in artifacts01)
 						{
@@ -1060,7 +1060,7 @@ namespace EamonRT.Game
 
 				var rtio = GetMerchantRtio(c2);
 
-				var artifacts = GetArtifactList(() => true, a => a.IsCarriedByCharacter());
+				var artifacts = GetArtifactList(a => a.IsCarriedByCharacter());
 
 				foreach (var artifact in artifacts)
 				{
@@ -1285,7 +1285,7 @@ namespace EamonRT.Game
 
 				DfMonster.DmgTaken = 0;
 
-				var artifactList = GetArtifactList(() => true, a => a.IsCarriedByMonster(DfMonster) || a.IsWornByMonster(DfMonster));
+				var artifactList = GetArtifactList(a => a.IsCarriedByMonster(DfMonster) || a.IsWornByMonster(DfMonster));
 
 				foreach (var artifact in artifactList)
 				{
@@ -1523,7 +1523,7 @@ namespace EamonRT.Game
 
 			do
 			{
-				rl = RollDice01(1, Globals.Module.NumDirs, 0);
+				rl = RollDice(1, Globals.Module.NumDirs, 0);
 
 				found = false;
 
@@ -1569,7 +1569,7 @@ namespace EamonRT.Game
 
 			var monsterList = new List<IMonster>();
 
-			var origList = GetMonsterList(() => true, whereClauseFuncs);
+			var origList = GetMonsterList(whereClauseFuncs);
 
 			if (numMonsters > origList.Count)
 			{
@@ -1578,7 +1578,7 @@ namespace EamonRT.Game
 
 			while (numMonsters > 0)
 			{
-				var rl = (int)RollDice01(1, origList.Count, 0);
+				var rl = (int)RollDice(1, origList.Count, 0);
 
 				monsterList.Add(origList[rl - 1]);
 
@@ -1785,9 +1785,9 @@ namespace EamonRT.Game
 
 			Debug.Assert(room != null);
 
-			var monsterList = GetMonsterList(() => true, m => m.Uid != monster.Uid && m.Uid != charMonster.Uid && m.IsInRoom(room));
+			var monsterList = GetMonsterList(m => m.Uid != monster.Uid && m.Uid != charMonster.Uid && m.IsInRoom(room));
 
-			var artifactList = GetArtifactList(() => true, a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || (a.IsInRoom(room) && monsterList.FirstOrDefault(m => m.Weapon == -a.Uid - 1) == null && (charMonster.Weapon > 0 || !a.IsCharOwned || monster.Friendliness == Enums.Friendliness.Friend)))).OrderByDescending(a01 =>
+			var artifactList = GetArtifactList(a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || (a.IsInRoom(room) && monsterList.FirstOrDefault(m => m.Weapon == -a.Uid - 1) == null && (charMonster.Weapon > 0 || !a.IsCharOwned || monster.Friendliness == Enums.Friendliness.Friend)))).OrderByDescending(a01 =>
 			{
 				if (monster.Weapon != -a01.Uid - 1)
 				{
@@ -1839,8 +1839,8 @@ namespace EamonRT.Game
 			Debug.Assert(room != null);
 
 			var monsterList =
-					monster.Friendliness == Enums.Friendliness.Friend ? GetMonsterList(() => true, m => m.Friendliness == Enums.Friendliness.Enemy && m.IsInRoom(room)) :
-					monster.Friendliness == Enums.Friendliness.Enemy ? GetMonsterList(() => true, m => m.Friendliness == Enums.Friendliness.Friend && m.IsInRoom(room)) :
+					monster.Friendliness == Enums.Friendliness.Friend ? GetMonsterList(m => m.Friendliness == Enums.Friendliness.Enemy && m.IsInRoom(room)) :
+					monster.Friendliness == Enums.Friendliness.Enemy ? GetMonsterList(m => m.Friendliness == Enums.Friendliness.Friend && m.IsInRoom(room)) :
 					new List<IMonster>();
 
 			return monsterList;
@@ -1912,7 +1912,7 @@ namespace EamonRT.Game
 
 			var found = false;
 
-			var artifacts = GetArtifactList(() => true, whereClauseFuncs);
+			var artifacts = GetArtifactList(whereClauseFuncs);
 			
 			foreach (var artifact in artifacts)
 			{
@@ -1952,7 +1952,7 @@ namespace EamonRT.Game
 				};
 			}
 
-			var artifacts = GetArtifactList(() => true, whereClauseFuncs);
+			var artifacts = GetArtifactList(whereClauseFuncs);
 
 			foreach (var artifact in artifacts)
 			{
@@ -1981,7 +1981,7 @@ namespace EamonRT.Game
 
 			if (Globals.IsRulesetVersion(5))
 			{
-				var rl = (long)Math.Round((double)Globals.GameState.GetDTTL(monster.Friendliness) / (double)Globals.GameState.GetNBTL(monster.Friendliness) * 100 + RollDice01(1, 41, -21));
+				var rl = (long)Math.Round((double)Globals.GameState.GetDTTL(monster.Friendliness) / (double)Globals.GameState.GetNBTL(monster.Friendliness) * 100 + RollDice(1, 41, -21));
 
 				result = rl <= monster.Courage;
 			}
@@ -1989,7 +1989,7 @@ namespace EamonRT.Game
 			{
 				var s = (monster.DmgTaken > 0 || monster.OrigGroupCount > monster.GroupCount ? 1 : 0) + (monster.DmgTaken + 4 >= monster.Hardiness ? 1 : 0);
 
-				var rl = RollDice01(1, 100, s * 5);
+				var rl = RollDice(1, 100, s * 5);
 
 				result = rl <= monster.Courage;           // monster.Courage >= 100 ||
 			}
@@ -2013,7 +2013,7 @@ namespace EamonRT.Game
 
 			if (Globals.GameState.GetSa(s) > 0 && Globals.Character.GetSpellAbilities(s) > 0)
 			{
-				rl = RollDice01(1, 100, 0);
+				rl = RollDice(1, 100, 0);
 			}
 
 			if (rl == 100)
@@ -2031,7 +2031,7 @@ namespace EamonRT.Game
 
 				if (shouldAllowSkillGains)
 				{
-					rl = RollDice01(1, 100, 0);
+					rl = RollDice(1, 100, 0);
 
 					rl += Globals.Character.GetIntellectBonusPct();
 
@@ -2069,11 +2069,11 @@ namespace EamonRT.Game
 
 			var s = (Enums.Weapon)ac.Field2;
 
-			var rl = RollDice01(1, 100, 0);
+			var rl = RollDice(1, 100, 0);
 
 			if (rl > 75)
 			{
-				rl = RollDice01(1, 100, 0);
+				rl = RollDice(1, 100, 0);
 
 				rl += Globals.Character.GetIntellectBonusPct();
 
@@ -2100,7 +2100,7 @@ namespace EamonRT.Game
 
 				if (x > 0)
 				{
-					rl = RollDice01(1, x, 0);
+					rl = RollDice(1, x, 0);
 
 					rl += (long)Math.Round(((double)x / 100.0) * (double)Globals.Character.GetIntellectBonusPct());
 
@@ -2173,7 +2173,7 @@ namespace EamonRT.Game
 
 			Debug.Assert(newRoom != null);
 
-			var monsterList = GetMonsterList(() => true, m => m.IsInRoom(oldRoom)).ToList();
+			var monsterList = GetMonsterList(m => m.IsInRoom(oldRoom)).ToList();
 
 			foreach (var m in monsterList)
 			{
@@ -2182,7 +2182,7 @@ namespace EamonRT.Game
 
 			CheckEnemies();
 
-			var artifactList = GetArtifactList(() => true, a => a.IsInRoom(oldRoom)).ToList();
+			var artifactList = GetArtifactList(a => a.IsInRoom(oldRoom)).ToList();
 
 			foreach (var a in artifactList)
 			{
@@ -2191,7 +2191,7 @@ namespace EamonRT.Game
 
 			if (includeEmbedded)
 			{
-				artifactList = GetArtifactList(() => true, a => a.IsEmbeddedInRoom(oldRoom)).ToList();
+				artifactList = GetArtifactList(a => a.IsEmbeddedInRoom(oldRoom)).ToList();
 
 				foreach (var a in artifactList)
 				{
@@ -2377,7 +2377,7 @@ namespace EamonRT.Game
 				Globals.GameState.SetDTTL(Enums.Friendliness.Friend, Globals.MDB[Globals.GameState.Cm].DmgTaken);
 			}
 
-			var monsters = GetMonsterList(() => true, m => !m.IsCharacterMonster() && m.Location == Globals.GameState.Ro);
+			var monsters = GetMonsterList(m => !m.IsCharacterMonster() && m.Location == Globals.GameState.Ro);
 
 			foreach (var monster in monsters)
 			{
@@ -2396,7 +2396,7 @@ namespace EamonRT.Game
 		{
 			long rl = 0;
 
-			var monsters = GetMonsterList(() => true, m => !m.IsCharacterMonster() && m.Seen && m.Location == Globals.GameState.R3);
+			var monsters = GetMonsterList(m => !m.IsCharacterMonster() && m.Seen && m.Location == Globals.GameState.R3);
 
 			foreach (var monster in monsters)
 			{
@@ -2406,7 +2406,7 @@ namespace EamonRT.Game
 				{
 					if (monster.Friendliness == Enums.Friendliness.Enemy)
 					{
-						rl = RollDice01(1, 100, 0);
+						rl = RollDice(1, 100, 0);
 
 						if (rl <= monster.Courage)
 						{

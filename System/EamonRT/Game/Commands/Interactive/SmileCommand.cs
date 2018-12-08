@@ -19,7 +19,7 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual IList<IMonster> GetMonsterSmilesList()
 		{
-			return Globals.Engine.GetMonsterList(ActorRoom.IsLit, m => m.IsInRoom(ActorRoom) && m != ActorMonster);
+			return ActorRoom.IsLit() ? Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m != ActorMonster) : new List<IMonster>();
 		}
 
 		public override void PlayerExecute()

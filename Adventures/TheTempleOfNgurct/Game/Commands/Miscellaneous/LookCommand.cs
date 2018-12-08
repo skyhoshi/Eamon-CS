@@ -25,7 +25,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) <= 0)
 			{
-				var rl = Globals.Engine.RollDice01(1, 100, 0);
+				var rl = Globals.Engine.RollDice(1, 100, 0);
 
 				// Secret door
 

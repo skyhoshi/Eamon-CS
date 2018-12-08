@@ -856,26 +856,12 @@ namespace Eamon.Framework
 		/// <param name="numDice">The number dice to roll.</param>
 		/// <param name="numSides">The number sides per die.</param>
 		/// <param name="modifier">An optional modifier to add to the sum; may be any value (including 0).</param>
-		/// <param name="result">The summed result of the die rolls, plus the modifier (if any).</param>
 		/// <remarks>
 		/// This is the dice-rolling function for Eamon CS.  It rolls a number of dice, each with a given number of sides
 		/// and sums the results.  An optional modifier is then added in; this modifier may be negative, positive or zero.
-		/// The common roleplaying game nomenclature would be to roll XdY+Z.  While you can use this method directly, there
-		/// is a convenience method <see cref="RollDice01(long, long, long)"/> that is recommended.</remarks>
-		/// <returns>Success, InvalidArg</returns>
-		RetCode RollDice(long numDice, long numSides, long modifier, ref long result);
-
-		/// <summary>
-		/// Rolls a number of dice, returning a sum of the results.
-		/// </summary>
-		/// <param name="numDice">The number dice to roll.</param>
-		/// <param name="numSides">The number sides per die.</param>
-		/// <param name="modifier">An optional modifier to add to the sum; may be any value (including 0).</param>
-		/// <remarks>
-		/// This is a convenience wrapper around <see cref="RollDice(long, long, long, ref long)"/> which should be used
-		/// whenever possible.</remarks>
+		/// The common roleplaying game nomenclature would be to roll XdY+Z.</remarks>
 		/// <returns>The summed result of the die rolls, plus the modifier (if any).</returns>
-		long RollDice01(long numDice, long numSides, long modifier);
+		long RollDice(long numDice, long numSides, long modifier);
 
 		/// <summary>
 		/// Given an array of die rolls, sum the highest of them and return the result.
@@ -958,11 +944,11 @@ namespace Eamon.Framework
 
 		void CopyArtifactCategoryFields(Classes.IArtifactCategory destAc, Classes.IArtifactCategory sourceAc);
 
-		IList<IArtifact> GetArtifactList(Func<bool> shouldQueryFunc, params Func<IArtifact, bool>[] whereClauseFuncs);
+		IList<IArtifact> GetArtifactList(params Func<IArtifact, bool>[] whereClauseFuncs);
 
-		IList<IMonster> GetMonsterList(Func<bool> shouldQueryFunc, params Func<IMonster, bool>[] whereClauseFuncs);
+		IList<IMonster> GetMonsterList(params Func<IMonster, bool>[] whereClauseFuncs);
 
-		IList<IGameBase> GetRecordList(Func<bool> shouldQueryFunc, params Func<IGameBase, bool>[] whereClauseFuncs);
+		IList<IGameBase> GetRecordList(params Func<IGameBase, bool>[] whereClauseFuncs);
 
 		IArtifact GetNthArtifact(IList<IArtifact> artifactList, long which, Func<IArtifact, bool> whereClauseFunc);
 

@@ -23,7 +23,7 @@ namespace TheTrainingGround.Game.Commands
 
 			if (DobjArtifact.Uid == 24 && (DobjArtifact.IsCarriedByCharacter() || DobjArtifact.IsInRoom(ActorRoom)))
 			{
-				var monsters = Globals.Engine.GetMonsterList(() => true, m => m.IsInRoom(ActorRoom) && m.Friendliness == Enums.Friendliness.Enemy && m.Field1 == 0);
+				var monsters = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m.Friendliness == Enums.Friendliness.Enemy && m.Field1 == 0);
 
 				foreach (var monster in monsters)
 				{

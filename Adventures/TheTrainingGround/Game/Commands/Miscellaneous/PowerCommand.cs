@@ -45,7 +45,7 @@ namespace TheTrainingGround.Game.Commands
 					goto Cleanup;
 				}
 
-				var rl = Globals.Engine.RollDice01(1, 100, 0);
+				var rl = Globals.Engine.RollDice(1, 100, 0);
 
 				// 20% chance of gender change
 

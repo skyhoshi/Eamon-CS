@@ -63,7 +63,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			monUids[1] = Convert.ToInt64(Buf.Trim().ToString());
 
-			var monsters = Globals.Engine.GetMonsterList(() => true, m => m.Uid >= monUids[0] && m.Uid <= monUids[1]);
+			var monsters = Globals.Engine.GetMonsterList(m => m.Uid >= monUids[0] && m.Uid <= monUids[1]);
 
 			var k = monsters.Count();
 

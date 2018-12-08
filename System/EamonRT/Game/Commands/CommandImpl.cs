@@ -674,7 +674,7 @@ namespace EamonRT.Game.Commands
 
 					foreach (var whereClauseFuncs in Command.CommandParser.ObjData.ArtifactWhereClauseList)
 					{
-						Command.CommandParser.ObjData.GetArtifactList = Command.CommandParser.ObjData.GetArtifactListFunc(() => true, whereClauseFuncs);
+						Command.CommandParser.ObjData.GetArtifactList = Command.CommandParser.ObjData.GetArtifactListFunc(whereClauseFuncs);
 
 						Debug.Assert(Command.CommandParser.ObjData.GetArtifactList != null);
 
@@ -747,7 +747,7 @@ namespace EamonRT.Game.Commands
 
 					foreach (var whereClauseFuncs in Command.CommandParser.ObjData.MonsterWhereClauseList)
 					{
-						Command.CommandParser.ObjData.GetMonsterList = Command.CommandParser.ObjData.GetMonsterListFunc(() => true, whereClauseFuncs);
+						Command.CommandParser.ObjData.GetMonsterList = Command.CommandParser.ObjData.GetMonsterListFunc(whereClauseFuncs);
 
 						Debug.Assert(Command.CommandParser.ObjData.GetMonsterList != null);
 

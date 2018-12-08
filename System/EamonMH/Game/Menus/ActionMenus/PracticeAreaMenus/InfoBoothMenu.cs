@@ -83,7 +83,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 					{
 						Globals.Out.Print("\"If you go to the southeast corner of this area and look to the south, you may discover wealth!\"");
 
-						var rl = Globals.Engine.RollDice01(1, 100, 0);
+						var rl = Globals.Engine.RollDice(1, 100, 0);
 
 						if (rl <= 50)
 						{

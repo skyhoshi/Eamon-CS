@@ -23,7 +23,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 			if (eventType == PpeAfterMonsterGetsAggravated && DobjMonster != null && DobjMonster.Uid == 22 && !helmArtifact.IsWornByCharacter())
 			{
-				var rl = Globals.Engine.RollDice01(1, 4, 56);
+				var rl = Globals.Engine.RollDice(1, 4, 56);
 
 				Globals.Engine.PrintEffectDesc(rl);
 

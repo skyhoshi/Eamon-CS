@@ -120,7 +120,7 @@ namespace TheTempleOfNgurct.Game
 
 				Debug.Assert(ac != null);
 
-				ac.Field1 = RollDice01(1, 10, 0);
+				ac.Field1 = RollDice(1, 10, 0);
 			}
 
 			// Places fireball wand and ring of regeneration
@@ -129,7 +129,7 @@ namespace TheTempleOfNgurct.Game
 
 			Debug.Assert(wandArtifact != null);
 
-			wandArtifact.Location = RollDice01(1, 28, 28);
+			wandArtifact.Location = RollDice(1, 28, 28);
 
 			var ringArtifact = Globals.ADB[64];
 
@@ -181,7 +181,7 @@ namespace TheTempleOfNgurct.Game
 
 				while (true)
 				{
-					randomMonster.Location = RollDice01(1, 56, 3);
+					randomMonster.Location = RollDice(1, 56, 3);
 
 					if (randomMonster.Location != 58)
 					{

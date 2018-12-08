@@ -52,7 +52,7 @@ namespace StrongholdOfKahrDur.Game.Combat
 
 			if (DfMonster.Uid == 22)
 			{
-				var rl = Globals.Engine.RollDice01(1, 4, 60);
+				var rl = Globals.Engine.RollDice(1, 4, 60);
 
 				Globals.Engine.PrintEffectDesc(rl, false);
 

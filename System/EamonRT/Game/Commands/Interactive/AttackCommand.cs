@@ -171,7 +171,7 @@ namespace EamonRT.Game.Commands
 
 					Globals.Out.Write("{0}", Globals.Buf);
 
-					var rl = Globals.Engine.RollDice01(d, s, 0);
+					var rl = Globals.Engine.RollDice(d, s, 0);
 
 					breakageStrength -= rl;
 

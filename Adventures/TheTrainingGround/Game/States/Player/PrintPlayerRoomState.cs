@@ -37,7 +37,7 @@ namespace TheTrainingGround.Game.States
 
 					if (!gameState.KoboldsAppear && characterRoom.Uid > 10 && characterRoom.Uid < 16)
 					{
-						var rl = Globals.Engine.RollDice01(1, 100, 0);
+						var rl = Globals.Engine.RollDice(1, 100, 0);
 
 						if (rl < 31)
 						{
@@ -68,7 +68,7 @@ namespace TheTrainingGround.Game.States
 
 					if (zapfMonster.IsInRoom(characterRoom) && zapfMonster.Seen && !Globals.Engine.CheckNBTLHostility(zapfMonster) && staffArtifact.IsCarriedByMonster(zapfMonster))
 					{
-						var rl = Globals.Engine.RollDice01(1, 100, 0);
+						var rl = Globals.Engine.RollDice(1, 100, 0);
 
 						if (rl < 16)
 						{
@@ -76,7 +76,7 @@ namespace TheTrainingGround.Game.States
 
 							// Exclude character monster
 
-							rl = Globals.Engine.RollDice01(1, Globals.Database.MonsterTable.Records.Count - 1, 0);
+							rl = Globals.Engine.RollDice(1, Globals.Database.MonsterTable.Records.Count - 1, 0);
 
 							var summonedMonster = Globals.MDB[rl];
 

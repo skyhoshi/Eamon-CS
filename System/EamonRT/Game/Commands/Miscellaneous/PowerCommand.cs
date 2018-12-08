@@ -36,7 +36,7 @@ namespace EamonRT.Game.Commands
 
 		public virtual void PrintFortuneCookie()
 		{
-			var rl = Globals.Engine.RollDice01(1, 100, 0);
+			var rl = Globals.Engine.RollDice(1, 100, 0);
 
 			Globals.Out.Print("A fortune cookie appears in mid-air and explodes!  The smoking paper left behind reads, \"{0}\"  How strange.",
 				rl > 50 ?
@@ -46,7 +46,7 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerProcessEvents(long eventType)
 		{
-			var rl = Globals.Engine.RollDice01(1, 100, 0);
+			var rl = Globals.Engine.RollDice(1, 100, 0);
 
 			if (eventType == PpeAfterPlayerSpellCastCheck)
 			{

@@ -61,7 +61,7 @@ namespace EamonRT.Game.Commands
 
 				Globals.Out.Write("{0}", Globals.Buf);
 
-				var rl = Globals.Engine.RollDice01(1, Globals.IsRulesetVersion(5) ? 10 : 12, 0);
+				var rl = Globals.Engine.RollDice(1, Globals.IsRulesetVersion(5) ? 10 : 12, 0);
 
 				if (Globals.IsRulesetVersion(5))
 				{

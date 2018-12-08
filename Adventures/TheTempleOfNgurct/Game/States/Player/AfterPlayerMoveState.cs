@@ -47,7 +47,7 @@ namespace TheTempleOfNgurct.Game.States
 
 			if (eventType == PeAfterExtinguishLightSourceCheck)
 			{
-				var rl = Globals.Engine.RollDice01(1, 100, 0);
+				var rl = Globals.Engine.RollDice(1, 100, 0);
 
 				// Spear trap
 

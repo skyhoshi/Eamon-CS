@@ -22,7 +22,7 @@ namespace ARuncibleCargo.Game
 
 			// Move any Artifacts dropped in StartRoom to the Private Quarters
 
-			var artifactList = Globals.Engine.GetArtifactList(() => true, a => a.IsCharOwned && a.IsInRoomUid(Globals.Engine.StartRoom));
+			var artifactList = Globals.Engine.GetArtifactList(a => a.IsCharOwned && a.IsInRoomUid(Globals.Engine.StartRoom));
 
 			foreach (var artifact in artifactList)
 			{

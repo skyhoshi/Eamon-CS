@@ -205,7 +205,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				if (!gameState.PulledRope)
 				{
-					var monsters = Globals.Engine.GetMonsterList(() => true, m => m.Uid >= 14 && m.Uid <= 16);
+					var monsters = Globals.Engine.GetMonsterList(m => m.Uid >= 14 && m.Uid <= 16);
 
 					foreach (var monster in monsters)
 					{

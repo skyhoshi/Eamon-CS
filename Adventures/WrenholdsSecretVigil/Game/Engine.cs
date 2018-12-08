@@ -248,7 +248,7 @@ namespace WrenholdsSecretVigil.Game
 
 			var curseString = "";
 
-			var rl = RollDice01(1, 100, 0);
+			var rl = RollDice(1, 100, 0);
 
 			// Say each curse only once
 

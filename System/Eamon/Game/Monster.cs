@@ -513,13 +513,13 @@ namespace Eamon.Game
 
 					var k = Enums.Friendliness.Friend;
 
-					var rl = Globals.Engine.RollDice01(1, 100, 0);
+					var rl = Globals.Engine.RollDice(1, 100, 0);
 
 					if (rl > f)
 					{
 						k--;
 
-						rl = Globals.Engine.RollDice01(1, 100, 0);
+						rl = Globals.Engine.RollDice(1, 100, 0);
 
 						if (rl > f)
 						{
@@ -535,7 +535,7 @@ namespace Eamon.Game
 
 					var k = Enums.Friendliness.Friend;
 
-					var rl = Globals.Engine.RollDice01(1, 100, 0);
+					var rl = Globals.Engine.RollDice(1, 100, 0);
 
 					if (f > 0 && f < 100)
 					{
@@ -546,7 +546,7 @@ namespace Eamon.Game
 					{
 						k--;
 
-						rl = Globals.Engine.RollDice01(1, 100, 0);
+						rl = Globals.Engine.RollDice(1, 100, 0);
 
 						if (f > 0 && f < 100)
 						{
@@ -620,7 +620,7 @@ namespace Eamon.Game
 				}
 			}
 
-			var list = Globals.Engine.GetArtifactList(() => true, a => monsterFindFunc(a));
+			var list = Globals.Engine.GetArtifactList(a => monsterFindFunc(a));
 
 			if (recurse && list.Count > 0)
 			{
@@ -654,7 +654,7 @@ namespace Eamon.Game
 				}
 			}
 
-			var list = Globals.Engine.GetArtifactList(() => true, a => monsterFindFunc(a));
+			var list = Globals.Engine.GetArtifactList(a => monsterFindFunc(a));
 
 			if (recurse && list.Count > 0)
 			{
@@ -688,7 +688,7 @@ namespace Eamon.Game
 				}
 			}
 
-			var list = Globals.Engine.GetArtifactList(() => true, a => monsterFindFunc(a));
+			var list = Globals.Engine.GetArtifactList(a => monsterFindFunc(a));
 
 			if (recurse && list.Count > 0)
 			{
@@ -837,7 +837,7 @@ namespace Eamon.Game
 
 		public virtual string GetAttackDescString(IArtifact artifact)
 		{
-			var rl = Globals.Engine.RollDice01(1, 3, artifact == null && HasHumanNaturalAttackDescs() ? 3 : 0);
+			var rl = Globals.Engine.RollDice(1, 3, artifact == null && HasHumanNaturalAttackDescs() ? 3 : 0);
 
 			var ac = artifact != null ? artifact.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon }) : null;
 
@@ -846,7 +846,7 @@ namespace Eamon.Game
 
 		public virtual string GetMissDescString(IArtifact artifact)
 		{
-			var i = Globals.Engine.RollDice01(1, 2, 0);
+			var i = Globals.Engine.RollDice(1, 2, 0);
 
 			var ac = artifact != null ? artifact.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon }) : null;
 

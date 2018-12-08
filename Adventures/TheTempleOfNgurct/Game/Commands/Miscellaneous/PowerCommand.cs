@@ -31,11 +31,11 @@ namespace TheTempleOfNgurct.Game.Commands
 			{
 				var rl = 0L;
 
-				var monsters = Globals.Engine.GetMonsterList(() => true, m => !m.IsCharacterMonster() && m.Uid != 53 && m.Friendliness < Enums.Friendliness.Friend && m.Seen && m.IsInRoom(ActorRoom));
+				var monsters = Globals.Engine.GetMonsterList(m => !m.IsCharacterMonster() && m.Uid != 53 && m.Friendliness < Enums.Friendliness.Friend && m.Seen && m.IsInRoom(ActorRoom));
 
 				foreach (var m in monsters)
 				{
-					rl = Globals.Engine.RollDice01(1, 100, 0);
+					rl = Globals.Engine.RollDice(1, 100, 0);
 
 					if (rl > 50)
 					{
@@ -56,7 +56,7 @@ namespace TheTempleOfNgurct.Game.Commands
 					}
 				}
 
-				rl = Globals.Engine.RollDice01(1, 100, 0);
+				rl = Globals.Engine.RollDice(1, 100, 0);
 
 				// Earthquake!
 
@@ -113,7 +113,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					Globals.Engine.PrintEffectDesc(16);
 
-					var room = Globals.Engine.RollDice01(1, 27, 32);
+					var room = Globals.Engine.RollDice(1, 27, 32);
 
 					ActorMonster.SetInRoomUid(room);
 
