@@ -387,6 +387,18 @@
             intended for new games.  If the artifact has no such data the property returns null.
             </remarks>
         </member>
+        <member name="P:Eamon.Framework.IArtifact.GeneralWeapon">
+            <summary>
+            A convenience property representing the ArtifactCategory data for either ArtifactType
+            Weapon or MagicWeapon.
+            </summary>
+            <remarks>
+            This property can be used to obtain the ArtifactCategory data associated with the Weapon
+            or MagicWeapon ArtifactType (which ever exists will be returned).  It is fully compatible
+            with the EDX convenience properties, but more intended for new games.  If the artifact
+            has no such data the property returns null.
+            </remarks>
+        </member>
         <member name="P:Eamon.Framework.IArtifact.Container">
             <summary>
             A convenience property representing the ArtifactCategory data for ArtifactType Container.

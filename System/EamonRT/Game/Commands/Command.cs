@@ -456,6 +456,11 @@ namespace EamonRT.Game.Commands
 			CommandImpl.PrintGiveObjToActor(artifact, monster);
 		}
 
+		public virtual void PrintObjBelongsToActor(IArtifact artifact, IMonster monster)
+		{
+			CommandImpl.PrintObjBelongsToActor(artifact, monster);
+		}
+
 		public virtual void PrintOpenObjWithKey(IArtifact artifact, IArtifact key)
 		{
 			CommandImpl.PrintOpenObjWithKey(artifact, key);

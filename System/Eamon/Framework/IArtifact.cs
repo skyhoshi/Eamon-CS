@@ -131,6 +131,18 @@ namespace Eamon.Framework
 		Classes.IArtifactCategory MagicWeapon { get; }
 
 		/// <summary>
+		/// A convenience property representing the ArtifactCategory data for either ArtifactType
+		/// Weapon or MagicWeapon.
+		/// </summary>
+		/// <remarks>
+		/// This property can be used to obtain the ArtifactCategory data associated with the Weapon
+		/// or MagicWeapon ArtifactType (which ever exists will be returned).  It is fully compatible
+		/// with the EDX convenience properties, but more intended for new games.  If the artifact
+		/// has no such data the property returns null.
+		/// </remarks>
+		Classes.IArtifactCategory GeneralWeapon { get; }
+
+		/// <summary>
 		/// A convenience property representing the ArtifactCategory data for ArtifactType Container.
 		/// </summary>
 		/// <remarks>
@@ -379,8 +391,6 @@ namespace Eamon.Framework
 		bool IsUnmovable();
 
 		bool IsUnmovable01();
-
-		bool IsWeapon01();
 
 		bool IsArmor();
 

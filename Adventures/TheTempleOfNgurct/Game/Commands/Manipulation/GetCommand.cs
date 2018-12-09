@@ -25,7 +25,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			Debug.Assert(gameState != null);
 
-			if (DobjArtifact != null && !DobjArtifact.IsWeapon01() && Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) > 0)
+			if (DobjArtifact != null && DobjArtifact.GeneralWeapon == null && Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) > 0)
 			{
 				PrintEnemiesNearby();
 

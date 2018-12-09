@@ -244,9 +244,7 @@ namespace Eamon.Game.Helpers
 
 			if (weapon != null)
 			{
-				var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
-
-				var ac = weapon.GetArtifactCategory(artTypes);
+				var ac = weapon.GeneralWeapon;
 
 				Debug.Assert(ac != null);
 

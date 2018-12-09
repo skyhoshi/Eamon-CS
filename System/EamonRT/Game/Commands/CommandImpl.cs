@@ -400,6 +400,13 @@ namespace EamonRT.Game.Commands
 			Globals.Out.Print("You give {0} to {1}.", artifact.GetDecoratedName03(false, true, false, false, Globals.Buf), monster.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 		}
 
+		public virtual void PrintObjBelongsToActor(IArtifact artifact, IMonster monster)
+		{
+			Debug.Assert(artifact != null && monster != null);
+
+			Globals.Out.Print("{0} belongs to {1}.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), monster.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+		}
+
 		public virtual void PrintOpenObjWithKey(IArtifact artifact, IArtifact key)
 		{
 			Debug.Assert(artifact != null && key != null);

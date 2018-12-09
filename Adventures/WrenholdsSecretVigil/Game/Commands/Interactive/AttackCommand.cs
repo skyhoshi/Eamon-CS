@@ -46,7 +46,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			var wpnArtifact = ActorMonster.Weapon > 0 ? Globals.ADB[ActorMonster.Weapon] : null;
 
-			var ac = wpnArtifact != null ? wpnArtifact.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon }) : null;
+			var ac = wpnArtifact != null ? wpnArtifact.GeneralWeapon : null;
 
 			// Find diary on dead adventurer
 

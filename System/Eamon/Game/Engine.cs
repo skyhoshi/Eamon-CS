@@ -1693,17 +1693,15 @@ namespace Eamon.Game
 
 			rc = RetCode.Success;
 
-			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
-
 			for (i = 0; i < records.Count; i++)
 			{
 				var x = records[(int)i];
 
 				var a = x as IArtifact;
 
-				if (showExtraInfo && a != null && a.IsWeapon01())
+				if (showExtraInfo && a != null && a.GeneralWeapon != null)
 				{
-					var ac = a.GetArtifactCategory(artTypes);
+					var ac = a.GeneralWeapon;
 
 					Debug.Assert(ac != null);
 
@@ -2300,13 +2298,13 @@ namespace Eamon.Game
 
 			Debug.Assert(artifact != null);
 
-			if (artifact.IsWeapon01())
+			if (artifact.GeneralWeapon != null)
 			{
 				var ac = artifact.GetArtifactCategory(convertToGold ? Enums.ArtifactType.Gold : Enums.ArtifactType.Treasure);
 
 				if (ac == null)
 				{
-					ac = artifact.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon });
+					ac = artifact.GeneralWeapon;
 
 					Debug.Assert(ac != null);
 

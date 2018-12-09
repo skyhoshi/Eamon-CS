@@ -47,7 +47,7 @@ namespace EamonRT.Game.Commands
 
 			if (ActorMonster.Weapon == artifact.Uid)
 			{
-				Debug.Assert(artifact.IsWeapon01());
+				Debug.Assert(artifact.GeneralWeapon != null);
 
 				var rc = artifact.RemoveStateDesc(artifact.GetReadyWeaponDesc());
 
@@ -120,7 +120,7 @@ namespace EamonRT.Game.Commands
 
 			if (monster.Weapon == artifact.Uid)
 			{
-				Debug.Assert(artifact.IsWeapon01());
+				Debug.Assert(artifact.GeneralWeapon != null);
 
 				var rc = artifact.RemoveStateDesc(artifact.GetReadyWeaponDesc());
 

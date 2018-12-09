@@ -17,8 +17,6 @@ namespace EamonRT.Game.States
 	{
 		public virtual void BuildLoopArtifactList(IMonster monster)
 		{
-			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
-
 			Debug.Assert(monster != null);
 
 			Globals.LoopArtifactList = null;
@@ -33,7 +31,7 @@ namespace EamonRT.Game.States
 
 					Debug.Assert(wpnArtifact != null);
 
-					var ac = wpnArtifact.GetArtifactCategory(artTypes);
+					var ac = wpnArtifact.GeneralWeapon;
 
 					Debug.Assert(ac != null);
 

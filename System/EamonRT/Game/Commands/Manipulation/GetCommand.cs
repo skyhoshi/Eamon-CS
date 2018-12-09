@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
@@ -85,24 +86,33 @@ namespace EamonRT.Game.Commands
 				}
 				else
 				{
-					Globals.GameState.Wt += weight;
+					var monster = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m.Weapon == -artifact.Uid - 1 && m != ActorMonster).FirstOrDefault();
 
-					artifact.SetCarriedByCharacter();
-
-					if (NextState is IRequestCommand)
+					if (monster != null)
 					{
-						PrintReceived(artifact);
-					}
-					else if (NextState is IRemoveCommand)
-					{
-						PrintRetrieved(artifact);
+						ProcessAction(() => PrintObjBelongsToActor(artifact, monster), ref nlFlag);
 					}
 					else
 					{
-						PrintTaken(artifact);
-					}
+						Globals.GameState.Wt += weight;
 
-					nlFlag = true;
+						artifact.SetCarriedByCharacter();
+
+						if (NextState is IRequestCommand)
+						{
+							PrintReceived(artifact);
+						}
+						else if (NextState is IRemoveCommand)
+						{
+							PrintRetrieved(artifact);
+						}
+						else
+						{
+							PrintTaken(artifact);
+						}
+
+						nlFlag = true;
+					}
 				}
 			}
 		}
@@ -111,13 +121,20 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(GetAll || DobjArtifact != null);
 
-			ArtifactList = GetAll ? ActorRoom.GetTakeableList() : new List<IArtifact>() { DobjArtifact };
+			if (GetAll)
+			{
+				// screen out all weapons in the room which have monsters present with affinities to those weapons
+
+				ArtifactList = ActorRoom.GetTakeableList().Where(a => Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m.Weapon == -a.Uid - 1 && m != ActorMonster).FirstOrDefault() == null).ToList();
+			}
+			else
+			{
+				ArtifactList = new List<IArtifact>() { DobjArtifact };
+			}
 
 			if (ArtifactList.Count > 0)
 			{
 				var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Container, Enums.ArtifactType.DeadBody, Enums.ArtifactType.BoundMonster, Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
-
-				var artTypes01 = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
 
 				var nlFlag = false;
 
@@ -136,11 +153,23 @@ namespace EamonRT.Game.Commands
 
 					ProcessArtifact(artifact, ac, ref nlFlag);
 
-					var ac01 = artifact.GetArtifactCategory(artTypes01);
-
-					if (artifact.IsReadyableByCharacter() && artifact.IsCarriedByCharacter() && (wpnArtifact == null || Globals.Engine.WeaponPowerCompare(artifact, wpnArtifact) > 0) && (!GetAll || ArtifactList.Count == 1 || Globals.GameState.Sh < 1 || ac01.Field5 < 2))
+					if (artifact.IsCarriedByCharacter())
 					{
-						wpnArtifact = artifact;
+						// when a weapon is picked up all monster affinities to that weapon are broken
+
+						var fumbleMonsters = Globals.Engine.GetMonsterList(m => m.Weapon == -artifact.Uid - 1 && m != ActorMonster);
+
+						foreach (var monster in fumbleMonsters)
+						{
+							monster.Weapon = -1;
+						}
+
+						var ac01 = artifact.GeneralWeapon;
+
+						if (artifact.IsReadyableByCharacter() && (wpnArtifact == null || Globals.Engine.WeaponPowerCompare(artifact, wpnArtifact) > 0) && (!GetAll || ArtifactList.Count == 1 || Globals.GameState.Sh < 1 || ac01.Field5 < 2))
+						{
+							wpnArtifact = artifact;
+						}
 					}
 				}
 
@@ -218,13 +247,22 @@ namespace EamonRT.Game.Commands
 
 					Debug.Assert(charMonster != null);
 
-					var monsters = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m != ActorMonster);
+					var viewingMonsters = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m != ActorMonster);
 
-					if (monsters.Contains(charMonster))
+					if (viewingMonsters.Contains(charMonster))
 					{
 						var monsterName = ActorRoom.EvalLightLevel("An unseen offender", ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01)));
 
 						Globals.Out.Print("{0} picks up {1}.", monsterName, ActorRoom.EvalLightLevel("a weapon", DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf)));
+					}
+
+					// when a weapon is picked up all monster affinities to that weapon are broken
+
+					var fumbleMonsters = Globals.Engine.GetMonsterList(m => m.Weapon == -DobjArtifact.Uid - 1 && m != ActorMonster);
+
+					foreach (var monster in fumbleMonsters)
+					{
+						monster.Weapon = -1;
 					}
 				}
 			}

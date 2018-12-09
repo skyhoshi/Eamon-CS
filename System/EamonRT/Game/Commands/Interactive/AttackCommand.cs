@@ -158,7 +158,7 @@ namespace EamonRT.Game.Commands
 
 						Debug.Assert(weapon != null);
 
-						var weaponAc = weapon.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon });
+						var weaponAc = weapon.GeneralWeapon;
 
 						Debug.Assert(weaponAc != null);
 

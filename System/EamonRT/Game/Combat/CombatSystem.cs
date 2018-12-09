@@ -28,8 +28,6 @@ namespace EamonRT.Game.Combat
 
 		protected long _d2 = 0;
 
-		protected virtual Enums.ArtifactType[] ArtTypes { get; set; }
-
 		protected virtual RTEnums.CombatState CombatState { get; set; }
 
 		protected virtual Classes.IArtifactCategory OfAc { get; set; }
@@ -351,9 +349,9 @@ namespace EamonRT.Game.Combat
 				OfWeapon = OfWeaponUid > 0 ? Globals.ADB[OfWeaponUid] : null;
 			}
 
-			Debug.Assert(OfWeaponUid == 0 || (OfWeapon != null && OfWeapon.IsWeapon01()));
+			Debug.Assert(OfWeaponUid == 0 || (OfWeapon != null && OfWeapon.GeneralWeapon != null));
 
-			OfAc = OfWeapon != null ? OfWeapon.GetArtifactCategory(ArtTypes) : null;
+			OfAc = OfWeapon != null ? OfWeapon.GeneralWeapon : null;
 
 			Af = Globals.Engine.GetArmorFactor(Globals.GameState.Ar, Globals.GameState.Sh);
 
@@ -390,7 +388,7 @@ namespace EamonRT.Game.Combat
 
 			DfWeapon = DfWeaponUid > 0 ? Globals.ADB[DfWeaponUid] : null;
 
-			DfAc = DfWeapon != null ? DfWeapon.GetArtifactCategory(ArtTypes) : null;
+			DfAc = DfWeapon != null ? DfWeapon.GeneralWeapon : null;
 
 			DfWeaponType = (Enums.Weapon)(DfAc != null ? DfAc.Field2 : 0);
 
@@ -855,8 +853,6 @@ namespace EamonRT.Game.Combat
 
 		public CombatSystem()
 		{
-			ArtTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
-
 			OfWeaponType = 0;
 
 			DfWeaponType = 0;

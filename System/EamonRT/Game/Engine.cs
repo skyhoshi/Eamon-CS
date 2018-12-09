@@ -43,8 +43,6 @@ namespace EamonRT.Game
 		{
 			long cw = -1;
 
-			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
-
 			foreach (var weapon in Globals.Character.Weapons)
 			{
 				if (weapon.IsActive())
@@ -53,7 +51,7 @@ namespace EamonRT.Game
 
 					Debug.Assert(artifact != null);
 
-					var ac = artifact.GetArtifactCategory(artTypes);
+					var ac = artifact.GeneralWeapon;
 
 					Debug.Assert(ac != null);
 
@@ -315,13 +313,11 @@ namespace EamonRT.Game
 		{
 			Debug.Assert(artifact1 != null && artifact2 != null);
 
-			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
-
-			var ac1 = artifact1.GetArtifactCategory(artTypes);
+			var ac1 = artifact1.GeneralWeapon;
 
 			Debug.Assert(ac1 != null);
 
-			var ac2 = artifact2.GetArtifactCategory(artTypes);
+			var ac2 = artifact2.GeneralWeapon;
 
 			Debug.Assert(ac2 != null);
 
@@ -343,11 +339,9 @@ namespace EamonRT.Game
 
 			Debug.Assert(artifactList != null);
 
-			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
-
 			foreach (var artifact in artifactList)
 			{
-				var ac = artifact.GetArtifactCategory(artTypes);
+				var ac = artifact.GeneralWeapon;
 
 				if (ac != null && (cw == null || WeaponPowerCompare(artifact, cw) > 0))
 				{
@@ -541,8 +535,6 @@ namespace EamonRT.Game
 
 		public virtual void InitMonsterScaledHardinessValues()
 		{
-			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
-
 			var maxDamage = ScaledHardinessUnarmedMaxDamage;
 
 			var monster = Globals.MDB[Globals.GameState.Cm];
@@ -555,7 +547,7 @@ namespace EamonRT.Game
 
 				Debug.Assert(artifact != null);
 
-				var ac = artifact.GetArtifactCategory(artTypes);
+				var ac = artifact.GeneralWeapon;
 
 				Debug.Assert(ac != null);
 
@@ -659,7 +651,7 @@ namespace EamonRT.Game
 		{
 			Debug.Assert(artifact != null);
 
-			var ac = artifact.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon });
+			var ac = artifact.GeneralWeapon;
 
 			Debug.Assert(ac != null);
 
@@ -940,8 +932,6 @@ namespace EamonRT.Game
 
 			weaponList.Clear();
 
-			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
-
 			var artifacts = GetArtifactList(a => a.IsWornByCharacter());
 
 			foreach (var artifact in artifacts)
@@ -985,7 +975,7 @@ namespace EamonRT.Game
 
 				if (artifact.IsCarriedByCharacter())
 				{
-					var ac = artifact.GetArtifactCategory(artTypes);
+					var ac = artifact.GeneralWeapon;
 
 					if (ac != null && ac == artifact.GetCategories(0) && artifact.IsReadyableByCharacter())
 					{
@@ -1773,8 +1763,6 @@ namespace EamonRT.Game
 
 		public virtual IList<IArtifact> GetReadyableWeaponList(IMonster monster)
 		{
-			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
-
 			Debug.Assert(monster != null);
 
 			var charMonster = Globals.MDB[Globals.GameState.Cm];
@@ -1791,7 +1779,7 @@ namespace EamonRT.Game
 			{
 				if (monster.Weapon != -a01.Uid - 1)
 				{
-					var ac = a01.GetArtifactCategory(artTypes);
+					var ac = a01.GeneralWeapon;
 
 					Debug.Assert(ac != null);
 
@@ -1818,7 +1806,7 @@ namespace EamonRT.Game
 			{
 				artifactList = artifactList.Where(a =>
 				{
-					var ac = a.GetArtifactCategory(artTypes);
+					var ac = a.GeneralWeapon;
 
 					Debug.Assert(ac != null);
 

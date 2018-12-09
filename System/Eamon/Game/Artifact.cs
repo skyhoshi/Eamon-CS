@@ -210,6 +210,17 @@ namespace Eamon.Game
 		}
 
 		[ExcludeFromSerialization]
+		public virtual Classes.IArtifactCategory GeneralWeapon
+		{
+			get
+			{
+				var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
+
+				return GetArtifactCategory(artTypes);
+			}
+		}
+
+		[ExcludeFromSerialization]
 		public virtual Classes.IArtifactCategory Container
 		{
 			get
@@ -592,7 +603,7 @@ namespace Eamon.Game
 
 		public virtual bool IsReadyableByCharacter()
 		{
-			return IsWeapon01();
+			return GeneralWeapon != null;
 		}
 
 		public virtual bool IsInRoom()
@@ -627,7 +638,7 @@ namespace Eamon.Game
 
 		public virtual bool IsReadyableByMonsterUid(long monsterUid)
 		{
-			return IsWeapon01();
+			return GeneralWeapon != null;
 		}
 
 		public virtual bool IsInRoomUid(long roomUid)
@@ -843,7 +854,7 @@ namespace Eamon.Game
 
 		public virtual bool IsWeapon(Enums.Weapon weapon)
 		{
-			var ac = GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon });
+			var ac = GeneralWeapon;
 
 			return ac != null && ac.IsWeapon(weapon);
 		}
@@ -870,13 +881,6 @@ namespace Eamon.Game
 		public virtual bool IsUnmovable01()
 		{
 			return Globals.Engine.IsUnmovable01(Weight);
-		}
-
-		public virtual bool IsWeapon01()
-		{
-			var ac = GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon });
-
-			return ac != null;
 		}
 
 		public virtual bool IsArmor()

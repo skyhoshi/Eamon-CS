@@ -131,6 +131,8 @@ namespace EamonRT.Framework.Commands
 
 		void PrintGiveObjToActor(IArtifact artifact, IMonster monster);
 
+		void PrintObjBelongsToActor(IArtifact artifact, IMonster monster);
+
 		void PrintOpenObjWithKey(IArtifact artifact, IArtifact key);
 
 		void PrintNotEnoughGold();

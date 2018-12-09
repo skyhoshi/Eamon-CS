@@ -143,7 +143,7 @@ namespace EamonRT.Game.Commands
 
 				if (ActorMonster.Weapon == DobjArtifact.Uid)
 				{
-					Debug.Assert(DobjArtifact.IsWeapon01());
+					Debug.Assert(DobjArtifact.GeneralWeapon != null);
 
 					rc = DobjArtifact.RemoveStateDesc(DobjArtifact.GetReadyWeaponDesc());
 

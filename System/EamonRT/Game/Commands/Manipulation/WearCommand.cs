@@ -98,11 +98,9 @@ namespace EamonRT.Game.Commands
 
 						// can't wear shield while using two-handed weapon
 
-						var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
-
 						var weapon = ActorMonster.Weapon > 0 ? Globals.ADB[ActorMonster.Weapon] : null;
 
-						var weaponAc = weapon != null ? weapon.GetArtifactCategory(artTypes) : null;
+						var weaponAc = weapon != null ? weapon.GeneralWeapon : null;
 
 						if (weaponAc != null && weaponAc.Field5 > 1)
 						{

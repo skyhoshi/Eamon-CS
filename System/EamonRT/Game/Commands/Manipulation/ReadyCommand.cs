@@ -139,9 +139,9 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(charMonster != null);
 
-				var monsters = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m != ActorMonster);
+				var viewingMonsters = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m != ActorMonster);
 
-				if (monsters.Contains(charMonster))
+				if (viewingMonsters.Contains(charMonster))
 				{
 					var monsterName = ActorRoom.EvalLightLevel("An unseen offender", ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01)));
 
