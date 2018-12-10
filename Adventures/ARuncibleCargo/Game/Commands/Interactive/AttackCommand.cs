@@ -8,7 +8,6 @@ using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
@@ -39,7 +38,7 @@ namespace ARuncibleCargo.Game.Commands
 
 						// Attack cell = Open Jail
 
-						var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
+						var ac = DobjArtifact.Container;
 
 						Debug.Assert(ac != null);
 

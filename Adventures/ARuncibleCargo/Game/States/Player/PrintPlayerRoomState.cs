@@ -129,7 +129,7 @@ namespace ARuncibleCargo.Game.States
 
 					Debug.Assert(shopDoorArtifact != null);
 
-					ac = shopDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					ac = shopDoorArtifact.DoorGate;
 
 					Debug.Assert(ac != null);
 
@@ -231,7 +231,7 @@ namespace ARuncibleCargo.Game.States
 
 				if (room.Uid == 93 && cargoArtifact.IsCarriedByMonster(princeMonster) && princeMonster.Friendliness > Enums.Friendliness.Enemy && !guardsMonster.IsInLimbo())
 				{
-					ac = gatesArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					ac = gatesArtifact.DoorGate;
 
 					Debug.Assert(ac != null);
 
@@ -243,7 +243,7 @@ namespace ARuncibleCargo.Game.States
 					}
 				}
 
-				ac = cargoArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
+				ac = cargoArtifact.Container;
 
 				Debug.Assert(ac != null);
 

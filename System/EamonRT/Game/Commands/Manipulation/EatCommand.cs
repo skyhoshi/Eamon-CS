@@ -34,9 +34,9 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var drinkableAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Drinkable);
+			var drinkableAc = DobjArtifact.Drinkable;
 
-			var edibleAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Edible);
+			var edibleAc = DobjArtifact.Edible;
 
 			var ac = edibleAc != null ? edibleAc : drinkableAc;
 

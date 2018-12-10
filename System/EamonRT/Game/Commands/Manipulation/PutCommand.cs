@@ -61,7 +61,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			var ac = IobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
+			var ac = IobjArtifact.Container;
 
 			if (DobjArtifact == IobjArtifact || ac == null)
 			{

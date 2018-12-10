@@ -7,7 +7,6 @@ using System.Diagnostics;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game
@@ -42,7 +41,7 @@ namespace TheBeginnersCave.Game
 
 					// look up the data relating to artifact type MagicWeapon
 
-					var ac = trollsfireArtifact.GetArtifactCategory(Enums.ArtifactType.MagicWeapon);
+					var ac = trollsfireArtifact.MagicWeapon;
 
 					Debug.Assert(ac != null);
 

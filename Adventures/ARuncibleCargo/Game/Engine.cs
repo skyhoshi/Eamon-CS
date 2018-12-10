@@ -80,7 +80,7 @@ namespace ARuncibleCargo.Game
 
 					Debug.Assert(shopDoorArtifact != null);
 
-					var ac = shopDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					var ac = shopDoorArtifact.DoorGate;
 
 					Debug.Assert(ac != null);
 

@@ -84,7 +84,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public virtual void ConvertSlimeToContainer()
 		{
-			var ac = IobjArtifact.GetArtifactCategory(Enums.ArtifactType.Treasure);
+			var ac = IobjArtifact.Treasure;
 
 			Debug.Assert(ac != null);
 
@@ -103,7 +103,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public virtual void ConvertSlimeToTreasure()
 		{
-			var ac = IobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
+			var ac = IobjArtifact.Container;
 
 			Debug.Assert(ac != null);
 

@@ -39,7 +39,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(DobjArtifact != null);
 
-			var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.BoundMonster);
+			var ac = DobjArtifact.BoundMonster;
 
 			if (ac != null)
 			{

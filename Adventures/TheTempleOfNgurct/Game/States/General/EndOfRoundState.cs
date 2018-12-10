@@ -6,7 +6,6 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.States
@@ -51,7 +50,7 @@ namespace TheTempleOfNgurct.Game.States
 
 					var cellDoorArtifact = Globals.ADB[gameState.Ro == 45 ? 87 : gameState.Ro == 46 ? 88 : gameState.Ro == 55 ? 86 : 0];
 
-					var ac = cellDoorArtifact != null ? cellDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate) : null;
+					var ac = cellDoorArtifact != null ? cellDoorArtifact.DoorGate : null;
 
 					if (ac == null || ac.GetKeyUid() <= 0)
 					{

@@ -33,7 +33,7 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact != null)
 			{
-				var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
+				var ac = DobjArtifact.Container;
 
 				if (ac != null)
 				{

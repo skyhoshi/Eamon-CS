@@ -375,7 +375,7 @@ namespace EamonRT.Game
 			{
 				if (artifact.IsWornByCharacter())
 				{
-					ac = artifact.GetArtifactCategory(Enums.ArtifactType.Wearable);
+					ac = artifact.Wearable;
 
 					if (ac != null && ac.Field1 > 0)
 					{
@@ -389,7 +389,7 @@ namespace EamonRT.Game
 
 				w = artifact.Weight;
 
-				ac = artifact.GetArtifactCategory(Enums.ArtifactType.Container);
+				ac = artifact.Container;
 
 				if (ac != null)
 				{
@@ -867,7 +867,7 @@ namespace EamonRT.Game
 
 					Debug.Assert(artifact != null);
 
-					var ac = artifact.GetArtifactCategory(Enums.ArtifactType.Wearable);
+					var ac = artifact.Wearable;
 
 					Debug.Assert(ac != null);
 
@@ -947,7 +947,7 @@ namespace EamonRT.Game
 
 				foreach (var artifact in artifacts)
 				{
-					var ac = artifact.GetArtifactCategory(Enums.ArtifactType.Container);
+					var ac = artifact.Container;
 
 					if (ac != null)
 					{
@@ -1070,7 +1070,7 @@ namespace EamonRT.Game
 						Globals.Buf01.SetFormat("nothing");
 					}
 
-					var ac = artifact.GetArtifactCategory(Enums.ArtifactType.Drinkable);
+					var ac = artifact.Drinkable;
 
 					Globals.Out.Write("{0}{1}{2} {3} worth {4}.",
 						Environment.NewLine,
@@ -1313,7 +1313,7 @@ namespace EamonRT.Game
 
 			Debug.Assert(artifact != null);
 
-			var ac = artifact.GetArtifactCategory(Enums.ArtifactType.DisguisedMonster);
+			var ac = artifact.DisguisedMonster;
 
 			Debug.Assert(ac != null);
 
@@ -1365,7 +1365,7 @@ namespace EamonRT.Game
 			{
 				artifact.SetInRoom(room);
 
-				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+				var ac = artifact.DoorGate;
 
 				if (ac != null)
 				{
@@ -1424,7 +1424,7 @@ namespace EamonRT.Game
 
 			if (!artifact.IsCharOwned)
 			{
-				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+				var ac = artifact.DoorGate;
 
 				if (ac != null)
 				{
@@ -1795,7 +1795,7 @@ namespace EamonRT.Game
 
 			var shield = monster.GetWornList().FirstOrDefault(a =>
 			{
-				var ac = a.GetArtifactCategory(Enums.ArtifactType.Wearable);
+				var ac = a.Wearable;
 
 				Debug.Assert(ac != null);
 
@@ -2130,7 +2130,7 @@ namespace EamonRT.Game
 
 			Debug.Assert(artifact != null);
 
-			var ac = artifact.GetArtifactCategory(Enums.ArtifactType.LightSource);
+			var ac = artifact.LightSource;
 
 			Debug.Assert(ac != null);
 

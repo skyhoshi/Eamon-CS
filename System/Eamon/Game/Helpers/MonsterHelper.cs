@@ -252,7 +252,7 @@ namespace Eamon.Game.Helpers
 				{
 					var shield = Record.GetWornList().FirstOrDefault(a =>
 					{
-						var ac01 = a.GetArtifactCategory(Enums.ArtifactType.Wearable);
+						var ac01 = a.Wearable;
 
 						Debug.Assert(ac01 != null);
 

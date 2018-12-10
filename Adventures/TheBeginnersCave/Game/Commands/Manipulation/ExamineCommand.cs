@@ -6,7 +6,6 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
@@ -22,7 +21,7 @@ namespace TheBeginnersCave.Game.Commands
 
 			if (DobjArtifact != null && DobjArtifact.Uid == 8)
 			{
-				var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Edible);
+				var ac = DobjArtifact.Edible;
 
 				Debug.Assert(ac != null);
 

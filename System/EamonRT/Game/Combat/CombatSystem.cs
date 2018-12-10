@@ -655,7 +655,7 @@ namespace EamonRT.Game.Combat
 			{
 				DfArmor = Globals.GameState.Ar > 0 ? Globals.ADB[Globals.GameState.Ar] : null;
 
-				ArAc = DfArmor != null ? DfArmor.GetArtifactCategory(Enums.ArtifactType.Wearable) : null;
+				ArAc = DfArmor != null ? DfArmor.Wearable : null;
 
 				if (ArAc != null && (ArAc.Field1 / 2) > 2)
 				{

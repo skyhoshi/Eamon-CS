@@ -45,7 +45,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 					Debug.Assert(eastPortcullisArtifact != null);
 
-					var ac = eastPortcullisArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					var ac = eastPortcullisArtifact.DoorGate;
 
 					Debug.Assert(ac != null);
 
@@ -55,7 +55,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 					Debug.Assert(westPortcullisArtifact != null);
 
-					ac = westPortcullisArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					ac = westPortcullisArtifact.DoorGate;
 
 					Debug.Assert(ac != null);
 

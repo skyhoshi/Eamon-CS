@@ -23,7 +23,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.LightSource);
+			var ac = DobjArtifact.LightSource;
 
 			if (ac != null)
 			{

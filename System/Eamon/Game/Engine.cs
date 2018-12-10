@@ -435,7 +435,7 @@ namespace Eamon.Game
 
 				Debug.Assert(artifact != null);
 
-				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.Wearable);
+				var ac = artifact.Wearable;
 
 				Debug.Assert(ac != null);
 
@@ -460,7 +460,7 @@ namespace Eamon.Game
 
 				Debug.Assert(artifact != null);
 
-				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.Wearable);
+				var ac = artifact.Wearable;
 
 				Debug.Assert(ac != null);
 

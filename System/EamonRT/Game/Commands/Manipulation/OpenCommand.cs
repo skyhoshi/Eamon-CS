@@ -39,17 +39,17 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var containerAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
+			var containerAc = DobjArtifact.Container;
 
-			var doorGateAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+			var doorGateAc = DobjArtifact.DoorGate;
 
-			var disguisedMonsterAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.DisguisedMonster);
+			var disguisedMonsterAc = DobjArtifact.DisguisedMonster;
 
-			var drinkableAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Drinkable);
+			var drinkableAc = DobjArtifact.Drinkable;
 
-			var edibleAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Edible);
+			var edibleAc = DobjArtifact.Edible;
 
-			var readableAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Readable);
+			var readableAc = DobjArtifact.Readable;
 
 			var ac =	containerAc != null ? containerAc :
 						doorGateAc != null ? doorGateAc :

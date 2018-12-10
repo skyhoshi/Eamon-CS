@@ -63,7 +63,7 @@ namespace ARuncibleCargo.Game.Commands
 
 							Debug.Assert(gatesArtifact != null);
 
-							var ac = gatesArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+							var ac = gatesArtifact.DoorGate;
 
 							Debug.Assert(ac != null);
 

@@ -128,7 +128,7 @@ namespace ARuncibleCargo.Game.States
 
 				Debug.Assert(ovenArtifact != null);
 
-				var ac = ovenArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
+				var ac = ovenArtifact.Container;
 
 				Debug.Assert(ac != null);
 
@@ -160,7 +160,7 @@ namespace ARuncibleCargo.Game.States
 
 				Debug.Assert(easternDoorArtifact != null);
 
-				ac = easternDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+				ac = easternDoorArtifact.DoorGate;
 
 				Debug.Assert(ac != null);
 
@@ -192,7 +192,7 @@ namespace ARuncibleCargo.Game.States
 
 					Debug.Assert(doorArtifact != null);
 
-					ac = doorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					ac = doorArtifact.DoorGate;
 
 					Debug.Assert(ac != null);
 
@@ -210,7 +210,7 @@ namespace ARuncibleCargo.Game.States
 
 				Debug.Assert(jailCellArtifact != null);
 
-				ac = jailCellArtifact.GetArtifactCategory(Enums.ArtifactType.Container);
+				ac = jailCellArtifact.Container;
 
 				Debug.Assert(ac != null);
 
@@ -357,11 +357,11 @@ namespace ARuncibleCargo.Game.States
 
 					Debug.Assert(doorArtifact01 != null);
 
-					ac = doorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					ac = doorArtifact.DoorGate;
 
 					Debug.Assert(ac != null);
 
-					ac01 = doorArtifact01.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+					ac01 = doorArtifact01.DoorGate;
 
 					Debug.Assert(ac01 != null);
 

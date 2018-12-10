@@ -6,7 +6,6 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.Commands
@@ -28,7 +27,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				Debug.Assert(secretDoorArtifact != null);
 
-				var ac = secretDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+				var ac = secretDoorArtifact.DoorGate;
 
 				Debug.Assert(ac != null);
 

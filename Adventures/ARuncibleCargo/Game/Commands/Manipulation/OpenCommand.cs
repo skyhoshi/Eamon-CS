@@ -7,7 +7,6 @@ using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
@@ -51,7 +50,7 @@ namespace ARuncibleCargo.Game.Commands
 
 			Debug.Assert(gameState != null);
 
-			var ac = DobjArtifact.Uid == 129 ? DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Container) : null;
+			var ac = DobjArtifact.Uid == 129 ? DobjArtifact.Container : null;
 
 			// Open the Runcible Cargo
 

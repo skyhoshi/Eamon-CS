@@ -26,7 +26,7 @@ namespace TheTempleOfNgurct.Game
 
 				Debug.Assert(cellDoorArtifact != null);
 			
-				var ac = cellDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+				var ac = cellDoorArtifact.DoorGate;
 
 				Debug.Assert(ac != null);
 
@@ -39,7 +39,7 @@ namespace TheTempleOfNgurct.Game
 
 				Debug.Assert(cellDoorArtifact != null);
 			
-				var ac = cellDoorArtifact.GetArtifactCategory(Enums.ArtifactType.DoorGate);
+				var ac = cellDoorArtifact.DoorGate;
 
 				Debug.Assert(ac != null);
 

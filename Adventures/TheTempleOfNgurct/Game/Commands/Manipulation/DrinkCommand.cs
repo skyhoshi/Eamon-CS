@@ -47,7 +47,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			DmgTaken = ActorMonster.DmgTaken;
 
-			var ac = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Drinkable);
+			var ac = DobjArtifact.Drinkable;
 
 			// Sulphuric acid
 

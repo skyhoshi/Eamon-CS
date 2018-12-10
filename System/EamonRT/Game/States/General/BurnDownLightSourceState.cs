@@ -24,7 +24,7 @@ namespace EamonRT.Game.States
 
 				Debug.Assert(artifact != null);
 
-				var ac = artifact.GetArtifactCategory(Enums.ArtifactType.LightSource);
+				var ac = artifact.LightSource;
 
 				if (ac != null && ac.Field1 != -1)
 				{

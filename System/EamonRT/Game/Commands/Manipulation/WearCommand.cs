@@ -27,7 +27,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(DobjArtifact != null);
 
-			var dobjAc = DobjArtifact.GetArtifactCategory(Enums.ArtifactType.Wearable);
+			var dobjAc = DobjArtifact.Wearable;
 
 			if (dobjAc != null)
 			{
@@ -61,9 +61,9 @@ namespace EamonRT.Game.Commands
 
 					var shArtifact = Globals.ADB[Globals.GameState.Sh];
 
-					var arAc = arArtifact != null ? arArtifact.GetArtifactCategory(Enums.ArtifactType.Wearable) : null;
+					var arAc = arArtifact != null ? arArtifact.Wearable : null;
 
-					var shAc = shArtifact != null ? shArtifact.GetArtifactCategory(Enums.ArtifactType.Wearable) : null;
+					var shAc = shArtifact != null ? shArtifact.Wearable : null;
 
 					if (dobjAc.Field1 > 1)
 					{
