@@ -314,9 +314,6 @@
     <AndroidAsset Include="Assets\System\Bin\ADVENTURES.XML" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\System\Bin\ADVENTURES_39.XML" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidAsset Include="Assets\System\Bin\CATALOG.XML" />
   </ItemGroup>
   <ItemGroup>
