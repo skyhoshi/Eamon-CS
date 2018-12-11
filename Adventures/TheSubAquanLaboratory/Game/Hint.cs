@@ -17,9 +17,7 @@ namespace TheSubAquanLaboratory.Game
 		{
 			get
 			{
-				var gameState = Globals.GameState as Framework.IGameState;
-
-				if (Globals.EnableCalculatedProperties && gameState != null)        // null in EamonDD; non-null in EamonRT
+				if (Globals.EnableCalculatedProperties)
 				{
 					switch (Uid)
 					{

@@ -3,6 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
@@ -14,10 +15,12 @@ namespace TheSubAquanLaboratory.Game
 	{
 		public override long GetDirs(long index)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			if (gameState != null)        // null in EamonDD; non-null in EamonRT
+			if (Globals.EnableCalculatedProperties)
 			{
+				var gameState = Globals.GameState as Framework.IGameState;
+
+				Debug.Assert(gameState != null);
+
 				if (Uid == 2)
 				{
 					var backWallArtifact = Globals.ADB[83];

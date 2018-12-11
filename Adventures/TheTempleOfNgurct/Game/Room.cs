@@ -14,9 +14,7 @@ namespace TheTempleOfNgurct.Game
 	{
 		public override long GetDirs(long index)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			if (gameState != null)        // null in EamonDD; non-null in EamonRT
+			if (Globals.EnableCalculatedProperties)
 			{
 				if (Uid == 33)
 				{

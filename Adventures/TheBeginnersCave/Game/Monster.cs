@@ -41,36 +41,33 @@ namespace TheBeginnersCave.Game
 				{
 					var gameState = Globals.GameState as Framework.IGameState;
 
-					// null in EamonDD; non-null in EamonRT (avoid assumptions)
+					Debug.Assert(gameState != null);
 
-					if (gameState != null)
+					// if this is the character monster or the pirate
+
+					if (Uid == gameState.Cm || Uid == 8)
 					{
-						// if this is the character monster or the pirate
+						// if going from wielding Trollsfire to not wielding Trollsfire and the Trollsfire effect is active
 
-						if (Uid == Globals.GameState.Cm || Uid == 8)
+						if (base.Weapon == 10 && value != 10 && gameState.Trollsfire == 1)
 						{
-							// if going from wielding Trollsfire to not wielding Trollsfire and the Trollsfire effect is active
+							// deactivate Trollsfire effect; the Trollsfire property is complex and does a fair bit of processing
 
-							if (base.Weapon == 10 && value != 10 && gameState.Trollsfire == 1)
-							{
-								// deactivate Trollsfire effect; the Trollsfire property is complex and does a fair bit of processing
-
-								gameState.Trollsfire = 0;
-							}
+							gameState.Trollsfire = 0;
 						}
+					}
 
-						// if this is the pirate
+					// if this is the pirate
 
-						if (Uid == 8)
+					if (Uid == 8)
+					{
+						// if going from not wielding Trollsfire to wielding Trollsfire and the Trollsfire effect is not active
+
+						if (base.Weapon != 10 && value == 10 && gameState.Trollsfire == 0)
 						{
-							// if going from not wielding Trollsfire to wielding Trollsfire and the Trollsfire effect is not active
+							// activate Trollsfire effect
 
-							if (base.Weapon != 10 && value == 10 && gameState.Trollsfire == 0)
-							{
-								// activate Trollsfire effect
-
-								gameState.Trollsfire = 1;
-							}
+							gameState.Trollsfire = 1;
 						}
 					}
 				}
