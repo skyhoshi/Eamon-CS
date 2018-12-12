@@ -51,7 +51,7 @@ namespace Eamon.Game.Plugin
 
 		public virtual long RulesetVersion { get; set; }
 
-		public virtual bool EnableCalculatedProperties
+		public virtual bool EnableGameOverrides
 		{
 			get
 			{

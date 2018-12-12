@@ -15,7 +15,7 @@ namespace TheSubAquanLaboratory.Game
 	{
 		public override long GetDirs(long index)
 		{
-			if (Globals.EnableCalculatedProperties)
+			if (Globals.EnableGameOverrides)
 			{
 				var gameState = Globals.GameState as Framework.IGameState;
 

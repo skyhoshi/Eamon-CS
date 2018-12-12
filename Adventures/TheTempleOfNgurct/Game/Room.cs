@@ -14,7 +14,7 @@ namespace TheTempleOfNgurct.Game
 	{
 		public override long GetDirs(long index)
 		{
-			if (Globals.EnableCalculatedProperties)
+			if (Globals.EnableGameOverrides)
 			{
 				if (Uid == 33)
 				{

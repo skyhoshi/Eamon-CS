@@ -138,11 +138,11 @@ namespace EamonRT.Game.Plugin
 			}
 		}
 
-		public override bool EnableCalculatedProperties
+		public override bool EnableGameOverrides
 		{
 			get
 			{
-				return base.EnableCalculatedProperties && GameState != null;
+				return base.EnableGameOverrides && GameState != null;
 			}
 		}
 

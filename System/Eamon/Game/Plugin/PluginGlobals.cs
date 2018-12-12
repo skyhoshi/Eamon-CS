@@ -210,11 +210,11 @@ namespace Eamon.Game.Plugin
 			}
 		}
 
-		public virtual bool EnableCalculatedProperties
+		public virtual bool EnableGameOverrides
 		{
 			get
 			{
-				return ClassMappings.EnableCalculatedProperties;
+				return ClassMappings.EnableGameOverrides;
 			}
 		}
 

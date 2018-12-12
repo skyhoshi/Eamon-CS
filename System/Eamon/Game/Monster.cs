@@ -46,7 +46,7 @@ namespace Eamon.Game
 		{
 			get
 			{
-				return Globals.EnableCalculatedProperties && Globals.IsRulesetVersion(5) && IsWeaponless(false) ? _courage / 2 : _courage;
+				return Globals.EnableGameOverrides && Globals.IsRulesetVersion(5) && IsWeaponless(false) ? _courage / 2 : _courage;
 			}
 
 			set

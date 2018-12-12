@@ -43,7 +43,7 @@ namespace Eamon.Framework.Plugin
 
 		long RulesetVersion { get; set; }
 
-		bool EnableCalculatedProperties { get; }
+		bool EnableGameOverrides { get; }
 
 		bool EnableStdio { get; set; }
 

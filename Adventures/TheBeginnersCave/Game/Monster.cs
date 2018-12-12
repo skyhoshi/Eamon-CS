@@ -37,7 +37,7 @@ namespace TheBeginnersCave.Game
 
 			set
 			{
-				if (Globals.EnableCalculatedProperties && base.Weapon != value)
+				if (Globals.EnableGameOverrides && base.Weapon != value)
 				{
 					var gameState = Globals.GameState as Framework.IGameState;
 

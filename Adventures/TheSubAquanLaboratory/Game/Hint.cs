@@ -17,7 +17,7 @@ namespace TheSubAquanLaboratory.Game
 		{
 			get
 			{
-				if (Globals.EnableCalculatedProperties)
+				if (Globals.EnableGameOverrides)
 				{
 					switch (Uid)
 					{
