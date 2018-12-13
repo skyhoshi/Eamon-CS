@@ -44,15 +44,18 @@ namespace EamonRT.Game.Commands
 			{
 				Globals.GameState.Vr = (bool)VerboseRooms;
 			}
-			else if (VerboseMonsters != null)
+
+			if (VerboseMonsters != null)
 			{
 				Globals.GameState.Vm = (bool)VerboseMonsters;
 			}
-			else if (VerboseArtifacts != null)
+
+			if (VerboseArtifacts != null)
 			{
 				Globals.GameState.Va = (bool)VerboseArtifacts;
 			}
-			else
+
+			if (PauseCombatMs != null)
 			{
 				Debug.Assert(PauseCombatMs >= 0 && PauseCombatMs <= 10000);
 
