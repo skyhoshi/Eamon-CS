@@ -28,8 +28,8 @@ namespace EamonRT.Game.Commands
 		{
 			Globals.Out.Print("Usage:  SETTINGS [Option] [Value]{0}", Environment.NewLine);
 
-			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "Option", "Value", "Current Setting");
-			Globals.Out.WriteLine("{0}", new string('-', 63));
+			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "Option", "Value", "Setting");
+			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "------", "-----", "-------");
 			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseRooms", "True, False", Globals.GameState.Vr);
 			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseMonsters", "True, False", Globals.GameState.Vm);
 			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseArtifacts", "True, False", Globals.GameState.Va);
