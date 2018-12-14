@@ -256,7 +256,7 @@ namespace EamonRT.Game
 				}
 			}
 
-			return a2 + x;
+			return (a2 + x) + (a2 >= 3 ? 2 : 0);
 		}
 
 		protected virtual void PrintTooManyWeapons()

@@ -14,6 +14,7 @@ using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Helpers.Generic;
 using Eamon.Game.Utilities;
+using Classes = Eamon.Framework.Primitive.Classes;
 using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
@@ -639,7 +640,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the armor of the monster.";
 
-			var briefDesc = "0=Weak monster; 1=Medium monster; 2-3=Tough monster; 3-7+=Exceptional monster";
+			var briefDesc = "0=Weak monster; 1=Medium monster; 2-3=Tough monster; 4-7+=Exceptional monster";
 
 			var briefDesc01 = new StringBuilder(Constants.BufSize);
 
@@ -651,7 +652,14 @@ namespace Eamon.Game.Helpers
 
 				Debug.Assert(armor != null);
 
-				briefDesc01.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", ((long)armorValues[j]) / 2, armor.Name);
+				briefDesc01.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (((long)armorValues[j]) / 2) + (j >= 3 ? 2 : 0), armor.Name);
+
+				if (j == 2)
+				{
+					briefDesc01.AppendFormat("{0}{1}={2}", "; ", 3, "Splint Mail");
+
+					briefDesc01.AppendFormat("{0}{1}={2}", "; ", 4, "Splint Mail");
+				}
 			}
 
 			briefDesc01.AppendFormat("{0}{0}{1}", Environment.NewLine, briefDesc);
@@ -995,7 +1003,9 @@ namespace Eamon.Game.Helpers
 
 				if (LookupMsg)
 				{
-					var armor = Globals.Engine.GetArmors((Enums.Armor)(Record.Armor * 2));
+					var armor = Record.Armor <= 2 ? Globals.Engine.GetArmors((Enums.Armor)(Record.Armor * 2)) :
+						Record.Armor <= 4 ? Globals.CreateInstance<Classes.IArmor>(x => { x.Name = "Splint Mail"; }) :
+						Globals.Engine.GetArmors((Enums.Armor)((Record.Armor - 2) * 2));
 
 					Globals.Out.Write("{0}{1}{2}",
 						Environment.NewLine,

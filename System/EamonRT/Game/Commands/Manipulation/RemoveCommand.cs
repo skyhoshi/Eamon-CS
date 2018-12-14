@@ -113,7 +113,7 @@ namespace EamonRT.Game.Commands
 
 				if (DobjArtifact.Uid == Globals.GameState.Sh)
 				{
-					ActorMonster.Armor = arAc != null ? arAc.Field1 / 2 : 0;
+					ActorMonster.Armor = arAc != null ? (arAc.Field1 / 2) + ((arAc.Field1 / 2) >= 3 ? 2 : 0) : 0;
 
 					Globals.GameState.Sh = 0;
 				}

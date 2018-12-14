@@ -111,7 +111,7 @@ namespace EamonRT.Game.Commands
 
 			if (artifact.IsWornByMonster(monster) && artifact.Wearable != null && artifact.Wearable.Field1 > 0)
 			{
-				monster.Armor -= (artifact.Wearable.Field1 > 1 ? artifact.Wearable.Field1 / 2 : artifact.Wearable.Field1);
+				monster.Armor -= (artifact.Wearable.Field1 > 1 ? (artifact.Wearable.Field1 / 2) + ((artifact.Wearable.Field1 / 2) >= 3 ? 2 : 0) : artifact.Wearable.Field1);
 			}
 
 			Debug.Assert(IsValidMonsterArmor(monster.Armor));

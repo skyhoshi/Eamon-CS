@@ -83,7 +83,7 @@ namespace EamonRT.Game.Commands
 
 						Globals.GameState.Ar = DobjArtifact.Uid;
 
-						ActorMonster.Armor = (dobjAc.Field1 / 2) + (shAc != null ? shAc.Field1 : 0);
+						ActorMonster.Armor = (dobjAc.Field1 / 2) + ((dobjAc.Field1 / 2) >= 3 ? 2 : 0) + (shAc != null ? shAc.Field1 : 0);
 					}
 					else
 					{
@@ -113,7 +113,7 @@ namespace EamonRT.Game.Commands
 
 						Globals.GameState.Sh = DobjArtifact.Uid;
 
-						ActorMonster.Armor = (arAc != null ? arAc.Field1 / 2 : 0) + dobjAc.Field1;
+						ActorMonster.Armor = (arAc != null ? (arAc.Field1 / 2) + ((arAc.Field1 / 2) >= 3 ? 2 : 0) : 0) + dobjAc.Field1;
 					}
 				}
 
