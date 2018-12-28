@@ -31,12 +31,12 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				if (medallionArtifact.IsCarriedByCharacter() || medallionArtifact.IsInRoom(ActorRoom))
 				{
-					if (!gameState.AlkandaKilled)
+					var alkandaMonster = Globals.MDB[56];
+
+					Debug.Assert(alkandaMonster != null);
+
+					if (!alkandaMonster.IsInRoom(ActorRoom) && !gameState.AlkandaKilled)
 					{
-						var alkandaMonster = Globals.MDB[56];
-
-						Debug.Assert(alkandaMonster != null);
-
 						alkandaMonster.SetInRoom(ActorRoom);
 
 						Globals.Engine.CheckEnemies();

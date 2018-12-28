@@ -550,7 +550,7 @@
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="32" />
-                    <Simple name="Field2" value="0" />
+                    <Simple name="Field2" value="-1" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="1" />
                     <Simple name="Field5" value="0" />

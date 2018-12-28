@@ -561,7 +561,7 @@
             <Simple name="Uid" value="17" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="door to Sam Slicker's shop" />
-            <Simple name="Desc" value="You see the sturdy door to Sam Slicker's business. Its thick, oak construction is reinforced by steel girders and its lock is intricate. No thief could get past this door. A note firmly nailed to the wood reads, &quot;On vacation. Will resume business soon,&quot;" />
+            <Simple name="Desc" value="You see the sturdy door to Sam Slicker's business. Its thick, oak construction is reinforced by steel girders and its lock is intricate. No thief could get past this door. A note firmly nailed to the wood reads, &quot;On vacation. Will resume business soon.&quot;" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="The" />
