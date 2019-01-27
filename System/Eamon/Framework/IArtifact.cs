@@ -14,20 +14,97 @@ namespace Eamon.Framework
 	{
 		#region Properties
 
+		/// <summary>
+		/// A description shown after the artifact's name in various lists that indicates the state
+		/// of the artifact.
+		/// </summary>
+		/// <remarks>
+		/// This property is shown after the artifact's name in the various artifact lists and should
+		/// describe the artifact's state.  See, for example, the deep red ruby in Test Adventure 
+		/// "that glows with an inner fire".  This property can mutate during the adventure if the
+		/// artifact's state changes.
+		/// </remarks>
 		string StateDesc { get; set; }
 
+		/// <summary>
+		/// A flag indicating whether the artifact is owned by the player character.
+		/// </summary>
+		/// <remarks>
+		/// This property is used to indicate an artifact is owned by the player; it is usually set
+		/// to true when the artifact is stored in the Character class, but this is not a requirement.
+		/// The game sometimes uses "your" as the article for player owned artifacts.  When building
+		/// a game, you can set this to true if you want an artifact to be player owned.
+		/// </remarks>
 		bool IsCharOwned { get; set; }
 
+		/// <summary>
+		/// A flag indicating whether the artifact represents a group of objects.
+		/// </summary>
+		/// <remarks>
+		/// This property is false when an artifact is a singular object and true for a group of objects.
+		/// It determines whether the game refers to the artifact as "it" or "them".
+		/// </remarks>
 		bool IsPlural { get; set; }
 
+		/// <summary>
+		/// A flag indicating whether the artifact should be displayed in various artifact lists.
+		/// </summary>
+		/// <remarks>
+		/// This property is false when an artifact should be omitted from various artifact lists in the
+		/// game; if true, the artifact will be included in those lists.  The vast majority of artifacts
+		/// will have this set to true.  A common use of this flag is to permanently suppress the display
+		/// of embedded artifacts that have been "discovered", but you can use it with regular artifacts
+		/// as well.  Any artifact with this set to false should be referred to in some description to
+		/// ensure the player knows of its existence (if desired).  See, for example, the boat in The
+		/// Beginner's Cave.
+		/// </remarks>
 		bool IsListed { get; set; }
 
+		/// <summary>
+		/// A property indicating how the artifact's singular name is modified to produce its plural name.
+		/// </summary>
+		/// <remarks>
+		/// This property is used to modify an artifact's singular name to produce its plural.  The name
+		/// of an artifact should always be stored as singular, even when <see cref="IsPlural"/>) is true.
+		/// You can also use a special code to indicate the plural name is stored as an effect record - use
+		/// EamonDD to get a list of valid PluralType codes.
+		/// </remarks>
 		Enums.PluralType PluralType { get; set; }
 
+		/// <summary>
+		/// The base value of the artifact in gold pieces.
+		/// </summary>
+		/// <remarks>
+		/// This property gives the value of the artifact in gold pieces.  It can be any number between and
+		/// including <see cref="Eamon.Game.Plugin.PluginConstants.MinGoldValue"/> and
+		/// <see cref="Eamon.Game.Plugin.PluginConstants.MaxGoldValue"/>.  When a Value is negative it typically
+		/// indicates some unique circumstance - eg, a cursed item or when used by the game as a special code.
+		/// Various other factors influence the actual amount of gold a character can get for the artifact, so
+		/// this is considered a base value and is expected to conform to Eamon Deluxe standards.
+		/// </remarks>
 		long Value { get; set; }
 
+		/// <summary>
+		/// The weight of the artifact in Gronds.
+		/// </summary>
+		/// <remarks>
+		/// This property gives the weight of the artifact in Gronds, a unit of measure unique to the Eamon
+		/// gaming system.  There has never been a conversion between real-world weight systems and Gronds (that 
+		/// I know of), so as such Weight is expected to conform to Eamon Deluxe standards.  The weight can be any
+		/// value, with negative values reserved for special circumstances.  You can use EamonDD to get a list of
+		/// the special built-in codes for Weight.
+		/// </remarks>
 		long Weight { get; set; }
 
+		/// <summary>
+		/// This property indicates where the artifact is located - the containing room/container, or the
+		/// carrying/wearing monster.
+		/// </summary>
+		/// <remarks>
+		/// This property gives the location of the artifact in the game.  The original Eamon called this Room #
+		/// but it has been renamed to make it more general in Eamon CS.  There are a variety of special codes 
+		/// associated with Location, so it is best to use EamonDD to get a list of valid Location values.
+		/// </remarks>
 		long Location { get; set; }
 
 		/// <summary>
@@ -272,6 +349,22 @@ namespace Eamon.Framework
 		/// </remarks>
 		Classes.IArtifactCategory User3 { get; }
 
+		/// <summary>
+		/// An array of ArtifactCategory objects that define the artifact's behavior in the game.
+		/// </summary>
+		/// <remarks>
+		/// This property is a collection of ArtifactCategory objects.  An ArtifactCategory object
+		/// stores data that makes the artifact behave a certain way in the game - it is the equivalent
+		/// of Eamon Deluxe's Type/Field5-Field8 logic.  Unique to Eamon CS, however, is the ability to
+		/// have multi-categoried artifacts that can behave like different artifact types depending on
+		/// how you use them.  The Categories array length is always between 1 and 4, depending on the
+		/// number of ArtifactCategories needed, and the elements will always contain consecutive valid
+		/// references starting at index 0.  Older games ported from BASIC only need one ArtifactCategory
+		/// but new games can vary (see, for example, the backpack in Test Adventure).  You can look at
+		/// the text file Documentation\ARTIFACT_TYPES.txt to get an idea of how ECS handles artifact
+		/// behavior.  This directly parallels the Eamon Deluxe documentation, which is also worth
+		/// examining as it is a more comprehensive reference.
+		/// </remarks>
 		Classes.IArtifactCategory[] Categories { get; set; }
 
 		#endregion
