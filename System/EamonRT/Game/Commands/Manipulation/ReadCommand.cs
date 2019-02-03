@@ -17,14 +17,8 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class ReadCommand : Command, IReadCommand
 	{
-		/// <summary>
-		/// This event fires before an artifact's read text is printed.
-		/// </summary>
 		public const long PpeBeforeArtifactReadTextPrint = 1;
 
-		/// <summary>
-		/// This event fires after the player reads an artifact.
-		/// </summary>
 		public const long PpeAfterArtifactRead = 2;
 
 		public override void PlayerExecute()

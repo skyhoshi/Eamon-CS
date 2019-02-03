@@ -32,120 +32,24 @@ namespace Eamon.Game
 
 		protected virtual string[] FieldDescNames { get; set; }
 
-		/// <summary>
-		/// An array containing the name for each Status.
-		/// </summary>
-		/// <remarks>
-		/// This array contains the name for each member of <see cref="Enums.Status"/>.  You should never access this array directly;
-		/// always use the Getter methods mentioned below.
-		/// </remarks>
-		/// <seealso cref="IEngine.GetStatusNames(long)"/>
-		/// <seealso cref="IEngine.GetStatusNames(Enums.Status)"/>
 		protected virtual string[] StatusNames { get; set; }
 
-		/// <summary>
-		/// An array containing the name for each Clothing.
-		/// </summary>
-		/// <remarks>
-		/// This array contains the name for each member of <see cref="Enums.Clothing"/>.  You should never access this array directly;
-		/// always use the Getter methods mentioned below.
-		/// </remarks>
-		/// <seealso cref="IEngine.GetClothingNames(long)"/>
-		/// <seealso cref="IEngine.GetClothingNames(Enums.Clothing)"/>
 		protected virtual string[] ClothingNames { get; set; }
 
-		/// <summary>
-		/// An array containing the description for each CombatCode.
-		/// </summary>
-		/// <remarks>
-		/// This array contains the description for each member of <see cref="Enums.CombatCode"/>.  You should never access this array directly;
-		/// always use the Getter methods mentioned below.
-		/// </remarks>
-		/// <seealso cref="IEngine.GetCombatCodeDescs(long)"/>
-		/// <seealso cref="IEngine.GetCombatCodeDescs(Enums.CombatCode)"/>
 		protected virtual string[] CombatCodeDescs { get; set; }
 
-		/// <summary>
-		/// An array containing the name for each LightLevel.
-		/// </summary>
-		/// <remarks>
-		/// This array contains the name for each member of <see cref="Enums.LightLevel"/>.  You should never access this array directly;
-		/// always use the Getter methods mentioned below.
-		/// </remarks>
-		/// <seealso cref="IEngine.GetLightLevelNames(long)"/>
-		/// <seealso cref="IEngine.GetLightLevelNames(Enums.LightLevel)"/>
 		protected virtual string[] LightLevelNames { get; set; }
 
-		/// <summary>
-		/// An array containing data for each Stat.
-		/// </summary>
-		/// <remarks>
-		/// This array contains data for each member of <see cref="Enums.Stat"/>.  You can subclass <see cref="Classes.IStat"/> and provide
-		/// your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="IEngine"/>.  Other than that
-		/// specialized case, you should never access this array directly; always use the Getter methods mentioned below.
-		/// </remarks>
-		/// <seealso cref="IEngine.GetStats(long)"/>
-		/// <seealso cref="IEngine.GetStats(Enums.Stat)"/>
 		protected virtual Classes.IStat[] Stats { get; set; }
 
-		/// <summary>
-		/// An array containing data for each Spell.
-		/// </summary>
-		/// <remarks>
-		/// This array contains data for each member of <see cref="Enums.Spell"/>.  You can subclass <see cref="Classes.ISpell"/> and provide
-		/// your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="IEngine"/>.  Other than that
-		/// specialized case, you should never access this array directly; always use the Getter methods mentioned below.
-		/// </remarks>
-		/// <seealso cref="IEngine.GetSpells(long)"/>
-		/// <seealso cref="IEngine.GetSpells(Enums.Spell)"/>
 		protected virtual Classes.ISpell[] Spells { get; set; }
 
-		/// <summary>
-		/// An array containing data for each Weapon.
-		/// </summary>
-		/// <remarks>
-		/// This array contains data for each member of <see cref="Enums.Weapon"/>.  You can subclass <see cref="Classes.IWeapon"/> and provide
-		/// your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="IEngine"/>.  Other than that
-		/// specialized case, you should never access this array directly; always use the Getter methods mentioned below.
-		/// </remarks>
-		/// <seealso cref="IEngine.GetWeapons(long)"/>
-		/// <seealso cref="IEngine.GetWeapons(Enums.Weapon)"/>
 		protected virtual Classes.IWeapon[] Weapons { get; set; }
 
-		/// <summary>
-		/// An array containing data for each Armor.
-		/// </summary>
-		/// <remarks>
-		/// This array contains data for each member of <see cref="Enums.Armor"/>.  You can subclass <see cref="Classes.IArmor"/> and provide
-		/// your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="IEngine"/>.  Other than that
-		/// specialized case, you should never access this array directly; always use the Getter methods mentioned below.
-		/// </remarks>
-		/// <seealso cref="IEngine.GetArmors(long)"/>
-		/// <seealso cref="IEngine.GetArmors(Enums.Armor)"/>
 		protected virtual Classes.IArmor[] Armors { get; set; }
 
-		/// <summary>
-		/// An array containing data for each Direction.
-		/// </summary>
-		/// <remarks>
-		/// This array contains data for each member of <see cref="Enums.Direction"/>.  You can subclass <see cref="Classes.IDirection"/> and provide
-		/// your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="IEngine"/>.  Other than that
-		/// specialized case, you should never access this array directly; always use the Getter methods mentioned below.
-		/// </remarks>
-		/// <seealso cref="IEngine.GetDirections(long)"/>
-		/// <seealso cref="IEngine.GetDirections(Enums.Direction)"/>
 		protected virtual Classes.IDirection[] Directions { get; set; }
 
-		/// <summary>
-		/// An array containing data for each Artifact Type.
-		/// </summary>
-		/// <remarks>
-		/// This array contains data for each member of <see cref="Enums.ArtifactType"/>.  You can subclass <see cref="Classes.IArtifactType"/> and provide
-		/// your own game-specific data if needed, initializing it in the constructor of a subclass of <see cref="IEngine"/>.  Other than that
-		/// specialized case, you should never access this array directly; always use the Getter methods mentioned below.
-		/// </remarks>
-		/// <seealso cref="IEngine.GetArtifactTypes(long)"/>
-		/// <seealso cref="IEngine.GetArtifactTypes(Enums.ArtifactType)"/>
 		protected virtual Classes.IArtifactType[] ArtifactTypes { get; set; }
 
 		protected virtual IDictionary<Tuple<Enums.Weapon, long>, string> AttackDescs { get; set; }
@@ -156,34 +60,10 @@ namespace Eamon.Game
 
 		#region Public Properties
 
-		/// <summary>
-		/// A collection of functions used to resolve macros embedded in Desc and StateDesc properties for various record types.
-		/// </summary>
-		/// <remarks>
-		/// There is a detailed writeup on this property in <see cref="IEngine.MacroFuncs"/>.  As a general rule you should feel
-		/// free to manipulate this dictionary at any point during gameplay, although typically it is only loaded during game
-		/// startup.  There are no Getter/Setter methods so all access is direct.
-		/// </remarks>
 		public virtual IDictionary<long, Func<string>> MacroFuncs { get; set; }
 
-		/// <summary>
-		/// An array containing sentence prepositions (eg, "to", "from", "inside", etc).
-		/// </summary>
-		/// <remarks>
-		/// This array contains the sentence prepositions recognized by the game's parser <see cref="Framework.Parsing.ICommandParser"/>.  You should never
-		/// access this array directly (other than to check its Length); always use the Getter method mentioned below.
-		/// </remarks>
-		/// <seealso cref="IEngine.GetPreps(long)"/>
 		public virtual string[] Preps { get; set; }
 
-		/// <summary>
-		/// An array containing sentence articles (eg, "a", "some", "the", etc).
-		/// </summary>
-		/// <remarks>
-		/// This array contains the sentence articles recognized by the game's parser <see cref="Framework.Parsing.ICommandParser"/>.  You should never
-		/// access this array directly (other than to check its Length); always use the Getter method mentioned below.
-		/// </remarks>
-		/// <seealso cref="IEngine.GetArticles(long)"/>
 		public virtual string[] Articles { get; set; }
 
 		public virtual long NumCacheItems { get; set; }

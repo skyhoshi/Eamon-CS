@@ -18,14 +18,8 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class EatCommand : Command, IEatCommand
 	{
-		/// <summary>
-		/// This event fires before a check is made to see if an artifact has been fully eaten.
-		/// </summary>
 		public const long PpeBeforeArtifactNowEmptyCheck = 1;
 
-		/// <summary>
-		/// This event fires after the player eats an artifact.
-		/// </summary>
 		public const long PpeAfterArtifactEat = 2;
 
 		public override void PlayerExecute()

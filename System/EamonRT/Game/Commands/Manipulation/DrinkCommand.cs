@@ -18,14 +18,8 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class DrinkCommand : Command, IDrinkCommand
 	{
-		/// <summary>
-		/// This event fires before a check is made to see if an artifact has been fully drunk.
-		/// </summary>
 		public const long PpeBeforeArtifactNowEmptyCheck = 1;
 
-		/// <summary>
-		/// This event fires after the player drinks an artifact.
-		/// </summary>
 		public const long PpeAfterArtifactDrink = 2;
 
 		public override void PlayerExecute()

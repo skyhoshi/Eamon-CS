@@ -12,9 +12,6 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class StartState : State, IStartState
 	{
-		/// <summary>
-		/// This event fires at the start of a new round, before any processing has been done.
-		/// </summary>
 		public const long PeBeforeRoundStart = 1;
 
 		public override void Execute()

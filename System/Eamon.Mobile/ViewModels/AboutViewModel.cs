@@ -18,9 +18,6 @@ namespace Eamon.Mobile.ViewModels
 			OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://github.com/firstmethod/Eamon-CS")));
 		}
 
-		/// <summary>
-		/// Command to open browser to xamarin.com
-		/// </summary>
 		public ICommand OpenWebCommand { get; }
 	}
 }

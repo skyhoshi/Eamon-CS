@@ -16,9 +16,6 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class UseCommand : Command, IUseCommand
 	{
-		/// <summary>
-		/// This event fires before the player uses an artifact.
-		/// </summary>
 		public const long PpeBeforeArtifactUse = 1;
 
 		public override void PlayerExecute()

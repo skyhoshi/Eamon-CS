@@ -17,9 +17,6 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class StatusCommand : Command, IStatusCommand
 	{
-		/// <summary>
-		/// This event fires after the player's status text has been printed.
-		/// </summary>
 		public const long PpeAfterPlayerStatus = 1;
 
 		public override void PlayerExecute()

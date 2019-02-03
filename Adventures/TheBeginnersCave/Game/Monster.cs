@@ -15,19 +15,6 @@ namespace TheBeginnersCave.Game
 	[ClassMappings]
 	public class Monster : Eamon.Game.Monster, IMonster
 	{
-		/// <summary>
-		/// Gets or sets the Weapon property.
-		/// </summary>
-		/// <remarks>
-		/// This complex override of the Monster's Weapon property demonstrates how easy it is to produce special
-		/// behaviors in Eamon CS with highly localized changes to default engine behavior.  In a BASIC Eamon this
-		/// logic would be sprinkled throughout a number of commands, to check for all the scenarios where the
-		/// Trollsfire effect might be activated/deactivated.  But realistically its all about the change in the
-		/// Weapon property.  This handles every possible thing that could deactivate Trollsfire (also activate it
-		/// for the pirate).  Fumbles, drops, gives, puts, takes, readies, etc.  The Weapon property works along with
-		/// <see cref="Framework.IGameState.Trollsfire"/> and <see cref="Framework.Commands.ITrollsfireCommand"/> to
-		/// fully implement the Trollsfire sword.
-		/// </remarks>
 		public override long Weapon
 		{
 			get

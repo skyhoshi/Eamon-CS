@@ -19,10 +19,6 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class ExamineCommand : Command, IExamineCommand
 	{
-		/// <summary>
-		/// This event fires after an artifact's full description has been printed (but before
-		/// units are listed for drinkables/edibles).
-		/// </summary>
 		public const long PpeAfterArtifactFullDescPrint = 1;
 
 		public override void PlayerExecute()

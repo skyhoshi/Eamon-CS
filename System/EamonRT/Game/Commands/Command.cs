@@ -596,17 +596,11 @@ namespace EamonRT.Game.Commands
 			CommandImpl.MonsterProcessEvents(eventType);
 		}
 
-		/// <summary>
-		/// The main entry point that resolves player character use of the Command.
-		/// </summary>
 		public virtual void PlayerExecute()
 		{
 			CommandImpl.PlayerExecute();
 		}
 
-		/// <summary>
-		/// The main entry point that resolves non-player character use of the Command.
-		/// </summary>
 		public virtual void MonsterExecute()
 		{
 			CommandImpl.MonsterExecute();
@@ -622,16 +616,6 @@ namespace EamonRT.Game.Commands
 			CommandImpl.MonsterFinishParsing();
 		}
 
-		/// <summary>
-		/// Determines whether the command is allowed in the player's current room.
-		/// </summary>
-		/// <remarks>
-		/// This method works in conjunction with <see cref="PrintCantVerbHere"/> to disable commands
-		/// with custom error responses in different rooms.  Note that there is also a very powerful and
-		/// much more flexible option in <see cref="Framework.IEngine.CheckPlayerCommand(ICommand, bool)"/>,
-		/// which can be used to accomplish these tasks.
-		/// </remarks>
-		/// <returns>If the command is allowed, returns true; else returns false.</returns>
 		public virtual bool IsAllowedInRoom()
 		{
 			return CommandImpl.IsAllowedInRoom();

@@ -16,9 +16,6 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class CloseCommand : Command, ICloseCommand
 	{
-		/// <summary>
-		/// This event fires after the player closes an artifact.
-		/// </summary>
 		public const long PpeAfterArtifactClose = 1;
 
 		public override void PlayerExecute()

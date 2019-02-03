@@ -13,9 +13,6 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class EndOfRoundState : State, IEndOfRoundState
 	{
-		/// <summary>
-		/// This event fires at the end of the current round, after all processing has been done.
-		/// </summary>
 		public const long PeAfterRoundEnd = 1;
 
 		public override void Execute()

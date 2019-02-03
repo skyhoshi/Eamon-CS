@@ -15,26 +15,6 @@ using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.States
 {
-	/// <summary>
-	/// An implementation of the State class that can be subclassed and overridden at the game level.
-	/// </summary>
-	/// <remarks>
-	/// This class was introduced to allow the logic in the abstract base class State to be overridden
-	/// by the game designer.  This can already be done on a State by State basis, that is, you have to
-	/// override each State individually to create derived behavior.  But now you can override StateImpl
-	/// and every class derived from State will inherit the modified behavior automatically.
-	/// <para>
-	/// Note that when subclassing and writing code in StateImpl, you should never access its methods or
-	/// properties directly; always access them indirectly using the State property.  For example, use
-	/// State.PrintCantGoThatWay() or State.NextState, etc.  The reason for this is if a subclass of
-	/// State has overridden the property or method you don't want to use StateImpl's version, you want
-	/// that classes' override (if there is no override in the subclass, then State will just thunk back
-	/// over to StateImpl's version).
-	/// </para>
-	/// </remarks>
-	/// <seealso cref="EamonRT.Framework.States.IStateImpl" />
-	/// <seealso cref="EamonRT.Framework.States.IState" />
-	/// <seealso cref="EamonRT.Game.States.State" />
 	[ClassMappings]
 	public class StateImpl : IStateImpl
 	{

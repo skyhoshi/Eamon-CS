@@ -19,15 +19,8 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class BlastCommand : Command, IBlastCommand
 	{
-		/// <summary>
-		/// This event fires after a check has been made to resolve the player's spell cast
-		/// attempt, and it resolves as successful.
-		/// </summary>
 		public const long PpeAfterPlayerSpellCastCheck = 1;
 
-		/// <summary>
-		/// This event fires after the monster targeted by the Blast spell gets aggravated.
-		/// </summary>
 		public const long PpeAfterMonsterGetsAggravated = 2;
 
 		public virtual bool CastSpell { get; set; }

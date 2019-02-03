@@ -20,21 +20,10 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class GiveCommand : Command, IGiveCommand
 	{
-		/// <summary>
-		/// This event fires after a check has been made to enforce limits on the weight a
-		/// monster can carry.
-		/// </summary>
 		public const long PpeAfterEnforceMonsterWeightLimitsCheck = 1;
 
-		/// <summary>
-		/// This event fires after a check has been made to see if the player is giving away
-		/// a readied weapon.
-		/// </summary>
 		public const long PpeAfterPlayerGivesReadiedWeaponCheck = 2;
 
-		/// <summary>
-		/// This event fires before a monster takes the gold offered by the player.
-		/// </summary>
 		public const long PpeBeforeMonsterTakesGold = 3;
 
 		public virtual bool GetCommandCalled { get; set; }

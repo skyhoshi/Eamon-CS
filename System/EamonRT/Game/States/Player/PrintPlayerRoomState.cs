@@ -15,9 +15,6 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class PrintPlayerRoomState : State, IPrintPlayerRoomState
 	{
-		/// <summary>
-		/// This event fires before the player's room has been printed.
-		/// </summary>
 		public const long PeBeforePlayerRoomPrint = 1;
 
 		public virtual void BuildPrintedTooDarkToSeeDesc(StringBuilder buf)
