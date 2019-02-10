@@ -5,11 +5,19 @@
 
 namespace Eamon.Framework.Primitive.Enums
 {
+	/// <summary></summary>
 	public enum PluralType : long
 	{
+		/// <summary></summary>
 		None = 0,
+
+		/// <summary></summary>
 		S,
+		
+		/// <summary></summary>
 		Es,
+		
+		/// <summary></summary>
 		YIes
 	}
 }

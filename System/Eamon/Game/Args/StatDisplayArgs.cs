@@ -25,9 +25,9 @@ namespace Eamon.Game.Args
 
 		public virtual long Weight { get; set; }
 
-		public virtual long GetSpellAbilities(long spell)
+		public virtual long GetSpellAbilities(long index)
 		{
-			return SpellAbilities[spell];
+			return SpellAbilities[index];
 		}
 
 		public virtual long GetSpellAbilities(Enums.Spell spell)

@@ -5,11 +5,19 @@
 
 namespace Eamon.Framework.Primitive.Enums
 {
+	/// <summary></summary>
 	public enum Stat : long
 	{
+		/// <summary></summary>
 		Intellect = 1,
+
+		/// <summary></summary>
 		Hardiness,
+		
+		/// <summary></summary>
 		Agility,
+		
+		/// <summary></summary>
 		Charisma
 	}
 }

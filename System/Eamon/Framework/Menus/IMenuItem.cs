@@ -5,12 +5,16 @@
 
 namespace Eamon.Framework.Menus
 {
+	/// <summary></summary>
 	public interface IMenuItem
 	{
+		/// <summary></summary>
 		char SelectChar { get; set; }
 
+		/// <summary></summary>
 		string LineText { get; set; }
 
+		/// <summary></summary>
 		IMenu SubMenu { get; set; }
 	}
 }

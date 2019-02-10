@@ -5,9 +5,13 @@
 
 namespace Eamon.Framework.Primitive.Enums
 {
+	/// <summary></summary>
 	public enum RoomType : long
 	{
+		/// <summary></summary>
 		Indoors = 0,
+
+		/// <summary></summary>
 		Outdoors
 	}
 }

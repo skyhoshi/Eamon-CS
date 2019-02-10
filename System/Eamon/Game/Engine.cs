@@ -26,34 +26,49 @@ namespace Eamon.Game
 	{
 		#region Protected Properties
 
+		/// <summary></summary>
 		protected virtual Random Rand { get; set; }
 
+		/// <summary></summary>
 		protected virtual string[] NumberStrings { get; set; }
 
+		/// <summary></summary>
 		protected virtual string[] FieldDescNames { get; set; }
 
+		/// <summary></summary>
 		protected virtual string[] StatusNames { get; set; }
 
+		/// <summary></summary>
 		protected virtual string[] ClothingNames { get; set; }
 
+		/// <summary></summary>
 		protected virtual string[] CombatCodeDescs { get; set; }
 
+		/// <summary></summary>
 		protected virtual string[] LightLevelNames { get; set; }
 
+		/// <summary></summary>
 		protected virtual Classes.IStat[] Stats { get; set; }
 
+		/// <summary></summary>
 		protected virtual Classes.ISpell[] Spells { get; set; }
 
+		/// <summary></summary>
 		protected virtual Classes.IWeapon[] Weapons { get; set; }
 
+		/// <summary></summary>
 		protected virtual Classes.IArmor[] Armors { get; set; }
 
+		/// <summary></summary>
 		protected virtual Classes.IDirection[] Directions { get; set; }
 
+		/// <summary></summary>
 		protected virtual Classes.IArtifactType[] ArtifactTypes { get; set; }
 
+		/// <summary></summary>
 		protected virtual IDictionary<Tuple<Enums.Weapon, long>, string> AttackDescs { get; set; }
 
+		/// <summary></summary>
 		protected virtual IDictionary<Tuple<Enums.Weapon, long>, string> MissDescs { get; set; }
 
 		#endregion

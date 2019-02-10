@@ -5,8 +5,11 @@
 
 namespace Eamon.Framework.Portability
 {
+	/// <summary></summary>
 	public interface IThread
 	{
+		/// <summary></summary>
+		/// <param name="milliseconds"></param>
 		void Sleep(long milliseconds);
 	}
 }

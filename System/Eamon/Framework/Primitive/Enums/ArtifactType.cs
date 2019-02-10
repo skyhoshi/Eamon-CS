@@ -5,25 +5,61 @@
 
 namespace Eamon.Framework.Primitive.Enums
 {
+	/// <summary></summary>
 	public enum ArtifactType : long
 	{
+		/// <summary></summary>
 		None = -1,
+
+		/// <summary></summary>
 		Gold,
+		
+		/// <summary></summary>
 		Treasure,
+		
+		/// <summary></summary>
 		Weapon,
+		
+		/// <summary></summary>
 		MagicWeapon,
+		
+		/// <summary></summary>
 		Container,
+		
+		/// <summary></summary>
 		LightSource,
+		
+		/// <summary></summary>
 		Drinkable,
+		
+		/// <summary></summary>
 		Readable,
+		
+		/// <summary></summary>
 		DoorGate,
+		
+		/// <summary></summary>
 		Edible,
+		
+		/// <summary></summary>
 		BoundMonster,
+		
+		/// <summary></summary>
 		Wearable,
+		
+		/// <summary></summary>
 		DisguisedMonster,
+		
+		/// <summary></summary>
 		DeadBody,
+		
+		/// <summary></summary>
 		User1,
+		
+		/// <summary></summary>
 		User2,
+		
+		/// <summary></summary>
 		User3
 	}
 }

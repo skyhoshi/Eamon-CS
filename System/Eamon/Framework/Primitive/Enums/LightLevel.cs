@@ -5,9 +5,13 @@
 
 namespace Eamon.Framework.Primitive.Enums
 {
+	/// <summary></summary>
 	public enum LightLevel : long
 	{
+		/// <summary></summary>
 		Dark = 0,
+
+		/// <summary></summary>
 		Light
 	}
 }

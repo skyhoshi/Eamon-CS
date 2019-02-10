@@ -7,6 +7,7 @@ using Eamon.Framework.Helpers.Generic;
 
 namespace Eamon.Framework.Helpers
 {
+	/// <summary></summary>
 	public interface ICharacterHelper : IHelper<ICharacter>
 	{
 

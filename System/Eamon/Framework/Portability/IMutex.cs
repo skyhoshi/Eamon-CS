@@ -5,8 +5,10 @@
 
 namespace Eamon.Framework.Portability
 {
+	/// <summary></summary>
 	public interface IMutex
 	{
+		/// <summary></summary>
 		void CreateAndWaitOne();
 	}
 }

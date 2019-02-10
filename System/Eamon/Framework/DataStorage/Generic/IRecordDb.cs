@@ -5,10 +5,13 @@
 
 namespace Eamon.Framework.DataStorage.Generic
 {
+	/// <summary></summary>
 	public interface IRecordDb<T>
 	{
+		/// <summary></summary>
 		bool CopyAddedRecord { get; set; }
 
+		/// <summary></summary>
 		T this[long uid] { get; set; }
 	}
 }

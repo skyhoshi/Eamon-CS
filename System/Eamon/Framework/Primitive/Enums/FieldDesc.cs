@@ -5,10 +5,16 @@
 
 namespace Eamon.Framework.Primitive.Enums
 {
+	/// <summary></summary>
 	public enum FieldDesc : long
 	{
+		/// <summary></summary>
 		None = 0,
+
+		/// <summary></summary>
 		Brief,
+		
+		/// <summary></summary>
 		Full
 	}
 }
