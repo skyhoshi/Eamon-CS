@@ -5,12 +5,16 @@
 
 namespace EamonMH.Framework.Menus
 {
+	/// <summary></summary>
 	public interface IMhMenu
 	{
+		/// <summary></summary>
 		void PrintMainHallMenuSubtitle();
 
+		/// <summary></summary>
 		void PrintVillageMenuSubtitle();
 
+		/// <summary></summary>
 		void PrintPracticeAreaMenuSubtitle();
 	};
 }

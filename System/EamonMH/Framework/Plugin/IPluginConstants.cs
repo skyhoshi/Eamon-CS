@@ -5,6 +5,7 @@
 
 namespace EamonMH.Framework.Plugin
 {
+	/// <summary></summary>
 	public interface IPluginConstants : Eamon.Framework.Plugin.IPluginConstants
 	{
 		

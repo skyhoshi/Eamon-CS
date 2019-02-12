@@ -5,6 +5,7 @@
 
 namespace EamonMH.Framework.Plugin
 {
+	/// <summary></summary>
 	public interface IPluginClassMappings : Eamon.Framework.Plugin.IPluginClassMappings
 	{
 

@@ -7,6 +7,7 @@ using Eamon.Framework;
 
 namespace EamonDD.Framework.Menus.ActionMenus
 {
+	/// <summary></summary>
 	public interface IAnalyseEffectRecordInterdependenciesMenu : IAnalyseRecordInterdependenciesMenu<IEffect>
 	{
 

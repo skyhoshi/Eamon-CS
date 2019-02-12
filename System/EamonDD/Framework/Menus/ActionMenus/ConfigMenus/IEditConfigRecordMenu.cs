@@ -8,8 +8,10 @@ using Eamon.Framework.Menus;
 
 namespace EamonDD.Framework.Menus.ActionMenus
 {
+	/// <summary></summary>
 	public interface IEditConfigRecordMenu : IMenu
 	{
+		/// <summary></summary>
 		IConfig EditRecord { get; set; }
 	}
 }

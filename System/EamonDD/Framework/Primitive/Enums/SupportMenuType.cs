@@ -5,12 +5,22 @@
 
 namespace EamonDD.Framework.Primitive.Enums
 {
+	/// <summary></summary>
 	public enum SupportMenuType : long
 	{
+		/// <summary></summary>
 		None = 0,
+
+		/// <summary></summary>
 		AddAdventure,
+
+		/// <summary></summary>
 		AddClasses,
+
+		/// <summary></summary>
 		DeleteAdventure,
+
+		/// <summary></summary>
 		DeleteClasses
 	}
 }

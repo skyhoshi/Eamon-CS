@@ -7,8 +7,10 @@ using Eamon.Framework;
 
 namespace EamonDD.Framework.Menus.ActionMenus
 {
+	/// <summary></summary>
 	public interface IEditModuleRecordOneFieldMenu : IEditModuleRecordMenu
 	{
+		/// <summary></summary>
 		string EditFieldName { get; set; }
 	}
 }

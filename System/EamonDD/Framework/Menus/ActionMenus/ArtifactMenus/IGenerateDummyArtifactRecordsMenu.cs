@@ -7,6 +7,7 @@ using Eamon.Framework.Menus;
 
 namespace EamonDD.Framework.Menus.ActionMenus
 {
+	/// <summary></summary>
 	public interface IGenerateDummyArtifactRecordsMenu : IMenu
 	{
 

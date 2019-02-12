@@ -5,8 +5,10 @@
 
 namespace EamonDD.Framework.Menus.ActionMenus
 {
+	/// <summary></summary>
 	public interface IEditConfigRecordOneFieldMenu : IEditConfigRecordMenu
 	{
+		/// <summary></summary>
 		string EditFieldName { get; set; }
 	}
 }

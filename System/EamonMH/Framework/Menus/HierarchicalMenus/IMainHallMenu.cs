@@ -7,6 +7,7 @@ using Eamon.Framework.Menus;
 
 namespace EamonMH.Framework.Menus.HierarchicalMenus
 {
+	/// <summary></summary>
 	public interface IMainHallMenu : IMenu
 	{
 

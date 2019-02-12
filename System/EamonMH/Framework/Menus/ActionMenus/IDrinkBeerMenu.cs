@@ -7,6 +7,7 @@ using Eamon.Framework.Menus;
 
 namespace EamonMH.Framework.Menus.ActionMenus
 {
+	/// <summary></summary>
 	public interface IDrinkBeerMenu : IMenu
 	{
 

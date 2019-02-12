@@ -8,8 +8,10 @@ using Eamon.Framework.Menus;
 
 namespace EamonDD.Framework.Menus.ActionMenus
 {
+	/// <summary></summary>
 	public interface IAnalyseAdventureRecordTreeMenu : IMenu
 	{
+		/// <summary></summary>
 		IList<string> RecordTreeStrings { get; set; }
 	}
 }

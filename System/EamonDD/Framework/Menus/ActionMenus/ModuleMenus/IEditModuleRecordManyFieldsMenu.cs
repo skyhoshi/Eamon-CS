@@ -5,6 +5,7 @@
 
 namespace EamonDD.Framework.Menus.ActionMenus
 {
+	/// <summary></summary>
 	public interface IEditModuleRecordManyFieldsMenu : IEditModuleRecordMenu
 	{
 
