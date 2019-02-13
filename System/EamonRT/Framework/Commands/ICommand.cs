@@ -7,6 +7,7 @@ using EamonRT.Framework.States;
 
 namespace EamonRT.Framework.Commands
 {
+	/// <summary></summary>
 	public interface ICommand : ICommandSignatures, IState
 	{
 

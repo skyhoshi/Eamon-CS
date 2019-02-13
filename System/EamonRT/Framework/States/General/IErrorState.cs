@@ -5,10 +5,13 @@
 
 namespace EamonRT.Framework.States
 {
+	/// <summary></summary>
 	public interface IErrorState : IState
 	{
+		/// <summary></summary>
 		long ErrorCode { get; set; }
 
+		/// <summary></summary>
 		string ErrorMessage { get; set; }
 	}
 }

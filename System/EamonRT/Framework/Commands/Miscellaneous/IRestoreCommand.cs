@@ -5,8 +5,10 @@
 
 namespace EamonRT.Framework.Commands
 {
+	/// <summary></summary>
 	public interface IRestoreCommand : ICommand
 	{
+		/// <summary></summary>
 		long SaveSlot { get; set; }
 	}
 }

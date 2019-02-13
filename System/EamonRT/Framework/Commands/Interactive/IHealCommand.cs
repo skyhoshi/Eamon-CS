@@ -5,8 +5,10 @@
 
 namespace EamonRT.Framework.Commands
 {
+	/// <summary></summary>
 	public interface IHealCommand : ICommand
 	{
+		/// <summary></summary>
 		bool CastSpell { get; set; }
 	}
 }

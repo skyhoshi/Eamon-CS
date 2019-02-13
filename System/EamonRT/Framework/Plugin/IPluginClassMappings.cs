@@ -5,6 +5,7 @@
 
 namespace EamonRT.Framework.Plugin
 {
+	/// <summary></summary>
 	public interface IPluginClassMappings : EamonDD.Framework.Plugin.IPluginClassMappings
 	{
 

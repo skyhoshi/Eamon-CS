@@ -7,8 +7,10 @@ using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace EamonRT.Framework.Commands
 {
+	/// <summary></summary>
 	public interface IFleeCommand : ICommand
 	{
+		/// <summary></summary>
 		Enums.Direction Direction { get; set; }
 	}
 }

@@ -5,8 +5,10 @@
 
 namespace EamonRT.Framework.States
 {
+	/// <summary></summary>
 	public interface IStateImpl : IStateSignatures
 	{
+		/// <summary></summary>
 		IState State { get; set; }
 	}
 }

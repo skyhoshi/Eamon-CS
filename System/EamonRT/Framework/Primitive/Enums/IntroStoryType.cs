@@ -5,9 +5,13 @@
 
 namespace EamonRT.Framework.Primitive.Enums
 {
+	/// <summary></summary>
 	public enum IntroStoryType : long
 	{
+		/// <summary></summary>
 		Default = 0,
+
+		/// <summary></summary>
 		Beginners
 	}
 }

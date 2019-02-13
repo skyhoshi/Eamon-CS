@@ -9,6 +9,7 @@ namespace EamonDD.Framework
 	public interface IEngine : Eamon.Framework.IEngine
 	{
 		/// <summary></summary>
+		/// <returns></returns>
 		bool IsAdventureFilesetLoaded();
 
 		/// <summary></summary>

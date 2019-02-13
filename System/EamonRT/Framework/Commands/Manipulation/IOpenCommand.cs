@@ -5,6 +5,7 @@
 
 namespace EamonRT.Framework.Commands
 {
+	/// <summary></summary>
 	public interface IOpenCommand : ICommand
 	{
 

@@ -5,6 +5,7 @@
 
 namespace EamonRT.Framework.States
 {
+	/// <summary></summary>
 	public interface IBeforeMonsterPicksUpWeaponState : IState
 	{
 	

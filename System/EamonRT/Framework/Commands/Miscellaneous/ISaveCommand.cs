@@ -5,10 +5,13 @@
 
 namespace EamonRT.Framework.Commands
 {
+	/// <summary></summary>
 	public interface ISaveCommand : ICommand
 	{
+		/// <summary></summary>
 		long SaveSlot { get; set; }
 
+		/// <summary></summary>
 		string SaveName { get; set; }
 	}
 }

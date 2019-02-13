@@ -5,8 +5,10 @@
 
 namespace EamonRT.Framework.Commands
 {
+	/// <summary></summary>
 	public interface IQuitCommand : ICommand
 	{
+		/// <summary></summary>
 		bool GoToMainHall { get; set; }
 	}
 }

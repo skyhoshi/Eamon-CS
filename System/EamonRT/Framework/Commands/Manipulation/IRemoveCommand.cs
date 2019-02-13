@@ -5,8 +5,10 @@
 
 namespace EamonRT.Framework.Commands
 {
+	/// <summary></summary>
 	public interface IRemoveCommand : ICommand
 	{
+		/// <summary></summary>
 		bool GetCommandCalled { get; set; }
 	}
 }

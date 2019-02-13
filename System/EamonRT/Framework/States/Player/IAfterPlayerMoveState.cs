@@ -8,12 +8,16 @@ using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace EamonRT.Framework.States
 {
+	/// <summary></summary>
 	public interface IAfterPlayerMoveState : IState
 	{
+		/// <summary></summary>
 		Enums.Direction Direction { get; set; }
 
+		/// <summary></summary>
 		IArtifact Artifact { get; set; }
 
+		/// <summary></summary>
 		bool MoveMonsters { get; set; }
 	}
 }

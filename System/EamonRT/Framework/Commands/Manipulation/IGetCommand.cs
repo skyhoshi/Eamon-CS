@@ -5,8 +5,10 @@
 
 namespace EamonRT.Framework.Commands
 {
+	/// <summary></summary>
 	public interface IGetCommand : ICommand
 	{
+		/// <summary></summary>
 		bool GetAll { get; set; }
 	}
 }

@@ -5,12 +5,22 @@
 
 namespace EamonRT.Framework.Primitive.Enums
 {
+	/// <summary></summary>
 	public enum AttackResult : long
 	{
+		/// <summary></summary>
 		None = 0,
+
+		/// <summary></summary>
 		Fumble,
+
+		/// <summary></summary>
 		Miss,
+
+		/// <summary></summary>
 		Hit,
+
+		/// <summary></summary>
 		CriticalHit
 	}
 }

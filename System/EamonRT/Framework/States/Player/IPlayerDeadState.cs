@@ -5,8 +5,10 @@
 
 namespace EamonRT.Framework.States
 {
+	/// <summary></summary>
 	public interface IPlayerDeadState : IState
 	{
+		/// <summary></summary>
 		bool PrintLineSep { get; set; }
 	}
 }
