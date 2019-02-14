@@ -7,6 +7,7 @@ using EamonRT.Framework.Commands;
 
 namespace TheBeginnersCave.Framework.Commands
 {
+	/// <summary></summary>
 	public interface ITrollsfireCommand : ICommand
 	{
 

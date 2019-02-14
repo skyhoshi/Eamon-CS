@@ -7,6 +7,7 @@ using EamonRT.Framework.Commands;
 
 namespace WrenholdsSecretVigil.Framework.Commands
 {
+	/// <summary></summary>
 	public interface IDigCommand : ICommand
 	{
 

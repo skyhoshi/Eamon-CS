@@ -5,8 +5,11 @@
 
 namespace TheTempleOfNgurct.Framework
 {
+	/// <summary></summary>
 	public interface IEngine : EamonRT.Framework.IEngine
 	{
+		/// <summary></summary>
+		/// <returns></returns>
 		bool GetWanderingMonster();
 	}
 }

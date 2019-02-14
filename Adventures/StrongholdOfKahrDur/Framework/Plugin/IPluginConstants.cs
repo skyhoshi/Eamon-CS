@@ -5,6 +5,7 @@
 
 namespace StrongholdOfKahrDur.Framework.Plugin
 {
+	/// <summary></summary>
 	public interface IPluginConstants : EamonRT.Framework.Plugin.IPluginConstants
 	{
 

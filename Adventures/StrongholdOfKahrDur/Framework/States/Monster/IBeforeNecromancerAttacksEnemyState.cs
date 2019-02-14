@@ -7,6 +7,7 @@ using EamonRT.Framework.States;
 
 namespace StrongholdOfKahrDur.Framework.States
 {
+	/// <summary></summary>
 	public interface IBeforeNecromancerAttacksEnemyState : IState
 	{
 

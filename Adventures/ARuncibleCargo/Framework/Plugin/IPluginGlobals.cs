@@ -8,8 +8,10 @@ using Classes = Eamon.Framework.Primitive.Classes;
 
 namespace ARuncibleCargo.Framework.Plugin
 {
+	/// <summary></summary>
 	public interface IPluginGlobals : EamonRT.Framework.Plugin.IPluginGlobals
 	{
+		/// <summary></summary>
 		IList<Classes.IArtifactLinkage> DoubleDoors { get; set; }
 	}
 }

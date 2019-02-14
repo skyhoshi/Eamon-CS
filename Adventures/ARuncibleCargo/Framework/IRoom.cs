@@ -5,8 +5,11 @@
 
 namespace ARuncibleCargo.Framework
 {
+	/// <summary></summary>
 	public interface IRoom : Eamon.Framework.IRoom
 	{
+		/// <summary></summary>
+		/// <returns></returns>
 		bool IsWaterRoom();
 	}
 }

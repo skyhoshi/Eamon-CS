@@ -5,8 +5,10 @@
 
 namespace TheSubAquanLaboratory.Framework.Commands
 {
+	/// <summary></summary>
 	public interface IExamineCommand : EamonRT.Framework.Commands.IExamineCommand
 	{
+		/// <summary></summary>
 		bool ExamineConsole { get; set; }
 	}
 }

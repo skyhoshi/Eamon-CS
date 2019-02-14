@@ -7,6 +7,7 @@ using EamonRT.Framework.Commands;
 
 namespace TheSubAquanLaboratory.Framework.Commands
 {
+	/// <summary></summary>
 	public interface IScoreCommand : ICommand
 	{
 

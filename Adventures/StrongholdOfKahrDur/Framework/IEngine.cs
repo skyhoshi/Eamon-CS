@@ -7,8 +7,12 @@ using Eamon.Framework;
 
 namespace StrongholdOfKahrDur.Framework
 {
+	/// <summary></summary>
 	public interface IEngine : EamonRT.Framework.IEngine
 	{
+		/// <summary></summary>
+		/// <param name="cauldronArtifact"></param>
+		/// <returns></returns>
 		bool SpellReagentsInCauldron(IArtifact cauldronArtifact);
 	}
 }

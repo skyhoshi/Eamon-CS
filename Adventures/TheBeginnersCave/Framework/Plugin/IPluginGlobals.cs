@@ -5,6 +5,7 @@
 
 namespace TheBeginnersCave.Framework.Plugin
 {
+	/// <summary></summary>
 	public interface IPluginGlobals : EamonRT.Framework.Plugin.IPluginGlobals
 	{
 

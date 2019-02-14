@@ -5,8 +5,10 @@
 
 namespace StrongholdOfKahrDur.Framework.Plugin
 {
+	/// <summary></summary>
 	public interface IPluginGlobals : EamonRT.Framework.Plugin.IPluginGlobals
 	{
+		/// <summary></summary>
 		new IEngine Engine { get; set; }
 	}
 }

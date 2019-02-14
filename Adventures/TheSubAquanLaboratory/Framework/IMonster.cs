@@ -5,8 +5,11 @@
 
 namespace TheSubAquanLaboratory.Framework
 {
+	/// <summary></summary>
 	public interface IMonster : Eamon.Framework.IMonster
 	{
+		/// <summary></summary>
+		/// <returns></returns>
 		bool IsAndroid();
 	}
 }
