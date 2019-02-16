@@ -22,62 +22,91 @@ namespace EamonRT.Game.Combat
 	[ClassMappings]
 	public class CombatSystem : ICombatSystem
 	{
+		/// <summary></summary>
 		protected long _odds = 0;
 
+		/// <summary></summary>
 		protected long _rl = 0;
 
+		/// <summary></summary>
 		protected long _d2 = 0;
 
+		/// <summary></summary>
 		protected virtual RTEnums.CombatState CombatState { get; set; }
 
+		/// <summary></summary>
 		protected virtual Classes.IArtifactCategory OfAc { get; set; }
 
+		/// <summary></summary>
 		protected virtual Classes.IArtifactCategory DfAc { get; set; }
 
+		/// <summary></summary>
 		protected virtual Classes.IArtifactCategory ArAc { get; set; }
 
+		/// <summary></summary>
 		protected virtual IArtifact WpnArtifact { get; set; }
 
+		/// <summary></summary>
 		protected virtual IArtifact OfWeapon { get; set; }
 
+		/// <summary></summary>
 		protected virtual IArtifact DfWeapon { get; set; }
 
+		/// <summary></summary>
 		protected virtual IArtifact DfArmor { get; set; }
 
+		/// <summary></summary>
 		protected virtual Enums.Weapon OfWeaponType { get; set; }
 
+		/// <summary></summary>
 		protected virtual Enums.Weapon DfWeaponType { get; set; }
 
+		/// <summary></summary>
 		protected virtual string OfMonsterName { get; set; }
 
+		/// <summary></summary>
 		protected virtual string DfMonsterName { get; set; }
 
+		/// <summary></summary>
 		protected virtual string AttackDesc { get; set; }
 
+		/// <summary></summary>
 		protected virtual string AttackDesc01 { get; set; }
 
+		/// <summary></summary>
 		protected virtual string MissDesc { get; set; }
 
+		/// <summary></summary>
 		protected virtual bool UseFractionalStrength { get; set; }
 
+		/// <summary></summary>
 		protected virtual bool OmitBboaPadding { get; set; }
 
+		/// <summary></summary>
 		protected virtual bool LightOut { get; set; }
 
+		/// <summary></summary>
 		protected virtual long OfWeaponUid { get; set; }
 
+		/// <summary></summary>
 		protected virtual long DfWeaponUid { get; set; }
 
+		/// <summary></summary>
 		protected virtual long D { get; set; }
 
+		/// <summary></summary>
 		protected virtual long S { get; set; }
 
+		/// <summary></summary>
 		protected virtual long M { get; set; }
 
+		/// <summary></summary>
 		protected virtual long A { get; set; }
 
+		/// <summary></summary>
 		protected virtual long Af { get; set; }
 
+		/// <summary></summary>
 		protected virtual double S2 { get; set; }
 
 		public virtual Action<IState> SetNextStateFunc { get; set; }
@@ -108,6 +137,7 @@ namespace EamonRT.Game.Combat
 
 		public virtual RTEnums.WeaponRevealType WeaponRevealType { get; set; }
 
+		/// <summary></summary>
 		protected virtual void SetAttackDesc()
 		{
 			AttackDesc = "attack{0}";
@@ -121,6 +151,7 @@ namespace EamonRT.Game.Combat
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintAttack()
 		{
 			SetAttackDesc();
@@ -147,6 +178,7 @@ namespace EamonRT.Game.Combat
 						"");
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintMiss()
 		{
 			MissDesc = DfMonster.GetMissDescString(DfWeapon);
@@ -154,16 +186,19 @@ namespace EamonRT.Game.Combat
 			Globals.Out.Write("{0} --- {1}!", Environment.NewLine, MissDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintFumble()
 		{
 			Globals.Out.Write("{0} ... A fumble!", Environment.NewLine);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintRecovered()
 		{
 			Globals.Out.Write("{0}  Recovered.", Environment.NewLine);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintWeaponDropped()
 		{
 			Globals.Out.Write("{0}  {1} {2} {3}!",
@@ -181,11 +216,13 @@ namespace EamonRT.Game.Combat
 					"a weapon");
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintWeaponHitsUser()
 		{
 			Globals.Out.Write("{0}  Weapon hits user!", Environment.NewLine);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintSparksFly()
 		{
 			Globals.Out.Write("{0}  Sparks fly from {1}!",
@@ -200,36 +237,43 @@ namespace EamonRT.Game.Combat
 					"a weapon");
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintWeaponDamaged()
 		{
 			Globals.Out.Write("{0}  Weapon damaged!", Environment.NewLine);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintWeaponBroken()
 		{
 			Globals.Out.Write("{0}  Weapon broken!", Environment.NewLine);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintBrokenWeaponHitsUser()
 		{
 			Globals.Out.Write("{0}  Broken weapon hits user!", Environment.NewLine);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintStarPlus()
 		{
 			Globals.Out.Write("{0} {1} ", Environment.NewLine, DfMonster.IsCharacterMonster() ? "***" : "+++");
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintHit()
 		{
 			Globals.Out.Write("A hit!");
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintCriticalHit()
 		{
 			Globals.Out.Write("A critical hit!");
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintBlowTurned()
 		{
 			if (DfMonster.Armor < 1)
@@ -244,6 +288,7 @@ namespace EamonRT.Game.Combat
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintHealthStatus()
 		{
 			DfMonsterName = DfMonster.IsCharacterMonster() ? "You" :
@@ -260,11 +305,13 @@ namespace EamonRT.Game.Combat
 			Globals.Out.Write("{0}", Globals.Buf);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintBlast()
 		{
 			Globals.Out.Print("{0}", Globals.Engine.GetBlastDesc());
 		}
 
+		/// <summary></summary>
 		protected virtual void RollToHitOrMiss()
 		{
 			if (FixedResult != RTEnums.AttackResult.None)
@@ -304,6 +351,7 @@ namespace EamonRT.Game.Combat
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void BeginAttack()
 		{
 			Debug.Assert(OfMonster != null && OfMonster.CombatCode != Enums.CombatCode.NeverFights);
@@ -382,6 +430,7 @@ namespace EamonRT.Game.Combat
 			;
 		}
 
+		/// <summary></summary>
 		protected virtual void AttackMiss()
 		{
 			DfWeaponUid = DfMonster.Weapon;
@@ -408,6 +457,7 @@ namespace EamonRT.Game.Combat
 			;
 		}
 
+		/// <summary></summary>
 		protected virtual void AttackFumble()
 		{
 			RetCode rc;
@@ -530,6 +580,7 @@ namespace EamonRT.Game.Combat
 			;
 		}
 
+		/// <summary></summary>
 		protected virtual void AttackHit()
 		{
 			if (OfAc != null)
@@ -609,6 +660,7 @@ namespace EamonRT.Game.Combat
 			;
 		}
 
+		/// <summary></summary>
 		protected virtual void CalculateDamageForFractionalStrength()
 		{
 			Debug.Assert(OfMonster != null && UseFractionalStrength);
@@ -632,6 +684,7 @@ namespace EamonRT.Game.Combat
 			_d2 += (long)Math.Round(yy * M);
 		}
 
+		/// <summary></summary>
 		protected virtual void CalculateDamage()
 		{
 			Debug.Assert(OfMonster != null || !UseFractionalStrength);
@@ -654,6 +707,7 @@ namespace EamonRT.Game.Combat
 			CombatState = RTEnums.CombatState.CheckArmor;
 		}
 
+		/// <summary></summary>
 		protected virtual void CheckArmor()
 		{
 			if (_d2 < 1)
@@ -672,6 +726,7 @@ namespace EamonRT.Game.Combat
 			;
 		}
 
+		/// <summary></summary>
 		protected virtual void CheckMonsterStatus()
 		{
 			Debug.Assert(DfMonster != null);
@@ -713,6 +768,7 @@ namespace EamonRT.Game.Combat
 			CombatState = RTEnums.CombatState.EndAttack;
 		}
 
+		/// <summary></summary>
 		protected virtual void ExecuteStateMachine()
 		{
 			Debug.Assert(CombatState == RTEnums.CombatState.BeginAttack || CombatState == RTEnums.CombatState.CalculateDamage || CombatState == RTEnums.CombatState.CheckMonsterStatus);

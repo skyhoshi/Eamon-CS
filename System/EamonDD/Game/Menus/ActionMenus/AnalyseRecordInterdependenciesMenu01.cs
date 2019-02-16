@@ -11,6 +11,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 {
 	public abstract class AnalyseRecordInterdependenciesMenu01<T> : IAnalyseRecordInterdependenciesMenu01<T> where T : class, IGameBase
 	{
+		/// <summary></summary>
 		protected virtual IAnalyseRecordInterdependenciesMenu<T> AnalyseMenu { get; set; }
 
 		public virtual IList<string> SkipFieldNames

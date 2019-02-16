@@ -23,12 +23,16 @@ namespace EamonMH.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class RegistrationDeskMenu : Menu, IRegistrationDeskMenu
 	{
+		/// <summary></summary>
 		protected virtual double? Rtio { get; set; }
 
+		/// <summary></summary>
 		protected virtual string AdventureName { get; set; }
 
+		/// <summary></summary>
 		protected virtual long NumChances { get; set; }
 
+		/// <summary></summary>
 		protected virtual void BadCharacterName()
 		{
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -43,6 +47,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 				string.Format("The man starts slowly, \"Well, ye be outta fingers!\"{0}{0}The man then spins around and runs you through with a speed you have never seen before!  (and never will again.)", Environment.NewLine));
 		}
 
+		/// <summary></summary>
 		protected virtual void RecallCharacterFromAdventure()
 		{
 			RetCode rc;
@@ -101,6 +106,8 @@ namespace EamonMH.Game.Menus.ActionMenus
 			}
 		}
 
+		/// <summary></summary>
+		/// <param name="character"></param>
 		protected virtual void CreateCharacter(ICharacter character)
 		{
 			RetCode rc;
@@ -309,6 +316,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 			Globals.Character = character;
 		}
 
+		/// <summary></summary>
 		protected virtual void SelectCharacter()
 		{
 			RetCode rc;

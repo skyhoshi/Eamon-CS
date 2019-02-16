@@ -14,16 +14,22 @@ namespace EamonPM.Game.Portability
 {
 	public class TextWriter : ITextWriter
 	{
+		/// <summary></summary>
 		protected bool _suppressNewLines;
 
+		/// <summary></summary>
 		protected virtual StringBuilder Buf { get; set; }
 
+		/// <summary></summary>
 		protected virtual StringBuilder Buf01 { get; set; }
 
+		/// <summary></summary>
 		protected virtual string ThreeNewLines { get; set; }
 
+		/// <summary></summary>
 		protected virtual string TwoNewLines { get; set; }
 
+		/// <summary></summary>
 		protected virtual long NumNewLines { get; set; }
 
 		public virtual bool EnableOutput { get; set; }

@@ -21,8 +21,10 @@ namespace EamonVS
 {
 	public class VisualStudioAutomation : IVisualStudioAutomation
 	{
+		/// <summary></summary>
 		protected virtual EnvDTE.DTE Dte { get; set; }
 
+		/// <summary></summary>
 		protected virtual EnvDTE.Solution Solution { get; set; }
 
 		public virtual string DevenvExePath { get; set; }
@@ -66,18 +68,11 @@ namespace EamonVS
 			return dte;
 		}
 
-		/// <summary>
-		/// Gets the DTE object from any devenv process.
-		/// </summary>
-		/// <remarks>
-		/// After starting devenv.exe, the DTE object is not ready. We need to try repeatedly and fail after the
-		/// timeout.
-		/// </remarks>
+		/// <summary>Gets the DTE object from any devenv process.</summary>
+		/// <remarks>After starting devenv.exe, the DTE object is not ready. We need to try repeatedly and fail after the timeout.</remarks>
 		/// <param name="processId">The process id of devenv.exe</param>
 		/// <param name="timeout">Timeout in seconds.</param>
-		/// <returns>
-		/// Retrieved DTE object or <see langword="null"> if not found.
-		/// </see></returns>
+		/// <returns>Retrieved DTE object or <see langword="null"> if not found.</see></returns>
 		protected virtual EnvDTE.DTE GetDTE(int processId, int timeout)
 		{
 			EnvDTE.DTE res = null;
@@ -95,13 +90,9 @@ namespace EamonVS
 		[DllImport("ole32.dll")]
 		protected static extern int CreateBindCtx(uint reserved, out IBindCtx ppbc);
 
-		/// <summary>
-		/// Gets the DTE object from any devenv process.
-		/// </summary>
+		/// <summary>Gets the DTE object from any devenv process.</summary>
 		/// <param name="processId">The process id of devenv.exe</param>
-		/// <returns>
-		/// Retrieved DTE object or <see langword="null"> if not found.
-		/// </see></returns>
+		/// <returns>Retrieved DTE object or <see langword="null"> if not found.</see></returns>
 		protected virtual EnvDTE.DTE GetDTE(int processId)
 		{
 			object runningObject = null;
@@ -165,6 +156,11 @@ namespace EamonVS
 			return runningObject as EnvDTE.DTE;
 		}
 
+		/// <summary></summary>
+		/// <param name="func"></param>
+		/// <param name="numTries"></param>
+		/// <param name="sleepMs"></param>
+		/// <returns></returns>
 		protected virtual RetCode ExecuteWithRetry(Func<bool> func, long numTries, long sleepMs)
 		{
 			Debug.Assert(func != null);
@@ -205,6 +201,8 @@ namespace EamonVS
 			return result ? RetCode.Success : RetCode.Failure;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual RetCode CreateDteIfNecessary()
 		{
 			RetCode result;
@@ -255,6 +253,8 @@ namespace EamonVS
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual RetCode OpenSolutionIfNecessary()
 		{
 			RetCode result;

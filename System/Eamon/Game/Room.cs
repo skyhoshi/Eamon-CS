@@ -40,16 +40,24 @@ namespace Eamon.Game
 
 		#region Class Room
 
+		/// <summary></summary>
+		/// <param name="index"></param>
+		/// <returns></returns>
 		protected virtual bool IsDirectionInObviousExitsList(long index)
 		{
 			return IsDirectionRoom(index) || IsDirectionExit(index);
 		}
 
+		/// <summary></summary>
+		/// <param name="dir"></param>
+		/// <returns></returns>
 		protected virtual bool IsDirectionInObviousExitsList(Enums.Direction dir)
 		{
 			return IsDirectionInObviousExitsList((long)dir);
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetObviousExits()
 		{
 			return string.Format("{0}Obvious {1}:  ", Environment.NewLine, EvalRoomType("exits", "paths"));

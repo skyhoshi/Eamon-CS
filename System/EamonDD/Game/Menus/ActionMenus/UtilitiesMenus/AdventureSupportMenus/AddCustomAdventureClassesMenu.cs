@@ -17,8 +17,10 @@ namespace EamonDD.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class AddCustomAdventureClassesMenu : AdventureSupportMenu01, IAddCustomAdventureClassesMenu
 	{
+		/// <summary></summary>
 		protected virtual IList<bool> IncludeInterfaces { get; set; }
 
+		/// <summary></summary>
 		protected virtual void SelectClassFilesToAdd()
 		{
 			var invalidClassFileNames = new string[] { "Program.cs", "Engine.cs", "IPluginClassMappings.cs", "IPluginConstants.cs", "IPluginGlobals.cs", "PluginClassMappings.cs", "PluginConstants.cs", "PluginContext.cs", "PluginGlobals.cs" };
@@ -156,6 +158,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void AddSelectedClassFiles()
 		{
 			Globals.Out.Print("{0}", Globals.LineSep);

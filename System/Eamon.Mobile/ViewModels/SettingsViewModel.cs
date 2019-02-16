@@ -120,6 +120,8 @@ namespace Eamon.Mobile.ViewModels
 			}
 		}
 
+		/// <summary></summary>
+		/// <param name="args"></param>
 		protected virtual void OnSettingsChanged(EventArgs args)
 		{
 			var handler = SettingsChanged;

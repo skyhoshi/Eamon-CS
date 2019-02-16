@@ -24,22 +24,31 @@ namespace EamonDD.Game.Menus.ActionMenus
 {
 	public abstract class AdventureSupportMenu01 : Menu, IAdventureSupportMenu01
 	{
+		/// <summary></summary>
 		protected virtual bool GotoCleanup { get; set; }
 
+		/// <summary></summary>
 		protected virtual bool IncludeInterface { get; set; }
 
+		/// <summary></summary>
 		protected virtual DDEnums.SupportMenuType SupportMenuType { get; set; }
 
+		/// <summary></summary>
 		protected virtual string AdventureName { get; set; }
 
+		/// <summary></summary>
 		protected virtual string AdventureName01 { get; set; }
 
+		/// <summary></summary>
 		protected virtual string AuthorName { get; set; }
 
+		/// <summary></summary>
 		protected virtual string AuthorInitials { get; set; }
 
+		/// <summary></summary>
 		protected virtual string ParentClassFileName { get; set; }
 
+		/// <summary></summary>
 		protected virtual string HintsXmlText { get; set; } =
 @"<Complex name=""Root"" type=""Eamon.Game.DataStorage.HintDbTable, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null"">
   <Properties>
@@ -97,22 +106,27 @@ namespace EamonDD.Game.Menus.ActionMenus
   </Properties>
 </Complex>";
 
+		/// <summary></summary>
 		protected virtual string EditAdventureShText { get; set; }
 
+		/// <summary></summary>
 		protected virtual string ResumeAdventureShText { get; set; }
 
+		/// <summary></summary>
 		protected virtual string EditAdventureBatText { get; set; } =
 @"@echo off
 cd ..\..\..\System\Bin
 dotnet .\EamonPM.WindowsUnix.dll -pfn YourLibraryName.dll -wd ..\..\Adventures\YourAdventureName -la -rge
 ";
 
+		/// <summary></summary>
 		protected virtual string ResumeAdventureBatText { get; set; } =
 @"@echo off
 cd ..\..\..\System\Bin
 dotnet .\EamonPM.WindowsUnix.dll -pfn YourLibraryName.dll -wd ..\..\Adventures\YourAdventureName
 ";
 
+		/// <summary></summary>
 		protected virtual string InterfaceCsText { get; set; } =
 @"
 // YourInterfaceName.cs
@@ -129,6 +143,7 @@ namespace YourAdventureName.YourFrameworkNamespaceName
 	}
 }";
 
+		/// <summary></summary>
 		protected virtual string InterfaceCsText01 { get; set; } =
 @"
 // YourInterfaceName.cs
@@ -145,6 +160,7 @@ namespace YourAdventureName.YourFrameworkNamespaceName
 	}
 }";
 
+		/// <summary></summary>
 		protected virtual string ClassWithInterfaceCsText { get; set; } =
 @"
 // YourClassName.cs
@@ -164,6 +180,7 @@ namespace YourAdventureName.YourGameNamespaceName
 }
 ";
 
+		/// <summary></summary>
 		protected virtual string ClassWithInterfaceCsText01 { get; set; } =
 @"
 // YourClassName.cs
@@ -183,6 +200,7 @@ namespace YourAdventureName.YourGameNamespaceName
 }
 ";
 
+		/// <summary></summary>
 		protected virtual string ClassCsText { get; set; } =
 @"
 // YourClassName.cs
@@ -202,14 +220,21 @@ namespace YourAdventureName.YourGameNamespaceName
 }
 ";
 
+		/// <summary></summary>
 		protected virtual IList<string> SelectedAdvDbTextFiles { get; set; }
 
+		/// <summary></summary>
 		protected virtual IList<string> SelectedClassFiles { get; set; }
 
+		/// <summary></summary>
 		protected virtual Assembly VsaAssembly { get; set; }
 
+		/// <summary></summary>
 		protected virtual IVisualStudioAutomation VsaObject { get; set; }
 
+		/// <summary></summary>
+		/// <param name="fileText"></param>
+		/// <returns></returns>
 		protected virtual string ReplaceMacros(string fileText)
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(fileText));
@@ -217,6 +242,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			return fileText.Replace("YourAdventureName", AdventureName).Replace("YourAuthorName", AuthorName).Replace("YourAuthorInitials", AuthorInitials);
 		}
 
+		/// <summary></summary>
 		protected virtual void LoadVsaAssemblyIfNecessary()
 		{
 			if (VsaAssembly == null)
@@ -232,6 +258,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void GetVsaObjectIfNecessary()
 		{
 			if (VsaAssembly != null && VsaObject == null)
@@ -268,6 +295,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void CheckForPrerequisites()
 		{
 			if (!Globals.File.Exists(Globals.DevenvExePath))
@@ -360,6 +388,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void GetAdventureName()
 		{
 			var invalidAdventureNames = new string[] { "Adventures", "Catalog", "Characters", "Contemporary", "Fantasy", "SciFi", "Test", "Workbench", "WorkInProgress", "AdventureSupportMenu", "LoadAdventureSupportMenu", "YourAdventureName", "YourAuthorName", "YourAuthorInitials" };
@@ -463,6 +492,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void GetAuthorName()
 		{
 			AuthorName = string.Empty;
@@ -483,6 +513,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void GetAuthorInitials()
 		{
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -498,6 +529,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			AuthorInitials = Buf.Trim().ToString();
 		}
 
+		/// <summary></summary>
 		protected virtual void SelectAdvDbTextFiles()
 		{
 			RetCode rc;
@@ -573,6 +605,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void QueryToAddAdventure()
 		{
 			RetCode rc;
@@ -597,6 +630,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void QueryToProcessAdventure()
 		{
 			RetCode rc;
@@ -633,6 +667,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void CreateQuickLaunchFiles()
 		{
 			var yourLibraryName = this is IAddCustomAdventureMenu ? AdventureName : "EamonRT";
@@ -668,11 +703,13 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void CreateAdventureFolder()
 		{
 			Globals.Directory.CreateDirectory(Constants.AdventuresDir + @"\" + AdventureName);
 		}
 
+		/// <summary></summary>
 		protected virtual void CreateCustomClassFile()
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(ParentClassFileName));
@@ -799,6 +836,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void CreateHintsXml()
 		{
 			var yourAdventureName = this is IAddCustomAdventureMenu ? AdventureName : "Eamon";
@@ -808,6 +846,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\HINTS.XML", ReplaceMacros(fileText));
 		}
 
+		/// <summary></summary>
 		protected virtual void UpdateAdvDbTextFiles()
 		{
 			RetCode rc;
@@ -885,6 +924,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void UpdateXmlFileClasses()
 		{
 			foreach (var selectedClassFile in SelectedClassFiles)
@@ -911,6 +951,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void RebuildSolution()
 		{
 			var result = RetCode.Failure;
@@ -938,6 +979,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void DeleteAdvBinaryFiles()
 		{
 			var srcFileName = @".\" + AdventureName + ".dll";
@@ -969,6 +1011,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintAdventureCreated()
 		{
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -976,6 +1019,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			Globals.Out.Print("The adventure was successfully created.");
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintAdventureProcessed()
 		{
 			Globals.Out.Print("{0}", Globals.LineSep);

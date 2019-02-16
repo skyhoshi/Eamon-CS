@@ -20,6 +20,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class GoodWitchMenu : Menu, IGoodWitchMenu
 	{
+		/// <summary></summary>
 		protected virtual double? Rtio { get; set; }
 
 		public override void Execute()

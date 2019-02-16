@@ -11,6 +11,7 @@ namespace EamonPM.Game.Portability
 {
 	public class Mutex : IMutex
 	{
+		/// <summary></summary>
 		protected virtual System.Threading.Mutex ProcessMutex { get; set; }
 
 		public virtual void CreateAndWaitOne()

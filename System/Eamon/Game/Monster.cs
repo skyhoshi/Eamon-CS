@@ -93,6 +93,8 @@ namespace Eamon.Game
 
 		#region Class Monster
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool HasHumanNaturalAttackDescs()
 		{
 			return false;

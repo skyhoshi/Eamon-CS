@@ -39,6 +39,8 @@ namespace EamonRT.Game
 
 		public virtual Enums.PoundCharPolicy PoundCharPolicy { get; set; }
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual long ConvertWeaponsToArtifacts()
 		{
 			long cw = -1;
@@ -67,6 +69,8 @@ namespace EamonRT.Game
 			return cw;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual long ConvertArmorToArtifacts()
 		{
 			var armorNames = new string[]
@@ -259,21 +263,29 @@ namespace EamonRT.Game
 			return (a2 + x) + (a2 >= 3 ? 2 : 0);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintTooManyWeapons()
 		{
 			Globals.Out.Print("As you enter the Main Hall, Lord William Missilefire approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"");
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDeliverGoods()
 		{
 			Globals.Out.Print("You deliver your goods to Sam Slicker, the local buyer for such things.  He examines your items and pays you what they are worth.");
 		}
 
+		/// <summary></summary>
+		/// <param name="goodsExist"></param>
+		/// <param name="payment"></param>
 		protected virtual void PrintGoodsPayment(bool goodsExist, long payment)
 		{
 			Globals.Out.Print("{0}He pays you {1} gold piece{2} total.", goodsExist ? Environment.NewLine : "", payment, payment != 1 ? "s" : "");
 		}
 
+		/// <summary></summary>
+		/// <param name="monster"></param>
+		/// <param name="damageFactor"></param>
 		protected virtual void SetScaledHardiness(IMonster monster, long damageFactor)
 		{
 			Debug.Assert(monster != null);
@@ -286,6 +298,9 @@ namespace EamonRT.Game
 			}
 		}
 
+		/// <summary></summary>
+		/// <param name="s"></param>
+		/// <param name="spell"></param>
 		protected virtual void PlayerSpellCastBrainOverload(Enums.Spell s, Classes.ISpell spell)
 		{
 			Debug.Assert(Enum.IsDefined(typeof(Enums.Spell), s));

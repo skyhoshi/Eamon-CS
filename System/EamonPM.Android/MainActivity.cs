@@ -26,8 +26,11 @@ namespace EamonPM
 	[Activity(Label = "@string/app_name", Theme = "@style/MyTheme", Icon = "@drawable/ten_sided_die", ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{
+		/// <summary></summary>
 		protected virtual Thread GameThread { get; set; }
 
+		/// <summary></summary>
+		/// <param name="classMappings"></param>
 		protected virtual void LoadPortabilityClassMappings(IDictionary<Type, Type> classMappings)
 		{
 			//Debug.Assert(classMappings != null);
@@ -51,6 +54,9 @@ namespace EamonPM
 			classMappings[typeof(IThread)] = typeof(Game.Portability.Thread);
 		}
 
+		/// <summary></summary>
+		/// <param name="args"></param>
+		/// <param name="enableStdio"></param>
 		protected virtual void ExecutePlugin(string[] args, bool enableStdio = true)
 		{
 			//Debug.Assert(args != null);
@@ -99,6 +105,7 @@ namespace EamonPM
 			program.Main(args.Skip(2).ToArray());
 		}
 
+		/// <summary></summary>
 		protected virtual void SaveSettings()
 		{
 			if (App.SettingsViewModel != null)
@@ -111,6 +118,8 @@ namespace EamonPM
 			}
 		}
 
+		/// <summary></summary>
+		/// <param name="obj"></param>
 		protected virtual void PluginLoop(object obj)
 		{
 			var args = (string[])obj;
@@ -161,6 +170,7 @@ namespace EamonPM
 			RunOnUiThread(SaveSettingsAndTerminate);
 		}
 
+		/// <summary></summary>
 		protected virtual void StartGameThread()
 		{
 			var threadStart = new System.Threading.ParameterizedThreadStart(App.PluginLoop);
@@ -170,6 +180,7 @@ namespace EamonPM
 			GameThread.Start(App.BatchFile.PluginArgs);
 		}
 
+		/// <summary></summary>
 		protected virtual void SaveSettingsAndTerminate()
 		{
 			SaveSettings();
@@ -181,6 +192,7 @@ namespace EamonPM
 			Process.KillProcess(Process.MyPid());
 		}
 
+		/// <summary></summary>
 		protected virtual void ForcePluginLinkage()
 		{
 			IPluginGlobals pg = EamonMH.Game.Plugin.PluginContext.Globals;

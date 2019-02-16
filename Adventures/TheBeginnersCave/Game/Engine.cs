@@ -17,6 +17,7 @@ namespace TheBeginnersCave.Game
 	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
 	{
+		/// <summary></summary>
 		protected virtual long HeldWpnIdx { get; set; }
 
 		protected override void PrintTooManyWeapons()

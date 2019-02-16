@@ -16,6 +16,7 @@ namespace BeginnersForest.Game
 	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
 	{
+		/// <summary></summary>
 		protected virtual long HeldWpnIdx { get; set; }
 
 		public override void AddPoundCharsToArtifactNames()

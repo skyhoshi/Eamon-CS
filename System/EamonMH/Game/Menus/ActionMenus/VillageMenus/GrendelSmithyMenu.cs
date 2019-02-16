@@ -21,8 +21,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class GrendelSmithyMenu : Menu, IGrendelSmithyMenu
 	{
+		/// <summary></summary>
 		protected virtual double? Rtio { get; set; }
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual long GetWeaponType()
 		{
 			RetCode rc;
@@ -63,6 +66,15 @@ namespace EamonMH.Game.Menus.ActionMenus
 			return Convert.ToInt64(Buf.Trim().ToString());
 		}
 
+		/// <summary></summary>
+		/// <param name="i"></param>
+		/// <param name="ap"></param>
+		/// <param name="name"></param>
+		/// <param name="type"></param>
+		/// <param name="complexity"></param>
+		/// <param name="dice"></param>
+		/// <param name="sides"></param>
+		/// <param name="numHands"></param>
 		protected virtual void UpdateCharacterWeapon(long i, long ap, string name, long type, long complexity, long dice, long sides, long numHands)
 		{
 			var cw = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
@@ -91,6 +103,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 			Globals.CharactersModified = true;
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintNotEnoughGold()
 		{
 			Globals.Out.Print("\"Sorry, but you don't seem to have enough gold to pay for your weapon at this time.  Come back when you have enough.\"");

@@ -16,8 +16,10 @@ namespace EamonMH.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class InfoBoothMenu : Menu, IInfoBoothMenu
 	{
+		/// <summary></summary>
 		protected virtual double? Rtio { get; set; }
 
+		/// <summary></summary>
 		protected virtual bool GotInfo { get; set; }
 
 		public override void Execute()

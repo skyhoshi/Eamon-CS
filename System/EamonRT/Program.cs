@@ -40,16 +40,22 @@ namespace EamonRT
 {
 	public class Program : IProgram
 	{
+		/// <summary></summary>
 		protected bool _ddfnFlag;
 
+		/// <summary></summary>
 		protected bool _nlFlag;
 
+		/// <summary></summary>
 		protected virtual string ProgramName { get; set; } = "EamonRT";
 
+		/// <summary></summary>
 		protected virtual Type ConstantsType { get; set; } = typeof(Game.Plugin.PluginConstants);
 
+		/// <summary></summary>
 		protected virtual Type ClassMappingsType { get; set; } = typeof(Game.Plugin.PluginClassMappings);
 
+		/// <summary></summary>
 		protected virtual Type GlobalsType { get; set; } = typeof(Game.Plugin.PluginGlobals);
 
 		public virtual bool EnableStdio { get; set; }
@@ -58,6 +64,9 @@ namespace EamonRT
 
 		public virtual Action<IDictionary<Type, Type>> LoadPortabilityClassMappings { get; set; }
 
+		/// <summary></summary>
+		/// <param name="args"></param>
+		/// <returns></returns>
 		protected virtual RetCode DdMain(string[] args)
 		{
 			IConfig config;
@@ -679,6 +688,9 @@ namespace EamonRT
 			return rc;
 		}
 
+		/// <summary></summary>
+		/// <param name="args"></param>
+		/// <returns></returns>
 		protected virtual RetCode RtMain(string[] args)
 		{
 			ICharacter character;

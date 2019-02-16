@@ -22,6 +22,8 @@ namespace EamonMH.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class GoOnAdventureMenu : Menu, IGoOnAdventureMenu
 	{
+		/// <summary></summary>
+		/// <param name="index"></param>
 		protected virtual void SelectAdventure(long index)
 		{
 			RetCode rc;

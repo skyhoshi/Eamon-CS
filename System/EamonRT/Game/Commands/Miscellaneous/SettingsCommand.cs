@@ -24,6 +24,7 @@ namespace EamonRT.Game.Commands
 
 		public virtual long? PauseCombatMs { get; set; } = null;
 
+		/// <summary></summary>
 		protected virtual void PrintUsage()
 		{
 			Globals.Out.Print("Usage:  SETTINGS [Option] [Value]{0}", Environment.NewLine);

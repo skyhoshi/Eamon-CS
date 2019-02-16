@@ -20,6 +20,10 @@ namespace EamonDD.Game.Menus.ActionMenus
 	{
 		public virtual IList<string> RecordTreeStrings { get; set; }
 
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		/// <param name="tag"></param>
+		/// <param name="indentLevel"></param>
 		protected virtual void AnalyseArtifactRecordTree(IArtifact artifact, string tag, long indentLevel)
 		{
 			Debug.Assert(artifact != null && tag != null && indentLevel > 0);
@@ -38,6 +42,10 @@ namespace EamonDD.Game.Menus.ActionMenus
 			RecordTreeStrings.Add(string.Format("{0}]", containedList.Count > 0 ? Environment.NewLine + indentString : ""));
 		}
 
+		/// <summary></summary>
+		/// <param name="monster"></param>
+		/// <param name="tag"></param>
+		/// <param name="indentLevel"></param>
 		protected virtual void AnalyseMonsterRecordTree(IMonster monster, string tag, long indentLevel)
 		{
 			Debug.Assert(monster != null && tag != null && indentLevel > 0);
@@ -63,6 +71,10 @@ namespace EamonDD.Game.Menus.ActionMenus
 			RecordTreeStrings.Add(string.Format("{0}]", wornList.Count > 0 || carriedList.Count > 0 ? Environment.NewLine + indentString : ""));
 		}
 
+		/// <summary></summary>
+		/// <param name="room"></param>
+		/// <param name="tag"></param>
+		/// <param name="indentLevel"></param>
 		protected virtual void AnalyseRoomRecordTree(IRoom room, string tag, long indentLevel)
 		{
 			Debug.Assert(room != null && tag != null && indentLevel > 0);

@@ -13,6 +13,9 @@ namespace Eamon.Mobile.Views
 	{
 		EamonRTViewModel viewModel;
 
+		/// <summary></summary>
+		/// <param name="sender"></param>
+		/// <param name="args"></param>
 		async protected virtual void OnItemTapped(object sender, ItemTappedEventArgs args)
 		{
 			BatchFilesListView.SelectedItem = null;

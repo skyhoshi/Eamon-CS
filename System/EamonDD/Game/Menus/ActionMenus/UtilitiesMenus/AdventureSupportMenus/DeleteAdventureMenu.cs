@@ -16,6 +16,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class DeleteAdventureMenu : AdventureSupportMenu01, IDeleteAdventureMenu
 	{
+		/// <summary></summary>
 		protected virtual void QueryToDeleteAdventure()
 		{
 			RetCode rc;
@@ -42,6 +43,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void RemoveProjectFromSolution()
 		{
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -70,6 +72,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void DeleteAdventureFolder()
 		{
 			if (Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
@@ -83,6 +86,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void DeleteQuickLaunchFiles()
 		{
 			// Note: QuickLaunch files missing in Eamon CS Mobile
@@ -116,6 +120,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintAdventureDeleted()
 		{
 			Globals.Out.Print("{0}", Globals.LineSep);

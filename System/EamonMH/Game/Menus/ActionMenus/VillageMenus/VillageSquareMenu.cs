@@ -16,6 +16,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class VillageSquareMenu : Menu, IVillageSquareMenu
 	{
+		/// <summary></summary>
 		protected virtual bool AddedPotency { get; set; }
 
 		public override void Execute()

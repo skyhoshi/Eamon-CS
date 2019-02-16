@@ -9,6 +9,9 @@ namespace EamonPM.Game.Portability
 {
 	public class File : IFile
 	{
+		/// <summary></summary>
+		/// <param name="path"></param>
+		/// <returns></returns>
 		protected virtual string NormalizePath(string path)
 		{
 			return path != null ? path.Replace(System.IO.Path.DirectorySeparatorChar == '\\' ? '/' : '\\', System.IO.Path.DirectorySeparatorChar) : null;

@@ -21,19 +21,38 @@ namespace EamonMH.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class MarcosCavielliMenu : Menu, IMarcosCavielliMenu
 	{
+		/// <summary></summary>
 		protected enum MenuState : long
 		{
+			/// <summary></summary>
 			None = 0,
+
+			/// <summary></summary>
 			BuyOrSell,
+
+			/// <summary></summary>
 			BuyWeapon,
+
+			/// <summary></summary>
 			CheckShield,
+
+			/// <summary></summary>
 			SellWeapon,
+
+			/// <summary></summary>
 			BuyArmor,
+
+			/// <summary></summary>
 			BuyShield,
+
+			/// <summary></summary>
 			SetArmorClass,
+
+			/// <summary></summary>
 			LeaveShop
 		}
 
+		/// <summary></summary>
 		protected virtual double? Rtio { get; set; }
 
 		public override void Execute()

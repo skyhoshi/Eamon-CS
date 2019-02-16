@@ -37,6 +37,7 @@ namespace EamonPM
 
 			static readonly string TAG = "X:" + typeof (SplashActivity).Name;
 
+		/// <summary></summary>
 		protected virtual void MirrorAssets()
 		{
 			var path = Path.Combine(App.BasePath, Path.Combine("System", "Bin"));

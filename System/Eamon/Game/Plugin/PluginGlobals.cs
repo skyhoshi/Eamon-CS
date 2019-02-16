@@ -18,8 +18,10 @@ namespace Eamon.Game.Plugin
 {
 	public class PluginGlobals : IPluginGlobals
 	{
+		/// <summary></summary>
 		protected virtual IDatabase[] Databases { get; set; }
 
+		/// <summary></summary>
 		protected virtual long DbStackTop { get; set; }
 
 		public virtual IDatabase Database
@@ -266,6 +268,8 @@ namespace Eamon.Game.Plugin
 
 		public virtual IRecordDb<IGameState> GSDB { get; set; }
 
+		/// <summary></summary>
+		/// <param name="records"></param>
 		protected virtual void RestoreRecords(IList<IGameBase> records)
 		{
 			if (records != null)

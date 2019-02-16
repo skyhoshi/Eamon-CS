@@ -20,12 +20,16 @@ namespace EamonMH
 {
 	public class Program : IProgram
 	{
+		/// <summary></summary>
 		protected virtual string ProgramName { get; set; } = "EamonMH";
 
+		/// <summary></summary>
 		protected virtual Type ConstantsType { get; set; } = typeof(Game.Plugin.PluginConstants);
 
+		/// <summary></summary>
 		protected virtual Type ClassMappingsType { get; set; } = typeof(Game.Plugin.PluginClassMappings);
 
+		/// <summary></summary>
 		protected virtual Type GlobalsType { get; set; } = typeof(Game.Plugin.PluginGlobals);
 
 		public virtual bool EnableStdio { get; set; }

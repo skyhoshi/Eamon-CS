@@ -13,6 +13,9 @@ namespace Eamon.Mobile.Views
 	{
 		QuickLaunchViewModel viewModel;
 
+		/// <summary></summary>
+		/// <param name="sender"></param>
+		/// <param name="args"></param>
 		async protected virtual void OnItemTapped(object sender, ItemTappedEventArgs args)
 		{
 			FoldersListView.SelectedItem = null;

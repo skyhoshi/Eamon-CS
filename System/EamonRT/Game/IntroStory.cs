@@ -59,6 +59,9 @@ namespace EamonRT.Game
 			}
 		}
 
+		/// <summary></summary>
+		/// <param name="ch"></param>
+		/// <returns></returns>
 		protected virtual bool IsCharWpnNum(char ch)
 		{
 			var i = 0L;
@@ -70,16 +73,22 @@ namespace EamonRT.Game
 			return ch >= '1' && ch <= ('1' + (i - 1));
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintOutputBeginnersPrelude() { }
 
+		/// <summary></summary>
 		protected virtual void PrintOutputBeginnersTooManyWeapons() { }
 
+		/// <summary></summary>
 		protected virtual void PrintOutputBeginnersNoWeapons() { }
 
+		/// <summary></summary>
 		protected virtual void PrintOutputBeginnersNotABeginner() { }
 
+		/// <summary></summary>
 		protected virtual void PrintOutputBeginnersMayNowProceed() { }
 
+		/// <summary></summary>
 		protected virtual void PrintOutputBeginners()
 		{
 			RetCode rc;
@@ -143,6 +152,7 @@ namespace EamonRT.Game
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintOutputDefault()
 		{
 			Globals.Out.Print("{0}", Globals.LineSep);

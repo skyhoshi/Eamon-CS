@@ -20,6 +20,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class HokasTokasMenu : Menu, IHokasTokasMenu
 	{
+		/// <summary></summary>
 		protected virtual double? Rtio { get; set; }
 
 		public override void Execute()

@@ -13,6 +13,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class AddCustomAdventureMenu : AdventureSupportMenu01, IAddCustomAdventureMenu
 	{
+		/// <summary></summary>
 		protected virtual string ProgramCsText { get; set; } =
 @"
 // Program.cs
@@ -43,6 +44,7 @@ namespace YourAdventureName
 }
 ";
 
+		/// <summary></summary>
 		protected virtual string[] IPluginCsText { get; set; } = new string[]
 		{
 @"
@@ -86,6 +88,7 @@ namespace YourAdventureName.Framework.Plugin
 "
 		};
 
+		/// <summary></summary>
 		protected virtual string[] PluginCsText { get; set; } = new string[]
 		{
 @"
@@ -195,6 +198,7 @@ namespace YourAdventureName.Game.Plugin
 "
 		};
 
+		/// <summary></summary>
 		protected virtual string EngineCsText { get; set; } =
 @"
 // Engine.cs
@@ -215,6 +219,7 @@ namespace YourAdventureName.Game
 }
 ";
 
+		/// <summary></summary>
 		protected virtual string ChangeLogText { get; set; } =
 @"
 ==================================================================================================================================
@@ -226,6 +231,7 @@ Date			Version			Who			Notes
 20XXXXXX		1.5.0				YourAuthorInitials			Code complete 1.5.0
 ";
 
+		/// <summary></summary>
 		protected virtual string AdventureCsprojText { get; set; } =
 @"<Project Sdk=""Microsoft.NET.Sdk"">
 
@@ -270,6 +276,7 @@ Date			Version			Who			Notes
 </Project>
 ";
 
+		/// <summary></summary>
 		protected virtual void CreateCustomFiles()
 		{
 			Globals.Directory.CreateDirectory(Constants.AdventuresDir + @"\" + AdventureName + @"\Framework\Plugin");
@@ -310,6 +317,7 @@ Date			Version			Who			Notes
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void AddProjectToSolution()
 		{
 			Globals.Out.Print("{0}", Globals.LineSep);

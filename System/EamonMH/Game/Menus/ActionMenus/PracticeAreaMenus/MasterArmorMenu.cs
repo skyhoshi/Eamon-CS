@@ -16,6 +16,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class MasterArmorMenu : Menu, IMasterArmorMenu
 	{
+		/// <summary></summary>
 		protected virtual double? Rtio { get; set; }
 
 		public override void Execute()

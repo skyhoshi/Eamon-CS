@@ -17,6 +17,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class DeleteCustomAdventureClassesMenu : AdventureSupportMenu01, IDeleteCustomAdventureClassesMenu
 	{
+		/// <summary></summary>
 		protected virtual void SelectClassFilesToDelete()
 		{
 			var invalidClassFileNames = new string[] { "Program.cs", "Engine.cs", "IPluginClassMappings.cs", "IPluginConstants.cs", "IPluginGlobals.cs", "PluginClassMappings.cs", "PluginConstants.cs", "PluginContext.cs", "PluginGlobals.cs" };
@@ -87,6 +88,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void DeleteSelectedClassFiles()
 		{
 			Globals.Out.Print("{0}", Globals.LineSep);
