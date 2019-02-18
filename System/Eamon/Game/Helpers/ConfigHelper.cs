@@ -27,21 +27,29 @@ namespace Eamon.Game.Helpers
 
 		#region GetPrintedName Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameShowDesc()
 		{
 			return "Show Descs";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameResolveEffects()
 		{
 			return "Resolve Effects";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameGenerateUids()
 		{
 			return "Generate Uids";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameFieldDesc()
 		{
 			return "Field Descs";
@@ -63,16 +71,22 @@ namespace Eamon.Game.Helpers
 
 		#region Validate Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateFieldDesc()
 		{
 			return Enum.IsDefined(typeof(Enums.FieldDesc), Record.FieldDesc);
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateWordWrapMargin()
 		{
 			return Record.WordWrapMargin == Constants.RightMargin;
@@ -88,6 +102,7 @@ namespace Eamon.Game.Helpers
 
 		#region PrintDesc Methods
 
+		/// <summary></summary>
 		protected virtual void PrintDescShowDesc()
 		{
 			var fullDesc = "Enter whether to omit or show descriptions during record detail listing.";
@@ -97,6 +112,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescResolveEffects()
 		{
 			var fullDesc = "Enter whether to show or resolve effect uids in descriptions during record detail listing.";
@@ -106,6 +122,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescGenerateUids()
 		{
 			var fullDesc = "Enter whether to allow user input of uids or use system generated uids when adding new records.";
@@ -115,6 +132,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescFieldDesc()
 		{
 			var fullDesc = "Enter the verbosity of the field descriptions shown during record input.";
@@ -135,6 +153,7 @@ namespace Eamon.Game.Helpers
 
 		#region List Methods
 
+		/// <summary></summary>
 		protected virtual void ListUid()
 		{
 			if (!ExcludeROFields)
@@ -145,6 +164,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListShowDesc()
 		{
 			var listNum = NumberFields ? ListNum++ : 0;
@@ -152,6 +172,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("ShowDesc"), null), Convert.ToInt64(Record.ShowDesc));
 		}
 
+		/// <summary></summary>
 		protected virtual void ListResolveEffects()
 		{
 			var listNum = NumberFields ? ListNum++ : 0;
@@ -159,6 +180,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("ResolveEffects"), null), Convert.ToInt64(Record.ResolveEffects));
 		}
 
+		/// <summary></summary>
 		protected virtual void ListGenerateUids()
 		{
 			var listNum = NumberFields ? ListNum++ : 0;
@@ -166,6 +188,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("GenerateUids"), null), Convert.ToInt64(Record.GenerateUids));
 		}
 
+		/// <summary></summary>
 		protected virtual void ListFieldDesc()
 		{
 			var listNum = NumberFields ? ListNum++ : 0;
@@ -177,6 +200,7 @@ namespace Eamon.Game.Helpers
 
 		#region Input Methods
 
+		/// <summary></summary>
 		protected virtual void InputUid()
 		{
 			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
@@ -184,6 +208,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputShowDesc()
 		{
 			var fieldDesc = FieldDesc;
@@ -215,6 +240,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputResolveEffects()
 		{
 			var fieldDesc = FieldDesc;
@@ -246,6 +272,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputGenerateUids()
 		{
 			var fieldDesc = FieldDesc;
@@ -277,6 +304,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputFieldDesc()
 		{
 			var fieldDesc = FieldDesc;

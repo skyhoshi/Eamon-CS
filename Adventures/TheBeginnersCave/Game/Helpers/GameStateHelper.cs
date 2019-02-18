@@ -29,11 +29,15 @@ namespace TheBeginnersCave.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateTrollsfire()
 		{
 			return Record.Trollsfire >= 0 && Record.Trollsfire <= 1;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateBookWarning()
 		{
 			return Record.BookWarning >= 0 && Record.BookWarning <= 1;

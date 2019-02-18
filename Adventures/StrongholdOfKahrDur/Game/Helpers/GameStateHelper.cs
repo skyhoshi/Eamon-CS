@@ -29,6 +29,8 @@ namespace StrongholdOfKahrDur.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateLichState()
 		{
 			return Record.LichState >= 0 && Record.LichState <= 2;

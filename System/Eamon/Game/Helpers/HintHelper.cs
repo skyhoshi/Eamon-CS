@@ -26,11 +26,15 @@ namespace Eamon.Game.Helpers
 
 		#region GetPrintedName Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameNumAnswers()
 		{
 			return "Number Of Answers";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameAnswersElement()
 		{
 			var i = Index;
@@ -42,6 +46,9 @@ namespace Eamon.Game.Helpers
 
 		#region GetName Methods
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameAnswers(bool addToNamesList)
 		{
 			for (Index = 0; Index < Record.Answers.Length; Index++)
@@ -52,6 +59,9 @@ namespace Eamon.Game.Helpers
 			return "Answers";
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameAnswersElement(bool addToNamesList)
 		{
 			var i = Index;
@@ -70,6 +80,8 @@ namespace Eamon.Game.Helpers
 
 		#region GetValue Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual object GetValueAnswersElement()
 		{
 			var i = Index;
@@ -81,21 +93,29 @@ namespace Eamon.Game.Helpers
 
 		#region Validate Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateQuestion()
 		{
 			return string.IsNullOrWhiteSpace(Record.Question) == false && Record.Question.Length <= Constants.HntQuestionLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateNumAnswers()
 		{
 			return Record.NumAnswers >= 1 && Record.NumAnswers <= Record.Answers.Length;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateAnswers()
 		{
 			var result = true;
@@ -113,6 +133,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateAnswersElement()
 		{
 			var i = Index;
@@ -126,6 +148,8 @@ namespace Eamon.Game.Helpers
 
 		#region ValidateInterdependencies Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateInterdependenciesQuestion()
 		{
 			var result = true;
@@ -156,6 +180,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateInterdependenciesAnswers()
 		{
 			var result = true;
@@ -173,6 +199,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateInterdependenciesAnswersElement()
 		{
 			var result = true;
@@ -214,6 +242,7 @@ namespace Eamon.Game.Helpers
 
 		#region PrintDesc Methods
 
+		/// <summary></summary>
 		protected virtual void PrintDescActive()
 		{
 			var fullDesc = "Enter the active status of the hint." + Environment.NewLine + Environment.NewLine + "An active hint is immediately available to the player, while inactive hints must be activated by special (user programmed) events.";
@@ -223,6 +252,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescQuestion()
 		{
 			var fullDesc = "Enter the name, topic or question of the hint.";
@@ -230,6 +260,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescNumAnswers()
 		{
 			var fullDesc = "Enter the number of answers for the hint.";
@@ -239,6 +270,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescAnswersElement()
 		{
 			var i = Index;
@@ -252,6 +284,7 @@ namespace Eamon.Game.Helpers
 
 		#region List Methods
 
+		/// <summary></summary>
 		protected virtual void ListUid()
 		{
 			if (FullDetail)
@@ -295,6 +328,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListActive()
 		{
 			if (FullDetail)
@@ -305,6 +339,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListQuestion()
 		{
 			if (FullDetail)
@@ -328,6 +363,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListNumAnswers()
 		{
 			if (FullDetail)
@@ -338,6 +374,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListAnswers()
 		{
 			for (Index = 0; Index < Record.Answers.Length; Index++)
@@ -348,6 +385,7 @@ namespace Eamon.Game.Helpers
 			AddToListedNames = false;
 		}
 
+		/// <summary></summary>
 		protected virtual void ListAnswersElement()
 		{
 			var i = Index;
@@ -377,6 +415,7 @@ namespace Eamon.Game.Helpers
 
 		#region Input Methods
 
+		/// <summary></summary>
 		protected virtual void InputUid()
 		{
 			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
@@ -384,6 +423,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputActive()
 		{
 			var fieldDesc = FieldDesc;
@@ -415,6 +455,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputQuestion()
 		{
 			var fieldDesc = FieldDesc;
@@ -450,6 +491,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputNumAnswers()
 		{
 			var fieldDesc = FieldDesc;
@@ -492,6 +534,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputAnswers()
 		{
 			for (Index = 0; Index < Record.Answers.Length; Index++)
@@ -500,6 +543,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void InputAnswersElement()
 		{
 			var i = Index;

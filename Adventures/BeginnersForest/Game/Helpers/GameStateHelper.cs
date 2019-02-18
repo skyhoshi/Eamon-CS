@@ -29,16 +29,22 @@ namespace BeginnersForest.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateQueenGiftEffectUid()
 		{
 			return Record.QueenGiftEffectUid >= 5 && Record.QueenGiftEffectUid <= 6;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateQueenGiftArtifactUid()
 		{
 			return Record.QueenGiftArtifactUid == 7 || Record.QueenGiftArtifactUid == 15;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateSpookCounter()
 		{
 			return Record.SpookCounter >= 0 && Record.SpookCounter <= 10;

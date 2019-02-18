@@ -29,6 +29,8 @@ namespace TheTrainingGround.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateGenderChangeCounter()
 		{
 			return Record.GenderChangeCounter >= 0 && Record.GenderChangeCounter <= 2;

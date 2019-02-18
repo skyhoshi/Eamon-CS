@@ -27,11 +27,15 @@ namespace Eamon.Game.Helpers
 
 		#region GetPrintedName Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameLightLvl()
 		{
 			return "Light Level";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameDirsElement()
 		{
 			var i = Index;
@@ -47,6 +51,9 @@ namespace Eamon.Game.Helpers
 
 		#region GetName Methods
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameDirs(bool addToNamesList)
 		{
 			var directionValues = EnumUtil.GetValues<Enums.Direction>();
@@ -61,6 +68,9 @@ namespace Eamon.Game.Helpers
 			return "Dirs";
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameDirsElement(bool addToNamesList)
 		{
 			var i = Index;
@@ -79,6 +89,8 @@ namespace Eamon.Game.Helpers
 
 		#region GetValue Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual object GetValueDirsElement()
 		{
 			var i = Index;
@@ -90,31 +102,43 @@ namespace Eamon.Game.Helpers
 
 		#region Validate Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateName()
 		{
 			return string.IsNullOrWhiteSpace(Record.Name) == false && Record.Name.Length <= Constants.RmNameLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateDesc()
 		{
 			return string.IsNullOrWhiteSpace(Record.Desc) == false && Record.Desc.Length <= Constants.RmDescLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateLightLvl()
 		{
 			return Enum.IsDefined(typeof(Enums.LightLevel), Record.LightLvl);
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateType()
 		{
 			return Enum.IsDefined(typeof(Enums.RoomType), Record.Type);
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateZone()
 		{
 			return Record.Zone > 0;
@@ -124,6 +148,8 @@ namespace Eamon.Game.Helpers
 
 		#region ValidateInterdependencies Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateInterdependenciesDesc()
 		{
 			var result = true;
@@ -154,6 +180,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateInterdependenciesDirs()
 		{
 			var result = true;
@@ -175,6 +203,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateInterdependenciesDirsElement()
 		{
 			var result = true;
@@ -266,6 +296,7 @@ namespace Eamon.Game.Helpers
 
 		#region PrintDesc Methods
 
+		/// <summary></summary>
 		protected virtual void PrintDescName()
 		{
 			var fullDesc = "Enter the name of the room." + Environment.NewLine + Environment.NewLine + "Room names should always be able to stand alone inside a pair of brackets: [Room Name].";
@@ -273,6 +304,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescDesc()
 		{
 			var fullDesc = "Enter a detailed description of the room.";
@@ -280,6 +312,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescSeen()
 		{
 			var fullDesc = "Enter the Seen status of the room.";
@@ -289,6 +322,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescLightLvl()
 		{
 			var fullDesc = "Enter the level of light in the room.";
@@ -305,6 +339,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc.ToString());
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescType()
 		{
 			var fullDesc = "Enter the type of the room.";
@@ -321,6 +356,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc.ToString());
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescZone()
 		{
 			var fullDesc = "Enter the zone of the room.";
@@ -330,6 +366,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescDirsElement()
 		{
 			var i = Index;
@@ -357,6 +394,7 @@ namespace Eamon.Game.Helpers
 
 		#region List Methods
 
+		/// <summary></summary>
 		protected virtual void ListUid()
 		{
 			if (FullDetail)
@@ -374,6 +412,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListName()
 		{
 			if (FullDetail)
@@ -384,6 +423,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListDesc()
 		{
 			if (FullDetail && ShowDesc)
@@ -407,6 +447,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListSeen()
 		{
 			if (FullDetail)
@@ -417,6 +458,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListLightLvl()
 		{
 			if (FullDetail)
@@ -427,6 +469,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListType()
 		{
 			if (FullDetail)
@@ -447,6 +490,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListZone()
 		{
 			if (FullDetail)
@@ -457,6 +501,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListDirs()
 		{
 			var directionValues = EnumUtil.GetValues<Enums.Direction>();
@@ -471,6 +516,7 @@ namespace Eamon.Game.Helpers
 			AddToListedNames = false;
 		}
 
+		/// <summary></summary>
 		protected virtual void ListDirsElement()
 		{
 			var i = Index;
@@ -520,6 +566,7 @@ namespace Eamon.Game.Helpers
 
 		#region Input Methods
 
+		/// <summary></summary>
 		protected virtual void InputUid()
 		{
 			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
@@ -527,6 +574,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputName()
 		{
 			var fieldDesc = FieldDesc;
@@ -558,6 +606,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputDesc()
 		{
 			var fieldDesc = FieldDesc;
@@ -593,6 +642,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputSeen()
 		{
 			var fieldDesc = FieldDesc;
@@ -624,6 +674,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputLightLvl()
 		{
 			var fieldDesc = FieldDesc;
@@ -655,6 +706,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputType()
 		{
 			var fieldDesc = FieldDesc;
@@ -686,6 +738,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputZone()
 		{
 			var fieldDesc = FieldDesc;
@@ -717,6 +770,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputDirs()
 		{
 			var directionValues = EnumUtil.GetValues<Enums.Direction>();
@@ -729,6 +783,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void InputDirsElement()
 		{
 			var i = Index;

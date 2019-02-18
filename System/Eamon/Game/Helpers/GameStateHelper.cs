@@ -31,6 +31,9 @@ namespace Eamon.Game.Helpers
 
 		#region GetName Methods
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameNBTL(bool addToNamesList)
 		{
 			var friendlinessValues = EnumUtil.GetValues<Enums.Friendliness>();
@@ -45,6 +48,9 @@ namespace Eamon.Game.Helpers
 			return "NBTL";
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameNBTLElement(bool addToNamesList)
 		{
 			var i = Index;
@@ -59,6 +65,9 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameDTTL(bool addToNamesList)
 		{
 			if (Globals.IsRulesetVersion(5))
@@ -76,6 +85,9 @@ namespace Eamon.Game.Helpers
 			return "DTTL";
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameDTTLElement(bool addToNamesList)
 		{
 			string result = string.Empty;
@@ -95,6 +107,9 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameSa(bool addToNamesList)
 		{
 			var spellValues = EnumUtil.GetValues<Enums.Spell>();
@@ -109,6 +124,9 @@ namespace Eamon.Game.Helpers
 			return "Sa";
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameSaElement(bool addToNamesList)
 		{
 			var i = Index;
@@ -123,6 +141,9 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameHeldWpnUids(bool addToNamesList)
 		{
 			for (Index = 0; Index < Record.HeldWpnUids.Length; Index++)
@@ -133,6 +154,9 @@ namespace Eamon.Game.Helpers
 			return "HeldWpnUids";
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameHeldWpnUidsElement(bool addToNamesList)
 		{
 			var i = Index;
@@ -151,6 +175,8 @@ namespace Eamon.Game.Helpers
 
 		#region GetValue Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual object GetValueNBTLElement()
 		{
 			var i = Index;
@@ -158,6 +184,8 @@ namespace Eamon.Game.Helpers
 			return Record.GetNBTL(i);
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual object GetValueDTTLElement()
 		{
 			var i = Index;
@@ -165,6 +193,8 @@ namespace Eamon.Game.Helpers
 			return Record.GetDTTL(i);
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual object GetValueSaElement()
 		{
 			var i = Index;
@@ -172,6 +202,8 @@ namespace Eamon.Game.Helpers
 			return Record.GetSa(i);
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual object GetValueHeldWpnUidsElement()
 		{
 			var i = Index;
@@ -183,61 +215,85 @@ namespace Eamon.Game.Helpers
 
 		#region Validate Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateAr()
 		{
 			return Record.Ar >= 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateCm()
 		{
 			return Record.Cm > 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateLs()
 		{
 			return Record.Ls >= 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateSh()
 		{
 			return Record.Sh >= 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateLt()
 		{
 			return Enum.IsDefined(typeof(Enums.LightLevel), Record.Lt);
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateSpeed()
 		{
 			return Record.Speed >= 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateWt()
 		{
 			return Record.Wt >= 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateCurrTurn()
 		{
 			return Record.CurrTurn >= 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidatePauseCombatMs()
 		{
 			return Record.PauseCombatMs >= 0 && Record.PauseCombatMs <= 10000;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateUsedWpnIdx()
 		{
 			return Record.UsedWpnIdx >= 0 && Record.UsedWpnIdx < Record.HeldWpnUids.Length;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateNBTL()
 		{
 			var result = true;
@@ -259,6 +315,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateNBTLElement()
 		{
 			var i = Index;
@@ -266,6 +324,8 @@ namespace Eamon.Game.Helpers
 			return Record.GetNBTL(i) >= 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateDTTL()
 		{
 			var result = true;
@@ -290,6 +350,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateDTTLElement()
 		{
 			var i = Index;
@@ -297,6 +359,8 @@ namespace Eamon.Game.Helpers
 			return !Globals.IsRulesetVersion(5) || Record.GetDTTL(i) >= 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateSa()
 		{
 			var result = true;
@@ -318,6 +382,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateSaElement()
 		{
 			var i = Index;
@@ -329,6 +395,8 @@ namespace Eamon.Game.Helpers
 			return Record.GetSa(i) >= spell.MinValue && Record.GetSa(i) <= spell.MaxValue;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateHeldWpnUids()
 		{
 			var result = true;
@@ -346,6 +414,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateHeldWpnUidsElement()
 		{
 			var i = Index;

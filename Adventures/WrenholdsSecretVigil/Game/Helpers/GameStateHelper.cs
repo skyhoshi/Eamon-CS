@@ -29,11 +29,15 @@ namespace WrenholdsSecretVigil.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateMedallionCharges()
 		{
 			return Record.MedallionCharges >= 0 && Record.MedallionCharges <= 15;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateSlimeBlasts()
 		{
 			return Record.SlimeBlasts >= 0 && Record.SlimeBlasts <= 3;

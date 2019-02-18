@@ -27,31 +27,43 @@ namespace Eamon.Game.Helpers
 
 		#region GetPrintedName Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameStateDesc()
 		{
 			return "State Description";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameIsCharOwned()
 		{
 			return "Is Char Owned";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameIsPlural()
 		{
 			return "Is Plural";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameIsListed()
 		{
 			return "Is Listed";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNamePluralType()
 		{
 			return "Plural Type";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameCategoriesType()
 		{
 			var i = Index;
@@ -59,6 +71,8 @@ namespace Eamon.Game.Helpers
 			return string.Format("Cat #{0} Type", i + 1);
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameCategoriesField1()
 		{
 			var i = Index;
@@ -68,6 +82,8 @@ namespace Eamon.Game.Helpers
 			return string.Format("Cat #{0} {1}", i + 1, artType != null ? artType.Field1Name : "Field1");
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameCategoriesField2()
 		{
 			var i = Index;
@@ -77,6 +93,8 @@ namespace Eamon.Game.Helpers
 			return string.Format("Cat #{0} {1}", i + 1, artType != null ? artType.Field2Name : "Field2");
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameCategoriesField3()
 		{
 			var i = Index;
@@ -86,6 +104,8 @@ namespace Eamon.Game.Helpers
 			return string.Format("Cat #{0} {1}", i + 1, artType != null ? artType.Field3Name : "Field3");
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameCategoriesField4()
 		{
 			var i = Index;
@@ -95,6 +115,8 @@ namespace Eamon.Game.Helpers
 			return string.Format("Cat #{0} {1}", i + 1, artType != null ? artType.Field4Name : "Field4");
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameCategoriesField5()
 		{
 			var i = Index;
@@ -108,6 +130,9 @@ namespace Eamon.Game.Helpers
 
 		#region GetName Methods
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameCategories(bool addToNamesList)
 		{
 			for (Index = 0; Index < Record.Categories.Length; Index++)
@@ -123,6 +148,9 @@ namespace Eamon.Game.Helpers
 			return "Categories";
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameCategoriesType(bool addToNamesList)
 		{
 			var i = Index;
@@ -137,6 +165,9 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameCategoriesField1(bool addToNamesList)
 		{
 			var i = Index;
@@ -151,6 +182,9 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameCategoriesField2(bool addToNamesList)
 		{
 			var i = Index;
@@ -165,6 +199,9 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameCategoriesField3(bool addToNamesList)
 		{
 			var i = Index;
@@ -179,6 +216,9 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameCategoriesField4(bool addToNamesList)
 		{
 			var i = Index;
@@ -193,6 +233,9 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameCategoriesField5(bool addToNamesList)
 		{
 			var i = Index;
@@ -211,6 +254,8 @@ namespace Eamon.Game.Helpers
 
 		#region GetValue Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual object GetValueCategoriesType()
 		{
 			var i = Index;
@@ -218,6 +263,8 @@ namespace Eamon.Game.Helpers
 			return Record.GetCategories(i).Type;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual object GetValueCategoriesField1()
 		{
 			var i = Index;
@@ -225,6 +272,8 @@ namespace Eamon.Game.Helpers
 			return Record.GetCategories(i).Field1;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual object GetValueCategoriesField2()
 		{
 			var i = Index;
@@ -232,6 +281,8 @@ namespace Eamon.Game.Helpers
 			return Record.GetCategories(i).Field2;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual object GetValueCategoriesField3()
 		{
 			var i = Index;
@@ -239,6 +290,8 @@ namespace Eamon.Game.Helpers
 			return Record.GetCategories(i).Field3;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual object GetValueCategoriesField4()
 		{
 			var i = Index;
@@ -246,6 +299,8 @@ namespace Eamon.Game.Helpers
 			return Record.GetCategories(i).Field4;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual object GetValueCategoriesField5()
 		{
 			var i = Index;
@@ -257,11 +312,15 @@ namespace Eamon.Game.Helpers
 
 		#region Validate Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateName()
 		{
 			var result = !string.IsNullOrWhiteSpace(Record.Name);
@@ -282,31 +341,43 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateStateDesc()
 		{
 			return Record.StateDesc != null && Record.StateDesc.Length <= Constants.ArtStateDescLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateDesc()
 		{
 			return string.IsNullOrWhiteSpace(Record.Desc) == false && Record.Desc.Length <= Constants.ArtDescLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidatePluralType()
 		{
 			return Globals.Engine.IsValidPluralType(Record.PluralType);
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateArticleType()
 		{
 			return Enum.IsDefined(typeof(Enums.ArticleType), Record.ArticleType);
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateValue()
 		{
 			return Record.Value >= Constants.MinGoldValue && Record.Value <= Constants.MaxGoldValue;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateCategories()
 		{
 			var result = true;
@@ -329,6 +400,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateCategoriesType()
 		{
 			var result = true;
@@ -383,6 +456,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateCategoriesField1()
 		{
 			var result = true;
@@ -459,6 +534,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateCategoriesField2()
 		{
 			var result = true;
@@ -541,6 +618,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateCategoriesField3()
 		{
 			var result = true;
@@ -612,6 +691,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateCategoriesField4()
 		{
 			var result = true;
@@ -668,6 +749,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateCategoriesField5()
 		{
 			var result = true;
@@ -721,6 +804,8 @@ namespace Eamon.Game.Helpers
 
 		#region ValidateInterdependencies Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateInterdependenciesDesc()
 		{
 			var result = true;
@@ -751,6 +836,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateInterdependenciesPluralType()
 		{
 			var result = true;
@@ -782,6 +869,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateInterdependenciesLocation()
 		{
 			var result = true;
@@ -923,6 +1012,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateInterdependenciesCategories()
 		{
 			var result = true;
@@ -945,6 +1036,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateInterdependenciesCategoriesField1()
 		{
 			var result = true;
@@ -1106,6 +1199,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateInterdependenciesCategoriesField2()
 		{
 			var result = true;
@@ -1245,6 +1340,8 @@ namespace Eamon.Game.Helpers
 			return result;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateInterdependenciesCategoriesField3()
 		{
 			var result = true;
@@ -1334,6 +1431,7 @@ namespace Eamon.Game.Helpers
 
 		#region PrintDesc Methods
 
+		/// <summary></summary>
 		protected virtual void PrintDescName()
 		{
 			var fullDesc = "Enter the name of the artifact." + Environment.NewLine + Environment.NewLine + "Artifact names should always be in singular form and capitalized when appropriate.";
@@ -1341,6 +1439,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescStateDesc()
 		{
 			var fullDesc = "Enter the state description of the artifact (will typically be empty).";
@@ -1348,6 +1447,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescDesc()
 		{
 			var fullDesc = "Enter a detailed description of the artifact.";
@@ -1355,6 +1455,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescSeen()
 		{
 			var fullDesc = "Enter the Seen status of the artifact.";
@@ -1364,6 +1465,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescIsCharOwned()
 		{
 			var fullDesc = "Enter the Is Char Owned status of the artifact.";
@@ -1373,6 +1475,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescIsPlural()
 		{
 			var fullDesc = "Enter the Is Plural status of the artifact.";
@@ -1382,6 +1485,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescIsListed()
 		{
 			var fullDesc = "Enter the Is Listed status of the artifact." + Environment.NewLine + Environment.NewLine + "If true, the artifact will be included in any listing (room, inventory, etc); if false, it will not.";
@@ -1391,6 +1495,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescPluralType()
 		{
 			var fullDesc = "Enter the plural type of the artifact.";
@@ -1400,6 +1505,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescArticleType()
 		{
 			var fullDesc = "Enter the article type of the artifact.";
@@ -1409,6 +1515,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescValue()
 		{
 			var fullDesc = "Enter the value of the artifact in gold pieces.";
@@ -1418,6 +1525,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescWeight()
 		{
 			var fullDesc = "Enter the weight of the artifact." + Environment.NewLine + Environment.NewLine + "Be sure to factor bulk and encumberance into weight values.";
@@ -1427,6 +1535,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescLocation()
 		{
 			var fullDesc = "Enter the location of the artifact.";
@@ -1436,6 +1545,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescCategoriesType()
 		{
 			var i = Index;
@@ -1460,6 +1570,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescCategoriesField1()
 		{
 			var i = Index;
@@ -1585,6 +1696,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescCategoriesField2()
 		{
 			var i = Index;
@@ -1699,6 +1811,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescCategoriesField3()
 		{
 			var i = Index;
@@ -1780,6 +1893,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescCategoriesField4()
 		{
 			var i = Index;
@@ -1829,6 +1943,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescCategoriesField5()
 		{
 			var i = Index;
@@ -1862,6 +1977,7 @@ namespace Eamon.Game.Helpers
 
 		#region List Methods
 
+		/// <summary></summary>
 		protected virtual void ListUid()
 		{
 			if (FullDetail)
@@ -1879,6 +1995,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListName()
 		{
 			if (FullDetail)
@@ -1889,6 +2006,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListStateDesc()
 		{
 			if (FullDetail)
@@ -1910,6 +2028,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListDesc()
 		{
 			if (FullDetail && ShowDesc)
@@ -1933,6 +2052,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListSeen()
 		{
 			if (FullDetail)
@@ -1943,6 +2063,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListIsCharOwned()
 		{
 			if (FullDetail)
@@ -1953,6 +2074,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListIsPlural()
 		{
 			if (FullDetail)
@@ -1963,6 +2085,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListIsListed()
 		{
 			if (FullDetail)
@@ -1973,6 +2096,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListPluralType()
 		{
 			if (FullDetail)
@@ -2017,6 +2141,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListArticleType()
 		{
 			if (FullDetail)
@@ -2042,6 +2167,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListValue()
 		{
 			if (FullDetail)
@@ -2052,6 +2178,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListWeight()
 		{
 			if (FullDetail)
@@ -2072,6 +2199,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListLocation()
 		{
 			if (FullDetail)
@@ -2092,6 +2220,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListCategories()
 		{
 			for (Index = 0; Index < Record.Categories.Length; Index++)
@@ -2107,6 +2236,7 @@ namespace Eamon.Game.Helpers
 			AddToListedNames = false;
 		}
 
+		/// <summary></summary>
 		protected virtual void ListCategoriesType()
 		{
 			var i = Index;
@@ -2132,6 +2262,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListCategoriesField1()
 		{
 			var i = Index;
@@ -2157,6 +2288,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListCategoriesField2()
 		{
 			var i = Index;
@@ -2182,6 +2314,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListCategoriesField3()
 		{
 			var i = Index;
@@ -2207,6 +2340,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListCategoriesField4()
 		{
 			var i = Index;
@@ -2232,6 +2366,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListCategoriesField5()
 		{
 			var i = Index;
@@ -2261,6 +2396,7 @@ namespace Eamon.Game.Helpers
 
 		#region Input Methods
 
+		/// <summary></summary>
 		protected virtual void InputUid()
 		{
 			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
@@ -2268,6 +2404,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputName()
 		{
 			var fieldDesc = FieldDesc;
@@ -2299,6 +2436,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputStateDesc()
 		{
 			var fieldDesc = FieldDesc;
@@ -2334,6 +2472,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputDesc()
 		{
 			var fieldDesc = FieldDesc;
@@ -2369,6 +2508,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputSeen()
 		{
 			var fieldDesc = FieldDesc;
@@ -2400,6 +2540,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputIsCharOwned()
 		{
 			var fieldDesc = FieldDesc;
@@ -2431,6 +2572,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputIsPlural()
 		{
 			var fieldDesc = FieldDesc;
@@ -2462,6 +2604,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputIsListed()
 		{
 			var fieldDesc = FieldDesc;
@@ -2493,6 +2636,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputPluralType()
 		{
 			var fieldDesc = FieldDesc;
@@ -2524,6 +2668,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputArticleType()
 		{
 			var fieldDesc = FieldDesc;
@@ -2555,6 +2700,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputValue()
 		{
 			var fieldDesc = FieldDesc;
@@ -2595,6 +2741,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputWeight()
 		{
 			var artType = EditRec ? Globals.Engine.GetArtifactTypes(Record.GetCategories(0).Type) : null;
@@ -2639,6 +2786,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputLocation()
 		{
 			var artType = EditRec ? Globals.Engine.GetArtifactTypes(Record.GetCategories(0).Type) : null;
@@ -2683,6 +2831,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputCategories()
 		{
 			for (Index = 0; Index < Record.Categories.Length; Index++)
@@ -2696,6 +2845,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void InputCategoriesType()
 		{
 			var i = Index;
@@ -2782,6 +2932,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void InputCategoriesField1()
 		{
 			var i = Index;
@@ -2835,6 +2986,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void InputCategoriesField2()
 		{
 			var i = Index;
@@ -2888,6 +3040,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void InputCategoriesField3()
 		{
 			var i = Index;
@@ -2941,6 +3094,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void InputCategoriesField4()
 		{
 			var i = Index;
@@ -2994,6 +3148,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void InputCategoriesField5()
 		{
 			var i = Index;
@@ -3051,6 +3206,8 @@ namespace Eamon.Game.Helpers
 
 		#region BuildValue Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string BuildValueWeight()
 		{
 			Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.Weight, null, Record.IsUnmovable() ? "Unmovable" : null));
@@ -3058,6 +3215,8 @@ namespace Eamon.Game.Helpers
 			return Buf01.ToString();
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string BuildValueLocation()
 		{
 			string lookupMsg;
@@ -3114,6 +3273,8 @@ namespace Eamon.Game.Helpers
 			return Buf01.ToString();
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string BuildValueCategoriesType()
 		{
 			var i = Index;
@@ -3125,6 +3286,8 @@ namespace Eamon.Game.Helpers
 			return Buf01.ToString();
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string BuildValueCategoriesField1()
 		{
 			var i = Index;
@@ -3205,6 +3368,8 @@ namespace Eamon.Game.Helpers
 			return Buf01.ToString();
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string BuildValueCategoriesField2()
 		{
 			var i = Index;
@@ -3267,6 +3432,8 @@ namespace Eamon.Game.Helpers
 			return Buf01.ToString();
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string BuildValueCategoriesField3()
 		{
 			var i = Index;
@@ -3319,6 +3486,8 @@ namespace Eamon.Game.Helpers
 			return Buf01.ToString();
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string BuildValueCategoriesField4()
 		{
 			var i = Index;
@@ -3341,6 +3510,8 @@ namespace Eamon.Game.Helpers
 			return Buf01.ToString();
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string BuildValueCategoriesField5()
 		{
 			var i = Index;
@@ -3357,6 +3528,12 @@ namespace Eamon.Game.Helpers
 			return Buf01.ToString();
 		}
 
+		/// <summary></summary>
+		/// <param name="bufSize"></param>
+		/// <param name="fillChar"></param>
+		/// <param name="offset"></param>
+		/// <param name="fieldName"></param>
+		/// <returns></returns>
 		protected virtual string BuildValue(long bufSize, char fillChar, long offset, string fieldName)
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));

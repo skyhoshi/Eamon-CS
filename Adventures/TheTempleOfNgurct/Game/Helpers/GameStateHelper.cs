@@ -29,26 +29,36 @@ namespace TheTempleOfNgurct.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateWanderingMonster()
 		{
 			return Record.WanderingMonster >= 12 && Record.WanderingMonster <= 27;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateDwLoopCounter()
 		{
 			return Record.DwLoopCounter >= 0 && Record.DwLoopCounter <= 16;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateWandCharges()
 		{
 			return Record.WandCharges >= 0 && Record.WandCharges <= 5;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateRegenerate()
 		{
 			return Record.Regenerate >= 0 && Record.Regenerate <= 5;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateKeyRingRoomUid()
 		{
 			return Record.KeyRingRoomUid >= 0 && Record.KeyRingRoomUid <= 59;

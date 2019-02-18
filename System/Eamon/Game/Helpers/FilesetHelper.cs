@@ -26,61 +26,85 @@ namespace Eamon.Game.Helpers
 
 		#region GetPrintedName Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameWorkDir()
 		{
 			return "Working Directory";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNamePluginFileName()
 		{
 			return "Plugin Filename";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameConfigFileName()
 		{
 			return "Config Filename";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameFilesetFileName()
 		{
 			return "Fileset Filename";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameCharacterFileName()
 		{
 			return "Character Filename";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameModuleFileName()
 		{
 			return "Module Filename";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameRoomFileName()
 		{
 			return "Room Filename";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameArtifactFileName()
 		{
 			return "Artifact Filename";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameEffectFileName()
 		{
 			return "Effect Filename";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameMonsterFileName()
 		{
 			return "Monster Filename";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameHintFileName()
 		{
 			return "Hint Filename";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameGameStateFileName()
 		{
 			return "Game State Filename";
@@ -102,71 +126,99 @@ namespace Eamon.Game.Helpers
 
 		#region Validate Methods
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateName()
 		{
 			return string.IsNullOrWhiteSpace(Record.Name) == false && Record.Name.Length <= Constants.FsNameLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateWorkDir()
 		{
 			return Record.WorkDir.Length > 0 && Record.WorkDir[Record.WorkDir.Length - 1] != Globals.Path.DirectorySeparatorChar;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidatePluginFileName()
 		{
 			return string.IsNullOrWhiteSpace(Record.PluginFileName) == false && Record.PluginFileName.IndexOf(Globals.Path.DirectorySeparatorChar) == -1 && Record.PluginFileName.Length <= Constants.FsFileNameLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateConfigFileName()
 		{
 			return string.IsNullOrWhiteSpace(Record.ConfigFileName) == false && Record.ConfigFileName.IndexOf(Globals.Path.DirectorySeparatorChar) == -1 && Record.ConfigFileName.Length <= Constants.FsFileNameLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateFilesetFileName()
 		{
 			return string.IsNullOrWhiteSpace(Record.FilesetFileName) == false && Record.FilesetFileName.IndexOf(Globals.Path.DirectorySeparatorChar) == -1 && Record.FilesetFileName.Length <= Constants.FsFileNameLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateCharacterFileName()
 		{
 			return string.IsNullOrWhiteSpace(Record.CharacterFileName) == false && Record.CharacterFileName.IndexOf(Globals.Path.DirectorySeparatorChar) == -1 && Record.CharacterFileName.Length <= Constants.FsFileNameLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateModuleFileName()
 		{
 			return string.IsNullOrWhiteSpace(Record.ModuleFileName) == false && Record.ModuleFileName.IndexOf(Globals.Path.DirectorySeparatorChar) == -1 && Record.ModuleFileName.Length <= Constants.FsFileNameLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateRoomFileName()
 		{
 			return string.IsNullOrWhiteSpace(Record.RoomFileName) == false && Record.RoomFileName.IndexOf(Globals.Path.DirectorySeparatorChar) == -1 && Record.RoomFileName.Length <= Constants.FsFileNameLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateArtifactFileName()
 		{
 			return string.IsNullOrWhiteSpace(Record.ArtifactFileName) == false && Record.ArtifactFileName.IndexOf(Globals.Path.DirectorySeparatorChar) == -1 && Record.ArtifactFileName.Length <= Constants.FsFileNameLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateEffectFileName()
 		{
 			return string.IsNullOrWhiteSpace(Record.EffectFileName) == false && Record.EffectFileName.IndexOf(Globals.Path.DirectorySeparatorChar) == -1 && Record.EffectFileName.Length <= Constants.FsFileNameLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateMonsterFileName()
 		{
 			return string.IsNullOrWhiteSpace(Record.MonsterFileName) == false && Record.MonsterFileName.IndexOf(Globals.Path.DirectorySeparatorChar) == -1 && Record.MonsterFileName.Length <= Constants.FsFileNameLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateHintFileName()
 		{
 			return string.IsNullOrWhiteSpace(Record.HintFileName) == false && Record.HintFileName.IndexOf(Globals.Path.DirectorySeparatorChar) == -1 && Record.HintFileName.Length <= Constants.FsFileNameLen;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual bool ValidateGameStateFileName()
 		{
 			return string.IsNullOrWhiteSpace(Record.GameStateFileName) == false && Record.GameStateFileName.IndexOf(Globals.Path.DirectorySeparatorChar) == -1 && Record.GameStateFileName.Length <= Constants.FsFileNameLen;
@@ -182,6 +234,7 @@ namespace Eamon.Game.Helpers
 
 		#region PrintDesc Methods
 
+		/// <summary></summary>
 		protected virtual void PrintDescName()
 		{
 			var fullDesc = "Enter the name of the fileset." + Environment.NewLine + Environment.NewLine + "If the fileset represents an adventure, use the adventure name; if it represents an author catalog use the catalog name.";
@@ -189,6 +242,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescWorkDir()
 		{
 			var fullDesc = "Enter the working directory of the fileset." + Environment.NewLine + Environment.NewLine + "This is where the files are found.  It can be an absolute or relative path, and should not end with a path separator.";
@@ -196,6 +250,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescPluginFileName()
 		{
 			var fullDesc = "Enter the plugin filename of the fileset.";
@@ -203,6 +258,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescConfigFileName()
 		{
 			var fullDesc = "Enter the config filename of the fileset.";
@@ -210,6 +266,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescFilesetFileName()
 		{
 			var fullDesc = "Enter the fileset filename of the fileset.";
@@ -217,6 +274,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescCharacterFileName()
 		{
 			var fullDesc = "Enter the character filename of the fileset.";
@@ -224,6 +282,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescModuleFileName()
 		{
 			var fullDesc = "Enter the module filename of the fileset.";
@@ -231,6 +290,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescRoomFileName()
 		{
 			var fullDesc = "Enter the room filename of the fileset.";
@@ -238,6 +298,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescArtifactFileName()
 		{
 			var fullDesc = "Enter the artifact filename of the fileset.";
@@ -245,6 +306,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescEffectFileName()
 		{
 			var fullDesc = "Enter the effect filename of the fileset.";
@@ -252,6 +314,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescMonsterFileName()
 		{
 			var fullDesc = "Enter the monster filename of the fileset.";
@@ -259,6 +322,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescHintFileName()
 		{
 			var fullDesc = "Enter the hint filename of the fileset.";
@@ -266,6 +330,7 @@ namespace Eamon.Game.Helpers
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
+		/// <summary></summary>
 		protected virtual void PrintDescGameStateFileName()
 		{
 			var fullDesc = "Enter the game state filename of the fileset.";
@@ -277,6 +342,7 @@ namespace Eamon.Game.Helpers
 
 		#region List Methods
 
+		/// <summary></summary>
 		protected virtual void ListUid()
 		{
 			if (FullDetail)
@@ -294,6 +360,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListName()
 		{
 			if (FullDetail)
@@ -304,6 +371,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListWorkDir()
 		{
 			if (FullDetail)
@@ -314,6 +382,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListPluginFileName()
 		{
 			if (FullDetail)
@@ -327,6 +396,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListConfigFileName()
 		{
 			if (FullDetail)
@@ -340,6 +410,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListFilesetFileName()
 		{
 			if (FullDetail)
@@ -353,6 +424,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListCharacterFileName()
 		{
 			if (FullDetail)
@@ -366,6 +438,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListModuleFileName()
 		{
 			if (FullDetail)
@@ -379,6 +452,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListRoomFileName()
 		{
 			if (FullDetail)
@@ -392,6 +466,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListArtifactFileName()
 		{
 			if (FullDetail)
@@ -405,6 +480,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListEffectFileName()
 		{
 			if (FullDetail)
@@ -418,6 +494,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListMonsterFileName()
 		{
 			if (FullDetail)
@@ -431,6 +508,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListHintFileName()
 		{
 			if (FullDetail)
@@ -444,6 +522,7 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
+		/// <summary></summary>
 		protected virtual void ListGameStateFileName()
 		{
 			if (FullDetail)
@@ -461,6 +540,7 @@ namespace Eamon.Game.Helpers
 
 		#region Input Methods
 
+		/// <summary></summary>
 		protected virtual void InputUid()
 		{
 			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
@@ -468,6 +548,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputName()
 		{
 			var fieldDesc = FieldDesc;
@@ -499,6 +580,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputWorkDir()
 		{
 			var fieldDesc = FieldDesc;
@@ -534,6 +616,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputPluginFileName()
 		{
 			var fieldDesc = FieldDesc;
@@ -565,6 +648,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputConfigFileName()
 		{
 			var fieldDesc = FieldDesc;
@@ -596,6 +680,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputFilesetFileName()
 		{
 			var fieldDesc = FieldDesc;
@@ -627,6 +712,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputCharacterFileName()
 		{
 			var fieldDesc = FieldDesc;
@@ -658,6 +744,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputModuleFileName()
 		{
 			var fieldDesc = FieldDesc;
@@ -689,6 +776,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputRoomFileName()
 		{
 			var fieldDesc = FieldDesc;
@@ -720,6 +808,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputArtifactFileName()
 		{
 			var fieldDesc = FieldDesc;
@@ -751,6 +840,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputEffectFileName()
 		{
 			var fieldDesc = FieldDesc;
@@ -782,6 +872,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputMonsterFileName()
 		{
 			var fieldDesc = FieldDesc;
@@ -813,6 +904,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputHintFileName()
 		{
 			var fieldDesc = FieldDesc;
@@ -844,6 +936,7 @@ namespace Eamon.Game.Helpers
 			Globals.Out.Print("{0}", Globals.LineSep);
 		}
 
+		/// <summary></summary>
 		protected virtual void InputGameStateFileName()
 		{
 			var fieldDesc = FieldDesc;

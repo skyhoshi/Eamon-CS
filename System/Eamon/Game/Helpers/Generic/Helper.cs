@@ -20,16 +20,20 @@ namespace Eamon.Game.Helpers.Generic
 	{
 		#region Protected Fields
 
+		/// <summary></summary>
 		protected T _record;
 
 		#endregion
 
 		#region Protected Properties
 
+		/// <summary></summary>
 		protected virtual IList<string> FieldNames { get; set; }
 
+		/// <summary></summary>
 		protected virtual IList<string> ListedNames { get; set; }
 
+		/// <summary></summary>
 		protected virtual IList<string> Names { get; set; }
 
 		#endregion
@@ -104,21 +108,30 @@ namespace Eamon.Game.Helpers.Generic
 
 		#region Interface IHelper
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameIsUidRecycled()
 		{
 			return "Is Uid Recycled";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameDesc()
 		{
 			return "Description";
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
 		protected virtual string GetPrintedNameArticleType()
 		{
 			return "Article Type";
 		}
 
+		/// <summary></summary>
+		/// <param name="fieldName"></param>
+		/// <returns></returns>
 		protected virtual string BuildValue(string fieldName)
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
@@ -143,6 +156,7 @@ namespace Eamon.Game.Helpers.Generic
 
 		#region Class Helper
 
+		/// <summary></summary>
 		protected virtual void SetUidIfInvalid()
 		{
 
