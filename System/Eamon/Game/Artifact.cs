@@ -10,10 +10,10 @@ using System.Linq;
 using System.Text;
 using Polenter.Serialization;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using Classes = Eamon.Framework.Primitive.Classes;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
@@ -23,7 +23,7 @@ namespace Eamon.Game
 	{
 		#region Protected Fields
 
-		protected Classes.IArtifactCategory _lastArtifactCategory;
+		protected IArtifactCategory _lastArtifactCategory;
 
 		#endregion
 
@@ -39,7 +39,7 @@ namespace Eamon.Game
 
 		public virtual bool IsListed { get; set; }
 
-		public virtual Enums.PluralType PluralType { get; set; }
+		public virtual PluralType PluralType { get; set; }
 
 		public virtual long Value { get; set; }
 
@@ -48,13 +48,13 @@ namespace Eamon.Game
 		public virtual long Location { get; set; }
 
 		[ExcludeFromSerialization]
-		public virtual Enums.ArtifactType Type
+		public virtual ArtifactType Type
 		{
 			get
 			{
 				var ac = GetCategories(0);
 
-				return ac != null ? ac.Type : Enums.ArtifactType.None;
+				return ac != null ? ac.Type : ArtifactType.None;
 			}
 
 			set
@@ -174,170 +174,170 @@ namespace Eamon.Game
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory Gold
+		public virtual IArtifactCategory Gold
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.Gold);
+				return GetArtifactCategory(ArtifactType.Gold);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory Treasure
+		public virtual IArtifactCategory Treasure
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.Treasure);
+				return GetArtifactCategory(ArtifactType.Treasure);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory Weapon
+		public virtual IArtifactCategory Weapon
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.Weapon);
+				return GetArtifactCategory(ArtifactType.Weapon);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory MagicWeapon
+		public virtual IArtifactCategory MagicWeapon
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.MagicWeapon);
+				return GetArtifactCategory(ArtifactType.MagicWeapon);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory GeneralWeapon
+		public virtual IArtifactCategory GeneralWeapon
 		{
 			get
 			{
-				var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon };
+				var artTypes = new ArtifactType[] { ArtifactType.Weapon, ArtifactType.MagicWeapon };
 
 				return GetArtifactCategory(artTypes);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory Container
+		public virtual IArtifactCategory Container
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.Container);
+				return GetArtifactCategory(ArtifactType.Container);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory LightSource
+		public virtual IArtifactCategory LightSource
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.LightSource);
+				return GetArtifactCategory(ArtifactType.LightSource);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory Drinkable
+		public virtual IArtifactCategory Drinkable
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.Drinkable);
+				return GetArtifactCategory(ArtifactType.Drinkable);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory Readable
+		public virtual IArtifactCategory Readable
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.Readable);
+				return GetArtifactCategory(ArtifactType.Readable);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory DoorGate
+		public virtual IArtifactCategory DoorGate
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.DoorGate);
+				return GetArtifactCategory(ArtifactType.DoorGate);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory Edible
+		public virtual IArtifactCategory Edible
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.Edible);
+				return GetArtifactCategory(ArtifactType.Edible);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory BoundMonster
+		public virtual IArtifactCategory BoundMonster
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.BoundMonster);
+				return GetArtifactCategory(ArtifactType.BoundMonster);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory Wearable
+		public virtual IArtifactCategory Wearable
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.Wearable);
+				return GetArtifactCategory(ArtifactType.Wearable);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory DisguisedMonster
+		public virtual IArtifactCategory DisguisedMonster
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.DisguisedMonster);
+				return GetArtifactCategory(ArtifactType.DisguisedMonster);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory DeadBody
+		public virtual IArtifactCategory DeadBody
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.DeadBody);
+				return GetArtifactCategory(ArtifactType.DeadBody);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory User1
+		public virtual IArtifactCategory User1
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.User1);
+				return GetArtifactCategory(ArtifactType.User1);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory User2
+		public virtual IArtifactCategory User2
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.User2);
+				return GetArtifactCategory(ArtifactType.User2);
 			}
 		}
 
 		[ExcludeFromSerialization]
-		public virtual Classes.IArtifactCategory User3
+		public virtual IArtifactCategory User3
 		{
 			get
 			{
-				return GetArtifactCategory(Enums.ArtifactType.User3);
+				return GetArtifactCategory(ArtifactType.User3);
 			}
 		}
 
-		public virtual Classes.IArtifactCategory[] Categories { get; set; }
+		public virtual IArtifactCategory[] Categories { get; set; }
 
 		#endregion
 
@@ -408,14 +408,14 @@ namespace Eamon.Game
 			{
 				buf.Append(Name);
 
-				if (buf.Length > 0 && PluralType == Enums.PluralType.YIes)
+				if (buf.Length > 0 && PluralType == PluralType.YIes)
 				{
 					buf.Length--;
 				}
 
-				buf.Append(PluralType == Enums.PluralType.None ? "" :
-						PluralType == Enums.PluralType.Es ? "es" :
-						PluralType == Enums.PluralType.YIes ? "ies" :
+				buf.Append(PluralType == PluralType.None ? "" :
+						PluralType == PluralType.Es ? "es" :
+						PluralType == PluralType.YIes ? "ies" :
 						"s");
 			}
 
@@ -426,7 +426,7 @@ namespace Eamon.Game
 			return result;
 		}
 
-		public override string GetDecoratedName(string fieldName, Enums.ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public override string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
 		{
 			string result;
 
@@ -445,7 +445,7 @@ namespace Eamon.Game
 
 			switch (articleType)
 			{
-				case Enums.ArticleType.None:
+				case ArticleType.None:
 
 					buf.AppendFormat
 					(
@@ -457,13 +457,13 @@ namespace Eamon.Game
 
 					break;
 
-				case Enums.ArticleType.The:
+				case ArticleType.The:
 
 					buf.AppendFormat
 					(
 						"{0}{1}{2}{3}",
-						ArticleType == Enums.ArticleType.None ? "" :
-						ArticleType == Enums.ArticleType.The ? "the " :
+						ArticleType == ArticleType.None ? "" :
+						ArticleType == ArticleType.The ? "the " :
 						IsCharOwned && showCharOwned ? "your " :
 						"the ",
 						EvalPlural(Name, GetPluralName(fieldName, new StringBuilder(Constants.BufSize))),
@@ -478,11 +478,11 @@ namespace Eamon.Game
 					buf.AppendFormat
 					(
 						"{0}{1}{2}{3}",
-						ArticleType == Enums.ArticleType.None ? "" :
-						ArticleType == Enums.ArticleType.The ? "the " :
+						ArticleType == ArticleType.None ? "" :
+						ArticleType == ArticleType.The ? "the " :
 						IsCharOwned && showCharOwned ? "your " :
-						ArticleType == Enums.ArticleType.Some ? "some " :
-						ArticleType == Enums.ArticleType.An ? "an " :
+						ArticleType == ArticleType.Some ? "some " :
+						ArticleType == ArticleType.An ? "an " :
 						"a ",
 						EvalPlural(Name, GetPluralName(fieldName, new StringBuilder(Constants.BufSize))),
 						showStateDesc && StateDesc.Length > 0 ? " " : "",
@@ -554,7 +554,7 @@ namespace Eamon.Game
 
 		#region Interface IArtifact
 
-		public virtual Classes.IArtifactCategory GetCategories(long index)
+		public virtual IArtifactCategory GetCategories(long index)
 		{
 			_lastArtifactCategory = Categories[index];
 
@@ -566,7 +566,7 @@ namespace Eamon.Game
 			return Synonyms[index];
 		}
 
-		public virtual void SetCategories(long index, Classes.IArtifactCategory value)
+		public virtual void SetCategories(long index, IArtifactCategory value)
 		{
 			Categories[index] = value;
 		}
@@ -852,7 +852,7 @@ namespace Eamon.Game
 			return Globals.Engine.GetArtifactFieldStrength(value);
 		}
 
-		public virtual bool IsWeapon(Enums.Weapon weapon)
+		public virtual bool IsWeapon(Weapon weapon)
 		{
 			var ac = GeneralWeapon;
 
@@ -861,14 +861,14 @@ namespace Eamon.Game
 
 		public virtual bool IsAttackable()
 		{
-			var ac = GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.DeadBody, Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Container, Enums.ArtifactType.DoorGate });
+			var ac = GetArtifactCategory(new ArtifactType[] { ArtifactType.DeadBody, ArtifactType.DisguisedMonster, ArtifactType.Container, ArtifactType.DoorGate });
 
-			return ac != null && (ac.Type == Enums.ArtifactType.DeadBody || ac.Type == Enums.ArtifactType.DisguisedMonster || ac.GetBreakageStrength() >= 1000);
+			return ac != null && (ac.Type == ArtifactType.DeadBody || ac.Type == ArtifactType.DisguisedMonster || ac.GetBreakageStrength() >= 1000);
 		}
 
-		public virtual bool IsAttackable01(ref Classes.IArtifactCategory ac)
+		public virtual bool IsAttackable01(ref IArtifactCategory ac)
 		{
-			ac = GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.DeadBody, Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Container, Enums.ArtifactType.DoorGate }, false);
+			ac = GetArtifactCategory(new ArtifactType[] { ArtifactType.DeadBody, ArtifactType.DisguisedMonster, ArtifactType.Container, ArtifactType.DoorGate }, false);
 
 			return !Globals.IsRulesetVersion(5) && ac != null;
 		}
@@ -885,14 +885,14 @@ namespace Eamon.Game
 
 		public virtual bool IsArmor()
 		{
-			var ac = GetArtifactCategory(Enums.ArtifactType.Wearable);
+			var ac = GetArtifactCategory(ArtifactType.Wearable);
 
 			return ac != null && ac.Field1 > 1;
 		}
 
 		public virtual bool IsShield()
 		{
-			var ac = GetArtifactCategory(Enums.ArtifactType.Wearable);
+			var ac = GetArtifactCategory(ArtifactType.Wearable);
 
 			return ac != null && ac.Field1 == 1;
 		}
@@ -937,15 +937,15 @@ namespace Eamon.Game
 			return IsEmbeddedInRoomLit() ? lightValue : darkValue;
 		}
 
-		public virtual Classes.IArtifactCategory GetArtifactCategory(Enums.ArtifactType artifactType)
+		public virtual IArtifactCategory GetArtifactCategory(ArtifactType artifactType)
 		{
-			Classes.IArtifactCategory result = null;
+			IArtifactCategory result = null;
 
 			if (_lastArtifactCategory != null && _lastArtifactCategory.Type == artifactType)
 			{
 				result = _lastArtifactCategory;
 			}
-			else if (GetCategories(0) != null && GetCategories(0).Type != Enums.ArtifactType.None)
+			else if (GetCategories(0) != null && GetCategories(0).Type != ArtifactType.None)
 			{
 				result = Categories.FirstOrDefault(ac => ac != null && ac.Type == artifactType);
 			}
@@ -959,9 +959,9 @@ namespace Eamon.Game
 			return result;
 		}
 
-		public virtual Classes.IArtifactCategory GetArtifactCategory(Enums.ArtifactType[] artifactTypes, bool categoryArrayPrecedence = true)
+		public virtual IArtifactCategory GetArtifactCategory(ArtifactType[] artifactTypes, bool categoryArrayPrecedence = true)
 		{
-			Classes.IArtifactCategory result = null;
+			IArtifactCategory result = null;
 
 			if (artifactTypes == null)
 			{
@@ -970,7 +970,7 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			if (GetCategories(0) != null && GetCategories(0).Type != Enums.ArtifactType.None)
+			if (GetCategories(0) != null && GetCategories(0).Type != ArtifactType.None)
 			{
 				if (categoryArrayPrecedence)
 				{
@@ -1001,9 +1001,9 @@ namespace Eamon.Game
 			return result;
 		}
 
-		public virtual IList<Classes.IArtifactCategory> GetArtifactCategories(Enums.ArtifactType[] artifactTypes)
+		public virtual IList<IArtifactCategory> GetArtifactCategories(ArtifactType[] artifactTypes)
 		{
-			IList<Classes.IArtifactCategory> result = null;
+			IList<IArtifactCategory> result = null;
 
 			if (artifactTypes == null)
 			{
@@ -1012,13 +1012,13 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
-			if (GetCategories(0) != null && GetCategories(0).Type != Enums.ArtifactType.None)
+			if (GetCategories(0) != null && GetCategories(0).Type != ArtifactType.None)
 			{
 				result = Categories.Where(ac => ac != null && artifactTypes.Contains(ac.Type)).ToList();
 			}
 			else
 			{
-				result = new List<Classes.IArtifactCategory>() { null };
+				result = new List<IArtifactCategory>() { null };
 			}
 
 		Cleanup:
@@ -1041,7 +1041,7 @@ namespace Eamon.Game
 
 			rc = RetCode.Success;
 
-			var categories01 = new Classes.IArtifactCategory[count];
+			var categories01 = new IArtifactCategory[count];
 
 			var i = 0L;
 
@@ -1065,7 +1065,7 @@ namespace Eamon.Game
 
 				while (i < categories01.Length)
 				{
-					categories01[i] = Globals.CreateInstance<Classes.IArtifactCategory>(x =>
+					categories01[i] = Globals.CreateInstance<IArtifactCategory>(x =>
 					{
 						x.Parent = this;
 					});
@@ -1083,7 +1083,7 @@ namespace Eamon.Game
 			return rc;
 		}
 
-		public virtual RetCode SyncArtifactCategories(Classes.IArtifactCategory artifactCategory)
+		public virtual RetCode SyncArtifactCategories(IArtifactCategory artifactCategory)
 		{
 			RetCode rc;
 
@@ -1100,12 +1100,12 @@ namespace Eamon.Game
 
 			switch (artifactCategory.Type)
 			{
-				case Enums.ArtifactType.Container:
-				case Enums.ArtifactType.DoorGate:
+				case ArtifactType.Container:
+				case ArtifactType.DoorGate:
 				{
 					foreach (var ac in Categories)
 					{
-						if (ac != null && ac != artifactCategory && ac.Type != Enums.ArtifactType.None)
+						if (ac != null && ac != artifactCategory && ac.Type != ArtifactType.None)
 						{
 							if (ac.IsLockable())
 							{
@@ -1122,14 +1122,14 @@ namespace Eamon.Game
 					break;
 				}
 
-				case Enums.ArtifactType.Drinkable:
-				case Enums.ArtifactType.Edible:
+				case ArtifactType.Drinkable:
+				case ArtifactType.Edible:
 				{
 					foreach (var ac in Categories)
 					{
-						if (ac != null && ac != artifactCategory && ac.Type != Enums.ArtifactType.None)
+						if (ac != null && ac != artifactCategory && ac.Type != ArtifactType.None)
 						{
-							if (ac.Type == Enums.ArtifactType.Drinkable || ac.Type == Enums.ArtifactType.Edible)
+							if (ac.Type == ArtifactType.Drinkable || ac.Type == ArtifactType.Edible)
 							{
 								ac.Field1 = artifactCategory.Field1;
 
@@ -1146,11 +1146,11 @@ namespace Eamon.Game
 					break;
 				}
 
-				case Enums.ArtifactType.Readable:
+				case ArtifactType.Readable:
 				{
 					foreach (var ac in Categories)
 					{
-						if (ac != null && ac != artifactCategory && ac.Type != Enums.ArtifactType.None)
+						if (ac != null && ac != artifactCategory && ac.Type != ArtifactType.None)
 						{
 							if (ac.IsOpenable())
 							{
@@ -1162,13 +1162,13 @@ namespace Eamon.Game
 					break;
 				}
 
-				case Enums.ArtifactType.BoundMonster:
+				case ArtifactType.BoundMonster:
 				{
 					foreach (var ac in Categories)
 					{
-						if (ac != null && ac != artifactCategory && ac.Type != Enums.ArtifactType.None)
+						if (ac != null && ac != artifactCategory && ac.Type != ArtifactType.None)
 						{
-							if (ac.Type == Enums.ArtifactType.DisguisedMonster)
+							if (ac.Type == ArtifactType.DisguisedMonster)
 							{
 								ac.Field1 = artifactCategory.Field1;
 							}
@@ -1183,13 +1183,13 @@ namespace Eamon.Game
 					break;
 				}
 
-				case Enums.ArtifactType.DisguisedMonster:
+				case ArtifactType.DisguisedMonster:
 				{
 					foreach (var ac in Categories)
 					{
-						if (ac != null && ac != artifactCategory && ac.Type != Enums.ArtifactType.None)
+						if (ac != null && ac != artifactCategory && ac.Type != ArtifactType.None)
 						{
-							if (ac.Type == Enums.ArtifactType.BoundMonster)
+							if (ac.Type == ArtifactType.BoundMonster)
 							{
 								ac.Field1 = artifactCategory.Field1;
 							}
@@ -1213,7 +1213,7 @@ namespace Eamon.Game
 
 			foreach (var ac in Categories)
 			{
-				if (ac != null && ac.Type != Enums.ArtifactType.None)
+				if (ac != null && ac.Type != ArtifactType.None)
 				{
 					rc = SyncArtifactCategories(ac);
 
@@ -1381,21 +1381,21 @@ namespace Eamon.Game
 		{
 			StateDesc = "";
 
-			Categories = new Classes.IArtifactCategory[]
+			Categories = new IArtifactCategory[]
 			{
-				Globals.CreateInstance<Classes.IArtifactCategory>(x =>
+				Globals.CreateInstance<IArtifactCategory>(x =>
 				{
 					x.Parent = this;
 				}),
-				Globals.CreateInstance<Classes.IArtifactCategory>(x =>
+				Globals.CreateInstance<IArtifactCategory>(x =>
 				{
 					x.Parent = this;
 				}),
-				Globals.CreateInstance<Classes.IArtifactCategory>(x =>
+				Globals.CreateInstance<IArtifactCategory>(x =>
 				{
 					x.Parent = this;
 				}),
-				Globals.CreateInstance<Classes.IArtifactCategory>(x =>
+				Globals.CreateInstance<IArtifactCategory>(x =>
 				{
 					x.Parent = this;
 				})

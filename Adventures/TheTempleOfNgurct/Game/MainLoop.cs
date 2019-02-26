@@ -5,9 +5,9 @@
 
 using System;
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game
@@ -43,7 +43,7 @@ namespace TheTempleOfNgurct.Game
 
 			Debug.Assert(gonzalesMonster != null);
 
-			if (theraMonster.Location == Globals.GameState.Ro && theraMonster.Friendliness > Enums.Friendliness.Enemy)
+			if (theraMonster.Location == Globals.GameState.Ro && theraMonster.Friendliness > Friendliness.Enemy)
 			{
 				var rw = 200 + (long)Math.Round(100 * ((double)(theraMonster.Hardiness - theraMonster.DmgTaken) / (double)theraMonster.Hardiness));
 

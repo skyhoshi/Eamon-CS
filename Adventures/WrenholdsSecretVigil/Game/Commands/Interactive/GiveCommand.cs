@@ -3,9 +3,9 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
@@ -27,9 +27,9 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 						DobjArtifact.SetInLimbo();
 
-						IobjMonster.Friendliness = (Enums.Friendliness)150;
+						IobjMonster.Friendliness = (Friendliness)150;
 
-						IobjMonster.OrigFriendliness = (Enums.Friendliness)150;
+						IobjMonster.OrigFriendliness = (Friendliness)150;
 
 						Globals.Engine.CheckEnemies();
 
@@ -37,7 +37,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 						Globals.Engine.PrintEffectDesc(13);
 
-						if (IobjMonster.Friendliness == Enums.Friendliness.Friend)
+						if (IobjMonster.Friendliness == Friendliness.Friend)
 						{
 							Globals.Out.Print("{0} barks once and wags its tail!", IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf));
 						}
@@ -71,7 +71,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				// Disable bribing
 
-				if (IobjMonster.Uid == 1 || IobjMonster.Friendliness < Enums.Friendliness.Friend)
+				if (IobjMonster.Uid == 1 || IobjMonster.Friendliness < Friendliness.Friend)
 				{
 					Globals.Engine.MonsterSmiles(IobjMonster);
 

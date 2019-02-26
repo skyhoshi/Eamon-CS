@@ -6,8 +6,8 @@
 using System;
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
@@ -25,7 +25,7 @@ namespace Eamon.Game
 
 		public virtual bool GenerateUids { get; set; }
 
-		public virtual Enums.FieldDesc FieldDesc { get; set; }
+		public virtual FieldDesc FieldDesc { get; set; }
 
 		public virtual long WordWrapMargin { get; set; }
 

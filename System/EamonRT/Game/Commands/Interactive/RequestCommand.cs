@@ -8,10 +8,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -27,7 +27,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null && IobjMonster != null);
 
-			if (IobjMonster.Friendliness < Enums.Friendliness.Friend)
+			if (IobjMonster.Friendliness < Friendliness.Friend)
 			{
 				Globals.Engine.MonsterSmiles(IobjMonster);
 
@@ -154,7 +154,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "request";
 
-			Type = Enums.CommandType.Interactive;
+			Type = CommandType.Interactive;
 		}
 	}
 }

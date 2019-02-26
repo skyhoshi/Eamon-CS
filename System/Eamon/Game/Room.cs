@@ -9,10 +9,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Utilities;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
@@ -24,9 +24,9 @@ namespace Eamon.Game
 
 		#region Interface IRoom
 
-		public virtual Enums.LightLevel LightLvl { get; set; }
+		public virtual LightLevel LightLvl { get; set; }
 
-		public virtual Enums.RoomType Type { get; set; }
+		public virtual RoomType Type { get; set; }
 
 		public virtual long Zone { get; set; }
 
@@ -51,7 +51,7 @@ namespace Eamon.Game
 		/// <summary></summary>
 		/// <param name="dir"></param>
 		/// <returns></returns>
-		protected virtual bool IsDirectionInObviousExitsList(Enums.Direction dir)
+		protected virtual bool IsDirectionInObviousExitsList(Direction dir)
 		{
 			return IsDirectionInObviousExitsList((long)dir);
 		}
@@ -145,7 +145,7 @@ namespace Eamon.Game
 			return Dirs[index];
 		}
 
-		public virtual long GetDirs(Enums.Direction dir)
+		public virtual long GetDirs(Direction dir)
 		{
 			return GetDirs((long)dir);
 		}
@@ -155,7 +155,7 @@ namespace Eamon.Game
 			Dirs[index] = value;
 		}
 
-		public virtual void SetDirs(Enums.Direction dir, long value)
+		public virtual void SetDirs(Direction dir, long value)
 		{
 			SetDirs((long)dir, value);
 		}
@@ -164,7 +164,7 @@ namespace Eamon.Game
 		{
 			var gameState = Globals?.Engine.GetGameState();
 
-			return gameState != null && Uid == gameState.Ro ? gameState.Lt != 0 : LightLvl == Enums.LightLevel.Light;
+			return gameState != null && Uid == gameState.Ro ? gameState.Lt != 0 : LightLvl == LightLevel.Light;
 		}
 
 		public virtual bool IsDirectionInvalid(long index)
@@ -172,7 +172,7 @@ namespace Eamon.Game
 			return GetDirs(index) == 0;
 		}
 
-		public virtual bool IsDirectionInvalid(Enums.Direction dir)
+		public virtual bool IsDirectionInvalid(Direction dir)
 		{
 			return IsDirectionInvalid((long)dir);
 		}
@@ -182,7 +182,7 @@ namespace Eamon.Game
 			return GetDirs(index) > 0 && GetDirs(index) < 1001;
 		}
 
-		public virtual bool IsDirectionRoom(Enums.Direction dir)
+		public virtual bool IsDirectionRoom(Direction dir)
 		{
 			return IsDirectionRoom((long)dir);
 		}
@@ -192,7 +192,7 @@ namespace Eamon.Game
 			return GetDirs(index) == Constants.DirectionExit;
 		}
 
-		public virtual bool IsDirectionExit(Enums.Direction dir)
+		public virtual bool IsDirectionExit(Direction dir)
 		{
 			return IsDirectionExit((long)dir);
 		}
@@ -202,7 +202,7 @@ namespace Eamon.Game
 			return GetDirs(index) > 1000 && GetDirs(index) < 2001;
 		}
 
-		public virtual bool IsDirectionDoor(Enums.Direction dir)
+		public virtual bool IsDirectionDoor(Direction dir)
 		{
 			return IsDirectionDoor((long)dir);
 		}
@@ -212,17 +212,17 @@ namespace Eamon.Game
 			return GetDirs(index) < 0 && (includeExit || !IsDirectionExit(index));
 		}
 
-		public virtual bool IsDirectionSpecial(Enums.Direction dir, bool includeExit = true)
+		public virtual bool IsDirectionSpecial(Direction dir, bool includeExit = true)
 		{
 			return IsDirectionSpecial((long)dir, includeExit);
 		}
 
-		public virtual long GetDirectionDoorUid(Enums.Direction dir)
+		public virtual long GetDirectionDoorUid(Direction dir)
 		{
 			return IsDirectionDoor(dir) ? GetDirs(dir) - 1000 : 0;
 		}
 
-		public virtual IArtifact GetDirectionDoor(Enums.Direction dir)
+		public virtual IArtifact GetDirectionDoor(Direction dir)
 		{
 			var uid = GetDirectionDoorUid(dir);
 
@@ -420,7 +420,7 @@ namespace Eamon.Game
 
 			i = 0;
 
-			var directionValues = EnumUtil.GetValues<Enums.Direction>();
+			var directionValues = EnumUtil.GetValues<Direction>();
 
 			foreach (var dv in directionValues)
 			{
@@ -536,7 +536,7 @@ namespace Eamon.Game
 					showDesc ? "also " : "",
 					showDesc && !monsters.Any() ? "notice " : "see ");
 
-				rc = Globals.Engine.GetRecordNameList(combined, Enums.ArticleType.A, true, true, false, buf);
+				rc = Globals.Engine.GetRecordNameList(combined, ArticleType.A, true, true, false, buf);
 
 				if (Globals.Engine.IsFailure(rc))
 				{
@@ -596,7 +596,7 @@ namespace Eamon.Game
 
 		public Room()
 		{
-			Dirs = new long[(long)EnumUtil.GetLastValue<Enums.Direction>() + 1];
+			Dirs = new long[(long)EnumUtil.GetLastValue<Direction>() + 1];
 		}
 
 		#endregion

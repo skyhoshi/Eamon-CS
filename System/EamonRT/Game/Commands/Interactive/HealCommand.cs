@@ -5,11 +5,11 @@
 
 using System;
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -23,7 +23,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(DobjMonster != null);
 
-			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Heal, ShouldAllowSkillGains()))
+			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Spell.Heal, ShouldAllowSkillGains()))
 			{
 				goto Cleanup;
 			}
@@ -113,7 +113,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "heal";
 
-			Type = Enums.CommandType.Interactive;
+			Type = CommandType.Interactive;
 
 			CastSpell = true;
 		}

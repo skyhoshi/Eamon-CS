@@ -7,12 +7,12 @@ using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
 using EamonMH.Framework.Menus.ActionMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
-using Classes = Eamon.Framework.Primitive.Classes;
 using static EamonMH.Game.Plugin.PluginContext;
 
 namespace EamonMH.Game.Menus.ActionMenus
@@ -25,7 +25,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 		public override void Execute()
 		{
-			Classes.ISpell spell;
+			ISpell spell;
 			RetCode rc;
 			long ap = 0;
 			long i;
@@ -54,7 +54,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Buf.Clear();
 
-			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+			var spellValues = EnumUtil.GetValues<Spell>();
 
 			for (i = 0; i < spellValues.Count; i++)
 			{
@@ -86,7 +86,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			i = Convert.ToInt64(Buf.Trim().ToString());
 
-			spell = Globals.Engine.GetSpells((Enums.Spell)i);
+			spell = Globals.Engine.GetSpells((Spell)i);
 
 			Debug.Assert(spell != null);
 

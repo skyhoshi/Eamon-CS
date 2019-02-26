@@ -6,7 +6,7 @@
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework;
-using RTEnums = EamonRT.Framework.Primitive.Enums;
+using EamonRT.Framework.Primitive.Enums;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game
@@ -49,7 +49,7 @@ namespace TheBeginnersCave.Game
 
 		public IntroStory()
 		{
-			StoryType = RTEnums.IntroStoryType.Beginners;
+			StoryType = IntroStoryType.Beginners;
 		}
 	}
 }

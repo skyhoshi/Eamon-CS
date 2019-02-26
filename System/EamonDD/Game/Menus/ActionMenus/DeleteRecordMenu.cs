@@ -9,9 +9,9 @@ using System.Text;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Helpers.Generic;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Extensions;
 using EamonDD.Framework.Menus.ActionMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
@@ -49,7 +49,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var character = record as ICharacter;
 
-			if (character != null && character.Status != Enums.Status.Alive && character.Status != Enums.Status.Dead)
+			if (character != null && character.Status != Status.Alive && character.Status != Status.Dead)
 			{
 				Globals.Out.Print("{0} record Status not marked as Alive or Dead.", RecordTypeName.FirstCharToUpper());
 

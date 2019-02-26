@@ -5,11 +5,11 @@
 
 using System.Diagnostics;
 using Eamon.Framework.Args;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -61,7 +61,7 @@ namespace EamonRT.Game.Commands
 				x.ArmorString = Globals.Buf.ToString().FirstCharToUpper();
 				x.SpellAbilities = Globals.GameState.Sa;
 				x.Speed = Globals.GameState.Speed;
-				x.CharmMon = Globals.Engine.GetCharismaFactor(Globals.Character.GetStats(Enums.Stat.Charisma));
+				x.CharmMon = Globals.Engine.GetCharismaFactor(Globals.Character.GetStats(Stat.Charisma));
 				x.Weight = Globals.GameState.Wt;
 			});
 
@@ -99,7 +99,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "status";
 
-			Type = Enums.CommandType.Miscellaneous;
+			Type = CommandType.Miscellaneous;
 		}
 	}
 }

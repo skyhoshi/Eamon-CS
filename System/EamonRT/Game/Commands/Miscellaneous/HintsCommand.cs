@@ -10,10 +10,10 @@ using System.Linq;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -131,7 +131,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "hints";
 
-			Type = Enums.CommandType.Miscellaneous;
+			Type = CommandType.Miscellaneous;
 		}
 	}
 }

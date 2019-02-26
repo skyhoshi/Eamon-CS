@@ -8,10 +8,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -33,7 +33,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
-			if (!CheckAttack && DobjMonster != null && DobjMonster.Friendliness != Enums.Friendliness.Enemy)
+			if (!CheckAttack && DobjMonster != null && DobjMonster.Friendliness != Friendliness.Enemy)
 			{
 				Globals.Out.Write("{0}Attack non-enemy (Y/N): ", Environment.NewLine);
 
@@ -53,7 +53,7 @@ namespace EamonRT.Game.Commands
 				CheckAttack = true;
 			}
 
-			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Blast, ShouldAllowSkillGains()))
+			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Spell.Blast, ShouldAllowSkillGains()))
 			{
 				goto Cleanup;
 			}
@@ -65,7 +65,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (DobjMonster != null && DobjMonster.Friendliness != Enums.Friendliness.Enemy)
+			if (DobjMonster != null && DobjMonster.Friendliness != Friendliness.Enemy)
 			{
 				Globals.Engine.MonsterGetsAggravated(DobjMonster);
 			}
@@ -122,7 +122,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "blast";
 
-			Type = Enums.CommandType.Interactive;
+			Type = CommandType.Interactive;
 
 			CastSpell = true;
 		}

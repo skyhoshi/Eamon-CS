@@ -5,10 +5,10 @@
 
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -42,7 +42,7 @@ namespace EamonRT.Game.Commands
 
 			if (ac != null)
 			{
-				if (ac.Type == Enums.ArtifactType.Drinkable || ac.Type == Enums.ArtifactType.Edible || ac.Type == Enums.ArtifactType.Readable || ac.GetKeyUid() == -1)
+				if (ac.Type == ArtifactType.Drinkable || ac.Type == ArtifactType.Edible || ac.Type == ArtifactType.Readable || ac.GetKeyUid() == -1)
 				{
 					PrintDontNeedTo();
 
@@ -51,7 +51,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Type == Enums.ArtifactType.DoorGate)
+				if (ac.Type == ArtifactType.DoorGate)
 				{
 					if (DobjArtifact.Seen)
 					{
@@ -136,7 +136,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "close";
 
-			Type = Enums.CommandType.Manipulation;
+			Type = CommandType.Manipulation;
 		}
 	}
 }

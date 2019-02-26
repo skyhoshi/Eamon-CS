@@ -5,11 +5,11 @@
 
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Utilities;
 using EamonRT.Framework.Combat;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.States
@@ -103,7 +103,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 				case 1:
 
-					var spellValues = EnumUtil.GetValues<Enums.Spell>();
+					var spellValues = EnumUtil.GetValues<Spell>();
 
 					foreach (var sv in spellValues)
 					{

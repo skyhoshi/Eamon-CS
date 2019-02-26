@@ -4,10 +4,10 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.States
@@ -19,7 +19,7 @@ namespace EamonRT.Game.States
 		{
 			var monster = Globals.MDB[Globals.LoopMonsterUid];
 
-			Debug.Assert(monster != null && monster.Friendliness != Enums.Friendliness.Neutral);
+			Debug.Assert(monster != null && monster.Friendliness != Friendliness.Neutral);
 
 			var room = monster.GetInRoom();
 

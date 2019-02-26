@@ -7,13 +7,13 @@ using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
 using EamonMH.Framework.Menus.ActionMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
-using Classes = Eamon.Framework.Primitive.Classes;
 using static EamonMH.Game.Plugin.PluginContext;
 
 namespace EamonMH.Game.Menus.ActionMenus
@@ -147,7 +147,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							Buf.Clear();
 
-							var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+							var weaponValues = EnumUtil.GetValues<Weapon>();
 
 							for (i = 0; i < weaponValues.Count; i++)
 							{
@@ -179,11 +179,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 							{
 								i = Convert.ToInt64(Buf.Trim().ToString());
 
-								var weapon = Globals.Engine.GetWeapons((Enums.Weapon)i);
+								var weapon = Globals.Engine.GetWeapons((Weapon)i);
 
 								Debug.Assert(weapon != null);
 
-								var cw = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+								var cw = Globals.CreateInstance<ICharacterArtifact>(x =>
 								{
 									x.Name = Globals.CloneInstance(weapon.MarcosName ?? weapon.Name).ToLower();
 									x.IsPlural = weapon.MarcosIsPlural;
@@ -396,7 +396,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 										i++;
 									}
 
-									Globals.Character.SetWeapons(i, Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+									Globals.Character.SetWeapons(i, Globals.CreateInstance<ICharacterArtifact>(x =>
 									{
 										x.Parent = Globals.Character;
 									}));
@@ -467,7 +467,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						ti = Math.Min(ap, bp) / 4;
 
-						var armor = Globals.Engine.GetArmors((Enums.Armor)(a2 * 2));
+						var armor = Globals.Engine.GetArmors((Armor)(a2 * 2));
 
 						Debug.Assert(armor != null);
 
@@ -475,7 +475,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						j = Globals.Engine.GetMaxArmorMarcosNum();
 
-						var armorValues = EnumUtil.GetValues<Enums.Armor>();
+						var armorValues = EnumUtil.GetValues<Armor>();
 
 						for (i = 0; i < armorValues.Count; i++)
 						{
@@ -630,16 +630,16 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					case MenuState.SetArmorClass:
 
-						if (Globals.Character.ArmorClass != (Enums.Armor)(a2 * 2 + sh))
+						if (Globals.Character.ArmorClass != (Armor)(a2 * 2 + sh))
 						{
-							Globals.Character.ArmorClass = (Enums.Armor)(a2 * 2 + sh);
+							Globals.Character.ArmorClass = (Armor)(a2 * 2 + sh);
 
-							Globals.Character.Armor = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+							Globals.Character.Armor = Globals.CreateInstance<ICharacterArtifact>(x =>
 							{
 								x.Parent = Globals.Character;
 							});
 
-							Globals.Character.Shield = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+							Globals.Character.Shield = Globals.CreateInstance<ICharacterArtifact>(x =>
 							{
 								x.Parent = Globals.Character;
 							});

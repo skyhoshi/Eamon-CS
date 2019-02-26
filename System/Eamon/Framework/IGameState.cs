@@ -4,7 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework
 {
@@ -91,7 +91,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="friendliness"></param>
 		/// <returns></returns>
-		long GetNBTL(Enums.Friendliness friendliness);
+		long GetNBTL(Friendliness friendliness);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -101,7 +101,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="friendliness"></param>
 		/// <returns></returns>
-		long GetDTTL(Enums.Friendliness friendliness);
+		long GetDTTL(Friendliness friendliness);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -111,7 +111,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="spell"></param>
 		/// <returns></returns>
-		long GetSa(Enums.Spell spell);
+		long GetSa(Spell spell);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -126,7 +126,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="friendliness"></param>
 		/// <param name="value"></param>
-		void SetNBTL(Enums.Friendliness friendliness, long value);
+		void SetNBTL(Friendliness friendliness, long value);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -136,7 +136,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="friendliness"></param>
 		/// <param name="value"></param>
-		void SetDTTL(Enums.Friendliness friendliness, long value);
+		void SetDTTL(Friendliness friendliness, long value);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -146,7 +146,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="spell"></param>
 		/// <param name="value"></param>
-		void SetSa(Enums.Spell spell, long value);
+		void SetSa(Spell spell, long value);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -161,7 +161,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="friendliness"></param>
 		/// <param name="value"></param>
-		void ModNBTL(Enums.Friendliness friendliness, long value);
+		void ModNBTL(Friendliness friendliness, long value);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -171,7 +171,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="friendliness"></param>
 		/// <param name="value"></param>
-		void ModDTTL(Enums.Friendliness friendliness, long value);
+		void ModDTTL(Friendliness friendliness, long value);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -181,7 +181,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="spell"></param>
 		/// <param name="value"></param>
-		void ModSa(Enums.Spell spell, long value);
+		void ModSa(Spell spell, long value);
 
 		#endregion
 	}

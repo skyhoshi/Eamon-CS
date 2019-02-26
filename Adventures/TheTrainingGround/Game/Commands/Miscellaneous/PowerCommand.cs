@@ -4,11 +4,11 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
@@ -51,7 +51,7 @@ namespace TheTrainingGround.Game.Commands
 
 				if (rl < 21 && gameState.GenderChangeCounter < 2)
 				{
-					ActorMonster.Gender = ActorMonster.EvalGender(Enums.Gender.Female, Enums.Gender.Male, Enums.Gender.Neutral);
+					ActorMonster.Gender = ActorMonster.EvalGender(Gender.Female, Gender.Male, Gender.Neutral);
 
 					Globals.Character.Gender = ActorMonster.Gender;
 
@@ -68,7 +68,7 @@ namespace TheTrainingGround.Game.Commands
 
 				if (rl < 41 && !gameState.CharismaBoosted)
 				{
-					Globals.Character.ModStats(Enums.Stat.Charisma, 2);
+					Globals.Character.ModStats(Stat.Charisma, 2);
 
 					Globals.Out.Print("You suddenly feel more {0}.", Globals.Character.EvalGender("handsome", "beautiful", "androgynous"));
 

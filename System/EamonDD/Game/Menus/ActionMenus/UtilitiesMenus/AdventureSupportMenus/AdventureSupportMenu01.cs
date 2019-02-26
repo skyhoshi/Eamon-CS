@@ -17,7 +17,7 @@ using Eamon.Framework.Automation;
 using Eamon.Game.Extensions;
 using Eamon.Game.Menus;
 using EamonDD.Framework.Menus.ActionMenus;
-using DDEnums = EamonDD.Framework.Primitive.Enums;
+using EamonDD.Framework.Primitive.Enums;
 using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
@@ -31,7 +31,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 		protected virtual bool IncludeInterface { get; set; }
 
 		/// <summary></summary>
-		protected virtual DDEnums.SupportMenuType SupportMenuType { get; set; }
+		protected virtual SupportMenuType SupportMenuType { get; set; }
 
 		/// <summary></summary>
 		protected virtual string AdventureName { get; set; }
@@ -300,7 +300,7 @@ namespace YourAdventureName.YourGameNamespaceName
 		{
 			if (!Globals.File.Exists(Globals.DevenvExePath))
 			{
-				if (SupportMenuType == DDEnums.SupportMenuType.DeleteAdventure)
+				if (SupportMenuType == SupportMenuType.DeleteAdventure)
 				{
 					Globals.Out.Print("{0}", Globals.LineSep);
 				}
@@ -319,7 +319,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 			else if (!Globals.File.Exists(Globals.Path.GetFullPath(@".\EamonVS.dll")))
 			{
-				if (SupportMenuType == DDEnums.SupportMenuType.DeleteAdventure)
+				if (SupportMenuType == SupportMenuType.DeleteAdventure)
 				{
 					Globals.Out.Print("{0}", Globals.LineSep);
 				}
@@ -338,7 +338,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 			else if (!Globals.File.Exists(Globals.Path.GetFullPath(@".\envdte.dll")))
 			{
-				if (SupportMenuType == DDEnums.SupportMenuType.DeleteAdventure)
+				if (SupportMenuType == SupportMenuType.DeleteAdventure)
 				{
 					Globals.Out.Print("{0}", Globals.LineSep);
 				}
@@ -357,7 +357,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 			else if (!Globals.File.Exists(Globals.Path.GetFullPath(Constants.EamonAdventuresSlnFile)))
 			{
-				if (SupportMenuType == DDEnums.SupportMenuType.DeleteAdventure)
+				if (SupportMenuType == SupportMenuType.DeleteAdventure)
 				{
 					Globals.Out.Print("{0}", Globals.LineSep);
 				}
@@ -382,8 +382,8 @@ namespace YourAdventureName.YourGameNamespaceName
 				Globals.Out.Print("{0}", Globals.LineSep);
 
 				Globals.Out.Print("The adventure was not {0}.", 
-					SupportMenuType == DDEnums.SupportMenuType.AddAdventure ? "created" :
-					SupportMenuType == DDEnums.SupportMenuType.DeleteAdventure ? "deleted" :
+					SupportMenuType == SupportMenuType.AddAdventure ? "created" :
+					SupportMenuType == SupportMenuType.DeleteAdventure ? "deleted" :
 					"processed");
 			}
 		}
@@ -393,7 +393,7 @@ namespace YourAdventureName.YourGameNamespaceName
 		{
 			var invalidAdventureNames = new string[] { "Adventures", "Catalog", "Characters", "Contemporary", "Fantasy", "SciFi", "Test", "Workbench", "WorkInProgress", "AdventureSupportMenu", "LoadAdventureSupportMenu", "YourAdventureName", "YourAuthorName", "YourAuthorInitials" };
 
-			if (SupportMenuType == DDEnums.SupportMenuType.AddAdventure)
+			if (SupportMenuType == SupportMenuType.AddAdventure)
 			{
 				Globals.Out.Print("You must enter a name for your new adventure (eg, The Beginner's Cave).  This should be the formal name of the adventure shown in the Main Hall's list of adventures; input should always be properly title-cased.");
 
@@ -401,23 +401,23 @@ namespace YourAdventureName.YourGameNamespaceName
 			}
 			else
 			{
-				if (SupportMenuType == DDEnums.SupportMenuType.AddClasses)
+				if (SupportMenuType == SupportMenuType.AddClasses)
 				{
 					Globals.Out.Print(@"Note:  this menu option will allow you to enter the file paths for interfaces or classes you wish to add to the adventure; the actual addition will occur after you are given a final warning.  Your working directory is System and you should enter relative file paths (eg, .\Eamon\Game\Monster.cs or .\EamonRT\Game\Combat\CombatSystem.cs).  For any classes added, the corresponding .XML textfiles (if any) will be updated appropriately.");
 				}
-				else if (SupportMenuType == DDEnums.SupportMenuType.DeleteClasses)
+				else if (SupportMenuType == SupportMenuType.DeleteClasses)
 				{
 					Globals.Out.Print(@"Note:  this menu option will allow you to enter the file paths for interfaces or classes you wish to remove from the adventure; the actual deletion will occur after you are given a final warning.  Your working directory is the adventure folder for the game you've selected and you should enter relative file paths (eg, .\Game\Monster.cs).  For any classes deleted, the corresponding .XML textfiles (if any) will be updated appropriately.");
 				}
 
-				Globals.Out.Print("You must enter the name of the adventure you wish to {0} (eg, The Beginner's Cave).  This should be the formal name of the adventure shown in the Main Hall's list of adventures; input should always be properly title-cased.", SupportMenuType == DDEnums.SupportMenuType.DeleteAdventure ? "delete" : "process");
+				Globals.Out.Print("You must enter the name of the adventure you wish to {0} (eg, The Beginner's Cave).  This should be the formal name of the adventure shown in the Main Hall's list of adventures; input should always be properly title-cased.", SupportMenuType == SupportMenuType.DeleteAdventure ? "delete" : "process");
 			}
 
 			AdventureName = string.Empty;
 
 			while (AdventureName.Length == 0)
 			{
-				Globals.Out.Write("{0}Enter the name of the {1}adventure: ", Environment.NewLine, SupportMenuType == DDEnums.SupportMenuType.AddAdventure ? "new " : "");
+				Globals.Out.Write("{0}Enter the name of the {1}adventure: ", Environment.NewLine, SupportMenuType == SupportMenuType.AddAdventure ? "new " : "");
 
 				Buf.Clear();
 
@@ -447,7 +447,7 @@ namespace YourAdventureName.YourGameNamespaceName
 				}
 			}
 
-			if (SupportMenuType == DDEnums.SupportMenuType.AddAdventure && Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
+			if (SupportMenuType == SupportMenuType.AddAdventure && Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
 			{
 				Globals.Out.Print("{0}", Globals.LineSep);
 
@@ -455,7 +455,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				GotoCleanup = true;
 			}
-			else if (SupportMenuType != DDEnums.SupportMenuType.AddAdventure && !Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
+			else if (SupportMenuType != SupportMenuType.AddAdventure && !Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
 			{
 				Globals.Out.Print("{0}", Globals.LineSep);
 
@@ -463,7 +463,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				GotoCleanup = true;
 			}
-			else if (SupportMenuType == DDEnums.SupportMenuType.AddClasses || SupportMenuType == DDEnums.SupportMenuType.DeleteClasses)
+			else if (SupportMenuType == SupportMenuType.AddClasses || SupportMenuType == SupportMenuType.DeleteClasses)
 			{
 				if (!Globals.File.Exists(Constants.AdventuresDir + @"\" + AdventureName + @"\" + AdventureName + @".csproj"))
 				{
@@ -538,7 +538,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 			var advDbTextFiles = new string[] { "ADVENTURES.XML", "FANTASY.XML", "SCIFI.XML", "CONTEMPORARY.XML", "TEST.XML", "WIP.XML" };
 
-			if (SupportMenuType == DDEnums.SupportMenuType.AddAdventure)
+			if (SupportMenuType == SupportMenuType.AddAdventure)
 			{
 				var inputDefaultValue = "Y";
 
@@ -578,7 +578,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				if (customAdvDbTextFile.Length == 0)
 				{
-					Globals.Out.Print("If you would like to {0} one or more custom adventure databases, enter those file names now (eg, HORROR.XML).  To skip this step, or if you are done, just press enter.", SupportMenuType == DDEnums.SupportMenuType.AddAdventure ? "add this adventure to" : "delete this adventure from");
+					Globals.Out.Print("If you would like to {0} one or more custom adventure databases, enter those file names now (eg, HORROR.XML).  To skip this step, or if you are done, just press enter.", SupportMenuType == SupportMenuType.AddAdventure ? "add this adventure to" : "delete this adventure from");
 				}
 
 				Globals.Out.Write("{0}Enter name of custom adventure database: ", Environment.NewLine);
@@ -637,7 +637,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 			Globals.Out.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Print("WARNING:  you are about to {0} the following classes and update any associated .XML files.  If you have any doubts, you should select 'N' and backup your Eamon CS repository before proceeding.  This action is PERMANENT!", SupportMenuType == DDEnums.SupportMenuType.DeleteClasses ? "delete" : "add");
+			Globals.Out.Print("WARNING:  you are about to {0} the following classes and update any associated .XML files.  If you have any doubts, you should select 'N' and backup your Eamon CS repository before proceeding.  This action is PERMANENT!", SupportMenuType == SupportMenuType.DeleteClasses ? "delete" : "add");
 
 			foreach (var selectedClassFile in SelectedClassFiles)
 			{
@@ -648,8 +648,8 @@ namespace YourAdventureName.YourGameNamespaceName
 
 			Globals.Out.Write("{0}Would you like to {1} these classes {2} the adventure (Y/N): ", 
 				Environment.NewLine, 
-				SupportMenuType == DDEnums.SupportMenuType.DeleteClasses ? "delete" : "add",
-				SupportMenuType == DDEnums.SupportMenuType.DeleteClasses ? "from" : "to");
+				SupportMenuType == SupportMenuType.DeleteClasses ? "delete" : "add",
+				SupportMenuType == SupportMenuType.DeleteClasses ? "from" : "to");
 
 			Buf.Clear();
 
@@ -863,7 +863,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				if (SupportMenuType == DDEnums.SupportMenuType.AddAdventure)
+				if (SupportMenuType == SupportMenuType.AddAdventure)
 				{
 					var fileset = Globals.CreateInstance<IFileset>(x =>
 					{
@@ -935,13 +935,13 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				if (Globals.File.Exists(fileName))
 				{
-					if (SupportMenuType == DDEnums.SupportMenuType.AddClasses)
+					if (SupportMenuType == SupportMenuType.AddClasses)
 					{
 						var fileText = Globals.File.ReadAllText(fileName);
 
 						Globals.File.WriteAllText(fileName, fileText.Replace("Eamon.Game." + className + ", Eamon", AdventureName + ".Game." + className + ", " + AdventureName));
 					}
-					else if (SupportMenuType == DDEnums.SupportMenuType.DeleteClasses)
+					else if (SupportMenuType == SupportMenuType.DeleteClasses)
 					{
 						var fileText = Globals.File.ReadAllText(fileName);
 
@@ -973,7 +973,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			{
 				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("The adventure was not {0}.", SupportMenuType == DDEnums.SupportMenuType.AddAdventure ? "created" : "processed");
+				Globals.Out.Print("The adventure was not {0}.", SupportMenuType == SupportMenuType.AddAdventure ? "created" : "processed");
 
 				GotoCleanup = true;
 			}
@@ -1031,10 +1031,10 @@ namespace YourAdventureName.YourGameNamespaceName
 		{
 			Buf = Globals.Buf;
 
-			SupportMenuType = this is IAddStandardAdventureMenu || this is IAddCustomAdventureMenu ? DDEnums.SupportMenuType.AddAdventure :
-									this is IAddCustomAdventureClassesMenu ? DDEnums.SupportMenuType.AddClasses :
-									this is IDeleteAdventureMenu ? DDEnums.SupportMenuType.DeleteAdventure :
-									DDEnums.SupportMenuType.DeleteClasses;
+			SupportMenuType = this is IAddStandardAdventureMenu || this is IAddCustomAdventureMenu ? SupportMenuType.AddAdventure :
+									this is IAddCustomAdventureClassesMenu ? SupportMenuType.AddClasses :
+									this is IDeleteAdventureMenu ? SupportMenuType.DeleteAdventure :
+									SupportMenuType.DeleteClasses;
 
 			EditAdventureShText = string.Format(@"#!/bin/sh{0}cd ../../../System/Bin{0}xterm -e dotnet ./EamonPM.WindowsUnix.dll -pfn YourLibraryName.dll -wd ../../Adventures/YourAdventureName -la -rge{0}", '\n');
 

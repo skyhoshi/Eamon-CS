@@ -4,10 +4,10 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.Parsing;
 using EamonRT.Game.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -165,7 +165,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		public virtual Enums.CommandType Type
+		public virtual CommandType Type
 		{
 			get
 			{

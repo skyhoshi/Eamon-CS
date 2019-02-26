@@ -5,10 +5,10 @@
 
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
@@ -108,7 +108,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			Verb = "search";
 
-			Type = Enums.CommandType.Interactive;
+			Type = CommandType.Interactive;
 		}
 	}
 }

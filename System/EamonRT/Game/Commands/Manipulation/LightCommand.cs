@@ -6,10 +6,10 @@
 using System;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -143,7 +143,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "light";
 
-			Type = Enums.CommandType.Manipulation;
+			Type = CommandType.Manipulation;
 		}
 	}
 }

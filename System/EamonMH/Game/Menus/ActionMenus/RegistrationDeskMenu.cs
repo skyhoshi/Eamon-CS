@@ -10,12 +10,12 @@ using System.Text;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Helpers;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
 using EamonMH.Framework.Menus.ActionMenus;
 using EamonMH.Framework.Menus.HierarchicalMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonMH.Game.Plugin.PluginContext;
 
 namespace EamonMH.Game.Menus.ActionMenus
@@ -86,7 +86,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 						{
 							AdventureName = fileset.Name;
 
-							Globals.Character.Status = Enums.Status.Alive;
+							Globals.Character.Status = Status.Alive;
 
 							Globals.CharactersModified = true;
 
@@ -99,7 +99,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				if (Globals.Character.Status != Enums.Status.Adventuring)
+				if (Globals.Character.Status != Status.Adventuring)
 				{
 					break;
 				}
@@ -124,8 +124,8 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Out.Write("{0}You give him your gender ({1}=Male, {2}=Female): ",
 				Environment.NewLine,
-				(long)Enums.Gender.Male,
-				(long)Enums.Gender.Female);
+				(long)Gender.Male,
+				(long)Gender.Female);
 
 			Buf.Clear();
 
@@ -133,7 +133,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-			character.Gender = (Enums.Gender)Convert.ToInt64(Buf.Trim().ToString());
+			character.Gender = (Gender)Convert.ToInt64(Buf.Trim().ToString());
 			
 			var helper = Globals.CreateInstance<ICharacterHelper>(x =>
 			{
@@ -150,9 +150,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			character.IsUidRecycled = true;
 
-			character.Status = Enums.Status.Alive;
+			character.Status = Status.Alive;
 
-			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+			var weaponValues = EnumUtil.GetValues<Weapon>();
 
 			for (var i = 0; i < weaponValues.Count; i++)
 			{
@@ -169,7 +169,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Out.Write("{0}The Irishman walks away and in walks a tall man of possibly Elvish descent.{0}{0}He studies you for a moment and says, \"Here is a booklet of instructions for you to read, and your prime attributes are--{0}", Environment.NewLine);
 
-			var statValues = EnumUtil.GetValues<Enums.Stat>();
+			var statValues = EnumUtil.GetValues<Stat>();
 
 			while (true)
 			{
@@ -190,7 +190,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 						i == statValues.Count - 1 ? string.Format("\"{0}", Environment.NewLine) : "");
 				}
 
-				if (character.GetStats(Enums.Stat.Intellect) + character.GetStats(Enums.Stat.Hardiness) + character.GetStats(Enums.Stat.Agility) < 39 || character.Stats.Sum() < 52)
+				if (character.GetStats(Stat.Intellect) + character.GetStats(Stat.Hardiness) + character.GetStats(Stat.Agility) < 39 || character.Stats.Sum() < 52)
 				{
 					Globals.Out.Print("\"You are such a poor excuse for an adventurer that we will allow you to commit suicide.\"");
 
@@ -292,8 +292,8 @@ namespace EamonMH.Game.Menus.ActionMenus
 				Globals.Out.Write("{0}You can carry weight up to ten times your hardiness, or, {1} Gronds.  (A measure of weight, one Grond = 10 Dos.){0}{0}Additionally, your hardiness tells how many points of damage you can survive.  Therefore, you can be hit with {2} 1-point blows before you die.{0}{0}You will not be told how many blows you have taken.  You will be merely told such things as--{0}{0}   \"Wow!  That one hurt!\"{0}or \"You don't feel very well.\"{0}{0}Your charisma ({3}) affects how the citizens of Eamon react to you.  You affect a monster's friendliness rating by your charisma less ten, difference times two ({4}%).{0}{0}You start off with 200 gold pieces, which you will want to spend on supplies for your first adventure.  You will get a lower price for items if your charisma is high.{0}",
 					Environment.NewLine,
 					character.GetWeightCarryableGronds(),
-					character.GetStats(Enums.Stat.Hardiness),
-					character.GetStats(Enums.Stat.Charisma),
+					character.GetStats(Stat.Hardiness),
+					character.GetStats(Stat.Charisma),
 					character.GetCharmMonsterPct());
 
 				Globals.In.KeyPress(Buf);
@@ -302,7 +302,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Globals.Out.Write("{0}After you begin to accumulate wealth, you may want to put some of your money into the bank, where it cannot be stolen.  However it is a good idea to always carry some gold with you for use in bargaining and ransom situations.{0}{0}You should also hire a Wizard to teach you some magic spells.  Your intellect ({1}) affects your ability to learn both skills and spells.  There are four spells you can learn--{0}{0}Blast: Throw a magical blast at your enemies to inflict damage.{0}Heal : Remove damage from your body.{0}Speed: Double your agility for a short time.{0}Power: This unpredictable spell is different in each adventure.{0}{0}Other types of spells may be available in various adventures, and items may have special properties.  However, these will only work in the adventure where they were found.  Thus it is best (and you have no choice but to) sell all items found in adventures except for weapons and armor.{0}",
 					Environment.NewLine,
-					character.GetStats(Enums.Stat.Intellect));
+					character.GetStats(Stat.Intellect));
 
 				Globals.In.KeyPress(Buf);
 
@@ -420,7 +420,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Globals.CharacterName = Globals.Character.Name;
 
-						if (Globals.Character.Status == Enums.Status.Alive)
+						if (Globals.Character.Status == Status.Alive)
 						{
 							Globals.Out.Print("Finally he looks up and says, \"Ah, here ye be.  Well, go and have fun in the hall.\"");
 
@@ -430,7 +430,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							goto Cleanup;
 						}
-						else if (Globals.Character.Status == Enums.Status.Adventuring)
+						else if (Globals.Character.Status == Status.Adventuring)
 						{
 							Globals.Out.Write("{0}The burly Irishman stares at you intently and says, \"If ye really be {1}, it means ye've been recalled from yer adventure with the help of a local wizard, and fer a fee.  Is this true?\"{0}{0}(Warning:  Any saved games for that adventure will be deleted!){0}",
 								Environment.NewLine,
@@ -456,7 +456,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 								RecallCharacterFromAdventure();
 
-								if (Globals.Character.Status != Enums.Status.Adventuring)
+								if (Globals.Character.Status != Status.Adventuring)
 								{
 									var ap = Globals.Engine.GetMerchantAskPrice(Constants.RecallPrice, (double)Rtio);
 
@@ -505,7 +505,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 						}
 						else
 						{
-							Debug.Assert(Globals.Character.Status == Enums.Status.Dead);
+							Debug.Assert(Globals.Character.Status == Status.Dead);
 
 							Globals.Out.Print("The burly Irishman gets a sad look in his eyes and says, \"Ye can't be {0}, {1} be dead.  Now who'r ye again?\"",
 								Globals.Character.Name,

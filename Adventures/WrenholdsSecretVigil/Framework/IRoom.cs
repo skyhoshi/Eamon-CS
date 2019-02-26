@@ -4,7 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Framework;
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Enums;
 
 namespace WrenholdsSecretVigil.Framework
 {
@@ -23,16 +23,16 @@ namespace WrenholdsSecretVigil.Framework
 		/// <summary></summary>
 		/// <param name="dir"></param>
 		/// <returns></returns>
-		bool IsDirectionEffect(Enums.Direction dir);
+		bool IsDirectionEffect(Direction dir);
 
 		/// <summary></summary>
 		/// <param name="dir"></param>
 		/// <returns></returns>
-		long GetDirectionEffectUid(Enums.Direction dir);
+		long GetDirectionEffectUid(Direction dir);
 
 		/// <summary></summary>
 		/// <param name="dir"></param>
 		/// <returns></returns>
-		IEffect GetDirectionEffect(Enums.Direction dir);
+		IEffect GetDirectionEffect(Direction dir);
 	}
 }

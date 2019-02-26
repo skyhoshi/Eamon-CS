@@ -4,8 +4,8 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
-using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Game.Primitive.Classes
 {
@@ -20,9 +20,9 @@ namespace Eamon.Game.Primitive.Classes
 
 		public virtual bool MarcosIsPlural { get; set; }
 
-		public virtual Enums.PluralType MarcosPluralType { get; set; }
+		public virtual PluralType MarcosPluralType { get; set; }
 
-		public virtual Enums.ArticleType MarcosArticleType { get; set; }
+		public virtual ArticleType MarcosArticleType { get; set; }
 
 		public virtual long MarcosPrice { get; set; }
 

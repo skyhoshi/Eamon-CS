@@ -6,12 +6,12 @@
 using System;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
 using EamonDD.Framework.Menus.ActionMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
@@ -41,7 +41,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var numDirs = Globals.Module != null ? Globals.Module.NumDirs : 6;
 
-			var directionValues = EnumUtil.GetValues<Enums.Direction>();
+			var directionValues = EnumUtil.GetValues<Direction>();
 
 			var k = Globals.Database.GetRoomsCount();
 

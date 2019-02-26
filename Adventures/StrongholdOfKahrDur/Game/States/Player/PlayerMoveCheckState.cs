@@ -6,9 +6,9 @@
 using System;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.States
@@ -161,7 +161,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 						Globals.GameState.Die = 0;
 
-						Globals.ExitType = Enums.ExitType.FinishAdventure;
+						Globals.ExitType = ExitType.FinishAdventure;
 
 						Globals.MainLoop.ShouldShutdown = true;
 					}

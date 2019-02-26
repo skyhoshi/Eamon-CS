@@ -9,10 +9,10 @@ using System.Linq;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -49,7 +49,7 @@ namespace EamonRT.Game.Commands
 				{
 					Globals.Error.Write("Error: LoadConfigs function call failed");
 
-					Globals.ExitType = Enums.ExitType.Error;
+					Globals.ExitType = ExitType.Error;
 
 					Globals.MainLoop.ShouldShutdown = false;
 
@@ -62,7 +62,7 @@ namespace EamonRT.Game.Commands
 				{
 					Globals.Error.Write("{0}Error: {1}", Environment.NewLine, Globals.Config == null ? "Globals.Config == null" : "Globals.Config.Uid <= 0");
 
-					Globals.ExitType = Enums.ExitType.Error;
+					Globals.ExitType = ExitType.Error;
 
 					Globals.MainLoop.ShouldShutdown = false;
 
@@ -93,7 +93,7 @@ namespace EamonRT.Game.Commands
 				{
 					Globals.Error.Write("Error: LoadGameDatabase function call failed");
 
-					Globals.ExitType = Enums.ExitType.Error;
+					Globals.ExitType = ExitType.Error;
 
 					Globals.MainLoop.ShouldShutdown = false;
 
@@ -104,17 +104,17 @@ namespace EamonRT.Game.Commands
 
 				Globals.Character = Globals.Database.CharacterTable.Records.FirstOrDefault();
 
-				if (Globals.Character == null || Globals.Character.Uid <= 0 || Globals.Character.Status != Enums.Status.Adventuring || string.IsNullOrWhiteSpace(Globals.Character.Name) || string.Equals(Globals.Character.Name, "NONE", StringComparison.OrdinalIgnoreCase))
+				if (Globals.Character == null || Globals.Character.Uid <= 0 || Globals.Character.Status != Status.Adventuring || string.IsNullOrWhiteSpace(Globals.Character.Name) || string.Equals(Globals.Character.Name, "NONE", StringComparison.OrdinalIgnoreCase))
 				{
 					Globals.Error.Write("{0}Error: {1}",
 						Environment.NewLine,
 						Globals.Character == null ? "Globals.Character == null" :
 						Globals.Character.Uid <= 0 ? "Globals.Character.Uid <= 0" :
-						Globals.Character.Status != Enums.Status.Adventuring ? "Globals.Character.Status != Enums.Status.Adventuring" :
+						Globals.Character.Status != Status.Adventuring ? "Globals.Character.Status != Status.Adventuring" :
 						string.IsNullOrWhiteSpace(Globals.Character.Name) ? "string.IsNullOrWhiteSpace(Globals.Character.Name)" :
 						"string.Equals(Globals.Character.Name, \"NONE\", StringComparison.OrdinalIgnoreCase)");
 
-					Globals.ExitType = Enums.ExitType.Error;
+					Globals.ExitType = ExitType.Error;
 
 					Globals.MainLoop.ShouldShutdown = false;
 
@@ -127,7 +127,7 @@ namespace EamonRT.Game.Commands
 				{
 					Globals.Error.Write("{0}Error: {1}", Environment.NewLine, Globals.Module == null ? "Globals.Module == null" : "Globals.Module.Uid <= 0");
 
-					Globals.ExitType = Enums.ExitType.Error;
+					Globals.ExitType = ExitType.Error;
 
 					Globals.MainLoop.ShouldShutdown = false;
 
@@ -140,7 +140,7 @@ namespace EamonRT.Game.Commands
 				{
 					Globals.Error.Write("{0}Error: {1}", Environment.NewLine, Globals.GameState == null ? "Globals.GameState == null" : "Globals.GameState.Uid <= 0");
 
-					Globals.ExitType = Enums.ExitType.Error;
+					Globals.ExitType = ExitType.Error;
 
 					Globals.MainLoop.ShouldShutdown = false;
 
@@ -153,7 +153,7 @@ namespace EamonRT.Game.Commands
 				{
 					Globals.Error.Write("{0}Error: room == null", Environment.NewLine);
 
-					Globals.ExitType = Enums.ExitType.Error;
+					Globals.ExitType = ExitType.Error;
 
 					Globals.MainLoop.ShouldShutdown = false;
 
@@ -187,7 +187,7 @@ namespace EamonRT.Game.Commands
 				{
 					Globals.Error.Write("Error: ValidateRecordsAfterDatabaseLoaded function call failed");
 
-					Globals.ExitType = Enums.ExitType.Error;
+					Globals.ExitType = ExitType.Error;
 
 					Globals.MainLoop.ShouldShutdown = false;
 
@@ -311,7 +311,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "restore";
 
-			Type = Enums.CommandType.Miscellaneous;
+			Type = CommandType.Miscellaneous;
 		}
 	}
 }

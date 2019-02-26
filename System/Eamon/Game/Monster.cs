@@ -8,9 +8,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
@@ -32,7 +32,7 @@ namespace Eamon.Game
 
 		public virtual bool IsListed { get; set; }
 
-		public virtual Enums.PluralType PluralType { get; set; }
+		public virtual PluralType PluralType { get; set; }
 
 		public virtual long Hardiness { get; set; }
 
@@ -57,7 +57,7 @@ namespace Eamon.Game
 
 		public virtual long Location { get; set; }
 
-		public virtual Enums.CombatCode CombatCode { get; set; }
+		public virtual CombatCode CombatCode { get; set; }
 
 		public virtual long Armor { get; set; }
 
@@ -69,15 +69,15 @@ namespace Eamon.Game
 
 		public virtual long DeadBody { get; set; }
 
-		public virtual Enums.Friendliness Friendliness { get; set; }
+		public virtual Friendliness Friendliness { get; set; }
 
-		public virtual Enums.Gender Gender { get; set; }
+		public virtual Gender Gender { get; set; }
 
 		public virtual long InitGroupCount { get; set; }
 
 		public virtual long OrigGroupCount { get; set; }
 
-		public virtual Enums.Friendliness OrigFriendliness { get; set; }
+		public virtual Friendliness OrigFriendliness { get; set; }
 
 		public virtual long DmgTaken { get; set; }
 
@@ -158,14 +158,14 @@ namespace Eamon.Game
 			{
 				buf.Append(Name);
 
-				if (buf.Length > 0 && PluralType == Enums.PluralType.YIes)
+				if (buf.Length > 0 && PluralType == PluralType.YIes)
 				{
 					buf.Length--;
 				}
 
-				buf.Append(PluralType == Enums.PluralType.None ? "" :
-						PluralType == Enums.PluralType.Es ? "es" :
-						PluralType == Enums.PluralType.YIes ? "ies" :
+				buf.Append(PluralType == PluralType.None ? "" :
+						PluralType == PluralType.Es ? "es" :
+						PluralType == PluralType.YIes ? "ies" :
 						"s");
 			}
 
@@ -176,7 +176,7 @@ namespace Eamon.Game
 			return result;
 		}
 
-		public override string GetDecoratedName(string fieldName, Enums.ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public override string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
 		{
 			StringBuilder buf01;
 			string result;
@@ -201,7 +201,7 @@ namespace Eamon.Game
 
 			switch (articleType)
 			{
-				case Enums.ArticleType.None:
+				case ArticleType.None:
 
 					if (gc > 10)
 					{
@@ -224,7 +224,7 @@ namespace Eamon.Game
 
 					break;
 
-				case Enums.ArticleType.The:
+				case ArticleType.The:
 
 					if (gc > 10)
 					{
@@ -236,7 +236,7 @@ namespace Eamon.Game
 						(
 							"{0}{1}",
 							gc > 1 ? "the " :
-							ArticleType == Enums.ArticleType.None ? "" :
+							ArticleType == ArticleType.None ? "" :
 							"the ",
 							gc > 1 ? Globals.Engine.GetStringFromNumber(gc, true, new StringBuilder(Constants.BufSize)) : ""
 						);
@@ -265,10 +265,10 @@ namespace Eamon.Game
 						buf01.Append
 						(
 							gc > 1 ? Globals.Engine.GetStringFromNumber(gc, true, new StringBuilder(Constants.BufSize)) :
-							ArticleType == Enums.ArticleType.None ? "" :
-							ArticleType == Enums.ArticleType.The ? "the " :
-							ArticleType == Enums.ArticleType.Some ? "some " :
-							ArticleType == Enums.ArticleType.An ? "an " :
+							ArticleType == ArticleType.None ? "" :
+							ArticleType == ArticleType.The ? "the " :
+							ArticleType == ArticleType.Some ? "some " :
+							ArticleType == ArticleType.An ? "an " :
 							"a "
 						);
 					}
@@ -513,7 +513,7 @@ namespace Eamon.Game
 						f += Globals.Engine.GetCharismaFactor(charisma);
 					}
 
-					var k = Enums.Friendliness.Friend;
+					var k = Friendliness.Friend;
 
 					var rl = Globals.Engine.RollDice(1, 100, 0);
 
@@ -535,7 +535,7 @@ namespace Eamon.Game
 				{
 					var f = (long)Friendliness - 100;
 
-					var k = Enums.Friendliness.Friend;
+					var k = Friendliness.Friend;
 
 					var rl = Globals.Engine.RollDice(1, 100, 0);
 
@@ -570,7 +570,7 @@ namespace Eamon.Game
 		{
 			if (character != null)
 			{
-				ResolveFriendlinessPct(character.GetStats(Enums.Stat.Charisma));
+				ResolveFriendlinessPct(character.GetStats(Stat.Charisma));
 			}
 		}
 
@@ -580,7 +580,7 @@ namespace Eamon.Game
 
 			OrigFriendliness -= 100;
 
-			OrigFriendliness = (Enums.Friendliness)((double)OrigFriendliness * (1 + (double)value / 33));       // Scaled to EDX values; originally 100
+			OrigFriendliness = (Friendliness)((double)OrigFriendliness * (1 + (double)value / 33));       // Scaled to EDX values; originally 100
 
 			if (OrigFriendliness < 0)
 			{
@@ -588,7 +588,7 @@ namespace Eamon.Game
 			}
 			else if ((long)OrigFriendliness > 100)
 			{
-				OrigFriendliness = (Enums.Friendliness)100;
+				OrigFriendliness = (Friendliness)100;
 			}
 
 			OrigFriendliness += 100;
@@ -843,7 +843,7 @@ namespace Eamon.Game
 
 			var ac = artifact != null ? artifact.GeneralWeapon : null;
 
-			return Globals.Engine.GetAttackDescString((Enums.Weapon)(ac != null ? ac.Field2 : 0), rl);
+			return Globals.Engine.GetAttackDescString((Weapon)(ac != null ? ac.Field2 : 0), rl);
 		}
 
 		public virtual string GetMissDescString(IArtifact artifact)
@@ -852,7 +852,7 @@ namespace Eamon.Game
 
 			var ac = artifact != null ? artifact.GeneralWeapon : null;
 
-			return Globals.Engine.GetMissDescString((Enums.Weapon)(ac != null ? ac.Field2 : 0), i);
+			return Globals.Engine.GetMissDescString((Weapon)(ac != null ? ac.Field2 : 0), i);
 		}
 
 		public virtual string GetArmorDescString()

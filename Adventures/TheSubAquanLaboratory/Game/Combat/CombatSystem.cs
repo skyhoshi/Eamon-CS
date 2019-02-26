@@ -4,9 +4,9 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Combat
@@ -30,7 +30,7 @@ namespace TheSubAquanLaboratory.Game.Combat
 					{
 						AttackDesc = "zap{0}";
 					}
-					else if (OfMonster.CombatCode != Enums.CombatCode.Attacks && (!((Framework.IMonster)OfMonster).IsAndroid() || OfMonster.Weapon > 0))
+					else if (OfMonster.CombatCode != CombatCode.Attacks && (!((Framework.IMonster)OfMonster).IsAndroid() || OfMonster.Weapon > 0))
 					{
 						AttackDesc = OfMonster.GetAttackDescString(OfWeapon);
 					}

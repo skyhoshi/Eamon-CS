@@ -7,10 +7,10 @@ using System;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
 using EamonDD.Framework.Menus.ActionMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
@@ -46,7 +46,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				if (EditRecord.NumDirs == 10 && editModule01.NumDirs == 6)
 				{
-					var directionValues = EnumUtil.GetValues<Enums.Direction>();
+					var directionValues = EnumUtil.GetValues<Direction>();
 
 					foreach (var room in Globals.Database.RoomTable.Records)
 					{

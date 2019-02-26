@@ -5,8 +5,8 @@
 
 using System;
 using Eamon.Framework;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
-using RTEnums = EamonRT.Framework.Primitive.Enums;
 
 namespace EamonRT.Framework.Combat
 {
@@ -50,10 +50,10 @@ namespace EamonRT.Framework.Combat
 		bool OmitFinalNewLine { get; set; }
 
 		/// <summary></summary>
-		RTEnums.AttackResult FixedResult { get; set; }
+		AttackResult FixedResult { get; set; }
 
 		/// <summary></summary>
-		RTEnums.WeaponRevealType WeaponRevealType { get; set; }
+		WeaponRevealType WeaponRevealType { get; set; }
 
 		/// <summary></summary>
 		/// <param name="numDice"></param>

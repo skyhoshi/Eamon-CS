@@ -4,8 +4,8 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using EamonRT.Framework.Parsing;
-using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace EamonRT.Framework.Commands
 {
@@ -52,7 +52,7 @@ namespace EamonRT.Framework.Commands
 		string Prep { get; set; }
 
 		/// <summary></summary>
-		Enums.CommandType Type { get; set; }
+		CommandType Type { get; set; }
 
 		/// <summary></summary>
 		bool IsNew { get; set; }

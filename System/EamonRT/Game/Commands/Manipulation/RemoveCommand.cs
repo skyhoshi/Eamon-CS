@@ -7,10 +7,10 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -225,7 +225,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "remove";
 
-			Type = Enums.CommandType.Manipulation;
+			Type = CommandType.Manipulation;
 		}
 	}
 }

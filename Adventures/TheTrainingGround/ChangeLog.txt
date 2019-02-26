@@ -5,7 +5,8 @@ ChangeLog: TheTrainingGround
 
 Date			Version			Who			Notes
 ----------------------------------------------------------------------------------------------------------------------------------
-20181102		1.5.0				MRP			Rename CharacterWeapon to CharacterArtifact
+20190225		1.5.0				MRP			Using Enums/Classes overhaul
+20181102		   				MRP			Rename CharacterWeapon to CharacterArtifact
 20180705		1.4.0				MRP			Helper/Args overhaul
 20180527							MRP			Event Handler overhaul
 20180505							MRP			ClassMappings overhaul

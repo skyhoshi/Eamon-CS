@@ -8,12 +8,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Eamon;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
 using EamonMH.Framework.Menus.ActionMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
-using Classes = Eamon.Framework.Primitive.Classes;
 using static EamonMH.Game.Plugin.PluginContext;
 
 namespace EamonMH.Game.Menus.ActionMenus
@@ -33,7 +33,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Buf.Clear();
 
-			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+			var weaponValues = EnumUtil.GetValues<Weapon>();
 
 			for (i = 0; i < weaponValues.Count; i++)
 			{
@@ -77,12 +77,12 @@ namespace EamonMH.Game.Menus.ActionMenus
 		/// <param name="numHands"></param>
 		protected virtual void UpdateCharacterWeapon(long i, long ap, string name, long type, long complexity, long dice, long sides, long numHands)
 		{
-			var cw = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+			var cw = Globals.CreateInstance<ICharacterArtifact>(x =>
 			{
 				x.Name = name;
 				x.IsPlural = false;
-				x.PluralType = Enums.PluralType.None;
-				x.ArticleType = Enums.ArticleType.None;
+				x.PluralType = PluralType.None;
+				x.ArticleType = ArticleType.None;
 				x.Field1 = complexity;
 				x.Field2 = type;
 				x.Field3 = dice;
@@ -182,11 +182,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				var j = (int)GetWeaponType();
 
-				var weaponPrice = Globals.Engine.GetWeaponPriceOrValue(weaponList[j][0], 12, (Enums.Weapon)j, 2, 8, j == (long)Enums.Weapon.Bow ? 2 : 1, true, ref imw);
+				var weaponPrice = Globals.Engine.GetWeaponPriceOrValue(weaponList[j][0], 12, (Weapon)j, 2, 8, j == (long)Weapon.Bow ? 2 : 1, true, ref imw);
 
 				ap0 = Globals.Engine.GetMerchantAskPrice(weaponPrice, (double)Rtio);
 
-				weaponPrice = Globals.Engine.GetWeaponPriceOrValue(weaponList[j][1], 24, (Enums.Weapon)j, 2, 16, j == (long)Enums.Weapon.Bow ? 2 : 1, true, ref imw);
+				weaponPrice = Globals.Engine.GetWeaponPriceOrValue(weaponList[j][1], 24, (Weapon)j, 2, 16, j == (long)Weapon.Bow ? 2 : 1, true, ref imw);
 
 				ap1 = Globals.Engine.GetMerchantAskPrice(weaponPrice, (double)Rtio);
 
@@ -219,7 +219,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 				{
 					Globals.Out.Print("\"Good choice!  A great bargain!\"");
 
-					UpdateCharacterWeapon(i, ap, Globals.CloneInstance(weaponList[j][k - 1]), j, 12 * k, 2, 8 * k, j == (long)Enums.Weapon.Bow ? 2 : 1);
+					UpdateCharacterWeapon(i, ap, Globals.CloneInstance(weaponList[j][k - 1]), j, 12 * k, 2, 8 * k, j == (long)Weapon.Bow ? 2 : 1);
 
 					goto Cleanup;
 				}
@@ -238,7 +238,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				var j = (int)GetWeaponType();
 
-				var weapon = Globals.Engine.GetWeapons((Enums.Weapon)j);
+				var weapon = Globals.Engine.GetWeapons((Weapon)j);
 
 				Debug.Assert(weapon != null);
 
@@ -336,13 +336,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 					wpnSides = 12;
 				}
 
-				var weaponPrice = Globals.Engine.GetWeaponPriceOrValue(wpnName01, wpnComplexity, (Enums.Weapon)j, wpnDice, wpnSides, j == (long)Enums.Weapon.Bow ? 2 : 1, true, ref imw);
+				var weaponPrice = Globals.Engine.GetWeaponPriceOrValue(wpnName01, wpnComplexity, (Weapon)j, wpnDice, wpnSides, j == (long)Weapon.Bow ? 2 : 1, true, ref imw);
 
 				ap = Globals.Engine.GetMerchantAskPrice(weaponPrice, (double)Rtio);
 
 				Globals.Out.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("\"I can make you a {0}H {1}D{2} {3} with complexity of {4}% called {5} for {6} gold piece{7}.  Should I proceed?\"", j == (long)Enums.Weapon.Bow ? 2 : 1, wpnDice, wpnSides, wpnName, wpnComplexity, wpnName01, ap, ap != 1 ? "s" : "");
+				Globals.Out.Print("\"I can make you a {0}H {1}D{2} {3} with complexity of {4}% called {5} for {6} gold piece{7}.  Should I proceed?\"", j == (long)Weapon.Bow ? 2 : 1, wpnDice, wpnSides, wpnName, wpnComplexity, wpnName01, ap, ap != 1 ? "s" : "");
 
 				Globals.Out.Print("{0}", Globals.LineSep);
 
@@ -367,7 +367,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 				{
 					Globals.Out.Print("Grendel works on your weapon, often calling in wizards and weapon experts.  Finally he finishes.  \"I think you will be satisfied with this.\" he says modestly.");
 
-					UpdateCharacterWeapon(i, ap, wpnName01, j, wpnComplexity, wpnDice, wpnSides, j == (long)Enums.Weapon.Bow ? 2 : 1);
+					UpdateCharacterWeapon(i, ap, wpnName01, j, wpnComplexity, wpnDice, wpnSides, j == (long)Weapon.Bow ? 2 : 1);
 
 					goto Cleanup;
 				}

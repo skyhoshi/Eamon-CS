@@ -9,11 +9,11 @@ using System.Diagnostics;
 using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Helpers;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Helpers.Generic;
 using Eamon.Game.Utilities;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game.Helpers
@@ -40,7 +40,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var direction = Globals.Engine.GetDirections((Enums.Direction)i);
+			var direction = Globals.Engine.GetDirections((Direction)i);
 
 			Debug.Assert(direction != null);
 
@@ -56,7 +56,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual string GetNameDirs(bool addToNamesList)
 		{
-			var directionValues = EnumUtil.GetValues<Enums.Direction>();
+			var directionValues = EnumUtil.GetValues<Direction>();
 
 			foreach (var dv in directionValues)
 			{
@@ -127,14 +127,14 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual bool ValidateLightLvl()
 		{
-			return Enum.IsDefined(typeof(Enums.LightLevel), Record.LightLvl);
+			return Enum.IsDefined(typeof(LightLevel), Record.LightLvl);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
 		protected virtual bool ValidateType()
 		{
-			return Enum.IsDefined(typeof(Enums.RoomType), Record.Type);
+			return Enum.IsDefined(typeof(RoomType), Record.Type);
 		}
 
 		/// <summary></summary>
@@ -186,7 +186,7 @@ namespace Eamon.Game.Helpers
 		{
 			var result = true;
 
-			var directionValues = EnumUtil.GetValues<Enums.Direction>();
+			var directionValues = EnumUtil.GetValues<Direction>();
 
 			foreach (var dv in directionValues)
 			{
@@ -211,7 +211,7 @@ namespace Eamon.Game.Helpers
 
 			var i = Index;
 
-			var dv = (Enums.Direction)i;
+			var dv = (Direction)i;
 
 			if (Globals.Engine.IsValidDirection(dv))
 			{
@@ -329,7 +329,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
-			var lightLevelValues = EnumUtil.GetValues<Enums.LightLevel>();
+			var lightLevelValues = EnumUtil.GetValues<LightLevel>();
 
 			for (var j = 0; j < lightLevelValues.Count; j++)
 			{
@@ -346,7 +346,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
-			var roomTypeValues = EnumUtil.GetValues<Enums.RoomType>();
+			var roomTypeValues = EnumUtil.GetValues<RoomType>();
 
 			for (var j = 0; j < roomTypeValues.Count; j++)
 			{
@@ -379,11 +379,11 @@ namespace Eamon.Game.Helpers
 
 			if ((EditRec && EditField) || i == 1)
 			{
-				if (FieldDesc == Enums.FieldDesc.Full)
+				if (FieldDesc == FieldDesc.Full)
 				{
 					Buf01.AppendFormat("{0}{1}{0}{0}{2}{0}", Environment.NewLine, (EditRec && EditField) ? fullDesc : fullDesc01, briefDesc);
 				}
-				else if (FieldDesc == Enums.FieldDesc.Brief)
+				else if (FieldDesc == FieldDesc.Brief)
 				{
 					Buf01.AppendPrint("{0}", briefDesc);
 				}
@@ -504,7 +504,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		protected virtual void ListDirs()
 		{
-			var directionValues = EnumUtil.GetValues<Enums.Direction>();
+			var directionValues = EnumUtil.GetValues<Direction>();
 
 			foreach (var dv in directionValues)
 			{
@@ -521,7 +521,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var dv = (Enums.Direction)i;
+			var dv = (Direction)i;
 
 			if (FullDetail && Globals.Engine.IsValidDirection(dv))
 			{
@@ -600,7 +600,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -636,7 +636,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -668,7 +668,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -693,14 +693,14 @@ namespace Eamon.Game.Helpers
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.LightLvl = (Enums.LightLevel)Convert.ToInt64(Buf.Trim().ToString());
+				Record.LightLvl = (LightLevel)Convert.ToInt64(Buf.Trim().ToString());
 
 				if (ValidateField("LightLvl"))
 				{
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -725,14 +725,14 @@ namespace Eamon.Game.Helpers
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.Type = (Enums.RoomType)Convert.ToInt64(Buf.Trim().ToString());
+				Record.Type = (RoomType)Convert.ToInt64(Buf.Trim().ToString());
 
 				if (ValidateField("Type"))
 				{
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -764,7 +764,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -773,7 +773,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		protected virtual void InputDirs()
 		{
-			var directionValues = EnumUtil.GetValues<Enums.Direction>();
+			var directionValues = EnumUtil.GetValues<Direction>();
 
 			foreach (var dv in directionValues)
 			{
@@ -788,7 +788,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var dv = (Enums.Direction)i;
+			var dv = (Direction)i;
 
 			if (Globals.Engine.IsValidDirection(dv))
 			{
@@ -824,7 +824,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-					fieldDesc = Enums.FieldDesc.Brief;
+					fieldDesc = FieldDesc.Brief;
 				}
 
 				Globals.Out.Print("{0}", Globals.LineSep);

@@ -5,10 +5,10 @@
 
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
@@ -63,7 +63,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 					Debug.Assert(newRoom != null);
 
-					adjacentRoom.SetDirs(Enums.Direction.South, 15);
+					adjacentRoom.SetDirs(Direction.South, 15);
 
 					IobjArtifact.IsListed = false;
 
@@ -88,7 +88,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			Debug.Assert(ac != null);
 
-			ac.Type = Enums.ArtifactType.Container;
+			ac.Type = ArtifactType.Container;
 
 			ac.Field1 = 0;
 
@@ -107,7 +107,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			Debug.Assert(ac != null);
 
-			ac.Type = Enums.ArtifactType.Treasure;
+			ac.Type = ArtifactType.Treasure;
 
 			ac.Field1 = 0;
 

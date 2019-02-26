@@ -3,7 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using Classes = Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Classes;
 
 namespace EamonMH.Framework
 {
@@ -102,7 +102,7 @@ namespace EamonMH.Framework
 		/// <summary></summary>
 		/// <param name="marcosNum"></param>
 		/// <returns></returns>
-		Classes.IArmor GetArmorByMarcosNum(long marcosNum);
+		IArmor GetArmorByMarcosNum(long marcosNum);
 
 		/// <summary></summary>
 		/// <param name="secondPass"></param>

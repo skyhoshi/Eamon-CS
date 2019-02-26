@@ -7,8 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game
@@ -54,7 +54,7 @@ namespace TheTempleOfNgurct.Game
 
 				var characterRoom = gameState != null && gameState.Ro > 0 ? Globals.RDB[gameState.Ro] : null;
 
-				if (characterRoom != null && characterRoom.Type == Enums.RoomType.Outdoors)
+				if (characterRoom != null && characterRoom.Type == RoomType.Outdoors)
 				{
 					result = "ground";
 				}
@@ -104,7 +104,7 @@ namespace TheTempleOfNgurct.Game
 				CreateArtifactSynonyms(synonym.Key, synonym.Value);
 			}
 
-			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible };
+			var artTypes = new ArtifactType[] { ArtifactType.Drinkable, ArtifactType.Edible };
 
 			var artUids = new long[] { 51, 62, 68 };
 
@@ -163,7 +163,7 @@ namespace TheTempleOfNgurct.Game
 
 				var characterRoom = gameState != null && gameState.Ro > 0 ? Globals.RDB[gameState.Ro] : null;
 
-				if (characterRoom != null && characterRoom.Type == Enums.RoomType.Outdoors)
+				if (characterRoom != null && characterRoom.Type == RoomType.Outdoors)
 				{
 					result = "area";
 				}
@@ -195,7 +195,7 @@ namespace TheTempleOfNgurct.Game
 		{
 			Debug.Assert(monster != null);
 
-			monster.Agility = Globals.Character.GetStats(Enums.Stat.Agility);
+			monster.Agility = Globals.Character.GetStats(Stat.Agility);
 
 			Globals.GameState.Speed = 0;
 		}
@@ -295,7 +295,7 @@ namespace TheTempleOfNgurct.Game
 
 		public Engine()
 		{
-			PoundCharPolicy = Enums.PoundCharPolicy.None;
+			PoundCharPolicy = PoundCharPolicy.None;
 		}
 	}
 }

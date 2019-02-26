@@ -3,7 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework.Args
 {
@@ -42,7 +42,7 @@ namespace Eamon.Framework.Args
 		/// <summary></summary>
 		/// <param name="spell"></param>
 		/// <returns></returns>
-		long GetSpellAbilities(Enums.Spell spell);
+		long GetSpellAbilities(Spell spell);
 
 		#endregion
 	}

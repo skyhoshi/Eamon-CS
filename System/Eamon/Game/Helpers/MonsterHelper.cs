@@ -10,12 +10,12 @@ using System.Linq;
 using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Helpers;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Helpers.Generic;
 using Eamon.Game.Utilities;
-using Classes = Eamon.Framework.Primitive.Classes;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game.Helpers
@@ -183,7 +183,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual bool ValidateArticleType()
 		{
-			return Enum.IsDefined(typeof(Enums.ArticleType), Record.ArticleType);
+			return Enum.IsDefined(typeof(ArticleType), Record.ArticleType);
 		}
 
 		/// <summary></summary>
@@ -230,7 +230,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual bool ValidateCombatCode()
 		{
-			return Enum.IsDefined(typeof(Enums.CombatCode), Record.CombatCode);
+			return Enum.IsDefined(typeof(CombatCode), Record.CombatCode);
 		}
 
 		/// <summary></summary>
@@ -265,7 +265,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual bool ValidateGender()
 		{
-			return Enum.IsDefined(typeof(Enums.Gender), Record.Gender);
+			return Enum.IsDefined(typeof(Gender), Record.Gender);
 		}
 
 		/// <summary></summary>
@@ -281,9 +281,9 @@ namespace Eamon.Game.Helpers
 		{
 			if (Record.OrigFriendliness == 0)
 			{
-				Record.OrigFriendliness = (Enums.Friendliness)((long)Record.Friendliness >= 100 && (long)Record.Friendliness <= 200 ? (long)Record.Friendliness :
-					Record.Friendliness == Enums.Friendliness.Friend ? 200 :
-					Record.Friendliness == Enums.Friendliness.Neutral ? 150 :
+				Record.OrigFriendliness = (Friendliness)((long)Record.Friendliness >= 100 && (long)Record.Friendliness <= 200 ? (long)Record.Friendliness :
+					Record.Friendliness == Friendliness.Friend ? 200 :
+					Record.Friendliness == Friendliness.Neutral ? 150 :
 					100);
 			}
 
@@ -621,11 +621,11 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = "2-8=Weak monster; 9-15=Medium monster; 16-30=Tough monster; 31-60=Exceptional monster";
 
-			if (FieldDesc == Enums.FieldDesc.Full)
+			if (FieldDesc == FieldDesc.Full)
 			{
 				Buf01.AppendFormat("{0}{1}{0}{0}{2}{0}{0}{3}{0}", Environment.NewLine, Constants.ToughDesc, fullDesc, briefDesc);
 			}
-			else if (FieldDesc == Enums.FieldDesc.Brief)
+			else if (FieldDesc == FieldDesc.Brief)
 			{
 				Buf01.AppendPrint("{0}", briefDesc);
 			}
@@ -638,7 +638,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = "5-9=Weak monster; 10-16=Medium monster; 17-24=Tough monster; 25-30=Exceptional monster";
 
-			if (FieldDesc == Enums.FieldDesc.Full)
+			if (FieldDesc == FieldDesc.Full)
 			{
 				if (EditRec && EditField)
 				{
@@ -649,7 +649,7 @@ namespace Eamon.Game.Helpers
 					Buf01.AppendFormat("{0}{1}{0}{0}{2}{0}", Environment.NewLine, fullDesc, briefDesc);
 				}
 			}
-			else if (FieldDesc == Enums.FieldDesc.Brief)
+			else if (FieldDesc == FieldDesc.Brief)
 			{
 				Buf01.AppendPrint("{0}", briefDesc);
 			}
@@ -682,7 +682,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = "80-90=Weak monster; 95-100=Medium monster; 200=Tough/Exceptional monster";
 
-			if (FieldDesc == Enums.FieldDesc.Full)
+			if (FieldDesc == FieldDesc.Full)
 			{
 				if (EditRec && EditField)
 				{
@@ -693,7 +693,7 @@ namespace Eamon.Game.Helpers
 					Buf01.AppendFormat("{0}{1}{0}{0}{2}{0}{0}{3}{0}", Environment.NewLine, Constants.CourageDesc, fullDesc, briefDesc);
 				}
 			}
-			else if (FieldDesc == Enums.FieldDesc.Brief)
+			else if (FieldDesc == FieldDesc.Brief)
 			{
 				Buf01.AppendPrint("{0}", briefDesc);
 			}
@@ -716,7 +716,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
-			var combatCodeValues = EnumUtil.GetValues<Enums.CombatCode>();
+			var combatCodeValues = EnumUtil.GetValues<CombatCode>();
 
 			for (var j = 0; j < combatCodeValues.Count; j++)
 			{
@@ -735,7 +735,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc01 = new StringBuilder(Constants.BufSize);
 
-			var armorValues = EnumUtil.GetValues<Enums.Armor>(a => ((long)a) % 2 == 0);
+			var armorValues = EnumUtil.GetValues<Armor>(a => ((long)a) % 2 == 0);
 
 			for (var j = 0; j < armorValues.Count; j++)
 			{
@@ -807,7 +807,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
-			var friendlinessValues = EnumUtil.GetValues<Enums.Friendliness>();
+			var friendlinessValues = EnumUtil.GetValues<Friendliness>();
 
 			for (j = 0; j < friendlinessValues.Count; j++)
 			{
@@ -826,7 +826,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
-			var genderValues = EnumUtil.GetValues<Enums.Gender>();
+			var genderValues = EnumUtil.GetValues<Gender>();
 
 			for (var j = 0; j < genderValues.Count; j++)
 			{
@@ -969,10 +969,10 @@ namespace Eamon.Game.Helpers
 						Environment.NewLine,
 						Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("PluralType"), null),
 						Globals.Engine.BuildValue(51, ' ', 8, (long)Record.PluralType, null,
-						Record.PluralType == Enums.PluralType.None ? "No change" :
-						Record.PluralType == Enums.PluralType.S ? "Use 's'" :
-						Record.PluralType == Enums.PluralType.Es ? "Use 'es'" :
-						Record.PluralType == Enums.PluralType.YIes ? "Use 'y' to 'ies'" :
+						Record.PluralType == PluralType.None ? "No change" :
+						Record.PluralType == PluralType.S ? "Use 's'" :
+						Record.PluralType == PluralType.Es ? "Use 'es'" :
+						Record.PluralType == PluralType.YIes ? "Use 'y' to 'ies'" :
 						Buf.ToString()));
 				}
 				else
@@ -995,10 +995,10 @@ namespace Eamon.Game.Helpers
 						Environment.NewLine,
 						Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("ArticleType"), null),
 						Globals.Engine.BuildValue(51, ' ', 8, (long)Record.ArticleType, null,
-						Record.ArticleType == Enums.ArticleType.None ? "No article" :
-						Record.ArticleType == Enums.ArticleType.A ? "Use 'a'" :
-						Record.ArticleType == Enums.ArticleType.An ? "Use 'an'" :
-						Record.ArticleType == Enums.ArticleType.Some ? "Use 'some'" :
+						Record.ArticleType == ArticleType.None ? "No article" :
+						Record.ArticleType == ArticleType.A ? "Use 'a'" :
+						Record.ArticleType == ArticleType.An ? "Use 'an'" :
+						Record.ArticleType == ArticleType.Some ? "Use 'some'" :
 						"Use 'the'"));
 				}
 				else
@@ -1116,9 +1116,9 @@ namespace Eamon.Game.Helpers
 
 				if (LookupMsg)
 				{
-					var armor = Record.Armor <= 2 ? Globals.Engine.GetArmors((Enums.Armor)(Record.Armor * 2)) :
-						Record.Armor <= 4 ? Globals.CreateInstance<Classes.IArmor>(x => { x.Name = "Splint Mail"; }) :
-						Globals.Engine.GetArmors((Enums.Armor)((Record.Armor - 2) * 2));
+					var armor = Record.Armor <= 2 ? Globals.Engine.GetArmors((Armor)(Record.Armor * 2)) :
+						Record.Armor <= 4 ? Globals.CreateInstance<IArmor>(x => { x.Name = "Splint Mail"; }) :
+						Globals.Engine.GetArmors((Armor)((Record.Armor - 2) * 2));
 
 					Globals.Out.Write("{0}{1}{2}",
 						Environment.NewLine,
@@ -1334,7 +1334,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1370,7 +1370,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1406,7 +1406,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1438,7 +1438,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1470,7 +1470,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1495,14 +1495,14 @@ namespace Eamon.Game.Helpers
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.PluralType = (Enums.PluralType)Convert.ToInt64(Buf.Trim().ToString());
+				Record.PluralType = (PluralType)Convert.ToInt64(Buf.Trim().ToString());
 
 				if (ValidateField("PluralType"))
 				{
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1527,14 +1527,14 @@ namespace Eamon.Game.Helpers
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.ArticleType = (Enums.ArticleType)Convert.ToInt64(Buf.Trim().ToString());
+				Record.ArticleType = (ArticleType)Convert.ToInt64(Buf.Trim().ToString());
 
 				if (ValidateField("ArticleType"))
 				{
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1566,7 +1566,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Record.DmgTaken = 0;
@@ -1600,7 +1600,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1632,7 +1632,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Record.OrigGroupCount = Record.GroupCount;
@@ -1680,7 +1680,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1712,7 +1712,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1753,7 +1753,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1782,7 +1782,7 @@ namespace Eamon.Game.Helpers
 
 				try
 				{
-					Record.CombatCode = (Enums.CombatCode)Convert.ToInt64(Buf.Trim().ToString());
+					Record.CombatCode = (CombatCode)Convert.ToInt64(Buf.Trim().ToString());
 				}
 				catch (Exception)
 				{
@@ -1794,7 +1794,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1826,7 +1826,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1867,7 +1867,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1899,7 +1899,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1931,7 +1931,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1963,7 +1963,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -1988,19 +1988,19 @@ namespace Eamon.Game.Helpers
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.Friendliness = (Enums.Friendliness)Convert.ToInt64(Buf.Trim().ToString());
+				Record.Friendliness = (Friendliness)Convert.ToInt64(Buf.Trim().ToString());
 
 				if (ValidateField("Friendliness"))
 				{
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
-			Record.OrigFriendliness = (Enums.Friendliness)((long)Record.Friendliness >= 100 && (long)Record.Friendliness <= 200 ? (long)Record.Friendliness :
-				Record.Friendliness == Enums.Friendliness.Friend ? 200 :
-				Record.Friendliness == Enums.Friendliness.Neutral ? 150 :
+			Record.OrigFriendliness = (Friendliness)((long)Record.Friendliness >= 100 && (long)Record.Friendliness <= 200 ? (long)Record.Friendliness :
+				Record.Friendliness == Friendliness.Friend ? 200 :
+				Record.Friendliness == Friendliness.Neutral ? 150 :
 				100);
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -2025,14 +2025,14 @@ namespace Eamon.Game.Helpers
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.Gender = (Enums.Gender)Convert.ToInt64(Buf.Trim().ToString());
+				Record.Gender = (Gender)Convert.ToInt64(Buf.Trim().ToString());
 
 				if (ValidateField("Gender"))
 				{
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -2073,7 +2073,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -2114,7 +2114,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);

@@ -8,11 +8,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.Parsing;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -72,7 +72,7 @@ namespace EamonRT.Game.Commands
 
 		public virtual string Prep { get; set; }
 
-		public virtual Enums.CommandType Type { get; set; }
+		public virtual CommandType Type { get; set; }
 
 		public virtual bool IsNew { get; set; }
 

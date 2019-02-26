@@ -5,10 +5,10 @@
 
 using System.Diagnostics;
 using System.Linq;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.States
@@ -279,7 +279,7 @@ namespace ARuncibleCargo.Game.States
 
 					gameState.Die = 0;
 
-					Globals.ExitType = Enums.ExitType.FinishAdventure;
+					Globals.ExitType = ExitType.FinishAdventure;
 
 					Globals.MainLoop.ShouldShutdown = true;
 
@@ -323,12 +323,12 @@ namespace ARuncibleCargo.Game.States
 				{
 					var effectUid = 0L;
 
-					if (amazonMonster.IsInRoom(room) && amazonMonster.Friendliness > Enums.Friendliness.Enemy)
+					if (amazonMonster.IsInRoom(room) && amazonMonster.Friendliness > Friendliness.Enemy)
 					{
 						effectUid = 124;
 					}
 
-					if (billMonster.IsInRoom(room) && billMonster.Friendliness > Enums.Friendliness.Enemy)
+					if (billMonster.IsInRoom(room) && billMonster.Friendliness > Friendliness.Enemy)
 					{
 						effectUid = 123;
 					}

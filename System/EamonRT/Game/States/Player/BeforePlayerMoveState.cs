@@ -6,9 +6,9 @@
 using System;
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.States
@@ -18,7 +18,7 @@ namespace EamonRT.Game.States
 	{
 		public const long PeAfterDestinationRoomSet = 1;
 
-		public virtual Enums.Direction Direction { get; set; }
+		public virtual Direction Direction { get; set; }
 
 		public virtual IArtifact Artifact { get; set; }
 
@@ -26,7 +26,7 @@ namespace EamonRT.Game.States
 		{
 			if (eventType == PeAfterDestinationRoomSet)
 			{
-				if (Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) > 0 && Globals.GameState.Lt > 0)
+				if (Globals.GameState.GetNBTL(Friendliness.Enemy) > 0 && Globals.GameState.Lt > 0)
 				{
 					PrintEnemiesNearby();
 
@@ -37,7 +37,7 @@ namespace EamonRT.Game.States
 
 		public override void Execute()
 		{
-			Debug.Assert(Enum.IsDefined(typeof(Enums.Direction), Direction) || Artifact != null);
+			Debug.Assert(Enum.IsDefined(typeof(Direction), Direction) || Artifact != null);
 
 			var room = Globals.RDB[Globals.GameState.Ro];
 

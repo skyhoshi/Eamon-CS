@@ -3,10 +3,10 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -126,7 +126,7 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Enums.Spell.Power, ShouldAllowSkillGains()))
+			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Spell.Power, ShouldAllowSkillGains()))
 			{
 				goto Cleanup;
 			}
@@ -154,7 +154,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "power";
 
-			Type = Enums.CommandType.Miscellaneous;
+			Type = CommandType.Miscellaneous;
 
 			CastSpell = true;
 		}

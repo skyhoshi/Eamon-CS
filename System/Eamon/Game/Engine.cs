@@ -12,11 +12,11 @@ using System.Text.RegularExpressions;
 using Eamon.Framework;
 using Eamon.Framework.Args;
 using Eamon.Framework.Helpers;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Utilities;
-using Classes = Eamon.Framework.Primitive.Classes;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
@@ -48,28 +48,28 @@ namespace Eamon.Game
 		protected virtual string[] LightLevelNames { get; set; }
 
 		/// <summary></summary>
-		protected virtual Classes.IStat[] Stats { get; set; }
+		protected virtual IStat[] Stats { get; set; }
 
 		/// <summary></summary>
-		protected virtual Classes.ISpell[] Spells { get; set; }
+		protected virtual ISpell[] Spells { get; set; }
 
 		/// <summary></summary>
-		protected virtual Classes.IWeapon[] Weapons { get; set; }
+		protected virtual IWeapon[] Weapons { get; set; }
 
 		/// <summary></summary>
-		protected virtual Classes.IArmor[] Armors { get; set; }
+		protected virtual IArmor[] Armors { get; set; }
 
 		/// <summary></summary>
-		protected virtual Classes.IDirection[] Directions { get; set; }
+		protected virtual IDirection[] Directions { get; set; }
 
 		/// <summary></summary>
-		protected virtual Classes.IArtifactType[] ArtifactTypes { get; set; }
+		protected virtual IArtifactType[] ArtifactTypes { get; set; }
 
 		/// <summary></summary>
-		protected virtual IDictionary<Tuple<Enums.Weapon, long>, string> AttackDescs { get; set; }
+		protected virtual IDictionary<Tuple<Weapon, long>, string> AttackDescs { get; set; }
 
 		/// <summary></summary>
-		protected virtual IDictionary<Tuple<Enums.Weapon, long>, string> MissDescs { get; set; }
+		protected virtual IDictionary<Tuple<Weapon, long>, string> MissDescs { get; set; }
 
 		#endregion
 
@@ -111,9 +111,9 @@ namespace Eamon.Game
 			return FieldDescNames[index];
 		}
 
-		public virtual string GetFieldDescNames(Enums.FieldDesc fieldDesc)
+		public virtual string GetFieldDescNames(FieldDesc fieldDesc)
 		{
-			return Enum.IsDefined(typeof(Enums.FieldDesc), fieldDesc) ? GetFieldDescNames((long)fieldDesc) : UnknownName;
+			return Enum.IsDefined(typeof(FieldDesc), fieldDesc) ? GetFieldDescNames((long)fieldDesc) : UnknownName;
 		}
 
 		public virtual string GetStatusNames(long index)
@@ -121,9 +121,9 @@ namespace Eamon.Game
 			return StatusNames[index];
 		}
 
-		public virtual string GetStatusNames(Enums.Status status)
+		public virtual string GetStatusNames(Status status)
 		{
-			return Enum.IsDefined(typeof(Enums.Status), status) ? GetStatusNames((long)status) : UnknownName;
+			return Enum.IsDefined(typeof(Status), status) ? GetStatusNames((long)status) : UnknownName;
 		}
 
 		public virtual string GetClothingNames(long index)
@@ -131,9 +131,9 @@ namespace Eamon.Game
 			return ClothingNames[index];
 		}
 
-		public virtual string GetClothingNames(Enums.Clothing clothing)
+		public virtual string GetClothingNames(Clothing clothing)
 		{
-			return Enum.IsDefined(typeof(Enums.Clothing), clothing) ? GetClothingNames((long)clothing) : UnknownName;
+			return Enum.IsDefined(typeof(Clothing), clothing) ? GetClothingNames((long)clothing) : UnknownName;
 		}
 
 		public virtual string GetCombatCodeDescs(long index)
@@ -141,9 +141,9 @@ namespace Eamon.Game
 			return CombatCodeDescs[index];
 		}
 
-		public virtual string GetCombatCodeDescs(Enums.CombatCode combatCode)
+		public virtual string GetCombatCodeDescs(CombatCode combatCode)
 		{
-			return Enum.IsDefined(typeof(Enums.CombatCode), combatCode) ? GetCombatCodeDescs((long)combatCode + 2) : UnknownName;
+			return Enum.IsDefined(typeof(CombatCode), combatCode) ? GetCombatCodeDescs((long)combatCode + 2) : UnknownName;
 		}
 
 		public virtual string GetLightLevelNames(long index)
@@ -151,67 +151,67 @@ namespace Eamon.Game
 			return LightLevelNames[index];
 		}
 
-		public virtual string GetLightLevelNames(Enums.LightLevel lightLevel)
+		public virtual string GetLightLevelNames(LightLevel lightLevel)
 		{
-			return Enum.IsDefined(typeof(Enums.LightLevel), lightLevel) ? GetLightLevelNames((long)lightLevel) : UnknownName;
+			return Enum.IsDefined(typeof(LightLevel), lightLevel) ? GetLightLevelNames((long)lightLevel) : UnknownName;
 		}
 
-		public virtual Classes.IStat GetStats(long index)
+		public virtual IStat GetStats(long index)
 		{
 			return Stats[index];
 		}
 
-		public virtual Classes.IStat GetStats(Enums.Stat stat)
+		public virtual IStat GetStats(Stat stat)
 		{
-			return Enum.IsDefined(typeof(Enums.Stat), stat) ? GetStats((long)stat - 1) : null;
+			return Enum.IsDefined(typeof(Stat), stat) ? GetStats((long)stat - 1) : null;
 		}
 
-		public virtual Classes.ISpell GetSpells(long index)
+		public virtual ISpell GetSpells(long index)
 		{
 			return Spells[index];
 		}
 
-		public virtual Classes.ISpell GetSpells(Enums.Spell spell)
+		public virtual ISpell GetSpells(Spell spell)
 		{
-			return Enum.IsDefined(typeof(Enums.Spell), spell) ? GetSpells((long)spell - 1) : null;
+			return Enum.IsDefined(typeof(Spell), spell) ? GetSpells((long)spell - 1) : null;
 		}
 
-		public virtual Classes.IWeapon GetWeapons(long index)
+		public virtual IWeapon GetWeapons(long index)
 		{
 			return Weapons[index];
 		}
 
-		public virtual Classes.IWeapon GetWeapons(Enums.Weapon weapon)
+		public virtual IWeapon GetWeapons(Weapon weapon)
 		{
-			return Enum.IsDefined(typeof(Enums.Weapon), weapon) ? GetWeapons((long)weapon - 1) : null;
+			return Enum.IsDefined(typeof(Weapon), weapon) ? GetWeapons((long)weapon - 1) : null;
 		}
 
-		public virtual Classes.IArmor GetArmors(long index)
+		public virtual IArmor GetArmors(long index)
 		{
 			return Armors[index];
 		}
 
-		public virtual Classes.IArmor GetArmors(Enums.Armor armor)
+		public virtual IArmor GetArmors(Armor armor)
 		{
-			return Enum.IsDefined(typeof(Enums.Armor), armor) ? GetArmors((long)armor) : null;
+			return Enum.IsDefined(typeof(Armor), armor) ? GetArmors((long)armor) : null;
 		}
 
-		public virtual Classes.IDirection GetDirections(long index)
+		public virtual IDirection GetDirections(long index)
 		{
 			return Directions[index];
 		}
 
-		public virtual Classes.IDirection GetDirections(Enums.Direction direction)
+		public virtual IDirection GetDirections(Direction direction)
 		{
-			return Enum.IsDefined(typeof(Enums.Direction), direction) ? GetDirections((long)direction - 1) : null;
+			return Enum.IsDefined(typeof(Direction), direction) ? GetDirections((long)direction - 1) : null;
 		}
 
-		public virtual Classes.IArtifactType GetArtifactTypes(long index)
+		public virtual IArtifactType GetArtifactTypes(long index)
 		{
 			return ArtifactTypes[index];
 		}
 
-		public virtual Classes.IArtifactType GetArtifactTypes(Enums.ArtifactType artifactType)
+		public virtual IArtifactType GetArtifactTypes(ArtifactType artifactType)
 		{
 			return IsValidArtifactType(artifactType) ? GetArtifactTypes((long)artifactType) : null;
 		}
@@ -226,19 +226,19 @@ namespace Eamon.Game
 			return !IsSuccess(rc);
 		}
 
-		public virtual bool IsValidPluralType(Enums.PluralType pluralType)
+		public virtual bool IsValidPluralType(PluralType pluralType)
 		{
-			return Enum.IsDefined(typeof(Enums.PluralType), pluralType) || (long)pluralType > 1000;
+			return Enum.IsDefined(typeof(PluralType), pluralType) || (long)pluralType > 1000;
 		}
 
-		public virtual bool IsValidArtifactType(Enums.ArtifactType artifactType)
+		public virtual bool IsValidArtifactType(ArtifactType artifactType)
 		{
-			return Enum.IsDefined(typeof(Enums.ArtifactType), artifactType) && artifactType != Enums.ArtifactType.None;
+			return Enum.IsDefined(typeof(ArtifactType), artifactType) && artifactType != ArtifactType.None;
 		}
 
 		public virtual bool IsValidArtifactArmor(long armor)
 		{
-			return Enum.IsDefined(typeof(Enums.Armor), armor) && (armor == (long)Enums.Armor.ClothesShield || armor % 2 == 0);
+			return Enum.IsDefined(typeof(Armor), armor) && (armor == (long)Armor.ClothesShield || armor % 2 == 0);
 		}
 
 		public virtual bool IsValidMonsterArmor(long armor)
@@ -251,17 +251,17 @@ namespace Eamon.Game
 			return courage >= 0 && courage <= 200;
 		}
 
-		public virtual bool IsValidMonsterFriendliness(Enums.Friendliness friendliness)
+		public virtual bool IsValidMonsterFriendliness(Friendliness friendliness)
 		{
-			return Enum.IsDefined(typeof(Enums.Friendliness), friendliness) || IsValidMonsterFriendlinessPct(friendliness);
+			return Enum.IsDefined(typeof(Friendliness), friendliness) || IsValidMonsterFriendlinessPct(friendliness);
 		}
 
-		public virtual bool IsValidMonsterFriendlinessPct(Enums.Friendliness friendliness)
+		public virtual bool IsValidMonsterFriendlinessPct(Friendliness friendliness)
 		{
 			return (long)friendliness >= 100 && (long)friendliness <= 200;
 		}
 
-		public virtual bool IsValidDirection(Enums.Direction dir)
+		public virtual bool IsValidDirection(Direction dir)
 		{
 			var module = GetModule();
 
@@ -315,7 +315,7 @@ namespace Eamon.Game
 			return (charisma - 10) * 2;
 		}
 
-		public virtual long GetPluralTypeEffectUid(Enums.PluralType pluralType)
+		public virtual long GetPluralTypeEffectUid(PluralType pluralType)
 		{
 			return (long)pluralType > 1000 ? (long)pluralType - 1000 : 0;
 		}
@@ -377,7 +377,7 @@ namespace Eamon.Game
 			return f;
 		}
 
-		public virtual long GetMonsterFriendlinessPct(Enums.Friendliness friendliness)
+		public virtual long GetMonsterFriendlinessPct(Friendliness friendliness)
 		{
 			return (long)friendliness - 100;
 		}
@@ -403,7 +403,7 @@ namespace Eamon.Game
 
 			var c2 = charisma + j;
 
-			var stat = GetStats(Enums.Stat.Charisma);
+			var stat = GetStats(Stat.Charisma);
 
 			Debug.Assert(stat != null);
 
@@ -421,7 +421,7 @@ namespace Eamon.Game
 
 		public virtual double GetMerchantRtio(long charisma)
 		{
-			var stat = GetStats(Enums.Stat.Charisma);
+			var stat = GetStats(Stat.Charisma);
 
 			Debug.Assert(stat != null);
 
@@ -557,9 +557,9 @@ namespace Eamon.Game
 			return '\0';
 		}
 
-		public virtual Enums.Direction GetDirection(string printedName)
+		public virtual Direction GetDirection(string printedName)
 		{
-			Enums.Direction result = 0;
+			Direction result = 0;
 
 			Debug.Assert(!string.IsNullOrWhiteSpace(printedName));
 
@@ -567,7 +567,7 @@ namespace Eamon.Game
 
 			var numDirs = module != null ? module.NumDirs : 6;
 
-			var directionValues = EnumUtil.GetValues<Enums.Direction>();
+			var directionValues = EnumUtil.GetValues<Direction>();
 
 			for (var i = 0; i < numDirs; i++)
 			{
@@ -610,24 +610,24 @@ namespace Eamon.Game
 			return Globals?.Database?.ModuleTable.Records.FirstOrDefault();
 		}
 
-		public virtual T EvalFriendliness<T>(Enums.Friendliness friendliness, T enemyValue, T neutralValue, T friendValue)
+		public virtual T EvalFriendliness<T>(Friendliness friendliness, T enemyValue, T neutralValue, T friendValue)
 		{
-			return friendliness == Enums.Friendliness.Enemy ? enemyValue : friendliness == Enums.Friendliness.Neutral ? neutralValue : friendValue;
+			return friendliness == Friendliness.Enemy ? enemyValue : friendliness == Friendliness.Neutral ? neutralValue : friendValue;
 		}
 
-		public virtual T EvalGender<T>(Enums.Gender gender, T maleValue, T femaleValue, T neutralValue)
+		public virtual T EvalGender<T>(Gender gender, T maleValue, T femaleValue, T neutralValue)
 		{
-			return gender == Enums.Gender.Male ? maleValue : gender == Enums.Gender.Female ? femaleValue : neutralValue;
+			return gender == Gender.Male ? maleValue : gender == Gender.Female ? femaleValue : neutralValue;
 		}
 
-		public virtual T EvalRoomType<T>(Enums.RoomType roomType, T indoorsValue, T outdoorsValue)
+		public virtual T EvalRoomType<T>(RoomType roomType, T indoorsValue, T outdoorsValue)
 		{
-			return roomType == Enums.RoomType.Indoors ? indoorsValue : outdoorsValue;
+			return roomType == RoomType.Indoors ? indoorsValue : outdoorsValue;
 		}
 
-		public virtual T EvalLightLevel<T>(Enums.LightLevel lightLevel, T darkValue, T lightValue)
+		public virtual T EvalLightLevel<T>(LightLevel lightLevel, T darkValue, T lightValue)
 		{
-			return lightLevel == Enums.LightLevel.Dark ? darkValue : lightValue;
+			return lightLevel == LightLevel.Dark ? darkValue : lightValue;
 		}
 
 		public virtual T EvalPlural<T>(bool isPlural, T singularValue, T pluralValue)
@@ -1011,20 +1011,20 @@ namespace Eamon.Game
 			return "ZAP!  Direct hit!";
 		}
 		
-		public virtual string GetAttackDescString(Enums.Weapon weapon, long roll)
+		public virtual string GetAttackDescString(Weapon weapon, long roll)
 		{
 			string result = null;
 
-			AttackDescs.TryGetValue(new Tuple<Enums.Weapon, long>(weapon, roll), out result);
+			AttackDescs.TryGetValue(new Tuple<Weapon, long>(weapon, roll), out result);
 
 			return result ?? "attack{0}";
 		}
 
-		public virtual string GetMissDescString(Enums.Weapon weapon, long roll)
+		public virtual string GetMissDescString(Weapon weapon, long roll)
 		{
 			string result = null;
 
-			MissDescs.TryGetValue(new Tuple<Enums.Weapon, long>(weapon, roll), out result);
+			MissDescs.TryGetValue(new Tuple<Weapon, long>(weapon, roll), out result);
 
 			return result ?? "Missed";
 		}
@@ -1184,7 +1184,7 @@ namespace Eamon.Game
 			}
 		}
 
-		public virtual void TruncatePluralTypeEffectDesc(Enums.PluralType pluralType, long maxSize)
+		public virtual void TruncatePluralTypeEffectDesc(PluralType pluralType, long maxSize)
 		{
 			if (maxSize < 0)
 			{
@@ -1489,7 +1489,7 @@ namespace Eamon.Game
 			return rc;
 		}
 
-		public virtual RetCode GetRecordNameList(IList<IGameBase> records, Enums.ArticleType articleType, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public virtual RetCode GetRecordNameList(IList<IGameBase> records, ArticleType articleType, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
 		{
 			StringBuilder buf01;
 			RetCode rc;
@@ -1517,7 +1517,7 @@ namespace Eamon.Game
 					x.GetDecoratedName
 					(
 						"Name",
-						articleType == Enums.ArticleType.None || articleType == Enums.ArticleType.The ? articleType : x.ArticleType,
+						articleType == ArticleType.None || articleType == ArticleType.The ? articleType : x.ArticleType,
 						false,
 						showCharOwned,
 						showStateDesc,
@@ -1600,7 +1600,7 @@ namespace Eamon.Game
 
 					Debug.Assert(ac != null);
 
-					var weapon = GetWeapons((Enums.Weapon)ac.Field2);
+					var weapon = GetWeapons((Weapon)ac.Field2);
 
 					Debug.Assert(weapon != null);
 
@@ -1830,7 +1830,7 @@ namespace Eamon.Game
 			return ResolveUidMacros(str, buf, resolveFuncs, recurse, ref invalidUid);
 		}
 
-		public virtual double GetWeaponPriceOrValue(string name, long complexity, Enums.Weapon type, long dice, long sides, long numHands, bool calcPrice, ref bool isMarcosWeapon)
+		public virtual double GetWeaponPriceOrValue(string name, long complexity, Weapon type, long dice, long sides, long numHands, bool calcPrice, ref bool isMarcosWeapon)
 		{
 			double wp;
 
@@ -1843,7 +1843,7 @@ namespace Eamon.Game
 				name = name.Trim().TrimEnd('#');
 			}
 
-			if (string.IsNullOrWhiteSpace(name) || !Enum.IsDefined(typeof(Enums.Weapon), type) || dice < 1 || sides < 1)
+			if (string.IsNullOrWhiteSpace(name) || !Enum.IsDefined(typeof(Weapon), type) || dice < 1 || sides < 1)
 			{
 				// PrintError
 
@@ -1915,14 +1915,14 @@ namespace Eamon.Game
 			return wp;
 		}
 
-		public virtual double GetWeaponPriceOrValue(Classes.ICharacterArtifact weapon, bool calcPrice, ref bool isMarcosWeapon)
+		public virtual double GetWeaponPriceOrValue(ICharacterArtifact weapon, bool calcPrice, ref bool isMarcosWeapon)
 		{
 			Debug.Assert(weapon != null);
 
-			return GetWeaponPriceOrValue(weapon.Name, weapon.Field1, (Enums.Weapon)weapon.Field2, weapon.Field3, weapon.Field4, weapon.Field5, calcPrice, ref isMarcosWeapon);
+			return GetWeaponPriceOrValue(weapon.Name, weapon.Field1, (Weapon)weapon.Field2, weapon.Field3, weapon.Field4, weapon.Field5, calcPrice, ref isMarcosWeapon);
 		}
 
-		public virtual double GetArmorPriceOrValue(Enums.Armor armor, bool calcPrice, ref bool isMarcosArmor)
+		public virtual double GetArmorPriceOrValue(Armor armor, bool calcPrice, ref bool isMarcosArmor)
 		{
 			double ap;
 
@@ -1930,7 +1930,7 @@ namespace Eamon.Game
 
 			isMarcosArmor = false;
 
-			if (!Enum.IsDefined(typeof(Enums.Armor), armor))
+			if (!Enum.IsDefined(typeof(Armor), armor))
 			{
 				// PrintError
 
@@ -1941,7 +1941,7 @@ namespace Eamon.Game
 
 			if (armor01 > 0)
 			{
-				var armor02 = GetArmors((Enums.Armor)armor01);
+				var armor02 = GetArmors((Armor)armor01);
 
 				Debug.Assert(armor02 != null);
 
@@ -1962,11 +1962,11 @@ namespace Eamon.Game
 				{
 					if (calcPrice)
 					{
-						armor02 = GetArmors(Enums.Armor.PlateMail);
+						armor02 = GetArmors(Armor.PlateMail);
 
 						Debug.Assert(armor02 != null);
 
-						ap = armor02.MarcosPrice + (((armor01 - (long)Enums.Armor.PlateMail) / 2) * 1000);
+						ap = armor02.MarcosPrice + (((armor01 - (long)Armor.PlateMail) / 2) * 1000);
 					}
 					else
 					{
@@ -1980,36 +1980,36 @@ namespace Eamon.Game
 			return ap;
 		}
 
-		public virtual void AppendFieldDesc(Enums.FieldDesc fieldDesc, StringBuilder buf, StringBuilder fullDesc, StringBuilder briefDesc)
+		public virtual void AppendFieldDesc(FieldDesc fieldDesc, StringBuilder buf, StringBuilder fullDesc, StringBuilder briefDesc)
 		{
 			AppendFieldDesc(fieldDesc, buf, fullDesc != null ? fullDesc.ToString() : null, briefDesc != null ? briefDesc.ToString() : null);
 		}
 
-		public virtual void AppendFieldDesc(Enums.FieldDesc fieldDesc, StringBuilder buf, string fullDesc, string briefDesc)
+		public virtual void AppendFieldDesc(FieldDesc fieldDesc, StringBuilder buf, string fullDesc, string briefDesc)
 		{
 			Debug.Assert(buf != null && fullDesc != null);
 
 			if (briefDesc != null)
 			{
-				if (fieldDesc == Enums.FieldDesc.Full)
+				if (fieldDesc == FieldDesc.Full)
 				{
 					buf.AppendFormat("{0}{1}{0}{0}{2}{0}", Environment.NewLine, fullDesc, briefDesc);
 				}
-				else if (fieldDesc == Enums.FieldDesc.Brief)
+				else if (fieldDesc == FieldDesc.Brief)
 				{
 					buf.AppendPrint("{0}", briefDesc);
 				}
 			}
 			else
 			{
-				if (fieldDesc == Enums.FieldDesc.Full)
+				if (fieldDesc == FieldDesc.Full)
 				{
 					buf.AppendPrint("{0}", fullDesc);
 				}
 			}
 		}
 
-		public virtual void CopyCharacterArtifactFields(Classes.ICharacterArtifact destCa, Classes.ICharacterArtifact sourceCa)
+		public virtual void CopyCharacterArtifactFields(ICharacterArtifact destCa, ICharacterArtifact sourceCa)
 		{
 			Debug.Assert(destCa != null);
 
@@ -2042,7 +2042,7 @@ namespace Eamon.Game
 			destCa.Field5 = sourceCa.Field5;
 		}
 
-		public virtual void CopyArtifactCategoryFields(Classes.IArtifactCategory destAc, Classes.IArtifactCategory sourceAc)
+		public virtual void CopyArtifactCategoryFields(IArtifactCategory destAc, IArtifactCategory sourceAc)
 		{
 			Debug.Assert(destAc != null);
 
@@ -2195,7 +2195,7 @@ namespace Eamon.Game
 
 			if (artifact.GeneralWeapon != null)
 			{
-				var ac = artifact.GetArtifactCategory(convertToGold ? Enums.ArtifactType.Gold : Enums.ArtifactType.Treasure);
+				var ac = artifact.GetArtifactCategory(convertToGold ? ArtifactType.Gold : ArtifactType.Treasure);
 
 				if (ac == null)
 				{
@@ -2203,7 +2203,7 @@ namespace Eamon.Game
 
 					Debug.Assert(ac != null);
 
-					ac.Type = convertToGold ? Enums.ArtifactType.Gold : Enums.ArtifactType.Treasure;
+					ac.Type = convertToGold ? ArtifactType.Gold : ArtifactType.Treasure;
 
 					ac.Field1 = 0;
 
@@ -2304,9 +2304,9 @@ namespace Eamon.Game
 				"Light"
 			};
 
-			Stats = new Classes.IStat[]
+			Stats = new IStat[]
 			{
-				Globals.CreateInstance<Classes.IStat>(x =>
+				Globals.CreateInstance<IStat>(x =>
 				{
 					x.Name = "Intellect";
 					x.Abbr = "IN";
@@ -2314,7 +2314,7 @@ namespace Eamon.Game
 					x.MinValue = 1;
 					x.MaxValue = 24;
 				}),
-				Globals.CreateInstance<Classes.IStat>(x =>
+				Globals.CreateInstance<IStat>(x =>
 				{
 					x.Name = "Hardiness";
 					x.Abbr = "HD";
@@ -2322,7 +2322,7 @@ namespace Eamon.Game
 					x.MinValue = 1;
 					x.MaxValue = 300;
 				}),
-				Globals.CreateInstance<Classes.IStat>(x =>
+				Globals.CreateInstance<IStat>(x =>
 				{
 					x.Name = "Agility";
 					x.Abbr = "AG";
@@ -2330,7 +2330,7 @@ namespace Eamon.Game
 					x.MinValue = 1;
 					x.MaxValue = 30;
 				}),
-				Globals.CreateInstance<Classes.IStat>(x =>
+				Globals.CreateInstance<IStat>(x =>
 				{
 					x.Name = "Charisma";
 					x.Abbr = "CH";
@@ -2340,9 +2340,9 @@ namespace Eamon.Game
 				})
 			};
 
-			Spells = new Classes.ISpell[]
+			Spells = new ISpell[]
 			{
-				Globals.CreateInstance<Classes.ISpell>(x =>
+				Globals.CreateInstance<ISpell>(x =>
 				{
 					x.Name = "Blast";
 					x.HokasName = null;
@@ -2350,7 +2350,7 @@ namespace Eamon.Game
 					x.MinValue = 0;
 					x.MaxValue = 500;
 				}),
-				Globals.CreateInstance<Classes.ISpell>(x =>
+				Globals.CreateInstance<ISpell>(x =>
 				{
 					x.Name = "Heal";
 					x.HokasName = null;
@@ -2358,7 +2358,7 @@ namespace Eamon.Game
 					x.MinValue = 0;
 					x.MaxValue = 500;
 				}),
-				Globals.CreateInstance<Classes.ISpell>(x =>
+				Globals.CreateInstance<ISpell>(x =>
 				{
 					x.Name = "Speed";
 					x.HokasName = null;
@@ -2366,7 +2366,7 @@ namespace Eamon.Game
 					x.MinValue = 0;
 					x.MaxValue = 500;
 				}),
-				Globals.CreateInstance<Classes.ISpell>(x =>
+				Globals.CreateInstance<ISpell>(x =>
 				{
 					x.Name = "Power";
 					x.HokasName = null;
@@ -2376,16 +2376,16 @@ namespace Eamon.Game
 				})
 			};
 
-			Weapons = new Classes.IWeapon[]
+			Weapons = new IWeapon[]
 			{
-				Globals.CreateInstance<Classes.IWeapon>(x =>
+				Globals.CreateInstance<IWeapon>(x =>
 				{
 					x.Name = "Axe";
 					x.EmptyVal = "5";
 					x.MarcosName = null;
 					x.MarcosIsPlural = false;
-					x.MarcosPluralType = Enums.PluralType.S;
-					x.MarcosArticleType = Enums.ArticleType.An;
+					x.MarcosPluralType = PluralType.S;
+					x.MarcosArticleType = ArticleType.An;
 					x.MarcosPrice = Constants.AxePrice;
 					x.MarcosDice = 1;
 					x.MarcosSides = 6;
@@ -2393,14 +2393,14 @@ namespace Eamon.Game
 					x.MinValue = -50;
 					x.MaxValue = 122;
 				}),
-				Globals.CreateInstance<Classes.IWeapon>(x =>
+				Globals.CreateInstance<IWeapon>(x =>
 				{
 					x.Name = "Bow";
 					x.EmptyVal = "-10";
 					x.MarcosName = null;
 					x.MarcosIsPlural = false;
-					x.MarcosPluralType = Enums.PluralType.S;
-					x.MarcosArticleType = Enums.ArticleType.A;
+					x.MarcosPluralType = PluralType.S;
+					x.MarcosArticleType = ArticleType.A;
 					x.MarcosPrice = Constants.BowPrice;
 					x.MarcosDice = 1;
 					x.MarcosSides = 6;
@@ -2408,14 +2408,14 @@ namespace Eamon.Game
 					x.MinValue = -50;
 					x.MaxValue = 122;
 				}),
-				Globals.CreateInstance<Classes.IWeapon>(x =>
+				Globals.CreateInstance<IWeapon>(x =>
 				{
 					x.Name = "Club";
 					x.EmptyVal = "20";
 					x.MarcosName = "Mace";
 					x.MarcosIsPlural = false;
-					x.MarcosPluralType = Enums.PluralType.S;
-					x.MarcosArticleType = Enums.ArticleType.A;
+					x.MarcosPluralType = PluralType.S;
+					x.MarcosArticleType = ArticleType.A;
 					x.MarcosPrice = Constants.MacePrice;
 					x.MarcosDice = 1;
 					x.MarcosSides = 4;
@@ -2423,14 +2423,14 @@ namespace Eamon.Game
 					x.MinValue = -50;
 					x.MaxValue = 122;
 				}),
-				Globals.CreateInstance<Classes.IWeapon>(x =>
+				Globals.CreateInstance<IWeapon>(x =>
 				{
 					x.Name = "Spear";
 					x.EmptyVal = "10";
 					x.MarcosName = null;
 					x.MarcosIsPlural = false;
-					x.MarcosPluralType = Enums.PluralType.S;
-					x.MarcosArticleType = Enums.ArticleType.A;
+					x.MarcosPluralType = PluralType.S;
+					x.MarcosArticleType = ArticleType.A;
 					x.MarcosPrice = Constants.SpearPrice;
 					x.MarcosDice = 1;
 					x.MarcosSides = 5;
@@ -2438,14 +2438,14 @@ namespace Eamon.Game
 					x.MinValue = -50;
 					x.MaxValue = 122;
 				}),
-				Globals.CreateInstance<Classes.IWeapon>(x =>
+				Globals.CreateInstance<IWeapon>(x =>
 				{
 					x.Name = "Sword";
 					x.EmptyVal = "0";
 					x.MarcosName = null;
 					x.MarcosIsPlural = false;
-					x.MarcosPluralType = Enums.PluralType.S;
-					x.MarcosArticleType = Enums.ArticleType.A;
+					x.MarcosPluralType = PluralType.S;
+					x.MarcosArticleType = ArticleType.A;
 					x.MarcosPrice = Constants.SwordPrice;
 					x.MarcosDice = 1;
 					x.MarcosSides = 8;
@@ -2455,9 +2455,9 @@ namespace Eamon.Game
 				})
 			};
 
-			Armors = new Classes.IArmor[]
+			Armors = new IArmor[]
 			{
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Skin/Clothes";
 					x.MarcosName = null;
@@ -2465,7 +2465,7 @@ namespace Eamon.Game
 					x.MarcosNum = 0;
 					x.ArtifactValue = 0;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Clothes & Shield";
 					x.MarcosName = null;
@@ -2473,7 +2473,7 @@ namespace Eamon.Game
 					x.MarcosNum = 0;
 					x.ArtifactValue = 0;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Leather";
 					x.MarcosName = "Leather Armor";
@@ -2481,7 +2481,7 @@ namespace Eamon.Game
 					x.MarcosNum = 1;
 					x.ArtifactValue = 100;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Leather & Shield";
 					x.MarcosName = null;
@@ -2489,7 +2489,7 @@ namespace Eamon.Game
 					x.MarcosNum = 0;
 					x.ArtifactValue = 0;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Chain Mail";
 					x.MarcosName = null;
@@ -2497,7 +2497,7 @@ namespace Eamon.Game
 					x.MarcosNum = 2;
 					x.ArtifactValue = 200;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Chain Mail & Shield";
 					x.MarcosName = null;
@@ -2505,7 +2505,7 @@ namespace Eamon.Game
 					x.MarcosNum = 0;
 					x.ArtifactValue = 0;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Plate Mail";
 					x.MarcosName = null;
@@ -2513,7 +2513,7 @@ namespace Eamon.Game
 					x.MarcosNum = 3;
 					x.ArtifactValue = 350;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Plate Mail & Shield";
 					x.MarcosName = null;
@@ -2521,7 +2521,7 @@ namespace Eamon.Game
 					x.MarcosNum = 0;
 					x.ArtifactValue = 0;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Magic/Exotic";
 					x.MarcosName = null;
@@ -2529,7 +2529,7 @@ namespace Eamon.Game
 					x.MarcosNum = 0;
 					x.ArtifactValue = 500;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Magic/Exotic & Shield";
 					x.MarcosName = null;
@@ -2537,7 +2537,7 @@ namespace Eamon.Game
 					x.MarcosNum = 0;
 					x.ArtifactValue = 0;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Magic/Exotic";
 					x.MarcosName = null;
@@ -2545,7 +2545,7 @@ namespace Eamon.Game
 					x.MarcosNum = 0;
 					x.ArtifactValue = 650;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Magic/Exotic & Shield";
 					x.MarcosName = null;
@@ -2553,7 +2553,7 @@ namespace Eamon.Game
 					x.MarcosNum = 0;
 					x.ArtifactValue = 0;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Magic/Exotic";
 					x.MarcosName = null;
@@ -2561,7 +2561,7 @@ namespace Eamon.Game
 					x.MarcosNum = 0;
 					x.ArtifactValue = 800;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Magic/Exotic & Shield";
 					x.MarcosName = null;
@@ -2569,7 +2569,7 @@ namespace Eamon.Game
 					x.MarcosNum = 0;
 					x.ArtifactValue = 0;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Magic/Exotic";
 					x.MarcosName = null;
@@ -2577,7 +2577,7 @@ namespace Eamon.Game
 					x.MarcosNum = 0;
 					x.ArtifactValue = 950;
 				}),
-				Globals.CreateInstance<Classes.IArmor>(x =>
+				Globals.CreateInstance<IArmor>(x =>
 				{
 					x.Name = "Magic/Exotic & Shield";
 					x.MarcosName = null;
@@ -2587,63 +2587,63 @@ namespace Eamon.Game
 				})
 			};
 
-			Directions = new Classes.IDirection[]
+			Directions = new IDirection[]
 			{
-				Globals.CreateInstance<Classes.IDirection>(x =>
+				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "North";
 					x.PrintedName = "North";
 					x.Abbr = "N";
 				}),
-				Globals.CreateInstance<Classes.IDirection>(x =>
+				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "South";
 					x.PrintedName = "South";
 					x.Abbr = "S";
 				}),
-				Globals.CreateInstance<Classes.IDirection>(x =>
+				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "East";
 					x.PrintedName = "East";
 					x.Abbr = "E";
 				}),
-				Globals.CreateInstance<Classes.IDirection>(x =>
+				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "West";
 					x.PrintedName = "West";
 					x.Abbr = "W";
 				}),
-				Globals.CreateInstance<Classes.IDirection>(x =>
+				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Up";
 					x.PrintedName = "Up";
 					x.Abbr = "U";
 				}),
-				Globals.CreateInstance<Classes.IDirection>(x =>
+				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Down";
 					x.PrintedName = "Down";
 					x.Abbr = "D";
 				}),
-				Globals.CreateInstance<Classes.IDirection>(x =>
+				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Northeast";
 					x.PrintedName = "NE";
 					x.Abbr = "NE";
 				}),
-				Globals.CreateInstance<Classes.IDirection>(x =>
+				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Northwest";
 					x.PrintedName = "NW";
 					x.Abbr = "NW";
 				}),
-				Globals.CreateInstance<Classes.IDirection>(x =>
+				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Southeast";
 					x.PrintedName = "SE";
 					x.Abbr = "SE";
 				}),
-				Globals.CreateInstance<Classes.IDirection>(x =>
+				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Southwest";
 					x.PrintedName = "SW";
@@ -2651,9 +2651,9 @@ namespace Eamon.Game
 				})
 			};
 
-			ArtifactTypes = new Classes.IArtifactType[]
+			ArtifactTypes = new IArtifactType[]
 			{
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "Gold";
 					x.WeightEmptyVal = "15";
@@ -2669,7 +2669,7 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "Treasure";
 					x.WeightEmptyVal = "15";
@@ -2685,7 +2685,7 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "Weapon";
 					x.WeightEmptyVal = "25";
@@ -2701,7 +2701,7 @@ namespace Eamon.Game
 					x.Field5Name = "Number Of Hands";
 					x.Field5EmptyVal = "1";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "Magic Weapon";
 					x.WeightEmptyVal = "25";
@@ -2717,7 +2717,7 @@ namespace Eamon.Game
 					x.Field5Name = "Number Of Hands";
 					x.Field5EmptyVal = "1";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "Container";
 					x.WeightEmptyVal = "15";
@@ -2733,7 +2733,7 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "Light Source";
 					x.WeightEmptyVal = "10";
@@ -2749,7 +2749,7 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "Drinkable";
 					x.WeightEmptyVal = "10";
@@ -2765,7 +2765,7 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "Readable";
 					x.WeightEmptyVal = "15";
@@ -2781,7 +2781,7 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "Door/Gate";
 					x.WeightEmptyVal = "-999";
@@ -2797,7 +2797,7 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "Edible";
 					x.WeightEmptyVal = "10";
@@ -2813,7 +2813,7 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "Bound Monster";
 					x.WeightEmptyVal = "999";
@@ -2829,7 +2829,7 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "Wearable";
 					x.WeightEmptyVal = "15";
@@ -2845,7 +2845,7 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "Disguised Monster";
 					x.WeightEmptyVal = "15";
@@ -2861,7 +2861,7 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "Dead Body";
 					x.WeightEmptyVal = "150";
@@ -2877,7 +2877,7 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "User Defined #1";
 					x.WeightEmptyVal = "15";
@@ -2893,7 +2893,7 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "User Defined #2";
 					x.WeightEmptyVal = "15";
@@ -2909,7 +2909,7 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				}),
-				Globals.CreateInstance<Classes.IArtifactType>(x =>
+				Globals.CreateInstance<IArtifactType>(x =>
 				{
 					x.Name = "User Defined #3";
 					x.WeightEmptyVal = "15";
@@ -2927,45 +2927,45 @@ namespace Eamon.Game
 				})
 			};
 
-			AttackDescs = new Dictionary<Tuple<Enums.Weapon, long>, string>()
+			AttackDescs = new Dictionary<Tuple<Weapon, long>, string>()
 			{
-				{ new Tuple<Enums.Weapon, long>(0, 1), "lunge{0} at" },
-				{ new Tuple<Enums.Weapon, long>(0, 2), "tear{0} at" },
-				{ new Tuple<Enums.Weapon, long>(0, 3), "claw{0} at" },
-				{ new Tuple<Enums.Weapon, long>(0, 4), "charge{0} at" },
-				{ new Tuple<Enums.Weapon, long>(0, 5), "punche{0} at" },
-				{ new Tuple<Enums.Weapon, long>(0, 6), "kick{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Axe, 1), "swing{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Axe, 2), "chop{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Axe, 3), "swing{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Bow, 1), "shoot{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Bow, 2), "shoot{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Bow, 3), "shoot{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Club, 1), "swing{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Club, 2), "swing{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Club, 3), "swing{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Spear, 1), "stab{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Spear, 2), "lunge{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Spear, 3), "jab{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Sword, 1), "swing{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Sword, 2), "chop{0} at" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Sword, 3), "stab{0} at" }
+				{ new Tuple<Weapon, long>(0, 1), "lunge{0} at" },
+				{ new Tuple<Weapon, long>(0, 2), "tear{0} at" },
+				{ new Tuple<Weapon, long>(0, 3), "claw{0} at" },
+				{ new Tuple<Weapon, long>(0, 4), "charge{0} at" },
+				{ new Tuple<Weapon, long>(0, 5), "punche{0} at" },
+				{ new Tuple<Weapon, long>(0, 6), "kick{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Axe, 1), "swing{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Axe, 2), "chop{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Axe, 3), "swing{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Bow, 1), "shoot{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Bow, 2), "shoot{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Bow, 3), "shoot{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Club, 1), "swing{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Club, 2), "swing{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Club, 3), "swing{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Spear, 1), "stab{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Spear, 2), "lunge{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Spear, 3), "jab{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Sword, 1), "swing{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Sword, 2), "chop{0} at" },
+				{ new Tuple<Weapon, long>(Weapon.Sword, 3), "stab{0} at" }
 			};
 
-			MissDescs = new Dictionary<Tuple<Enums.Weapon, long>, string>()
+			MissDescs = new Dictionary<Tuple<Weapon, long>, string>()
 			{
-				{ new Tuple<Enums.Weapon, long>(0, 1), "Missed" },
-				{ new Tuple<Enums.Weapon, long>(0, 2), "Missed" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Axe, 1), "Dodged" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Axe, 2), "Missed" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Bow, 1), "Missed" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Bow, 2), "Missed" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Club, 1), "Dodged" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Club, 2), "Missed" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Spear, 1), "Dodged" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Spear, 2), "Missed" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Sword, 1), "Parried" },
-				{ new Tuple<Enums.Weapon, long>(Enums.Weapon.Sword, 2), "Missed" },
+				{ new Tuple<Weapon, long>(0, 1), "Missed" },
+				{ new Tuple<Weapon, long>(0, 2), "Missed" },
+				{ new Tuple<Weapon, long>(Weapon.Axe, 1), "Dodged" },
+				{ new Tuple<Weapon, long>(Weapon.Axe, 2), "Missed" },
+				{ new Tuple<Weapon, long>(Weapon.Bow, 1), "Missed" },
+				{ new Tuple<Weapon, long>(Weapon.Bow, 2), "Missed" },
+				{ new Tuple<Weapon, long>(Weapon.Club, 1), "Dodged" },
+				{ new Tuple<Weapon, long>(Weapon.Club, 2), "Missed" },
+				{ new Tuple<Weapon, long>(Weapon.Spear, 1), "Dodged" },
+				{ new Tuple<Weapon, long>(Weapon.Spear, 2), "Missed" },
+				{ new Tuple<Weapon, long>(Weapon.Sword, 1), "Parried" },
+				{ new Tuple<Weapon, long>(Weapon.Sword, 2), "Missed" },
 			};
 
 			MacroFuncs = new Dictionary<long, Func<string>>();

@@ -5,8 +5,8 @@
 
 using System;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.States
@@ -113,7 +113,7 @@ namespace EamonRT.Game.States
 			StateImpl.ProcessEvents(eventType);
 		}
 
-		public virtual string GetDarkName(IGameBase target, Enums.ArticleType articleType, string nameType, bool upshift, bool groupCountOne)
+		public virtual string GetDarkName(IGameBase target, ArticleType articleType, string nameType, bool upshift, bool groupCountOne)
 		{
 			return StateImpl.GetDarkName(target, articleType, nameType, upshift, groupCountOne);
 		}

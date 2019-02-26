@@ -4,7 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Framework;
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Enums;
 
 namespace EamonRT.Framework.States
 {
@@ -12,7 +12,7 @@ namespace EamonRT.Framework.States
 	public interface IPlayerMoveCheckState : IState
 	{
 		/// <summary></summary>
-		Enums.Direction Direction { get; set; }
+		Direction Direction { get; set; }
 
 		/// <summary></summary>
 		IArtifact Artifact { get; set; }

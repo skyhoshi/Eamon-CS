@@ -8,13 +8,13 @@ using System.Diagnostics;
 using System.Linq;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Combat;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
-using Classes = Eamon.Framework.Primitive.Classes;
-using Enums = Eamon.Framework.Primitive.Enums;
-using RTEnums = EamonRT.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Combat
@@ -32,16 +32,16 @@ namespace EamonRT.Game.Combat
 		protected long _d2 = 0;
 
 		/// <summary></summary>
-		protected virtual RTEnums.CombatState CombatState { get; set; }
+		protected virtual CombatState CombatState { get; set; }
 
 		/// <summary></summary>
-		protected virtual Classes.IArtifactCategory OfAc { get; set; }
+		protected virtual IArtifactCategory OfAc { get; set; }
 
 		/// <summary></summary>
-		protected virtual Classes.IArtifactCategory DfAc { get; set; }
+		protected virtual IArtifactCategory DfAc { get; set; }
 
 		/// <summary></summary>
-		protected virtual Classes.IArtifactCategory ArAc { get; set; }
+		protected virtual IArtifactCategory ArAc { get; set; }
 
 		/// <summary></summary>
 		protected virtual IArtifact WpnArtifact { get; set; }
@@ -56,10 +56,10 @@ namespace EamonRT.Game.Combat
 		protected virtual IArtifact DfArmor { get; set; }
 
 		/// <summary></summary>
-		protected virtual Enums.Weapon OfWeaponType { get; set; }
+		protected virtual Weapon OfWeaponType { get; set; }
 
 		/// <summary></summary>
-		protected virtual Enums.Weapon DfWeaponType { get; set; }
+		protected virtual Weapon DfWeaponType { get; set; }
 
 		/// <summary></summary>
 		protected virtual string OfMonsterName { get; set; }
@@ -133,9 +133,9 @@ namespace EamonRT.Game.Combat
 
 		public virtual bool OmitFinalNewLine { get; set; }
 
-		public virtual RTEnums.AttackResult FixedResult { get; set; }
+		public virtual AttackResult FixedResult { get; set; }
 
-		public virtual RTEnums.WeaponRevealType WeaponRevealType { get; set; }
+		public virtual WeaponRevealType WeaponRevealType { get; set; }
 
 		/// <summary></summary>
 		protected virtual void SetAttackDesc()
@@ -144,7 +144,7 @@ namespace EamonRT.Game.Combat
 
 			if (!UseAttacks)
 			{
-				if (OfMonster.IsCharacterMonster() || (OfMonster.IsInRoomLit() && OfMonster.CombatCode != Enums.CombatCode.Attacks))
+				if (OfMonster.IsCharacterMonster() || (OfMonster.IsInRoomLit() && OfMonster.CombatCode != CombatCode.Attacks))
 				{
 					AttackDesc = OfMonster.GetAttackDescString(OfWeapon);
 				}
@@ -172,8 +172,8 @@ namespace EamonRT.Game.Combat
 				AttackDesc01,
 				DfMonsterName,
 					OfWeapon != null &&
-					(WeaponRevealType == RTEnums.WeaponRevealType.Always ||
-					(WeaponRevealType == RTEnums.WeaponRevealType.OnlyIfSeen && OfWeapon.Seen)) ?
+					(WeaponRevealType == WeaponRevealType.Always ||
+					(WeaponRevealType == WeaponRevealType.OnlyIfSeen && OfWeapon.Seen)) ?
 						" with " + OfWeapon.GetDecoratedName02(false, true, false, false, Globals.Buf) :
 						"");
 		}
@@ -208,8 +208,8 @@ namespace EamonRT.Game.Combat
 				OfMonster.IsCharacterMonster() ? "drop" : "drops",
 				OfMonster.IsCharacterMonster() || OfMonster.IsInRoomLit() ?
 					(
-						(WeaponRevealType == RTEnums.WeaponRevealType.Never || 
-						(WeaponRevealType == RTEnums.WeaponRevealType.OnlyIfSeen && !OfWeapon.Seen)) ? 
+						(WeaponRevealType == WeaponRevealType.Never || 
+						(WeaponRevealType == WeaponRevealType.OnlyIfSeen && !OfWeapon.Seen)) ? 
 							OfWeapon.GetDecoratedName02(false, true, false, false, Globals.Buf01) :
 							OfWeapon.GetDecoratedName03(false, true, false, false, Globals.Buf01)
 					) : 
@@ -229,8 +229,8 @@ namespace EamonRT.Game.Combat
 				Environment.NewLine,
 				OfMonster.IsCharacterMonster() || OfMonster.IsInRoomLit() ? 
 					(
-						(WeaponRevealType == RTEnums.WeaponRevealType.Never ||
-						(WeaponRevealType == RTEnums.WeaponRevealType.OnlyIfSeen && !OfWeapon.Seen)) ?
+						(WeaponRevealType == WeaponRevealType.Never ||
+						(WeaponRevealType == WeaponRevealType.OnlyIfSeen && !OfWeapon.Seen)) ?
 							OfWeapon.GetDecoratedName02(false, true, false, false, Globals.Buf) :
 							OfWeapon.GetDecoratedName03(false, true, false, false, Globals.Buf)
 					) : 
@@ -314,31 +314,31 @@ namespace EamonRT.Game.Combat
 		/// <summary></summary>
 		protected virtual void RollToHitOrMiss()
 		{
-			if (FixedResult != RTEnums.AttackResult.None)
+			if (FixedResult != AttackResult.None)
 			{
 				_odds = 50;
 
 				switch (FixedResult)
 				{
-					case RTEnums.AttackResult.Fumble:
+					case AttackResult.Fumble:
 
 						_rl = 100;
 
 						break;
 
-					case RTEnums.AttackResult.Miss:
+					case AttackResult.Miss:
 
 						_rl = _odds + 1;
 
 						break;
 
-					case RTEnums.AttackResult.Hit:
+					case AttackResult.Hit:
 
 						_rl = _odds;
 
 						break;
 
-					case RTEnums.AttackResult.CriticalHit:
+					case AttackResult.CriticalHit:
 
 						_rl = 1;
 
@@ -354,7 +354,7 @@ namespace EamonRT.Game.Combat
 		/// <summary></summary>
 		protected virtual void BeginAttack()
 		{
-			Debug.Assert(OfMonster != null && OfMonster.CombatCode != Enums.CombatCode.NeverFights);
+			Debug.Assert(OfMonster != null && OfMonster.CombatCode != CombatCode.NeverFights);
 
 			Debug.Assert(DfMonster != null);
 
@@ -387,7 +387,7 @@ namespace EamonRT.Game.Combat
 
 				if (OfWeaponUid < 0)
 				{
-					CombatState = RTEnums.CombatState.EndAttack;
+					CombatState = CombatState.EndAttack;
 
 					goto Cleanup;
 				}
@@ -412,17 +412,17 @@ namespace EamonRT.Game.Combat
 				Globals.Engine.CheckPlayerSkillGains(OfAc, Af);
 			}
 
-			OfWeaponType = (Enums.Weapon)(OfAc != null ? OfAc.Field2 : 0);
+			OfWeaponType = (Weapon)(OfAc != null ? OfAc.Field2 : 0);
 
 			PrintAttack();
 
 			if (_rl < 97 && (_rl < 5 || _rl <= _odds))
 			{
-				CombatState = RTEnums.CombatState.AttackHit;
+				CombatState = CombatState.AttackHit;
 			}
 			else
 			{
-				CombatState = RTEnums.CombatState.AttackMiss;
+				CombatState = CombatState.AttackMiss;
 			}
 
 		Cleanup:
@@ -439,18 +439,18 @@ namespace EamonRT.Game.Combat
 
 			DfAc = DfWeapon != null ? DfWeapon.GeneralWeapon : null;
 
-			DfWeaponType = (Enums.Weapon)(DfAc != null ? DfAc.Field2 : 0);
+			DfWeaponType = (Weapon)(DfAc != null ? DfAc.Field2 : 0);
 
 			if (_rl < 97 || OfWeaponUid == 0)
 			{
 				PrintMiss();
 
-				CombatState = RTEnums.CombatState.EndAttack;
+				CombatState = CombatState.EndAttack;
 
 				goto Cleanup;
 			}
 
-			CombatState = RTEnums.CombatState.AttackFumble;
+			CombatState = CombatState.AttackFumble;
 
 		Cleanup:
 
@@ -470,7 +470,7 @@ namespace EamonRT.Game.Combat
 			{
 				PrintRecovered();
 
-				CombatState = RTEnums.CombatState.EndAttack;
+				CombatState = CombatState.EndAttack;
 
 				goto Cleanup;
 			}
@@ -498,7 +498,7 @@ namespace EamonRT.Game.Combat
 
 				PrintWeaponDropped();
 
-				CombatState = RTEnums.CombatState.EndAttack;
+				CombatState = CombatState.EndAttack;
 
 				goto Cleanup;
 			}
@@ -509,16 +509,16 @@ namespace EamonRT.Game.Combat
 
 				DfMonster = OfMonster;
 
-				CombatState = RTEnums.CombatState.AttackHit;
+				CombatState = CombatState.AttackHit;
 
 				goto Cleanup;
 			}
 
-			if (OfAc.Type == Enums.ArtifactType.MagicWeapon)
+			if (OfAc.Type == ArtifactType.MagicWeapon)
 			{
 				PrintSparksFly();
 
-				CombatState = RTEnums.CombatState.EndAttack;
+				CombatState = CombatState.EndAttack;
 
 				goto Cleanup;
 			}
@@ -531,7 +531,7 @@ namespace EamonRT.Game.Combat
 				{
 					PrintWeaponDamaged();
 
-					CombatState = RTEnums.CombatState.EndAttack;
+					CombatState = CombatState.EndAttack;
 
 					goto Cleanup;
 				}
@@ -562,7 +562,7 @@ namespace EamonRT.Game.Combat
 
 			if (_rl > 50 || OfAc.Field4 <= 0)
 			{
-				CombatState = RTEnums.CombatState.EndAttack;
+				CombatState = CombatState.EndAttack;
 
 				goto Cleanup;
 			}
@@ -573,7 +573,7 @@ namespace EamonRT.Game.Combat
 
 			_rl = Globals.Engine.RollDice(1, 5, 95);
 
-			CombatState = RTEnums.CombatState.AttackHit;
+			CombatState = CombatState.AttackHit;
 
 		Cleanup:
 
@@ -604,7 +604,7 @@ namespace EamonRT.Game.Combat
 			{
 				PrintHit();
 
-				CombatState = RTEnums.CombatState.CalculateDamage;
+				CombatState = CombatState.CalculateDamage;
 
 				goto Cleanup;
 			}
@@ -619,7 +619,7 @@ namespace EamonRT.Game.Combat
 				{
 					_d2 = DfMonster.Hardiness - DfMonster.DmgTaken - (Globals.IsRulesetVersion(5) ? 0 : 2);
 
-					CombatState = RTEnums.CombatState.CheckArmor;
+					CombatState = CombatState.CheckArmor;
 
 					goto Cleanup;
 				}
@@ -628,7 +628,7 @@ namespace EamonRT.Game.Combat
 				{
 					A = 0;
 
-					CombatState = RTEnums.CombatState.CalculateDamage;
+					CombatState = CombatState.CalculateDamage;
 
 					goto Cleanup;
 				}
@@ -653,7 +653,7 @@ namespace EamonRT.Game.Combat
 				A = 0;
 			}
 
-			CombatState = RTEnums.CombatState.CalculateDamage;
+			CombatState = CombatState.CalculateDamage;
 
 		Cleanup:
 
@@ -704,7 +704,7 @@ namespace EamonRT.Game.Combat
 
 			_d2 -= (A * DfMonster.Armor);
 
-			CombatState = RTEnums.CombatState.CheckArmor;
+			CombatState = CombatState.CheckArmor;
 		}
 
 		/// <summary></summary>
@@ -714,12 +714,12 @@ namespace EamonRT.Game.Combat
 			{
 				PrintBlowTurned();
 
-				CombatState = RTEnums.CombatState.EndAttack;
+				CombatState = CombatState.EndAttack;
 
 				goto Cleanup;
 			}
 
-			CombatState = RTEnums.CombatState.CheckMonsterStatus;
+			CombatState = CombatState.CheckMonsterStatus;
 
 		Cleanup:
 
@@ -765,61 +765,61 @@ namespace EamonRT.Game.Combat
 				}
 			}
 
-			CombatState = RTEnums.CombatState.EndAttack;
+			CombatState = CombatState.EndAttack;
 		}
 
 		/// <summary></summary>
 		protected virtual void ExecuteStateMachine()
 		{
-			Debug.Assert(CombatState == RTEnums.CombatState.BeginAttack || CombatState == RTEnums.CombatState.CalculateDamage || CombatState == RTEnums.CombatState.CheckMonsterStatus);
+			Debug.Assert(CombatState == CombatState.BeginAttack || CombatState == CombatState.CalculateDamage || CombatState == CombatState.CheckMonsterStatus);
 
 			while (true)
 			{
 				switch (CombatState)
 				{
-					case RTEnums.CombatState.BeginAttack:
+					case CombatState.BeginAttack:
 
 						BeginAttack();
 
 						break;
 
-					case RTEnums.CombatState.AttackMiss:
+					case CombatState.AttackMiss:
 
 						AttackMiss();
 
 						break;
 
-					case RTEnums.CombatState.AttackFumble:
+					case CombatState.AttackFumble:
 
 						AttackFumble();
 
 						break;
 
-					case RTEnums.CombatState.AttackHit:
+					case CombatState.AttackHit:
 
 						AttackHit();
 
 						break;
 
-					case RTEnums.CombatState.CalculateDamage:
+					case CombatState.CalculateDamage:
 
 						CalculateDamage();
 
 						break;
 
-					case RTEnums.CombatState.CheckArmor:
+					case CombatState.CheckArmor:
 
 						CheckArmor();
 
 						break;
 
-					case RTEnums.CombatState.CheckMonsterStatus:
+					case CombatState.CheckMonsterStatus:
 
 						CheckMonsterStatus();
 
 						break;
 
-					case RTEnums.CombatState.EndAttack:
+					case CombatState.EndAttack:
 
 						goto Cleanup;
 
@@ -846,7 +846,7 @@ namespace EamonRT.Game.Combat
 
 		public virtual void ExecuteCalculateDamage(long numDice, long numSides, long mod = 0)
 		{
-			CombatState = RTEnums.CombatState.CalculateDamage;
+			CombatState = CombatState.CalculateDamage;
 
 			D = numDice;
 
@@ -863,7 +863,7 @@ namespace EamonRT.Game.Combat
 
 		public virtual void ExecuteCheckMonsterStatus()
 		{
-			CombatState = RTEnums.CombatState.CheckMonsterStatus;
+			CombatState = CombatState.CheckMonsterStatus;
 
 			_d2 = 0;
 
@@ -887,7 +887,7 @@ namespace EamonRT.Game.Combat
 			}
 			else
 			{
-				CombatState = RTEnums.CombatState.BeginAttack;
+				CombatState = CombatState.BeginAttack;
 
 				ExecuteStateMachine();
 			}

@@ -6,10 +6,10 @@
 using System;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -37,7 +37,7 @@ namespace EamonRT.Game.Commands
 				{
 					Globals.GameState.Die = -1;
 
-					Globals.ExitType = Enums.ExitType.GoToMainHall;
+					Globals.ExitType = ExitType.GoToMainHall;
 
 					Globals.MainLoop.ShouldShutdown = false;
 
@@ -63,7 +63,7 @@ namespace EamonRT.Game.Commands
 
 				if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'Y')
 				{
-					Globals.ExitType = Enums.ExitType.Quit;
+					Globals.ExitType = ExitType.Quit;
 
 					Globals.MainLoop.ShouldShutdown = false;
 
@@ -106,7 +106,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "quit";
 
-			Type = Enums.CommandType.Miscellaneous;
+			Type = CommandType.Miscellaneous;
 		}
 	}
 }

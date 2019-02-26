@@ -6,12 +6,12 @@
 using System;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
 using EamonMH.Framework.Menus.ActionMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonMH.Game.Plugin.PluginContext;
 
 namespace EamonMH.Game.Menus.ActionMenus
@@ -34,11 +34,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Out.WriteLine("{0}{1}{2,-2}{3,20}{4,15}{5,-2}{0}{6}{7,-3}{8,34}{9,-2}{10,15}{11}{12}%)",
 				Environment.NewLine,
-				"Intellect:  ", Globals.Character.GetStats(Enums.Stat.Intellect),
+				"Intellect:  ", Globals.Character.GetStats(Stat.Intellect),
 				Buf,
-				"Agility :  ", Globals.Character.GetStats(Enums.Stat.Agility),
-				"Hardiness:  ", Globals.Character.GetStats(Enums.Stat.Hardiness),
-				"Charisma:  ", Globals.Character.GetStats(Enums.Stat.Charisma),
+				"Agility :  ", Globals.Character.GetStats(Stat.Agility),
+				"Hardiness:  ", Globals.Character.GetStats(Stat.Hardiness),
+				"Charisma:  ", Globals.Character.GetStats(Stat.Charisma),
 				"(Charm Mon: ",
 				Globals.Character.GetCharmMonsterPct() > 0 ? "+" : "",
 				Globals.Character.GetCharmMonsterPct());
@@ -48,9 +48,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 				"Weapon Abilities:",
 				"Spell Abilities:");
 
-			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+			var weaponValues = EnumUtil.GetValues<Weapon>();
 
-			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+			var spellValues = EnumUtil.GetValues<Spell>();
 
 			var i = Math.Min((long)weaponValues[0], (long)spellValues[0]);
 
@@ -60,9 +60,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 			{
 				Globals.Out.WriteLine();
 
-				if (Enum.IsDefined(typeof(Enums.Weapon), i))
+				if (Enum.IsDefined(typeof(Weapon), i))
 				{
-					var weapon = Globals.Engine.GetWeapons((Enums.Weapon)i);
+					var weapon = Globals.Engine.GetWeapons((Weapon)i);
 
 					Debug.Assert(weapon != null);
 
@@ -75,9 +75,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 					Globals.Out.Write("{0,12}", "");
 				}
 
-				if (Enum.IsDefined(typeof(Enums.Spell), i))
+				if (Enum.IsDefined(typeof(Spell), i))
 				{
-					var spell = Globals.Engine.GetSpells((Enums.Spell)i);
+					var spell = Globals.Engine.GetSpells((Spell)i);
 
 					Debug.Assert(spell != null);
 

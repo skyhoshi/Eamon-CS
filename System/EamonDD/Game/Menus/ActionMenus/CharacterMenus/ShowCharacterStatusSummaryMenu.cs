@@ -10,11 +10,11 @@ using System.Linq;
 using System.Reflection;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Menus;
 using EamonDD.Framework.Menus.ActionMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
@@ -119,7 +119,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			foreach (var character in characterTable.Records)
 			{
-				if (character.Status == Enums.Status.Adventuring)
+				if (character.Status == Status.Adventuring)
 				{
 					var advChar = advCharList.FirstOrDefault(ac => ac.Character.Uid == character.Uid);
 

@@ -7,9 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
-using Classes = Eamon.Framework.Primitive.Classes;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game
@@ -69,7 +69,7 @@ namespace TheBeginnersCave.Game
 			}
 		}
 
-		public override IArtifact ConvertWeaponToArtifact(Classes.ICharacterArtifact weapon)
+		public override IArtifact ConvertWeaponToArtifact(ICharacterArtifact weapon)
 		{
 			var artifact = base.ConvertWeaponToArtifact(weapon);
 

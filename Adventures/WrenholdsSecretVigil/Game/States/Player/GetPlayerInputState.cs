@@ -4,9 +4,9 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.States
@@ -50,7 +50,7 @@ namespace WrenholdsSecretVigil.Game.States
 						{
 							dir = "west";
 						}
-						else if (characterRoom.GetDirs(Enums.Direction.East) > 0 && characterRoom.GetDirs(Enums.Direction.East) <= Globals.Module.NumRooms)
+						else if (characterRoom.GetDirs(Direction.East) > 0 && characterRoom.GetDirs(Direction.East) <= Globals.Module.NumRooms)
 						{
 							dir = "east";
 						}

@@ -5,10 +5,10 @@
 
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -23,14 +23,14 @@ namespace EamonRT.Game.Commands
 			Debug.Assert(DobjArtifact != null);
 
 			var artTypes = Globals.IsRulesetVersion(5) ? 
-				new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon } : 
-				new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon, Enums.ArtifactType.Wearable };
+				new ArtifactType[] { ArtifactType.Weapon, ArtifactType.MagicWeapon } : 
+				new ArtifactType[] { ArtifactType.Weapon, ArtifactType.MagicWeapon, ArtifactType.Wearable };
 
 			var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
 
 			if (ac != null)
 			{
-				if (ac.Type == Enums.ArtifactType.Wearable)
+				if (ac.Type == ArtifactType.Wearable)
 				{
 					NextState = Globals.CreateInstance<IWearCommand>();
 
@@ -176,7 +176,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "ready";
 
-			Type = Enums.CommandType.Manipulation;
+			Type = CommandType.Manipulation;
 		}
 	}
 }

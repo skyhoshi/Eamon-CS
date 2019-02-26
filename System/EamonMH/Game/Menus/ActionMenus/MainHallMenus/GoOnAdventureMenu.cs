@@ -11,10 +11,10 @@ using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.DataStorage;
 using Eamon.Framework.Helpers;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
 using EamonMH.Framework.Menus.ActionMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonMH.Game.Plugin.PluginContext;
 
 namespace EamonMH.Game.Menus.ActionMenus
@@ -184,7 +184,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Globals.Database.FreeCharacters();
 
-						Globals.Character.Status = Enums.Status.Adventuring;
+						Globals.Character.Status = Status.Adventuring;
 
 						Globals.CharactersModified = true;
 

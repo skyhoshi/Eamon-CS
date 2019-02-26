@@ -6,7 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework
 {
@@ -16,10 +16,10 @@ namespace Eamon.Framework
 		#region Properties
 
 		/// <summary></summary>
-		Enums.LightLevel LightLvl { get; set; }
+		LightLevel LightLvl { get; set; }
 
 		/// <summary></summary>
-		Enums.RoomType Type { get; set; }
+		RoomType Type { get; set; }
 
 		/// <summary></summary>
 		long Zone { get; set; }
@@ -39,7 +39,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="dir"></param>
 		/// <returns></returns>
-		long GetDirs(Enums.Direction dir);
+		long GetDirs(Direction dir);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -49,7 +49,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="dir"></param>
 		/// <param name="value"></param>
-		void SetDirs(Enums.Direction dir, long value);
+		void SetDirs(Direction dir, long value);
 
 		/// <summary></summary>
 		/// <returns></returns>
@@ -63,7 +63,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="dir"></param>
 		/// <returns></returns>
-		bool IsDirectionInvalid(Enums.Direction dir);
+		bool IsDirectionInvalid(Direction dir);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -73,7 +73,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="dir"></param>
 		/// <returns></returns>
-		bool IsDirectionRoom(Enums.Direction dir);
+		bool IsDirectionRoom(Direction dir);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -83,7 +83,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="dir"></param>
 		/// <returns></returns>
-		bool IsDirectionExit(Enums.Direction dir);
+		bool IsDirectionExit(Direction dir);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -93,7 +93,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="dir"></param>
 		/// <returns></returns>
-		bool IsDirectionDoor(Enums.Direction dir);
+		bool IsDirectionDoor(Direction dir);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -105,17 +105,17 @@ namespace Eamon.Framework
 		/// <param name="dir"></param>
 		/// <param name="includeExit"></param>
 		/// <returns></returns>
-		bool IsDirectionSpecial(Enums.Direction dir, bool includeExit = true);
+		bool IsDirectionSpecial(Direction dir, bool includeExit = true);
 
 		/// <summary></summary>
 		/// <param name="dir"></param>
 		/// <returns></returns>
-		long GetDirectionDoorUid(Enums.Direction dir);
+		long GetDirectionDoorUid(Direction dir);
 
 		/// <summary></summary>
 		/// <param name="dir"></param>
 		/// <returns></returns>
-		IArtifact GetDirectionDoor(Enums.Direction dir);
+		IArtifact GetDirectionDoor(Direction dir);
 
 		/// <summary></summary>
 		/// <param name="monster"></param>

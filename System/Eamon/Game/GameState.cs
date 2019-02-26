@@ -5,9 +5,9 @@
 
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Utilities;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
@@ -104,7 +104,7 @@ namespace Eamon.Game
 			return NBTL[index];
 		}
 
-		public virtual long GetNBTL(Enums.Friendliness friendliness)
+		public virtual long GetNBTL(Friendliness friendliness)
 		{
 			return GetNBTL((long)friendliness);
 		}
@@ -114,7 +114,7 @@ namespace Eamon.Game
 			return DTTL[index];
 		}
 
-		public virtual long GetDTTL(Enums.Friendliness friendliness)
+		public virtual long GetDTTL(Friendliness friendliness)
 		{
 			return GetDTTL((long)friendliness);
 		}
@@ -124,7 +124,7 @@ namespace Eamon.Game
 			return Sa[index];
 		}
 
-		public virtual long GetSa(Enums.Spell spell)
+		public virtual long GetSa(Spell spell)
 		{
 			return GetSa((long)spell);
 		}
@@ -139,7 +139,7 @@ namespace Eamon.Game
 			NBTL[index] = value;
 		}
 
-		public virtual void SetNBTL(Enums.Friendliness friendliness, long value)
+		public virtual void SetNBTL(Friendliness friendliness, long value)
 		{
 			SetNBTL((long)friendliness, value);
 		}
@@ -149,7 +149,7 @@ namespace Eamon.Game
 			DTTL[index] = value;
 		}
 
-		public virtual void SetDTTL(Enums.Friendliness friendliness, long value)
+		public virtual void SetDTTL(Friendliness friendliness, long value)
 		{
 			SetDTTL((long)friendliness, value);
 		}
@@ -159,7 +159,7 @@ namespace Eamon.Game
 			Sa[index] = value;
 		}
 
-		public virtual void SetSa(Enums.Spell spell, long value)
+		public virtual void SetSa(Spell spell, long value)
 		{
 			SetSa((long)spell, value);
 		}
@@ -174,7 +174,7 @@ namespace Eamon.Game
 			NBTL[index] += value;
 		}
 
-		public virtual void ModNBTL(Enums.Friendliness friendliness, long value)
+		public virtual void ModNBTL(Friendliness friendliness, long value)
 		{
 			ModNBTL((long)friendliness, value);
 		}
@@ -184,7 +184,7 @@ namespace Eamon.Game
 			DTTL[index] += value;
 		}
 
-		public virtual void ModDTTL(Enums.Friendliness friendliness, long value)
+		public virtual void ModDTTL(Friendliness friendliness, long value)
 		{
 			ModDTTL((long)friendliness, value);
 		}
@@ -194,7 +194,7 @@ namespace Eamon.Game
 			Sa[index] += value;
 		}
 
-		public virtual void ModSa(Enums.Spell spell, long value)
+		public virtual void ModSa(Spell spell, long value)
 		{
 			ModSa((long)spell, value);
 		}
@@ -209,7 +209,7 @@ namespace Eamon.Game
 
 			Debug.Assert(character != null);
 
-			var friendlinessesLength = (long)EnumUtil.GetLastValue<Enums.Friendliness>() + 1;
+			var friendlinessesLength = (long)EnumUtil.GetLastValue<Friendliness>() + 1;
 
 			NBTL = new long[friendlinessesLength];
 

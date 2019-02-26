@@ -7,10 +7,10 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.States
@@ -62,13 +62,13 @@ namespace EamonRT.Game.States
 
 		}
 
-		public virtual string GetDarkName(IGameBase target, Enums.ArticleType articleType, string nameType, bool upshift, bool groupCountOne)
+		public virtual string GetDarkName(IGameBase target, ArticleType articleType, string nameType, bool upshift, bool groupCountOne)
 		{
 			string result = null;
 
 			Debug.Assert(target != null);
 
-			Debug.Assert(Enum.IsDefined(typeof(Enums.ArticleType), articleType));
+			Debug.Assert(Enum.IsDefined(typeof(ArticleType), articleType));
 
 			var artifact = target as IArtifact;
 
@@ -76,26 +76,26 @@ namespace EamonRT.Game.States
 			{
 				switch (articleType)
 				{
-					case Enums.ArticleType.None:
+					case ArticleType.None:
 
 						result = artifact.EvalPlural("unseen object", "unseen objects");
 
 						break;
 
-					case Enums.ArticleType.A:
-					case Enums.ArticleType.An:
+					case ArticleType.A:
+					case ArticleType.An:
 
 						result = artifact.EvalPlural("an unseen object", "unseen objects");
 
 						break;
 
-					case Enums.ArticleType.Some:
+					case ArticleType.Some:
 
 						result = artifact.EvalPlural("an unseen object", "some unseen objects");
 
 						break;
 
-					case Enums.ArticleType.The:
+					case ArticleType.The:
 
 						result = artifact.EvalPlural("the unseen object", "the unseen objects");
 
@@ -110,26 +110,26 @@ namespace EamonRT.Game.States
 
 				switch (articleType)
 				{
-					case Enums.ArticleType.None:
+					case ArticleType.None:
 
 						result = groupCountOne ? "unseen entity" : monster.EvalPlural("unseen entity", "unseen entities");
 
 						break;
 
-					case Enums.ArticleType.A:
-					case Enums.ArticleType.An:
+					case ArticleType.A:
+					case ArticleType.An:
 
 						result = groupCountOne ? "an unseen entity" : monster.EvalPlural("an unseen entity", "unseen entities");
 
 						break;
 
-					case Enums.ArticleType.Some:
+					case ArticleType.Some:
 
 						result = groupCountOne ? "an unseen entity" : monster.EvalPlural("an unseen entity", "some unseen entities");
 
 						break;
 
-					case Enums.ArticleType.The:
+					case ArticleType.The:
 
 						result = groupCountOne ? "the unseen entity" : monster.EvalPlural("the unseen entity", "the unseen entities");
 

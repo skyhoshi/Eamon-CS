@@ -6,9 +6,9 @@
 using System;
 using System.Diagnostics;
 using System.Linq;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game
@@ -44,7 +44,7 @@ namespace TheSubAquanLaboratory.Game
 
 			if (gameState.QuestValue > 0)
 			{
-				var reward = (long)Math.Round((double)gameState.QuestValue * ((double)Globals.Character.GetStats(Enums.Stat.Charisma) / (double)10));
+				var reward = (long)Math.Round((double)gameState.QuestValue * ((double)Globals.Character.GetStats(Stat.Charisma) / (double)10));
 
 				if (reward > 3000)
 				{

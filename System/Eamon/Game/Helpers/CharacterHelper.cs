@@ -9,12 +9,12 @@ using System.Diagnostics;
 using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Helpers;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Helpers.Generic;
 using Eamon.Game.Utilities;
-using Classes = Eamon.Framework.Primitive.Classes;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game.Helpers
@@ -34,7 +34,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var stat = Globals.Engine.GetStats((Enums.Stat)i);
+			var stat = Globals.Engine.GetStats((Stat)i);
 
 			Debug.Assert(stat != null);
 
@@ -47,7 +47,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var spell = Globals.Engine.GetSpells((Enums.Spell)i);
+			var spell = Globals.Engine.GetSpells((Spell)i);
 
 			Debug.Assert(spell != null);
 
@@ -60,7 +60,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var weapon = Globals.Engine.GetWeapons((Enums.Weapon)i);
+			var weapon = Globals.Engine.GetWeapons((Weapon)i);
 
 			Debug.Assert(weapon != null);
 
@@ -185,7 +185,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual string GetNameStats(bool addToNamesList)
 		{
-			var statValues = EnumUtil.GetValues<Enums.Stat>();
+			var statValues = EnumUtil.GetValues<Stat>();
 
 			foreach (var sv in statValues)
 			{
@@ -219,7 +219,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual string GetNameSpellAbilities(bool addToNamesList)
 		{
-			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+			var spellValues = EnumUtil.GetValues<Spell>();
 
 			foreach (var sv in spellValues)
 			{
@@ -253,7 +253,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual string GetNameWeaponAbilities(bool addToNamesList)
 		{
-			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+			var weaponValues = EnumUtil.GetValues<Weapon>();
 
 			foreach (var wv in weaponValues)
 			{
@@ -1176,21 +1176,21 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual bool ValidateArticleType()
 		{
-			return Record.ArticleType == Enums.ArticleType.None;
+			return Record.ArticleType == ArticleType.None;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
 		protected virtual bool ValidateGender()
 		{
-			return Enum.IsDefined(typeof(Enums.Gender), Record.Gender);
+			return Enum.IsDefined(typeof(Gender), Record.Gender);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
 		protected virtual bool ValidateStatus()
 		{
-			return Enum.IsDefined(typeof(Enums.Status), Record.Status);
+			return Enum.IsDefined(typeof(Status), Record.Status);
 		}
 
 		/// <summary></summary>
@@ -1199,7 +1199,7 @@ namespace Eamon.Game.Helpers
 		{
 			var result = true;
 
-			var statValues = EnumUtil.GetValues<Enums.Stat>();
+			var statValues = EnumUtil.GetValues<Stat>();
 
 			foreach (var sv in statValues)
 			{
@@ -1222,7 +1222,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var stat = Globals.Engine.GetStats((Enums.Stat)i);
+			var stat = Globals.Engine.GetStats((Stat)i);
 
 			Debug.Assert(stat != null);
 
@@ -1235,7 +1235,7 @@ namespace Eamon.Game.Helpers
 		{
 			var result = true;
 
-			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+			var spellValues = EnumUtil.GetValues<Spell>();
 
 			foreach (var sv in spellValues)
 			{
@@ -1258,7 +1258,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var spell = Globals.Engine.GetSpells((Enums.Spell)i);
+			var spell = Globals.Engine.GetSpells((Spell)i);
 
 			Debug.Assert(spell != null);
 
@@ -1271,7 +1271,7 @@ namespace Eamon.Game.Helpers
 		{
 			var result = true;
 
-			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+			var weaponValues = EnumUtil.GetValues<Weapon>();
 
 			foreach (var wv in weaponValues)
 			{
@@ -1294,7 +1294,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var weapon = Globals.Engine.GetWeapons((Enums.Weapon)i);
+			var weapon = Globals.Engine.GetWeapons((Weapon)i);
 
 			Debug.Assert(weapon != null);
 
@@ -1326,7 +1326,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual bool ValidateArmorClass()
 		{
-			return Enum.IsDefined(typeof(Enums.Armor), Record.ArmorClass);
+			return Enum.IsDefined(typeof(Armor), Record.ArmorClass);
 		}
 
 		/// <summary></summary>
@@ -1407,11 +1407,11 @@ namespace Eamon.Game.Helpers
 
 			if (Record.IsArmorActive())
 			{
-				result = Enum.IsDefined(typeof(Enums.PluralType), Record.Armor.PluralType);
+				result = Enum.IsDefined(typeof(PluralType), Record.Armor.PluralType);
 			}
 			else
 			{
-				result = Record.Armor.PluralType == Enums.PluralType.None;
+				result = Record.Armor.PluralType == PluralType.None;
 			}
 
 			return result;
@@ -1425,11 +1425,11 @@ namespace Eamon.Game.Helpers
 
 			if (Record.IsArmorActive())
 			{
-				result = Enum.IsDefined(typeof(Enums.ArticleType), Record.Armor.ArticleType);
+				result = Enum.IsDefined(typeof(ArticleType), Record.Armor.ArticleType);
 			}
 			else
 			{
-				result = Record.Armor.ArticleType == Enums.ArticleType.None;
+				result = Record.Armor.ArticleType == ArticleType.None;
 			}
 
 			return result;
@@ -1475,7 +1475,7 @@ namespace Eamon.Game.Helpers
 
 			if (Record.IsArmorActive())
 			{
-				result = Record.Armor.Type == Enums.ArtifactType.Wearable;
+				result = Record.Armor.Type == ArtifactType.Wearable;
 			}
 			else
 			{
@@ -1511,7 +1511,7 @@ namespace Eamon.Game.Helpers
 
 			if (Record.IsArmorActive())
 			{
-				result = Enum.IsDefined(typeof(Enums.Clothing), Record.Armor.Field2);
+				result = Enum.IsDefined(typeof(Clothing), Record.Armor.Field2);
 			}
 			else
 			{
@@ -1599,11 +1599,11 @@ namespace Eamon.Game.Helpers
 
 			if (Record.IsShieldActive())
 			{
-				result = Enum.IsDefined(typeof(Enums.PluralType), Record.Shield.PluralType);
+				result = Enum.IsDefined(typeof(PluralType), Record.Shield.PluralType);
 			}
 			else
 			{
-				result = Record.Shield.PluralType == Enums.PluralType.None;
+				result = Record.Shield.PluralType == PluralType.None;
 			}
 
 			return result;
@@ -1617,11 +1617,11 @@ namespace Eamon.Game.Helpers
 
 			if (Record.IsShieldActive())
 			{
-				result = Enum.IsDefined(typeof(Enums.ArticleType), Record.Shield.ArticleType);
+				result = Enum.IsDefined(typeof(ArticleType), Record.Shield.ArticleType);
 			}
 			else
 			{
-				result = Record.Shield.ArticleType == Enums.ArticleType.None;
+				result = Record.Shield.ArticleType == ArticleType.None;
 			}
 
 			return result;
@@ -1667,7 +1667,7 @@ namespace Eamon.Game.Helpers
 
 			if (Record.IsShieldActive())
 			{
-				result = Record.Shield.Type == Enums.ArtifactType.Wearable;
+				result = Record.Shield.Type == ArtifactType.Wearable;
 			}
 			else
 			{
@@ -1703,7 +1703,7 @@ namespace Eamon.Game.Helpers
 
 			if (Record.IsShieldActive())
 			{
-				result = Enum.IsDefined(typeof(Enums.Clothing), Record.Shield.Field2);
+				result = Enum.IsDefined(typeof(Clothing), Record.Shield.Field2);
 			}
 			else
 			{
@@ -1869,11 +1869,11 @@ namespace Eamon.Game.Helpers
 
 			if (activeWeapon)
 			{
-				result = Enum.IsDefined(typeof(Enums.PluralType), Record.GetWeapons(i).PluralType);
+				result = Enum.IsDefined(typeof(PluralType), Record.GetWeapons(i).PluralType);
 			}
 			else
 			{
-				result = Record.GetWeapons(i).PluralType == Enums.PluralType.None;
+				result = Record.GetWeapons(i).PluralType == PluralType.None;
 			}
 
 			return result;
@@ -1901,11 +1901,11 @@ namespace Eamon.Game.Helpers
 
 			if (activeWeapon)
 			{
-				result = Enum.IsDefined(typeof(Enums.ArticleType), Record.GetWeapons(i).ArticleType);
+				result = Enum.IsDefined(typeof(ArticleType), Record.GetWeapons(i).ArticleType);
 			}
 			else
 			{
-				result = Record.GetWeapons(i).ArticleType == Enums.ArticleType.None;
+				result = Record.GetWeapons(i).ArticleType == ArticleType.None;
 			}
 
 			return result;
@@ -1993,7 +1993,7 @@ namespace Eamon.Game.Helpers
 
 			if (activeWeapon)
 			{
-				result = Record.GetWeapons(i).Type == 0 || Record.GetWeapons(i).Type == Enums.ArtifactType.Weapon || Record.GetWeapons(i).Type == Enums.ArtifactType.MagicWeapon;
+				result = Record.GetWeapons(i).Type == 0 || Record.GetWeapons(i).Type == ArtifactType.Weapon || Record.GetWeapons(i).Type == ArtifactType.MagicWeapon;
 			}
 			else
 			{
@@ -2057,7 +2057,7 @@ namespace Eamon.Game.Helpers
 
 			if (activeWeapon)
 			{
-				result = Enum.IsDefined(typeof(Enums.Weapon), Record.GetWeapons(i).Field2);
+				result = Enum.IsDefined(typeof(Weapon), Record.GetWeapons(i).Field2);
 			}
 			else
 			{
@@ -2155,7 +2155,7 @@ namespace Eamon.Game.Helpers
 			{
 				if (Record.GetWeapons(i).Field5 == 0)  // auto-upgrade old weapons
 				{
-					Record.GetWeapons(i).Field5 = Record.GetWeapons(i).Field2 == (long)Enums.Weapon.Bow ? 2 : 1;
+					Record.GetWeapons(i).Field5 = Record.GetWeapons(i).Field2 == (long)Weapon.Bow ? 2 : 1;
 				}
 
 				result = Record.GetWeapons(i).Field5 >= 1 && Record.GetWeapons(i).Field5 <= 2;
@@ -2193,7 +2193,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
-			var genderValues = EnumUtil.GetValues<Enums.Gender>();
+			var genderValues = EnumUtil.GetValues<Gender>();
 
 			for (var j = 0; j < genderValues.Count; j++)
 			{
@@ -2210,7 +2210,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
-			var statusValues = EnumUtil.GetValues<Enums.Status>();
+			var statusValues = EnumUtil.GetValues<Status>();
 
 			for (var j = 0; j < statusValues.Count; j++)
 			{
@@ -2225,7 +2225,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var stat = Globals.Engine.GetStats((Enums.Stat)i);
+			var stat = Globals.Engine.GetStats((Stat)i);
 
 			Debug.Assert(stat != null);
 
@@ -2241,7 +2241,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var spell = Globals.Engine.GetSpells((Enums.Spell)i);
+			var spell = Globals.Engine.GetSpells((Spell)i);
 
 			Debug.Assert(spell != null);
 
@@ -2257,7 +2257,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var weapon = Globals.Engine.GetWeapons((Enums.Weapon)i);
+			var weapon = Globals.Engine.GetWeapons((Weapon)i);
 
 			Debug.Assert(weapon != null);
 
@@ -2305,7 +2305,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
-			var armorValues = EnumUtil.GetValues<Enums.Armor>();
+			var armorValues = EnumUtil.GetValues<Armor>();
 
 			for (var j = 0; j < armorValues.Count; j++)
 			{
@@ -2386,7 +2386,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
-			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+			var weaponValues = EnumUtil.GetValues<Weapon>();
 
 			for (var j = 0; j < weaponValues.Count; j++)
 			{
@@ -2494,7 +2494,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		protected virtual void ListStats()
 		{
-			var statValues = EnumUtil.GetValues<Enums.Stat>();
+			var statValues = EnumUtil.GetValues<Stat>();
 
 			foreach (var sv in statValues)
 			{
@@ -2511,7 +2511,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var sv = (Enums.Stat)i;
+			var sv = (Stat)i;
 
 			if (FullDetail)
 			{
@@ -2519,17 +2519,17 @@ namespace Eamon.Game.Helpers
 				{
 					Buf.Clear();
 
-					if (sv == Enums.Stat.Intellect)
+					if (sv == Stat.Intellect)
 					{
 						var ibp = Record.GetIntellectBonusPct();
 
 						Buf.AppendFormat("Learning: {0}{1}%", ibp > 0 ? "+" : "", ibp);
 					}
-					else if (sv == Enums.Stat.Hardiness)
+					else if (sv == Stat.Hardiness)
 					{
 						Buf.AppendFormat("Weight Carryable: {0} G ({1} D)", Record.GetWeightCarryableGronds(), Record.GetWeightCarryableDos());
 					}
-					else if (sv == Enums.Stat.Charisma)
+					else if (sv == Stat.Charisma)
 					{
 						var cmp = Record.GetCharmMonsterPct();
 
@@ -2559,7 +2559,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		protected virtual void ListSpellAbilities()
 		{
-			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+			var spellValues = EnumUtil.GetValues<Spell>();
 
 			foreach (var sv in spellValues)
 			{
@@ -2590,7 +2590,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		protected virtual void ListWeaponAbilities()
 		{
-			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+			var weaponValues = EnumUtil.GetValues<Weapon>();
 
 			foreach (var wv in weaponValues)
 			{
@@ -2734,10 +2734,10 @@ namespace Eamon.Game.Helpers
 							Environment.NewLine,
 							Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponsPluralType"), null),
 							Globals.Engine.BuildValue(51, ' ', 8, (long)Record.GetWeapons(i).PluralType, null,
-							Record.GetWeapons(i).PluralType == Enums.PluralType.None ? "No change" :
-							Record.GetWeapons(i).PluralType == Enums.PluralType.S ? "Use 's'" :
-							Record.GetWeapons(i).PluralType == Enums.PluralType.Es ? "Use 'es'" :
-							Record.GetWeapons(i).PluralType == Enums.PluralType.YIes ? "Use 'y' to 'ies'" :
+							Record.GetWeapons(i).PluralType == PluralType.None ? "No change" :
+							Record.GetWeapons(i).PluralType == PluralType.S ? "Use 's'" :
+							Record.GetWeapons(i).PluralType == PluralType.Es ? "Use 'es'" :
+							Record.GetWeapons(i).PluralType == PluralType.YIes ? "Use 'y' to 'ies'" :
 							"Invalid value"));
 					}
 					else
@@ -2765,11 +2765,11 @@ namespace Eamon.Game.Helpers
 							Environment.NewLine,
 							Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WeaponsArticleType"), null),
 							Globals.Engine.BuildValue(51, ' ', 8, (long)Record.GetWeapons(i).ArticleType, null,
-							Record.GetWeapons(i).ArticleType == Enums.ArticleType.None ? "No article" :
-							Record.GetWeapons(i).ArticleType == Enums.ArticleType.A ? "Use 'a'" :
-							Record.GetWeapons(i).ArticleType == Enums.ArticleType.An ? "Use 'an'" :
-							Record.GetWeapons(i).ArticleType == Enums.ArticleType.Some ? "Use 'some'" :
-							Record.GetWeapons(i).ArticleType == Enums.ArticleType.The ? "Use 'the'" :
+							Record.GetWeapons(i).ArticleType == ArticleType.None ? "No article" :
+							Record.GetWeapons(i).ArticleType == ArticleType.A ? "Use 'a'" :
+							Record.GetWeapons(i).ArticleType == ArticleType.An ? "Use 'an'" :
+							Record.GetWeapons(i).ArticleType == ArticleType.Some ? "Use 'some'" :
+							Record.GetWeapons(i).ArticleType == ArticleType.The ? "Use 'the'" :
 							"Invalid value"));
 					}
 					else
@@ -2805,7 +2805,7 @@ namespace Eamon.Game.Helpers
 			{
 				if (!ExcludeROFields || Record.IsWeaponActive(i))
 				{
-					var weapon = Globals.Engine.GetWeapons((Enums.Weapon)Record.GetWeapons(i).Field2);
+					var weapon = Globals.Engine.GetWeapons((Weapon)Record.GetWeapons(i).Field2);
 
 					var listNum = NumberFields ? ListNum++ : 0;
 
@@ -2901,7 +2901,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -2926,14 +2926,14 @@ namespace Eamon.Game.Helpers
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.Gender = (Enums.Gender)Convert.ToInt64(Buf.Trim().ToString());
+				Record.Gender = (Gender)Convert.ToInt64(Buf.Trim().ToString());
 
 				if (ValidateField("Gender"))
 				{
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -2958,14 +2958,14 @@ namespace Eamon.Game.Helpers
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.Status = (Enums.Status)Convert.ToInt64(Buf.Trim().ToString());
+				Record.Status = (Status)Convert.ToInt64(Buf.Trim().ToString());
 
 				if (ValidateField("Status"))
 				{
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -2974,7 +2974,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		protected virtual void InputStats()
 		{
-			var statValues = EnumUtil.GetValues<Enums.Stat>();
+			var statValues = EnumUtil.GetValues<Stat>();
 
 			foreach (var sv in statValues)
 			{
@@ -2989,7 +2989,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var stat = Globals.Engine.GetStats((Enums.Stat)i);
+			var stat = Globals.Engine.GetStats((Stat)i);
 
 			Debug.Assert(stat != null);
 
@@ -3016,7 +3016,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -3025,7 +3025,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		protected virtual void InputSpellAbilities()
 		{
-			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+			var spellValues = EnumUtil.GetValues<Spell>();
 
 			foreach (var sv in spellValues)
 			{
@@ -3063,7 +3063,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -3072,7 +3072,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		protected virtual void InputWeaponAbilities()
 		{
-			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+			var weaponValues = EnumUtil.GetValues<Weapon>();
 
 			foreach (var wv in weaponValues)
 			{
@@ -3087,7 +3087,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var weapon = Globals.Engine.GetWeapons((Enums.Weapon)i);
+			var weapon = Globals.Engine.GetWeapons((Weapon)i);
 
 			Debug.Assert(weapon != null);
 
@@ -3123,7 +3123,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -3155,7 +3155,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -3196,7 +3196,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -3237,7 +3237,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -3262,24 +3262,24 @@ namespace Eamon.Game.Helpers
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.ArmorClass = (Enums.Armor)Convert.ToInt64(Buf.Trim().ToString());
+				Record.ArmorClass = (Armor)Convert.ToInt64(Buf.Trim().ToString());
 
 				if (ValidateField("ArmorClass"))
 				{
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			if (Record.ArmorClass != armorClass)
 			{
-				Record.Armor = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+				Record.Armor = Globals.CreateInstance<ICharacterArtifact>(x =>
 				{
 					x.Parent = Record;
 				});
 
-				Record.Shield = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+				Record.Shield = Globals.CreateInstance<ICharacterArtifact>(x =>
 				{
 					x.Parent = Record;
 				});
@@ -3335,7 +3335,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-					fieldDesc = Enums.FieldDesc.Brief;
+					fieldDesc = FieldDesc.Brief;
 				}
 
 				if (Record.IsWeaponActive(i))
@@ -3346,13 +3346,13 @@ namespace Eamon.Game.Helpers
 					{
 						Record.GetWeapons(i).IsPlural = false;
 
-						Record.GetWeapons(i).PluralType = Enums.PluralType.S;
+						Record.GetWeapons(i).PluralType = PluralType.S;
 
-						Record.GetWeapons(i).ArticleType = Enums.ArticleType.A;
+						Record.GetWeapons(i).ArticleType = ArticleType.A;
 
 						Record.GetWeapons(i).Field1 = 5;
 
-						Record.GetWeapons(i).Field2 = (long)Enums.Weapon.Sword;
+						Record.GetWeapons(i).Field2 = (long)Weapon.Sword;
 
 						Record.GetWeapons(i).Field3 = 1;
 
@@ -3434,7 +3434,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-					fieldDesc = Enums.FieldDesc.Brief;
+					fieldDesc = FieldDesc.Brief;
 				}
 
 				if (Record.GetWeapons(i).IsPlural != isPlural)
@@ -3477,7 +3477,7 @@ namespace Eamon.Game.Helpers
 
 					try
 					{
-						Record.GetWeapons(i).PluralType = (Enums.PluralType)Convert.ToInt64(Buf.Trim().ToString());
+						Record.GetWeapons(i).PluralType = (PluralType)Convert.ToInt64(Buf.Trim().ToString());
 					}
 					catch (Exception)
 					{
@@ -3489,7 +3489,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-					fieldDesc = Enums.FieldDesc.Brief;
+					fieldDesc = FieldDesc.Brief;
 				}
 
 				if (Record.GetWeapons(i).PluralType != pluralType)
@@ -3532,7 +3532,7 @@ namespace Eamon.Game.Helpers
 
 					try
 					{
-						Record.GetWeapons(i).ArticleType = (Enums.ArticleType)Convert.ToInt64(Buf.Trim().ToString());
+						Record.GetWeapons(i).ArticleType = (ArticleType)Convert.ToInt64(Buf.Trim().ToString());
 					}
 					catch (Exception)
 					{
@@ -3544,7 +3544,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-					fieldDesc = Enums.FieldDesc.Brief;
+					fieldDesc = FieldDesc.Brief;
 				}
 
 				if (Record.GetWeapons(i).ArticleType != articleType)
@@ -3599,7 +3599,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-					fieldDesc = Enums.FieldDesc.Brief;
+					fieldDesc = FieldDesc.Brief;
 				}
 
 				if (Record.GetWeapons(i).Field1 != field1)
@@ -3645,7 +3645,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-					fieldDesc = Enums.FieldDesc.Brief;
+					fieldDesc = FieldDesc.Brief;
 				}
 
 				if (Record.GetWeapons(i).Field2 != field2)
@@ -3691,7 +3691,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-					fieldDesc = Enums.FieldDesc.Brief;
+					fieldDesc = FieldDesc.Brief;
 				}
 
 				if (Record.GetWeapons(i).Field3 != field3)
@@ -3737,7 +3737,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-					fieldDesc = Enums.FieldDesc.Brief;
+					fieldDesc = FieldDesc.Brief;
 				}
 
 				if (Record.GetWeapons(i).Field4 != field4)
@@ -3783,7 +3783,7 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 
-					fieldDesc = Enums.FieldDesc.Brief;
+					fieldDesc = FieldDesc.Brief;
 				}
 
 				if (Record.GetWeapons(i).Field5 != field5)

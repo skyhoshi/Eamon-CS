@@ -5,11 +5,11 @@
 
 using System;
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Utilities;
 using EamonMH.Framework;
-using Enums = Eamon.Framework.Primitive.Enums;
-using Classes = Eamon.Framework.Primitive.Classes;
 using static EamonMH.Game.Plugin.PluginContext;
 
 namespace EamonMH.Game
@@ -89,7 +89,7 @@ namespace EamonMH.Game
 
 		public virtual bool IsCharWpnType(char ch)
 		{
-			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+			var weaponValues = EnumUtil.GetValues<Weapon>();
 
 			ch = Char.ToUpper(ch);
 
@@ -98,7 +98,7 @@ namespace EamonMH.Game
 
 		public virtual bool IsCharWpnTypeOrX(char ch)
 		{
-			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+			var weaponValues = EnumUtil.GetValues<Weapon>();
 
 			ch = Char.ToUpper(ch);
 
@@ -107,7 +107,7 @@ namespace EamonMH.Game
 
 		public virtual bool IsCharSpellType(char ch)
 		{
-			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+			var spellValues = EnumUtil.GetValues<Spell>();
 
 			ch = Char.ToUpper(ch);
 
@@ -116,7 +116,7 @@ namespace EamonMH.Game
 
 		public virtual bool IsCharSpellTypeOrX(char ch)
 		{
-			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+			var spellValues = EnumUtil.GetValues<Spell>();
 
 			ch = Char.ToUpper(ch);
 
@@ -147,7 +147,7 @@ namespace EamonMH.Game
 
 		public virtual bool IsCharStat(char ch)
 		{
-			var statValues = EnumUtil.GetValues<Enums.Stat>();
+			var statValues = EnumUtil.GetValues<Stat>();
 
 			ch = Char.ToUpper(ch);
 
@@ -158,7 +158,7 @@ namespace EamonMH.Game
 		{
 			long rc = 0;
 
-			var armorValues = EnumUtil.GetValues<Enums.Armor>();
+			var armorValues = EnumUtil.GetValues<Armor>();
 
 			for (var i = 0; i < armorValues.Count; i++)
 			{
@@ -175,11 +175,11 @@ namespace EamonMH.Game
 			return rc;
 		}
 
-		public virtual Classes.IArmor GetArmorByMarcosNum(long marcosNum)
+		public virtual IArmor GetArmorByMarcosNum(long marcosNum)
 		{
-			Classes.IArmor rc = null;
+			IArmor rc = null;
 
-			var armorValues = EnumUtil.GetValues<Enums.Armor>();
+			var armorValues = EnumUtil.GetValues<Armor>();
 
 			for (var i = 0; i < armorValues.Count; i++)
 			{

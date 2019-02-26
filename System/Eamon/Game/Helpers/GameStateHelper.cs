@@ -8,10 +8,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Framework.Helpers;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Helpers.Generic;
 using Eamon.Game.Utilities;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game.Helpers
@@ -36,7 +36,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual string GetNameNBTL(bool addToNamesList)
 		{
-			var friendlinessValues = EnumUtil.GetValues<Enums.Friendliness>();
+			var friendlinessValues = EnumUtil.GetValues<Friendliness>();
 
 			foreach (var fv in friendlinessValues)
 			{
@@ -72,7 +72,7 @@ namespace Eamon.Game.Helpers
 		{
 			if (Globals.IsRulesetVersion(5))
 			{
-				var friendlinessValues = EnumUtil.GetValues<Enums.Friendliness>();
+				var friendlinessValues = EnumUtil.GetValues<Friendliness>();
 
 				foreach (var fv in friendlinessValues)
 				{
@@ -112,7 +112,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual string GetNameSa(bool addToNamesList)
 		{
-			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+			var spellValues = EnumUtil.GetValues<Spell>();
 
 			foreach (var sv in spellValues)
 			{
@@ -254,7 +254,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual bool ValidateLt()
 		{
-			return Enum.IsDefined(typeof(Enums.LightLevel), Record.Lt);
+			return Enum.IsDefined(typeof(LightLevel), Record.Lt);
 		}
 
 		/// <summary></summary>
@@ -298,7 +298,7 @@ namespace Eamon.Game.Helpers
 		{
 			var result = true;
 
-			var friendlinessValues = EnumUtil.GetValues<Enums.Friendliness>();
+			var friendlinessValues = EnumUtil.GetValues<Friendliness>();
 
 			foreach (var fv in friendlinessValues)
 			{
@@ -332,7 +332,7 @@ namespace Eamon.Game.Helpers
 
 			if (Globals.IsRulesetVersion(5))
 			{
-				var friendlinessValues = EnumUtil.GetValues<Enums.Friendliness>();
+				var friendlinessValues = EnumUtil.GetValues<Friendliness>();
 
 				foreach (var fv in friendlinessValues)
 				{
@@ -365,7 +365,7 @@ namespace Eamon.Game.Helpers
 		{
 			var result = true;
 
-			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+			var spellValues = EnumUtil.GetValues<Spell>();
 
 			foreach (var sv in spellValues)
 			{
@@ -388,7 +388,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var spell = Globals.Engine.GetSpells((Enums.Spell)i);
+			var spell = Globals.Engine.GetSpells((Spell)i);
 
 			Debug.Assert(spell != null);
 

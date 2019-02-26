@@ -4,279 +4,1788 @@
         <name>EamonRT</name>
     </assembly>
     <members>
+        <member name="T:EamonRT.Framework.Combat.ICombatSystem">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Combat.ICombatSystem.SetNextStateFunc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Combat.ICombatSystem.OfMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Combat.ICombatSystem.DfMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Combat.ICombatSystem.MemberNumber">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Combat.ICombatSystem.AttackNumber">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Combat.ICombatSystem.BlastSpell">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Combat.ICombatSystem.UseAttacks">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Combat.ICombatSystem.MaxDamage">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Combat.ICombatSystem.OmitArmor">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Combat.ICombatSystem.OmitSkillGains">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Combat.ICombatSystem.OmitMonsterStatus">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Combat.ICombatSystem.OmitFinalNewLine">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Combat.ICombatSystem.FixedResult">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Combat.ICombatSystem.WeaponRevealType">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Combat.ICombatSystem.ExecuteCalculateDamage(System.Int64,System.Int64,System.Int64)">
+            <summary></summary>
+            <param name="numDice"></param>
+            <param name="numSides"></param>
+            <param name="mod"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Combat.ICombatSystem.ExecuteCheckMonsterStatus">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Combat.ICombatSystem.ExecuteAttack">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.ICommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.ICommandImpl">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandImpl.Command">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandImpl.ShouldPreTurnProcess">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandImpl.Execute">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.ICommandSignatures">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.CommandParser">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.ActorMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.ActorRoom">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.Dobj">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.DobjArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.DobjMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.Iobj">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IobjArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IobjMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.Synonyms">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.SortOrder">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.Verb">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.Prep">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.Type">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IsNew">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IsListed">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IsIobjEnabled">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IsDarkEnabled">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IsPlayerEnabled">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IsMonsterEnabled">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintCantVerbObj(Eamon.Framework.IGameBase)">
+            <summary></summary>
+            <param name="obj"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintCantVerbIt(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintCantVerbThat(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintDoYouMeanObj1OrObj2(Eamon.Framework.IGameBase,Eamon.Framework.IGameBase)">
+            <summary></summary>
+            <param name="obj1"></param>
+            <param name="obj2"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintTakingFirst(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintBestLeftAlone(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintTooHeavy(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintMustBeFreed(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintMustFirstOpen(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintRemoved(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintOpened(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintClosed(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintReceived(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintRetrieved(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintTaken(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintDropped(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintNotOpen(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintAlreadyOpen(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintWontOpen(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintWontFit(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintFull(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintLocked(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintBrokeIt(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintAlreadyBrokeIt(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintHaveToForceOpen(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintWearingRemoveFirst(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintWearingRemoveFirst01(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintCantWearShieldWithWeapon(Eamon.Framework.IArtifact,Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="shield"></param>
+            <param name="weapon"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintVerbItAll(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintNoneLeft(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintOkay(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintFeelBetter(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintFeelWorse(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintTryDifferentCommand(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintWhyAttack(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintNotWeapon(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintNotReadyableWeapon(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintCantReadyWeaponWithShield(Eamon.Framework.IArtifact,Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="weapon"></param>
+            <param name="shield"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintPolitelyRefuses(Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="monster"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintGiveObjToActor(Eamon.Framework.IArtifact,Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="artifact"></param>
+            <param name="monster"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintObjBelongsToActor(Eamon.Framework.IArtifact,Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="artifact"></param>
+            <param name="monster"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintOpenObjWithKey(Eamon.Framework.IArtifact,Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+            <param name="key"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintNotEnoughGold">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintMustFirstReadyWeapon">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintDontHaveItNotHere">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintDontHaveIt">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintDontNeedTo">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintCantVerbThat">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintCantVerbHere">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintBeMoreSpecific">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintNobodyHereByThatName">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintNothingHereByThatName">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintYouSeeNothingSpecial">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintDontFollowYou">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintDontBeAbsurd">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintCalmDown">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintNoPlaceToGo">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerArtifactMatch">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerArtifactMatch01">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerArtifactMatch02">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerMonsterMatch">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerMonsterMatch01">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerMonsterMatch02">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerMonsterMatch03">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerResolveArtifact">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerResolveMonster">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerProcessEvents(System.Int64)">
+            <summary></summary>
+            <param name="eventType"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.MonsterProcessEvents(System.Int64)">
+            <summary></summary>
+            <param name="eventType"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerExecute">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.MonsterExecute">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerFinishParsing">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.MonsterFinishParsing">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.IsAllowedInRoom">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.ShouldAllowSkillGains">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.GetPrintedVerb">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.IsEnabled(Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="monster"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.CopyCommandData(EamonRT.Framework.Commands.ICommand,System.Boolean)">
+            <summary></summary>
+            <param name="destCommand"></param>
+            <param name="includeIobj"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.FinishParsing">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IAttackCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IAttackCommand.BlastSpell">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IAttackCommand.CheckAttack">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IAttackCommand.MemberNumber">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IAttackCommand.AttackNumber">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IBlastCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IBlastCommand.CastSpell">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IBlastCommand.CheckAttack">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IFreeCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IGiveCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IGiveCommand.GetCommandCalled">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IGiveCommand.GoldAmount">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IHealCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IHealCommand.CastSpell">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IRequestCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IRequestCommand.GetCommandCalled">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.ISmileCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.ICloseCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IDrinkCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IDropCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IDropCommand.DropAll">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IEatCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IExamineCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IGetCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IGetCommand.GetAll">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.ILightCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IOpenCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IPutCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IPutCommand.GetCommandCalled">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IReadCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IReadyCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IRemoveCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IRemoveCommand.GetCommandCalled">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IUseCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IWearCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IHintsCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IInfoCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IInventoryCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.ILookCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IPowerCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IPowerCommand.CastSpell">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IQuitCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IQuitCommand.GoToMainHall">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IRestoreCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IRestoreCommand.SaveSlot">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.ISaveCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ISaveCommand.SaveSlot">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ISaveCommand.SaveName">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.ISayCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ISayCommand.OriginalPhrase">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ISayCommand.PrintedPhrase">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ISayCommand.ProcessedPhrase">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.ISettingsCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ISettingsCommand.VerboseRooms">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ISettingsCommand.VerboseMonsters">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ISettingsCommand.VerboseArtifacts">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ISettingsCommand.PauseCombatMs">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.ISpeedCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ISpeedCommand.CastSpell">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IStatusCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IDownCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IEastCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IFleeCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IFleeCommand.Direction">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IGoCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.INeCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.INorthCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.INwCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.ISeCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.ISouthCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.ISwCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IUpCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IWestCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.IEngine">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.IEngine.StartRoom">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.IEngine.NumSaveSlots">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.IEngine.ScaledHardinessUnarmedMaxDamage">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.IEngine.ScaledHardinessMaxDamageDivisor">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.IEngine.EnforceMonsterWeightLimits">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.IEngine.UseMonsterScaledHardinessValues">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.IEngine.PoundCharPolicy">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.PrintMonsterAlive(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.WeaponPowerCompare(Eamon.Framework.IArtifact,Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact1"></param>
+            <param name="artifact2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.WeaponPowerCompare(System.Int64,System.Int64)">
+            <summary></summary>
+            <param name="artifactUid1"></param>
+            <param name="artifactUid2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.GetMostPowerfulWeapon(System.Collections.Generic.IList{Eamon.Framework.IArtifact})">
+            <summary></summary>
+            <param name="artifactList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.GetMostPowerfulWeaponUid(System.Collections.Generic.IList{Eamon.Framework.IArtifact})">
+            <summary></summary>
+            <param name="artifactList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.InitWtValueAndEnforceLimits">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.AddPoundCharsToArtifactNames">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.AddMissingDescs">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.InitSaArray">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.CreateCommands">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.InitArtifacts">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.InitMonsters">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.InitMonsterScaledHardinessValues">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.ConvertWeaponToArtifact(Eamon.Framework.Primitive.Classes.ICharacterArtifact)">
+            <summary></summary>
+            <param name="weapon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.ConvertArtifactToWeapon(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.ConvertArtifactToMonster(Eamon.Framework.IArtifact,System.Action{Eamon.Framework.IMonster},System.Boolean)">
+            <summary></summary>
+            <param name="artifact"></param>
+            <param name="initialize"></param>
+            <param name="addToDatabase"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.ConvertCharacterToMonster">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.ConvertMonsterToCharacter(Eamon.Framework.IMonster,System.Collections.Generic.IList{Eamon.Framework.IArtifact})">
+            <summary></summary>
+            <param name="monster"></param>
+            <param name="weaponList"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.ResetMonsterStats(Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="monster"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.SetArmorClass">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.ConvertToCarriedInventory(System.Collections.Generic.IList{Eamon.Framework.IArtifact})">
+            <summary></summary>
+            <param name="weaponList"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.SellExcessWeapons(System.Collections.Generic.IList{Eamon.Framework.IArtifact})">
+            <summary></summary>
+            <param name="weaponList"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.SellInventoryToMerchant(System.Boolean)">
+            <summary></summary>
+            <param name="sellInventory"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.DeadMenu(Eamon.Framework.IMonster,System.Boolean,System.Boolean@)">
+            <summary></summary>
+            <param name="monster"></param>
+            <param name="printLineSep"></param>
+            <param name="restoreGame"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.LightOut(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.MonsterGetsAggravated(Eamon.Framework.IMonster,System.Boolean)">
+            <summary></summary>
+            <param name="monster"></param>
+            <param name="printFinalNewLine"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.MonsterSmiles(Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="monster"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.MonsterDies(Eamon.Framework.IMonster,Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="OfMonster"></param>
+            <param name="DfMonster"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.ProcessMonsterDeathEvents(Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="monster"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.RevealDisguisedMonster(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.RevealEmbeddedArtifact(Eamon.Framework.IRoom,Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="room"></param>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.RemoveWeight(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.GetBlockedDirectionArtifact(System.Int64,System.Int64,Eamon.Framework.Primitive.Enums.Direction)">
+            <summary></summary>
+            <param name="ro"></param>
+            <param name="r2"></param>
+            <param name="dir"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.CheckDoor(Eamon.Framework.IRoom,Eamon.Framework.IArtifact,System.Boolean@,System.Int64@)">
+            <summary></summary>
+            <param name="room"></param>
+            <param name="artifact"></param>
+            <param name="found"></param>
+            <param name="roomUid"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.CheckNumberOfExits(Eamon.Framework.IRoom,Eamon.Framework.IMonster,System.Boolean,System.Int64@)">
+            <summary></summary>
+            <param name="room"></param>
+            <param name="monster"></param>
+            <param name="fleeing"></param>
+            <param name="numExits"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.GetRandomMoveDirection(Eamon.Framework.IRoom,Eamon.Framework.IMonster,System.Boolean,Eamon.Framework.Primitive.Enums.Direction@,System.Boolean@,System.Int64@)">
+            <summary></summary>
+            <param name="room"></param>
+            <param name="monster"></param>
+            <param name="fleeing"></param>
+            <param name="direction"></param>
+            <param name="found"></param>
+            <param name="roomUid"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.GetRandomMoveDirection(Eamon.Framework.IRoom,Eamon.Framework.IMonster,System.Boolean,Eamon.Framework.Primitive.Enums.Direction@)">
+            <summary></summary>
+            <param name="room"></param>
+            <param name="monster"></param>
+            <param name="fleeing"></param>
+            <param name="direction"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.GetRandomMonsterList(System.Int64,System.Func{Eamon.Framework.IMonster,System.Boolean}[])">
+            <summary></summary>
+            <param name="numMonsters"></param>
+            <param name="whereClauseFuncs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.FilterArtifactList(System.Collections.Generic.IList{Eamon.Framework.IArtifact},System.String)">
+            <summary></summary>
+            <param name="artifactList"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.FilterMonsterList(System.Collections.Generic.IList{Eamon.Framework.IMonster},System.String)">
+            <summary></summary>
+            <param name="monsterList"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.FilterRecordList(System.Collections.Generic.IList{Eamon.Framework.IGameBase},System.String)">
+            <summary></summary>
+            <param name="recordList"></param>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.GetReadyableWeaponList(Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="monster"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.GetHostileMonsterList(Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="monster"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.BuildCommandList(System.Collections.Generic.IList{EamonRT.Framework.Commands.ICommand},Eamon.Framework.Primitive.Enums.CommandType,System.Text.StringBuilder,System.Boolean@)">
+            <summary></summary>
+            <param name="commands"></param>
+            <param name="cmdType"></param>
+            <param name="buf"></param>
+            <param name="newSeen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.ResurrectDeadBodies(System.Func{Eamon.Framework.IArtifact,System.Boolean}[])">
+            <summary></summary>
+            <param name="whereClauseFuncs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.MakeArtifactsVanish(System.Func{Eamon.Framework.IArtifact,System.Boolean}[])">
+            <summary></summary>
+            <param name="whereClauseFuncs"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.CheckNBTLHostility(Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="monster"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.CheckCourage(Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="monster"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.CheckPlayerSpellCast(Eamon.Framework.Primitive.Enums.Spell,System.Boolean)">
+            <summary></summary>
+            <param name="spellValue"></param>
+            <param name="shouldAllowSkillGains"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.CheckPlayerSkillGains(Eamon.Framework.Primitive.Classes.IArtifactCategory,System.Int64)">
+            <summary></summary>
+            <param name="ac"></param>
+            <param name="af"></param>
+        </member>
         <member name="M:EamonRT.Framework.IEngine.CheckPlayerCommand(EamonRT.Framework.Commands.ICommand,System.Boolean)">
-            <summary>
-            Checks to see if the player command should be allowed to proceed.
-            </summary>
-            <param name="command">The command to check.</param>
-            <param name="afterFinishParsing">A flag indicating whether the direct/indirect objects have been resolved.</param>
-            <remarks>
-            This method takes the command identified during the parsing process and checks to see if it
-            should be allowed to proceed.  If afterFinishParsing is false, the method is called immediately
-            once the command is identified; the direct/indirect objects have not been parsed or resolved at
-            this point.  If the flag is true, the direct/indirect objects have been parsed and resolved.
-            You can examine the command passed and take whatever actions you deem necessary, including
-            outputting text to the player.  If you want to abort or redirect the command you should set
-            its CommandParser.NextState property to some other state (or null).
-            </remarks>
+            <summary></summary>
+            <param name="command"></param>
+            <param name="afterFinishParsing"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.CheckToExtinguishLightSource">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.TransportRoomContentsBetweenRooms(Eamon.Framework.IRoom,Eamon.Framework.IRoom,System.Boolean)">
+            <summary></summary>
+            <param name="oldRoom"></param>
+            <param name="newRoom"></param>
+            <param name="includeEmbedded"></param>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.TransportPlayerBetweenRooms(Eamon.Framework.IRoom,Eamon.Framework.IRoom,Eamon.Framework.IEffect)">
+            <summary></summary>
+            <param name="oldRoom"></param>
+            <param name="newRoom"></param>
+            <param name="effect"></param>
         </member>
         <member name="M:EamonRT.Framework.IEngine.PrintMacroReplacedPagedString(System.String,System.Text.StringBuilder)">
-            <summary>
-            Prints the string passed in, after doing full macro replacement on it (if necessary).  If the
-            string contains page separators it will be printed a page at a time.
-            </summary>
-            <param name="str">The string to process and print.</param>
-            <param name="buf">The buffer used during string processing.</param>
-            <remarks>
-            Macro replacement is done using <see cref="M:Eamon.Framework.IEngine.ResolveUidMacros(System.String,System.Text.StringBuilder,System.Boolean,System.Boolean,System.Int64@)"/>.  If the
-            printed string contains the page break macro <see cref="P:EamonRT.Framework.Plugin.IPluginConstants.PageSep"/> it will
-            be split into pages and each page will be displayed, followed by a required user keypress.  The
-            passed in buffer is used during processing and its original contents will be overwritten.  The
-            passed in string will not be modified.  This method is used to print the intro story as well as
-            hints, such as the author's notes.
-            </remarks>
+            <summary></summary>
+            <param name="str"></param>
+            <param name="buf"></param>
         </member>
-        <member name="M:EamonRT.Game.Commands.Command.PlayerExecute">
-            <summary>
-            The main entry point that resolves player character use of the Command.
-            </summary>
+        <member name="M:EamonRT.Framework.IEngine.CreateArtifactSynonyms(System.Int64,System.String[])">
+            <summary></summary>
+            <param name="artifactUid"></param>
+            <param name="synonyms"></param>
         </member>
-        <member name="M:EamonRT.Game.Commands.Command.MonsterExecute">
-            <summary>
-            The main entry point that resolves non-player character use of the Command.
-            </summary>
+        <member name="M:EamonRT.Framework.IEngine.CreateMonsterSynonyms(System.Int64,System.String[])">
+            <summary></summary>
+            <param name="monsterUid"></param>
+            <param name="synonyms"></param>
         </member>
-        <member name="M:EamonRT.Game.Commands.Command.IsAllowedInRoom">
-            <summary>
-            Determines whether the command is allowed in the player's current room.
-            </summary>
-            <remarks>
-            This method works in conjunction with <see cref="M:EamonRT.Game.Commands.Command.PrintCantVerbHere"/> to disable commands
-            with custom error responses in different rooms.  Note that there is also a very powerful and
-            much more flexible option in <see cref="M:EamonRT.Framework.IEngine.CheckPlayerCommand(EamonRT.Framework.Commands.ICommand,System.Boolean)"/>,
-            which can be used to accomplish these tasks.
-            </remarks>
-            <returns>If the command is allowed, returns true; else returns false.</returns>
+        <member name="M:EamonRT.Framework.IEngine.GetOddsToHit(Eamon.Framework.IMonster,Eamon.Framework.IMonster,Eamon.Framework.Primitive.Classes.IArtifactCategory,System.Int64,System.Int64@)">
+            <summary></summary>
+            <param name="ofMonster"></param>
+            <param name="dfMonster"></param>
+            <param name="ac"></param>
+            <param name="af"></param>
+            <param name="oddsToHit"></param>
         </member>
-        <member name="T:EamonRT.Game.Commands.CommandImpl">
-            <summary>
-            An implementation of the Command class that can be subclassed and overridden at the game level.
-            </summary>
-            <remarks>
-            This class was introduced to allow the logic in the abstract base class Command to be overridden
-            by the game designer.  This can already be done on a Command by Command basis, that is, you have to
-            override each Command individually to create derived behavior.  But now you can override CommandImpl
-            and every class derived from Command will inherit the modified behavior automatically.
-            <para>
-            Note that when subclassing and writing code in CommandImpl, you should never access its methods or
-            properties directly; always access them indirectly using the Command property.  For example, use
-            Command.PrintNotEnoughGold() or Command.ActorRoom, etc.  The reason for this is if a subclass of
-            Command has overridden the property or method you don't want to use CommandImpl's version, you want
-            that classes' override (if there is no override in the subclass, then Command will just thunk back
-            over to CommandImpl's version).
-            </para>
-            </remarks>
-            <seealso cref="T:EamonRT.Framework.Commands.ICommandImpl" />
-            <seealso cref="T:EamonRT.Framework.Commands.ICommand" />
-            <seealso cref="T:EamonRT.Game.Commands.Command" />
+        <member name="M:EamonRT.Framework.IEngine.CreateInitialState(System.Boolean)">
+            <summary></summary>
+            <param name="printLineSep"></param>
         </member>
-        <member name="F:EamonRT.Game.Commands.BlastCommand.PpeAfterPlayerSpellCastCheck">
-            <summary>
-            This event fires after a check has been made to resolve the player's spell cast
-            attempt, and it resolves as successful.
-            </summary>
+        <member name="M:EamonRT.Framework.IEngine.CheckEnemies">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.BlastCommand.PpeAfterMonsterGetsAggravated">
-            <summary>
-            This event fires after the monster targeted by the Blast spell gets aggravated.
-            </summary>
+        <member name="M:EamonRT.Framework.IEngine.MoveMonsters">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.FreeCommand.PpeBeforeGuardMonsterCheck">
-            <summary>
-            This event fires before a check is made to see if a guard monster prevents
-            a bound monster from being freed.
-            </summary>
+        <member name="M:EamonRT.Framework.IEngine.RtProcessArgv(System.Boolean,System.Boolean@)">
+            <summary></summary>
+            <param name="secondPass"></param>
+            <param name="nlFlag"></param>
         </member>
-        <member name="F:EamonRT.Game.Commands.GiveCommand.PpeAfterEnforceMonsterWeightLimitsCheck">
-            <summary>
-            This event fires after a check has been made to enforce limits on the weight a
-            monster can carry.
-            </summary>
+        <member name="T:EamonRT.Framework.IIntroStory">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.GiveCommand.PpeAfterPlayerGivesReadiedWeaponCheck">
-            <summary>
-            This event fires after a check has been made to see if the player is giving away
-            a readied weapon.
-            </summary>
+        <member name="P:EamonRT.Framework.IIntroStory.Buf">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.GiveCommand.PpeBeforeMonsterTakesGold">
-            <summary>
-            This event fires before a monster takes the gold offered by the player.
-            </summary>
+        <member name="P:EamonRT.Framework.IIntroStory.StoryType">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.CloseCommand.PpeAfterArtifactClose">
-            <summary>
-            This event fires after the player closes an artifact.
-            </summary>
+        <member name="P:EamonRT.Framework.IIntroStory.ShouldPrintOutput">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.DrinkCommand.PpeBeforeArtifactNowEmptyCheck">
-            <summary>
-            This event fires before a check is made to see if an artifact has been fully drunk.
-            </summary>
+        <member name="M:EamonRT.Framework.IIntroStory.PrintOutput">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.DrinkCommand.PpeAfterArtifactDrink">
-            <summary>
-            This event fires after the player drinks an artifact.
-            </summary>
+        <member name="T:EamonRT.Framework.IMainLoop">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.EatCommand.PpeBeforeArtifactNowEmptyCheck">
-            <summary>
-            This event fires before a check is made to see if an artifact has been fully eaten.
-            </summary>
+        <member name="P:EamonRT.Framework.IMainLoop.Buf">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.EatCommand.PpeAfterArtifactEat">
-            <summary>
-            This event fires after the player eats an artifact.
-            </summary>
+        <member name="P:EamonRT.Framework.IMainLoop.ShouldStartup">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.ExamineCommand.PpeAfterArtifactFullDescPrint">
-            <summary>
-            This event fires after an artifact's full description has been printed (but before
-            units are listed for drinkables/edibles).
-            </summary>
+        <member name="P:EamonRT.Framework.IMainLoop.ShouldShutdown">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.OpenCommand.PpeAfterArtifactOpenPrint">
-            <summary>
-            This event fires after an artifact's open message has been printed (but before
-            inventory is listed for containers).
-            </summary>
+        <member name="P:EamonRT.Framework.IMainLoop.ShouldExecute">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.OpenCommand.PpeAfterArtifactOpen">
-            <summary>
-            This event fires after the player opens an artifact.
-            </summary>
+        <member name="M:EamonRT.Framework.IMainLoop.Startup">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.PutCommand.PpeAfterArtifactPut">
-            <summary>
-            This event fires after the player puts an artifact into a container.
-            </summary>
+        <member name="M:EamonRT.Framework.IMainLoop.Shutdown">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.ReadCommand.PpeBeforeArtifactReadTextPrint">
-            <summary>
-            This event fires before an artifact's read text is printed.
-            </summary>
+        <member name="M:EamonRT.Framework.IMainLoop.Execute">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.ReadCommand.PpeAfterArtifactRead">
-            <summary>
-            This event fires after the player reads an artifact.
-            </summary>
+        <member name="T:EamonRT.Framework.Parsing.ICommandParser">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.UseCommand.PpeBeforeArtifactUse">
-            <summary>
-            This event fires before the player uses an artifact.
-            </summary>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.InputBuf">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.WearCommand.PpeAfterArtifactWear">
-            <summary>
-            This event fires after the player wears an artifact.
-            </summary>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.LastInputStr">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.PowerCommand.PpeAfterPlayerSpellCastCheck">
-            <summary>
-            This event fires after a check has been made to resolve the player's spell cast
-            attempt, and it resolves as successful.
-            </summary>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.Tokens">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.SayCommand.PpeBeforePlayerSayTextPrint">
-            <summary>
-            This event fires before the player's said text is printed.
-            </summary>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.CurrToken">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.SayCommand.PpeAfterPlayerSay">
-            <summary>
-            This event fires after the player says something.
-            </summary>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.PrepTokenIndex">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.StatusCommand.PpeAfterPlayerStatus">
-            <summary>
-            This event fires after the player's status text has been printed.
-            </summary>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.ActorMonster">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.FleeCommand.PpeAfterNumberOfExitsCheck">
-            <summary>
-            This event fires after a check has been made to see if exits are available for fleeing,
-            and it resolves that there are.
-            </summary>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.ActorRoom">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.EndOfRoundState.PeAfterRoundEnd">
-            <summary>
-            This event fires at the end of the current round, after all processing has been done.
-            </summary>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.DobjData">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.StartState.PeBeforeRoundStart">
-            <summary>
-            This event fires at the start of a new round, before any processing has been done.
-            </summary>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.IobjData">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.AfterPlayerMoveState.PeAfterExtinguishLightSourceCheck">
-            <summary>
-            This event fires after the player has moved to a new room and a check has
-            been made to see if a carried light source needs to be extinguished.
-            </summary>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.ObjData">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.BeforePlayerMoveState.PeAfterDestinationRoomSet">
-            <summary>
-            This event fires after the player's destination room Uid is calculated and stored.
-            </summary>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.NextState">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.GetPlayerInputState.PeBeforeCommandPromptPrint">
-            <summary>
-            This event fires before the player's command prompt is printed.
-            </summary>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.GetActiveObjData">
+            <summary></summary>
+            <returns></returns>
         </member>
-        <member name="F:EamonRT.Game.States.PlayerMoveCheckState.PeBeforeCanMoveToRoomCheck">
-            <summary>
-            This event fires before a check is made to see if the player can move to a room.
-            </summary>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.SetArtifact(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
         </member>
-        <member name="F:EamonRT.Game.States.PlayerMoveCheckState.PeAfterBlockingArtifactCheck">
-            <summary>
-            This event fires after a check is made to see if a blocking artifact (for example,
-            a door) prevents the player's movement.
-            </summary>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.SetMonster(Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="monster"></param>
         </member>
-        <member name="F:EamonRT.Game.States.PrintPlayerRoomState.PeBeforePlayerRoomPrint">
-            <summary>
-            This event fires before the player's room has been printed.
-            </summary>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.GetArtifact">
+            <summary></summary>
+            <returns></returns>
         </member>
-        <member name="F:EamonRT.Game.States.ProcessPlayerInputState.PeAfterLastCommandListClear">
-            <summary>
-            This event fires after the player's command has been processed (but not executed), 
-            the current turn counter incremented and the last command list cleared.
-            </summary>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.GetMonster">
+            <summary></summary>
+            <returns></returns>
         </member>
-        <member name="T:EamonRT.Game.States.StateImpl">
-            <summary>
-            An implementation of the State class that can be subclassed and overridden at the game level.
-            </summary>
-            <remarks>
-            This class was introduced to allow the logic in the abstract base class State to be overridden
-            by the game designer.  This can already be done on a State by State basis, that is, you have to
-            override each State individually to create derived behavior.  But now you can override StateImpl
-            and every class derived from State will inherit the modified behavior automatically.
-            <para>
-            Note that when subclassing and writing code in StateImpl, you should never access its methods or
-            properties directly; always access them indirectly using the State property.  For example, use
-            State.PrintCantGoThatWay() or State.NextState, etc.  The reason for this is if a subclass of
-            State has overridden the property or method you don't want to use StateImpl's version, you want
-            that classes' override (if there is no override in the subclass, then State will just thunk back
-            over to StateImpl's version).
-            </para>
-            </remarks>
-            <seealso cref="T:EamonRT.Framework.States.IStateImpl" />
-            <seealso cref="T:EamonRT.Framework.States.IState" />
-            <seealso cref="T:EamonRT.Game.States.State" />
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.Clear">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.ParseName">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.Execute">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Parsing.IParserData">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.Name">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.QueryDesc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.Obj">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.Artifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.Monster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.GetArtifactList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.GetMonsterList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.FilterArtifactList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.FilterMonsterList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.ArtifactWhereClauseList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.MonsterWhereClauseList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.GetArtifactListFunc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.GetMonsterListFunc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.FilterArtifactListFunc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.FilterMonsterListFunc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.FilterRecordListFunc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.RevealEmbeddedArtifactFunc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.ArtifactMatchFunc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.MonsterMatchFunc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.ArtifactNotFoundFunc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.IParserData.MonsterNotFoundFunc">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Plugin.IPluginClassMappings">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Plugin.IPluginConstants">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginConstants.StartRoom">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginConstants.NumSaveSlots">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginConstants.ScaledHardinessUnarmedMaxDamage">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginConstants.ScaledHardinessMaxDamageDivisor">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginConstants.CommandPrompt">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginConstants.PageSep">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginConstants.RtProgVersion">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Plugin.IPluginGlobals">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.Buf01">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.Buf02">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.CommandList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LastCommandList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopArtifactList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopArtifactListIndex">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopMonsterUid">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopMemberNumber">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopAttackNumber">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopGroupCount">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopLastDfMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.Engine">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.IntroStory">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.MainLoop">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.CommandParser">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.CurrState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.NextState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.GameState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.Character">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.ExitType">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.CommandPrompt">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LastCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.GameRunning">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.DeleteGameStateAfterLoop">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.StartOver">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.ErrorExit">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.ExportCharacterGoToMainHall">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.ExportCharacter">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.DeleteCharacter">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Primitive.Enums.AttackResult">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.AttackResult.None">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.AttackResult.Fumble">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.AttackResult.Miss">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.AttackResult.Hit">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.AttackResult.CriticalHit">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Primitive.Enums.CombatState">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.CombatState.None">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.CombatState.BeginAttack">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.CombatState.AttackMiss">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.CombatState.AttackFumble">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.CombatState.AttackHit">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.CombatState.CalculateDamage">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.CombatState.CheckArmor">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.CombatState.CheckMonsterStatus">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.CombatState.EndAttack">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.CombatState.User1">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.CombatState.User2">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.CombatState.User3">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Primitive.Enums.IntroStoryType">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.IntroStoryType.Default">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.IntroStoryType.Beginners">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Primitive.Enums.WeaponRevealType">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.WeaponRevealType.Never">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.WeaponRevealType.Always">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.WeaponRevealType.OnlyIfSeen">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IBurnDownLightSourceState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IBurnDownSpeedSpellState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IEndOfRoundState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IErrorState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IErrorState.ErrorCode">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IErrorState.ErrorMessage">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IRegenerateSpellAbilitiesState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IStartState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IUnrecognizedCommandState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IStateImpl">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IStateImpl.State">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IStateSignatures">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IStateSignatures.GotoCleanup">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IStateSignatures.Name">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IStateSignatures.NextState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IStateSignatures.PreserveNextState">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.States.IStateSignatures.PrintObjBlocksTheWay(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.States.IStateSignatures.PrintCantGoThatWay">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.States.IStateSignatures.PrintCantVerbThere(System.String)">
+            <summary></summary>
+            <param name="verb"></param>
+        </member>
+        <member name="M:EamonRT.Framework.States.IStateSignatures.PrintRideOffIntoSunset">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.States.IStateSignatures.PrintEnemiesNearby">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.States.IStateSignatures.ProcessEvents(System.Int64)">
+            <summary></summary>
+            <param name="eventType"></param>
+        </member>
+        <member name="M:EamonRT.Framework.States.IStateSignatures.GetDarkName(Eamon.Framework.IGameBase,Eamon.Framework.Primitive.Enums.ArticleType,System.String,System.Boolean,System.Boolean)">
+            <summary></summary>
+            <param name="target"></param>
+            <param name="articleType"></param>
+            <param name="nameType"></param>
+            <param name="upshift"></param>
+            <param name="groupCountOne"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.States.IStateSignatures.ShouldPreTurnProcess">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.States.IStateSignatures.Execute">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IAfterMonsterFleesRoomState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IArtifactLoopIncrementState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IArtifactLoopInitializeState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IAttackLoopIncrementState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IAttackLoopInitializeState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IBeforeMonsterAttacksEnemyState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IBeforeMonsterFleesRoomState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IBeforeMonsterPicksUpWeaponState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IBeforeMonsterReadiesWeaponState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IDefaultMonsterDecisionState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IMemberLoopIncrementState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IMemberLoopInitializeState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IMonsterLoopIncrementState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IMonsterLoopInitializeState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IMonsterReadiedWeaponCheckState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IMonsterStartState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IMonsterUsesNaturalWeaponsCheckState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IAfterPlayerMoveState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IAfterPlayerMoveState.Direction">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IAfterPlayerMoveState.Artifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IAfterPlayerMoveState.MoveMonsters">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IBeforePlayerMoveState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IBeforePlayerMoveState.Direction">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IBeforePlayerMoveState.Artifact">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IGetPlayerInputState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IPlayerDeadState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IPlayerDeadState.PrintLineSep">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IPlayerMoveCheckState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IPlayerMoveCheckState.Direction">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IPlayerMoveCheckState.Artifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IPlayerMoveCheckState.Fleeing">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IPrintPlayerRoomState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IProcessPlayerInputState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IProcessPlayerInputState.IncrementCurrTurn">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Combat.CombatSystem._odds">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Combat.CombatSystem._rl">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Combat.CombatSystem._d2">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.CombatState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.OfAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.DfAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.ArAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.WpnArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.OfWeapon">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.DfWeapon">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.DfArmor">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.OfWeaponType">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.DfWeaponType">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.OfMonsterName">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.DfMonsterName">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.AttackDesc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.AttackDesc01">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.MissDesc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.UseFractionalStrength">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.OmitBboaPadding">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.LightOut">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.OfWeaponUid">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.DfWeaponUid">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.D">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.S">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.M">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.A">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.Af">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Combat.CombatSystem.S2">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.SetAttackDesc">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintAttack">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintMiss">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintFumble">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintRecovered">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintWeaponDropped">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintWeaponHitsUser">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintSparksFly">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintWeaponDamaged">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintWeaponBroken">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintBrokenWeaponHitsUser">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintStarPlus">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintHit">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintCriticalHit">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintBlowTurned">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintHealthStatus">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.PrintBlast">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.RollToHitOrMiss">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.BeginAttack">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.AttackMiss">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.AttackFumble">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.AttackHit">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.CalculateDamageForFractionalStrength">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.CalculateDamage">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.CheckArmor">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.CheckMonsterStatus">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Combat.CombatSystem.ExecuteStateMachine">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Commands.SettingsCommand.PrintUsage">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Engine.ConvertWeaponsToArtifacts">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Game.Engine.ConvertArmorToArtifacts">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Game.Engine.PrintTooManyWeapons">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Engine.PrintDeliverGoods">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Engine.PrintGoodsPayment(System.Boolean,System.Int64)">
+            <summary></summary>
+            <param name="goodsExist"></param>
+            <param name="payment"></param>
+        </member>
+        <member name="M:EamonRT.Game.Engine.SetScaledHardiness(Eamon.Framework.IMonster,System.Int64)">
+            <summary></summary>
+            <param name="monster"></param>
+            <param name="damageFactor"></param>
+        </member>
+        <member name="M:EamonRT.Game.Engine.PlayerSpellCastBrainOverload(Eamon.Framework.Primitive.Enums.Spell,Eamon.Framework.Primitive.Classes.ISpell)">
+            <summary></summary>
+            <param name="s"></param>
+            <param name="spell"></param>
+        </member>
+        <member name="M:EamonRT.Game.IntroStory.IsCharWpnNum(System.Char)">
+            <summary></summary>
+            <param name="ch"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Game.IntroStory.PrintOutputBeginnersPrelude">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.IntroStory.PrintOutputBeginnersTooManyWeapons">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.IntroStory.PrintOutputBeginnersNoWeapons">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.IntroStory.PrintOutputBeginnersNotABeginner">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.IntroStory.PrintOutputBeginnersMayNowProceed">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.IntroStory.PrintOutputBeginners">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.IntroStory.PrintOutputDefault">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Program._ddfnFlag">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Program._nlFlag">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Program.ProgramName">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Program.ConstantsType">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Program.ClassMappingsType">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Program.GlobalsType">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Program.DdMain(System.String[])">
+            <summary></summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Program.RtMain(System.String[])">
+            <summary></summary>
+            <param name="args"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>

@@ -4,11 +4,11 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Utilities;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
@@ -20,7 +20,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 		{
 			ActorRoom.Seen = false;
 
-			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Treasure, Enums.ArtifactType.DoorGate };
+			var artTypes = new ArtifactType[] { ArtifactType.Treasure, ArtifactType.DoorGate };
 
 			var goldCurtainArtifact = Globals.ADB[40];
 
@@ -30,11 +30,11 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			Debug.Assert(ac != null);
 
-			if (ActorRoom.Uid != 67 || ac.Type == Enums.ArtifactType.Treasure || ac.GetKeyUid() == 0)
+			if (ActorRoom.Uid != 67 || ac.Type == ArtifactType.Treasure || ac.GetKeyUid() == 0)
 			{
 				var numRooms = Globals.Module.NumRooms;
 
-				var directionValues = EnumUtil.GetValues<Enums.Direction>();
+				var directionValues = EnumUtil.GetValues<Direction>();
 
 				foreach (var dv in directionValues)
 				{

@@ -9,9 +9,9 @@ using System.Text;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Helpers.Generic;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Extensions;
 using EamonDD.Framework.Menus.ActionMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
@@ -103,7 +103,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (artifact != null)
 			{
-				var i = Globals.Engine.FindIndex(artifact.Categories, ac => ac != null && ac.Type == Enums.ArtifactType.None);
+				var i = Globals.Engine.FindIndex(artifact.Categories, ac => ac != null && ac.Type == ArtifactType.None);
 				
 				if (i > 0)
 				{

@@ -5,8 +5,8 @@
 
 using System;
 using System.Collections.Generic;
-using Classes = Eamon.Framework.Primitive.Classes;
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework
 {
@@ -28,7 +28,7 @@ namespace Eamon.Framework
 		bool IsListed { get; set; }
 
 		/// <summary></summary>
-		Enums.PluralType PluralType { get; set; }
+		PluralType PluralType { get; set; }
 
 		/// <summary></summary>
 		long Value { get; set; }
@@ -40,7 +40,7 @@ namespace Eamon.Framework
 		long Location { get; set; }
 
 		/// <summary></summary>
-		Enums.ArtifactType Type { get; set; }
+		ArtifactType Type { get; set; }
 
 		/// <summary></summary>
 		long Field1 { get; set; }
@@ -58,61 +58,61 @@ namespace Eamon.Framework
 		long Field5 { get; set; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory Gold { get; }
+		IArtifactCategory Gold { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory Treasure { get; }
+		IArtifactCategory Treasure { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory Weapon { get; }
+		IArtifactCategory Weapon { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory MagicWeapon { get; }
+		IArtifactCategory MagicWeapon { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory GeneralWeapon { get; }
+		IArtifactCategory GeneralWeapon { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory Container { get; }
+		IArtifactCategory Container { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory LightSource { get; }
+		IArtifactCategory LightSource { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory Drinkable { get; }
+		IArtifactCategory Drinkable { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory Readable { get; }
+		IArtifactCategory Readable { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory DoorGate { get; }
+		IArtifactCategory DoorGate { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory Edible { get; }
+		IArtifactCategory Edible { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory BoundMonster { get; }
+		IArtifactCategory BoundMonster { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory Wearable { get; }
+		IArtifactCategory Wearable { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory DisguisedMonster { get; }
+		IArtifactCategory DisguisedMonster { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory DeadBody { get; }
+		IArtifactCategory DeadBody { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory User1 { get; }
+		IArtifactCategory User1 { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory User2 { get; }
+		IArtifactCategory User2 { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory User3 { get; }
+		IArtifactCategory User3 { get; }
 
 		/// <summary></summary>
-		Classes.IArtifactCategory[] Categories { get; set; }
+		IArtifactCategory[] Categories { get; set; }
 
 		#endregion
 
@@ -121,7 +121,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
-		Classes.IArtifactCategory GetCategories(long index);
+		IArtifactCategory GetCategories(long index);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -131,7 +131,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="index"></param>
 		/// <param name="value"></param>
-		void SetCategories(long index, Classes.IArtifactCategory value);
+		void SetCategories(long index, IArtifactCategory value);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -344,7 +344,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="weapon"></param>
 		/// <returns></returns>
-		bool IsWeapon(Enums.Weapon weapon);
+		bool IsWeapon(Weapon weapon);
 
 		/// <summary></summary>
 		/// <returns></returns>
@@ -353,7 +353,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="ac"></param>
 		/// <returns></returns>
-		bool IsAttackable01(ref Classes.IArtifactCategory ac);
+		bool IsAttackable01(ref IArtifactCategory ac);
 
 		/// <summary></summary>
 		/// <returns></returns>
@@ -412,18 +412,18 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="artifactType"></param>
 		/// <returns></returns>
-		Classes.IArtifactCategory GetArtifactCategory(Enums.ArtifactType artifactType);
+		IArtifactCategory GetArtifactCategory(ArtifactType artifactType);
 
 		/// <summary></summary>
 		/// <param name="artifactTypes"></param>
 		/// <param name="categoryArrayPrecedence"></param>
 		/// <returns></returns>
-		Classes.IArtifactCategory GetArtifactCategory(Enums.ArtifactType[] artifactTypes, bool categoryArrayPrecedence = true);
+		IArtifactCategory GetArtifactCategory(ArtifactType[] artifactTypes, bool categoryArrayPrecedence = true);
 
 		/// <summary></summary>
 		/// <param name="artifactTypes"></param>
 		/// <returns></returns>
-		IList<Classes.IArtifactCategory> GetArtifactCategories(Enums.ArtifactType[] artifactTypes);
+		IList<IArtifactCategory> GetArtifactCategories(ArtifactType[] artifactTypes);
 
 		/// <summary></summary>
 		/// <param name="count"></param>
@@ -433,7 +433,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="artifactCategory"></param>
 		/// <returns></returns>
-		RetCode SyncArtifactCategories(Classes.IArtifactCategory artifactCategory);
+		RetCode SyncArtifactCategories(IArtifactCategory artifactCategory);
 
 		/// <summary></summary>
 		/// <returns></returns>

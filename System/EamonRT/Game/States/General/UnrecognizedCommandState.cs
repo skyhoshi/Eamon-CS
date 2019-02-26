@@ -5,9 +5,9 @@
 
 using System.Diagnostics;
 using System.Linq;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.States
@@ -29,7 +29,7 @@ namespace EamonRT.Game.States
 
 			Globals.Buf.Clear();
 
-			var rc = Globals.Engine.BuildCommandList(commandList, Enums.CommandType.Movement, Globals.Buf, ref newSeen);
+			var rc = Globals.Engine.BuildCommandList(commandList, CommandType.Movement, Globals.Buf, ref newSeen);
 			
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -39,7 +39,7 @@ namespace EamonRT.Game.States
 
 			Globals.Buf.Clear();
 
-			rc = Globals.Engine.BuildCommandList(commandList, Enums.CommandType.Manipulation, Globals.Buf, ref newSeen);
+			rc = Globals.Engine.BuildCommandList(commandList, CommandType.Manipulation, Globals.Buf, ref newSeen);
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -49,7 +49,7 @@ namespace EamonRT.Game.States
 
 			Globals.Buf.Clear();
 
-			rc = Globals.Engine.BuildCommandList(commandList, Enums.CommandType.Interactive, Globals.Buf, ref newSeen);
+			rc = Globals.Engine.BuildCommandList(commandList, CommandType.Interactive, Globals.Buf, ref newSeen);
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -59,7 +59,7 @@ namespace EamonRT.Game.States
 
 			Globals.Buf.Clear();
 
-			rc = Globals.Engine.BuildCommandList(commandList, Enums.CommandType.Miscellaneous, Globals.Buf, ref newSeen);
+			rc = Globals.Engine.BuildCommandList(commandList, CommandType.Miscellaneous, Globals.Buf, ref newSeen);
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 

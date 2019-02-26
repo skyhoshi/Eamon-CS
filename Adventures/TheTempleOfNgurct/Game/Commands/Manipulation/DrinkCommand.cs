@@ -6,10 +6,10 @@
 using System;
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
@@ -78,7 +78,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			else if (DobjArtifact.Uid == 69 && ac.IsOpen())
 			{
-				var stat = Globals.Engine.GetStats(Enums.Stat.Agility);
+				var stat = Globals.Engine.GetStats(Stat.Agility);
 
 				Debug.Assert(stat != null);
 
@@ -112,7 +112,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override bool IsAllowedInRoom()
 		{
-			return Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) <= 0;
+			return Globals.GameState.GetNBTL(Friendliness.Enemy) <= 0;
 		}
 
 		public DrinkCommand()

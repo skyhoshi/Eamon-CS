@@ -6,10 +6,10 @@
 using System.Collections.Generic;
 using System.Text;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.Parsing;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace EamonRT.Framework.Plugin
 {
@@ -74,7 +74,7 @@ namespace EamonRT.Framework.Plugin
 		ICharacter Character { get; set; }
 
 		/// <summary></summary>
-		Enums.ExitType ExitType { get; set; }
+		ExitType ExitType { get; set; }
 
 		/// <summary></summary>
 		string CommandPrompt { get; set; }

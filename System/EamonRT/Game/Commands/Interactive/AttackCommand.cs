@@ -8,13 +8,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Combat;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Classes = Eamon.Framework.Primitive.Classes;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -67,13 +67,13 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact != null)
 			{
-				Classes.IArtifactCategory ac = null;
+				IArtifactCategory ac = null;
 
 				if (DobjArtifact.IsAttackable01(ref ac))
 				{
 					Debug.Assert(ac != null);
 
-					if (ac.Type == Enums.ArtifactType.DeadBody)
+					if (ac.Type == ArtifactType.DeadBody)
 					{
 						if (BlastSpell)
 						{
@@ -87,7 +87,7 @@ namespace EamonRT.Game.Commands
 						goto Cleanup;
 					}
 
-					if (ac.Type == Enums.ArtifactType.DisguisedMonster)
+					if (ac.Type == ArtifactType.DisguisedMonster)
 					{
 						Globals.Engine.RevealDisguisedMonster(DobjArtifact);
 
@@ -208,7 +208,7 @@ namespace EamonRT.Game.Commands
 
 					BuildSmashesToPieces();
 
-					if (ac.Type == Enums.ArtifactType.Container)
+					if (ac.Type == ArtifactType.Container)
 					{
 						var artifactList = DobjArtifact.GetContainedList();
 
@@ -240,7 +240,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				if (!CheckAttack && DobjMonster.Friendliness != Enums.Friendliness.Enemy)
+				if (!CheckAttack && DobjMonster.Friendliness != Friendliness.Enemy)
 				{
 					Globals.Out.Write("{0}Attack non-enemy (Y/N): ", Environment.NewLine);
 
@@ -341,7 +341,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "attack";
 
-			Type = Enums.CommandType.Interactive;
+			Type = CommandType.Interactive;
 
 			MemberNumber = 1;
 

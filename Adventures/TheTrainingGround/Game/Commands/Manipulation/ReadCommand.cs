@@ -4,9 +4,9 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
@@ -20,7 +20,7 @@ namespace TheTrainingGround.Game.Commands
 
 			if (eventType == PpeAfterArtifactRead && DobjArtifact.Uid == 29)
 			{
-				var spell = Globals.Engine.GetSpells(Enums.Spell.Blast);
+				var spell = Globals.Engine.GetSpells(Spell.Blast);
 
 				Debug.Assert(spell != null);
 
@@ -28,18 +28,18 @@ namespace TheTrainingGround.Game.Commands
 
 				DobjArtifact.SetInLimbo();
 
-				Globals.Character.ModSpellAbilities(Enums.Spell.Blast, 10);
+				Globals.Character.ModSpellAbilities(Spell.Blast, 10);
 
-				if (Globals.Character.GetSpellAbilities(Enums.Spell.Blast) > spell.MaxValue)
+				if (Globals.Character.GetSpellAbilities(Spell.Blast) > spell.MaxValue)
 				{
-					Globals.Character.SetSpellAbilities(Enums.Spell.Blast, spell.MaxValue);
+					Globals.Character.SetSpellAbilities(Spell.Blast, spell.MaxValue);
 				}
 
-				Globals.GameState.ModSa(Enums.Spell.Blast, 250);
+				Globals.GameState.ModSa(Spell.Blast, 250);
 
-				if (Globals.GameState.GetSa(Enums.Spell.Blast) > spell.MaxValue)
+				if (Globals.GameState.GetSa(Spell.Blast) > spell.MaxValue)
 				{
-					Globals.GameState.SetSa(Enums.Spell.Blast, spell.MaxValue);
+					Globals.GameState.SetSa(Spell.Blast, spell.MaxValue);
 				}
 			}
 

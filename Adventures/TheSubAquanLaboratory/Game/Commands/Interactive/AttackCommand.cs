@@ -6,11 +6,11 @@
 using System;
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Classes = Eamon.Framework.Primitive.Classes;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
@@ -18,7 +18,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
 	{
-		public virtual Classes.IArtifactCategory Ac { get; set; }
+		public virtual IArtifactCategory Ac { get; set; }
 
 		public virtual long Damage { get; set; }
 
@@ -28,8 +28,8 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			Debug.Assert(Ac != null);
 
-			var whereClauseFuncs = Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) <= 0 ?
-				new Func<IMonster, bool>[] { m => m == ActorMonster, m => m.IsInRoom(ActorRoom) && m.Friendliness == Enums.Friendliness.Friend && ((m.Weapon > -1 && m.Weapon <= Globals.Database.GetArtifactsCount()) || m.CombatCode == Enums.CombatCode.NaturalWeapons) && m != ActorMonster } :
+			var whereClauseFuncs = Globals.GameState.GetNBTL(Friendliness.Enemy) <= 0 ?
+				new Func<IMonster, bool>[] { m => m == ActorMonster, m => m.IsInRoom(ActorRoom) && m.Friendliness == Friendliness.Friend && ((m.Weapon > -1 && m.Weapon <= Globals.Database.GetArtifactsCount()) || m.CombatCode == CombatCode.NaturalWeapons) && m != ActorMonster } :
 				new Func<IMonster, bool>[] { m => m == ActorMonster };
 
 			var monsters = Globals.Engine.GetMonsterList(whereClauseFuncs);

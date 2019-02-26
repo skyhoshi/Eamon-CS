@@ -5,8 +5,8 @@
 
 using System.Collections.Generic;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game
@@ -36,17 +36,17 @@ namespace WrenholdsSecretVigil.Game
 			return GetDirs(index) > 5000 && GetDirs(index) < 6001;
 		}
 
-		public virtual bool IsDirectionEffect(Enums.Direction dir)
+		public virtual bool IsDirectionEffect(Direction dir)
 		{
 			return IsDirectionEffect((long)dir);
 		}
 
-		public virtual long GetDirectionEffectUid(Enums.Direction dir)
+		public virtual long GetDirectionEffectUid(Direction dir)
 		{
 			return IsDirectionEffect(dir) ? GetDirs(dir) - 5000 : 0;
 		}
 
-		public virtual IEffect GetDirectionEffect(Enums.Direction dir)
+		public virtual IEffect GetDirectionEffect(Direction dir)
 		{
 			var uid = GetDirectionEffectUid(dir);
 

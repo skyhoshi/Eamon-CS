@@ -6,7 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework
 {
@@ -22,7 +22,7 @@ namespace Eamon.Framework
 		bool IsListed { get; set; }
 
 		/// <summary></summary>
-		Enums.PluralType PluralType { get; set; }
+		PluralType PluralType { get; set; }
 
 		/// <summary></summary>
 		long Hardiness { get; set; }
@@ -43,7 +43,7 @@ namespace Eamon.Framework
 		long Location { get; set; }
 
 		/// <summary></summary>
-		Enums.CombatCode CombatCode { get; set; }
+		CombatCode CombatCode { get; set; }
 
 		/// <summary></summary>
 		long Armor { get; set; }
@@ -61,10 +61,10 @@ namespace Eamon.Framework
 		long DeadBody { get; set; }
 
 		/// <summary></summary>
-		Enums.Friendliness Friendliness { get; set; }
+		Friendliness Friendliness { get; set; }
 
 		/// <summary></summary>
-		Enums.Gender Gender { get; set; }
+		Gender Gender { get; set; }
 
 		/// <summary></summary>
 		long InitGroupCount { get; set; }
@@ -73,7 +73,7 @@ namespace Eamon.Framework
 		long OrigGroupCount { get; set; }
 
 		/// <summary></summary>
-		Enums.Friendliness OrigFriendliness { get; set; }
+		Friendliness OrigFriendliness { get; set; }
 
 		/// <summary></summary>
 		long DmgTaken { get; set; }

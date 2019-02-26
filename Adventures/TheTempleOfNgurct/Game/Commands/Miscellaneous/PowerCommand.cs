@@ -4,11 +4,11 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
@@ -31,7 +31,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			{
 				var rl = 0L;
 
-				var monsters = Globals.Engine.GetMonsterList(m => !m.IsCharacterMonster() && m.Uid != 53 && m.Friendliness < Enums.Friendliness.Friend && m.Seen && m.IsInRoom(ActorRoom));
+				var monsters = Globals.Engine.GetMonsterList(m => !m.IsCharacterMonster() && m.Uid != 53 && m.Friendliness < Friendliness.Friend && m.Seen && m.IsInRoom(ActorRoom));
 
 				foreach (var m in monsters)
 				{

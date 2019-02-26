@@ -4,10 +4,10 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheBeginnersCave.Game.Plugin.PluginContext;
 
 namespace TheBeginnersCave.Game.Commands
@@ -31,7 +31,7 @@ namespace TheBeginnersCave.Game.Commands
 					{
 						var rl = Globals.Engine.RollDice(1, 22, 2);
 
-						if (rl <= Globals.Character.GetStats(Enums.Stat.Intellect))
+						if (rl <= Globals.Character.GetStats(Stat.Intellect))
 						{
 							Globals.Engine.PrintEffectDesc(14);
 

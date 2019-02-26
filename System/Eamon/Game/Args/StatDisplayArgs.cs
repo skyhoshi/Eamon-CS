@@ -5,8 +5,8 @@
 
 using Eamon.Framework;
 using Eamon.Framework.Args;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
-using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Game.Args
 {
@@ -30,7 +30,7 @@ namespace Eamon.Game.Args
 			return SpellAbilities[index];
 		}
 
-		public virtual long GetSpellAbilities(Enums.Spell spell)
+		public virtual long GetSpellAbilities(Spell spell)
 		{
 			return GetSpellAbilities((long)spell);
 		}

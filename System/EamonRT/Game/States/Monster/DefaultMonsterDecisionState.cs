@@ -5,9 +5,9 @@
 
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.States
@@ -34,7 +34,7 @@ namespace EamonRT.Game.States
 
 					goto Cleanup;
 				}
-				else if (monster.CombatCode != Enums.CombatCode.NeverFights)
+				else if (monster.CombatCode != CombatCode.NeverFights)
 				{
 					NextState = Globals.CreateInstance<IMemberLoopInitializeState>();
 

@@ -4,9 +4,9 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.States
@@ -27,7 +27,7 @@ namespace EamonRT.Game.States
 
 				if (Globals.GameState.Speed <= 0)
 				{
-					var stat = Globals.Engine.GetStats(Enums.Stat.Agility);
+					var stat = Globals.Engine.GetStats(Stat.Agility);
 
 					Debug.Assert(stat != null);
 

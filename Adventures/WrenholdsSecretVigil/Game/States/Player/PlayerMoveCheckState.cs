@@ -7,10 +7,10 @@ using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.States
@@ -42,22 +42,22 @@ namespace WrenholdsSecretVigil.Game.States
 
 				// Auto-reveal secret doors if necessary
 
-				if (gameState.R2 == 5 && gameState.Ro == 8 && room5.GetDirs(Enums.Direction.South) == -8)
+				if (gameState.R2 == 5 && gameState.Ro == 8 && room5.GetDirs(Direction.South) == -8)
 				{
-					room5.SetDirs(Enums.Direction.South, 8);
+					room5.SetDirs(Direction.South, 8);
 				}
-				else if (gameState.R2 == 40 && gameState.Ro == 41 && room40.GetDirs(Enums.Direction.South) == -41)
+				else if (gameState.R2 == 40 && gameState.Ro == 41 && room40.GetDirs(Direction.South) == -41)
 				{
-					room40.SetDirs(Enums.Direction.South, 41);
+					room40.SetDirs(Direction.South, 41);
 				}
-				else if (gameState.R2 == 45 && gameState.Ro == 43 && room45.GetDirs(Enums.Direction.East) == -43)
+				else if (gameState.R2 == 45 && gameState.Ro == 43 && room45.GetDirs(Direction.East) == -43)
 				{
-					room45.SetDirs(Enums.Direction.East, 43);
+					room45.SetDirs(Direction.East, 43);
 				}
 
 				// Falling down a drop-off (injury)
 
-				if (gameState.R2 == 25 && (gameState.Ro == 24 || gameState.Ro == 27) && Direction != Enums.Direction.Down)
+				if (gameState.R2 == 25 && (gameState.Ro == 24 || gameState.Ro == 27) && Direction != Direction.Down)
 				{
 					Globals.Engine.PrintEffectDesc(24);
 
@@ -80,7 +80,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 				// Falling down a drop-off (no injury)
 
-				else if (gameState.R2 == 18 && gameState.Ro == 17 && Direction != Enums.Direction.Down)
+				else if (gameState.R2 == 18 && gameState.Ro == 17 && Direction != Direction.Down)
 				{
 					Globals.Engine.PrintEffectDesc(5);
 				}
@@ -229,7 +229,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 							gameState.Die = 0;
 
-							Globals.ExitType = Enums.ExitType.FinishAdventure;
+							Globals.ExitType = ExitType.FinishAdventure;
 
 							Globals.MainLoop.ShouldShutdown = true;
 						}

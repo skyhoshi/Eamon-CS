@@ -7,7 +7,7 @@ using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon.Framework;
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Game
 {
@@ -29,7 +29,7 @@ namespace Eamon.Game
 
 		public virtual bool Seen { get; set; }
 
-		public virtual Enums.ArticleType ArticleType { get; set; }
+		public virtual ArticleType ArticleType { get; set; }
 
 		#endregion
 
@@ -86,7 +86,7 @@ namespace Eamon.Game
 			return GetPluralName("Name", buf);
 		}
 
-		public virtual string GetDecoratedName(string fieldName, Enums.ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public virtual string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
 		{
 			string result;
 
@@ -112,7 +112,7 @@ namespace Eamon.Game
 
 		public virtual string GetDecoratedName01(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
 		{
-			return GetDecoratedName("Name", Enums.ArticleType.None, upshift, showCharOwned, showStateDesc, groupCountOne, buf);
+			return GetDecoratedName("Name", ArticleType.None, upshift, showCharOwned, showStateDesc, groupCountOne, buf);
 		}
 
 		public virtual string GetDecoratedName02(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
@@ -122,7 +122,7 @@ namespace Eamon.Game
 
 		public virtual string GetDecoratedName03(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
 		{
-			return GetDecoratedName("Name", Enums.ArticleType.The, upshift, showCharOwned, showStateDesc, groupCountOne, buf);
+			return GetDecoratedName("Name", ArticleType.The, upshift, showCharOwned, showStateDesc, groupCountOne, buf);
 		}
 
 		public virtual RetCode BuildPrintedFullDesc(StringBuilder buf, bool showName)

@@ -3,10 +3,10 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -18,7 +18,7 @@ namespace EamonRT.Game.Commands
 		{
 			NextState = Globals.CreateInstance<IBeforePlayerMoveState>(x =>
 			{
-				x.Direction = Enums.Direction.East;
+				x.Direction = Direction.East;
 			});
 		}
 
@@ -32,7 +32,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "east";
 
-			Type = Enums.CommandType.Movement;
+			Type = CommandType.Movement;
 		}
 	}
 }

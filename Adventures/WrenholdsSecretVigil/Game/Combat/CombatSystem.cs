@@ -4,9 +4,9 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Combat
@@ -47,7 +47,7 @@ namespace WrenholdsSecretVigil.Game.Combat
 
 			// Allow cursing if defender is enemy
 
-			if (DfMonster.Friendliness == Enums.Friendliness.Enemy)
+			if (DfMonster.Friendliness == Friendliness.Enemy)
 			{
 				Globals.MonsterCurses = true;
 			}

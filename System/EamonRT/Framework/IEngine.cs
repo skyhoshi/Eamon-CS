@@ -8,9 +8,9 @@ using System.Collections.Generic;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using EamonRT.Framework.Commands;
-using Classes = Eamon.Framework.Primitive.Classes;
-using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace EamonRT.Framework
 {
@@ -36,7 +36,7 @@ namespace EamonRT.Framework
 		bool UseMonsterScaledHardinessValues { get; set; }
 
 		/// <summary></summary>
-		Enums.PoundCharPolicy PoundCharPolicy { get; set; }
+		PoundCharPolicy PoundCharPolicy { get; set; }
 
 		/// <summary></summary>
 		/// <param name="artifact"></param>
@@ -91,12 +91,12 @@ namespace EamonRT.Framework
 		/// <summary></summary>
 		/// <param name="weapon"></param>
 		/// <returns></returns>
-		IArtifact ConvertWeaponToArtifact(Classes.ICharacterArtifact weapon);
+		IArtifact ConvertWeaponToArtifact(ICharacterArtifact weapon);
 
 		/// <summary></summary>
 		/// <param name="artifact"></param>
 		/// <returns></returns>
-		Classes.ICharacterArtifact ConvertArtifactToWeapon(IArtifact artifact);
+		ICharacterArtifact ConvertArtifactToWeapon(IArtifact artifact);
 
 		/// <summary></summary>
 		/// <param name="artifact"></param>
@@ -179,7 +179,7 @@ namespace EamonRT.Framework
 		/// <param name="r2"></param>
 		/// <param name="dir"></param>
 		/// <returns></returns>
-		IArtifact GetBlockedDirectionArtifact(long ro, long r2, Enums.Direction dir);
+		IArtifact GetBlockedDirectionArtifact(long ro, long r2, Direction dir);
 
 		/// <summary></summary>
 		/// <param name="room"></param>
@@ -202,14 +202,14 @@ namespace EamonRT.Framework
 		/// <param name="direction"></param>
 		/// <param name="found"></param>
 		/// <param name="roomUid"></param>
-		void GetRandomMoveDirection(IRoom room, IMonster monster, bool fleeing, ref Enums.Direction direction, ref bool found, ref long roomUid);
+		void GetRandomMoveDirection(IRoom room, IMonster monster, bool fleeing, ref Direction direction, ref bool found, ref long roomUid);
 
 		/// <summary></summary>
 		/// <param name="room"></param>
 		/// <param name="monster"></param>
 		/// <param name="fleeing"></param>
 		/// <param name="direction"></param>
-		void GetRandomMoveDirection(IRoom room, IMonster monster, bool fleeing, ref Enums.Direction direction);
+		void GetRandomMoveDirection(IRoom room, IMonster monster, bool fleeing, ref Direction direction);
 
 		/// <summary></summary>
 		/// <param name="numMonsters"></param>
@@ -251,7 +251,7 @@ namespace EamonRT.Framework
 		/// <param name="buf"></param>
 		/// <param name="newSeen"></param>
 		/// <returns></returns>
-		RetCode BuildCommandList(IList<ICommand> commands, Enums.CommandType cmdType, StringBuilder buf, ref bool newSeen);
+		RetCode BuildCommandList(IList<ICommand> commands, CommandType cmdType, StringBuilder buf, ref bool newSeen);
 
 		/// <summary></summary>
 		/// <param name="whereClauseFuncs"></param>
@@ -277,12 +277,12 @@ namespace EamonRT.Framework
 		/// <param name="spellValue"></param>
 		/// <param name="shouldAllowSkillGains"></param>
 		/// <returns></returns>
-		bool CheckPlayerSpellCast(Enums.Spell spellValue, bool shouldAllowSkillGains);
+		bool CheckPlayerSpellCast(Spell spellValue, bool shouldAllowSkillGains);
 
 		/// <summary></summary>
 		/// <param name="ac"></param>
 		/// <param name="af"></param>
-		void CheckPlayerSkillGains(Classes.IArtifactCategory ac, long af);
+		void CheckPlayerSkillGains(IArtifactCategory ac, long af);
 
 		/// <summary></summary>
 		/// <param name="command"></param>
@@ -325,7 +325,7 @@ namespace EamonRT.Framework
 		/// <param name="ac"></param>
 		/// <param name="af"></param>
 		/// <param name="oddsToHit"></param>
-		void GetOddsToHit(IMonster ofMonster, IMonster dfMonster, Classes.IArtifactCategory ac, long af, ref long oddsToHit);
+		void GetOddsToHit(IMonster ofMonster, IMonster dfMonster, IArtifactCategory ac, long af, ref long oddsToHit);
 
 		/// <summary></summary>
 		/// <param name="printLineSep"></param>

@@ -29,10 +29,10 @@ using System.Linq;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Portability;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Extensions;
 using Eamon.Game.Utilities;
 using EamonDD.Framework.Menus.HierarchicalMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 using static EamonRT.Game.Plugin.PluginContextStack;
 
@@ -97,7 +97,7 @@ namespace EamonRT
 
 			Globals.Config.GenerateUids = true;
 
-			Globals.Config.FieldDesc = Enums.FieldDesc.Full;
+			Globals.Config.FieldDesc = FieldDesc.Full;
 
 			Globals.Config.WordWrapMargin = Constants.RightMargin;
 
@@ -440,11 +440,11 @@ namespace EamonRT
 					{
 						if (Globals.Module.NumDirs == 6)
 						{
-							var lastDv = EnumUtil.GetLastValue<Enums.Direction>();
+							var lastDv = EnumUtil.GetLastValue<Direction>();
 
 							foreach (var room in Globals.Database.RoomTable.Records)
 							{
-								for (var dv = Enums.Direction.Northeast; dv <= lastDv; dv++)
+								for (var dv = Direction.Northeast; dv <= lastDv; dv++)
 								{
 									i = (long)dv;
 
@@ -712,7 +712,7 @@ namespace EamonRT
 
 			Globals.Config.GenerateUids = true;
 
-			Globals.Config.FieldDesc = Enums.FieldDesc.Full;
+			Globals.Config.FieldDesc = FieldDesc.Full;
 
 			Globals.Config.WordWrapMargin = Constants.RightMargin;
 
@@ -1004,7 +1004,7 @@ namespace EamonRT
 
 				Globals.Character = character;
 
-				if (Globals.Character == null || Globals.Character.Uid <= 0 || Globals.Character.Status != Enums.Status.Adventuring || string.IsNullOrWhiteSpace(Globals.Character.Name) || string.Equals(Globals.Character.Name, "NONE", StringComparison.OrdinalIgnoreCase))
+				if (Globals.Character == null || Globals.Character.Uid <= 0 || Globals.Character.Status != Status.Adventuring || string.IsNullOrWhiteSpace(Globals.Character.Name) || string.Equals(Globals.Character.Name, "NONE", StringComparison.OrdinalIgnoreCase))
 				{
 					rc = RetCode.InvalidObj;
 
@@ -1012,7 +1012,7 @@ namespace EamonRT
 						Environment.NewLine,
 						Globals.Character == null ? "Use EamonMH to send a character on this adventure." :
 						Globals.Character.Uid <= 0 ? "Globals.Character.Uid <= 0" :
-						Globals.Character.Status != Enums.Status.Adventuring ? "Globals.Character.Status != Enums.Status.Adventuring" :
+						Globals.Character.Status != Status.Adventuring ? "Globals.Character.Status != Status.Adventuring" :
 						string.IsNullOrWhiteSpace(Globals.Character.Name) ? "string.IsNullOrWhiteSpace(Globals.Character.Name)" :
 						"string.Equals(Globals.Character.Name, \"NONE\", StringComparison.OrdinalIgnoreCase)");
 
@@ -1164,7 +1164,7 @@ namespace EamonRT
 								Debug.Assert(Globals.Engine.IsSuccess(rc));
 							}
 
-							character.Status = (Globals.GameState.Die != 1 ? Enums.Status.Alive : Enums.Status.Dead);
+							character.Status = (Globals.GameState.Die != 1 ? Status.Alive : Status.Dead);
 						}
 
 						rc = Globals.Database.SaveCharacters(Globals.Config.MhCharacterFileName, false);

@@ -6,12 +6,12 @@
 using System;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
 using EamonDD.Framework.Menus.ActionMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonDD.Game.Plugin.PluginContext;
 
 namespace EamonDD.Game.Menus.ActionMenus
@@ -37,7 +37,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var numDirs = Globals.Module != null ? Globals.Module.NumDirs : 6;
 
-			var directionValues = EnumUtil.GetValues<Enums.Direction>();
+			var directionValues = EnumUtil.GetValues<Direction>();
 
 			foreach (var room in Globals.Database.RoomTable.Records)
 			{
@@ -51,7 +51,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					Debug.Assert(direction != null);
 
-					Buf.AppendFormat("{0}{1,-2}: {2,-6}", (directionValues[i] == Enums.Direction.North || directionValues[i] == Enums.Direction.Up || directionValues[i] == Enums.Direction.Southeast) ? Environment.NewLine : "\t", direction.Abbr, room.GetDirs(directionValues[i]));
+					Buf.AppendFormat("{0}{1,-2}: {2,-6}", (directionValues[i] == Direction.North || directionValues[i] == Direction.Up || directionValues[i] == Direction.Southeast) ? Environment.NewLine : "\t", direction.Abbr, room.GetDirs(directionValues[i]));
 				}
 
 				Globals.Out.WriteLine("{0}", Buf);

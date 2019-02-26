@@ -6,10 +6,10 @@
 using System.Diagnostics;
 using System.Linq;
 using Eamon;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.States
@@ -189,9 +189,9 @@ namespace ARuncibleCargo.Game.States
 
 						Globals.Engine.PrintEffectDesc(119);
 
-						lilMonster.Friendliness = Enums.Friendliness.Enemy;
+						lilMonster.Friendliness = Friendliness.Enemy;
 
-						lilMonster.OrigFriendliness = (Enums.Friendliness)100;
+						lilMonster.OrigFriendliness = (Friendliness)100;
 
 						Globals.Engine.CheckEnemies();
 					}
@@ -212,7 +212,7 @@ namespace ARuncibleCargo.Game.States
 					gameState.PrinceMet = true;
 				}
 
-				if (room.Uid == 96 && gameState.R3 == 95 && princeMonster.IsInRoom(room) && princeMonster.Friendliness > Enums.Friendliness.Enemy && !cargoArtifact.IsCarriedByMonster(princeMonster) && gameState.PrinceMet)
+				if (room.Uid == 96 && gameState.R3 == 95 && princeMonster.IsInRoom(room) && princeMonster.Friendliness > Friendliness.Enemy && !cargoArtifact.IsCarriedByMonster(princeMonster) && gameState.PrinceMet)
 				{
 					gameState.R3 = 96;
 
@@ -229,7 +229,7 @@ namespace ARuncibleCargo.Game.States
 
 				// Gates of Frukendorf slam shut
 
-				if (room.Uid == 93 && cargoArtifact.IsCarriedByMonster(princeMonster) && princeMonster.Friendliness > Enums.Friendliness.Enemy && !guardsMonster.IsInLimbo())
+				if (room.Uid == 93 && cargoArtifact.IsCarriedByMonster(princeMonster) && princeMonster.Friendliness > Friendliness.Enemy && !guardsMonster.IsInLimbo())
 				{
 					ac = gatesArtifact.DoorGate;
 

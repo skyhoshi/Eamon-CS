@@ -7,9 +7,9 @@ using System;
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
@@ -146,13 +146,13 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			// Get gold curtain
 
-			else if (artifact.Uid == 40 && ac.Type == Enums.ArtifactType.DoorGate)
+			else if (artifact.Uid == 40 && ac.Type == ArtifactType.DoorGate)
 			{
 				base.PrintTaken(artifact);
 
-				ActorRoom.SetDirs(Enums.Direction.South, 68);
+				ActorRoom.SetDirs(Direction.South, 68);
 
-				ac.Type = Enums.ArtifactType.Treasure;
+				ac.Type = ArtifactType.Treasure;
 
 				ac.Field1 = 0;
 

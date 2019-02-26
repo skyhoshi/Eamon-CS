@@ -4,7 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Framework;
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Enums;
 
 namespace EamonRT.Framework.States
 {
@@ -57,7 +57,7 @@ namespace EamonRT.Framework.States
 		/// <param name="upshift"></param>
 		/// <param name="groupCountOne"></param>
 		/// <returns></returns>
-		string GetDarkName(IGameBase target, Enums.ArticleType articleType, string nameType, bool upshift, bool groupCountOne);
+		string GetDarkName(IGameBase target, ArticleType articleType, string nameType, bool upshift, bool groupCountOne);
 
 		/// <summary></summary>
 		/// <returns></returns>

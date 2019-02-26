@@ -8,11 +8,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -22,7 +22,7 @@ namespace EamonRT.Game.Commands
 	{
 		public const long PpeAfterNumberOfExitsCheck = 1;
 
-		public virtual Enums.Direction Direction { get; set; }
+		public virtual Direction Direction { get; set; }
 
 		public virtual void SetDoorGateFleeDesc()
 		{
@@ -41,7 +41,7 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Enums.Direction), Direction));
+			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Direction), Direction));
 
 			if (DobjArtifact != null && DobjArtifact.DoorGate == null)
 			{
@@ -88,21 +88,21 @@ namespace EamonRT.Game.Commands
 			{
 				if (Direction == 0)
 				{
-					Enums.Direction direction = 0;
+					Direction direction = 0;
 
 					Globals.Engine.GetRandomMoveDirection(ActorRoom, ActorMonster, true, ref direction);
 
 					Direction = direction;
 				}
 
-				Debug.Assert(Enum.IsDefined(typeof(Enums.Direction), Direction));
+				Debug.Assert(Enum.IsDefined(typeof(Direction), Direction));
 			}
 
 			if (DobjArtifact != null)
 			{
 				SetDoorGateFleeDesc();
 			}
-			else if (Direction > Enums.Direction.West && Direction < Enums.Direction.Northeast)
+			else if (Direction > Direction.West && Direction < Direction.Northeast)
 			{
 				Globals.Buf.SetFormat(" {0}ward", Direction.ToString().ToLower());
 			}
@@ -198,7 +198,7 @@ namespace EamonRT.Game.Commands
 				}
 				else
 				{
-					Enums.Direction direction = 0;
+					Direction direction = 0;
 
 					var found = false;
 
@@ -206,13 +206,13 @@ namespace EamonRT.Game.Commands
 
 					Globals.Engine.GetRandomMoveDirection(ActorRoom, ActorMonster, true, ref direction, ref found, ref roomUid);
 
-					Debug.Assert(Enum.IsDefined(typeof(Enums.Direction), direction));
+					Debug.Assert(Enum.IsDefined(typeof(Direction), direction));
 
 					Debug.Assert(roomUid > 0);
 
 					if (viewingMonsters.Contains(charMonster))
 					{
-						if (direction > Enums.Direction.West && direction < Enums.Direction.Northeast)
+						if (direction > Direction.West && direction < Direction.Northeast)
 						{
 							Globals.Buf.SetFormat(" {0}ward", direction.ToString().ToLower());
 						}
@@ -282,7 +282,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "flee";
 
-			Type = Enums.CommandType.Movement;
+			Type = CommandType.Movement;
 		}
 	}
 }

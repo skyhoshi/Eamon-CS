@@ -7,10 +7,10 @@ using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework;
-using Enums = Eamon.Framework.Primitive.Enums;
-using RTEnums = EamonRT.Framework.Primitive.Enums;
+using EamonRT.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game
@@ -20,7 +20,7 @@ namespace EamonRT.Game
 	{
 		public virtual StringBuilder Buf { get; set; }
 
-		public virtual RTEnums.IntroStoryType StoryType { get; set; }
+		public virtual IntroStoryType StoryType { get; set; }
 
 		public virtual bool ShouldPrintOutput
 		{
@@ -105,15 +105,15 @@ namespace EamonRT.Game
 
 				Globals.MainLoop.ShouldExecute = false;
 
-				Globals.ExitType = Enums.ExitType.GoToMainHall;
+				Globals.ExitType = ExitType.GoToMainHall;
 			}
-			else if (Globals.Character.ArmorExpertise != 0 || Globals.Character.GetWeaponAbilities(Enums.Weapon.Axe) != 5 || Globals.Character.GetWeaponAbilities(Enums.Weapon.Club) != 20 || Globals.Character.GetWeaponAbilities(Enums.Weapon.Sword) != 0)
+			else if (Globals.Character.ArmorExpertise != 0 || Globals.Character.GetWeaponAbilities(Weapon.Axe) != 5 || Globals.Character.GetWeaponAbilities(Weapon.Club) != 20 || Globals.Character.GetWeaponAbilities(Weapon.Sword) != 0)
 			{
 				PrintOutputBeginnersNotABeginner();
 
 				Globals.MainLoop.ShouldExecute = false;
 
-				Globals.ExitType = Enums.ExitType.GoToMainHall;
+				Globals.ExitType = ExitType.GoToMainHall;
 			}
 			else
 			{
@@ -173,7 +173,7 @@ namespace EamonRT.Game
 		{
 			switch(StoryType)
 			{
-				case RTEnums.IntroStoryType.Beginners:
+				case IntroStoryType.Beginners:
 
 					PrintOutputBeginners();
 
@@ -191,7 +191,7 @@ namespace EamonRT.Game
 		{
 			Buf = Globals.Buf;
 
-			StoryType = RTEnums.IntroStoryType.Default;
+			StoryType = IntroStoryType.Default;
 		}
 	}
 }

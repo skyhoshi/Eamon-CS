@@ -5,9 +5,9 @@
 
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
 namespace TheSubAquanLaboratory.Game.Commands
@@ -29,7 +29,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Elevator up button
 
-					if (gameState.GetNBTL(Enums.Friendliness.Enemy) <= 0)
+					if (gameState.GetNBTL(Friendliness.Enemy) <= 0)
 					{
 						if (ActorRoom.Uid != 17)
 						{
@@ -65,7 +65,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Elevator down button
 
-					if (gameState.GetNBTL(Enums.Friendliness.Enemy) <= 0)
+					if (gameState.GetNBTL(Friendliness.Enemy) <= 0)
 					{
 						if (ActorRoom.Uid != 18)
 						{
@@ -337,7 +337,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			Verb = "push";
 
-			Type = Enums.CommandType.Manipulation;
+			Type = CommandType.Manipulation;
 		}
 	}
 }

@@ -7,9 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
-using Classes = Eamon.Framework.Primitive.Classes;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game
@@ -27,9 +27,9 @@ namespace StrongholdOfKahrDur.Game
 			Globals.Out.Print("You sell your goods to {0}the local buyer of treasure (under the sign of 3 balls).  He examines your items and pays you what they are worth.", string.Equals(Globals.Character.Name, "tom zucchini", StringComparison.OrdinalIgnoreCase) ? "" : "Tom Zucchini, ");
 		}
 
-		protected override void PlayerSpellCastBrainOverload(Enums.Spell s, Classes.ISpell spell)
+		protected override void PlayerSpellCastBrainOverload(Spell s, ISpell spell)
 		{
-			Debug.Assert(Enum.IsDefined(typeof(Enums.Spell), s));
+			Debug.Assert(Enum.IsDefined(typeof(Spell), s));
 
 			Debug.Assert(spell != null);
 
@@ -167,12 +167,12 @@ namespace StrongholdOfKahrDur.Game
 
 					Debug.Assert(monster != null);
 
-					if (monster.Friendliness > Enums.Friendliness.Enemy)
+					if (monster.Friendliness > Friendliness.Enemy)
 					{
 						Globals.Out.WriteLine();
 					}
 
-					while (monster.Friendliness > Enums.Friendliness.Enemy)
+					while (monster.Friendliness > Friendliness.Enemy)
 					{
 						base.MonsterGetsAggravated(monster, false);
 					}
@@ -222,11 +222,11 @@ namespace StrongholdOfKahrDur.Game
 
 		public Engine()
 		{
-			MissDescs[new Tuple<Enums.Weapon, long>(Enums.Weapon.Axe, 1)] = "Parried";
+			MissDescs[new Tuple<Weapon, long>(Weapon.Axe, 1)] = "Parried";
 
-			MissDescs[new Tuple<Enums.Weapon, long>(Enums.Weapon.Club, 1)] = "Parried";
+			MissDescs[new Tuple<Weapon, long>(Weapon.Club, 1)] = "Parried";
 
-			MissDescs[new Tuple<Enums.Weapon, long>(Enums.Weapon.Spear, 1)] = "Parried";
+			MissDescs[new Tuple<Weapon, long>(Weapon.Spear, 1)] = "Parried";
 
 			UseMonsterScaledHardinessValues = true;
 		}

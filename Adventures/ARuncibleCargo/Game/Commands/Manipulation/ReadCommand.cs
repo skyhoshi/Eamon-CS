@@ -4,10 +4,10 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
@@ -43,15 +43,15 @@ namespace ARuncibleCargo.Game.Commands
 
 					if (!gameState.PaperRead)
 					{
-						var spell = Globals.Engine.GetSpells(Enums.Spell.Speed);
+						var spell = Globals.Engine.GetSpells(Spell.Speed);
 
 						Debug.Assert(spell != null);
 
-						Globals.Character.ModSpellAbilities(Enums.Spell.Speed, 25);
+						Globals.Character.ModSpellAbilities(Spell.Speed, 25);
 
-						if (Globals.Character.GetSpellAbilities(Enums.Spell.Speed) > spell.MaxValue)
+						if (Globals.Character.GetSpellAbilities(Spell.Speed) > spell.MaxValue)
 						{
-							Globals.Character.SetSpellAbilities(Enums.Spell.Speed, spell.MaxValue);
+							Globals.Character.SetSpellAbilities(Spell.Speed, spell.MaxValue);
 						}
 
 						Globals.Engine.PrintEffectDesc(76);

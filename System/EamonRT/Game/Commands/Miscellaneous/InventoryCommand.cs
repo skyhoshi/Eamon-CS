@@ -8,11 +8,11 @@ using System.Diagnostics;
 using System.Linq;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -62,7 +62,7 @@ namespace EamonRT.Game.Commands
 
 					if (artifactList.Count > 0)
 					{
-						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), Enums.ArticleType.A, showCharOwned, true, false, Globals.Buf);
+						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, showCharOwned, true, false, Globals.Buf);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 					}
@@ -90,7 +90,7 @@ namespace EamonRT.Game.Commands
 
 				var isCharMonster = DobjMonster.IsCharacterMonster();
 
-				if (!isCharMonster && DobjMonster.Friendliness < Enums.Friendliness.Friend)
+				if (!isCharMonster && DobjMonster.Friendliness < Friendliness.Friend)
 				{
 					Globals.Engine.MonsterSmiles(DobjMonster);
 
@@ -111,7 +111,7 @@ namespace EamonRT.Game.Commands
 							isCharMonster ? "are" : DobjMonster.EvalPlural("is", "are"),
 							isCharMonster ? "wearing " : DobjMonster.EvalPlural("wearing ", "wearing among them "));
 
-						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), Enums.ArticleType.A, isCharMonster ? false : true, true, false, Globals.Buf);
+						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, isCharMonster ? false : true, true, false, Globals.Buf);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -147,7 +147,7 @@ namespace EamonRT.Game.Commands
 
 					if (artifactList.Count > 0)
 					{
-						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), Enums.ArticleType.A, isCharMonster ? false : true, true, false, Globals.Buf);
+						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, isCharMonster ? false : true, true, false, Globals.Buf);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 					}
@@ -228,7 +228,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "inventory";
 
-			Type = Enums.CommandType.Miscellaneous;
+			Type = CommandType.Miscellaneous;
 		}
 	}
 }

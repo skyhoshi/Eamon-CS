@@ -5,10 +5,10 @@
 
 using System;
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -29,7 +29,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.Weapon, Enums.ArtifactType.MagicWeapon, Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible, Enums.ArtifactType.Wearable };
+			var artTypes = new ArtifactType[] { ArtifactType.Weapon, ArtifactType.MagicWeapon, ArtifactType.DisguisedMonster, ArtifactType.Drinkable, ArtifactType.Edible, ArtifactType.Wearable };
 
 			var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
 
@@ -44,7 +44,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Type == Enums.ArtifactType.DisguisedMonster)
+				if (ac.Type == ArtifactType.DisguisedMonster)
 				{
 					if (!DobjArtifact.IsUnmovable() && !DobjArtifact.IsCarriedByCharacter())
 					{
@@ -58,7 +58,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Type == Enums.ArtifactType.Drinkable)
+				if (ac.Type == ArtifactType.Drinkable)
 				{
 					NextState = Globals.CreateInstance<IDrinkCommand>();
 
@@ -67,7 +67,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Type == Enums.ArtifactType.Edible)
+				if (ac.Type == ArtifactType.Edible)
 				{
 					NextState = Globals.CreateInstance<IEatCommand>();
 
@@ -76,7 +76,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				Debug.Assert(ac.Type == Enums.ArtifactType.Wearable);
+				Debug.Assert(ac.Type == ArtifactType.Wearable);
 
 				NextState = Globals.CreateInstance<IWearCommand>();
 
@@ -132,7 +132,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "use";
 
-			Type = Enums.CommandType.Manipulation;
+			Type = CommandType.Manipulation;
 		}
 	}
 }

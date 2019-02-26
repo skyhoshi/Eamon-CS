@@ -9,10 +9,10 @@ using System.Diagnostics;
 using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Helpers;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Helpers.Generic;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game.Helpers
@@ -574,7 +574,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -610,7 +610,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -642,7 +642,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -674,7 +674,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -706,7 +706,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -738,7 +738,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -770,7 +770,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -802,7 +802,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -834,7 +834,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -866,7 +866,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -898,7 +898,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -930,7 +930,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -962,7 +962,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);

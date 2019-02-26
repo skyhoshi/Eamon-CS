@@ -4,7 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Text;
-using RTEnums = EamonRT.Framework.Primitive.Enums;
+using EamonRT.Framework.Primitive.Enums;
 
 namespace EamonRT.Framework
 {
@@ -15,7 +15,7 @@ namespace EamonRT.Framework
 		StringBuilder Buf { get; set; }
 
 		/// <summary></summary>
-		RTEnums.IntroStoryType StoryType { get; set; }
+		IntroStoryType StoryType { get; set; }
 
 		/// <summary></summary>
 		bool ShouldPrintOutput { get; set; }

@@ -9,11 +9,11 @@ using System.Diagnostics;
 using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Helpers;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Helpers.Generic;
 using Eamon.Game.Utilities;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game.Helpers
@@ -82,7 +82,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual bool ValidateFieldDesc()
 		{
-			return Enum.IsDefined(typeof(Enums.FieldDesc), Record.FieldDesc);
+			return Enum.IsDefined(typeof(FieldDesc), Record.FieldDesc);
 		}
 
 		/// <summary></summary>
@@ -139,7 +139,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
-			var fieldDescValues = EnumUtil.GetValues<Enums.FieldDesc>();
+			var fieldDescValues = EnumUtil.GetValues<FieldDesc>();
 
 			for (var j = 0; j < fieldDescValues.Count; j++)
 			{
@@ -234,7 +234,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -266,7 +266,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -298,7 +298,7 @@ namespace Eamon.Game.Helpers
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);
@@ -323,14 +323,14 @@ namespace Eamon.Game.Helpers
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.FieldDesc = (Enums.FieldDesc)Convert.ToInt64(Buf.Trim().ToString());
+				Record.FieldDesc = (FieldDesc)Convert.ToInt64(Buf.Trim().ToString());
 
 				if (ValidateField("FieldDesc"))
 				{
 					break;
 				}
 
-				fieldDesc = Enums.FieldDesc.Brief;
+				fieldDesc = FieldDesc.Brief;
 			}
 
 			Globals.Out.Print("{0}", Globals.LineSep);

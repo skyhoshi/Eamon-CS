@@ -4,7 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework
 {
@@ -23,7 +23,7 @@ namespace Eamon.Framework
 		bool GenerateUids { get; set; }
 
 		/// <summary></summary>
-		Enums.FieldDesc FieldDesc { get; set; }
+		FieldDesc FieldDesc { get; set; }
 
 		/// <summary></summary>
 		long WordWrapMargin { get; set; }

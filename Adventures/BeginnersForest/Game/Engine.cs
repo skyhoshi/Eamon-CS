@@ -6,9 +6,9 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
-using Enums = Eamon.Framework.Primitive.Enums;
-using Classes = Eamon.Framework.Primitive.Classes;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
 namespace BeginnersForest.Game
@@ -90,7 +90,7 @@ namespace BeginnersForest.Game
 
 			Debug.Assert(sirGrummorMonster != null);
 
-			if (Globals.Character.Gender == Enums.Gender.Female)
+			if (Globals.Character.Gender == Gender.Female)
 			{
 				// Queen's gift
 
@@ -100,13 +100,13 @@ namespace BeginnersForest.Game
 
 				// Sir Grummor is always kind to the ladies!
 
-				sirGrummorMonster.Friendliness = Enums.Friendliness.Friend;
+				sirGrummorMonster.Friendliness = Friendliness.Friend;
 
-				sirGrummorMonster.OrigFriendliness = (Enums.Friendliness)200;
+				sirGrummorMonster.OrigFriendliness = (Friendliness)200;
 			}
 		}
 
-		public override IArtifact ConvertWeaponToArtifact(Classes.ICharacterArtifact weapon)
+		public override IArtifact ConvertWeaponToArtifact(ICharacterArtifact weapon)
 		{
 			var artifact = base.ConvertWeaponToArtifact(weapon);
 

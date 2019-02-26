@@ -7,7 +7,7 @@ using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
-using RTEnums = EamonRT.Framework.Primitive.Enums;
+using EamonRT.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.Combat
@@ -56,7 +56,7 @@ namespace StrongholdOfKahrDur.Game.Combat
 
 				Globals.Engine.PrintEffectDesc(rl, false);
 
-				CombatState = RTEnums.CombatState.EndAttack;
+				CombatState = CombatState.EndAttack;
 			}
 			else
 			{

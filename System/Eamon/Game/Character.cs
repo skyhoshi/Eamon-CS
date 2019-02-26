@@ -8,11 +8,11 @@ using System.Diagnostics;
 using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Args;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using Eamon.Game.Utilities;
-using Classes = Eamon.Framework.Primitive.Classes;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
@@ -32,9 +32,9 @@ namespace Eamon.Game
 
 		#region Interface ICharacter
 
-		public virtual Enums.Gender Gender { get; set; }
+		public virtual Gender Gender { get; set; }
 
-		public virtual Enums.Status Status { get; set; }
+		public virtual Status Status { get; set; }
 
 		public virtual long[] Stats { get; set; }
 
@@ -88,13 +88,13 @@ namespace Eamon.Game
 			}
 		}
 
-		public virtual Enums.Armor ArmorClass { get; set; }
+		public virtual Armor ArmorClass { get; set; }
 
-		public virtual Classes.ICharacterArtifact Armor { get; set; }
+		public virtual ICharacterArtifact Armor { get; set; }
 
-		public virtual Classes.ICharacterArtifact Shield { get; set; }
+		public virtual ICharacterArtifact Shield { get; set; }
 
-		public virtual Classes.ICharacterArtifact[] Weapons { get; set; }
+		public virtual ICharacterArtifact[] Weapons { get; set; }
 
 		#endregion
 
@@ -161,7 +161,7 @@ namespace Eamon.Game
 			return result;
 		}
 
-		public override string GetDecoratedName(string fieldName, Enums.ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public override string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
 		{
 			string result;
 
@@ -238,7 +238,7 @@ namespace Eamon.Game
 			return Stats[index];
 		}
 
-		public virtual long GetStats(Enums.Stat stat)
+		public virtual long GetStats(Stat stat)
 		{
 			return GetStats((long)stat);
 		}
@@ -248,7 +248,7 @@ namespace Eamon.Game
 			return SpellAbilities[index];
 		}
 
-		public virtual long GetSpellAbilities(Enums.Spell spell)
+		public virtual long GetSpellAbilities(Spell spell)
 		{
 			return GetSpellAbilities((long)spell);
 		}
@@ -258,12 +258,12 @@ namespace Eamon.Game
 			return WeaponAbilities[index];
 		}
 
-		public virtual long GetWeaponAbilities(Enums.Weapon weapon)
+		public virtual long GetWeaponAbilities(Weapon weapon)
 		{
 			return GetWeaponAbilities((long)weapon);
 		}
 
-		public virtual Classes.ICharacterArtifact GetWeapons(long index)
+		public virtual ICharacterArtifact GetWeapons(long index)
 		{
 			return Weapons[index];
 		}
@@ -278,7 +278,7 @@ namespace Eamon.Game
 			Stats[index] = value;
 		}
 
-		public virtual void SetStats(Enums.Stat stat, long value)
+		public virtual void SetStats(Stat stat, long value)
 		{
 			SetStats((long)stat, value);
 		}
@@ -288,7 +288,7 @@ namespace Eamon.Game
 			SpellAbilities[index] = value;
 		}
 
-		public virtual void SetSpellAbilities(Enums.Spell spell, long value)
+		public virtual void SetSpellAbilities(Spell spell, long value)
 		{
 			SetSpellAbilities((long)spell, value);
 		}
@@ -298,12 +298,12 @@ namespace Eamon.Game
 			WeaponAbilities[index] = value;
 		}
 
-		public virtual void SetWeaponAbilities(Enums.Weapon weapon, long value)
+		public virtual void SetWeaponAbilities(Weapon weapon, long value)
 		{
 			SetWeaponAbilities((long)weapon, value);
 		}
 
-		public virtual void SetWeapons(long index, Classes.ICharacterArtifact value)
+		public virtual void SetWeapons(long index, ICharacterArtifact value)
 		{
 			Weapons[index] = value;
 		}
@@ -318,7 +318,7 @@ namespace Eamon.Game
 			Stats[index] += value;
 		}
 
-		public virtual void ModStats(Enums.Stat stat, long value)
+		public virtual void ModStats(Stat stat, long value)
 		{
 			ModStats((long)stat, value);
 		}
@@ -328,7 +328,7 @@ namespace Eamon.Game
 			SpellAbilities[index] += value;
 		}
 
-		public virtual void ModSpellAbilities(Enums.Spell spell, long value)
+		public virtual void ModSpellAbilities(Spell spell, long value)
 		{
 			ModSpellAbilities((long)spell, value);
 		}
@@ -338,34 +338,34 @@ namespace Eamon.Game
 			WeaponAbilities[index] += value;
 		}
 
-		public virtual void ModWeaponAbilities(Enums.Weapon weapon, long value)
+		public virtual void ModWeaponAbilities(Weapon weapon, long value)
 		{
 			ModWeaponAbilities((long)weapon, value);
 		}
 
 		public virtual long GetWeightCarryableGronds()
 		{
-			return Globals.Engine.GetWeightCarryableGronds(GetStats(Enums.Stat.Hardiness));
+			return Globals.Engine.GetWeightCarryableGronds(GetStats(Stat.Hardiness));
 		}
 
 		public virtual long GetWeightCarryableDos()
 		{
-			return Globals.Engine.GetWeightCarryableDos(GetStats(Enums.Stat.Hardiness));
+			return Globals.Engine.GetWeightCarryableDos(GetStats(Stat.Hardiness));
 		}
 
 		public virtual long GetIntellectBonusPct()
 		{
-			return Globals.Engine.GetIntellectBonusPct(GetStats(Enums.Stat.Intellect));
+			return Globals.Engine.GetIntellectBonusPct(GetStats(Stat.Intellect));
 		}
 
 		public virtual long GetCharmMonsterPct()
 		{
-			return Globals.Engine.GetCharmMonsterPct(GetStats(Enums.Stat.Charisma));
+			return Globals.Engine.GetCharmMonsterPct(GetStats(Stat.Charisma));
 		}
 
 		public virtual long GetMerchantAdjustedCharisma()
 		{
-			return Globals.Engine.GetMerchantAdjustedCharisma(GetStats(Enums.Stat.Charisma));
+			return Globals.Engine.GetMerchantAdjustedCharisma(GetStats(Stat.Charisma));
 		}
 
 		public virtual bool IsArmorActive()
@@ -390,7 +390,7 @@ namespace Eamon.Game
 			return Globals.Engine.EvalGender(Gender, maleValue, femaleValue, neutralValue);
 		}
 
-		public virtual RetCode GetBaseOddsToHit(Classes.ICharacterArtifact weapon, ref long baseOddsToHit)
+		public virtual RetCode GetBaseOddsToHit(ICharacterArtifact weapon, ref long baseOddsToHit)
 		{
 			long ar1, sh1, af, x, a, d, f, odds;
 			RetCode rc;
@@ -442,9 +442,9 @@ namespace Eamon.Game
 
 			/* COMPUTE BASE ODDS TO HIT */
 
-			x = GetStats(Enums.Stat.Agility);
+			x = GetStats(Stat.Agility);
 
-			a = GetWeaponAbilities((Enums.Weapon)weapon.Field2);
+			a = GetWeaponAbilities((Weapon)weapon.Field2);
 
 			d = weapon.Field1;
 
@@ -517,7 +517,7 @@ namespace Eamon.Game
 			RetCode rc;
 			long i;
 
-			Classes.IWeapon weapon;
+			IWeapon weapon;
 
 			if (buf == null)
 			{
@@ -534,7 +534,7 @@ namespace Eamon.Game
 			{
 				if (IsWeaponActive(i))
 				{
-					weapon = Globals.Engine.GetWeapons((Enums.Weapon)GetWeapons(i).Field2);
+					weapon = Globals.Engine.GetWeapons((Weapon)GetWeapons(i).Field2);
 
 					Debug.Assert(weapon != null);
 
@@ -603,8 +603,8 @@ namespace Eamon.Game
 			RetCode rc;
 			long i, j;
 
-			Classes.IWeapon weapon;
-			Classes.ISpell spell;
+			IWeapon weapon;
+			ISpell spell;
 
 			if (args == null || args.Monster == null || args.ArmorString == null || args.SpellAbilities == null)
 			{
@@ -627,7 +627,7 @@ namespace Eamon.Game
 				args.Monster.DmgTaken,
 				args.Monster.Hardiness);
 
-			var ibp = Globals.Engine.GetIntellectBonusPct(GetStats(Enums.Stat.Intellect));
+			var ibp = Globals.Engine.GetIntellectBonusPct(GetStats(Stat.Intellect));
 
 			buf01.AppendFormat("{0}{1}{2}%)",
 				"(Learning: ",
@@ -640,11 +640,11 @@ namespace Eamon.Game
 
 			Globals.Out.WriteLine("{0}{1}{2,-2}{3,20}{4,15}{5}{0}{6}{7,-3}{8,34}{9,-2}{10,15}{11}{12}%)",
 				Environment.NewLine,
-				"Intellect:  ", GetStats(Enums.Stat.Intellect),
+				"Intellect:  ", GetStats(Stat.Intellect),
 				buf01.ToString(),
 				"Agility :  ", buf02.ToString(),
 				"Hardiness:  ", args.Monster.Hardiness,
-				"Charisma:  ", GetStats(Enums.Stat.Charisma),
+				"Charisma:  ", GetStats(Stat.Charisma),
 				"(Charm Mon: ",
 				args.CharmMon > 0 ? "+" : "",
 				args.CharmMon);
@@ -654,9 +654,9 @@ namespace Eamon.Game
 				"Weapon Abilities:",
 				"Spell Abilities:");
 
-			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+			var weaponValues = EnumUtil.GetValues<Weapon>();
 
-			var spellValues = EnumUtil.GetValues<Enums.Spell>();
+			var spellValues = EnumUtil.GetValues<Spell>();
 
 			i = Math.Min((long)weaponValues[0], (long)spellValues[0]);
 
@@ -666,9 +666,9 @@ namespace Eamon.Game
 			{
 				Globals.Out.WriteLine();
 
-				if (Enum.IsDefined(typeof(Enums.Weapon), i))
+				if (Enum.IsDefined(typeof(Weapon), i))
 				{
-					weapon = Globals.Engine.GetWeapons((Enums.Weapon)i);
+					weapon = Globals.Engine.GetWeapons((Weapon)i);
 
 					Debug.Assert(weapon != null);
 
@@ -681,9 +681,9 @@ namespace Eamon.Game
 					Globals.Out.Write("{0,12}", "");
 				}
 
-				if (Enum.IsDefined(typeof(Enums.Spell), i))
+				if (Enum.IsDefined(typeof(Spell), i))
 				{
-					spell = Globals.Engine.GetSpells((Enums.Spell)i);
+					spell = Globals.Engine.GetSpells((Spell)i);
 
 					Debug.Assert(spell != null);
 
@@ -801,37 +801,37 @@ namespace Eamon.Game
 
 		public Character()
 		{
-			Stats = new long[(long)EnumUtil.GetLastValue<Enums.Stat>() + 1];
+			Stats = new long[(long)EnumUtil.GetLastValue<Stat>() + 1];
 
-			SpellAbilities = new long[(long)EnumUtil.GetLastValue<Enums.Spell>() + 1];
+			SpellAbilities = new long[(long)EnumUtil.GetLastValue<Spell>() + 1];
 
-			WeaponAbilities = new long[(long)EnumUtil.GetLastValue<Enums.Weapon>() + 1];
+			WeaponAbilities = new long[(long)EnumUtil.GetLastValue<Weapon>() + 1];
 
-			Armor = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+			Armor = Globals.CreateInstance<ICharacterArtifact>(x =>
 			{
 				x.Parent = this;
 			});
 
-			Shield = Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+			Shield = Globals.CreateInstance<ICharacterArtifact>(x =>
 			{
 				x.Parent = this;
 			});
 
-			Weapons = new Classes.ICharacterArtifact[]
+			Weapons = new ICharacterArtifact[]
 			{
-				Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+				Globals.CreateInstance<ICharacterArtifact>(x =>
 				{
 					x.Parent = this;
 				}),
-				Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+				Globals.CreateInstance<ICharacterArtifact>(x =>
 				{
 					x.Parent = this;
 				}),
-				Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+				Globals.CreateInstance<ICharacterArtifact>(x =>
 				{
 					x.Parent = this;
 				}),
-				Globals.CreateInstance<Classes.ICharacterArtifact>(x =>
+				Globals.CreateInstance<ICharacterArtifact>(x =>
 				{
 					x.Parent = this;
 				})

@@ -7,12 +7,12 @@ using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
 using EamonMH.Framework.Menus.ActionMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
-using Classes = Eamon.Framework.Primitive.Classes;
 using static EamonMH.Game.Plugin.PluginContext;
 
 namespace EamonMH.Game.Menus.ActionMenus
@@ -25,7 +25,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 		public override void Execute()
 		{
-			Classes.IStat stat;
+			IStat stat;
 			RetCode rc;
 			long ap = 0;
 			long i;
@@ -52,7 +52,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Buf.Clear();
 
-			var statValues = EnumUtil.GetValues<Enums.Stat>();
+			var statValues = EnumUtil.GetValues<Stat>();
 
 			for (i = 0; i < statValues.Count; i++)
 			{
@@ -84,7 +84,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			i = Convert.ToInt64(Buf.Trim().ToString());
 
-			stat = Globals.Engine.GetStats((Enums.Stat)i);
+			stat = Globals.Engine.GetStats((Stat)i);
 
 			Debug.Assert(stat != null);
 
@@ -126,7 +126,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						var rl = Globals.Engine.RollDice(1, 24, 0);
 
-						if (rl >= Globals.Character.GetStats(Enums.Stat.Charisma))
+						if (rl >= Globals.Character.GetStats(Stat.Charisma))
 						{
 							Globals.Out.Print("\"It is done!\" she exclaims.");
 

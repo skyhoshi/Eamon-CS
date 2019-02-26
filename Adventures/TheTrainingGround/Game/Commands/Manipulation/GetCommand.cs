@@ -5,9 +5,9 @@
 
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
@@ -45,7 +45,7 @@ namespace TheTrainingGround.Game.Commands
 			{
 				Globals.Engine.PrintEffectDesc(12);
 
-				ActorRoom.SetDirs(Enums.Direction.East, 25);
+				ActorRoom.SetDirs(Direction.East, 25);
 			}
 		}
 	}

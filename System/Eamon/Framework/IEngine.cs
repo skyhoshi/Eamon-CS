@@ -7,8 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Eamon.Framework.Args;
-using Classes = Eamon.Framework.Primitive.Classes;
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework
 {
@@ -59,7 +59,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="fieldDesc"></param>
 		/// <returns></returns>
-		string GetFieldDescNames(Enums.FieldDesc fieldDesc);
+		string GetFieldDescNames(FieldDesc fieldDesc);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -69,7 +69,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="status"></param>
 		/// <returns></returns>
-		string GetStatusNames(Enums.Status status);
+		string GetStatusNames(Status status);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -79,7 +79,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="clothing"></param>
 		/// <returns></returns>
-		string GetClothingNames(Enums.Clothing clothing);
+		string GetClothingNames(Clothing clothing);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -89,7 +89,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="combatCode"></param>
 		/// <returns></returns>
-		string GetCombatCodeDescs(Enums.CombatCode combatCode);
+		string GetCombatCodeDescs(CombatCode combatCode);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -99,67 +99,67 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="lightLevel"></param>
 		/// <returns></returns>
-		string GetLightLevelNames(Enums.LightLevel lightLevel);
+		string GetLightLevelNames(LightLevel lightLevel);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
-		Classes.IStat GetStats(long index);
+		IStat GetStats(long index);
 
 		/// <summary></summary>
 		/// <param name="stat"></param>
 		/// <returns></returns>
-		Classes.IStat GetStats(Enums.Stat stat);
+		IStat GetStats(Stat stat);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
-		Classes.ISpell GetSpells(long index);
+		ISpell GetSpells(long index);
 
 		/// <summary></summary>
 		/// <param name="spell"></param>
 		/// <returns></returns>
-		Classes.ISpell GetSpells(Enums.Spell spell);
+		ISpell GetSpells(Spell spell);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
-		Classes.IWeapon GetWeapons(long index);
+		IWeapon GetWeapons(long index);
 
 		/// <summary></summary>
 		/// <param name="weapon"></param>
 		/// <returns></returns>
-		Classes.IWeapon GetWeapons(Enums.Weapon weapon);
+		IWeapon GetWeapons(Weapon weapon);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
-		Classes.IArmor GetArmors(long index);
+		IArmor GetArmors(long index);
 
 		/// <summary></summary>
 		/// <param name="armor"></param>
 		/// <returns></returns>
-		Classes.IArmor GetArmors(Enums.Armor armor);
+		IArmor GetArmors(Armor armor);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
-		Classes.IDirection GetDirections(long index);
+		IDirection GetDirections(long index);
 
 		/// <summary></summary>
 		/// <param name="direction"></param>
 		/// <returns></returns>
-		Classes.IDirection GetDirections(Enums.Direction direction);
+		IDirection GetDirections(Direction direction);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
-		Classes.IArtifactType GetArtifactTypes(long index);
+		IArtifactType GetArtifactTypes(long index);
 
 		/// <summary></summary>
 		/// <param name="artifactType"></param>
 		/// <returns></returns>
-		Classes.IArtifactType GetArtifactTypes(Enums.ArtifactType artifactType);
+		IArtifactType GetArtifactTypes(ArtifactType artifactType);
 
 		/// <summary></summary>
 		/// <param name="rc"></param>
@@ -174,12 +174,12 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="pluralType"></param>
 		/// <returns></returns>
-		bool IsValidPluralType(Enums.PluralType pluralType);
+		bool IsValidPluralType(PluralType pluralType);
 
 		/// <summary></summary>
 		/// <param name="artifactType"></param>
 		/// <returns></returns>
-		bool IsValidArtifactType(Enums.ArtifactType artifactType);
+		bool IsValidArtifactType(ArtifactType artifactType);
 
 		/// <summary></summary>
 		/// <param name="armor"></param>
@@ -199,17 +199,17 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="friendliness"></param>
 		/// <returns></returns>
-		bool IsValidMonsterFriendliness(Enums.Friendliness friendliness);
+		bool IsValidMonsterFriendliness(Friendliness friendliness);
 
 		/// <summary></summary>
 		/// <param name="friendliness"></param>
 		/// <returns></returns>
-		bool IsValidMonsterFriendlinessPct(Enums.Friendliness friendliness);
+		bool IsValidMonsterFriendlinessPct(Friendliness friendliness);
 
 		/// <summary></summary>
 		/// <param name="dir"></param>
 		/// <returns></returns>
-		bool IsValidDirection(Enums.Direction dir);
+		bool IsValidDirection(Direction dir);
 
 		/// <summary></summary>
 		/// <param name="roomUid"></param>
@@ -259,7 +259,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="pluralType"></param>
 		/// <returns></returns>
-		long GetPluralTypeEffectUid(Enums.PluralType pluralType);
+		long GetPluralTypeEffectUid(PluralType pluralType);
 
 		/// <summary></summary>
 		/// <param name="armorUid"></param>
@@ -275,7 +275,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="friendliness"></param>
 		/// <returns></returns>
-		long GetMonsterFriendlinessPct(Enums.Friendliness friendliness);
+		long GetMonsterFriendlinessPct(Friendliness friendliness);
 
 		/// <summary></summary>
 		/// <param name="value"></param>
@@ -422,7 +422,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="printedName"></param>
 		/// <returns></returns>
-		Enums.Direction GetDirection(string printedName);
+		Direction GetDirection(string printedName);
 
 		/// <summary></summary>
 		/// <returns></returns>
@@ -442,7 +442,7 @@ namespace Eamon.Framework
 		/// <param name="neutralValue"></param>
 		/// <param name="friendValue"></param>
 		/// <returns></returns>
-		T EvalFriendliness<T>(Enums.Friendliness friendliness, T enemyValue, T neutralValue, T friendValue);
+		T EvalFriendliness<T>(Friendliness friendliness, T enemyValue, T neutralValue, T friendValue);
 
 		/// <summary></summary>
 		/// <param name="gender"></param>
@@ -450,21 +450,21 @@ namespace Eamon.Framework
 		/// <param name="femaleValue"></param>
 		/// <param name="neutralValue"></param>
 		/// <returns></returns>
-		T EvalGender<T>(Enums.Gender gender, T maleValue, T femaleValue, T neutralValue);
+		T EvalGender<T>(Gender gender, T maleValue, T femaleValue, T neutralValue);
 
 		/// <summary></summary>
 		/// <param name="roomType"></param>
 		/// <param name="indoorsValue"></param>
 		/// <param name="outdoorsValue"></param>
 		/// <returns></returns>
-		T EvalRoomType<T>(Enums.RoomType roomType, T indoorsValue, T outdoorsValue);
+		T EvalRoomType<T>(RoomType roomType, T indoorsValue, T outdoorsValue);
 
 		/// <summary></summary>
 		/// <param name="lightLevel"></param>
 		/// <param name="darkValue"></param>
 		/// <param name="lightValue"></param>
 		/// <returns></returns>
-		T EvalLightLevel<T>(Enums.LightLevel lightLevel, T darkValue, T lightValue);
+		T EvalLightLevel<T>(LightLevel lightLevel, T darkValue, T lightValue);
 
 		/// <summary></summary>
 		/// <param name="isPlural"></param>
@@ -536,13 +536,13 @@ namespace Eamon.Framework
 		/// <param name="weapon"></param>
 		/// <param name="roll"></param>
 		/// <returns></returns>
-		string GetAttackDescString(Enums.Weapon weapon, long roll);
+		string GetAttackDescString(Weapon weapon, long roll);
 
 		/// <summary></summary>
 		/// <param name="weapon"></param>
 		/// <param name="roll"></param>
 		/// <returns></returns>
-		string GetMissDescString(Enums.Weapon weapon, long roll);
+		string GetMissDescString(Weapon weapon, long roll);
 
 		/// <summary></summary>
 		/// <param name="numDice"></param>
@@ -576,7 +576,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="pluralType"></param>
 		/// <param name="maxSize"></param>
-		void TruncatePluralTypeEffectDesc(Enums.PluralType pluralType, long maxSize);
+		void TruncatePluralTypeEffectDesc(PluralType pluralType, long maxSize);
 
 		/// <summary></summary>
 		/// <param name="effect"></param>
@@ -649,7 +649,7 @@ namespace Eamon.Framework
 		/// <param name="groupCountOne"></param>
 		/// <param name="buf"></param>
 		/// <returns></returns>
-		RetCode GetRecordNameList(IList<IGameBase> records, Enums.ArticleType articleType, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
+		RetCode GetRecordNameList(IList<IGameBase> records, ArticleType articleType, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
 
 		/// <summary></summary>
 		/// <param name="records"></param>
@@ -694,45 +694,45 @@ namespace Eamon.Framework
 		/// <param name="calcPrice"></param>
 		/// <param name="isMarcosWeapon"></param>
 		/// <returns></returns>
-		double GetWeaponPriceOrValue(string name, long complexity, Enums.Weapon type, long dice, long sides, long numHands, bool calcPrice, ref bool isMarcosWeapon);
+		double GetWeaponPriceOrValue(string name, long complexity, Weapon type, long dice, long sides, long numHands, bool calcPrice, ref bool isMarcosWeapon);
 
 		/// <summary></summary>
 		/// <param name="weapon"></param>
 		/// <param name="calcPrice"></param>
 		/// <param name="isMarcosWeapon"></param>
 		/// <returns></returns>
-		double GetWeaponPriceOrValue(Classes.ICharacterArtifact weapon, bool calcPrice, ref bool isMarcosWeapon);
+		double GetWeaponPriceOrValue(ICharacterArtifact weapon, bool calcPrice, ref bool isMarcosWeapon);
 
 		/// <summary></summary>
 		/// <param name="armor"></param>
 		/// <param name="calcPrice"></param>
 		/// <param name="isMarcosArmor"></param>
 		/// <returns></returns>
-		double GetArmorPriceOrValue(Enums.Armor armor, bool calcPrice, ref bool isMarcosArmor);
+		double GetArmorPriceOrValue(Armor armor, bool calcPrice, ref bool isMarcosArmor);
 
 		/// <summary></summary>
 		/// <param name="fieldDesc"></param>
 		/// <param name="buf"></param>
 		/// <param name="fullDesc"></param>
 		/// <param name="briefDesc"></param>
-		void AppendFieldDesc(Enums.FieldDesc fieldDesc, StringBuilder buf, StringBuilder fullDesc, StringBuilder briefDesc);
+		void AppendFieldDesc(FieldDesc fieldDesc, StringBuilder buf, StringBuilder fullDesc, StringBuilder briefDesc);
 
 		/// <summary></summary>
 		/// <param name="fieldDesc"></param>
 		/// <param name="buf"></param>
 		/// <param name="fullDesc"></param>
 		/// <param name="briefDesc"></param>
-		void AppendFieldDesc(Enums.FieldDesc fieldDesc, StringBuilder buf, string fullDesc, string briefDesc);
+		void AppendFieldDesc(FieldDesc fieldDesc, StringBuilder buf, string fullDesc, string briefDesc);
 
 		/// <summary></summary>
 		/// <param name="destCa"></param>
 		/// <param name="sourceCa"></param>
-		void CopyCharacterArtifactFields(Classes.ICharacterArtifact destCa, Classes.ICharacterArtifact sourceCa);
+		void CopyCharacterArtifactFields(ICharacterArtifact destCa, ICharacterArtifact sourceCa);
 
 		/// <summary></summary>
 		/// <param name="destAc"></param>
 		/// <param name="sourceAc"></param>
-		void CopyArtifactCategoryFields(Classes.IArtifactCategory destAc, Classes.IArtifactCategory sourceAc);
+		void CopyArtifactCategoryFields(IArtifactCategory destAc, IArtifactCategory sourceAc);
 
 		/// <summary></summary>
 		/// <param name="whereClauseFuncs"></param>

@@ -5,10 +5,10 @@
 
 using System;
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.Commands
@@ -64,7 +64,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// Player will agree to free the Lich
 
-				if (string.Equals(ProcessedPhrase, "i will free you", StringComparison.OrdinalIgnoreCase) && ActorRoom.Uid == 109 && lichMonster.IsInRoom(ActorRoom) && lichMonster.Friendliness > Enums.Friendliness.Enemy && gameState.LichState < 2)
+				if (string.Equals(ProcessedPhrase, "i will free you", StringComparison.OrdinalIgnoreCase) && ActorRoom.Uid == 109 && lichMonster.IsInRoom(ActorRoom) && lichMonster.Friendliness > Friendliness.Enemy && gameState.LichState < 2)
 				{
 					Globals.Engine.PrintEffectDesc(54);
 

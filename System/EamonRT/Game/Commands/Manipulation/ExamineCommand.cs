@@ -7,11 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -27,7 +27,7 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact != null)
 			{
-				var artTypes = new Enums.ArtifactType[] { Enums.ArtifactType.DoorGate, Enums.ArtifactType.DisguisedMonster, Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible, Enums.ArtifactType.Container };
+				var artTypes = new ArtifactType[] { ArtifactType.DoorGate, ArtifactType.DisguisedMonster, ArtifactType.Drinkable, ArtifactType.Edible, ArtifactType.Container };
 
 				var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
 
@@ -43,12 +43,12 @@ namespace EamonRT.Game.Commands
 					DobjArtifact.SetInRoom(ActorRoom);
 				}
 
-				if (ac.Type == Enums.ArtifactType.DoorGate)
+				if (ac.Type == ArtifactType.DoorGate)
 				{
 					ac.Field4 = 0;
 				}
 
-				if (ac.Type == Enums.ArtifactType.DisguisedMonster)
+				if (ac.Type == ArtifactType.DisguisedMonster)
 				{
 					Globals.Engine.RevealDisguisedMonster(DobjArtifact);
 
@@ -74,16 +74,16 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if ((ac.Type == Enums.ArtifactType.Drinkable || ac.Type == Enums.ArtifactType.Edible) && ac.Field2 != Constants.InfiniteDrinkableEdible)
+				if ((ac.Type == ArtifactType.Drinkable || ac.Type == ArtifactType.Edible) && ac.Field2 != Constants.InfiniteDrinkableEdible)
 				{
 					Globals.Out.Print("There {0}{1}{2}{3} left.",
 						ac.Field2 != 1 ? "are " : "is ",
 						ac.Field2 > 0 ? Globals.Engine.GetStringFromNumber(ac.Field2, false, Globals.Buf) : "no",
-						ac.Type == Enums.ArtifactType.Drinkable ? " swallow" : " bite",
+						ac.Type == ArtifactType.Drinkable ? " swallow" : " bite",
 						ac.Field2 != 1 ? "s" : "");
 				}
 
-				if (ac.Type == Enums.ArtifactType.Container && ac.IsOpen() && DobjArtifact.ShouldShowContentsWhenExamined())
+				if (ac.Type == ArtifactType.Container && ac.IsOpen() && DobjArtifact.ShouldShowContentsWhenExamined())
 				{
 					var command = Globals.CreateInstance<IInventoryCommand>();
 
@@ -106,7 +106,7 @@ namespace EamonRT.Game.Commands
 
 				DobjMonster.Seen = true;
 
-				if (DobjMonster.Friendliness == Enums.Friendliness.Friend && DobjMonster.ShouldShowContentsWhenExamined())
+				if (DobjMonster.Friendliness == Friendliness.Friend && DobjMonster.ShouldShowContentsWhenExamined())
 				{
 					var command = Globals.CreateInstance<IInventoryCommand>();
 
@@ -178,7 +178,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "examine";
 
-			Type = Enums.CommandType.Manipulation;
+			Type = CommandType.Manipulation;
 		}
 	}
 }

@@ -4,10 +4,10 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Utilities;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.States
@@ -19,7 +19,7 @@ namespace EamonRT.Game.States
 		{
 			Globals.LoopMonsterUid = 0;
 
-			var friendlinessValues = EnumUtil.GetValues<Enums.Friendliness>();
+			var friendlinessValues = EnumUtil.GetValues<Friendliness>();
 
 			foreach (var fv in friendlinessValues)
 			{

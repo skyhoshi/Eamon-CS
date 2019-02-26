@@ -7,11 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game.Commands
@@ -25,7 +25,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			Debug.Assert(gameState != null);
 
-			if (DobjArtifact != null && DobjArtifact.GeneralWeapon == null && Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) > 0)
+			if (DobjArtifact != null && DobjArtifact.GeneralWeapon == null && Globals.GameState.GetNBTL(Friendliness.Enemy) > 0)
 			{
 				PrintEnemiesNearby();
 
@@ -67,7 +67,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (string.Equals(CommandParser.ObjData.Name, "all", StringComparison.OrdinalIgnoreCase))
 			{
-				if (Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) > 0)
+				if (Globals.GameState.GetNBTL(Friendliness.Enemy) > 0)
 				{
 					PrintEnemiesNearby();
 
@@ -78,9 +78,9 @@ namespace TheTempleOfNgurct.Game.Commands
 					GetAll = true;
 				}
 			}
-			else if (ActorRoom.Type == Enums.RoomType.Indoors && CommandParser.ObjData.Name.IndexOf("torch", StringComparison.OrdinalIgnoreCase) >= 0)
+			else if (ActorRoom.Type == RoomType.Indoors && CommandParser.ObjData.Name.IndexOf("torch", StringComparison.OrdinalIgnoreCase) >= 0)
 			{
-				if (Globals.GameState.GetNBTL(Enums.Friendliness.Enemy) > 0)
+				if (Globals.GameState.GetNBTL(Friendliness.Enemy) > 0)
 				{
 					PrintEnemiesNearby();
 

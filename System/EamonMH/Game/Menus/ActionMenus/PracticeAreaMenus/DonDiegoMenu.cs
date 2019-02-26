@@ -7,12 +7,12 @@ using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
 using EamonMH.Framework.Menus.ActionMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
-using Classes = Eamon.Framework.Primitive.Classes;
 using static EamonMH.Game.Plugin.PluginContext;
 
 namespace EamonMH.Game.Menus.ActionMenus
@@ -25,7 +25,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 		public override void Execute()
 		{
-			Classes.IWeapon weapon;
+			IWeapon weapon;
 			RetCode rc;
 			long ap = 0;
 			long i;
@@ -52,7 +52,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Buf.Clear();
 
-			var weaponValues = EnumUtil.GetValues<Enums.Weapon>();
+			var weaponValues = EnumUtil.GetValues<Weapon>();
 
 			for (i = 0; i < weaponValues.Count; i++)
 			{
@@ -84,7 +84,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			i = Convert.ToInt64(Buf.Trim().ToString());
 
-			weapon = Globals.Engine.GetWeapons((Enums.Weapon)i);
+			weapon = Globals.Engine.GetWeapons((Weapon)i);
 
 			Debug.Assert(weapon != null);
 
@@ -92,7 +92,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Out.Print("\"My fee is {0} gold piece{1} per try.  Your current ability is {2}%.\"", ap, ap != 1 ? "s" : "", Globals.Character.GetWeaponAbilities(i));
 
-			Globals.Out.Print("Don asks you to enter his shop.  \"{0}, see that {1} over there?  It's all in the wrist...  ATTACK!\"", Globals.Character.Name, i == (long)Enums.Weapon.Bow || i == (long)Enums.Weapon.Spear ? "target" : "dummy");
+			Globals.Out.Print("Don asks you to enter his shop.  \"{0}, see that {1} over there?  It's all in the wrist...  ATTACK!\"", Globals.Character.Name, i == (long)Weapon.Bow || i == (long)Weapon.Spear ? "target" : "dummy");
 
 			while (true)
 			{

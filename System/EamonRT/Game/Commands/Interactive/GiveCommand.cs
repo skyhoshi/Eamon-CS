@@ -8,11 +8,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -32,7 +32,7 @@ namespace EamonRT.Game.Commands
 
 		public virtual bool MonsterRefusesToAccept()
 		{
-			return !Globals.IsRulesetVersion(5) && (IobjMonster.Friendliness == Enums.Friendliness.Enemy || (IobjMonster.Friendliness == Enums.Friendliness.Neutral && DobjArtifact.Value < 3000));
+			return !Globals.IsRulesetVersion(5) && (IobjMonster.Friendliness == Friendliness.Enemy || (IobjMonster.Friendliness == Friendliness.Neutral && DobjArtifact.Value < 3000));
 		}
 
 		public override void PlayerExecute()
@@ -150,7 +150,7 @@ namespace EamonRT.Game.Commands
 
 				PrintGiveObjToActor(DobjArtifact, IobjMonster);
 
-				var ac = DobjArtifact.GetArtifactCategory(new Enums.ArtifactType[] { Enums.ArtifactType.Drinkable, Enums.ArtifactType.Edible });
+				var ac = DobjArtifact.GetArtifactCategory(new ArtifactType[] { ArtifactType.Drinkable, ArtifactType.Edible });
 
 				if (!Globals.IsRulesetVersion(5) && ac != null && ac.Field2 > 0)
 				{
@@ -180,14 +180,14 @@ namespace EamonRT.Game.Commands
 							monsterName,
 							Globals.Buf01,
 							Globals.Buf01.Length > 0 ? "," : "",
-							ac.Type == Enums.ArtifactType.Edible ? "bite" : "drink",
+							ac.Type == ArtifactType.Edible ? "bite" : "drink",
 							DobjArtifact.EvalPlural("it", "them"));
 					}
 					else
 					{
 						DobjArtifact.Value = 0;
 
-						if (ac.Type == Enums.ArtifactType.Edible)
+						if (ac.Type == ArtifactType.Edible)
 						{
 							Globals.GameState.Wt -= artWeight;
 
@@ -253,11 +253,11 @@ namespace EamonRT.Game.Commands
 					}
 					else
 					{
-						if (IobjMonster.Friendliness == Enums.Friendliness.Neutral)
+						if (IobjMonster.Friendliness == Friendliness.Neutral)
 						{
-							IobjMonster.Friendliness = Enums.Friendliness.Friend;
+							IobjMonster.Friendliness = Friendliness.Friend;
 
-							IobjMonster.OrigFriendliness = (Enums.Friendliness)200;
+							IobjMonster.OrigFriendliness = (Friendliness)200;
 
 							Globals.Engine.MonsterSmiles(IobjMonster);
 
@@ -316,11 +316,11 @@ namespace EamonRT.Game.Commands
 				}
 				else
 				{
-					if (IobjMonster.Friendliness == Enums.Friendliness.Neutral && GoldAmount > 4999)
+					if (IobjMonster.Friendliness == Friendliness.Neutral && GoldAmount > 4999)
 					{
-						IobjMonster.Friendliness = Enums.Friendliness.Friend;
+						IobjMonster.Friendliness = Friendliness.Friend;
 
-						IobjMonster.OrigFriendliness = (Enums.Friendliness)200;
+						IobjMonster.OrigFriendliness = (Friendliness)200;
 
 						Globals.Engine.MonsterSmiles(IobjMonster);
 
@@ -422,7 +422,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "give";
 
-			Type = Enums.CommandType.Interactive;
+			Type = CommandType.Interactive;
 		}
 	}
 }

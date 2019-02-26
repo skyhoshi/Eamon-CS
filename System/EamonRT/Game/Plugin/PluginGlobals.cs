@@ -6,12 +6,12 @@
 using System.Collections.Generic;
 using System.Text;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using EamonRT.Framework;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.Parsing;
 using EamonRT.Framework.Plugin;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Plugin
@@ -70,7 +70,7 @@ namespace EamonRT.Game.Plugin
 
 		public virtual ICharacter Character { get; set; }
 
-		public virtual Enums.ExitType ExitType { get; set; }
+		public virtual ExitType ExitType { get; set; }
 
 		public virtual string CommandPrompt { get; set; }
 
@@ -86,7 +86,7 @@ namespace EamonRT.Game.Plugin
 		{
 			get
 			{
-				return ExitType == Enums.ExitType.None;
+				return ExitType == ExitType.None;
 			}
 		}
 
@@ -94,7 +94,7 @@ namespace EamonRT.Game.Plugin
 		{
 			get
 			{
-				return ExitType == Enums.ExitType.GoToMainHall || ExitType == Enums.ExitType.StartOver || ExitType == Enums.ExitType.FinishAdventure || ExitType == Enums.ExitType.DeleteCharacter;
+				return ExitType == ExitType.GoToMainHall || ExitType == ExitType.StartOver || ExitType == ExitType.FinishAdventure || ExitType == ExitType.DeleteCharacter;
 			}
 		}
 
@@ -102,7 +102,7 @@ namespace EamonRT.Game.Plugin
 		{
 			get
 			{
-				return ExitType == Enums.ExitType.StartOver;
+				return ExitType == ExitType.StartOver;
 			}
 		}
 
@@ -110,7 +110,7 @@ namespace EamonRT.Game.Plugin
 		{
 			get
 			{
-				return ExitType == Enums.ExitType.Error;
+				return ExitType == ExitType.Error;
 			}
 		}
 
@@ -118,7 +118,7 @@ namespace EamonRT.Game.Plugin
 		{
 			get
 			{
-				return ExitType == Enums.ExitType.GoToMainHall || ExitType == Enums.ExitType.FinishAdventure;
+				return ExitType == ExitType.GoToMainHall || ExitType == ExitType.FinishAdventure;
 			}
 		}
 
@@ -126,7 +126,7 @@ namespace EamonRT.Game.Plugin
 		{
 			get
 			{
-				return ExitType == Enums.ExitType.FinishAdventure;
+				return ExitType == ExitType.FinishAdventure;
 			}
 		}
 
@@ -134,7 +134,7 @@ namespace EamonRT.Game.Plugin
 		{
 			get
 			{
-				return ExitType == Enums.ExitType.DeleteCharacter;
+				return ExitType == ExitType.DeleteCharacter;
 			}
 		}
 

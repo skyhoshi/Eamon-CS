@@ -10,9 +10,9 @@ using System.Linq;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Portability;
+using Eamon.Framework.Primitive.Enums;
 using EamonMH.Framework.Menus.ActionMenus;
 using EamonMH.Framework.Menus.HierarchicalMenus;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonMH.Game.Plugin.PluginContext;
 using static EamonMH.Game.Plugin.PluginContextStack;
 
@@ -108,7 +108,7 @@ namespace EamonMH
 
 					Globals.Config.GenerateUids = true;
 
-					Globals.Config.FieldDesc = Enums.FieldDesc.Full;
+					Globals.Config.FieldDesc = FieldDesc.Full;
 
 					Globals.Config.WordWrapMargin = Constants.RightMargin;
 
@@ -316,7 +316,7 @@ namespace EamonMH
 					{
 						Globals.Character = Globals.Database.CharacterTable.Records.FirstOrDefault(c => string.Equals(c.Name, Globals.CharacterName, StringComparison.OrdinalIgnoreCase));
 
-						if (Globals.Character == null || Globals.Character.Uid <= 0 || Globals.Character.Status != Enums.Status.Alive)
+						if (Globals.Character == null || Globals.Character.Uid <= 0 || Globals.Character.Status != Status.Alive)
 						{
 							Globals.CharacterName = "";
 

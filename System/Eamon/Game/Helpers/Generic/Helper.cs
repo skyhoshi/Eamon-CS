@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Helpers.Generic;
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game.Helpers.Generic
@@ -70,7 +70,7 @@ namespace Eamon.Game.Helpers.Generic
 
 		public virtual bool ShowDesc { get; set; }
 
-		public virtual Enums.FieldDesc FieldDesc { get; set; }
+		public virtual FieldDesc FieldDesc { get; set; }
 
 		public virtual long BufSize { get; set; }
 
@@ -411,11 +411,11 @@ namespace Eamon.Game.Helpers.Generic
 			return result;
 		}
 
-		public virtual void PrintFieldDesc(string fieldName, bool editRec, bool editField, Enums.FieldDesc fieldDesc)
+		public virtual void PrintFieldDesc(string fieldName, bool editRec, bool editField, FieldDesc fieldDesc)
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
 
-			Debug.Assert(Enum.IsDefined(typeof(Enums.FieldDesc), fieldDesc));
+			Debug.Assert(Enum.IsDefined(typeof(FieldDesc), fieldDesc));
 
 			var origEditRec = EditRec;
 
@@ -523,9 +523,9 @@ namespace Eamon.Game.Helpers.Generic
 
 		}
 
-		public virtual void InputRecord(bool editRec, Enums.FieldDesc fieldDesc)
+		public virtual void InputRecord(bool editRec, FieldDesc fieldDesc)
 		{
-			Debug.Assert(Enum.IsDefined(typeof(Enums.FieldDesc), fieldDesc));
+			Debug.Assert(Enum.IsDefined(typeof(FieldDesc), fieldDesc));
 
 			Clear();
 
@@ -583,7 +583,7 @@ namespace Eamon.Game.Helpers.Generic
 
 			ShowDesc = false;
 
-			FieldDesc = Enums.FieldDesc.None;
+			FieldDesc = FieldDesc.None;
 
 			BufSize = 0;
 

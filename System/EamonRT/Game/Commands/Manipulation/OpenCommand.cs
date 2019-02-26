@@ -6,10 +6,10 @@
 using System;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -58,12 +58,12 @@ namespace EamonRT.Game.Commands
 					DobjArtifact.SetInRoom(ActorRoom);
 				}
 
-				if (ac.Type == Enums.ArtifactType.DoorGate)
+				if (ac.Type == ArtifactType.DoorGate)
 				{
 					ac.Field4 = 0;
 				}
 
-				if (ac.Type == Enums.ArtifactType.DisguisedMonster)
+				if (ac.Type == ArtifactType.DisguisedMonster)
 				{
 					Globals.Engine.RevealDisguisedMonster(DobjArtifact);
 
@@ -81,7 +81,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Type == Enums.ArtifactType.Drinkable || ac.Type == Enums.ArtifactType.Edible || ac.Type == Enums.ArtifactType.Readable)
+				if (ac.Type == ArtifactType.Drinkable || ac.Type == ArtifactType.Edible || ac.Type == ArtifactType.Readable)
 				{
 					ac.SetOpen(true);
 
@@ -131,7 +131,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Type == Enums.ArtifactType.Container && ShouldPrintContainerInventory())
+				if (ac.Type == ArtifactType.Container && ShouldPrintContainerInventory())
 				{
 					NextState = Globals.CreateInstance<IInventoryCommand>();
 
@@ -145,7 +145,7 @@ namespace EamonRT.Game.Commands
 				/*
 				Note: duplicated above?
 
-				if (Ac.Type != Enums.ArtifactType.Container)
+				if (Ac.Type != ArtifactType.Container)
 				{
 					Ac.Field4 = 0;
 				}
@@ -199,7 +199,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "open";
 
-			Type = Enums.CommandType.Manipulation;
+			Type = CommandType.Manipulation;
 		}
 	}
 }

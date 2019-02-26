@@ -3,7 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Enums;
 
 namespace EamonRT.Framework.Commands
 {
@@ -11,6 +11,6 @@ namespace EamonRT.Framework.Commands
 	public interface IFleeCommand : ICommand
 	{
 		/// <summary></summary>
-		Enums.Direction Direction { get; set; }
+		Direction Direction { get; set; }
 	}
 }

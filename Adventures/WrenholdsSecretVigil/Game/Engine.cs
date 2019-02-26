@@ -7,8 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game
@@ -180,7 +180,7 @@ namespace WrenholdsSecretVigil.Game
 
 			// Large death dog
 
-			if (monster.Uid == 1 && monster.Friendliness == Enums.Friendliness.Friend)
+			if (monster.Uid == 1 && monster.Friendliness == Friendliness.Friend)
 			{
 				Globals.Out.Write("{0}{1} wags its tail.", Environment.NewLine, monster.GetDecoratedName03(true, true, false, false, Globals.Buf));
 			}
@@ -190,7 +190,7 @@ namespace WrenholdsSecretVigil.Game
 			}
 		}
 
-		public override IArtifact GetBlockedDirectionArtifact(long ro, long r2, Enums.Direction dir)
+		public override IArtifact GetBlockedDirectionArtifact(long ro, long r2, Direction dir)
 		{
 			IArtifact artifact = null;
 
@@ -230,7 +230,7 @@ namespace WrenholdsSecretVigil.Game
 
 			// And if room == 15, can't get past orb
 
-			else if (ro == 15 && dir == Enums.Direction.South)
+			else if (ro == 15 && dir == Direction.South)
 			{
 				artifact = lifeOrbArtifact;
 			}
@@ -252,7 +252,7 @@ namespace WrenholdsSecretVigil.Game
 
 			// Say each curse only once
 
-			if (rl < 41 && monster.Friendliness == Enums.Friendliness.Enemy && monster.HasCarriedInventory() && !gameState.GetMonsterCurses(effectUid - 7))
+			if (rl < 41 && monster.Friendliness == Friendliness.Enemy && monster.HasCarriedInventory() && !gameState.GetMonsterCurses(effectUid - 7))
 			{
 				var effect = Globals.EDB[effectUid];
 

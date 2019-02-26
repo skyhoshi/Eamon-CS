@@ -4,10 +4,10 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
 namespace TheTrainingGround.Game.Commands
@@ -23,7 +23,7 @@ namespace TheTrainingGround.Game.Commands
 
 			if (DobjArtifact.Uid == 24 && (DobjArtifact.IsCarriedByCharacter() || DobjArtifact.IsInRoom(ActorRoom)))
 			{
-				var monsters = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m.Friendliness == Enums.Friendliness.Enemy && m.Field1 == 0);
+				var monsters = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m.Friendliness == Friendliness.Enemy && m.Field1 == 0);
 
 				foreach (var monster in monsters)
 				{

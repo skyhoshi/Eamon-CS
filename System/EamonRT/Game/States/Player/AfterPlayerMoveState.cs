@@ -7,9 +7,9 @@ using System;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.States
@@ -19,7 +19,7 @@ namespace EamonRT.Game.States
 	{
 		public const long PeAfterExtinguishLightSourceCheck = 1;
 
-		public virtual Enums.Direction Direction { get; set; }
+		public virtual Direction Direction { get; set; }
 
 		public virtual IArtifact Artifact { get; set; }
 
@@ -30,7 +30,7 @@ namespace EamonRT.Game.States
 			IArtifact artifact;
 			RetCode rc;
 
-			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Enums.Direction), Direction));
+			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Direction), Direction));
 
 			Globals.GameState.R3 = Globals.GameState.Ro;
 

@@ -6,7 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework.Helpers.Generic
 {
@@ -37,7 +37,7 @@ namespace Eamon.Framework.Helpers.Generic
 		bool ShowDesc { get; set; }
 
 		/// <summary></summary>
-		Enums.FieldDesc FieldDesc { get; set; }
+		FieldDesc FieldDesc { get; set; }
 
 		/// <summary></summary>
 		long BufSize { get; set; }
@@ -151,7 +151,7 @@ namespace Eamon.Framework.Helpers.Generic
 		/// <param name="editRec"></param>
 		/// <param name="editField"></param>
 		/// <param name="fieldDesc"></param>
-		void PrintFieldDesc(string fieldName, bool editRec, bool editField, Enums.FieldDesc fieldDesc);
+		void PrintFieldDesc(string fieldName, bool editRec, bool editField, FieldDesc fieldDesc);
 
 		/// <summary></summary>
 		/// <param name="fieldName"></param>
@@ -180,7 +180,7 @@ namespace Eamon.Framework.Helpers.Generic
 		/// <summary></summary>
 		/// <param name="editRec"></param>
 		/// <param name="fieldDesc"></param>
-		void InputRecord(bool editRec, Enums.FieldDesc fieldDesc);
+		void InputRecord(bool editRec, FieldDesc fieldDesc);
 
 		/// <summary></summary>
 		/// <param name="callClear"></param>

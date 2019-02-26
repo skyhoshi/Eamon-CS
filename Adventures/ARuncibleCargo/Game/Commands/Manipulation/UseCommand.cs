@@ -4,10 +4,10 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
@@ -81,7 +81,7 @@ namespace ARuncibleCargo.Game.Commands
 
 								Globals.GameState.Die = 0;
 
-								Globals.ExitType = Enums.ExitType.FinishAdventure;
+								Globals.ExitType = ExitType.FinishAdventure;
 
 								Globals.MainLoop.ShouldShutdown = true;
 

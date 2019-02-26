@@ -7,9 +7,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
-using Classes = Eamon.Framework.Primitive.Classes;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game
@@ -100,7 +100,7 @@ namespace ARuncibleCargo.Game
 
 					Debug.Assert(lilMonster != null);
 
-					return lilMonster.Friendliness > Enums.Friendliness.Enemy ? "Larcenous Lil prepares to attack!" : "";
+					return lilMonster.Friendliness > Friendliness.Enemy ? "Larcenous Lil prepares to attack!" : "";
 				}
 				else
 				{
@@ -158,42 +158,42 @@ namespace ARuncibleCargo.Game
 
 			// (Barney) Rubble, Maintenance grate, Sewer grate
 
-			Globals.DoubleDoors.Add(Globals.CreateInstance<Classes.IArtifactLinkage>(x => 
+			Globals.DoubleDoors.Add(Globals.CreateInstance<IArtifactLinkage>(x => 
 			{
 				x.RoomUid = 12;
 				x.ArtifactUid1 = 18;
 				x.ArtifactUid2 = 139;
 			}));
 
-			Globals.DoubleDoors.Add(Globals.CreateInstance<Classes.IArtifactLinkage>(x =>
+			Globals.DoubleDoors.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
 			{
 				x.RoomUid = 13;
 				x.ArtifactUid1 = 139;
 				x.ArtifactUid2 = 18;
 			}));
 
-			Globals.DoubleDoors.Add(Globals.CreateInstance<Classes.IArtifactLinkage>(x =>
+			Globals.DoubleDoors.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
 			{
 				x.RoomUid = 13;
 				x.ArtifactUid1 = 24;
 				x.ArtifactUid2 = 140;
 			}));
 
-			Globals.DoubleDoors.Add(Globals.CreateInstance<Classes.IArtifactLinkage>(x =>
+			Globals.DoubleDoors.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
 			{
 				x.RoomUid = 14;
 				x.ArtifactUid1 = 140;
 				x.ArtifactUid2 = 24;
 			}));
 
-			Globals.DoubleDoors.Add(Globals.CreateInstance<Classes.IArtifactLinkage>(x =>
+			Globals.DoubleDoors.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
 			{
 				x.RoomUid = 17;
 				x.ArtifactUid1 = 26;
 				x.ArtifactUid2 = 138;
 			}));
 
-			Globals.DoubleDoors.Add(Globals.CreateInstance<Classes.IArtifactLinkage>(x =>
+			Globals.DoubleDoors.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
 			{
 				x.RoomUid = 29;
 				x.ArtifactUid1 = 138;
@@ -247,7 +247,7 @@ namespace ARuncibleCargo.Game
 
 		public Engine()
 		{
-			PoundCharPolicy = Enums.PoundCharPolicy.PlayerArtifactsOnly;
+			PoundCharPolicy = PoundCharPolicy.PlayerArtifactsOnly;
 		}
 	}
 }

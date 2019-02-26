@@ -6,11 +6,11 @@
 using System;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -36,7 +36,7 @@ namespace EamonRT.Game.Commands
 
 			if (ac != null)
 			{
-				if (ac.Type == Enums.ArtifactType.Drinkable)
+				if (ac.Type == ArtifactType.Drinkable)
 				{
 					NextState = Globals.CreateInstance<IDrinkCommand>();
 
@@ -178,7 +178,7 @@ namespace EamonRT.Game.Commands
 
 			Verb = "eat";
 
-			Type = Enums.CommandType.Manipulation;
+			Type = CommandType.Manipulation;
 		}
 	}
 }

@@ -5,7 +5,7 @@
 
 using System;
 using System.Text;
-using Enums = Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework
 {
@@ -33,7 +33,7 @@ namespace Eamon.Framework
 		bool Seen { get; set; }
 
 		/// <summary></summary>
-		Enums.ArticleType ArticleType { get; set; }
+		ArticleType ArticleType { get; set; }
 
 		#endregion
 
@@ -62,7 +62,7 @@ namespace Eamon.Framework
 		/// <param name="groupCountOne"></param>
 		/// <param name="buf"></param>
 		/// <returns></returns>
-		string GetDecoratedName(string fieldName, Enums.ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
+		string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
 
 		/// <summary></summary>
 		/// <param name="upshift"></param>

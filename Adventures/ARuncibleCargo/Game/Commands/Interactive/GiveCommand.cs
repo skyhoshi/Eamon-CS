@@ -5,10 +5,10 @@
 
 using System;
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
@@ -60,7 +60,7 @@ namespace ARuncibleCargo.Game.Commands
 
 					IobjMonster.Friendliness++;
 
-					IobjMonster.OrigFriendliness = (Enums.Friendliness)200;
+					IobjMonster.OrigFriendliness = (Friendliness)200;
 
 					Globals.Engine.CheckEnemies();
 
@@ -71,7 +71,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				// Further disable bribing
 
-				else if (IobjMonster.Friendliness < Enums.Friendliness.Friend)
+				else if (IobjMonster.Friendliness < Friendliness.Friend)
 				{
 					Globals.Engine.MonsterSmiles(IobjMonster);
 
@@ -99,7 +99,7 @@ namespace ARuncibleCargo.Game.Commands
 			{
 				// Give $ to Amazon
 
-				if (IobjMonster.Uid == 22 && IobjMonster.Friendliness == Enums.Friendliness.Friend)
+				if (IobjMonster.Uid == 22 && IobjMonster.Friendliness == Friendliness.Friend)
 				{
 					var gender = Math.Min((long)ActorMonster.Gender, 1);
 
@@ -112,7 +112,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				// Disable bribing
 
-				else if (IobjMonster.Friendliness < Enums.Friendliness.Friend)
+				else if (IobjMonster.Friendliness < Friendliness.Friend)
 				{
 					Globals.Engine.MonsterSmiles(IobjMonster);
 

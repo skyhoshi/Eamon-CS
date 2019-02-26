@@ -5,9 +5,9 @@
 
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
-using Enums = Eamon.Framework.Primitive.Enums;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.States
@@ -21,7 +21,7 @@ namespace EamonRT.Game.States
 
 			Globals.LoopArtifactList = null;
 
-			if (monster.CombatCode == Enums.CombatCode.NaturalWeapons && monster.Weapon <= 0)
+			if (monster.CombatCode == CombatCode.NaturalWeapons && monster.Weapon <= 0)
 			{
 				Globals.LoopArtifactList = Globals.Engine.GetReadyableWeaponList(monster);
 
@@ -41,7 +41,7 @@ namespace EamonRT.Game.States
 					}
 				}
 			}
-			else if ((monster.CombatCode == Enums.CombatCode.Weapons || monster.CombatCode == Enums.CombatCode.Attacks) && monster.Weapon < 0)
+			else if ((monster.CombatCode == CombatCode.Weapons || monster.CombatCode == CombatCode.Attacks) && monster.Weapon < 0)
 			{
 				Globals.LoopArtifactList = Globals.Engine.GetReadyableWeaponList(monster);
 			}
