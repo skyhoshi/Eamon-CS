@@ -17,6 +17,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class StatusCommand : Command, IStatusCommand
 	{
+		/// <summary></summary>
 		public const long PpeAfterPlayerStatus = 1;
 
 		public override void PlayerExecute()

@@ -20,10 +20,13 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class GiveCommand : Command, IGiveCommand
 	{
+		/// <summary></summary>
 		public const long PpeAfterEnforceMonsterWeightLimitsCheck = 1;
 
+		/// <summary></summary>
 		public const long PpeAfterPlayerGivesReadiedWeaponCheck = 2;
 
+		/// <summary></summary>
 		public const long PpeBeforeMonsterTakesGold = 3;
 
 		public virtual bool GetCommandCalled { get; set; }

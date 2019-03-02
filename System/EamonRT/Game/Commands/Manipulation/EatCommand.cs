@@ -18,8 +18,10 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class EatCommand : Command, IEatCommand
 	{
+		/// <summary></summary>
 		public const long PpeBeforeArtifactNowEmptyCheck = 1;
 
+		/// <summary></summary>
 		public const long PpeAfterArtifactEat = 2;
 
 		public override void PlayerExecute()

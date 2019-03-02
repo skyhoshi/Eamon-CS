@@ -14,6 +14,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : Command, IPowerCommand
 	{
+		/// <summary></summary>
 		public const long PpeAfterPlayerSpellCastCheck = 1;
 
 		public virtual bool CastSpell { get; set; }

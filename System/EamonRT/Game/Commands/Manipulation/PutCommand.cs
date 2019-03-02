@@ -17,6 +17,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class PutCommand : Command, IPutCommand
 	{
+		/// <summary></summary>
 		public const long PpeAfterArtifactPut = 1;
 
 		public virtual bool GetCommandCalled { get; set; }

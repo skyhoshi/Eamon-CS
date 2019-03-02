@@ -320,7 +320,7 @@ namespace Eamon.Game
 			return (long)pluralType > 1000 ? (long)pluralType - 1000 : 0;
 		}
 
-		public virtual long GetArmorFactor(long armorUid, long shieldUid)		// Note: test thoroughly!
+		public virtual long GetArmorFactor(long armorUid, long shieldUid)
 		{
 			long af = 0;
 
@@ -395,7 +395,7 @@ namespace Eamon.Game
 		public virtual long GetMerchantBidPrice(double price, double rtio)
 		{
 			return (long)((price) / (rtio) + .5);
-      }
+		}
 
 		public virtual long GetMerchantAdjustedCharisma(long charisma)
 		{

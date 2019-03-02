@@ -18,8 +18,10 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class DrinkCommand : Command, IDrinkCommand
 	{
+		/// <summary></summary>
 		public const long PpeBeforeArtifactNowEmptyCheck = 1;
 
+		/// <summary></summary>
 		public const long PpeAfterArtifactDrink = 2;
 
 		public override void PlayerExecute()

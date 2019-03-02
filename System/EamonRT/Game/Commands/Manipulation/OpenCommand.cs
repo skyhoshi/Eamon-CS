@@ -17,8 +17,10 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class OpenCommand : Command, IOpenCommand
 	{
+		/// <summary></summary>
 		public const long PpeAfterArtifactOpenPrint = 1;
 
+		/// <summary></summary>
 		public const long PpeAfterArtifactOpen = 2;
 
 		public virtual bool ShouldPrintContainerInventory()

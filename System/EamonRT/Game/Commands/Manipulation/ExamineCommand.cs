@@ -19,6 +19,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class ExamineCommand : Command, IExamineCommand
 	{
+		/// <summary></summary>
 		public const long PpeAfterArtifactFullDescPrint = 1;
 
 		public override void PlayerExecute()

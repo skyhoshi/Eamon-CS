@@ -15,103 +15,197 @@ namespace Eamon.Framework
 	{
 		#region Properties
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a description shown after this <see cref="IArtifact"/>'s <see cref="Name"/> in
+		/// various lists that indicates its state.
+		/// </summary>
 		string StateDesc { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="IArtifact"/> is owned by the player character.
+		/// </summary>
 		bool IsCharOwned { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="IArtifact"/> represents a group of objects.
+		/// </summary>
 		bool IsPlural { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="IArtifact"/> should be displayed in
+		/// various lists.
+		/// </summary>
 		bool IsListed { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a value indicating how this <see cref="IArtifact"/>'s singular <see cref="Name"/> is
+		/// modified to produce its plural Name.
+		/// </summary>
 		PluralType PluralType { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the base value of this <see cref="IArtifact"/> in gold pieces.
+		/// </summary>
 		long Value { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the weight of this <see cref="IArtifact"/> in Gronds.
+		/// </summary>
 		long Weight { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the location of this <see cref="IArtifact"/> in the game.
+		/// </summary>
 		long Location { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the type of this <see cref="IArtifact"/>, a convenience to emulate Eamon Deluxe.
+		/// </summary>
 		ArtifactType Type { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the primary <see cref="IArtifactCategory.Field1"/> of this <see cref="IArtifact"/>,
+		/// a convenience to emulate Eamon Deluxe.
+		/// </summary>
 		long Field1 { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the primary <see cref="IArtifactCategory.Field2"/> of this <see cref="IArtifact"/>,
+		/// a convenience to emulate Eamon Deluxe.
+		/// </summary>
 		long Field2 { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the primary <see cref="IArtifactCategory.Field3"/> of this <see cref="IArtifact"/>,
+		/// a convenience to emulate Eamon Deluxe.
+		/// </summary>
 		long Field3 { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the primary <see cref="IArtifactCategory.Field4"/> of this <see cref="IArtifact"/>,
+		/// a convenience to emulate Eamon Deluxe.
+		/// </summary>
 		long Field4 { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the primary <see cref="IArtifactCategory.Field5"/> of this <see cref="IArtifact"/>,
+		/// a convenience to emulate Eamon Deluxe.
+		/// </summary>
 		long Field5 { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.Gold"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory Gold { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.Treasure"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory Treasure { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.Weapon"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory Weapon { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.MagicWeapon"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory MagicWeapon { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding to 
+		/// either <see cref="ArtifactType.Weapon"/> or <see cref="ArtifactType.MagicWeapon"/>; intended as a
+		/// convenience.
+		/// </summary>
 		IArtifactCategory GeneralWeapon { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.Container"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory Container { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.LightSource"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory LightSource { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.Drinkable"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory Drinkable { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.Readable"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory Readable { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.DoorGate"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory DoorGate { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.Edible"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory Edible { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.BoundMonster"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory BoundMonster { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.Wearable"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory Wearable { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.DisguisedMonster"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory DisguisedMonster { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.DeadBody"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory DeadBody { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.User1"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory User1 { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.User2"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory User2 { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.User3"/>; intended as a convenience.
+		/// </summary>
 		IArtifactCategory User3 { get; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets an array of <see cref="IArtifactCategory"/> objects that define
+		/// this <see cref="IArtifact"/>'s behavior in the game.
+		/// </summary>
 		IArtifactCategory[] Categories { get; set; }
 
 		#endregion

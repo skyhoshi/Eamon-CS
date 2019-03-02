@@ -19,8 +19,10 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class BlastCommand : Command, IBlastCommand
 	{
+		/// <summary></summary>
 		public const long PpeAfterPlayerSpellCastCheck = 1;
 
+		/// <summary></summary>
 		public const long PpeAfterMonsterGetsAggravated = 2;
 
 		public virtual bool CastSpell { get; set; }

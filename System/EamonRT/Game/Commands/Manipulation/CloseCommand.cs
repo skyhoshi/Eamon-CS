@@ -16,6 +16,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class CloseCommand : Command, ICloseCommand
 	{
+		/// <summary></summary>
 		public const long PpeAfterArtifactClose = 1;
 
 		public override void PlayerExecute()

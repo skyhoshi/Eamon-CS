@@ -18,6 +18,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class WearCommand : Command, IWearCommand
 	{
+		/// <summary></summary>
 		public const long PpeAfterArtifactWear = 1;
 
 		public override void PlayerExecute()

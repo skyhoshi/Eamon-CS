@@ -20,6 +20,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class FleeCommand : Command, IFleeCommand
 	{
+		/// <summary></summary>
 		public const long PpeAfterNumberOfExitsCheck = 1;
 
 		public virtual Direction Direction { get; set; }

@@ -17,8 +17,10 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class SayCommand : Command, ISayCommand
 	{
+		/// <summary></summary>
 		public const long PpeBeforePlayerSayTextPrint = 1;
 
+		/// <summary></summary>
 		public const long PpeAfterPlayerSay = 2;
 
 		public virtual string OriginalPhrase { get; set; }

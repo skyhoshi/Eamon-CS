@@ -16,6 +16,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class FreeCommand : Command, IFreeCommand
 	{
+		/// <summary></summary>
 		public const long PpeBeforeGuardMonsterCheck = 1;
 
 		public virtual IMonster Monster { get; set; }
