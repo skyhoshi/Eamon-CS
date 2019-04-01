@@ -78,14 +78,17 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			var regex = new Regex("^[a-zA-Z0-9]*$");
 
-			if (regex.IsMatch(AdventureName) && Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
+			if (regex.IsMatch(AdventureName))
 			{
-				Globals.Directory.Delete(Constants.AdventuresDir + @"\" + AdventureName, true);
-			}
+				if (Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
+				{
+					Globals.Directory.Delete(Constants.AdventuresDir + @"\" + AdventureName, true);
+				}
 
-			if (regex.IsMatch(AdventureName) && Globals.Directory.Exists(Constants.AndroidAdventuresDir + @"\" + AdventureName))
-			{
-				Globals.Directory.Delete(Constants.AndroidAdventuresDir + @"\" + AdventureName, true);
+				if (Globals.Directory.Exists(Constants.AndroidAdventuresDir + @"\" + AdventureName))
+				{
+					Globals.Directory.Delete(Constants.AndroidAdventuresDir + @"\" + AdventureName, true);
+				}
 			}
 		}
 
@@ -94,32 +97,37 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			// Note: QuickLaunch files missing in Eamon CS Mobile
 
-			var srcFileName = Constants.QuickLaunchDir + @"\Unix\EamonDD\Edit" + AdventureName + ".sh";
+			var regex = new Regex("^[a-zA-Z0-9]*$");
 
-			if (Globals.File.Exists(srcFileName))
+			if (regex.IsMatch(AdventureName))
 			{
-				Globals.File.Delete(srcFileName);
-			}
+				var srcFileName = Constants.QuickLaunchDir + @"\Unix\EamonDD\Edit" + AdventureName + ".sh";
 
-			srcFileName = Constants.QuickLaunchDir + @"\Unix\EamonRT\Resume" + AdventureName + ".sh";
+				if (Globals.File.Exists(srcFileName))
+				{
+					Globals.File.Delete(srcFileName);
+				}
 
-			if (Globals.File.Exists(srcFileName))
-			{
-				Globals.File.Delete(srcFileName);
-			}
+				srcFileName = Constants.QuickLaunchDir + @"\Unix\EamonRT\Resume" + AdventureName + ".sh";
 
-			srcFileName = Constants.QuickLaunchDir + @"\Windows\EamonDD\Edit" + AdventureName + ".bat";
+				if (Globals.File.Exists(srcFileName))
+				{
+					Globals.File.Delete(srcFileName);
+				}
 
-			if (Globals.File.Exists(srcFileName))
-			{
-				Globals.File.Delete(srcFileName);
-			}
+				srcFileName = Constants.QuickLaunchDir + @"\Windows\EamonDD\Edit" + AdventureName + ".bat";
 
-			srcFileName = Constants.QuickLaunchDir + @"\Windows\EamonRT\Resume" + AdventureName + ".bat";
+				if (Globals.File.Exists(srcFileName))
+				{
+					Globals.File.Delete(srcFileName);
+				}
 
-			if (Globals.File.Exists(srcFileName))
-			{
-				Globals.File.Delete(srcFileName);
+				srcFileName = Constants.QuickLaunchDir + @"\Windows\EamonRT\Resume" + AdventureName + ".bat";
+
+				if (Globals.File.Exists(srcFileName))
+				{
+					Globals.File.Delete(srcFileName);
+				}
 			}
 		}
 

@@ -982,32 +982,37 @@ namespace YourAdventureName.YourGameNamespaceName
 		/// <summary></summary>
 		protected virtual void DeleteAdvBinaryFiles()
 		{
-			var srcFileName = @".\" + AdventureName + ".dll";
+			var regex = new Regex("^[a-zA-Z0-9]*$");
 
-			if (Globals.File.Exists(srcFileName))
+			if (regex.IsMatch(AdventureName))
 			{
-				Globals.File.Delete(srcFileName);
-			}
+				var srcFileName = @".\" + AdventureName + ".dll";
 
-			srcFileName = @".\" + AdventureName + ".pdb";
+				if (Globals.File.Exists(srcFileName))
+				{
+					Globals.File.Delete(srcFileName);
+				}
 
-			if (Globals.File.Exists(srcFileName))
-			{
-				Globals.File.Delete(srcFileName);
-			}
+				srcFileName = @".\" + AdventureName + ".pdb";
 
-			srcFileName = @".\" + AdventureName + ".xml";
+				if (Globals.File.Exists(srcFileName))
+				{
+					Globals.File.Delete(srcFileName);
+				}
 
-			if (Globals.File.Exists(srcFileName))
-			{
-				Globals.File.Delete(srcFileName);
-			}
+				srcFileName = @".\" + AdventureName + ".xml";
 
-			srcFileName = @".\" + AdventureName + ".deps.json";
+				if (Globals.File.Exists(srcFileName))
+				{
+					Globals.File.Delete(srcFileName);
+				}
 
-			if (Globals.File.Exists(srcFileName))
-			{
-				Globals.File.Delete(srcFileName);
+				srcFileName = @".\" + AdventureName + ".deps.json";
+
+				if (Globals.File.Exists(srcFileName))
+				{
+					Globals.File.Delete(srcFileName);
+				}
 			}
 		}
 
