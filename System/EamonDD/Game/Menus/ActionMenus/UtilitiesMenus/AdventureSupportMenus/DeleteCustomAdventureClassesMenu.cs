@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -92,8 +91,6 @@ namespace EamonDD.Game.Menus.ActionMenus
 		/// <summary></summary>
 		protected virtual void DeleteSelectedClassFiles()
 		{
-			var regex = new Regex("^[a-zA-Z0-9]*$");
-
 			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.WriteLine();
@@ -116,7 +113,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				}
 			}
 
-			if (regex.IsMatch(AdventureName))
+			if (IsAdventureNameValid())
 			{
 				Globals.Directory.DeleteEmptySubdirectories(@"..\" + AdventureName, true);
 			}

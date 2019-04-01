@@ -6,7 +6,6 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
 using Eamon;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
@@ -76,9 +75,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 		/// <summary></summary>
 		protected virtual void DeleteAdventureFolder()
 		{
-			var regex = new Regex("^[a-zA-Z0-9]*$");
-
-			if (regex.IsMatch(AdventureName))
+			if (IsAdventureNameValid())
 			{
 				if (Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
 				{
@@ -97,9 +94,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			// Note: QuickLaunch files missing in Eamon CS Mobile
 
-			var regex = new Regex("^[a-zA-Z0-9]*$");
-
-			if (regex.IsMatch(AdventureName))
+			if (IsAdventureNameValid())
 			{
 				var srcFileName = Constants.QuickLaunchDir + @"\Unix\EamonDD\Edit" + AdventureName + ".sh";
 

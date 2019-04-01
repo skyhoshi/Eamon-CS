@@ -724,6 +724,10 @@
             <param name="fileText"></param>
             <returns></returns>
         </member>
+        <member name="M:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.IsAdventureNameValid">
+            <summary></summary>
+            <returns></returns>
+        </member>
         <member name="M:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.LoadVsaAssemblyIfNecessary">
             <summary></summary>
         </member>

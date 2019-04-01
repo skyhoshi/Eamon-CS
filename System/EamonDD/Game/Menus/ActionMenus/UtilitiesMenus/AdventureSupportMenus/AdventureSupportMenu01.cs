@@ -243,6 +243,17 @@ namespace YourAdventureName.YourGameNamespaceName
 		}
 
 		/// <summary></summary>
+		/// <returns></returns>
+		protected virtual bool IsAdventureNameValid()
+		{
+			Debug.Assert(AdventureName != null);
+
+			var regex = new Regex("^[a-zA-Z0-9]+$");
+
+			return regex.IsMatch(AdventureName);
+		}
+
+		/// <summary></summary>
 		protected virtual void LoadVsaAssemblyIfNecessary()
 		{
 			if (VsaAssembly == null)
@@ -982,9 +993,7 @@ namespace YourAdventureName.YourGameNamespaceName
 		/// <summary></summary>
 		protected virtual void DeleteAdvBinaryFiles()
 		{
-			var regex = new Regex("^[a-zA-Z0-9]*$");
-
-			if (regex.IsMatch(AdventureName))
+			if (IsAdventureNameValid())
 			{
 				var srcFileName = @".\" + AdventureName + ".dll";
 
