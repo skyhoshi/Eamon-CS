@@ -6,6 +6,7 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using Eamon;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
@@ -75,12 +76,14 @@ namespace EamonDD.Game.Menus.ActionMenus
 		/// <summary></summary>
 		protected virtual void DeleteAdventureFolder()
 		{
-			if (Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
+			var regex = new Regex("^[a-zA-Z0-9]*$");
+
+			if (regex.IsMatch(AdventureName) && Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
 			{
 				Globals.Directory.Delete(Constants.AdventuresDir + @"\" + AdventureName, true);
 			}
 
-			if (Globals.Directory.Exists(Constants.AndroidAdventuresDir + @"\" + AdventureName))
+			if (regex.IsMatch(AdventureName) && Globals.Directory.Exists(Constants.AndroidAdventuresDir + @"\" + AdventureName))
 			{
 				Globals.Directory.Delete(Constants.AndroidAdventuresDir + @"\" + AdventureName, true);
 			}
