@@ -46,6 +46,8 @@ namespace EamonDD.Game.Menus.ActionMenus
 		/// <summary></summary>
 		protected virtual void RemoveProjectFromSolution()
 		{
+			var result = RetCode.Failure;
+
 			Globals.Out.Print("{0}", Globals.LineSep);
 
 			Globals.Out.WriteLine();
@@ -56,13 +58,19 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (VsaObject != null)
 			{
-				var projName = Globals.Path.GetFullPath(Globals.Path.Combine(Constants.AdventuresDir + @"\" + AdventureName, AdventureName + ".csproj"));
+				if (IsAdventureNameValid())
+				{
+					var projName = Globals.Path.GetFullPath(Globals.Path.Combine(Constants.AdventuresDir + @"\" + AdventureName, AdventureName + ".csproj"));
 
-				VsaObject.RemoveProjectFromSolution(projName);
+					VsaObject.RemoveProjectFromSolution(projName);
+
+					result = RetCode.Success;
+				}
 
 				VsaObject.Shutdown();
 			}
-			else
+
+			if (result == RetCode.Failure)
 			{
 				Globals.Out.Print("{0}", Globals.LineSep);
 
@@ -162,27 +170,30 @@ namespace EamonDD.Game.Menus.ActionMenus
 				goto Cleanup;
 			}
 
-			if (Globals.File.Exists(Constants.AdventuresDir + @"\" + AdventureName + @"\" + AdventureName + @".csproj"))
+			if (IsAdventureNameValid())
 			{
-				if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+				if (Globals.File.Exists(Constants.AdventuresDir + @"\" + AdventureName + @"\" + AdventureName + @".csproj"))
 				{
-					CheckForPrerequisites();
-
-					if (GotoCleanup)
+					if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
 					{
-						goto Cleanup;
+						CheckForPrerequisites();
+
+						if (GotoCleanup)
+						{
+							goto Cleanup;
+						}
+					}
+
+					DeleteAdvBinaryFiles();
+
+					if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+					{
+						RemoveProjectFromSolution();
 					}
 				}
 
-				DeleteAdvBinaryFiles();
-
-				if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-				{
-					RemoveProjectFromSolution();
-				}
+				UpdateAdvDbTextFiles();
 			}
-
-			UpdateAdvDbTextFiles();
 
 			DeleteAdventureFolder();
 

@@ -973,9 +973,12 @@ namespace YourAdventureName.YourGameNamespaceName
 
 			if (VsaObject != null)
 			{
-				var libraryName = Globals.Path.GetFullPath(@".\" + AdventureName + ".dll");
+				if (IsAdventureNameValid())
+				{
+					var libraryName = Globals.Path.GetFullPath(@".\" + AdventureName + ".dll");
 
-				result = VsaObject.RebuildSolution(libraryName);
+					result = VsaObject.RebuildSolution(libraryName);
+				}
 
 				VsaObject.Shutdown();
 			}

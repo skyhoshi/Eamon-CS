@@ -149,27 +149,30 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			GetAuthorInitials();
 
-			Globals.Directory.SetCurrentDirectory(Constants.AdventuresDir + @"\" + AdventureName);
-
-			SelectClassFilesToDelete();
-
-			if (GotoCleanup)
+			if (IsAdventureNameValid())
 			{
-				goto Cleanup;
+				Globals.Directory.SetCurrentDirectory(Constants.AdventuresDir + @"\" + AdventureName);
+
+				SelectClassFilesToDelete();
+
+				if (GotoCleanup)
+				{
+					goto Cleanup;
+				}
+
+				QueryToProcessAdventure();
+
+				if (GotoCleanup)
+				{
+					goto Cleanup;
+				}
+
+				DeleteSelectedClassFiles();
+
+				UpdateXmlFileClasses();
+
+				Globals.Directory.SetCurrentDirectory(workDir);
 			}
-
-			QueryToProcessAdventure();
-
-			if (GotoCleanup)
-			{
-				goto Cleanup;
-			}
-
-			DeleteSelectedClassFiles();
-
-			UpdateXmlFileClasses();
-
-			Globals.Directory.SetCurrentDirectory(workDir);
 
 			DeleteAdvBinaryFiles();
 
