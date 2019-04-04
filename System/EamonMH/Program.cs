@@ -134,7 +134,7 @@ namespace EamonMH
 
 					Globals.Out.Write("{0}Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.", Environment.NewLine);
 
-					Globals.Out.Print("As defined by the GPL license, this is free software with ABSOLUTELY NO WARRANTY.");
+					Globals.Out.Print("This GNU GPL'd free software has ABSOLUTELY NO WARRANTY.");
 
 					// copy and store command line args
 
