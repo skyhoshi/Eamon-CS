@@ -1701,7 +1701,79 @@
         <member name="M:EamonRT.Game.Combat.CombatSystem.ExecuteStateMachine">
             <summary></summary>
         </member>
+        <member name="F:EamonRT.Game.Commands.BlastCommand.PpeAfterPlayerSpellCastCheck">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.BlastCommand.PpeAfterMonsterGetsAggravated">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.FreeCommand.PpeBeforeGuardMonsterCheck">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.GiveCommand.PpeAfterEnforceMonsterWeightLimitsCheck">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.GiveCommand.PpeAfterPlayerGivesReadiedWeaponCheck">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.GiveCommand.PpeBeforeMonsterTakesGold">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.CloseCommand.PpeAfterArtifactClose">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.DrinkCommand.PpeBeforeArtifactNowEmptyCheck">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.DrinkCommand.PpeAfterArtifactDrink">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.EatCommand.PpeBeforeArtifactNowEmptyCheck">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.EatCommand.PpeAfterArtifactEat">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.ExamineCommand.PpeAfterArtifactFullDescPrint">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.OpenCommand.PpeAfterArtifactOpenPrint">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.OpenCommand.PpeAfterArtifactOpen">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.PutCommand.PpeAfterArtifactPut">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.ReadCommand.PpeBeforeArtifactReadTextPrint">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.ReadCommand.PpeAfterArtifactRead">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.UseCommand.PpeBeforeArtifactUse">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.WearCommand.PpeAfterArtifactWear">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.PowerCommand.PpeAfterPlayerSpellCastCheck">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.SayCommand.PpeBeforePlayerSayTextPrint">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.SayCommand.PpeAfterPlayerSay">
+            <summary></summary>
+        </member>
         <member name="M:EamonRT.Game.Commands.SettingsCommand.PrintUsage">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.StatusCommand.PpeAfterPlayerStatus">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.FleeCommand.PpeAfterNumberOfExitsCheck">
             <summary></summary>
         </member>
         <member name="M:EamonRT.Game.Engine.ConvertWeaponsToArtifacts">
