@@ -19,11 +19,13 @@ namespace EamonRT.Game.States
 
 			Debug.Assert(monster != null);
 
-			Debug.Assert(Globals.LoopMemberNumber >= 0 && Globals.LoopMemberNumber <= monster.GroupCount && Globals.LoopMemberNumber <= 5);
+			var maxMemberAttackCount = monster.GetMaxMemberAttackCount();
+
+			Debug.Assert(Globals.LoopMemberNumber >= 0 && Globals.LoopMemberNumber <= monster.GroupCount && Globals.LoopMemberNumber <= maxMemberAttackCount);
 
 			Globals.LoopMemberNumber++;
 
-			if (Globals.LoopMemberNumber > monster.GroupCount || Globals.LoopMemberNumber > 5)
+			if (Globals.LoopMemberNumber > monster.GroupCount || Globals.LoopMemberNumber > maxMemberAttackCount)
 			{
 				NextState = Globals.CreateInstance<IMonsterLoopIncrementState>();
 

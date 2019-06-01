@@ -76,19 +76,6 @@ namespace EamonRT.Game.Commands
 				IobjMonster.Weapon = -1;
 			}
 
-			if (!DobjArtifact.Seen)
-			{
-				Globals.Buf.Clear();
-
-				rc = DobjArtifact.BuildPrintedFullDesc(Globals.Buf, false);
-
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-				Globals.Out.Write("{0}", Globals.Buf);
-
-				DobjArtifact.Seen = true;
-			}
-
 			if (ActorMonster.Weapon <= 0 && DobjArtifact.IsReadyableByCharacter() && NextState == null)
 			{
 				NextState = Globals.CreateInstance<IReadyCommand>();
@@ -136,6 +123,17 @@ namespace EamonRT.Game.Commands
 				PlayerResolveArtifact();
 			}
 		}
+
+		/*
+		public override bool IsPrepEnabled(IPrep prep)
+		{
+			Debug.Assert(prep != null);
+
+			var prepNames = new string[] { "from" };
+
+			return prepNames.FirstOrDefault(pn => string.Equals(prep.Name, pn, StringComparison.OrdinalIgnoreCase)) != null;
+		}
+		*/
 
 		public RequestCommand()
 		{

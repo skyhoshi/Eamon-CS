@@ -1,12 +1,12 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -18,7 +18,7 @@
             <Simple name="Location" value="1" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="2" />
@@ -39,7 +39,7 @@
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -51,7 +51,7 @@
             <Simple name="Location" value="2" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="2" />
@@ -72,7 +72,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -84,7 +84,7 @@
             <Simple name="Location" value="-2" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
@@ -105,7 +105,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -117,7 +117,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="1" />
@@ -138,7 +138,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="True" />
@@ -150,7 +150,7 @@
             <Simple name="Location" value="-1" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Wearable" />
                     <Simple name="Field1" value="0" />
@@ -160,17 +160,17 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
-                    <Simple name="Type" value="Container" />
+                    <Simple name="Type" value="InContainer" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="50" />
                     <Simple name="Field4" value="10" />
-                    <Simple name="Field5" value="0" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="8" />
@@ -191,7 +191,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="with an intricately forged hilt" />
             <Simple name="IsCharOwned" value="False" />
@@ -203,7 +203,7 @@
             <Simple name="Location" value="-3" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
                     <Simple name="Field1" value="15" />
@@ -224,7 +224,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -236,7 +236,7 @@
             <Simple name="Location" value="1" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -257,7 +257,7 @@
             <Simple name="ArticleType" value="The" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -269,7 +269,7 @@
             <Simple name="Location" value="-1" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="LightSource" />
                     <Simple name="Field1" value="40" />
@@ -290,7 +290,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -302,7 +302,7 @@
             <Simple name="Location" value="3" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="LightSource" />
                     <Simple name="Field1" value="-1" />
@@ -323,7 +323,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -332,10 +332,10 @@
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="15" />
             <Simple name="Weight" value="10" />
-            <Simple name="Location" value="1" />
+            <Simple name="Location" value="2047" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="LightSource" />
                     <Simple name="Field1" value="60" />
@@ -345,7 +345,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-10" />
@@ -366,7 +366,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -378,7 +378,7 @@
             <Simple name="Location" value="3" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="LightSource" />
                     <Simple name="Field1" value="-1" />
@@ -399,7 +399,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -407,17 +407,47 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="20" />
-            <Simple name="Weight" value="75" />
+            <Simple name="Weight" value="50" />
             <Simple name="Location" value="4" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
-                    <Simple name="Type" value="Container" />
+                    <Simple name="Type" value="InContainer" />
                     <Simple name="Field1" value="13" />
                     <Simple name="Field2" value="1013" />
-                    <Simple name="Field3" value="75" />
+                    <Simple name="Field3" value="50" />
                     <Simple name="Field4" value="5" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="OnContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="25" />
+                    <Simple name="Field4" value="3" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="UnderContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="25" />
+                    <Simple name="Field4" value="3" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+               <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="BehindContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="15" />
+                    <Simple name="Field4" value="3" />
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
@@ -426,13 +456,13 @@
             <Simple name="Uid" value="12" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="iron-bound chest" />
-            <Simple name="Desc" value="An iron-bound chest sits to the side of the room, seemingly abandoned." />
+            <Simple name="Desc" value="An iron-bound chest, its flat top attached with sturdy hinges, sits to the side of the room, seemingly abandoned.  You notice there is a gap between the back of the chest and the wall." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -444,7 +474,7 @@
             <Simple name="Location" value="3" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -465,7 +495,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="that glows with an inner fire" />
             <Simple name="IsCharOwned" value="False" />
@@ -477,7 +507,7 @@
             <Simple name="Location" value="1012" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -498,7 +528,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -507,10 +537,10 @@
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="60" />
             <Simple name="Weight" value="3" />
-            <Simple name="Location" value="1012" />
+            <Simple name="Location" value="4012" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -531,7 +561,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="leaning against the north wall" />
             <Simple name="IsCharOwned" value="False" />
@@ -543,9 +573,9 @@
             <Simple name="Location" value="4" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
-                    <Simple name="Type" value="Container" />
+                    <Simple name="Type" value="InContainer" />
                     <Simple name="Field1" value="-1" />
                     <Simple name="Field2" value="1035" />
                     <Simple name="Field3" value="150" />
@@ -564,7 +594,7 @@
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -576,7 +606,7 @@
             <Simple name="Location" value="1016" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -597,7 +627,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -609,7 +639,7 @@
             <Simple name="Location" value="1016" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -630,7 +660,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -642,7 +672,7 @@
             <Simple name="Location" value="1016" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -663,7 +693,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="that shimmers and pulses in a hypnotic display" />
             <Simple name="IsCharOwned" value="False" />
@@ -675,9 +705,9 @@
             <Simple name="Location" value="4" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
-                    <Simple name="Type" value="Container" />
+                    <Simple name="Type" value="InContainer" />
                     <Simple name="Field1" value="-1" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="15" />
@@ -696,7 +726,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -708,7 +738,7 @@
             <Simple name="Location" value="1020" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -729,7 +759,7 @@
             <Simple name="ArticleType" value="The" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -741,7 +771,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -762,7 +792,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -774,7 +804,7 @@
             <Simple name="Location" value="1" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="User1" />
                     <Simple name="Field1" value="0" />
@@ -795,7 +825,7 @@
             <Simple name="ArticleType" value="The" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -804,12 +834,12 @@
             <Simple name="PluralType" value="Es" />
             <Simple name="Value" value="8" />
             <Simple name="Weight" value="4" />
-            <Simple name="Location" value="1" />
+            <Simple name="Location" value="3047" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
-                    <Simple name="Type" value="Container" />
+                    <Simple name="Type" value="InContainer" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="4" />
@@ -828,7 +858,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="stamped with the likeness of Lord Byron Barnstormer" />
             <Simple name="IsCharOwned" value="False" />
@@ -840,7 +870,7 @@
             <Simple name="Location" value="5" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
@@ -861,7 +891,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -873,7 +903,7 @@
             <Simple name="Location" value="6" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
                     <Simple name="Field1" value="-7" />
@@ -883,7 +913,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
@@ -904,7 +934,7 @@
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="that has formed in the corner of the room" />
             <Simple name="IsCharOwned" value="False" />
@@ -916,7 +946,7 @@
             <Simple name="Location" value="7" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
                     <Simple name="Field1" value="3" />
@@ -937,7 +967,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -949,7 +979,7 @@
             <Simple name="Location" value="6" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
                     <Simple name="Field1" value="0" />
@@ -970,7 +1000,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -982,7 +1012,7 @@
             <Simple name="Location" value="-2" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Edible" />
                     <Simple name="Field1" value="-4" />
@@ -1003,7 +1033,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1015,7 +1045,7 @@
             <Simple name="Location" value="3" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="11" />
@@ -1036,7 +1066,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1048,7 +1078,7 @@
             <Simple name="Location" value="-3" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Edible" />
                     <Simple name="Field1" value="0" />
@@ -1069,7 +1099,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1081,7 +1111,7 @@
             <Simple name="Location" value="5" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Edible" />
                     <Simple name="Field1" value="4" />
@@ -1091,7 +1121,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="10" />
@@ -1112,7 +1142,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="which reeks of rotting plant matter" />
             <Simple name="IsCharOwned" value="False" />
@@ -1124,7 +1154,7 @@
             <Simple name="Location" value="5" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="1" />
@@ -1134,7 +1164,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Edible" />
                     <Simple name="Field1" value="10" />
@@ -1155,7 +1185,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1164,10 +1194,10 @@
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="5" />
             <Simple name="Weight" value="5" />
-            <Simple name="Location" value="3" />
+            <Simple name="Location" value="3012" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="14" />
@@ -1181,14 +1211,14 @@
             </SingleArray>
             <Simple name="Uid" value="34" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="papyrus scroll" />
-            <Simple name="Desc" value="You see a fine papyrus scroll here." />
+            <Simple name="Name" value="papyrus leaflet" />
+            <Simple name="Desc" value="You see a fine papyrus leaflet here." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1200,7 +1230,7 @@
             <Simple name="Location" value="4" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Wearable" />
                     <Simple name="Field1" value="6" />
@@ -1221,7 +1251,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1230,10 +1260,10 @@
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="75" />
             <Simple name="Weight" value="1" />
-            <Simple name="Location" value="-999" />
+            <Simple name="Location" value="1024" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Wearable" />
                     <Simple name="Field1" value="0" />
@@ -1243,7 +1273,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="MagicWeapon" />
                     <Simple name="Field1" value="30" />
@@ -1264,7 +1294,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1276,7 +1306,7 @@
             <Simple name="Location" value="10" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
@@ -1297,7 +1327,7 @@
             <Simple name="ArticleType" value="The" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1309,7 +1339,7 @@
             <Simple name="Location" value="7" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DisguisedMonster" />
                     <Simple name="Field1" value="3" />
@@ -1330,7 +1360,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1342,7 +1372,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1363,7 +1393,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1375,7 +1405,7 @@
             <Simple name="Location" value="2" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="BoundMonster" />
                     <Simple name="Field1" value="4" />
@@ -1396,7 +1426,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1405,10 +1435,10 @@
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="-999" />
-            <Simple name="Location" value="2007" />
+            <Simple name="Location" value="5007" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="9" />
@@ -1418,7 +1448,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="22" />
@@ -1439,7 +1469,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1451,7 +1481,7 @@
             <Simple name="Location" value="7" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="9" />
@@ -1472,7 +1502,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1484,7 +1514,7 @@
             <Simple name="Location" value="7" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="9" />
@@ -1505,7 +1535,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1517,7 +1547,7 @@
             <Simple name="Location" value="-2" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
@@ -1538,7 +1568,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1550,7 +1580,7 @@
             <Simple name="Location" value="-2" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-15" />
@@ -1571,7 +1601,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1583,7 +1613,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="1" />
@@ -1604,6 +1634,49 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
+        <Complex type="Eamon.Game.Artifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="8" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="OnContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="50" />
+                    <Simple name="Field4" value="4" />
+                    <Simple name="Field5" value="2" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="UnderContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="10" />
+                    <Simple name="Field4" value="2" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="47" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="rotting tree stump" />
+            <Simple name="Desc" value="You see a rotting tree stump here, its roots giving way to the elements.  There appears to be a gap under the stump, perhaps large enough to fit something in." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
       </Items>
     </Collection>
     <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -1612,6 +1685,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="46" />
+    <Simple name="CurrUid" value="47" />
   </Properties>
 </Complex>

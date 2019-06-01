@@ -61,8 +61,6 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 					ac.SetOpen(true);
 
-					Globals.Engine.RemoveWeight(cauldronArtifact);
-
 					cauldronArtifact.SetInLimbo();
 
 					Globals.Out.Print("The cauldron disintegrates!");

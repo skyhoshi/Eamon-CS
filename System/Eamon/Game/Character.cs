@@ -4,6 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Eamon.Framework;
@@ -388,6 +389,45 @@ namespace Eamon.Game
 		public virtual T EvalGender<T>(T maleValue, T femaleValue, T neutralValue)
 		{
 			return Globals.Engine.EvalGender(Gender, maleValue, femaleValue, neutralValue);
+		}
+
+		public virtual RetCode GetFullInventoryWeight(ref long weight, Func<IArtifact, bool> characterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false)
+		{
+			RetCode rc;
+
+			rc = RetCode.Success;
+
+			if (characterFindFunc == null)
+			{
+				characterFindFunc = a => a.IsCarriedByCharacter() || a.IsWornByCharacter();
+			}
+
+			var list = Globals.Engine.GetArtifactList(a => characterFindFunc(a));
+
+			if (recurse && list.Count > 0)
+			{
+				var list01 = new List<IArtifact>();
+
+				foreach (var a in list)
+				{
+					if (a.GeneralContainer != null)
+					{
+						list01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
+					}
+				}
+
+				list.AddRange(list01);
+			}
+
+			foreach (var a in list)
+			{
+				if (!a.IsUnmovable01())
+				{
+					weight += a.Weight;
+				}
+			}
+
+			return rc;
 		}
 
 		public virtual RetCode GetBaseOddsToHit(ICharacterArtifact weapon, ref long baseOddsToHit)

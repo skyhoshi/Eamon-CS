@@ -126,9 +126,35 @@ namespace Eamon.Framework
 
 		/// <summary>
 		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
-		/// to <see cref="ArtifactType.Container"/>; intended as a convenience.
+		/// to <see cref="ArtifactType.InContainer"/>; intended as a convenience.
 		/// </summary>
-		IArtifactCategory Container { get; }
+		IArtifactCategory InContainer { get; }
+
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.OnContainer"/>; intended as a convenience.
+		/// </summary>
+		IArtifactCategory OnContainer { get; }
+
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.UnderContainer"/>; intended as a convenience.
+		/// </summary>
+		IArtifactCategory UnderContainer { get; }
+
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to <see cref="ArtifactType.BehindContainer"/>; intended as a convenience.
+		/// </summary>
+		IArtifactCategory BehindContainer { get; }
+
+		/// <summary>
+		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
+		/// to any of <see cref="ArtifactType.InContainer"/>, <see cref="ArtifactType.OnContainer"/>, 
+		/// <see cref="ArtifactType.UnderContainer"/> or <see cref="ArtifactType.BehindContainer"/>; 
+		/// intended as a convenience.
+		/// </summary>
+		IArtifactCategory GeneralContainer { get; }
 
 		/// <summary>
 		/// Gets the <see cref="IArtifactCategory"/> object for this <see cref="IArtifact"/> corresponding
@@ -233,55 +259,65 @@ namespace Eamon.Framework
 		void SetSynonyms(long index, string value);
 
 		/// <summary></summary>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsCarriedByCharacter();
+		bool IsCarriedByCharacter(bool recurse = false);
 
 		/// <summary></summary>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsCarriedByMonster();
+		bool IsCarriedByMonster(bool recurse = false);
 
 		/// <summary></summary>
 		/// <returns></returns>
 		bool IsCarriedByContainer();
 
 		/// <summary></summary>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsWornByCharacter();
+		bool IsWornByCharacter(bool recurse = false);
 
 		/// <summary></summary>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsWornByMonster();
+		bool IsWornByMonster(bool recurse = false);
 
 		/// <summary></summary>
 		/// <returns></returns>
 		bool IsReadyableByCharacter();
 
 		/// <summary></summary>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsInRoom();
+		bool IsInRoom(bool recurse = false);
 
 		/// <summary></summary>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsEmbeddedInRoom();
+		bool IsEmbeddedInRoom(bool recurse = false);
 
 		/// <summary></summary>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsInLimbo();
+		bool IsInLimbo(bool recurse = false);
 
 		/// <summary></summary>
 		/// <param name="monsterUid"></param>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsCarriedByMonsterUid(long monsterUid);
+		bool IsCarriedByMonsterUid(long monsterUid, bool recurse = false);
 
 		/// <summary></summary>
 		/// <param name="containerUid"></param>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsCarriedByContainerUid(long containerUid);
+		bool IsCarriedByContainerUid(long containerUid, bool recurse = false);
 
 		/// <summary></summary>
 		/// <param name="monsterUid"></param>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsWornByMonsterUid(long monsterUid);
+		bool IsWornByMonsterUid(long monsterUid, bool recurse = false);
 
 		/// <summary></summary>
 		/// <param name="monsterUid"></param>
@@ -290,28 +326,33 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		/// <param name="roomUid"></param>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsInRoomUid(long roomUid);
+		bool IsInRoomUid(long roomUid, bool recurse = false);
 
 		/// <summary></summary>
 		/// <param name="roomUid"></param>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsEmbeddedInRoomUid(long roomUid);
+		bool IsEmbeddedInRoomUid(long roomUid, bool recurse = false);
 
 		/// <summary></summary>
 		/// <param name="monster"></param>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsCarriedByMonster(IMonster monster);
+		bool IsCarriedByMonster(IMonster monster, bool recurse = false);
 
 		/// <summary></summary>
 		/// <param name="container"></param>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsCarriedByContainer(IArtifact container);
+		bool IsCarriedByContainer(IArtifact container, bool recurse = false);
 
 		/// <summary></summary>
 		/// <param name="monster"></param>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsWornByMonster(IMonster monster);
+		bool IsWornByMonster(IMonster monster, bool recurse = false);
 
 		/// <summary></summary>
 		/// <param name="monster"></param>
@@ -320,53 +361,69 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		/// <param name="room"></param>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsInRoom(IRoom room);
+		bool IsInRoom(IRoom room, bool recurse = false);
 
 		/// <summary></summary>
 		/// <param name="room"></param>
+		/// <param name="recurse"></param>
 		/// <returns></returns>
-		bool IsEmbeddedInRoom(IRoom room);
+		bool IsEmbeddedInRoom(IRoom room, bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		long GetCarriedByMonsterUid(bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		long GetCarriedByContainerUid(bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		long GetWornByMonsterUid(bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		long GetInRoomUid(bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		long GetEmbeddedInRoomUid(bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		IMonster GetCarriedByMonster(bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		IArtifact GetCarriedByContainer(bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		IMonster GetWornByMonster(bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		IRoom GetInRoom(bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		IRoom GetEmbeddedInRoom(bool recurse = false);
 
 		/// <summary></summary>
 		/// <returns></returns>
-		long GetCarriedByMonsterUid();
-
-		/// <summary></summary>
-		/// <returns></returns>
-		long GetCarriedByContainerUid();
-
-		/// <summary></summary>
-		/// <returns></returns>
-		long GetWornByMonsterUid();
-
-		/// <summary></summary>
-		/// <returns></returns>
-		long GetInRoomUid();
-
-		/// <summary></summary>
-		/// <returns></returns>
-		long GetEmbeddedInRoomUid();
-
-		/// <summary></summary>
-		/// <returns></returns>
-		IMonster GetCarriedByMonster();
-
-		/// <summary></summary>
-		/// <returns></returns>
-		IArtifact GetCarriedByContainer();
-
-		/// <summary></summary>
-		/// <returns></returns>
-		IMonster GetWornByMonster();
-
-		/// <summary></summary>
-		/// <returns></returns>
-		IRoom GetInRoom();
-
-		/// <summary></summary>
-		/// <returns></returns>
-		IRoom GetEmbeddedInRoom();
+		ContainerType GetCarriedByContainerContainerType();
 
 		/// <summary></summary>
 		void SetCarriedByCharacter();
@@ -377,7 +434,8 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		/// <param name="containerUid"></param>
-		void SetCarriedByContainerUid(long containerUid);
+		/// <param name="containerType"></param>
+		void SetCarriedByContainerUid(long containerUid, ContainerType containerType = ContainerType.In);
 
 		/// <summary></summary>
 		void SetWornByCharacter();
@@ -403,7 +461,8 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		/// <param name="container"></param>
-		void SetCarriedByContainer(IArtifact container);
+		/// <param name="containerType"></param>
+		void SetCarriedByContainer(IArtifact container, ContainerType containerType = ContainerType.In);
 
 		/// <summary></summary>
 		/// <param name="monster"></param>
@@ -467,7 +526,43 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		/// <returns></returns>
+		bool IsDisguisedMonster();
+
+		/// <summary></summary>
+		/// <returns></returns>
+		bool IsStateDescSideNotes();
+
+		/// <summary></summary>
+		/// <returns></returns>
+		bool IsInContainerOpenedFromTop();
+
+		/// <summary></summary>
+		/// <param name="containerType"></param>
+		/// <returns></returns>
+		bool ShouldAddContentsWhenCarried(ContainerType containerType = ContainerType.In);
+
+		/// <summary></summary>
+		/// <param name="containerType"></param>
+		/// <returns></returns>
+		bool ShouldAddContentsWhenWorn(ContainerType containerType = ContainerType.In);
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		/// <param name="containerType"></param>
+		/// <returns></returns>
+		bool ShouldAddContents(IArtifact artifact, ContainerType containerType = ContainerType.In);
+
+		/// <summary></summary>
+		/// <returns></returns>
 		bool ShouldShowContentsWhenExamined();
+
+		/// <summary></summary>
+		/// <returns></returns>
+		bool ShouldShowContentsWhenOpened();
+
+		/// <summary></summary>
+		/// <returns></returns>
+		string GetDoorGateFleeDesc();
 
 		/// <summary></summary>
 		/// <returns></returns>
@@ -546,16 +641,18 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		/// <param name="artifactFindFunc"></param>
+		/// <param name="containerType"></param>
 		/// <param name="recurse"></param>
 		/// <returns></returns>
-		IList<IArtifact> GetContainedList(Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false);
+		IList<IArtifact> GetContainedList(Func<IArtifact, bool> artifactFindFunc = null, ContainerType containerType = ContainerType.In, bool recurse = false);
 
 		/// <summary></summary>
 		/// <param name="count"></param>
 		/// <param name="weight"></param>
+		/// <param name="containerType"></param>
 		/// <param name="recurse"></param>
 		/// <returns></returns>
-		RetCode GetContainerInfo(ref long count, ref long weight, bool recurse = false);
+		RetCode GetContainerInfo(ref long count, ref long weight, ContainerType containerType = ContainerType.In, bool recurse = false);
 
 		#endregion
 	}

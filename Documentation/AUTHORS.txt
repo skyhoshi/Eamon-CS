@@ -1,9 +1,17 @@
-      Eamon CS 1.5.0
+      Eamon CS 1.6.0
              by
    Michael R. Penner
    -----------------------
 
 Michael R. Penner <firstmethod (at) hotmail.com>
+
+The updated Eamon dragon logo used in Eamon CS was created
+for the Eamon Adventurer's Log newsletter by Gary Flanagan.
+
+The 10-sided die icon used in Eamon CS was created for the
+Open Clip Art Library by wirelizard:
+
+https://commons.wikimedia.org/wiki/File:Ten_sided_dice.png
 
 [Add more contributors and testers here later.]
 

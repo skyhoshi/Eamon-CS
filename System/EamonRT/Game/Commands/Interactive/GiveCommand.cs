@@ -33,10 +33,8 @@ namespace EamonRT.Game.Commands
 
 		public virtual long GoldAmount { get; set; }
 
-		public virtual bool MonsterRefusesToAccept()
-		{
-			return !Globals.IsRulesetVersion(5) && (IobjMonster.Friendliness == Friendliness.Enemy || (IobjMonster.Friendliness == Friendliness.Neutral && DobjArtifact.Value < 3000));
-		}
+		/// <summary></summary>
+		public virtual IList<string> ContainerContentsList { get; set; }
 
 		public override void PlayerExecute()
 		{
@@ -48,9 +46,18 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact != null)
 			{
+				ContainerContentsList = new List<string>();
+
 				if (!DobjArtifact.IsCarriedByCharacter() && !GetCommandCalled)
 				{
-					PrintTakingFirst(DobjArtifact);
+					if (DobjArtifact.IsCarriedByContainer())
+					{
+						PrintRemovingFirst(DobjArtifact);
+					}
+					else
+					{
+						PrintTakingFirst(DobjArtifact);
+					}
 
 					NextState = Globals.CreateInstance<IGetCommand>(x =>
 					{
@@ -79,7 +86,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (MonsterRefusesToAccept())
+				if (IobjMonster.ShouldRefuseToAcceptGift(DobjArtifact))
 				{
 					Globals.Engine.MonsterSmiles(IobjMonster);
 
@@ -92,9 +99,16 @@ namespace EamonRT.Game.Commands
 
 				var artWeight = DobjArtifact.Weight;
 
-				rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, true);
+				if (DobjArtifact.GeneralContainer != null)
+				{
+					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.In, true);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.On, true);
+
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+				}
 
 				if (Globals.Engine.EnforceMonsterWeightLimits)
 				{
@@ -153,6 +167,8 @@ namespace EamonRT.Game.Commands
 
 				PrintGiveObjToActor(DobjArtifact, IobjMonster);
 
+				Globals.LastArtifactLocation = DobjArtifact.Location;
+
 				var ac = DobjArtifact.GetArtifactCategory(new ArtifactType[] { ArtifactType.Drinkable, ArtifactType.Edible });
 
 				if (!Globals.IsRulesetVersion(5) && ac != null && ac.Field2 > 0)
@@ -192,8 +208,6 @@ namespace EamonRT.Game.Commands
 
 						if (ac.Type == ArtifactType.Edible)
 						{
-							Globals.GameState.Wt -= artWeight;
-
 							DobjArtifact.SetInLimbo();
 
 							Globals.Buf.SetPrint("{0}{1}{2} eats {3} all.",
@@ -219,8 +233,15 @@ namespace EamonRT.Game.Commands
 
 					Globals.Out.Write("{0}", Globals.Buf);
 
+					Globals.Engine.RevealExtendedContainerContents(ActorRoom, DobjArtifact, ContainerContentsList);
+
 					if (ac.Field1 == 0)
 					{
+						foreach (var containerContentsDesc in ContainerContentsList)
+						{
+							Globals.Out.Write("{0}", containerContentsDesc);
+						}
+
 						goto Cleanup;
 					}
 
@@ -246,9 +267,9 @@ namespace EamonRT.Game.Commands
 				}
 				else
 				{
-					Globals.GameState.Wt -= artWeight;
-
 					DobjArtifact.SetCarriedByMonster(IobjMonster);
+
+					Globals.Engine.RevealExtendedContainerContents(ActorRoom, DobjArtifact, ContainerContentsList);
 
 					if (Globals.IsRulesetVersion(5))
 					{
@@ -267,6 +288,11 @@ namespace EamonRT.Game.Commands
 							Globals.Out.WriteLine();
 						}
 					}
+				}
+
+				foreach (var containerContentsDesc in ContainerContentsList)
+				{
+					Globals.Out.Write("{0}", containerContentsDesc);
 				}
 			}
 			else
@@ -414,6 +440,17 @@ namespace EamonRT.Game.Commands
 				PlayerResolveMonster();
 			}
 		}
+
+		/*
+		public override bool IsPrepEnabled(IPrep prep)
+		{
+			Debug.Assert(prep != null);
+
+			var prepNames = new string[] { "to" };
+
+			return prepNames.FirstOrDefault(pn => string.Equals(prep.Name, pn, StringComparison.OrdinalIgnoreCase)) != null;
+		}
+		*/
 
 		public GiveCommand()
 		{

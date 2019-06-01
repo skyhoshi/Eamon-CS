@@ -7,6 +7,20 @@
         <member name="T:TheTempleOfNgurct.Framework.IEngine">
             <summary></summary>
         </member>
+        <member name="M:TheTempleOfNgurct.Framework.IEngine.GetTrapMonsterList(System.Int64,System.Int64)">
+            <summary></summary>
+            <param name="numMonsters"></param>
+            <param name="roomUid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TheTempleOfNgurct.Framework.IEngine.ApplyTrapDamage(System.Action{EamonRT.Framework.States.IState},Eamon.Framework.IMonster,System.Int64,System.Int64,System.Boolean)">
+            <summary></summary>
+            <param name="setNextStateFunc"></param>
+            <param name="monster"></param>
+            <param name="numDice"></param>
+            <param name="numSides"></param>
+            <param name="omitArmor"></param>
+        </member>
         <member name="M:TheTempleOfNgurct.Framework.IEngine.GetWanderingMonster">
             <summary></summary>
             <returns></returns>

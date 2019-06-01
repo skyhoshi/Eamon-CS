@@ -4,7 +4,6 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
-using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
@@ -15,20 +14,15 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class DefaultMonsterDecisionState : State, IDefaultMonsterDecisionState
 	{
-		public virtual bool ShouldMonsterRearm(IMonster monster)
-		{
-			return true;
-		}
-
 		public override void Execute()
 		{
 			var monster = Globals.MDB[Globals.LoopMonsterUid];
 
 			Debug.Assert(monster != null);
 
-			if (Globals.Engine.CheckNBTLHostility(monster))
+			if (monster.CheckNBTLHostility())
 			{
-				if (monster.CanMoveToRoom(true) && !Globals.Engine.CheckCourage(monster))
+				if (monster.CanMoveToRoom(true) && !monster.CheckCourage())
 				{
 					NextState = Globals.CreateInstance<IBeforeMonsterFleesRoomState>();
 
@@ -41,7 +35,7 @@ namespace EamonRT.Game.States
 					goto Cleanup;
 				}
 			}
-			else if (ShouldMonsterRearm(monster))
+			else if (monster.ShouldReadyWeapon())
 			{
 				NextState = Globals.CreateInstance<IArtifactLoopInitializeState>();
 

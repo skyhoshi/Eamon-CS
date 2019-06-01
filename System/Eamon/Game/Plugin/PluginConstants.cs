@@ -114,6 +114,8 @@ namespace Eamon.Game.Plugin
 
 		public virtual string ResolveUidMacroRegexPattern { get; protected set; } = @"[^\*]\*[0-9]{3}|\*\*[0-9]{3}|[^@]@[0-9]{3}|@@[0-9]{3}";
 
+		public virtual string ValidWorkDirRegexPattern { get; protected set; } = @"^(NONE)$|^(\.)$|^(\.\.\\\.\.\\Adventures\\[a-zA-Z0-9]+)$|^(\.\.\/\.\.\/Adventures\/[a-zA-Z0-9]+)$";
+
 		public virtual string RecIdepErrorFmtStr { get; protected set; } = "The {0} field refers to {1} uid {2}, {3}.";
 
 		public virtual string AndroidAdventuresDir { get; protected set; } = @"..\EamonPM.Android\Assets\Adventures";
@@ -130,7 +132,7 @@ namespace Eamon.Game.Plugin
 
 		public virtual string StackTraceFile { get; protected set; } = "STACKTRACE.TXT";
 
-		public virtual string ProgVersion { get; protected set; } = "1.5.0";
+		public virtual string ProgVersion { get; protected set; } = "1.6.0";
 
 		public virtual long InfiniteDrinkableEdible { get; protected set; } = 9999;
 

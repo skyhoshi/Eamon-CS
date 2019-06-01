@@ -4,7 +4,6 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
-using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Utilities;
@@ -17,54 +16,6 @@ namespace StrongholdOfKahrDur.Game.States
 	[ClassMappings]
 	public class BeforeNecromancerAttacksEnemyState : EamonRT.Game.States.State, Framework.States.IBeforeNecromancerAttacksEnemyState
 	{
-		public virtual IRoom Room { get; set; }
-
-		public virtual void SummonMonster(long monsterUid)
-		{
-			// Necromancer summons other monsters...
-
-			var monster = Globals.MDB[monsterUid];
-
-			Debug.Assert(monster != null);
-
-			// Dead, hasn't been previously summoned, or is somewhere else
-
-			if (monster.IsInLimbo() || !monster.IsInRoom(Room))
-			{
-				// Preset 'Seen' flag for smoother effect
-
-				monster.Seen = true;
-
-				// Put monster in room
-
-				monster.SetInRoom(Room);
-
-				// Reset group size to one
-
-				monster.GroupCount = 1;
-
-				monster.InitGroupCount = 1;
-
-				monster.OrigGroupCount = 1;
-
-				// Reset to 0 damage taken
-
-				monster.DmgTaken = 0;
-			}
-			else
-			{
-				// Monster is already summoned and present so add another to the group
-
-				monster.GroupCount++;
-
-				monster.InitGroupCount++;
-
-				monster.OrigGroupCount++;
-			}
-
-			Globals.Engine.CheckEnemies();
-		}
-
 		public override void Execute()
 		{
 			var necromancerMonster = Globals.MDB[Globals.LoopMonsterUid];
@@ -75,11 +26,11 @@ namespace StrongholdOfKahrDur.Game.States
 
 			Debug.Assert(characterMonster != null);
 
-			Room = characterMonster.GetInRoom();
+			var room = characterMonster.GetInRoom();
 
-			Debug.Assert(Room != null);
+			Debug.Assert(room != null);
 
-			if (!necromancerMonster.IsInRoom(Room))
+			if (!necromancerMonster.IsInRoom(room))
 			{
 				goto Cleanup;
 			}
@@ -148,7 +99,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 				case 5:
 
-					SummonMonster(25);
+					Globals.Engine.SummonMonster(room, 25);
 
 					break;
 
@@ -156,7 +107,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 				case 6:
 
-					SummonMonster(24);
+					Globals.Engine.SummonMonster(room, 24);
 
 					break;
 
@@ -164,7 +115,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 				case 7:
 
-					SummonMonster(23);
+					Globals.Engine.SummonMonster(room, 23);
 
 					break;
 			}

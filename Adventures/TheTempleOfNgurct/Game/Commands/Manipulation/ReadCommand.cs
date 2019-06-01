@@ -26,8 +26,6 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (eventType == PpeAfterArtifactRead && DobjArtifact.Uid == 61)
 			{
-				Globals.Engine.RemoveWeight(DobjArtifact);
-
 				DobjArtifact.SetInRoom(ActorRoom);
 
 				ActorMonster.SetInRoomUid(58);

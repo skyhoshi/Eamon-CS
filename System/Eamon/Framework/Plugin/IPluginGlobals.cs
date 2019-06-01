@@ -204,9 +204,9 @@ namespace Eamon.Framework.Plugin
 
 		/// <summary></summary>
 		/// <param name="fileName"></param>
-		/// <param name="oldValues"></param>
-		/// <param name="newValues"></param>
-		void ReplaceTextfileValues(string fileName, string[] oldValues, string[] newValues);
+		/// <param name="patterns"></param>
+		/// <param name="replacements"></param>
+		void ReplaceTextfileValues(string fileName, string[] patterns, string[] replacements);
 
 		/// <summary></summary>
 		/// <param name="fileName"></param>

@@ -266,13 +266,6 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWt()
-		{
-			return Record.Wt >= 0;
-		}
-
-		/// <summary></summary>
-		/// <returns></returns>
 		protected virtual bool ValidateCurrTurn()
 		{
 			return Record.CurrTurn >= 0;
@@ -507,7 +500,6 @@ namespace Eamon.Game.Helpers
 				"Die",
 				"Lt",
 				"Speed",
-				"Wt",
 				"Vr",
 				"Vm",
 				"Va",

@@ -755,6 +755,27 @@
             <Simple name="Desc" value="LARGE OVEN." />
           </Properties>
         </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="108" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Desc" value="See EAMON CS 1.4 NEW COMMANDS for additional details." />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="109" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Desc" value="floor and you can GET ALL." />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="110" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Desc" value="to remove from or add to the container." />
+          </Properties>
+        </Complex>
       </Items>
     </Collection>
     <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -763,6 +784,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="107" />
+    <Simple name="CurrUid" value="110" />
   </Properties>
 </Complex>

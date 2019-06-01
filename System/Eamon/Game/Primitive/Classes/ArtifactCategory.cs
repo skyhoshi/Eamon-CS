@@ -34,17 +34,17 @@ namespace Eamon.Game.Primitive.Classes
 
 		public virtual bool IsOpenable()
 		{
-			return Type == Enums.ArtifactType.Container || Type == Enums.ArtifactType.Drinkable || Type == Enums.ArtifactType.Edible || Type == Enums.ArtifactType.Readable || Type == Enums.ArtifactType.DoorGate;
+			return Type == Enums.ArtifactType.InContainer || Type == Enums.ArtifactType.Drinkable || Type == Enums.ArtifactType.Edible || Type == Enums.ArtifactType.Readable || Type == Enums.ArtifactType.DoorGate;
 		}
 
 		public virtual bool IsLockable()
 		{
-			return Type == Enums.ArtifactType.Container || Type == Enums.ArtifactType.DoorGate || Type == Enums.ArtifactType.BoundMonster;
+			return Type == Enums.ArtifactType.InContainer || Type == Enums.ArtifactType.DoorGate || Type == Enums.ArtifactType.BoundMonster;
 		}
 
 		public virtual bool IsBreakable()
 		{
-			return Type == Enums.ArtifactType.Container || Type == Enums.ArtifactType.DoorGate;
+			return Type == Enums.ArtifactType.InContainer || Type == Enums.ArtifactType.DoorGate;
 		}
 
 		public virtual bool IsEffectExposer()
@@ -73,7 +73,7 @@ namespace Eamon.Game.Primitive.Classes
 		{
 			var result = false;
 
-			if (Type == Enums.ArtifactType.Container)
+			if (Type == Enums.ArtifactType.InContainer)
 			{
 				result = Field2 == 1;
 			}
@@ -91,7 +91,7 @@ namespace Eamon.Game.Primitive.Classes
 
 		public virtual void SetOpen(bool open)
 		{
-			if (Type == Enums.ArtifactType.Container)
+			if (Type == Enums.ArtifactType.InContainer)
 			{
 				Field2 = open ? 1 : 0;
 			}
@@ -109,7 +109,7 @@ namespace Eamon.Game.Primitive.Classes
 		{
 			Debug.Assert(artifactUid >= -2);         // -2=Broken
 
-			if (Type == Enums.ArtifactType.Container)
+			if (Type == Enums.ArtifactType.InContainer)
 			{
 				Field1 = artifactUid;
 			}
@@ -132,7 +132,7 @@ namespace Eamon.Game.Primitive.Classes
 		{
 			Debug.Assert(Globals.Engine.IsArtifactFieldStrength(strength));
 
-			if (Type == Enums.ArtifactType.Container)
+			if (Type == Enums.ArtifactType.InContainer)
 			{
 				Field2 = strength;
 			}
@@ -184,7 +184,7 @@ namespace Eamon.Game.Primitive.Classes
 		{
 			long result = 0;
 
-			if (Type == Enums.ArtifactType.Container)
+			if (Type == Enums.ArtifactType.InContainer)
 			{
 				result = Field1;
 			}
@@ -200,7 +200,7 @@ namespace Eamon.Game.Primitive.Classes
 		{
 			var result = 0L;
 
-			if (Type == Enums.ArtifactType.Container)
+			if (Type == Enums.ArtifactType.InContainer)
 			{
 				result = Globals.Engine.IsArtifactFieldStrength(Field2) ? Field2 : 0L;
 			}

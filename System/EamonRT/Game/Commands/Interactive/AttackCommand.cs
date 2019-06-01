@@ -208,9 +208,14 @@ namespace EamonRT.Game.Commands
 
 					BuildSmashesToPieces();
 
-					if (ac.Type == ArtifactType.Container)
+					if (ac.Type == ArtifactType.InContainer)
 					{
-						var artifactList = DobjArtifact.GetContainedList();
+						var artifactList = DobjArtifact.GetContainedList(containerType: ContainerType.In);
+
+						if (DobjArtifact.OnContainer != null && DobjArtifact.IsInContainerOpenedFromTop())
+						{
+							artifactList.AddRange(DobjArtifact.GetContainedList(containerType: ContainerType.On));
+						}
 
 						foreach (var artifact in artifactList)
 						{
@@ -325,7 +330,8 @@ namespace EamonRT.Game.Commands
 			CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 			{
 				a => a.IsInRoom(ActorRoom),
-				a => a.IsEmbeddedInRoom(ActorRoom)
+				a => a.IsEmbeddedInRoom(ActorRoom),
+				a => a.GetCarriedByContainerContainerType() == ContainerType.On && a.GetCarriedByContainer() != null && a.GetCarriedByContainer().IsInRoom(ActorRoom)
 			};
 
 			CommandParser.ObjData.ArtifactNotFoundFunc = PrintNobodyHereByThatName;

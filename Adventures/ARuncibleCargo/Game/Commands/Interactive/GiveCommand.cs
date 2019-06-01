@@ -28,8 +28,6 @@ namespace ARuncibleCargo.Game.Commands
 
 				if ((IobjMonster.Uid == 38 || IobjMonster.Uid == 39) && DobjArtifact.Uid == 129)
 				{
-					Globals.Engine.RemoveWeight(DobjArtifact);
-
 					DobjArtifact.SetCarriedByMonsterUid(38);
 
 					Globals.Character.HeldGold += 2000;
@@ -54,8 +52,6 @@ namespace ARuncibleCargo.Game.Commands
 
 				else if (IobjMonster.Uid == 36 && DobjArtifact.Uid == 130)
 				{
-					Globals.Engine.RemoveWeight(DobjArtifact);
-
 					DobjArtifact.SetInLimbo();
 
 					IobjMonster.Friendliness++;
@@ -129,11 +125,6 @@ namespace ARuncibleCargo.Game.Commands
 			{
 				base.PlayerProcessEvents(eventType);
 			}
-		}
-
-		public override bool MonsterRefusesToAccept()
-		{
-			return false;
 		}
 	}
 }

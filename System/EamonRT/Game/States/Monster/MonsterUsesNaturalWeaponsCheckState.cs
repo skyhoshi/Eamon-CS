@@ -25,7 +25,7 @@ namespace EamonRT.Game.States
 				monster.Weapon = 0;
 			}
 
-			if (Globals.Engine.CheckNBTLHostility(monster))
+			if (monster.CheckNBTLHostility())
 			{
 				NextState = Globals.CreateInstance<IMonsterReadiedWeaponCheckState>();
 			

@@ -25,7 +25,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var containerAc = DobjArtifact.Container;
+			var inContainerAc = DobjArtifact.InContainer;
 
 			var doorGateAc = DobjArtifact.DoorGate;
 
@@ -35,7 +35,7 @@ namespace EamonRT.Game.Commands
 
 			var readableAc = DobjArtifact.Readable;
 
-			var ac =	containerAc != null ? containerAc :
+			var ac =	inContainerAc != null ? inContainerAc :
 						doorGateAc != null ? doorGateAc :
 						drinkableAc != null ? drinkableAc :
 						edibleAc != null ? edibleAc :

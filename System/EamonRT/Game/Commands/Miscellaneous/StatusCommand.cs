@@ -4,6 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon;
 using Eamon.Framework.Args;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
@@ -22,6 +23,8 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
+			RetCode rc;
+
 			var ar = Globals.GameState.Ar;
 
 			var sh = Globals.GameState.Sh;
@@ -56,6 +59,12 @@ namespace EamonRT.Game.Commands
 				Globals.Buf.SetFormat("(none)");
 			}
 
+			var charWeight = 0L;
+
+			rc = ActorMonster.GetFullInventoryWeight(ref charWeight, recurse: true);
+
+			Debug.Assert(Globals.Engine.IsSuccess(rc));
+
 			var args = Globals.CreateInstance<IStatDisplayArgs>(x =>
 			{
 				x.Monster = ActorMonster;
@@ -63,10 +72,10 @@ namespace EamonRT.Game.Commands
 				x.SpellAbilities = Globals.GameState.Sa;
 				x.Speed = Globals.GameState.Speed;
 				x.CharmMon = Globals.Engine.GetCharismaFactor(Globals.Character.GetStats(Stat.Charisma));
-				x.Weight = Globals.GameState.Wt;
+				x.Weight = charWeight;
 			});
 
-			var rc = Globals.Character.StatDisplay(args);
+			rc = Globals.Character.StatDisplay(args);
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 

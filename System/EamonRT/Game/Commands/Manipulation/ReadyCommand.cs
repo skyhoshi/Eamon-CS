@@ -50,7 +50,14 @@ namespace EamonRT.Game.Commands
 
 				if (!DobjArtifact.IsCarriedByCharacter())
 				{
-					PrintTakingFirst(DobjArtifact);
+					if (DobjArtifact.IsCarriedByContainer())
+					{
+						PrintRemovingFirst(DobjArtifact);
+					}
+					else
+					{
+						PrintTakingFirst(DobjArtifact);
+					}
 
 					NextState = Globals.CreateInstance<IGetCommand>();
 
@@ -139,15 +146,22 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(charMonster != null);
 
-				var viewingMonsters = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m != ActorMonster);
-
-				if (viewingMonsters.Contains(charMonster))
+				if (charMonster.IsInRoom(ActorRoom))
 				{
-					var monsterName = ActorRoom.EvalLightLevel("An unseen offender", ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01)));
+					if (ActorRoom.IsLit())
+					{
+						var monsterName = ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01));
 
-					Globals.Out.Print("{0} readies {1}.", monsterName, ActorRoom.EvalLightLevel("a weapon", DobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf)));
+						Globals.Out.Print("{0} readies {1}.", monsterName, DobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf));
+					}
+					else
+					{
+						var monsterName = string.Format("An unseen {0}", ActorMonster.CheckNBTLHostility() ? "offender" : "entity");
 
-					if (Globals.Engine.CheckNBTLHostility(ActorMonster))
+						Globals.Out.Print("{0} readies {1}.", monsterName, "a weapon");
+					}
+
+					if (ActorMonster.CheckNBTLHostility())
 					{
 						Globals.Thread.Sleep(Globals.GameState.PauseCombatMs);
 					}

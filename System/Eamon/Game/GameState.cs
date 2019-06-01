@@ -41,8 +41,6 @@ namespace Eamon.Game
 
 		public virtual long Speed { get; set; }
 
-		public virtual long Wt { get; set; }
-
 		public virtual bool Vr { get; set; }
 
 		public virtual bool Vm { get; set; }

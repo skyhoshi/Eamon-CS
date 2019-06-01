@@ -3,7 +3,10 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using System;
 using System.Diagnostics;
+using System.Linq;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
@@ -30,13 +33,22 @@ namespace EamonRT.Game.States
 
 			if (!wpnArtifact.IsCarriedByMonster(monster))
 			{
-				var command = Globals.CreateInstance<IGetCommand>();
+				var containerType = wpnArtifact.GetCarriedByContainerContainerType();
+
+				var command = containerType == ContainerType.On ? (ICommand)Globals.CreateInstance<IRemoveCommand>() : (ICommand)Globals.CreateInstance<IGetCommand>();
 
 				command.ActorMonster = monster;
 
 				command.ActorRoom = room;
 
 				command.Dobj = wpnArtifact;
+
+				if (containerType == ContainerType.On)
+				{
+					command.Iobj = wpnArtifact.GetCarriedByContainer();
+
+					command.Prep = Globals.Engine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, "on", StringComparison.OrdinalIgnoreCase));
+				}
 
 				command.NextState = Globals.CreateInstance<IBeforeMonsterReadiesWeaponState>();
 

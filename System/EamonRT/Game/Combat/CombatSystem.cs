@@ -477,8 +477,6 @@ namespace EamonRT.Game.Combat
 
 			if ((Globals.IsRulesetVersion(5) && _rl < 76) || (!Globals.IsRulesetVersion(5) && _rl < 81))
 			{
-				Globals.Engine.RemoveWeight(OfWeapon);
-
 				if (Globals.GameState.Ls > 0 && Globals.GameState.Ls == OfWeaponUid)
 				{
 					LightOut = true;
@@ -538,8 +536,6 @@ namespace EamonRT.Game.Combat
 			}
 
 			PrintWeaponBroken();
-
-			Globals.Engine.RemoveWeight(OfWeapon);
 
 			if (Globals.GameState.Ls > 0 && Globals.GameState.Ls == OfWeaponUid)
 			{

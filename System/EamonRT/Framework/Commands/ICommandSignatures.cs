@@ -4,6 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using EamonRT.Framework.Parsing;
 
@@ -49,7 +50,7 @@ namespace EamonRT.Framework.Commands
 		string Verb { get; set; }
 
 		/// <summary></summary>
-		string Prep { get; set; }
+		IPrep Prep { get; set; }
 
 		/// <summary></summary>
 		CommandType Type { get; set; }
@@ -59,6 +60,9 @@ namespace EamonRT.Framework.Commands
 
 		/// <summary></summary>
 		bool IsListed { get; set; }
+
+		/// <summary></summary>
+		bool IsDobjPrepEnabled { get; set; }
 
 		/// <summary></summary>
 		bool IsIobjEnabled { get; set; }
@@ -95,6 +99,10 @@ namespace EamonRT.Framework.Commands
 
 		/// <summary></summary>
 		/// <param name="artifact"></param>
+		void PrintRemovingFirst(IArtifact artifact);
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
 		void PrintBestLeftAlone(IArtifact artifact);
 
 		/// <summary></summary>
@@ -108,6 +116,10 @@ namespace EamonRT.Framework.Commands
 		/// <summary></summary>
 		/// <param name="artifact"></param>
 		void PrintMustFirstOpen(IArtifact artifact);
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		void PrintMustFirstClose(IArtifact artifact);
 
 		/// <summary></summary>
 		/// <param name="artifact"></param>
@@ -159,6 +171,10 @@ namespace EamonRT.Framework.Commands
 
 		/// <summary></summary>
 		/// <param name="artifact"></param>
+		void PrintOutOfSpace(IArtifact artifact);
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
 		void PrintLocked(IArtifact artifact);
 
 		/// <summary></summary>
@@ -185,6 +201,12 @@ namespace EamonRT.Framework.Commands
 		/// <param name="shield"></param>
 		/// <param name="weapon"></param>
 		void PrintCantWearShieldWithWeapon(IArtifact shield, IArtifact weapon);
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		/// <param name="containerType"></param>
+		/// <param name="isPlural"></param>
+		void PrintContainerNotEmpty(IArtifact artifact, ContainerType containerType, bool isPlural);
 
 		/// <summary></summary>
 		/// <param name="artifact"></param>
@@ -221,6 +243,14 @@ namespace EamonRT.Framework.Commands
 		/// <summary></summary>
 		/// <param name="artifact"></param>
 		void PrintNotReadyableWeapon(IArtifact artifact);
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		void PrintNotWhileCarryingObj(IArtifact artifact);
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		void PrintNotWhileWearingObj(IArtifact artifact);
 
 		/// <summary></summary>
 		/// <param name="weapon"></param>
@@ -260,6 +290,9 @@ namespace EamonRT.Framework.Commands
 
 		/// <summary></summary>
 		void PrintDontNeedTo();
+
+		/// <summary></summary>
+		void PrintCantDoThat();
 
 		/// <summary></summary>
 		void PrintCantVerbThat();
@@ -354,6 +387,11 @@ namespace EamonRT.Framework.Commands
 		/// <param name="monster"></param>
 		/// <returns></returns>
 		bool IsEnabled(IMonster monster);
+
+		/// <summary></summary>
+		/// <param name="prep"></param>
+		/// <returns></returns>
+		bool IsPrepEnabled(IPrep prep);
 
 		/// <summary></summary>
 		/// <param name="destCommand"></param>

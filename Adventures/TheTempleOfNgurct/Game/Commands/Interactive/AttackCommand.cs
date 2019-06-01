@@ -141,6 +141,8 @@ namespace TheTempleOfNgurct.Game.Commands
 						});
 
 						combatSystem.ExecuteCalculateDamage(savedVsFire ? 3 : 6, 6);
+
+						Globals.Thread.Sleep(gameState.PauseCombatMs);
 					}
 
 					Globals.FireDamage = false;

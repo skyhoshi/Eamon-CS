@@ -435,8 +435,8 @@ namespace Eamon.Game.Helpers
 									(Record.GetCategories(h).Type == ArtifactType.Treasure && Record.GetCategories(i).Type == ArtifactType.Gold) ||
 									(Record.GetCategories(h).Type == ArtifactType.Weapon && Record.GetCategories(i).Type == ArtifactType.MagicWeapon) ||
 									(Record.GetCategories(h).Type == ArtifactType.MagicWeapon && Record.GetCategories(i).Type == ArtifactType.Weapon) ||
-									(Record.GetCategories(h).Type == ArtifactType.Container && Record.GetCategories(i).Type == ArtifactType.DoorGate) ||
-									(Record.GetCategories(h).Type == ArtifactType.DoorGate && Record.GetCategories(i).Type == ArtifactType.Container) ||
+									((Record.GetCategories(h).Type == ArtifactType.InContainer || Record.GetCategories(h).Type == ArtifactType.OnContainer || Record.GetCategories(h).Type == ArtifactType.UnderContainer || Record.GetCategories(h).Type == ArtifactType.BehindContainer) && Record.GetCategories(i).Type == ArtifactType.DoorGate) ||
+									(Record.GetCategories(h).Type == ArtifactType.DoorGate && (Record.GetCategories(i).Type == ArtifactType.InContainer || Record.GetCategories(i).Type == ArtifactType.OnContainer || Record.GetCategories(i).Type == ArtifactType.UnderContainer || Record.GetCategories(i).Type == ArtifactType.BehindContainer)) ||
 									(Record.GetCategories(h).Type == ArtifactType.BoundMonster && Record.GetCategories(i).Type == ArtifactType.DisguisedMonster) ||
 									(Record.GetCategories(h).Type == ArtifactType.DisguisedMonster && Record.GetCategories(i).Type == ArtifactType.BoundMonster))
 							{
@@ -487,7 +487,7 @@ namespace Eamon.Game.Helpers
 
 						break;
 
-					case ArtifactType.Container:
+					case ArtifactType.InContainer:
 
 						result = Record.GetCategories(i).Field1 >= -2;         // -2=Broken
 
@@ -565,7 +565,7 @@ namespace Eamon.Game.Helpers
 
 						break;
 
-					case ArtifactType.Container:
+					case ArtifactType.InContainer:
 
 						result = (Record.GetCategories(i).Field2 >= 0 && Record.GetCategories(i).Field2 <= 1) || Globals.Engine.IsArtifactFieldStrength(Record.GetCategories(i).Field2);
 
@@ -649,7 +649,10 @@ namespace Eamon.Game.Helpers
 
 						break;
 
-					case ArtifactType.Container:
+					case ArtifactType.InContainer:
+					case ArtifactType.OnContainer:
+					case ArtifactType.UnderContainer:
+					case ArtifactType.BehindContainer:
 					case ArtifactType.BoundMonster:
 
 						result = Record.GetCategories(i).Field3 >= 0;
@@ -722,7 +725,10 @@ namespace Eamon.Game.Helpers
 
 						break;
 
-					case ArtifactType.Container:
+					case ArtifactType.InContainer:
+					case ArtifactType.OnContainer:
+					case ArtifactType.UnderContainer:
+					case ArtifactType.BehindContainer:
 
 						result = Record.GetCategories(i).Field4 >= 0;
 
@@ -782,6 +788,15 @@ namespace Eamon.Game.Helpers
 						}
 
 						result = Record.GetCategories(i).Field5 >= 1 && Record.GetCategories(i).Field5 <= 2;
+
+						break;
+
+					case ArtifactType.InContainer:
+					case ArtifactType.OnContainer:
+					case ArtifactType.UnderContainer:
+					case ArtifactType.BehindContainer:
+
+						result = Enum.IsDefined(typeof(ContainerDisplayCode), Record.GetCategories(i).Field5);
 
 						break;
 
@@ -967,7 +982,9 @@ namespace Eamon.Game.Helpers
 						}
 						else
 						{
-							var artUid = Record.GetCarriedByContainerUid();
+							var containerType = Record.GetCarriedByContainerContainerType();
+
+							var artUid = Enum.IsDefined(typeof(ContainerType), containerType) ? Record.GetCarriedByContainerUid() : 0;
 
 							if (artUid > 0)
 							{
@@ -987,11 +1004,11 @@ namespace Eamon.Game.Helpers
 
 									goto Cleanup;
 								}
-								else if (artifact.Container == null)
+								else if (artifact.GetArtifactCategory(Globals.Engine.EvalContainerType(containerType, ArtifactType.InContainer, ArtifactType.OnContainer, ArtifactType.UnderContainer, ArtifactType.BehindContainer)) == null)
 								{
 									result = false;
 
-									Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "artifact", artUid, "which should be a container, but isn't");
+									Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "artifact", artUid, string.Format("which should be {0}, but isn't", Globals.Engine.EvalContainerType(containerType, "an In container", "an On container", "an Under container", "a Behind container")));
 
 									ErrorMessage = Buf.ToString();
 
@@ -1050,7 +1067,7 @@ namespace Eamon.Game.Helpers
 			{
 				switch (Record.GetCategories(i).Type)
 				{
-					case ArtifactType.Container:
+					case ArtifactType.InContainer:
 					{
 						var artUid = Record.GetCategories(i).Field1;
 
@@ -1540,7 +1557,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the location of the artifact.";
 
-			var briefDesc = "(-1000 - N)=Worn by monster uid N; -999=Worn by player; (-N - 1)=Carried by monster uid N; -1=Carried by player; 0=Limbo; 1-1000=Room uid; (1000 + N)=Inside artifact uid N; (2000 + N)=Embedded in room uid N";
+			var briefDesc = "(-1000 - N)=Worn by monster uid N; -999=Worn by player; (-N - 1)=Carried by monster uid N; -1=Carried by player; 0=Limbo; 1-1000=Room uid; (1000 + N)=Inside artifact uid N; (2000 + N)=On artifact uid N; (3000 + N)=Under artifact uid N; (4000 + N)=Behind artifact uid N; (5000 + N)=Embedded in room uid N";
 
 			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
@@ -1592,7 +1609,7 @@ namespace Eamon.Game.Helpers
 
 					break;
 
-				case ArtifactType.Container:
+				case ArtifactType.InContainer:
 
 					fullDesc.AppendFormat("Enter the key uid of the artifact (category #{0}).{1}{1}This is the artifact uid of the key used to lock/unlock the container.", i + 1, Environment.NewLine);
 
@@ -1727,7 +1744,7 @@ namespace Eamon.Game.Helpers
 
 					break;
 
-				case ArtifactType.Container:
+				case ArtifactType.InContainer:
 
 					fullDesc.AppendFormat("Enter the open/closed status of the artifact (category #{0}).{1}{1}Additionally, you can specify that the container must be forced open.", i + 1, Environment.NewLine);
 
@@ -1833,9 +1850,14 @@ namespace Eamon.Game.Helpers
 
 					break;
 
-				case ArtifactType.Container:
+				case ArtifactType.InContainer:
+				case ArtifactType.OnContainer:
+				case ArtifactType.UnderContainer:
+				case ArtifactType.BehindContainer:
 
-					fullDesc.AppendFormat("Enter the maximum combined weight allowed inside the artifact (category #{0}).{1}{1}This is the total weight of items immediately inside the container (not including their contents).", i + 1, Environment.NewLine);
+					var containerType = Globals.Engine.GetContainerType(Record.GetCategories(i).Type);
+
+					fullDesc.AppendFormat("Enter the maximum combined weight allowed {0} the artifact (category #{1}).{2}{2}This is the total weight of items immediately {0} the container (not including their contents).", Globals.Engine.EvalContainerType(containerType, "inside", "on", "under", "behind"), i + 1, Environment.NewLine);
 
 					briefDesc.Append("(GE 0)=Valid value");
 
@@ -1915,11 +1937,16 @@ namespace Eamon.Game.Helpers
 
 					break;
 
-				case ArtifactType.Container:
+				case ArtifactType.InContainer:
+				case ArtifactType.OnContainer:
+				case ArtifactType.UnderContainer:
+				case ArtifactType.BehindContainer:
 
-					fullDesc.AppendFormat("Enter the maximum number of items allowed inside the artifact (category #{0}).{1}{1}Additionally, you can specify that the player can't put anything in the container.", i + 1, Environment.NewLine);
+					var containerType = Globals.Engine.GetContainerType(Record.GetCategories(i).Type);
 
-					briefDesc.Append("0=Player can't put anything inside; (GT 0)=Valid value");
+					fullDesc.AppendFormat("Enter the maximum number of items allowed {0} the artifact (category #{1}).{2}{2}Additionally, you can specify that the player can't put anything {0} the container.", Globals.Engine.EvalContainerType(containerType, "inside", "on", "under", "behind"), i + 1, Environment.NewLine);
+
+					briefDesc.AppendFormat("0=Player can't put anything {0}; (GT 0)=Valid value", Globals.Engine.EvalContainerType(containerType, "inside", "on", "under", "behind"));
 
 					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
@@ -1960,6 +1987,24 @@ namespace Eamon.Game.Helpers
 					fullDesc.AppendFormat("Enter the artifact's weapon number of hands required (category #{0}).", i + 1);
 
 					briefDesc.Append("1-2=Valid value");
+
+					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+
+					break;
+
+				case ArtifactType.InContainer:
+				case ArtifactType.OnContainer:
+				case ArtifactType.UnderContainer:
+				case ArtifactType.BehindContainer:
+
+					fullDesc.AppendFormat("Enter the container display code of the artifact (category #{0}).", i + 1);
+
+					var containerDisplayCodeValues = EnumUtil.GetValues<ContainerDisplayCode>();
+
+					for (var j = 0; j < containerDisplayCodeValues.Count; j++)
+					{
+						briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)containerDisplayCodeValues[j], Globals.Engine.GetContainerDisplayCodeDescs(containerDisplayCodeValues[j]));
+					}
 
 					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
@@ -3245,9 +3290,12 @@ namespace Eamon.Game.Helpers
 			}
 			else if (Record.IsCarriedByContainer())
 			{
+				var containerType = Record.GetCarriedByContainerContainerType();
+
 				var artifact = Record.GetCarriedByContainer();
 
-				lookupMsg = string.Format("Inside {0}",
+				lookupMsg = string.Format("{0} {1}",
+					Globals.Engine.EvalContainerType(containerType, "Inside", "On", "Under", "Behind"),
 					artifact != null ? Globals.Engine.Capitalize(artifact.Name.Length > 33 ? artifact.Name.Substring(0, 30) + "..." : artifact.Name) : Globals.Engine.UnknownName);
 			}
 			else if (Record.IsEmbeddedInRoom())
@@ -3303,7 +3351,7 @@ namespace Eamon.Game.Helpers
 
 					break;
 
-				case ArtifactType.Container:
+				case ArtifactType.InContainer:
 
 					if (Record.GetCategories(i).Field1 > 0)
 					{
@@ -3387,7 +3435,7 @@ namespace Eamon.Game.Helpers
 
 					break;
 
-				case ArtifactType.Container:
+				case ArtifactType.InContainer:
 
 					var lookupMsg = string.Empty;
 
@@ -3518,6 +3566,15 @@ namespace Eamon.Game.Helpers
 
 			switch (Record.GetCategories(i).Type)
 			{
+				case ArtifactType.InContainer:
+				case ArtifactType.OnContainer:
+				case ArtifactType.UnderContainer:
+				case ArtifactType.BehindContainer:
+
+					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field5, null, Globals.Engine.GetContainerDisplayCodeDescs((ContainerDisplayCode)Record.GetCategories(i).Field5)));
+
+					break;
+
 				default:
 
 					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field5, null, null));

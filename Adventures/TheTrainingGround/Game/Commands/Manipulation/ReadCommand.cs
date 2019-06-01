@@ -24,8 +24,6 @@ namespace TheTrainingGround.Game.Commands
 
 				Debug.Assert(spell != null);
 
-				Globals.Engine.RemoveWeight(DobjArtifact);
-
 				DobjArtifact.SetInLimbo();
 
 				Globals.Character.ModSpellAbilities(Spell.Blast, 10);

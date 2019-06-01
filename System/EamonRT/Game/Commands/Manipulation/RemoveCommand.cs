@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
@@ -18,40 +19,30 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class RemoveCommand : Command, IRemoveCommand
 	{
+		/// <summary></summary>
 		public virtual bool GetCommandCalled { get; set; }
 
-		public virtual bool IsDobjArtifactDisguisedMonster()
-		{
-			return DobjArtifact.DisguisedMonster != null;
-		}
+		/// <summary></summary>
+		public virtual ContainerType ContainerType { get; set; }
+
+		/// <summary></summary>
+		public virtual IList<string> ContainerContentsList { get; set; }
 
 		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
+			ContainerContentsList = new List<string>();
+
 			if (IobjArtifact != null)
 			{
-				var count = 0L;
-
-				var weight = DobjArtifact.Weight;
-
-				if (!DobjArtifact.IsUnmovable01())
-				{
-					var rc = DobjArtifact.GetContainerInfo(ref count, ref weight, true);
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
-				}
-
 				if (!GetCommandCalled)
 				{
-					if (IobjArtifact.IsCarriedByCharacter())
-					{
-						Globals.GameState.Wt -= weight;
-					}
-
 					NextState = Globals.CreateInstance<IGetCommand>(x =>
 					{
 						x.PreserveNextState = true;
+
+						x.OmitWeightCheck = IobjArtifact.IsCarriedByCharacter();
 					});
 
 					CopyCommandData(NextState as ICommand, false);
@@ -59,6 +50,8 @@ namespace EamonRT.Game.Commands
 					NextState.NextState = Globals.CreateInstance<IRemoveCommand>(x =>
 					{
 						x.GetCommandCalled = true;
+
+						x.ContainerType = ContainerType;
 					});
 
 					CopyCommandData(NextState.NextState as ICommand);
@@ -68,30 +61,12 @@ namespace EamonRT.Game.Commands
 
 				if (!DobjArtifact.IsCarriedByCharacter())
 				{
-					if (IobjArtifact.IsCarriedByCharacter())
-					{
-						Globals.GameState.Wt += weight;
-					}
-
-					if (!IsDobjArtifactDisguisedMonster())
+					if (!DobjArtifact.IsDisguisedMonster())
 					{
 						NextState = Globals.CreateInstance<IStartState>();
 					}
 
 					goto Cleanup;
-				}
-
-				if (!DobjArtifact.Seen)
-				{
-					Globals.Buf.Clear();
-
-					var rc = DobjArtifact.BuildPrintedFullDesc(Globals.Buf, false);
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-					Globals.Out.Write("{0}", Globals.Buf);
-
-					DobjArtifact.Seen = true;
 				}
 
 				if (ActorMonster.Weapon <= 0 && DobjArtifact.IsReadyableByCharacter() && NextState == null)
@@ -125,9 +100,18 @@ namespace EamonRT.Game.Commands
 					Globals.GameState.Ar = 0;
 				}
 
+				Globals.LastArtifactLocation = DobjArtifact.Location;
+
 				DobjArtifact.SetCarriedByCharacter();
 
+				Globals.Engine.RevealExtendedContainerContents(ActorRoom, DobjArtifact, ContainerContentsList);
+
 				PrintRemoved(DobjArtifact);
+
+				foreach (var containerContentsDesc in ContainerContentsList)
+				{
+					Globals.Out.Write("{0}", containerContentsDesc);
+				}
 			}
 
 		Cleanup:
@@ -135,6 +119,90 @@ namespace EamonRT.Game.Commands
 			if (NextState == null)
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
+			}
+		}
+
+		public override void MonsterExecute()
+		{
+			RetCode rc;
+
+			Debug.Assert(DobjArtifact != null && IobjArtifact != null && Prep != null && Enum.IsDefined(typeof(ContainerType), Prep.ContainerType));
+
+			Debug.Assert(DobjArtifact.IsCarriedByContainer(IobjArtifact) && DobjArtifact.GetCarriedByContainerContainerType() == Prep.ContainerType);
+
+			var artTypes = new ArtifactType[] { ArtifactType.DisguisedMonster, ArtifactType.DeadBody, ArtifactType.BoundMonster, ArtifactType.Weapon, ArtifactType.MagicWeapon };
+
+			var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
+
+			if (ac == null)
+			{
+				ac = DobjArtifact.GetCategories(0);
+			}
+
+			if (ac != null && ac.Type != ArtifactType.DisguisedMonster && DobjArtifact.UnderContainer == null && DobjArtifact.BehindContainer == null && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
+			{
+				var artCount = 0L;
+
+				var artWeight = DobjArtifact.Weight;
+
+				if (DobjArtifact.GeneralContainer != null)
+				{
+					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.In, true);
+
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.On, true);
+
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+				}
+
+				var monWeight = 0L;
+
+				rc = ActorMonster.GetFullInventoryWeight(ref monWeight, recurse: true);
+
+				Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+				if (!Globals.Engine.EnforceMonsterWeightLimits || (artWeight <= ActorMonster.GetWeightCarryableGronds() && artWeight + monWeight <= ActorMonster.GetWeightCarryableGronds() * ActorMonster.GroupCount))
+				{
+					DobjArtifact.SetCarriedByMonster(ActorMonster);
+
+					var charMonster = Globals.MDB[Globals.GameState.Cm];
+
+					Debug.Assert(charMonster != null);
+
+					if (charMonster.IsInRoom(ActorRoom))
+					{
+						if (ActorRoom.IsLit())
+						{
+							var monsterName = ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01));
+
+							Globals.Out.Print("{0} removes {1} from {2} {3}.", monsterName, DobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf), Globals.Engine.EvalContainerType(Prep.ContainerType, "inside", "on", "under", "behind"), IobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+						}
+						else
+						{
+							var monsterName = string.Format("An unseen {0}", ActorMonster.CheckNBTLHostility() ? "offender" : "entity");
+
+							Globals.Out.Print("{0} picks up {1}.", monsterName, "a weapon");
+						}
+					}
+
+					// when a weapon is picked up all monster affinities to that weapon are broken
+
+					var fumbleMonsters = Globals.Engine.GetMonsterList(m => m.Weapon == -DobjArtifact.Uid - 1 && m != ActorMonster);
+
+					foreach (var monster in fumbleMonsters)
+					{
+						monster.Weapon = -1;
+					}
+				}
+			}
+
+			if (NextState == null)
+			{
+				NextState = Globals.CreateInstance<IErrorState>(x =>
+				{
+					x.ErrorMessage = string.Format("{0}: NextState == null", Name);
+				});
 			}
 		}
 
@@ -147,6 +215,8 @@ namespace EamonRT.Game.Commands
 
 			CommandParser.ObjData.ArtifactMatchFunc = () =>
 			{
+				ContainerType = Prep != null ? Prep.ContainerType : (ContainerType)(-1);
+
 				if (CommandParser.ObjData.FilterArtifactList.Count > 1)
 				{
 					PrintDoYouMeanObj1OrObj2(CommandParser.ObjData.FilterArtifactList[0], CommandParser.ObjData.FilterArtifactList[1]);
@@ -157,23 +227,32 @@ namespace EamonRT.Game.Commands
 				{
 					CommandParser.ObjData = CommandParser.IobjData;
 
-					CommandParser.ObjData.QueryDesc = string.Format("{0}From what? ", Environment.NewLine);
+					CommandParser.ObjData.QueryDesc = string.Format("{0}From {1}what? ", Environment.NewLine, Enum.IsDefined(typeof(ContainerType), ContainerType) ? Globals.Engine.EvalContainerType(ContainerType, "inside ", "on ", "under ", "behind ") : "");
 
 					PlayerResolveArtifact();
 
 					if (IobjArtifact != null)
 					{
-						var ac = IobjArtifact.Container;
+						if (!Enum.IsDefined(typeof(ContainerType), ContainerType))
+						{
+							var artTypes = new ArtifactType[] { ArtifactType.InContainer, ArtifactType.OnContainer };
+
+							var defaultAc = IobjArtifact.GetArtifactCategory(artTypes);
+
+							ContainerType = defaultAc != null ? Globals.Engine.GetContainerType(defaultAc.Type) : ContainerType.In;
+						}
+
+						var ac = Globals.Engine.EvalContainerType(ContainerType, IobjArtifact.InContainer, IobjArtifact.OnContainer, IobjArtifact.UnderContainer, IobjArtifact.BehindContainer);
 
 						if (ac != null)
 						{
-							if (ac.IsOpen())
+							if (ac != IobjArtifact.InContainer || ac.IsOpen())
 							{
 								CommandParser.ObjData = CommandParser.DobjData;
 
 								CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 								{
-									a => a.IsCarriedByContainer(IobjArtifact)
+									a => a.IsCarriedByContainer(IobjArtifact) && a.GetCarriedByContainerContainerType() == ContainerType
 								};
 
 								CommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch;
@@ -208,6 +287,17 @@ namespace EamonRT.Game.Commands
 			PlayerResolveArtifact();
 		}
 
+		/*
+		public override bool IsPrepEnabled(IPrep prep)
+		{
+			Debug.Assert(prep != null);
+
+			var prepNames = new string[] { "in", "fromin", "on", "fromon", "under", "fromunder", "behind", "frombehind", "from" };
+
+			return prepNames.FirstOrDefault(pn => string.Equals(prep.Name, pn, StringComparison.OrdinalIgnoreCase)) != null;
+		}
+		*/
+
 		public RemoveCommand()
 		{
 			SortOrder = 220;
@@ -226,6 +316,8 @@ namespace EamonRT.Game.Commands
 			Verb = "remove";
 
 			Type = CommandType.Manipulation;
+
+			ContainerType = (ContainerType)(-1);
 		}
 	}
 }

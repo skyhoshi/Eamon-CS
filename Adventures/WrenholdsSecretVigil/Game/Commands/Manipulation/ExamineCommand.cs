@@ -3,7 +3,9 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using System;
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
@@ -16,7 +18,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			if (DobjArtifact != null)
+			if (DobjArtifact != null && !Enum.IsDefined(typeof(ContainerType), ContainerType))
 			{
 				var diaryArtifact = Globals.ADB[3];
 

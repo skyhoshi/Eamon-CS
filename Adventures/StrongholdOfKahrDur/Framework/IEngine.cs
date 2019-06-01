@@ -14,5 +14,10 @@ namespace StrongholdOfKahrDur.Framework
 		/// <param name="cauldronArtifact"></param>
 		/// <returns></returns>
 		bool SpellReagentsInCauldron(IArtifact cauldronArtifact);
+
+		/// <summary></summary>
+		/// <param name="room"></param>
+		/// <param name="monsterUid"></param>
+		void SummonMonster(IRoom room, long monsterUid);
 	}
 }

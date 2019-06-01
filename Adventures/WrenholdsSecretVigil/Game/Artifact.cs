@@ -35,7 +35,7 @@ namespace WrenholdsSecretVigil.Game
 
 		public virtual bool IsBuriedInRoomUid(long roomUid)
 		{
-			return Location == (roomUid + 4000);
+			return Location == (roomUid + 7000);
 		}
 
 		public virtual bool IsBuriedInRoom(IRoom room)

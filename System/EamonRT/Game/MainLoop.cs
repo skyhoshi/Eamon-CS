@@ -28,7 +28,7 @@ namespace EamonRT.Game
 
 		public virtual void Startup()
 		{
-			Globals.Engine.InitWtValueAndEnforceLimits();
+			Globals.Engine.EnforceCharacterWeightLimits();
 
 			var monster = Globals.Engine.ConvertCharacterToMonster();
 

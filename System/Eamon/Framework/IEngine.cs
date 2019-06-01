@@ -21,7 +21,7 @@ namespace Eamon.Framework
 		IDictionary<long, Func<string>> MacroFuncs { get; set; }
 
 		/// <summary></summary>
-		string[] Preps { get; set; }
+		IPrep[] Preps { get; set; }
 
 		/// <summary></summary>
 		string[] Articles { get; set; }
@@ -39,7 +39,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
-		string GetPreps(long index);
+		IPrep GetPreps(long index);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -90,6 +90,16 @@ namespace Eamon.Framework
 		/// <param name="combatCode"></param>
 		/// <returns></returns>
 		string GetCombatCodeDescs(CombatCode combatCode);
+
+		/// <summary></summary>
+		/// <param name="index"></param>
+		/// <returns></returns>
+		string GetContainerDisplayCodeDescs(long index);
+
+		/// <summary></summary>
+		/// <param name="containerDisplayCode"></param>
+		/// <returns></returns>
+		string GetContainerDisplayCodeDescs(ContainerDisplayCode containerDisplayCode);
 
 		/// <summary></summary>
 		/// <param name="index"></param>
@@ -425,6 +435,11 @@ namespace Eamon.Framework
 		Direction GetDirection(string printedName);
 
 		/// <summary></summary>
+		/// <param name="artifactType"></param>
+		/// <returns></returns>
+		ContainerType GetContainerType(ArtifactType artifactType);
+
+		/// <summary></summary>
 		/// <returns></returns>
 		IConfig GetConfig();
 
@@ -451,6 +466,15 @@ namespace Eamon.Framework
 		/// <param name="neutralValue"></param>
 		/// <returns></returns>
 		T EvalGender<T>(Gender gender, T maleValue, T femaleValue, T neutralValue);
+
+		/// <summary></summary>
+		/// <param name="containerType"></param>
+		/// <param name="inValue"></param>
+		/// <param name="onValue"></param>
+		/// <param name="underValue"></param>
+		/// <param name="behindValue"></param>
+		/// <returns></returns>
+		T EvalContainerType<T>(ContainerType containerType, T inValue, T onValue, T underValue, T behindValue);
 
 		/// <summary></summary>
 		/// <param name="roomType"></param>
@@ -527,6 +551,11 @@ namespace Eamon.Framework
 		/// <param name="str"></param>
 		/// <returns></returns>
 		long GetNumberFromString(string str);
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		/// <returns></returns>
+		string GetContainerContentsDesc(IArtifact artifact);
 
 		/// <summary></summary>
 		/// <returns></returns>
@@ -645,11 +674,12 @@ namespace Eamon.Framework
 		/// <param name="records"></param>
 		/// <param name="articleType"></param>
 		/// <param name="showCharOwned"></param>
-		/// <param name="showStateDesc"></param>
+		/// <param name="stateDescCode"></param>
+		/// <param name="showContents"></param>
 		/// <param name="groupCountOne"></param>
 		/// <param name="buf"></param>
 		/// <returns></returns>
-		RetCode GetRecordNameList(IList<IGameBase> records, ArticleType articleType, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
+		RetCode GetRecordNameList(IList<IGameBase> records, ArticleType articleType, bool showCharOwned, StateDescDisplayCode stateDescCode, bool showContents, bool groupCountOne, StringBuilder buf);
 
 		/// <summary></summary>
 		/// <param name="records"></param>

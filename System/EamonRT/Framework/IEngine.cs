@@ -39,6 +39,9 @@ namespace EamonRT.Framework
 		PoundCharPolicy PoundCharPolicy { get; set; }
 
 		/// <summary></summary>
+		void PrintPlayerRoom();
+
+		/// <summary></summary>
 		/// <param name="artifact"></param>
 		void PrintMonsterAlive(IArtifact artifact);
 
@@ -65,7 +68,7 @@ namespace EamonRT.Framework
 		long GetMostPowerfulWeaponUid(IList<IArtifact> artifactList);
 
 		/// <summary></summary>
-		void InitWtValueAndEnforceLimits();
+		void EnforceCharacterWeightLimits();
 
 		/// <summary></summary>
 		void AddPoundCharsToArtifactNames();
@@ -171,8 +174,10 @@ namespace EamonRT.Framework
 		void RevealEmbeddedArtifact(IRoom room, IArtifact artifact);
 
 		/// <summary></summary>
+		/// <param name="room"></param>
 		/// <param name="artifact"></param>
-		void RemoveWeight(IArtifact artifact);
+		/// <param name="containerContentsList"></param>
+		void RevealExtendedContainerContents(IRoom room, IArtifact artifact, IList<string> containerContentsList = null);
 
 		/// <summary></summary>
 		/// <param name="ro"></param>
@@ -246,6 +251,17 @@ namespace EamonRT.Framework
 		IList<IMonster> GetHostileMonsterList(IMonster monster);
 
 		/// <summary></summary>
+		/// <param name="room"></param>
+		/// <param name="monster"></param>
+		/// <returns></returns>
+		IList<IMonster> GetSmilingMonsterList(IRoom room, IMonster monster);
+
+		/// <summary></summary>
+		/// <param name="monster"></param>
+		/// <returns></returns>
+		IList<IArtifact> BuildLoopArtifactList(IMonster monster);
+
+		/// <summary></summary>
 		/// <param name="commands"></param>
 		/// <param name="cmdType"></param>
 		/// <param name="buf"></param>
@@ -262,16 +278,6 @@ namespace EamonRT.Framework
 		/// <param name="whereClauseFuncs"></param>
 		/// <returns></returns>
 		bool MakeArtifactsVanish(params Func<IArtifact, bool>[] whereClauseFuncs);
-
-		/// <summary></summary>
-		/// <param name="monster"></param>
-		/// <returns></returns>
-		bool CheckNBTLHostility(IMonster monster);
-
-		/// <summary></summary>
-		/// <param name="monster"></param>
-		/// <returns></returns>
-		bool CheckCourage(IMonster monster);
 
 		/// <summary></summary>
 		/// <param name="spellValue"></param>

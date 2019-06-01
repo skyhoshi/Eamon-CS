@@ -5,7 +5,6 @@
 
 using System;
 using System.Diagnostics;
-using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
@@ -15,11 +14,6 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class AttackLoopIncrementState : State, IAttackLoopIncrementState
 	{
-		public virtual bool ShouldMonsterRearm(IMonster monster)
-		{
-			return true;
-		}
-
 		public override void Execute()
 		{
 			var monster = Globals.MDB[Globals.LoopMonsterUid];
@@ -40,7 +34,7 @@ namespace EamonRT.Game.States
 				goto Cleanup;
 			}
 
-			if (ShouldMonsterRearm(monster) && Globals.LoopMemberNumber == 1 && Globals.LoopAttackNumber == 1 && monster.Weapon <= 0)
+			if (monster.ShouldReadyWeapon() && Globals.LoopMemberNumber == 1 && Globals.LoopAttackNumber == 1 && monster.Weapon <= 0)
 			{
 				NextState = Globals.CreateInstance<IArtifactLoopInitializeState>();
 

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Text.RegularExpressions;
 using Eamon.Framework;
 using Eamon.Framework.Helpers;
 using Eamon.Framework.Primitive.Enums;
@@ -20,6 +21,13 @@ namespace Eamon.Game.Helpers
 	[ClassMappings]
 	public class FilesetHelper : Helper<IFileset>, IFilesetHelper
 	{
+		#region Protected Properties
+
+		/// <summary></summary>
+		protected virtual Regex WorkDirRegex { get; set; }
+
+		#endregion
+
 		#region Protected Methods
 
 		#region Interface IHelper
@@ -144,7 +152,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual bool ValidateWorkDir()
 		{
-			return Record.WorkDir.Length > 0 && Record.WorkDir[Record.WorkDir.Length - 1] != Globals.Path.DirectorySeparatorChar;
+			return WorkDirRegex.IsMatch(Record.WorkDir);
 		}
 
 		/// <summary></summary>
@@ -1031,6 +1039,8 @@ namespace Eamon.Game.Helpers
 				"HintFileName",
 				"GameStateFileName",
 			};
+
+			WorkDirRegex = new Regex(Constants.ValidWorkDirRegexPattern);
 		}
 
 		#endregion

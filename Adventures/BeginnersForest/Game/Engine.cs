@@ -116,11 +116,6 @@ namespace BeginnersForest.Game
 
 			if (i != gameState.UsedWpnIdx)
 			{
-				if (artifact.IsCarriedByCharacter())
-				{
-					gameState.Wt -= artifact.Weight;
-				}
-
 				artifact.SetInLimbo();
 
 				gameState.SetHeldWpnUids(HeldWpnIdx++, artifact.Uid);
@@ -142,8 +137,6 @@ namespace BeginnersForest.Game
 					Debug.Assert(artifact != null);
 
 					artifact.SetCarriedByCharacter();
-
-					gameState.Wt += artifact.Weight;
 				}
 			}
 

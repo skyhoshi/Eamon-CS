@@ -20,7 +20,7 @@
             <Simple name="NumDirs" value="6" />
             <Simple name="NumRooms" value="19" />
             <Simple name="NumArtifacts" value="62" />
-            <Simple name="NumEffects" value="31" />
+            <Simple name="NumEffects" value="35" />
             <Simple name="NumMonsters" value="12" />
             <Simple name="NumHints" value="3" />
           </Properties>

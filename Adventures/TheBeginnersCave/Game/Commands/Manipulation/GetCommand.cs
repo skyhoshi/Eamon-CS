@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
@@ -35,7 +36,8 @@ namespace TheBeginnersCave.Game.Commands
 				CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 				{
 					a => a.IsInRoom(ActorRoom),
-					a => a.IsEmbeddedInRoom(ActorRoom)
+					a => a.IsEmbeddedInRoom(ActorRoom),
+					a => a.GetCarriedByContainerContainerType() == ContainerType.On && a.GetCarriedByContainer() != null && a.GetCarriedByContainer().IsInRoom(ActorRoom)
 				};
 
 				CommandParser.ObjData.ArtifactNotFoundFunc = PrintCantVerbThat;

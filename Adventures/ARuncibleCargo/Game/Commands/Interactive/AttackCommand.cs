@@ -38,7 +38,7 @@ namespace ARuncibleCargo.Game.Commands
 
 						// Attack cell = Open Jail
 
-						var ac = DobjArtifact.Container;
+						var ac = DobjArtifact.InContainer;
 
 						Debug.Assert(ac != null);
 

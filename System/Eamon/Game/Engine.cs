@@ -45,6 +45,9 @@ namespace Eamon.Game
 		protected virtual string[] CombatCodeDescs { get; set; }
 
 		/// <summary></summary>
+		protected virtual string[] ContainerDisplayCodeDescs { get; set; }
+
+		/// <summary></summary>
 		protected virtual string[] LightLevelNames { get; set; }
 
 		/// <summary></summary>
@@ -77,7 +80,7 @@ namespace Eamon.Game
 
 		public virtual IDictionary<long, Func<string>> MacroFuncs { get; set; }
 
-		public virtual string[] Preps { get; set; }
+		public virtual IPrep[] Preps { get; set; }
 
 		public virtual string[] Articles { get; set; }
 
@@ -91,7 +94,7 @@ namespace Eamon.Game
 
 		#region Interface IEngine
 
-		public virtual string GetPreps(long index)
+		public virtual IPrep GetPreps(long index)
 		{
 			return Preps[index];
 		}
@@ -144,6 +147,16 @@ namespace Eamon.Game
 		public virtual string GetCombatCodeDescs(CombatCode combatCode)
 		{
 			return Enum.IsDefined(typeof(CombatCode), combatCode) ? GetCombatCodeDescs((long)combatCode + 2) : UnknownName;
+		}
+
+		public virtual string GetContainerDisplayCodeDescs(long index)
+		{
+			return ContainerDisplayCodeDescs[index];
+		}
+
+		public virtual string GetContainerDisplayCodeDescs(ContainerDisplayCode containerDisplayCode)
+		{
+			return Enum.IsDefined(typeof(ContainerDisplayCode), containerDisplayCode) ? GetContainerDisplayCodeDescs((long)containerDisplayCode) : UnknownName;
 		}
 
 		public virtual string GetLightLevelNames(long index)
@@ -595,6 +608,15 @@ namespace Eamon.Game
 			return result;
 		}
 
+		public virtual ContainerType GetContainerType(ArtifactType artifactType)
+		{
+			return artifactType == ArtifactType.InContainer ? ContainerType.In :
+						artifactType == ArtifactType.OnContainer ? ContainerType.On :
+						artifactType == ArtifactType.UnderContainer ? ContainerType.Under :
+						artifactType == ArtifactType.BehindContainer ? ContainerType.Behind :
+						(ContainerType)(-1);
+		}
+
 		public virtual IConfig GetConfig()
 		{
 			return Globals?.Database?.ConfigTable.Records.FirstOrDefault();
@@ -618,6 +640,11 @@ namespace Eamon.Game
 		public virtual T EvalGender<T>(Gender gender, T maleValue, T femaleValue, T neutralValue)
 		{
 			return gender == Gender.Male ? maleValue : gender == Gender.Female ? femaleValue : neutralValue;
+		}
+
+		public virtual T EvalContainerType<T>(ContainerType containerType, T inValue, T onValue, T underValue, T behindValue)
+		{
+			return containerType == ContainerType.On ? onValue : containerType == ContainerType.Under ? underValue : containerType == ContainerType.Behind ? behindValue : inValue;
 		}
 
 		public virtual T EvalRoomType<T>(RoomType roomType, T indoorsValue, T outdoorsValue)
@@ -1006,6 +1033,53 @@ namespace Eamon.Game
 			return result;
 		}
 
+		public virtual string GetContainerContentsDesc(IArtifact artifact)
+		{
+			var artTypes = new ArtifactType[] { ArtifactType.InContainer, ArtifactType.OnContainer, ArtifactType.UnderContainer, ArtifactType.BehindContainer };
+
+			var result = "";
+
+			if (artifact == null)
+			{
+				// PrintError
+
+				goto Cleanup;
+			}
+
+			var buf = new StringBuilder(Constants.BufSize);
+
+			var ac = artifact.Categories.FirstOrDefault(ac01 => ac01 != null && artTypes.Contains(ac01.Type) && ac01.Field5 == (long)ContainerDisplayCode.ArtifactNameSomeStuff && (ac01.Type != ArtifactType.InContainer || ac01.IsOpen()));
+
+			if (ac == null)
+			{
+				ac = artifact.Categories.FirstOrDefault(ac01 => ac01 != null && artTypes.Contains(ac01.Type) && ac01.Field5 == (long)ContainerDisplayCode.SomethingSomeStuff && (ac01.Type != ArtifactType.InContainer || ac01.IsOpen()));
+			}
+
+			if (ac != null)
+			{
+				var containerType = GetContainerType(ac.Type);
+
+				var contentsList = artifact.GetContainedList(containerType: containerType);
+
+				var showCharOwned = !artifact.IsCarriedByCharacter() && !artifact.IsWornByCharacter();
+
+				if (contentsList.Count > 0)
+				{
+					result = string.Format
+					(
+						" with {0} {1} {2}",
+						contentsList.Count > 1 || contentsList[0].IsPlural ? "some stuff" : ac.Field5 == (long)ContainerDisplayCode.ArtifactNameSomeStuff ? contentsList[0].GetDecoratedName02(false, showCharOwned, false, false, buf) : "something",
+						containerType == ContainerType.On ? "on" : containerType == ContainerType.Under ? "under" : containerType == ContainerType.Behind ? "behind" : "inside",
+						artifact.EvalPlural("it", "them")
+					);
+				}
+			}
+
+			Cleanup:
+
+			return result;
+		}
+
 		public virtual string GetBlastDesc()
 		{
 			return "ZAP!  Direct hit!";
@@ -1364,7 +1438,7 @@ namespace Eamon.Game
 
 			foreach (var p in Preps)
 			{
-				var s = p + " ";
+				var s = p.Name + " ";
 
 				if (buf.StartsWith(s, true))
 				{
@@ -1489,7 +1563,7 @@ namespace Eamon.Game
 			return rc;
 		}
 
-		public virtual RetCode GetRecordNameList(IList<IGameBase> records, ArticleType articleType, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public virtual RetCode GetRecordNameList(IList<IGameBase> records, ArticleType articleType, bool showCharOwned, StateDescDisplayCode stateDescCode, bool showContents, bool groupCountOne, StringBuilder buf)
 		{
 			StringBuilder buf01;
 			RetCode rc;
@@ -1512,7 +1586,30 @@ namespace Eamon.Game
 			{
 				var x = records[(int)i];
 
-				buf.AppendFormat("{0}{1}",
+				var a = x as IArtifact;
+
+				var m = x as IMonster;
+
+				var contentsDesc = "";
+
+				if (showContents && a != null)
+				{
+					contentsDesc = GetContainerContentsDesc(a);
+				}
+
+				var showStateDesc = stateDescCode == StateDescDisplayCode.AllStateDescs;
+
+				if (!showStateDesc && a != null)
+				{
+					showStateDesc = stateDescCode == StateDescDisplayCode.SideNotesOnly && a.IsStateDescSideNotes();
+				}
+
+				if (!showStateDesc && m != null)
+				{
+					showStateDesc = stateDescCode == StateDescDisplayCode.SideNotesOnly && m.IsStateDescSideNotes();
+				}
+
+				buf.AppendFormat("{0}{1}{2}",
 					i == 0 ? "" : i == records.Count - 1 ? " and " : ", ",
 					x.GetDecoratedName
 					(
@@ -1520,10 +1617,11 @@ namespace Eamon.Game
 						articleType == ArticleType.None || articleType == ArticleType.The ? articleType : x.ArticleType,
 						false,
 						showCharOwned,
-						showStateDesc,
+						showStateDesc && contentsDesc.Length == 0,
 						groupCountOne,
 						buf01
-					)
+					),
+					contentsDesc
 				);
 			}
 
@@ -2288,14 +2386,20 @@ namespace Eamon.Game
 				"Shirts",
 				"Pants"
 			};
-
-
+			
 			CombatCodeDescs = new string[]
 			{
 				"Doesn't fight",
 				"Uses weapons or natural weapons",		// "Will use wep. or nat. weapons", 
 				"Normal",
 				"Uses 'attacks' only"						// "'ATTACKS' only"
+			};
+
+			ContainerDisplayCodeDescs = new string[]
+			{
+				"None",
+				"Something/Some Stuff",
+				"Artifact Name/Some Stuff"
 			};
 
 			LightLevelNames = new string[]
@@ -2719,7 +2823,7 @@ namespace Eamon.Game
 				}),
 				Globals.CreateInstance<IArtifactType>(x =>
 				{
-					x.Name = "Container";
+					x.Name = "In Container";
 					x.WeightEmptyVal = "15";
 					x.LocationEmptyVal = "0";
 					x.Field1Name = "Key Uid";
@@ -2730,7 +2834,55 @@ namespace Eamon.Game
 					x.Field3EmptyVal = "0";
 					x.Field4Name = "Max Items Inside";
 					x.Field4EmptyVal = "0";
-					x.Field5Name = "Field5";
+					x.Field5Name = "Display Code";
+					x.Field5EmptyVal = "0";
+				}),
+				Globals.CreateInstance<IArtifactType>(x =>
+				{
+					x.Name = "On Container";
+					x.WeightEmptyVal = "15";
+					x.LocationEmptyVal = "0";
+					x.Field1Name = "Field1";
+					x.Field1EmptyVal = "0";
+					x.Field2Name = "Field2";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Max Weight On";
+					x.Field3EmptyVal = "0";
+					x.Field4Name = "Max Items On";
+					x.Field4EmptyVal = "0";
+					x.Field5Name = "Display Code";
+					x.Field5EmptyVal = "0";
+				}),
+				Globals.CreateInstance<IArtifactType>(x =>
+				{
+					x.Name = "Under Container";
+					x.WeightEmptyVal = "15";
+					x.LocationEmptyVal = "0";
+					x.Field1Name = "Field1";
+					x.Field1EmptyVal = "0";
+					x.Field2Name = "Field2";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Max Weight Under";
+					x.Field3EmptyVal = "0";
+					x.Field4Name = "Max Items Under";
+					x.Field4EmptyVal = "0";
+					x.Field5Name = "Display Code";
+					x.Field5EmptyVal = "0";
+				}),
+				Globals.CreateInstance<IArtifactType>(x =>
+				{
+					x.Name = "Behind Container";
+					x.WeightEmptyVal = "15";
+					x.LocationEmptyVal = "0";
+					x.Field1Name = "Field1";
+					x.Field1EmptyVal = "0";
+					x.Field2Name = "Field2";
+					x.Field2EmptyVal = "0";
+					x.Field3Name = "Max Weight Behind";
+					x.Field3EmptyVal = "0";
+					x.Field4Name = "Max Items Behind";
+					x.Field4EmptyVal = "0";
+					x.Field5Name = "Display Code";
 					x.Field5EmptyVal = "0";
 				}),
 				Globals.CreateInstance<IArtifactType>(x =>
@@ -2969,26 +3121,94 @@ namespace Eamon.Game
 			};
 
 			MacroFuncs = new Dictionary<long, Func<string>>();
-			
-			Preps = new string[]
+
+			Preps = new IPrep[]
 			{
-				"to",
-				"on",
-				"in",
-				"at",
-				"from",
-				"with",
-				"onto",
-				"into",
-				"inside",
-				"under",
-				"underneath",
-				"beneath",
-				"below",
-				"behind",
-				"through",
-				"along",
-				"across"
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "in";
+					x.ContainerType = ContainerType.In;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "into";
+					x.ContainerType = ContainerType.In;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "fromin";
+					x.ContainerType = ContainerType.In;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "on";
+					x.ContainerType = ContainerType.On;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "onto";
+					x.ContainerType = ContainerType.On;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "fromon";
+					x.ContainerType = ContainerType.On;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "under";
+					x.ContainerType = ContainerType.Under;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "fromunder";
+					x.ContainerType = ContainerType.Under;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "behind";
+					x.ContainerType = ContainerType.Behind;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "frombehind";
+					x.ContainerType = ContainerType.Behind;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "to";
+					x.ContainerType = (ContainerType)(-1);
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "at";
+					x.ContainerType = (ContainerType)(-1);
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "from";
+					x.ContainerType = (ContainerType)(-1);
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "with";
+					x.ContainerType = (ContainerType)(-1);
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "through";
+					x.ContainerType = (ContainerType)(-1);
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "along";
+					x.ContainerType = (ContainerType)(-1);
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "across";
+					x.ContainerType = (ContainerType)(-1);
+				})
 			};
 
 			Articles = new string[]

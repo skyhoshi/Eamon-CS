@@ -88,7 +88,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			Debug.Assert(ac != null);
 
-			ac.Type = ArtifactType.Container;
+			ac.Type = ArtifactType.InContainer;
 
 			ac.Field1 = 0;
 
@@ -103,7 +103,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public virtual void ConvertSlimeToTreasure()
 		{
-			var ac = IobjArtifact.Container;
+			var ac = IobjArtifact.InContainer;
 
 			Debug.Assert(ac != null);
 

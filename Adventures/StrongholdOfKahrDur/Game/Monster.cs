@@ -51,6 +51,13 @@ namespace StrongholdOfKahrDur.Game
 			return Uid != 22 || roomUid != 54 ? base.CanMoveToRoomUid(roomUid, fleeing) : false;
 		}
 
+		public override bool ShouldReadyWeapon()
+		{
+			// Necromancer never tries to pick up or ready weapon
+
+			return Uid != 22 ? base.ShouldReadyWeapon() : false;
+		}
+
 		public override void AddHealthStatus(StringBuilder buf, bool addNewLine = true)
 		{
 			string result = null;

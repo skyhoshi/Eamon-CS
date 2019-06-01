@@ -330,7 +330,7 @@
             <Simple name="Uid" value="10" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="wrench" />
-            <Simple name="Desc" value="You see a rusty pipe wrench which could also be used as a weapon.  Eamon Deluxe monsters are &quot;smart&quot;, GIVE WRENCH TO EDDIE, then REQUEST his mace and he will READY the wrench (or a better weapon) if he is carrying one." />
+            <Simple name="Desc" value="You see a rusty pipe wrench which could also be used as a weapon.  Eamon Deluxe monsters are &quot;smart&quot;, GIVE WRENCH TO EDDIE, then REQUEST his mace and he will READY the wrench (or a better weapon) if he is carrying one.  **030" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />

@@ -47,9 +47,6 @@ namespace Eamon.Framework
 		long Speed { get; set; }
 
 		/// <summary></summary>
-		long Wt { get; set; }
-
-		/// <summary></summary>
 		bool Vr { get; set; }
 
 		/// <summary></summary>

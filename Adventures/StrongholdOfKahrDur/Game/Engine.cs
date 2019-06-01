@@ -220,6 +220,54 @@ namespace StrongholdOfKahrDur.Game
 			return dragonSpiceArtifact.IsCarriedByContainer(cauldronArtifact) && kingswortWeedArtifact.IsCarriedByContainer(cauldronArtifact) && rubyStoneArtifact.IsCarriedByContainer(cauldronArtifact) && residuumPowderArtifact.IsCarriedByContainer(cauldronArtifact);
 		}
 
+		public virtual void SummonMonster(IRoom room, long monsterUid)
+		{
+			Debug.Assert(room != null);
+
+			// Necromancer summons other monsters...
+
+			var monster = Globals.MDB[monsterUid];
+
+			Debug.Assert(monster != null);
+
+			// Dead, hasn't been previously summoned, or is somewhere else
+
+			if (monster.IsInLimbo() || !monster.IsInRoom(room))
+			{
+				// Preset 'Seen' flag for smoother effect
+
+				monster.Seen = true;
+
+				// Put monster in room
+
+				monster.SetInRoom(room);
+
+				// Reset group size to one
+
+				monster.GroupCount = 1;
+
+				monster.InitGroupCount = 1;
+
+				monster.OrigGroupCount = 1;
+
+				// Reset to 0 damage taken
+
+				monster.DmgTaken = 0;
+			}
+			else
+			{
+				// Monster is already summoned and present so add another to the group
+
+				monster.GroupCount++;
+
+				monster.InitGroupCount++;
+
+				monster.OrigGroupCount++;
+			}
+
+			CheckEnemies();
+		}
+		
 		public Engine()
 		{
 			MissDescs[new Tuple<Weapon, long>(Weapon.Axe, 1)] = "Parried";

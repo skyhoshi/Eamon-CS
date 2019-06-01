@@ -741,7 +741,7 @@
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Portcullis Chamber" />
             <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in a medium-sized chamber where there are three exits.  The corridor is south and a portcullis blocks each of the other two tunnels, one to the west and one to the north.  The gates can be easily opened.  Torchlight is here." />
+            <Simple name="Desc" value="You are in a medium-sized chamber where there are three exits.  The corridor is south and a portcullis blocks each of the other two tunnels, one to the east and one to the north.  The gates can be easily opened.  Torchlight is here." />
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
             <Simple name="Zone" value="1" />

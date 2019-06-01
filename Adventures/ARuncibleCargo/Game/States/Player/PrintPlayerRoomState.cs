@@ -46,7 +46,7 @@ namespace ARuncibleCargo.Game.States
 
 					if (lookCommand != null)
 					{
-						PrintPlayerRoom();
+						Globals.Engine.PrintPlayerRoom();
 					}
 
 					// Nothing in the dream affects the real world; revert game state now that player is awake
@@ -183,8 +183,6 @@ namespace ARuncibleCargo.Game.States
 				{
 					if ((cargoArtifact.IsInRoom(room) || cargoArtifact.IsCarriedByCharacter()) && lilMonster.IsInRoom(room))
 					{
-						Globals.Engine.RemoveWeight(cargoArtifact);
-
 						cargoArtifact.SetCarriedByMonster(lilMonster);
 
 						Globals.Engine.PrintEffectDesc(119);
@@ -243,7 +241,7 @@ namespace ARuncibleCargo.Game.States
 					}
 				}
 
-				ac = cargoArtifact.Container;
+				ac = cargoArtifact.InContainer;
 
 				Debug.Assert(ac != null);
 

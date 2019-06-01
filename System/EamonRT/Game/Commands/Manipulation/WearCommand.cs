@@ -40,7 +40,14 @@ namespace EamonRT.Game.Commands
 
 				if (!DobjArtifact.IsCarriedByCharacter())
 				{
-					PrintTakingFirst(DobjArtifact);
+					if (DobjArtifact.IsCarriedByContainer())
+					{
+						PrintRemovingFirst(DobjArtifact);
+					}
+					else
+					{
+						PrintTakingFirst(DobjArtifact);
+					}
 
 					NextState = Globals.CreateInstance<IGetCommand>();
 
@@ -149,6 +156,7 @@ namespace EamonRT.Game.Commands
 			{
 				a => a.IsCarriedByCharacter() || a.IsInRoom(ActorRoom),
 				a => a.IsEmbeddedInRoom(ActorRoom),
+				a => a.GetCarriedByContainerContainerType() == ContainerType.On && a.GetCarriedByContainer() != null && a.GetCarriedByContainer().IsInRoom(ActorRoom),
 				a => a.IsWornByCharacter()
 			};
 

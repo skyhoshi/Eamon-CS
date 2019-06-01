@@ -10,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using Eamon.Framework;
 using Eamon.Framework.Plugin;
 using Eamon.Framework.Portability;
@@ -175,6 +176,13 @@ namespace Eamon.Game.Plugin
 					if (++i < args.Length)
 					{
 						WorkDir = args[i].Trim();
+
+						var regex = new Regex(Constants.ValidWorkDirRegexPattern);
+
+						if (string.Equals(WorkDir, "NONE", StringComparison.OrdinalIgnoreCase) || !regex.IsMatch(WorkDir))
+						{
+							WorkDir = Constants.DefaultWorkDir;
+						}
 					}
 				}
 				else if (string.Equals(args[i], "--filePrefix", StringComparison.OrdinalIgnoreCase) || string.Equals(args[i], "-fp", StringComparison.OrdinalIgnoreCase))

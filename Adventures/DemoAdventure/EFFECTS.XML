@@ -213,7 +213,7 @@
           <Properties>
             <Simple name="Uid" value="30" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Desc" value="LARGE OVEN." />
+            <Simple name="Desc" value="Eamon CS Note:  Eddie will not use the wrench because his natural weapons are more lethal." />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
@@ -221,6 +221,34 @@
             <Simple name="Uid" value="31" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="shelves" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="32" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Desc" value="LARGE OVEN." />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="33" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Desc" value="See EAMON CS 1.4 NEW COMMANDS for additional details." />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="34" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Desc" value="floor and you can GET ALL." />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="35" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Desc" value="to remove from or add to the container." />
           </Properties>
         </Complex>
       </Items>
@@ -231,6 +259,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="31" />
+    <Simple name="CurrUid" value="35" />
   </Properties>
 </Complex>

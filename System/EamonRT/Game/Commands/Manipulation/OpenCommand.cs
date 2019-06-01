@@ -23,18 +23,13 @@ namespace EamonRT.Game.Commands
 		/// <summary></summary>
 		public const long PpeAfterArtifactOpen = 2;
 
-		public virtual bool ShouldPrintContainerInventory()
-		{
-			return true;
-		}
-
 		public override void PlayerExecute()
 		{
 			RetCode rc;
 
 			Debug.Assert(DobjArtifact != null);
 
-			var containerAc = DobjArtifact.Container;
+			var inContainerAc = DobjArtifact.InContainer;
 
 			var doorGateAc = DobjArtifact.DoorGate;
 
@@ -46,7 +41,7 @@ namespace EamonRT.Game.Commands
 
 			var readableAc = DobjArtifact.Readable;
 
-			var ac =	containerAc != null ? containerAc :
+			var ac =	inContainerAc != null ? inContainerAc :
 						doorGateAc != null ? doorGateAc :
 						disguisedMonsterAc != null ? disguisedMonsterAc :
 						drinkableAc != null ? drinkableAc :
@@ -96,6 +91,18 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
+				if (ac.Type == ArtifactType.InContainer && DobjArtifact.OnContainer != null && DobjArtifact.IsInContainerOpenedFromTop())
+				{
+					var contentsList = DobjArtifact.GetContainedList(containerType: ContainerType.On);
+
+					if (contentsList.Count > 0)
+					{
+						PrintContainerNotEmpty(DobjArtifact, ContainerType.On, contentsList.Count > 1 || contentsList[0].IsPlural);
+
+						goto Cleanup;
+					}
+				}
+
 				if (keyUid == -1)
 				{
 					PrintWontOpen(DobjArtifact);
@@ -133,7 +140,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Type == ArtifactType.Container && ShouldPrintContainerInventory())
+				if (ac.Type == ArtifactType.InContainer && DobjArtifact.ShouldShowContentsWhenOpened())
 				{
 					NextState = Globals.CreateInstance<IInventoryCommand>();
 
@@ -147,7 +154,7 @@ namespace EamonRT.Game.Commands
 				/*
 				Note: duplicated above?
 
-				if (Ac.Type != ArtifactType.Container)
+				if (Ac.Type != ArtifactType.InContainer)
 				{
 					Ac.Field4 = 0;
 				}

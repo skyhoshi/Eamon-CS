@@ -166,8 +166,6 @@ namespace WrenholdsSecretVigil.Game.States
 
 						var lifeOrbInPedestal = lifeOrbArtifact.IsCarriedByContainerUid(43);
 
-						Globals.Engine.RemoveWeight(lifeOrbArtifact);
-
 						lifeOrbArtifact.SetInLimbo();
 
 						Globals.Out.Print("{0}", Globals.LineSep);
@@ -192,8 +190,6 @@ namespace WrenholdsSecretVigil.Game.States
 							var magicBowArtifact = Globals.ADB[50];
 
 							Debug.Assert(magicBowArtifact != null);
-
-							gameState.Wt += magicBowArtifact.Weight;
 
 							magicBowArtifact.SetCarriedByCharacter();
 

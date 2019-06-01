@@ -21,7 +21,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 			if ((BlastSpell || ActorMonster.Weapon > 0) && DobjArtifact != null && (DobjArtifact.Uid == 3 || DobjArtifact.Uid == 11 || DobjArtifact.Uid == 15))
 			{
-				var ac = DobjArtifact.GetArtifactCategory(new ArtifactType[] { ArtifactType.Container, ArtifactType.User1 });
+				var ac = DobjArtifact.GetArtifactCategory(new ArtifactType[] { ArtifactType.InContainer, ArtifactType.User1 });
 
 				Debug.Assert(ac != null);
 

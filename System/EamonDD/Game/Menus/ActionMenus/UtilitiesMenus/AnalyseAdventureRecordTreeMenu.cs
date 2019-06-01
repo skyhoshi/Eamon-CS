@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
 using EamonDD.Framework.Menus.ActionMenus;
@@ -32,11 +33,16 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			RecordTreeStrings.Add(string.Format("{0}{1}[{2}{3}: {4}", Environment.NewLine, indentString, tag, artifact.Uid, artifact.GetDecoratedName02(true, true, false, false, Buf)));
 
-			var containedList = artifact.GetContainedList();
+			var containedList = artifact.GetContainedList(containerType: (ContainerType)(-1));
 
 			foreach (var containedArtifact in containedList)
 			{
-				AnalyseArtifactRecordTree(containedArtifact, "CA", indentLevel + 1);
+				AnalyseArtifactRecordTree(containedArtifact, 
+					containedArtifact.GetCarriedByContainerContainerType() == ContainerType.On ? "OA" :
+					containedArtifact.GetCarriedByContainerContainerType() == ContainerType.Under ? "UA" :
+					containedArtifact.GetCarriedByContainerContainerType() == ContainerType.Behind ? "BA" :
+					"IA", 
+					indentLevel + 1);
 			}
 
 			RecordTreeStrings.Add(string.Format("{0}]", containedList.Count > 0 ? Environment.NewLine + indentString : ""));

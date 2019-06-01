@@ -142,7 +142,7 @@ namespace Eamon.Game
 
 		public Fileset()
 		{
-			WorkDir = "";
+			WorkDir = "NONE";
 
 			PluginFileName = "";
 

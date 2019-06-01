@@ -29,7 +29,14 @@ namespace EamonRT.Game.Commands
 			{
 				if (!DobjArtifact.IsUnmovable() && !DobjArtifact.IsCarriedByCharacter())
 				{
-					PrintTakingFirst(DobjArtifact);
+					if (DobjArtifact.IsCarriedByContainer())
+					{
+						PrintRemovingFirst(DobjArtifact);
+					}
+					else
+					{
+						PrintTakingFirst(DobjArtifact);
+					}
 
 					NextState = Globals.CreateInstance<IGetCommand>();
 

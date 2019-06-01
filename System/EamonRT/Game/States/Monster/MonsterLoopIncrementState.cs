@@ -3,8 +3,6 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System.Diagnostics;
-using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
@@ -14,13 +12,6 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class MonsterLoopIncrementState : State, IMonsterLoopIncrementState
 	{
-		public virtual bool ShouldProcessMonster(IMonster monster)
-		{
-			Debug.Assert(monster != null);
-
-			return monster.Location == Globals.GameState.Ro && !monster.IsCharacterMonster();
-		}
-
 		public override void Execute()
 		{
 			while (true)
@@ -31,7 +22,7 @@ namespace EamonRT.Game.States
 
 				if (monster != null)
 				{
-					if (ShouldProcessMonster(monster))
+					if (monster.ShouldProcessInGameLoop())
 					{
 						NextState = Globals.CreateInstance<IDefaultMonsterDecisionState>();
 

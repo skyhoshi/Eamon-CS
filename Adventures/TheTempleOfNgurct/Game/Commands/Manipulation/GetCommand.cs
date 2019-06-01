@@ -98,7 +98,8 @@ namespace TheTempleOfNgurct.Game.Commands
 				CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 				{
 					a => a.IsInRoom(ActorRoom),
-					a => a.IsEmbeddedInRoom(ActorRoom)
+					a => a.IsEmbeddedInRoom(ActorRoom),
+					a => a.GetCarriedByContainerContainerType() == ContainerType.On && a.GetCarriedByContainer() != null && a.GetCarriedByContainer().IsInRoom(ActorRoom)
 				};
 
 				CommandParser.ObjData.ArtifactNotFoundFunc = PrintCantVerbThat;

@@ -4,6 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.Parsing;
@@ -152,7 +153,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		public virtual string Prep
+		public virtual IPrep Prep
 		{
 			get
 			{
@@ -201,6 +202,19 @@ namespace EamonRT.Game.Commands
 			set
 			{
 				CommandImpl.IsListed = value;
+			}
+		}
+
+		public virtual bool IsDobjPrepEnabled
+		{
+			get
+			{
+				return CommandImpl.IsDobjPrepEnabled;
+			}
+
+			set
+			{
+				CommandImpl.IsDobjPrepEnabled = value;
 			}
 		}
 
@@ -281,6 +295,11 @@ namespace EamonRT.Game.Commands
 			CommandImpl.PrintTakingFirst(artifact);
 		}
 
+		public virtual void PrintRemovingFirst(IArtifact artifact)
+		{
+			CommandImpl.PrintRemovingFirst(artifact);
+		}
+
 		public virtual void PrintBestLeftAlone(IArtifact artifact)
 		{
 			CommandImpl.PrintBestLeftAlone(artifact);
@@ -299,6 +318,11 @@ namespace EamonRT.Game.Commands
 		public virtual void PrintMustFirstOpen(IArtifact artifact)
 		{
 			CommandImpl.PrintMustFirstOpen(artifact);
+		}
+
+		public virtual void PrintMustFirstClose(IArtifact artifact)
+		{
+			CommandImpl.PrintMustFirstClose(artifact);
 		}
 
 		public virtual void PrintRemoved(IArtifact artifact)
@@ -361,6 +385,11 @@ namespace EamonRT.Game.Commands
 			CommandImpl.PrintFull(artifact);
 		}
 
+		public virtual void PrintOutOfSpace(IArtifact artifact)
+		{
+			CommandImpl.PrintOutOfSpace(artifact);
+		}
+
 		public virtual void PrintLocked(IArtifact artifact)
 		{
 			CommandImpl.PrintLocked(artifact);
@@ -394,6 +423,11 @@ namespace EamonRT.Game.Commands
 		public virtual void PrintCantWearShieldWithWeapon(IArtifact shield, IArtifact weapon)
 		{
 			CommandImpl.PrintCantWearShieldWithWeapon(shield, weapon);
+		}
+
+		public virtual void PrintContainerNotEmpty(IArtifact artifact, ContainerType containerType, bool isPlural)
+		{
+			CommandImpl.PrintContainerNotEmpty(artifact, containerType, isPlural);
 		}
 
 		public virtual void PrintVerbItAll(IArtifact artifact)
@@ -439,6 +473,16 @@ namespace EamonRT.Game.Commands
 		public virtual void PrintNotReadyableWeapon(IArtifact artifact)
 		{
 			CommandImpl.PrintNotReadyableWeapon(artifact);
+		}
+
+		public virtual void PrintNotWhileCarryingObj(IArtifact artifact)
+		{
+			CommandImpl.PrintNotWhileCarryingObj(artifact);
+		}
+
+		public virtual void PrintNotWhileWearingObj(IArtifact artifact)
+		{
+			CommandImpl.PrintNotWhileWearingObj(artifact);
 		}
 
 		public virtual void PrintCantReadyWeaponWithShield(IArtifact weapon, IArtifact shield)
@@ -489,6 +533,11 @@ namespace EamonRT.Game.Commands
 		public virtual void PrintDontNeedTo()
 		{
 			CommandImpl.PrintDontNeedTo();
+		}
+
+		public virtual void PrintCantDoThat()
+		{
+			CommandImpl.PrintCantDoThat();
 		}
 
 		public virtual void PrintCantVerbThat()
@@ -644,6 +693,11 @@ namespace EamonRT.Game.Commands
 		public virtual bool IsEnabled(IMonster monster)
 		{
 			return CommandImpl.IsEnabled(monster);
+		}
+
+		public virtual bool IsPrepEnabled(IPrep prep)
+		{
+			return CommandImpl.IsPrepEnabled(prep);
 		}
 
 		public virtual void CopyCommandData(ICommand destCommand, bool includeIobj = true)

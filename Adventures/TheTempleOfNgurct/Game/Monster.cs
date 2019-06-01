@@ -15,7 +15,7 @@ namespace TheTempleOfNgurct.Game
 	[ClassMappings]
 	public class Monster : Eamon.Game.Monster, IMonster
 	{
-		protected override bool HasHumanNaturalAttackDescs()
+		public override bool HasHumanNaturalAttackDescs()
 		{
 			return Uid == 26;
 		}

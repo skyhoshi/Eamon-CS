@@ -66,7 +66,7 @@ namespace TheTrainingGround.Game.States
 
 					// Zapf the Conjurer brings in strangers (15% Chance)
 
-					if (zapfMonster.IsInRoom(characterRoom) && zapfMonster.Seen && !Globals.Engine.CheckNBTLHostility(zapfMonster) && staffArtifact.IsCarriedByMonster(zapfMonster))
+					if (zapfMonster.IsInRoom(characterRoom) && zapfMonster.Seen && !zapfMonster.CheckNBTLHostility() && staffArtifact.IsCarriedByMonster(zapfMonster))
 					{
 						var rl = Globals.Engine.RollDice(1, 100, 0);
 

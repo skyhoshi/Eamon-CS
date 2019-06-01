@@ -17,14 +17,9 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class SmileCommand : Command, ISmileCommand
 	{
-		public virtual IList<IMonster> GetMonsterSmilesList()
-		{
-			return ActorRoom.IsLit() ? Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m != ActorMonster) : new List<IMonster>();
-		}
-
 		public override void PlayerExecute()
 		{
-			var monsters = GetMonsterSmilesList();
+			var monsters = Globals.Engine.GetSmilingMonsterList(ActorRoom, ActorMonster);
 
 			if (monsters.Count() > 0)
 			{

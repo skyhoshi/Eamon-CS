@@ -18,9 +18,13 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class DropCommand : Command, IDropCommand
 	{
+		public virtual bool DropAll { get; set; }
+
+		/// <summary></summary>
 		public virtual IList<IArtifact> ArtifactList { get; set; }
 
-		public virtual bool DropAll { get; set; }
+		/// <summary></summary>
+		public virtual IList<string> ContainerContentsList { get; set; }
 
 		public virtual void ProcessLightSource()
 		{
@@ -41,9 +45,11 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Engine.RemoveWeight(artifact);
+			Globals.LastArtifactLocation = artifact.Location;
 
 			artifact.SetInRoom(ActorRoom);
+
+			Globals.Engine.RevealExtendedContainerContents(ActorRoom, artifact, ContainerContentsList);
 
 			if (ActorMonster.Weapon == artifact.Uid)
 			{
@@ -62,6 +68,8 @@ namespace EamonRT.Game.Commands
 		public override void PlayerExecute()
 		{
 			Debug.Assert(DropAll || DobjArtifact != null);
+
+			ContainerContentsList = new List<string>();
 
 			if (DobjArtifact != null && DobjArtifact.IsWornByCharacter())
 			{
@@ -84,6 +92,11 @@ namespace EamonRT.Game.Commands
 				}
 
 				Globals.Out.WriteLine();
+
+				foreach (var containerContentsDesc in ContainerContentsList)
+				{
+					Globals.Out.Write("{0}", containerContentsDesc);
+				}
 			}
 			else
 			{

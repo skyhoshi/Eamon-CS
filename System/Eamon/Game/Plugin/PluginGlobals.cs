@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Eamon.Framework;
 using Eamon.Framework.DataStorage;
 using Eamon.Framework.DataStorage.Generic;
@@ -608,9 +609,9 @@ namespace Eamon.Game.Plugin
 			return ClassMappings.GetPrefixedFileName(fileName);
 		}
 
-		public virtual void ReplaceTextfileValues(string fileName, string[] oldValues, string[] newValues)
+		public virtual void ReplaceTextfileValues(string fileName, string[] patterns, string[] replacements)
 		{
-			if (string.IsNullOrWhiteSpace(fileName) || oldValues == null || newValues == null || oldValues.Length != newValues.Length)
+			if (string.IsNullOrWhiteSpace(fileName) || patterns == null || replacements == null || patterns.Length != replacements.Length)
 			{
 				// PrintError
 
@@ -619,9 +620,9 @@ namespace Eamon.Game.Plugin
 
 			var contents = Globals.File.ReadAllText(fileName);
 
-			for (var i = 0; i < oldValues.Length; i++)
+			for (var i = 0; i < patterns.Length; i++)
 			{
-				contents = contents.Replace(oldValues[i], newValues[i]);
+				contents = Regex.Replace(contents, patterns[i], replacements[i]);
 			}
 
 			Globals.File.WriteAllText(fileName, contents);
@@ -640,11 +641,15 @@ namespace Eamon.Game.Plugin
 				goto Cleanup;
 			}
 
+			var workDir = Globals.Directory.GetCurrentDirectory().Replace('/', '\\');
+
 			var needsUpgrade = true;
 
 			while (needsUpgrade)
 			{
 				var firstLine = Globals.File.ReadFirstLine(fileName);
+
+				var upgraded = false;
 
 				if (firstLine.Contains("Version=1.3.0.0"))
 				{
@@ -655,10 +660,10 @@ namespace Eamon.Game.Plugin
 							fileName,
 							new string[]
 							{
-								"Version=1.3.0.0",
-								"EAMON CS 1.3",
+								@"Version=1\.3\.0\.0",
+								@"EAMON CS 1\.3",
+								@"Eamon\.Game\.Primitive\.Classes\.ArtifactClass",
 								"<SingleArray name=\"Classes\">",
-								"Eamon.Game.Primitive.Classes.ArtifactClass",
 								"<Simple name=\"Field5\"",
 								"<Simple name=\"Field6\"",
 								"<Simple name=\"Field7\"",
@@ -668,24 +673,27 @@ namespace Eamon.Game.Plugin
 							{
 								"Version=1.4.0.0",
 								"EAMON CS 1.4",
-								"<SingleArray name=\"Categories\">",
 								"Eamon.Game.Primitive.Classes.ArtifactCategory",
+								"<SingleArray name=\"Categories\">",
 								"<Simple name=\"Field1\"",
 								"<Simple name=\"Field2\"",
 								"<Simple name=\"Field3\"",
 								"<Simple name=\"Field4\"",
 							}
 						);
+
+						upgraded = true;
 					}
-					else
+
+					if (!upgraded)
 					{
 						ReplaceTextfileValues
 						(
 							fileName,
 							new string[]
 							{
-								"Version=1.3.0.0",
-								"EAMON CS 1.3",
+								@"Version=1\.3\.0\.0",
+								@"EAMON CS 1\.3",
 							},
 							new string[]
 							{
@@ -704,9 +712,9 @@ namespace Eamon.Game.Plugin
 							fileName,
 							new string[]
 							{
-								"Version=1.4.0.0",
-								"EAMON CS 1.4",
-								"Eamon.Game.Primitive.Classes.CharacterWeapon",
+								@"Version=1\.4\.0\.0",
+								@"EAMON CS 1\.4",
+								@"Eamon\.Game\.Primitive\.Classes\.CharacterWeapon",
 								"<Simple name=\"Complexity\"",
 								"<Simple name=\"Type\" value=\"Axe\"",
 								"<Simple name=\"Type\" value=\"Bow\"",
@@ -731,21 +739,105 @@ namespace Eamon.Game.Plugin
 								"<Simple name=\"Field4\"",
 							}
 						);
+
+						upgraded = true;
 					}
-					else
+
+					if (!upgraded)
 					{
 						ReplaceTextfileValues
 						(
 							fileName,
 							new string[]
 							{
-								"Version=1.4.0.0",
-								"EAMON CS 1.4",
+								@"Version=1\.4\.0\.0",
+								@"EAMON CS 1\.4",
 							},
 							new string[]
 							{
 								"Version=1.5.0.0",
 								"EAMON CS 1.5",
+							}
+						);
+					}
+				}
+				else if (firstLine.Contains("Version=1.5.0.0"))
+				{
+					if (firstLine.Contains("Game.DataStorage.ArtifactDbTable") || firstLine.Contains("Game.DataStorage.Database"))
+					{
+						ReplaceTextfileValues
+						(
+							fileName,
+							new string[]
+							{
+								@"Version=1\.5\.0\.0",
+								@"EAMON CS 1\.5",
+								"<Simple name=\"Type\" value=\"Container\"",
+								"<Simple name=\"Location\" value=\"4(...)\"",
+								"<Simple name=\"Location\" value=\"2(...)\"",
+							},
+							new string[]
+							{
+								"Version=1.6.0.0",
+								"EAMON CS 1.6",
+								"<Simple name=\"Type\" value=\"InContainer\"",
+								"<Simple name=\"Location\" value=\"7$1\"",
+								"<Simple name=\"Location\" value=\"5$1\"",
+							}
+						);
+
+						if (workDir.EndsWith(@"\Adventures\ARuncibleCargo"))
+						{
+							ReplaceTextfileValues
+							(
+								fileName,
+								new string[]
+								{
+									@"Eamon\.Game\.Artifact, Eamon",
+								},
+								new string[]
+								{
+									"ARuncibleCargo.Game.Artifact, ARuncibleCargo",
+								}
+							);
+						}
+
+						upgraded = true;
+					}
+					
+					if (firstLine.Contains("Game.DataStorage.MonsterDbTable") || firstLine.Contains("Game.DataStorage.Database"))
+					{
+						if (workDir.EndsWith(@"\Adventures\TheTrainingGround"))
+						{
+							ReplaceTextfileValues
+							(
+								fileName,
+								new string[]
+								{
+									@"Eamon\.Game\.Monster, Eamon",
+								},
+								new string[]
+								{
+									"TheTrainingGround.Game.Monster, TheTrainingGround",
+								}
+							);
+						}
+					}
+
+					if (!upgraded)
+					{
+						ReplaceTextfileValues
+						(
+							fileName,
+							new string[]
+							{
+								@"Version=1\.5\.0\.0",
+								@"EAMON CS 1\.5",
+							},
+							new string[]
+							{
+								"Version=1.6.0.0",
+								"EAMON CS 1.6",
 							}
 						);
 					}

@@ -4,8 +4,6 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
-using Eamon.Framework;
-using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
@@ -15,38 +13,6 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class ArtifactLoopInitializeState : State, IArtifactLoopInitializeState
 	{
-		public virtual void BuildLoopArtifactList(IMonster monster)
-		{
-			Debug.Assert(monster != null);
-
-			Globals.LoopArtifactList = null;
-
-			if (monster.CombatCode == CombatCode.NaturalWeapons && monster.Weapon <= 0)
-			{
-				Globals.LoopArtifactList = Globals.Engine.GetReadyableWeaponList(monster);
-
-				if (Globals.LoopArtifactList != null && Globals.LoopArtifactList.Count > 0)
-				{
-					var wpnArtifact = Globals.LoopArtifactList[0];
-
-					Debug.Assert(wpnArtifact != null);
-
-					var ac = wpnArtifact.GeneralWeapon;
-
-					Debug.Assert(ac != null);
-
-					if (monster.Weapon != -wpnArtifact.Uid - 1 && monster.NwDice * monster.NwSides > ac.Field3 * ac.Field4)
-					{
-						Globals.LoopArtifactList = null;
-					}
-				}
-			}
-			else if ((monster.CombatCode == CombatCode.Weapons || monster.CombatCode == CombatCode.Attacks) && monster.Weapon < 0)
-			{
-				Globals.LoopArtifactList = Globals.Engine.GetReadyableWeaponList(monster);
-			}
-		}
-
 		public override void Execute()
 		{
 			var monster = Globals.MDB[Globals.LoopMonsterUid];
@@ -55,7 +21,7 @@ namespace EamonRT.Game.States
 
 			Globals.LoopArtifactListIndex = -1;
 
-			BuildLoopArtifactList(monster);
+			Globals.LoopArtifactList = Globals.Engine.BuildLoopArtifactList(monster);
 
 			if (Globals.LoopArtifactList == null || Globals.LoopArtifactList.Count <= 0)
 			{

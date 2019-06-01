@@ -47,8 +47,6 @@ namespace TheTrainingGround.Game.Commands
 
 				if (IobjMonster.Uid == 14 && DobjArtifact.Uid == 51)
 				{
-					Globals.Engine.RemoveWeight(DobjArtifact);
-
 					DobjArtifact.SetInLimbo();
 
 					IobjMonster.SetInLimbo();
@@ -118,11 +116,6 @@ namespace TheTrainingGround.Game.Commands
 			{
 				base.PlayerProcessEvents(eventType);
 			}
-		}
-
-		public override bool MonsterRefusesToAccept()
-		{
-			return ((IobjMonster.Uid == 5 && DobjArtifact.Uid == 8) || (IobjMonster.Uid == 14 && DobjArtifact.Uid == 51)) ? false : base.MonsterRefusesToAccept();
 		}
 	}
 }

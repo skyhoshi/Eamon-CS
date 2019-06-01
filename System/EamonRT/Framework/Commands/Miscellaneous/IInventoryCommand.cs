@@ -8,6 +8,7 @@ namespace EamonRT.Framework.Commands
 	/// <summary></summary>
 	public interface IInventoryCommand : ICommand
 	{
-
+		/// <summary></summary>
+		bool AllowExtendedContainers { get; set; }
 	}
 }

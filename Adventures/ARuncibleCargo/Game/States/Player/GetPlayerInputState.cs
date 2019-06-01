@@ -128,7 +128,7 @@ namespace ARuncibleCargo.Game.States
 
 				Debug.Assert(ovenArtifact != null);
 
-				var ac = ovenArtifact.Container;
+				var ac = ovenArtifact.InContainer;
 
 				Debug.Assert(ac != null);
 
@@ -210,7 +210,7 @@ namespace ARuncibleCargo.Game.States
 
 				Debug.Assert(jailCellArtifact != null);
 
-				ac = jailCellArtifact.Container;
+				ac = jailCellArtifact.InContainer;
 
 				Debug.Assert(ac != null);
 

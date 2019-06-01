@@ -5,6 +5,7 @@
 
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
@@ -23,8 +24,6 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 					if (DobjArtifact.Uid == 15)
 					{
-						Globals.Engine.RemoveWeight(DobjArtifact);
-
 						DobjArtifact.SetInLimbo();
 
 						IobjMonster.Friendliness = (Friendliness)150;
@@ -54,7 +53,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				// Further disable bribing
 
-				else if (base.MonsterRefusesToAccept())
+				else if (IobjMonster.CastTo<Framework.IMonster>().ShouldRefuseToAcceptGift01(DobjArtifact))
 				{
 					Globals.Engine.MonsterSmiles(IobjMonster);
 
@@ -88,11 +87,6 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				base.PlayerProcessEvents(eventType);
 			}
-		}
-
-		public override bool MonsterRefusesToAccept()
-		{
-			return false;
 		}
 	}
 }

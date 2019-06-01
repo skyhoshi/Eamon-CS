@@ -14,7 +14,7 @@ namespace WrenholdsSecretVigil.Game
 	[ClassMappings(typeof(IRoom))]
 	public class Room : Eamon.Game.Room, Framework.IRoom
 	{
-		protected override bool IsDirectionInObviousExitsList(long index)
+		public override bool IsDirectionInObviousExitsList(long index)
 		{
 			// Suppress up/down in obvious exits list while hiking
 

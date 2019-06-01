@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -70,13 +71,15 @@ namespace EamonRT.Game.Commands
 
 		public virtual string Verb { get; set; }
 
-		public virtual string Prep { get; set; }
+		public virtual IPrep Prep { get; set; }
 
 		public virtual CommandType Type { get; set; }
 
 		public virtual bool IsNew { get; set; }
 
 		public virtual bool IsListed { get; set; }
+
+		public virtual bool IsDobjPrepEnabled { get; set; }
 
 		public virtual bool IsIobjEnabled { get; set; }
 
@@ -121,6 +124,13 @@ namespace EamonRT.Game.Commands
 			Globals.Out.Print("[Taking {0} first.]", artifact.EvalPlural("it", "them"));
 		}
 
+		public virtual void PrintRemovingFirst(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Out.Print("[Removing {0} first.]", artifact.EvalPlural("it", "them"));
+		}
+
 		public virtual void PrintBestLeftAlone(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
@@ -147,6 +157,13 @@ namespace EamonRT.Game.Commands
 			Debug.Assert(artifact != null);
 
 			Globals.Out.Print("You must first open {0}.", artifact.EvalPlural("it", "them"));
+		}
+
+		public virtual void PrintMustFirstClose(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Out.Print("You must first close {0}.", artifact.EvalPlural("it", "them"));
 		}
 
 		public virtual void PrintRemoved(IArtifact artifact)
@@ -233,6 +250,13 @@ namespace EamonRT.Game.Commands
 			Globals.Out.Print("{0} full.", artifact.EvalPlural("It's", "They're"));
 		}
 
+		public virtual void PrintOutOfSpace(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Out.Print("{0} out of space.", artifact.EvalPlural("It's", "They're"));
+		}
+
 		public virtual void PrintLocked(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
@@ -296,6 +320,18 @@ namespace EamonRT.Game.Commands
 			Globals.Out.Print("You can't wear {0} while using {1}.", shield.GetDecoratedName03(false, true, false, false, Globals.Buf), weapon.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 		}
 
+		public virtual void PrintContainerNotEmpty(IArtifact artifact, ContainerType containerType, bool isPlural)
+		{
+			Debug.Assert(artifact != null && Enum.IsDefined(typeof(ContainerType), containerType));
+
+			Globals.Out.Print("{0} {1} {2} {3} {4}.  Remove it first.", 
+				artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), 
+				artifact.EvalPlural("has", "have"), 
+				isPlural ? "some stuff" : "something", 
+				Globals.Engine.EvalContainerType(containerType, "inside", "on", "under", "behind"), 
+				artifact.EvalPlural("it", "them"));
+		}
+
 		public virtual void PrintVerbItAll(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
@@ -357,6 +393,20 @@ namespace EamonRT.Game.Commands
 			Debug.Assert(artifact != null);
 
 			Globals.Out.Print("{0} a weapon that you can use.", artifact.EvalPlural("That isn't", "They aren't"));
+		}
+
+		public virtual void PrintNotWhileCarryingObj(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Out.Print("You can't do that while carrying {0}.", artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+		}
+
+		public virtual void PrintNotWhileWearingObj(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			Globals.Out.Print("You can't do that while wearing {0}.", artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
 		}
 
 		public virtual void PrintCantReadyWeaponWithShield(IArtifact weapon, IArtifact shield)
@@ -433,6 +483,11 @@ namespace EamonRT.Game.Commands
 		public virtual void PrintDontNeedTo()
 		{
 			Globals.Out.Print("You don't need to.");
+		}
+
+		public virtual void PrintCantDoThat()
+		{
+			Globals.Out.Print("You can't do that.");
 		}
 
 		public virtual void PrintCantVerbThat()
@@ -628,7 +683,8 @@ namespace EamonRT.Game.Commands
 						Command.CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 						{
 							a => a.IsCarriedByCharacter() || a.IsInRoom(Command.ActorRoom),
-							a => a.IsEmbeddedInRoom(Command.ActorRoom)
+							a => a.IsEmbeddedInRoom(Command.ActorRoom),
+							a => a.GetCarriedByContainerContainerType() == ContainerType.On && a.GetCarriedByContainer() != null && a.GetCarriedByContainer().IsInRoom(Command.ActorRoom)
 						};
 					}
 
@@ -844,6 +900,13 @@ namespace EamonRT.Game.Commands
 			Debug.Assert(monster != null);
 
 			return monster.IsCharacterMonster() ? Command.IsPlayerEnabled : Command.IsMonsterEnabled;
+		}
+
+		public virtual bool IsPrepEnabled(IPrep prep)
+		{
+			Debug.Assert(prep != null);
+
+			return true;
 		}
 
 		public virtual void CopyCommandData(ICommand destCommand, bool includeIobj = true)

@@ -4,6 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework.Primitive.Enums;
@@ -20,7 +21,14 @@ namespace EamonRT.Game.Commands
 		/// <summary></summary>
 		public const long PpeAfterArtifactPut = 1;
 
+		/// <summary></summary>
 		public virtual bool GetCommandCalled { get; set; }
+
+		/// <summary></summary>
+		public virtual ContainerType ContainerType { get; set; }
+
+		/// <summary></summary>
+		public virtual IList<string> ContainerContentsList { get; set; }
 
 		public override void PlayerExecute()
 		{
@@ -28,9 +36,18 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null && IobjArtifact != null);
 
+			ContainerContentsList = new List<string>();
+
 			if (!DobjArtifact.IsCarriedByCharacter() && !GetCommandCalled)
 			{
-				PrintTakingFirst(DobjArtifact);
+				if (DobjArtifact.IsCarriedByContainer())
+				{
+					PrintRemovingFirst(DobjArtifact);
+				}
+				else
+				{
+					PrintTakingFirst(DobjArtifact);
+				}
 
 				NextState = Globals.CreateInstance<IGetCommand>(x =>
 				{
@@ -42,6 +59,8 @@ namespace EamonRT.Game.Commands
 				NextState.NextState = Globals.CreateInstance<IPutCommand>(x =>
 				{
 					x.GetCommandCalled = true;
+
+					x.ContainerType = ContainerType;
 				});
 
 				CopyCommandData(NextState.NextState as ICommand);
@@ -59,9 +78,9 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			var ac = IobjArtifact.Container;
+			var ac = Globals.Engine.EvalContainerType(ContainerType, IobjArtifact.InContainer, IobjArtifact.OnContainer, IobjArtifact.UnderContainer, IobjArtifact.BehindContainer);
 
-			if (DobjArtifact == IobjArtifact || ac == null)
+			if (IobjArtifact == DobjArtifact || ac == null)
 			{
 				PrintDontFollowYou();
 
@@ -70,7 +89,23 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (!ac.IsOpen())
+			if ((IobjArtifact.IsCarriedByCharacter() && !IobjArtifact.ShouldAddContentsWhenCarried(ContainerType)) || (IobjArtifact.IsWornByCharacter() && !IobjArtifact.ShouldAddContentsWhenWorn(ContainerType)))
+			{
+				if (IobjArtifact.IsCarriedByCharacter())
+				{
+					PrintNotWhileCarryingObj(IobjArtifact);
+				}
+				else
+				{
+					PrintNotWhileWearingObj(IobjArtifact);
+				}
+
+				NextState = Globals.CreateInstance<IStartState>();
+
+				goto Cleanup;
+			}
+
+			if (ac == IobjArtifact.InContainer && !ac.IsOpen())
 			{
 				PrintMustFirstOpen(IobjArtifact);
 
@@ -79,9 +114,18 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (ac.GetKeyUid() == -2)
+			if ((ac == IobjArtifact.InContainer && ac.GetKeyUid() == -2) || (ac == IobjArtifact.OnContainer && IobjArtifact.InContainer != null && IobjArtifact.InContainer.GetKeyUid() == -2 && IobjArtifact.IsInContainerOpenedFromTop()))
 			{
 				PrintBrokeIt(IobjArtifact);
+
+				goto Cleanup;
+			}
+
+			if (ac == IobjArtifact.OnContainer && IobjArtifact.InContainer != null && IobjArtifact.InContainer.IsOpen() && IobjArtifact.IsInContainerOpenedFromTop())
+			{
+				PrintMustFirstClose(IobjArtifact);
+
+				NextState = Globals.CreateInstance<IStartState>();
 
 				goto Cleanup;
 			}
@@ -90,7 +134,7 @@ namespace EamonRT.Game.Commands
 
 			var weight = 0L;
 
-			rc = IobjArtifact.GetContainerInfo(ref count, ref weight, false);
+			rc = IobjArtifact.GetContainerInfo(ref count, ref weight, ContainerType, false);
 
 			Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -105,7 +149,7 @@ namespace EamonRT.Game.Commands
 
 			var maxItemsReached = count >= ac.Field4;
 
-			if (!maxItemsReached && weight + DobjArtifact.Weight > ac.Field3)
+			if ((!maxItemsReached && weight + DobjArtifact.Weight > ac.Field3) || !IobjArtifact.ShouldAddContents(DobjArtifact, ContainerType))
 			{
 				PrintWontFit(DobjArtifact);
 
@@ -114,25 +158,23 @@ namespace EamonRT.Game.Commands
 
 			if (maxItemsReached || weight + DobjArtifact.Weight > ac.Field3)
 			{
-				PrintFull(IobjArtifact);
+				if (ac == IobjArtifact.InContainer)
+				{
+					PrintFull(IobjArtifact);
+				}
+				else
+				{
+					PrintOutOfSpace(IobjArtifact);
+				}
 
 				goto Cleanup;
 			}
 
-			if (!IobjArtifact.IsCarriedByCharacter())
-			{
-				count = 0;
+			Globals.LastArtifactLocation = DobjArtifact.Location;
 
-				weight = DobjArtifact.Weight;
+			DobjArtifact.SetCarriedByContainer(IobjArtifact, ContainerType);
 
-				rc = DobjArtifact.GetContainerInfo(ref count, ref weight, true);
-
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-				Globals.GameState.Wt -= weight;
-			}
-
-			DobjArtifact.SetCarriedByContainer(IobjArtifact);
+			Globals.Engine.RevealExtendedContainerContents(ActorRoom, DobjArtifact, ContainerContentsList);
 
 			if (Globals.GameState.Ls == DobjArtifact.Uid)
 			{
@@ -154,6 +196,11 @@ namespace EamonRT.Game.Commands
 
 			Globals.Out.Print("Done.");
 
+			foreach (var containerContentsDesc in ContainerContentsList)
+			{
+				Globals.Out.Write("{0}", containerContentsDesc);
+			}
+
 			PlayerProcessEvents(PpeAfterArtifactPut);
 
 			if (GotoCleanup)
@@ -173,15 +220,40 @@ namespace EamonRT.Game.Commands
 		{
 			PlayerResolveArtifact();
 
+			ContainerType = Prep != null ? Prep.ContainerType : (ContainerType)(-1);
+
 			if (DobjArtifact != null)
 			{
 				CommandParser.ObjData = CommandParser.IobjData;
 
-				CommandParser.ObjData.QueryDesc = string.Format("{0}Put {1} in what? ", Environment.NewLine, DobjArtifact.EvalPlural("it", "them"));
+				CommandParser.ObjData.QueryDesc = string.Format("{0}Put {1} {2} what? ", Environment.NewLine, DobjArtifact.EvalPlural("it", "them"), Enum.IsDefined(typeof(ContainerType), ContainerType) ? Globals.Engine.EvalContainerType(ContainerType, "inside", "on", "under", "behind") : "in");
 
 				PlayerResolveArtifact();
+
+				if (IobjArtifact != null)
+				{
+					if (!Enum.IsDefined(typeof(ContainerType), ContainerType))
+					{
+						var artTypes = new ArtifactType[] { ArtifactType.InContainer, ArtifactType.OnContainer };
+
+						var defaultAc = IobjArtifact.GetArtifactCategory(artTypes);
+
+						ContainerType = defaultAc != null ? Globals.Engine.GetContainerType(defaultAc.Type) : ContainerType.In;
+					}
+				}
 			}
 		}
+
+		/*
+		public override bool IsPrepEnabled(IPrep prep)
+		{
+			Debug.Assert(prep != null);
+
+			var prepNames = new string[] { "in", "into", "on", "onto", "under", "behind" };
+
+			return prepNames.FirstOrDefault(pn => string.Equals(prep.Name, pn, StringComparison.OrdinalIgnoreCase)) != null;
+		}
+		*/
 
 		public PutCommand()
 		{
@@ -201,6 +273,8 @@ namespace EamonRT.Game.Commands
 			Verb = "put";
 
 			Type = CommandType.Manipulation;
+
+			ContainerType = (ContainerType)(-1);
 		}
 	}
 }

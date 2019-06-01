@@ -25,8 +25,6 @@ namespace TheTempleOfNgurct.Game
 
 			var carryingMedallion = medallionArtifact.IsCarriedByCharacter();
 
-			Globals.Engine.RemoveWeight(medallionArtifact);
-
 			medallionArtifact.SetInLimbo();
 
 			base.Shutdown();

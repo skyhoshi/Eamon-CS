@@ -24,8 +24,17 @@ namespace Eamon.Framework.Primitive.Enums
 		MagicWeapon,
 		
 		/// <summary></summary>
-		Container,
+		InContainer,
+
+		/// <summary></summary>
+		OnContainer,
+
+		/// <summary></summary>
+		UnderContainer,
 		
+		/// <summary></summary>
+		BehindContainer,
+
 		/// <summary></summary>
 		LightSource,
 		

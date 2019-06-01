@@ -101,7 +101,7 @@
           <Properties>
             <Simple name="Uid" value="14" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Desc" value="The scroll has a series of runes inscribed on it.*016" />
+            <Simple name="Desc" value="The leaflet has a series of runes inscribed on it.*016" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
@@ -122,7 +122,7 @@
           <Properties>
             <Simple name="Uid" value="17" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Desc" value="At this point, you abandon your efforts to decipher the scroll, intending to take it to Hokas for review at your earliest convenience." />
+            <Simple name="Desc" value="At this point, you abandon your efforts to decipher the leaflet, intending to take it to Hokas for review at your earliest convenience." />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">

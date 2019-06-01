@@ -5,6 +5,7 @@
 
 using System.Text;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using EamonRT.Framework.States;
 
 namespace EamonRT.Framework.Parsing
@@ -26,6 +27,9 @@ namespace EamonRT.Framework.Parsing
 
 		/// <summary></summary>
 		long PrepTokenIndex { get; set; }
+
+		/// <summary></summary>
+		IPrep Prep { get; set; }
 
 		/// <summary></summary>
 		IMonster ActorMonster { get; set; }

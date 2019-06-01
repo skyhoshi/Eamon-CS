@@ -113,8 +113,6 @@ namespace WrenholdsSecretVigil.Game.Commands
 					Globals.Engine.LightOut(wpnArtifact);
 				}
 
-				Globals.Engine.RemoveWeight(wpnArtifact);
-
 				wpnArtifact.SetInLimbo();
 
 				var rc = wpnArtifact.RemoveStateDesc(wpnArtifact.GetReadyWeaponDesc());

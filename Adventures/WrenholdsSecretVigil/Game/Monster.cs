@@ -12,14 +12,9 @@ using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game
 {
-	[ClassMappings]
-	public class Monster : Eamon.Game.Monster, IMonster
+	[ClassMappings(typeof(IMonster))]
+	public class Monster : Eamon.Game.Monster, Framework.IMonster
 	{
-		protected override bool HasHumanNaturalAttackDescs()
-		{
-			return Uid == 4 || Uid == 5;
-		}
-
 		public override bool HasWornInventory()
 		{
 			// Only humanoids have a worn inventory list
@@ -32,6 +27,31 @@ namespace WrenholdsSecretVigil.Game
 			// Only humanoids have a carried inventory list
 
 			return Uid != 1 && Uid != 6 && Uid != 7 && Uid != 26;
+		}
+
+		public override bool HasHumanNaturalAttackDescs()
+		{
+			return Uid == 4 || Uid == 5;
+		}
+
+		public override bool ShouldFleeRoom()
+		{
+			return Globals.DeviceOpened || base.ShouldFleeRoom();
+		}
+		
+		public override bool ShouldRefuseToAcceptGift(IArtifact artifact)
+		{
+			return false;
+		}
+
+		public virtual bool ShouldRefuseToAcceptGift01(IArtifact artifact)
+		{
+			return base.ShouldRefuseToAcceptGift(artifact);
+		}
+
+		public override long GetFleeingMemberCount()
+		{
+			return Globals.DeviceOpened ? GroupCount : base.GetFleeingMemberCount();
 		}
 
 		public override void AddHealthStatus(StringBuilder buf, bool addNewLine = true)

@@ -9,6 +9,8 @@ using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Combat;
+using EamonRT.Framework.States;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
 namespace TheTempleOfNgurct.Game
@@ -251,6 +253,31 @@ namespace TheTempleOfNgurct.Game
 			base.MonsterDies(OfMonster, DfMonster);
 
 			DfMonster.DmgTaken = dmgTaken;
+		}
+
+		public virtual IList<IMonster> GetTrapMonsterList(long numMonsters, long roomUid)
+		{
+			var monsters = GetRandomMonsterList(numMonsters, m => m.IsCharacterMonster() || (m.Seen && m.IsInRoomUid(roomUid)));
+
+			Debug.Assert(monsters != null);
+
+			return monsters;
+		}
+
+		public virtual void ApplyTrapDamage(Action<IState> setNextStateFunc, IMonster monster, long numDice, long numSides, bool omitArmor)
+		{
+			Debug.Assert(setNextStateFunc != null && monster != null);
+
+			var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
+			{
+				x.SetNextStateFunc = setNextStateFunc;
+
+				x.DfMonster = monster;
+
+				x.OmitArmor = omitArmor;
+			});
+
+			combatSystem.ExecuteCalculateDamage(numDice, numSides);
 		}
 
 		public virtual bool GetWanderingMonster()

@@ -20,6 +20,8 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class InventoryCommand : Command, IInventoryCommand
 	{
+		public virtual bool AllowExtendedContainers { get; set; }
+
 		public override void PlayerExecute()
 		{
 			RetCode rc;
@@ -33,16 +35,33 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact != null)
 			{
-				var ac = DobjArtifact.Container;
+				var ac = DobjArtifact.InContainer;
+
+				if (ac == null)
+				{
+					ac = DobjArtifact.OnContainer;
+				}
+
+				if (ac == null && AllowExtendedContainers)
+				{
+					ac = DobjArtifact.UnderContainer;
+				}
+
+				if (ac == null && AllowExtendedContainers)
+				{
+					ac = DobjArtifact.BehindContainer;
+				}
 
 				if (ac != null)
 				{
+					var containerType = Globals.Engine.GetContainerType(ac.Type);
+
 					if (DobjArtifact.IsEmbeddedInRoom(ActorRoom))
 					{
 						DobjArtifact.SetInRoom(ActorRoom);
 					}
 
-					if (!ac.IsOpen())
+					if (ac == DobjArtifact.InContainer && !ac.IsOpen())
 					{
 						PrintMustFirstOpen(DobjArtifact);
 
@@ -51,24 +70,27 @@ namespace EamonRT.Game.Commands
 						goto Cleanup;
 					}
 
-					var artifactList = DobjArtifact.GetContainedList();
+					var artifactList = DobjArtifact.GetContainedList(containerType: containerType);
 
 					var showCharOwned = !DobjArtifact.IsCarriedByCharacter() && !DobjArtifact.IsWornByCharacter();
 
-					Globals.Buf.SetFormat("{0}{1} {2} ",
-						Environment.NewLine,
-						DobjArtifact.GetDecoratedName03(true, showCharOwned, false, false, Globals.Buf01),
-						artifactList.Count > 0 ? DobjArtifact.EvalPlural("contains", "contain") : DobjArtifact.EvalPlural("is", "are"));
-
 					if (artifactList.Count > 0)
 					{
-						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, showCharOwned, true, false, Globals.Buf);
+						Globals.Buf.SetFormat("{0}{1} {2} you see ",
+							Environment.NewLine,
+							Globals.Engine.EvalContainerType(containerType, "Inside", "On", "Under", "Behind"),
+							DobjArtifact.GetDecoratedName03(false, showCharOwned, false, false, Globals.Buf01));
+
+						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, showCharOwned, StateDescDisplayCode.None, false, false, Globals.Buf);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 					}
 					else
 					{
-						Globals.Buf.Append("empty");
+						Globals.Buf.SetFormat("{0}There's nothing {1} {2}",
+							Environment.NewLine,
+							Globals.Engine.EvalContainerType(containerType, "inside", "on", "under", "behind"),
+							DobjArtifact.GetDecoratedName03(false, showCharOwned, false, false, Globals.Buf01));
 					}
 
 					Globals.Buf.AppendFormat(".{0}", Environment.NewLine);
@@ -111,7 +133,7 @@ namespace EamonRT.Game.Commands
 							isCharMonster ? "are" : DobjMonster.EvalPlural("is", "are"),
 							isCharMonster ? "wearing " : DobjMonster.EvalPlural("wearing ", "wearing among them "));
 
-						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, isCharMonster ? false : true, true, false, Globals.Buf);
+						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, isCharMonster ? false : true, isCharMonster ? StateDescDisplayCode.AllStateDescs : StateDescDisplayCode.SideNotesOnly, isCharMonster ? true : false, false, Globals.Buf);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -147,7 +169,7 @@ namespace EamonRT.Game.Commands
 
 					if (artifactList.Count > 0)
 					{
-						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, isCharMonster ? false : true, true, false, Globals.Buf);
+						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, isCharMonster ? false : true, isCharMonster ? StateDescDisplayCode.AllStateDescs : StateDescDisplayCode.SideNotesOnly, isCharMonster ? true : false, false, Globals.Buf);
 
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 					}

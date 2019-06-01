@@ -962,103 +962,223 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.StateDesc">
-            <summary></summary>
+            <summary>
+            Gets or sets a description shown after this <see cref="T:Eamon.Framework.IArtifact"/>'s <see cref="!:Name"/> in
+            various lists that indicates its state.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.IsCharOwned">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Eamon.Framework.IArtifact"/> is owned by the player character.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.IsPlural">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Eamon.Framework.IArtifact"/> represents a group of objects.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.IsListed">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Eamon.Framework.IArtifact"/> should be displayed in
+            various lists.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.PluralType">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating how this <see cref="T:Eamon.Framework.IArtifact"/>'s singular <see cref="!:Name"/> is
+            modified to produce its plural Name.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Value">
-            <summary></summary>
+            <summary>
+            Gets or sets the base value of this <see cref="T:Eamon.Framework.IArtifact"/> in gold pieces.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Weight">
-            <summary></summary>
+            <summary>
+            Gets or sets the weight of this <see cref="T:Eamon.Framework.IArtifact"/> in Gronds.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Location">
-            <summary></summary>
+            <summary>
+            Gets or sets the location of this <see cref="T:Eamon.Framework.IArtifact"/> in the game.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Type">
-            <summary></summary>
+            <summary>
+            Gets or sets the type of this <see cref="T:Eamon.Framework.IArtifact"/>, a convenience to emulate Eamon Deluxe.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Field1">
-            <summary></summary>
+            <summary>
+            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field1"/> of this <see cref="T:Eamon.Framework.IArtifact"/>,
+            a convenience to emulate Eamon Deluxe.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Field2">
-            <summary></summary>
+            <summary>
+            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field2"/> of this <see cref="T:Eamon.Framework.IArtifact"/>,
+            a convenience to emulate Eamon Deluxe.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Field3">
-            <summary></summary>
+            <summary>
+            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field3"/> of this <see cref="T:Eamon.Framework.IArtifact"/>,
+            a convenience to emulate Eamon Deluxe.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Field4">
-            <summary></summary>
+            <summary>
+            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field4"/> of this <see cref="T:Eamon.Framework.IArtifact"/>,
+            a convenience to emulate Eamon Deluxe.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Field5">
-            <summary></summary>
+            <summary>
+            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field5"/> of this <see cref="T:Eamon.Framework.IArtifact"/>,
+            a convenience to emulate Eamon Deluxe.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Gold">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Gold"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Treasure">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Treasure"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Weapon">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Weapon"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.MagicWeapon">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.MagicWeapon"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.GeneralWeapon">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding to 
+            either <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Weapon"/> or <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.MagicWeapon"/>; intended as a
+            convenience.
+            </summary>
         </member>
-        <member name="P:Eamon.Framework.IArtifact.Container">
-            <summary></summary>
+        <member name="P:Eamon.Framework.IArtifact.InContainer">
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.InContainer"/>; intended as a convenience.
+            </summary>
+        </member>
+        <member name="P:Eamon.Framework.IArtifact.OnContainer">
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.OnContainer"/>; intended as a convenience.
+            </summary>
+        </member>
+        <member name="P:Eamon.Framework.IArtifact.UnderContainer">
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.UnderContainer"/>; intended as a convenience.
+            </summary>
+        </member>
+        <member name="P:Eamon.Framework.IArtifact.BehindContainer">
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.BehindContainer"/>; intended as a convenience.
+            </summary>
+        </member>
+        <member name="P:Eamon.Framework.IArtifact.GeneralContainer">
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to any of <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.InContainer"/>, <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.OnContainer"/>, 
+            <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.UnderContainer"/> or <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.BehindContainer"/>; 
+            intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.LightSource">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.LightSource"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Drinkable">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Drinkable"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Readable">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Readable"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.DoorGate">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.DoorGate"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Edible">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Edible"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.BoundMonster">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.BoundMonster"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Wearable">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Wearable"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.DisguisedMonster">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.DisguisedMonster"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.DeadBody">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.DeadBody"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.User1">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.User1"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.User2">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.User2"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.User3">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.User3"/>; intended as a convenience.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Categories">
-            <summary></summary>
+            <summary>
+            Gets or sets an array of <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> objects that define
+            this <see cref="T:Eamon.Framework.IArtifact"/>'s behavior in the game.
+            </summary>
         </member>
         <member name="M:Eamon.Framework.IArtifact.GetCategories(System.Int64)">
             <summary></summary>
@@ -1080,55 +1200,65 @@
             <param name="index"></param>
             <param name="value"></param>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsCarriedByCharacter">
+        <member name="M:Eamon.Framework.IArtifact.IsCarriedByCharacter(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsCarriedByMonster">
+        <member name="M:Eamon.Framework.IArtifact.IsCarriedByMonster(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IArtifact.IsCarriedByContainer">
             <summary></summary>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsWornByCharacter">
+        <member name="M:Eamon.Framework.IArtifact.IsWornByCharacter(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsWornByMonster">
+        <member name="M:Eamon.Framework.IArtifact.IsWornByMonster(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IArtifact.IsReadyableByCharacter">
             <summary></summary>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsInRoom">
+        <member name="M:Eamon.Framework.IArtifact.IsInRoom(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsEmbeddedInRoom">
+        <member name="M:Eamon.Framework.IArtifact.IsEmbeddedInRoom(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsInLimbo">
+        <member name="M:Eamon.Framework.IArtifact.IsInLimbo(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsCarriedByMonsterUid(System.Int64)">
+        <member name="M:Eamon.Framework.IArtifact.IsCarriedByMonsterUid(System.Int64,System.Boolean)">
             <summary></summary>
             <param name="monsterUid"></param>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsCarriedByContainerUid(System.Int64)">
+        <member name="M:Eamon.Framework.IArtifact.IsCarriedByContainerUid(System.Int64,System.Boolean)">
             <summary></summary>
             <param name="containerUid"></param>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsWornByMonsterUid(System.Int64)">
+        <member name="M:Eamon.Framework.IArtifact.IsWornByMonsterUid(System.Int64,System.Boolean)">
             <summary></summary>
             <param name="monsterUid"></param>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IArtifact.IsReadyableByMonsterUid(System.Int64)">
@@ -1136,29 +1266,34 @@
             <param name="monsterUid"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsInRoomUid(System.Int64)">
+        <member name="M:Eamon.Framework.IArtifact.IsInRoomUid(System.Int64,System.Boolean)">
             <summary></summary>
             <param name="roomUid"></param>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsEmbeddedInRoomUid(System.Int64)">
+        <member name="M:Eamon.Framework.IArtifact.IsEmbeddedInRoomUid(System.Int64,System.Boolean)">
             <summary></summary>
             <param name="roomUid"></param>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsCarriedByMonster(Eamon.Framework.IMonster)">
+        <member name="M:Eamon.Framework.IArtifact.IsCarriedByMonster(Eamon.Framework.IMonster,System.Boolean)">
             <summary></summary>
             <param name="monster"></param>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsCarriedByContainer(Eamon.Framework.IArtifact)">
+        <member name="M:Eamon.Framework.IArtifact.IsCarriedByContainer(Eamon.Framework.IArtifact,System.Boolean)">
             <summary></summary>
             <param name="container"></param>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsWornByMonster(Eamon.Framework.IMonster)">
+        <member name="M:Eamon.Framework.IArtifact.IsWornByMonster(Eamon.Framework.IMonster,System.Boolean)">
             <summary></summary>
             <param name="monster"></param>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IArtifact.IsReadyableByMonster(Eamon.Framework.IMonster)">
@@ -1166,53 +1301,69 @@
             <param name="monster"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsInRoom(Eamon.Framework.IRoom)">
+        <member name="M:Eamon.Framework.IArtifact.IsInRoom(Eamon.Framework.IRoom,System.Boolean)">
             <summary></summary>
             <param name="room"></param>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.IsEmbeddedInRoom(Eamon.Framework.IRoom)">
+        <member name="M:Eamon.Framework.IArtifact.IsEmbeddedInRoom(Eamon.Framework.IRoom,System.Boolean)">
             <summary></summary>
             <param name="room"></param>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.GetCarriedByMonsterUid">
+        <member name="M:Eamon.Framework.IArtifact.GetCarriedByMonsterUid(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.GetCarriedByContainerUid">
+        <member name="M:Eamon.Framework.IArtifact.GetCarriedByContainerUid(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.GetWornByMonsterUid">
+        <member name="M:Eamon.Framework.IArtifact.GetWornByMonsterUid(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.GetInRoomUid">
+        <member name="M:Eamon.Framework.IArtifact.GetInRoomUid(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.GetEmbeddedInRoomUid">
+        <member name="M:Eamon.Framework.IArtifact.GetEmbeddedInRoomUid(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.GetCarriedByMonster">
+        <member name="M:Eamon.Framework.IArtifact.GetCarriedByMonster(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.GetCarriedByContainer">
+        <member name="M:Eamon.Framework.IArtifact.GetCarriedByContainer(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.GetWornByMonster">
+        <member name="M:Eamon.Framework.IArtifact.GetWornByMonster(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.GetInRoom">
+        <member name="M:Eamon.Framework.IArtifact.GetInRoom(System.Boolean)">
             <summary></summary>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.GetEmbeddedInRoom">
+        <member name="M:Eamon.Framework.IArtifact.GetEmbeddedInRoom(System.Boolean)">
+            <summary></summary>
+            <param name="recurse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.GetCarriedByContainerContainerType">
             <summary></summary>
             <returns></returns>
         </member>
@@ -1223,9 +1374,10 @@
             <summary></summary>
             <param name="monsterUid"></param>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.SetCarriedByContainerUid(System.Int64)">
+        <member name="M:Eamon.Framework.IArtifact.SetCarriedByContainerUid(System.Int64,Eamon.Framework.Primitive.Enums.ContainerType)">
             <summary></summary>
             <param name="containerUid"></param>
+            <param name="containerType"></param>
         </member>
         <member name="M:Eamon.Framework.IArtifact.SetWornByCharacter">
             <summary></summary>
@@ -1249,9 +1401,10 @@
             <summary></summary>
             <param name="monster"></param>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.SetCarriedByContainer(Eamon.Framework.IArtifact)">
+        <member name="M:Eamon.Framework.IArtifact.SetCarriedByContainer(Eamon.Framework.IArtifact,Eamon.Framework.Primitive.Enums.ContainerType)">
             <summary></summary>
             <param name="container"></param>
+            <param name="containerType"></param>
         </member>
         <member name="M:Eamon.Framework.IArtifact.SetWornByMonster(Eamon.Framework.IMonster)">
             <summary></summary>
@@ -1313,7 +1466,43 @@
             <summary></summary>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IArtifact.IsDisguisedMonster">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.IsStateDescSideNotes">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.IsInContainerOpenedFromTop">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.ShouldAddContentsWhenCarried(Eamon.Framework.Primitive.Enums.ContainerType)">
+            <summary></summary>
+            <param name="containerType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.ShouldAddContentsWhenWorn(Eamon.Framework.Primitive.Enums.ContainerType)">
+            <summary></summary>
+            <param name="containerType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.ShouldAddContents(Eamon.Framework.IArtifact,Eamon.Framework.Primitive.Enums.ContainerType)">
+            <summary></summary>
+            <param name="artifact"></param>
+            <param name="containerType"></param>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IArtifact.ShouldShowContentsWhenExamined">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.ShouldShowContentsWhenOpened">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.GetDoorGateFleeDesc">
             <summary></summary>
             <returns></returns>
         </member>
@@ -1392,16 +1581,18 @@
             <param name="stateDesc"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.GetContainedList(System.Func{Eamon.Framework.IArtifact,System.Boolean},System.Boolean)">
+        <member name="M:Eamon.Framework.IArtifact.GetContainedList(System.Func{Eamon.Framework.IArtifact,System.Boolean},Eamon.Framework.Primitive.Enums.ContainerType,System.Boolean)">
             <summary></summary>
             <param name="artifactFindFunc"></param>
+            <param name="containerType"></param>
             <param name="recurse"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.GetContainerInfo(System.Int64@,System.Int64@,System.Boolean)">
+        <member name="M:Eamon.Framework.IArtifact.GetContainerInfo(System.Int64@,System.Int64@,Eamon.Framework.Primitive.Enums.ContainerType,System.Boolean)">
             <summary></summary>
             <param name="count"></param>
             <param name="weight"></param>
+            <param name="containerType"></param>
             <param name="recurse"></param>
             <returns></returns>
         </member>
@@ -1592,6 +1783,14 @@
             <param name="maleValue"></param>
             <param name="femaleValue"></param>
             <param name="neutralValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.ICharacter.GetFullInventoryWeight(System.Int64@,System.Func{Eamon.Framework.IArtifact,System.Boolean},System.Func{Eamon.Framework.IArtifact,System.Boolean},System.Boolean)">
+            <summary></summary>
+            <param name="weight"></param>
+            <param name="characterFindFunc"></param>
+            <param name="artifactFindFunc"></param>
+            <param name="recurse"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.ICharacter.GetBaseOddsToHit(Eamon.Framework.Primitive.Classes.ICharacterArtifact,System.Int64@)">
@@ -1839,6 +2038,16 @@
         <member name="M:Eamon.Framework.IEngine.GetCombatCodeDescs(Eamon.Framework.Primitive.Enums.CombatCode)">
             <summary></summary>
             <param name="combatCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetContainerDisplayCodeDescs(System.Int64)">
+            <summary></summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetContainerDisplayCodeDescs(Eamon.Framework.Primitive.Enums.ContainerDisplayCode)">
+            <summary></summary>
+            <param name="containerDisplayCode"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetLightLevelNames(System.Int64)">
@@ -2174,6 +2383,11 @@
             <param name="printedName"></param>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IEngine.GetContainerType(Eamon.Framework.Primitive.Enums.ArtifactType)">
+            <summary></summary>
+            <param name="artifactType"></param>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IEngine.GetConfig">
             <summary></summary>
             <returns></returns>
@@ -2200,6 +2414,15 @@
             <param name="maleValue"></param>
             <param name="femaleValue"></param>
             <param name="neutralValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.EvalContainerType``1(Eamon.Framework.Primitive.Enums.ContainerType,``0,``0,``0,``0)">
+            <summary></summary>
+            <param name="containerType"></param>
+            <param name="inValue"></param>
+            <param name="onValue"></param>
+            <param name="underValue"></param>
+            <param name="behindValue"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.EvalRoomType``1(Eamon.Framework.Primitive.Enums.RoomType,``0,``0)">
@@ -2276,6 +2499,11 @@
         <member name="M:Eamon.Framework.IEngine.GetNumberFromString(System.String)">
             <summary></summary>
             <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IEngine.GetContainerContentsDesc(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetBlastDesc">
@@ -2391,12 +2619,13 @@
             <summary></summary>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IEngine.GetRecordNameList(System.Collections.Generic.IList{Eamon.Framework.IGameBase},Eamon.Framework.Primitive.Enums.ArticleType,System.Boolean,System.Boolean,System.Boolean,System.Text.StringBuilder)">
+        <member name="M:Eamon.Framework.IEngine.GetRecordNameList(System.Collections.Generic.IList{Eamon.Framework.IGameBase},Eamon.Framework.Primitive.Enums.ArticleType,System.Boolean,Eamon.Framework.Primitive.Enums.StateDescDisplayCode,System.Boolean,System.Boolean,System.Text.StringBuilder)">
             <summary></summary>
             <param name="records"></param>
             <param name="articleType"></param>
             <param name="showCharOwned"></param>
-            <param name="showStateDesc"></param>
+            <param name="stateDescCode"></param>
+            <param name="showContents"></param>
             <param name="groupCountOne"></param>
             <param name="buf"></param>
             <returns></returns>
@@ -2695,9 +2924,6 @@
         <member name="P:Eamon.Framework.IGameState.Speed">
             <summary></summary>
         </member>
-        <member name="P:Eamon.Framework.IGameState.Wt">
-            <summary></summary>
-        </member>
         <member name="P:Eamon.Framework.IGameState.Vr">
             <summary></summary>
         </member>
@@ -2989,6 +3215,10 @@
             <summary></summary>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IMonster.HasHumanNaturalAttackDescs">
+            <summary></summary>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IMonster.IsInRoom">
             <summary></summary>
             <returns></returns>
@@ -3059,7 +3289,32 @@
             <summary></summary>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IMonster.ShouldFleeRoom">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.ShouldReadyWeapon">
+            <summary></summary>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IMonster.ShouldShowContentsWhenExamined">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.ShouldProcessInGameLoop">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.ShouldRefuseToAcceptGift(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.CheckNBTLHostility">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.CheckCourage">
             <summary></summary>
             <returns></returns>
         </member>
@@ -3105,7 +3360,19 @@
             <summary></summary>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IMonster.IsStateDescSideNotes">
+            <summary></summary>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IMonster.GetWeightCarryableGronds">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.GetFleeingMemberCount">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.GetMaxMemberAttackCount">
             <summary></summary>
             <returns></returns>
         </member>
@@ -3255,6 +3522,16 @@
             <param name="includeExit"></param>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IRoom.IsDirectionInObviousExitsList(System.Int64)">
+            <summary></summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.IsDirectionInObviousExitsList(Eamon.Framework.Primitive.Enums.Direction)">
+            <summary></summary>
+            <param name="dir"></param>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IRoom.GetDirectionDoorUid(Eamon.Framework.Primitive.Enums.Direction)">
             <summary></summary>
             <param name="dir"></param>
@@ -3263,6 +3540,10 @@
         <member name="M:Eamon.Framework.IRoom.GetDirectionDoor(Eamon.Framework.Primitive.Enums.Direction)">
             <summary></summary>
             <param name="dir"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.GetObviousExits">
+            <summary></summary>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IRoom.IsMonsterListedInRoom(Eamon.Framework.IMonster)">
@@ -3324,6 +3605,11 @@
             <param name="verboseRoomDesc"></param>
             <param name="verboseMonsterDesc"></param>
             <param name="verboseArtifactDesc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.BuildPrintedTooDarkToSeeDesc(System.Text.StringBuilder)">
+            <summary></summary>
+            <param name="buf"></param>
             <returns></returns>
         </member>
         <member name="T:Eamon.Framework.Menus.IMenu">
@@ -3650,6 +3936,9 @@
         <member name="P:Eamon.Framework.Plugin.IPluginConstants.ResolveUidMacroRegexPattern">
             <summary></summary>
         </member>
+        <member name="P:Eamon.Framework.Plugin.IPluginConstants.ValidWorkDirRegexPattern">
+            <summary></summary>
+        </member>
         <member name="P:Eamon.Framework.Plugin.IPluginConstants.RecIdepErrorFmtStr">
             <summary></summary>
         </member>
@@ -3906,8 +4195,8 @@
         <member name="M:Eamon.Framework.Plugin.IPluginGlobals.ReplaceTextfileValues(System.String,System.String[],System.String[])">
             <summary></summary>
             <param name="fileName"></param>
-            <param name="oldValues"></param>
-            <param name="newValues"></param>
+            <param name="patterns"></param>
+            <param name="replacements"></param>
         </member>
         <member name="M:Eamon.Framework.Plugin.IPluginGlobals.UpgradeTextfile(System.String)">
             <summary></summary>
@@ -4636,6 +4925,15 @@
         <member name="P:Eamon.Framework.Primitive.Classes.IDirection.Abbr">
             <summary></summary>
         </member>
+        <member name="T:Eamon.Framework.Primitive.Classes.IPrep">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Primitive.Classes.IPrep.Name">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Primitive.Classes.IPrep.ContainerType">
+            <summary></summary>
+        </member>
         <member name="T:Eamon.Framework.Primitive.Classes.ISpell">
             <summary></summary>
         </member>
@@ -4798,7 +5096,16 @@
         <member name="F:Eamon.Framework.Primitive.Enums.ArtifactType.MagicWeapon">
             <summary></summary>
         </member>
-        <member name="F:Eamon.Framework.Primitive.Enums.ArtifactType.Container">
+        <member name="F:Eamon.Framework.Primitive.Enums.ArtifactType.InContainer">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ArtifactType.OnContainer">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ArtifactType.UnderContainer">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ArtifactType.BehindContainer">
             <summary></summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.ArtifactType.LightSource">
@@ -4898,6 +5205,33 @@
             <summary></summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.CommandType.Miscellaneous">
+            <summary></summary>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.ContainerDisplayCode">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ContainerDisplayCode.None">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ContainerDisplayCode.SomethingSomeStuff">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ContainerDisplayCode.ArtifactNameSomeStuff">
+            <summary></summary>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.ContainerType">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ContainerType.In">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ContainerType.On">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ContainerType.Under">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.ContainerType.Behind">
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.Direction">
@@ -5110,6 +5444,18 @@
         <member name="F:Eamon.Framework.Primitive.Enums.Stat.Charisma">
             <summary></summary>
         </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.StateDescDisplayCode">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.StateDescDisplayCode.None">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.StateDescDisplayCode.SideNotesOnly">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.StateDescDisplayCode.AllStateDescs">
+            <summary></summary>
+        </member>
         <member name="T:Eamon.Framework.Primitive.Enums.Status">
             <summary></summary>
         </member>
@@ -5159,6 +5505,9 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Game.Engine.CombatCodeDescs">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Game.Engine.ContainerDisplayCodeDescs">
             <summary></summary>
         </member>
         <member name="P:Eamon.Game.Engine.LightLevelNames">
@@ -6509,6 +6858,9 @@
         <member name="M:Eamon.Game.Helpers.EffectHelper.InputDesc">
             <summary></summary>
         </member>
+        <member name="P:Eamon.Game.Helpers.FilesetHelper.WorkDirRegex">
+            <summary></summary>
+        </member>
         <member name="M:Eamon.Game.Helpers.FilesetHelper.GetPrintedNameWorkDir">
             <summary></summary>
             <returns></returns>
@@ -6817,10 +7169,6 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.ValidateSpeed">
-            <summary></summary>
-            <returns></returns>
-        </member>
-        <member name="M:Eamon.Game.Helpers.GameStateHelper.ValidateWt">
             <summary></summary>
             <returns></returns>
         </member>
@@ -7703,10 +8051,6 @@
         <member name="M:Eamon.Game.Helpers.RoomHelper.InputDirsElement">
             <summary></summary>
         </member>
-        <member name="M:Eamon.Game.Monster.HasHumanNaturalAttackDescs">
-            <summary></summary>
-            <returns></returns>
-        </member>
         <member name="P:Eamon.Game.Plugin.PluginGlobals.Databases">
             <summary></summary>
         </member>
@@ -7716,20 +8060,6 @@
         <member name="M:Eamon.Game.Plugin.PluginGlobals.RestoreRecords(System.Collections.Generic.IList{Eamon.Framework.IGameBase})">
             <summary></summary>
             <param name="records"></param>
-        </member>
-        <member name="M:Eamon.Game.Room.IsDirectionInObviousExitsList(System.Int64)">
-            <summary></summary>
-            <param name="index"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Eamon.Game.Room.IsDirectionInObviousExitsList(Eamon.Framework.Primitive.Enums.Direction)">
-            <summary></summary>
-            <param name="dir"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Eamon.Game.Room.GetObviousExits">
-            <summary></summary>
-            <returns></returns>
         </member>
         <member name="T:Eamon.RetCode">
             <summary></summary>

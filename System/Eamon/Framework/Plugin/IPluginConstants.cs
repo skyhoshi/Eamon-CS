@@ -165,6 +165,9 @@ namespace Eamon.Framework.Plugin
 		string ResolveUidMacroRegexPattern { get; }
 
 		/// <summary></summary>
+		string ValidWorkDirRegexPattern { get; }
+
+		/// <summary></summary>
 		string RecIdepErrorFmtStr { get; }
 
 		/// <summary></summary>

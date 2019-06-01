@@ -128,6 +128,9 @@
         <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IsListed">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IsDobjPrepEnabled">
+            <summary></summary>
+        </member>
         <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IsIobjEnabled">
             <summary></summary>
         </member>
@@ -161,6 +164,10 @@
             <summary></summary>
             <param name="artifact"></param>
         </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintRemovingFirst(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintBestLeftAlone(Eamon.Framework.IArtifact)">
             <summary></summary>
             <param name="artifact"></param>
@@ -174,6 +181,10 @@
             <param name="artifact"></param>
         </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintMustFirstOpen(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintMustFirstClose(Eamon.Framework.IArtifact)">
             <summary></summary>
             <param name="artifact"></param>
         </member>
@@ -225,6 +236,10 @@
             <summary></summary>
             <param name="artifact"></param>
         </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintOutOfSpace(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintLocked(Eamon.Framework.IArtifact)">
             <summary></summary>
             <param name="artifact"></param>
@@ -253,6 +268,12 @@
             <summary></summary>
             <param name="shield"></param>
             <param name="weapon"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintContainerNotEmpty(Eamon.Framework.IArtifact,Eamon.Framework.Primitive.Enums.ContainerType,System.Boolean)">
+            <summary></summary>
+            <param name="artifact"></param>
+            <param name="containerType"></param>
+            <param name="isPlural"></param>
         </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintVerbItAll(Eamon.Framework.IArtifact)">
             <summary></summary>
@@ -287,6 +308,14 @@
             <param name="artifact"></param>
         </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintNotReadyableWeapon(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintNotWhileCarryingObj(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintNotWhileWearingObj(Eamon.Framework.IArtifact)">
             <summary></summary>
             <param name="artifact"></param>
         </member>
@@ -327,6 +356,9 @@
             <summary></summary>
         </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintDontNeedTo">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintCantDoThat">
             <summary></summary>
         </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintCantVerbThat">
@@ -423,6 +455,11 @@
             <param name="monster"></param>
             <returns></returns>
         </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.IsPrepEnabled(Eamon.Framework.Primitive.Classes.IPrep)">
+            <summary></summary>
+            <param name="prep"></param>
+            <returns></returns>
+        </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.CopyCommandData(EamonRT.Framework.Commands.ICommand,System.Boolean)">
             <summary></summary>
             <param name="destCommand"></param>
@@ -506,6 +543,9 @@
         <member name="P:EamonRT.Framework.Commands.IGetCommand.GetAll">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.Commands.IGetCommand.OmitWeightCheck">
+            <summary></summary>
+        </member>
         <member name="T:EamonRT.Framework.Commands.ILightCommand">
             <summary></summary>
         </member>
@@ -518,6 +558,9 @@
         <member name="P:EamonRT.Framework.Commands.IPutCommand.GetCommandCalled">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.Commands.IPutCommand.ContainerType">
+            <summary></summary>
+        </member>
         <member name="T:EamonRT.Framework.Commands.IReadCommand">
             <summary></summary>
         </member>
@@ -528,6 +571,9 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Commands.IRemoveCommand.GetCommandCalled">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IRemoveCommand.ContainerType">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.IUseCommand">
@@ -543,6 +589,9 @@
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.IInventoryCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IInventoryCommand.AllowExtendedContainers">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.ILookCommand">
@@ -674,6 +723,9 @@
         <member name="P:EamonRT.Framework.IEngine.PoundCharPolicy">
             <summary></summary>
         </member>
+        <member name="M:EamonRT.Framework.IEngine.PrintPlayerRoom">
+            <summary></summary>
+        </member>
         <member name="M:EamonRT.Framework.IEngine.PrintMonsterAlive(Eamon.Framework.IArtifact)">
             <summary></summary>
             <param name="artifact"></param>
@@ -700,7 +752,7 @@
             <param name="artifactList"></param>
             <returns></returns>
         </member>
-        <member name="M:EamonRT.Framework.IEngine.InitWtValueAndEnforceLimits">
+        <member name="M:EamonRT.Framework.IEngine.EnforceCharacterWeightLimits">
             <summary></summary>
         </member>
         <member name="M:EamonRT.Framework.IEngine.AddPoundCharsToArtifactNames">
@@ -806,9 +858,11 @@
             <param name="room"></param>
             <param name="artifact"></param>
         </member>
-        <member name="M:EamonRT.Framework.IEngine.RemoveWeight(Eamon.Framework.IArtifact)">
+        <member name="M:EamonRT.Framework.IEngine.RevealExtendedContainerContents(Eamon.Framework.IRoom,Eamon.Framework.IArtifact,System.Collections.Generic.IList{System.String})">
             <summary></summary>
+            <param name="room"></param>
             <param name="artifact"></param>
+            <param name="containerContentsList"></param>
         </member>
         <member name="M:EamonRT.Framework.IEngine.GetBlockedDirectionArtifact(System.Int64,System.Int64,Eamon.Framework.Primitive.Enums.Direction)">
             <summary></summary>
@@ -881,6 +935,17 @@
             <param name="monster"></param>
             <returns></returns>
         </member>
+        <member name="M:EamonRT.Framework.IEngine.GetSmilingMonsterList(Eamon.Framework.IRoom,Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="room"></param>
+            <param name="monster"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.BuildLoopArtifactList(Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="monster"></param>
+            <returns></returns>
+        </member>
         <member name="M:EamonRT.Framework.IEngine.BuildCommandList(System.Collections.Generic.IList{EamonRT.Framework.Commands.ICommand},Eamon.Framework.Primitive.Enums.CommandType,System.Text.StringBuilder,System.Boolean@)">
             <summary></summary>
             <param name="commands"></param>
@@ -897,16 +962,6 @@
         <member name="M:EamonRT.Framework.IEngine.MakeArtifactsVanish(System.Func{Eamon.Framework.IArtifact,System.Boolean}[])">
             <summary></summary>
             <param name="whereClauseFuncs"></param>
-            <returns></returns>
-        </member>
-        <member name="M:EamonRT.Framework.IEngine.CheckNBTLHostility(Eamon.Framework.IMonster)">
-            <summary></summary>
-            <param name="monster"></param>
-            <returns></returns>
-        </member>
-        <member name="M:EamonRT.Framework.IEngine.CheckCourage(Eamon.Framework.IMonster)">
-            <summary></summary>
-            <param name="monster"></param>
             <returns></returns>
         </member>
         <member name="M:EamonRT.Framework.IEngine.CheckPlayerSpellCast(Eamon.Framework.Primitive.Enums.Spell,System.Boolean)">
@@ -1033,6 +1088,9 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Parsing.ICommandParser.PrepTokenIndex">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.Prep">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Parsing.ICommandParser.ActorMonster">
@@ -1209,6 +1267,9 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopLastDfMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LastArtifactLocation">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.Engine">
@@ -1719,6 +1780,9 @@
         <member name="F:EamonRT.Game.Commands.GiveCommand.PpeBeforeMonsterTakesGold">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Game.Commands.GiveCommand.ContainerContentsList">
+            <summary></summary>
+        </member>
         <member name="F:EamonRT.Game.Commands.CloseCommand.PpeAfterArtifactClose">
             <summary></summary>
         </member>
@@ -1726,6 +1790,12 @@
             <summary></summary>
         </member>
         <member name="F:EamonRT.Game.Commands.DrinkCommand.PpeAfterArtifactDrink">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.DropCommand.ArtifactList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.DropCommand.ContainerContentsList">
             <summary></summary>
         </member>
         <member name="F:EamonRT.Game.Commands.EatCommand.PpeBeforeArtifactNowEmptyCheck">
@@ -1737,6 +1807,18 @@
         <member name="F:EamonRT.Game.Commands.ExamineCommand.PpeAfterArtifactFullDescPrint">
             <summary></summary>
         </member>
+        <member name="F:EamonRT.Game.Commands.ExamineCommand.PpeAfterArtifactContentsPrint">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ExamineCommand.ContainerType">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.ArtifactList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.ContainerContentsList">
+            <summary></summary>
+        </member>
         <member name="F:EamonRT.Game.Commands.OpenCommand.PpeAfterArtifactOpenPrint">
             <summary></summary>
         </member>
@@ -1746,10 +1828,28 @@
         <member name="F:EamonRT.Game.Commands.PutCommand.PpeAfterArtifactPut">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Game.Commands.PutCommand.GetCommandCalled">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.PutCommand.ContainerType">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.PutCommand.ContainerContentsList">
+            <summary></summary>
+        </member>
         <member name="F:EamonRT.Game.Commands.ReadCommand.PpeBeforeArtifactReadTextPrint">
             <summary></summary>
         </member>
         <member name="F:EamonRT.Game.Commands.ReadCommand.PpeAfterArtifactRead">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.GetCommandCalled">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.ContainerType">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.ContainerContentsList">
             <summary></summary>
         </member>
         <member name="F:EamonRT.Game.Commands.UseCommand.PpeBeforeArtifactUse">

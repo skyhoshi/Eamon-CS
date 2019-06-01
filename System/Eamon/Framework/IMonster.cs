@@ -115,6 +115,10 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		/// <returns></returns>
+		bool HasHumanNaturalAttackDescs();
+
+		/// <summary></summary>
+		/// <returns></returns>
 		bool IsInRoom();
 
 		/// <summary></summary>
@@ -185,7 +189,32 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		/// <returns></returns>
+		bool ShouldFleeRoom();
+
+		/// <summary></summary>
+		/// <returns></returns>
+		bool ShouldReadyWeapon();
+
+		/// <summary></summary>
+		/// <returns></returns>
 		bool ShouldShowContentsWhenExamined();
+
+		/// <summary></summary>
+		/// <returns></returns>
+		bool ShouldProcessInGameLoop();
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		/// <returns></returns>
+		bool ShouldRefuseToAcceptGift(IArtifact artifact);
+
+		/// <summary></summary>
+		/// <returns></returns>
+		bool CheckNBTLHostility();
+
+		/// <summary></summary>
+		/// <returns></returns>
+		bool CheckCourage();
 
 		/// <summary></summary>
 		/// <param name="enemyValue"></param>
@@ -231,7 +260,19 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		/// <returns></returns>
+		bool IsStateDescSideNotes();
+
+		/// <summary></summary>
+		/// <returns></returns>
 		long GetWeightCarryableGronds();
+
+		/// <summary></summary>
+		/// <returns></returns>
+		long GetFleeingMemberCount();
+
+		/// <summary></summary>
+		/// <returns></returns>
+		long GetMaxMemberAttackCount();
 
 		/// <summary></summary>
 		/// <param name="monsterFindFunc"></param>

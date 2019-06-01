@@ -73,6 +73,8 @@ namespace EamonRT.Game
 		/// <returns></returns>
 		protected virtual long ConvertArmorToArtifacts()
 		{
+			RetCode rc;
+
 			var armorNames = new string[]
 			{
 					"",
@@ -150,12 +152,16 @@ namespace EamonRT.Game
 
 						y.Weight = (a2 == 1 ? 15 : a2 == 2 ? 25 : 35);
 					}
+					
+					var charWeight = 0L;
 
-					if (Globals.GameState.Wt + y.Weight <= 10 * Globals.Character.GetStats(Stat.Hardiness))
+					rc = Globals.Character.GetFullInventoryWeight(ref charWeight, recurse: true);
+
+					Debug.Assert(IsSuccess(rc));
+
+					if (y.Weight + charWeight <= Globals.Character.GetWeightCarryableGronds())
 					{
 						y.SetWornByCharacter();
-
-						Globals.GameState.Wt += y.Weight;
 					}
 					else
 					{
@@ -163,7 +169,7 @@ namespace EamonRT.Game
 					}
 				});
 
-				var rc = Globals.Database.AddArtifact(artifact);
+				rc = Globals.Database.AddArtifact(artifact);
 
 				Debug.Assert(IsSuccess(rc));
 
@@ -236,11 +242,15 @@ namespace EamonRT.Game
 						y.Weight = 15;
 					}
 
-					if (Globals.GameState.Wt + y.Weight <= 10 * Globals.Character.GetStats(Stat.Hardiness))
+					var charWeight = 0L;
+
+					rc = Globals.Character.GetFullInventoryWeight(ref charWeight, recurse: true);
+
+					Debug.Assert(IsSuccess(rc));
+
+					if (y.Weight + charWeight <= Globals.Character.GetWeightCarryableGronds())
 					{
 						y.SetWornByCharacter();
-
-						Globals.GameState.Wt += y.Weight;
 					}
 					else
 					{
@@ -248,7 +258,7 @@ namespace EamonRT.Game
 					}
 				});
 
-				var rc = Globals.Database.AddArtifact(artifact);
+				rc = Globals.Database.AddArtifact(artifact);
 
 				Debug.Assert(IsSuccess(rc));
 
@@ -317,6 +327,21 @@ namespace EamonRT.Game
 			}
 		}
 
+		public virtual void PrintPlayerRoom()
+		{
+			var room = Globals.RDB[Globals.GameState.Ro];
+
+			Debug.Assert(room != null);
+
+			Globals.Buf.Clear();
+
+			var rc = room.IsLit() ? room.BuildPrintedFullDesc(Globals.Buf, verboseRoomDesc: Globals.GameState.Vr, verboseMonsterDesc: Globals.GameState.Vm, verboseArtifactDesc: Globals.GameState.Va) : room.BuildPrintedTooDarkToSeeDesc(Globals.Buf);
+
+			Debug.Assert(IsSuccess(rc));
+
+			Globals.Out.Write("{0}", Globals.Buf);
+		}
+
 		public virtual void PrintMonsterAlive(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
@@ -378,46 +403,29 @@ namespace EamonRT.Game
 			return cw != null ? cw.Uid : 0;     // Note: -1 not returned!
 		}
 
-		public virtual void InitWtValueAndEnforceLimits()
+		public virtual void EnforceCharacterWeightLimits()
 		{
-			IArtifactCategory ac;
-			RetCode rc;
-			long c, w;
-
 			var artifacts = GetArtifactList(a => a.IsCarriedByCharacter() || a.IsWornByCharacter());
 
 			foreach (var artifact in artifacts)
 			{
 				if (artifact.IsWornByCharacter())
 				{
-					ac = artifact.Wearable;
-
-					if (ac != null && ac.Field1 > 0)
+					if (artifact.Wearable == null || artifact.Wearable.Field1 > 0)
 					{
 						artifact.SetCarriedByCharacter();
 					}
 				}
-
+				
 				Debug.Assert(!artifact.IsUnmovable01());
 
-				c = 0;
+				var charWeight = 0L;
 
-				w = artifact.Weight;
+				var rc = Globals.Character.GetFullInventoryWeight(ref charWeight, recurse: true);
 
-				ac = artifact.Container;
+				Debug.Assert(IsSuccess(rc));
 
-				if (ac != null)
-				{
-					rc = artifact.GetContainerInfo(ref c, ref w, true);
-
-					Debug.Assert(IsSuccess(rc));
-				}
-
-				if (Globals.GameState.Wt + w <= 10 * Globals.Character.GetStats(Stat.Hardiness))
-				{
-					Globals.GameState.Wt += w;
-				}
-				else
+				if (charWeight > Globals.Character.GetWeightCarryableGronds())
 				{
 					artifact.SetInRoomUid(StartRoom);
 				}
@@ -586,6 +594,8 @@ namespace EamonRT.Game
 
 		public virtual IArtifact ConvertWeaponToArtifact(ICharacterArtifact weapon)
 		{
+			RetCode rc;
+
 			Debug.Assert(weapon != null);
 
 			var artifact = Globals.CreateInstance<IArtifact>(x =>
@@ -643,11 +653,15 @@ namespace EamonRT.Game
 					x.Weight = 15;
 				}
 
-				if (Globals.GameState.Wt + x.Weight <= 10 * Globals.Character.GetStats(Stat.Hardiness))
+				var charWeight = 0L;
+
+				rc = Globals.Character.GetFullInventoryWeight(ref charWeight, recurse: true);
+
+				Debug.Assert(IsSuccess(rc));
+
+				if (x.Weight + charWeight <= Globals.Character.GetWeightCarryableGronds())
 				{
 					x.SetCarriedByCharacter();
-
-					Globals.GameState.Wt += x.Weight;
 				}
 				else
 				{
@@ -655,7 +669,7 @@ namespace EamonRT.Game
 				}
 			});
 
-			var rc = Globals.Database.AddArtifact(artifact);
+			rc = Globals.Database.AddArtifact(artifact);
 
 			Debug.Assert(IsSuccess(rc));
 
@@ -962,7 +976,7 @@ namespace EamonRT.Game
 
 				foreach (var artifact in artifacts)
 				{
-					var ac = artifact.Container;
+					var ac = artifact.GeneralContainer;
 
 					if (ac != null)
 					{
@@ -970,7 +984,7 @@ namespace EamonRT.Game
 
 						foreach (var artifact01 in artifacts01)
 						{
-							if (artifact01.Seen == true || ac.Field2 == 1)
+							if (artifact01.Seen == true || artifact01.GetCarriedByContainerContainerType() != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.Field2 == 1))
 							{
 								artifact01.SetCarriedByCharacter();
 
@@ -1402,23 +1416,160 @@ namespace EamonRT.Game
 			}
 		}
 
-		public virtual void RemoveWeight(IArtifact artifact)
+		public virtual void RevealExtendedContainerContents(IRoom room, IArtifact artifact, IList<string> containerContentsList = null)
 		{
+			RetCode rc;
+
+			Debug.Assert(room != null);
+
 			Debug.Assert(artifact != null);
 
-			if (artifact.IsCarriedByCharacter() || artifact.IsWornByCharacter())
+			var charMonster = Globals.MDB[Globals.GameState.Cm];
+
+			Debug.Assert(charMonster != null);
+
+			var showCharOwned = !artifact.IsCarriedByCharacter() && !artifact.IsWornByCharacter();
+
+			bool? showCharOwned01 = null;
+
+			var ac = artifact.UnderContainer;
+
+			if (ac == null)
 			{
-				var count = 0L;
+				ac = artifact.BehindContainer;
+			}
 
-				var weight = artifact.Weight;
+			while (ac != null)
+			{
+				var contentsList = artifact.GetContainedList(containerType: GetContainerType(ac.Type));
 
-				var rc = artifact.GetContainerInfo(ref count, ref weight, true);
+				foreach (var artifact01 in contentsList)
+				{
+					artifact01.Location = Globals.LastArtifactLocation;
 
-				Debug.Assert(IsSuccess(rc));
+					if (showCharOwned01 == null)
+					{
+						showCharOwned01 = !artifact01.IsCarriedByCharacter() && !artifact01.IsWornByCharacter();
+					}
 
-				Globals.GameState.Wt -= weight;
+					var monster = artifact01.GetCarriedByMonster();
 
-				Debug.Assert(Globals.GameState.Wt >= 0);
+					if (monster == null)
+					{
+						monster = artifact01.GetWornByMonster();
+					}
+
+					var container = artifact01.GetCarriedByContainer();
+
+					var containerType = artifact01.GetCarriedByContainerContainerType();
+
+					var containerAc = container != null && Enum.IsDefined(typeof(ContainerType), containerType) ? EvalContainerType(containerType, container.InContainer, container.OnContainer, container.UnderContainer, container.BehindContainer) : null;
+
+					if (artifact01.IsCarriedByCharacter() || artifact01.IsWornByCharacter())
+					{
+						var charWeight = 0L;
+
+						rc = charMonster.GetFullInventoryWeight(ref charWeight, recurse: true);
+
+						Debug.Assert(IsSuccess(rc));
+
+						var artifact01TooHeavy = charWeight > charMonster.GetWeightCarryableGronds();
+
+						if (artifact01.IsWornByCharacter())
+						{
+							if (artifact01.Wearable == null || artifact01TooHeavy)
+							{
+								artifact01.SetCarriedByCharacter();
+							}
+						}
+						
+						if (artifact01.IsCarriedByCharacter())
+						{
+							if (artifact01TooHeavy)
+							{
+								artifact01.SetInRoomUid(room.Uid);
+							}
+						}
+					}
+					else if (monster != null)
+					{
+						var artCount = 0L;
+
+						var artWeight = artifact01.Weight;
+
+						if (artifact01.GeneralContainer != null)
+						{
+							rc = artifact01.GetContainerInfo(ref artCount, ref artWeight, (ContainerType)(-1), true);
+
+							Debug.Assert(IsSuccess(rc));
+						}
+
+						var monWeight = 0L;
+
+						rc = monster.GetFullInventoryWeight(ref monWeight, recurse: true);
+
+						Debug.Assert(IsSuccess(rc));
+
+						var artifact01TooHeavy = EnforceMonsterWeightLimits && (artWeight > monster.GetWeightCarryableGronds() || monWeight > monster.GetWeightCarryableGronds() * monster.GroupCount);
+
+						if (artifact01.IsWornByMonster())
+						{
+							if (artifact01.Wearable == null || artifact01TooHeavy)
+							{
+								artifact01.SetCarriedByMonster(monster);
+							}
+						}
+
+						if (artifact01.IsCarriedByMonster())
+						{
+							if (artifact01TooHeavy)
+							{
+								artifact01.SetInRoomUid(room.Uid);
+							}
+						}
+					}
+					else if (container != null)
+					{
+						var count = 0L;
+
+						var weight = 0L;
+
+						rc = container.GetContainerInfo(ref count, ref weight, containerType, false);
+
+						Debug.Assert(IsSuccess(rc));
+
+						if (count > containerAc.Field4 || weight > containerAc.Field3)
+						{
+							artifact01.SetInRoomUid(room.Uid);
+						}
+					}
+					else if (artifact01.IsEmbeddedInRoom())
+					{
+						artifact01.SetInRoomUid(artifact01.GetEmbeddedInRoomUid());
+					}
+					else if (artifact01.IsInLimbo())
+					{
+						artifact01.SetInRoomUid(room.Uid);
+					}
+				}
+
+				if (contentsList.Count > 0 && containerContentsList != null)
+				{
+					Globals.Buf.SetFormat("{0}{1} {2} you find ",
+						Environment.NewLine,
+						ac == artifact.UnderContainer ? "Under" : "Behind",
+						artifact.GetDecoratedName03(false, showCharOwned, false, false, Globals.Buf01));
+
+					rc = GetRecordNameList(contentsList.Cast<IGameBase>().ToList(), ArticleType.A, showCharOwned01 != null ? (bool)showCharOwned01 : false, StateDescDisplayCode.None, false, false, Globals.Buf);
+
+					Debug.Assert(IsSuccess(rc));
+
+					Globals.Buf.AppendFormat(".{0}", Environment.NewLine);
+
+					containerContentsList.Add(Globals.Buf.ToString());
+				}
+
+				ac = ac == artifact.UnderContainer ? artifact.BehindContainer : null;
 			}
 		}
 
@@ -1790,7 +1941,7 @@ namespace EamonRT.Game
 
 			var monsterList = GetMonsterList(m => m.Uid != monster.Uid && m.Uid != charMonster.Uid && m.IsInRoom(room));
 
-			var artifactList = GetArtifactList(a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || (a.IsInRoom(room) && (a.Seen || !room.IsLit()) && monsterList.FirstOrDefault(m => m.Weapon == -a.Uid - 1) == null && (charMonster.Weapon > 0 || !a.IsCharOwned || monster.Friendliness == Friendliness.Friend)))).OrderByDescending(a01 =>
+			var artifactList = GetArtifactList(a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || ((a.IsInRoom(room) || (a.GetCarriedByContainerContainerType() == ContainerType.On && a.GetCarriedByContainer() != null && a.GetCarriedByContainer().IsInRoom(room) && (a.GetCarriedByContainer().Seen || !room.IsLit()))) && (a.Seen || !room.IsLit()) && monsterList.FirstOrDefault(m => m.Weapon == -a.Uid - 1) == null && (charMonster.Weapon > 0 || !a.IsCharOwned || monster.Friendliness == Friendliness.Friend)))).OrderByDescending(a01 =>
 			{
 				if (monster.Weapon != -a01.Uid - 1)
 				{
@@ -1847,6 +1998,47 @@ namespace EamonRT.Game
 					new List<IMonster>();
 
 			return monsterList;
+		}
+
+		public virtual IList<IMonster> GetSmilingMonsterList(IRoom room, IMonster monster)
+		{
+			Debug.Assert(room != null && monster != null);
+
+			return room.IsLit() ? GetMonsterList(m => m.IsInRoom(room) && m != monster) : new List<IMonster>();
+		}
+
+		public virtual IList<IArtifact> BuildLoopArtifactList(IMonster monster)
+		{
+			Debug.Assert(monster != null);
+
+			IList<IArtifact> artifactList = null;
+
+			if (monster.CombatCode == CombatCode.NaturalWeapons && monster.Weapon <= 0)
+			{
+				artifactList = GetReadyableWeaponList(monster);
+
+				if (artifactList != null && artifactList.Count > 0)
+				{
+					var wpnArtifact = artifactList[0];
+
+					Debug.Assert(wpnArtifact != null);
+
+					var ac = wpnArtifact.GeneralWeapon;
+
+					Debug.Assert(ac != null);
+
+					if (monster.Weapon != -wpnArtifact.Uid - 1 && monster.NwDice * monster.NwSides > ac.Field3 * ac.Field4)
+					{
+						artifactList = null;
+					}
+				}
+			}
+			else if ((monster.CombatCode == CombatCode.Weapons || monster.CombatCode == CombatCode.Attacks) && monster.Weapon < 0)
+			{
+				artifactList = GetReadyableWeaponList(monster);
+			}
+
+			return artifactList;
 		}
 
 		public virtual RetCode BuildCommandList(IList<ICommand> commands, CommandType cmdType, StringBuilder buf, ref bool newSeen)
@@ -1927,8 +2119,6 @@ namespace EamonRT.Game
 
 					monster.DmgTaken = 0;
 
-					RemoveWeight(artifact);
-
 					artifact.SetInLimbo();
 
 					Globals.Out.Print("{0} {1}", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), Globals.IsRulesetVersion(5) ? "comes alive!" : "comes to life!");
@@ -1959,45 +2149,12 @@ namespace EamonRT.Game
 
 			foreach (var artifact in artifacts)
 			{
-				RemoveWeight(artifact);
-
 				artifact.SetInLimbo();
 
 				Globals.Out.Print("{0} vanishes!", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
 			}
 
 			return artifacts.Count > 0;
-		}
-
-		public virtual bool CheckNBTLHostility(IMonster monster)
-		{
-			Debug.Assert(monster != null);
-
-			return monster.Friendliness != Friendliness.Neutral && Globals.GameState.GetNBTL(monster.Friendliness == Friendliness.Friend ? Friendliness.Enemy : Friendliness.Friend) > 0;
-		}
-
-		public virtual bool CheckCourage(IMonster monster)
-		{
-			bool result;
-
-			Debug.Assert(monster != null);
-
-			if (Globals.IsRulesetVersion(5))
-			{
-				var rl = (long)Math.Round((double)Globals.GameState.GetDTTL(monster.Friendliness) / (double)Globals.GameState.GetNBTL(monster.Friendliness) * 100 + RollDice(1, 41, -21));
-
-				result = rl <= monster.Courage;
-			}
-			else
-			{
-				var s = (monster.DmgTaken > 0 || monster.OrigGroupCount > monster.GroupCount ? 1 : 0) + (monster.DmgTaken + 4 >= monster.Hardiness ? 1 : 0);
-
-				var rl = RollDice(1, 100, s * 5);
-
-				result = rl <= monster.Courage;           // monster.Courage >= 100 ||
-			}
-
-			return result;
 		}
 
 		public virtual bool CheckPlayerSpellCast(Spell spellValue, bool shouldAllowSkillGains)

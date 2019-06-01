@@ -108,6 +108,16 @@ namespace Eamon.Framework
 		bool IsDirectionSpecial(Direction dir, bool includeExit = true);
 
 		/// <summary></summary>
+		/// <param name="index"></param>
+		/// <returns></returns>
+		bool IsDirectionInObviousExitsList(long index);
+
+		/// <summary></summary>
+		/// <param name="dir"></param>
+		/// <returns></returns>
+		bool IsDirectionInObviousExitsList(Direction dir);
+
+		/// <summary></summary>
 		/// <param name="dir"></param>
 		/// <returns></returns>
 		long GetDirectionDoorUid(Direction dir);
@@ -116,6 +126,10 @@ namespace Eamon.Framework
 		/// <param name="dir"></param>
 		/// <returns></returns>
 		IArtifact GetDirectionDoor(Direction dir);
+
+		/// <summary></summary>
+		/// <returns></returns>
+		string GetObviousExits();
 
 		/// <summary></summary>
 		/// <param name="monster"></param>
@@ -177,6 +191,11 @@ namespace Eamon.Framework
 		/// <param name="verboseArtifactDesc"></param>
 		/// <returns></returns>
 		RetCode BuildPrintedFullDesc(StringBuilder buf, Func<IMonster, bool> monsterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool verboseRoomDesc = false, bool verboseMonsterDesc = false, bool verboseArtifactDesc = false);
+
+		/// <summary></summary>
+		/// <param name="buf"></param>
+		/// <returns></returns>
+		RetCode BuildPrintedTooDarkToSeeDesc(StringBuilder buf);
 
 		#endregion
 	}

@@ -12,7 +12,7 @@ namespace ARuncibleCargo.Game
 	[ClassMappings(typeof(IRoom))]
 	public class Room : Eamon.Game.Room, Framework.IRoom
 	{
-		protected override string GetObviousExits()
+		public override string GetObviousExits()
 		{
 			return IsWaterRoom() ? string.Format("{0}Obvious directions:  ", Environment.NewLine) : base.GetObviousExits();
 		}

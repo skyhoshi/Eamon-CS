@@ -49,7 +49,14 @@ namespace EamonRT.Game.Commands
 				{
 					if (!DobjArtifact.IsUnmovable() && !DobjArtifact.IsCarriedByCharacter())
 					{
-						PrintTakingFirst(DobjArtifact);
+						if (DobjArtifact.IsCarriedByContainer())
+						{
+							PrintRemovingFirst(DobjArtifact);
+						}
+						else
+						{
+							PrintTakingFirst(DobjArtifact);
+						}
 					}
 
 					Globals.Engine.RevealDisguisedMonster(DobjArtifact);
@@ -117,6 +124,17 @@ namespace EamonRT.Game.Commands
 				PlayerResolveArtifact();
 			}
 		}
+
+		/*
+		public override bool IsPrepEnabled(IPrep prep)
+		{
+			Debug.Assert(prep != null);
+
+			var prepNames = new string[] { +++ IMPLEMENT +++ };
+
+			return prepNames.FirstOrDefault(pn => string.Equals(prep.Name, pn, StringComparison.OrdinalIgnoreCase)) != null;
+		}
+		*/
 
 		public UseCommand()
 		{

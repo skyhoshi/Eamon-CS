@@ -207,6 +207,14 @@ namespace Eamon.Framework
 		T EvalGender<T>(T maleValue, T femaleValue, T neutralValue);
 
 		/// <summary></summary>
+		/// <param name="weight"></param>
+		/// <param name="characterFindFunc"></param>
+		/// <param name="artifactFindFunc"></param>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		RetCode GetFullInventoryWeight(ref long weight, Func<IArtifact, bool> characterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false);
+
+		/// <summary></summary>
 		/// <param name="weapon"></param>
 		/// <param name="baseOddsToHit"></param>
 		/// <returns></returns>

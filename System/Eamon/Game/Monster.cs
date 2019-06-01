@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Text.RegularExpressions;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
@@ -84,21 +85,6 @@ namespace Eamon.Game
 		public virtual long Field1 { get; set; }
 
 		public virtual long Field2 { get; set; }
-
-		#endregion
-
-		#endregion
-
-		#region Protected Methods
-
-		#region Class Monster
-
-		/// <summary></summary>
-		/// <returns></returns>
-		protected virtual bool HasHumanNaturalAttackDescs()
-		{
-			return false;
-		}
 
 		#endregion
 
@@ -378,6 +364,11 @@ namespace Eamon.Game
 			return true;
 		}
 
+		public virtual bool HasHumanNaturalAttackDescs()
+		{
+			return false;
+		}
+
 		public virtual bool IsInRoom()
 		{
 			return Location > 0 && Location < 1001;
@@ -475,9 +466,67 @@ namespace Eamon.Game
 			return room != null && room.IsLit();
 		}
 
+		public virtual bool ShouldFleeRoom()
+		{
+			return CheckNBTLHostility();
+		}
+
+		public virtual bool ShouldReadyWeapon()
+		{
+			return true;
+		}
+
 		public virtual bool ShouldShowContentsWhenExamined()
 		{
 			return false;
+		}
+
+		public virtual bool ShouldProcessInGameLoop()
+		{
+			var gameState = Globals?.Engine.GetGameState();
+
+			return gameState != null && Location == gameState.Ro && !IsCharacterMonster();
+		}
+
+		public virtual bool ShouldRefuseToAcceptGift(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			return !Globals.IsRulesetVersion(5) && (Friendliness == Friendliness.Enemy || (Friendliness == Friendliness.Neutral && artifact.Value < 3000));
+		}
+
+		public virtual bool CheckNBTLHostility()
+		{
+			var gameState = Globals?.Engine.GetGameState();
+
+			return gameState != null && Friendliness != Friendliness.Neutral && gameState.GetNBTL(Friendliness == Friendliness.Friend ? Friendliness.Enemy : Friendliness.Friend) > 0;
+		}
+
+		public virtual bool CheckCourage()
+		{
+			var result = false;
+
+			if (Globals.Engine != null)
+			{
+				var gameState = Globals.Engine.GetGameState();
+
+				if (Globals.IsRulesetVersion(5) && gameState != null)
+				{
+					var rl = (long)Math.Round((double)gameState.GetDTTL(Friendliness) / (double)gameState.GetNBTL(Friendliness) * 100 + Globals.Engine.RollDice(1, 41, -21));
+
+					result = rl <= Courage;
+				}
+				else
+				{
+					var s = (DmgTaken > 0 || OrigGroupCount > GroupCount ? 1 : 0) + (DmgTaken + 4 >= Hardiness ? 1 : 0);
+
+					var rl = Globals.Engine.RollDice(1, 100, s * 5);
+
+					result = rl <= Courage;           // Courage >= 100 ||
+				}
+			}
+
+			return result;
 		}
 
 		public virtual T EvalFriendliness<T>(T enemyValue, T neutralValue, T friendValue)
@@ -603,9 +652,33 @@ namespace Eamon.Game
 			return gameState != null && gameState.Cm == Uid;
 		}
 
+		public virtual bool IsStateDescSideNotes()
+		{
+			if (!string.IsNullOrWhiteSpace(StateDesc))
+			{
+				var regex = new Regex(@".*\(.+\)");
+
+				return regex.IsMatch(StateDesc);
+			}
+			else
+			{
+				return false;
+			}
+		}
+
 		public virtual long GetWeightCarryableGronds()
 		{
 			return Globals.Engine.GetWeightCarryableGronds(Hardiness);
+		}
+
+		public virtual long GetFleeingMemberCount()
+		{
+			return Globals.Engine.RollDice(1, GroupCount, 0);
+		}
+
+		public virtual long GetMaxMemberAttackCount()
+		{
+			return 5;
 		}
 
 		public virtual IList<IArtifact> GetCarriedList(Func<IArtifact, bool> monsterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false)
@@ -630,9 +703,9 @@ namespace Eamon.Game
 
 				foreach (var a in list)
 				{
-					if (a.Container != null)
+					if (a.GeneralContainer != null)
 					{
-						list01.AddRange(a.GetContainedList(artifactFindFunc, recurse));
+						list01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
 					}
 				}
 
@@ -664,9 +737,9 @@ namespace Eamon.Game
 
 				foreach (var a in list)
 				{
-					if (a.Container != null)
+					if (a.GeneralContainer != null)
 					{
-						list01.AddRange(a.GetContainedList(artifactFindFunc, recurse));
+						list01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
 					}
 				}
 
@@ -698,9 +771,9 @@ namespace Eamon.Game
 
 				foreach (var a in list)
 				{
-					if (a.Container != null)
+					if (a.GeneralContainer != null)
 					{
-						list01.AddRange(a.GetContainedList(artifactFindFunc, recurse));
+						list01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
 					}
 				}
 
@@ -730,9 +803,9 @@ namespace Eamon.Game
 
 				Debug.Assert(!Globals.Engine.IsUnmovable01(w));
 
-				if (recurse && a.Container != null)
+				if (recurse && a.GeneralContainer != null)
 				{
-					rc = a.GetContainerInfo(ref c, ref w, recurse);
+					rc = a.GetContainerInfo(ref c, ref w, (ContainerType)(-1), recurse);
 
 					if (Globals.Engine.IsFailure(rc))
 					{
@@ -759,7 +832,7 @@ namespace Eamon.Game
 				}
 			}
 
-		Cleanup:
+			Cleanup:
 
 			return rc;
 		}

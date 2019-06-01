@@ -50,27 +50,27 @@
     <DocumentationFile>..\Bin\EamonPM.Android.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ARuncibleCargo, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ARuncibleCargo, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\ARuncibleCargo.dll</HintPath>
     </Reference>
-    <Reference Include="BeginnersForest, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="BeginnersForest, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\BeginnersForest.dll</HintPath>
     </Reference>
-    <Reference Include="Eamon, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Eamon, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\Eamon.dll</HintPath>
     </Reference>
-    <Reference Include="EamonDD, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="EamonDD, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\EamonDD.dll</HintPath>
     </Reference>
-    <Reference Include="EamonMH, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="EamonMH, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\EamonMH.dll</HintPath>
     </Reference>
-    <Reference Include="EamonRT, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="EamonRT, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\EamonRT.dll</HintPath>
     </Reference>
@@ -81,7 +81,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\Polenter.SharpSerializer.dll</HintPath>
     </Reference>
-    <Reference Include="StrongholdOfKahrDur, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="StrongholdOfKahrDur, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\StrongholdOfKahrDur.dll</HintPath>
     </Reference>
@@ -90,23 +90,23 @@
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="TheBeginnersCave, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TheBeginnersCave, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\TheBeginnersCave.dll</HintPath>
     </Reference>
-    <Reference Include="TheSubAquanLaboratory, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\TheSubAquanLaboratory.dll</HintPath>
     </Reference>
-    <Reference Include="TheTempleOfNgurct, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TheTempleOfNgurct, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\TheTempleOfNgurct.dll</HintPath>
     </Reference>
-    <Reference Include="TheTrainingGround, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TheTrainingGround, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\TheTrainingGround.dll</HintPath>
     </Reference>
-    <Reference Include="WrenholdsSecretVigil, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\WrenholdsSecretVigil.dll</HintPath>
     </Reference>

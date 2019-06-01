@@ -36,37 +36,6 @@ namespace Eamon.Game
 
 		#endregion
 
-		#region Protected Methods
-
-		#region Class Room
-
-		/// <summary></summary>
-		/// <param name="index"></param>
-		/// <returns></returns>
-		protected virtual bool IsDirectionInObviousExitsList(long index)
-		{
-			return IsDirectionRoom(index) || IsDirectionExit(index);
-		}
-
-		/// <summary></summary>
-		/// <param name="dir"></param>
-		/// <returns></returns>
-		protected virtual bool IsDirectionInObviousExitsList(Direction dir)
-		{
-			return IsDirectionInObviousExitsList((long)dir);
-		}
-
-		/// <summary></summary>
-		/// <returns></returns>
-		protected virtual string GetObviousExits()
-		{
-			return string.Format("{0}Obvious {1}:  ", Environment.NewLine, EvalRoomType("exits", "paths"));
-		}
-
-		#endregion
-
-		#endregion
-
 		#region Public Methods
 
 		#region Interface IDisposable
@@ -217,6 +186,16 @@ namespace Eamon.Game
 			return IsDirectionSpecial((long)dir, includeExit);
 		}
 
+		public virtual bool IsDirectionInObviousExitsList(long index)
+		{
+			return IsDirectionRoom(index) || IsDirectionExit(index);
+		}
+
+		public virtual bool IsDirectionInObviousExitsList(Direction dir)
+		{
+			return IsDirectionInObviousExitsList((long)dir);
+		}
+
 		public virtual long GetDirectionDoorUid(Direction dir)
 		{
 			return IsDirectionDoor(dir) ? GetDirs(dir) - 1000 : 0;
@@ -227,6 +206,11 @@ namespace Eamon.Game
 			var uid = GetDirectionDoorUid(dir);
 
 			return Globals.ADB[uid];
+		}
+
+		public virtual string GetObviousExits()
+		{
+			return string.Format("{0}Obvious {1}:  ", Environment.NewLine, EvalRoomType("exits", "paths"));
 		}
 
 		public virtual bool IsMonsterListedInRoom(IMonster monster)
@@ -277,22 +261,7 @@ namespace Eamon.Game
 		{
 			if (roomFindFunc == null)
 			{
-				roomFindFunc = a =>
-				{
-					var result = a.IsInRoom(this) && a.Weight <= 900 && !a.IsUnmovable01();
-
-					if (result)
-					{
-						var ac = a.DeadBody;
-
-						if (ac != null && ac.Field1 != 1)
-						{
-							result = false;
-						}
-					}
-
-					return result;
-				};
+				roomFindFunc = a => a.IsInRoom(this) && a.Weight <= 900 && !a.IsUnmovable01() && (a.DeadBody == null || a.DeadBody.Field1 == 1);
 			}
 
 			var list = Globals.Engine.GetArtifactList(a => roomFindFunc(a));
@@ -303,9 +272,9 @@ namespace Eamon.Game
 
 				foreach (var a in list)
 				{
-					if (a.Container != null)
+					if (a.GeneralContainer != null)
 					{
-						list01.AddRange(a.GetContainedList(artifactFindFunc, recurse));
+						list01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
 					}
 				}
 
@@ -330,9 +299,9 @@ namespace Eamon.Game
 
 				foreach (var a in list)
 				{
-					if (a.Container != null)
+					if (a.GeneralContainer != null)
 					{
-						list01.AddRange(a.GetContainedList(artifactFindFunc, recurse));
+						list01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
 					}
 				}
 
@@ -346,23 +315,7 @@ namespace Eamon.Game
 		{
 			if (roomFindFunc == null)
 			{
-				roomFindFunc = x =>
-				{
-					var m = x as IMonster;
-
-					if (m != null)
-					{
-						return m.IsInRoom(this);      // && ! m.IsCharacterMonster()
-					}
-					else
-					{
-						var a = x as IArtifact;
-
-						Debug.Assert(a != null);
-
-						return a.IsInRoom(this);
-					}
-				};
+				roomFindFunc = x => (x is IMonster m && m.IsInRoom(this)) || (x is IArtifact a && a.IsInRoom(this));        // && !m.IsCharacterMonster()
 			}
 
 			var list = new List<IGameBase>();
@@ -377,21 +330,15 @@ namespace Eamon.Game
 
 				foreach (var x in list)
 				{
-					var m = x as IMonster;
-
-					if (m != null)
+					if (x is IMonster m)
 					{
 						list01.AddRange(m.GetContainedList(monsterFindFunc, artifactFindFunc, recurse));
 					}
-					else
+					else if (x is IArtifact a)
 					{
-						var a = x as IArtifact;
-
-						Debug.Assert(a != null);
-
-						if (a.Container != null)
+						if (a.GeneralContainer != null)
 						{
-							list01.AddRange(a.GetContainedList(artifactFindFunc, recurse));
+							list01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
 						}
 					}
 				}
@@ -536,7 +483,7 @@ namespace Eamon.Game
 					showDesc ? "also " : "",
 					showDesc && !monsters.Any() ? "notice " : "see ");
 
-				rc = Globals.Engine.GetRecordNameList(combined, ArticleType.A, true, true, false, buf);
+				rc = Globals.Engine.GetRecordNameList(combined, ArticleType.A, true, StateDescDisplayCode.AllStateDescs, true, false, buf);
 
 				if (Globals.Engine.IsFailure(rc))
 				{
@@ -584,6 +531,28 @@ namespace Eamon.Game
 
 				r.Seen = true;
 			}
+
+		Cleanup:
+
+			return rc;
+		}
+
+		public virtual RetCode BuildPrintedTooDarkToSeeDesc(StringBuilder buf)
+		{
+			RetCode rc;
+
+			if (buf == null)
+			{
+				rc = RetCode.InvalidArg;
+
+				// PrintError
+
+				goto Cleanup;
+			}
+
+			rc = RetCode.Success;
+
+			buf.SetPrint("It's too dark to see.");
 
 		Cleanup:
 

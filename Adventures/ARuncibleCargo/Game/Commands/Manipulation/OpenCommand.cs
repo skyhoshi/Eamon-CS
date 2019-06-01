@@ -26,22 +26,6 @@ namespace ARuncibleCargo.Game.Commands
 			}
 		}
 
-		public override bool ShouldPrintContainerInventory()
-		{
-			// Skip Cargo contents if empty
-
-			if (DobjArtifact.Uid == 129)
-			{
-				var artifactList = DobjArtifact.GetContainedList();
-
-				return artifactList.Count > 0;
-			}
-			else
-			{
-				return base.ShouldPrintContainerInventory();
-			}
-		}
-
 		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
@@ -50,7 +34,7 @@ namespace ARuncibleCargo.Game.Commands
 
 			Debug.Assert(gameState != null);
 
-			var ac = DobjArtifact.Uid == 129 ? DobjArtifact.Container : null;
+			var ac = DobjArtifact.Uid == 129 ? DobjArtifact.InContainer : null;
 
 			// Open the Runcible Cargo
 

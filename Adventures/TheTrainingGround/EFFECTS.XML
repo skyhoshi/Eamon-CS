@@ -248,7 +248,7 @@
           <Properties>
             <Simple name="Uid" value="35" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Desc" value="LARGE OVEN." />
+            <Simple name="Desc" value="*** UNUSED ***" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
@@ -272,6 +272,34 @@
             <Simple name="Desc" value="So, you hitchhiked your way out there, and readied your weapons and yourself as you approached the Main entrance..." />
           </Properties>
         </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="39" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Desc" value="LARGE OVEN." />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="40" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Desc" value="See EAMON CS 1.4 NEW COMMANDS for additional details." />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="41" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Desc" value="floor and you can GET ALL." />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="42" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Desc" value="to remove from or add to the container." />
+          </Properties>
+        </Complex>
       </Items>
     </Collection>
     <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -280,6 +308,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="38" />
+    <Simple name="CurrUid" value="42" />
   </Properties>
 </Complex>

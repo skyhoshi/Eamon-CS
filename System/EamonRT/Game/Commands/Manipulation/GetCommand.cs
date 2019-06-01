@@ -21,9 +21,15 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class GetCommand : Command, IGetCommand
 	{
+		public virtual bool GetAll { get; set; }
+
+		public virtual bool OmitWeightCheck { get; set; }
+
+		/// <summary></summary>
 		public virtual IList<IArtifact> ArtifactList { get; set; }
 
-		public virtual bool GetAll { get; set; }
+		/// <summary></summary>
+		public virtual IList<string> ContainerContentsList { get; set; }
 
 		public virtual void ProcessAction(Action action, ref bool nlFlag)
 		{
@@ -46,6 +52,8 @@ namespace EamonRT.Game.Commands
 
 		public virtual void ProcessArtifact(IArtifact artifact, IArtifactCategory ac, ref bool nlFlag)
 		{
+			RetCode rc;
+
 			Debug.Assert(artifact != null);
 
 			Debug.Assert(ac != null);
@@ -68,7 +76,20 @@ namespace EamonRT.Game.Commands
 
 				var weight = artifact.Weight;
 
-				var rc = artifact.GetContainerInfo(ref count, ref weight, true);
+				if (artifact.GeneralContainer != null)
+				{
+					rc = artifact.GetContainerInfo(ref count, ref weight, ContainerType.In, true);
+
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+					rc = artifact.GetContainerInfo(ref count, ref weight, ContainerType.On, true);
+
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+				}
+
+				var charWeight = 0L;
+
+				rc = ActorMonster.GetFullInventoryWeight(ref charWeight, recurse: true);
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
@@ -76,7 +97,7 @@ namespace EamonRT.Game.Commands
 				{
 					ProcessAction(() => PrintBestLeftAlone(artifact), ref nlFlag);
 				}
-				else if (Globals.GameState.Wt + weight > ActorMonster.GetWeightCarryableGronds())
+				else if (!OmitWeightCheck && (weight + charWeight > ActorMonster.GetWeightCarryableGronds()))
 				{
 					ProcessAction(() => PrintTooHeavy(artifact), ref nlFlag);
 				}
@@ -94,15 +115,19 @@ namespace EamonRT.Game.Commands
 					}
 					else
 					{
-						Globals.GameState.Wt += weight;
+						var isCarriedByContainer = artifact.IsCarriedByContainer();
+
+						Globals.LastArtifactLocation = artifact.Location;
 
 						artifact.SetCarriedByCharacter();
+
+						Globals.Engine.RevealExtendedContainerContents(ActorRoom, artifact, ContainerContentsList);
 
 						if (NextState is IRequestCommand)
 						{
 							PrintReceived(artifact);
 						}
-						else if (NextState is IRemoveCommand)
+						else if (NextState is IRemoveCommand || isCarriedByContainer)
 						{
 							PrintRetrieved(artifact);
 						}
@@ -121,6 +146,8 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(GetAll || DobjArtifact != null);
 
+			ContainerContentsList = new List<string>();
+
 			if (GetAll)
 			{
 				// screen out all weapons in the room which have monsters present with affinities to those weapons
@@ -134,7 +161,7 @@ namespace EamonRT.Game.Commands
 
 			if (ArtifactList.Count > 0)
 			{
-				var artTypes = new ArtifactType[] { ArtifactType.DisguisedMonster, ArtifactType.Container, ArtifactType.DeadBody, ArtifactType.BoundMonster, ArtifactType.Weapon, ArtifactType.MagicWeapon };
+				var artTypes = new ArtifactType[] { ArtifactType.DisguisedMonster, ArtifactType.DeadBody, ArtifactType.BoundMonster, ArtifactType.Weapon, ArtifactType.MagicWeapon };
 
 				var nlFlag = false;
 
@@ -180,6 +207,24 @@ namespace EamonRT.Game.Commands
 					nlFlag = false;
 				}
 
+				if (!GetAll && DobjArtifact.IsCarriedByCharacter() && !DobjArtifact.Seen)
+				{
+					Globals.Buf.Clear();
+
+					var rc = DobjArtifact.BuildPrintedFullDesc(Globals.Buf, false);
+
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+					Globals.Out.Write("{0}", Globals.Buf);
+
+					DobjArtifact.Seen = true;
+				}
+
+				foreach (var containerContentsDesc in ContainerContentsList)
+				{
+					Globals.Out.Write("{0}", containerContentsDesc);
+				}
+
 				if (ActorMonster.Weapon <= 0 && wpnArtifact != null && NextState == null)
 				{
 					var command = Globals.CreateInstance<IReadyCommand>();
@@ -214,7 +259,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var artTypes = new ArtifactType[] { ArtifactType.DisguisedMonster, ArtifactType.Container, ArtifactType.DeadBody, ArtifactType.BoundMonster, ArtifactType.Weapon, ArtifactType.MagicWeapon };
+			var artTypes = new ArtifactType[] { ArtifactType.DisguisedMonster, ArtifactType.DeadBody, ArtifactType.BoundMonster, ArtifactType.Weapon, ArtifactType.MagicWeapon };
 
 			var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
 
@@ -223,15 +268,22 @@ namespace EamonRT.Game.Commands
 				ac = DobjArtifact.GetCategories(0);
 			}
 
-			if (ac != null && (ActorRoom.IsLit() || ActorMonster.Weapon == -DobjArtifact.Uid - 1) && ac.Type != ArtifactType.DisguisedMonster && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
+			if (ac != null && ac.Type != ArtifactType.DisguisedMonster && DobjArtifact.UnderContainer == null && DobjArtifact.BehindContainer == null && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
 			{
 				var artCount = 0L;
 
 				var artWeight = DobjArtifact.Weight;
 
-				rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, true);
+				if (DobjArtifact.GeneralContainer != null)
+				{
+					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.In, true);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+
+					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.On, true);
+
+					Debug.Assert(Globals.Engine.IsSuccess(rc));
+				}
 
 				var monWeight = 0L;
 
@@ -239,7 +291,7 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				if (!Globals.Engine.EnforceMonsterWeightLimits || (artWeight <= ActorMonster.GetWeightCarryableGronds() && artWeight + monWeight <= ActorMonster.GetWeightCarryableGronds() * ActorMonster.GroupCount))
+				if (!Globals.Engine.EnforceMonsterWeightLimits || OmitWeightCheck || (artWeight <= ActorMonster.GetWeightCarryableGronds() && artWeight + monWeight <= ActorMonster.GetWeightCarryableGronds() * ActorMonster.GroupCount))
 				{
 					DobjArtifact.SetCarriedByMonster(ActorMonster);
 
@@ -247,13 +299,20 @@ namespace EamonRT.Game.Commands
 
 					Debug.Assert(charMonster != null);
 
-					var viewingMonsters = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m != ActorMonster);
-
-					if (viewingMonsters.Contains(charMonster))
+					if (charMonster.IsInRoom(ActorRoom))
 					{
-						var monsterName = ActorRoom.EvalLightLevel("An unseen offender", ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01)));
+						if (ActorRoom.IsLit())
+						{
+							var monsterName = ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01));
 
-						Globals.Out.Print("{0} picks up {1}.", monsterName, ActorRoom.EvalLightLevel("a weapon", DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf)));
+							Globals.Out.Print("{0} picks up {1}.", monsterName, DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+						}
+						else
+						{
+							var monsterName = string.Format("An unseen {0}", ActorMonster.CheckNBTLHostility() ? "offender" : "entity");
+
+							Globals.Out.Print("{0} picks up {1}.", monsterName, "a weapon");
+						}
 					}
 
 					// when a weapon is picked up all monster affinities to that weapon are broken
@@ -289,7 +348,8 @@ namespace EamonRT.Game.Commands
 				CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 				{
 					a => a.IsInRoom(ActorRoom),
-					a => a.IsEmbeddedInRoom(ActorRoom)
+					a => a.IsEmbeddedInRoom(ActorRoom),
+					a => a.GetCarriedByContainerContainerType() == ContainerType.On && a.GetCarriedByContainer() != null && a.GetCarriedByContainer().IsInRoom(ActorRoom)
 				};
 
 				CommandParser.ObjData.ArtifactNotFoundFunc = PrintCantVerbThat;

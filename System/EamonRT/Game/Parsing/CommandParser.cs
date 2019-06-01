@@ -7,7 +7,10 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
@@ -29,6 +32,8 @@ namespace EamonRT.Game.Parsing
 		public virtual long CurrToken { get; set; }
 
 		public virtual long PrepTokenIndex { get; set; }
+
+		public virtual IPrep Prep { get; set; }
 
 		public virtual IMonster ActorMonster { get; set; }
 
@@ -111,6 +116,8 @@ namespace EamonRT.Game.Parsing
 
 			PrepTokenIndex = -1;
 
+			Prep = null;
+
 			ActorMonster = null;
 
 			ActorRoom = null;
@@ -132,20 +139,27 @@ namespace EamonRT.Game.Parsing
 
 				Debug.Assert(command != null);
 
-				if (string.IsNullOrWhiteSpace(ObjData.QueryDesc))
-				{
-					ObjData.QueryDesc = string.Format("{0}{1} who or what? ", Environment.NewLine, command.Verb.FirstCharToUpper());
-				}
-
 				ObjData.Name = "";
 
 				if (CurrToken < Tokens.Length)
 				{
-					PrepTokenIndex = command.IsIobjEnabled ? Globals.Engine.FindIndex(Tokens, token => Globals.Engine.Preps.FirstOrDefault(prep => string.Equals(prep, token, StringComparison.OrdinalIgnoreCase)) != null) : -1;
+					PrepTokenIndex = command.IsDobjPrepEnabled || command.IsIobjEnabled ? Globals.Engine.FindIndex(Tokens, token => Globals.Engine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, token, StringComparison.OrdinalIgnoreCase) && command.IsPrepEnabled(prep)) != null) : -1;
 
-					if (PrepTokenIndex > CurrToken)
+					Prep = PrepTokenIndex >= 0 ? Globals.Engine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, Tokens[PrepTokenIndex], StringComparison.OrdinalIgnoreCase) && command.IsPrepEnabled(prep)) : null;
+
+					if (command.IsDobjPrepEnabled && PrepTokenIndex == CurrToken)
 					{
-						command.Prep = Globals.CloneInstance(Tokens[PrepTokenIndex]);
+						command.Prep = Globals.CloneInstance(Prep);
+
+						var numTokens = Tokens.Length - CurrToken;
+
+						ObjData.Name = string.Join(" ", Tokens.Skip((int)(CurrToken + 1)).Take((int)(numTokens - 1)));
+
+						CurrToken += numTokens;
+					}
+					else if (command.IsIobjEnabled && PrepTokenIndex > CurrToken)
+					{
+						command.Prep = Globals.CloneInstance(Prep);
 
 						var numTokens = PrepTokenIndex - CurrToken;
 
@@ -157,6 +171,8 @@ namespace EamonRT.Game.Parsing
 					{
 						PrepTokenIndex = -1;
 
+						Prep = null;
+
 						ObjData.Name = string.Join(" ", Tokens.Skip((int)CurrToken));
 
 						CurrToken = Tokens.Length;
@@ -164,6 +180,11 @@ namespace EamonRT.Game.Parsing
 				}
 
 				Globals.Buf.SetFormat("{0}", ObjData.Name);
+
+				if (string.IsNullOrWhiteSpace(ObjData.QueryDesc))
+				{
+					ObjData.QueryDesc = string.Format("{0}{1} {2}who or what? ", Environment.NewLine, command.Verb.FirstCharToUpper(), command.IsDobjPrepEnabled && command.Prep != null && Enum.IsDefined(typeof(ContainerType), command.Prep.ContainerType) ? Globals.Engine.EvalContainerType(command.Prep.ContainerType, "inside ", "on ", "under ", "behind ") : "");
+				}
 
 				while (true)
 				{
@@ -191,8 +212,6 @@ namespace EamonRT.Game.Parsing
 			}
 			else
 			{
-				Debug.Assert(!string.IsNullOrWhiteSpace(ObjData.QueryDesc));
-
 				ObjData.Name = "";
 
 				if (CurrToken < Tokens.Length && PrepTokenIndex >= 0)
@@ -205,6 +224,8 @@ namespace EamonRT.Game.Parsing
 				}
 
 				Globals.Buf.SetFormat("{0}", ObjData.Name);
+
+				Debug.Assert(!string.IsNullOrWhiteSpace(ObjData.QueryDesc));
 
 				while (true)
 				{
@@ -272,7 +293,31 @@ namespace EamonRT.Game.Parsing
 
 			LastInputStr = InputBuf.ToString();
 
-			Tokens = LastInputStr.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+			InputBuf.SetFormat(" {0} ", Regex.Replace(InputBuf.ToString(), @"\s+", " ").ToLower().Trim());
+
+			InputBuf = InputBuf.Replace(" in to ", " into ");
+
+			InputBuf = InputBuf.Replace(" inside ", " in ");
+
+			InputBuf = InputBuf.Replace(" from in ", " fromin ");
+
+			InputBuf = InputBuf.Replace(" on to ", " onto ");
+
+			InputBuf = InputBuf.Replace(" on top of ", " on ");
+
+			InputBuf = InputBuf.Replace(" from on ", " fromon ");
+
+			InputBuf = InputBuf.Replace(" below ", " under ").Replace(" beneath ", " under ").Replace(" underneath ", " under ");
+
+			InputBuf = InputBuf.Replace(" from under ", " fromunder ");
+
+			InputBuf = InputBuf.Replace(" in back of ", " behind ");
+
+			InputBuf = InputBuf.Replace(" from behind ", " frombehind ");
+
+			InputBuf = InputBuf.Trim();
+
+			Tokens = InputBuf.ToString().Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
 
 			if (CurrToken < Tokens.Length)
 			{

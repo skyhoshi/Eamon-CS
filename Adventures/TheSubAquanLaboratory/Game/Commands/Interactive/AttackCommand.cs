@@ -92,14 +92,24 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						ProcessWallAttack();
 
-						if (Damage > 19)
+						if (Damage > 17)
 						{
-							Damage = 19;
+							Damage = 17;
 						}
 
 						Ac.Field4 -= Damage;
 
-						n = (long)Math.Round((double)Ac.Field4 / 20);
+						if (Ac.Field4 < 0)
+						{
+							Ac.Field4 = 0;
+						}
+
+						n = (long)Math.Round((double)Ac.Field4 / 16);
+
+						if (n > 5)
+						{
+							n = 5;
+						}
 
 						effectUid = 63 - n * (n > 0 ? 1 : 0);
 
@@ -124,8 +134,6 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						if (effectUid == 63)
 						{
-							Ac.Field4 = 0;
-
 							DobjArtifact.SetInLimbo();
 
 							var engravingArtifact = Globals.ADB[2];
@@ -151,14 +159,24 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						ProcessWallAttack();
 
-						if (Damage > 10)
+						if (Damage > 9)
 						{
-							Damage = 10;
+							Damage = 9;
 						}
 
 						Ac.Field4 -= Damage;
 
-						n = (long)Math.Round((double)Ac.Field4 / 10);
+						if (Ac.Field4 < 0)
+						{
+							Ac.Field4 = 0;
+						}
+
+						n = (long)Math.Round((double)Ac.Field4 / 12);
+
+						if (n > 3)
+						{
+							n = 3;
+						}
 
 						effectUid = 69 - n * (n > 0 ? 1 : 0);
 
@@ -168,8 +186,6 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						if (effectUid == 69)
 						{
-							Ac.Field4 = 0;
-
 							DobjArtifact.SetInLimbo();
 
 							var ovalDoorArtifact = Globals.ADB[16];

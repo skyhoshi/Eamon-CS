@@ -83,8 +83,6 @@ namespace EamonRT.Game.Commands
 				{
 					DobjArtifact.Value = 0;
 
-					Globals.Engine.RemoveWeight(DobjArtifact);
-
 					DobjArtifact.SetInLimbo();
 
 					PrintVerbItAll(DobjArtifact);

@@ -25,21 +25,6 @@ namespace EamonRT.Game.Commands
 
 		public virtual Direction Direction { get; set; }
 
-		public virtual void SetDoorGateFleeDesc()
-		{
-			Globals.Buf.Clear();
-		}
-
-		public virtual bool ShouldMonsterFlee()
-		{
-			return Globals.Engine.CheckNBTLHostility(ActorMonster);
-		}
-
-		public virtual long GetMonsterFleeingMemberCount()
-		{
-			return Globals.Engine.RollDice(1, ActorMonster.GroupCount, 0);
-		}
-
 		public override void PlayerExecute()
 		{
 			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Direction), Direction));
@@ -53,7 +38,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (!Globals.Engine.CheckNBTLHostility(ActorMonster))
+			if (!ActorMonster.CheckNBTLHostility())
 			{
 				PrintCalmDown();
 
@@ -101,7 +86,7 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact != null)
 			{
-				SetDoorGateFleeDesc();
+				Globals.Buf.SetFormat("{0}", DobjArtifact.GetDoorGateFleeDesc());
 			}
 			else if (Direction > Direction.West && Direction < Direction.Northeast)
 			{
@@ -137,7 +122,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(Direction == 0);
 
-			if (ShouldMonsterFlee())
+			if (ActorMonster.ShouldFleeRoom())
 			{
 				var charMonster = Globals.MDB[Globals.GameState.Cm];
 
@@ -149,7 +134,7 @@ namespace EamonRT.Game.Commands
 
 				Globals.Engine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref numExits);
 
-				var rl = GetMonsterFleeingMemberCount();
+				var rl = ActorMonster.GetFleeingMemberCount();
 
 				var monster = Globals.CloneInstance(ActorMonster);
 
@@ -259,7 +244,8 @@ namespace EamonRT.Game.Commands
 					CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 					{
 						a => a.IsInRoom(ActorRoom),
-						a => a.IsEmbeddedInRoom(ActorRoom)
+						a => a.IsEmbeddedInRoom(ActorRoom),
+						a => a.GetCarriedByContainerContainerType() == ContainerType.On && a.GetCarriedByContainer() != null && a.GetCarriedByContainer().IsInRoom(ActorRoom)
 					};
 
 					CommandParser.ObjData.ArtifactNotFoundFunc = PrintNothingHereByThatName;

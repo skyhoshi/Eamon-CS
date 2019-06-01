@@ -16,13 +16,6 @@ namespace ARuncibleCargo.Game
 	[ClassMappings]
 	public class Monster : Eamon.Game.Monster, IMonster
 	{
-		protected override bool HasHumanNaturalAttackDescs()
-		{
-			// Use appropriate natural attack descriptions for humans
-
-			return (Uid > 3 && Uid < 13) || Uid == 15 || (Uid > 21 && Uid < 24) || (Uid > 24 && Uid < 40);
-		}
-
 		public override RetCode BuildPrintedFullDesc(StringBuilder buf, bool showName)
 		{
 			RetCode rc;
@@ -52,6 +45,13 @@ namespace ARuncibleCargo.Game
 			return rc;
 		}
 
+		public override bool HasHumanNaturalAttackDescs()
+		{
+			// Use appropriate natural attack descriptions for humans
+
+			return (Uid > 3 && Uid < 13) || Uid == 15 || (Uid > 21 && Uid < 24) || (Uid > 24 && Uid < 40);
+		}
+		
 		public override bool CanMoveToRoomUid(long roomUid, bool fleeing)
 		{
 			var room = Globals.RDB[roomUid];
@@ -82,6 +82,11 @@ namespace ARuncibleCargo.Game
 			{
 				return base.CanMoveToRoomUid(roomUid, fleeing);
 			}
+		}
+
+		public override bool ShouldRefuseToAcceptGift(IArtifact artifact)
+		{
+			return false;
 		}
 	}
 }
