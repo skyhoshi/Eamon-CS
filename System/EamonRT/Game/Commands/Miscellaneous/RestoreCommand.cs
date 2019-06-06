@@ -179,6 +179,8 @@ namespace EamonRT.Game.Commands
 				foreach (var monster in monsters)
 				{
 					monster.InitGroupCount = monster.GroupCount;
+
+					monster.ResolveFriendlinessPct(Globals.Character);
 				}
 
 				rc = Globals.Engine.ValidateRecordsAfterDatabaseLoaded();
