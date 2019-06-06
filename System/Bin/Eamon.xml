@@ -2942,12 +2942,6 @@
         <member name="P:Eamon.Framework.IGameState.UsedWpnIdx">
             <summary></summary>
         </member>
-        <member name="P:Eamon.Framework.IGameState.NBTL">
-            <summary></summary>
-        </member>
-        <member name="P:Eamon.Framework.IGameState.DTTL">
-            <summary></summary>
-        </member>
         <member name="P:Eamon.Framework.IGameState.Sa">
             <summary></summary>
         </member>
@@ -2989,26 +2983,6 @@
             <param name="index"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IGameState.SetNBTL(System.Int64,System.Int64)">
-            <summary></summary>
-            <param name="index"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:Eamon.Framework.IGameState.SetNBTL(Eamon.Framework.Primitive.Enums.Friendliness,System.Int64)">
-            <summary></summary>
-            <param name="friendliness"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:Eamon.Framework.IGameState.SetDTTL(System.Int64,System.Int64)">
-            <summary></summary>
-            <param name="index"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:Eamon.Framework.IGameState.SetDTTL(Eamon.Framework.Primitive.Enums.Friendliness,System.Int64)">
-            <summary></summary>
-            <param name="friendliness"></param>
-            <param name="value"></param>
-        </member>
         <member name="M:Eamon.Framework.IGameState.SetSa(System.Int64,System.Int64)">
             <summary></summary>
             <param name="index"></param>
@@ -3022,26 +2996,6 @@
         <member name="M:Eamon.Framework.IGameState.SetHeldWpnUids(System.Int64,System.Int64)">
             <summary></summary>
             <param name="index"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:Eamon.Framework.IGameState.ModNBTL(System.Int64,System.Int64)">
-            <summary></summary>
-            <param name="index"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:Eamon.Framework.IGameState.ModNBTL(Eamon.Framework.Primitive.Enums.Friendliness,System.Int64)">
-            <summary></summary>
-            <param name="friendliness"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:Eamon.Framework.IGameState.ModDTTL(System.Int64,System.Int64)">
-            <summary></summary>
-            <param name="index"></param>
-            <param name="value"></param>
-        </member>
-        <member name="M:Eamon.Framework.IGameState.ModDTTL(Eamon.Framework.Primitive.Enums.Friendliness,System.Int64)">
-            <summary></summary>
-            <param name="friendliness"></param>
             <param name="value"></param>
         </member>
         <member name="M:Eamon.Framework.IGameState.ModSa(System.Int64,System.Int64)">

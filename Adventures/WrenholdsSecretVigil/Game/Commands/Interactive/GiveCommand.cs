@@ -30,7 +30,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 						IobjMonster.OrigFriendliness = (Friendliness)150;
 
-						Globals.Engine.CheckEnemies();
+						IobjMonster.ResolveFriendlinessPct(Globals.Character);
 
 						PrintGiveObjToActor(DobjArtifact, IobjMonster);
 

@@ -212,8 +212,6 @@ namespace WrenholdsSecretVigil.Game.Commands
 						monster.SetInRoomUid(48);
 					}
 
-					// CheckEnemies intentionally omitted
-
 					gameState.PulledRope = true;
 				}
 

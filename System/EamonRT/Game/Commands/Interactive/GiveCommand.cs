@@ -274,6 +274,8 @@ namespace EamonRT.Game.Commands
 					if (Globals.IsRulesetVersion(5))
 					{
 						IobjMonster.CalculateGiftFriendlinessPct(DobjArtifact.Value);
+
+						IobjMonster.ResolveFriendlinessPct(Globals.Character);
 					}
 					else
 					{
@@ -342,6 +344,8 @@ namespace EamonRT.Game.Commands
 				if (Globals.IsRulesetVersion(5))
 				{
 					IobjMonster.CalculateGiftFriendlinessPct(GoldAmount);
+
+					IobjMonster.ResolveFriendlinessPct(Globals.Character);
 				}
 				else
 				{
@@ -357,8 +361,6 @@ namespace EamonRT.Game.Commands
 					}
 				}
 			}
-
-			Globals.Engine.CheckEnemies();
 
 		Cleanup:
 

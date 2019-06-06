@@ -23,8 +23,6 @@ namespace TheTrainingGround.Game.Commands
 
 				DobjMonster.SetInLimbo();
 
-				Globals.Engine.CheckEnemies();
-
 				NextState = Globals.CreateInstance<IStartState>();
 
 				GotoCleanup = true;

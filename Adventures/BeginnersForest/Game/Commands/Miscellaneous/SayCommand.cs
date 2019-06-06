@@ -36,8 +36,6 @@ namespace BeginnersForest.Game.Commands
 
 				spookMonster.OrigGroupCount = spookMonster.GroupCount;
 
-				Globals.Engine.CheckEnemies();
-
 				gameState.SpookCounter = 8;
 
 				Globals.Out.Print("Less spooks it is!");

@@ -94,11 +94,6 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Field1 != 0)
 				{
-					if (Globals.IsRulesetVersion(5))
-					{
-						Globals.GameState.ModDTTL(ActorMonster.Friendliness, -(ac.Field1 >= 0 ? Math.Min(ActorMonster.DmgTaken, ac.Field1) : ac.Field1));
-					}
-
 					ActorMonster.DmgTaken -= ac.Field1;
 
 					if (ActorMonster.DmgTaken < 0)

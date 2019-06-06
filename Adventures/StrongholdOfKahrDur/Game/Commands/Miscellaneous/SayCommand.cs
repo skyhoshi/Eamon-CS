@@ -36,8 +36,6 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 					ActorMonster.Weapon = artUid;
 
-					Globals.Engine.CheckEnemies();
-
 					Globals.Out.Print("Monster stats reduced.");
 
 					NextState = Globals.CreateInstance<IStartState>();

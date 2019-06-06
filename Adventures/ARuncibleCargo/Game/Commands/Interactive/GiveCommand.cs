@@ -58,8 +58,6 @@ namespace ARuncibleCargo.Game.Commands
 
 					IobjMonster.OrigFriendliness = (Friendliness)200;
 
-					Globals.Engine.CheckEnemies();
-
 					Globals.Engine.PrintEffectDesc(94);
 
 					GotoCleanup = true;

@@ -338,9 +338,6 @@ namespace EamonRT.Framework
 		void CreateInitialState(bool printLineSep);
 
 		/// <summary></summary>
-		void CheckEnemies();
-
-		/// <summary></summary>
 		void MoveMonsters();
 
 		/// <summary></summary>

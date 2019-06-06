@@ -44,8 +44,6 @@ namespace BeginnersForest.Game.States
 						spookMonster.Location = gameState.Ro;
 
 						gameState.SpookCounter++;
-
-						Globals.Engine.CheckEnemies();
 					}
 				}
 			}

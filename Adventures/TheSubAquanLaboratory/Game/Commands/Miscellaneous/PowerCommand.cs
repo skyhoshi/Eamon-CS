@@ -100,8 +100,6 @@ namespace TheSubAquanLaboratory.Game.Commands
 					{
 						ActorMonster.DmgTaken = 0;
 
-						Globals.Engine.CheckEnemies();
-
 						Globals.Out.Print("All of your wounds are suddenly healed!");
 
 						Globals.Buf.SetFormat("{0}You are ", Environment.NewLine);

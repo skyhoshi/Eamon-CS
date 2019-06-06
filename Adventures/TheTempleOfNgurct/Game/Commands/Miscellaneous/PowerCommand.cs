@@ -48,8 +48,6 @@ namespace TheTempleOfNgurct.Game.Commands
 							gameState.KeyRingRoomUid = ActorRoom.Uid;
 						}
 
-						Globals.Engine.CheckEnemies();
-
 						GotoCleanup = true;
 
 						goto Cleanup;
@@ -117,8 +115,6 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					ActorMonster.SetInRoomUid(room);
 
-					Globals.Engine.CheckEnemies();
-
 					NextState = Globals.CreateInstance<IStartState>();
 
 					GotoCleanup = true;
@@ -138,8 +134,6 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					heroMonster.SetInRoom(ActorRoom);
 
-					Globals.Engine.CheckEnemies();
-
 					NextState = Globals.CreateInstance<IStartState>();
 
 					GotoCleanup = true;
@@ -154,8 +148,6 @@ namespace TheTempleOfNgurct.Game.Commands
 					Globals.Out.Print("The Hero vanishes!  (The gods giveth...)");
 
 					heroMonster.SetInLimbo();
-
-					Globals.Engine.CheckEnemies();
 
 					GotoCleanup = true;
 
@@ -185,8 +177,6 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					ActorMonster.SetInRoomUid(58);
 
-					Globals.Engine.CheckEnemies();
-
 					NextState = Globals.CreateInstance<IStartState>();
 
 					GotoCleanup = true;
@@ -195,8 +185,6 @@ namespace TheTempleOfNgurct.Game.Commands
 				}
 
 				Globals.Out.Print("All your wounds are healed!");
-
-				Globals.GameState.ModDTTL(ActorMonster.Friendliness, -ActorMonster.DmgTaken);
 
 				ActorMonster.DmgTaken = 0;
 			}

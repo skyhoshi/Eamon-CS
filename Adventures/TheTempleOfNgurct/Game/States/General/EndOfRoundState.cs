@@ -33,8 +33,6 @@ namespace TheTempleOfNgurct.Game.States
 
 				if (ringArtifact.IsWornByCharacter() && characterMonster.DmgTaken > 0 && ++gameState.Regenerate == 5)
 				{
-					Globals.GameState.ModDTTL(characterMonster.Friendliness, -1);
-
 					characterMonster.DmgTaken--;
 
 					gameState.Regenerate = 0;

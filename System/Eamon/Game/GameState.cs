@@ -3,11 +3,11 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
-using Eamon.Game.Utilities;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
@@ -53,10 +53,6 @@ namespace Eamon.Game
 
 		public virtual long UsedWpnIdx { get; set; }
 
-		public virtual long[] NBTL { get; set; }
-
-		public virtual long[] DTTL { get; set; }
-
 		public virtual long[] Sa { get; set; }
 
 		public virtual long[] HeldWpnUids { get; set; }
@@ -99,7 +95,18 @@ namespace Eamon.Game
 
 		public virtual long GetNBTL(long index)
 		{
-			return NBTL[index];
+			var nbtl = 0L;
+
+			var monsterList = Globals.Engine != null ? Globals.Engine.GetMonsterList(m => m.Location == Ro && m.Friendliness == (Friendliness)index) : new List<IMonster>();
+
+			foreach (var monster in monsterList)
+			{
+				nbtl += (monster.Hardiness * monster.GroupCount);
+			}
+
+			Debug.Assert(nbtl >= 0);
+
+			return nbtl;
 		}
 
 		public virtual long GetNBTL(Friendliness friendliness)
@@ -109,7 +116,18 @@ namespace Eamon.Game
 
 		public virtual long GetDTTL(long index)
 		{
-			return DTTL[index];
+			var dttl = 0L;
+
+			var monsterList = Globals.IsRulesetVersion(5) && Globals.Engine != null ? Globals.Engine.GetMonsterList(m => m.Location == Ro && m.Friendliness == (Friendliness)index) : new List<IMonster>();
+
+			foreach (var monster in monsterList)
+			{
+				dttl += monster.DmgTaken;
+			}
+
+			Debug.Assert(dttl >= 0);
+
+			return dttl;
 		}
 
 		public virtual long GetDTTL(Friendliness friendliness)
@@ -132,26 +150,6 @@ namespace Eamon.Game
 			return HeldWpnUids[index];
 		}
 
-		public virtual void SetNBTL(long index, long value)
-		{
-			NBTL[index] = value;
-		}
-
-		public virtual void SetNBTL(Friendliness friendliness, long value)
-		{
-			SetNBTL((long)friendliness, value);
-		}
-
-		public virtual void SetDTTL(long index, long value)
-		{
-			DTTL[index] = value;
-		}
-
-		public virtual void SetDTTL(Friendliness friendliness, long value)
-		{
-			SetDTTL((long)friendliness, value);
-		}
-
 		public virtual void SetSa(long index, long value)
 		{
 			Sa[index] = value;
@@ -165,26 +163,6 @@ namespace Eamon.Game
 		public virtual void SetHeldWpnUids(long index, long value)
 		{
 			HeldWpnUids[index] = value;
-		}
-
-		public virtual void ModNBTL(long index, long value)
-		{
-			NBTL[index] += value;
-		}
-
-		public virtual void ModNBTL(Friendliness friendliness, long value)
-		{
-			ModNBTL((long)friendliness, value);
-		}
-
-		public virtual void ModDTTL(long index, long value)
-		{
-			DTTL[index] += value;
-		}
-
-		public virtual void ModDTTL(Friendliness friendliness, long value)
-		{
-			ModDTTL((long)friendliness, value);
 		}
 
 		public virtual void ModSa(long index, long value)
@@ -206,12 +184,6 @@ namespace Eamon.Game
 			var character = Globals.CreateInstance<ICharacter>();
 
 			Debug.Assert(character != null);
-
-			var friendlinessesLength = (long)EnumUtil.GetLastValue<Friendliness>() + 1;
-
-			NBTL = new long[friendlinessesLength];
-
-			DTTL = new long[friendlinessesLength];
 
 			Sa = new long[character.SpellAbilities.Length];
 

@@ -41,8 +41,6 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					ngurctMonster.SetInRoom(ActorRoom);
 
-					Globals.Engine.CheckEnemies();
-
 					var command = Globals.CreateInstance<IAttackCommand>(x =>
 					{
 						x.BlastSpell = BlastSpell;
@@ -101,8 +99,6 @@ namespace TheTempleOfNgurct.Game.Commands
 					{
 						slaveGirlMonster.SetInRoom(ActorRoom);
 
-						Globals.Engine.CheckEnemies();
-
 						slaveGirlMonster.Seen = true;
 
 						slaveGirlFireballCheck = true;
@@ -158,8 +154,6 @@ namespace TheTempleOfNgurct.Game.Commands
 						else
 						{
 							slaveGirlMonster.SetInLimbo();
-
-							Globals.Engine.CheckEnemies();
 						}
 					}
 

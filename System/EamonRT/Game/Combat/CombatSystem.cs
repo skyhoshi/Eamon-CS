@@ -731,11 +731,6 @@ namespace EamonRT.Game.Combat
 
 			DfMonster.DmgTaken += _d2;
 
-			if (Globals.IsRulesetVersion(5))
-			{
-				Globals.GameState.ModDTTL(DfMonster.Friendliness, _d2);
-			}
-
 			if (!OmitMonsterStatus || OfMonster == DfMonster)
 			{
 				PrintHealthStatus();

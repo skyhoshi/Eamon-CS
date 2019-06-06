@@ -87,8 +87,6 @@ namespace EamonRT.Game.Commands
 				Monster.SetInRoom(ActorRoom);
 
 				DobjArtifact.SetInLimbo();
-
-				Globals.Engine.CheckEnemies();
 			}
 			else
 			{

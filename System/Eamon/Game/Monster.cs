@@ -832,7 +832,7 @@ namespace Eamon.Game
 				}
 			}
 
-			Cleanup:
+		Cleanup:
 
 			return rc;
 		}

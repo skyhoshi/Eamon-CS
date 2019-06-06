@@ -1069,13 +1069,13 @@ namespace Eamon.Game
 					(
 						" with {0} {1} {2}",
 						contentsList.Count > 1 || contentsList[0].IsPlural ? "some stuff" : ac.Field5 == (long)ContainerDisplayCode.ArtifactNameSomeStuff ? contentsList[0].GetDecoratedName02(false, showCharOwned, false, false, buf) : "something",
-						containerType == ContainerType.On ? "on" : containerType == ContainerType.Under ? "under" : containerType == ContainerType.Behind ? "behind" : "inside",
+						EvalContainerType(containerType, "inside", "on", "under", "behind"),
 						artifact.EvalPlural("it", "them")
 					);
 				}
 			}
 
-			Cleanup:
+		Cleanup:
 
 			return result;
 		}

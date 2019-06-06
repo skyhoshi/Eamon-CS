@@ -51,8 +51,6 @@ namespace TheTrainingGround.Game.Commands
 
 					IobjMonster.SetInLimbo();
 
-					Globals.Engine.CheckEnemies();
-
 					Globals.Engine.PrintEffectDesc(14);
 
 					GotoCleanup = true;

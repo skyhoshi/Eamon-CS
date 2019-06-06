@@ -65,12 +65,6 @@ namespace Eamon.Framework
 		long UsedWpnIdx { get; set; }
 
 		/// <summary></summary>
-		long[] NBTL { get; set; }
-
-		/// <summary></summary>
-		long[] DTTL { get; set; }
-
-		/// <summary></summary>
 		long[] Sa { get; set; }
 
 		/// <summary></summary>
@@ -118,26 +112,6 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="index"></param>
 		/// <param name="value"></param>
-		void SetNBTL(long index, long value);
-
-		/// <summary></summary>
-		/// <param name="friendliness"></param>
-		/// <param name="value"></param>
-		void SetNBTL(Friendliness friendliness, long value);
-
-		/// <summary></summary>
-		/// <param name="index"></param>
-		/// <param name="value"></param>
-		void SetDTTL(long index, long value);
-
-		/// <summary></summary>
-		/// <param name="friendliness"></param>
-		/// <param name="value"></param>
-		void SetDTTL(Friendliness friendliness, long value);
-
-		/// <summary></summary>
-		/// <param name="index"></param>
-		/// <param name="value"></param>
 		void SetSa(long index, long value);
 
 		/// <summary></summary>
@@ -149,26 +123,6 @@ namespace Eamon.Framework
 		/// <param name="index"></param>
 		/// <param name="value"></param>
 		void SetHeldWpnUids(long index, long value);
-
-		/// <summary></summary>
-		/// <param name="index"></param>
-		/// <param name="value"></param>
-		void ModNBTL(long index, long value);
-
-		/// <summary></summary>
-		/// <param name="friendliness"></param>
-		/// <param name="value"></param>
-		void ModNBTL(Friendliness friendliness, long value);
-
-		/// <summary></summary>
-		/// <param name="index"></param>
-		/// <param name="value"></param>
-		void ModDTTL(long index, long value);
-
-		/// <summary></summary>
-		/// <param name="friendliness"></param>
-		/// <param name="value"></param>
-		void ModDTTL(Friendliness friendliness, long value);
 
 		/// <summary></summary>
 		/// <param name="index"></param>

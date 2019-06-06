@@ -32,8 +32,6 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				cobraMonster.SetInRoom(ActorRoom);
 
-				Globals.Engine.CheckEnemies();
-
 				gameState.CobraAppeared = true;
 
 				NextState = Globals.CreateInstance<IStartState>();

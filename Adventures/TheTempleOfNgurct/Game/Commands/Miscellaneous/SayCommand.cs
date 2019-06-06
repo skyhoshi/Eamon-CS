@@ -39,8 +39,6 @@ namespace TheTempleOfNgurct.Game.Commands
 					{
 						alkandaMonster.SetInRoom(ActorRoom);
 
-						Globals.Engine.CheckEnemies();
-
 						NextState = Globals.CreateInstance<IStartState>();
 					}
 				}

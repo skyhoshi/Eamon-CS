@@ -25,8 +25,6 @@ namespace EamonRT.Game.Commands
 			{
 				foreach (var monster in monsters)
 				{
-					monster.ResolveFriendlinessPct(Globals.Character);
-
 					Globals.Engine.MonsterSmiles(monster);
 				}
 

@@ -41,8 +41,6 @@ namespace EamonRT.Game.States
 				Globals.Engine.MoveMonsters();
 			}
 
-			Globals.Engine.CheckEnemies();
-
 			var monster = Globals.MDB[Globals.GameState.Cm];
 
 			Debug.Assert(monster != null);

@@ -32,8 +32,6 @@ namespace TheTrainingGround.Game.Commands
 					monster.Field1 = 1;
 				}
 
-				Globals.Engine.CheckEnemies();
-
 				Globals.Engine.PrintEffectDesc(32);
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();

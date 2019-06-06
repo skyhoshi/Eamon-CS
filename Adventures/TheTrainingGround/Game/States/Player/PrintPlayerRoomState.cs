@@ -50,8 +50,6 @@ namespace TheTrainingGround.Game.States
 								koboldMonster.SetInRoom(characterRoom);
 							}
 
-							Globals.Engine.CheckEnemies();
-
 							gameState.KoboldsAppear = true;
 						}
 					}
@@ -94,8 +92,6 @@ namespace TheTrainingGround.Game.States
 								}
 
 								summonedMonster.SetInRoom(characterRoom);
-
-								Globals.Engine.CheckEnemies();
 							}
 						}
 					}

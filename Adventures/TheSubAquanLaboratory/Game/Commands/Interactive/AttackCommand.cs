@@ -213,8 +213,6 @@ namespace TheSubAquanLaboratory.Game.Commands
 								monster.SetInRoom(ActorRoom);
 							}
 
-							Globals.Engine.CheckEnemies();
-
 							NextState = Globals.CreateInstance<IStartState>();
 						}
 						else

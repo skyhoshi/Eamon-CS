@@ -108,8 +108,6 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							smallHammerheadMonster.SetInRoom(ActorRoom);
 
-							Globals.Engine.CheckEnemies();
-
 							Globals.Engine.PrintEffectDesc(1);
 
 							gameState.Shark = true;

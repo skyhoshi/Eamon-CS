@@ -264,8 +264,6 @@ namespace StrongholdOfKahrDur.Game
 
 				monster.OrigGroupCount++;
 			}
-
-			CheckEnemies();
 		}
 		
 		public Engine()

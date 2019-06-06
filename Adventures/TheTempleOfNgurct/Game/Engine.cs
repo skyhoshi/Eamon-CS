@@ -305,8 +305,6 @@ namespace TheTempleOfNgurct.Game
 
 					gameState.WanderingMonster++;
 
-					CheckEnemies();
-
 					found = true;
 
 					break;

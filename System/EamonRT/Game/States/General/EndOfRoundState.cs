@@ -17,8 +17,6 @@ namespace EamonRT.Game.States
 
 		public override void Execute()
 		{
-			Globals.Engine.CheckEnemies();
-
 			var monsters = Globals.Database.MonsterTable.Records.ToList();
 
 			foreach (var monster in monsters)

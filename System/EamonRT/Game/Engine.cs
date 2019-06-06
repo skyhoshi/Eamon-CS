@@ -535,6 +535,8 @@ namespace EamonRT.Game
 			{
 				monster.InitGroupCount = monster.GroupCount;
 
+				monster.ResolveFriendlinessPct(Globals.Character);
+
 				if (EnforceMonsterWeightLimits && !monster.IsCharacterMonster())
 				{
 					var rc = monster.EnforceFullInventoryWeightLimits(recurse: true);
@@ -1205,8 +1207,6 @@ namespace EamonRT.Game
 
 				monster.OrigFriendliness += 100;
 
-				CheckEnemies();
-
 				if (monster.IsInRoom(room) && monster.Friendliness == Friendliness.Enemy)
 				{
 					Globals.Out.Write("{0}{1} get{2} angry!{3}",
@@ -1291,16 +1291,13 @@ namespace EamonRT.Game
 					DfMonster.Weapon = -1;
 				}
 
-				if (Globals.IsRulesetVersion(5))
-				{
-					Globals.GameState.ModDTTL(DfMonster.Friendliness, -DfMonster.DmgTaken);
-				}
-
 				DfMonster.SetInLimbo();
 
 				DfMonster.GroupCount = DfMonster.OrigGroupCount;
 
 				// DfMonster.Friendliness = DfMonster.OrigFriendliness;
+
+				// DfMonster.ResolveFriendlinessPct(Globals.Character);
 
 				DfMonster.DmgTaken = 0;
 
@@ -1325,8 +1322,6 @@ namespace EamonRT.Game
 					}
 				}
 			}
-
-			Globals.GameState.ModNBTL(DfMonster.Friendliness, -DfMonster.Hardiness);
 		}
 
 		public virtual void ProcessMonsterDeathEvents(IMonster monster)
@@ -1380,8 +1375,6 @@ namespace EamonRT.Game
 			Debug.Assert(monster != null);
 
 			monster.SetInRoomUid(Globals.GameState.Ro);
-
-			CheckEnemies();
 		}
 
 		public virtual void RevealEmbeddedArtifact(IRoom room, IArtifact artifact)
@@ -2127,11 +2120,6 @@ namespace EamonRT.Game
 				}
 			}
 			
-			if (found)
-			{
-				CheckEnemies();
-			}
-
 			return found;
 		}
 
@@ -2340,8 +2328,6 @@ namespace EamonRT.Game
 				m.SetInRoom(newRoom);
 			}
 
-			CheckEnemies();
-
 			var artifactList = GetArtifactList(a => a.IsInRoom(oldRoom)).ToList();
 
 			foreach (var a in artifactList)
@@ -2524,34 +2510,6 @@ namespace EamonRT.Game
 			}
 		}
 
-		public virtual void CheckEnemies()
-		{
-			Array.Clear(Globals.GameState.NBTL, 0, (int)Globals.GameState.NBTL.Length);
-
-			Globals.GameState.SetNBTL(Friendliness.Friend, Globals.MDB[Globals.GameState.Cm].Hardiness);
-
-			if (Globals.IsRulesetVersion(5))
-			{
-				Array.Clear(Globals.GameState.DTTL, 0, (int)Globals.GameState.DTTL.Length);
-
-				Globals.GameState.SetDTTL(Friendliness.Friend, Globals.MDB[Globals.GameState.Cm].DmgTaken);
-			}
-
-			var monsters = GetMonsterList(m => !m.IsCharacterMonster() && m.Location == Globals.GameState.Ro);
-
-			foreach (var monster in monsters)
-			{
-				monster.ResolveFriendlinessPct(Globals.Character);
-
-				Globals.GameState.ModNBTL(monster.Friendliness, monster.Hardiness * monster.GroupCount);
-
-				if (Globals.IsRulesetVersion(5))
-				{
-					Globals.GameState.ModDTTL(monster.Friendliness, monster.DmgTaken);
-				}
-			}
-		}
-
 		public virtual void MoveMonsters()
 		{
 			long rl = 0;
@@ -2560,8 +2518,6 @@ namespace EamonRT.Game
 
 			foreach (var monster in monsters)
 			{
-				monster.ResolveFriendlinessPct(Globals.Character);
-
 				if (monster.CanMoveToRoomUid(Globals.GameState.Ro, false))
 				{
 					if (monster.Friendliness == Friendliness.Enemy)

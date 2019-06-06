@@ -84,8 +84,6 @@ namespace EamonRT.Game.Commands
 						Globals.Out.Print("All of your wounds are healed.");
 
 						ActorMonster.DmgTaken = 0;
-
-						Globals.Engine.CheckEnemies();
 					}
 
 					// 10% chance of SPEED spell

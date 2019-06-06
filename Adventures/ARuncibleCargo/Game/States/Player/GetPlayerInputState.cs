@@ -113,8 +113,6 @@ namespace ARuncibleCargo.Game.States
 				{
 					hokasTokasMonster.SetInRoomUid(1);
 
-					Globals.Engine.CheckEnemies();
-
 					Globals.Engine.PrintEffectDesc(11);
 
 					NextState = Globals.CreateInstance<IStartState>();

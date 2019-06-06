@@ -30,8 +30,6 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				ActorMonster.SetInRoomUid(58);
 
-				Globals.Engine.CheckEnemies();
-
 				NextState = Globals.CreateInstance<IStartState>();
 
 				GotoCleanup = true;

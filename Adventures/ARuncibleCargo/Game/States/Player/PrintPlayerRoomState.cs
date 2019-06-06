@@ -103,8 +103,6 @@ namespace ARuncibleCargo.Game.States
 
 					characterMonster.SetInRoom(room);
 
-					Globals.Engine.CheckEnemies();
-
 					Globals.Engine.PrintEffectDesc(7);
 				}
 
@@ -190,8 +188,6 @@ namespace ARuncibleCargo.Game.States
 						lilMonster.Friendliness = Friendliness.Enemy;
 
 						lilMonster.OrigFriendliness = (Friendliness)100;
-
-						Globals.Engine.CheckEnemies();
 					}
 				}
 

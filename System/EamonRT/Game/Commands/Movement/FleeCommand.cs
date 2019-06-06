@@ -157,13 +157,6 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				Globals.GameState.ModNBTL(ActorMonster.Friendliness, -ActorMonster.Hardiness * rl);
-
-				if (Globals.IsRulesetVersion(5))
-				{
-					Globals.GameState.ModDTTL(ActorMonster.Friendliness, -ActorMonster.DmgTaken);
-				}
-
 				if (rl < ActorMonster.GroupCount)
 				{
 					ActorMonster.GroupCount -= rl;

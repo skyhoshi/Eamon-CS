@@ -87,8 +87,6 @@ namespace StrongholdOfKahrDur.Game.Commands
 							m.SetInRoom(ActorRoom);
 						}
 
-						Globals.Engine.CheckEnemies();
-
 						GotoCleanup = true;
 
 						goto Cleanup;
@@ -111,8 +109,6 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 							m.SetInRoom(ActorRoom);
 						}
-
-						Globals.Engine.CheckEnemies();
 
 						GotoCleanup = true;
 

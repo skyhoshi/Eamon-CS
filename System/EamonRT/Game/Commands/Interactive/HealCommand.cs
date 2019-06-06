@@ -63,11 +63,6 @@ namespace EamonRT.Game.Commands
 
 				var rl = Globals.Engine.RollDice(1, Globals.IsRulesetVersion(5) ? 10 : 12, 0);
 
-				if (Globals.IsRulesetVersion(5))
-				{
-					Globals.GameState.ModDTTL(DobjMonster.Friendliness, -Math.Min(DobjMonster.DmgTaken, rl));
-				}
-
 				DobjMonster.DmgTaken -= rl;
 			}
 

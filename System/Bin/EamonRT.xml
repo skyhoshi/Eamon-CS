@@ -1022,9 +1022,6 @@
             <summary></summary>
             <param name="printLineSep"></param>
         </member>
-        <member name="M:EamonRT.Framework.IEngine.CheckEnemies">
-            <summary></summary>
-        </member>
         <member name="M:EamonRT.Framework.IEngine.MoveMonsters">
             <summary></summary>
         </member>
