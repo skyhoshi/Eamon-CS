@@ -439,7 +439,7 @@ namespace Eamon.Game
 		{
 			Location = roomUid;
 
-			var gameState = Globals?.Engine.GetGameState();
+			var gameState = Globals?.Engine?.GetGameState();
 
 			if (IsCharacterMonster() && gameState != null)
 			{
@@ -483,7 +483,7 @@ namespace Eamon.Game
 
 		public virtual bool ShouldProcessInGameLoop()
 		{
-			var gameState = Globals?.Engine.GetGameState();
+			var gameState = Globals?.Engine?.GetGameState();
 
 			return gameState != null && Location == gameState.Ro && !IsCharacterMonster();
 		}
@@ -497,7 +497,7 @@ namespace Eamon.Game
 
 		public virtual bool CheckNBTLHostility()
 		{
-			var gameState = Globals?.Engine.GetGameState();
+			var gameState = Globals?.Engine?.GetGameState();
 
 			return gameState != null && Friendliness != Friendliness.Neutral && gameState.GetNBTL(Friendliness == Friendliness.Friend ? Friendliness.Enemy : Friendliness.Friend) > 0;
 		}
@@ -629,7 +629,7 @@ namespace Eamon.Game
 
 			OrigFriendliness -= 100;
 
-			OrigFriendliness = (Friendliness)((double)OrigFriendliness * (1 + (double)value / 33));       // Scaled to EDX values; originally 100
+			OrigFriendliness = (Friendliness)((double)OrigFriendliness * (1 + (double)value / 33.33));       // Scaled to EDX values; originally 100
 
 			if (OrigFriendliness < 0)
 			{
@@ -647,7 +647,7 @@ namespace Eamon.Game
 
 		public virtual bool IsCharacterMonster()
 		{
-			var gameState = Globals?.Engine.GetGameState();
+			var gameState = Globals?.Engine?.GetGameState();
 
 			return gameState != null && gameState.Cm == Uid;
 		}

@@ -33,8 +33,8 @@ is all USER fields, the rest of the format fields 1-5 contain the following.
   Format 1             Format 2A              Format 2B
 1-Weapon Odds        1-Key No.              1-(USER #1)
 2-Weapon Type        2-Open/Closed(1/0)     2-(USER #2)
-3-# of Dice          3-# of items inside    3-# of items inside
-4-# of Dice Sides    4-# items it can hold  4-# items it can hold
+3-# of Dice          3-Max weight held      3-Max weight held
+4-# of Dice Sides    4-Max items held       4-Max items held
 5-# Hands required   5-Display Code^        5-Display Code^
 
   Format 3             Format 4               Format 5

@@ -37,6 +37,8 @@ namespace EamonRT.Game
 
 		public virtual bool UseMonsterScaledHardinessValues { get; set; }
 
+		public virtual bool AutoDisplayUnseenArtifactDescs { get; set; }
+
 		public virtual PoundCharPolicy PoundCharPolicy { get; set; }
 
 		/// <summary></summary>
@@ -1383,6 +1385,10 @@ namespace EamonRT.Game
 
 			Debug.Assert(artifact != null);
 
+			var shouldShowUnseenArtifacts = false;
+
+			// move an embedded artifact into the room
+
 			if (artifact.IsEmbeddedInRoom(room))
 			{
 				artifact.SetInRoom(room);
@@ -1394,18 +1400,34 @@ namespace EamonRT.Game
 					ac.Field4 = 0;
 				}
 
-				if (!artifact.Seen)
-				{
-					Globals.Buf.Clear();
+				shouldShowUnseenArtifacts = true;
+			}
 
-					var rc = artifact.BuildPrintedFullDesc(Globals.Buf, false);
+			if (!shouldShowUnseenArtifacts)
+			{
+				shouldShowUnseenArtifacts = AutoDisplayUnseenArtifactDescs;
+			}
 
-					Debug.Assert(IsSuccess(rc));
+			if (!shouldShowUnseenArtifacts)
+			{
+				var command = Globals.CommandParser.NextState as ICommand;
 
-					Globals.Out.Write("{0}", Globals.Buf);
+				shouldShowUnseenArtifacts = command != null && command.ShouldShowUnseenArtifacts();
+			}
 
-					artifact.Seen = true;
-				}
+			// fully describe an unseen artifact
+
+			if (shouldShowUnseenArtifacts && !artifact.Seen)
+			{
+				Globals.Buf.Clear();
+
+				var rc = artifact.BuildPrintedFullDesc(Globals.Buf, false);
+
+				Debug.Assert(IsSuccess(rc));
+
+				Globals.Out.Write("{0}", Globals.Buf);
+
+				artifact.Seen = true;
 			}
 		}
 

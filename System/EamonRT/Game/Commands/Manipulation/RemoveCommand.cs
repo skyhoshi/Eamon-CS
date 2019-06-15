@@ -287,6 +287,11 @@ namespace EamonRT.Game.Commands
 			PlayerResolveArtifact();
 		}
 
+		public override bool ShouldShowUnseenArtifacts()
+		{
+			return false;
+		}
+
 		/*
 		public override bool IsPrepEnabled(IPrep prep)
 		{

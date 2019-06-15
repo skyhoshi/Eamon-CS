@@ -856,6 +856,11 @@ namespace EamonRT.Game.Commands
 			return true;
 		}
 
+		public virtual bool ShouldShowUnseenArtifacts()
+		{
+			return true;
+		}
+
 		public virtual bool ShouldPreTurnProcess()
 		{
 			return true;

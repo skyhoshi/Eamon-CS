@@ -446,6 +446,10 @@
             <summary></summary>
             <returns></returns>
         </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.ShouldShowUnseenArtifacts">
+            <summary></summary>
+            <returns></returns>
+        </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.GetPrintedVerb">
             <summary></summary>
             <returns></returns>
@@ -718,6 +722,9 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.IEngine.UseMonsterScaledHardinessValues">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.IEngine.AutoDisplayUnseenArtifactDescs">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.IEngine.PoundCharPolicy">

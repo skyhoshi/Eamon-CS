@@ -36,6 +36,9 @@ namespace EamonRT.Framework
 		bool UseMonsterScaledHardinessValues { get; set; }
 
 		/// <summary></summary>
+		bool AutoDisplayUnseenArtifactDescs { get; set; }
+
+		/// <summary></summary>
 		PoundCharPolicy PoundCharPolicy { get; set; }
 
 		/// <summary></summary>

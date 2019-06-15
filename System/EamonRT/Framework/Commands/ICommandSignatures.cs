@@ -381,6 +381,10 @@ namespace EamonRT.Framework.Commands
 
 		/// <summary></summary>
 		/// <returns></returns>
+		bool ShouldShowUnseenArtifacts();
+
+		/// <summary></summary>
+		/// <returns></returns>
 		string GetPrintedVerb();
 
 		/// <summary></summary>

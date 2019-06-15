@@ -619,17 +619,17 @@ namespace Eamon.Game
 
 		public virtual IConfig GetConfig()
 		{
-			return Globals?.Database?.ConfigTable.Records.FirstOrDefault();
+			return Globals?.Database?.ConfigTable?.Records?.FirstOrDefault();
 		}
 
 		public virtual IGameState GetGameState()
 		{
-			return Globals?.Database?.GameStateTable.Records.FirstOrDefault();
+			return Globals?.Database?.GameStateTable?.Records?.FirstOrDefault();
 		}
 
 		public virtual IModule GetModule()
 		{
-			return Globals?.Database?.ModuleTable.Records.FirstOrDefault();
+			return Globals?.Database?.ModuleTable?.Records?.FirstOrDefault();
 		}
 
 		public virtual T EvalFriendliness<T>(Friendliness friendliness, T enemyValue, T neutralValue, T friendValue)

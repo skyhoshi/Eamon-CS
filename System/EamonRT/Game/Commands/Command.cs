@@ -675,6 +675,11 @@ namespace EamonRT.Game.Commands
 			return CommandImpl.ShouldAllowSkillGains();
 		}
 
+		public virtual bool ShouldShowUnseenArtifacts()
+		{
+			return CommandImpl.ShouldShowUnseenArtifacts();
+		}
+
 		public override bool ShouldPreTurnProcess()
 		{
 			return CommandImpl.ShouldPreTurnProcess();

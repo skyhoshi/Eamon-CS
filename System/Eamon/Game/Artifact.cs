@@ -655,7 +655,7 @@ namespace Eamon.Game
 
 		public virtual bool IsInRoom(bool recurse = false)
 		{
-			var gameState = recurse ? Globals?.Engine.GetGameState() : null;
+			var gameState = recurse ? Globals?.Engine?.GetGameState() : null;
 
 			var characterMonster = recurse && gameState != null ? Globals.MDB[gameState.Cm] : null;
 
@@ -675,7 +675,7 @@ namespace Eamon.Game
 
 		public virtual bool IsInLimbo(bool recurse = false)
 		{
-			var gameState = recurse ? Globals?.Engine.GetGameState() : null;
+			var gameState = recurse ? Globals?.Engine?.GetGameState() : null;
 
 			var characterMonster = recurse && gameState != null ? Globals.MDB[gameState.Cm] : null;
 
@@ -737,7 +737,7 @@ namespace Eamon.Game
 
 		public virtual bool IsInRoomUid(long roomUid, bool recurse = false)
 		{
-			var gameState = recurse ? Globals?.Engine.GetGameState() : null;
+			var gameState = recurse ? Globals?.Engine?.GetGameState() : null;
 
 			var characterMonster = recurse && gameState != null ? Globals.MDB[gameState.Cm] : null;
 
@@ -843,7 +843,7 @@ namespace Eamon.Game
 
 		public virtual long GetInRoomUid(bool recurse = false)
 		{
-			var gameState = recurse ? Globals?.Engine.GetGameState() : null;
+			var gameState = recurse ? Globals?.Engine?.GetGameState() : null;
 
 			var characterMonster = recurse && gameState != null ? Globals.MDB[gameState.Cm] : null;
 

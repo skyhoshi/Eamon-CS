@@ -207,7 +207,7 @@ namespace EamonRT.Game.Commands
 					nlFlag = false;
 				}
 
-				if (!GetAll && DobjArtifact.IsCarriedByCharacter() && !DobjArtifact.Seen)
+				if (!Globals.Engine.AutoDisplayUnseenArtifactDescs && !GetAll && DobjArtifact.IsCarriedByCharacter() && !DobjArtifact.Seen)
 				{
 					Globals.Buf.Clear();
 
@@ -356,6 +356,11 @@ namespace EamonRT.Game.Commands
 
 				PlayerResolveArtifact();
 			}
+		}
+
+		public override bool ShouldShowUnseenArtifacts()
+		{
+			return false;
 		}
 
 		public GetCommand()

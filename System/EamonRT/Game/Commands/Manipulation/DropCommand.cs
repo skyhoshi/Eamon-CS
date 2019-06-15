@@ -166,6 +166,11 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		public override bool ShouldShowUnseenArtifacts()
+		{
+			return false;
+		}
+
 		public DropCommand()
 		{
 			SortOrder = 130;
