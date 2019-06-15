@@ -124,6 +124,11 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		public override bool ShouldShowUnseenArtifacts()
+		{
+			return false;
+		}
+
 		/*
 		public override bool IsPrepEnabled(IPrep prep)
 		{
