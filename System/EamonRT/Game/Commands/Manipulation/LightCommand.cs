@@ -133,6 +133,15 @@ namespace EamonRT.Game.Commands
 			PlayerResolveArtifact();
 		}
 
+		public override bool ShouldShowUnseenArtifacts()
+		{
+			Debug.Assert(Globals.GameState != null);
+
+			var room = Globals.GameState.Ro > 0 ? Globals.RDB[Globals.GameState.Ro] : null;
+
+			return room != null && room.IsLit();
+		}
+
 		public LightCommand()
 		{
 			SortOrder = 170;
