@@ -207,22 +207,25 @@ namespace EamonRT.Game.Commands
 					nlFlag = false;
 				}
 
-				if (!Globals.Engine.AutoDisplayUnseenArtifactDescs && !GetAll && DobjArtifact.IsCarriedByCharacter() && !DobjArtifact.Seen)
+				if (ActorRoom.IsLit())
 				{
-					Globals.Buf.Clear();
+					if (!Globals.Engine.AutoDisplayUnseenArtifactDescs && !GetAll && DobjArtifact.IsCarriedByCharacter() && !DobjArtifact.Seen)
+					{
+						Globals.Buf.Clear();
 
-					var rc = DobjArtifact.BuildPrintedFullDesc(Globals.Buf, false);
+						var rc = DobjArtifact.BuildPrintedFullDesc(Globals.Buf, false);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					Globals.Out.Write("{0}", Globals.Buf);
+						Globals.Out.Write("{0}", Globals.Buf);
 
-					DobjArtifact.Seen = true;
-				}
+						DobjArtifact.Seen = true;
+					}
 
-				foreach (var containerContentsDesc in ContainerContentsList)
-				{
-					Globals.Out.Write("{0}", containerContentsDesc);
+					foreach (var containerContentsDesc in ContainerContentsList)
+					{
+						Globals.Out.Write("{0}", containerContentsDesc);
+					}
 				}
 
 				if (ActorMonster.Weapon <= 0 && wpnArtifact != null && NextState == null)
