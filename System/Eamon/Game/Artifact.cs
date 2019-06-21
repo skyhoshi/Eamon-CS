@@ -1326,7 +1326,21 @@ namespace Eamon.Game
 
 							if (ac.IsOpenable())
 							{
-								ac.SetOpen(artifactCategory.IsOpen());
+								if (artifactCategory.GetBreakageStrength() > 0)
+								{
+									if (ac.Type == ArtifactType.InContainer || ac.Type == ArtifactType.DoorGate)
+									{
+										ac.SetBreakageStrength(artifactCategory.GetBreakageStrength());
+									}
+									else
+									{
+										ac.SetOpen(artifactCategory.IsOpen());
+									}
+								}
+								else if (ac.GetBreakageStrength() <= 0 || artifactCategory.IsOpen())
+								{
+									ac.SetOpen(artifactCategory.IsOpen());
+								}
 							}
 						}
 					}
@@ -1348,7 +1362,7 @@ namespace Eamon.Game
 								ac.Field2 = artifactCategory.Field2;
 							}
 
-							if (ac.IsOpenable())
+							if (ac.IsOpenable() && (ac.GetBreakageStrength() <= 0 || artifactCategory.IsOpen()))
 							{
 								ac.SetOpen(artifactCategory.IsOpen());
 							}
@@ -1364,7 +1378,7 @@ namespace Eamon.Game
 					{
 						if (ac != null && ac != artifactCategory && ac.Type != ArtifactType.None)
 						{
-							if (ac.IsOpenable())
+							if (ac.IsOpenable() && (ac.GetBreakageStrength() <= 0 || artifactCategory.IsOpen()))
 							{
 								ac.SetOpen(artifactCategory.IsOpen());
 							}

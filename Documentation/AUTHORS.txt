@@ -6,10 +6,10 @@
 Michael R. Penner <firstmethod (at) hotmail.com>
 
 The updated Eamon dragon logo used in Eamon CS was created
-for the Eamon Adventurer's Log newsletter by Gary Flanagan.
+by Gary Flanagan for the Eamon Adventurer's Log newsletter.
 
-The 10-sided die icon used in Eamon CS was created for the
-Open Clip Art Library by wirelizard:
+The 10-sided die icon used in Eamon CS was created by
+wirelizard for the Open Clip Art Library:
 
 https://commons.wikimedia.org/wiki/File:Ten_sided_dice.png
 
