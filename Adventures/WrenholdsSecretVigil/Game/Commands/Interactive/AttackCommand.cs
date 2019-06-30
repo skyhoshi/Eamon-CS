@@ -54,7 +54,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				base.PlayerExecute();
 
-				Globals.Out.Print("Inside the tattered shirt is a small cloth - bound book that appears to be a diary.");
+				Globals.Out.Print("Inside the tattered shirt is a small cloth-bound book that appears to be a diary.");
 
 				diaryArtifact.SetInRoom(ActorRoom);
 			}
