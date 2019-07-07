@@ -725,7 +725,7 @@
             <Simple name="Uid" value="25" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Crevice, Bottom" />
-            <Simple name="Desc" value="You are at the bottom of a small crevice littered with rocks, broken boards and small pieces of rope.  Some of the boards have burn marks and grey ashes can be seen mixed with the mountain dust.  You  may climb up north or south." />
+            <Simple name="Desc" value="You are at the bottom of a small crevice littered with rocks, broken boards and small pieces of rope.  Some of the boards have burn marks and grey ashes can be seen mixed with the mountain dust.  You may climb up north or south." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1943,7 +1943,7 @@
             <Simple name="Uid" value="67" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Worship Room" />
-            <Simple name="Desc" value="Dimly lit torches give a somber effect to the individual worship areas spaced along the walls separated by wooden partitions.  A bronze door is north and a drawn gold curtain covers a doorway to the south." />
+            <Simple name="Desc" value="Dimly lit torches give a somber effect to the individual worship areas spaced along the walls separated by wooden partitions.  A bronze door is north and@@002 south." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1972,7 +1972,7 @@
             <Simple name="Uid" value="68" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Religious Sanctum" />
-            <Simple name="Desc" value="The room is dark.  Only outlines of a table covered with books and several covered devices can be seen.  The air has a feeling of power so immense, it seems the mountain itself could not crush it.  A gold curtain is open to the north." />
+            <Simple name="Desc" value="The room is dark.  Only outlines of a table covered with books and several covered devices can be seen.  The air has a feeling of power so immense, it seems the mountain itself could not crush it.@@003" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

@@ -1693,9 +1693,9 @@
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
-            <Simple name="IsPlural" value="False" />
+            <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
-            <Simple name="PluralType" value="None" />
+            <Simple name="PluralType" value="S" />
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="20" />
             <Simple name="Location" value="0" />
@@ -1715,7 +1715,7 @@
             </SingleArray>
             <Simple name="Uid" value="52" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="smoldering ash and fluids" />
+            <Simple name="Name" value="smoldering ash and fluid" />
             <Simple name="Desc" value="The magician drops to his knees, then on his side.  His skin quickly darkens to black as the last breath leaves his body.  Small wisps of smoke rise and then the body smolders, dissolving into ash and vile fluids." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />

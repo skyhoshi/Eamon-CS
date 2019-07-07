@@ -43,6 +43,24 @@ namespace WrenholdsSecretVigil.Game
 		{
 			base.InitArtifacts();
 
+			MacroFuncs.Add(2, () =>
+			{
+				var goldCurtainArtifact = Globals.ADB[40];
+
+				Debug.Assert(goldCurtainArtifact != null);
+
+				return goldCurtainArtifact.DoorGate != null ? " a drawn gold curtain covers a doorway to the" : " another doorway is";
+			});
+
+			MacroFuncs.Add(3, () =>
+			{
+				var goldCurtainArtifact = Globals.ADB[40];
+
+				Debug.Assert(goldCurtainArtifact != null);
+
+				return goldCurtainArtifact.DoorGate != null ? "  A gold curtain is open to the north." : "";
+			});
+
 			var synonyms = new Dictionary<long, string[]>()
 			{
 				{ 1, new string[] { "small wooden shovel", "small scoop shovel", "wooden scoop shovel", "small shovel", "wooden shovel", "scoop shovel", "shovel" } },
@@ -67,7 +85,7 @@ namespace WrenholdsSecretVigil.Game
 				{ 21, new string[] { "key" } },
 				{ 22, new string[] { "key" } },
 				{ 23, new string[] { "coins" } },
-				{ 26, new string[] { "mattress" } },
+				{ 26, new string[] { "straw mattresses", "mattresses" } },
 				{ 27, new string[] { "key" } },
 				{ 29, new string[] { "bones" } },
 				{ 31, new string[] { "shark", "fish" } },
