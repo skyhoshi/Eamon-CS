@@ -673,6 +673,24 @@ namespace Eamon.Game
 			return artifact != null ? artifact.IsEmbeddedInRoom(recurse) : Location > 5000 && Location < 6001;
 		}
 
+		public virtual bool IsCarriedByContainerContainerTypeExposedToRoom(bool recurse = false)
+		{
+			if (recurse)
+			{
+				// +++ IMPLEMENT +++
+
+				return false;
+			}
+			else
+			{
+				var artifact = GetCarriedByContainer();
+
+				var containerType = GetCarriedByContainerContainerType();
+
+				return artifact != null && artifact.ShouldExposeContentsToRoom(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen()));
+			}
+		}
+
 		public virtual bool IsInLimbo(bool recurse = false)
 		{
 			var gameState = recurse ? Globals?.Engine?.GetGameState() : null;
@@ -755,6 +773,24 @@ namespace Eamon.Game
 			return artifact != null ? artifact.IsEmbeddedInRoomUid(roomUid, recurse) : Location == (roomUid + 5000);
 		}
 
+		public virtual bool IsCarriedByContainerContainerTypeExposedToRoomUid(long roomUid, bool recurse = false)
+		{
+			if (recurse)
+			{
+				// +++ IMPLEMENT +++
+
+				return false;
+			}
+			else
+			{
+				var artifact = GetCarriedByContainer();
+
+				var containerType = GetCarriedByContainerContainerType();
+
+				return artifact != null && artifact.ShouldExposeContentsToRoom(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen())) && artifact.IsInRoomUid(roomUid);
+			}
+		}
+
 		public virtual bool IsCarriedByMonster(IMonster monster, bool recurse = false)
 		{
 			Debug.Assert(monster != null);
@@ -795,6 +831,13 @@ namespace Eamon.Game
 			Debug.Assert(room != null);
 
 			return IsEmbeddedInRoomUid(room.Uid, recurse);
+		}
+
+		public virtual bool IsCarriedByContainerContainerTypeExposedToRoom(IRoom room, bool recurse = false)
+		{
+			Debug.Assert(room != null);
+
+			return IsCarriedByContainerContainerTypeExposedToRoomUid(room.Uid, recurse);
 		}
 
 		public virtual long GetCarriedByMonsterUid(bool recurse = false)
@@ -1080,6 +1123,11 @@ namespace Eamon.Game
 		public virtual bool IsInContainerOpenedFromTop()
 		{
 			return true;
+		}
+
+		public virtual bool ShouldExposeContentsToRoom(ContainerType containerType = ContainerType.In)
+		{
+			return containerType == ContainerType.On;
 		}
 
 		public virtual bool ShouldAddContentsWhenCarried(ContainerType containerType = ContainerType.In)

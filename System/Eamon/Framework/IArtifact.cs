@@ -299,6 +299,11 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="recurse"></param>
 		/// <returns></returns>
+		bool IsCarriedByContainerContainerTypeExposedToRoom(bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
 		bool IsInLimbo(bool recurse = false);
 
 		/// <summary></summary>
@@ -337,6 +342,12 @@ namespace Eamon.Framework
 		bool IsEmbeddedInRoomUid(long roomUid, bool recurse = false);
 
 		/// <summary></summary>
+		/// <param name="roomUid"></param>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		bool IsCarriedByContainerContainerTypeExposedToRoomUid(long roomUid, bool recurse = false);
+
+		/// <summary></summary>
 		/// <param name="monster"></param>
 		/// <param name="recurse"></param>
 		/// <returns></returns>
@@ -370,6 +381,12 @@ namespace Eamon.Framework
 		/// <param name="recurse"></param>
 		/// <returns></returns>
 		bool IsEmbeddedInRoom(IRoom room, bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="room"></param>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		bool IsCarriedByContainerContainerTypeExposedToRoom(IRoom room, bool recurse = false);
 
 		/// <summary></summary>
 		/// <param name="recurse"></param>
@@ -535,6 +552,10 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <returns></returns>
 		bool IsInContainerOpenedFromTop();
+
+		/// <summary></summary>
+		/// <returns></returns>
+		bool ShouldExposeContentsToRoom(ContainerType containerType = ContainerType.In);
 
 		/// <summary></summary>
 		/// <param name="containerType"></param>

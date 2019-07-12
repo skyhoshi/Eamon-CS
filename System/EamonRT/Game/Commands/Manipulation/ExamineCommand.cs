@@ -227,7 +227,7 @@ namespace EamonRT.Game.Commands
 				{
 					a => a.IsCarriedByCharacter() || a.IsInRoom(ActorRoom),
 					a => a.IsEmbeddedInRoom(ActorRoom),
-					a => a.GetCarriedByContainerContainerType() == ContainerType.On && a.GetCarriedByContainer() != null && a.GetCarriedByContainer().IsInRoom(ActorRoom),
+					a => a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom),
 					a => a.IsWornByCharacter()
 				};
 

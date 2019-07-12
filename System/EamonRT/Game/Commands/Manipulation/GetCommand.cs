@@ -352,7 +352,7 @@ namespace EamonRT.Game.Commands
 				{
 					a => a.IsInRoom(ActorRoom),
 					a => a.IsEmbeddedInRoom(ActorRoom),
-					a => a.GetCarriedByContainerContainerType() == ContainerType.On && a.GetCarriedByContainer() != null && a.GetCarriedByContainer().IsInRoom(ActorRoom)
+					a => a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom)
 				};
 
 				CommandParser.ObjData.ArtifactNotFoundFunc = PrintCantVerbThat;

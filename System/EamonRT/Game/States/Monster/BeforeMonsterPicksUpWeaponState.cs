@@ -35,7 +35,7 @@ namespace EamonRT.Game.States
 			{
 				var containerType = wpnArtifact.GetCarriedByContainerContainerType();
 
-				var command = containerType == ContainerType.On ? (ICommand)Globals.CreateInstance<IRemoveCommand>() : (ICommand)Globals.CreateInstance<IGetCommand>();
+				var command = Enum.IsDefined(typeof(ContainerType), containerType) ? (ICommand)Globals.CreateInstance<IRemoveCommand>() : (ICommand)Globals.CreateInstance<IGetCommand>();
 
 				command.ActorMonster = monster;
 
@@ -43,11 +43,13 @@ namespace EamonRT.Game.States
 
 				command.Dobj = wpnArtifact;
 
-				if (containerType == ContainerType.On)
+				if (Enum.IsDefined(typeof(ContainerType), containerType))
 				{
+					var prepName = Globals.Engine.EvalContainerType(containerType, "in", "on", "under", "behind");
+
 					command.Iobj = wpnArtifact.GetCarriedByContainer();
 
-					command.Prep = Globals.Engine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, "on", StringComparison.OrdinalIgnoreCase));
+					command.Prep = Globals.Engine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, prepName, StringComparison.OrdinalIgnoreCase));
 				}
 
 				command.NextState = Globals.CreateInstance<IBeforeMonsterReadiesWeaponState>();

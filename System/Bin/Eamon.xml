@@ -1238,6 +1238,11 @@
             <param name="recurse"></param>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IArtifact.IsCarriedByContainerContainerTypeExposedToRoom(System.Boolean)">
+            <summary></summary>
+            <param name="recurse"></param>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IArtifact.IsInLimbo(System.Boolean)">
             <summary></summary>
             <param name="recurse"></param>
@@ -1278,6 +1283,12 @@
             <param name="recurse"></param>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IArtifact.IsCarriedByContainerContainerTypeExposedToRoomUid(System.Int64,System.Boolean)">
+            <summary></summary>
+            <param name="roomUid"></param>
+            <param name="recurse"></param>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IArtifact.IsCarriedByMonster(Eamon.Framework.IMonster,System.Boolean)">
             <summary></summary>
             <param name="monster"></param>
@@ -1308,6 +1319,12 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IArtifact.IsEmbeddedInRoom(Eamon.Framework.IRoom,System.Boolean)">
+            <summary></summary>
+            <param name="room"></param>
+            <param name="recurse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.IsCarriedByContainerContainerTypeExposedToRoom(Eamon.Framework.IRoom,System.Boolean)">
             <summary></summary>
             <param name="room"></param>
             <param name="recurse"></param>
@@ -1475,6 +1492,10 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IArtifact.IsInContainerOpenedFromTop">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.ShouldExposeContentsToRoom(Eamon.Framework.Primitive.Enums.ContainerType)">
             <summary></summary>
             <returns></returns>
         </member>
