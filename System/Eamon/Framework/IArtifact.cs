@@ -554,6 +554,7 @@ namespace Eamon.Framework
 		bool IsInContainerOpenedFromTop();
 
 		/// <summary></summary>
+		/// <param name="containerType"></param>
 		/// <returns></returns>
 		bool ShouldExposeContentsToRoom(ContainerType containerType = ContainerType.In);
 

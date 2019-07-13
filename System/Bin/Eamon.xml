@@ -1497,6 +1497,7 @@
         </member>
         <member name="M:Eamon.Framework.IArtifact.ShouldExposeContentsToRoom(Eamon.Framework.Primitive.Enums.ContainerType)">
             <summary></summary>
+            <param name="containerType"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IArtifact.ShouldAddContentsWhenCarried(Eamon.Framework.Primitive.Enums.ContainerType)">

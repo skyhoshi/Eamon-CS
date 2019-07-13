@@ -675,20 +675,11 @@ namespace Eamon.Game
 
 		public virtual bool IsCarriedByContainerContainerTypeExposedToRoom(bool recurse = false)
 		{
-			if (recurse)
-			{
-				// +++ IMPLEMENT +++
+			var artifact = GetCarriedByContainer();
 
-				return false;
-			}
-			else
-			{
-				var artifact = GetCarriedByContainer();
+			var containerType = GetCarriedByContainerContainerType();
 
-				var containerType = GetCarriedByContainerContainerType();
-
-				return artifact != null && artifact.ShouldExposeContentsToRoom(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen()));
-			}
+			return artifact != null && artifact.ShouldExposeContentsToRoom(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen())) && (!recurse || artifact.GetCarriedByContainer() == null || artifact.IsCarriedByContainerContainerTypeExposedToRoom(recurse));
 		}
 
 		public virtual bool IsInLimbo(bool recurse = false)
@@ -775,20 +766,11 @@ namespace Eamon.Game
 
 		public virtual bool IsCarriedByContainerContainerTypeExposedToRoomUid(long roomUid, bool recurse = false)
 		{
-			if (recurse)
-			{
-				// +++ IMPLEMENT +++
+			var artifact = GetCarriedByContainer();
 
-				return false;
-			}
-			else
-			{
-				var artifact = GetCarriedByContainer();
+			var containerType = GetCarriedByContainerContainerType();
 
-				var containerType = GetCarriedByContainerContainerType();
-
-				return artifact != null && artifact.ShouldExposeContentsToRoom(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen())) && artifact.IsInRoomUid(roomUid);
-			}
+			return artifact != null && artifact.ShouldExposeContentsToRoom(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen())) && (artifact.IsInRoomUid(roomUid) || (recurse && artifact.GetCarriedByContainer() != null && artifact.IsCarriedByContainerContainerTypeExposedToRoomUid(roomUid, recurse)));
 		}
 
 		public virtual bool IsCarriedByMonster(IMonster monster, bool recurse = false)
