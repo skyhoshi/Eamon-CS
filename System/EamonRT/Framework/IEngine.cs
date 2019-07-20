@@ -39,6 +39,9 @@ namespace EamonRT.Framework
 		bool AutoDisplayUnseenArtifactDescs { get; set; }
 
 		/// <summary></summary>
+		bool ExposeContainersRecursively { get; set; }
+
+		/// <summary></summary>
 		PoundCharPolicy PoundCharPolicy { get; set; }
 
 		/// <summary></summary>

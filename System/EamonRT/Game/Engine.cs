@@ -39,6 +39,8 @@ namespace EamonRT.Game
 
 		public virtual bool AutoDisplayUnseenArtifactDescs { get; set; }
 
+		public virtual bool ExposeContainersRecursively { get; set; }
+
 		public virtual PoundCharPolicy PoundCharPolicy { get; set; }
 
 		/// <summary></summary>
@@ -1956,7 +1958,7 @@ namespace EamonRT.Game
 
 			var monsterList = GetMonsterList(m => m.Uid != monster.Uid && m.Uid != charMonster.Uid && m.IsInRoom(room));
 
-			var artifactList = GetArtifactList(a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || ((a.IsInRoom(room) || (a.IsCarriedByContainerContainerTypeExposedToRoom(room) && (a.GetCarriedByContainer().Seen || !room.IsLit()))) && (a.Seen || !room.IsLit()) && monsterList.FirstOrDefault(m => m.Weapon == -a.Uid - 1) == null && (charMonster.Weapon > 0 || !a.IsCharOwned || monster.Friendliness == Friendliness.Friend)))).OrderByDescending(a01 =>
+			var artifactList = GetArtifactList(a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || ((a.IsInRoom(room) || (a.IsCarriedByContainerContainerTypeExposedToRoom(room, ExposeContainersRecursively) && (a.GetCarriedByContainer().Seen || !room.IsLit()))) && (a.Seen || !room.IsLit()) && monsterList.FirstOrDefault(m => m.Weapon == -a.Uid - 1) == null && (charMonster.Weapon > 0 || !a.IsCharOwned || monster.Friendliness == Friendliness.Friend)))).OrderByDescending(a01 =>
 			{
 				if (monster.Weapon != -a01.Uid - 1)
 				{

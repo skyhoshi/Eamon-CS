@@ -727,6 +727,9 @@
         <member name="P:EamonRT.Framework.IEngine.AutoDisplayUnseenArtifactDescs">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.IEngine.ExposeContainersRecursively">
+            <summary></summary>
+        </member>
         <member name="P:EamonRT.Framework.IEngine.PoundCharPolicy">
             <summary></summary>
         </member>
