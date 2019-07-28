@@ -4,6 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
@@ -17,6 +18,13 @@ namespace ARuncibleCargo.Game
 			// Bill in oven, Lil in cell
 
 			return Uid != 82 && Uid != 135 && base.IsDisguisedMonster();
+		}
+
+		public override bool ShouldExposeContentsToRoom(ContainerType containerType = ContainerType.In)
+		{
+			// Dodge Hotel basement shelves don't expose contents
+
+			return Uid != 58 && base.ShouldExposeContentsToRoom(containerType);
 		}
 
 		public override bool ShouldShowContentsWhenOpened()

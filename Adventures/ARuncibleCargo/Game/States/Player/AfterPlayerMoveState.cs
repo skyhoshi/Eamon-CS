@@ -39,8 +39,18 @@ namespace ARuncibleCargo.Game.States
 
 				var newRoom = Globals.RDB[gameState.Ro] as Framework.IRoom;
 
-				if (oldRoom != null && oldRoom.IsWaterRoom() && newRoom != null && newRoom.IsWaterRoom())
+				if (oldRoom != null && oldRoom.IsWaterRoom() && newRoom != null)
 				{
+					if (!newRoom.IsWaterRoom())
+					{
+						var artifactList = Globals.Engine.GetArtifactList(a => a.IsInRoom(oldRoom));
+
+						if (artifactList.Count > 0)
+						{
+							Globals.Out.Print("You also move the contents of the boat onto the shore.");
+						}
+					}
+
 					Globals.Engine.TransportRoomContentsBetweenRooms(oldRoom, newRoom, false);
 				}
 
