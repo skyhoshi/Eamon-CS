@@ -307,6 +307,10 @@ namespace ARuncibleCargo.Game.States
 					}
 				}
 
+				var cargoArtifact = Globals.ADB[129];
+
+				Debug.Assert(cargoArtifact != null);
+
 				var explosiveDeviceArtifact = Globals.ADB[43];
 
 				Debug.Assert(explosiveDeviceArtifact != null);
@@ -317,7 +321,7 @@ namespace ARuncibleCargo.Game.States
 
 				// Bill (or Amazon) hint at using explosives
 
-				if (room.Uid == 92 && (explosiveDeviceArtifact.IsInRoom(room) || explosiveDeviceArtifact.IsCarriedByCharacter()) && (remoteDetonatorArtifact.IsInRoom(room) || remoteDetonatorArtifact.IsCarriedByCharacter()))
+				if (room.Uid == 92 && (cargoArtifact.IsInRoom(room) || cargoArtifact.IsCarriedByCharacter()) && (explosiveDeviceArtifact.IsInRoom(room) || explosiveDeviceArtifact.IsCarriedByCharacter()) && (remoteDetonatorArtifact.IsInRoom(room) || remoteDetonatorArtifact.IsCarriedByCharacter()))
 				{
 					var effectUid = 0L;
 
