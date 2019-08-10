@@ -116,7 +116,7 @@ namespace EamonPM.Game.Portability
 				buf.Length = (int)bufSize;
 			}
 
-			//Console.CursorVisible = true;
+			Console.CursorVisible = true;
 
 			while (true)
 			{
@@ -212,7 +212,7 @@ namespace EamonPM.Game.Portability
 
 		ExitLoop:
 
-			//Console.CursorVisible = false;
+			Console.CursorVisible = false;
 
 			buf.Length = i;
 
@@ -313,11 +313,11 @@ namespace EamonPM.Game.Portability
 
 			if (EnableInput)
 			{
-				//Console.CursorVisible = true;
+				Console.CursorVisible = true;
 
 				ch = Console.ReadKey(intercept).KeyChar;
 
-				//Console.CursorVisible = false;
+				Console.CursorVisible = false;
 			}
 			else
 			{
