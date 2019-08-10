@@ -87,7 +87,7 @@ namespace EamonRT
 
 			// make the cursor disappear
 
-			Globals.Out.CursorVisible = false;
+			//Globals.Out.CursorVisible = false;
 
 			// initialize Config record
 
@@ -702,7 +702,7 @@ namespace EamonRT
 
 			// make the cursor disappear
 
-			Globals.Out.CursorVisible = false;
+			//Globals.Out.CursorVisible = false;
 
 			// initialize Config record
 

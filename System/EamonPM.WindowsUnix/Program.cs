@@ -185,7 +185,7 @@ namespace EamonPM
 					ClassMappings.Thread.Sleep(150);
 				}
 
-				ClassMappings.Out.CursorVisible = true;
+				//ClassMappings.Out.CursorVisible = true;
 			}
 			catch (Exception)
 			{
