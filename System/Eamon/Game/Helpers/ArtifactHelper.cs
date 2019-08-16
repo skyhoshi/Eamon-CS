@@ -1018,6 +1018,27 @@ namespace Eamon.Game.Helpers
 
 									goto Cleanup;
 								}
+								else
+								{
+									var containedList = Record.GetContainedList(containerType: (ContainerType)(-1), recurse: true);
+
+									containedList.Add(Record);
+
+									if (containedList.Contains(artifact))
+									{
+										result = false;
+
+										Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "artifact", artUid, "which also contains this artifact (a cyclic graph)");
+
+										ErrorMessage = Buf.ToString();
+
+										RecordType = typeof(IArtifact);
+
+										EditRecord = artifact;
+
+										goto Cleanup;
+									}
+								}
 							}
 						}
 					}

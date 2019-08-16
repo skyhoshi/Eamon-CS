@@ -382,6 +382,43 @@ namespace Eamon.Game
 
 		#endregion
 
+		#region Protected Methods
+
+		#region Class Artifact
+
+		protected virtual void GetContainedList01(Func<IArtifact, bool> artifactFindFunc = null, ContainerType containerType = ContainerType.In, bool recurse = false)
+		{
+			var origArtifactFindFunc = artifactFindFunc;
+
+			var allContainerTypes = !Enum.IsDefined(typeof(ContainerType), containerType);
+
+			if (artifactFindFunc == null)
+			{
+				artifactFindFunc = a => a.IsCarriedByContainer(this) && (allContainerTypes || a.GetCarriedByContainerContainerType() == containerType);
+			}
+
+			var list = Globals.Engine.GetArtifactList(a => artifactFindFunc(a) && !Globals.Engine.ArtifactContainedList.Contains(a));
+
+			Globals.Engine.ArtifactContainedList.AddRange(list);
+
+			if (recurse && list.Count > 0)
+			{
+				foreach (var a in list)
+				{
+					var a01 = a as Artifact;
+
+					if (a.GeneralContainer != null && a01 != null)
+					{
+						a01.GetContainedList01(origArtifactFindFunc, (ContainerType)(-1), recurse);
+					}
+				}
+			}
+		}
+
+		#endregion
+
+		#endregion
+
 		#region Public Methods
 
 		#region Interface IDisposable
@@ -1571,31 +1608,13 @@ namespace Eamon.Game
 
 		public virtual IList<IArtifact> GetContainedList(Func<IArtifact, bool> artifactFindFunc = null, ContainerType containerType = ContainerType.In, bool recurse = false)
 		{
-			var origArtifactFindFunc = artifactFindFunc;
+			var list = new List<IArtifact>();
 
-			var allContainerTypes = !Enum.IsDefined(typeof(ContainerType), containerType);
+			Globals.Engine.ArtifactContainedList.Clear();
 
-			if (artifactFindFunc == null)
-			{
-				artifactFindFunc = a => a.IsCarriedByContainer(this) && (allContainerTypes || a.GetCarriedByContainerContainerType() == containerType);
-			}
+			GetContainedList01(artifactFindFunc, containerType, recurse);
 
-			var list = Globals.Engine.GetArtifactList(a => artifactFindFunc(a));
-
-			if (recurse && list.Count > 0)
-			{
-				var list01 = new List<IArtifact>();
-
-				foreach (var a in list)
-				{
-					if (a.GeneralContainer != null)
-					{
-						list01.AddRange(a.GetContainedList(origArtifactFindFunc, (ContainerType)(-1), recurse));
-					}
-				}
-
-				list.AddRange(list01);
-			}
+			list.AddRange(Globals.Engine.ArtifactContainedList);
 
 			return list;
 		}

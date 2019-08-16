@@ -80,7 +80,11 @@ namespace EamonRT.Game.Commands
 
 			var ac = Globals.Engine.EvalContainerType(ContainerType, IobjArtifact.InContainer, IobjArtifact.OnContainer, IobjArtifact.UnderContainer, IobjArtifact.BehindContainer);
 
-			if (IobjArtifact == DobjArtifact || ac == null)
+			var containedList = DobjArtifact.GetContainedList(containerType: (ContainerType)(-1), recurse: true);
+
+			containedList.Add(DobjArtifact);
+
+			if (containedList.Contains(IobjArtifact) || ac == null)
 			{
 				PrintDontFollowYou();
 

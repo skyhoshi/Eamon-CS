@@ -21,6 +21,9 @@ namespace Eamon.Framework
 		IDictionary<long, Func<string>> MacroFuncs { get; set; }
 
 		/// <summary></summary>
+		IList<IArtifact> ArtifactContainedList { get; set; }
+
+		/// <summary></summary>
 		IPrep[] Preps { get; set; }
 
 		/// <summary></summary>

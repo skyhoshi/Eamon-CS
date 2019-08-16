@@ -80,6 +80,8 @@ namespace Eamon.Game
 
 		public virtual IDictionary<long, Func<string>> MacroFuncs { get; set; }
 
+		public virtual IList<IArtifact> ArtifactContainedList { get; set; }
+
 		public virtual IPrep[] Preps { get; set; }
 
 		public virtual string[] Articles { get; set; }
@@ -3121,6 +3123,8 @@ namespace Eamon.Game
 			};
 
 			MacroFuncs = new Dictionary<long, Func<string>>();
+
+			ArtifactContainedList = new List<IArtifact>();
 
 			Preps = new IPrep[]
 			{
