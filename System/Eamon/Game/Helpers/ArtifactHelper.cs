@@ -1028,7 +1028,7 @@ namespace Eamon.Game.Helpers
 									{
 										result = false;
 
-										Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "artifact", artUid, "which also contains this artifact (a cyclic graph)");
+										Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "artifact", artUid, "which produces a cyclic graph");
 
 										ErrorMessage = Buf.ToString();
 
