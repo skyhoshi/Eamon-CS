@@ -25,7 +25,9 @@ namespace EamonPM.Game.Portability
 
 		public virtual void Delete(string path, bool recursive)
 		{
+			/*
 			System.IO.Directory.Delete(NormalizePath(path), recursive);
+			*/
 		}
 
 		public virtual void DeleteEmptySubdirectories(string path, bool recursive)
@@ -39,7 +41,9 @@ namespace EamonPM.Game.Portability
 
 				if (!System.IO.Directory.EnumerateFileSystemEntries(directory).Any())
 				{
+					/*
 					System.IO.Directory.Delete(directory, false);
+					*/
 				}
 			}
 		}

@@ -555,10 +555,7 @@ xcopy "$(TargetDir)..\..\Adventures\WrenholdsSecretVigil\*.XML" "$(TargetDir)..\
 </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>rmdir "$(TargetDir)..\EamonPM.Android\Assets\System" /S /Q
-rmdir "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /S /Q
-rmdir "$(TargetDir)..\EamonPM.Android\Assets\Adventures" /S /Q
-</PostBuildEvent>
+    <PostBuildEvent></PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets" Condition="Exists('..\..\packages\Xamarin.Build.Download.0.4.7\build\Xamarin.Build.Download.targets')" />
   <Import Project="..\..\packages\Xamarin.Android.Support.Annotations.26.1.0.1\build\MonoAndroid80\Xamarin.Android.Support.Annotations.targets" Condition="Exists('..\..\packages\Xamarin.Android.Support.Annotations.26.1.0.1\build\MonoAndroid80\Xamarin.Android.Support.Annotations.targets')" />
