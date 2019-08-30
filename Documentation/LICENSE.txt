@@ -8,7 +8,7 @@ content written by Michael R. Penner and/or contained in the Eamon CS folder
 and subfolders on all operating systems.
 
                      Copyright (C) 2014+ Michael R. Penner.
-             Donations are very much appreciated, but never required; 
+               Donations, while well-intentioned, are unnecessary; 
                      all I really ask is that you have fun.
 
 

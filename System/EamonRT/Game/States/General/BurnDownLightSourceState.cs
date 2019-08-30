@@ -29,15 +29,12 @@ namespace EamonRT.Game.States
 				{
 					if (ac.Field1 > 0)
 					{
-						ac.Field1--;
-					}
-
-					if (ac.Field1 > 0)
-					{
-						if (ac.Field1 < 20)
+						if (ac.Field1 <= 20)
 						{
-							Globals.Out.Print("{0}{1}", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), ac.Field1 < 10 ? " is almost out!" : " grows dim!");
+							Globals.Out.Print("{0}{1}", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), ac.Field1 <= 10 ? " is almost out!" : " grows dim!");
 						}
+
+						ac.Field1--;
 					}
 					else
 					{
