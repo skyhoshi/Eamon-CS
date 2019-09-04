@@ -37,8 +37,6 @@ namespace Eamon.Game
 
 		public virtual long Die { get; set; }
 
-		public virtual long Lt { get; set; }
-
 		public virtual long Speed { get; set; }
 
 		public virtual bool Vr { get; set; }

@@ -133,7 +133,7 @@ namespace Eamon.Game
 		{
 			var gameState = Globals?.Engine?.GetGameState();
 
-			return gameState != null && Uid == gameState.Ro ? gameState.Lt != 0 : LightLvl == LightLevel.Light;
+			return LightLvl > 0 || (gameState != null && Uid == gameState.Ro && gameState.Ls > 0);
 		}
 
 		public virtual bool IsDirectionInvalid(long index)

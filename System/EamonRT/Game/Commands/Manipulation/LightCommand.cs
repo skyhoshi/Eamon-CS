@@ -75,8 +75,6 @@ namespace EamonRT.Game.Commands
 						Debug.Assert(Globals.Engine.IsSuccess(rc));
 
 						Globals.GameState.Ls = 0;
-
-						Globals.GameState.Lt = (long)Globals.RDB[Globals.GameState.Ro].LightLvl;
 					}
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
@@ -98,8 +96,6 @@ namespace EamonRT.Game.Commands
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
 				Globals.GameState.Ls = DobjArtifact.Uid;
-
-				Globals.GameState.Lt = 1;
 
 				Globals.Out.Print("You've lit {0}.", DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
 			}

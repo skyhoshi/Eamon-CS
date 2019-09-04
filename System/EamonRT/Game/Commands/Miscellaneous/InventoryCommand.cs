@@ -28,7 +28,7 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
-			if (Globals.GameState.Lt == 0)
+			if (!ActorRoom.IsLit())
 			{
 				Debug.Assert(DobjMonster != null && DobjMonster.IsCharacterMonster());
 			}
@@ -216,7 +216,7 @@ namespace EamonRT.Game.Commands
 		{
 			if (CommandParser.CurrToken < CommandParser.Tokens.Length)
 			{
-				if (Globals.GameState.Lt != 0)
+				if (ActorRoom.IsLit())
 				{
 					if (Globals.IsRulesetVersion(5))
 					{

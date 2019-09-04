@@ -1188,8 +1188,6 @@ namespace EamonRT.Game
 
 			Globals.GameState.Ls = 0;
 
-			Globals.GameState.Lt = (long)Globals.RDB[Globals.GameState.Ro].LightLvl;
-
 			Globals.Out.Print("{0} goes out.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
 		}
 

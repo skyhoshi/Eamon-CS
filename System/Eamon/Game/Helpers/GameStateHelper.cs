@@ -252,13 +252,6 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateLt()
-		{
-			return Enum.IsDefined(typeof(LightLevel), Record.Lt);
-		}
-
-		/// <summary></summary>
-		/// <returns></returns>
 		protected virtual bool ValidateSpeed()
 		{
 			return Record.Speed >= 0;
@@ -498,7 +491,6 @@ namespace Eamon.Game.Helpers
 				"Sh",
 				"Af",
 				"Die",
-				"Lt",
 				"Speed",
 				"Vr",
 				"Vm",

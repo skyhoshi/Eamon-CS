@@ -18,6 +18,8 @@ namespace EamonRT.Game.States
 	{
 		public const long PeAfterDestinationRoomSet = 1;
 
+		public virtual IRoom Room { get; set; }
+
 		public virtual Direction Direction { get; set; }
 
 		public virtual IArtifact Artifact { get; set; }
@@ -26,7 +28,7 @@ namespace EamonRT.Game.States
 		{
 			if (eventType == PeAfterDestinationRoomSet)
 			{
-				if (Globals.GameState.GetNBTL(Friendliness.Enemy) > 0 && Globals.GameState.Lt > 0)
+				if (Globals.GameState.GetNBTL(Friendliness.Enemy) > 0 && Room.IsLit())
 				{
 					PrintEnemiesNearby();
 
@@ -39,11 +41,11 @@ namespace EamonRT.Game.States
 		{
 			Debug.Assert(Enum.IsDefined(typeof(Direction), Direction) || Artifact != null);
 
-			var room = Globals.RDB[Globals.GameState.Ro];
+			Room = Globals.RDB[Globals.GameState.Ro];
 
-			Debug.Assert(room != null);
+			Debug.Assert(Room != null);
 
-			Globals.GameState.R2 = Artifact != null ? 0 : room.GetDirs(Direction);
+			Globals.GameState.R2 = Artifact != null ? 0 : Room.GetDirs(Direction);
 
 			ProcessEvents(PeAfterDestinationRoomSet);
 

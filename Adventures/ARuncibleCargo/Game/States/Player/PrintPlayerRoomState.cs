@@ -87,8 +87,6 @@ namespace ARuncibleCargo.Game.States
 
 					gameState.R3 = 7;
 
-					gameState.Lt = 1;
-
 					gameState.Vr = gameState01.Vr;
 
 					gameState.Vm = gameState01.Vm;

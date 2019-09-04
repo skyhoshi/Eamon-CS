@@ -19,6 +19,10 @@ namespace EamonRT.Game.States
 	{
 		public const long PeAfterExtinguishLightSourceCheck = 1;
 
+		public virtual IRoom Room { get; set; }
+
+		public virtual IMonster Monster { get; set; }
+
 		public virtual Direction Direction { get; set; }
 
 		public virtual IArtifact Artifact { get; set; }
@@ -41,11 +45,11 @@ namespace EamonRT.Game.States
 				Globals.Engine.MoveMonsters();
 			}
 
-			var monster = Globals.MDB[Globals.GameState.Cm];
+			Monster = Globals.MDB[Globals.GameState.Cm];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(Monster != null);
 
-			monster.Location = Globals.GameState.Ro;
+			Monster.Location = Globals.GameState.Ro;
 
 			if (Globals.GameState.Ls > 0 && Globals.GameState.Ro != Globals.GameState.R3)
 			{
@@ -63,13 +67,11 @@ namespace EamonRT.Game.States
 				}
 			}
 
-			var room = Globals.RDB[Globals.GameState.Ro];
+			Room = Globals.RDB[Globals.GameState.Ro];
 
-			Debug.Assert(room != null);
+			Debug.Assert(Room != null);
 
-			Globals.GameState.Lt = (room.LightLvl > 0 || Globals.GameState.Ls > 0 ? 1 : 0);
-
-			if (room.LightLvl > 0 && Globals.GameState.Ls > 0)
+			if (Room.LightLvl > 0 && Globals.GameState.Ls > 0)
 			{
 				Globals.Engine.CheckToExtinguishLightSource();
 			}

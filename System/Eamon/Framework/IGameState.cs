@@ -41,9 +41,6 @@ namespace Eamon.Framework
 		long Die { get; set; }
 
 		/// <summary></summary>
-		long Lt { get; set; }
-
-		/// <summary></summary>
 		long Speed { get; set; }
 
 		/// <summary></summary>

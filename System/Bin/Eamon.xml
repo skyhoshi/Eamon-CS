@@ -2943,9 +2943,6 @@
         <member name="P:Eamon.Framework.IGameState.Die">
             <summary></summary>
         </member>
-        <member name="P:Eamon.Framework.IGameState.Lt">
-            <summary></summary>
-        </member>
         <member name="P:Eamon.Framework.IGameState.Speed">
             <summary></summary>
         </member>
@@ -7140,10 +7137,6 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.ValidateSh">
-            <summary></summary>
-            <returns></returns>
-        </member>
-        <member name="M:Eamon.Game.Helpers.GameStateHelper.ValidateLt">
             <summary></summary>
             <returns></returns>
         </member>
