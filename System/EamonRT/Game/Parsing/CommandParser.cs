@@ -293,7 +293,9 @@ namespace EamonRT.Game.Parsing
 
 			LastInputStr = InputBuf.ToString();
 
-			InputBuf.SetFormat(" {0} ", Regex.Replace(InputBuf.ToString(), @"\s+", " ").ToLower().Trim());
+			InputBuf.SetFormat("{0}", Regex.Replace(InputBuf.ToString(), @"\s+", " ").ToLower().Trim());
+
+			InputBuf.SetFormat(" {0} ", Regex.Replace(InputBuf.ToString(), @"\p{P}*$", "").Trim());
 
 			InputBuf = InputBuf.Replace(" in to ", " into ");
 
