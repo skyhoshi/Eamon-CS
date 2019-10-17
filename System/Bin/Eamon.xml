@@ -1238,6 +1238,11 @@
             <param name="recurse"></param>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IArtifact.IsCarriedByContainerContainerTypeExposedToMonster(System.Boolean)">
+            <summary></summary>
+            <param name="recurse"></param>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IArtifact.IsCarriedByContainerContainerTypeExposedToRoom(System.Boolean)">
             <summary></summary>
             <param name="recurse"></param>
@@ -1283,6 +1288,17 @@
             <param name="recurse"></param>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IArtifact.IsCarriedByContainerContainerTypeExposedToCharacter(System.Boolean)">
+            <summary></summary>
+            <param name="recurse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.IsCarriedByContainerContainerTypeExposedToMonsterUid(System.Int64,System.Boolean)">
+            <summary></summary>
+            <param name="monsterUid"></param>
+            <param name="recurse"></param>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IArtifact.IsCarriedByContainerContainerTypeExposedToRoomUid(System.Int64,System.Boolean)">
             <summary></summary>
             <param name="roomUid"></param>
@@ -1321,6 +1337,12 @@
         <member name="M:Eamon.Framework.IArtifact.IsEmbeddedInRoom(Eamon.Framework.IRoom,System.Boolean)">
             <summary></summary>
             <param name="room"></param>
+            <param name="recurse"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.IsCarriedByContainerContainerTypeExposedToMonster(Eamon.Framework.IMonster,System.Boolean)">
+            <summary></summary>
+            <param name="monster"></param>
             <param name="recurse"></param>
             <returns></returns>
         </member>
@@ -1493,6 +1515,16 @@
         </member>
         <member name="M:Eamon.Framework.IArtifact.IsInContainerOpenedFromTop">
             <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.ShouldExposeContentsToCharacter(Eamon.Framework.Primitive.Enums.ContainerType)">
+            <summary></summary>
+            <param name="containerType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.ShouldExposeContentsToMonster(Eamon.Framework.Primitive.Enums.ContainerType)">
+            <summary></summary>
+            <param name="containerType"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IArtifact.ShouldExposeContentsToRoom(Eamon.Framework.Primitive.Enums.ContainerType)">

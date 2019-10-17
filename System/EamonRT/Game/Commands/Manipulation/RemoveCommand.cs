@@ -176,7 +176,7 @@ namespace EamonRT.Game.Commands
 						{
 							var monsterName = ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01));
 
-							Globals.Out.Print("{0} removes {1} from {2} {3}.", monsterName, DobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf), Globals.Engine.EvalContainerType(Prep.ContainerType, "inside", "on", "under", "behind"), IobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+							Globals.Out.Print("{0} removes {1} from {2} {3}.", monsterName, DobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf), Globals.Engine.EvalContainerType(Prep.ContainerType, "inside", "on", "under", "behind"), IobjArtifact.IsCarriedByMonster(ActorMonster, true) ? IobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf01) : IobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 						}
 						else
 						{

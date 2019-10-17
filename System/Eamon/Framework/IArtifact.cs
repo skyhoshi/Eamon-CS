@@ -299,6 +299,11 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="recurse"></param>
 		/// <returns></returns>
+		bool IsCarriedByContainerContainerTypeExposedToMonster(bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
 		bool IsCarriedByContainerContainerTypeExposedToRoom(bool recurse = false);
 
 		/// <summary></summary>
@@ -342,6 +347,17 @@ namespace Eamon.Framework
 		bool IsEmbeddedInRoomUid(long roomUid, bool recurse = false);
 
 		/// <summary></summary>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		bool IsCarriedByContainerContainerTypeExposedToCharacter(bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="monsterUid"></param>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		bool IsCarriedByContainerContainerTypeExposedToMonsterUid(long monsterUid, bool recurse = false);
+
+		/// <summary></summary>
 		/// <param name="roomUid"></param>
 		/// <param name="recurse"></param>
 		/// <returns></returns>
@@ -381,6 +397,12 @@ namespace Eamon.Framework
 		/// <param name="recurse"></param>
 		/// <returns></returns>
 		bool IsEmbeddedInRoom(IRoom room, bool recurse = false);
+
+		/// <summary></summary>
+		/// <param name="monster"></param>
+		/// <param name="recurse"></param>
+		/// <returns></returns>
+		bool IsCarriedByContainerContainerTypeExposedToMonster(IMonster monster, bool recurse = false);
 
 		/// <summary></summary>
 		/// <param name="room"></param>
@@ -552,6 +574,16 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <returns></returns>
 		bool IsInContainerOpenedFromTop();
+
+		/// <summary></summary>
+		/// <param name="containerType"></param>
+		/// <returns></returns>
+		bool ShouldExposeContentsToCharacter(ContainerType containerType = ContainerType.In);
+
+		/// <summary></summary>
+		/// <param name="containerType"></param>
+		/// <returns></returns>
+		bool ShouldExposeContentsToMonster(ContainerType containerType = ContainerType.In);
 
 		/// <summary></summary>
 		/// <param name="containerType"></param>
