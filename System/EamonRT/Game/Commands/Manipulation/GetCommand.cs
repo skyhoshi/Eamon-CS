@@ -352,7 +352,21 @@ namespace EamonRT.Game.Commands
 				{
 					a => a.IsInRoom(ActorRoom),
 					a => a.IsEmbeddedInRoom(ActorRoom),
-					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(Globals.Engine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, Globals.Engine.ExposeContainersRecursively)
+					a => 
+					{
+						var result = a.IsCarriedByContainerContainerTypeExposedToCharacter(Globals.Engine.ExposeContainersRecursively);
+
+						if (result)
+						{
+							OmitWeightCheck = true;
+						}
+						else
+						{
+							result = a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, Globals.Engine.ExposeContainersRecursively);
+						}
+						
+						return result;
+					}
 				};
 
 				CommandParser.ObjData.ArtifactNotFoundFunc = PrintCantVerbThat;
