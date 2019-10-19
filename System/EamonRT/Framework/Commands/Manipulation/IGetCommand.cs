@@ -10,8 +10,5 @@ namespace EamonRT.Framework.Commands
 	{
 		/// <summary></summary>
 		bool GetAll { get; set; }
-
-		/// <summary></summary>
-		bool OmitWeightCheck { get; set; }
 	}
 }

@@ -20,6 +20,9 @@ namespace EamonRT.Game.Commands
 	public class RemoveCommand : Command, IRemoveCommand
 	{
 		/// <summary></summary>
+		protected virtual bool OmitWeightCheck { get; set; }
+
+		/// <summary></summary>
 		public virtual bool GetCommandCalled { get; set; }
 
 		/// <summary></summary>
@@ -41,8 +44,6 @@ namespace EamonRT.Game.Commands
 					NextState = Globals.CreateInstance<IGetCommand>(x =>
 					{
 						x.PreserveNextState = true;
-
-						x.OmitWeightCheck = IobjArtifact.IsCarriedByCharacter(true);
 					});
 
 					CopyCommandData(NextState as ICommand, false);
@@ -141,7 +142,7 @@ namespace EamonRT.Game.Commands
 
 			if (ac != null && ac.Type != ArtifactType.DisguisedMonster && DobjArtifact.UnderContainer == null && DobjArtifact.BehindContainer == null && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
 			{
-				var omitWeightCheck = IobjArtifact.IsCarriedByMonster(ActorMonster, true);
+				OmitWeightCheck = DobjArtifact.IsCarriedByMonster(ActorMonster, true);
 
 				var artCount = 0L;
 
@@ -164,7 +165,7 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				if (!Globals.Engine.EnforceMonsterWeightLimits || omitWeightCheck || (artWeight <= ActorMonster.GetWeightCarryableGronds() && artWeight + monWeight <= ActorMonster.GetWeightCarryableGronds() * ActorMonster.GroupCount))
+				if (!Globals.Engine.EnforceMonsterWeightLimits || OmitWeightCheck || (artWeight <= ActorMonster.GetWeightCarryableGronds() && artWeight + monWeight <= ActorMonster.GetWeightCarryableGronds() * ActorMonster.GroupCount))
 				{
 					DobjArtifact.SetCarriedByMonster(ActorMonster);
 
@@ -178,7 +179,7 @@ namespace EamonRT.Game.Commands
 						{
 							var monsterName = ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01));
 
-							Globals.Out.Print("{0} removes {1} from {2} {3}.", monsterName, DobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf), Globals.Engine.EvalContainerType(Prep.ContainerType, "inside", "on", "under", "behind"), omitWeightCheck ? IobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf01) : IobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+							Globals.Out.Print("{0} removes {1} from {2} {3}.", monsterName, DobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf), Globals.Engine.EvalContainerType(Prep.ContainerType, "inside", "on", "under", "behind"), OmitWeightCheck ? IobjArtifact.GetDecoratedName02(false, true, false, false, Globals.Buf01) : IobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
 						}
 						else
 						{

@@ -547,9 +547,6 @@
         <member name="P:EamonRT.Framework.Commands.IGetCommand.GetAll">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Commands.IGetCommand.OmitWeightCheck">
-            <summary></summary>
-        </member>
         <member name="T:EamonRT.Framework.Commands.ILightCommand">
             <summary></summary>
         </member>
@@ -1820,6 +1817,9 @@
         <member name="P:EamonRT.Game.Commands.ExamineCommand.ContainerType">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.OmitWeightCheck">
+            <summary></summary>
+        </member>
         <member name="P:EamonRT.Game.Commands.GetCommand.ArtifactList">
             <summary></summary>
         </member>
@@ -1848,6 +1848,9 @@
             <summary></summary>
         </member>
         <member name="F:EamonRT.Game.Commands.ReadCommand.PpeAfterArtifactRead">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.OmitWeightCheck">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.Commands.RemoveCommand.GetCommandCalled">

@@ -59,10 +59,7 @@ namespace EamonRT.Game.Commands
 						PrintTakingFirst(DobjArtifact);
 					}
 
-					NextState = Globals.CreateInstance<IGetCommand>(x =>
-					{
-						x.OmitWeightCheck = DobjArtifact.IsCarriedByCharacter(true);
-					});
+					NextState = Globals.CreateInstance<IGetCommand>();
 
 					CopyCommandData(NextState as ICommand);
 

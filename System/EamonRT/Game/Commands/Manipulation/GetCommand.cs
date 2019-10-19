@@ -21,9 +21,10 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class GetCommand : Command, IGetCommand
 	{
-		public virtual bool GetAll { get; set; }
+		/// <summary></summary>
+		protected virtual bool OmitWeightCheck { get; set; }
 
-		public virtual bool OmitWeightCheck { get; set; }
+		public virtual bool GetAll { get; set; }
 
 		/// <summary></summary>
 		public virtual IList<IArtifact> ArtifactList { get; set; }
@@ -178,6 +179,8 @@ namespace EamonRT.Game.Commands
 
 					Debug.Assert(ac != null);
 
+					OmitWeightCheck = artifact.IsCarriedByCharacter(true);
+
 					ProcessArtifact(artifact, ac, ref nlFlag);
 
 					if (artifact.IsCarriedByCharacter())
@@ -273,6 +276,8 @@ namespace EamonRT.Game.Commands
 
 			if (ac != null && ac.Type != ArtifactType.DisguisedMonster && DobjArtifact.UnderContainer == null && DobjArtifact.BehindContainer == null && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
 			{
+				OmitWeightCheck = DobjArtifact.IsCarriedByMonster(ActorMonster, true);
+
 				var artCount = 0L;
 
 				var artWeight = DobjArtifact.Weight;
@@ -352,21 +357,7 @@ namespace EamonRT.Game.Commands
 				{
 					a => a.IsInRoom(ActorRoom),
 					a => a.IsEmbeddedInRoom(ActorRoom),
-					a => 
-					{
-						var result = a.IsCarriedByContainerContainerTypeExposedToCharacter(Globals.Engine.ExposeContainersRecursively);
-
-						if (result)
-						{
-							OmitWeightCheck = true;
-						}
-						else
-						{
-							result = a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, Globals.Engine.ExposeContainersRecursively);
-						}
-						
-						return result;
-					}
+					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(Globals.Engine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, Globals.Engine.ExposeContainersRecursively)
 				};
 
 				CommandParser.ObjData.ArtifactNotFoundFunc = PrintCantVerbThat;
