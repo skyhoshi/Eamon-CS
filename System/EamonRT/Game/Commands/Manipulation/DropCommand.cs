@@ -71,13 +71,30 @@ namespace EamonRT.Game.Commands
 
 			ContainerContentsList = new List<string>();
 
-			if (DobjArtifact != null && DobjArtifact.IsWornByCharacter())
+			if (DobjArtifact != null)
 			{
-				PrintWearingRemoveFirst(DobjArtifact);
+				if (DobjArtifact.IsWornByCharacter())
+				{
+					PrintWearingRemoveFirst(DobjArtifact);
 
-				NextState = Globals.CreateInstance<IStartState>();
+					NextState = Globals.CreateInstance<IStartState>();
 
-				goto Cleanup;
+					goto Cleanup;
+				}
+				else if (DobjArtifact.IsCarriedByCharacter(true) && DobjArtifact.IsCarriedByContainer())
+				{
+					PrintRemovingFirst(DobjArtifact);
+
+					NextState = Globals.CreateInstance<IGetCommand>();
+
+					CopyCommandData(NextState as ICommand);
+
+					NextState.NextState = Globals.CreateInstance<IDropCommand>();
+
+					CopyCommandData(NextState.NextState as ICommand);
+
+					goto Cleanup;
+				}
 			}
 
 			ProcessLightSource();
@@ -157,7 +174,8 @@ namespace EamonRT.Game.Commands
 				CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 				{
 					a => a.IsCarriedByCharacter(),
-					a => a.IsWornByCharacter()
+					a => a.IsWornByCharacter(),
+					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(Globals.Engine.ExposeContainersRecursively)
 				};
 
 				CommandParser.ObjData.ArtifactNotFoundFunc = PrintDontHaveIt;
