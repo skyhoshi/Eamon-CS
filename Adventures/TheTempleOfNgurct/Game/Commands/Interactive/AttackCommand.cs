@@ -57,7 +57,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				// Fireball wand
 
-				else if (DobjMonster != null && ActorMonster.Weapon == 63)
+				else if (!BlastSpell && DobjMonster != null && ActorMonster.Weapon == 63)
 				{
 					Globals.Out.Write("{0}What is the trigger word? ", Environment.NewLine);
 
