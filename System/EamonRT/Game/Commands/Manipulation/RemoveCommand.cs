@@ -23,9 +23,6 @@ namespace EamonRT.Game.Commands
 		protected virtual bool OmitWeightCheck { get; set; }
 
 		/// <summary></summary>
-		public virtual bool GetCommandCalled { get; set; }
-
-		/// <summary></summary>
 		public virtual ContainerType ContainerType { get; set; }
 
 		/// <summary></summary>

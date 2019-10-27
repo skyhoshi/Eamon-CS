@@ -22,9 +22,6 @@ namespace EamonRT.Game.Commands
 		public const long PpeAfterArtifactPut = 1;
 
 		/// <summary></summary>
-		public virtual bool GetCommandCalled { get; set; }
-
-		/// <summary></summary>
 		public virtual ContainerType ContainerType { get; set; }
 
 		/// <summary></summary>

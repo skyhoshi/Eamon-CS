@@ -9,9 +9,6 @@ namespace EamonRT.Framework.Commands
 	public interface IGiveCommand : ICommand
 	{
 		/// <summary></summary>
-		bool GetCommandCalled { get; set; }
-
-		/// <summary></summary>
 		long GoldAmount { get; set; }
 	}
 }

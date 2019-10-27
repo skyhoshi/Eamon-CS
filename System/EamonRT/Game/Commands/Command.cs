@@ -179,6 +179,19 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		public virtual bool GetCommandCalled
+		{
+			get
+			{
+				return CommandImpl.GetCommandCalled;
+			}
+
+			set
+			{
+				CommandImpl.GetCommandCalled = value;
+			}
+		}
+
 		public virtual bool IsNew
 		{
 			get

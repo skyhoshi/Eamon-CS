@@ -29,8 +29,6 @@ namespace EamonRT.Game.Commands
 		/// <summary></summary>
 		public const long PpeBeforeMonsterTakesGold = 3;
 
-		public virtual bool GetCommandCalled { get; set; }
-
 		public virtual long GoldAmount { get; set; }
 
 		/// <summary></summary>

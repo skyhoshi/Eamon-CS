@@ -48,7 +48,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (!DobjArtifact.IsCarriedByCharacter())
+				if (!DobjArtifact.IsCarriedByCharacter() && !GetCommandCalled)
 				{
 					if (DobjArtifact.IsCarriedByContainer())
 					{
@@ -59,13 +59,29 @@ namespace EamonRT.Game.Commands
 						PrintTakingFirst(DobjArtifact);
 					}
 
-					NextState = Globals.CreateInstance<IGetCommand>();
+					NextState = Globals.CreateInstance<IGetCommand>(x =>
+					{
+						x.PreserveNextState = true;
+					});
 
-					CopyCommandData(NextState as ICommand);
+					CopyCommandData(NextState as ICommand, false);
 
-					NextState.NextState = Globals.CreateInstance<IReadyCommand>();
+					NextState.NextState = Globals.CreateInstance<IReadyCommand>(x =>
+					{
+						x.GetCommandCalled = true;
+					});
 
-					CopyCommandData(NextState.NextState as ICommand);
+					CopyCommandData(NextState.NextState as ICommand, false);
+
+					goto Cleanup;
+				}
+
+				if (!DobjArtifact.IsCarriedByCharacter())
+				{
+					if (DobjArtifact.DisguisedMonster == null || !GetCommandCalled)
+					{
+						NextState = Globals.CreateInstance<IStartState>();
+					}
 
 					goto Cleanup;
 				}

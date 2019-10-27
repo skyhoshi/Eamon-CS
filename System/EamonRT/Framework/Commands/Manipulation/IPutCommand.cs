@@ -11,9 +11,6 @@ namespace EamonRT.Framework.Commands
 	public interface IPutCommand : ICommand
 	{
 		/// <summary></summary>
-		bool GetCommandCalled { get; set; }
-
-		/// <summary></summary>
 		ContainerType ContainerType { get; set; }
 	}
 }

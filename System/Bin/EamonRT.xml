@@ -122,6 +122,9 @@
         <member name="P:EamonRT.Framework.Commands.ICommandSignatures.Type">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.GetCommandCalled">
+            <summary></summary>
+        </member>
         <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IsNew">
             <summary></summary>
         </member>
@@ -502,9 +505,6 @@
         <member name="T:EamonRT.Framework.Commands.IGiveCommand">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Commands.IGiveCommand.GetCommandCalled">
-            <summary></summary>
-        </member>
         <member name="P:EamonRT.Framework.Commands.IGiveCommand.GoldAmount">
             <summary></summary>
         </member>
@@ -515,9 +515,6 @@
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.IRequestCommand">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Framework.Commands.IRequestCommand.GetCommandCalled">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.ISmileCommand">
@@ -556,9 +553,6 @@
         <member name="T:EamonRT.Framework.Commands.IPutCommand">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Commands.IPutCommand.GetCommandCalled">
-            <summary></summary>
-        </member>
         <member name="P:EamonRT.Framework.Commands.IPutCommand.ContainerType">
             <summary></summary>
         </member>
@@ -569,9 +563,6 @@
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.IRemoveCommand">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Framework.Commands.IRemoveCommand.GetCommandCalled">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Commands.IRemoveCommand.ContainerType">
@@ -1835,9 +1826,6 @@
         <member name="F:EamonRT.Game.Commands.PutCommand.PpeAfterArtifactPut">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.Commands.PutCommand.GetCommandCalled">
-            <summary></summary>
-        </member>
         <member name="P:EamonRT.Game.Commands.PutCommand.ContainerType">
             <summary></summary>
         </member>
@@ -1851,9 +1839,6 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.Commands.RemoveCommand.OmitWeightCheck">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.Commands.RemoveCommand.GetCommandCalled">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.Commands.RemoveCommand.ContainerType">

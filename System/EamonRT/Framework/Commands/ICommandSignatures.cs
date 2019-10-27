@@ -56,6 +56,9 @@ namespace EamonRT.Framework.Commands
 		CommandType Type { get; set; }
 
 		/// <summary></summary>
+		bool GetCommandCalled { get; set; }
+
+		/// <summary></summary>
 		bool IsNew { get; set; }
 
 		/// <summary></summary>

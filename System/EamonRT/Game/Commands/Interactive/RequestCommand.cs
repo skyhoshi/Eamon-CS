@@ -19,8 +19,6 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class RequestCommand : Command, IRequestCommand
 	{
-		public virtual bool GetCommandCalled { get; set; }
-
 		public override void PlayerExecute()
 		{
 			RetCode rc;

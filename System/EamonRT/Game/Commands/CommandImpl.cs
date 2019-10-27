@@ -77,6 +77,8 @@ namespace EamonRT.Game.Commands
 
 		public virtual bool IsNew { get; set; }
 
+		public virtual bool GetCommandCalled { get; set; }
+
 		public virtual bool IsListed { get; set; }
 
 		public virtual bool IsDobjPrepEnabled { get; set; }

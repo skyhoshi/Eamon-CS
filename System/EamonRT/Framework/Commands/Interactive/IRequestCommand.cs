@@ -8,7 +8,6 @@ namespace EamonRT.Framework.Commands
 	/// <summary></summary>
 	public interface IRequestCommand : ICommand
 	{
-		/// <summary></summary>
-		bool GetCommandCalled { get; set; }
+
 	}
 }
