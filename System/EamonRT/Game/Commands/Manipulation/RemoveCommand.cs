@@ -23,9 +23,6 @@ namespace EamonRT.Game.Commands
 		protected virtual bool OmitWeightCheck { get; set; }
 
 		/// <summary></summary>
-		public virtual ContainerType ContainerType { get; set; }
-
-		/// <summary></summary>
 		public virtual IList<string> ContainerContentsList { get; set; }
 
 		public override void PlayerExecute()
@@ -38,28 +35,14 @@ namespace EamonRT.Game.Commands
 			{
 				if (!GetCommandCalled)
 				{
-					NextState = Globals.CreateInstance<IGetCommand>(x =>
-					{
-						x.PreserveNextState = true;
-					});
-
-					CopyCommandData(NextState as ICommand, false);
-
-					NextState.NextState = Globals.CreateInstance<IRemoveCommand>(x =>
-					{
-						x.GetCommandCalled = true;
-
-						x.ContainerType = ContainerType;
-					});
-
-					CopyCommandData(NextState.NextState as ICommand);
+					RedirectToGetCommand<IRemoveCommand>(DobjArtifact, false);
 
 					goto Cleanup;
 				}
 
 				if (!DobjArtifact.IsCarriedByCharacter())
 				{
-					if (!DobjArtifact.IsDisguisedMonster())
+					if (DobjArtifact.DisguisedMonster == null)
 					{
 						NextState = Globals.CreateInstance<IStartState>();
 					}
@@ -321,8 +304,6 @@ namespace EamonRT.Game.Commands
 			Verb = "remove";
 
 			Type = CommandType.Manipulation;
-
-			ContainerType = (ContainerType)(-1);
 		}
 	}
 }

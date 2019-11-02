@@ -26,9 +26,6 @@ namespace EamonRT.Game.Commands
 		/// <summary></summary>
 		public const long PpeAfterArtifactContentsPrint = 2;
 
-		/// <summary></summary>
-		public virtual ContainerType ContainerType { get; set; }
-
 		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null || DobjMonster != null);
@@ -268,8 +265,6 @@ namespace EamonRT.Game.Commands
 			Verb = "examine";
 
 			Type = CommandType.Manipulation;
-
-			ContainerType = (ContainerType)(-1);
 		}
 	}
 }

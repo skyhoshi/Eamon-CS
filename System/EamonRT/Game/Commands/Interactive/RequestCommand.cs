@@ -36,19 +36,7 @@ namespace EamonRT.Game.Commands
 
 			if (!GetCommandCalled)
 			{
-				NextState = Globals.CreateInstance<IGetCommand>(x =>
-				{
-					x.PreserveNextState = true;
-				});
-
-				CopyCommandData(NextState as ICommand, false);
-
-				NextState.NextState = Globals.CreateInstance<IRequestCommand>(x =>
-				{
-					x.GetCommandCalled = true;
-				});
-
-				CopyCommandData(NextState.NextState as ICommand);
+				RedirectToGetCommand<IRequestCommand>(DobjArtifact, false);
 
 				goto Cleanup;
 			}

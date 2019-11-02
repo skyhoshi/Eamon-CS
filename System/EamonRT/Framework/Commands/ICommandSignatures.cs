@@ -56,6 +56,9 @@ namespace EamonRT.Framework.Commands
 		CommandType Type { get; set; }
 
 		/// <summary></summary>
+		ContainerType ContainerType { get; set; }
+
+		/// <summary></summary>
 		bool GetCommandCalled { get; set; }
 
 		/// <summary></summary>
@@ -404,6 +407,11 @@ namespace EamonRT.Framework.Commands
 		/// <param name="destCommand"></param>
 		/// <param name="includeIobj"></param>
 		void CopyCommandData(ICommand destCommand, bool includeIobj = true);
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		/// <param name="printTaking"></param>
+		void RedirectToGetCommand<T>(IArtifact artifact, bool printTaking = true) where T : class, ICommand;
 
 		/// <summary></summary>
 		void FinishParsing();

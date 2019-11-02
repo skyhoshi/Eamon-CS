@@ -22,9 +22,6 @@ namespace EamonRT.Game.Commands
 		public const long PpeAfterArtifactPut = 1;
 
 		/// <summary></summary>
-		public virtual ContainerType ContainerType { get; set; }
-
-		/// <summary></summary>
 		public virtual IList<string> ContainerContentsList { get; set; }
 
 		public override void PlayerExecute()
@@ -35,39 +32,13 @@ namespace EamonRT.Game.Commands
 
 			ContainerContentsList = new List<string>();
 
-			if (!DobjArtifact.IsCarriedByCharacter() && !GetCommandCalled)
-			{
-				if (DobjArtifact.IsCarriedByContainer())
-				{
-					PrintRemovingFirst(DobjArtifact);
-				}
-				else
-				{
-					PrintTakingFirst(DobjArtifact);
-				}
-
-				NextState = Globals.CreateInstance<IGetCommand>(x =>
-				{
-					x.PreserveNextState = true;
-				});
-
-				CopyCommandData(NextState as ICommand, false);
-
-				NextState.NextState = Globals.CreateInstance<IPutCommand>(x =>
-				{
-					x.GetCommandCalled = true;
-
-					x.ContainerType = ContainerType;
-				});
-
-				CopyCommandData(NextState.NextState as ICommand);
-
-				goto Cleanup;
-			}
-
 			if (!DobjArtifact.IsCarriedByCharacter())
 			{
-				if (DobjArtifact.DisguisedMonster == null || !GetCommandCalled)
+				if (!GetCommandCalled)
+				{
+					RedirectToGetCommand<IPutCommand>(DobjArtifact);
+				}
+				else if (DobjArtifact.DisguisedMonster == null)
 				{
 					NextState = Globals.CreateInstance<IStartState>();
 				}
@@ -274,8 +245,6 @@ namespace EamonRT.Game.Commands
 			Verb = "put";
 
 			Type = CommandType.Manipulation;
-
-			ContainerType = (ContainerType)(-1);
 		}
 	}
 }

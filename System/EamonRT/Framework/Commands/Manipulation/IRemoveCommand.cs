@@ -10,7 +10,6 @@ namespace EamonRT.Framework.Commands
 	/// <summary></summary>
 	public interface IRemoveCommand : ICommand
 	{
-		/// <summary></summary>
-		ContainerType ContainerType { get; set; }
+
 	}
 }

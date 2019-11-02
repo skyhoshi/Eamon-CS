@@ -82,30 +82,20 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (DobjArtifact.IsCarriedByCharacter(true) && DobjArtifact.IsCarriedByContainer() && !GetCommandCalled)
-				{
-					PrintRemovingFirst(DobjArtifact);
-
-					NextState = Globals.CreateInstance<IGetCommand>(x =>
-					{
-						x.PreserveNextState = true;
-					});
-
-					CopyCommandData(NextState as ICommand, false);
-
-					NextState.NextState = Globals.CreateInstance<IDropCommand>(x =>
-					{
-						x.GetCommandCalled = true;
-					});
-
-					CopyCommandData(NextState.NextState as ICommand, false);
-
-					goto Cleanup;
-				}
-
 				if (!DobjArtifact.IsCarriedByCharacter())
 				{
-					if (DobjArtifact.DisguisedMonster == null || !GetCommandCalled)
+					if (!GetCommandCalled)
+					{
+						if (DobjArtifact.IsCarriedByCharacter(true) && DobjArtifact.IsCarriedByContainer())
+						{
+							RedirectToGetCommand<IDropCommand>(DobjArtifact);
+						}
+						else
+						{
+							NextState = Globals.CreateInstance<IStartState>();
+						}
+					}
+					else if (DobjArtifact.DisguisedMonster == null)
 					{
 						NextState = Globals.CreateInstance<IStartState>();
 					}

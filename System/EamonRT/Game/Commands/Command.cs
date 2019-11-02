@@ -179,6 +179,19 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		public virtual ContainerType ContainerType
+		{
+			get
+			{
+				return CommandImpl.ContainerType;
+			}
+
+			set
+			{
+				CommandImpl.ContainerType = value;
+			}
+		}
+
 		public virtual bool GetCommandCalled
 		{
 			get
@@ -721,6 +734,11 @@ namespace EamonRT.Game.Commands
 		public virtual void CopyCommandData(ICommand destCommand, bool includeIobj = true)
 		{
 			CommandImpl.CopyCommandData(destCommand, includeIobj);
+		}
+
+		public virtual void RedirectToGetCommand<T>(IArtifact artifact, bool printTaking = true) where T : class, ICommand
+		{
+			CommandImpl.RedirectToGetCommand<T>(artifact, printTaking);
 		}
 
 		public virtual void FinishParsing()

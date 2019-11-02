@@ -75,6 +75,8 @@ namespace EamonRT.Game.Commands
 
 		public virtual CommandType Type { get; set; }
 
+		public virtual ContainerType ContainerType { get; set; }
+
 		public virtual bool IsNew { get; set; }
 
 		public virtual bool GetCommandCalled { get; set; }
@@ -936,6 +938,39 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		public virtual void RedirectToGetCommand<T>(IArtifact artifact, bool printTaking = true) where T : class, ICommand
+		{
+			Debug.Assert(artifact != null);
+
+			if (printTaking)
+			{
+				if (artifact.IsCarriedByContainer())
+				{
+					Command.PrintRemovingFirst(artifact);
+				}
+				else
+				{
+					Command.PrintTakingFirst(artifact);
+				}
+			}
+
+			Command.NextState = Globals.CreateInstance<IGetCommand>(x =>
+			{
+				x.PreserveNextState = true;
+			});
+
+			Command.CopyCommandData(Command.NextState as ICommand);
+
+			Command.NextState.NextState = Globals.CreateInstance<T>(x =>
+			{
+				x.GetCommandCalled = true;
+
+				x.ContainerType = Command.ContainerType;
+			});
+
+			Command.CopyCommandData(Command.NextState.NextState as ICommand);
+		}
+
 		public virtual void FinishParsing()
 		{
 			Debug.Assert(Command.CommandParser != null);
@@ -965,6 +1000,8 @@ namespace EamonRT.Game.Commands
 			IsPlayerEnabled = true;
 
 			IsMonsterEnabled = true;
+
+			ContainerType = (ContainerType)(-1);
 		}
 	}
 }

@@ -10,6 +10,6 @@ namespace EamonRT.Framework.Commands
 	/// <summary></summary>
 	public interface IExamineCommand : ICommand
 	{
-		ContainerType ContainerType { get; set; }
+
 	}
 }
