@@ -122,6 +122,9 @@
         <member name="P:EamonRT.Framework.Commands.ICommandSignatures.Type">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.ContainerType">
+            <summary></summary>
+        </member>
         <member name="P:EamonRT.Framework.Commands.ICommandSignatures.GetCommandCalled">
             <summary></summary>
         </member>
@@ -472,6 +475,11 @@
             <param name="destCommand"></param>
             <param name="includeIobj"></param>
         </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.RedirectToGetCommand``1(Eamon.Framework.IArtifact,System.Boolean)">
+            <summary></summary>
+            <param name="artifact"></param>
+            <param name="printTaking"></param>
+        </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.FinishParsing">
             <summary></summary>
         </member>
@@ -553,9 +561,6 @@
         <member name="T:EamonRT.Framework.Commands.IPutCommand">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Commands.IPutCommand.ContainerType">
-            <summary></summary>
-        </member>
         <member name="T:EamonRT.Framework.Commands.IReadCommand">
             <summary></summary>
         </member>
@@ -563,9 +568,6 @@
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.IRemoveCommand">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Framework.Commands.IRemoveCommand.ContainerType">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.IUseCommand">
@@ -1805,9 +1807,6 @@
         <member name="F:EamonRT.Game.Commands.ExamineCommand.PpeAfterArtifactContentsPrint">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.Commands.ExamineCommand.ContainerType">
-            <summary></summary>
-        </member>
         <member name="P:EamonRT.Game.Commands.GetCommand.OmitWeightCheck">
             <summary></summary>
         </member>
@@ -1826,9 +1825,6 @@
         <member name="F:EamonRT.Game.Commands.PutCommand.PpeAfterArtifactPut">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.Commands.PutCommand.ContainerType">
-            <summary></summary>
-        </member>
         <member name="P:EamonRT.Game.Commands.PutCommand.ContainerContentsList">
             <summary></summary>
         </member>
@@ -1839,9 +1835,6 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.Commands.RemoveCommand.OmitWeightCheck">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.Commands.RemoveCommand.ContainerType">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.Commands.RemoveCommand.ContainerContentsList">
