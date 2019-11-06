@@ -470,20 +470,6 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 									Globals.Character.HeldGold -= ap;
 
-									if (Globals.Character.HeldGold < 0)
-									{
-										Globals.Character.BankGold += Globals.Character.HeldGold;
-
-										Globals.Character.HeldGold = 0;
-
-										if (Globals.Character.BankGold < 0)
-										{
-											Globals.Character.HeldGold = Globals.Character.BankGold;
-
-											Globals.Character.BankGold = 0;
-										}
-									}
-
 									Globals.CharactersModified = true;
 
 									Globals.Out.Print("Finally he looks up and says, \"Welcome back from yer adventure.  Now go and have fun in the hall.\"");

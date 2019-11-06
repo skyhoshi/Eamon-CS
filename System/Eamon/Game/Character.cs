@@ -56,14 +56,7 @@ namespace Eamon.Game
 			{
 				_heldGold = value;
 
-				if (_heldGold < Constants.MinGoldValue)
-				{
-					_heldGold = Constants.MinGoldValue;
-				}
-				else if (_heldGold > Constants.MaxGoldValue)
-				{
-					_heldGold = Constants.MaxGoldValue;
-				}
+				NormalizeGoldValues();
 			}
 		}
 
@@ -78,14 +71,7 @@ namespace Eamon.Game
 			{
 				_bankGold = value;
 
-				if (_bankGold < Constants.MinGoldValue)
-				{
-					_bankGold = Constants.MinGoldValue;
-				}
-				else if (_bankGold > Constants.MaxGoldValue)
-				{
-					_bankGold = Constants.MaxGoldValue;
-				}
+				NormalizeGoldValues();
 			}
 		}
 
@@ -96,6 +82,70 @@ namespace Eamon.Game
 		public virtual ICharacterArtifact Shield { get; set; }
 
 		public virtual ICharacterArtifact[] Weapons { get; set; }
+
+		#endregion
+
+		#endregion
+
+		#region Protected Methods
+
+		#region Class Character
+
+		protected virtual void NormalizeGoldValues()
+		{
+			if (Globals.EnableGameOverrides)
+			{
+				if (_heldGold < 0 && _bankGold > 0)
+				{
+					if (_heldGold + _bankGold >= 0)
+					{
+						_bankGold += _heldGold;
+
+						_heldGold = 0;
+					}
+					else
+					{
+						_heldGold += _bankGold;
+
+						_bankGold = 0;
+					}
+				}
+
+				if (_bankGold < 0 && _heldGold > 0)
+				{
+					if (_bankGold + _heldGold >= 0)
+					{
+						_heldGold += _bankGold;
+
+						_bankGold = 0;
+					}
+					else
+					{
+						_bankGold += _heldGold;
+
+						_heldGold = 0;
+					}
+				}
+			}
+
+			if (_heldGold < Constants.MinGoldValue)
+			{
+				_heldGold = Constants.MinGoldValue;
+			}
+			else if (_heldGold > Constants.MaxGoldValue)
+			{
+				_heldGold = Constants.MaxGoldValue;
+			}
+
+			if (_bankGold < Constants.MinGoldValue)
+			{
+				_bankGold = Constants.MinGoldValue;
+			}
+			else if (_bankGold > Constants.MaxGoldValue)
+			{
+				_bankGold = Constants.MaxGoldValue;
+			}
+		}
 
 		#endregion
 
@@ -812,6 +862,8 @@ namespace Eamon.Game
 			}
 
 			ArmorExpertise = character.ArmorExpertise;
+
+			BankGold = 0;
 
 			HeldGold = character.HeldGold;
 
