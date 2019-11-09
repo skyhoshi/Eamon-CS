@@ -95,6 +95,8 @@ namespace Eamon.Game
 		{
 			if (Globals.EnableGameOverrides)
 			{
+				// extinguish HeldGold debt with BankGold assets
+
 				if (_heldGold < 0 && _bankGold > 0)
 				{
 					if (_heldGold + _bankGold >= 0)
@@ -111,6 +113,8 @@ namespace Eamon.Game
 					}
 				}
 
+				// extinguish BankGold debt with HeldGold assets
+
 				if (_bankGold < 0 && _heldGold > 0)
 				{
 					if (_bankGold + _heldGold >= 0)
@@ -126,7 +130,27 @@ namespace Eamon.Game
 						_heldGold = 0;
 					}
 				}
+
+				// move remaining debt to HeldGold if possible
+
+				if (_bankGold < 0)
+				{
+					_heldGold += _bankGold;
+
+					if (_heldGold < Constants.MinGoldValue)
+					{
+						_bankGold = _heldGold - Constants.MinGoldValue;
+
+						_heldGold = Constants.MinGoldValue;
+					}
+					else
+					{
+						_bankGold = 0;
+					}
+				}
 			}
+
+			// force values into valid range
 
 			if (_heldGold < Constants.MinGoldValue)
 			{
@@ -787,7 +811,7 @@ namespace Eamon.Game
 				i++;
 			}
 
-			Globals.Out.WriteLine("{0}{0}{1}{2,-30}{3}{4,-5}",
+			Globals.Out.WriteLine("{0}{0}{1}{2,-30}{3}{4,-6}",
 				Environment.NewLine,
 				"Gold: ",
 				HeldGold,

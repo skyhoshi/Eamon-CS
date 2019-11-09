@@ -100,7 +100,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 				i++;
 			}
 
-			Globals.Out.WriteLine("{0}{0}{1}{2,-26}{3}{4,-5}",
+			Globals.Out.WriteLine("{0}{0}{1}{2,-26}{3}{4,-6}",
 				Environment.NewLine,
 				"Gold: ",
 				Globals.Character.HeldGold,

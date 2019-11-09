@@ -147,17 +147,24 @@ namespace EamonRT.Game.Commands
 				{
 					var artifactList = DobjMonster.GetCarriedList();
 
-					if (isCharMonster && Globals.Character.HeldGold != 0)
+					if (isCharMonster)
 					{
-						goldArtifact = Globals.CreateInstance<IArtifact>(x =>
-						{
-							x.Name = string.Format("{0}{1} gold piece{2}",
-											Globals.Character.HeldGold < 0 ? "a debt of " : "",
-											Globals.Engine.GetStringFromNumber(Math.Abs(Globals.Character.HeldGold), false, Globals.Buf),
-											Math.Abs(Globals.Character.HeldGold) != 1 ? "s" : "");
-						});
+						// use total debt for characters with no assets; otherwise use HeldGold (which may be debt or asset)
 
-						artifactList.Add(goldArtifact);
+						var totalGold = Globals.Character.HeldGold < 0 && Globals.Character.BankGold < 0 ? Globals.Character.HeldGold + Globals.Character.BankGold :	Globals.Character.HeldGold;
+
+						if (totalGold != 0)
+						{
+							goldArtifact = Globals.CreateInstance<IArtifact>(x =>
+							{
+								x.Name = string.Format("{0}{1} gold piece{2}",
+												totalGold < 0 ? "a debt of " : "",
+												Globals.Engine.GetStringFromNumber(Math.Abs(totalGold), false, Globals.Buf),
+												Math.Abs(totalGold) != 1 ? "s" : "");
+							});
+
+							artifactList.Add(goldArtifact);
+						}
 					}
 
 					Globals.Buf.SetFormat("{0}{1} {2} {3}",
