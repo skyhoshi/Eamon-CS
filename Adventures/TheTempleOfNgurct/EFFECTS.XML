@@ -227,7 +227,7 @@
           <Properties>
             <Simple name="Uid" value="32" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Desc" value="The ExplicitContent setting toggles between the original game and one more suited to younger audiences.*033" />
+            <Simple name="Desc" value="The MatureContent setting toggles between the original game and one more suited to younger audiences.*033" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">

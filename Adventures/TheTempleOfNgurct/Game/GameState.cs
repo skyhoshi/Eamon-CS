@@ -22,7 +22,7 @@ namespace TheTempleOfNgurct.Game
 
 		public virtual long KeyRingRoomUid { get; set; }
 
-		public virtual bool ExplicitContent { get; set; }
+		public virtual bool MatureContent { get; set; }
 
 		public virtual bool AlkandaKilled { get; set; }
 

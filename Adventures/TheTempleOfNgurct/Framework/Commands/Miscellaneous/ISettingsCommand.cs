@@ -9,6 +9,6 @@ namespace TheTempleOfNgurct.Framework.Commands
 {
 	public interface ISettingsCommand : EamonRT.Framework.Commands.ISettingsCommand
 	{
-		bool? ExplicitContent { get; set; }
+		bool? MatureContent { get; set; }
 	}
 }

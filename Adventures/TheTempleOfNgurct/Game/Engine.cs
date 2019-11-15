@@ -329,7 +329,7 @@ namespace TheTempleOfNgurct.Game
 
 				var gameState = Globals.GameState as Framework.IGameState;
 
-				if (gameState != null && gameState.ExplicitContent)
+				if (gameState != null && gameState.MatureContent)
 				{
 					result = "LS0gZWF0aW5nIGh1bWFuIGJhYmllcywgcmFwaW5nIHdvbWVuLCBhbmQgc28gZm9ydGg=";
 				}
@@ -343,7 +343,7 @@ namespace TheTempleOfNgurct.Game
 
 				var gameState = Globals.GameState as Framework.IGameState;
 
-				if (gameState != null && gameState.ExplicitContent)
+				if (gameState != null && gameState.MatureContent)
 				{
 					result = "WW91IHN0dXBpZCBqZXJrISAgWW91IGp1c3QgY2xpbWJlZCBkb3duIGludG8gdGhlIHNoaXQgaG9sZSE=";
 				}

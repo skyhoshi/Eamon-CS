@@ -15,7 +15,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings(typeof(ISettingsCommand))]
 	public class SettingsCommand : EamonRT.Game.Commands.SettingsCommand, Framework.Commands.ISettingsCommand
 	{
-		public virtual bool? ExplicitContent { get; set; }
+		public virtual bool? MatureContent { get; set; }
 
 		public override void PrintUsage()
 		{
@@ -25,7 +25,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			base.PrintUsage();
 
-			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "ExplicitContent", "True, False", gameState.ExplicitContent);
+			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "MatureContent", "True, False", gameState.MatureContent);
 		}
 
 		public override void PlayerExecute()
@@ -34,16 +34,16 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			Debug.Assert(gameState != null);
 
-			if (ExplicitContent == null)
+			if (MatureContent == null)
 			{
 				base.PlayerExecute();
 
 				goto Cleanup;
 			}
 
-			if (ExplicitContent != null)
+			if (MatureContent != null)
 			{
-				gameState.ExplicitContent = (bool)ExplicitContent;
+				gameState.MatureContent = (bool)MatureContent;
 			}
 
 			Globals.Out.Print("Settings changed.");
@@ -64,9 +64,9 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (CommandParser.CurrToken + 1 < CommandParser.Tokens.Length)
 			{
-				if (string.Equals(CommandParser.Tokens[CommandParser.CurrToken], "explicitcontent", StringComparison.OrdinalIgnoreCase) && bool.TryParse(CommandParser.Tokens[CommandParser.CurrToken + 1], out boolValue))
+				if (string.Equals(CommandParser.Tokens[CommandParser.CurrToken], "maturecontent", StringComparison.OrdinalIgnoreCase) && bool.TryParse(CommandParser.Tokens[CommandParser.CurrToken + 1], out boolValue))
 				{
-					ExplicitContent = boolValue;
+					MatureContent = boolValue;
 
 					CommandParser.CurrToken += 2;
 				}

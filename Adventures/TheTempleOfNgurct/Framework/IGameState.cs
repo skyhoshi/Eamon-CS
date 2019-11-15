@@ -26,7 +26,7 @@ namespace TheTempleOfNgurct.Framework
 		long KeyRingRoomUid { get; set; }
 
 		/// <summary></summary>
-		bool ExplicitContent { get; set; }
+		bool MatureContent { get; set; }
 
 		/// <summary></summary>
 		bool AlkandaKilled { get; set; }
