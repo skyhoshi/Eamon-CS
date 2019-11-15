@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
@@ -321,6 +322,34 @@ namespace TheTempleOfNgurct.Game
 		public Engine()
 		{
 			PoundCharPolicy = PoundCharPolicy.None;
+
+			MacroFuncs.Add(6, () =>
+			{
+				var result = "KHRoZSBzcGVjaWZpY3MgYXJlIGxlZnQgdG8geW91ciBpbWFnaW5hdGlvbik=";
+
+				var gameState = Globals.GameState as Framework.IGameState;
+
+				if (gameState != null && gameState.ExplicitContent)
+				{
+					result = "LS0gZWF0aW5nIGh1bWFuIGJhYmllcywgcmFwaW5nIHdvbWVuLCBhbmQgc28gZm9ydGg=";
+				}
+
+				return Encoding.UTF8.GetString(Convert.FromBase64String(result));
+			});
+
+			MacroFuncs.Add(7, () =>
+			{
+				var result = "WW91IGZvb2whICBZb3UganVzdCBjbGltYmVkIGRvd24gaW50byB0aGUgZXhjcmVtZW50IGR1Y3Qh";
+
+				var gameState = Globals.GameState as Framework.IGameState;
+
+				if (gameState != null && gameState.ExplicitContent)
+				{
+					result = "WW91IHN0dXBpZCBqZXJrISAgWW91IGp1c3QgY2xpbWJlZCBkb3duIGludG8gdGhlIHNoaXQgaG9sZSE=";
+				}
+
+				return Encoding.UTF8.GetString(Convert.FromBase64String(result));
+			});
 		}
 	}
 }

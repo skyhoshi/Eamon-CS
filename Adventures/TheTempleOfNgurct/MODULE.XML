@@ -1,17 +1,17 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.ModuleDbTable, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+<Complex name="Root" type="Eamon.Game.DataStorage.ModuleDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IModule, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IModule, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Module, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Module, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="The Temple Of Ngurct" />
-            <Simple name="Desc" value="Here's a classic from the early days of Eamon that features random artifact/monster placement, wandering monsters, devious traps and an interesting storyline.*032" />
+            <Simple name="Desc" value="Here's a classic from the early days of Eamon that features random artifact/monster placement, wandering monsters, devious traps and an interesting storyline.  **032" />
             <Simple name="Author" value="James &amp; Robert Plamondon" />
             <Simple name="VolLabel" value="JRP-001" />
             <Simple name="SerialNum" value="007" />
@@ -20,7 +20,7 @@
             <Simple name="NumDirs" value="6" />
             <Simple name="NumRooms" value="59" />
             <Simple name="NumArtifacts" value="88" />
-            <Simple name="NumEffects" value="48" />
+            <Simple name="NumEffects" value="49" />
             <Simple name="NumMonsters" value="60" />
             <Simple name="NumHints" value="10" />
           </Properties>

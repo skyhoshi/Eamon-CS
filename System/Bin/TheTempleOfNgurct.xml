@@ -43,6 +43,9 @@
         <member name="P:TheTempleOfNgurct.Framework.IGameState.KeyRingRoomUid">
             <summary></summary>
         </member>
+        <member name="P:TheTempleOfNgurct.Framework.IGameState.ExplicitContent">
+            <summary></summary>
+        </member>
         <member name="P:TheTempleOfNgurct.Framework.IGameState.AlkandaKilled">
             <summary></summary>
         </member>
