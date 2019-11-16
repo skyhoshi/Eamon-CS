@@ -1,1612 +1,1612 @@
-<Complex name="Root" type="Eamon.Game.DataStorage.RoomDbTable, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-  <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IRoom, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-      <Properties>
-        <Simple name="IsReadOnly" value="False" />
-        <Simple name="AllowDuplicates" value="False" />
-      </Properties>
-      <Items>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="1" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Main Entrance" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are at the main entrance.  The citadel stands before you, much of it in ruins.  The east tower is collapsed.  You can go north through the main gate or along a path to the east." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Outdoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="2" />
-                <Simple value="-999" />
-                <Simple value="9" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="2" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Courtyard" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the courtyard.  It is littered with fire-blackened rubble." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Outdoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="13" />
-                <Simple value="1" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="3" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="West Tower, Base" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the west tower.  It is in far better shape than the east tower.  A set of stairs leads up." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="14" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="8" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="4" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Barracks" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the abandoned barracks.  Old rotting bunks stand against the walls.  Rats skitter across the floor." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="14" />
-                <Simple value="5" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="5" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Armoury" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the armoury.  It has seen no business for some time; you are beginning to wonder if there's anyone alive here.  The only light is starlight from a gaping hole in the roof." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="13" />
-                <Simple value="6" />
-                <Simple value="4" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="6" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Headquarters" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the headquarters.  This room alone in the citadel looks lived in." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="12" />
-                <Simple value="0" />
-                <Simple value="5" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="7" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="East Tower" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the ruins of the east tower.  There is a big breach in the east wall; the loose rubble looks treacherous.  An old but still-clear stairway leads down." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="12" />
-                <Simple value="0" />
-                <Simple value="11" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="33" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="8" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="West Tower, Top" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are on the top of the west tower.  You have a beautiful view of an ugly, narrow pass, and see little else." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Outdoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="3" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="9" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="East/West Path" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are on an east/west path.  To the west you see the main entrance; to the east is a north path." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Outdoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="10" />
-                <Simple value="1" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="10" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Path, North/West Bend" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are at a north/west bend in the path.  It looks well travelled; no vegetation grows on it.  To the west is more path; to the north is the rubble of a breach in the east wall." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Outdoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="11" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="9" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="11" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="East Wall, Breach" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the breach in the east wall.  The stones and rubble are loose and dangerous.  To the west you see the ruins of the east tower; to the south is a north/south path." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Outdoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="10" />
-                <Simple value="0" />
-                <Simple value="7" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="12" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Road, East End" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are at the east end of a east/west road.  It looks as though it has seen regular use, mostly to the ruined tower to the south." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Outdoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="6" />
-                <Simple value="7" />
-                <Simple value="0" />
-                <Simple value="13" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="13" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="East/West Road" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are on a short east/west road.  To the north is a large building.  The road looks heavily travelled to the east, unused to the west." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Outdoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="5" />
-                <Simple value="2" />
-                <Simple value="12" />
-                <Simple value="14" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="14" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Road, West End" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are at the west end of a road.  To the east you see more road; the west tower is south, and there's a door to the north." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Outdoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="4" />
-                <Simple value="3" />
-                <Simple value="13" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="15" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Hall, South/West Bend" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You're at a south/west bend in the hall.  To the west is a door; to the south is a long hall; to the east is another door." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="16" />
-                <Simple value="56" />
-                <Simple value="57" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="16" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="North/South Hall" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in a north/south hall.  The hall continues in both directions." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="15" />
-                <Simple value="17" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="17" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="North/South Hall" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in a north/south hall.  To the south is a bend in the hall; to the north is more hall; doors east and west." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="16" />
-                <Simple value="18" />
-                <Simple value="40" />
-                <Simple value="54" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="18" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Hall, North/West Bend" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in a dry, cool underground hallway.  The walls are dry, and there are flickering torches securely bolted to the walls.  The stonework is very old, and the mortar is crumbling." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="17" />
-                <Simple value="1085" />
-                <Simple value="0" />
-                <Simple value="19" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="19" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="East/West Hall" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in an east/west hall.  To the east and west you see bends in the hall; there's a door to the south." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="34" />
-                <Simple value="18" />
-                <Simple value="20" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="20" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Hall, North/East Bend" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are at a north/east bend in the hall.  You can see doors south and west as well." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="21" />
-                <Simple value="35" />
-                <Simple value="19" />
-                <Simple value="36" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="21" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="North/South Hall" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in a north/south hall.  You can smell strange smells from under the door to the west.  There is also a door east." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="22" />
-                <Simple value="20" />
-                <Simple value="37" />
-                <Simple value="42" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="22" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Hall, South/East Bend" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You're at a south/east bend in the hall.  There is a door to the north which you can both see and smell; the odour coming from under it is appalling.  The door to the east also smells -- it of dust, mold and age." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="39" />
-                <Simple value="21" />
-                <Simple value="38" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="23" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Hall, East End" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are at the east end of a hall.  To the east is a truly awful-smelling room.  West is a bend in the hall.  The north wall is covered with strange, filigreed cracks." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="39" />
-                <Simple value="24" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="24" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Hall, South/East Bend" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You're at a south/east bend in the hall.  You see also a door to the west; from under it comes a peculiar musky odour.  You see more cracks on the north wall." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="1083" />
-                <Simple value="25" />
-                <Simple value="23" />
-                <Simple value="59" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="25" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="North/South Hall" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in a north/south hall.  To the east is a thick wooden door.  South you see a series of east/west doors." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="24" />
-                <Simple value="26" />
-                <Simple value="43" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="26" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="North/South Hall" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in a north/south hall.  To both the east and west you see stong cell doors.  You see more such doors down the hall to the south." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="25" />
-                <Simple value="27" />
-                <Simple value="1087" />
-                <Simple value="44" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="27" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="North/South Hall" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in a north/south hall.  To both the east and west you see cell doors; similar doors lie up the hall to the north." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="26" />
-                <Simple value="28" />
-                <Simple value="47" />
-                <Simple value="1088" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="28" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="North/South Hall, South End" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You're at the south end of a north/south hall.  To the north you see a series of strong east and west doors.  A huge door of graven stone, carved with horrible monsters and grotesque demons, lies to the south." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="27" />
-                <Simple value="48" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="29" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="East/West Tunnel, West End" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are at the west end of an east/west tunnel.  It is only slightly damp, and it looks newer than the rest of the citadel (which isn't saying much).  The torchlight is dim here, but you can see doors north, south, and west, with a tunnel leading east." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="50" />
-                <Simple value="51" />
-                <Simple value="30" />
-                <Simple value="49" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="30" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="East/West Tunnel" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in an east/west tunnel.  To the south lies a door." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="52" />
-                <Simple value="31" />
-                <Simple value="29" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="31" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Tunnel" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="The tunnel continues.  To the east you see a bend; south is a door." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="53" />
-                <Simple value="32" />
-                <Simple value="30" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="32" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Tunnel, North/West Bend" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are at a north/west bend in the tunnel.  To the west is a long dim tunnel.  You see a strange door to the north; it feels warm to the touch.  It opens inward, and evidently can only be opened from the inside." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="33" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="31" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="33" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Stairs, Bottom" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are at the bottom of a staircase.  You see a strong oak door to the north.  It is very dark here; the only light is that coming down the staircase." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="-33" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="7" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="34" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Barracks, East Half" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the east half of a large barracks.  There are bunks for about two dozen humanoids.  It is fairly well lit." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="19" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="35" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="35" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Barracks, West Half" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the west half of a large barracks.  There are bunks for about two dozen humanoids, some very large.  The place is a total mess." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="20" />
-                <Simple value="0" />
-                <Simple value="34" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="36" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Officers' Room" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the officers' quarters.  The room is very neat and tidy; the bed is made with military corners.  The light is very bright, by dungeon standards." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="20" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="37" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Mess Hall" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the mess hall.  It lives up to (or down to) its name.  The floor is strewn with rotting straw, and the tabletops are coated with grime and garbage." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="54" />
-                <Simple value="21" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="38" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Mummy Room" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the mummy room.  In the center of the room is an elaborate stone sarcophagus; its stone lid lies shattered to one side.  The room is thick with dust.  The south wall bears an inscription in hieroglyphics." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="22" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="39" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Filthy Room" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in a filthy room.  The walls are covered with slime and mold; the floor is deep in garbage, refuse and rat dung." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="22" />
-                <Simple value="57" />
-                <Simple value="23" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="40" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Storeroom" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in a storeroom.  The light is dim, but you can see that the room is piled high with boxes and crates of orc clothes and (worthless) whatnots." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="17" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="41" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Treasury" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the treasury.  It is a small room, but a full one." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="24" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="42" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Magic Lab" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the magic lab.  Intricate glassware stands on tables and racks; a number of potions are on a shelf.  Books and notes lie strewn about." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="21" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="43" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Library" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the library.  The titles on the collection run mostly to theological material, with no fiction at all." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="25" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="44" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Northwest Cell" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the northwest cell.  The floor is covered with crumbling, rotten straw." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="26" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="45" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Northeast Cell" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the northeast cell.  There is a shallow hole in the north wall, not even deep enough to hide a cup.  It appears new.  You see the cell door to the west." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="-55" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="46" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Southwest Cell" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the southwest cell.  The floor is neatly swept; a pallet of woven straw lies in the north corner.  To the east is the cell door." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="-55" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="47" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Southeast Cell" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the southeast cell.  On the floor is a thick layer of foul and reeking sawdust.  To the west is the cell door." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="27" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="48" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Temple Of Ngurct" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the main temple.  The walls are painted with pictures of grotesque monsters in evil acts @@006.  You see a black stone altar at the south end of the room." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="28" />
-                <Simple value="1084" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="49" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Supply Room" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the ecclesiastical supply room.  Here is kept the equipment the priests need for their pernicious rites.  Exits are north and east." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="48" />
-                <Simple value="0" />
-                <Simple value="29" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="50" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Priests' Lavatory" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the priests' lavatory.  You see a huge stone tub, spotlessly clean, a basin, and a large smelly hole in the floor." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="29" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="-60" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="51" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="High Priest's Bedroom" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the high priest's bedroom.  A dead girl lies on the bed; the satin sheets are stiff with the still-warm blood from her ragged throat.  The walls are painted with a powdery, red-brown paint." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="29" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="52" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Priest's Bedroom" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in a priest's bedroom.  The room is neat and orderly; it is also bare and spartan." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="30" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="53" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Priest's Room" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in a priest's bedroom.  The bed is rumbled and disheveled.  The ceiling and walls are mirrored; the only light is from a fading orange brazier of coals." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="31" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="54" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Kitchen" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the kitchen.  You see the first happy creatures you've found here; a swarm of contented flies buzz around the room." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="17" />
-                <Simple value="37" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="55" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Big Cell" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in a big cell.  The floor is covered with reeking sawdust.  The walls are bare native stone, dripping with ground water.  You see the cell door to the north." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="-55" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="56" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Torture Chamber" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the torture chamber.  The east wall is dominated by a worn rack." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="1086" />
-                <Simple value="0" />
-                <Simple value="15" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="57" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Storeroom" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in an empty storeroom.  There is nothing on the floor, but for a few old crates and bits of wood.  You see a tall vertical slit in the north wall, and a matching room-long slit in the ceiling." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="15" />
-                <Simple value="39" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="58" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Lost Room" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in &quot;the lost room.&quot;  It has no exits.  You are not in the universe.  You are not dead, but you are not free to leave.  You are doomed.  &quot;It could be worse...&quot;" />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-        <Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
-          <Properties>
-            <Simple name="Uid" value="59" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Minotaur Room" />
-            <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the minotaur room.  It stinks of musk and sweat; the floor is worn by the constant moving of the minotaur.  The walls are hewn from the living rock, and the room is damp and chill." />
-            <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
-            <Simple name="Zone" value="1" />
-            <SingleArray name="Dirs">
-              <Items>
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="24" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
-              </Items>
-            </SingleArray>
-          </Properties>
-        </Complex>
-      </Items>
-    </Collection>
-    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-      <Properties>
-        <Simple name="Capacity" value="0" />
-      </Properties>
-      <Items />
-    </Collection>
-    <Simple name="CurrUid" value="59" />
-  </Properties>
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.RoomDbTable, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+	<Properties>
+		<Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IRoom, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+			<Properties>
+				<Simple name="IsReadOnly" value="False" />
+				<Simple name="AllowDuplicates" value="False" />
+			</Properties>
+			<Items>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="1" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Main Entrance" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are at the main entrance.  The citadel stands before you, much of it in ruins.  The east tower is collapsed.  You can go north through the main gate or along a path to the east." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Outdoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="2" />
+								<Simple value="-999" />
+								<Simple value="9" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="2" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Courtyard" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the courtyard.  It is littered with fire-blackened rubble." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Outdoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="13" />
+								<Simple value="1" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="3" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="West Tower, Base" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the west tower.  It is in far better shape than the east tower.  A set of stairs leads up." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="14" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="8" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="4" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Barracks" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the abandoned barracks.  Old rotting bunks stand against the walls.  Rats skitter across the floor." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="14" />
+								<Simple value="5" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="5" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Armoury" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the armoury.  It has seen no business for some time; you are beginning to wonder if there's anyone alive here.  The only light is starlight from a gaping hole in the roof." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="13" />
+								<Simple value="6" />
+								<Simple value="4" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="6" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Headquarters" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the headquarters.  This room alone in the citadel looks lived in." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="12" />
+								<Simple value="0" />
+								<Simple value="5" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="7" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="East Tower" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the ruins of the east tower.  There is a big breach in the east wall; the loose rubble looks treacherous.  An old but still-clear stairway leads down." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="12" />
+								<Simple value="0" />
+								<Simple value="11" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="33" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="8" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="West Tower, Top" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are on the top of the west tower.  You have a beautiful view of an ugly, narrow pass, and see little else." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Outdoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="3" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="9" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="East/West Path" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are on an east/west path.  To the west you see the main entrance; to the east is a north path." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Outdoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="10" />
+								<Simple value="1" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="10" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Path, North/West Bend" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are at a north/west bend in the path.  It looks well travelled; no vegetation grows on it.  To the west is more path; to the north is the rubble of a breach in the east wall." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Outdoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="11" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="9" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="11" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="East Wall, Breach" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the breach in the east wall.  The stones and rubble are loose and dangerous.  To the west you see the ruins of the east tower; to the south is a north/south path." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Outdoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="10" />
+								<Simple value="0" />
+								<Simple value="7" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="12" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Road, East End" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are at the east end of a east/west road.  It looks as though it has seen regular use, mostly to the ruined tower to the south." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Outdoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="6" />
+								<Simple value="7" />
+								<Simple value="0" />
+								<Simple value="13" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="13" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="East/West Road" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are on a short east/west road.  To the north is a large building.  The road looks heavily travelled to the east, unused to the west." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Outdoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="5" />
+								<Simple value="2" />
+								<Simple value="12" />
+								<Simple value="14" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="14" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Road, West End" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are at the west end of a road.  To the east you see more road; the west tower is south, and there's a door to the north." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Outdoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="4" />
+								<Simple value="3" />
+								<Simple value="13" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="15" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Hall, South/West Bend" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You're at a south/west bend in the hall.  To the west is a door; to the south is a long hall; to the east is another door." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="16" />
+								<Simple value="56" />
+								<Simple value="57" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="16" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="North/South Hall" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in a north/south hall.  The hall continues in both directions." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="15" />
+								<Simple value="17" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="17" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="North/South Hall" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in a north/south hall.  To the south is a bend in the hall; to the north is more hall; doors east and west." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="16" />
+								<Simple value="18" />
+								<Simple value="40" />
+								<Simple value="54" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="18" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Hall, North/West Bend" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in a dry, cool underground hallway.  The walls are dry, and there are flickering torches securely bolted to the walls.  The stonework is very old, and the mortar is crumbling." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="17" />
+								<Simple value="1085" />
+								<Simple value="0" />
+								<Simple value="19" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="19" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="East/West Hall" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in an east/west hall.  To the east and west you see bends in the hall; there's a door to the south." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="34" />
+								<Simple value="18" />
+								<Simple value="20" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="20" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Hall, North/East Bend" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are at a north/east bend in the hall.  You can see doors south and west as well." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="21" />
+								<Simple value="35" />
+								<Simple value="19" />
+								<Simple value="36" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="21" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="North/South Hall" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in a north/south hall.  You can smell strange smells from under the door to the west.  There is also a door east." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="22" />
+								<Simple value="20" />
+								<Simple value="37" />
+								<Simple value="42" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="22" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Hall, South/East Bend" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You're at a south/east bend in the hall.  There is a door to the north which you can both see and smell; the odour coming from under it is appalling.  The door to the east also smells -- it of dust, mold and age." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="39" />
+								<Simple value="21" />
+								<Simple value="38" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="23" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Hall, East End" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are at the east end of a hall.  To the east is a truly awful-smelling room.  West is a bend in the hall.  The north wall is covered with strange, filigreed cracks." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="39" />
+								<Simple value="24" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="24" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Hall, South/East Bend" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You're at a south/east bend in the hall.  You see also a door to the west; from under it comes a peculiar musky odour.  You see more cracks on the north wall." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="1083" />
+								<Simple value="25" />
+								<Simple value="23" />
+								<Simple value="59" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="25" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="North/South Hall" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in a north/south hall.  To the east is a thick wooden door.  South you see a series of east/west doors." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="24" />
+								<Simple value="26" />
+								<Simple value="43" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="26" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="North/South Hall" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in a north/south hall.  To both the east and west you see stong cell doors.  You see more such doors down the hall to the south." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="25" />
+								<Simple value="27" />
+								<Simple value="1087" />
+								<Simple value="44" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="27" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="North/South Hall" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in a north/south hall.  To both the east and west you see cell doors; similar doors lie up the hall to the north." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="26" />
+								<Simple value="28" />
+								<Simple value="47" />
+								<Simple value="1088" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="28" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="North/South Hall, South End" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You're at the south end of a north/south hall.  To the north you see a series of strong east and west doors.  A huge door of graven stone, carved with horrible monsters and grotesque demons, lies to the south." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="27" />
+								<Simple value="48" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="29" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="East/West Tunnel, West End" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are at the west end of an east/west tunnel.  It is only slightly damp, and it looks newer than the rest of the citadel (which isn't saying much).  The torchlight is dim here, but you can see doors north, south, and west, with a tunnel leading east." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="50" />
+								<Simple value="51" />
+								<Simple value="30" />
+								<Simple value="49" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="30" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="East/West Tunnel" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in an east/west tunnel.  To the south lies a door." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="52" />
+								<Simple value="31" />
+								<Simple value="29" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="31" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Tunnel" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="The tunnel continues.  To the east you see a bend; south is a door." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="53" />
+								<Simple value="32" />
+								<Simple value="30" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="32" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Tunnel, North/West Bend" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are at a north/west bend in the tunnel.  To the west is a long dim tunnel.  You see a strange door to the north; it feels warm to the touch.  It opens inward, and evidently can only be opened from the inside." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="33" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="31" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="33" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Stairs, Bottom" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are at the bottom of a staircase.  You see a strong oak door to the north.  It is very dark here; the only light is that coming down the staircase." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="-33" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="7" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="34" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Barracks, East Half" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the east half of a large barracks.  There are bunks for about two dozen humanoids.  It is fairly well lit." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="19" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="35" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="35" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Barracks, West Half" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the west half of a large barracks.  There are bunks for about two dozen humanoids, some very large.  The place is a total mess." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="20" />
+								<Simple value="0" />
+								<Simple value="34" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="36" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Officers' Room" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the officers' quarters.  The room is very neat and tidy; the bed is made with military corners.  The light is very bright, by dungeon standards." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="20" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="37" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Mess Hall" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the mess hall.  It lives up to (or down to) its name.  The floor is strewn with rotting straw, and the tabletops are coated with grime and garbage." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="54" />
+								<Simple value="21" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="38" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Mummy Room" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the mummy room.  In the center of the room is an elaborate stone sarcophagus; its stone lid lies shattered to one side.  The room is thick with dust.  The south wall bears an inscription in hieroglyphics." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="22" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="39" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Filthy Room" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in a filthy room.  The walls are covered with slime and mold; the floor is deep in garbage, refuse and rat dung." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="22" />
+								<Simple value="57" />
+								<Simple value="23" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="40" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Storeroom" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in a storeroom.  The light is dim, but you can see that the room is piled high with boxes and crates of orc clothes and (worthless) whatnots." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="17" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="41" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Treasury" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the treasury.  It is a small room, but a full one." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="24" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="42" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Magic Lab" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the magic lab.  Intricate glassware stands on tables and racks; a number of potions are on a shelf.  Books and notes lie strewn about." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="21" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="43" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Library" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the library.  The titles on the collection run mostly to theological material, with no fiction at all." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="25" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="44" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Northwest Cell" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the northwest cell.  The floor is covered with crumbling, rotten straw." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="26" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="45" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Northeast Cell" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the northeast cell.  There is a shallow hole in the north wall, not even deep enough to hide a cup.  It appears new.  You see the cell door to the west." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="-55" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="46" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Southwest Cell" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the southwest cell.  The floor is neatly swept; a pallet of woven straw lies in the north corner.  To the east is the cell door." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="-55" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="47" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Southeast Cell" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the southeast cell.  On the floor is a thick layer of foul and reeking sawdust.  To the west is the cell door." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="27" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="48" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Temple Of Ngurct" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the main temple.  The walls are painted with pictures of grotesque monsters in evil acts @@006.  You see a black stone altar at the south end of the room." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="28" />
+								<Simple value="1084" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="49" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Supply Room" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the ecclesiastical supply room.  Here is kept the equipment the priests need for their pernicious rites.  Exits are north and east." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="48" />
+								<Simple value="0" />
+								<Simple value="29" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="50" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Priests' Lavatory" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the priests' lavatory.  You see a huge stone tub, spotlessly clean, a basin, and a large smelly hole in the floor." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="29" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="-60" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="51" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="High Priest's Bedroom" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the high priest's bedroom.  A dead girl lies on the bed; the satin sheets are stiff with the still-warm blood from her ragged throat.  The walls are painted with a powdery, red-brown paint." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="29" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="52" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Priest's Bedroom" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in a priest's bedroom.  The room is neat and orderly; it is also bare and spartan." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="30" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="53" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Priest's Room" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in a priest's bedroom.  The bed is rumbled and disheveled.  The ceiling and walls are mirrored; the only light is from a fading orange brazier of coals." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="31" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="54" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Kitchen" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the kitchen.  You see the first happy creatures you've found here; a swarm of contented flies buzz around the room." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="17" />
+								<Simple value="37" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="55" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Big Cell" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in a big cell.  The floor is covered with reeking sawdust.  The walls are bare native stone, dripping with ground water.  You see the cell door to the north." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="-55" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="56" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Torture Chamber" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the torture chamber.  The east wall is dominated by a worn rack." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="1086" />
+								<Simple value="0" />
+								<Simple value="15" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="57" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Storeroom" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in an empty storeroom.  There is nothing on the floor, but for a few old crates and bits of wood.  You see a tall vertical slit in the north wall, and a matching room-long slit in the ceiling." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="15" />
+								<Simple value="39" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="58" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Lost Room" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in &quot;the lost room.&quot;  It has no exits.  You are not in the universe.  You are not dead, but you are not free to leave.  You are doomed.  &quot;It could be worse...&quot;" />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+				<Complex type="TheTempleOfNgurct.Game.Room, TheTempleOfNgurct, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+					<Properties>
+						<Simple name="Uid" value="59" />
+						<Simple name="IsUidRecycled" value="True" />
+						<Simple name="Name" value="Minotaur Room" />
+						<Simple name="Seen" value="False" />
+						<Simple name="Desc" value="You are in the minotaur room.  It stinks of musk and sweat; the floor is worn by the constant moving of the minotaur.  The walls are hewn from the living rock, and the room is damp and chill." />
+						<Simple name="LightLvl" value="Light" />
+						<Simple name="Type" value="Indoors" />
+						<Simple name="Zone" value="1" />
+						<SingleArray name="Dirs">
+							<Items>
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="24" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+								<Simple value="0" />
+							</Items>
+						</SingleArray>
+					</Properties>
+				</Complex>
+			</Items>
+		</Collection>
+		<Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+			<Properties>
+				<Simple name="Capacity" value="0" />
+			</Properties>
+			<Items />
+		</Collection>
+		<Simple name="CurrUid" value="59" />
+	</Properties>
 </Complex>
