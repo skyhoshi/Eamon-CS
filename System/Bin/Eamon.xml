@@ -2987,6 +2987,9 @@
         <member name="P:Eamon.Framework.IGameState.Va">
             <summary></summary>
         </member>
+        <member name="P:Eamon.Framework.IGameState.MatureContent">
+            <summary></summary>
+        </member>
         <member name="P:Eamon.Framework.IGameState.CurrTurn">
             <summary></summary>
         </member>

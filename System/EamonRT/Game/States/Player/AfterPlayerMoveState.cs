@@ -19,6 +19,8 @@ namespace EamonRT.Game.States
 	{
 		public const long PeAfterExtinguishLightSourceCheck = 1;
 
+		public const long PeAfterMoveMonsters = 2;
+
 		public virtual IRoom Room { get; set; }
 
 		public virtual IMonster Monster { get; set; }
@@ -44,6 +46,8 @@ namespace EamonRT.Game.States
 			{
 				Globals.Engine.MoveMonsters();
 			}
+
+			ProcessEvents(PeAfterMoveMonsters);
 
 			Monster = Globals.MDB[Globals.GameState.Cm];
 

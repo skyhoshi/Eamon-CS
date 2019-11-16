@@ -27,8 +27,6 @@ namespace TheBeginnersCave.Game
 			{
 				RetCode rc;
 
-				Debug.Assert(value >= 0 && value <= 1);
-
 				// if toggling the Trollsfire effect
 
 				if (Globals.EnableGameOverrides && _trollsfire != value)

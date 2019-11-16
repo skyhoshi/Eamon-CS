@@ -591,7 +591,7 @@
           <Properties>
             <Simple name="Uid" value="84" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Desc" value="He states that a terrible menace has haunted a long-abandoned mountain fortress, known has Kahr-Dur, that overlooks the town.  This unnamed menace has been quietly kidnapping the city's denizens during the night which has led to a general state of **085" />
+            <Simple name="Desc" value="He states that a terrible menace has haunted a long-abandoned mountain fortress, known as Kahr-Dur, that overlooks the town.  This unnamed menace has been quietly kidnapping the city's denizens during the night which has led to a general state of **085" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">

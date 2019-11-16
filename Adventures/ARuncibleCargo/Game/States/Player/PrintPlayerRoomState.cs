@@ -93,6 +93,8 @@ namespace ARuncibleCargo.Game.States
 
 					gameState.Va = gameState01.Va;
 
+					gameState.MatureContent = gameState01.MatureContent;
+
 					gameState.PauseCombatMs = gameState01.PauseCombatMs;
 
 					characterMonster = Globals.MDB[gameState.Cm];

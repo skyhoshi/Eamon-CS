@@ -53,6 +53,9 @@ namespace Eamon.Framework
 		bool Va { get; set; }
 
 		/// <summary></summary>
+		bool MatureContent { get; set; }
+
+		/// <summary></summary>
 		long CurrTurn { get; set; }
 
 		/// <summary></summary>

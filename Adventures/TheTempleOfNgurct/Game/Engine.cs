@@ -321,8 +321,6 @@ namespace TheTempleOfNgurct.Game
 
 		public Engine()
 		{
-			PoundCharPolicy = PoundCharPolicy.None;
-
 			MacroFuncs.Add(6, () =>
 			{
 				var result = "KHRoZSBzcGVjaWZpY3MgYXJlIGxlZnQgdG8geW91ciBpbWFnaW5hdGlvbik=";
@@ -350,6 +348,8 @@ namespace TheTempleOfNgurct.Game
 
 				return Encoding.UTF8.GetString(Convert.FromBase64String(result));
 			});
+
+			PoundCharPolicy = PoundCharPolicy.None;
 		}
 	}
 }

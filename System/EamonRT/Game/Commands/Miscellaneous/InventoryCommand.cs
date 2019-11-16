@@ -151,7 +151,7 @@ namespace EamonRT.Game.Commands
 					{
 						// use total debt for characters with no assets; otherwise use HeldGold (which may be debt or asset)
 
-						var totalGold = Globals.Character.HeldGold < 0 && Globals.Character.BankGold < 0 ? Globals.Character.HeldGold + Globals.Character.BankGold :	Globals.Character.HeldGold;
+						var totalGold = Globals.Character.HeldGold < 0 && Globals.Character.BankGold < 0 ? Globals.Character.HeldGold + Globals.Character.BankGold : Globals.Character.HeldGold;
 
 						if (totalGold != 0)
 						{

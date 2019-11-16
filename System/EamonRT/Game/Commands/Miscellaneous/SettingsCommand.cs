@@ -22,6 +22,8 @@ namespace EamonRT.Game.Commands
 
 		public virtual bool? VerboseArtifacts { get; set; } = null;
 
+		public virtual bool? MatureContent { get; set; } = null;
+
 		public virtual long? PauseCombatMs { get; set; } = null;
 
 		/// <summary></summary>
@@ -34,12 +36,13 @@ namespace EamonRT.Game.Commands
 			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseRooms", "True, False", Globals.GameState.Vr);
 			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseMonsters", "True, False", Globals.GameState.Vm);
 			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseArtifacts", "True, False", Globals.GameState.Va);
+			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "MatureContent", "True, False", Globals.GameState.MatureContent);
 			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "PauseCombatMs", "0 .. 10000", Globals.GameState.PauseCombatMs);
 		}
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(VerboseRooms != null || VerboseMonsters != null || VerboseArtifacts != null || PauseCombatMs != null);
+			Debug.Assert(VerboseRooms != null || VerboseMonsters != null || VerboseArtifacts != null || MatureContent != null || PauseCombatMs != null);
 
 			if (VerboseRooms != null)
 			{
@@ -54,6 +57,11 @@ namespace EamonRT.Game.Commands
 			if (VerboseArtifacts != null)
 			{
 				Globals.GameState.Va = (bool)VerboseArtifacts;
+			}
+
+			if (MatureContent != null)
+			{
+				Globals.GameState.MatureContent = (bool)MatureContent;
 			}
 
 			if (PauseCombatMs != null)
@@ -94,6 +102,12 @@ namespace EamonRT.Game.Commands
 				else if (string.Equals(CommandParser.Tokens[CommandParser.CurrToken], "verboseartifacts", StringComparison.OrdinalIgnoreCase) && bool.TryParse(CommandParser.Tokens[CommandParser.CurrToken + 1], out boolValue))
 				{
 					VerboseArtifacts = boolValue;
+
+					CommandParser.CurrToken += 2;
+				}
+				else if (string.Equals(CommandParser.Tokens[CommandParser.CurrToken], "maturecontent", StringComparison.OrdinalIgnoreCase) && bool.TryParse(CommandParser.Tokens[CommandParser.CurrToken + 1], out boolValue))
+				{
+					MatureContent = boolValue;
 
 					CommandParser.CurrToken += 2;
 				}

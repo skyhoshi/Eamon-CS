@@ -642,6 +642,9 @@
         <member name="P:EamonRT.Framework.Commands.ISettingsCommand.VerboseArtifacts">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.Commands.ISettingsCommand.MatureContent">
+            <summary></summary>
+        </member>
         <member name="P:EamonRT.Framework.Commands.ISettingsCommand.PauseCombatMs">
             <summary></summary>
         </member>

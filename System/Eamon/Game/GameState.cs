@@ -45,6 +45,8 @@ namespace Eamon.Game
 
 		public virtual bool Va { get; set; }
 
+		public virtual bool MatureContent { get; set; }
+
 		public virtual long CurrTurn { get; set; }
 
 		public virtual long PauseCombatMs { get; set; }

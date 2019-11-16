@@ -495,6 +495,7 @@ namespace Eamon.Game.Helpers
 				"Vr",
 				"Vm",
 				"Va",
+				"MatureContent",
 				"CurrTurn",
 				"PauseCombatMs",
 				"UsedWpnIdx",
