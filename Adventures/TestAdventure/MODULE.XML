@@ -1,4 +1,4 @@
-<Complex name="Root" type="Eamon.Game.DataStorage.ModuleDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.ModuleDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
     <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IModule, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
