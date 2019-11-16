@@ -1,4 +1,4 @@
-
+﻿
 To give full credit, the following is based on the Eamon Deluxe documentation.
 This important information has changed in Eamon CS 1.6.0 and is reprinted here
 in hopes it will be useful.

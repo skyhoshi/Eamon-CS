@@ -1,4 +1,4 @@
-      Eamon CS 1.6.0
+﻿      Eamon CS 1.6.0
              by
    Michael R. Penner
    -----------------------

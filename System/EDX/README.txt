@@ -1,4 +1,4 @@
-
+﻿
 The Eamon Deluxe subdirectory is replicated so as to include as many EDX license-related files as
 possible.  This is done to satisfy the requirements of the GPL license.  
 
