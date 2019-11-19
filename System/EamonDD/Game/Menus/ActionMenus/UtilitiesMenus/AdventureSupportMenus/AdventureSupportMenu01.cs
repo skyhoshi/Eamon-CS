@@ -690,28 +690,28 @@ namespace YourAdventureName.YourGameNamespaceName
 			{
 				var fileText = EditAdventureShText.Replace("YourLibraryName", yourLibraryName);
 
-				Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Unix\EamonDD\Edit" + AdventureName + ".sh", ReplaceMacros(fileText));
+				Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Unix\EamonDD\Edit" + AdventureName + ".sh", ReplaceMacros(fileText), new ASCIIEncoding());
 			}
 
 			if (Globals.Directory.Exists(Constants.QuickLaunchDir + @"\Unix\EamonRT"))
 			{
 				var fileText = ResumeAdventureShText.Replace("YourLibraryName", yourLibraryName);
 
-				Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Unix\EamonRT\Resume" + AdventureName + ".sh", ReplaceMacros(fileText));
+				Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Unix\EamonRT\Resume" + AdventureName + ".sh", ReplaceMacros(fileText), new ASCIIEncoding());
 			}
 
 			if (Globals.Directory.Exists(Constants.QuickLaunchDir + @"\Windows\EamonDD"))
 			{
 				var fileText = EditAdventureBatText.Replace("YourLibraryName", yourLibraryName);
 
-				Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Windows\EamonDD\Edit" + AdventureName + ".bat", ReplaceMacros(fileText));
+				Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Windows\EamonDD\Edit" + AdventureName + ".bat", ReplaceMacros(fileText), new ASCIIEncoding());
 			}
 
 			if (Globals.Directory.Exists(Constants.QuickLaunchDir + @"\Windows\EamonRT"))
 			{
 				var fileText = ResumeAdventureBatText.Replace("YourLibraryName", yourLibraryName);
 
-				Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Windows\EamonRT\Resume" + AdventureName + ".bat", ReplaceMacros(fileText));
+				Globals.File.WriteAllText(Constants.QuickLaunchDir + @"\Windows\EamonRT\Resume" + AdventureName + ".bat", ReplaceMacros(fileText), new ASCIIEncoding());
 			}
 		}
 

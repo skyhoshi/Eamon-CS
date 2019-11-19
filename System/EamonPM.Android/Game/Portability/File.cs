@@ -3,6 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using System.Text;
 using Eamon.Framework.Portability;
 
 namespace EamonPM.Game.Portability
@@ -32,11 +33,11 @@ namespace EamonPM.Game.Portability
 			System.IO.File.Copy(NormalizePath(sourceFileName), NormalizePath(destFileName), overwrite);
 		}
 
-		public virtual string ReadFirstLine(string path)
+		public virtual string ReadFirstLine(string path, Encoding encoding = null)
 		{
 			var firstLine = "";
 
-			using (var streamReader = new System.IO.StreamReader(NormalizePath(path)))
+			using (var streamReader = new System.IO.StreamReader(NormalizePath(path), encoding ?? new UTF8Encoding(true)))
 			{
 				firstLine = streamReader.ReadLine();
 			}
@@ -44,19 +45,19 @@ namespace EamonPM.Game.Portability
 			return firstLine;
 		}
 
-		public virtual string ReadAllText(string path)
+		public virtual string ReadAllText(string path, Encoding encoding = null)
 		{
-			return System.IO.File.ReadAllText(NormalizePath(path));
+			return System.IO.File.ReadAllText(NormalizePath(path), encoding ?? new UTF8Encoding(true));
 		}
 
-		public virtual void WriteAllText(string path, string contents)
+		public virtual void WriteAllText(string path, string contents, Encoding encoding = null)
 		{
-			System.IO.File.WriteAllText(NormalizePath(path), contents);
+			System.IO.File.WriteAllText(NormalizePath(path), contents, encoding ?? new UTF8Encoding(true));
 		}
 
-		public virtual void AppendAllText(string path, string contents)
+		public virtual void AppendAllText(string path, string contents, Encoding encoding = null)
 		{
-			System.IO.File.AppendAllText(NormalizePath(path), contents);
+			System.IO.File.AppendAllText(NormalizePath(path), contents, encoding ?? new UTF8Encoding(true));
 		}
 	}
 }

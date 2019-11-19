@@ -2700,60 +2700,70 @@ namespace Eamon.Game
 					x.Name = "North";
 					x.PrintedName = "North";
 					x.Abbr = "N";
+					x.ArrivalDir = Direction.South;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "South";
 					x.PrintedName = "South";
 					x.Abbr = "S";
+					x.ArrivalDir = Direction.North;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "East";
 					x.PrintedName = "East";
 					x.Abbr = "E";
+					x.ArrivalDir = Direction.West;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "West";
 					x.PrintedName = "West";
 					x.Abbr = "W";
+					x.ArrivalDir = Direction.East;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Up";
 					x.PrintedName = "Up";
 					x.Abbr = "U";
+					x.ArrivalDir = Direction.Down;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Down";
 					x.PrintedName = "Down";
 					x.Abbr = "D";
+					x.ArrivalDir = Direction.Up;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Northeast";
 					x.PrintedName = "NE";
 					x.Abbr = "NE";
+					x.ArrivalDir = Direction.Southwest;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Northwest";
 					x.PrintedName = "NW";
 					x.Abbr = "NW";
+					x.ArrivalDir = Direction.Southeast;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Southeast";
 					x.PrintedName = "SE";
 					x.Abbr = "SE";
+					x.ArrivalDir = Direction.Northwest;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Southwest";
 					x.PrintedName = "SW";
 					x.Abbr = "SW";
+					x.ArrivalDir = Direction.Northeast;
 				})
 			};
 

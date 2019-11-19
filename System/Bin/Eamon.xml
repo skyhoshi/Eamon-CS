@@ -4271,25 +4271,29 @@
             <param name="destFileName"></param>
             <param name="overwrite"></param>
         </member>
-        <member name="M:Eamon.Framework.Portability.IFile.ReadFirstLine(System.String)">
+        <member name="M:Eamon.Framework.Portability.IFile.ReadFirstLine(System.String,System.Text.Encoding)">
             <summary></summary>
             <param name="path"></param>
+            <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.Portability.IFile.ReadAllText(System.String)">
+        <member name="M:Eamon.Framework.Portability.IFile.ReadAllText(System.String,System.Text.Encoding)">
             <summary></summary>
             <param name="path"></param>
+            <param name="encoding"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.Portability.IFile.WriteAllText(System.String,System.String)">
+        <member name="M:Eamon.Framework.Portability.IFile.WriteAllText(System.String,System.String,System.Text.Encoding)">
             <summary></summary>
             <param name="path"></param>
             <param name="contents"></param>
+            <param name="encoding"></param>
         </member>
-        <member name="M:Eamon.Framework.Portability.IFile.AppendAllText(System.String,System.String)">
+        <member name="M:Eamon.Framework.Portability.IFile.AppendAllText(System.String,System.String,System.Text.Encoding)">
             <summary></summary>
             <param name="path"></param>
             <param name="contents"></param>
+            <param name="encoding"></param>
         </member>
         <member name="T:Eamon.Framework.Portability.IMutex">
             <summary></summary>
@@ -4934,6 +4938,9 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Primitive.Classes.IDirection.Abbr">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Primitive.Classes.IDirection.ArrivalDir">
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Classes.IPrep">

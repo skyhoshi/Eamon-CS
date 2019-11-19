@@ -5,6 +5,7 @@
 
 using Eamon.Framework.Primitive.Classes;
 using Eamon.Game.Attributes;
+using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Game.Primitive.Classes
 {
@@ -16,5 +17,7 @@ namespace Eamon.Game.Primitive.Classes
 		public virtual string PrintedName { get; set; }
 
 		public virtual string Abbr { get; set; }
+
+		public virtual Enums.Direction ArrivalDir { get; set; }
 	}
 }

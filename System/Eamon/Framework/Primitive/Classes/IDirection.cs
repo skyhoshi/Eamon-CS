@@ -3,6 +3,8 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using Eamon.Framework.Primitive.Enums;
+
 namespace Eamon.Framework.Primitive.Classes
 {
 	/// <summary></summary>
@@ -16,5 +18,8 @@ namespace Eamon.Framework.Primitive.Classes
 
 		/// <summary></summary>
 		string Abbr { get; set; }
+
+		/// <summary></summary>
+		Direction ArrivalDir { get; set; }
 	}
 }

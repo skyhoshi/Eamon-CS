@@ -3,6 +3,8 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using System.Text;
+
 namespace Eamon.Framework.Portability
 {
 	/// <summary></summary>
@@ -25,22 +27,26 @@ namespace Eamon.Framework.Portability
 
 		/// <summary></summary>
 		/// <param name="path"></param>
+		/// <param name="encoding"></param>
 		/// <returns></returns>
-		string ReadFirstLine(string path);
+		string ReadFirstLine(string path, Encoding encoding = null);
 
 		/// <summary></summary>
 		/// <param name="path"></param>
+		/// <param name="encoding"></param>
 		/// <returns></returns>
-		string ReadAllText(string path);
+		string ReadAllText(string path, Encoding encoding = null);
 
 		/// <summary></summary>
 		/// <param name="path"></param>
 		/// <param name="contents"></param>
-		void WriteAllText(string path, string contents);
+		/// <param name="encoding"></param>
+		void WriteAllText(string path, string contents, Encoding encoding = null);
 
 		/// <summary></summary>
 		/// <param name="path"></param>
 		/// <param name="contents"></param>
-		void AppendAllText(string path, string contents);
+		/// <param name="encoding"></param>
+		void AppendAllText(string path, string contents, Encoding encoding = null);
 	}
 }
