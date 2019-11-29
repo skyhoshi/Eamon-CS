@@ -24,6 +24,14 @@ namespace TheTempleOfNgurct.Game
 
 					return ac != null && (ac.GetKeyUid() <= 0 || !oakDoorArtifact.Seen) && index == 1 ? 18 : base.GetDirs(index);
 				}
+				else if (Uid == 41)
+				{
+					var secretDoorArtifact = Globals.ADB[83];
+
+					var ac = secretDoorArtifact != null && secretDoorArtifact.IsInRoomUid(24) ? secretDoorArtifact.DoorGate : null;
+
+					return ac != null && ac.IsOpen() && index == 2 ? 24 : base.GetDirs(index);
+				}
 				else if (Uid == 45)
 				{
 					var cellDoorArtifact = Globals.ADB[87];
@@ -39,6 +47,14 @@ namespace TheTempleOfNgurct.Game
 					var ac = cellDoorArtifact != null ? cellDoorArtifact.DoorGate : null;
 
 					return ac != null && ac.GetKeyUid() <= 0 && index == 3 ? 27 : base.GetDirs(index);
+				}
+				else if (Uid == 49)
+				{
+					var secretDoorArtifact = Globals.ADB[84];
+
+					var ac = secretDoorArtifact != null && secretDoorArtifact.IsInRoomUid(48) ? secretDoorArtifact.DoorGate : null;
+
+					return ac != null && ac.IsOpen() && index == 1 ? 48 : base.GetDirs(index);
 				}
 				else if (Uid == 55)
 				{

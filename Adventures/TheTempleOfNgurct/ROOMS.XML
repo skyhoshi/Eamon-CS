@@ -1100,7 +1100,7 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="0" />
-                <Simple value="24" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1308,14 +1308,14 @@
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Supply Room" />
             <Simple name="Seen" value="False" />
-            <Simple name="Desc" value="You are in the ecclesiastical supply room.  Here is kept the equipment the priests need for their pernicious rites.  Exits are north and east." />
+            <Simple name="Desc" value="You are in the ecclesiastical supply room.  Here is kept the equipment the priests need for their pernicious rites.  @@008" />
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
             <Simple name="Zone" value="1" />
             <SingleArray name="Dirs">
               <Items>
                 <Simple value="0" />
-                <Simple value="48" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="29" />
                 <Simple value="0" />
