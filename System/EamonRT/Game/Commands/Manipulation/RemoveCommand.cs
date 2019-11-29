@@ -22,14 +22,9 @@ namespace EamonRT.Game.Commands
 		/// <summary></summary>
 		protected virtual bool OmitWeightCheck { get; set; }
 
-		/// <summary></summary>
-		public virtual IList<string> ContainerContentsList { get; set; }
-
 		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
-
-			ContainerContentsList = new List<string>();
 
 			if (IobjArtifact != null)
 			{
@@ -81,18 +76,9 @@ namespace EamonRT.Game.Commands
 					Globals.GameState.Ar = 0;
 				}
 
-				Globals.LastArtifactLocation = DobjArtifact.Location;
-
 				DobjArtifact.SetCarriedByCharacter();
 
-				Globals.Engine.RevealExtendedContainerContents(ActorRoom, DobjArtifact, ContainerContentsList);
-
 				PrintRemoved(DobjArtifact);
-
-				foreach (var containerContentsDesc in ContainerContentsList)
-				{
-					Globals.Out.Write("{0}", containerContentsDesc);
-				}
 			}
 
 		Cleanup:
@@ -120,7 +106,7 @@ namespace EamonRT.Game.Commands
 				ac = DobjArtifact.GetCategories(0);
 			}
 
-			if (ac != null && ac.Type != ArtifactType.DisguisedMonster && DobjArtifact.UnderContainer == null && DobjArtifact.BehindContainer == null && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
+			if (ac != null && ac.Type != ArtifactType.DisguisedMonster && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
 			{
 				OmitWeightCheck = DobjArtifact.IsCarriedByMonster(ActorMonster, true);
 
@@ -270,9 +256,11 @@ namespace EamonRT.Game.Commands
 			PlayerResolveArtifact();
 		}
 
-		public override bool ShouldShowUnseenArtifacts()
+		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
 		{
-			return false;
+			Debug.Assert(artifact != null);
+
+			return Globals.CommandParser.ObjData == Globals.CommandParser.IobjData || artifact.IsWornByCharacter();
 		}
 
 		/*

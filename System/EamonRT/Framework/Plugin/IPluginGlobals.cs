@@ -50,9 +50,6 @@ namespace EamonRT.Framework.Plugin
 		IMonster LoopLastDfMonster { get; set; }
 
 		/// <summary></summary>
-		long LastArtifactLocation { get; set; }
-
-		/// <summary></summary>
 		new IEngine Engine { get; set; }
 
 		/// <summary></summary>

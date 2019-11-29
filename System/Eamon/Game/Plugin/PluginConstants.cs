@@ -138,6 +138,8 @@ namespace Eamon.Game.Plugin
 
 		public virtual long DirectionExit { get; protected set; } = -999;
 
+		public virtual long LimboLocation { get; protected set; } = 0;
+
 		public virtual long MinGoldValue { get; protected set; } = -99999;
 
 		public virtual long MaxGoldValue { get; protected set; } = 999999;

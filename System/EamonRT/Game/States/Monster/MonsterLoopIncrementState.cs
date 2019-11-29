@@ -14,6 +14,11 @@ namespace EamonRT.Game.States
 	{
 		public override void Execute()
 		{
+			if (Globals.LoopMonsterUid > 0)
+			{
+				ProcessRevealContentArtifacts();
+			}
+
 			while (true)
 			{
 				Globals.LoopMonsterUid++;

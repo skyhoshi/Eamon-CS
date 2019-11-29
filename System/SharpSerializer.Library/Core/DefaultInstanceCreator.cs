@@ -1,4 +1,4 @@
-#region Copyright � 2010 Pawel Idzikowski [idzikowski@sharpserializer.com]
+﻿#region Copyright © 2018 Pawel Idzikowski [idzikowski@sharpserializer.com]
 
 //  ***********************************************************************
 //  Project: sharpSerializer
@@ -26,41 +26,20 @@
 
 #endregion
 
-using System;
-
 namespace Polenter.Serialization.Core
 {
+  using System;
+
+  public class DefaultInstanceCreator : IInstanceCreator
+  {
     /// <summary>
-    ///   Can occure during deserialization
+    /// Creates the instance.
     /// </summary>
-    public class DeserializingException : Exception
+    /// <param name="type">The type.</param>
+    /// <returns>System.Object.</returns>
+    public object CreateInstance(Type type)
     {
-        //
-        // For guidelines regarding the creation of new exception types, see
-        //    http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpgenref/html/cpconerrorraisinghandlingguidelines.asp
-        // and
-        //    http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dncscol/html/csharp07192001.asp
-        //
-
-        ///<summary>
-        ///</summary>
-        public DeserializingException()
-        {
-        }
-
-        ///<summary>
-        ///</summary>
-        ///<param name = "message"></param>
-        public DeserializingException(string message) : base(message)
-        {
-        }
-
-        ///<summary>
-        ///</summary>
-        ///<param name = "message"></param>
-        ///<param name = "inner"></param>
-        public DeserializingException(string message, Exception inner) : base(message, inner)
-        {
-        }
+      return Tools.CreateInstance(type);
     }
+  }
 }

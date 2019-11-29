@@ -323,30 +323,30 @@ namespace TheTempleOfNgurct.Game
 		{
 			MacroFuncs.Add(6, () =>
 			{
-				var result = "KHRoZSBzcGVjaWZpY3MgYXJlIGxlZnQgdG8geW91ciBpbWFnaW5hdGlvbik=";
+				var result = "(the specifics are left to your imagination)";
 
 				var gameState = Globals.GameState as Framework.IGameState;
 
 				if (gameState != null && gameState.MatureContent)
 				{
-					result = "LS0gZWF0aW5nIGh1bWFuIGJhYmllcywgcmFwaW5nIHdvbWVuLCBhbmQgc28gZm9ydGg=";
+					result = Encoding.UTF8.GetString(Convert.FromBase64String("LS0gZWF0aW5nIGh1bWFuIGJhYmllcywgcmFwaW5nIHdvbWVuLCBhbmQgc28gZm9ydGg="));
 				}
 
-				return Encoding.UTF8.GetString(Convert.FromBase64String(result));
+				return result;
 			});
 
 			MacroFuncs.Add(7, () =>
 			{
-				var result = "WW91IGZvb2whICBZb3UganVzdCBjbGltYmVkIGRvd24gaW50byB0aGUgZXhjcmVtZW50IGR1Y3Qh";
+				var result = "You fool!  You just climbed down into the excrement duct!";
 
 				var gameState = Globals.GameState as Framework.IGameState;
 
 				if (gameState != null && gameState.MatureContent)
 				{
-					result = "WW91IHN0dXBpZCBqZXJrISAgWW91IGp1c3QgY2xpbWJlZCBkb3duIGludG8gdGhlIHNoaXQgaG9sZSE=";
+					result = Encoding.UTF8.GetString(Convert.FromBase64String("WW91IHN0dXBpZCBqZXJrISAgWW91IGp1c3QgY2xpbWJlZCBkb3duIGludG8gdGhlIHNoaXQgaG9sZSE="));
 				}
 
-				return Encoding.UTF8.GetString(Convert.FromBase64String(result));
+				return result;
 			});
 
 			PoundCharPolicy = PoundCharPolicy.None;

@@ -58,6 +58,21 @@ namespace Eamon.Framework.Plugin
 		IEngine Engine { get; set; }
 
 		/// <summary></summary>
+		IRoom RevealContentRoom { get; set; }
+
+		/// <summary></summary>
+		IMonster RevealContentMonster { get; set; }
+
+		/// <summary></summary>
+		IList<IArtifact> RevealContentArtifacts { get; set; }
+
+		/// <summary></summary>
+		IList<long> RevealContentLocations { get; set; }
+
+		/// <summary></summary>
+		bool EnableRevealContentOverrides { get; set; }
+
+		/// <summary></summary>
 		string WorkDir { get; set; }
 
 		/// <summary></summary>
@@ -211,5 +226,8 @@ namespace Eamon.Framework.Plugin
 		/// <summary></summary>
 		/// <param name="fileName"></param>
 		void UpgradeTextfile(string fileName);
+
+		/// <summary></summary>
+		void ResetRevealContentProperties();
 	}
 }

@@ -16,6 +16,8 @@ namespace EamonRT.Game.States
 
 		public override void Execute()
 		{
+			ProcessRevealContentArtifacts();
+
 			ProcessEvents(PeBeforePlayerRoomPrint);
 
 			if (GotoCleanup)

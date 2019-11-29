@@ -4,6 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Framework;
@@ -60,6 +61,52 @@ namespace EamonRT.Game.States
 		public virtual void ProcessEvents(long eventType)
 		{
 
+		}
+
+		public virtual void ProcessRevealContentArtifacts(bool printOutput = true)
+		{
+			Globals.EnableRevealContentOverrides = false;
+
+			var containerTypes = new ContainerType[] { ContainerType.In, ContainerType.On, ContainerType.Under, ContainerType.Behind };
+
+			var containerContentsList = new List<string>();
+
+			var monster = Globals.RevealContentMonster;
+
+			var room = monster != null ? monster.GetInRoom() : Globals.RevealContentRoom;
+
+			if (room != null)
+			{
+				Debug.Assert(Globals.RevealContentArtifacts.Count == Globals.RevealContentLocations.Count);
+
+				for (var i = 0; i < Globals.RevealContentArtifacts.Count; i++)
+				{
+					var artifact = Globals.RevealContentArtifacts[i];
+
+					var location = Globals.RevealContentLocations[i];
+
+					if (artifact.IsInLimbo())
+					{
+						if (artifact.ShouldRevealContentsWhenMovedIntoLimbo())
+						{
+							Globals.Engine.RevealContainerContents(room, i, containerTypes, printOutput && room.IsLit() && monster != null && monster.IsCharacterMonster() ? containerContentsList : null);
+						}
+					}
+					else if (location != Constants.LimboLocation)
+					{
+						Globals.Engine.RevealContainerContents(room, i, null, printOutput && room.IsLit() && monster != null && monster.IsCharacterMonster() ? containerContentsList : null);
+					}
+				}
+			}
+
+			foreach (var containerContentsDesc in containerContentsList)
+			{
+				Globals.Out.Write("{0}", containerContentsDesc);
+			}
+
+			Globals.ResetRevealContentProperties();
+
+			Globals.EnableRevealContentOverrides = true;
 		}
 
 		public virtual string GetDarkName(IGameBase target, ArticleType articleType, string nameType, bool upshift, bool groupCountOne)

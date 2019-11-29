@@ -90,11 +90,13 @@ namespace TheTrainingGround.Game
 			monster.Seen = true;
 		}
 
-		public override void RevealDisguisedMonster(IArtifact artifact)
+		public override void RevealDisguisedMonster(IRoom room, IArtifact artifact)
 		{
+			Debug.Assert(room != null);
+
 			Debug.Assert(artifact != null);
 
-			base.RevealDisguisedMonster(artifact);
+			base.RevealDisguisedMonster(room, artifact);
 
 			// Replace obsidian scroll case with dummy
 

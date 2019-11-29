@@ -44,7 +44,7 @@ namespace EamonRT.Game.Commands
 
 				if (DobjArtifact.DisguisedMonster != null)
 				{
-					Globals.Engine.RevealDisguisedMonster(DobjArtifact);
+					Globals.Engine.RevealDisguisedMonster(ActorRoom, DobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 

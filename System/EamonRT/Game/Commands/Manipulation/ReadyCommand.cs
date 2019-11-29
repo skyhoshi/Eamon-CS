@@ -5,6 +5,7 @@
 
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -16,17 +17,16 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class ReadyCommand : Command, IReadyCommand
 	{
+		/// <summary></summary>
+		public virtual ArtifactType[] ArtTypes { get; set; }
+
 		public override void PlayerExecute()
 		{
 			RetCode rc;
 
 			Debug.Assert(DobjArtifact != null);
 
-			var artTypes = Globals.IsRulesetVersion(5) ? 
-				new ArtifactType[] { ArtifactType.Weapon, ArtifactType.MagicWeapon } : 
-				new ArtifactType[] { ArtifactType.Weapon, ArtifactType.MagicWeapon, ArtifactType.Wearable };
-
-			var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
+			var ac = DobjArtifact.GetArtifactCategory(ArtTypes, false);
 
 			if (ac != null)
 			{
@@ -174,6 +174,29 @@ namespace EamonRT.Game.Commands
 			PlayerResolveArtifact();
 		}
 
+		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			var ac = artifact.GetArtifactCategory(ArtTypes, false);
+
+			if (ac != null)
+			{
+				if (ac.Type == ArtifactType.Wearable)
+				{
+					return artifact.IsCarriedByCharacter();
+				}
+				else		
+				{
+					return !artifact.IsReadyableByCharacter() || artifact.IsCarriedByCharacter();
+				}
+			}
+			else
+			{
+				return true;
+			}
+		}
+
 		public ReadyCommand()
 		{
 			SortOrder = 210;
@@ -183,6 +206,10 @@ namespace EamonRT.Game.Commands
 			Verb = "ready";
 
 			Type = CommandType.Manipulation;
+
+			ArtTypes = Globals.IsRulesetVersion(5) ?
+				new ArtifactType[] { ArtifactType.Weapon, ArtifactType.MagicWeapon } :
+				new ArtifactType[] { ArtifactType.Weapon, ArtifactType.MagicWeapon, ArtifactType.Wearable };
 		}
 	}
 }

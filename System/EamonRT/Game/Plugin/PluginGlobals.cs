@@ -40,8 +40,6 @@ namespace EamonRT.Game.Plugin
 
 		public virtual IMonster LoopLastDfMonster { get; set; }
 
-		public virtual long LastArtifactLocation { get; set; }
-
 		public virtual new Framework.IEngine Engine
 		{
 			get

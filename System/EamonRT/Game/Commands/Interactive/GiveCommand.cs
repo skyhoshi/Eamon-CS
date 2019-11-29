@@ -31,9 +31,6 @@ namespace EamonRT.Game.Commands
 
 		public virtual long GoldAmount { get; set; }
 
-		/// <summary></summary>
-		public virtual IList<string> ContainerContentsList { get; set; }
-
 		public override void PlayerExecute()
 		{
 			RetCode rc;
@@ -44,8 +41,6 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact != null)
 			{
-				ContainerContentsList = new List<string>();
-
 				if (!DobjArtifact.IsCarriedByCharacter())
 				{
 					if (!GetCommandCalled)
@@ -107,7 +102,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (DobjArtifact.DeadBody != null)
+				if (DobjArtifact.DeadBody != null && IobjMonster.ShouldRefuseToAcceptDeadBody(DobjArtifact))
 				{
 					PrintPolitelyRefuses(IobjMonster);
 
@@ -140,8 +135,6 @@ namespace EamonRT.Game.Commands
 				}
 
 				PrintGiveObjToActor(DobjArtifact, IobjMonster);
-
-				Globals.LastArtifactLocation = DobjArtifact.Location;
 
 				var ac = DobjArtifact.GetArtifactCategory(new ArtifactType[] { ArtifactType.Drinkable, ArtifactType.Edible });
 
@@ -207,15 +200,8 @@ namespace EamonRT.Game.Commands
 
 					Globals.Out.Write("{0}", Globals.Buf);
 
-					Globals.Engine.RevealExtendedContainerContents(ActorRoom, DobjArtifact, ContainerContentsList);
-
 					if (ac.Field1 == 0)
 					{
-						foreach (var containerContentsDesc in ContainerContentsList)
-						{
-							Globals.Out.Write("{0}", containerContentsDesc);
-						}
-
 						goto Cleanup;
 					}
 
@@ -243,8 +229,6 @@ namespace EamonRT.Game.Commands
 				{
 					DobjArtifact.SetCarriedByMonster(IobjMonster);
 
-					Globals.Engine.RevealExtendedContainerContents(ActorRoom, DobjArtifact, ContainerContentsList);
-
 					if (Globals.IsRulesetVersion(5))
 					{
 						IobjMonster.CalculateGiftFriendlinessPct(DobjArtifact.Value);
@@ -264,11 +248,6 @@ namespace EamonRT.Game.Commands
 							Globals.Out.WriteLine();
 						}
 					}
-				}
-
-				foreach (var containerContentsDesc in ContainerContentsList)
-				{
-					Globals.Out.Write("{0}", containerContentsDesc);
 				}
 			}
 			else
@@ -415,6 +394,13 @@ namespace EamonRT.Game.Commands
 
 				PlayerResolveMonster();
 			}
+		}
+
+		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			return artifact.IsCarriedByCharacter();
 		}
 
 		/*

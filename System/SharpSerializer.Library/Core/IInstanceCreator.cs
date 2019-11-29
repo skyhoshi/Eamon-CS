@@ -1,4 +1,4 @@
-#region Copyright � 2010 Pawel Idzikowski [idzikowski@sharpserializer.com]
+﻿#region Copyright © 2018 Pawel Idzikowski [idzikowski@sharpserializer.com]
 
 //  ***********************************************************************
 //  Project: sharpSerializer
@@ -26,41 +26,19 @@
 
 #endregion
 
-using System;
 
 namespace Polenter.Serialization.Core
 {
+  using System;
+
+  public interface IInstanceCreator
+  {
     /// <summary>
-    ///   Can occure during deserialization
+    /// Creates an instance of the object of the specific type.  Note that other instance creators can be written, such as dependency injection instance creators.
     /// </summary>
-    public class DeserializingException : Exception
-    {
-        //
-        // For guidelines regarding the creation of new exception types, see
-        //    http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpgenref/html/cpconerrorraisinghandlingguidelines.asp
-        // and
-        //    http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dncscol/html/csharp07192001.asp
-        //
-
-        ///<summary>
-        ///</summary>
-        public DeserializingException()
-        {
-        }
-
-        ///<summary>
-        ///</summary>
-        ///<param name = "message"></param>
-        public DeserializingException(string message) : base(message)
-        {
-        }
-
-        ///<summary>
-        ///</summary>
-        ///<param name = "message"></param>
-        ///<param name = "inner"></param>
-        public DeserializingException(string message, Exception inner) : base(message, inner)
-        {
-        }
-    }
+    /// <param name="type">The type.</param>
+    /// <returns>System.Object.</returns>
+    /// <remarks>By default, Activator.CreateInstance will be used to create the instance.  Change the setting InstanceCreator to supply a different instance creator.</remarks>
+    object CreateInstance(Type type);
+  }
 }

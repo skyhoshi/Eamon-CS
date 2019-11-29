@@ -386,8 +386,10 @@ namespace EamonRT.Framework.Commands
 		bool ShouldAllowSkillGains();
 
 		/// <summary></summary>
+		/// <param name="room"></param>
+		/// <param name="artifact"></param>
 		/// <returns></returns>
-		bool ShouldShowUnseenArtifacts();
+		bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact);
 
 		/// <summary></summary>
 		/// <returns></returns>

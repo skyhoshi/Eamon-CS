@@ -616,6 +616,10 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		/// <returns></returns>
+		bool ShouldRevealContentsWhenMovedIntoLimbo();
+
+		/// <summary></summary>
+		/// <returns></returns>
 		string GetDoorGateFleeDesc();
 
 		/// <summary></summary>

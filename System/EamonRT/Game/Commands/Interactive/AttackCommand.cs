@@ -89,7 +89,7 @@ namespace EamonRT.Game.Commands
 
 					if (ac.Type == ArtifactType.DisguisedMonster)
 					{
-						Globals.Engine.RevealDisguisedMonster(DobjArtifact);
+						Globals.Engine.RevealDisguisedMonster(ActorRoom, DobjArtifact);
 
 						var monster = Globals.MDB[ac.Field1];
 

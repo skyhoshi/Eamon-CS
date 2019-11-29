@@ -171,8 +171,9 @@ namespace EamonRT.Framework
 		void ProcessMonsterDeathEvents(IMonster monster);
 
 		/// <summary></summary>
+		/// <param name="room"></param>
 		/// <param name="artifact"></param>
-		void RevealDisguisedMonster(IArtifact artifact);
+		void RevealDisguisedMonster(IRoom room, IArtifact artifact);
 
 		/// <summary></summary>
 		/// <param name="room"></param>
@@ -181,9 +182,10 @@ namespace EamonRT.Framework
 
 		/// <summary></summary>
 		/// <param name="room"></param>
-		/// <param name="artifact"></param>
+		/// <param name="revealContentIndex"></param>
+		/// <param name="containerTypes"></param>
 		/// <param name="containerContentsList"></param>
-		void RevealExtendedContainerContents(IRoom room, IArtifact artifact, IList<string> containerContentsList = null);
+		void RevealContainerContents(IRoom room, long revealContentIndex, ContainerType[] containerTypes, IList<string> containerContentsList = null);
 
 		/// <summary></summary>
 		/// <param name="ro"></param>
@@ -276,14 +278,16 @@ namespace EamonRT.Framework
 		RetCode BuildCommandList(IList<ICommand> commands, CommandType cmdType, StringBuilder buf, ref bool newSeen);
 
 		/// <summary></summary>
+		/// <param name="room"></param>
 		/// <param name="whereClauseFuncs"></param>
 		/// <returns></returns>
-		bool ResurrectDeadBodies(params Func<IArtifact, bool>[] whereClauseFuncs);
+		bool ResurrectDeadBodies(IRoom room, params Func<IArtifact, bool>[] whereClauseFuncs);
 
 		/// <summary></summary>
+		/// <param name="room"></param>
 		/// <param name="whereClauseFuncs"></param>
 		/// <returns></returns>
-		bool MakeArtifactsVanish(params Func<IArtifact, bool>[] whereClauseFuncs);
+		bool MakeArtifactsVanish(IRoom room, params Func<IArtifact, bool>[] whereClauseFuncs);
 
 		/// <summary></summary>
 		/// <param name="spellValue"></param>

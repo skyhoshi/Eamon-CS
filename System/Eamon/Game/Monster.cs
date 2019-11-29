@@ -376,7 +376,7 @@ namespace Eamon.Game
 
 		public virtual bool IsInLimbo()
 		{
-			return Location == 0;
+			return Location == Constants.LimboLocation;
 		}
 
 		public virtual bool IsInRoomUid(long roomUid)
@@ -449,7 +449,7 @@ namespace Eamon.Game
 
 		public virtual void SetInLimbo()
 		{
-			SetInRoomUid(0);
+			SetInRoomUid(Constants.LimboLocation);
 		}
 
 		public virtual void SetInRoom(IRoom room)
@@ -493,6 +493,11 @@ namespace Eamon.Game
 			Debug.Assert(artifact != null);
 
 			return !Globals.IsRulesetVersion(5) && (Friendliness == Friendliness.Enemy || (Friendliness == Friendliness.Neutral && artifact.Value < 3000));
+		}
+
+		public virtual bool ShouldRefuseToAcceptDeadBody(IArtifact artifact)
+		{
+			return true;
 		}
 
 		public virtual bool CheckNBTLHostility()

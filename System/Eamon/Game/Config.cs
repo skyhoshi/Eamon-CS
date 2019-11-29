@@ -127,6 +127,8 @@ namespace Eamon.Game
 		{
 			RetCode rc;
 
+			Globals.ResetRevealContentProperties();
+
 			rc = Globals.Database.LoadFilesets(RtFilesetFileName, validate, printOutput);
 
 			if (Globals.Engine.IsFailure(rc))

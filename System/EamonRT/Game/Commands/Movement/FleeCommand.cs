@@ -128,8 +128,6 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(charMonster != null);
 
-				var viewingMonsters = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m != ActorMonster);
-
 				var numExits = 0L;
 
 				Globals.Engine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref numExits);
@@ -147,7 +145,7 @@ namespace EamonRT.Game.Commands
 
 				if (numExits == 0)
 				{
-					if (viewingMonsters.Contains(charMonster))
+					if (charMonster.IsInRoom(ActorRoom))
 					{
 						Globals.Out.Print("{0} {1} to flee, but can't find {2}!", monsterName, rl > 1 ? "try" : "tries", ActorRoom.EvalRoomType("an exit", "a path"));
 
@@ -161,7 +159,7 @@ namespace EamonRT.Game.Commands
 				{
 					ActorMonster.GroupCount -= rl;
 
-					if (viewingMonsters.Contains(charMonster))
+					if (charMonster.IsInRoom(ActorRoom))
 					{
 						Globals.Out.Print("{0} {1}!", monsterName, rl > 1 ? "flee" : "flees");
 
@@ -189,7 +187,7 @@ namespace EamonRT.Game.Commands
 
 					Debug.Assert(roomUid > 0);
 
-					if (viewingMonsters.Contains(charMonster))
+					if (charMonster.IsInRoom(ActorRoom))
 					{
 						if (direction > Direction.West && direction < Direction.Northeast)
 						{

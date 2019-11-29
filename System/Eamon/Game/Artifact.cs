@@ -24,6 +24,8 @@ namespace Eamon.Game
 	{
 		#region Protected Fields
 
+		protected long _location;
+
 		protected IArtifactCategory _lastArtifactCategory;
 
 		#endregion
@@ -46,7 +48,25 @@ namespace Eamon.Game
 
 		public virtual long Weight { get; set; }
 
-		public virtual long Location { get; set; }
+		public virtual long Location
+		{
+			get
+			{
+				return _location;
+			}
+
+			set
+			{
+				if (Globals.EnableGameOverrides && Globals.EnableRevealContentOverrides && _location != value && !Globals.RevealContentArtifacts.Contains(this))
+				{
+					Globals.RevealContentArtifacts.Add(this);
+
+					Globals.RevealContentLocations.Add(_location);
+				}
+
+				_location = value;
+			}
+		}
 
 		[ExcludeFromSerialization]
 		public virtual ArtifactType Type
@@ -738,7 +758,7 @@ namespace Eamon.Game
 						recurse && GetCarriedByMonster(recurse) != null ? GetCarriedByMonster(recurse).IsInLimbo() :
 						recurse && GetWornByMonster(recurse) != null ? GetWornByMonster(recurse).IsInLimbo() :
 						recurse && GetCarriedByContainer(recurse) != null ? GetCarriedByContainer(recurse).IsInLimbo() :
-						Location == 0;
+						Location == Constants.LimboLocation;
 		}
 
 		public virtual bool IsCarriedByMonsterUid(long monsterUid, bool recurse = false)
@@ -1043,7 +1063,7 @@ namespace Eamon.Game
 
 		public virtual void SetInLimbo()
 		{
-			Location = 0;
+			Location = Constants.LimboLocation;
 		}
 
 		public virtual void SetCarriedByMonster(IMonster monster)
@@ -1216,6 +1236,11 @@ namespace Eamon.Game
 		}
 
 		public virtual bool ShouldShowContentsWhenOpened()
+		{
+			return true;
+		}
+
+		public virtual bool ShouldRevealContentsWhenMovedIntoLimbo()
 		{
 			return true;
 		}

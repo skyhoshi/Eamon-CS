@@ -51,6 +51,10 @@ namespace EamonRT.Framework.States
 		void ProcessEvents(long eventType);
 
 		/// <summary></summary>
+		/// <param name="printOutput"></param>
+		void ProcessRevealContentArtifacts(bool printOutput = true);
+
+		/// <summary></summary>
 		/// <param name="target"></param>
 		/// <param name="articleType"></param>
 		/// <param name="nameType"></param>

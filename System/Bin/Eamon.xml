@@ -1556,6 +1556,10 @@
             <summary></summary>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IArtifact.ShouldRevealContentsWhenMovedIntoLimbo">
+            <summary></summary>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IArtifact.GetDoorGateFleeDesc">
             <summary></summary>
             <returns></returns>
@@ -3321,6 +3325,11 @@
             <param name="artifact"></param>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IMonster.ShouldRefuseToAcceptDeadBody(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IMonster.CheckNBTLHostility">
             <summary></summary>
             <returns></returns>
@@ -3983,6 +3992,9 @@
         <member name="P:Eamon.Framework.Plugin.IPluginConstants.DirectionExit">
             <summary></summary>
         </member>
+        <member name="P:Eamon.Framework.Plugin.IPluginConstants.LimboLocation">
+            <summary></summary>
+        </member>
         <member name="P:Eamon.Framework.Plugin.IPluginConstants.MinGoldValue">
             <summary></summary>
         </member>
@@ -4056,6 +4068,21 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginGlobals.Engine">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Plugin.IPluginGlobals.RevealContentRoom">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Plugin.IPluginGlobals.RevealContentMonster">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Plugin.IPluginGlobals.RevealContentArtifacts">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Plugin.IPluginGlobals.RevealContentLocations">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Plugin.IPluginGlobals.EnableRevealContentOverrides">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginGlobals.WorkDir">
@@ -4212,6 +4239,9 @@
         <member name="M:Eamon.Framework.Plugin.IPluginGlobals.UpgradeTextfile(System.String)">
             <summary></summary>
             <param name="fileName"></param>
+        </member>
+        <member name="M:Eamon.Framework.Plugin.IPluginGlobals.ResetRevealContentProperties">
+            <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Portability.IDirectory">
             <summary></summary>

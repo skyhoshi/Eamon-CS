@@ -46,6 +46,7 @@ namespace Polenter.Serialization
     /// </summary>
     public sealed class SharpSerializer
     {
+        private readonly object _syncObj = new object();
         private IPropertyDeserializer _deserializer;
         private PropertyProvider _propertyProvider;
         private string _rootName;
@@ -135,8 +136,16 @@ namespace Polenter.Serialization
             set { _rootName = value; }
         }
 
+        /// <summary>
+        /// Gets or sets the instance creator for creating objects.
+        /// </summary>
+        /// <value>The instance creator.</value>
+        public IInstanceCreator InstanceCreator { get; set; }
+
         private void initialize(SharpSerializerXmlSettings settings)
         {
+            this.InstanceCreator = settings.InstanceCreator ?? new DefaultInstanceCreator();
+
             // PropertiesToIgnore
             PropertyProvider.PropertiesToIgnore = settings.AdvancedSettings.PropertiesToIgnore;
             PropertyProvider.AttributesToIgnore = settings.AdvancedSettings.AttributesToIgnore;
@@ -166,6 +175,8 @@ namespace Polenter.Serialization
 
         private void initialize(SharpSerializerBinarySettings settings)
         {
+            this.InstanceCreator = settings.InstanceCreator ?? new DefaultInstanceCreator();
+
             // PropertiesToIgnore
             PropertyProvider.PropertiesToIgnore = settings.AdvancedSettings.PropertiesToIgnore;
             PropertyProvider.AttributesToIgnore = settings.AdvancedSettings.AttributesToIgnore;
@@ -203,19 +214,21 @@ namespace Polenter.Serialization
 
         #region Serializing/Deserializing methods
 
-#if !PORTABLE
+#if !NETSTANDARD1_0
         /// <summary>
         ///   Serializing to a file. File will be always new created and closed after the serialization.
         /// </summary>
         /// <param name = "data"></param>
         /// <param name = "filename"></param>
-        [MethodImpl(MethodImplOptions.Synchronized)]
         public void Serialize(object data, string filename)
         {
-            createDirectoryIfNeccessary(filename);
-            using (Stream stream = new FileStream(filename, FileMode.Create, FileAccess.Write))
+            lock (_syncObj)
             {
-                Serialize(data, stream);
+                createDirectoryIfNeccessary(filename);
+                using (Stream stream = new FileStream(filename, FileMode.Create, FileAccess.Write))
+                {
+                    Serialize(data, stream);
+                }
             }
         }
 
@@ -234,39 +247,41 @@ namespace Polenter.Serialization
         /// </summary>
         /// <param name = "data"></param>
         /// <param name = "stream"></param>
-#if !PORTABLE
-        [MethodImpl(MethodImplOptions.Synchronized)]
-#endif
         public void Serialize(object data, Stream stream)
         {
             if (data == null) throw new ArgumentNullException("data");
 
-            var factory = new PropertyFactory(PropertyProvider);
-
-            Property property = factory.CreateProperty(RootName, data);
-
-            try
+            lock (_syncObj)
             {
-                _serializer.Open(stream);
-                _serializer.Serialize(property);
-            }
-            finally
-            {
-                _serializer.Close();
+                var factory = new PropertyFactory(PropertyProvider);
+
+                Property property = factory.CreateProperty(RootName, data);
+
+                try
+                {
+                    _serializer.Open(stream);
+                    _serializer.Serialize(property);
+                }
+                finally
+                {
+                    _serializer.Close();
+                }
             }
         }
-#if !PORTABLE
+#if !NETSTANDARD1_0
         /// <summary>
         ///   Deserializing from the file. After deserialization the file will be closed.
         /// </summary>
         /// <param name = "filename"></param>
         /// <returns></returns>
-        [MethodImpl(MethodImplOptions.Synchronized)]
         public object Deserialize(string filename)
         {
-            using (var stream = new FileStream(filename, FileMode.Open, FileAccess.Read))
+            lock (_syncObj)
             {
-                return Deserialize(stream);
+                using (var stream = new FileStream(filename, FileMode.Open, FileAccess.Read))
+                {
+                    return Deserialize(stream);
+                }
             }
         }
 #endif
@@ -275,27 +290,27 @@ namespace Polenter.Serialization
         /// </summary>
         /// <param name = "stream"></param>
         /// <returns></returns>
-#if !PORTABLE
-        [MethodImpl(MethodImplOptions.Synchronized)]
-#endif
         public object Deserialize(Stream stream)
         {
-            try
+            lock (_syncObj)
             {
-                // Deserialize Property
-                _deserializer.Open(stream);
-                Property property = _deserializer.Deserialize();
-                _deserializer.Close();
+                try
+                {
+                    // Deserialize Property
+                    _deserializer.Open(stream);
+                    Property property = _deserializer.Deserialize();
+                    _deserializer.Close();
 
-                // create object from Property
-                var factory = new ObjectFactory();
-                return factory.CreateObject(property);
-            }
-            catch (Exception exception)
-            {
-                // corrupted Stream
-                throw new DeserializingException(
-                    "An error occured during the deserialization. Details are in the inner exception.", exception);
+                    // create object from Property
+                    var factory = new ObjectFactory(this.InstanceCreator);
+                    return factory.CreateObject(property);
+                }
+                catch (Exception exception)
+                {
+                    // corrupted Stream
+                    throw new DeserializingException(
+                        "An error occured during the deserialization. Details are in the inner exception.", exception);
+                }
             }
         }
 

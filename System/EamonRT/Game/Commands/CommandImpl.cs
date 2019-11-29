@@ -21,11 +21,29 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class CommandImpl : ICommandImpl
 	{
+		protected IMonster _actorMonster;
+
 		public virtual ICommand Command { get; set; }
 
 		public virtual ICommandParser CommandParser { get; set; }
 
-		public virtual IMonster ActorMonster { get; set; }
+		public virtual IMonster ActorMonster
+		{
+			get
+			{
+				return _actorMonster;
+			}
+
+			set
+			{
+				if (Globals.EnableRevealContentOverrides)
+				{
+					Globals.RevealContentMonster = value;
+				}
+
+				_actorMonster = value;
+			}
+		}
 
 		public virtual IRoom ActorRoom { get; set; }
 
@@ -860,7 +878,7 @@ namespace EamonRT.Game.Commands
 			return true;
 		}
 
-		public virtual bool ShouldShowUnseenArtifacts()
+		public virtual bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
 		{
 			return true;
 		}

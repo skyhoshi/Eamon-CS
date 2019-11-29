@@ -209,6 +209,11 @@ namespace Eamon.Framework
 		bool ShouldRefuseToAcceptGift(IArtifact artifact);
 
 		/// <summary></summary>
+		/// <param name="artifact"></param>
+		/// <returns></returns>
+		bool ShouldRefuseToAcceptDeadBody(IArtifact artifact);
+
+		/// <summary></summary>
 		/// <returns></returns>
 		bool CheckNBTLHostility();
 

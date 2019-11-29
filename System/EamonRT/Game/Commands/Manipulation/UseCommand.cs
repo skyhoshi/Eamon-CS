@@ -5,6 +5,7 @@
 
 using System;
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -19,6 +20,9 @@ namespace EamonRT.Game.Commands
 		/// <summary></summary>
 		public const long PpeBeforeArtifactUse = 1;
 
+		/// <summary></summary>
+		public virtual ArtifactType[] ArtTypes { get; set; }
+
 		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
@@ -30,9 +34,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			var artTypes = new ArtifactType[] { ArtifactType.Weapon, ArtifactType.MagicWeapon, ArtifactType.DisguisedMonster, ArtifactType.Drinkable, ArtifactType.Edible, ArtifactType.Wearable };
-
-			var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
+			var ac = DobjArtifact.GetArtifactCategory(ArtTypes, false);
 
 			if (ac != null)
 			{
@@ -59,7 +61,7 @@ namespace EamonRT.Game.Commands
 						}
 					}
 
-					Globals.Engine.RevealDisguisedMonster(DobjArtifact);
+					Globals.Engine.RevealDisguisedMonster(ActorRoom, DobjArtifact);
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
 
@@ -125,6 +127,33 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			var ac = artifact.GetArtifactCategory(ArtTypes, false);
+
+			if (ac != null)
+			{
+				if (ac.IsWeapon01())
+				{
+					return !artifact.IsReadyableByCharacter() || artifact.IsCarriedByCharacter();
+				}
+				else if (ac.Type == ArtifactType.Wearable)
+				{
+					return artifact.IsCarriedByCharacter();
+				}
+				else
+				{
+					return true;
+				}
+			}
+			else
+			{
+				return true;
+			}
+		}
+
 		/*
 		public override bool IsPrepEnabled(IPrep prep)
 		{
@@ -152,6 +181,8 @@ namespace EamonRT.Game.Commands
 			Verb = "use";
 
 			Type = CommandType.Manipulation;
+
+			ArtTypes = new ArtifactType[] { ArtifactType.Weapon, ArtifactType.MagicWeapon, ArtifactType.DisguisedMonster, ArtifactType.Drinkable, ArtifactType.Edible, ArtifactType.Wearable };
 		}
 	}
 }

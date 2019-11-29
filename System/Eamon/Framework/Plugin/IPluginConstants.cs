@@ -201,6 +201,9 @@ namespace Eamon.Framework.Plugin
 		long DirectionExit { get; }
 
 		/// <summary></summary>
+		long LimboLocation { get; }
+
+		/// <summary></summary>
 		long MinGoldValue { get; }
 
 		/// <summary></summary>

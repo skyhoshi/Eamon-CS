@@ -51,7 +51,7 @@ namespace EamonRT.Game.Commands
 				{
 					// Raise the dead / Make stuff vanish
 
-					if (Globals.Engine.ResurrectDeadBodies() || Globals.Engine.MakeArtifactsVanish())
+					if (Globals.Engine.ResurrectDeadBodies(ActorRoom) || Globals.Engine.MakeArtifactsVanish(ActorRoom))
 					{
 						goto Cleanup;
 					}

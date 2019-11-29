@@ -14,6 +14,8 @@ namespace EamonRT.Game.States
 	{
 		public override void Execute()
 		{
+			ProcessRevealContentArtifacts();
+
 			if (NextState == null)
 			{
 				NextState = Globals.CreateInstance<IMonsterLoopInitializeState>();

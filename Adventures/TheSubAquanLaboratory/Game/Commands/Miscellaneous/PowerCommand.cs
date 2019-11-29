@@ -35,7 +35,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 				{
 					// 10% Chance of raising the dead
 
-					var found = Globals.Engine.ResurrectDeadBodies();
+					var found = Globals.Engine.ResurrectDeadBodies(ActorRoom);
 
 					if (found)
 					{
@@ -53,7 +53,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 				{
 					// 10% Chance of stuff vanishing
 
-					var found = Globals.Engine.MakeArtifactsVanish(a => a.IsInRoom(ActorRoom) && !a.IsUnmovable() && a.Uid != 82 && a.Uid != 89);
+					var found = Globals.Engine.MakeArtifactsVanish(ActorRoom, a => a.IsInRoom(ActorRoom) && !a.IsUnmovable() && a.Uid != 82 && a.Uid != 89);
 
 					if (found)
 					{

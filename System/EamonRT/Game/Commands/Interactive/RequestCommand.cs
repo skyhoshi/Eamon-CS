@@ -110,7 +110,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		public override bool ShouldShowUnseenArtifacts()
+		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
 		{
 			return false;
 		}

@@ -29,9 +29,6 @@ namespace EamonRT.Game.Commands
 		/// <summary></summary>
 		public virtual IList<IArtifact> ArtifactList { get; set; }
 
-		/// <summary></summary>
-		public virtual IList<string> ContainerContentsList { get; set; }
-
 		public virtual void ProcessAction(Action action, ref bool nlFlag)
 		{
 			Debug.Assert(action != null);
@@ -61,7 +58,7 @@ namespace EamonRT.Game.Commands
 
 			if (ac.Type == ArtifactType.DisguisedMonster)
 			{
-				ProcessAction(() => Globals.Engine.RevealDisguisedMonster(artifact), ref nlFlag);
+				ProcessAction(() => Globals.Engine.RevealDisguisedMonster(ActorRoom, artifact), ref nlFlag);
 			}
 			else if (artifact.Weight > 900)
 			{
@@ -118,11 +115,7 @@ namespace EamonRT.Game.Commands
 					{
 						var isCarriedByContainer = artifact.IsCarriedByContainer();
 
-						Globals.LastArtifactLocation = artifact.Location;
-
 						artifact.SetCarriedByCharacter();
-
-						Globals.Engine.RevealExtendedContainerContents(ActorRoom, artifact, ContainerContentsList);
 
 						if (NextState is IRequestCommand)
 						{
@@ -146,8 +139,6 @@ namespace EamonRT.Game.Commands
 		public override void PlayerExecute()
 		{
 			Debug.Assert(GetAll || DobjArtifact != null);
-
-			ContainerContentsList = new List<string>();
 
 			if (GetAll)
 			{
@@ -224,11 +215,6 @@ namespace EamonRT.Game.Commands
 
 						DobjArtifact.Seen = true;
 					}
-
-					foreach (var containerContentsDesc in ContainerContentsList)
-					{
-						Globals.Out.Write("{0}", containerContentsDesc);
-					}
 				}
 
 				if (ActorMonster.Weapon <= 0 && wpnArtifact != null && NextState == null)
@@ -274,7 +260,7 @@ namespace EamonRT.Game.Commands
 				ac = DobjArtifact.GetCategories(0);
 			}
 
-			if (ac != null && ac.Type != ArtifactType.DisguisedMonster && DobjArtifact.UnderContainer == null && DobjArtifact.BehindContainer == null && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
+			if (ac != null && ac.Type != ArtifactType.DisguisedMonster && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
 			{
 				OmitWeightCheck = DobjArtifact.IsCarriedByMonster(ActorMonster, true);
 
@@ -366,7 +352,7 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		public override bool ShouldShowUnseenArtifacts()
+		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
 		{
 			return false;
 		}

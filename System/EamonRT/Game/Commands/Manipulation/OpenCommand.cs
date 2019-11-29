@@ -3,7 +3,6 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
-using System;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework.Primitive.Enums;
@@ -62,7 +61,7 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Type == ArtifactType.DisguisedMonster)
 				{
-					Globals.Engine.RevealDisguisedMonster(DobjArtifact);
+					Globals.Engine.RevealDisguisedMonster(ActorRoom, DobjArtifact);
 
 					goto Cleanup;
 				}

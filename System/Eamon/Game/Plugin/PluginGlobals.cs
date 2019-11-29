@@ -175,6 +175,16 @@ namespace Eamon.Game.Plugin
 
 		public virtual IEngine Engine { get; set; }
 
+		public virtual IRoom RevealContentRoom { get; set; }
+
+		public virtual IMonster RevealContentMonster { get; set; }
+
+		public virtual IList<IArtifact> RevealContentArtifacts { get; set; }
+
+		public virtual IList<long> RevealContentLocations { get; set; }
+
+		public virtual bool EnableRevealContentOverrides { get; set; }
+
 		public virtual string WorkDir
 		{
 			get
@@ -459,6 +469,8 @@ namespace Eamon.Game.Plugin
 				goto Cleanup;
 			}
 
+			ResetRevealContentProperties();
+
 			UpgradeTextfile(fileName);
 
 			var database = SharpSerializer.Deserialize(fileName) as IDatabase;
@@ -546,6 +558,12 @@ namespace Eamon.Game.Plugin
 			}
 
 			Engine = ClassMappings.CreateInstance<IEngine>();
+
+			RevealContentArtifacts = new List<IArtifact>();
+
+			RevealContentLocations = new List<long>();
+
+			EnableRevealContentOverrides = true;
 
 			Databases = new IDatabase[Constants.NumDatabases];
 
@@ -851,6 +869,17 @@ namespace Eamon.Game.Plugin
 		Cleanup:
 
 			;
+		}
+
+		public virtual void ResetRevealContentProperties()
+		{
+			RevealContentRoom = null;
+
+			RevealContentMonster = null;
+
+			RevealContentArtifacts.Clear();
+
+			RevealContentLocations.Clear();
 		}
 	}
 }

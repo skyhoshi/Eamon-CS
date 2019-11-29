@@ -4,9 +4,9 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -21,16 +21,11 @@ namespace EamonRT.Game.Commands
 		/// <summary></summary>
 		public const long PpeAfterArtifactPut = 1;
 
-		/// <summary></summary>
-		public virtual IList<string> ContainerContentsList { get; set; }
-
 		public override void PlayerExecute()
 		{
 			RetCode rc;
 
 			Debug.Assert(DobjArtifact != null && IobjArtifact != null);
-
-			ContainerContentsList = new List<string>();
 
 			if (!DobjArtifact.IsCarriedByCharacter())
 			{
@@ -142,11 +137,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			Globals.LastArtifactLocation = DobjArtifact.Location;
-
 			DobjArtifact.SetCarriedByContainer(IobjArtifact, ContainerType);
-
-			Globals.Engine.RevealExtendedContainerContents(ActorRoom, DobjArtifact, ContainerContentsList);
 
 			if (Globals.GameState.Ls == DobjArtifact.Uid)
 			{
@@ -167,11 +158,6 @@ namespace EamonRT.Game.Commands
 			}
 
 			Globals.Out.Print("Done.");
-
-			foreach (var containerContentsDesc in ContainerContentsList)
-			{
-				Globals.Out.Write("{0}", containerContentsDesc);
-			}
 
 			PlayerProcessEvents(PpeAfterArtifactPut);
 
@@ -214,6 +200,13 @@ namespace EamonRT.Game.Commands
 					}
 				}
 			}
+		}
+
+		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			return artifact.IsCarriedByCharacter();
 		}
 
 		/*

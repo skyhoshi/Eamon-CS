@@ -514,21 +514,12 @@
         </member>
         <member name="T:Polenter.Serialization.Advanced.PropertyCache">
             <summary>
-             Supports multithreading. It's slower but neccessary, 
-             because Portable Framework does not support ThreadStaticAttribute.
             </summary>
         </member>
         <member name="M:Polenter.Serialization.Advanced.PropertyCache.TryGetPropertyInfos(System.Type)">
             <summary>
             </summary>
             <returns>null if the key was not found</returns>
-        </member>
-        <member name="M:Polenter.Serialization.Advanced.PropertyCache.Add(System.Type,System.Collections.Generic.IList{System.Reflection.PropertyInfo})">
-            <summary>
-            If the key exists, the value will not be added.
-            </summary>
-            <param name="key"></param>
-            <param name="value"></param>
         </member>
         <member name="T:Polenter.Serialization.Advanced.PropertyProvider">
             <summary>
@@ -1544,6 +1535,13 @@
               Gives standard settings for the framework. Is used only internally.
             </summary>
         </member>
+        <member name="M:Polenter.Serialization.Core.DefaultInstanceCreator.CreateInstance(System.Type)">
+            <summary>
+            Creates the instance.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>System.Object.</returns>
+        </member>
         <member name="T:Polenter.Serialization.Core.DeserializingException">
             <summary>
               Can occure during deserialization
@@ -1563,6 +1561,14 @@
             </summary>
             <param name = "message"></param>
             <param name = "inner"></param>
+        </member>
+        <member name="M:Polenter.Serialization.Core.IInstanceCreator.CreateInstance(System.Type)">
+            <summary>
+            Creates an instance of the object of the specific type.  Note that other instance creators can be written, such as dependency injection instance creators.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>System.Object.</returns>
+            <remarks>By default, Activator.CreateInstance will be used to create the instance.  Change the setting InstanceCreator to supply a different instance creator.</remarks>
         </member>
         <member name="T:Polenter.Serialization.Core.Property">
             <summary>
@@ -2061,6 +2067,12 @@
               PublicKeyToken=.... will be inserted to the type name
             </summary>
         </member>
+        <member name="P:Polenter.Serialization.Core.SharpSerializerSettings`1.InstanceCreator">
+            <summary>
+            Gets or sets the instance creator that will be used for object creation.  Use this setting to supply a different creator, such as an AutoFac instance creator.
+            </summary>
+            <value>The instance creator.</value>
+        </member>
         <member name="T:Polenter.Serialization.Core.AdvancedSharpSerializerXmlSettings">
             <summary>
               Base class for the advanced settings. Is common for the binary and xml serialization.
@@ -2312,6 +2324,12 @@
             Contains already created objects. Is used for reference resolving.
             </summary>
         </member>
+        <member name="P:Polenter.Serialization.Deserializing.ObjectFactory.InstanceCreator">
+            <summary>
+            Gets or sets the instance creator.
+            </summary>
+            <value>The instance creator.</value>
+        </member>
         <member name="M:Polenter.Serialization.Deserializing.ObjectFactory.CreateObject(Polenter.Serialization.Core.Property)">
             <summary>
               Builds object from property
@@ -2492,46 +2510,12 @@
         </member>
         <member name="T:Polenter.Serialization.Serializing.TypeInfoCollection">
             <summary>
-             On the contrary to the full framework and Silverlight version,
-             this Collection supports multithreading. It makes the item managing
-             slower, but this is the price of lacking ThreadStaticAttribute in
-             Portable Framework.
             </summary>
         </member>
         <member name="M:Polenter.Serialization.Serializing.TypeInfoCollection.TryGetTypeInfo(System.Type)">
             <summary>
             </summary>
             <returns>null if the key was not found</returns>
-        </member>
-        <member name="M:Polenter.Serialization.Serializing.TypeInfoCollection.AddIfNotExists(Polenter.Serialization.Serializing.TypeInfo)">
-            <summary>
-            </summary>
-            <param name="item"></param>
-        </member>
-        <member name="M:Polenter.Serialization.Serializing.TypeInfoCollection.ClearItems">
-            <summary>
-            
-            </summary>
-        </member>
-        <member name="M:Polenter.Serialization.Serializing.TypeInfoCollection.InsertItem(System.Int32,Polenter.Serialization.Serializing.TypeInfo)">
-            <summary>
-            
-            </summary>
-            <param name="index"></param>
-            <param name="item"></param>
-        </member>
-        <member name="M:Polenter.Serialization.Serializing.TypeInfoCollection.RemoveItem(System.Int32)">
-            <summary>
-            
-            </summary>
-            <param name="index"></param>
-        </member>
-        <member name="M:Polenter.Serialization.Serializing.TypeInfoCollection.SetItem(System.Int32,Polenter.Serialization.Serializing.TypeInfo)">
-            <summary>
-            
-            </summary>
-            <param name="index"></param>
-            <param name="item"></param>
         </member>
         <member name="M:Polenter.Serialization.Serializing.TypeInfoCollection.GetKeyForItem(Polenter.Serialization.Serializing.TypeInfo)">
             <summary>
@@ -2585,12 +2569,32 @@
               What name should have the root property. Default is "Root".
             </summary>
         </member>
+        <member name="P:Polenter.Serialization.SharpSerializer.InstanceCreator">
+            <summary>
+            Gets or sets the instance creator for creating objects.
+            </summary>
+            <value>The instance creator.</value>
+        </member>
+        <member name="M:Polenter.Serialization.SharpSerializer.Serialize(System.Object,System.String)">
+            <summary>
+              Serializing to a file. File will be always new created and closed after the serialization.
+            </summary>
+            <param name = "data"></param>
+            <param name = "filename"></param>
+        </member>
         <member name="M:Polenter.Serialization.SharpSerializer.Serialize(System.Object,System.IO.Stream)">
             <summary>
               Serializing to the stream. After serialization the stream will NOT be closed.
             </summary>
             <param name = "data"></param>
             <param name = "stream"></param>
+        </member>
+        <member name="M:Polenter.Serialization.SharpSerializer.Deserialize(System.String)">
+            <summary>
+              Deserializing from the file. After deserialization the file will be closed.
+            </summary>
+            <param name = "filename"></param>
+            <returns></returns>
         </member>
         <member name="M:Polenter.Serialization.SharpSerializer.Deserialize(System.IO.Stream)">
             <summary>

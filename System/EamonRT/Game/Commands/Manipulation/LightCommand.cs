@@ -6,6 +6,7 @@
 using System;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -124,13 +125,13 @@ namespace EamonRT.Game.Commands
 			PlayerResolveArtifact();
 		}
 
-		public override bool ShouldShowUnseenArtifacts()
+		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
 		{
-			Debug.Assert(Globals.GameState != null);
+			Debug.Assert(room != null);
 
-			var room = Globals.GameState.Ro > 0 ? Globals.RDB[Globals.GameState.Ro] : null;
+			Debug.Assert(artifact != null);
 
-			return room != null && room.IsLit();
+			return room.IsLit() && (artifact.LightSource != null ? artifact.IsCarriedByCharacter() : true);
 		}
 
 		public LightCommand()
