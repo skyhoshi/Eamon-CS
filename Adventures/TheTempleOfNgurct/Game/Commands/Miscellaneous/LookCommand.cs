@@ -27,30 +27,30 @@ namespace TheTempleOfNgurct.Game.Commands
 			{
 				var rl = Globals.Engine.RollDice(1, 100, 0);
 
+				var secretDoorArtifact1 = Globals.ADB[83];
+
+				Debug.Assert(secretDoorArtifact1 != null);
+
 				// Secret door
 
-				if (ActorRoom.Uid == 24 && rl < 66)
+				if (ActorRoom.Uid == 24 && secretDoorArtifact1.IsInLimbo() && rl < 66)
 				{
-					var secretDoorArtifact = Globals.ADB[83];
+					secretDoorArtifact1.SetEmbeddedInRoom(ActorRoom);
 
-					Debug.Assert(secretDoorArtifact != null);
-
-					secretDoorArtifact.SetEmbeddedInRoomUid(24);
-
-					Globals.Engine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact);
+					Globals.Engine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact1);
 				}
 
+				var secretDoorArtifact2 = Globals.ADB[84];
+
+				Debug.Assert(secretDoorArtifact2 != null);
+
 				// Secret door
 
-				if (ActorRoom.Uid == 48 && rl < 51)
+				if (ActorRoom.Uid == 48 && secretDoorArtifact2.IsInLimbo() && rl < 51)
 				{
-					var secretDoorArtifact = Globals.ADB[84];
+					secretDoorArtifact2.SetEmbeddedInRoom(ActorRoom);
 
-					Debug.Assert(secretDoorArtifact != null);
-
-					secretDoorArtifact.SetEmbeddedInRoomUid(48);
-
-					Globals.Engine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact);
+					Globals.Engine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact2);
 				}
 
 				var scarabArtifact = Globals.ADB[65];
