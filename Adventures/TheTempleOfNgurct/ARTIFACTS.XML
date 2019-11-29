@@ -2721,7 +2721,7 @@
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="-999" />
-            <Simple name="Location" value="2024" />
+            <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">
@@ -2754,7 +2754,7 @@
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="0" />
             <Simple name="Weight" value="-999" />
-            <Simple name="Location" value="2048" />
+            <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null">

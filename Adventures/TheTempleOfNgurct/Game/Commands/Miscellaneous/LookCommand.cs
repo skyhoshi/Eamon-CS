@@ -35,6 +35,8 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					Debug.Assert(secretDoorArtifact != null);
 
+					secretDoorArtifact.SetEmbeddedInRoomUid(24);
+
 					Globals.Engine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact);
 				}
 
@@ -45,6 +47,8 @@ namespace TheTempleOfNgurct.Game.Commands
 					var secretDoorArtifact = Globals.ADB[84];
 
 					Debug.Assert(secretDoorArtifact != null);
+
+					secretDoorArtifact.SetEmbeddedInRoomUid(48);
 
 					Globals.Engine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact);
 				}
