@@ -452,6 +452,10 @@
             <summary></summary>
             <returns></returns>
         </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.ShouldStripTrailingPunctuation">
+            <summary></summary>
+            <returns></returns>
+        </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.ShouldShowUnseenArtifacts(Eamon.Framework.IRoom,Eamon.Framework.IArtifact)">
             <summary></summary>
             <param name="room"></param>

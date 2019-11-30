@@ -92,6 +92,11 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		public override bool ShouldStripTrailingPunctuation()
+		{
+			return false;
+		}
+
 		public SayCommand()
 		{
 			SortOrder = 340;

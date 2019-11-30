@@ -386,6 +386,10 @@ namespace EamonRT.Framework.Commands
 		bool ShouldAllowSkillGains();
 
 		/// <summary></summary>
+		/// <returns></returns>
+		bool ShouldStripTrailingPunctuation();
+
+		/// <summary></summary>
 		/// <param name="room"></param>
 		/// <param name="artifact"></param>
 		/// <returns></returns>

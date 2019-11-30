@@ -878,6 +878,11 @@ namespace EamonRT.Game.Commands
 			return true;
 		}
 
+		public virtual bool ShouldStripTrailingPunctuation()
+		{
+			return true;
+		}
+
 		public virtual bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
 		{
 			return true;

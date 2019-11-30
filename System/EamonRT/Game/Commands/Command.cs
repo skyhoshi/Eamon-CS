@@ -701,6 +701,11 @@ namespace EamonRT.Game.Commands
 			return CommandImpl.ShouldAllowSkillGains();
 		}
 
+		public virtual bool ShouldStripTrailingPunctuation()
+		{
+			return CommandImpl.ShouldStripTrailingPunctuation();
+		}
+
 		public virtual bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
 		{
 			return CommandImpl.ShouldShowUnseenArtifacts(room, artifact);

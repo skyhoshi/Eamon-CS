@@ -389,6 +389,11 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		public override bool ShouldStripTrailingPunctuation()
+		{
+			return false;
+		}
+
 		public override bool ShouldPreTurnProcess()
 		{
 			return false;

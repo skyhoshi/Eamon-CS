@@ -133,12 +133,12 @@ namespace EamonRT.Game.Parsing
 
 		public virtual void ParseName()
 		{
+			var command = NextState as ICommand;
+
+			Debug.Assert(command != null);
+
 			if (ObjData == DobjData)
 			{
-				var command = NextState as ICommand;
-
-				Debug.Assert(command != null);
-
 				ObjData.Name = "";
 
 				if (CurrToken < Tokens.Length)
@@ -202,7 +202,14 @@ namespace EamonRT.Game.Parsing
 
 						Globals.Buf.SetFormat("{0}", Globals.In.ReadLine());
 
-						Globals.Buf.Trim();
+						if (command.ShouldStripTrailingPunctuation())
+						{
+							Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString().Trim(), @"\p{P}*$", "").Trim());
+						}
+						else
+						{
+							Globals.Buf.Trim();
+						}
 					}
 					else
 					{
@@ -243,7 +250,14 @@ namespace EamonRT.Game.Parsing
 
 						Globals.Buf.SetFormat("{0}", Globals.In.ReadLine());
 
-						Globals.Buf.Trim();
+						if (command.ShouldStripTrailingPunctuation())
+						{
+							Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString().Trim(), @"\p{P}*$", "").Trim());
+						}
+						else
+						{
+							Globals.Buf.Trim();
+						}
 					}
 					else
 					{
@@ -293,9 +307,7 @@ namespace EamonRT.Game.Parsing
 
 			LastInputStr = InputBuf.ToString();
 
-			InputBuf.SetFormat("{0}", Regex.Replace(InputBuf.ToString(), @"\s+", " ").ToLower().Trim());
-
-			InputBuf.SetFormat(" {0} ", Regex.Replace(InputBuf.ToString(), @"\p{P}*$", "").Trim());
+			InputBuf.SetFormat(" {0} ", Regex.Replace(InputBuf.ToString(), @"\s+", " ").ToLower().Trim());
 
 			InputBuf = InputBuf.Replace(" in to ", " into ");
 
@@ -323,6 +335,11 @@ namespace EamonRT.Game.Parsing
 
 			if (CurrToken < Tokens.Length)
 			{
+				if (Tokens.Length == 1)
+				{
+					Tokens[CurrToken] = Regex.Replace(Tokens[CurrToken], @"\p{P}*$", "").Trim();
+				}
+
 				if (string.Equals(Tokens[CurrToken], "at", StringComparison.OrdinalIgnoreCase))
 				{
 					Tokens[CurrToken] = "a";
@@ -364,6 +381,11 @@ namespace EamonRT.Game.Parsing
 					command.Dobj = DobjData.Obj;
 
 					command.Iobj = IobjData.Obj;
+
+					if (command.ShouldStripTrailingPunctuation() && Tokens.Length > 1)
+					{
+						Tokens[Tokens.Length - 1] = Regex.Replace(Tokens[Tokens.Length - 1], @"\p{P}*$", "").Trim();
+					}
 
 					if (ActorMonster.IsCharacterMonster())
 					{
