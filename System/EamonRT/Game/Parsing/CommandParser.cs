@@ -202,13 +202,11 @@ namespace EamonRT.Game.Parsing
 
 						Globals.Buf.SetFormat("{0}", Globals.In.ReadLine());
 
+						Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\s+", " ").ToLower().Trim());
+
 						if (command.ShouldStripTrailingPunctuation())
 						{
-							Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString().Trim(), @"\p{P}*$", "").Trim());
-						}
-						else
-						{
-							Globals.Buf.Trim();
+							Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\p{P}*$", "").Trim());
 						}
 					}
 					else
@@ -250,13 +248,11 @@ namespace EamonRT.Game.Parsing
 
 						Globals.Buf.SetFormat("{0}", Globals.In.ReadLine());
 
+						Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\s+", " ").ToLower().Trim());
+
 						if (command.ShouldStripTrailingPunctuation())
 						{
-							Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString().Trim(), @"\p{P}*$", "").Trim());
-						}
-						else
-						{
-							Globals.Buf.Trim();
+							Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\p{P}*$", "").Trim());
 						}
 					}
 					else
