@@ -7,6 +7,7 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
@@ -83,7 +84,9 @@ namespace EamonRT.Game.Commands
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					fileset.Name = Globals.Engine.Capitalize(Globals.Buf.ToString().Trim());
+					Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\s+", " ").ToLower().Trim());
+
+					fileset.Name = Globals.Engine.Capitalize(Globals.Buf.ToString());
 
 					if (fileset.Name.Length == 0)
 					{
