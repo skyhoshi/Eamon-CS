@@ -1361,6 +1361,11 @@ namespace Eamon.Game.Helpers
 		{
 			var result = true;
 
+			if (Record.Armor.Name != null)
+			{
+				Record.Armor.Name = Regex.Replace(Record.Armor.Name, @"\s+", " ").Trim();
+			}
+
 			if (Record.IsArmorActive())
 			{
 				result = !string.IsNullOrWhiteSpace(Record.Armor.Name) && Record.Armor.Name.Length <= Constants.CharArtNameLen;
@@ -1552,6 +1557,11 @@ namespace Eamon.Game.Helpers
 		protected virtual bool ValidateShieldName()
 		{
 			var result = true;
+
+			if (Record.Shield.Name != null)
+			{
+				Record.Shield.Name = Regex.Replace(Record.Shield.Name, @"\s+", " ").Trim();
+			}
 
 			if (Record.IsShieldActive())
 			{
