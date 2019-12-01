@@ -7,10 +7,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Text.RegularExpressions;
 using Eamon;
 using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
 using EamonMH.Framework.Menus.ActionMenus;
@@ -258,7 +260,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				var wpnName01 = Buf.Trim().ToString();
+				Buf.SetFormat("{0}", Regex.Replace(Buf.ToString(), @"\s+", " ").Trim());
+
+				var wpnName01 = Buf.ToString();
 
 				Globals.Thread.Sleep(150);
 

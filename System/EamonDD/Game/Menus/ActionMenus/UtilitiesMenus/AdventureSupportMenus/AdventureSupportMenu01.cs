@@ -437,7 +437,9 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				AdventureName01 = Buf.Trim().ToString();
+				Buf.SetFormat("{0}", Regex.Replace(Buf.ToString(), @"\s+", " ").Trim());
+
+				AdventureName01 = Buf.ToString();
 
 				var tempStr = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(AdventureName01);
 

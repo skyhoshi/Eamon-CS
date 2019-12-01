@@ -6,9 +6,11 @@
 using System;
 using System.Diagnostics;
 using System.Text;
+using System.Text.RegularExpressions;
 using Eamon;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using EamonRT.Framework.Combat;
 using EamonRT.Framework.States;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
@@ -201,7 +203,9 @@ namespace WrenholdsSecretVigil.Game.States
 
 							Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-							var wpnName = Globals.Buf.Trim().ToString();
+							Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\s+", " ").Trim());
+
+							var wpnName = Globals.Buf.ToString();
 
 							if (wpnName == "" || string.Equals(wpnName, "NONE", StringComparison.OrdinalIgnoreCase))
 							{

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Eamon.Framework;
 using Eamon.Framework.Helpers;
 using Eamon.Framework.Primitive.Classes;
@@ -140,6 +141,11 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual bool ValidateName()
 		{
+			if (Record.Name != null)
+			{
+				Record.Name = Regex.Replace(Record.Name, @"\s+", " ").Trim();
+			}
+
 			var result = !string.IsNullOrWhiteSpace(Record.Name);
 
 			if (result && Record.Name.Length > Constants.MonNameLen)
@@ -1327,7 +1333,7 @@ namespace Eamon.Game.Helpers
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.Name = Buf.Trim().ToString();
+				Record.Name = Buf.ToString();
 
 				if (ValidateField("Name"))
 				{

@@ -7,11 +7,13 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Helpers;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using Eamon.Game.Menus;
 using Eamon.Game.Utilities;
 using EamonMH.Framework.Menus.ActionMenus;
@@ -345,7 +347,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				character.Name = Buf.Trim().ToString();
+				Buf.SetFormat("{0}", Regex.Replace(Buf.ToString(), @"\s+", " ").Trim());
+
+				character.Name = Buf.ToString();
 				
 				var helper = Globals.CreateInstance<ICharacterHelper>(x =>
 				{
