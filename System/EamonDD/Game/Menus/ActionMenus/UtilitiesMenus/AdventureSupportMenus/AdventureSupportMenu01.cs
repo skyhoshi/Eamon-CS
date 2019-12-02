@@ -132,7 +132,7 @@ dotnet .\EamonPM.WindowsUnix.dll -pfn YourLibraryName.dll -wd ..\..\Adventures\Y
 @"
 // YourInterfaceName.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 using static YourAdventureName.Game.Plugin.PluginContext;
 
@@ -149,7 +149,7 @@ namespace YourAdventureName.YourFrameworkNamespaceName
 @"
 // YourInterfaceName.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 YourEamonRTUsingStatementusing static YourAdventureName.Game.Plugin.PluginContext;
 
@@ -166,7 +166,7 @@ namespace YourAdventureName.YourFrameworkNamespaceName
 @"
 // YourClassName.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 YourEamonUsingStatementusing Eamon.Game.Attributes;
 YourEamonRTUsingStatementusing static YourAdventureName.Game.Plugin.PluginContext;
@@ -186,7 +186,7 @@ namespace YourAdventureName.YourGameNamespaceName
 @"
 // YourClassName.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using static YourAdventureName.Game.Plugin.PluginContext;
@@ -206,7 +206,7 @@ namespace YourAdventureName.YourGameNamespaceName
 @"
 // YourClassName.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 YourEamonUsingStatementusing Eamon.Game.Attributes;
 YourEamonRTUsingStatementusing static YourAdventureName.Game.Plugin.PluginContext;
