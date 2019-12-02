@@ -127,6 +127,30 @@ namespace TheTempleOfNgurct.Game.States
 						}
 					}
 				}
+
+				// Reveal secret doors
+
+				var secretDoorArtifact1 = Globals.ADB[83];
+
+				Debug.Assert(secretDoorArtifact1 != null);
+
+				if (gameState.Ro == 24 && gameState.R3 == 41 && secretDoorArtifact1.IsInLimbo())
+				{
+					secretDoorArtifact1.SetInRoomUid(24);
+
+					secretDoorArtifact1.DoorGate.SetOpen(true);
+				}
+
+				var secretDoorArtifact2 = Globals.ADB[84];
+
+				Debug.Assert(secretDoorArtifact2 != null);
+
+				if (gameState.Ro == 48 && gameState.R3 == 49 && secretDoorArtifact2.IsInLimbo())
+				{
+					secretDoorArtifact2.SetInRoomUid(48);
+
+					secretDoorArtifact2.DoorGate.SetOpen(true);
+				}
 			}
 
 			base.ProcessEvents(eventType);

@@ -2730,7 +2730,7 @@
                     <Simple name="Field1" value="41" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="1" />
-                    <Simple name="Field4" value="1" />
+                    <Simple name="Field4" value="0" />
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
@@ -2763,7 +2763,7 @@
                     <Simple name="Field1" value="49" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="1" />
-                    <Simple name="Field4" value="1" />
+                    <Simple name="Field4" value="0" />
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>

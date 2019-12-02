@@ -65,15 +65,6 @@ namespace TheTempleOfNgurct.Game
 				return result;
 			});
 
-			MacroFuncs.Add(8, () =>
-			{
-				var secretDoorArtifact = Globals.ADB[84];
-
-				var ac = secretDoorArtifact != null && secretDoorArtifact.IsInRoomUid(48) ? secretDoorArtifact.DoorGate : null;
-
-				return ac != null && ac.IsOpen() ? "Exits are north and east." : "An exit is east.";
-			});
-
 			var synonyms = new Dictionary<long, string[]>()
 			{
 				{ 11, new string[] { "sword" } },
