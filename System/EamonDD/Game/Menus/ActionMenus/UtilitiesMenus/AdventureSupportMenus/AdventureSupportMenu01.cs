@@ -1,7 +1,7 @@
 ﻿
 // AdventureSupportMenu01.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -317,7 +317,7 @@ namespace YourAdventureName.YourGameNamespaceName
 					Globals.Out.Print("{0}", Globals.LineSep);
 				}
 
-				Globals.Out.Print("Could not locate the Visual Studio 2017 devenv.exe program at the following path:");
+				Globals.Out.Print("Could not locate the Visual Studio {0} devenv.exe program at the following path:", Constants.MicrosoftVisualStudioYear);
 
 				Globals.Out.WordWrap = false;
 
@@ -344,7 +344,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				Globals.Out.WordWrap = true;
 
-				Globals.Out.Print("You may need to compile it using the Eamon.Desktop solution and Visual Studio 2017.");
+				Globals.Out.Print("You may need to compile it using the Eamon.Desktop solution and Visual Studio {0}.", Constants.MicrosoftVisualStudioYear);
 
 				GotoCleanup = true;
 			}
@@ -355,7 +355,7 @@ namespace YourAdventureName.YourGameNamespaceName
 					Globals.Out.Print("{0}", Globals.LineSep);
 				}
 
-				Globals.Out.Print("Could not locate the Visual Studio 2017 envdte.dll library at the following path:");
+				Globals.Out.Print("Could not locate the Visual Studio {0} envdte.dll library at the following path:", Constants.MicrosoftVisualStudioYear);
 
 				Globals.Out.WordWrap = false;
 
@@ -363,7 +363,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				Globals.Out.WordWrap = true;
 
-				Globals.Out.Print(@"This library is copied into System\Bin when the EamonVS project is compiled using the Eamon.Desktop solution and Visual Studio 2017.");
+				Globals.Out.Print(@"This library is copied into System\Bin when the EamonVS project is compiled using the Eamon.Desktop solution and Visual Studio {0}.", Constants.MicrosoftVisualStudioYear);
 
 				GotoCleanup = true;
 			}

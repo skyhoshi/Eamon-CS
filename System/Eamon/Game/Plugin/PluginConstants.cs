@@ -1,7 +1,7 @@
 ﻿
 // PluginConstants.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using Eamon.Framework.Plugin;
@@ -127,6 +127,8 @@ namespace Eamon.Game.Plugin
 		public virtual string DefaultWorkDir { get; protected set; } = ".";
 
 		public virtual string ProcessMutexName { get; protected set; }
+
+		public virtual string MicrosoftVisualStudioYear { get; protected set; } = "2017";
 
 		public virtual string EamonAdventuresSlnFile { get; protected set; } = @"..\..\Eamon.Adventures.sln";
 
