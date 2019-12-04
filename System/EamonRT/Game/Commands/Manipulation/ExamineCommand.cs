@@ -243,6 +243,13 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			return Enum.IsDefined(typeof(ContainerType), ContainerType) && !artifact.IsWornByCharacter();
+		}
+
 		/*
 		public override bool IsPrepEnabled(IPrep prep)
 		{
