@@ -1,7 +1,7 @@
 ﻿
 // IPluginConstants.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 namespace Eamon.Framework.Plugin
 {
@@ -184,9 +184,6 @@ namespace Eamon.Framework.Plugin
 
 		/// <summary></summary>
 		string ProcessMutexName { get; }
-
-		/// <summary></summary>
-		string MicrosoftVisualStudioYear { get; }
 
 		/// <summary></summary>
 		string EamonAdventuresSlnFile { get; }

@@ -3977,9 +3977,6 @@
         <member name="P:Eamon.Framework.Plugin.IPluginConstants.ProcessMutexName">
             <summary></summary>
         </member>
-        <member name="P:Eamon.Framework.Plugin.IPluginConstants.MicrosoftVisualStudioYear">
-            <summary></summary>
-        </member>
         <member name="P:Eamon.Framework.Plugin.IPluginConstants.EamonAdventuresSlnFile">
             <summary></summary>
         </member>
