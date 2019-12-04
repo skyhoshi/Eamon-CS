@@ -15,7 +15,7 @@ Eamon CS Mobile currently runs on devices using Android 4.0 through 8.1.
 
 #### Installing
 
-There is no formal installer for Eamon CS.  You can obtain a copy of this repository (and a full set of binaries) in one of two ways.  Either do a Git Clone using Visual Studio 2017 or, more simply, download a .zip file using the green Clone Or Download button above.  (To obtain and install Eamon CS Mobile, look at the Wiki Development Log entry dated 20170613.)
+There is no formal installer for Eamon CS.  You can obtain a copy of this repository (and a full set of binaries) in one of two ways.  Either do a Git Clone using Visual Studio 2017+ or, more simply, download a .zip file using the green Clone Or Download button above.  (To obtain and install Eamon CS Mobile, look at the Wiki Development Log entry dated 20170613.)
 
 If you are on Windows and choose the second option, before unzipping the file, you should right-click on it.  Then select Properties and click the Unblock checkbox (or button) in the lower right corner of the form.  Finally, click Apply and OK.  The gameplay experience will improve by eliminating security warning message boxes.
 
