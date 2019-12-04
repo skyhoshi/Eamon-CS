@@ -64,7 +64,7 @@ namespace EamonRT.Game.Commands
 
 				Globals.Buf.Clear();
 
-				if (Enum.IsDefined(typeof(ContainerType), ContainerType))
+				if (Enum.IsDefined(typeof(ContainerType), ContainerType) && !DobjArtifact.IsWornByCharacter())
 				{
 					var containerArtType = Globals.Engine.EvalContainerType(ContainerType, ArtifactType.InContainer, ArtifactType.OnContainer, ArtifactType.UnderContainer, ArtifactType.BehindContainer);
 
