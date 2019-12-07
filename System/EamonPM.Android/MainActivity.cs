@@ -1,7 +1,7 @@
 ﻿
 // MainActivity.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -220,8 +220,6 @@ namespace EamonPM
 			// Note: if ECS Mobile crashes while loading textfiles it is likely that the FreeUids list in the offending textfile is
 			// defined as coming from System.Private.CoreLib.  Xamarin.Forms appears to currently only be compatible with mscorlib,
 			// so you should find a textfile in a previous adventure containing this definition and copy it over.
-
-			// Note: the above still holds true for Xamarin.Forms 4.3.0.
 		}
 
 		protected override void OnCreate(Bundle bundle)
