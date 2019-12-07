@@ -3562,6 +3562,34 @@
             <param name="dir"></param>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IRoom.SetDirectionExit(System.Int64)">
+            <summary></summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.SetDirectionExit(Eamon.Framework.Primitive.Enums.Direction)">
+            <summary></summary>
+            <param name="dir"></param>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.SetDirectionDoorUid(System.Int64,System.Int64)">
+            <summary></summary>
+            <param name="index"></param>
+            <param name="artifactUid"></param>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.SetDirectionDoorUid(Eamon.Framework.Primitive.Enums.Direction,System.Int64)">
+            <summary></summary>
+            <param name="dir"></param>
+            <param name="artifactUid"></param>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.SetDirectionDoor(System.Int64,Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="index"></param>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.SetDirectionDoor(Eamon.Framework.Primitive.Enums.Direction,Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="dir"></param>
+            <param name="artifact"></param>
+        </member>
         <member name="M:Eamon.Framework.IRoom.GetObviousExits">
             <summary></summary>
             <returns></returns>

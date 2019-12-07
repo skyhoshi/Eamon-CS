@@ -18,6 +18,8 @@ namespace Eamon.Mobile.Views
 		/// <param name="args"></param>
 		async protected virtual void OnItemTapped(object sender, ItemTappedEventArgs args)
 		{
+			FoldersListView.IsEnabled = false;
+
 			FoldersListView.SelectedItem = null;
 
 			var folder = args.Item as string;
@@ -33,6 +35,8 @@ namespace Eamon.Mobile.Views
 					await Navigation.PushAsync(new QuickLaunchPage());
 				}
 			}
+
+			FoldersListView.IsEnabled = true;
 		}
 
 		public EamonCSPage()

@@ -4,6 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Collections.Generic;
+using System.Linq;
 using Eamon.Mobile.Models;
 
 namespace Eamon.Mobile.ViewModels
@@ -31,6 +32,8 @@ namespace Eamon.Mobile.ViewModels
 					PluginArgs = new string[] { "-pfn", App.PluginExists(pluginFileName) ? pluginFileName : "EamonRT.dll", "-wd", string.Format(@"..\..\Adventures\{0}", dir) }
 				});
 			}
+
+			BatchFiles = BatchFiles.OrderBy(bf => bf.Name).ToList();
 		}
 	}
 }

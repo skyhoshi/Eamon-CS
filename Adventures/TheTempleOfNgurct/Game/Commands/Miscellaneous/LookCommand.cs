@@ -27,6 +27,10 @@ namespace TheTempleOfNgurct.Game.Commands
 			{
 				var rl = Globals.Engine.RollDice(1, 100, 0);
 
+				var room1 = Globals.RDB[24];
+
+				Debug.Assert(room1 != null);
+
 				var secretDoorArtifact1 = Globals.ADB[83];
 
 				Debug.Assert(secretDoorArtifact1 != null);
@@ -37,8 +41,14 @@ namespace TheTempleOfNgurct.Game.Commands
 				{
 					secretDoorArtifact1.SetEmbeddedInRoom(ActorRoom);
 
+					room1.SetDirectionDoor(Direction.North, secretDoorArtifact1);
+
 					Globals.Engine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact1);
 				}
+
+				var room2 = Globals.RDB[48];
+
+				Debug.Assert(room2 != null);
 
 				var secretDoorArtifact2 = Globals.ADB[84];
 
@@ -49,6 +59,8 @@ namespace TheTempleOfNgurct.Game.Commands
 				if (ActorRoom.Uid == 48 && secretDoorArtifact2.IsInLimbo() && rl < 51)
 				{
 					secretDoorArtifact2.SetEmbeddedInRoom(ActorRoom);
+
+					room2.SetDirectionDoor(Direction.South, secretDoorArtifact2);
 
 					Globals.Engine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact2);
 				}

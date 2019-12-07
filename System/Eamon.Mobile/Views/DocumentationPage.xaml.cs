@@ -18,6 +18,8 @@ namespace Eamon.Mobile.Views
 		/// <param name="args"></param>
 		async protected virtual void OnItemTapped(object sender, ItemTappedEventArgs args)
 		{
+			BatchFilesListView.IsEnabled = false;
+
 			BatchFilesListView.SelectedItem = null;
 
 			var batchFile = args.Item as BatchFile;
@@ -42,6 +44,8 @@ namespace Eamon.Mobile.Views
 					Navigation.RemovePage(Navigation.NavigationStack[0]);
 				}
 			}
+
+			BatchFilesListView.IsEnabled = true;
 		}
 
 		public DocumentationPage()

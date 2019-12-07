@@ -128,6 +128,34 @@ namespace Eamon.Framework
 		IArtifact GetDirectionDoor(Direction dir);
 
 		/// <summary></summary>
+		/// <param name="index"></param>
+		void SetDirectionExit(long index);
+
+		/// <summary></summary>
+		/// <param name="dir"></param>
+		void SetDirectionExit(Direction dir);
+	
+		/// <summary></summary>
+		/// <param name="index"></param>
+		/// <param name="artifactUid"></param>
+		void SetDirectionDoorUid(long index, long artifactUid);
+
+		/// <summary></summary>
+		/// <param name="dir"></param>
+		/// <param name="artifactUid"></param>
+		void SetDirectionDoorUid(Direction dir, long artifactUid);
+
+		/// <summary></summary>
+		/// <param name="index"></param>
+		/// <param name="artifact"></param>
+		void SetDirectionDoor(long index, IArtifact artifact);
+
+		/// <summary></summary>
+		/// <param name="dir"></param>
+		/// <param name="artifact"></param>
+		void SetDirectionDoor(Direction dir, IArtifact artifact);
+
+		/// <summary></summary>
 		/// <returns></returns>
 		string GetObviousExits();
 

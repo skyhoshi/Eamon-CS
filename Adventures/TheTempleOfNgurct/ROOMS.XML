@@ -640,7 +640,7 @@
             <SingleArray name="Dirs">
               <Items>
                 <Simple value="0" />
-                <Simple value="1083" />
+                <Simple value="0" />
                 <Simple value="25" />
                 <Simple value="23" />
                 <Simple value="59" />
@@ -1289,7 +1289,7 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="28" />
-                <Simple value="1084" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />

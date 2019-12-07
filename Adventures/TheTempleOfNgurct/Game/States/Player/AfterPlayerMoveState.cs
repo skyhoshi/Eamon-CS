@@ -4,6 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
 using System.Diagnostics;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
@@ -130,6 +131,10 @@ namespace TheTempleOfNgurct.Game.States
 
 				// Reveal secret doors
 
+				var room1 = Globals.RDB[24];
+
+				Debug.Assert(room1 != null);
+
 				var secretDoorArtifact1 = Globals.ADB[83];
 
 				Debug.Assert(secretDoorArtifact1 != null);
@@ -139,7 +144,13 @@ namespace TheTempleOfNgurct.Game.States
 					secretDoorArtifact1.SetInRoomUid(24);
 
 					secretDoorArtifact1.DoorGate.SetOpen(true);
+
+					room1.SetDirectionDoor(Direction.North, secretDoorArtifact1);
 				}
+
+				var room2 = Globals.RDB[48];
+
+				Debug.Assert(room2 != null);
 
 				var secretDoorArtifact2 = Globals.ADB[84];
 
@@ -150,6 +161,8 @@ namespace TheTempleOfNgurct.Game.States
 					secretDoorArtifact2.SetInRoomUid(48);
 
 					secretDoorArtifact2.DoorGate.SetOpen(true);
+
+					room2.SetDirectionDoor(Direction.South, secretDoorArtifact2);
 				}
 			}
 
