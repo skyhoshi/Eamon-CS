@@ -166,7 +166,7 @@ namespace Eamon.Game.Plugin
 
 			CourageDesc = string.Format("Courage works as follows:{0}{0}1-100% - the chance the monster won't flee combat and/or follow a fleeing player (if enemy).  If the monster is injured or gravely injured, then effective courage is reduced by 5% or 10%, respectively.{0}200% - the monster will never flee and always follow the player.", Environment.NewLine);
 
-			ProcessMutexName = string.Format("Eamon_CS_{0}_Process_Mutex", ProgVersion);
+			ProcessMutexName = string.Format(@"Global\Eamon_CS_{0}_Process_Mutex", ProgVersion);
 		}
 	}
 }
