@@ -12,6 +12,7 @@ using System.Threading;
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Xamarin.Forms;
 using Eamon;
 using Eamon.Framework.Plugin;
 using Eamon.Framework.Portability;
@@ -165,7 +166,7 @@ namespace EamonPM
 				App.PluginLauncherPage.InputEntry_Unfocus();
 			}
 
-			Thread.Sleep(500);
+			Thread.Sleep(750);
 
 			RunOnUiThread(SaveSettingsAndTerminate);
 		}
@@ -187,9 +188,12 @@ namespace EamonPM
 
 			Finish();
 
-			Thread.Sleep(500);
+			Device.BeginInvokeOnMainThread(() =>
+			{
+				Thread.Sleep(150);
 
-			Process.KillProcess(Process.MyPid());
+				Process.KillProcess(Process.MyPid());
+			});
 		}
 
 		/// <summary></summary>
