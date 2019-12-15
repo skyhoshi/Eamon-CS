@@ -16,7 +16,14 @@ namespace WrenholdsSecretVigil.Game.Commands
 	{
 		public override void PrintCantVerbHere()
 		{
-			Globals.Out.Print("You cannot {0} here.", Verb);
+			if (Globals.GameState.GetNBTL(Friendliness.Enemy) > 0)
+			{
+				PrintEnemiesNearby();
+			}
+			else
+			{
+				Globals.Out.Print("You cannot {0} here.", Verb);
+			}
 		}
 
 		public override void PlayerExecute()
@@ -42,7 +49,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public override bool IsAllowedInRoom()
 		{
-			return ActorRoom.CastTo<Framework.IRoom>().IsDigCommandAllowedInRoom();
+			return Globals.GameState.GetNBTL(Friendliness.Enemy) <= 0 && ActorRoom.CastTo<Framework.IRoom>().IsDigCommandAllowedInRoom();
 		}
 
 		public DigCommand()
