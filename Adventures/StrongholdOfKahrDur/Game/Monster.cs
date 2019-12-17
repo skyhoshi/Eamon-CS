@@ -124,7 +124,9 @@ namespace StrongholdOfKahrDur.Game
 				case Enums.Weapon.Axe:
 				case Enums.Weapon.Club:
 				case Enums.Weapon.Spear:
+
 					missDescs[0] = "Parried";
+
 					break;
 			}
 

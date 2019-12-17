@@ -925,19 +925,33 @@ namespace Eamon.Game
 			switch ((Enums.Weapon)artifact.GeneralWeapon.Field2)
 			{
 				case Enums.Weapon.Axe:
+
 					attackDescs = new string[] { "swing{0} at", "chop{0} at", "swing{0} at" };
+
 					break;
+
 				case Enums.Weapon.Bow:
+
 					attackDescs = new string[] { "shoot{0} at", "shoot{0} at", "shoot{0} at" };
+
 					break;
+
 				case Enums.Weapon.Club:
+
 					attackDescs = new string[] { "swing{0} at", "swing{0} at", "swing{0} at" };
+
 					break;
+
 				case Enums.Weapon.Spear:
+
 					attackDescs = new string[] { "stab{0} at", "lunge{0} at", "jab{0} at" };
+
 					break;
+
 				case Enums.Weapon.Sword:
+
 					attackDescs = new string[] { "swing{0} at", "chop{0} at", "stab{0} at" };
+
 					break;
 			}
 
@@ -978,19 +992,23 @@ namespace Eamon.Game
 			switch ((Enums.Weapon)artifact.GeneralWeapon.Field2)
 			{
 				case Enums.Weapon.Axe:
-					missDescs = new string[] { "Dodged", "Missed" };
-					break;
-				case Enums.Weapon.Bow:
-					missDescs = new string[] { "Missed", "Missed" };
-					break;
 				case Enums.Weapon.Club:
-					missDescs = new string[] { "Dodged", "Missed" };
-					break;
 				case Enums.Weapon.Spear:
+
 					missDescs = new string[] { "Dodged", "Missed" };
+
 					break;
+
+				case Enums.Weapon.Bow:
+
+					missDescs = new string[] { "Missed", "Missed" };
+
+					break;
+
 				case Enums.Weapon.Sword:
+
 					missDescs = new string[] { "Parried", "Missed" };
+
 					break;
 			}
 
