@@ -268,12 +268,6 @@ namespace StrongholdOfKahrDur.Game
 		
 		public Engine()
 		{
-			MissDescs[new Tuple<Weapon, long>(Weapon.Axe, 1)] = "Parried";
-
-			MissDescs[new Tuple<Weapon, long>(Weapon.Club, 1)] = "Parried";
-
-			MissDescs[new Tuple<Weapon, long>(Weapon.Spear, 1)] = "Parried";
-
 			UseMonsterScaledHardinessValues = true;
 		}
 	}

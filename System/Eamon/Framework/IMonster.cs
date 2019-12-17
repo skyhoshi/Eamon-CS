@@ -323,7 +323,29 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="artifact"></param>
 		/// <returns></returns>
+		string[] GetWeaponAttackDescs(IArtifact artifact);
+
+		/// <summary></summary>
+		/// <returns></returns>
+		string[] GetHumanAttackDescs();
+
+		/// <summary></summary>
+		/// <returns></returns>
+		string[] GetNaturalAttackDescs();
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		/// <returns></returns>
 		string GetAttackDescString(IArtifact artifact);
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		/// <returns></returns>
+		string[] GetWeaponMissDescs(IArtifact artifact);
+
+		/// <summary></summary>
+		/// <returns></returns>
+		string[] GetNaturalMissDescs();
 
 		/// <summary></summary>
 		/// <param name="artifact"></param>

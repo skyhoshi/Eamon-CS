@@ -565,18 +565,6 @@ namespace Eamon.Framework
 		string GetBlastDesc();
 
 		/// <summary></summary>
-		/// <param name="weapon"></param>
-		/// <param name="roll"></param>
-		/// <returns></returns>
-		string GetAttackDescString(Weapon weapon, long roll);
-
-		/// <summary></summary>
-		/// <param name="weapon"></param>
-		/// <param name="roll"></param>
-		/// <returns></returns>
-		string GetMissDescString(Weapon weapon, long roll);
-
-		/// <summary></summary>
 		/// <param name="numDice"></param>
 		/// <param name="numSides"></param>
 		/// <param name="dieRolls"></param>

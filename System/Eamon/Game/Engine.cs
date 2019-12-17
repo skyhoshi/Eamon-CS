@@ -68,12 +68,6 @@ namespace Eamon.Game
 		/// <summary></summary>
 		protected virtual IArtifactType[] ArtifactTypes { get; set; }
 
-		/// <summary></summary>
-		protected virtual IDictionary<Tuple<Weapon, long>, string> AttackDescs { get; set; }
-
-		/// <summary></summary>
-		protected virtual IDictionary<Tuple<Weapon, long>, string> MissDescs { get; set; }
-
 		#endregion
 
 		#region Public Properties
@@ -1087,24 +1081,6 @@ namespace Eamon.Game
 			return "ZAP!  Direct hit!";
 		}
 		
-		public virtual string GetAttackDescString(Weapon weapon, long roll)
-		{
-			string result = null;
-
-			AttackDescs.TryGetValue(new Tuple<Weapon, long>(weapon, roll), out result);
-
-			return result ?? "attack{0}";
-		}
-
-		public virtual string GetMissDescString(Weapon weapon, long roll)
-		{
-			string result = null;
-
-			MissDescs.TryGetValue(new Tuple<Weapon, long>(weapon, roll), out result);
-
-			return result ?? "Missed";
-		}
-
 		public virtual RetCode RollDice(long numDice, long numSides, ref long[] dieRolls)
 		{
 			RetCode rc;
@@ -3089,47 +3065,6 @@ namespace Eamon.Game
 					x.Field5Name = "Field5";
 					x.Field5EmptyVal = "0";
 				})
-			};
-
-			AttackDescs = new Dictionary<Tuple<Weapon, long>, string>()
-			{
-				{ new Tuple<Weapon, long>(0, 1), "lunge{0} at" },
-				{ new Tuple<Weapon, long>(0, 2), "tear{0} at" },
-				{ new Tuple<Weapon, long>(0, 3), "claw{0} at" },
-				{ new Tuple<Weapon, long>(0, 4), "charge{0} at" },
-				{ new Tuple<Weapon, long>(0, 5), "punche{0} at" },
-				{ new Tuple<Weapon, long>(0, 6), "kick{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Axe, 1), "swing{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Axe, 2), "chop{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Axe, 3), "swing{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Bow, 1), "shoot{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Bow, 2), "shoot{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Bow, 3), "shoot{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Club, 1), "swing{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Club, 2), "swing{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Club, 3), "swing{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Spear, 1), "stab{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Spear, 2), "lunge{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Spear, 3), "jab{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Sword, 1), "swing{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Sword, 2), "chop{0} at" },
-				{ new Tuple<Weapon, long>(Weapon.Sword, 3), "stab{0} at" }
-			};
-
-			MissDescs = new Dictionary<Tuple<Weapon, long>, string>()
-			{
-				{ new Tuple<Weapon, long>(0, 1), "Missed" },
-				{ new Tuple<Weapon, long>(0, 2), "Missed" },
-				{ new Tuple<Weapon, long>(Weapon.Axe, 1), "Dodged" },
-				{ new Tuple<Weapon, long>(Weapon.Axe, 2), "Missed" },
-				{ new Tuple<Weapon, long>(Weapon.Bow, 1), "Missed" },
-				{ new Tuple<Weapon, long>(Weapon.Bow, 2), "Missed" },
-				{ new Tuple<Weapon, long>(Weapon.Club, 1), "Dodged" },
-				{ new Tuple<Weapon, long>(Weapon.Club, 2), "Missed" },
-				{ new Tuple<Weapon, long>(Weapon.Spear, 1), "Dodged" },
-				{ new Tuple<Weapon, long>(Weapon.Spear, 2), "Missed" },
-				{ new Tuple<Weapon, long>(Weapon.Sword, 1), "Parried" },
-				{ new Tuple<Weapon, long>(Weapon.Sword, 2), "Missed" },
 			};
 
 			MacroFuncs = new Dictionary<long, Func<string>>();
