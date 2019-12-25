@@ -588,20 +588,20 @@
   </Target>
   <PropertyGroup>
     <PreBuildEvent>xcopy "$(TargetDir)*.XML" "$(TargetDir)..\EamonPM.Android\Assets\System\Bin" /I /S /Y
- xcopy "$(TargetDir)..\..\Documentation\*.txt" "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /I /S /Y
- xcopy "$(TargetDir)..\..\Documentation\*.htm" "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /I /S /Y
- xcopy "$(TargetDir)..\..\Adventures\ARuncibleCargo\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\ARuncibleCargo" /I /S /Y
- xcopy "$(TargetDir)..\..\Adventures\BeginnersForest\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\BeginnersForest" /I /S /Y
- xcopy "$(TargetDir)..\..\Adventures\DemoAdventure\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\DemoAdventure" /I /S /Y
- xcopy "$(TargetDir)..\..\Adventures\StrongholdOfKahrDur\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\StrongholdOfKahrDur" /I /S /Y
- xcopy "$(TargetDir)..\..\Adventures\TestAdventure\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TestAdventure" /I /S /Y
- xcopy "$(TargetDir)..\..\Adventures\TheBeginnersCave\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheBeginnersCave" /I /S /Y
- xcopy "$(TargetDir)..\..\Adventures\TheSubAquanLaboratory\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheSubAquanLaboratory" /I /S /Y
- xcopy "$(TargetDir)..\..\Adventures\TheTempleOfNgurct\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheTempleOfNgurct" /I /S /Y
- xcopy "$(TargetDir)..\..\Adventures\TheTrainingGround\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheTrainingGround" /I /S /Y
- xcopy "$(TargetDir)..\..\Adventures\WrenholdsSecretVigil\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\WrenholdsSecretVigil" /I /S /Y
- xcopy "$(TargetDir)..\..\Adventures\TheVileGrimoireOfJaldial\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheVileGrimoireOfJaldial" /I /S /Y
- xcopy "$(TargetDir)..\..\Adventures\TheWayfarersInn\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheWayfarersInn" /I /S /Y
+xcopy "$(TargetDir)..\..\Documentation\*.txt" "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /I /S /Y
+xcopy "$(TargetDir)..\..\Documentation\*.htm" "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\ARuncibleCargo\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\ARuncibleCargo" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\BeginnersForest\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\BeginnersForest" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\DemoAdventure\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\DemoAdventure" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\StrongholdOfKahrDur\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\StrongholdOfKahrDur" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\TestAdventure\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TestAdventure" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\TheBeginnersCave\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheBeginnersCave" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\TheSubAquanLaboratory\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheSubAquanLaboratory" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\TheTempleOfNgurct\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheTempleOfNgurct" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\TheTrainingGround\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheTrainingGround" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\WrenholdsSecretVigil\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\WrenholdsSecretVigil" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\TheVileGrimoireOfJaldial\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheVileGrimoireOfJaldial" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\TheWayfarersInn\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheWayfarersInn" /I /S /Y
 </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
