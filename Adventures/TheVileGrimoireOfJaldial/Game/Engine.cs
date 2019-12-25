@@ -10,7 +10,7 @@ using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
 namespace TheVileGrimoireOfJaldial.Game
 {
 	[ClassMappings(typeof(IEngine))]
-	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
+	public class Engine : EamonRT.Game.Engine, Framework.IEngine
 	{
 
 	}

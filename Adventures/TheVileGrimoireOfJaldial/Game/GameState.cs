@@ -12,6 +12,6 @@ namespace TheVileGrimoireOfJaldial.Game
 	[ClassMappings(typeof(IGameState))]
 	public class GameState : Eamon.Game.GameState, Framework.IGameState
 	{
-
+		public virtual bool ExitDirNames { get; set; }
 	}
 }

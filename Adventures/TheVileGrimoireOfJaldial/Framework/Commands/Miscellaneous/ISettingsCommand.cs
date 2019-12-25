@@ -9,6 +9,6 @@ namespace TheVileGrimoireOfJaldial.Framework.Commands
 {
 	public interface ISettingsCommand : EamonRT.Framework.Commands.ISettingsCommand
 	{
-
+		bool? ExitDirNames { get; set; }
 	}
 }
