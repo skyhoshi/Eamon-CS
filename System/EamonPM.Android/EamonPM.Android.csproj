@@ -110,7 +110,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\WrenholdsSecretVigil.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Android.Arch.Core.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+	  <Reference Include="TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+		  <SpecificVersion>False</SpecificVersion>
+		  <HintPath>..\Bin\TheVileGrimoireOfJaldial.dll</HintPath>
+	  </Reference>
+	  <Reference Include="TheWayfarersInn, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+		  <SpecificVersion>False</SpecificVersion>
+		  <HintPath>..\Bin\TheWayfarersInn.dll</HintPath>
+	  </Reference>
+	  <Reference Include="Xamarin.Android.Arch.Core.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Android.Arch.Core.Common.1.1.1.3\lib\monoandroid81\Xamarin.Android.Arch.Core.Common.dll</HintPath>
     </Reference>
     <Reference Include="Xamarin.Android.Arch.Lifecycle.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -510,7 +518,43 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\Adventures\WrenholdsSecretVigil\MONSTERS.XML" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+	<ItemGroup>
+		<AndroidAsset Include="Assets\Adventures\TheVileGrimoireOfJaldial\ROOMS.XML" />
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidAsset Include="Assets\Adventures\TheVileGrimoireOfJaldial\ARTIFACTS.XML" />
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidAsset Include="Assets\Adventures\TheVileGrimoireOfJaldial\EFFECTS.XML" />
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidAsset Include="Assets\Adventures\TheVileGrimoireOfJaldial\HINTS.XML" />
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidAsset Include="Assets\Adventures\TheVileGrimoireOfJaldial\MODULE.XML" />
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidAsset Include="Assets\Adventures\TheVileGrimoireOfJaldial\MONSTERS.XML" />
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidAsset Include="Assets\Adventures\TheWayfarersInn\ROOMS.XML" />
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidAsset Include="Assets\Adventures\TheWayfarersInn\ARTIFACTS.XML" />
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidAsset Include="Assets\Adventures\TheWayfarersInn\EFFECTS.XML" />
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidAsset Include="Assets\Adventures\TheWayfarersInn\HINTS.XML" />
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidAsset Include="Assets\Adventures\TheWayfarersInn\MODULE.XML" />
+	</ItemGroup>
+	<ItemGroup>
+		<AndroidAsset Include="Assets\Adventures\TheWayfarersInn\MONSTERS.XML" />
+	</ItemGroup>
+	<Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -543,20 +587,23 @@
     <Error Condition="!Exists('..\..\packages\Xamarin.Forms.4.4.0.991265\build\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Xamarin.Forms.4.4.0.991265\build\Xamarin.Forms.targets'))" />
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>xcopy "$(TargetDir)*.XML" "$(TargetDir)..\EamonPM.Android\Assets\System\Bin" /I /S /Y
-xcopy "$(TargetDir)..\..\Documentation\*.txt" "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /I /S /Y
-xcopy "$(TargetDir)..\..\Documentation\*.htm" "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /I /S /Y
-xcopy "$(TargetDir)..\..\Adventures\ARuncibleCargo\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\ARuncibleCargo" /I /S /Y
-xcopy "$(TargetDir)..\..\Adventures\BeginnersForest\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\BeginnersForest" /I /S /Y
-xcopy "$(TargetDir)..\..\Adventures\DemoAdventure\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\DemoAdventure" /I /S /Y
-xcopy "$(TargetDir)..\..\Adventures\StrongholdOfKahrDur\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\StrongholdOfKahrDur" /I /S /Y
-xcopy "$(TargetDir)..\..\Adventures\TestAdventure\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TestAdventure" /I /S /Y
-xcopy "$(TargetDir)..\..\Adventures\TheBeginnersCave\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheBeginnersCave" /I /S /Y
-xcopy "$(TargetDir)..\..\Adventures\TheSubAquanLaboratory\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheSubAquanLaboratory" /I /S /Y
-xcopy "$(TargetDir)..\..\Adventures\TheTempleOfNgurct\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheTempleOfNgurct" /I /S /Y
-xcopy "$(TargetDir)..\..\Adventures\TheTrainingGround\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheTrainingGround" /I /S /Y
-xcopy "$(TargetDir)..\..\Adventures\WrenholdsSecretVigil\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\WrenholdsSecretVigil" /I /S /Y
-</PreBuildEvent>
+    <PreBuildEvent>
+		 xcopy "$(TargetDir)*.XML" "$(TargetDir)..\EamonPM.Android\Assets\System\Bin" /I /S /Y
+		 xcopy "$(TargetDir)..\..\Documentation\*.txt" "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /I /S /Y
+		 xcopy "$(TargetDir)..\..\Documentation\*.htm" "$(TargetDir)..\EamonPM.Android\Assets\Documentation" /I /S /Y
+		 xcopy "$(TargetDir)..\..\Adventures\ARuncibleCargo\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\ARuncibleCargo" /I /S /Y
+		 xcopy "$(TargetDir)..\..\Adventures\BeginnersForest\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\BeginnersForest" /I /S /Y
+		 xcopy "$(TargetDir)..\..\Adventures\DemoAdventure\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\DemoAdventure" /I /S /Y
+		 xcopy "$(TargetDir)..\..\Adventures\StrongholdOfKahrDur\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\StrongholdOfKahrDur" /I /S /Y
+		 xcopy "$(TargetDir)..\..\Adventures\TestAdventure\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TestAdventure" /I /S /Y
+		 xcopy "$(TargetDir)..\..\Adventures\TheBeginnersCave\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheBeginnersCave" /I /S /Y
+		 xcopy "$(TargetDir)..\..\Adventures\TheSubAquanLaboratory\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheSubAquanLaboratory" /I /S /Y
+		 xcopy "$(TargetDir)..\..\Adventures\TheTempleOfNgurct\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheTempleOfNgurct" /I /S /Y
+		 xcopy "$(TargetDir)..\..\Adventures\TheTrainingGround\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheTrainingGround" /I /S /Y
+		 xcopy "$(TargetDir)..\..\Adventures\WrenholdsSecretVigil\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\WrenholdsSecretVigil" /I /S /Y
+		 xcopy "$(TargetDir)..\..\Adventures\TheVileGrimoireOfJaldial\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheVileGrimoireOfJaldial" /I /S /Y
+		 xcopy "$(TargetDir)..\..\Adventures\TheWayfarersInn\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheWayfarersInn" /I /S /Y
+	 </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>

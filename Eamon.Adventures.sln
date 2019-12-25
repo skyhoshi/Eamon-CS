@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ARuncibleCargo", "Adventures\ARuncibleCargo\ARuncibleCargo.csproj", "{DC163B2F-F955-4AA9-9459-2706177F1D2B}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTrainingGround", "Adventures\TheTrainingGround\TheTrainingGround.csproj", "{0D85F4D1-6040-4649-A000-8B89EB89D5DC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WrenholdsSecretVigil", "Adventures\WrenholdsSecretVigil\WrenholdsSecretVigil.csproj", "{E1B87EC7-1901-4D56-99D8-693F70DEB1D3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheVileGrimoireOfJaldial", "Adventures\TheVileGrimoireOfJaldial\TheVileGrimoireOfJaldial.csproj", "{B879709C-A67E-47A6-BFB5-B83AD51A6CA1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheWayfarersInn", "Adventures\TheWayfarersInn\TheWayfarersInn.csproj", "{A8955BDE-4431-469A-AB59-AFB12452C7A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{E1B87EC7-1901-4D56-99D8-693F70DEB1D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1B87EC7-1901-4D56-99D8-693F70DEB1D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1B87EC7-1901-4D56-99D8-693F70DEB1D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B879709C-A67E-47A6-BFB5-B83AD51A6CA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B879709C-A67E-47A6-BFB5-B83AD51A6CA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B879709C-A67E-47A6-BFB5-B83AD51A6CA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B879709C-A67E-47A6-BFB5-B83AD51A6CA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8955BDE-4431-469A-AB59-AFB12452C7A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8955BDE-4431-469A-AB59-AFB12452C7A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8955BDE-4431-469A-AB59-AFB12452C7A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8955BDE-4431-469A-AB59-AFB12452C7A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
