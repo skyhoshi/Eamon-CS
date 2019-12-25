@@ -6,7 +6,7 @@
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheWayfarersInn.Game.Room, TheWayfarersInn, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
