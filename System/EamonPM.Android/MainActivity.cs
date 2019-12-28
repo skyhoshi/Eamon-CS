@@ -1,7 +1,7 @@
 ﻿
 // MainActivity.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -12,6 +12,7 @@ using System.Threading;
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Xamarin.Forms;
 using Eamon;
 using Eamon.Framework.Plugin;
 using Eamon.Framework.Portability;
@@ -165,7 +166,7 @@ namespace EamonPM
 				App.PluginLauncherPage.InputEntry_Unfocus();
 			}
 
-			Thread.Sleep(500);
+			Thread.Sleep(750);
 
 			RunOnUiThread(SaveSettingsAndTerminate);
 		}
@@ -187,9 +188,12 @@ namespace EamonPM
 
 			Finish();
 
-			Thread.Sleep(500);
+			Device.BeginInvokeOnMainThread(() =>
+			{
+				Thread.Sleep(150);
 
-			Process.KillProcess(Process.MyPid());
+				Process.KillProcess(Process.MyPid());
+			});
 		}
 
 		/// <summary></summary>
@@ -216,6 +220,10 @@ namespace EamonPM
 			pg = TheTrainingGround.Game.Plugin.PluginContext.Globals;
 
 			pg = WrenholdsSecretVigil.Game.Plugin.PluginContext.Globals;
+
+			pg = TheVileGrimoireOfJaldial.Game.Plugin.PluginContext.Globals;
+
+			pg = TheWayfarersInn.Game.Plugin.PluginContext.Globals;
 
 			// Note: if ECS Mobile crashes while loading textfiles it is likely that the FreeUids list in the offending textfile is
 			// defined as coming from System.Private.CoreLib.  Xamarin.Forms appears to currently only be compatible with mscorlib,
@@ -291,7 +299,7 @@ namespace EamonPM
 		{
 			if (App.Rc != RetCode.Success)
 			{
-				// +++ IMPLEMENT +++
+				// TODO
 			}
 
 			if (GameThread != null)

@@ -2571,18 +2571,6 @@
             <summary></summary>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IEngine.GetAttackDescString(Eamon.Framework.Primitive.Enums.Weapon,System.Int64)">
-            <summary></summary>
-            <param name="weapon"></param>
-            <param name="roll"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Eamon.Framework.IEngine.GetMissDescString(Eamon.Framework.Primitive.Enums.Weapon,System.Int64)">
-            <summary></summary>
-            <param name="weapon"></param>
-            <param name="roll"></param>
-            <returns></returns>
-        </member>
         <member name="M:Eamon.Framework.IEngine.RollDice(System.Int64,System.Int64,System.Int64[]@)">
             <summary></summary>
             <param name="numDice"></param>
@@ -3437,9 +3425,31 @@
             <param name="buf"></param>
             <param name="addNewLine"></param>
         </member>
+        <member name="M:Eamon.Framework.IMonster.GetWeaponAttackDescs(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.GetHumanAttackDescs">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.GetNaturalAttackDescs">
+            <summary></summary>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IMonster.GetAttackDescString(Eamon.Framework.IArtifact)">
             <summary></summary>
             <param name="artifact"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.GetWeaponMissDescs(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.GetNaturalMissDescs">
+            <summary></summary>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IMonster.GetMissDescString(Eamon.Framework.IArtifact)">
@@ -3561,6 +3571,34 @@
             <summary></summary>
             <param name="dir"></param>
             <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.SetDirectionExit(System.Int64)">
+            <summary></summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.SetDirectionExit(Eamon.Framework.Primitive.Enums.Direction)">
+            <summary></summary>
+            <param name="dir"></param>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.SetDirectionDoorUid(System.Int64,System.Int64)">
+            <summary></summary>
+            <param name="index"></param>
+            <param name="artifactUid"></param>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.SetDirectionDoorUid(Eamon.Framework.Primitive.Enums.Direction,System.Int64)">
+            <summary></summary>
+            <param name="dir"></param>
+            <param name="artifactUid"></param>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.SetDirectionDoor(System.Int64,Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="index"></param>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.SetDirectionDoor(Eamon.Framework.Primitive.Enums.Direction,Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="dir"></param>
+            <param name="artifact"></param>
         </member>
         <member name="M:Eamon.Framework.IRoom.GetObviousExits">
             <summary></summary>
@@ -5577,12 +5615,6 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Game.Engine.ArtifactTypes">
-            <summary></summary>
-        </member>
-        <member name="P:Eamon.Game.Engine.AttackDescs">
-            <summary></summary>
-        </member>
-        <member name="P:Eamon.Game.Engine.MissDescs">
             <summary></summary>
         </member>
         <member name="M:Eamon.Game.Helpers.ArtifactHelper.GetPrintedNameStateDesc">

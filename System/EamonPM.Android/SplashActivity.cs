@@ -1,7 +1,7 @@
 ﻿
 // SplashActivity.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -33,7 +33,7 @@ namespace EamonPM
 				- change the BuildGuid to upgrade the binary .apk file and the .XML textfiles in the filesystem (but not CHARACTERS.XML)
 			*/
 
-			static readonly string BuildGuid = "561911D9-EB85-4120-AFE1-68D419D2C47F";
+			static readonly string BuildGuid = "5EE319FB-C7A2-47BF-A84E-1249773E4718";
 
 			static readonly string TAG = "X:" + typeof (SplashActivity).Name;
 

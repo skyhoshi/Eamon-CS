@@ -1,7 +1,7 @@
 ﻿
 // FilesetHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -145,6 +145,11 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual bool ValidateName()
 		{
+			if (Record.Name != null)
+			{
+				Record.Name = Regex.Replace(Record.Name, @"\s+", " ").Trim();
+			}
+
 			return string.IsNullOrWhiteSpace(Record.Name) == false && Record.Name.Length <= Constants.FsNameLen;
 		}
 
@@ -575,7 +580,7 @@ namespace Eamon.Game.Helpers
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.Name = Buf.Trim().ToString();
+				Record.Name = Buf.ToString();
 
 				if (ValidateField("Name"))
 				{

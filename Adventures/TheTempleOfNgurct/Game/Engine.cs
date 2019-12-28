@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -63,15 +63,6 @@ namespace TheTempleOfNgurct.Game
 				}
 
 				return result;
-			});
-
-			MacroFuncs.Add(8, () =>
-			{
-				var secretDoorArtifact = Globals.ADB[84];
-
-				var ac = secretDoorArtifact != null && secretDoorArtifact.IsInRoomUid(48) ? secretDoorArtifact.DoorGate : null;
-
-				return ac != null && ac.IsOpen() ? "Exits are north and east." : "An exit is east.";
 			});
 
 			var synonyms = new Dictionary<long, string[]>()

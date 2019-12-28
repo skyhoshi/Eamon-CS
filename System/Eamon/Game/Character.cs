@@ -1,7 +1,7 @@
 ﻿
 // Character.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -818,8 +818,8 @@ namespace Eamon.Game
 				"In bank: ",
 				BankGold);
 
-			Globals.Out.Print("Armor: {0}  Armor Expertise: {1}%",
-				args.ArmorString.PadTRight(31, ' '),
+			Globals.Out.Print("Armor:  {0} Armor Expertise:  {1}%",
+				args.ArmorString.PadTRight(28, ' '),
 				ArmorExpertise);
 
 			var wcg = Globals.Engine.GetWeightCarryableGronds(args.Monster.Hardiness);

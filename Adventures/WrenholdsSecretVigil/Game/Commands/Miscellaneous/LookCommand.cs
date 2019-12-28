@@ -1,7 +1,7 @@
 ﻿
 // LookCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -20,33 +20,36 @@ namespace WrenholdsSecretVigil.Game.Commands
 		{
 			ActorRoom.Seen = false;
 
-			var artTypes = new ArtifactType[] { ArtifactType.Treasure, ArtifactType.DoorGate };
-
-			var goldCurtainArtifact = Globals.ADB[40];
-
-			Debug.Assert(goldCurtainArtifact != null);
-
-			var ac = goldCurtainArtifact.GetArtifactCategory(artTypes);
-
-			Debug.Assert(ac != null);
-
-			if (ActorRoom.Uid != 67 || ac.Type == ArtifactType.Treasure || ac.GetKeyUid() == 0)
+			if (Globals.GameState.GetNBTL(Friendliness.Enemy) <= 0)
 			{
-				var numRooms = Globals.Module.NumRooms;
+				var artTypes = new ArtifactType[] { ArtifactType.Treasure, ArtifactType.DoorGate };
 
-				var directionValues = EnumUtil.GetValues<Direction>();
+				var goldCurtainArtifact = Globals.ADB[40];
 
-				foreach (var dv in directionValues)
+				Debug.Assert(goldCurtainArtifact != null);
+
+				var ac = goldCurtainArtifact.GetArtifactCategory(artTypes);
+
+				Debug.Assert(ac != null);
+
+				if (ActorRoom.Uid != 67 || ac.Type == ArtifactType.Treasure || ac.GetKeyUid() == 0)
 				{
-					if (ActorRoom.GetDirs(dv) < 0 && ActorRoom.GetDirs(dv) >= -numRooms)
+					var numRooms = Globals.Module.NumRooms;
+
+					var directionValues = EnumUtil.GetValues<Direction>();
+
+					foreach (var dv in directionValues)
 					{
-						var direction = Globals.Engine.GetDirections(dv);
+						if (ActorRoom.GetDirs(dv) < 0 && ActorRoom.GetDirs(dv) >= -numRooms)
+						{
+							var direction = Globals.Engine.GetDirections(dv);
 
-						Debug.Assert(direction != null);
+							Debug.Assert(direction != null);
 
-						Globals.Out.Print("You found a secret passage {0}!", direction.Name.ToLower());
+							Globals.Out.Print("You found a secret passage {0}!", direction.Name.ToLower());
 
-						ActorRoom.SetDirs(dv, -ActorRoom.GetDirs(dv));
+							ActorRoom.SetDirs(dv, -ActorRoom.GetDirs(dv));
+						}
 					}
 				}
 			}

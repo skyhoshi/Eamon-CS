@@ -1,7 +1,7 @@
 ﻿
 // AddCustomAdventureMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -18,7 +18,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 @"
 // Program.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 /*
 
@@ -50,7 +50,7 @@ namespace YourAdventureName
 @"
 // IPluginClassMappings.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 namespace YourAdventureName.Framework.Plugin
 {
@@ -63,7 +63,7 @@ namespace YourAdventureName.Framework.Plugin
 @"
 // IPluginConstants.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 namespace YourAdventureName.Framework.Plugin
 {
@@ -76,7 +76,7 @@ namespace YourAdventureName.Framework.Plugin
 @"
 // IPluginGlobals.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 namespace YourAdventureName.Framework.Plugin
 {
@@ -94,7 +94,7 @@ namespace YourAdventureName.Framework.Plugin
 @"
 // PluginClassMappings.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 using System.Reflection;
 using Eamon;
@@ -126,7 +126,7 @@ namespace YourAdventureName.Game.Plugin
 @"
 // PluginConstants.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 namespace YourAdventureName.Game.Plugin
 {
@@ -139,7 +139,7 @@ namespace YourAdventureName.Game.Plugin
 @"
 // PluginContext.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 namespace YourAdventureName.Game.Plugin
 {
@@ -186,7 +186,7 @@ namespace YourAdventureName.Game.Plugin
 @"
 // PluginGlobals.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 namespace YourAdventureName.Game.Plugin
 {
@@ -203,7 +203,7 @@ namespace YourAdventureName.Game.Plugin
 @"
 // Engine.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 using Eamon.Framework;
 using Eamon.Game.Attributes;

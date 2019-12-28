@@ -1,7 +1,7 @@
 ﻿
 // EamonCSPage.xaml.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using Xamarin.Forms;
@@ -18,6 +18,8 @@ namespace Eamon.Mobile.Views
 		/// <param name="args"></param>
 		async protected virtual void OnItemTapped(object sender, ItemTappedEventArgs args)
 		{
+			FoldersListView.IsEnabled = false;
+
 			FoldersListView.SelectedItem = null;
 
 			var folder = args.Item as string;
@@ -33,6 +35,8 @@ namespace Eamon.Mobile.Views
 					await Navigation.PushAsync(new QuickLaunchPage());
 				}
 			}
+
+			FoldersListView.IsEnabled = true;
 		}
 
 		public EamonCSPage()

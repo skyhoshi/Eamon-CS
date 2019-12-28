@@ -1,7 +1,7 @@
 ﻿
 // AdventureSupportMenu01.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -132,7 +132,7 @@ dotnet .\EamonPM.WindowsUnix.dll -pfn YourLibraryName.dll -wd ..\..\Adventures\Y
 @"
 // YourInterfaceName.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 using static YourAdventureName.Game.Plugin.PluginContext;
 
@@ -149,7 +149,7 @@ namespace YourAdventureName.YourFrameworkNamespaceName
 @"
 // YourInterfaceName.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 YourEamonRTUsingStatementusing static YourAdventureName.Game.Plugin.PluginContext;
 
@@ -166,7 +166,7 @@ namespace YourAdventureName.YourFrameworkNamespaceName
 @"
 // YourClassName.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 YourEamonUsingStatementusing Eamon.Game.Attributes;
 YourEamonRTUsingStatementusing static YourAdventureName.Game.Plugin.PluginContext;
@@ -186,7 +186,7 @@ namespace YourAdventureName.YourGameNamespaceName
 @"
 // YourClassName.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using static YourAdventureName.Game.Plugin.PluginContext;
@@ -206,7 +206,7 @@ namespace YourAdventureName.YourGameNamespaceName
 @"
 // YourClassName.cs
 
-// Copyright (c) 2014+ by YourAuthorName.  All rights reserved
+// Copyright (c) 2014+ by YourAuthorName.  All rights reserved.
 
 YourEamonUsingStatementusing Eamon.Game.Attributes;
 YourEamonRTUsingStatementusing static YourAdventureName.Game.Plugin.PluginContext;
@@ -317,7 +317,7 @@ namespace YourAdventureName.YourGameNamespaceName
 					Globals.Out.Print("{0}", Globals.LineSep);
 				}
 
-				Globals.Out.Print("Could not locate the Visual Studio 2017 devenv.exe program at the following path:");
+				Globals.Out.Print("Could not locate the Visual Studio 2017+ devenv.exe program at the following path:");
 
 				Globals.Out.WordWrap = false;
 
@@ -344,7 +344,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				Globals.Out.WordWrap = true;
 
-				Globals.Out.Print("You may need to compile it using the Eamon.Desktop solution and Visual Studio 2017.");
+				Globals.Out.Print("You may need to compile it using the Eamon.Desktop solution and Visual Studio 2017+.");
 
 				GotoCleanup = true;
 			}
@@ -355,7 +355,7 @@ namespace YourAdventureName.YourGameNamespaceName
 					Globals.Out.Print("{0}", Globals.LineSep);
 				}
 
-				Globals.Out.Print("Could not locate the Visual Studio 2017 envdte.dll library at the following path:");
+				Globals.Out.Print("Could not locate the Visual Studio 2017+ envdte.dll library at the following path:");
 
 				Globals.Out.WordWrap = false;
 
@@ -363,7 +363,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				Globals.Out.WordWrap = true;
 
-				Globals.Out.Print(@"This library is copied into System\Bin when the EamonVS project is compiled using the Eamon.Desktop solution and Visual Studio 2017.");
+				Globals.Out.Print(@"This library is copied into System\Bin when the EamonVS project is compiled using the Eamon.Desktop solution and Visual Studio 2017+.");
 
 				GotoCleanup = true;
 			}
@@ -437,7 +437,9 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				AdventureName01 = Buf.Trim().ToString();
+				Buf.SetFormat("{0}", Regex.Replace(Buf.ToString(), @"\s+", " ").Trim());
+
+				AdventureName01 = Buf.ToString();
 
 				var tempStr = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(AdventureName01);
 

@@ -1,12 +1,13 @@
 ﻿
 // CharacterHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Text.RegularExpressions;
 using Eamon.Framework;
 using Eamon.Framework.Helpers;
 using Eamon.Framework.Primitive.Classes;
@@ -1169,6 +1170,11 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual bool ValidateName()
 		{
+			if (Record.Name != null)
+			{
+				Record.Name = Regex.Replace(Record.Name, @"\s+", " ").Trim();
+			}
+
 			return string.IsNullOrWhiteSpace(Record.Name) == false && Record.Name.Length <= Constants.CharNameLen;
 		}
 
@@ -1354,6 +1360,11 @@ namespace Eamon.Game.Helpers
 		protected virtual bool ValidateArmorName()
 		{
 			var result = true;
+
+			if (Record.Armor.Name != null)
+			{
+				Record.Armor.Name = Regex.Replace(Record.Armor.Name, @"\s+", " ").Trim();
+			}
 
 			if (Record.IsArmorActive())
 			{
@@ -1546,6 +1557,11 @@ namespace Eamon.Game.Helpers
 		protected virtual bool ValidateShieldName()
 		{
 			var result = true;
+
+			if (Record.Shield.Name != null)
+			{
+				Record.Shield.Name = Regex.Replace(Record.Shield.Name, @"\s+", " ").Trim();
+			}
 
 			if (Record.IsShieldActive())
 			{
@@ -1753,6 +1769,11 @@ namespace Eamon.Game.Helpers
 			var activeWeapon = true;
 
 			var i = Index;
+
+			if (Record.GetWeapons(i).Name != null)
+			{
+				Record.GetWeapons(i).Name = Regex.Replace(Record.GetWeapons(i).Name, @"\s+", " ").Trim();
+			}
 
 			for (var h = 0; h <= i; h++)
 			{
@@ -2894,7 +2915,7 @@ namespace Eamon.Game.Helpers
 
 				Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-				Record.Name = Buf.Trim().ToString();
+				Record.Name = Buf.ToString();
 
 				if (ValidateField("Name"))
 				{
@@ -3328,7 +3349,7 @@ namespace Eamon.Game.Helpers
 
 					Debug.Assert(Globals.Engine.IsSuccess(rc));
 
-					Record.GetWeapons(i).Name = Buf.Trim().ToString();
+					Record.GetWeapons(i).Name = Buf.ToString();
 
 					if (ValidateField("WeaponsName"))
 					{

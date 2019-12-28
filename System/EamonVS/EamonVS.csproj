@@ -32,7 +32,7 @@
 
   <ItemGroup>
     <Reference Include="EnvDTE">
-      <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\PublicAssemblies\envdte.dll</HintPath>
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\PublicAssemblies\envdte.dll</HintPath>
     </Reference>
   </ItemGroup>
 

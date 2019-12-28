@@ -159,7 +159,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(prep != null);
 
-			var prepNames = new string[] { +++ IMPLEMENT +++ };
+			var prepNames = new string[] { TODO };
 
 			return prepNames.FirstOrDefault(pn => string.Equals(prep.Name, pn, StringComparison.OrdinalIgnoreCase)) != null;
 		}

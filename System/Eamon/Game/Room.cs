@@ -1,7 +1,7 @@
 ﻿
 // Room.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -206,6 +206,38 @@ namespace Eamon.Game
 			var uid = GetDirectionDoorUid(dir);
 
 			return Globals.ADB[uid];
+		}
+
+		public virtual void SetDirectionExit(long index)
+		{
+			SetDirs(index, Constants.DirectionExit);
+		}
+
+		public virtual void SetDirectionExit(Direction dir)
+		{
+			SetDirectionExit((long)dir);
+		}
+	
+		public virtual void SetDirectionDoorUid(long index, long artifactUid)
+		{
+			SetDirs(index, artifactUid + 1000);
+		}
+
+		public virtual void SetDirectionDoorUid(Direction dir, long artifactUid)
+		{
+			SetDirectionDoorUid((long)dir, artifactUid);
+		}
+
+		public virtual void SetDirectionDoor(long index, IArtifact artifact)
+		{
+			Debug.Assert(artifact != null && artifact.DoorGate != null);
+
+			SetDirectionDoorUid(index, artifact.Uid);
+		}
+
+		public virtual void SetDirectionDoor(Direction dir, IArtifact artifact)
+		{
+			SetDirectionDoor((long)dir, artifact);
 		}
 
 		public virtual string GetObviousExits()

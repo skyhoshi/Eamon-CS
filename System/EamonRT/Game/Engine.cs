@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -1514,7 +1514,7 @@ namespace EamonRT.Game
 							{
 								if (revealArtifactTooHeavy)
 								{
-									revealArtifact.SetInRoomUid(room.Uid);
+									revealArtifact.SetInRoom(room);
 								}
 							}
 						}
@@ -1551,7 +1551,7 @@ namespace EamonRT.Game
 							{
 								if (revealArtifactTooHeavy)
 								{
-									revealArtifact.SetInRoomUid(room.Uid);
+									revealArtifact.SetInRoom(room);
 								}
 							}
 						}
@@ -1567,14 +1567,14 @@ namespace EamonRT.Game
 
 							if (count > revealContainerAc.Field4 || weight > revealContainerAc.Field3)
 							{
-								revealArtifact.SetInRoomUid(room.Uid);
+								revealArtifact.SetInRoom(room);
 							}
 						}
 						else if (revealArtifact.IsEmbeddedInRoom())
 						{
 							if (artifact.IsInLimbo())
 							{
-								revealArtifact.SetInRoomUid(revealArtifact.GetEmbeddedInRoomUid());
+								revealArtifact.SetInRoom(revealArtifact.GetEmbeddedInRoom());
 							}
 							else
 							{
@@ -1585,7 +1585,7 @@ namespace EamonRT.Game
 						}
 						else if (revealArtifact.IsInLimbo())
 						{
-							revealArtifact.SetInRoomUid(room.Uid);
+							revealArtifact.SetInRoom(room);
 						}
 					}
 

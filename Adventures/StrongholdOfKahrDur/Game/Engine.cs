@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -268,12 +268,6 @@ namespace StrongholdOfKahrDur.Game
 		
 		public Engine()
 		{
-			MissDescs[new Tuple<Weapon, long>(Weapon.Axe, 1)] = "Parried";
-
-			MissDescs[new Tuple<Weapon, long>(Weapon.Club, 1)] = "Parried";
-
-			MissDescs[new Tuple<Weapon, long>(Weapon.Spear, 1)] = "Parried";
-
 			UseMonsterScaledHardinessValues = true;
 		}
 	}

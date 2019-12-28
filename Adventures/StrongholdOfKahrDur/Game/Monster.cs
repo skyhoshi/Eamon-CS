@@ -1,7 +1,7 @@
 ﻿
 // Monster.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -10,6 +10,7 @@ using Eamon;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
+using Enums = Eamon.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game
@@ -110,6 +111,26 @@ namespace StrongholdOfKahrDur.Game
 		Cleanup:
 
 			;
+		}
+
+		public override string[] GetWeaponMissDescs(IArtifact artifact)
+		{
+			var missDescs = base.GetWeaponMissDescs(artifact);
+
+			Debug.Assert(missDescs != null && missDescs.Length >= 1);
+
+			switch ((Enums.Weapon)artifact.GeneralWeapon.Field2)
+			{
+				case Enums.Weapon.Axe:
+				case Enums.Weapon.Club:
+				case Enums.Weapon.Spear:
+
+					missDescs[0] = "Parried";
+
+					break;
+			}
+
+			return missDescs;
 		}
 	}
 }

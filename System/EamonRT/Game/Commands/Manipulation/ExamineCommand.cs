@@ -1,7 +1,7 @@
 ﻿
 // ExamineCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -64,7 +64,7 @@ namespace EamonRT.Game.Commands
 
 				Globals.Buf.Clear();
 
-				if (Enum.IsDefined(typeof(ContainerType), ContainerType))
+				if (Enum.IsDefined(typeof(ContainerType), ContainerType) && !DobjArtifact.IsWornByCharacter())
 				{
 					var containerArtType = Globals.Engine.EvalContainerType(ContainerType, ArtifactType.InContainer, ArtifactType.OnContainer, ArtifactType.UnderContainer, ArtifactType.BehindContainer);
 
@@ -88,7 +88,7 @@ namespace EamonRT.Game.Commands
 
 					var artifactList = DobjArtifact.GetContainedList(containerType: ContainerType);
 					
-					var showCharOwned = !DobjArtifact.IsCarriedByCharacter() && !DobjArtifact.IsWornByCharacter();
+					var showCharOwned = !DobjArtifact.IsCarriedByCharacter() /* && !DobjArtifact.IsWornByCharacter() */;
 
 					if (artifactList.Count > 0)
 					{
@@ -241,6 +241,13 @@ namespace EamonRT.Game.Commands
 
 				PlayerResolveArtifact();
 			}
+		}
+
+		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			return Enum.IsDefined(typeof(ContainerType), ContainerType) && !artifact.IsWornByCharacter();
 		}
 
 		/*

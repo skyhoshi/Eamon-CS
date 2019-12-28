@@ -1,7 +1,7 @@
 ﻿
 // StatusCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon;
@@ -25,39 +25,31 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			var ar = Globals.GameState.Ar;
+			var artUids = new long[] { Globals.GameState.Ar, Globals.GameState.Sh };
 
-			var sh = Globals.GameState.Sh;
+			var armorClass = Armor.SkinClothes;
 
-			Globals.Buf.Clear();
-
-			if (ar > 0)
+			foreach (var artUid in artUids)
 			{
-				var artifact = Globals.ADB[ar];
-
-				Debug.Assert(artifact != null);
-
-				Globals.Buf.AppendFormat("{0}", artifact.EvalPlural(artifact.Name, artifact.GetPluralName01(Globals.Buf01)));
-			}
-
-			if (sh > 0)
-			{
-				if (ar > 0)
+				if (artUid > 0)
 				{
-					Globals.Buf.Append(" and ");
+					var artifact = Globals.ADB[artUid];
+
+					Debug.Assert(artifact != null);
+
+					var ac = artifact.Wearable;
+
+					Debug.Assert(ac != null);
+
+					armorClass += ac.Field1;
 				}
-
-				var artifact = Globals.ADB[sh];
-
-				Debug.Assert(artifact != null);
-
-				Globals.Buf.AppendFormat("{0}", artifact.EvalPlural(artifact.Name, artifact.GetPluralName01(Globals.Buf01)));
 			}
 
-			if (Globals.Buf.Length == 0)
-			{
-				Globals.Buf.SetFormat("(none)");
-			}
+			var armor = Globals.Engine.GetArmors(armorClass);
+
+			Debug.Assert(armor != null);
+			
+			Globals.Buf.SetFormat("{0}", armor.Name);
 
 			var charWeight = 0L;
 
@@ -68,7 +60,7 @@ namespace EamonRT.Game.Commands
 			var args = Globals.CreateInstance<IStatDisplayArgs>(x =>
 			{
 				x.Monster = ActorMonster;
-				x.ArmorString = Globals.Buf.ToString().FirstCharToUpper();
+				x.ArmorString = Globals.Buf.ToString();
 				x.SpellAbilities = Globals.GameState.Sa;
 				x.Speed = Globals.GameState.Speed;
 				x.CharmMon = Globals.Engine.GetCharismaFactor(Globals.Character.GetStats(Stat.Charisma));

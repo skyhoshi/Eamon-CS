@@ -1,7 +1,7 @@
 ﻿
 // IEngine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -563,18 +563,6 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <returns></returns>
 		string GetBlastDesc();
-
-		/// <summary></summary>
-		/// <param name="weapon"></param>
-		/// <param name="roll"></param>
-		/// <returns></returns>
-		string GetAttackDescString(Weapon weapon, long roll);
-
-		/// <summary></summary>
-		/// <param name="weapon"></param>
-		/// <param name="roll"></param>
-		/// <returns></returns>
-		string GetMissDescString(Weapon weapon, long roll);
 
 		/// <summary></summary>
 		/// <param name="numDice"></param>

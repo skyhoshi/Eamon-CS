@@ -12,6 +12,7 @@ using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
+using Enums = Eamon.Framework.Primitive.Enums;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
@@ -915,22 +916,121 @@ namespace Eamon.Game
 			;
 		}
 
+		public virtual string[] GetWeaponAttackDescs(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null && artifact.GeneralWeapon != null && Enum.IsDefined(typeof(Enums.Weapon), artifact.GeneralWeapon.Field2));
+
+			string[] attackDescs = null;
+
+			switch ((Enums.Weapon)artifact.GeneralWeapon.Field2)
+			{
+				case Enums.Weapon.Axe:
+
+					attackDescs = new string[] { "swing{0} at", "chop{0} at", "swing{0} at" };
+
+					break;
+
+				case Enums.Weapon.Bow:
+
+					attackDescs = new string[] { "shoot{0} at", "shoot{0} at", "shoot{0} at" };
+
+					break;
+
+				case Enums.Weapon.Club:
+
+					attackDescs = new string[] { "swing{0} at", "swing{0} at", "swing{0} at" };
+
+					break;
+
+				case Enums.Weapon.Spear:
+
+					attackDescs = new string[] { "stab{0} at", "lunge{0} at", "jab{0} at" };
+
+					break;
+
+				case Enums.Weapon.Sword:
+
+					attackDescs = new string[] { "swing{0} at", "chop{0} at", "stab{0} at" };
+
+					break;
+			}
+
+			return attackDescs;
+		}
+
+		public virtual string[] GetHumanAttackDescs()
+		{
+			var attackDescs = new string[] { "charge{0} at", "punche{0} at", "kick{0} at" };
+
+			return attackDescs;
+		}
+
+		public virtual string[] GetNaturalAttackDescs()
+		{
+			var attackDescs = new string[] { "lunge{0} at", "tear{0} at", "claw{0} at" };
+
+			return attackDescs;
+		}
+
 		public virtual string GetAttackDescString(IArtifact artifact)
 		{
-			var rl = Globals.Engine.RollDice(1, 3, artifact == null && HasHumanNaturalAttackDescs() ? 3 : 0);
+			var attackDescs = artifact != null ? GetWeaponAttackDescs(artifact) : HasHumanNaturalAttackDescs() ? GetHumanAttackDescs() : GetNaturalAttackDescs();
 
-			var ac = artifact != null ? artifact.GeneralWeapon : null;
+			Debug.Assert(attackDescs != null && attackDescs.Length > 0);
 
-			return Globals.Engine.GetAttackDescString((Weapon)(ac != null ? ac.Field2 : 0), rl);
+			var rl = Globals.Engine.RollDice(1, attackDescs.Length, -1);
+
+			return attackDescs[rl];
+		}
+
+		public virtual string[] GetWeaponMissDescs(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null && artifact.GeneralWeapon != null && Enum.IsDefined(typeof(Enums.Weapon), artifact.GeneralWeapon.Field2));
+
+			string[] missDescs = null;
+
+			switch ((Enums.Weapon)artifact.GeneralWeapon.Field2)
+			{
+				case Enums.Weapon.Axe:
+				case Enums.Weapon.Club:
+				case Enums.Weapon.Spear:
+
+					missDescs = new string[] { "Dodged", "Missed" };
+
+					break;
+
+				case Enums.Weapon.Bow:
+
+					missDescs = new string[] { "Missed", "Missed" };
+
+					break;
+
+				case Enums.Weapon.Sword:
+
+					missDescs = new string[] { "Parried", "Missed" };
+
+					break;
+			}
+
+			return missDescs;
+		}
+
+		public virtual string[] GetNaturalMissDescs()
+		{
+			var missDescs = new string[] { "Missed", "Missed" };
+
+			return missDescs;
 		}
 
 		public virtual string GetMissDescString(IArtifact artifact)
 		{
-			var i = Globals.Engine.RollDice(1, 2, 0);
+			var missDescs = artifact != null ? GetWeaponMissDescs(artifact) : GetNaturalMissDescs();
 
-			var ac = artifact != null ? artifact.GeneralWeapon : null;
+			Debug.Assert(missDescs != null && missDescs.Length > 0);
 
-			return Globals.Engine.GetMissDescString((Weapon)(ac != null ? ac.Field2 : 0), i);
+			var rl = Globals.Engine.RollDice(1, missDescs.Length, -1);
+
+			return missDescs[rl];
 		}
 
 		public virtual string GetArmorDescString()

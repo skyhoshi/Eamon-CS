@@ -124,7 +124,7 @@ namespace EamonPM.Game.Portability
 		{
 			get
 			{
-				// +++ IMPLEMENT +++
+				// TODO
 
 				return Encoding.Unicode;
 			}
@@ -134,14 +134,14 @@ namespace EamonPM.Game.Portability
 		{
 			get
 			{
-				// +++ IMPLEMENT +++
+				// TODO
 
 				return true;
 			}
 
 			set
 			{
-				// +++ IMPLEMENT +++
+				// TODO
 			}
 		}
 
@@ -173,17 +173,17 @@ namespace EamonPM.Game.Portability
 		{
 			Debug.Assert(title != null);
 
-			// +++ IMPLEMENT +++
+			// TODO
 		}
 
 		public virtual void SetWindowSize(long width, long height)
 		{
-			// +++ IMPLEMENT +++
+			// TODO
 		}
 
 		public virtual void SetBufferSize(long width, long height)
 		{
-			// +++ IMPLEMENT +++
+			// TODO
 		}
 
 		public virtual Coord GetCursorPosition()
@@ -212,28 +212,28 @@ namespace EamonPM.Game.Portability
 
 		public virtual long GetLargestWindowWidth()
 		{
-			// +++ IMPLEMENT +++
+			// TODO
 
 			return 0;
 		}
 
 		public virtual long GetLargestWindowHeight()
 		{
-			// +++ IMPLEMENT +++
+			// TODO
 
 			return 0;
 		}
 
 		public virtual long GetWindowHeight()
 		{
-			// +++ IMPLEMENT +++
+			// TODO
 
 			return 0;
 		}
 
 		public virtual long GetBufferHeight()
 		{
-			// +++ IMPLEMENT +++
+			// TODO
 
 			return 0;
 		}
