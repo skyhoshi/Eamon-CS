@@ -1,7 +1,7 @@
 ﻿
 // CombatSystem.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -160,13 +160,13 @@ namespace EamonRT.Game.Combat
 
 			OfMonsterName = OfMonster.IsCharacterMonster() ? "You" :
 					OfMonster.EvalInRoomLightLevel(AttackNumber == 1 ? "An unseen offender" : "The unseen offender",
-						OfMonster.InitGroupCount > 1 && AttackNumber == 1 ? OfMonster.GetDecoratedName02(true, true, false, true, Globals.Buf) : OfMonster.GetDecoratedName03(true, true, false, true, Globals.Buf));
+						OfMonster.InitGroupCount > 1 && AttackNumber == 1 ? OfMonster.GetArticleName(true, true, false, true) : OfMonster.GetTheName(true, true, false, true));
 
 			DfMonsterName = DfMonster.IsCharacterMonster() ? "you" :
 					DfMonster.EvalInRoomLightLevel("an unseen defender",
-					DfMonster.InitGroupCount > 1 ? DfMonster.GetDecoratedName02(false, true, false, true, Globals.Buf) : DfMonster.GetDecoratedName03(false, true, false, true, Globals.Buf));
+					DfMonster.InitGroupCount > 1 ? DfMonster.GetArticleName(groupCountOne: true) : DfMonster.GetTheName(groupCountOne: true));
 
-			Globals.Out.Write("{0}{1} {2} {3}{4}.",
+			gOut.Write("{0}{1} {2} {3}{4}.",
 				Environment.NewLine,
 				OfMonsterName,
 				AttackDesc01,
@@ -174,7 +174,7 @@ namespace EamonRT.Game.Combat
 					OfWeapon != null &&
 					(WeaponRevealType == WeaponRevealType.Always ||
 					(WeaponRevealType == WeaponRevealType.OnlyIfSeen && OfWeapon.Seen)) ?
-						" with " + OfWeapon.GetDecoratedName02(false, true, false, false, Globals.Buf) :
+						" with " + OfWeapon.GetArticleName() :
 						"");
 		}
 
@@ -183,35 +183,35 @@ namespace EamonRT.Game.Combat
 		{
 			MissDesc = DfMonster.GetMissDescString(DfWeapon);
 
-			Globals.Out.Write("{0} --- {1}!", Environment.NewLine, MissDesc);
+			gOut.Write("{0} --- {1}!", Environment.NewLine, MissDesc);
 		}
 
 		/// <summary></summary>
 		protected virtual void PrintFumble()
 		{
-			Globals.Out.Write("{0} ... A fumble!", Environment.NewLine);
+			gOut.Write("{0} ... A fumble!", Environment.NewLine);
 		}
 
 		/// <summary></summary>
 		protected virtual void PrintRecovered()
 		{
-			Globals.Out.Write("{0}  Recovered.", Environment.NewLine);
+			gOut.Write("{0}  Recovered.", Environment.NewLine);
 		}
 
 		/// <summary></summary>
 		protected virtual void PrintWeaponDropped()
 		{
-			Globals.Out.Write("{0}  {1} {2} {3}!",
+			gOut.Write("{0}  {1} {2} {3}!",
 				Environment.NewLine,
 				OfMonster.IsCharacterMonster() ? "You" :
-				OfMonster.EvalInRoomLightLevel("The offender", OfMonster.GetDecoratedName03(true, true, false, true, Globals.Buf)),
+				OfMonster.EvalInRoomLightLevel("The offender", OfMonster.GetTheName(true, true, false, true)),
 				OfMonster.IsCharacterMonster() ? "drop" : "drops",
 				OfMonster.IsCharacterMonster() || OfMonster.IsInRoomLit() ?
 					(
 						(WeaponRevealType == WeaponRevealType.Never || 
 						(WeaponRevealType == WeaponRevealType.OnlyIfSeen && !OfWeapon.Seen)) ? 
-							OfWeapon.GetDecoratedName02(false, true, false, false, Globals.Buf01) :
-							OfWeapon.GetDecoratedName03(false, true, false, false, Globals.Buf01)
+							OfWeapon.GetArticleName(buf: Globals.Buf01) :
+							OfWeapon.GetTheName(buf: Globals.Buf01)
 					) : 
 					"a weapon");
 		}
@@ -219,20 +219,20 @@ namespace EamonRT.Game.Combat
 		/// <summary></summary>
 		protected virtual void PrintWeaponHitsUser()
 		{
-			Globals.Out.Write("{0}  Weapon hits user!", Environment.NewLine);
+			gOut.Write("{0}  Weapon hits user!", Environment.NewLine);
 		}
 
 		/// <summary></summary>
 		protected virtual void PrintSparksFly()
 		{
-			Globals.Out.Write("{0}  Sparks fly from {1}!",
+			gOut.Write("{0}  Sparks fly from {1}!",
 				Environment.NewLine,
 				OfMonster.IsCharacterMonster() || OfMonster.IsInRoomLit() ? 
 					(
 						(WeaponRevealType == WeaponRevealType.Never ||
 						(WeaponRevealType == WeaponRevealType.OnlyIfSeen && !OfWeapon.Seen)) ?
-							OfWeapon.GetDecoratedName02(false, true, false, false, Globals.Buf) :
-							OfWeapon.GetDecoratedName03(false, true, false, false, Globals.Buf)
+							OfWeapon.GetArticleName() :
+							OfWeapon.GetTheName()
 					) : 
 					"a weapon");
 		}
@@ -240,37 +240,37 @@ namespace EamonRT.Game.Combat
 		/// <summary></summary>
 		protected virtual void PrintWeaponDamaged()
 		{
-			Globals.Out.Write("{0}  Weapon damaged!", Environment.NewLine);
+			gOut.Write("{0}  Weapon damaged!", Environment.NewLine);
 		}
 
 		/// <summary></summary>
 		protected virtual void PrintWeaponBroken()
 		{
-			Globals.Out.Write("{0}  Weapon broken!", Environment.NewLine);
+			gOut.Write("{0}  Weapon broken!", Environment.NewLine);
 		}
 
 		/// <summary></summary>
 		protected virtual void PrintBrokenWeaponHitsUser()
 		{
-			Globals.Out.Write("{0}  Broken weapon hits user!", Environment.NewLine);
+			gOut.Write("{0}  Broken weapon hits user!", Environment.NewLine);
 		}
 
 		/// <summary></summary>
 		protected virtual void PrintStarPlus()
 		{
-			Globals.Out.Write("{0} {1} ", Environment.NewLine, DfMonster.IsCharacterMonster() ? "***" : "+++");
+			gOut.Write("{0} {1} ", Environment.NewLine, DfMonster.IsCharacterMonster() ? "***" : "+++");
 		}
 
 		/// <summary></summary>
 		protected virtual void PrintHit()
 		{
-			Globals.Out.Write("A hit!");
+			gOut.Write("A hit!");
 		}
 
 		/// <summary></summary>
 		protected virtual void PrintCriticalHit()
 		{
-			Globals.Out.Write("A critical hit!");
+			gOut.Write("A critical hit!");
 		}
 
 		/// <summary></summary>
@@ -278,13 +278,13 @@ namespace EamonRT.Game.Combat
 		{
 			if (DfMonster.Armor < 1)
 			{
-				Globals.Out.Write("{0}{1}Blow turned!", Environment.NewLine, OmitBboaPadding ? "" : "  ");
+				gOut.Write("{0}{1}Blow turned!", Environment.NewLine, OmitBboaPadding ? "" : "  ");
 			}
 			else
 			{
 				var armorDesc = DfMonster.GetArmorDescString();
 
-				Globals.Out.Write("{0}{1}Blow bounces off {2}!", Environment.NewLine, OmitBboaPadding ? "" : "  ", armorDesc);
+				gOut.Write("{0}{1}Blow bounces off {2}!", Environment.NewLine, OmitBboaPadding ? "" : "  ", armorDesc);
 			}
 		}
 
@@ -292,8 +292,8 @@ namespace EamonRT.Game.Combat
 		protected virtual void PrintHealthStatus()
 		{
 			DfMonsterName = DfMonster.IsCharacterMonster() ? "You" :
-				BlastSpell && DfMonster.InitGroupCount > 1 ? DfMonster.EvalInRoomLightLevel(DfMonster == OfMonster ? "An offender" : "A defender", DfMonster.GetDecoratedName02(true, true, false, true, Globals.Buf)) :
-				DfMonster.EvalInRoomLightLevel(DfMonster == OfMonster ? "The offender" : "The defender", DfMonster.GetDecoratedName03(true, true, false, true, Globals.Buf01));
+				BlastSpell && DfMonster.InitGroupCount > 1 ? DfMonster.EvalInRoomLightLevel(DfMonster == OfMonster ? "An offender" : "A defender", DfMonster.GetArticleName(true, true, false, true)) :
+				DfMonster.EvalInRoomLightLevel(DfMonster == OfMonster ? "The offender" : "The defender", DfMonster.GetTheName(true, true, false, true, Globals.Buf01));
 
 			Globals.Buf.SetFormat("{0}{1} {2} ",
 				Environment.NewLine,
@@ -302,13 +302,13 @@ namespace EamonRT.Game.Combat
 
 			DfMonster.AddHealthStatus(Globals.Buf, false);
 
-			Globals.Out.Write("{0}", Globals.Buf);
+			gOut.Write("{0}", Globals.Buf);
 		}
 
 		/// <summary></summary>
 		protected virtual void PrintBlast()
 		{
-			Globals.Out.Print("{0}", Globals.Engine.GetBlastDesc());
+			gOut.Print("{0}", gEngine.GetBlastDesc());
 		}
 
 		/// <summary></summary>
@@ -347,7 +347,7 @@ namespace EamonRT.Game.Combat
 			}
 			else
 			{
-				_rl = Globals.Engine.RollDice(1, 100, 0);
+				_rl = gEngine.RollDice(1, 100, 0);
 			}
 		}
 
@@ -370,18 +370,18 @@ namespace EamonRT.Game.Combat
 
 				if ((AttackNumber - 1) % weaponCount != 0)
 				{
-					OfWeapon = Globals.Engine.GetNthArtifact(weaponList, (AttackNumber - 1) % weaponCount, x => x.Uid != OfWeaponUid);
+					OfWeapon = gEngine.GetNthArtifact(weaponList, (AttackNumber - 1) % weaponCount, x => x.Uid != OfWeaponUid);
 
 					OfWeaponUid = OfWeapon.Uid;
 				}
 				else
 				{
-					OfWeapon = Globals.ADB[OfWeaponUid];
+					OfWeapon = gADB[OfWeaponUid];
 				}
 			}
 			else if (OfWeaponUid > 0 && OfMonster.GroupCount > 1 && MemberNumber > 1)
 			{
-				OfWeapon = Globals.Engine.GetNthArtifact(OfMonster.GetCarriedList(), MemberNumber - 1, x => x.IsReadyableByMonster(OfMonster) && x.Uid != OfWeaponUid);
+				OfWeapon = gEngine.GetNthArtifact(OfMonster.GetCarriedList(), MemberNumber - 1, x => x.IsReadyableByMonster(OfMonster) && x.Uid != OfWeaponUid);
 
 				OfWeaponUid = OfWeapon != null ? OfWeapon.Uid : OfMonster.NwDice > 0 && OfMonster.NwSides > 0 ? 0 : -1;
 
@@ -394,22 +394,22 @@ namespace EamonRT.Game.Combat
 			}
 			else
 			{
-				OfWeapon = OfWeaponUid > 0 ? Globals.ADB[OfWeaponUid] : null;
+				OfWeapon = OfWeaponUid > 0 ? gADB[OfWeaponUid] : null;
 			}
 
 			Debug.Assert(OfWeaponUid == 0 || (OfWeapon != null && OfWeapon.GeneralWeapon != null));
 
 			OfAc = OfWeapon != null ? OfWeapon.GeneralWeapon : null;
 
-			Af = Globals.Engine.GetArmorFactor(Globals.GameState.Ar, Globals.GameState.Sh);
+			Af = gEngine.GetArmorFactor(gGameState.Ar, gGameState.Sh);
 
-			Globals.Engine.GetOddsToHit(OfMonster, DfMonster, OfAc, Af, ref _odds);
+			gEngine.GetOddsToHit(OfMonster, DfMonster, OfAc, Af, ref _odds);
 
 			RollToHitOrMiss();
 
 			if (OfMonster.IsCharacterMonster() && _rl < 97 && (_rl < 5 || _rl <= _odds) && !OmitSkillGains)
 			{
-				Globals.Engine.CheckPlayerSkillGains(OfAc, Af);
+				gEngine.CheckPlayerSkillGains(OfAc, Af);
 			}
 
 			OfWeaponType = (Weapon)(OfAc != null ? OfAc.Field2 : 0);
@@ -435,7 +435,7 @@ namespace EamonRT.Game.Combat
 		{
 			DfWeaponUid = DfMonster.Weapon;
 
-			DfWeapon = DfWeaponUid > 0 ? Globals.ADB[DfWeaponUid] : null;
+			DfWeapon = DfWeaponUid > 0 ? gADB[DfWeaponUid] : null;
 
 			DfAc = DfWeapon != null ? DfWeapon.GeneralWeapon : null;
 
@@ -464,7 +464,7 @@ namespace EamonRT.Game.Combat
 
 			PrintFumble();
 
-			_rl = Globals.Engine.RollDice(1, 100, 0);
+			_rl = gEngine.RollDice(1, 100, 0);
 
 			if ((Globals.IsRulesetVersion(5) && _rl < 36) || (!Globals.IsRulesetVersion(5) && _rl < 41))
 			{
@@ -477,20 +477,20 @@ namespace EamonRT.Game.Combat
 
 			if ((Globals.IsRulesetVersion(5) && _rl < 76) || (!Globals.IsRulesetVersion(5) && _rl < 81))
 			{
-				if (Globals.GameState.Ls > 0 && Globals.GameState.Ls == OfWeaponUid)
+				if (gGameState.Ls > 0 && gGameState.Ls == OfWeaponUid)
 				{
 					LightOut = true;
 				}
 
 				OfWeapon.SetInRoom(OfMonster.GetInRoom());
 
-				WpnArtifact = Globals.ADB[OfMonster.Weapon];
+				WpnArtifact = gADB[OfMonster.Weapon];
 
 				Debug.Assert(WpnArtifact != null);
 
 				rc = WpnArtifact.RemoveStateDesc(WpnArtifact.GetReadyWeaponDesc());
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				OfMonster.Weapon = !OfMonster.IsCharacterMonster() ? -OfWeaponUid - 1 : -1;
 
@@ -537,24 +537,24 @@ namespace EamonRT.Game.Combat
 
 			PrintWeaponBroken();
 
-			if (Globals.GameState.Ls > 0 && Globals.GameState.Ls == OfWeaponUid)
+			if (gGameState.Ls > 0 && gGameState.Ls == OfWeaponUid)
 			{
 				LightOut = true;
 			}
 
 			OfWeapon.SetInLimbo();
 
-			WpnArtifact = Globals.ADB[OfMonster.Weapon];
+			WpnArtifact = gADB[OfMonster.Weapon];
 
 			Debug.Assert(WpnArtifact != null);
 
 			rc = WpnArtifact.RemoveStateDesc(WpnArtifact.GetReadyWeaponDesc());
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			OfMonster.Weapon = -1;
 
-			_rl = Globals.Engine.RollDice(1, 100, 0);
+			_rl = gEngine.RollDice(1, 100, 0);
 
 			if (_rl > 50 || OfAc.Field4 <= 0)
 			{
@@ -567,7 +567,7 @@ namespace EamonRT.Game.Combat
 
 			DfMonster = OfMonster;
 
-			_rl = Globals.Engine.RollDice(1, 5, 95);
+			_rl = gEngine.RollDice(1, 5, 95);
 
 			CombatState = CombatState.AttackHit;
 
@@ -609,7 +609,7 @@ namespace EamonRT.Game.Combat
 
 			if (OfMonster != DfMonster || !Globals.IsRulesetVersion(5))
 			{
-				_rl = Globals.Engine.RollDice(1, 100, 0);
+				_rl = gEngine.RollDice(1, 100, 0);
 
 				if (_rl == 100)
 				{
@@ -674,7 +674,7 @@ namespace EamonRT.Game.Combat
 
 			for (var i = 0; i < D; i++)
 			{
-				_d2 += (long)Math.Round(yy * (MaxDamage ? S : Globals.Engine.RollDice(1, S, 0)));
+				_d2 += (long)Math.Round(yy * (MaxDamage ? S : gEngine.RollDice(1, S, 0)));
 			}
 
 			_d2 += (long)Math.Round(yy * M);
@@ -695,7 +695,7 @@ namespace EamonRT.Game.Combat
 			}
 			else
 			{
-				_d2 = MaxDamage ? (D * S) + M : Globals.Engine.RollDice(D, S, M);
+				_d2 = MaxDamage ? (D * S) + M : gEngine.RollDice(D, S, M);
 			}
 
 			_d2 -= (A * DfMonster.Armor);
@@ -740,7 +740,7 @@ namespace EamonRT.Game.Combat
 			{
 				if (DfMonster.IsCharacterMonster())
 				{
-					Globals.GameState.Die = 1;
+					gGameState.Die = 1;
 
 					if (SetNextStateFunc != null)
 					{
@@ -752,7 +752,7 @@ namespace EamonRT.Game.Combat
 				}
 				else
 				{
-					Globals.Engine.MonsterDies(OfMonster, DfMonster);
+					gEngine.MonsterDies(OfMonster, DfMonster);
 				}
 			}
 
@@ -826,12 +826,12 @@ namespace EamonRT.Game.Combat
 
 			if (!OmitFinalNewLine)
 			{
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 			}
 
 			if (LightOut && OfWeapon != null)
 			{
-				Globals.Engine.LightOut(OfWeapon);
+				gEngine.LightOut(OfWeapon);
 			}
 		}
 
@@ -883,7 +883,7 @@ namespace EamonRT.Game.Combat
 				ExecuteStateMachine();
 			}
 
-			Globals.Thread.Sleep(Globals.GameState.PauseCombatMs);
+			Globals.Thread.Sleep(gGameState.PauseCombatMs);
 		}
 
 		public CombatSystem()

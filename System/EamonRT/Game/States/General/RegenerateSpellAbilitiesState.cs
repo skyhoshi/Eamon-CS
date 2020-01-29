@@ -1,7 +1,7 @@
 ﻿
 // RegenerateSpellAbilitiesState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
@@ -22,20 +22,20 @@ namespace EamonRT.Game.States
 
 				foreach (var sv in spellValues)
 				{
-					if (Globals.GameState.GetSa(sv) < Globals.Character.GetSpellAbilities(sv))
+					if (gGameState.GetSa(sv) < gCharacter.GetSpellAbilities(sv))
 					{
-						var n = (long)((double)Globals.GameState.GetSa(sv) * 1.1) - Globals.GameState.GetSa(sv);
+						var n = (long)((double)gGameState.GetSa(sv) * 1.1) - gGameState.GetSa(sv);
 
-						if (Globals.GameState.GetSa(sv) > 0 && n < 1)
+						if (gGameState.GetSa(sv) > 0 && n < 1)
 						{
 							n = 1;
 						}
 
-						Globals.GameState.ModSa(sv, n);
+						gGameState.ModSa(sv, n);
 
-						if (Globals.GameState.GetSa(sv) > Globals.Character.GetSpellAbilities(sv))
+						if (gGameState.GetSa(sv) > gCharacter.GetSpellAbilities(sv))
 						{
-							Globals.GameState.SetSa(sv, Globals.Character.GetSpellAbilities(sv));
+							gGameState.SetSa(sv, gCharacter.GetSpellAbilities(sv));
 						}
 					}
 				}

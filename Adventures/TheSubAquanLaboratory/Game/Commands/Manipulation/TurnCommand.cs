@@ -1,7 +1,7 @@
 ﻿
 // TurnCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -27,50 +27,46 @@ namespace TheSubAquanLaboratory.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			switch (DobjArtifact.Uid)
+			switch (gDobjArtifact.Uid)
 			{
 				case 65:
 
 					// Alphabet dial
 
-					Globals.Out.Write("{0}Turn it toward which end of the alphabet (Up or Down) (U/D): ", Environment.NewLine);
+					gOut.Write("{0}Turn it toward which end of the alphabet (Up or Down) (U/D): ", Environment.NewLine);
 
 					Globals.Buf.Clear();
 
-					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, IsCharUOrD, null);
+					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, IsCharUOrD, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'U')
 					{
-						if (!gameState.AlphabetDial)
+						if (!gGameState.AlphabetDial)
 						{
-							Globals.Engine.PrintEffectDesc(45);
+							gEngine.PrintEffectDesc(45);
 
-							gameState.AlphabetDial = true;
+							gGameState.AlphabetDial = true;
 						}
 						else
 						{
-							Globals.Out.Print("The dial is already turned up to its maximum.");
+							gOut.Print("The dial is already turned up to its maximum.");
 						}
 					}
 					else
 					{
-						if (gameState.AlphabetDial)
+						if (gGameState.AlphabetDial)
 						{
-							Globals.Engine.PrintEffectDesc(46);
+							gEngine.PrintEffectDesc(46);
 
-							gameState.AlphabetDial = false;
+							gGameState.AlphabetDial = false;
 						}
 						else
 						{
-							Globals.Out.Print("The dial is at its absolute lowest.");
+							gOut.Print("The dial is at its absolute lowest.");
 						}
 					}
 
@@ -78,7 +74,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 				default:
 
-					PrintCantVerbObj(DobjArtifact);
+					PrintCantVerbObj(gDobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 

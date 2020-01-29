@@ -1,7 +1,7 @@
 ﻿
 // IGameState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 namespace TheBeginnersCave.Framework
 {
@@ -10,7 +10,9 @@ namespace TheBeginnersCave.Framework
 	{
 		#region Properties
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a value indicating the Trollsfire sword's activation state.
+		/// </summary>
 		long Trollsfire { get; set; }
 
 		/// <summary></summary>

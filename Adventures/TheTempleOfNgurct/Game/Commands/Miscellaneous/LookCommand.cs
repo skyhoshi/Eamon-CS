@@ -17,78 +17,74 @@ namespace TheTempleOfNgurct.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
+			gActorRoom.Seen = false;
 
-			Debug.Assert(gameState != null);
-
-			ActorRoom.Seen = false;
-
-			if (Globals.GameState.GetNBTL(Friendliness.Enemy) <= 0)
+			if (gGameState.GetNBTL(Friendliness.Enemy) <= 0)
 			{
-				var rl = Globals.Engine.RollDice(1, 100, 0);
+				var rl = gEngine.RollDice(1, 100, 0);
 
-				var room1 = Globals.RDB[24];
+				var room1 = gRDB[24];
 
 				Debug.Assert(room1 != null);
 
-				var secretDoorArtifact1 = Globals.ADB[83];
+				var secretDoorArtifact1 = gADB[83];
 
 				Debug.Assert(secretDoorArtifact1 != null);
 
 				// Secret door
 
-				if (ActorRoom.Uid == 24 && secretDoorArtifact1.IsInLimbo() && rl < 66)
+				if (gActorRoom.Uid == 24 && secretDoorArtifact1.IsInLimbo() && rl < 66)
 				{
-					secretDoorArtifact1.SetEmbeddedInRoom(ActorRoom);
+					secretDoorArtifact1.SetEmbeddedInRoom(gActorRoom);
 
 					room1.SetDirectionDoor(Direction.North, secretDoorArtifact1);
 
-					Globals.Engine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact1);
+					gEngine.RevealEmbeddedArtifact(gActorRoom, secretDoorArtifact1);
 				}
 
-				var room2 = Globals.RDB[48];
+				var room2 = gRDB[48];
 
 				Debug.Assert(room2 != null);
 
-				var secretDoorArtifact2 = Globals.ADB[84];
+				var secretDoorArtifact2 = gADB[84];
 
 				Debug.Assert(secretDoorArtifact2 != null);
 
 				// Secret door
 
-				if (ActorRoom.Uid == 48 && secretDoorArtifact2.IsInLimbo() && rl < 51)
+				if (gActorRoom.Uid == 48 && secretDoorArtifact2.IsInLimbo() && rl < 51)
 				{
-					secretDoorArtifact2.SetEmbeddedInRoom(ActorRoom);
+					secretDoorArtifact2.SetEmbeddedInRoom(gActorRoom);
 
 					room2.SetDirectionDoor(Direction.South, secretDoorArtifact2);
 
-					Globals.Engine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact2);
+					gEngine.RevealEmbeddedArtifact(gActorRoom, secretDoorArtifact2);
 				}
 
-				var scarabArtifact = Globals.ADB[65];
+				var scarabArtifact = gADB[65];
 
 				Debug.Assert(scarabArtifact != null);
 
 				// Hidden scarab
 
-				if (ActorRoom.Uid == 38 && scarabArtifact.IsInLimbo())
+				if (gActorRoom.Uid == 38 && scarabArtifact.IsInLimbo())
 				{
-					scarabArtifact.SetInRoom(ActorRoom);
+					scarabArtifact.SetInRoom(gActorRoom);
 				}
 
-				var guardMonster = Globals.MDB[30];
+				var guardMonster = gMDB[30];
 
 				Debug.Assert(guardMonster != null);
 
-				var keyRingArtifact = Globals.ADB[72];
+				var keyRingArtifact = gADB[72];
 
 				Debug.Assert(keyRingArtifact != null);
 
 				// Hidden ring of keys
 
-				if (ActorRoom.Uid == gameState.KeyRingRoomUid && keyRingArtifact.IsInLimbo())
+				if (gActorRoom.Uid == gGameState.KeyRingRoomUid && keyRingArtifact.IsInLimbo())
 				{
-					keyRingArtifact.SetInRoom(ActorRoom);
+					keyRingArtifact.SetInRoom(gActorRoom);
 
 					// Guard wasn't killed
 

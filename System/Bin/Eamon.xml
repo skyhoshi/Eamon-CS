@@ -73,64 +73,92 @@
             <returns></returns>
         </member>
         <member name="T:Eamon.Framework.DataStorage.Generic.IDbTable`1">
-            <summary></summary>
+            <summary>
+            Represents a collection of records of type T in a database.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Records">
-            <summary></summary>
+            <summary>
+            Gets or sets the collection of records stored in the database table.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.FreeUids">
-            <summary></summary>
+            <summary>
+            Gets or sets the collection of Uids available for reuse by new instances of this record type; may be empty.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Cache">
-            <summary></summary>
+            <summary>
+            Gets or sets an array of records stored in most recently used (MRU) order, a quick-lookup cache.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.CurrUid">
-            <summary></summary>
+            <summary>
+            Gets or sets a sequence number representing the last Uid (unique ID) allocated to a record of type T.
+            </summary>
         </member>
         <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.FreeRecords(System.Boolean)">
-            <summary></summary>
+            <summary>
+            Fully reinitializes the IDbTable and restores it to its initial (empty) state.
+            </summary>
             <param name="dispose"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.GetRecordsCount">
-            <summary></summary>
+            <summary>
+            Gets the number of records of type T stored in the <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Records">Records</see> collection.
+            </summary>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.FindRecord(System.Int64)">
-            <summary></summary>
+            <summary>
+            Gets a record from the <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Records">Records</see> collection.
+            </summary>
             <param name="uid"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.FindRecord(System.Type,System.Boolean)">
-            <summary></summary>
+            <summary>
+            Gets a record from the <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Records">Records</see> collection based on interface type.
+            </summary>
             <param name="type"></param>
             <param name="exactMatch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.AddRecord(`0,System.Boolean)">
-            <summary></summary>
+            <summary>
+            Adds a record to the <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Records">Records</see> collection.
+            </summary>
             <param name="record"></param>
             <param name="makeCopy"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.RemoveRecord(System.Int64)">
-            <summary></summary>
+            <summary>
+            Removes a record from the <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Records">Records</see> collection.
+            </summary>
             <param name="uid"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.RemoveRecord(System.Type,System.Boolean)">
-            <summary></summary>
+            <summary>
+            Removes a record from the <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Records">Records</see> collection based on interface type.
+            </summary>
             <param name="type"></param>
             <param name="exactMatch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.GetRecordUid(System.Boolean)">
-            <summary></summary>
+            <summary>
+            Gets the next available record Uid.
+            </summary>
             <param name="allocate"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.DataStorage.Generic.IDbTable`1.FreeRecordUid(System.Int64)">
-            <summary></summary>
+            <summary>
+            Frees a record Uid, making it available again for use.
+            </summary>
             <param name="uid"></param>
         </member>
         <member name="T:Eamon.Framework.DataStorage.Generic.IRecordDb`1">
@@ -140,6 +168,9 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.DataStorage.Generic.IRecordDb`1.Item(System.Int64)">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.DataStorage.Generic.IRecordDb`1.Records">
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.DataStorage.IDatabase">
@@ -716,38 +747,53 @@
             <param name="uid"></param>
         </member>
         <member name="T:Eamon.Framework.Delegates">
-            <summary></summary>
+            <summary>
+            A collection of C# delegate signatures.
+            </summary>
         </member>
         <member name="T:Eamon.Framework.Delegates.GetArtifactListFunc">
-            <summary></summary>
+            <summary>
+            Queries the game database for a list of <see cref="T:Eamon.Framework.IArtifact">Artifact</see>s matching a criteria set.
+            </summary>
             <param name="whereClauseFuncs"></param>
             <returns></returns>
         </member>
         <member name="T:Eamon.Framework.Delegates.GetMonsterListFunc">
-            <summary></summary>
+            <summary>
+            Queries the game database for a list of <see cref="T:Eamon.Framework.IMonster">Monster</see>s matching a criteria set.
+            </summary>
             <param name="whereClauseFuncs"></param>
             <returns></returns>
         </member>
         <member name="T:Eamon.Framework.Delegates.FilterArtifactListFunc">
-            <summary></summary>
+            <summary>
+            Filters a given <see cref="T:Eamon.Framework.IArtifact">Artifact</see> list, returning all records matching a given name.
+            </summary>
             <param name="artifactList"></param>
             <param name="name"></param>
             <returns></returns>
         </member>
         <member name="T:Eamon.Framework.Delegates.FilterMonsterListFunc">
-            <summary></summary>
+            <summary>
+            Filters a given <see cref="T:Eamon.Framework.IMonster">Monster</see> list, returning all records matching a given name.
+            </summary>
             <param name="monsterList"></param>
             <param name="name"></param>
             <returns></returns>
         </member>
         <member name="T:Eamon.Framework.Delegates.FilterRecordListFunc">
-            <summary></summary>
+            <summary>
+            Filters a given record list, returning all records matching a given name.
+            </summary>
             <param name="recordList"></param>
             <param name="name"></param>
             <returns></returns>
         </member>
         <member name="T:Eamon.Framework.Delegates.RevealEmbeddedArtifactFunc">
-            <summary></summary>
+            <summary>
+            Reveals an embedded <see cref="T:Eamon.Framework.IArtifact">Artifact</see>, moving it into its containing <see cref="T:Eamon.Framework.IRoom">Room</see>
+            and printing its <see cref="P:Eamon.Framework.IGameBase.Desc">Desc</see>ription if necessary.
+            </summary>
             <param name="room"></param>
             <param name="artifact"></param>
         </member>
@@ -963,221 +1009,222 @@
         </member>
         <member name="P:Eamon.Framework.IArtifact.StateDesc">
             <summary>
-            Gets or sets a description shown after this <see cref="T:Eamon.Framework.IArtifact"/>'s <see cref="!:Name"/> in
+            Gets or sets a description shown after this <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s <see cref="P:Eamon.Framework.IGameBase.Name">Name</see> in
             various lists that indicates its state.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.IsCharOwned">
             <summary>
-            Gets or sets a value indicating whether this <see cref="T:Eamon.Framework.IArtifact"/> is owned by the player character.
+            Gets or sets a value indicating whether this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> is owned by the player character.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.IsPlural">
             <summary>
-            Gets or sets a value indicating whether this <see cref="T:Eamon.Framework.IArtifact"/> represents a group of objects.
+            Gets or sets a value indicating whether this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> represents a group of objects.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.IsListed">
             <summary>
-            Gets or sets a value indicating whether this <see cref="T:Eamon.Framework.IArtifact"/> should be displayed in
+            Gets or sets a value indicating whether this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> should be displayed in
             various lists.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.PluralType">
             <summary>
-            Gets or sets a value indicating how this <see cref="T:Eamon.Framework.IArtifact"/>'s singular <see cref="!:Name"/> is
+            Gets or sets a value indicating how this <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s singular <see cref="P:Eamon.Framework.IGameBase.Name">Name</see> is
             modified to produce its plural Name.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Value">
             <summary>
-            Gets or sets the base value of this <see cref="T:Eamon.Framework.IArtifact"/> in gold pieces.
+            Gets or sets the base value of this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> in gold pieces.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Weight">
             <summary>
-            Gets or sets the weight of this <see cref="T:Eamon.Framework.IArtifact"/> in Gronds.
+            Gets or sets the weight of this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> in Gronds.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Location">
             <summary>
-            Gets or sets the location of this <see cref="T:Eamon.Framework.IArtifact"/> in the game.
+            Gets or sets the location of this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> in the game.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Type">
             <summary>
-            Gets or sets the type of this <see cref="T:Eamon.Framework.IArtifact"/>, a convenience to emulate Eamon Deluxe.
+            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Type">Type</see> of this <see cref="T:Eamon.Framework.IArtifact">Artifact</see>, 
+            a convenience to emulate Eamon Deluxe.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Field1">
             <summary>
-            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field1"/> of this <see cref="T:Eamon.Framework.IArtifact"/>,
+            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field1">Field1</see> of this <see cref="T:Eamon.Framework.IArtifact">Artifact</see>,
             a convenience to emulate Eamon Deluxe.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Field2">
             <summary>
-            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field2"/> of this <see cref="T:Eamon.Framework.IArtifact"/>,
+            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field2">Field2</see> of this <see cref="T:Eamon.Framework.IArtifact">Artifact</see>,
             a convenience to emulate Eamon Deluxe.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Field3">
             <summary>
-            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field3"/> of this <see cref="T:Eamon.Framework.IArtifact"/>,
+            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field3">Field3</see> of this <see cref="T:Eamon.Framework.IArtifact">Artifact</see>,
             a convenience to emulate Eamon Deluxe.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Field4">
             <summary>
-            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field4"/> of this <see cref="T:Eamon.Framework.IArtifact"/>,
+            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field4">Field4</see> of this <see cref="T:Eamon.Framework.IArtifact">Artifact</see>,
             a convenience to emulate Eamon Deluxe.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Field5">
             <summary>
-            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field5"/> of this <see cref="T:Eamon.Framework.IArtifact"/>,
+            Gets or sets the primary <see cref="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Field5">Field5</see> of this <see cref="T:Eamon.Framework.IArtifact">Artifact</see>,
             a convenience to emulate Eamon Deluxe.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Gold">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Gold"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Gold">Gold</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Treasure">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Treasure"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Treasure">Treasure</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Weapon">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Weapon"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Weapon">Weapon</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.MagicWeapon">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.MagicWeapon"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.MagicWeapon">MagicWeapon</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.GeneralWeapon">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding to 
-            either <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Weapon"/> or <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.MagicWeapon"/>; intended as a
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding to 
+            either <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Weapon">Weapon</see> or <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.MagicWeapon">MagicWeapon</see>; intended as a
             convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.InContainer">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.InContainer"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.InContainer">InContainer</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.OnContainer">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.OnContainer"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.OnContainer">OnContainer</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.UnderContainer">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.UnderContainer"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.UnderContainer">UnderContainer</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.BehindContainer">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.BehindContainer"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.BehindContainer">BehindContainer</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.GeneralContainer">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to any of <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.InContainer"/>, <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.OnContainer"/>, 
-            <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.UnderContainer"/> or <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.BehindContainer"/>; 
+            Gets the first found <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see>
+            corresponding to any of <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.InContainer">InContainer</see>, <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.OnContainer">OnContainer</see>, 
+            <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.UnderContainer">UnderContainer</see> or <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.BehindContainer">BehindContainer</see>; 
             intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.LightSource">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.LightSource"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.LightSource">LightSource</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Drinkable">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Drinkable"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Drinkable">Drinkable</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Readable">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Readable"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Readable">Readable</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.DoorGate">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.DoorGate"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.DoorGate">DoorGate</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Edible">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Edible"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Edible">Edible</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.BoundMonster">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.BoundMonster"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.BoundMonster">BoundMonster</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Wearable">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Wearable"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.Wearable">Wearable</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.DisguisedMonster">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.DisguisedMonster"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.DisguisedMonster">DisguisedMonster</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.DeadBody">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.DeadBody"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.DeadBody">DeadBody</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.User1">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.User1"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.User1">User1</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.User2">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.User2"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.User2">User2</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.User3">
             <summary>
-            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> object for this <see cref="T:Eamon.Framework.IArtifact"/> corresponding
-            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.User3"/>; intended as a convenience.
+            Gets the <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> for this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> corresponding
+            to <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.User3">User3</see>; intended as a convenience.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Categories">
             <summary>
-            Gets or sets an array of <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory"/> objects that define
-            this <see cref="T:Eamon.Framework.IArtifact"/>'s behavior in the game.
+            Gets or sets an array of <see cref="T:Eamon.Framework.Primitive.Classes.IArtifactCategory">ArtifactCategory</see> objects that define
+            this <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s behavior in the game.
             </summary>
         </member>
         <member name="M:Eamon.Framework.IArtifact.GetCategories(System.Int64)">
@@ -2029,30 +2076,46 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.IEngine.MacroFuncs">
-            <summary></summary>
+            <summary>
+            Gets or sets a collection of functions used to resolve macros embedded in <see cref="P:Eamon.Framework.IGameBase.Desc">Desc</see>, 
+            <see cref="T:Eamon.Framework.IArtifact">Artifact</see> <see cref="P:Eamon.Framework.IArtifact.StateDesc">StateDesc</see> and <see cref="T:Eamon.Framework.IMonster">Monster</see>
+            <see cref="P:Eamon.Framework.IMonster.StateDesc">StateDesc</see> properties.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IEngine.ArtifactContainedList">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.IEngine.Preps">
-            <summary></summary>
+            <summary>
+            Gets or sets an array of sentence prepositions (eg, "to", "from", "inside", etc).
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IEngine.Articles">
-            <summary></summary>
+            <summary>
+            Gets or sets an array of sentence articles (eg, "a", "some", "the", etc).
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IEngine.NumCacheItems">
-            <summary></summary>
+            <summary>
+            Gets or sets the number of records stored in each quick-lookup <see cref="P:Eamon.Framework.DataStorage.Generic.IDbTable`1.Cache">Cache</see> in the database.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IEngine.UnknownName">
-            <summary></summary>
+            <summary>
+            Gets or sets a generic string representing an unknown name (eg, "???").
+            </summary>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetPreps(System.Int64)">
-            <summary></summary>
+            <summary>
+            Gets the sentence preposition (eg, "to", "from", "inside", etc).
+            </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetArticles(System.Int64)">
-            <summary></summary>
+            <summary>
+            Gets the sentence article (eg, "a", "some", "the", etc).
+            </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
@@ -2072,32 +2135,44 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetStatusNames(System.Int64)">
-            <summary></summary>
+            <summary>
+            Gets the name for a given <see cref="T:Eamon.Framework.Primitive.Enums.Status"/>.
+            </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetStatusNames(Eamon.Framework.Primitive.Enums.Status)">
-            <summary></summary>
+            <summary>
+            Gets the name for a given <see cref="T:Eamon.Framework.Primitive.Enums.Status"/>.
+            </summary>
             <param name="status"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetClothingNames(System.Int64)">
-            <summary></summary>
+            <summary>
+            Gets the name for a given <see cref="T:Eamon.Framework.Primitive.Enums.Clothing"/>.
+            </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetClothingNames(Eamon.Framework.Primitive.Enums.Clothing)">
-            <summary></summary>
+            <summary>
+            Gets the name for a given <see cref="T:Eamon.Framework.Primitive.Enums.Clothing"/>.
+            </summary>
             <param name="clothing"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetCombatCodeDescs(System.Int64)">
-            <summary></summary>
+            <summary>
+            Gets the description for a given <see cref="T:Eamon.Framework.Primitive.Enums.CombatCode"/>.
+            </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetCombatCodeDescs(Eamon.Framework.Primitive.Enums.CombatCode)">
-            <summary></summary>
+            <summary>
+            Gets the description for a given <see cref="T:Eamon.Framework.Primitive.Enums.CombatCode"/>.
+            </summary>
             <param name="combatCode"></param>
             <returns></returns>
         </member>
@@ -2112,107 +2187,149 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetLightLevelNames(System.Int64)">
-            <summary></summary>
+            <summary>
+            Gets the name for a given <see cref="T:Eamon.Framework.Primitive.Enums.LightLevel"/>.
+            </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetLightLevelNames(Eamon.Framework.Primitive.Enums.LightLevel)">
-            <summary></summary>
+            <summary>
+            Gets the name for a given <see cref="T:Eamon.Framework.Primitive.Enums.LightLevel"/>.
+            </summary>
             <param name="lightLevel"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetStats(System.Int64)">
-            <summary></summary>
+            <summary>
+            Gets the data for a given <see cref="T:Eamon.Framework.Primitive.Enums.Stat"/>.
+            </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetStats(Eamon.Framework.Primitive.Enums.Stat)">
-            <summary></summary>
+            <summary>
+            Gets the data for a given <see cref="T:Eamon.Framework.Primitive.Enums.Stat"/>.
+            </summary>
             <param name="stat"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetSpells(System.Int64)">
-            <summary></summary>
+            <summary>
+            Gets the data for a given <see cref="T:Eamon.Framework.Primitive.Enums.Spell"/>.
+            </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetSpells(Eamon.Framework.Primitive.Enums.Spell)">
-            <summary></summary>
+            <summary>
+            Gets the data for a given <see cref="T:Eamon.Framework.Primitive.Enums.Spell"/>.
+            </summary>
             <param name="spell"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetWeapons(System.Int64)">
-            <summary></summary>
+            <summary>
+            Gets the data for a given <see cref="T:Eamon.Framework.Primitive.Enums.Weapon"/>.
+            </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetWeapons(Eamon.Framework.Primitive.Enums.Weapon)">
-            <summary></summary>
+            <summary>
+            Gets the data for a given <see cref="T:Eamon.Framework.Primitive.Enums.Weapon"/>.
+            </summary>
             <param name="weapon"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetArmors(System.Int64)">
-            <summary></summary>
+            <summary>
+            Gets the data for a given <see cref="T:Eamon.Framework.Primitive.Enums.Armor"/>.
+            </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetArmors(Eamon.Framework.Primitive.Enums.Armor)">
-            <summary></summary>
+            <summary>
+            Gets the data for a given <see cref="T:Eamon.Framework.Primitive.Enums.Armor"/>.
+            </summary>
             <param name="armor"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetDirections(System.Int64)">
-            <summary></summary>
+            <summary>
+            Gets the data for a given <see cref="T:Eamon.Framework.Primitive.Enums.Direction"/>.
+            </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetDirections(Eamon.Framework.Primitive.Enums.Direction)">
-            <summary></summary>
+            <summary>
+            Gets the data for a given <see cref="T:Eamon.Framework.Primitive.Enums.Direction"/>.
+            </summary>
             <param name="direction"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetArtifactTypes(System.Int64)">
-            <summary></summary>
+            <summary>
+            Gets the data for a given <see cref="T:Eamon.Framework.Primitive.Enums.ArtifactType"/>.
+            </summary>
             <param name="index"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetArtifactTypes(Eamon.Framework.Primitive.Enums.ArtifactType)">
-            <summary></summary>
+            <summary>
+            Gets the data for a given <see cref="T:Eamon.Framework.Primitive.Enums.ArtifactType"/>.
+            </summary>
             <param name="artifactType"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsSuccess(Eamon.RetCode)">
-            <summary></summary>
+            <summary>
+            Indicates whether an operation succeeded.
+            </summary>
             <param name="rc"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsFailure(Eamon.RetCode)">
-            <summary></summary>
+            <summary>
+            Indicates whether an operation failed.
+            </summary>
             <param name="rc"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsValidPluralType(Eamon.Framework.Primitive.Enums.PluralType)">
-            <summary></summary>
+            <summary>
+            Indicates whether a plural type is valid.
+            </summary>
             <param name="pluralType"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsValidArtifactType(Eamon.Framework.Primitive.Enums.ArtifactType)">
-            <summary></summary>
+            <summary>
+            Indicates whether an artifact type is valid.
+            </summary>
             <param name="artifactType"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsValidArtifactArmor(System.Int64)">
-            <summary></summary>
+            <summary>
+            Indicates whether an armor value is valid for an wearable <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
             <param name="armor"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsValidMonsterArmor(System.Int64)">
-            <summary></summary>
+            <summary>
+            Indicates whether an armor value is valid for a <see cref="T:Eamon.Framework.IMonster">Monster</see>.
+            </summary>
             <param name="armor"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsValidMonsterCourage(System.Int64)">
-            <summary></summary>
+            <summary>
+            Indicates whether a courage value is valid for a <see cref="T:Eamon.Framework.IMonster">Monster</see>.
+            </summary>
             <param name="courage"></param>
             <returns></returns>
         </member>
@@ -2325,117 +2442,163 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharYOrN(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is one of ['Y', 'N'].
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharSOrTOrROrX(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is one of ['S', 'T', 'R', 'X'].
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsChar0Or1(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is one of ['0', '1'].
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsChar0To2(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is one of ['0', '1', '2'].
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsChar0To3(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is one of ['0', '1', '2', '3'].
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsChar1To3(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is one of ['1', '2', '3'].
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharDigit(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is a numeric digit.
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharDigitOrX(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is a numeric digit or 'X'.
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharPlusMinusDigit(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is a numeric digit or one of ['+', '-'].
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharAlpha(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is alphabetic.
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharAlphaSpace(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is alphabetic or space.
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharAlnum(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is alphabetic or numeric digit.
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharAlnumSpace(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is alphabetic, numeric digit or space.
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharAlnumPeriodUnderscore(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is alphabetic, numeric digit, period or underscore.
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharPrint(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is printable.
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharPound(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is '#'.
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharQuote(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is a quote.
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharAny(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is any character at all.
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharAnyButDquoteCommaColon(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is any character but one of ['"', ',', ':'].
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.IsCharAnyButBackForwardSlash(System.Char)">
-            <summary></summary>
+            <summary>
+            Indicates whether a character is any character but one of ['\', '/'].
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.ModifyCharToUpper(System.Char)">
-            <summary></summary>
+            <summary>
+            Given a character, produce its upper case equivalent, if any.
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.ModifyCharToNullOrX(System.Char)">
-            <summary></summary>
+            <summary>
+            Given a character, produce either 'X' or '\0'.
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.ModifyCharToNull(System.Char)">
-            <summary></summary>
+            <summary>
+            Given a character, produce '\0'.
+            </summary>
             <param name="ch"></param>
             <returns></returns>
         </member>
@@ -2454,15 +2617,21 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetGameState">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.IGameState">GameState</see> record.
+            </summary>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetModule">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="T:Eamon.Framework.IModule">Module</see> record.
+            </summary>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.EvalFriendliness``1(Eamon.Framework.Primitive.Enums.Friendliness,``0,``0,``0)">
-            <summary></summary>
+            <summary>
+            Evaluates the <see cref="T:Eamon.Framework.Primitive.Enums.Friendliness"/>, returning a value of type T.
+            </summary>
             <param name="friendliness"></param>
             <param name="enemyValue"></param>
             <param name="neutralValue"></param>
@@ -2470,7 +2639,9 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.EvalGender``1(Eamon.Framework.Primitive.Enums.Gender,``0,``0,``0)">
-            <summary></summary>
+            <summary>
+            Evaluates the <see cref="T:Eamon.Framework.Primitive.Enums.Gender"/>, returning a value of type T.
+            </summary>
             <param name="gender"></param>
             <param name="maleValue"></param>
             <param name="femaleValue"></param>
@@ -2487,21 +2658,27 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.EvalRoomType``1(Eamon.Framework.Primitive.Enums.RoomType,``0,``0)">
-            <summary></summary>
+            <summary>
+            Evaluates the <see cref="T:Eamon.Framework.Primitive.Enums.RoomType"/>, returning a value of type T.
+            </summary>
             <param name="roomType"></param>
             <param name="indoorsValue"></param>
             <param name="outdoorsValue"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.EvalLightLevel``1(Eamon.Framework.Primitive.Enums.LightLevel,``0,``0)">
-            <summary></summary>
+            <summary>
+            Evaluates the <see cref="T:Eamon.Framework.Primitive.Enums.LightLevel"/>, returning a value of type T.
+            </summary>
             <param name="lightLevel"></param>
             <param name="darkValue"></param>
             <param name="lightValue"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.EvalPlural``1(System.Boolean,``0,``0)">
-            <summary></summary>
+            <summary>
+            Evaluates the plural value, returning a value of type T.
+            </summary>
             <param name="isPlural"></param>
             <param name="singularValue"></param>
             <param name="pluralValue"></param>
@@ -2568,25 +2745,33 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.GetBlastDesc">
-            <summary></summary>
+            <summary>
+            Gets the <see cref="F:Eamon.Framework.Primitive.Enums.Spell.Blast">Blast</see> spell description.
+            </summary>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.RollDice(System.Int64,System.Int64,System.Int64[]@)">
-            <summary></summary>
+            <summary>
+            Rolls a number of dice, storing the resulting values in an array.
+            </summary>
             <param name="numDice"></param>
             <param name="numSides"></param>
             <param name="dieRolls"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.RollDice(System.Int64,System.Int64,System.Int64)">
-            <summary></summary>
+            <summary>
+            Rolls a number of dice, returning a sum of the results.
+            </summary>
             <param name="numDice"></param>
             <param name="numSides"></param>
             <param name="modifier"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.SumHighestRolls(System.Int64[],System.Int64,System.Int64@)">
-            <summary></summary>
+            <summary>
+            Given an array of die rolls, sum the highest of them and return the result.
+            </summary>
             <param name="dieRolls"></param>
             <param name="numRollsToSum"></param>
             <param name="result"></param>
@@ -2598,7 +2783,9 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.UnlinkOnFailure">
-            <summary></summary>
+            <summary>
+            Deletes a set of game-related files from the filesystem.
+            </summary>
         </member>
         <member name="M:Eamon.Framework.IEngine.TruncatePluralTypeEffectDesc(Eamon.Framework.Primitive.Enums.PluralType,System.Int64)">
             <summary></summary>
@@ -2904,7 +3091,7 @@
             <param name="buf"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IGameBase.GetDecoratedName01(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Text.StringBuilder)">
+        <member name="M:Eamon.Framework.IGameBase.GetNoneName(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Text.StringBuilder)">
             <summary></summary>
             <param name="upshift"></param>
             <param name="showCharOwned"></param>
@@ -2913,7 +3100,7 @@
             <param name="buf"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IGameBase.GetDecoratedName02(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Text.StringBuilder)">
+        <member name="M:Eamon.Framework.IGameBase.GetArticleName(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Text.StringBuilder)">
             <summary></summary>
             <param name="upshift"></param>
             <param name="showCharOwned"></param>
@@ -2922,7 +3109,7 @@
             <param name="buf"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IGameBase.GetDecoratedName03(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Text.StringBuilder)">
+        <member name="M:Eamon.Framework.IGameBase.GetTheName(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Text.StringBuilder)">
             <summary></summary>
             <param name="upshift"></param>
             <param name="showCharOwned"></param>
@@ -3459,6 +3646,40 @@
         </member>
         <member name="M:Eamon.Framework.IMonster.GetArmorDescString">
             <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.GetCantFindExitDescString(Eamon.Framework.IRoom,System.String,System.Boolean,System.Boolean)">
+            <summary></summary>
+            <param name="room"></param>
+            <param name="monsterName"></param>
+            <param name="isPlural"></param>
+            <param name="fleeing"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.GetMembersExitRoomDescString(Eamon.Framework.IRoom,System.String,System.Boolean,System.Boolean)">
+            <summary></summary>
+            <param name="room"></param>
+            <param name="monsterName"></param>
+            <param name="isPlural"></param>
+            <param name="fleeing"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.GetExitRoomDescString(Eamon.Framework.IRoom,System.String,System.Boolean,System.Boolean,Eamon.Framework.Primitive.Enums.Direction)">
+            <summary></summary>
+            <param name="room"></param>
+            <param name="monsterName"></param>
+            <param name="isPlural"></param>
+            <param name="fleeing"></param>
+            <param name="exitDirection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.GetEnterRoomDescString(Eamon.Framework.IRoom,System.String,System.Boolean,System.Boolean,Eamon.Framework.Primitive.Enums.Direction)">
+            <summary></summary>
+            <param name="room"></param>
+            <param name="monsterName"></param>
+            <param name="isPlural"></param>
+            <param name="fleeing"></param>
+            <param name="enterDirection"></param>
             <returns></returns>
         </member>
         <member name="T:Eamon.Framework.IRoom">
@@ -4064,6 +4285,9 @@
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Plugin.IPluginGlobals">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Plugin.IPluginGlobals.Buf">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginGlobals.Database">
@@ -5008,7 +5232,7 @@
         <member name="P:Eamon.Framework.Primitive.Classes.IDirection.Abbr">
             <summary></summary>
         </member>
-        <member name="P:Eamon.Framework.Primitive.Classes.IDirection.ArrivalDir">
+        <member name="P:Eamon.Framework.Primitive.Classes.IDirection.EnterDir">
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Classes.IPrep">
@@ -5096,7 +5320,14 @@
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.Armor">
-            <summary></summary>
+            <summary>
+            An enumeration of character Armor Classes.
+            </summary>
+            <remarks>
+            These armor classes parallel those found in Eamon Deluxe.  You can take a look through the
+            documentation for EDX or wait for the Eamon CS Dungeon Designer's Manual, which will have
+            more details.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Armor.SkinClothes">
             <summary></summary>
@@ -5147,25 +5378,59 @@
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.ArticleType">
-            <summary></summary>
+            <summary>
+            An enumeration of Article Types.
+            </summary>
+            <remarks>
+            These article types are applied to <see cref="T:Eamon.Framework.IArtifact">Artifact</see>s and <see cref="T:Eamon.Framework.IMonster">Monster</see>s and improve the
+            aesthetics of the output, making it more natural to read.  You can modify any record at runtime to change its article type, if desired.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.ArticleType.None">
-            <summary></summary>
+            <summary>
+            No article is ever applied.  For example, "Trollsfire" or "Heinrich".
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.ArticleType.A">
-            <summary></summary>
+            <summary>
+            The name is preceded by "a".  For example, "a flashlight" or "a wolverine".
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.ArticleType.An">
-            <summary></summary>
+            <summary>
+            The name is preceded by "an".  For example, "an axe" or "an orc".
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.ArticleType.Some">
-            <summary></summary>
+            <summary>
+            The name is preceded by "some".  For example, "some leather armor", "some silver cups" or "some green slime".
+            </summary>
+            <remarks>
+            For <see cref="T:Eamon.Framework.IArtifact">Artifact</see>s, it is important to distinguish between singular Artifacts (like the leather armor) and
+            plural Artifacts (the silver cups).  Plural Artifacts should be named as singular; this article type combined with the right plural
+            type will produce the correct name.  The situation for <see cref="T:Eamon.Framework.IMonster">Monster</see>s is similar; it is important to distinguish
+            between singular Monsters (like the green slime) and group Monsters.  Group Monsters have their own plural syntax (eg, "seven kobolds").
+            Group Monsters should be named as singular, but with a singular article type (eg, "a kobold"), and the right plural type.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.ArticleType.The">
-            <summary></summary>
+            <summary>
+            The name is preceded by "the".  For example, "the Rings of Xylo" or "the Emerald Warrior".
+            </summary>
+            <remarks>
+            Typically only applied to unique <see cref="T:Eamon.Framework.IArtifact">Artifact</see>s or <see cref="T:Eamon.Framework.IMonster">Monster</see>s, or those with special
+            importance in the game.
+            </remarks>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.ArtifactType">
-            <summary></summary>
+            <summary>
+            An enumeration of Artifact Types.
+            </summary>
+            <remarks>
+            These artifact types parallel those found in Eamon Deluxe, but Eamon CS supports a multiple
+            artifact type paradigm.  You can take a look through the documentation for EDX or wait for
+            the Eamon CS Dungeon Designer's Manual, which will have more details.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.ArtifactType.None">
             <summary></summary>
@@ -5231,7 +5496,14 @@
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.Clothing">
-            <summary></summary>
+            <summary>
+            An enumeration of Clothing Types.
+            </summary>
+            <remarks>
+            These clothing types parallel those found in Eamon Deluxe.  You can take a look through the
+            documentation for EDX or wait for the Eamon CS Dungeon Designer's Manual, which will have
+            more details.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Clothing.ArmorShields">
             <summary></summary>
@@ -5261,19 +5533,33 @@
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.CombatCode">
-            <summary></summary>
+            <summary>
+            An enumeration of <see cref="T:Eamon.Framework.IMonster">Monster</see> Combat Codes.
+            </summary>
+            <remarks>
+            These represent the behavior of <see cref="T:Eamon.Framework.IMonster">Monster</see>s while in combat.  Their effect on gameplay is intended to parallel
+            the Combat Code setting found in Eamon Deluxe.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.CombatCode.NeverFights">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.IMonster">Monster</see> will never fight.
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.CombatCode.NaturalWeapons">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.IMonster">Monster</see> will favor weapons but fall back to natural weapons if necessary.
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.CombatCode.Weapons">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.IMonster">Monster</see> will use either weapons or natural weapons (but never both).
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.CombatCode.Attacks">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.IMonster">Monster</see> will be described as "attacking"; otherwise mirrors the <see cref="F:Eamon.Framework.Primitive.Enums.CombatCode.Weapons">Weapons</see> setting.
+            </summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.CommandType">
             <summary></summary>
@@ -5321,7 +5607,14 @@
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.Direction">
-            <summary></summary>
+            <summary>
+            An enumeration of (compass) Directions.
+            </summary>
+            <remarks>
+            These represent the possible directional links between <see cref="T:Eamon.Framework.IRoom">Room</see>s in a game.  Each Room contains an
+            array that is indexed using these Direction values.  The array will always be created assuming a 10-direction game; for
+            6-direction games, the last four (4) elements will be unused.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Direction.North">
             <summary></summary>
@@ -5399,52 +5692,107 @@
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.Friendliness">
-            <summary></summary>
+            <summary>
+            An enumeration of <see cref="T:Eamon.Framework.IMonster">Monster</see> friendliness values.  
+            </summary>
+            <remarks>
+            Each <see cref="T:Eamon.Framework.IMonster">Monster</see> in a game has a reaction to the player character, as defined by this
+            enum.  This is pretty standard to Eamon in general and Eamon CS is no different.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Friendliness.Enemy">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.IMonster">Monster</see> is hostile to the player character and all <see cref="F:Eamon.Framework.Primitive.Enums.Friendliness.Friend">Friend</see> monsters.
+            The Monster attacks on sight and flees the <see cref="T:Eamon.Framework.IRoom">Room</see> or pursues based on <see cref="P:Eamon.Framework.IMonster.Courage">Courage</see>.
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Friendliness.Neutral">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.IMonster">Monster</see> ignores all other Monsters and refuses to flee the <see cref="T:Eamon.Framework.IRoom">Room</see>, or attack
+            either <see cref="F:Eamon.Framework.Primitive.Enums.Friendliness.Friend">Friend</see> or <see cref="F:Eamon.Framework.Primitive.Enums.Friendliness.Enemy">Enemy</see>.
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Friendliness.Friend">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.IMonster">Monster</see> is friendly, follows the player character around and attacks <see cref="F:Eamon.Framework.Primitive.Enums.Friendliness.Enemy">Enemy</see> Monsters.
+            </summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.Gender">
-            <summary></summary>
+            <summary>
+            An enumeration of <see cref="T:Eamon.Framework.ICharacter">Character</see>/<see cref="T:Eamon.Framework.IMonster">Monster</see> genders.
+            </summary>
+            <remarks>
+            Each <see cref="T:Eamon.Framework.ICharacter">Character</see> or <see cref="T:Eamon.Framework.IMonster">Monster</see> in a game is assigned
+            a gender value.  For player characters this is of course set during creation in the Main Hall.  As with
+            all other properties, the gender value can be manipulated during gameplay (and, in at least one ECS
+            adventure, actually is!)
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Gender.Male">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.ICharacter">Character</see> or <see cref="T:Eamon.Framework.IMonster">Monster</see> is male.
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Gender.Female">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.ICharacter">Character</see> or <see cref="T:Eamon.Framework.IMonster">Monster</see> is female.
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Gender.Neutral">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.IMonster">Monster</see> is neutral/indeterminate.  Not available to player characters.
+            </summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.LightLevel">
-            <summary></summary>
+            <summary>
+            An enumeration of <see cref="T:Eamon.Framework.IRoom">Room</see> Light Levels.
+            </summary>
+            <remarks>
+            These represent the possible ambient light levels found in <see cref="T:Eamon.Framework.IRoom">Room</see>s in a game.  Each Room has its
+            own light level value which can be manipulated during gameplay if desired.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.LightLevel.Dark">
-            <summary></summary>
+            <summary>
+            Dark <see cref="T:Eamon.Framework.IRoom">Room</see>s are very restrictive on the kind of activities allowed.
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.LightLevel.Light">
-            <summary></summary>
+            <summary>
+            Lit <see cref="T:Eamon.Framework.IRoom">Room</see>s allow the full range of Commands.
+            </summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.PluralType">
-            <summary></summary>
+            <summary>
+            An enumeration of Plural Types.
+            </summary>
+            <remarks>
+            These plural types are applied to <see cref="T:Eamon.Framework.IArtifact">Artifact</see>s and <see cref="T:Eamon.Framework.IMonster">Monster</see>s and
+            improve the aesthetics of the output, making it more natural to read.  You can modify any record at runtime to change its
+            plural type, if desired.  The plural type is only applicable to plural Artifacts and group Monsters, although if possible
+            you should still assign the correct one even when it won't be used.  If you have a special situation where none of the
+            following values applies (eg, "Rings of Xylo"), customized plural names can be created using <see cref="T:Eamon.Framework.IEffect">Effect</see>s.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.PluralType.None">
-            <summary></summary>
+            <summary>
+            No plural type is ever applied.  For example, "aircraft" or "moose".
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.PluralType.S">
-            <summary></summary>
+            <summary>
+            The name is followed by "s".  For example, "flashlights" or "wolverines".
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.PluralType.Es">
-            <summary></summary>
+            <summary>
+            The name is followed by "es".  For example, "crucifixes" or "finches".
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.PluralType.YIes">
-            <summary></summary>
+            <summary>
+            The name ends with "y" - which is dropped - and is followed by "ies".  For example, "factories" or "canaries".
+            </summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.PoundCharPolicy">
             <summary></summary>
@@ -5492,16 +5840,32 @@
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.RoomType">
-            <summary></summary>
+            <summary>
+            An enumeration of Room Types.
+            </summary>
+            <remarks>
+            These represent the possible types of <see cref="T:Eamon.Framework.IRoom">Room</see>s found in a game.  Each Room has its own room type value
+            which can be manipulated during gameplay if desired.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.RoomType.Indoors">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.IRoom">Room</see> is considered indoors; the adjacent Rooms list is prefixed with "Obvious exits".
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.RoomType.Outdoors">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.IRoom">Room</see> is considered outdoors; the adjacent Rooms list is prefixed with "Obvious paths".
+            </summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.Spell">
-            <summary></summary>
+            <summary>
+            An enumeration of <see cref="T:Eamon.Framework.ICharacter">Character</see> Spells.
+            </summary>
+            <remarks>
+            These spells should be familiar to anyone who has been involved with Eamon before.  The Eamon CS
+            Dungeon Designer's Manual will have more details.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Spell.Blast">
             <summary></summary>
@@ -5516,7 +5880,13 @@
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.Stat">
-            <summary></summary>
+            <summary>
+            An enumeration of <see cref="T:Eamon.Framework.ICharacter">Character</see> Stats.  
+            </summary>
+            <remarks>
+            The last three should be familiar to anyone who has been involved with Eamon before; <see cref="F:Eamon.Framework.Primitive.Enums.Stat.Intellect">Intellect</see>
+            is unique to Eamon CS, and represents the character's mental capacity, wisdom and/or intelligence.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Stat.Intellect">
             <summary></summary>
@@ -5543,22 +5913,42 @@
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.Status">
-            <summary></summary>
+            <summary>
+            An enumeration of (<see cref="T:Eamon.Framework.ICharacter">Character</see>) Statuses.
+            </summary>
+            <remarks>
+            These represent the possible states that a player character can be in.  Each <see cref="T:Eamon.Framework.ICharacter">Character</see> has an
+            associated Status that is set based on various game activities.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Status.Unknown">
-            <summary></summary>
+            <summary>
+            The state of the <see cref="T:Eamon.Framework.ICharacter">Character</see> is indeterminate (in practice, this <see cref="T:Eamon.Framework.Primitive.Enums.Status">Status</see> is unused).
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Status.Alive">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.ICharacter">Character</see> is available for use; this is the default <see cref="T:Eamon.Framework.Primitive.Enums.Status">Status</see>.
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Status.Dead">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.ICharacter">Character</see> is not available for use; this is trivially reversible, however.
+            </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Status.Adventuring">
-            <summary></summary>
+            <summary>
+            The <see cref="T:Eamon.Framework.ICharacter">Character</see> is out on an adventure.
+            </summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.Weapon">
-            <summary></summary>
+            <summary>
+            An enumeration of <see cref="T:Eamon.Framework.ICharacter">Character</see> Weapon Skills.
+            </summary>
+            <remarks>
+            These weapon skills should be familiar to anyone who has been involved with Eamon before.  The Eamon CS
+            Dungeon Designer's Manual will have more details.
+            </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Weapon.Axe">
             <summary></summary>
@@ -5585,37 +5975,57 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Game.Engine.StatusNames">
-            <summary></summary>
+            <summary>
+            Gets or sets an array containing the name for each <see cref="T:Eamon.Framework.Primitive.Enums.Status"/>.
+            </summary>
         </member>
         <member name="P:Eamon.Game.Engine.ClothingNames">
-            <summary></summary>
+            <summary>
+            Gets or sets an array containing the name for each <see cref="T:Eamon.Framework.Primitive.Enums.Clothing"/>.
+            </summary>
         </member>
         <member name="P:Eamon.Game.Engine.CombatCodeDescs">
-            <summary></summary>
+            <summary>
+            Gets or sets an array containing the description for each <see cref="T:Eamon.Framework.Primitive.Enums.CombatCode"/>.
+            </summary>
         </member>
         <member name="P:Eamon.Game.Engine.ContainerDisplayCodeDescs">
             <summary></summary>
         </member>
         <member name="P:Eamon.Game.Engine.LightLevelNames">
-            <summary></summary>
+            <summary>
+            Gets or sets an array containing the name for each <see cref="T:Eamon.Framework.Primitive.Enums.LightLevel"/>.
+            </summary>
         </member>
         <member name="P:Eamon.Game.Engine.Stats">
-            <summary></summary>
+            <summary>
+            Gets or sets an array containing data for each <see cref="T:Eamon.Framework.Primitive.Enums.Stat"/>.
+            </summary>
         </member>
         <member name="P:Eamon.Game.Engine.Spells">
-            <summary></summary>
+            <summary>
+            Gets or sets an array containing data for each <see cref="T:Eamon.Framework.Primitive.Enums.Spell"/>.
+            </summary>
         </member>
         <member name="P:Eamon.Game.Engine.Weapons">
-            <summary></summary>
+            <summary>
+            Gets or sets an array containing data for each <see cref="T:Eamon.Framework.Primitive.Enums.Weapon"/>.
+            </summary>
         </member>
         <member name="P:Eamon.Game.Engine.Armors">
-            <summary></summary>
+            <summary>
+            Gets or sets an array containing data for each <see cref="T:Eamon.Framework.Primitive.Enums.Armor"/>.
+            </summary>
         </member>
         <member name="P:Eamon.Game.Engine.Directions">
-            <summary></summary>
+            <summary>
+            Gets or sets an array containing data for each <see cref="T:Eamon.Framework.Primitive.Enums.Direction"/>.
+            </summary>
         </member>
         <member name="P:Eamon.Game.Engine.ArtifactTypes">
-            <summary></summary>
+            <summary>
+            Gets or sets an array containing data for each <see cref="T:Eamon.Framework.Primitive.Enums.ArtifactType"/>.
+            </summary>
         </member>
         <member name="M:Eamon.Game.Helpers.ArtifactHelper.GetPrintedNameStateDesc">
             <summary></summary>

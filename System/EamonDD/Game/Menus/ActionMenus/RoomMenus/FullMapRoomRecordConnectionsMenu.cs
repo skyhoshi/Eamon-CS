@@ -1,7 +1,7 @@
 ﻿
 // FullMapRoomRecordConnectionsMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -23,16 +23,16 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			RetCode rc;
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle("FULL MAP ROOM RECORD CONNECTIONS", true);
+			gEngine.PrintTitle("FULL MAP ROOM RECORD CONNECTIONS", true);
 
-			if (Globals.Engine.IsAdventureFilesetLoaded())
+			if (gEngine.IsAdventureFilesetLoaded())
 			{
-				Globals.Out.Print("A map of: {0}",
-					Globals.Module != null ? Globals.Module.Name : Globals.Engine.UnknownName);
+				gOut.Print("A map of: {0}",
+					Globals.Module != null ? Globals.Module.Name : gEngine.UnknownName);
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 			}
 
 			var numDirs = Globals.Module != null ? Globals.Module.NumDirs : 6;
@@ -47,26 +47,26 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				for (var i = 0; i < numDirs; i++)
 				{
-					var direction = Globals.Engine.GetDirections(directionValues[i]);
+					var direction = gEngine.GetDirections(directionValues[i]);
 
 					Debug.Assert(direction != null);
 
 					Buf.AppendFormat("{0}{1,-2}: {2,-6}", (directionValues[i] == Direction.North || directionValues[i] == Direction.Up || directionValues[i] == Direction.Southeast) ? Environment.NewLine : "\t", direction.Abbr, room.GetDirs(directionValues[i]));
 				}
 
-				Globals.Out.WriteLine("{0}", Buf);
+				gOut.WriteLine("{0}", Buf);
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
+				gOut.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, Globals.Engine.ModifyCharToNullOrX, null, Globals.Engine.IsCharAny);
+				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, gEngine.ModifyCharToNullOrX, null, gEngine.IsCharAny);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				if (Buf.Length > 0 && Buf[0] == 'X')
 				{
@@ -74,7 +74,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				}
 			}
 
-			Globals.Out.Print("Done fully mapping room record connections.");
+			gOut.Print("Done fully mapping room record connections.");
 		}
 
 		public FullMapRoomRecordConnectionsMenu()

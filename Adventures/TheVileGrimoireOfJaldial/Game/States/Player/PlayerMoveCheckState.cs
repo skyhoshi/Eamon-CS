@@ -12,6 +12,16 @@ namespace TheVileGrimoireOfJaldial.Game.States
 	[ClassMappings]
 	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
-
+		public override void ProcessEvents(long eventType)
+		{
+			if (eventType == PeAfterBlockingArtifactCheck && gGameState.R2 == -17)
+			{
+				gOut.Print("To go in that direction would mean certain death.");
+			}
+			else
+			{
+				base.ProcessEvents(eventType);
+			}
+		}
 	}
 }

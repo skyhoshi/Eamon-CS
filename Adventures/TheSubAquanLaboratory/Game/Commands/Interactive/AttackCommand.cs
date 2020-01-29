@@ -1,7 +1,7 @@
 ﻿
 // AttackCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -24,33 +24,33 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 		public virtual void ProcessWallAttack()
 		{
-			Ac = DobjArtifact.GetCategories(0);
+			Ac = gDobjArtifact.GetCategories(0);
 
 			Debug.Assert(Ac != null);
 
-			var whereClauseFuncs = Globals.GameState.GetNBTL(Friendliness.Enemy) <= 0 ?
-				new Func<IMonster, bool>[] { m => m == ActorMonster, m => m.IsInRoom(ActorRoom) && m.Friendliness == Friendliness.Friend && ((m.Weapon > -1 && m.Weapon <= Globals.Database.GetArtifactsCount()) || m.CombatCode == CombatCode.NaturalWeapons) && m != ActorMonster } :
-				new Func<IMonster, bool>[] { m => m == ActorMonster };
+			var whereClauseFuncs = gGameState.GetNBTL(Friendliness.Enemy) <= 0 ?
+				new Func<IMonster, bool>[] { m => m == gActorMonster, m => m.IsInRoom(gActorRoom) && m.Friendliness == Friendliness.Friend && ((m.Weapon > -1 && m.Weapon <= Globals.Database.GetArtifactsCount()) || m.CombatCode == CombatCode.NaturalWeapons) && m != gActorMonster } :
+				new Func<IMonster, bool>[] { m => m == gActorMonster };
 
-			var monsters = Globals.Engine.GetMonsterList(whereClauseFuncs);
+			var monsters = gEngine.GetMonsterList(whereClauseFuncs);
 
 			for (var i = 0; i < monsters.Count; i++)
 			{
 				var monster = monsters[i];
 
-				Globals.Out.Write("{0}{1} {2}{3} the {4}!{5}",
+				gOut.Write("{0}{1} {2}{3} the {4}!{5}",
 					Environment.NewLine,
-					monster == ActorMonster ? "You" : monster.GetDecoratedName03(true, true, false, true, Globals.Buf),
-					monster == ActorMonster && BlastSpell ? "blast" : "attack",
-					monster == ActorMonster ? "" : "s",
-					DobjArtifact.Uid == 83 ? "back wall" : "glass walls",
-					true /* monster == ActorMonster || i == monsters.Count - 1 */ ? Environment.NewLine : "");
+					monster == gActorMonster ? "You" : monster.GetTheName(true, true, false, true),
+					monster == gActorMonster && BlastSpell ? "blast" : "attack",
+					monster == gActorMonster ? "" : "s",
+					gDobjArtifact.Uid == 83 ? "back wall" : "glass walls",
+					true /* monster == gActorMonster || i == monsters.Count - 1 */ ? Environment.NewLine : "");
 
 				var dice = 0L;
 
 				var sides = 0L;
 
-				if (monster == ActorMonster && BlastSpell)
+				if (monster == gActorMonster && BlastSpell)
 				{
 					dice = 2;
 
@@ -58,7 +58,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 				}
 				else
 				{
-					var weapon = monster.Weapon > 0 ? Globals.ADB[monster.Weapon] : null;
+					var weapon = monster.Weapon > 0 ? gADB[monster.Weapon] : null;
 
 					var wpnAc = weapon != null ? weapon.GetCategories(0) : null;
 
@@ -67,7 +67,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 					sides = wpnAc != null ? wpnAc.Field4 : monster.NwSides;
 				}
 
-				Damage += Globals.Engine.RollDice(dice, sides, 0);
+				Damage += gEngine.RollDice(dice, sides, 0);
 			}
 		}
 
@@ -76,15 +76,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 			var effectUid = 0L;
 			var n = 0L;
 
-			Debug.Assert(DobjArtifact != null || DobjMonster != null);
+			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			if ((BlastSpell || ActorMonster.Weapon > 0) && DobjArtifact != null)
+			if ((BlastSpell || gActorMonster.Weapon > 0) && gDobjArtifact != null)
 			{
-				switch (DobjArtifact.Uid)
+				switch (gDobjArtifact.Uid)
 				{
 					case 83:
 
@@ -113,40 +109,40 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						effectUid = 63 - n * (n > 0 ? 1 : 0);
 
-						Globals.Engine.PrintEffectDesc(effectUid);
+						gEngine.PrintEffectDesc(effectUid);
 
 						// First attack
 
-						if (!gameState.FloorAttack)
+						if (!gGameState.FloorAttack)
 						{
-							Globals.Engine.PrintEffectDesc(64);
+							gEngine.PrintEffectDesc(64);
 
-							var electrifiedFloorArtifact = Globals.ADB[85];
+							var electrifiedFloorArtifact = gADB[85];
 
 							Debug.Assert(electrifiedFloorArtifact != null);
 
-							electrifiedFloorArtifact.SetInRoom(ActorRoom);
+							electrifiedFloorArtifact.SetInRoom(gActorRoom);
 
-							gameState.FloorAttack = true;
+							gGameState.FloorAttack = true;
 						}
 
 						// Broken!
 
 						if (effectUid == 63)
 						{
-							DobjArtifact.SetInLimbo();
+							gDobjArtifact.SetInLimbo();
 
-							var engravingArtifact = Globals.ADB[2];
+							var engravingArtifact = gADB[2];
 
 							Debug.Assert(engravingArtifact != null);
 
 							engravingArtifact.SetInLimbo();
 
-							var rubbleArtifact = Globals.ADB[106];
+							var rubbleArtifact = gADB[106];
 
 							Debug.Assert(rubbleArtifact != null);
 
-							rubbleArtifact.SetInRoom(ActorRoom);
+							rubbleArtifact.SetInRoom(gActorRoom);
 						}
 
 						NextState = Globals.CreateInstance<IMonsterStartState>();
@@ -180,37 +176,37 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						effectUid = 69 - n * (n > 0 ? 1 : 0);
 
-						Globals.Engine.PrintEffectDesc(effectUid);
+						gEngine.PrintEffectDesc(effectUid);
 
 						// Broken!
 
 						if (effectUid == 69)
 						{
-							DobjArtifact.SetInLimbo();
+							gDobjArtifact.SetInLimbo();
 
-							var ovalDoorArtifact = Globals.ADB[16];
+							var ovalDoorArtifact = gADB[16];
 
 							Debug.Assert(ovalDoorArtifact != null);
 
 							ovalDoorArtifact.SetInLimbo();
 
-							var shatteredGlassWallsArtifact = Globals.ADB[105];
+							var shatteredGlassWallsArtifact = gADB[105];
 
 							Debug.Assert(shatteredGlassWallsArtifact != null);
 
-							shatteredGlassWallsArtifact.SetInRoom(ActorRoom);
+							shatteredGlassWallsArtifact.SetInRoom(gActorRoom);
 
-							gameState.Sterilize = false;
+							gGameState.Sterilize = false;
 
-							Globals.Engine.PrintEffectDesc(70);
+							gEngine.PrintEffectDesc(70);
 
-							Globals.Out.Print("Enemies storm into the room!");
+							gOut.Print("Enemies storm into the room!");
 
-							var monsters = Globals.Engine.GetMonsterList(m => m.Uid >= 20 && m.Uid <= 22);
+							var monsters = gEngine.GetMonsterList(m => m.Uid >= 20 && m.Uid <= 22);
 
 							foreach (var monster in monsters)
 							{
-								monster.SetInRoom(ActorRoom);
+								monster.SetInRoom(gActorRoom);
 							}
 
 							NextState = Globals.CreateInstance<IStartState>();
@@ -226,15 +222,15 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						// Electrified floor
 
-						Globals.Engine.PrintEffectDesc(65);
+						gEngine.PrintEffectDesc(65);
 
-						DobjArtifact.SetInLimbo();
+						gDobjArtifact.SetInLimbo();
 
-						var brokenFloorTrapArtifact = Globals.ADB[107];
+						var brokenFloorTrapArtifact = gADB[107];
 
 						Debug.Assert(brokenFloorTrapArtifact != null);
 
-						brokenFloorTrapArtifact.SetInRoom(ActorRoom);
+						brokenFloorTrapArtifact.SetInRoom(gActorRoom);
 
 						NextState = Globals.CreateInstance<IMonsterStartState>();
 
@@ -246,7 +242,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						base.PlayerExecute();
 
-						var plasticCardArtifact = Globals.ADB[82];
+						var plasticCardArtifact = gADB[82];
 
 						Debug.Assert(plasticCardArtifact != null);
 
@@ -254,9 +250,9 @@ namespace TheSubAquanLaboratory.Game.Commands
 						{
 							plasticCardArtifact.Desc = "Destroying the remains of the android reveals a small featureless card made out of a durable plastic.";
 
-							Globals.Out.Print("{0}", plasticCardArtifact.Desc);
+							gOut.Print("{0}", plasticCardArtifact.Desc);
 
-							plasticCardArtifact.SetInRoom(ActorRoom);
+							plasticCardArtifact.SetInRoom(gActorRoom);
 
 							plasticCardArtifact.Seen = true;
 						}

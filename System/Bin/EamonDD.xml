@@ -542,9 +542,6 @@
         <member name="P:EamonDD.Framework.Plugin.IPluginGlobals.Argv">
             <summary></summary>
         </member>
-        <member name="P:EamonDD.Framework.Plugin.IPluginGlobals.Buf">
-            <summary></summary>
-        </member>
         <member name="P:EamonDD.Framework.Plugin.IPluginGlobals.WordWrapCurrColumn">
             <summary></summary>
         </member>

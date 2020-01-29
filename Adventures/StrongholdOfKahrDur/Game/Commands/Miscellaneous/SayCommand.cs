@@ -1,7 +1,7 @@
 ﻿
 // SayCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -18,72 +18,68 @@ namespace StrongholdOfKahrDur.Game.Commands
 	{
 		public override void PlayerProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (eventType == PpeAfterPlayerSay)
 			{
 				// Restore monster stats to average for testing/debugging
 
 				if (string.Equals(ProcessedPhrase, "*brutis", StringComparison.OrdinalIgnoreCase))
 				{
-					var artUid = ActorMonster.Weapon;
+					var artUid = gActorMonster.Weapon;
 
-					ActorMonster.Weapon = -1;
+					gActorMonster.Weapon = -1;
 
-					Globals.Engine.InitMonsterScaledHardinessValues();
+					gEngine.InitMonsterScaledHardinessValues();
 
-					ActorMonster.Weapon = artUid;
+					gActorMonster.Weapon = artUid;
 
-					Globals.Out.Print("Monster stats reduced.");
+					gOut.Print("Monster stats reduced.");
 
 					NextState = Globals.CreateInstance<IStartState>();
 
 					goto Cleanup;
 				}
 
-				var cauldronArtifact = Globals.ADB[24];
+				var cauldronArtifact = gADB[24];
 
 				Debug.Assert(cauldronArtifact != null);
 
 				// If the cauldron is present and the spell components (see effect #50) are in it then begin the spell casting process
 
-				if (string.Equals(ProcessedPhrase, "knock nikto mellon", StringComparison.OrdinalIgnoreCase) && (cauldronArtifact.IsCarriedByCharacter() || cauldronArtifact.IsInRoom(ActorRoom)) && Globals.Engine.SpellReagentsInCauldron(cauldronArtifact))
+				if (string.Equals(ProcessedPhrase, "knock nikto mellon", StringComparison.OrdinalIgnoreCase) && (cauldronArtifact.IsCarriedByCharacter() || cauldronArtifact.IsInRoom(gActorRoom)) && gEngine.SpellReagentsInCauldron(cauldronArtifact))
 				{
-					Globals.Engine.PrintEffectDesc(51);
+					gEngine.PrintEffectDesc(51);
 
-					gameState.UsedCauldron = true;
+					gGameState.UsedCauldron = true;
 				}
 
-				var lichMonster = Globals.MDB[15];
+				var lichMonster = gMDB[15];
 
 				Debug.Assert(lichMonster != null);
 
 				// Player will agree to free the Lich
 
-				if (string.Equals(ProcessedPhrase, "i will free you", StringComparison.OrdinalIgnoreCase) && ActorRoom.Uid == 109 && lichMonster.IsInRoom(ActorRoom) && lichMonster.Friendliness > Friendliness.Enemy && gameState.LichState < 2)
+				if (string.Equals(ProcessedPhrase, "i will free you", StringComparison.OrdinalIgnoreCase) && gActorRoom.Uid == 109 && lichMonster.IsInRoom(gActorRoom) && lichMonster.Friendliness > Friendliness.Enemy && gGameState.LichState < 2)
 				{
-					Globals.Engine.PrintEffectDesc(54);
+					gEngine.PrintEffectDesc(54);
 
-					gameState.LichState = 1;
+					gGameState.LichState = 1;
 				}
 
 				// Player actually frees the Lich
 
-				if (string.Equals(ProcessedPhrase, "barada lhain", StringComparison.OrdinalIgnoreCase) && ActorRoom.Uid == 109 && lichMonster.IsInRoom(ActorRoom) && gameState.LichState == 1)
+				if (string.Equals(ProcessedPhrase, "barada lhain", StringComparison.OrdinalIgnoreCase) && gActorRoom.Uid == 109 && lichMonster.IsInRoom(gActorRoom) && gGameState.LichState == 1)
 				{
-					var helmArtifact = Globals.ADB[25];
+					var helmArtifact = gADB[25];
 
 					Debug.Assert(helmArtifact != null);
 
-					Globals.Engine.PrintEffectDesc(55);
+					gEngine.PrintEffectDesc(55);
 
 					// Set freed Lich flag and give Wizard's Helm (25) to player (carried but not worn)
 
-					gameState.LichState = 2;
+					gGameState.LichState = 2;
 
-					helmArtifact.SetInRoom(ActorRoom);
+					helmArtifact.SetInRoom(gActorRoom);
 				}
 			}
 

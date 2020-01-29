@@ -1,7 +1,7 @@
 ﻿
 // LookCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using Eamon.Framework.Primitive.Enums;
@@ -17,7 +17,7 @@ namespace EamonRT.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			ActorRoom.Seen = false;
+			gActorRoom.Seen = false;
 
 			if (NextState == null)
 			{
@@ -27,13 +27,13 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerFinishParsing()
 		{
-			if (CommandParser.CurrToken < CommandParser.Tokens.Length)
+			if (gCommandParser.CurrToken < gCommandParser.Tokens.Length)
 			{
 				var command = Globals.CreateInstance<IExamineCommand>();
 
 				CopyCommandData(command);
 
-				CommandParser.NextState = command;
+				gCommandParser.NextState = command;
 
 				command.FinishParsing();
 			}

@@ -1,7 +1,7 @@
 ﻿
 // CloseCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -17,9 +17,9 @@ namespace StrongholdOfKahrDur.Game.Commands
 		{
 			// If the armoire is closed then hide the secret passage
 
-			if (eventType == PpeAfterArtifactClose && DobjArtifact.Uid == 3)
+			if (eventType == PpeAfterArtifactClose && gDobjArtifact.Uid == 3)
 			{
-				var secretDoorArtifact = Globals.ADB[4];
+				var secretDoorArtifact = gADB[4];
 
 				Debug.Assert(secretDoorArtifact != null);
 

@@ -1,7 +1,7 @@
 ﻿
 // IGameBase.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Text;
@@ -46,12 +46,12 @@ namespace Eamon.Framework
 		/// <param name="fieldName"></param>
 		/// <param name="buf"></param>
 		/// <returns></returns>
-		string GetPluralName(string fieldName, StringBuilder buf);
+		string GetPluralName(string fieldName, StringBuilder buf = null);
 
 		/// <summary></summary>
 		/// <param name="buf"></param>
 		/// <returns></returns>
-		string GetPluralName01(StringBuilder buf);
+		string GetPluralName01(StringBuilder buf = null);
 
 		/// <summary></summary>
 		/// <param name="fieldName"></param>
@@ -62,25 +62,16 @@ namespace Eamon.Framework
 		/// <param name="groupCountOne"></param>
 		/// <param name="buf"></param>
 		/// <returns></returns>
-		string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
+		string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift = false, bool showCharOwned = true, bool showStateDesc = false, bool groupCountOne = false, StringBuilder buf = null);
 
-		/// <summary></summary>
-		/// <param name="upshift"></param>
-		/// <param name="showCharOwned"></param>
-		/// <param name="showStateDesc"></param>
-		/// <param name="groupCountOne"></param>
-		/// <param name="buf"></param>
-		/// <returns></returns>
+		[Obsolete("GetDecoratedName01 is deprecated and will be removed; please use GetNoneName instead.")]
 		string GetDecoratedName01(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
 
-		/// <summary></summary>
-		/// <param name="upshift"></param>
-		/// <param name="showCharOwned"></param>
-		/// <param name="showStateDesc"></param>
-		/// <param name="groupCountOne"></param>
-		/// <param name="buf"></param>
-		/// <returns></returns>
+		[Obsolete("GetDecoratedName02 is deprecated and will be removed; please use GetArticleName instead.")]
 		string GetDecoratedName02(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
+
+		[Obsolete("GetDecoratedName03 is deprecated and will be removed; please use GetTheName instead.")]
+		string GetDecoratedName03(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
 
 		/// <summary></summary>
 		/// <param name="upshift"></param>
@@ -89,7 +80,25 @@ namespace Eamon.Framework
 		/// <param name="groupCountOne"></param>
 		/// <param name="buf"></param>
 		/// <returns></returns>
-		string GetDecoratedName03(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf);
+		string GetNoneName(bool upshift = false, bool showCharOwned = true, bool showStateDesc = false, bool groupCountOne = false, StringBuilder buf = null);
+
+		/// <summary></summary>
+		/// <param name="upshift"></param>
+		/// <param name="showCharOwned"></param>
+		/// <param name="showStateDesc"></param>
+		/// <param name="groupCountOne"></param>
+		/// <param name="buf"></param>
+		/// <returns></returns>
+		string GetArticleName(bool upshift = false, bool showCharOwned = true, bool showStateDesc = false, bool groupCountOne = false, StringBuilder buf = null);
+
+		/// <summary></summary>
+		/// <param name="upshift"></param>
+		/// <param name="showCharOwned"></param>
+		/// <param name="showStateDesc"></param>
+		/// <param name="groupCountOne"></param>
+		/// <param name="buf"></param>
+		/// <returns></returns>
+		string GetTheName(bool upshift = false, bool showCharOwned = true, bool showStateDesc = false, bool groupCountOne = false, StringBuilder buf = null);
 
 		/// <summary></summary>
 		/// <param name="buf"></param>

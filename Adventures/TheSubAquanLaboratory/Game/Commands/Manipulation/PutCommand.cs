@@ -1,7 +1,7 @@
 ﻿
 // PutCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -16,35 +16,31 @@ namespace TheSubAquanLaboratory.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null && IobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null && gIobjArtifact != null);
 
-			if (DobjArtifact.Uid == 82)
+			if (gDobjArtifact.Uid == 82)
 			{
-				if (IobjArtifact.Uid == 1)
+				if (gIobjArtifact.Uid == 1)
 				{
-					Globals.Engine.PrintEffectDesc(38);
+					gEngine.PrintEffectDesc(38);
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
 				}
-				else if (IobjArtifact.Uid == 26)
+				else if (gIobjArtifact.Uid == 26)
 				{
-					var gameState = Globals.GameState as Framework.IGameState;
-
-					Debug.Assert(gameState != null);
-
-					var ovalDoorArtifact = Globals.ADB[16];
+					var ovalDoorArtifact = gADB[16];
 
 					Debug.Assert(ovalDoorArtifact != null);
 
-					if (gameState.Sterilize && !ovalDoorArtifact.IsInLimbo())
+					if (gGameState.Sterilize && !ovalDoorArtifact.IsInLimbo())
 					{
-						Globals.Engine.PrintEffectDesc(40);
+						gEngine.PrintEffectDesc(40);
 
 						ovalDoorArtifact.SetInLimbo();
 					}
 					else
 					{
-						Globals.Engine.PrintEffectDesc(39);
+						gEngine.PrintEffectDesc(39);
 					}
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();

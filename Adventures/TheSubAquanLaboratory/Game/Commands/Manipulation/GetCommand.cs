@@ -1,7 +1,7 @@
 ﻿
 // GetCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -29,32 +29,32 @@ namespace TheSubAquanLaboratory.Game.Commands
 			{
 				case -1:
 
-					Globals.Buf.SetPrint("{0} {1} affixed to the wall.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), artifact.EvalPlural("is", "are"));
+					Globals.Buf.SetPrint("{0} {1} affixed to the wall.", artifact.GetTheName(true, buf: Globals.Buf01), artifact.EvalPlural("is", "are"));
 
 					break;
 
 				case -2:
 
-					Globals.Buf.SetPrint("{0} {1} carved into the wall.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), artifact.EvalPlural("is", "are"));
+					Globals.Buf.SetPrint("{0} {1} carved into the wall.", artifact.GetTheName(true, buf: Globals.Buf01), artifact.EvalPlural("is", "are"));
 
 					break;
 
 				case -3:
 
-					Globals.Buf.SetPrint("{0} {1} bolted down, and can't be removed.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf01), artifact.EvalPlural("is", "are"));
+					Globals.Buf.SetPrint("{0} {1} bolted down, and can't be removed.", artifact.GetTheName(true, buf: Globals.Buf01), artifact.EvalPlural("is", "are"));
 
 					break;
 
 				case -4:
 
-					Globals.Buf.SetPrint("You can't get near enough to {0} to grab {1}.", artifact.GetDecoratedName03(false, true, false, false, Globals.Buf01), artifact.EvalPlural("it", "them"));
+					Globals.Buf.SetPrint("You can't get near enough to {0} to grab {1}.", artifact.GetTheName(buf: Globals.Buf01), artifact.EvalPlural("it", "them"));
 
 					break;
 			}
 
 			if (Globals.Buf.Length > 0)
 			{
-				Globals.Out.Write("{0}", Globals.Buf);
+				gOut.Write("{0}", Globals.Buf);
 			}
 			else
 			{

@@ -16,13 +16,13 @@
             <Simple name="NumDirs" value="6" />
             <Simple name="NumRooms" value="1" />
             <Simple name="NumArtifacts" value="1" />
-            <Simple name="NumEffects" value="1" />
+            <Simple name="NumEffects" value="6" />
             <Simple name="NumMonsters" value="1" />
             <Simple name="NumHints" value="2" />
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="The Wayfarer's Inn" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Desc" value="The sinister Wayfarer's Inn sits abandoned and crumbling on the northern border of the hamlet of Geldhaven, in the deep forest just beyond Taiga Gorge.  A syndicate of foreign investors has bought the property, sight unseen, and set about **100" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

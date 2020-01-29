@@ -1,7 +1,7 @@
 ﻿
 // SayCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -18,13 +18,13 @@ namespace TheTrainingGround.Game.Commands
 		{
 			if (eventType == PpeAfterPlayerSay)
 			{
-				var hammerArtifact = Globals.ADB[24];
+				var hammerArtifact = gADB[24];
 
 				Debug.Assert(hammerArtifact != null);
 
 				var magicWordsSpoken = string.Equals(ProcessedPhrase, "thor", StringComparison.OrdinalIgnoreCase) || string.Equals(ProcessedPhrase, "thor's hammer", StringComparison.OrdinalIgnoreCase);
 
-				var hammerPresent = hammerArtifact.IsCarriedByCharacter() || hammerArtifact.IsInRoom(ActorRoom);
+				var hammerPresent = hammerArtifact.IsCarriedByCharacter() || hammerArtifact.IsInRoom(gActorRoom);
 
 				// Hammer of Thor
 

@@ -1,7 +1,7 @@
 ﻿
 // RemoveCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -16,13 +16,13 @@ namespace WrenholdsSecretVigil.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			// Remove orb from metal pedestal
 
-			if (DobjArtifact.Uid == 4 && IobjArtifact != null && IobjArtifact.Uid == 43)
+			if (gDobjArtifact.Uid == 4 && gIobjArtifact != null && gIobjArtifact.Uid == 43)
 			{
-				Globals.Out.Print("{0} {1} stuck to {2} and won't budge.", DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf), DobjArtifact.EvalPlural("is", "are"), IobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+				gOut.Print("{0} {1} stuck to {2} and won't budge.", gDobjArtifact.GetTheName(true), gDobjArtifact.EvalPlural("is", "are"), gIobjArtifact.GetTheName(buf: Globals.Buf01));
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}

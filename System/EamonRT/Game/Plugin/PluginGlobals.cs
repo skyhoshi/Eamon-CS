@@ -74,6 +74,22 @@ namespace EamonRT.Game.Plugin
 
 		public virtual string CommandPrompt { get; set; }
 
+		public virtual ICommand CurrCommand 
+		{ 
+			get
+			{
+				return CurrState as ICommand;
+			}
+		}
+
+		public virtual ICommand NextCommand 
+		{ 
+			get
+			{
+				return NextState as ICommand;
+			}
+		}
+
 		public virtual ICommand LastCommand
 		{
 			get

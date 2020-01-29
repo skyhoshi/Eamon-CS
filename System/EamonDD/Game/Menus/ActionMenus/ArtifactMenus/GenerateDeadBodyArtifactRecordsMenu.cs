@@ -1,7 +1,7 @@
 ﻿
 // GenerateDeadBodyArtifactRecordsMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -35,41 +35,41 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var exited = false;
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle("GENERATE DEAD BODY ARTIFACT RECORDS", true);
+			gEngine.PrintTitle("GENERATE DEAD BODY ARTIFACT RECORDS", true);
 
 			var maxMonUid = Globals.Database.GetMonsterUid(false);
 
-			Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(43, '\0', 0, "Enter the starting monster uid", "1"));
+			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(43, '\0', 0, "Enter the starting monster uid", "1"));
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharDigit, null);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, gEngine.IsCharDigit, null);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			monUids[0] = Convert.ToInt64(Buf.Trim().ToString());
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(43, '\0', 0, "Enter the ending monster uid", maxMonUid > 0 ? maxMonUid.ToString() : "1"));
+			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(43, '\0', 0, "Enter the ending monster uid", maxMonUid > 0 ? maxMonUid.ToString() : "1"));
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, maxMonUid > 0 ? maxMonUid.ToString() : "1", null, Globals.Engine.IsCharDigit, null);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, maxMonUid > 0 ? maxMonUid.ToString() : "1", null, gEngine.IsCharDigit, null);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			monUids[1] = Convert.ToInt64(Buf.Trim().ToString());
 
-			var monsters = Globals.Engine.GetMonsterList(m => m.Uid >= monUids[0] && m.Uid <= monUids[1]);
+			var monsters = gEngine.GetMonsterList(m => m.Uid >= monUids[0] && m.Uid <= monUids[1]);
 
 			var k = monsters.Count();
 
 			if (k > 0)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 			}
 
 			var helper = Globals.CreateInstance<IMonsterHelper>();
@@ -90,17 +90,17 @@ namespace EamonDD.Game.Menus.ActionMenus
 					{
 						nlFlag = false;
 
-						Globals.Out.WriteLine();
+						gOut.WriteLine();
 
-						Globals.Out.Print("{0}", Globals.LineSep);
+						gOut.Print("{0}", Globals.LineSep);
 
-						Globals.Out.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
+						gOut.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
 
 						Buf.Clear();
 
-						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, Globals.Engine.ModifyCharToNullOrX, null, Globals.Engine.IsCharAny);
+						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, gEngine.ModifyCharToNullOrX, null, gEngine.IsCharAny);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						if (Buf.Length > 0 && Buf[0] == 'X')
 						{
@@ -108,7 +108,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 						}
 						else if (j < k - 1)
 						{
-							Globals.Out.Print("{0}", Globals.LineSep);
+							gOut.Print("{0}", Globals.LineSep);
 						}
 					}
 				}
@@ -118,20 +118,20 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (nlFlag)
 			{
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 			}
 
 			if (j > 0)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}Would you like to generate {1} (Y/N): ", Environment.NewLine, j > 1 ? "dead body artifact records" : "a dead body artifact record");
+				gOut.Write("{0}Would you like to generate {1} (Y/N): ", Environment.NewLine, j > 1 ? "dead body artifact records" : "a dead body artifact record");
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, Globals.Engine.IsCharYOrN);
+				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, gEngine.IsCharYOrN);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Globals.Thread.Sleep(150);
 
@@ -171,7 +171,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					rc = Globals.Database.AddArtifact(artifact);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					Globals.ArtifactsModified = true;
 
@@ -183,11 +183,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 					}
 				}
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				Buf.SetFormat(j > 1 ? "Generated dead body artifacts with uids between {0} and {1}, inclusive." : "Generated a dead body artifact with uid {0}.", artUids[0], artUids[1]);
 
-				Globals.Out.Print("{0}", Buf);
+				gOut.Print("{0}", Buf);
 			}
 
 		Cleanup:

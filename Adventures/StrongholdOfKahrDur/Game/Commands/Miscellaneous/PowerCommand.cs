@@ -1,7 +1,7 @@
 ﻿
 // PowerCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -16,32 +16,28 @@ namespace StrongholdOfKahrDur.Game.Commands
 	{
 		public override void PrintFortuneCookie()
 		{
-			Globals.Out.Print("The air crackles with magical energy but nothing interesting happens.");
+			gOut.Print("The air crackles with magical energy but nothing interesting happens.");
 		}
 
 		public override void PlayerProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (eventType == PpeAfterPlayerSpellCastCheck)
 			{
-				var cauldronArtifact = Globals.ADB[24];
+				var cauldronArtifact = gADB[24];
 
 				Debug.Assert(cauldronArtifact != null);
 
 				// If the cauldron is prepared (see Effect #50) and the magic words have been spoken, unlock the portcullis
 
-				if (ActorRoom.Uid == 43 && gameState.UsedCauldron && (cauldronArtifact.IsCarriedByCharacter() || cauldronArtifact.IsInRoom(ActorRoom)) && Globals.Engine.SpellReagentsInCauldron(cauldronArtifact))
+				if (gActorRoom.Uid == 43 && gGameState.UsedCauldron && (cauldronArtifact.IsCarriedByCharacter() || cauldronArtifact.IsInRoom(gActorRoom)) && gEngine.SpellReagentsInCauldron(cauldronArtifact))
 				{
-					Globals.Engine.PrintEffectDesc(52);
+					gEngine.PrintEffectDesc(52);
 
 					// Unlock portcullis and destroy the cauldron
 
-					gameState.UsedCauldron = false;
+					gGameState.UsedCauldron = false;
 
-					var eastPortcullisArtifact = Globals.ADB[7];
+					var eastPortcullisArtifact = gADB[7];
 
 					Debug.Assert(eastPortcullisArtifact != null);
 
@@ -51,7 +47,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 					ac.SetOpen(true);
 
-					var westPortcullisArtifact = Globals.ADB[8];
+					var westPortcullisArtifact = gADB[8];
 
 					Debug.Assert(westPortcullisArtifact != null);
 
@@ -63,7 +59,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 					cauldronArtifact.SetInLimbo();
 
-					Globals.Out.Print("The cauldron disintegrates!");
+					gOut.Print("The cauldron disintegrates!");
 
 					GotoCleanup = true;
 
@@ -72,19 +68,19 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// Move companions into pit
 
-				if (ActorRoom.Uid > 93 && ActorRoom.Uid < 110)
+				if (gActorRoom.Uid > 93 && gActorRoom.Uid < 110)
 				{
-					var monsters = Globals.Engine.GetMonsterList(m => !m.IsCharacterMonster() && m.Friendliness == Friendliness.Friend && m.Seen && (m.Location < 94 || m.Location > 109));
+					var monsters = gEngine.GetMonsterList(m => !m.IsCharacterMonster() && m.Friendliness == Friendliness.Friend && m.Seen && (m.Location < 94 || m.Location > 109));
 
 					if (monsters.Count > 0)
 					{
-						Globals.Engine.PrintEffectDesc(49);
+						gEngine.PrintEffectDesc(49);
 
 						foreach (var m in monsters)
 						{
-							Globals.Out.Print("{0} suddenly appears!", m.GetDecoratedName03(true, true, false, false, Globals.Buf));
+							gOut.Print("{0} suddenly appears!", m.GetTheName(true));
 
-							m.SetInRoom(ActorRoom);
+							m.SetInRoom(gActorRoom);
 						}
 
 						GotoCleanup = true;
@@ -95,19 +91,19 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// Move companions out of pit
 
-				if (ActorRoom.Uid < 94 || ActorRoom.Uid > 109)
+				if (gActorRoom.Uid < 94 || gActorRoom.Uid > 109)
 				{
-					var monsters = Globals.Engine.GetMonsterList(m => !m.IsCharacterMonster() && m.Friendliness == Friendliness.Friend && m.Seen && (m.Location > 93 && m.Location < 110));
+					var monsters = gEngine.GetMonsterList(m => !m.IsCharacterMonster() && m.Friendliness == Friendliness.Friend && m.Seen && (m.Location > 93 && m.Location < 110));
 
 					if (monsters.Count > 0)
 					{
-						Globals.Engine.PrintEffectDesc(49);
+						gEngine.PrintEffectDesc(49);
 
 						foreach (var m in monsters)
 						{
-							Globals.Out.Print("{0} suddenly appears!", m.GetDecoratedName03(true, true, false, false, Globals.Buf));
+							gOut.Print("{0} suddenly appears!", m.GetTheName(true));
 
-							m.SetInRoom(ActorRoom);
+							m.SetInRoom(gActorRoom);
 						}
 
 						GotoCleanup = true;

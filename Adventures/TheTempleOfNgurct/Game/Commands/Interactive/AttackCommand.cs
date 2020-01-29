@@ -1,7 +1,7 @@
 ﻿
 // AttackCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -19,27 +19,23 @@ namespace TheTempleOfNgurct.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null || DobjMonster != null);
+			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			if (BlastSpell || ActorMonster.Weapon > 0)
+			if (BlastSpell || gActorMonster.Weapon > 0)
 			{
 				// ATTACK/BLAST statue
 
-				if (DobjArtifact != null && DobjArtifact.Uid == 50)
+				if (gDobjArtifact != null && gDobjArtifact.Uid == 50)
 				{
-					Globals.Engine.PrintMonsterAlive(DobjArtifact);
+					gEngine.PrintMonsterAlive(gDobjArtifact);
 
-					DobjArtifact.SetInLimbo();
+					gDobjArtifact.SetInLimbo();
 
-					var ngurctMonster = Globals.MDB[53];
+					var ngurctMonster = gMDB[53];
 
 					Debug.Assert(ngurctMonster != null);
 
-					ngurctMonster.SetInRoom(ActorRoom);
+					ngurctMonster.SetInRoom(gActorRoom);
 
 					var command = Globals.CreateInstance<IAttackCommand>(x =>
 					{
@@ -57,75 +53,75 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				// Fireball wand
 
-				else if (!BlastSpell && DobjMonster != null && ActorMonster.Weapon == 63)
+				else if (!BlastSpell && gDobjMonster != null && gActorMonster.Weapon == 63)
 				{
-					Globals.Out.Write("{0}What is the trigger word? ", Environment.NewLine);
+					gOut.Write("{0}What is the trigger word? ", Environment.NewLine);
 
 					Globals.Buf.SetFormat("{0}", Globals.In.ReadLine());
 
 					if (!string.Equals(Globals.Buf.ToString(), "fire", StringComparison.OrdinalIgnoreCase))
 					{
-						Globals.Out.Print("Wrong!  Nothing happens!");
+						gOut.Print("Wrong!  Nothing happens!");
 
 						NextState = Globals.CreateInstance<IMonsterStartState>();
 
 						goto Cleanup;
 					}
 
-					if (gameState.WandCharges <= 0)
+					if (gGameState.WandCharges <= 0)
 					{
-						Globals.Out.Print("The fireball wand is exhausted!");
+						gOut.Print("The fireball wand is exhausted!");
 
 						NextState = Globals.CreateInstance<IMonsterStartState>();
 
 						goto Cleanup;
 					}
 
-					gameState.WandCharges--;
+					gGameState.WandCharges--;
 
-					Globals.Out.Print("The {0} is filled with an incandescent fireball!", ActorRoom.EvalRoomType("room", "area"));
+					gOut.Print("The {0} is filled with an incandescent fireball!", gActorRoom.EvalRoomType("room", "area"));
 
 					var slaveGirlFireballCheck = false;
 
-					var slaveGirlArtifact = Globals.ADB[81];
+					var slaveGirlArtifact = gADB[81];
 
 					Debug.Assert(slaveGirlArtifact != null);
 
-					var slaveGirlMonster = Globals.MDB[54];
+					var slaveGirlMonster = gMDB[54];
 
 					Debug.Assert(slaveGirlMonster != null);
 
-					if (slaveGirlArtifact.IsInRoom(ActorRoom))
+					if (slaveGirlArtifact.IsInRoom(gActorRoom))
 					{
-						slaveGirlMonster.SetInRoom(ActorRoom);
+						slaveGirlMonster.SetInRoom(gActorRoom);
 
 						slaveGirlMonster.Seen = true;
 
 						slaveGirlFireballCheck = true;
 					}
 
-					var monsters = Globals.Engine.GetRandomMonsterList(9, m => !m.IsCharacterMonster() && m.Uid != DobjMonster.Uid && m.Seen && m.IsInRoom(ActorRoom));
+					var monsters = gEngine.GetRandomMonsterList(9, m => !m.IsCharacterMonster() && m.Uid != gDobjMonster.Uid && m.Seen && m.IsInRoom(gActorRoom));
 
 					Debug.Assert(monsters != null);
 
 					if (monsters.Count > 0)
 					{
-						monsters.Insert(0, DobjMonster);
+						monsters.Insert(0, gDobjMonster);
 					}
 					else
 					{
-						monsters.Add(DobjMonster);
+						monsters.Add(gDobjMonster);
 					}
 
 					Globals.FireDamage = true;
 
 					foreach (var m in monsters)
 					{
-						var rl = Globals.Engine.RollDice(1, 100, 0);
+						var rl = gEngine.RollDice(1, 100, 0);
 
 						var savedVsFire = (m.Hardiness / 4) > 4 && rl < 51;
 
-						Globals.Engine.MonsterGetsAggravated(m);
+						gEngine.MonsterGetsAggravated(m);
 
 						var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 						{
@@ -138,7 +134,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 						combatSystem.ExecuteCalculateDamage(savedVsFire ? 3 : 6, 6);
 
-						Globals.Thread.Sleep(gameState.PauseCombatMs);
+						Globals.Thread.Sleep(gGameState.PauseCombatMs);
 					}
 
 					Globals.FireDamage = false;

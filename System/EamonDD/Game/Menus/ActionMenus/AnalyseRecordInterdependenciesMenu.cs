@@ -1,7 +1,7 @@
 ﻿
 // AnalyseRecordInterdependenciesMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -45,19 +45,19 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			errorHelper.ListErrorField();
 
-			Globals.Out.Print("{0}", ValidateHelper.ErrorMessage);
+			gOut.Print("{0}", ValidateHelper.ErrorMessage);
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Write("{0}S=Skip field, T=Edit this record, R={1} referred to record, X=Exit: ",
+			gOut.Write("{0}S=Skip field, T=Edit this record, R={1} referred to record, X=Exit: ",
 				Environment.NewLine,
 				ValidateHelper.NewRecordUid > 0 ? "Add" : "Edit");
 
 			ValidateHelper.Buf.Clear();
 
-			var rc = Globals.In.ReadField(ValidateHelper.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharSOrTOrROrX, Globals.Engine.IsCharSOrTOrROrX);
+			var rc = Globals.In.ReadField(ValidateHelper.Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharSOrTOrROrX, gEngine.IsCharSOrTOrROrX);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			if (ValidateHelper.Buf.Length == 0 || ValidateHelper.Buf[0] == 'X')
 			{
@@ -226,14 +226,14 @@ namespace EamonDD.Game.Menus.ActionMenus
 				menu.Execute();
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		public override void Execute()
 		{
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle(Title, true);
+			gEngine.PrintTitle(Title, true);
 
 			if (ClearSkipNames)
 			{
@@ -293,7 +293,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				}
 			}
 
-			Globals.Out.Print("Done analysing {0} records.", RecordTypeName);
+			gOut.Print("Done analysing {0} records.", RecordTypeName);
 		}
 
 		public AnalyseRecordInterdependenciesMenu()

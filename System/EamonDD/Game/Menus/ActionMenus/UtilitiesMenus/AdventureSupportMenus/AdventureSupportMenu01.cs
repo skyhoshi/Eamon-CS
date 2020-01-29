@@ -142,7 +142,8 @@ namespace YourAdventureName.YourFrameworkNamespaceName
 	{
 
 	}
-}";
+}
+";
 
 		/// <summary></summary>
 		protected virtual string InterfaceCsText01 { get; set; } =
@@ -159,7 +160,8 @@ namespace YourAdventureName.YourFrameworkNamespaceName
 	{
 
 	}
-}";
+}
+";
 
 		/// <summary></summary>
 		protected virtual string ClassWithInterfaceCsText { get; set; } =
@@ -314,18 +316,18 @@ namespace YourAdventureName.YourGameNamespaceName
 			{
 				if (SupportMenuType == SupportMenuType.DeleteAdventure)
 				{
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 				}
 
-				Globals.Out.Print("Could not locate the Visual Studio 2017+ devenv.exe program at the following path:");
+				gOut.Print("Could not locate the Visual Studio 2017+ devenv.exe program at the following path:");
 
-				Globals.Out.WordWrap = false;
+				gOut.WordWrap = false;
 
-				Globals.Out.Print(Globals.DevenvExePath);
+				gOut.Print(Globals.DevenvExePath);
 
-				Globals.Out.WordWrap = true;
+				gOut.WordWrap = true;
 
-				Globals.Out.Print("You may need to modify the LoadAdventureSupportMenu .bat or .sh file to use the -dep flag.  See the documentation section on creating custom adventures for more details.");
+				gOut.Print("You may need to modify the LoadAdventureSupportMenu .bat or .sh file to use the -dep flag.  See the documentation section on creating custom adventures for more details.");
 
 				GotoCleanup = true;
 			}
@@ -333,18 +335,18 @@ namespace YourAdventureName.YourGameNamespaceName
 			{
 				if (SupportMenuType == SupportMenuType.DeleteAdventure)
 				{
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 				}
 
-				Globals.Out.Print("Could not locate the Eamon CS EamonVS.dll library at the following path:");
+				gOut.Print("Could not locate the Eamon CS EamonVS.dll library at the following path:");
 
-				Globals.Out.WordWrap = false;
+				gOut.WordWrap = false;
 
-				Globals.Out.Print(Globals.Path.GetFullPath(@".\EamonVS.dll"));
+				gOut.Print(Globals.Path.GetFullPath(@".\EamonVS.dll"));
 
-				Globals.Out.WordWrap = true;
+				gOut.WordWrap = true;
 
-				Globals.Out.Print("You may need to compile it using the Eamon.Desktop solution and Visual Studio 2017+.");
+				gOut.Print("You may need to compile it using the Eamon.Desktop solution and Visual Studio 2017+.");
 
 				GotoCleanup = true;
 			}
@@ -352,18 +354,18 @@ namespace YourAdventureName.YourGameNamespaceName
 			{
 				if (SupportMenuType == SupportMenuType.DeleteAdventure)
 				{
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 				}
 
-				Globals.Out.Print("Could not locate the Visual Studio 2017+ envdte.dll library at the following path:");
+				gOut.Print("Could not locate the Visual Studio 2017+ envdte.dll library at the following path:");
 
-				Globals.Out.WordWrap = false;
+				gOut.WordWrap = false;
 
-				Globals.Out.Print(Globals.Path.GetFullPath(@".\envdte.dll"));
+				gOut.Print(Globals.Path.GetFullPath(@".\envdte.dll"));
 
-				Globals.Out.WordWrap = true;
+				gOut.WordWrap = true;
 
-				Globals.Out.Print(@"This library is copied into System\Bin when the EamonVS project is compiled using the Eamon.Desktop solution and Visual Studio 2017+.");
+				gOut.Print(@"This library is copied into System\Bin when the EamonVS project is compiled using the Eamon.Desktop solution and Visual Studio 2017+.");
 
 				GotoCleanup = true;
 			}
@@ -371,18 +373,18 @@ namespace YourAdventureName.YourGameNamespaceName
 			{
 				if (SupportMenuType == SupportMenuType.DeleteAdventure)
 				{
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 				}
 
-				Globals.Out.Print("Could not locate the Eamon.Adventures solution at the following path:");
+				gOut.Print("Could not locate the Eamon.Adventures solution at the following path:");
 
-				Globals.Out.WordWrap = false;
+				gOut.WordWrap = false;
 
-				Globals.Out.Print(Globals.Path.GetFullPath(Constants.EamonAdventuresSlnFile));
+				gOut.Print(Globals.Path.GetFullPath(Constants.EamonAdventuresSlnFile));
 
-				Globals.Out.WordWrap = true;
+				gOut.WordWrap = true;
 
-				Globals.Out.Print(@"This Eamon CS repository may be compromised since the solution should always be present.");
+				gOut.Print(@"This Eamon CS repository may be compromised since the solution should always be present.");
 
 				GotoCleanup = true;
 			}
@@ -391,9 +393,9 @@ namespace YourAdventureName.YourGameNamespaceName
 			{
 				Globals.In.KeyPress(Buf);
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("The adventure was not {0}.", 
+				gOut.Print("The adventure was not {0}.", 
 					SupportMenuType == SupportMenuType.AddAdventure ? "created" :
 					SupportMenuType == SupportMenuType.DeleteAdventure ? "deleted" :
 					"processed");
@@ -407,35 +409,35 @@ namespace YourAdventureName.YourGameNamespaceName
 
 			if (SupportMenuType == SupportMenuType.AddAdventure)
 			{
-				Globals.Out.Print("You must enter a name for your new adventure (eg, The Beginner's Cave).  This should be the formal name of the adventure shown in the Main Hall's list of adventures; input should always be properly title-cased.");
+				gOut.Print("You must enter a name for your new adventure (eg, The Beginner's Cave).  This should be the formal name of the adventure shown in the Main Hall's list of adventures; input should always be properly title-cased.");
 
-				Globals.Out.Print("Note:  the name will be used to produce a shortened form suitable for use as a folder name under the Adventures directory and also as a C# namespace (eg, TheBeginnersCave).");
+				gOut.Print("Note:  the name will be used to produce a shortened form suitable for use as a folder name under the Adventures directory and also as a C# namespace (eg, TheBeginnersCave).");
 			}
 			else
 			{
 				if (SupportMenuType == SupportMenuType.AddClasses)
 				{
-					Globals.Out.Print(@"Note:  this menu option will allow you to enter the file paths for interfaces or classes you wish to add to the adventure; the actual addition will occur after you are given a final warning.  Your working directory is System and you should enter relative file paths (eg, .\Eamon\Game\Monster.cs or .\EamonRT\Game\Combat\CombatSystem.cs).  For any classes added, the corresponding .XML textfiles (if any) will be updated appropriately.");
+					gOut.Print(@"Note:  this menu option will allow you to enter the file paths for interfaces or classes you wish to add to the adventure; the actual addition will occur after you are given a final warning.  Your working directory is System and you should enter relative file paths (eg, .\Eamon\Game\Monster.cs or .\EamonRT\Game\Combat\CombatSystem.cs).  For any classes added, the corresponding .XML textfiles (if any) will be updated appropriately.");
 				}
 				else if (SupportMenuType == SupportMenuType.DeleteClasses)
 				{
-					Globals.Out.Print(@"Note:  this menu option will allow you to enter the file paths for interfaces or classes you wish to remove from the adventure; the actual deletion will occur after you are given a final warning.  Your working directory is the adventure folder for the game you've selected and you should enter relative file paths (eg, .\Game\Monster.cs).  For any classes deleted, the corresponding .XML textfiles (if any) will be updated appropriately.");
+					gOut.Print(@"Note:  this menu option will allow you to enter the file paths for interfaces or classes you wish to remove from the adventure; the actual deletion will occur after you are given a final warning.  Your working directory is the adventure folder for the game you've selected and you should enter relative file paths (eg, .\Game\Monster.cs).  For any classes deleted, the corresponding .XML textfiles (if any) will be updated appropriately.");
 				}
 
-				Globals.Out.Print("You must enter the name of the adventure you wish to {0} (eg, The Beginner's Cave).  This should be the formal name of the adventure shown in the Main Hall's list of adventures; input should always be properly title-cased.", SupportMenuType == SupportMenuType.DeleteAdventure ? "delete" : "process");
+				gOut.Print("You must enter the name of the adventure you wish to {0} (eg, The Beginner's Cave).  This should be the formal name of the adventure shown in the Main Hall's list of adventures; input should always be properly title-cased.", SupportMenuType == SupportMenuType.DeleteAdventure ? "delete" : "process");
 			}
 
 			AdventureName = string.Empty;
 
 			while (AdventureName.Length == 0)
 			{
-				Globals.Out.Write("{0}Enter the name of the {1}adventure: ", Environment.NewLine, SupportMenuType == SupportMenuType.AddAdventure ? "new " : "");
+				gOut.Write("{0}Enter the name of the {1}adventure: ", Environment.NewLine, SupportMenuType == SupportMenuType.AddAdventure ? "new " : "");
 
 				Buf.Clear();
 
-				var rc = Globals.In.ReadField(Buf, Constants.FsNameLen, null, '_', '\0', false, null, null, Globals.Engine.IsCharAnyButBackForwardSlash, null);
+				var rc = Globals.In.ReadField(Buf, Constants.FsNameLen, null, '_', '\0', false, null, null, gEngine.IsCharAnyButBackForwardSlash, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Buf.SetFormat("{0}", Regex.Replace(Buf.ToString(), @"\s+", " ").Trim());
 
@@ -443,9 +445,9 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				var tempStr = Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(AdventureName01);
 
-				AdventureName = new string((from char ch in tempStr where Globals.Engine.IsCharAlnum(ch) select ch).ToArray());
+				AdventureName = new string((from char ch in tempStr where gEngine.IsCharAlnum(ch) select ch).ToArray());
 
-				if (AdventureName.Length > 0 && (Globals.Engine.IsCharDigit(AdventureName[0]) || invalidAdventureNames.FirstOrDefault(n => string.Equals(AdventureName, n, StringComparison.OrdinalIgnoreCase)) != null))
+				if (AdventureName.Length > 0 && (gEngine.IsCharDigit(AdventureName[0]) || invalidAdventureNames.FirstOrDefault(n => string.Equals(AdventureName, n, StringComparison.OrdinalIgnoreCase)) != null))
 				{
 					AdventureName = string.Empty;
 				}
@@ -457,23 +459,23 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				if (AdventureName.Length == 0)
 				{
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 				}
 			}
 
 			if (SupportMenuType == SupportMenuType.AddAdventure && Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("The adventure already exists.");
+				gOut.Print("The adventure already exists.");
 
 				GotoCleanup = true;
 			}
 			else if (SupportMenuType != SupportMenuType.AddAdventure && !Globals.Directory.Exists(Constants.AdventuresDir + @"\" + AdventureName))
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("The adventure does not exist.");
+				gOut.Print("The adventure does not exist.");
 
 				GotoCleanup = true;
 			}
@@ -481,25 +483,25 @@ namespace YourAdventureName.YourGameNamespaceName
 			{
 				if (!Globals.File.Exists(Constants.AdventuresDir + @"\" + AdventureName + @"\" + AdventureName + @".csproj"))
 				{
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
-					Globals.Out.Print("That is not a custom adventure.");
+					gOut.Print("That is not a custom adventure.");
 
 					GotoCleanup = true;
 				}
 				else if (!Globals.File.Exists(@".\" + AdventureName + ".dll"))
 				{
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
-					Globals.Out.Print("The custom adventure library (.dll) does not exist.");
+					gOut.Print("The custom adventure library (.dll) does not exist.");
 
 					GotoCleanup = true;
 				}
 				else if (Globals.File.Exists(Constants.AdventuresDir + @"\" + AdventureName + @"\FRESHMEAT.XML"))
 				{
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
-					Globals.Out.Print("The adventure is being played through.");
+					gOut.Print("The adventure is being played through.");
 
 					GotoCleanup = true;
 				}
@@ -513,15 +515,15 @@ namespace YourAdventureName.YourGameNamespaceName
 
 			while (AuthorName.Length == 0)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}Enter the name(s) of the adventure's Eamon CS author(s): ", Environment.NewLine);
+				gOut.Write("{0}Enter the name(s) of the adventure's Eamon CS author(s): ", Environment.NewLine);
 
 				Buf.Clear();
 
 				var rc = Globals.In.ReadField(Buf, Constants.ModAuthorLen, null, '_', '\0', false, null, null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				AuthorName = Buf.Trim().ToString();
 			}
@@ -530,15 +532,15 @@ namespace YourAdventureName.YourGameNamespaceName
 		/// <summary></summary>
 		protected virtual void GetAuthorInitials()
 		{
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Write("{0}Enter the initials of the adventure's main Eamon CS author: ", Environment.NewLine);
+			gOut.Write("{0}Enter the initials of the adventure's main Eamon CS author: ", Environment.NewLine);
 
 			Buf.Clear();
 
-			var rc = Globals.In.ReadField(Buf, Constants.ModVolLabelLen - 4, null, '_', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharAlpha, null);
+			var rc = Globals.In.ReadField(Buf, Constants.ModVolLabelLen - 4, null, '_', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharAlpha, null);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			AuthorInitials = Buf.Trim().ToString();
 		}
@@ -558,15 +560,15 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				foreach (var advDbTextFile in advDbTextFiles)
 				{
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
-					Globals.Out.Write("{0}Add this game to adventure database \"{1}\" (Y/N) [{2}]: ", Environment.NewLine, advDbTextFile, inputDefaultValue);
+					gOut.Write("{0}Add this game to adventure database \"{1}\" (Y/N) [{2}]: ", Environment.NewLine, advDbTextFile, inputDefaultValue);
 
 					Buf.Clear();
 
-					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, inputDefaultValue, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, inputDefaultValue, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					if (Buf.Length == 0 || Buf[0] != 'N')
 					{
@@ -588,20 +590,20 @@ namespace YourAdventureName.YourGameNamespaceName
 
 			while (true)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				if (customAdvDbTextFile.Length == 0)
 				{
-					Globals.Out.Print("If you would like to {0} one or more custom adventure databases, enter those file names now (eg, HORROR.XML).  To skip this step, or if you are done, just press enter.", SupportMenuType == SupportMenuType.AddAdventure ? "add this adventure to" : "delete this adventure from");
+					gOut.Print("If you would like to {0} one or more custom adventure databases, enter those file names now (eg, HORROR.XML).  To skip this step, or if you are done, just press enter.", SupportMenuType == SupportMenuType.AddAdventure ? "add this adventure to" : "delete this adventure from");
 				}
 
-				Globals.Out.Write("{0}Enter name of custom adventure database: ", Environment.NewLine);
+				gOut.Write("{0}Enter name of custom adventure database: ", Environment.NewLine);
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.FsFileNameLen, null, '_', '\0', true, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharAlnumPeriodUnderscore, null);
+				rc = Globals.In.ReadField(Buf, Constants.FsFileNameLen, null, '_', '\0', true, null, gEngine.ModifyCharToUpper, gEngine.IsCharAlnumPeriodUnderscore, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				customAdvDbTextFile = Buf.Trim().ToString();
 
@@ -624,21 +626,21 @@ namespace YourAdventureName.YourGameNamespaceName
 		{
 			RetCode rc;
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Write("{0}Would you like to add this adventure to Eamon CS (Y/N): ", Environment.NewLine);
+			gOut.Write("{0}Would you like to add this adventure to Eamon CS (Y/N): ", Environment.NewLine);
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, null);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			if (Buf.Length == 0 || Buf[0] != 'Y')
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("The adventure was not created.");
+				gOut.Print("The adventure was not created.");
 
 				GotoCleanup = true;
 			}
@@ -649,33 +651,33 @@ namespace YourAdventureName.YourGameNamespaceName
 		{
 			RetCode rc;
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Print("WARNING:  you are about to {0} the following classes and update any associated .XML files.  If you have any doubts, you should select 'N' and backup your Eamon CS repository before proceeding.  This action is PERMANENT!", SupportMenuType == SupportMenuType.DeleteClasses ? "delete" : "add");
+			gOut.Print("WARNING:  you are about to {0} the following classes and update any associated .XML files.  If you have any doubts, you should select 'N' and backup your Eamon CS repository before proceeding.  This action is PERMANENT!", SupportMenuType == SupportMenuType.DeleteClasses ? "delete" : "add");
 
 			foreach (var selectedClassFile in SelectedClassFiles)
 			{
-				Globals.Out.Write("{0}{1}", Environment.NewLine, selectedClassFile);
+				gOut.Write("{0}{1}", Environment.NewLine, selectedClassFile);
 			}
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Out.Write("{0}Would you like to {1} these classes {2} the adventure (Y/N): ", 
+			gOut.Write("{0}Would you like to {1} these classes {2} the adventure (Y/N): ", 
 				Environment.NewLine, 
 				SupportMenuType == SupportMenuType.DeleteClasses ? "delete" : "add",
 				SupportMenuType == SupportMenuType.DeleteClasses ? "from" : "to");
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, null);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			if (Buf.Length == 0 || Buf[0] != 'Y')
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("The adventure was not processed.");
+				gOut.Print("The adventure was not processed.");
 
 				GotoCleanup = true;
 			}
@@ -869,13 +871,13 @@ namespace YourAdventureName.YourGameNamespaceName
 			{
 				rc = Globals.PushDatabase();
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				var fsfn = Globals.Path.Combine(".", advDbTextFile);
 
 				rc = Globals.Database.LoadFilesets(fsfn, printOutput: false);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				if (SupportMenuType == SupportMenuType.AddAdventure)
 				{
@@ -914,7 +916,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 					rc = Globals.Database.AddFileset(fileset);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 				else
 				{
@@ -930,11 +932,11 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				rc = Globals.Database.SaveFilesets(fsfn, printOutput: false);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				rc = Globals.PopDatabase();
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 			}
 		}
 
@@ -988,9 +990,9 @@ namespace YourAdventureName.YourGameNamespaceName
 
 			if (result == RetCode.Failure)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("The adventure was not {0}.", SupportMenuType == SupportMenuType.AddAdventure ? "created" : "processed");
+				gOut.Print("The adventure was not {0}.", SupportMenuType == SupportMenuType.AddAdventure ? "created" : "processed");
 
 				GotoCleanup = true;
 			}
@@ -1034,17 +1036,17 @@ namespace YourAdventureName.YourGameNamespaceName
 		/// <summary></summary>
 		protected virtual void PrintAdventureCreated()
 		{
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Print("The adventure was successfully created.");
+			gOut.Print("The adventure was successfully created.");
 		}
 
 		/// <summary></summary>
 		protected virtual void PrintAdventureProcessed()
 		{
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Print("The adventure was successfully processed.");
+			gOut.Print("The adventure was successfully processed.");
 		}
 
 		public AdventureSupportMenu01()

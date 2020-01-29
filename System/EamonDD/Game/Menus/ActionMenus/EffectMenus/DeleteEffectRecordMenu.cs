@@ -1,7 +1,7 @@
 ﻿
 // DeleteEffectRecordMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Framework;
 using Eamon.Framework.Helpers;
@@ -16,7 +16,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 	{
 		public override void PrintPostListLineSep()
 		{
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		public override void UpdateGlobals()

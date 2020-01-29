@@ -1,7 +1,7 @@
 ﻿
 // BlastCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -17,11 +17,11 @@ namespace TheTrainingGround.Game.Commands
 		{
 			// BLAST Bozworth
 
-			if (eventType == PpeAfterPlayerSpellCastCheck && DobjMonster != null && DobjMonster.Uid == 20)
+			if (eventType == PpeAfterPlayerSpellCastCheck && gDobjMonster != null && gDobjMonster.Uid == 20)
 			{
-				Globals.Engine.PrintEffectDesc(21);
+				gEngine.PrintEffectDesc(21);
 
-				DobjMonster.SetInLimbo();
+				gDobjMonster.SetInLimbo();
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -37,7 +37,7 @@ namespace TheTrainingGround.Game.Commands
 		{
 			// BLASTing Bozworth never increases skill
 
-			return DobjMonster != null && DobjMonster.Uid == 20 ? false : base.ShouldAllowSkillGains();
+			return gDobjMonster != null && gDobjMonster.Uid == 20 ? false : base.ShouldAllowSkillGains();
 		}
 	}
 }

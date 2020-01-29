@@ -1,7 +1,7 @@
 ﻿
 // MainLoop.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -28,75 +28,75 @@ namespace EamonRT.Game
 
 		public virtual void Startup()
 		{
-			Globals.Engine.EnforceCharacterWeightLimits();
+			gEngine.EnforceCharacterWeightLimits();
 
-			var monster = Globals.Engine.ConvertCharacterToMonster();
+			var monster = gEngine.ConvertCharacterToMonster();
 
 			Debug.Assert(monster != null);
 
-			Globals.GameState.Cm = monster.Uid;
+			gGameState.Cm = monster.Uid;
 
-			Debug.Assert(Globals.GameState.Cm > 0);
+			Debug.Assert(gGameState.Cm > 0);
 
-			Globals.Engine.AddPoundCharsToArtifactNames();
+			gEngine.AddPoundCharsToArtifactNames();
 
-			Globals.Engine.AddMissingDescs();
+			gEngine.AddMissingDescs();
 
-			Globals.GameState.Ro = Globals.Engine.StartRoom;
+			gGameState.Ro = gEngine.StartRoom;
 
-			Globals.GameState.R2 = Globals.Engine.StartRoom;
+			gGameState.R2 = gEngine.StartRoom;
 
-			Globals.GameState.R3 = Globals.Engine.StartRoom;
+			gGameState.R3 = gEngine.StartRoom;
 
-			Globals.Engine.InitSaArray();
+			gEngine.InitSaArray();
 
-			Globals.Engine.CreateCommands();
+			gEngine.CreateCommands();
 
-			Globals.Engine.InitArtifacts();
+			gEngine.InitArtifacts();
 
-			Globals.Engine.InitMonsters();
+			gEngine.InitMonsters();
 
 			Globals.Module.NumArtifacts = Globals.Database.GetArtifactsCount();
 
 			Globals.Module.NumMonsters = Globals.Database.GetMonstersCount();
 
-			Globals.Engine.CreateInitialState(false);
+			gEngine.CreateInitialState(false);
 		}
 
 		public virtual void Shutdown()
 		{
 			var weaponList = new List<IArtifact>();
 
-			Globals.Engine.SetArmorClass();
+			gEngine.SetArmorClass();
 
-			Globals.Engine.ConvertToCarriedInventory(weaponList);
+			gEngine.ConvertToCarriedInventory(weaponList);
 
-			Globals.Engine.SellExcessWeapons(weaponList);
+			gEngine.SellExcessWeapons(weaponList);
 
-			var monster = Globals.MDB[Globals.GameState.Cm];
+			var monster = gMDB[gGameState.Cm];
 
 			Debug.Assert(monster != null);
 
-			Globals.Engine.ConvertMonsterToCharacter(monster, weaponList);
+			gEngine.ConvertMonsterToCharacter(monster, weaponList);
 
-			Globals.Engine.SellInventoryToMerchant();
+			gEngine.SellInventoryToMerchant();
 		}
 
 		public virtual void Execute()
 		{
-			Globals.Out.WriteLine("{0}{1}{0}", Environment.NewLine, Globals.LineSep);
+			gOut.WriteLine("{0}{1}{0}", Environment.NewLine, Globals.LineSep);
 
-			Globals.Out.WriteLine("Please wait a short while (waking up the monsters...)");
+			gOut.WriteLine("Please wait a short while (waking up the monsters...)");
 
 			Globals.Thread.Sleep(3000);
 
-			Globals.Out.WriteLine("{0}{1}{0}", Environment.NewLine, Globals.LineSep);
+			gOut.WriteLine("{0}{1}{0}", Environment.NewLine, Globals.LineSep);
 
-			Globals.Out.WriteLine("[Base Program {0}]", Constants.RtProgVersion);
+			gOut.WriteLine("[Base Program {0}]", Constants.RtProgVersion);
 
-			Globals.Out.Print("Welcome to the Eamon CS fantasy gaming system!");
+			gOut.Print("Welcome to the Eamon CS fantasy gaming system!");
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			while (Globals.GameRunning)
 			{

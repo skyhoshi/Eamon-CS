@@ -1,7 +1,7 @@
 ﻿
 // DeleteAdventureMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -21,23 +21,23 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			RetCode rc;
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Print("WARNING:  you are about to delete this adventure and all associated textfiles from storage.  If you have any doubts, you should select 'N' and backup your Eamon CS repository before proceeding.  This action is PERMANENT!");
+			gOut.Print("WARNING:  you are about to delete this adventure and all associated textfiles from storage.  If you have any doubts, you should select 'N' and backup your Eamon CS repository before proceeding.  This action is PERMANENT!");
 
-			Globals.Out.Write("{0}Would you like to delete this adventure from Eamon CS (Y/N): ", Environment.NewLine);
+			gOut.Write("{0}Would you like to delete this adventure from Eamon CS (Y/N): ", Environment.NewLine);
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, null);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			if (Buf.Length == 0 || Buf[0] != 'Y')
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("The adventure was not deleted.");
+				gOut.Print("The adventure was not deleted.");
 
 				GotoCleanup = true;
 			}
@@ -48,9 +48,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			var result = RetCode.Failure;
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
 			LoadVsaAssemblyIfNecessary();
 
@@ -72,9 +72,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (result == RetCode.Failure)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("The adventure was not deleted.");
+				gOut.Print("The adventure was not deleted.");
 
 				GotoCleanup = true;
 			}
@@ -137,18 +137,18 @@ namespace EamonDD.Game.Menus.ActionMenus
 		/// <summary></summary>
 		protected virtual void PrintAdventureDeleted()
 		{
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Print("The adventure was successfully deleted.");
+			gOut.Print("The adventure was successfully deleted.");
 		}
 
 		public override void Execute()
 		{
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle("DELETE ADVENTURE", true);
+			gEngine.PrintTitle("DELETE ADVENTURE", true);
 
-			Debug.Assert(!Globals.Engine.IsAdventureFilesetLoaded());
+			Debug.Assert(!gEngine.IsAdventureFilesetLoaded());
 
 			GotoCleanup = false;
 

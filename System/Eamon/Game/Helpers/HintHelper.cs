@@ -1,7 +1,7 @@
 ﻿
 // HintHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -156,9 +156,9 @@ namespace Eamon.Game.Helpers
 
 			long invalidUid = 0;
 
-			var rc = Globals.Engine.ResolveUidMacros(Record.Question, Buf, false, false, ref invalidUid);
+			var rc = gEngine.ResolveUidMacros(Record.Question, Buf, false, false, ref invalidUid);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			if (invalidUid > 0)
 			{
@@ -213,9 +213,9 @@ namespace Eamon.Game.Helpers
 
 			if (i < Record.NumAnswers)
 			{
-				var rc = Globals.Engine.ResolveUidMacros(Record.GetAnswers(i), Buf, false, false, ref invalidUid);
+				var rc = gEngine.ResolveUidMacros(Record.GetAnswers(i), Buf, false, false, ref invalidUid);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				if (invalidUid > 0)
 				{
@@ -249,7 +249,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = "0=Inactive; 1=Active";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		/// <summary></summary>
@@ -257,7 +257,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the name, topic or question of the hint.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -267,7 +267,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = string.Format("1-{0}=Valid value", Record.Answers.Length);
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		/// <summary></summary>
@@ -277,7 +277,7 @@ namespace Eamon.Game.Helpers
 
 			var fullDesc = string.Format("Enter the hint's answer #{0}.", i + 1);
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		#endregion
@@ -293,14 +293,14 @@ namespace Eamon.Game.Helpers
 				{
 					var listNum = NumberFields ? ListNum++ : 0;
 
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Uid"), null), Record.Uid);
+					gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Uid"), null), Record.Uid);
 				}
 			}
 			else
 			{
 				Buf.SetFormat("{0,3}. {1}", Record.Uid, Record.Question);
 
-				Globals.Engine.WordWrap(Buf.ToString(), Buf01);
+				gEngine.WordWrap(Buf.ToString(), Buf01);
 
 				var k = Buf01.IndexOf(Environment.NewLine);
 
@@ -324,7 +324,7 @@ namespace Eamon.Game.Helpers
 					}
 				}
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Buf01);
+				gOut.Write("{0}{1}", Environment.NewLine, Buf01);
 			}
 		}
 
@@ -335,7 +335,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Active"), null), Convert.ToInt64(Record.Active));
+				gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Active"), null), Convert.ToInt64(Record.Active));
 			}
 		}
 
@@ -348,9 +348,9 @@ namespace Eamon.Game.Helpers
 
 				if (ResolveEffects)
 				{
-					var rc = Globals.Engine.ResolveUidMacros(Record.Question, Buf, true, true);
+					var rc = gEngine.ResolveUidMacros(Record.Question, Buf, true, true);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 				else
 				{
@@ -359,7 +359,7 @@ namespace Eamon.Game.Helpers
 
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Question"), null), Buf);
+				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Question"), null), Buf);
 			}
 		}
 
@@ -370,7 +370,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("NumAnswers"), null), Record.NumAnswers);
+				gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("NumAnswers"), null), Record.NumAnswers);
 			}
 		}
 
@@ -396,9 +396,9 @@ namespace Eamon.Game.Helpers
 
 				if (ResolveEffects)
 				{
-					var rc = Globals.Engine.ResolveUidMacros(Record.GetAnswers(i), Buf, true, true);
+					var rc = gEngine.ResolveUidMacros(Record.GetAnswers(i), Buf, true, true);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 				else
 				{
@@ -407,7 +407,7 @@ namespace Eamon.Game.Helpers
 
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("AnswersElement"), null), Buf);
+				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("AnswersElement"), null), Buf);
 			}
 		}
 
@@ -418,9 +418,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		protected virtual void InputUid()
 		{
-			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
+			gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -436,11 +436,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Active", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Active"), "1"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Active"), "1"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsChar0Or1, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, gEngine.IsChar0Or1, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.Active = Convert.ToInt64(Buf.Trim().ToString()) != 0 ? true : false;
 
@@ -452,7 +452,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -468,15 +468,15 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Question", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Question"), null));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Question"), null));
 
-				Globals.Out.WordWrap = false;
+				gOut.WordWrap = false;
 
 				var rc = Globals.In.ReadField(Buf, Constants.HntQuestionLen, null, '_', '\0', false, null, null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				Globals.Out.WordWrap = true;
+				gOut.WordWrap = true;
 
 				Record.Question = Buf.Trim().ToString();
 
@@ -488,7 +488,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -504,11 +504,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("NumAnswers", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("NumAnswers"), "1"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("NumAnswers"), "1"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, gEngine.IsCharDigit, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.NumAnswers = Convert.ToInt64(Buf.Trim().ToString());
 
@@ -531,7 +531,7 @@ namespace Eamon.Game.Helpers
 				i++;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -560,15 +560,15 @@ namespace Eamon.Game.Helpers
 
 					PrintFieldDesc("AnswersElement", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("AnswersElement"), null));
+					gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("AnswersElement"), null));
 
-					Globals.Out.WordWrap = false;
+					gOut.WordWrap = false;
 
 					var rc = Globals.In.ReadField(Buf, Constants.HntAnswerLen, null, '_', '\0', false, null, null, null, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
-					Globals.Out.WordWrap = true;
+					gOut.WordWrap = true;
 
 					Record.SetAnswers(i, Buf.Trim().ToString());
 
@@ -580,7 +580,7 @@ namespace Eamon.Game.Helpers
 					fieldDesc = FieldDesc.Brief;
 				}
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 			}
 			else
 			{
@@ -631,19 +631,19 @@ namespace Eamon.Game.Helpers
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));
 
-			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
+			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
 
 			if (string.Equals(ErrorFieldName, "Question", StringComparison.OrdinalIgnoreCase))
 			{
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Question"), null), Record.Question);
+				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Question"), null), Record.Question);
 			}
 			else if (string.Equals(ErrorFieldName, "AnswersElement", StringComparison.OrdinalIgnoreCase))
 			{
 				var i = Index;
 
-				Buf.SetFormat("{0}{1}", Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Question"), null), Record.Question);
+				Buf.SetFormat("{0}{1}", gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Question"), null), Record.Question);
 
-				Globals.Engine.WordWrap(Buf.ToString(), Buf);
+				gEngine.WordWrap(Buf.ToString(), Buf);
 
 				var k = Buf.IndexOf(Environment.NewLine);
 
@@ -667,9 +667,9 @@ namespace Eamon.Game.Helpers
 					}
 				}
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Buf);
+				gOut.Write("{0}{1}", Environment.NewLine, Buf);
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("AnswersElement"), null), Record.GetAnswers(i));
+				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("AnswersElement"), null), Record.GetAnswers(i));
 			}
 		}
 

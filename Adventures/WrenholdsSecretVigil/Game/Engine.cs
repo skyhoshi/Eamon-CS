@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -20,19 +20,19 @@ namespace WrenholdsSecretVigil.Game
 		{
 			base.AddPoundCharsToArtifactNames();
 
-			var slimeArtifact = Globals.ADB[25];     // Slime #2
+			var slimeArtifact = gADB[25];     // Slime #2
 
 			Debug.Assert(slimeArtifact != null);
 
 			slimeArtifact.Name = slimeArtifact.Name.TrimEnd('#');
 
-			var deviceArtifact = Globals.ADB[49];         // Large Green Device #2
+			var deviceArtifact = gADB[49];         // Large Green Device #2
 
 			Debug.Assert(deviceArtifact != null);
 
 			deviceArtifact.Name = deviceArtifact.Name.TrimEnd('#');
 
-			var deadGuardArtifact = Globals.ADB[74];         // Dead Drow Guard #2
+			var deadGuardArtifact = gADB[74];         // Dead Drow Guard #2
 
 			Debug.Assert(deadGuardArtifact != null);
 
@@ -45,7 +45,7 @@ namespace WrenholdsSecretVigil.Game
 
 			MacroFuncs.Add(2, () =>
 			{
-				var goldCurtainArtifact = Globals.ADB[40];
+				var goldCurtainArtifact = gADB[40];
 
 				Debug.Assert(goldCurtainArtifact != null);
 
@@ -54,7 +54,7 @@ namespace WrenholdsSecretVigil.Game
 
 			MacroFuncs.Add(3, () =>
 			{
-				var goldCurtainArtifact = Globals.ADB[40];
+				var goldCurtainArtifact = gADB[40];
 
 				Debug.Assert(goldCurtainArtifact != null);
 
@@ -183,7 +183,7 @@ namespace WrenholdsSecretVigil.Game
 		{
 			// Convert large tree limb into artifact type treasure
 
-			var treeLimbArtifact = Globals.ADB[7];
+			var treeLimbArtifact = gADB[7];
 
 			Debug.Assert(treeLimbArtifact != null);
 
@@ -200,7 +200,7 @@ namespace WrenholdsSecretVigil.Game
 
 			if (monster.Uid == 1 && monster.Friendliness == Friendliness.Friend)
 			{
-				Globals.Out.Write("{0}{1} wags its tail.", Environment.NewLine, monster.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				gOut.Write("{0}{1} wags its tail.", Environment.NewLine, monster.GetTheName(true));
 			}
 			else
 			{
@@ -212,19 +212,19 @@ namespace WrenholdsSecretVigil.Game
 		{
 			IArtifact artifact = null;
 
-			var slimeArtifact1 = Globals.ADB[24];
+			var slimeArtifact1 = gADB[24];
 
 			Debug.Assert(slimeArtifact1 != null);
 
-			var slimeArtifact2 = Globals.ADB[25];
+			var slimeArtifact2 = gADB[25];
 
 			Debug.Assert(slimeArtifact2 != null);
 
-			var largeRockArtifact = Globals.ADB[17];
+			var largeRockArtifact = gADB[17];
 
 			Debug.Assert(largeRockArtifact != null);
 
-			var lifeOrbArtifact = Globals.ADB[4];
+			var lifeOrbArtifact = gADB[4];
 
 			Debug.Assert(lifeOrbArtifact != null);
 
@@ -260,25 +260,21 @@ namespace WrenholdsSecretVigil.Game
 		{
 			Debug.Assert(monster != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			var curseString = "";
 
 			var rl = RollDice(1, 100, 0);
 
 			// Say each curse only once
 
-			if (rl < 41 && monster.Friendliness == Friendliness.Enemy && monster.HasCarriedInventory() && !gameState.GetMonsterCurses(effectUid - 7))
+			if (rl < 41 && monster.Friendliness == Friendliness.Enemy && monster.HasCarriedInventory() && !gGameState.GetMonsterCurses(effectUid - 7))
 			{
-				var effect = Globals.EDB[effectUid];
+				var effect = gEDB[effectUid];
 
 				Debug.Assert(effect != null);
 
-				curseString = string.Format("{0}{0}{1} says, {2}", Environment.NewLine, monster.GetDecoratedName03(true, true, false, true, Globals.Buf01), effect.Desc);
+				curseString = string.Format("{0}{0}{1} says, {2}", Environment.NewLine, monster.GetTheName(true, true, false, true, Globals.Buf01), effect.Desc);
 
-				gameState.SetMonsterCurses(effectUid - 7, true);
+				gGameState.SetMonsterCurses(effectUid - 7, true);
 			}
 
 			return curseString;
@@ -287,12 +283,12 @@ namespace WrenholdsSecretVigil.Game
 		public Engine()
 		{
 			// Note: this is an example of a macro function that will be used by both EamonDD and EamonRT in macro
-			// resolution.  It is hardened to check for the existance of Globals.Character, which will only exist
-			// in EamonRT (the GameState object, though not used here, is another thing to always check for).
+			// resolution.  It is hardened to check for the existance of gCharacter, which will only exist in
+			// EamonRT (the gGameState object, though not used here, is another thing to always check for).
 
 			MacroFuncs.Add(1, () =>
 			{
-				return Globals.Character != null ? Globals.Character.Name : UnknownName;
+				return gCharacter != null ? gCharacter.Name : UnknownName;
 			});
 		}
 	}

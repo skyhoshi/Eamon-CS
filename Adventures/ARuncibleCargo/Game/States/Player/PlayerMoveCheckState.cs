@@ -1,7 +1,7 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
@@ -14,14 +14,14 @@ namespace ARuncibleCargo.Game.States
 	{
 		public override void PrintRideOffIntoSunset()
 		{
-			Globals.Out.Print("You ride off into the moonlight.");
+			gOut.Print("You ride off into the moonlight.");
 		}
 
 		public override void ProcessEvents(long eventType)
 		{
-			if (eventType == PeAfterBlockingArtifactCheck && Globals.GameState.R2 == -34)
+			if (eventType == PeAfterBlockingArtifactCheck && gGameState.R2 == -34)
 			{
-				Globals.Out.Print("The broken opening is too small to fit through.");
+				gOut.Print("The broken opening is too small to fit through.");
 			}
 			else
 			{

@@ -1,7 +1,7 @@
 ﻿
 // EditConfigRecordManyFieldsMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Helpers;
@@ -16,9 +16,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 	{
 		public override void Execute()
 		{
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle("EDIT CONFIG RECORD FIELDS", true);
+			gEngine.PrintTitle("EDIT CONFIG RECORD FIELDS", true);
 
 			if (EditRecord == null)
 			{

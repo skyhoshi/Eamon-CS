@@ -61,9 +61,6 @@
         <member name="T:TheTempleOfNgurct.Framework.Plugin.IPluginGlobals">
             <summary></summary>
         </member>
-        <member name="P:TheTempleOfNgurct.Framework.Plugin.IPluginGlobals.Engine">
-            <summary></summary>
-        </member>
         <member name="P:TheTempleOfNgurct.Framework.Plugin.IPluginGlobals.FireDamage">
             <summary></summary>
         </member>

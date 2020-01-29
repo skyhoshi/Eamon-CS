@@ -1,7 +1,7 @@
 ﻿
 // HintsCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -25,21 +25,21 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(hints != null);
 
-			Globals.Out.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, hints[i].Question);
+			gOut.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, hints[i].Question);
 		}
 
 		public virtual void PrintHintsQuestion01(IList<IHint> hints, int i)
 		{
 			Debug.Assert(hints != null);
 
-			Globals.Out.Print("{0}", hints[i].Question);
+			gOut.Print("{0}", hints[i].Question);
 		}
 
 		public virtual void PrintHintsAnswer(IList<IHint> hints, int i, int j)
 		{
 			Debug.Assert(hints != null);
 
-			Globals.Engine.PrintMacroReplacedPagedString(hints[i].GetAnswers(j), Globals.Buf);
+			gEngine.PrintMacroReplacedPagedString(hints[i].GetAnswers(j), Globals.Buf);
 		}
 
 		public override void PlayerExecute()
@@ -53,20 +53,20 @@ namespace EamonRT.Game.Commands
 
 				if (hints.Count > 0)
 				{
-					Globals.Out.Print("Your question?");
+					gOut.Print("Your question?");
 
 					for (i = 0; i < hints.Count; i++)
 					{
 						PrintHintsQuestion(hints, i);
 					}
 
-					Globals.Out.Write("{0}{0}Enter your choice: ", Environment.NewLine);
+					gOut.Write("{0}{0}Enter your choice: ", Environment.NewLine);
 
 					Globals.Buf.Clear();
 
-					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize01, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharDigit, null);
+					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize01, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharDigit, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					i = Convert.ToInt32(Globals.Buf.Trim().ToString());
 
@@ -82,13 +82,13 @@ namespace EamonRT.Game.Commands
 
 							if (j + 1 < hints[i].NumAnswers)
 							{
-								Globals.Out.Write("{0}Another (Y/N): ", Environment.NewLine);
+								gOut.Write("{0}Another (Y/N): ", Environment.NewLine);
 
 								Globals.Buf.Clear();
 
-								rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+								rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, null);
 
-								Debug.Assert(Globals.Engine.IsSuccess(rc));
+								Debug.Assert(gEngine.IsSuccess(rc));
 
 								if (Globals.Buf.Length == 0 || Globals.Buf[0] == 'N')
 								{
@@ -100,12 +100,12 @@ namespace EamonRT.Game.Commands
 				}
 				else
 				{
-					Globals.Out.Print("There are no hints available at this point in the adventure.");
+					gOut.Print("There are no hints available at this point in the adventure.");
 				}
 			}
 			else
 			{
-				Globals.Out.Print("There are no hints available for this adventure.");
+				gOut.Print("There are no hints available for this adventure.");
 			}
 
 			if (NextState == null)

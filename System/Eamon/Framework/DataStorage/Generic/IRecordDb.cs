@@ -1,7 +1,9 @@
 ﻿
 // IRecordDb.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+
+using System.Collections.Generic;
 
 namespace Eamon.Framework.DataStorage.Generic
 {
@@ -13,5 +15,8 @@ namespace Eamon.Framework.DataStorage.Generic
 
 		/// <summary></summary>
 		T this[long uid] { get; set; }
+
+		/// <summary></summary>
+		ICollection<T> Records { get; }
 	}
 }

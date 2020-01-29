@@ -66,8 +66,8 @@
             <summary></summary>
         </member>
         <member name="M:ARuncibleCargo.Framework.IRoom.IsWaterRoom">
-            <summary></summary>
-            <returns></returns>
+            <summary>Indicates whether this <see cref="T:ARuncibleCargo.Framework.IRoom">Room</see> consists of open water (Malphigian Sea).</summary>
+            <returns>If so then <c>true</c>, otherwise <c>false</c>.</returns>
         </member>
         <member name="T:ARuncibleCargo.Framework.Plugin.IPluginClassMappings">
             <summary></summary>

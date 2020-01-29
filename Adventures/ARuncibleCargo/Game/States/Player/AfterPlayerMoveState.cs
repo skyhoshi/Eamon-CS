@@ -1,7 +1,7 @@
 ﻿
 // AfterPlayerMoveState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -15,50 +15,46 @@ namespace ARuncibleCargo.Game.States
 	{
 		public override void ProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (eventType == PeAfterExtinguishLightSourceCheck)
 			{
 				// Boat stuff (an Eamon tradition)
 
-				if ((gameState.Ro == 97 && gameState.R3 == 31) || (gameState.Ro == 99 && gameState.R3 == 32) || (gameState.Ro == 101 && gameState.R3 == 67))
+				if ((gGameState.Ro == 97 && gGameState.R3 == 31) || (gGameState.Ro == 99 && gGameState.R3 == 32) || (gGameState.Ro == 101 && gGameState.R3 == 67))
 				{
-					Globals.Engine.PrintEffectDesc(113);
+					gEngine.PrintEffectDesc(113);
 				}
 
-				if ((gameState.Ro == 31 && gameState.R3 == 97) || (gameState.Ro == 32 && gameState.R3 == 99) || (gameState.Ro == 67 && gameState.R3 == 101))
+				if ((gGameState.Ro == 31 && gGameState.R3 == 97) || (gGameState.Ro == 32 && gGameState.R3 == 99) || (gGameState.Ro == 67 && gGameState.R3 == 101))
 				{
-					Globals.Engine.PrintEffectDesc(114);
+					gEngine.PrintEffectDesc(114);
 				}
 
 				// Sync contents of water rooms
 
-				var oldRoom = Globals.RDB[gameState.R3] as Framework.IRoom;
+				var oldRoom = gRDB[gGameState.R3] as Framework.IRoom;
 
-				var newRoom = Globals.RDB[gameState.Ro] as Framework.IRoom;
+				var newRoom = gRDB[gGameState.Ro] as Framework.IRoom;
 
 				if (oldRoom != null && oldRoom.IsWaterRoom() && newRoom != null)
 				{
 					if (!newRoom.IsWaterRoom())
 					{
-						var artifactList = Globals.Engine.GetArtifactList(a => a.IsInRoom(oldRoom));
+						var artifactList = gEngine.GetArtifactList(a => a.IsInRoom(oldRoom));
 
 						if (artifactList.Count > 0)
 						{
-							Globals.Out.Print("You also move the contents of the boat onto the shore.");
+							gOut.Print("You also move the contents of the boat onto the shore.");
 						}
 					}
 
-					Globals.Engine.TransportRoomContentsBetweenRooms(oldRoom, newRoom, false);
+					gEngine.TransportRoomContentsBetweenRooms(oldRoom, newRoom, false);
 				}
 
 				// Out the Window of Ill Repute
 
-				if (gameState.Ro == 21 && gameState.R3 == 50)
+				if (gGameState.Ro == 21 && gGameState.R3 == 50)
 				{
-					Globals.Engine.PrintEffectDesc(49);
+					gEngine.PrintEffectDesc(49);
 				}
 			}
 

@@ -8,8 +8,8 @@ namespace ARuncibleCargo.Framework
 	/// <summary></summary>
 	public interface IRoom : Eamon.Framework.IRoom
 	{
-		/// <summary></summary>
-		/// <returns></returns>
+		/// <summary>Indicates whether this <see cref="IRoom">Room</see> consists of open water (Malphigian Sea).</summary>
+		/// <returns>If so then <c>true</c>, otherwise <c>false</c>.</returns>
 		bool IsWaterRoom();
 	}
 }

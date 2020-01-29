@@ -483,7 +483,7 @@
                 <Simple value="24" />
                 <Simple value="12" />
                 <Simple value="0" />
-                <Simple value="54" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="25" />
@@ -947,7 +947,7 @@
                 <Simple value="39" />
                 <Simple value="27" />
                 <Simple value="0" />
-                <Simple value="74" />
+                <Simple value="0" />
                 <Simple value="38" />
                 <Simple value="26" />
                 <Simple value="40" />
@@ -1247,7 +1247,7 @@
             <Simple name="Uid" value="43" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Quagmire" />
-            <Simple name="Desc" value="You are trudging through a bog.  There are hidden pitfalls everywhere, and the footing is hazardous.  To the north, south, and east, the mire continues.  Westward, however, the ground becomes firmer." />
+            <Simple name="Desc" value="You are trudging through a quagmire.  There are hidden pitfalls everywhere, and the footing is hazardous.  To the north, south, and east, the mire continues.  Westward, however, the ground becomes firmer." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1440,7 +1440,7 @@
                 <Simple value="53" />
                 <Simple value="49" />
                 <Simple value="0" />
-                <Simple value="98" />
+                <Simple value="0" />
                 <Simple value="52" />
                 <Simple value="48" />
                 <Simple value="0" />
@@ -3354,7 +3354,7 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
-                <Simple value="117" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -3364,7 +3364,7 @@
             <Simple name="Uid" value="116" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Secret Room" />
-            <Simple name="Desc" value="You are in a small room, obviously carved out of the solid rock.  A small staircase leads down into darkness, and a passage leads back southward.  From below, many different noises can be discerned." />
+            <Simple name="Desc" value="You are in a small room, obviously carved out of the solid rock.  @@001" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -3517,7 +3517,7 @@
         </Complex>
       </Items>
     </Collection>
-	  <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
       <Properties>
         <Simple name="Capacity" value="0" />
       </Properties>

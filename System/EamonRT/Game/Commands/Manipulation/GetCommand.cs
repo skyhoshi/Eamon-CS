@@ -1,7 +1,7 @@
 ﻿
 // GetCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -35,7 +35,7 @@ namespace EamonRT.Game.Commands
 
 			if (nlFlag)
 			{
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 
 				nlFlag = false;
 			}
@@ -58,7 +58,7 @@ namespace EamonRT.Game.Commands
 
 			if (ac.Type == ArtifactType.DisguisedMonster)
 			{
-				ProcessAction(() => Globals.Engine.RevealDisguisedMonster(ActorRoom, artifact), ref nlFlag);
+				ProcessAction(() => gEngine.RevealDisguisedMonster(gActorRoom, artifact), ref nlFlag);
 			}
 			else if (artifact.Weight > 900)
 			{
@@ -78,24 +78,24 @@ namespace EamonRT.Game.Commands
 				{
 					rc = artifact.GetContainerInfo(ref count, ref weight, ContainerType.In, true);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					rc = artifact.GetContainerInfo(ref count, ref weight, ContainerType.On, true);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
 				var charWeight = 0L;
 
-				rc = ActorMonster.GetFullInventoryWeight(ref charWeight, recurse: true);
+				rc = gActorMonster.GetFullInventoryWeight(ref charWeight, recurse: true);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				if (ac.Type == ArtifactType.DeadBody && ac.Field1 != 1)
 				{
 					ProcessAction(() => PrintBestLeftAlone(artifact), ref nlFlag);
 				}
-				else if (!OmitWeightCheck && (weight + charWeight > ActorMonster.GetWeightCarryableGronds()))
+				else if (!OmitWeightCheck && (weight + charWeight > gActorMonster.GetWeightCarryableGronds()))
 				{
 					ProcessAction(() => PrintTooHeavy(artifact), ref nlFlag);
 				}
@@ -105,7 +105,7 @@ namespace EamonRT.Game.Commands
 				}
 				else
 				{
-					var monster = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m.Weapon == -artifact.Uid - 1 && m != ActorMonster).FirstOrDefault();
+					var monster = gEngine.GetMonsterList(m => m.IsInRoom(gActorRoom) && m.Weapon == -artifact.Uid - 1 && m != gActorMonster).FirstOrDefault();
 
 					if (monster != null)
 					{
@@ -138,17 +138,17 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(GetAll || DobjArtifact != null);
+			Debug.Assert(GetAll || gDobjArtifact != null);
 
 			if (GetAll)
 			{
 				// screen out all weapons in the room which have monsters present with affinities to those weapons
 
-				ArtifactList = ActorRoom.GetTakeableList().Where(a => Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m.Weapon == -a.Uid - 1 && m != ActorMonster).FirstOrDefault() == null).ToList();
+				ArtifactList = gActorRoom.GetTakeableList().Where(a => gEngine.GetMonsterList(m => m.IsInRoom(gActorRoom) && m.Weapon == -a.Uid - 1 && m != gActorMonster).FirstOrDefault() == null).ToList();
 			}
 			else
 			{
-				ArtifactList = new List<IArtifact>() { DobjArtifact };
+				ArtifactList = new List<IArtifact>() { gDobjArtifact };
 			}
 
 			if (ArtifactList.Count > 0)
@@ -178,7 +178,7 @@ namespace EamonRT.Game.Commands
 					{
 						// when a weapon is picked up all monster affinities to that weapon are broken
 
-						var fumbleMonsters = Globals.Engine.GetMonsterList(m => m.Weapon == -artifact.Uid - 1 && m != ActorMonster);
+						var fumbleMonsters = gEngine.GetMonsterList(m => m.Weapon == -artifact.Uid - 1 && m != gActorMonster);
 
 						foreach (var monster in fumbleMonsters)
 						{
@@ -187,7 +187,7 @@ namespace EamonRT.Game.Commands
 
 						var ac01 = artifact.GeneralWeapon;
 
-						if (artifact.IsReadyableByCharacter() && (wpnArtifact == null || Globals.Engine.WeaponPowerCompare(artifact, wpnArtifact) > 0) && (!GetAll || ArtifactList.Count == 1 || Globals.GameState.Sh < 1 || ac01.Field5 < 2))
+						if (artifact.IsReadyableByCharacter() && (wpnArtifact == null || gEngine.WeaponPowerCompare(artifact, wpnArtifact) > 0) && (!GetAll || ArtifactList.Count == 1 || gGameState.Sh < 1 || ac01.Field5 < 2))
 						{
 							wpnArtifact = artifact;
 						}
@@ -196,28 +196,28 @@ namespace EamonRT.Game.Commands
 
 				if (nlFlag)
 				{
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 
 					nlFlag = false;
 				}
 
-				if (ActorRoom.IsLit())
+				if (gActorRoom.IsLit())
 				{
-					if (!Globals.Engine.AutoDisplayUnseenArtifactDescs && !GetAll && DobjArtifact.IsCarriedByCharacter() && !DobjArtifact.Seen)
+					if (!gEngine.AutoDisplayUnseenArtifactDescs && !GetAll && gDobjArtifact.IsCarriedByCharacter() && !gDobjArtifact.Seen)
 					{
 						Globals.Buf.Clear();
 
-						var rc = DobjArtifact.BuildPrintedFullDesc(Globals.Buf, false);
+						var rc = gDobjArtifact.BuildPrintedFullDesc(Globals.Buf, false);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
-						Globals.Out.Write("{0}", Globals.Buf);
+						gOut.Write("{0}", Globals.Buf);
 
-						DobjArtifact.Seen = true;
+						gDobjArtifact.Seen = true;
 					}
 				}
 
-				if (ActorMonster.Weapon <= 0 && wpnArtifact != null && NextState == null)
+				if (gActorMonster.Weapon <= 0 && wpnArtifact != null && NextState == null)
 				{
 					var command = Globals.CreateInstance<IReadyCommand>();
 
@@ -230,7 +230,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				Globals.Out.Print("There's nothing for you to get.");
+				gOut.Print("There's nothing for you to get.");
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -249,69 +249,69 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			var artTypes = new ArtifactType[] { ArtifactType.DisguisedMonster, ArtifactType.DeadBody, ArtifactType.BoundMonster, ArtifactType.Weapon, ArtifactType.MagicWeapon };
 
-			var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
+			var ac = gDobjArtifact.GetArtifactCategory(artTypes, false);
 
 			if (ac == null)
 			{
-				ac = DobjArtifact.GetCategories(0);
+				ac = gDobjArtifact.GetCategories(0);
 			}
 
-			if (ac != null && ac.Type != ArtifactType.DisguisedMonster && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
+			if (ac != null && ac.Type != ArtifactType.DisguisedMonster && gDobjArtifact.Weight <= 900 && !gDobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
 			{
-				OmitWeightCheck = DobjArtifact.IsCarriedByMonster(ActorMonster, true);
+				OmitWeightCheck = gDobjArtifact.IsCarriedByMonster(gActorMonster, true);
 
 				var artCount = 0L;
 
-				var artWeight = DobjArtifact.Weight;
+				var artWeight = gDobjArtifact.Weight;
 
-				if (DobjArtifact.GeneralContainer != null)
+				if (gDobjArtifact.GeneralContainer != null)
 				{
-					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.In, true);
+					rc = gDobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.In, true);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
-					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.On, true);
+					rc = gDobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.On, true);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
 				var monWeight = 0L;
 
-				rc = ActorMonster.GetFullInventoryWeight(ref monWeight, recurse: true);
+				rc = gActorMonster.GetFullInventoryWeight(ref monWeight, recurse: true);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				if (!Globals.Engine.EnforceMonsterWeightLimits || OmitWeightCheck || (artWeight <= ActorMonster.GetWeightCarryableGronds() && artWeight + monWeight <= ActorMonster.GetWeightCarryableGronds() * ActorMonster.GroupCount))
+				if (!gEngine.EnforceMonsterWeightLimits || OmitWeightCheck || (artWeight <= gActorMonster.GetWeightCarryableGronds() && artWeight + monWeight <= gActorMonster.GetWeightCarryableGronds() * gActorMonster.GroupCount))
 				{
-					DobjArtifact.SetCarriedByMonster(ActorMonster);
+					gDobjArtifact.SetCarriedByMonster(gActorMonster);
 
-					var charMonster = Globals.MDB[Globals.GameState.Cm];
+					var charMonster = gMDB[gGameState.Cm];
 
 					Debug.Assert(charMonster != null);
 
-					if (charMonster.IsInRoom(ActorRoom))
+					if (charMonster.IsInRoom(gActorRoom))
 					{
-						if (ActorRoom.IsLit())
+						if (gActorRoom.IsLit())
 						{
-							var monsterName = ActorMonster.EvalPlural(ActorMonster.GetDecoratedName03(true, true, false, false, Globals.Buf), ActorMonster.GetDecoratedName02(true, true, false, true, Globals.Buf01));
+							var monsterName = gActorMonster.EvalPlural(gActorMonster.GetTheName(true), gActorMonster.GetArticleName(true, true, false, true, Globals.Buf01));
 
-							Globals.Out.Print("{0} picks up {1}.", monsterName, DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+							gOut.Print("{0} picks up {1}.", monsterName, gDobjArtifact.GetTheName());
 						}
 						else
 						{
-							var monsterName = string.Format("An unseen {0}", ActorMonster.CheckNBTLHostility() ? "offender" : "entity");
+							var monsterName = string.Format("An unseen {0}", gActorMonster.CheckNBTLHostility() ? "offender" : "entity");
 
-							Globals.Out.Print("{0} picks up {1}.", monsterName, "a weapon");
+							gOut.Print("{0} picks up {1}.", monsterName, "a weapon");
 						}
 					}
 
 					// when a weapon is picked up all monster affinities to that weapon are broken
 
-					var fumbleMonsters = Globals.Engine.GetMonsterList(m => m.Weapon == -DobjArtifact.Uid - 1 && m != ActorMonster);
+					var fumbleMonsters = gEngine.GetMonsterList(m => m.Weapon == -gDobjArtifact.Uid - 1 && m != gActorMonster);
 
 					foreach (var monster in fumbleMonsters)
 					{
@@ -331,22 +331,22 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerFinishParsing()
 		{
-			CommandParser.ParseName();
+			gCommandParser.ParseName();
 
-			if (string.Equals(CommandParser.ObjData.Name, "all", StringComparison.OrdinalIgnoreCase))
+			if (string.Equals(gCommandParser.ObjData.Name, "all", StringComparison.OrdinalIgnoreCase))
 			{
 				GetAll = true;
 			}
 			else
 			{
-				CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+				gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 				{
-					a => a.IsInRoom(ActorRoom),
-					a => a.IsEmbeddedInRoom(ActorRoom),
-					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(Globals.Engine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, Globals.Engine.ExposeContainersRecursively)
+					a => a.IsInRoom(gActorRoom),
+					a => a.IsEmbeddedInRoom(gActorRoom),
+					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively)
 				};
 
-				CommandParser.ObjData.ArtifactNotFoundFunc = PrintCantVerbThat;
+				gCommandParser.ObjData.ArtifactNotFoundFunc = PrintCantVerbThat;
 
 				PlayerResolveArtifact();
 			}

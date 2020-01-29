@@ -1,7 +1,7 @@
 ﻿
 // EditRecordOneFieldMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -25,29 +25,29 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			RetCode rc;
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle(Title, true);
+			gEngine.PrintTitle(Title, true);
 
 			if (EditRecord == null)
 			{
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(55, '\0', 0, string.Format("Enter the uid of the {0} record to edit", RecordTypeName), "1"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(55, '\0', 0, string.Format("Enter the uid of the {0} record to edit", RecordTypeName), "1"));
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharDigit, null);
+				rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, gEngine.IsCharDigit, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				var recordUid = Convert.ToInt64(Buf.Trim().ToString());
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				EditRecord = RecordTable.FindRecord(recordUid);
 
 				if (EditRecord == null)
 				{
-					Globals.Out.Print("{0} record not found.", RecordTypeName.FirstCharToUpper());
+					gOut.Print("{0} record not found.", RecordTypeName.FirstCharToUpper());
 
 					goto Cleanup;
 				}
@@ -70,13 +70,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				PrintPostListLineSep();
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(47, '\0', 0, "Enter the number of the field to edit", "0"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(47, '\0', 0, "Enter the number of the field to edit", "0"));
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsCharDigit, null);
+				rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, gEngine.IsCharDigit, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				var fieldNum = Convert.ToInt64(Buf.Trim().ToString());
 
@@ -87,7 +87,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 					goto Cleanup;
 				}
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 			}
 			else
 			{
@@ -104,13 +104,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (!Globals.CompareInstances(EditRecord, editRecord01))
 			{
-				Globals.Out.Write("{0}Would you like to save this updated {1} record (Y/N): ", Environment.NewLine, RecordTypeName);
+				gOut.Write("{0}Would you like to save this updated {1} record (Y/N): ", Environment.NewLine, RecordTypeName);
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, Globals.Engine.IsCharYOrN);
+				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, gEngine.IsCharYOrN);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Globals.Thread.Sleep(150);
 
@@ -134,23 +134,23 @@ namespace EamonDD.Game.Menus.ActionMenus
 				{
 					rc = artifact.SyncArtifactCategories();
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
-					Globals.Engine.TruncatePluralTypeEffectDesc(artifact.PluralType, Constants.ArtNameLen);
+					gEngine.TruncatePluralTypeEffectDesc(artifact.PluralType, Constants.ArtNameLen);
 				}
 
 				var effect = editRecord01 as IEffect;
 
 				if (effect != null)
 				{
-					Globals.Engine.TruncatePluralTypeEffectDesc(effect);
+					gEngine.TruncatePluralTypeEffectDesc(effect);
 				}
 
 				var monster = editRecord01 as IMonster;
 
 				if (monster != null)
 				{
-					Globals.Engine.TruncatePluralTypeEffectDesc(monster.PluralType, Constants.MonNameLen);
+					gEngine.TruncatePluralTypeEffectDesc(monster.PluralType, Constants.MonNameLen);
 				}
 
 				var record = RecordTable.RemoveRecord(EditRecord.Uid);
@@ -159,13 +159,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				rc = RecordTable.AddRecord(editRecord01);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				UpdateGlobals();
 			}
 			else
 			{
-				Globals.Out.Print("{0} record not modified.", RecordTypeName.FirstCharToUpper());
+				gOut.Print("{0} record not modified.", RecordTypeName.FirstCharToUpper());
 			}
 
 		Cleanup:

@@ -1,7 +1,7 @@
 ﻿
 // ExamineCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -17,23 +17,23 @@ namespace StrongholdOfKahrDur.Game.Commands
 		{
 			if (eventType == PpeAfterArtifactFullDescPrint)
 			{
-				var eyeglassesArtifact = Globals.ADB[2];
+				var eyeglassesArtifact = gADB[2];
 
 				Debug.Assert(eyeglassesArtifact != null);
 
-				var secretDoorArtifact = Globals.ADB[4];
+				var secretDoorArtifact = gADB[4];
 
 				Debug.Assert(secretDoorArtifact != null);
 
-				var secretDoorArtifact01 = Globals.ADB[10];
+				var secretDoorArtifact01 = gADB[10];
 
 				Debug.Assert(secretDoorArtifact01 != null);
 
 				// Armoire (while wearing glasses)
 
-				if (DobjArtifact.Uid == 3 && eyeglassesArtifact.IsWornByCharacter() && !secretDoorArtifact.IsInRoom(ActorRoom))
+				if (gDobjArtifact.Uid == 3 && eyeglassesArtifact.IsWornByCharacter() && !secretDoorArtifact.IsInRoom(gActorRoom))
 				{
-					var ac = DobjArtifact.InContainer;
+					var ac = gDobjArtifact.InContainer;
 
 					Debug.Assert(ac != null);
 
@@ -50,13 +50,13 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// Bookshelf/secret door in library (while wearing magic glasses)
 
-				else if (DobjArtifact.Uid == 11 && eyeglassesArtifact.IsWornByCharacter() && !secretDoorArtifact01.IsInRoom(ActorRoom))
+				else if (gDobjArtifact.Uid == 11 && eyeglassesArtifact.IsWornByCharacter() && !secretDoorArtifact01.IsInRoom(gActorRoom))
 				{
 					var ac = secretDoorArtifact01.DoorGate;
 
 					Debug.Assert(ac != null);
 
-					secretDoorArtifact01.SetInRoom(ActorRoom);
+					secretDoorArtifact01.SetInRoom(gActorRoom);
 
 					ac.SetOpen(true);
 

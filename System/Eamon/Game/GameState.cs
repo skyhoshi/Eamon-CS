@@ -1,7 +1,7 @@
 ﻿
 // GameState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -97,7 +97,7 @@ namespace Eamon.Game
 		{
 			var nbtl = 0L;
 
-			var monsterList = Globals.Engine != null ? Globals.Engine.GetMonsterList(m => m.Location == Ro && m.Friendliness == (Friendliness)index) : new List<IMonster>();
+			var monsterList = gEngine != null ? gEngine.GetMonsterList(m => m.Location == Ro && m.Friendliness == (Friendliness)index) : new List<IMonster>();
 
 			foreach (var monster in monsterList)
 			{
@@ -118,7 +118,7 @@ namespace Eamon.Game
 		{
 			var dttl = 0L;
 
-			var monsterList = Globals.IsRulesetVersion(5) && Globals.Engine != null ? Globals.Engine.GetMonsterList(m => m.Location == Ro && m.Friendliness == (Friendliness)index) : new List<IMonster>();
+			var monsterList = Globals.IsRulesetVersion(5) && gEngine != null ? gEngine.GetMonsterList(m => m.Location == Ro && m.Friendliness == (Friendliness)index) : new List<IMonster>();
 
 			foreach (var monster in monsterList)
 			{

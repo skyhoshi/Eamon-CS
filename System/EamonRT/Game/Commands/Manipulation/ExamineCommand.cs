@@ -28,24 +28,24 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null || DobjMonster != null);
+			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
 
-			if (DobjArtifact != null)
+			if (gDobjArtifact != null)
 			{
 				var artTypes = new ArtifactType[] { ArtifactType.DoorGate, ArtifactType.DisguisedMonster, ArtifactType.Drinkable, ArtifactType.Edible, ArtifactType.InContainer, ArtifactType.OnContainer, ArtifactType.UnderContainer, ArtifactType.BehindContainer };
 
-				var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
+				var ac = gDobjArtifact.GetArtifactCategory(artTypes, false);
 
 				if (ac == null)
 				{
-					ac = DobjArtifact.GetCategories(0);
+					ac = gDobjArtifact.GetCategories(0);
 				}
 
 				Debug.Assert(ac != null);
 
-				if (DobjArtifact.IsEmbeddedInRoom(ActorRoom))
+				if (gDobjArtifact.IsEmbeddedInRoom(gActorRoom))
 				{
-					DobjArtifact.SetInRoom(ActorRoom);
+					gDobjArtifact.SetInRoom(gActorRoom);
 				}
 
 				if (ac.Type == ArtifactType.DoorGate)
@@ -55,7 +55,7 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Type == ArtifactType.DisguisedMonster)
 				{
-					Globals.Engine.RevealDisguisedMonster(ActorRoom, DobjArtifact);
+					gEngine.RevealDisguisedMonster(gActorRoom, gDobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
@@ -64,11 +64,11 @@ namespace EamonRT.Game.Commands
 
 				Globals.Buf.Clear();
 
-				if (Enum.IsDefined(typeof(ContainerType), ContainerType) && !DobjArtifact.IsWornByCharacter())
+				if (Enum.IsDefined(typeof(ContainerType), ContainerType) && !gDobjArtifact.IsWornByCharacter())
 				{
-					var containerArtType = Globals.Engine.EvalContainerType(ContainerType, ArtifactType.InContainer, ArtifactType.OnContainer, ArtifactType.UnderContainer, ArtifactType.BehindContainer);
+					var containerArtType = gEngine.EvalContainerType(ContainerType, ArtifactType.InContainer, ArtifactType.OnContainer, ArtifactType.UnderContainer, ArtifactType.BehindContainer);
 
-					var ac01 = DobjArtifact.GetArtifactCategory(containerArtType);
+					var ac01 = gDobjArtifact.GetArtifactCategory(containerArtType);
 
 					if (ac01 == null)
 					{
@@ -77,41 +77,41 @@ namespace EamonRT.Game.Commands
 						goto Cleanup;
 					}
 
-					if (ac01 == DobjArtifact.InContainer && !ac01.IsOpen())
+					if (ac01 == gDobjArtifact.InContainer && !ac01.IsOpen())
 					{
-						PrintMustFirstOpen(DobjArtifact);
+						PrintMustFirstOpen(gDobjArtifact);
 
 						NextState = Globals.CreateInstance<IStartState>();
 
 						goto Cleanup;
 					}
 
-					var artifactList = DobjArtifact.GetContainedList(containerType: ContainerType);
+					var artifactList = gDobjArtifact.GetContainedList(containerType: ContainerType);
 					
-					var showCharOwned = !DobjArtifact.IsCarriedByCharacter() /* && !DobjArtifact.IsWornByCharacter() */;
+					var showCharOwned = !gDobjArtifact.IsCarriedByCharacter() /* && !gDobjArtifact.IsWornByCharacter() */;
 
 					if (artifactList.Count > 0)
 					{
 						Globals.Buf.SetFormat("{0}{1} {2} you see ",
 							Environment.NewLine,
-							Globals.Engine.EvalContainerType(ContainerType, "Inside", "On", "Under", "Behind"),
-							DobjArtifact.GetDecoratedName03(false, showCharOwned, false, false, Globals.Buf01));
+							gEngine.EvalContainerType(ContainerType, "Inside", "On", "Under", "Behind"),
+							gDobjArtifact.GetTheName(false, showCharOwned, false, false, Globals.Buf01));
 
-						var rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, showCharOwned, StateDescDisplayCode.None, false, false, Globals.Buf);
+						var rc = gEngine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, showCharOwned, StateDescDisplayCode.None, false, false, Globals.Buf);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 					}
 					else
 					{
 						Globals.Buf.SetFormat("{0}There's nothing {1} {2}",
 							Environment.NewLine,
-							Globals.Engine.EvalContainerType(ContainerType, "inside", "on", "under", "behind"),
-							DobjArtifact.GetDecoratedName03(false, showCharOwned, false, false, Globals.Buf01));
+							gEngine.EvalContainerType(ContainerType, "inside", "on", "under", "behind"),
+							gDobjArtifact.GetTheName(false, showCharOwned, false, false, Globals.Buf01));
 					}
 
 					Globals.Buf.AppendFormat(".{0}", Environment.NewLine);
 
-					Globals.Out.Write("{0}", Globals.Buf);
+					gOut.Write("{0}", Globals.Buf);
 
 					PlayerProcessEvents(PpeAfterArtifactContentsPrint);
 
@@ -122,13 +122,13 @@ namespace EamonRT.Game.Commands
 				}
 				else
 				{
-					var rc = DobjArtifact.BuildPrintedFullDesc(Globals.Buf, false);
+					var rc = gDobjArtifact.BuildPrintedFullDesc(Globals.Buf, false);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
-					Globals.Out.Write("{0}", Globals.Buf);
+					gOut.Write("{0}", Globals.Buf);
 
-					DobjArtifact.Seen = true;
+					gDobjArtifact.Seen = true;
 
 					PlayerProcessEvents(PpeAfterArtifactFullDescPrint);
 
@@ -139,14 +139,14 @@ namespace EamonRT.Game.Commands
 
 					if ((ac.Type == ArtifactType.Drinkable || ac.Type == ArtifactType.Edible) && ac.Field2 != Constants.InfiniteDrinkableEdible)
 					{
-						Globals.Out.Print("There {0}{1}{2}{3} left.",
+						gOut.Print("There {0}{1}{2}{3} left.",
 							ac.Field2 != 1 ? "are " : "is ",
-							ac.Field2 > 0 ? Globals.Engine.GetStringFromNumber(ac.Field2, false, Globals.Buf) : "no",
+							ac.Field2 > 0 ? gEngine.GetStringFromNumber(ac.Field2, false, Globals.Buf) : "no",
 							ac.Type == ArtifactType.Drinkable ? " swallow" : " bite",
 							ac.Field2 != 1 ? "s" : "");
 					}
 
-					if (((ac.Type == ArtifactType.InContainer && ac.IsOpen()) || ac.Type == ArtifactType.OnContainer || ac.Type == ArtifactType.UnderContainer || ac.Type == ArtifactType.BehindContainer) && DobjArtifact.ShouldShowContentsWhenExamined())
+					if (((ac.Type == ArtifactType.InContainer && ac.IsOpen()) || ac.Type == ArtifactType.OnContainer || ac.Type == ArtifactType.UnderContainer || ac.Type == ArtifactType.BehindContainer) && gDobjArtifact.ShouldShowContentsWhenExamined())
 					{
 						var command = Globals.CreateInstance<IInventoryCommand>(x =>
 						{
@@ -165,15 +165,15 @@ namespace EamonRT.Game.Commands
 			{
 				Globals.Buf.Clear();
 
-				var rc = DobjMonster.BuildPrintedFullDesc(Globals.Buf, false);
+				var rc = gDobjMonster.BuildPrintedFullDesc(Globals.Buf, false);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				Globals.Out.Write("{0}", Globals.Buf);
+				gOut.Write("{0}", Globals.Buf);
 
-				DobjMonster.Seen = true;
+				gDobjMonster.Seen = true;
 
-				if (DobjMonster.Friendliness == Friendliness.Friend && DobjMonster.ShouldShowContentsWhenExamined())
+				if (gDobjMonster.Friendliness == Friendliness.Friend && gDobjMonster.ShouldShowContentsWhenExamined())
 				{
 					var command = Globals.CreateInstance<IInventoryCommand>();
 
@@ -184,16 +184,16 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				var isUninjuredGroup = DobjMonster.GroupCount > 1 && DobjMonster.DmgTaken == 0;
+				var isUninjuredGroup = gDobjMonster.GroupCount > 1 && gDobjMonster.DmgTaken == 0;
 
 				Globals.Buf.SetFormat("{0}{1} {2} ",
 					Environment.NewLine,
-					isUninjuredGroup ? "They" : DobjMonster.GetDecoratedName03(true, true, false, true, Globals.Buf01),
+					isUninjuredGroup ? "They" : gDobjMonster.GetTheName(true, true, false, true, Globals.Buf01),
 					isUninjuredGroup ? "are" : "is");
 
-				DobjMonster.AddHealthStatus(Globals.Buf);
+				gDobjMonster.AddHealthStatus(Globals.Buf);
 
-				Globals.Out.Write("{0}", Globals.Buf);
+				gOut.Write("{0}", Globals.Buf);
 			}
 
 		Cleanup:
@@ -206,38 +206,38 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerFinishParsing()
 		{
-			CommandParser.ParseName();
+			gCommandParser.ParseName();
 
 			ContainerType = Prep != null ? Prep.ContainerType : (ContainerType)(-1);
 
-			if (string.Equals(CommandParser.ObjData.Name, "room", StringComparison.OrdinalIgnoreCase) || string.Equals(CommandParser.ObjData.Name, "area", StringComparison.OrdinalIgnoreCase))
+			if (string.Equals(gCommandParser.ObjData.Name, "room", StringComparison.OrdinalIgnoreCase) || string.Equals(gCommandParser.ObjData.Name, "area", StringComparison.OrdinalIgnoreCase))
 			{
 				var command = Globals.CreateInstance<ILookCommand>();
 
 				CopyCommandData(command);
 
-				CommandParser.NextState = command;
+				gCommandParser.NextState = command;
 			}
 			else
 			{
-				CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+				gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 				{
-					a => a.IsCarriedByCharacter() || a.IsInRoom(ActorRoom),
-					a => a.IsEmbeddedInRoom(ActorRoom),
-					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(Globals.Engine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, Globals.Engine.ExposeContainersRecursively),
+					a => a.IsCarriedByCharacter() || a.IsInRoom(gActorRoom),
+					a => a.IsEmbeddedInRoom(gActorRoom),
+					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively),
 					a => a.IsWornByCharacter()
 				};
 
 				if (!Enum.IsDefined(typeof(ContainerType), ContainerType))
 				{
-					CommandParser.ObjData.RevealEmbeddedArtifactFunc = (r, a) => { };
+					gCommandParser.ObjData.RevealEmbeddedArtifactFunc = (r, a) => { };
 				}
 
-				CommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch01;
+				gCommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch01;
 
-				CommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch02;
+				gCommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch02;
 
-				CommandParser.ObjData.MonsterNotFoundFunc = PrintYouSeeNothingSpecial;
+				gCommandParser.ObjData.MonsterNotFoundFunc = PrintYouSeeNothingSpecial;
 
 				PlayerResolveArtifact();
 			}

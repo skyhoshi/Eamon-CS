@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -18,13 +18,13 @@ namespace TheSubAquanLaboratory.Game
 		{
 			base.AddPoundCharsToArtifactNames();
 
-			var cardSlotArtifact = Globals.ADB[26];     // Card slot #2
+			var cardSlotArtifact = gADB[26];     // Card slot #2
 
 			Debug.Assert(cardSlotArtifact != null);
 
 			cardSlotArtifact.Name = cardSlotArtifact.Name.TrimEnd('#');
 
-			var consoleArtifact = Globals.ADB[62];         // Console #2
+			var consoleArtifact = gADB[62];         // Console #2
 
 			Debug.Assert(consoleArtifact != null);
 

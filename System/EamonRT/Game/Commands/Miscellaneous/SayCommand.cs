@@ -1,7 +1,7 @@
 ﻿
 // SayCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -49,7 +49,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			Globals.Out.Print("Okay, \"{0}\"", PrintedPhrase);
+			gOut.Print("Okay, \"{0}\"", PrintedPhrase);
 
 			PlayerProcessEvents(PpeAfterPlayerSay);
 
@@ -68,18 +68,18 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerFinishParsing()
 		{
-			if (CommandParser.CurrToken < CommandParser.Tokens.Length)
+			if (gCommandParser.CurrToken < gCommandParser.Tokens.Length)
 			{
-				OriginalPhrase = CommandParser.InputBuf.ToString().Replace(CommandParser.Tokens[0] + " ", "");
+				OriginalPhrase = gCommandParser.InputBuf.ToString().Replace(gCommandParser.Tokens[0] + " ", "");
 
-				CommandParser.CurrToken += (CommandParser.Tokens.Length - CommandParser.CurrToken);
+				gCommandParser.CurrToken += (gCommandParser.Tokens.Length - gCommandParser.CurrToken);
 			}
 
 			while (true)
 			{
 				if (string.IsNullOrWhiteSpace(OriginalPhrase))
 				{
-					Globals.Out.Write("{0}{1} who or what? ", Environment.NewLine, Verb.FirstCharToUpper());
+					gOut.Write("{0}{1} who or what? ", Environment.NewLine, Verb.FirstCharToUpper());
 
 					Globals.Buf.SetFormat("{0}", Globals.In.ReadLine());
 

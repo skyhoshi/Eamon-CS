@@ -1,7 +1,7 @@
 ﻿
 // TrollsfireCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -20,15 +20,15 @@ namespace TheBeginnersCave.Game.Commands
 		{
 			// find Trollsfire in the game database
 
-			var trollsfireArtifact = Globals.ADB[10];
+			var trollsfireArtifact = gADB[10];
 
 			Debug.Assert(trollsfireArtifact != null);
 
 			// if Trollsfire is in the player character's room
 
-			if (trollsfireArtifact.IsInRoom(ActorRoom))
+			if (trollsfireArtifact.IsInRoom(gActorRoom))
 			{
-				Globals.Out.Print("Maybe you should pick it up first.");
+				gOut.Print("Maybe you should pick it up first.");
 
 				goto Cleanup;
 			}
@@ -37,39 +37,33 @@ namespace TheBeginnersCave.Game.Commands
 
 			if (!trollsfireArtifact.IsCarriedByCharacter())
 			{
-				Globals.Out.Print("Nothing happens.");
+				gOut.Print("Nothing happens.");
 
 				goto Cleanup;
 			}
 
-			// cast to the Beginner's Cave GameState to allow access to the Trollsfire property
-
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			// if Trollsfire is currently alight then extinguish it
 
-			if (gameState.Trollsfire == 1)
+			if (gGameState.Trollsfire == 1)
 			{
-				Globals.Engine.PrintEffectDesc(6);
+				gEngine.PrintEffectDesc(6);
 
-				gameState.Trollsfire = 0; 
+				gGameState.Trollsfire = 0; 
 
 				goto Cleanup;
 			}
 
 			// if Trollsfire is extinguished then light it
 
-			Globals.Engine.PrintEffectDesc(4);
+			gEngine.PrintEffectDesc(4);
 
-			gameState.Trollsfire = 1;
+			gGameState.Trollsfire = 1;
 
 			// if Trollsfire is not wielded it burns the player character
 
-			if (ActorMonster.Weapon != 10)
+			if (gActorMonster.Weapon != 10)
 			{
-				Globals.Engine.PrintEffectDesc(5);
+				gEngine.PrintEffectDesc(5);
 
 				// create a combat system object to inflict the injury; these can be created and discarded at will
 
@@ -79,9 +73,9 @@ namespace TheBeginnersCave.Game.Commands
 
 					x.SetNextStateFunc = s => NextState = s;
 
-					// in PlayerExecute, ActorRoom is the player character room and ActorMonster is the player character monster
+					// in PlayerExecute, gActorRoom is the player character room and gActorMonster is the player character monster
 
-					x.DfMonster = ActorMonster;
+					x.DfMonster = gActorMonster;
 
 					// we want to bypass armor
 
@@ -94,7 +88,7 @@ namespace TheBeginnersCave.Game.Commands
 		
 				// extinguish Trollsfire
 
-				gameState.Trollsfire = 0;
+				gGameState.Trollsfire = 0;
 			}
 
 		Cleanup:

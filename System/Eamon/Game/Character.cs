@@ -210,11 +210,11 @@ namespace Eamon.Game
 			}
 		}
 
-		public override string GetPluralName(string fieldName, StringBuilder buf)
+		public override string GetPluralName(string fieldName, StringBuilder buf = null)
 		{
 			string result;
 
-			if (string.IsNullOrWhiteSpace(fieldName) || buf == null)
+			if (string.IsNullOrWhiteSpace(fieldName))
 			{
 				result = null;
 
@@ -224,6 +224,11 @@ namespace Eamon.Game
 			}
 
 			Debug.Assert(fieldName == "Name");
+
+			if (buf == null)
+			{
+				buf = Globals.Buf;
+			}
 
 			buf.Clear();
 
@@ -236,11 +241,11 @@ namespace Eamon.Game
 			return result;
 		}
 
-		public override string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public override string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift = false, bool showCharOwned = true, bool showStateDesc = false, bool groupCountOne = false, StringBuilder buf = null)
 		{
 			string result;
 
-			if (string.IsNullOrWhiteSpace(fieldName) || buf == null)
+			if (string.IsNullOrWhiteSpace(fieldName))
 			{
 				result = null;
 
@@ -250,6 +255,11 @@ namespace Eamon.Game
 			}
 
 			Debug.Assert(fieldName == "Name");
+
+			if (buf == null)
+			{
+				buf = Globals.Buf;
+			}
 
 			buf.Clear();
 
@@ -277,7 +287,7 @@ namespace Eamon.Game
 
 			rc = RetCode.Success;
 
-			var name = GetDecoratedName02(true, true, false, false, new StringBuilder(Constants.BufSize));
+			var name = GetArticleName(true, buf: new StringBuilder(Constants.BufSize));
 
 			if (showName)
 			{
@@ -420,27 +430,27 @@ namespace Eamon.Game
 
 		public virtual long GetWeightCarryableGronds()
 		{
-			return Globals.Engine.GetWeightCarryableGronds(GetStats(Stat.Hardiness));
+			return gEngine.GetWeightCarryableGronds(GetStats(Stat.Hardiness));
 		}
 
 		public virtual long GetWeightCarryableDos()
 		{
-			return Globals.Engine.GetWeightCarryableDos(GetStats(Stat.Hardiness));
+			return gEngine.GetWeightCarryableDos(GetStats(Stat.Hardiness));
 		}
 
 		public virtual long GetIntellectBonusPct()
 		{
-			return Globals.Engine.GetIntellectBonusPct(GetStats(Stat.Intellect));
+			return gEngine.GetIntellectBonusPct(GetStats(Stat.Intellect));
 		}
 
 		public virtual long GetCharmMonsterPct()
 		{
-			return Globals.Engine.GetCharmMonsterPct(GetStats(Stat.Charisma));
+			return gEngine.GetCharmMonsterPct(GetStats(Stat.Charisma));
 		}
 
 		public virtual long GetMerchantAdjustedCharisma()
 		{
-			return Globals.Engine.GetMerchantAdjustedCharisma(GetStats(Stat.Charisma));
+			return gEngine.GetMerchantAdjustedCharisma(GetStats(Stat.Charisma));
 		}
 
 		public virtual bool IsArmorActive()
@@ -462,7 +472,7 @@ namespace Eamon.Game
 
 		public virtual T EvalGender<T>(T maleValue, T femaleValue, T neutralValue)
 		{
-			return Globals.Engine.EvalGender(Gender, maleValue, femaleValue, neutralValue);
+			return gEngine.EvalGender(Gender, maleValue, femaleValue, neutralValue);
 		}
 
 		public virtual RetCode GetFullInventoryWeight(ref long weight, Func<IArtifact, bool> characterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false)
@@ -476,7 +486,7 @@ namespace Eamon.Game
 				characterFindFunc = a => a.IsCarriedByCharacter() || a.IsWornByCharacter();
 			}
 
-			var list = Globals.Engine.GetArtifactList(a => characterFindFunc(a));
+			var list = gEngine.GetArtifactList(a => characterFindFunc(a));
 
 			if (recurse && list.Count > 0)
 			{
@@ -648,14 +658,14 @@ namespace Eamon.Game
 			{
 				if (IsWeaponActive(i))
 				{
-					weapon = Globals.Engine.GetWeapons((Weapon)GetWeapons(i).Field2);
+					weapon = gEngine.GetWeapons((Weapon)GetWeapons(i).Field2);
 
 					Debug.Assert(weapon != null);
 
 					buf.AppendFormat("{0}{1,2}. {2} ({3,-8}/{4,3}%/{5,2}D{6,-2}/{7}H)",
 						Environment.NewLine,
 						i + 1,
-						capitalize ? Globals.Engine.Capitalize(GetWeapons(i).Name.PadTRight(31, ' ')) : GetWeapons(i).Name.PadTRight(31, ' '),
+						capitalize ? gEngine.Capitalize(GetWeapons(i).Name.PadTRight(31, ' ')) : GetWeapons(i).Name.PadTRight(31, ' '),
 						weapon.Name,
 						GetWeapons(i).Field1,
 						GetWeapons(i).Field3,
@@ -735,13 +745,13 @@ namespace Eamon.Game
 
 			buf02 = new StringBuilder(Constants.BufSize);
 
-			Globals.Out.Print("{0,-36}Gender: {1,-9}Damage Taken: {2}/{3}",
+			gOut.Print("{0,-36}Gender: {1,-9}Damage Taken: {2}/{3}",
 				args.Monster.Name.ToUpper(),
 				EvalGender("Male", "Female", "Neutral"),
 				args.Monster.DmgTaken,
 				args.Monster.Hardiness);
 
-			var ibp = Globals.Engine.GetIntellectBonusPct(GetStats(Stat.Intellect));
+			var ibp = gEngine.GetIntellectBonusPct(GetStats(Stat.Intellect));
 
 			buf01.AppendFormat("{0}{1}{2}%)",
 				"(Learning: ",
@@ -752,7 +762,7 @@ namespace Eamon.Game
 				args.Speed > 0 ? args.Monster.Agility / 2 : args.Monster.Agility,
 				args.Speed > 0 ? "x2" : "");
 
-			Globals.Out.WriteLine("{0}{1}{2,-2}{3,20}{4,15}{5}{0}{6}{7,-3}{8,34}{9,-2}{10,15}{11}{12}%)",
+			gOut.WriteLine("{0}{1}{2,-2}{3,20}{4,15}{5}{0}{6}{7,-3}{8,34}{9,-2}{10,15}{11}{12}%)",
 				Environment.NewLine,
 				"Intellect:  ", GetStats(Stat.Intellect),
 				buf01.ToString(),
@@ -763,7 +773,7 @@ namespace Eamon.Game
 				args.CharmMon > 0 ? "+" : "",
 				args.CharmMon);
 
-			Globals.Out.Write("{0}{1}{2,39}",
+			gOut.Write("{0}{1}{2,39}",
 				Environment.NewLine,
 				"Weapon Abilities:",
 				"Spell Abilities:");
@@ -778,30 +788,30 @@ namespace Eamon.Game
 
 			while (i <= j)
 			{
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 
 				if (Enum.IsDefined(typeof(Weapon), i))
 				{
-					weapon = Globals.Engine.GetWeapons((Weapon)i);
+					weapon = gEngine.GetWeapons((Weapon)i);
 
 					Debug.Assert(weapon != null);
 
-					Globals.Out.Write(" {0,-5}: {1,3}%",
+					gOut.Write(" {0,-5}: {1,3}%",
 						weapon.Name,
 						GetWeaponAbilities(i));
 				}
 				else
 				{
-					Globals.Out.Write("{0,12}", "");
+					gOut.Write("{0,12}", "");
 				}
 
 				if (Enum.IsDefined(typeof(Spell), i))
 				{
-					spell = Globals.Engine.GetSpells((Spell)i);
+					spell = gEngine.GetSpells((Spell)i);
 
 					Debug.Assert(spell != null);
 
-					Globals.Out.Write("{0,29}{1,-5}: {2,3}% / {3}%",
+					gOut.Write("{0,29}{1,-5}: {2,3}% / {3}%",
 						"",
 						spell.Name,
 						args.GetSpellAbilities(i),
@@ -811,20 +821,20 @@ namespace Eamon.Game
 				i++;
 			}
 
-			Globals.Out.WriteLine("{0}{0}{1}{2,-30}{3}{4,-6}",
+			gOut.WriteLine("{0}{0}{1}{2,-30}{3}{4,-6}",
 				Environment.NewLine,
 				"Gold: ",
 				HeldGold,
 				"In bank: ",
 				BankGold);
 
-			Globals.Out.Print("Armor:  {0} Armor Expertise:  {1}%",
+			gOut.Print("Armor:  {0} Armor Expertise:  {1}%",
 				args.ArmorString.PadTRight(28, ' '),
 				ArmorExpertise);
 
-			var wcg = Globals.Engine.GetWeightCarryableGronds(args.Monster.Hardiness);
+			var wcg = gEngine.GetWeightCarryableGronds(args.Monster.Hardiness);
 
-			Globals.Out.Print("Weight carried: {0}/{1} Gronds (One Grond = Ten DOS)",
+			gOut.Print("Weight carried: {0}/{1} Gronds (One Grond = Ten DOS)",
 				args.Weight,
 				wcg);
 
@@ -895,15 +905,15 @@ namespace Eamon.Game
 
 			ArmorClass = character.ArmorClass;
 
-			Globals.Engine.CopyCharacterArtifactFields(Armor, character.Armor);
+			gEngine.CopyCharacterArtifactFields(Armor, character.Armor);
 
-			Globals.Engine.CopyCharacterArtifactFields(Shield, character.Shield);
+			gEngine.CopyCharacterArtifactFields(Shield, character.Shield);
 
 			Debug.Assert(Weapons.Length == character.Weapons.Length);
 
 			for (var i = 0; i < Weapons.Length; i++)
 			{
-				Globals.Engine.CopyCharacterArtifactFields(GetWeapons(i), character.GetWeapons(i));
+				gEngine.CopyCharacterArtifactFields(GetWeapons(i), character.GetWeapons(i));
 			}
 
 		Cleanup:

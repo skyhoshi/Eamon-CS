@@ -1,7 +1,7 @@
 ﻿
 // CombatSystem.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -17,7 +17,7 @@ namespace StrongholdOfKahrDur.Game.Combat
 	{
 		protected override void PrintCriticalHit()
 		{
-			Globals.Out.Write("Well struck!");
+			gOut.Write("Well struck!");
 		}
 
 		protected override void PrintBlowTurned()
@@ -26,7 +26,7 @@ namespace StrongholdOfKahrDur.Game.Combat
 			{
 				var armorDesc = DfMonster.GetArmorDescString();
 
-				Globals.Out.Write("{0}{1}Blow glances off {2}!", Environment.NewLine, OmitBboaPadding ? "" : "  ", armorDesc);
+				gOut.Write("{0}{1}Blow glances off {2}!", Environment.NewLine, OmitBboaPadding ? "" : "  ", armorDesc);
 			}
 			else
 			{
@@ -52,9 +52,9 @@ namespace StrongholdOfKahrDur.Game.Combat
 
 			if (DfMonster.Uid == 22)
 			{
-				var rl = Globals.Engine.RollDice(1, 4, 60);
+				var rl = gEngine.RollDice(1, 4, 60);
 
-				Globals.Engine.PrintEffectDesc(rl, false);
+				gEngine.PrintEffectDesc(rl, false);
 
 				CombatState = CombatState.EndAttack;
 			}
@@ -68,7 +68,7 @@ namespace StrongholdOfKahrDur.Game.Combat
 		{
 			if (BlastSpell)
 			{
-				var helmArtifact = Globals.ADB[25];
+				var helmArtifact = gADB[25];
 
 				Debug.Assert(helmArtifact != null);
 
@@ -78,7 +78,7 @@ namespace StrongholdOfKahrDur.Game.Combat
 
 				ExecuteCalculateDamage(2, helmArtifact.IsWornByCharacter() ? 12 : 5);
 				
-				Globals.Thread.Sleep(Globals.GameState.PauseCombatMs);
+				Globals.Thread.Sleep(gGameState.PauseCombatMs);
 			}
 			else
 			{

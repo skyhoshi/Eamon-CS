@@ -1,7 +1,7 @@
 ﻿
 // FreeCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -15,15 +15,15 @@ namespace WrenholdsSecretVigil.Game.Commands
 	{
 		public override void PlayerProcessEvents(long eventType)
 		{
-			var deviceArtifact = Globals.ADB[44];
+			var deviceArtifact = gADB[44];
 
 			Debug.Assert(deviceArtifact != null);
 
 			// Free caged animals
 
-			if (eventType == PpeBeforeGuardMonsterCheck && DobjArtifact.Uid == 46 && (deviceArtifact.IsInRoom(ActorRoom) || deviceArtifact.IsEmbeddedInRoom(ActorRoom)))
+			if (eventType == PpeBeforeGuardMonsterCheck && gDobjArtifact.Uid == 46 && (deviceArtifact.IsInRoom(gActorRoom) || deviceArtifact.IsEmbeddedInRoom(gActorRoom)))
 			{
-				Globals.Out.Print("The glowing cages won't open!");
+				gOut.Print("The glowing cages won't open!");
 
 				GotoCleanup = true;
 			}

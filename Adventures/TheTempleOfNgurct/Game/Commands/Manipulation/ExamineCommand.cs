@@ -1,7 +1,7 @@
 ﻿
 // ExamineCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using Eamon.Framework.Primitive.Enums;
@@ -21,7 +21,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override bool IsAllowedInRoom()
 		{
-			return DobjArtifact == null || Globals.GameState.GetNBTL(Friendliness.Enemy) <= 0 || !Enum.IsDefined(typeof(ContainerType), ContainerType);
+			return gDobjArtifact == null || gGameState.GetNBTL(Friendliness.Enemy) <= 0 || !Enum.IsDefined(typeof(ContainerType), ContainerType);
 		}
 	}
 }

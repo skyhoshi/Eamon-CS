@@ -1,8 +1,11 @@
 ﻿
 // PluginContext.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using Eamon.Framework.DataStorage.Generic;
+using Eamon.Framework.Portability;
+using EamonDD.Framework;
 using EamonDD.Framework.Plugin;
 
 namespace EamonDD.Game.Plugin
@@ -42,6 +45,54 @@ namespace EamonDD.Game.Plugin
 			set
 			{
 				Eamon.Game.Plugin.PluginContext.Globals = value;
+			}
+		}
+
+		public static ITextWriter gOut 
+		{
+			get 
+			{
+				return Eamon.Game.Plugin.PluginContext.gOut;
+			}
+		}
+
+		public static IEngine gEngine 
+		{
+			get 
+			{
+				return (IEngine)Eamon.Game.Plugin.PluginContext.gEngine;
+			}
+		}
+
+		public static IRecordDb<Eamon.Framework.IRoom> gRDB 
+		{
+			get 
+			{
+				return Eamon.Game.Plugin.PluginContext.gRDB;
+			}
+		}
+
+		public static IRecordDb<Eamon.Framework.IArtifact> gADB 
+		{
+			get 
+			{
+				return Eamon.Game.Plugin.PluginContext.gADB;
+			}
+		}
+
+		public static IRecordDb<Eamon.Framework.IEffect> gEDB 
+		{
+			get 
+			{
+				return Eamon.Game.Plugin.PluginContext.gEDB;
+			}
+		}
+
+		public static IRecordDb<Eamon.Framework.IMonster> gMDB 
+		{
+			get 
+			{
+				return Eamon.Game.Plugin.PluginContext.gMDB;
 			}
 		}
 	}

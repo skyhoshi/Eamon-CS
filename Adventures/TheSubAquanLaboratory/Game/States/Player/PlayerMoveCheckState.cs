@@ -1,7 +1,7 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -16,22 +16,22 @@ namespace TheSubAquanLaboratory.Game.States
 	{
 		public override void PrintRideOffIntoSunset()
 		{
-			Globals.Out.Print("You successfully teleport back to the Main Hall.");
+			gOut.Print("You successfully teleport back to the Main Hall.");
 		}
 
 		public override void ProcessEvents(long eventType)
 		{
 			if (eventType == PeAfterBlockingArtifactCheck)
 			{
-				if (Globals.GameState.R2 == -17)
+				if (gGameState.R2 == -17)
 				{
-					Globals.Out.Print("You wouldn't make it 10 meters out into that lake!");
+					gOut.Print("You wouldn't make it 10 meters out into that lake!");
 				}
-				else if (Globals.GameState.R2 == -18)
+				else if (gGameState.R2 == -18)
 				{
-					Globals.Out.Print("A fake-looking back wall blocks northward movement.");
+					gOut.Print("A fake-looking back wall blocks northward movement.");
 				}
-				else if (Globals.GameState.R2 == -19)
+				else if (gGameState.R2 == -19)
 				{
 					var dirCommand = Globals.LastCommand;
 
@@ -39,15 +39,15 @@ namespace TheSubAquanLaboratory.Game.States
 
 					dirCommand.CopyCommandData(pushCommand, false);
 
-					pushCommand.Dobj = Globals.ADB[dirCommand is IDownCommand ? 4 : 3];
+					pushCommand.Dobj = gADB[dirCommand is IDownCommand ? 4 : 3];
 
 					Debug.Assert(pushCommand.DobjArtifact != null);
 
 					NextState = pushCommand;
 				}
-				else if (Globals.GameState.R2 == -20)
+				else if (gGameState.R2 == -20)
 				{
-					Globals.Out.Print("You find that all the doors are sealed shut!");
+					gOut.Print("You find that all the doors are sealed shut!");
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
 				}

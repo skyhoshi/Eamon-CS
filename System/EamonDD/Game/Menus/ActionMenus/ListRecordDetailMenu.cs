@@ -1,7 +1,7 @@
 ﻿
 // ListRecordDetailMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -25,31 +25,31 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var recUids = new long[2];
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle(Title, true);
+			gEngine.PrintTitle(Title, true);
 
 			var maxRecUid = RecordTable.GetRecordUid(false);
 
-			Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(43, '\0', 0, string.Format("Enter the starting {0} uid", RecordTypeName), "1"));
+			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(43, '\0', 0, string.Format("Enter the starting {0} uid", RecordTypeName), "1"));
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharDigit, null);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, gEngine.IsCharDigit, null);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			recUids[0] = Convert.ToInt64(Buf.Trim().ToString());
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(43, '\0', 0, string.Format("Enter the ending {0} uid", RecordTypeName), maxRecUid > 0 ? maxRecUid.ToString() : "1"));
+			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(43, '\0', 0, string.Format("Enter the ending {0} uid", RecordTypeName), maxRecUid > 0 ? maxRecUid.ToString() : "1"));
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, maxRecUid > 0 ? maxRecUid.ToString() : "1", null, Globals.Engine.IsCharDigit, null);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, maxRecUid > 0 ? maxRecUid.ToString() : "1", null, gEngine.IsCharDigit, null);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			recUids[1] = Convert.ToInt64(Buf.Trim().ToString());
 
@@ -61,19 +61,19 @@ namespace EamonDD.Game.Menus.ActionMenus
 			{
 				helper.Record = record;
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				helper.ListRecord(true, Globals.Config.ShowDesc, Globals.Config.ResolveEffects, true, false, false);
 
 				PrintPostListLineSep();
 
-				Globals.Out.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
+				gOut.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, Globals.Engine.ModifyCharToNullOrX, null, Globals.Engine.IsCharAny);
+				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, gEngine.ModifyCharToNullOrX, null, gEngine.IsCharAny);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				if (Buf.Length > 0 && Buf[0] == 'X')
 				{
@@ -81,9 +81,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 				}
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Print("Done listing {0} record details.", RecordTypeName);
+			gOut.Print("Done listing {0} record details.", RecordTypeName);
 		}
 	}
 }

@@ -1,7 +1,7 @@
 ﻿
 // Monster.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -26,21 +26,19 @@ namespace TheBeginnersCave.Game
 			{
 				if (Globals.EnableGameOverrides && base.Weapon != value)
 				{
-					var gameState = Globals.GameState as Framework.IGameState;
-
-					Debug.Assert(gameState != null);
+					Debug.Assert(gGameState != null);
 
 					// if this is the character monster or the pirate
 
-					if (Uid == gameState.Cm || Uid == 8)
+					if (Uid == gGameState.Cm || Uid == 8)
 					{
 						// if going from wielding Trollsfire to not wielding Trollsfire and the Trollsfire effect is active
 
-						if (base.Weapon == 10 && value != 10 && gameState.Trollsfire == 1)
+						if (base.Weapon == 10 && value != 10 && gGameState.Trollsfire == 1)
 						{
 							// deactivate Trollsfire effect; the Trollsfire property is complex and does a fair bit of processing
 
-							gameState.Trollsfire = 0;
+							gGameState.Trollsfire = 0;
 						}
 					}
 
@@ -50,11 +48,11 @@ namespace TheBeginnersCave.Game
 					{
 						// if going from not wielding Trollsfire to wielding Trollsfire and the Trollsfire effect is not active
 
-						if (base.Weapon != 10 && value == 10 && gameState.Trollsfire == 0)
+						if (base.Weapon != 10 && value == 10 && gGameState.Trollsfire == 0)
 						{
 							// activate Trollsfire effect
 
-							gameState.Trollsfire = 1;
+							gGameState.Trollsfire = 1;
 						}
 					}
 				}

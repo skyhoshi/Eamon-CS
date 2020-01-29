@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -267,10 +267,10 @@ namespace EamonMH.Game
 				{
 					if (!nlFlag)
 					{
-						Globals.Out.Print("{0}", Globals.LineSep);
+						gOut.Print("{0}", Globals.LineSep);
 					}
 
-					Globals.Out.Write("{0}Unrecognized command line argument: [{1}]", Environment.NewLine, Globals.Argv[i]);
+					gOut.Write("{0}Unrecognized command line argument: [{1}]", Environment.NewLine, Globals.Argv[i]);
 
 					nlFlag = true;
 				}

@@ -1,7 +1,7 @@
 ﻿
 // PowerCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -18,25 +18,21 @@ namespace TheTrainingGround.Game.Commands
 	{
 		public override void PlayerProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (eventType == PpeAfterPlayerSpellCastCheck)
 			{
-				var hammerArtifact = Globals.ADB[24];
+				var hammerArtifact = gADB[24];
 
 				Debug.Assert(hammerArtifact != null);
 
 				// Thor's hammer appears in Norse Mural room
 
-				if (ActorRoom.Uid == 22 && !gameState.ThorsHammerAppears)
+				if (gActorRoom.Uid == 22 && !gGameState.ThorsHammerAppears)
 				{
-					hammerArtifact.SetInRoom(ActorRoom);
+					hammerArtifact.SetInRoom(gActorRoom);
 
-					Globals.Engine.PrintEffectDesc(7);
+					gEngine.PrintEffectDesc(7);
 
-					gameState.ThorsHammerAppears = true;
+					gGameState.ThorsHammerAppears = true;
 
 					NextState = Globals.CreateInstance<IStartState>();
 
@@ -45,19 +41,19 @@ namespace TheTrainingGround.Game.Commands
 					goto Cleanup;
 				}
 
-				var rl = Globals.Engine.RollDice(1, 100, 0);
+				var rl = gEngine.RollDice(1, 100, 0);
 
 				// 20% chance of gender change
 
-				if (rl < 21 && gameState.GenderChangeCounter < 2)
+				if (rl < 21 && gGameState.GenderChangeCounter < 2)
 				{
-					ActorMonster.Gender = ActorMonster.EvalGender(Gender.Female, Gender.Male, Gender.Neutral);
+					gActorMonster.Gender = gActorMonster.EvalGender(Gender.Female, Gender.Male, Gender.Neutral);
 
-					Globals.Character.Gender = ActorMonster.Gender;
+					gCharacter.Gender = gActorMonster.Gender;
 
-					Globals.Out.Print("You feel different... more {0}.", ActorMonster.EvalGender("masculine", "feminine", "androgynous"));
+					gOut.Print("You feel different... more {0}.", gActorMonster.EvalGender("masculine", "feminine", "androgynous"));
 
-					gameState.GenderChangeCounter++;
+					gGameState.GenderChangeCounter++;
 
 					GotoCleanup = true;
 
@@ -66,13 +62,13 @@ namespace TheTrainingGround.Game.Commands
 
 				// 40% chance Charisma up (one time only)
 
-				if (rl < 41 && !gameState.CharismaBoosted)
+				if (rl < 41 && !gGameState.CharismaBoosted)
 				{
-					Globals.Character.ModStats(Stat.Charisma, 2);
+					gCharacter.ModStats(Stat.Charisma, 2);
 
-					Globals.Out.Print("You suddenly feel more {0}.", Globals.Character.EvalGender("handsome", "beautiful", "androgynous"));
+					gOut.Print("You suddenly feel more {0}.", gCharacter.EvalGender("handsome", "beautiful", "androgynous"));
 
-					gameState.CharismaBoosted = true;
+					gGameState.CharismaBoosted = true;
 
 					GotoCleanup = true;
 
@@ -83,13 +79,13 @@ namespace TheTrainingGround.Game.Commands
 
 				if (rl > 94)
 				{
-					Globals.Engine.PrintEffectDesc(33);
+					gEngine.PrintEffectDesc(33);
 
 					var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 					{
 						x.SetNextStateFunc = s => NextState = s;
 
-						x.DfMonster = ActorMonster;
+						x.DfMonster = gActorMonster;
 
 						x.OmitArmor = true;
 					});

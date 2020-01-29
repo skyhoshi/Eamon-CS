@@ -1,7 +1,7 @@
 ﻿
 // DrinkBeerMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using Eamon.Game.Menus;
@@ -15,9 +15,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 	{
 		public override void Execute()
 		{
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Print("As you go over to the men, you feel a sword being thrust through your back and you hear someone say, \"You really must learn to follow directions!\"");
+			gOut.Print("As you go over to the men, you feel a sword being thrust through your back and you hear someone say, \"You really must learn to follow directions!\"");
 
 			Globals.In.KeyPress(Buf);
 		}

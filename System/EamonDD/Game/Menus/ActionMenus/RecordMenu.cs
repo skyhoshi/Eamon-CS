@@ -1,7 +1,7 @@
 ﻿
 // RecordMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Framework;
 using Eamon.Framework.DataStorage.Generic;
@@ -19,9 +19,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		public virtual void PrintPostListLineSep()
 		{
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		public virtual void UpdateGlobals()

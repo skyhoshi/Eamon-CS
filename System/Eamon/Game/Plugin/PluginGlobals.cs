@@ -1,12 +1,13 @@
 ﻿
 // PluginGlobals.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using Eamon.Framework;
 using Eamon.Framework.DataStorage;
@@ -24,6 +25,8 @@ namespace Eamon.Game.Plugin
 
 		/// <summary></summary>
 		protected virtual long DbStackTop { get; set; }
+
+		public virtual StringBuilder Buf { get; set; } = new StringBuilder(Constants.BufSize);
 
 		public virtual IDatabase Database
 		{

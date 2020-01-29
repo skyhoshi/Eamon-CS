@@ -1,7 +1,7 @@
 ﻿
 // InventoryCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -26,80 +26,80 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(DobjArtifact != null || DobjMonster != null);
+			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
 
-			if (!ActorRoom.IsLit())
+			if (!gActorRoom.IsLit())
 			{
-				Debug.Assert(DobjMonster != null && DobjMonster.IsCharacterMonster());
+				Debug.Assert(gDobjMonster != null && gDobjMonster.IsCharacterMonster());
 			}
 
-			if (DobjArtifact != null)
+			if (gDobjArtifact != null)
 			{
-				var ac = DobjArtifact.InContainer;
+				var ac = gDobjArtifact.InContainer;
 
 				if (ac == null)
 				{
-					ac = DobjArtifact.OnContainer;
+					ac = gDobjArtifact.OnContainer;
 				}
 
 				if (ac == null && AllowExtendedContainers)
 				{
-					ac = DobjArtifact.UnderContainer;
+					ac = gDobjArtifact.UnderContainer;
 				}
 
 				if (ac == null && AllowExtendedContainers)
 				{
-					ac = DobjArtifact.BehindContainer;
+					ac = gDobjArtifact.BehindContainer;
 				}
 
 				if (ac != null)
 				{
-					var containerType = Globals.Engine.GetContainerType(ac.Type);
+					var containerType = gEngine.GetContainerType(ac.Type);
 
-					if (DobjArtifact.IsEmbeddedInRoom(ActorRoom))
+					if (gDobjArtifact.IsEmbeddedInRoom(gActorRoom))
 					{
-						DobjArtifact.SetInRoom(ActorRoom);
+						gDobjArtifact.SetInRoom(gActorRoom);
 					}
 
-					if (ac == DobjArtifact.InContainer && !ac.IsOpen())
+					if (ac == gDobjArtifact.InContainer && !ac.IsOpen())
 					{
-						PrintMustFirstOpen(DobjArtifact);
+						PrintMustFirstOpen(gDobjArtifact);
 
 						NextState = Globals.CreateInstance<IStartState>();
 
 						goto Cleanup;
 					}
 
-					var artifactList = DobjArtifact.GetContainedList(containerType: containerType);
+					var artifactList = gDobjArtifact.GetContainedList(containerType: containerType);
 
-					var showCharOwned = !DobjArtifact.IsCarriedByCharacter() && !DobjArtifact.IsWornByCharacter();
+					var showCharOwned = !gDobjArtifact.IsCarriedByCharacter() && !gDobjArtifact.IsWornByCharacter();
 
 					if (artifactList.Count > 0)
 					{
 						Globals.Buf.SetFormat("{0}{1} {2} you see ",
 							Environment.NewLine,
-							Globals.Engine.EvalContainerType(containerType, "Inside", "On", "Under", "Behind"),
-							DobjArtifact.GetDecoratedName03(false, showCharOwned, false, false, Globals.Buf01));
+							gEngine.EvalContainerType(containerType, "Inside", "On", "Under", "Behind"),
+							gDobjArtifact.GetTheName(false, showCharOwned, false, false, Globals.Buf01));
 
-						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, showCharOwned, StateDescDisplayCode.None, false, false, Globals.Buf);
+						rc = gEngine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, showCharOwned, StateDescDisplayCode.None, false, false, Globals.Buf);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 					}
 					else
 					{
 						Globals.Buf.SetFormat("{0}There's nothing {1} {2}",
 							Environment.NewLine,
-							Globals.Engine.EvalContainerType(containerType, "inside", "on", "under", "behind"),
-							DobjArtifact.GetDecoratedName03(false, showCharOwned, false, false, Globals.Buf01));
+							gEngine.EvalContainerType(containerType, "inside", "on", "under", "behind"),
+							gDobjArtifact.GetTheName(false, showCharOwned, false, false, Globals.Buf01));
 					}
 
 					Globals.Buf.AppendFormat(".{0}", Environment.NewLine);
 
-					Globals.Out.Write("{0}", Globals.Buf);
+					gOut.Write("{0}", Globals.Buf);
 				}
 				else
 				{
-					PrintCantVerbObj(DobjArtifact);
+					PrintCantVerbObj(gDobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
@@ -110,48 +110,48 @@ namespace EamonRT.Game.Commands
 			{
 				IArtifact goldArtifact = null;
 
-				var isCharMonster = DobjMonster.IsCharacterMonster();
+				var isCharMonster = gDobjMonster.IsCharacterMonster();
 
-				if (!isCharMonster && DobjMonster.Friendliness < Friendliness.Friend)
+				if (!isCharMonster && gDobjMonster.Friendliness < Friendliness.Friend)
 				{
-					Globals.Engine.MonsterSmiles(DobjMonster);
+					gEngine.MonsterSmiles(gDobjMonster);
 
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 
 					goto Cleanup;
 				}
 
-				if (DobjMonster.HasWornInventory())
+				if (gDobjMonster.HasWornInventory())
 				{
-					var artifactList = DobjMonster.GetWornList();
+					var artifactList = gDobjMonster.GetWornList();
 
 					if (artifactList.Count > 0)
 					{
 						Globals.Buf.SetFormat("{0}{1} {2} {3}",
 							Environment.NewLine,
-							isCharMonster ? "You" : DobjMonster.EvalPlural(DobjMonster.GetDecoratedName03(true, true, false, true, Globals.Buf01), "They"),
-							isCharMonster ? "are" : DobjMonster.EvalPlural("is", "are"),
-							isCharMonster ? "wearing " : DobjMonster.EvalPlural("wearing ", "wearing among them "));
+							isCharMonster ? "You" : gDobjMonster.EvalPlural(gDobjMonster.GetTheName(true, true, false, true, Globals.Buf01), "They"),
+							isCharMonster ? "are" : gDobjMonster.EvalPlural("is", "are"),
+							isCharMonster ? "wearing " : gDobjMonster.EvalPlural("wearing ", "wearing among them "));
 
-						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, isCharMonster ? false : true, isCharMonster ? StateDescDisplayCode.AllStateDescs : StateDescDisplayCode.SideNotesOnly, isCharMonster ? true : false, false, Globals.Buf);
+						rc = gEngine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, isCharMonster ? false : true, isCharMonster ? StateDescDisplayCode.AllStateDescs : StateDescDisplayCode.SideNotesOnly, isCharMonster ? true : false, false, Globals.Buf);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						Globals.Buf.AppendFormat(".{0}", Environment.NewLine);
 
-						Globals.Out.Write("{0}", Globals.Buf);
+						gOut.Write("{0}", Globals.Buf);
 					}
 				}
 
-				if (DobjMonster.HasCarriedInventory())
+				if (gDobjMonster.HasCarriedInventory())
 				{
-					var artifactList = DobjMonster.GetCarriedList();
+					var artifactList = gDobjMonster.GetCarriedList();
 
 					if (isCharMonster)
 					{
 						// use total debt for characters with no assets; otherwise use HeldGold (which may be debt or asset)
 
-						var totalGold = Globals.Character.HeldGold < 0 && Globals.Character.BankGold < 0 ? Globals.Character.HeldGold + Globals.Character.BankGold : Globals.Character.HeldGold;
+						var totalGold = gCharacter.HeldGold < 0 && gCharacter.BankGold < 0 ? gCharacter.HeldGold + gCharacter.BankGold : gCharacter.HeldGold;
 
 						if (totalGold != 0)
 						{
@@ -159,7 +159,7 @@ namespace EamonRT.Game.Commands
 							{
 								x.Name = string.Format("{0}{1} gold piece{2}",
 												totalGold < 0 ? "a debt of " : "",
-												Globals.Engine.GetStringFromNumber(Math.Abs(totalGold), false, Globals.Buf),
+												gEngine.GetStringFromNumber(Math.Abs(totalGold), false, Globals.Buf),
 												Math.Abs(totalGold) != 1 ? "s" : "");
 							});
 
@@ -169,16 +169,16 @@ namespace EamonRT.Game.Commands
 
 					Globals.Buf.SetFormat("{0}{1} {2} {3}",
 						Environment.NewLine,
-						isCharMonster ? "You" : DobjMonster.EvalPlural(DobjMonster.GetDecoratedName03(true, true, false, true, Globals.Buf01), "They"),
-						isCharMonster ? "are" : DobjMonster.EvalPlural("is", "are"),
+						isCharMonster ? "You" : gDobjMonster.EvalPlural(gDobjMonster.GetTheName(true, true, false, true, Globals.Buf01), "They"),
+						isCharMonster ? "are" : gDobjMonster.EvalPlural("is", "are"),
 						artifactList.Count == 0 ? "" :
-						isCharMonster ? "carrying " : DobjMonster.EvalPlural("carrying ", "carrying among them "));
+						isCharMonster ? "carrying " : gDobjMonster.EvalPlural("carrying ", "carrying among them "));
 
 					if (artifactList.Count > 0)
 					{
-						rc = Globals.Engine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, isCharMonster ? false : true, isCharMonster ? StateDescDisplayCode.AllStateDescs : StateDescDisplayCode.SideNotesOnly, isCharMonster ? true : false, false, Globals.Buf);
+						rc = gEngine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, isCharMonster ? false : true, isCharMonster ? StateDescDisplayCode.AllStateDescs : StateDescDisplayCode.SideNotesOnly, isCharMonster ? true : false, false, Globals.Buf);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 					}
 					else
 					{
@@ -187,21 +187,21 @@ namespace EamonRT.Game.Commands
 
 					Globals.Buf.AppendFormat(".{0}", Environment.NewLine);
 
-					Globals.Out.Write("{0}", Globals.Buf);
+					gOut.Write("{0}", Globals.Buf);
 				}
 
-				var isUninjuredGroup = DobjMonster.GroupCount > 1 && DobjMonster.DmgTaken == 0;
+				var isUninjuredGroup = gDobjMonster.GroupCount > 1 && gDobjMonster.DmgTaken == 0;
 
 				Globals.Buf.SetFormat("{0}{1} {2} ",
 					Environment.NewLine,
 					isCharMonster ? "You" : 
 					isUninjuredGroup ? "They" : 
-					DobjMonster.GetDecoratedName03(true, true, false, true, Globals.Buf01),
+					gDobjMonster.GetTheName(true, true, false, true, Globals.Buf01),
 					isCharMonster || isUninjuredGroup ? "are" : "is");
 
-				DobjMonster.AddHealthStatus(Globals.Buf);
+				gDobjMonster.AddHealthStatus(Globals.Buf);
 
-				Globals.Out.Write("{0}", Globals.Buf);
+				gOut.Write("{0}", Globals.Buf);
 
 				if (goldArtifact != null)
 				{
@@ -221,9 +221,9 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerFinishParsing()
 		{
-			if (CommandParser.CurrToken < CommandParser.Tokens.Length)
+			if (gCommandParser.CurrToken < gCommandParser.Tokens.Length)
 			{
-				if (ActorRoom.IsLit())
+				if (gActorRoom.IsLit())
 				{
 					if (Globals.IsRulesetVersion(5))
 					{
@@ -231,19 +231,19 @@ namespace EamonRT.Game.Commands
 					}
 					else
 					{
-						CommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch03;
+						gCommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch03;
 
 						PlayerResolveMonster();
 					}
 				}
 				else
 				{
-					CommandParser.NextState = Globals.CreateInstance<IStartState>();
+					gCommandParser.NextState = Globals.CreateInstance<IStartState>();
 				}
 			}
 			else
 			{
-				Dobj = Globals.MDB[Globals.GameState.Cm];
+				Dobj = gMDB[gGameState.Cm];
 			}
 		}
 

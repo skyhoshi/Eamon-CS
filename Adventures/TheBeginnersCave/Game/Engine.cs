@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace TheBeginnersCave.Game
 
 		protected override void PrintTooManyWeapons()
 		{
-			Globals.Out.Print("As you leave for the Main Hall, the Knight Marshal reappears and tells you, \"You have too many weapons to keep them all, four is the legal limit.\"");
+			gOut.Print("As you leave for the Main Hall, the Knight Marshal reappears and tells you, \"You have too many weapons to keep them all, four is the legal limit.\"");
 		}
 
 		public override void InitArtifacts()
@@ -31,7 +31,7 @@ namespace TheBeginnersCave.Game
 
 			MacroFuncs.Add(1, () =>
 			{
-				if (Globals.GameState.CastTo<Framework.IGameState>().Trollsfire == 1)
+				if (gGameState.Trollsfire == 1)
 				{
 					return string.Format("{0}{0}Trollsfire is alight!", Environment.NewLine);
 				}
@@ -59,13 +59,13 @@ namespace TheBeginnersCave.Game
 		{
 			base.InitMonsters();
 
-			var pirateMonster = Globals.MDB[8];
+			var pirateMonster = gMDB[8];
 
 			Debug.Assert(pirateMonster != null);
 
 			if (pirateMonster.Weapon == 10)
 			{
-				Globals.GameState.CastTo<Framework.IGameState>().Trollsfire = 1;
+				gGameState.Trollsfire = 1;
 			}
 		}
 
@@ -73,15 +73,13 @@ namespace TheBeginnersCave.Game
 		{
 			var artifact = base.ConvertWeaponToArtifact(weapon);
 
-			var gameState = Globals.GameState as Framework.IGameState;
+			var i = FindIndex(gCharacter.Weapons, x => x == weapon);
 
-			var i = FindIndex(Globals.Character.Weapons, x => x == weapon);
-
-			if (i != gameState.UsedWpnIdx)
+			if (i != gGameState.UsedWpnIdx)
 			{
 				artifact.SetInLimbo();
 
-				gameState.SetHeldWpnUids(HeldWpnIdx++, artifact.Uid);
+				gGameState.SetHeldWpnUids(HeldWpnIdx++, artifact.Uid);
 			}
 
 			return artifact;
@@ -89,13 +87,11 @@ namespace TheBeginnersCave.Game
 
 		public override void ConvertToCarriedInventory(IList<IArtifact> weaponList)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			for (var i = 0; i < gameState.HeldWpnUids.Length; i++)
+			for (var i = 0; i < gGameState.HeldWpnUids.Length; i++)
 			{
-				if (gameState.GetHeldWpnUids(i) > 0)
+				if (gGameState.GetHeldWpnUids(i) > 0)
 				{
-					var artifact = Globals.ADB[gameState.GetHeldWpnUids(i)];
+					var artifact = gADB[gGameState.GetHeldWpnUids(i)];
 
 					Debug.Assert(artifact != null);
 
@@ -112,7 +108,7 @@ namespace TheBeginnersCave.Game
 
 			if (DfMonster.Uid == 8)
 			{
-				var trollsfireArtifact = Globals.ADB[10];
+				var trollsfireArtifact = gADB[10];
 
 				Debug.Assert(trollsfireArtifact != null);
 
@@ -122,11 +118,11 @@ namespace TheBeginnersCave.Game
 
 				if (printEffect)
 				{
-					var effect = Globals.EDB[3];
+					var effect = gEDB[3];
 
 					Debug.Assert(effect != null);
 
-					Globals.Out.Write("{0}{0}{1}", Environment.NewLine, effect.Desc);
+					gOut.Write("{0}{0}{1}", Environment.NewLine, effect.Desc);
 				}
 			}
 			else

@@ -1,7 +1,7 @@
 ﻿
 // GoCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -20,15 +20,15 @@ namespace EamonRT.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			var ac = DobjArtifact.DoorGate;
+			var ac = gDobjArtifact.DoorGate;
 
 			if (ac != null)
 			{
 				NextState = Globals.CreateInstance<IBeforePlayerMoveState>(x =>
 				{
-					x.Artifact = DobjArtifact;
+					x.Artifact = gDobjArtifact;
 				});
 			}
 			else
@@ -50,16 +50,16 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerFinishParsing()
 		{
-			CommandParser.ParseName();
+			gCommandParser.ParseName();
 
-			CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+			gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 			{
-				a => a.IsInRoom(ActorRoom),
-				a => a.IsEmbeddedInRoom(ActorRoom),
-				a => a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, Globals.Engine.ExposeContainersRecursively)
+				a => a.IsInRoom(gActorRoom),
+				a => a.IsEmbeddedInRoom(gActorRoom),
+				a => a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively)
 			};
 
-			CommandParser.ObjData.ArtifactNotFoundFunc = PrintNothingHereByThatName;
+			gCommandParser.ObjData.ArtifactNotFoundFunc = PrintNothingHereByThatName;
 
 			PlayerResolveArtifact();
 		}

@@ -1,7 +1,7 @@
 ﻿
 // CloseCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -22,7 +22,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (artifact.Uid == 31)
 			{
-				Globals.Out.Print("You mangled {0}!", artifact.EvalPlural("it", "them"));
+				gOut.Print("You mangled {0}!", artifact.EvalPlural("it", "them"));
 			}
 			else
 			{

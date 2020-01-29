@@ -1,7 +1,7 @@
 ﻿
 // UnrecognizedCommandState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
@@ -14,7 +14,7 @@ namespace WrenholdsSecretVigil.Game.States
 	{
 		public override void Execute()
 		{
-			Globals.Out.Print("Pray thee adventurer, please use these commands ---");
+			gOut.Print("Pray thee adventurer, please use these commands ---");
 
 			base.Execute();
 		}

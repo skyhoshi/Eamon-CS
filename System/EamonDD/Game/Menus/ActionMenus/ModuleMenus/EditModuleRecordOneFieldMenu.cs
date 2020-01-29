@@ -1,7 +1,7 @@
 ﻿
 // EditModuleRecordOneFieldMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -25,9 +25,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (EditRecord != null || Globals.Module != null)
 			{
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 
-				Globals.Engine.PrintTitle("EDIT MODULE RECORD FIELD", true);
+				gEngine.PrintTitle("EDIT MODULE RECORD FIELD", true);
 
 				if (EditRecord == null)
 				{
@@ -49,17 +49,17 @@ namespace EamonDD.Game.Menus.ActionMenus
 				{
 					helper.ListRecord(true, true, false, true, true, true);
 
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(47, '\0', 0, "Enter the number of the field to edit", "0"));
+					gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(47, '\0', 0, "Enter the number of the field to edit", "0"));
 
 					Buf.Clear();
 
-					rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsCharDigit, null);
+					rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, gEngine.IsCharDigit, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					var fieldNum = Convert.ToInt64(Buf.Trim().ToString());
 
@@ -70,7 +70,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 						goto Cleanup;
 					}
 
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 				}
 				else
 				{

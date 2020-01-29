@@ -1,7 +1,7 @@
 ﻿
 // GetCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -21,17 +21,13 @@ namespace WrenholdsSecretVigil.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			// Request medallion
 
-			if (artifact.Uid == 10 && gameState.MedallionCharges > 0)
+			if (artifact.Uid == 10 && gGameState.MedallionCharges > 0)
 			{
 				base.PrintReceived(artifact);
 
-				Globals.Out.Write("{0}{0}Your hand feels relaxed, but strong.", Environment.NewLine);
+				gOut.Write("{0}{0}Your hand feels relaxed, but strong.", Environment.NewLine);
 			}
 			else
 			{
@@ -43,30 +39,26 @@ namespace WrenholdsSecretVigil.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			// Remove orb
 
-			if (artifact.Uid == 4 && !gameState.RemovedLifeOrb)
+			if (artifact.Uid == 4 && !gGameState.RemovedLifeOrb)
 			{
-				Globals.Engine.PrintEffectDesc(33);
+				gEngine.PrintEffectDesc(33);
 
-				Globals.Engine.PrintEffectDesc(34);
+				gEngine.PrintEffectDesc(34);
 
-				gameState.RemovedLifeOrb = true;
+				gGameState.RemovedLifeOrb = true;
 
 				base.PrintRetrieved(artifact);
 			}
 
 			// Remove medallion
 
-			else if (artifact.Uid == 10 && gameState.MedallionCharges > 0)
+			else if (artifact.Uid == 10 && gGameState.MedallionCharges > 0)
 			{
 				base.PrintRetrieved(artifact);
 
-				Globals.Out.Write("{0}{0}Your hand feels relaxed, but strong.", Environment.NewLine);
+				gOut.Write("{0}{0}Your hand feels relaxed, but strong.", Environment.NewLine);
 			}
 			else
 			{
@@ -78,19 +70,15 @@ namespace WrenholdsSecretVigil.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			var bronzeKeyArtifact = Globals.ADB[27];
+			var bronzeKeyArtifact = gADB[27];
 
 			Debug.Assert(bronzeKeyArtifact != null);
 
-			var deviceArtifact1 = Globals.ADB[44];
+			var deviceArtifact1 = gADB[44];
 
 			Debug.Assert(deviceArtifact1 != null);
 
-			var deviceArtifact2 = Globals.ADB[49];
+			var deviceArtifact2 = gADB[49];
 
 			Debug.Assert(deviceArtifact2 != null);
 
@@ -98,33 +86,33 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			// Get lever
 
-			if (artifact.Uid == 48 && deviceArtifact1.IsInRoom(ActorRoom))
+			if (artifact.Uid == 48 && deviceArtifact1.IsInRoom(gActorRoom))
 			{
 				if (ArtifactList[0] != artifact)
 				{
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 				}
 
 				deviceArtifact1.SetInLimbo();
 
-				deviceArtifact2.SetInRoom(ActorRoom);
+				deviceArtifact2.SetInRoom(gActorRoom);
 
-				Globals.Engine.PrintEffectDesc(30);
+				gEngine.PrintEffectDesc(30);
 
 				base.PrintTaken(artifact);
 			}
 
 			// Get medallion
 
-			else if (artifact.Uid == 10 && gameState.MedallionCharges > 0)
+			else if (artifact.Uid == 10 && gGameState.MedallionCharges > 0)
 			{
 				base.PrintTaken(artifact);
 
-				Globals.Out.Write("{0}{0}Your hand feels relaxed, but strong.", Environment.NewLine);
+				gOut.Write("{0}{0}Your hand feels relaxed, but strong.", Environment.NewLine);
 
 				if (ArtifactList[ArtifactList.Count - 1] != artifact)
 				{
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 				}
 			}
 
@@ -134,13 +122,13 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				base.PrintTaken(artifact);
 
-				bronzeKeyArtifact.SetInRoom(ActorRoom);
+				bronzeKeyArtifact.SetInRoom(gActorRoom);
 
-				Globals.Out.Write("{0}{0}You found something under the mattress!", Environment.NewLine);
+				gOut.Write("{0}{0}You found something under the mattress!", Environment.NewLine);
 
 				if (ArtifactList[ArtifactList.Count - 1] != artifact)
 				{
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 				}
 			}
 
@@ -150,7 +138,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				base.PrintTaken(artifact);
 
-				ActorRoom.SetDirs(Direction.South, 68);
+				gActorRoom.SetDirs(Direction.South, 68);
 
 				ac.Type = ArtifactType.Treasure;
 
@@ -172,12 +160,12 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public virtual void PrintCantGetSlime()
 		{
-			Globals.Out.Print("Corrosive slime is not something to get.");
+			gOut.Print("Corrosive slime is not something to get.");
 		}
 
 		public virtual void PrintCantDetachRope()
 		{
-			Globals.Out.Print("You cannot detach the rope.");
+			gOut.Print("You cannot detach the rope.");
 		}
 
 		public override void ProcessArtifact(IArtifact artifact, IArtifactCategory ac, ref bool nlFlag)
@@ -185,10 +173,6 @@ namespace WrenholdsSecretVigil.Game.Commands
 			Debug.Assert(artifact != null);
 
 			Debug.Assert(ac != null);
-
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
 
 			// Get slime
 
@@ -201,18 +185,18 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			else if (artifact.Uid == 28)
 			{
-				Globals.Engine.PrintEffectDesc(25);
+				gEngine.PrintEffectDesc(25);
 
-				if (!gameState.PulledRope)
+				if (!gGameState.PulledRope)
 				{
-					var monsters = Globals.Engine.GetMonsterList(m => m.Uid >= 14 && m.Uid <= 16);
+					var monsters = gEngine.GetMonsterList(m => m.Uid >= 14 && m.Uid <= 16);
 
 					foreach (var monster in monsters)
 					{
 						monster.SetInRoomUid(48);
 					}
 
-					gameState.PulledRope = true;
+					gGameState.PulledRope = true;
 				}
 
 				ProcessAction(() => PrintCantDetachRope(), ref nlFlag);

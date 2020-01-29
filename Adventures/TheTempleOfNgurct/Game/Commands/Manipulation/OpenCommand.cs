@@ -1,7 +1,7 @@
 ﻿
 // OpenCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -18,21 +18,17 @@ namespace TheTempleOfNgurct.Game.Commands
 	{
 		public override void PlayerProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			// If chest opened reveal cobra
 
-			if (eventType == PpeAfterArtifactOpen && DobjArtifact.Uid == 54 && !gameState.CobraAppeared)
+			if (eventType == PpeAfterArtifactOpen && gDobjArtifact.Uid == 54 && !gGameState.CobraAppeared)
 			{
-				var cobraMonster = Globals.MDB[52];
+				var cobraMonster = gMDB[52];
 
 				Debug.Assert(cobraMonster != null);
 
-				cobraMonster.SetInRoom(ActorRoom);
+				cobraMonster.SetInRoom(gActorRoom);
 
-				gameState.CobraAppeared = true;
+				gGameState.CobraAppeared = true;
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -52,21 +48,21 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (artifact.Uid == 54)
 			{
-				Globals.Out.Print("{0} is open!", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				gOut.Print("{0} is open!", artifact.GetTheName(true));
 			}
 
 			// Oak door
 
 			else if (artifact.Uid == 85)
 			{
-				Globals.Out.Print("{0} swings open to your gentle touch.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				gOut.Print("{0} swings open to your gentle touch.", artifact.GetTheName(true));
 			}
 
 			// Cell doors
 
 			else if (artifact.Uid >= 86 && artifact.Uid <= 88)
 			{
-				Globals.Out.Print("{0} squeaks open.", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				gOut.Print("{0} squeaks open.", artifact.GetTheName(true));
 			}
 			else
 			{
@@ -82,21 +78,21 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (artifact.Uid == 54)
 			{
-				Globals.Out.Print("{0} is locked -- what do you think that padlock is... chopped liver?",	artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				gOut.Print("{0} is locked -- what do you think that padlock is... chopped liver?",	artifact.GetTheName(true));
 			}
 
 			// Oak door
 
 			else if (artifact.Uid == 85)
 			{
-				Globals.Out.Print("{0} is locked shut!", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				gOut.Print("{0} is locked shut!", artifact.GetTheName(true));
 			}
 
 			// Cell doors
 
 			else if (artifact.Uid >= 86 && artifact.Uid <= 88)
 			{
-				Globals.Out.Print("{0} is locked!", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				gOut.Print("{0} is locked!", artifact.GetTheName(true));
 			}
 			else
 			{
@@ -112,7 +108,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (artifact.Uid == 54 || artifact.Uid == 85 || (artifact.Uid >= 86 && artifact.Uid <= 88))
 			{
-				Globals.Out.Print("You unlock {0} with {1}.", artifact.EvalPlural("it", "them"), key.GetDecoratedName03(false, true, false, false, Globals.Buf));
+				gOut.Print("You unlock {0} with {1}.", artifact.EvalPlural("it", "them"), key.GetTheName());
 
 				PrintOpened(artifact);
 			}
@@ -129,7 +125,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override bool IsAllowedInRoom()
 		{
-			return Globals.GameState.GetNBTL(Friendliness.Enemy) <= 0;
+			return gGameState.GetNBTL(Friendliness.Enemy) <= 0;
 		}
 
 		public OpenCommand()

@@ -1,7 +1,7 @@
 ﻿
 // Monster.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -114,13 +114,13 @@ namespace Eamon.Game
 
 		#region Interface IGameBase
 
-		public override string GetPluralName(string fieldName, StringBuilder buf)
+		public override string GetPluralName(string fieldName, StringBuilder buf = null)
 		{
 			IEffect effect;
 			long effectUid;
 			string result;
 
-			if (string.IsNullOrWhiteSpace(fieldName) || buf == null)
+			if (string.IsNullOrWhiteSpace(fieldName))
 			{
 				result = null;
 
@@ -131,11 +131,16 @@ namespace Eamon.Game
 
 			Debug.Assert(fieldName == "Name");
 
+			if (buf == null)
+			{
+				buf = Globals.Buf;
+			}
+
 			buf.Clear();
 
-			effectUid = Globals.Engine.GetPluralTypeEffectUid(PluralType);
+			effectUid = gEngine.GetPluralTypeEffectUid(PluralType);
 
-			effect = Globals.EDB[effectUid];
+			effect = gEDB[effectUid];
 
 			if (effect != null)
 			{
@@ -163,13 +168,13 @@ namespace Eamon.Game
 			return result;
 		}
 
-		public override string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public override string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift = false, bool showCharOwned = true, bool showStateDesc = false, bool groupCountOne = false, StringBuilder buf = null)
 		{
 			StringBuilder buf01;
 			string result;
 			long gc;
 
-			if (string.IsNullOrWhiteSpace(fieldName) || buf == null)
+			if (string.IsNullOrWhiteSpace(fieldName))
 			{
 				result = null;
 
@@ -179,6 +184,11 @@ namespace Eamon.Game
 			}
 
 			Debug.Assert(fieldName == "Name");
+
+			if (buf == null)
+			{
+				buf = Globals.Buf;
+			}
 
 			buf.Clear();
 
@@ -196,7 +206,7 @@ namespace Eamon.Game
 					}
 					else
 					{
-						buf01.Append(gc > 1 ? Globals.Engine.GetStringFromNumber(gc, true, new StringBuilder(Constants.BufSize)) : "");
+						buf01.Append(gc > 1 ? gEngine.GetStringFromNumber(gc, true, new StringBuilder(Constants.BufSize)) : "");
 					}
 
 					buf.AppendFormat
@@ -225,7 +235,7 @@ namespace Eamon.Game
 							gc > 1 ? "the " :
 							ArticleType == ArticleType.None ? "" :
 							"the ",
-							gc > 1 ? Globals.Engine.GetStringFromNumber(gc, true, new StringBuilder(Constants.BufSize)) : ""
+							gc > 1 ? gEngine.GetStringFromNumber(gc, true, new StringBuilder(Constants.BufSize)) : ""
 						);
 					}
 
@@ -251,7 +261,7 @@ namespace Eamon.Game
 					{
 						buf01.Append
 						(
-							gc > 1 ? Globals.Engine.GetStringFromNumber(gc, true, new StringBuilder(Constants.BufSize)) :
+							gc > 1 ? gEngine.GetStringFromNumber(gc, true, new StringBuilder(Constants.BufSize)) :
 							ArticleType == ArticleType.None ? "" :
 							ArticleType == ArticleType.The ? "the " :
 							ArticleType == ArticleType.Some ? "some " :
@@ -304,7 +314,7 @@ namespace Eamon.Game
 			{
 				buf.AppendFormat("{0}[{1}]",
 					Environment.NewLine,
-					GetDecoratedName02(true, true, false, false, new StringBuilder(Constants.BufSize)));
+					GetArticleName(true, buf: new StringBuilder(Constants.BufSize)));
 			}
 
 			if (!string.IsNullOrWhiteSpace(Desc))
@@ -433,7 +443,7 @@ namespace Eamon.Game
 		{
 			var uid = GetInRoomUid();
 
-			return Globals.RDB[uid];
+			return gRDB[uid];
 		}
 
 		public virtual void SetInRoomUid(long roomUid)
@@ -512,13 +522,13 @@ namespace Eamon.Game
 		{
 			var result = false;
 
-			if (Globals.Engine != null)
+			if (gEngine != null)
 			{
-				var gameState = Globals.Engine.GetGameState();
+				var gameState = gEngine.GetGameState();
 
 				if (Globals.IsRulesetVersion(5) && gameState != null)
 				{
-					var rl = (long)Math.Round((double)gameState.GetDTTL(Friendliness) / (double)gameState.GetNBTL(Friendliness) * 100 + Globals.Engine.RollDice(1, 41, -21));
+					var rl = (long)Math.Round((double)gameState.GetDTTL(Friendliness) / (double)gameState.GetNBTL(Friendliness) * 100 + gEngine.RollDice(1, 41, -21));
 
 					result = rl <= Courage;
 				}
@@ -526,7 +536,7 @@ namespace Eamon.Game
 				{
 					var s = (DmgTaken > 0 || OrigGroupCount > GroupCount ? 1 : 0) + (DmgTaken + 4 >= Hardiness ? 1 : 0);
 
-					var rl = Globals.Engine.RollDice(1, 100, s * 5);
+					var rl = gEngine.RollDice(1, 100, s * 5);
 
 					result = rl <= Courage;           // Courage >= 100 ||
 				}
@@ -537,17 +547,17 @@ namespace Eamon.Game
 
 		public virtual T EvalFriendliness<T>(T enemyValue, T neutralValue, T friendValue)
 		{
-			return Globals.Engine.EvalFriendliness(Friendliness, enemyValue, neutralValue, friendValue);
+			return gEngine.EvalFriendliness(Friendliness, enemyValue, neutralValue, friendValue);
 		}
 
 		public virtual T EvalGender<T>(T maleValue, T femaleValue, T neutralValue)
 		{
-			return Globals.Engine.EvalGender(Gender, maleValue, femaleValue, neutralValue);
+			return gEngine.EvalGender(Gender, maleValue, femaleValue, neutralValue);
 		}
 
 		public virtual T EvalPlural<T>(T singularValue, T pluralValue)
 		{
-			return Globals.Engine.EvalPlural(GroupCount > 1, singularValue, pluralValue);
+			return gEngine.EvalPlural(GroupCount > 1, singularValue, pluralValue);
 		}
 
 		public virtual T EvalInRoomLightLevel<T>(T darkValue, T lightValue)
@@ -557,7 +567,7 @@ namespace Eamon.Game
 
 		public virtual void ResolveFriendlinessPct(long charisma)
 		{
-			if (Globals.Engine.IsValidMonsterFriendlinessPct(Friendliness))
+			if (gEngine.IsValidMonsterFriendlinessPct(Friendliness))
 			{
 				if (Globals.IsRulesetVersion(5))
 				{
@@ -565,18 +575,18 @@ namespace Eamon.Game
 
 					if (f > 0 && f < 100)
 					{
-						f += Globals.Engine.GetCharismaFactor(charisma);
+						f += gEngine.GetCharismaFactor(charisma);
 					}
 
 					var k = Friendliness.Friend;
 
-					var rl = Globals.Engine.RollDice(1, 100, 0);
+					var rl = gEngine.RollDice(1, 100, 0);
 
 					if (rl > f)
 					{
 						k--;
 
-						rl = Globals.Engine.RollDice(1, 100, 0);
+						rl = gEngine.RollDice(1, 100, 0);
 
 						if (rl > f)
 						{
@@ -592,22 +602,22 @@ namespace Eamon.Game
 
 					var k = Friendliness.Friend;
 
-					var rl = Globals.Engine.RollDice(1, 100, 0);
+					var rl = gEngine.RollDice(1, 100, 0);
 
 					if (f > 0 && f < 100)
 					{
-						rl -= Globals.Engine.GetCharismaFactor(charisma);
+						rl -= gEngine.GetCharismaFactor(charisma);
 					}
 
 					if (rl > f)
 					{
 						k--;
 
-						rl = Globals.Engine.RollDice(1, 100, 0);
+						rl = gEngine.RollDice(1, 100, 0);
 
 						if (f > 0 && f < 100)
 						{
-							rl -= Globals.Engine.GetCharismaFactor(charisma);
+							rl -= gEngine.GetCharismaFactor(charisma);
 						}
 
 						if (rl > f)
@@ -674,12 +684,12 @@ namespace Eamon.Game
 
 		public virtual long GetWeightCarryableGronds()
 		{
-			return Globals.Engine.GetWeightCarryableGronds(Hardiness);
+			return gEngine.GetWeightCarryableGronds(Hardiness);
 		}
 
 		public virtual long GetFleeingMemberCount()
 		{
-			return Globals.Engine.RollDice(1, GroupCount, 0);
+			return gEngine.RollDice(1, GroupCount, 0);
 		}
 
 		public virtual long GetMaxMemberAttackCount()
@@ -701,7 +711,7 @@ namespace Eamon.Game
 				}
 			}
 
-			var list = Globals.Engine.GetArtifactList(a => monsterFindFunc(a));
+			var list = gEngine.GetArtifactList(a => monsterFindFunc(a));
 
 			if (recurse && list.Count > 0)
 			{
@@ -735,7 +745,7 @@ namespace Eamon.Game
 				}
 			}
 
-			var list = Globals.Engine.GetArtifactList(a => monsterFindFunc(a));
+			var list = gEngine.GetArtifactList(a => monsterFindFunc(a));
 
 			if (recurse && list.Count > 0)
 			{
@@ -769,7 +779,7 @@ namespace Eamon.Game
 				}
 			}
 
-			var list = Globals.Engine.GetArtifactList(a => monsterFindFunc(a));
+			var list = gEngine.GetArtifactList(a => monsterFindFunc(a));
 
 			if (recurse && list.Count > 0)
 			{
@@ -807,13 +817,13 @@ namespace Eamon.Game
 
 				w = a.Weight;
 
-				Debug.Assert(!Globals.Engine.IsUnmovable01(w));
+				Debug.Assert(!gEngine.IsUnmovable01(w));
 
 				if (recurse && a.GeneralContainer != null)
 				{
 					rc = a.GetContainerInfo(ref c, ref w, (ContainerType)(-1), recurse);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						// PrintError
 
@@ -978,7 +988,7 @@ namespace Eamon.Game
 
 			Debug.Assert(attackDescs != null && attackDescs.Length > 0);
 
-			var rl = Globals.Engine.RollDice(1, attackDescs.Length, -1);
+			var rl = gEngine.RollDice(1, attackDescs.Length, -1);
 
 			return attackDescs[rl];
 		}
@@ -1028,7 +1038,7 @@ namespace Eamon.Game
 
 			Debug.Assert(missDescs != null && missDescs.Length > 0);
 
-			var rl = Globals.Engine.RollDice(1, missDescs.Length, -1);
+			var rl = gEngine.RollDice(1, missDescs.Length, -1);
 
 			return missDescs[rl];
 		}
@@ -1036,6 +1046,78 @@ namespace Eamon.Game
 		public virtual string GetArmorDescString()
 		{
 			return "armor";
+		}
+
+		public virtual string GetCantFindExitDescString(IRoom room, string monsterName, bool isPlural, bool fleeing)
+		{
+			string result;
+
+			Debug.Assert(room != null && !string.IsNullOrWhiteSpace(monsterName));
+
+			if (fleeing)
+			{
+				result = string.Format("{0} {1} to flee, but can't find {2}!", monsterName, isPlural ? "try" : "tries", room.EvalRoomType("an exit", "a path"));
+			}
+			else
+			{
+				result = string.Format("{0} {1} to leave, but can't find {2}.", monsterName, isPlural ? "try" : "tries", room.EvalRoomType("an exit", "a path"));
+			}
+
+			return result;
+		}
+
+		public virtual string GetMembersExitRoomDescString(IRoom room, string monsterName, bool isPlural, bool fleeing)
+		{
+			string result;
+
+			Debug.Assert(room != null && !string.IsNullOrWhiteSpace(monsterName));
+
+			if (fleeing)
+			{
+				result = string.Format("{0} {1}!", monsterName, isPlural ? "flee" : "flees");
+			}
+			else
+			{
+				result = string.Format("{0} {1}.", monsterName, isPlural ? "leave" : "leaves");
+			}
+
+			return result;
+		}
+
+		public virtual string GetExitRoomDescString(IRoom room, string monsterName, bool isPlural, bool fleeing, Direction exitDirection)
+		{
+			string result;
+
+			Debug.Assert(room != null && !string.IsNullOrWhiteSpace(monsterName) && Enum.IsDefined(typeof(Direction), exitDirection));
+
+			if (fleeing)
+			{
+				result = string.Format("{0} {1}{2}!", monsterName, isPlural ? "flee" : "flees", exitDirection == Direction.Up || exitDirection == Direction.Down ? string.Format(" {0}ward", exitDirection.ToString().ToLower()) : string.Format(" to the {0}", exitDirection.ToString().ToLower()));
+			}
+			else
+			{
+				result = string.Format("{0} {1}{2}.", monsterName, isPlural ? "go" : "goes", exitDirection == Direction.Up || exitDirection == Direction.Down ? string.Format(" {0}ward", exitDirection.ToString().ToLower()) : string.Format(" to the {0}", exitDirection.ToString().ToLower()));
+			}
+
+			return result;
+		}
+
+		public virtual string GetEnterRoomDescString(IRoom room, string monsterName, bool isPlural, bool fleeing, Direction enterDirection)
+		{
+			string result;
+
+			Debug.Assert(room != null && !string.IsNullOrWhiteSpace(monsterName) && Enum.IsDefined(typeof(Direction), enterDirection));
+
+			if (fleeing)
+			{
+				result = string.Format("{0} {1} in from{2}!", monsterName, isPlural ? "flee" : "flees", enterDirection == Direction.Up ? " above" : enterDirection == Direction.Down ? " below" : string.Format(" the {0}", enterDirection.ToString().ToLower()));
+			}
+			else
+			{
+				result = string.Format("{0} {1} from{2}.", monsterName, isPlural ? "arrive" : "arrives", enterDirection == Direction.Up ? " above" : enterDirection == Direction.Down ? " below" : string.Format(" the {0}", enterDirection.ToString().ToLower()));
+			}
+
+			return result;
 		}
 
 		#endregion

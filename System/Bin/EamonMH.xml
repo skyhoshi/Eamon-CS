@@ -187,9 +187,6 @@
         <member name="P:EamonMH.Framework.Plugin.IPluginGlobals.Argv">
             <summary></summary>
         </member>
-        <member name="P:EamonMH.Framework.Plugin.IPluginGlobals.Buf">
-            <summary></summary>
-        </member>
         <member name="P:EamonMH.Framework.Plugin.IPluginGlobals.WordWrapCurrColumn">
             <summary></summary>
         </member>

@@ -1,7 +1,7 @@
 ﻿
 // OuterChamberMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -23,13 +23,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 			RetCode rc;
 			IMenu menu;
 
-			Globals.Out.WriteLine("{0}{1}{0}", Environment.NewLine, Globals.LineSep);
+			gOut.WriteLine("{0}{1}{0}", Environment.NewLine, Globals.LineSep);
 
-			Globals.Engine.PrintTitle("WELCOME TO THE", false);
+			gEngine.PrintTitle("WELCOME TO THE", false);
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle("EAMON CS COMPUTERIZED FANTASY GAMING SYSTEM", false);
+			gEngine.PrintTitle("EAMON CS COMPUTERIZED FANTASY GAMING SYSTEM", false);
 
 			Buf.SetFormat("{0}{0}You are in the outer chamber of the hall of the Guild of Free Adventurers.  Many men and women are guzzling beer and there is loud singing and laughter.{0}", Environment.NewLine);
 
@@ -37,17 +37,17 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Buf.AppendPrint("Do you go over to the desk or join the men drinking beer?");
 
-			Globals.Out.Write("{0}", Buf);
+			gOut.Write("{0}", Buf);
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Write("{0}Press D for desk or M for men: ", Environment.NewLine);
+			gOut.Write("{0}Press D for desk or M for men: ", Environment.NewLine);
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharDOrM, Globals.Engine.IsCharDOrM);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharDOrM, gEngine.IsCharDOrM);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			Globals.Thread.Sleep(150);
 

@@ -1,7 +1,7 @@
 ﻿
 // ArtifactCategory.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -130,7 +130,7 @@ namespace Eamon.Game.Primitive.Classes
 
 		public virtual void SetBreakageStrength(long strength)
 		{
-			Debug.Assert(Globals.Engine.IsArtifactFieldStrength(strength));
+			Debug.Assert(gEngine.IsArtifactFieldStrength(strength));
 
 			if (Type == Enums.ArtifactType.InContainer)
 			{
@@ -202,11 +202,11 @@ namespace Eamon.Game.Primitive.Classes
 
 			if (Type == Enums.ArtifactType.InContainer)
 			{
-				result = Globals.Engine.IsArtifactFieldStrength(Field2) ? Field2 : 0L;
+				result = gEngine.IsArtifactFieldStrength(Field2) ? Field2 : 0L;
 			}
 			else if (Type == Enums.ArtifactType.DoorGate)
 			{
-				result = Globals.Engine.IsArtifactFieldStrength(Field3) ? Field3 : 0L;
+				result = gEngine.IsArtifactFieldStrength(Field3) ? Field3 : 0L;
 			}
 
 			return result;

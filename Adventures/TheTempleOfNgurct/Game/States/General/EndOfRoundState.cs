@@ -1,7 +1,7 @@
 ﻿
 // EndOfRoundState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -15,44 +15,40 @@ namespace TheTempleOfNgurct.Game.States
 	{
 		public override void ProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (eventType == PeAfterRoundEnd)
 			{
-				var characterMonster = Globals.MDB[gameState.Cm];
+				var characterMonster = gMDB[gGameState.Cm];
 
 				Debug.Assert(characterMonster != null);
 
-				var ringArtifact = Globals.ADB[64];
+				var ringArtifact = gADB[64];
 
 				Debug.Assert(ringArtifact != null);
 
 				// Ring of regeneration
 
-				if (ringArtifact.IsWornByCharacter() && characterMonster.DmgTaken > 0 && ++gameState.Regenerate == 5)
+				if (ringArtifact.IsWornByCharacter() && characterMonster.DmgTaken > 0 && ++gGameState.Regenerate == 5)
 				{
 					characterMonster.DmgTaken--;
 
-					gameState.Regenerate = 0;
+					gGameState.Regenerate = 0;
 				}
 
 				// Bring in wandering monsters
 
-				var rl = Globals.Engine.RollDice(1, 100, 0);
+				var rl = gEngine.RollDice(1, 100, 0);
 
-				if (rl <= 4 && gameState.Ro != 58)        // rl <= 7
+				if (rl <= 4 && gGameState.Ro != 58)        // rl <= 7
 				{
 					// Monsters won't wander into a locked cell
 
-					var cellDoorArtifact = Globals.ADB[gameState.Ro == 45 ? 87 : gameState.Ro == 46 ? 88 : gameState.Ro == 55 ? 86 : 0];
+					var cellDoorArtifact = gADB[gGameState.Ro == 45 ? 87 : gGameState.Ro == 46 ? 88 : gGameState.Ro == 55 ? 86 : 0];
 
 					var ac = cellDoorArtifact != null ? cellDoorArtifact.DoorGate : null;
 
 					if (ac == null || ac.GetKeyUid() <= 0)
 					{
-						Globals.Engine.GetWanderingMonster();
+						gEngine.GetWanderingMonster();
 					}
 				}
 			}

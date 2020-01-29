@@ -1,7 +1,7 @@
 ﻿
 // Hint.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -23,7 +23,7 @@ namespace TheSubAquanLaboratory.Game
 					{
 						case 3:
 
-							var room2 = Globals.RDB[2];
+							var room2 = gRDB[2];
 
 							Debug.Assert(room2 != null);
 
@@ -31,7 +31,7 @@ namespace TheSubAquanLaboratory.Game
 
 						case 4:
 
-							var ovalDoorArtifact = Globals.ADB[16];
+							var ovalDoorArtifact = gADB[16];
 
 							Debug.Assert(ovalDoorArtifact != null);
 
@@ -39,7 +39,7 @@ namespace TheSubAquanLaboratory.Game
 
 						case 5:
 
-							var plaqueArtifact = Globals.ADB[9];
+							var plaqueArtifact = gADB[9];
 
 							Debug.Assert(plaqueArtifact != null);
 
@@ -47,7 +47,7 @@ namespace TheSubAquanLaboratory.Game
 
 						case 6:
 
-							var room18 = Globals.RDB[18];
+							var room18 = gRDB[18];
 
 							Debug.Assert(room18 != null);
 
@@ -55,7 +55,7 @@ namespace TheSubAquanLaboratory.Game
 
 						case 7:
 
-							var aquatronArtifact = Globals.ADB[57];
+							var aquatronArtifact = gADB[57];
 
 							Debug.Assert(aquatronArtifact != null);
 

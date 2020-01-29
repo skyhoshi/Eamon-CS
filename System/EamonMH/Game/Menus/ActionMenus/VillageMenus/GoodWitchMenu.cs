@@ -1,7 +1,7 @@
 ﻿
 // GoodWitchMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -30,7 +30,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 			long ap = 0;
 			long i;
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			/* 
 				Full Credit:  Derived wholly from Donald Brown's Classic Eamon
@@ -43,12 +43,12 @@ namespace EamonMH.Game.Menus.ActionMenus
 			{
 				var c2 = Globals.Character.GetMerchantAdjustedCharisma();
 
-				Rtio = Globals.Engine.GetMerchantRtio(c2);
+				Rtio = gEngine.GetMerchantRtio(c2);
 			}
 
-			Globals.Out.Print("A lovely young woman says, \"Good day, {0}.  Ah, you're surprised that I know your name?  I also know the extent of your intellect, hardiness, agility, and charisma.  If you wish, I can magically raise your attributes.  Which one would you like me to focus on?\"", Globals.Character.Name);
+			gOut.Print("A lovely young woman says, \"Good day, {0}.  Ah, you're surprised that I know your name?  I also know the extent of your intellect, hardiness, agility, and charisma.  If you wish, I can magically raise your attributes.  Which one would you like me to focus on?\"", Globals.Character.Name);
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			Buf.Clear();
 
@@ -56,7 +56,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			for (i = 0; i < statValues.Count; i++)
 			{
-				stat = Globals.Engine.GetStats(statValues[(int)i]);
+				stat = gEngine.GetStats(statValues[(int)i]);
 
 				Debug.Assert(stat != null);
 
@@ -68,53 +68,53 @@ namespace EamonMH.Game.Menus.ActionMenus
 					i == statValues.Count - 1 ? ": " : "");
 			}
 
-			Globals.Out.Write("{0}", Buf);
+			gOut.Write("{0}", Buf);
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, null, Globals.Engine.IsCharStat, Globals.Engine.IsCharStat);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, null, gEngine.IsCharStat, gEngine.IsCharStat);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			Globals.Thread.Sleep(150);
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			Debug.Assert(Buf.Length > 0);
 
 			i = Convert.ToInt64(Buf.Trim().ToString());
 
-			stat = Globals.Engine.GetStats((Stat)i);
+			stat = gEngine.GetStats((Stat)i);
 
 			Debug.Assert(stat != null);
 
-			ap = Globals.Engine.GetMerchantAskPrice(Constants.StatGainPrice, (double)Rtio);
+			ap = gEngine.GetMerchantAskPrice(Constants.StatGainPrice, (double)Rtio);
 
-			Globals.Out.Print("\"My standard price is {0} gold piece{1} per attribute point.\"", ap, ap != 1 ? "s" : "");
+			gOut.Print("\"My standard price is {0} gold piece{1} per attribute point.\"", ap, ap != 1 ? "s" : "");
 
 			while (true)
 			{
-				ap = Globals.Engine.GetMerchantAskPrice(Constants.StatGainPrice, (double)Rtio);
+				ap = gEngine.GetMerchantAskPrice(Constants.StatGainPrice, (double)Rtio);
 
 				Globals.In.KeyPress(Buf);
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("Attribute: {0}        Gold: {1}        Cost: {2}", Globals.Character.GetStats(i), Globals.Character.HeldGold, ap);
+				gOut.Print("Attribute: {0}        Gold: {1}        Cost: {2}", Globals.Character.GetStats(i), Globals.Character.HeldGold, ap);
 
 				if (Globals.Character.HeldGold >= ap)
 				{
-					Globals.Out.Write("{0}1=Raise, X=Exit: ", Environment.NewLine);
+					gOut.Write("{0}1=Raise, X=Exit: ", Environment.NewLine);
 
 					Buf.Clear();
 
-					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsChar1OrX, Globals.Engine.IsChar1OrX);
+					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsChar1OrX, gEngine.IsChar1OrX);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					Globals.Thread.Sleep(150);
 
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
 					if (Buf.Length == 0 || Buf[0] == 'X')
 					{
@@ -122,19 +122,19 @@ namespace EamonMH.Game.Menus.ActionMenus
 					}
 					else
 					{
-						Globals.Out.Print("The witch begins an incantation and you are enveloped by a hazy white cloud.");
+						gOut.Print("The witch begins an incantation and you are enveloped by a hazy white cloud.");
 
-						var rl = Globals.Engine.RollDice(1, 24, 0);
+						var rl = gEngine.RollDice(1, 24, 0);
 
 						if (rl >= Globals.Character.GetStats(Stat.Charisma))
 						{
-							Globals.Out.Print("\"It is done!\" she exclaims.");
+							gOut.Print("\"It is done!\" she exclaims.");
 
 							Globals.Character.ModStats(i, 1);
 						}
 						else
 						{
-							Globals.Out.Print("\"Because of your powerful adventurer's aura, my spells will sometimes fail.  Unfortunately, this was one of those times.\"");
+							gOut.Print("\"Because of your powerful adventurer's aura, my spells will sometimes fail.  Unfortunately, this was one of those times.\"");
 						}
 
 						if (Globals.Character.GetStats(i) > stat.MaxValue)
@@ -149,13 +149,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 				}
 				else
 				{
-					Globals.Out.Print("\"Ah, but I see you can't afford my modest fee.\"");
+					gOut.Print("\"Ah, but I see you can't afford my modest fee.\"");
 
 					break;
 				}
 			}
 
-			Globals.Out.Print("\"Good faring, {0}!\"", Globals.Character.Name);
+			gOut.Print("\"Good faring, {0}!\"", Globals.Character.Name);
 
 			Globals.In.KeyPress(Buf);
 		}

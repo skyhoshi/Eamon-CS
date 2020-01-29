@@ -1,7 +1,7 @@
 ﻿
 // Command.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Classes;
@@ -351,6 +351,11 @@ namespace EamonRT.Game.Commands
 			CommandImpl.PrintMustFirstClose(artifact);
 		}
 
+		public virtual void PrintWorn(IArtifact artifact)
+		{
+			CommandImpl.PrintWorn(artifact);
+		}
+
 		public virtual void PrintRemoved(IArtifact artifact)
 		{
 			CommandImpl.PrintRemoved(artifact);
@@ -509,6 +514,21 @@ namespace EamonRT.Game.Commands
 		public virtual void PrintNotWhileWearingObj(IArtifact artifact)
 		{
 			CommandImpl.PrintNotWhileWearingObj(artifact);
+		}
+
+		public virtual void PrintWontLight(IArtifact artifact)
+		{
+			CommandImpl.PrintWontLight(artifact);
+		}
+
+		public virtual void PrintLightObj(IArtifact artifact)
+		{
+			CommandImpl.PrintLightObj(artifact);
+		}
+
+		public virtual void PrintLightExtinguished(IArtifact artifact)
+		{
+			CommandImpl.PrintLightExtinguished(artifact);
 		}
 
 		public virtual void PrintCantReadyWeaponWithShield(IArtifact weapon, IArtifact shield)

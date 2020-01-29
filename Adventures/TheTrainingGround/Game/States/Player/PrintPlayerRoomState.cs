@@ -1,7 +1,7 @@
 ﻿
 // PrintPlayerRoomState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -17,11 +17,7 @@ namespace TheTrainingGround.Game.States
 		{
 			if (eventType == PeBeforePlayerRoomPrint && ShouldPreTurnProcess())
 			{
-				var gameState = Globals.GameState as Framework.IGameState;
-
-				Debug.Assert(gameState != null);
-
-				var characterMonster = Globals.MDB[gameState.Cm];
+				var characterMonster = gMDB[gGameState.Cm];
 
 				Debug.Assert(characterMonster != null);
 
@@ -35,30 +31,30 @@ namespace TheTrainingGround.Game.States
 				{
 					// Kobolds appear (30% chance)
 
-					if (!gameState.KoboldsAppear && characterRoom.Uid > 10 && characterRoom.Uid < 16)
+					if (!gGameState.KoboldsAppear && characterRoom.Uid > 10 && characterRoom.Uid < 16)
 					{
-						var rl = Globals.Engine.RollDice(1, 100, 0);
+						var rl = gEngine.RollDice(1, 100, 0);
 
 						if (rl < 31)
 						{
 							for (var i = 6; i <= 9; i++)
 							{
-								var koboldMonster = Globals.MDB[i];
+								var koboldMonster = gMDB[i];
 
 								Debug.Assert(koboldMonster != null);
 
 								koboldMonster.SetInRoom(characterRoom);
 							}
 
-							gameState.KoboldsAppear = true;
+							gGameState.KoboldsAppear = true;
 						}
 					}
 
-					var zapfMonster = Globals.MDB[15];
+					var zapfMonster = gMDB[15];
 
 					Debug.Assert(zapfMonster != null);
 
-					var staffArtifact = Globals.ADB[33];
+					var staffArtifact = gADB[33];
 
 					Debug.Assert(staffArtifact != null);
 
@@ -66,23 +62,23 @@ namespace TheTrainingGround.Game.States
 
 					if (zapfMonster.IsInRoom(characterRoom) && zapfMonster.Seen && !zapfMonster.CheckNBTLHostility() && staffArtifact.IsCarriedByMonster(zapfMonster))
 					{
-						var rl = Globals.Engine.RollDice(1, 100, 0);
+						var rl = gEngine.RollDice(1, 100, 0);
 
 						if (rl < 16)
 						{
-							Globals.Engine.PrintEffectDesc(16);
+							gEngine.PrintEffectDesc(16);
 
 							// Exclude character monster
 
-							rl = Globals.Engine.RollDice(1, Globals.Database.MonsterTable.Records.Count - 1, 0);
+							rl = gEngine.RollDice(1, Globals.Database.MonsterTable.Records.Count - 1, 0);
 
-							var summonedMonster = Globals.MDB[rl];
+							var summonedMonster = gMDB[rl];
 
 							Debug.Assert(summonedMonster != null);
 
 							if (!summonedMonster.IsInRoom(characterRoom) && summonedMonster.Seen)
 							{
-								Globals.Out.Print("<<POOF!!>>  {0} appears!", summonedMonster.GetDecoratedName03(true, true, false, true, Globals.Buf));
+								gOut.Print("<<POOF!!>>  {0} appears!", summonedMonster.GetTheName(true, true, false, true));
 
 								// Only reset for dead monsters
 

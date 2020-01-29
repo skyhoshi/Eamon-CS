@@ -80,6 +80,12 @@ namespace EamonRT.Framework.Plugin
 		string CommandPrompt { get; set; }
 
 		/// <summary></summary>
+		ICommand CurrCommand { get; }
+
+		/// <summary></summary>
+		ICommand NextCommand { get; }
+
+		/// <summary></summary>
 		ICommand LastCommand { get; }
 
 		/// <summary></summary>

@@ -1,7 +1,7 @@
 ﻿
 // StartState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -15,23 +15,19 @@ namespace ARuncibleCargo.Game.States
 	{
 		public override void ProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (eventType == PeBeforeRoundStart)
 			{
-				var room = Globals.RDB[gameState.Ro];
+				var room = gRDB[gGameState.Ro];
 
 				Debug.Assert(room != null);
 
-				var cargoArtifact = Globals.ADB[129];
+				var cargoArtifact = gADB[129];
 
 				Debug.Assert(cargoArtifact != null);
 
 				// Cargo check
 
-				gameState.CargoInRoom = cargoArtifact.IsInRoom(room) || cargoArtifact.IsCarriedByCharacter() ? 1 : 0;
+				gGameState.CargoInRoom = cargoArtifact.IsInRoom(room) || cargoArtifact.IsCarriedByCharacter() ? 1 : 0;
 			}
 
 			base.ProcessEvents(eventType);

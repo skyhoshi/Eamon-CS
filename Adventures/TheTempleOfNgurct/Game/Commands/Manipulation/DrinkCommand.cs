@@ -1,7 +1,7 @@
 ﻿
 // DrinkCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -32,7 +32,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (DmgTaken > 0)
 			{
-				Globals.Out.Print("Some of your wounds seem to clear up.");
+				gOut.Print("Some of your wounds seem to clear up.");
 			}
 		}
 
@@ -43,19 +43,19 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			DmgTaken = ActorMonster.DmgTaken;
+			DmgTaken = gActorMonster.DmgTaken;
 
-			var ac = DobjArtifact.Drinkable;
+			var ac = gDobjArtifact.Drinkable;
 
 			// Sulphuric acid
 
-			if (DobjArtifact.Uid == 53 && ac.IsOpen())
+			if (gDobjArtifact.Uid == 53 && ac.IsOpen())
 			{
-				Globals.Engine.PrintEffectDesc(29);
+				gEngine.PrintEffectDesc(29);
 
-				Globals.GameState.Die = 1;
+				gGameState.Die = 1;
 
 				NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 				{
@@ -65,9 +65,9 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			// Human blood
 
-			else if (DobjArtifact.Uid == 52 && ac.IsOpen())
+			else if (gDobjArtifact.Uid == 52 && ac.IsOpen())
 			{
-				Globals.Engine.PrintEffectDesc(30);
+				gEngine.PrintEffectDesc(30);
 
 				DrankItAll = true;
 
@@ -76,21 +76,21 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			// Wine
 
-			else if (DobjArtifact.Uid == 69 && ac.IsOpen())
+			else if (gDobjArtifact.Uid == 69 && ac.IsOpen())
 			{
-				var stat = Globals.Engine.GetStats(Stat.Agility);
+				var stat = gEngine.GetStats(Stat.Agility);
 
 				Debug.Assert(stat != null);
 
-				Globals.Engine.PrintEffectDesc(31);
+				gEngine.PrintEffectDesc(31);
 
-				ActorMonster.Agility *= 2;
+				gActorMonster.Agility *= 2;
 
-				ActorMonster.Agility = (long)Math.Round((double)ActorMonster.Agility / 3);
+				gActorMonster.Agility = (long)Math.Round((double)gActorMonster.Agility / 3);
 
-				if (ActorMonster.Agility < stat.MinValue)
+				if (gActorMonster.Agility < stat.MinValue)
 				{
-					ActorMonster.Agility = stat.MinValue;
+					gActorMonster.Agility = stat.MinValue;
 				}
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
@@ -102,15 +102,15 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (DrankItAll)
 			{
-				DobjArtifact.Value = 0;
+				gDobjArtifact.Value = 0;
 
-				DobjArtifact.SetInLimbo();
+				gDobjArtifact.SetInLimbo();
 			}
 		}
 
 		public override bool IsAllowedInRoom()
 		{
-			return Globals.GameState.GetNBTL(Friendliness.Enemy) <= 0;
+			return gGameState.GetNBTL(Friendliness.Enemy) <= 0;
 		}
 
 		public DrinkCommand()

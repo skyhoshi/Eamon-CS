@@ -1,8 +1,9 @@
 ﻿
 // ArtifactDb.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using System.Collections.Generic;
 using Eamon.Framework;
 using Eamon.Framework.DataStorage.Generic;
 using Eamon.Game.Attributes;
@@ -14,11 +15,6 @@ namespace Eamon.Game.DataStorage.QuickAccess
 	public class ArtifactDb : IRecordDb<IArtifact>
 	{
 		public virtual bool CopyAddedRecord { get; set; }
-
-		public ArtifactDb()
-		{
-			CopyAddedRecord = true;
-		}
 
 		public virtual IArtifact this[long uid]
 		{
@@ -39,6 +35,19 @@ namespace Eamon.Game.DataStorage.QuickAccess
 					Globals.Database.AddArtifact(value, CopyAddedRecord);
 				}
 			}
+		}
+
+		public virtual ICollection<IArtifact> Records 
+		{ 
+			get
+			{
+				return Globals?.Database?.ArtifactTable?.Records;
+			}
+		}
+
+		public ArtifactDb()
+		{
+			CopyAddedRecord = true;
 		}
 	}
 }

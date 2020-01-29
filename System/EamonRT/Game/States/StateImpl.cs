@@ -1,7 +1,7 @@
 ﻿
 // StateImpl.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -33,29 +33,29 @@ namespace EamonRT.Game.States
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Print("{0} block{1} the way!", artifact.GetDecoratedName03(true, true, false, false, Globals.Buf), artifact.EvalPlural("s", ""));
+			gOut.Print("{0} block{1} the way!", artifact.GetTheName(true), artifact.EvalPlural("s", ""));
 		}
 
 		public virtual void PrintCantGoThatWay()
 		{
-			Globals.Out.Print("You can't go that way!");
+			gOut.Print("You can't go that way!");
 		}
 
 		public virtual void PrintCantVerbThere(string verb)
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(verb));
 
-			Globals.Out.Print("You can't {0} there.", verb);
+			gOut.Print("You can't {0} there.", verb);
 		}
 
 		public virtual void PrintRideOffIntoSunset()
 		{
-			Globals.Out.Print("You successfully ride off into the sunset.");
+			gOut.Print("You successfully ride off into the sunset.");
 		}
 
 		public virtual void PrintEnemiesNearby()
 		{
-			Globals.Out.Print("You can't do that with unfriendlies about!");
+			gOut.Print("You can't do that with unfriendlies about!");
 		}
 
 		public virtual void ProcessEvents(long eventType)
@@ -89,19 +89,19 @@ namespace EamonRT.Game.States
 					{
 						if (artifact.ShouldRevealContentsWhenMovedIntoLimbo())
 						{
-							Globals.Engine.RevealContainerContents(room, i, containerTypes, printOutput && room.IsLit() && monster != null && monster.IsCharacterMonster() ? containerContentsList : null);
+							gEngine.RevealContainerContents(room, i, containerTypes, printOutput && room.IsLit() && monster != null && monster.IsCharacterMonster() ? containerContentsList : null);
 						}
 					}
 					else if (location != Constants.LimboLocation)
 					{
-						Globals.Engine.RevealContainerContents(room, i, null, printOutput && room.IsLit() && monster != null && monster.IsCharacterMonster() ? containerContentsList : null);
+						gEngine.RevealContainerContents(room, i, null, printOutput && room.IsLit() && monster != null && monster.IsCharacterMonster() ? containerContentsList : null);
 					}
 				}
 			}
 
 			foreach (var containerContentsDesc in containerContentsList)
 			{
-				Globals.Out.Write("{0}", containerContentsDesc);
+				gOut.Write("{0}", containerContentsDesc);
 			}
 
 			Globals.ResetRevealContentProperties();
@@ -194,7 +194,7 @@ namespace EamonRT.Game.States
 
 		public virtual bool ShouldPreTurnProcess()
 		{
-			var room = Globals.RDB[Globals.GameState.Ro];
+			var room = gRDB[gGameState.Ro];
 
 			Debug.Assert(room != null);
 

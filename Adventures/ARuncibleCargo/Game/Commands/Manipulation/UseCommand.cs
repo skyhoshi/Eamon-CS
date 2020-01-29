@@ -1,7 +1,7 @@
 ﻿
 // UseCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -19,13 +19,13 @@ namespace ARuncibleCargo.Game.Commands
 		{
 			if (eventType == PpeBeforeArtifactUse)
 			{
-				switch (DobjArtifact.Uid)
+				switch (gDobjArtifact.Uid)
 				{
 					case 34:
 
 						// Telescope
 
-						Globals.Engine.PrintEffectDesc(121);
+						gEngine.PrintEffectDesc(121);
 
 						GotoCleanup = true;
 
@@ -35,7 +35,7 @@ namespace ARuncibleCargo.Game.Commands
 
 						// Cargo
 
-						Globals.Engine.PrintEffectDesc(128);
+						gEngine.PrintEffectDesc(128);
 
 						GotoCleanup = true;
 
@@ -45,21 +45,21 @@ namespace ARuncibleCargo.Game.Commands
 
 						// Detonator
 
-						var cargoArtifact = Globals.ADB[129];
+						var cargoArtifact = gADB[129];
 
 						Debug.Assert(cargoArtifact != null);
 
-						var explosiveDeviceArtifact = Globals.ADB[43];
+						var explosiveDeviceArtifact = gADB[43];
 
 						Debug.Assert(explosiveDeviceArtifact != null);
 
-						var princeMonster = Globals.MDB[38];
+						var princeMonster = gMDB[38];
 
 						Debug.Assert(princeMonster != null);
 
 						if (explosiveDeviceArtifact.IsCarriedByContainer(cargoArtifact) && cargoArtifact.IsCarriedByMonster(princeMonster))
 						{
-							var gatesArtifact = Globals.ADB[137];
+							var gatesArtifact = gADB[137];
 
 							Debug.Assert(gatesArtifact != null);
 
@@ -71,15 +71,15 @@ namespace ARuncibleCargo.Game.Commands
 							{
 								// Blow up bandits with explosive-rigged Cargo
 
-								Globals.Out.Print("You activate the detonator...");
+								gOut.Print("You activate the detonator...");
 
-								Globals.Out.Print("{0}", Globals.LineSep);
+								gOut.Print("{0}", Globals.LineSep);
 
-								Globals.Engine.PrintEffectDesc(138);
+								gEngine.PrintEffectDesc(138);
 
 								Globals.In.KeyPress(Globals.Buf);
 
-								Globals.GameState.Die = 0;
+								gGameState.Die = 0;
 
 								Globals.ExitType = ExitType.FinishAdventure;
 
@@ -91,7 +91,7 @@ namespace ARuncibleCargo.Game.Commands
 							}
 							else
 							{
-								Globals.Engine.PrintEffectDesc(137);
+								gEngine.PrintEffectDesc(137);
 
 								NextState = Globals.CreateInstance<IStartState>();
 
@@ -100,7 +100,7 @@ namespace ARuncibleCargo.Game.Commands
 						}
 						else
 						{
-							Globals.Engine.PrintEffectDesc(136);
+							gEngine.PrintEffectDesc(136);
 
 							NextState = Globals.CreateInstance<IStartState>();
 

@@ -1,7 +1,7 @@
 ﻿
 // EndOfRoundState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -15,21 +15,17 @@ namespace TheSubAquanLaboratory.Game.States
 	{
 		public override void ProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (eventType == PeAfterRoundEnd)
 			{
-				var room = Globals.RDB[Globals.GameState.Ro];
+				var room = gRDB[gGameState.Ro];
 
 				Debug.Assert(room != null);
 
 				// Energy mace fizzles
 
-				if (gameState.EnergyMaceCharge > 0)
+				if (gGameState.EnergyMaceCharge > 0)
 				{
-					var energyMaceArtifact = Globals.ADB[80];
+					var energyMaceArtifact = gADB[80];
 
 					Debug.Assert(energyMaceArtifact != null);
 
@@ -37,7 +33,7 @@ namespace TheSubAquanLaboratory.Game.States
 
 					if (energyMaceArtifact.IsInRoom(room) || energyMaceArtifact.IsCarriedByCharacter() || (monster != null && monster.IsInRoom(room)))
 					{
-						if (--gameState.EnergyMaceCharge == 0)
+						if (--gGameState.EnergyMaceCharge == 0)
 						{
 							var ac = energyMaceArtifact.GetCategories(0);
 
@@ -51,16 +47,16 @@ namespace TheSubAquanLaboratory.Game.States
 
 							energyMaceArtifact.Value = 15;
 
-							Globals.Engine.PrintEffectDesc(31);
+							gEngine.PrintEffectDesc(31);
 						}
 					}
 				}
 
 				// Laser scalpel fizzles
 
-				if (gameState.LaserScalpelCharge > 0)
+				if (gGameState.LaserScalpelCharge > 0)
 				{
-					var scalpelArtifact = Globals.ADB[76];
+					var scalpelArtifact = gADB[76];
 
 					Debug.Assert(scalpelArtifact != null);
 
@@ -68,13 +64,13 @@ namespace TheSubAquanLaboratory.Game.States
 
 					if (scalpelArtifact.IsInRoom(room) || scalpelArtifact.IsCarriedByCharacter() || (monster != null && monster.IsInRoom(room)))
 					{
-						if (--gameState.LaserScalpelCharge == 0)
+						if (--gGameState.LaserScalpelCharge == 0)
 						{
 							scalpelArtifact.Value = 15;
 
-							Globals.Engine.ConvertWeaponToGoldOrTreasure(scalpelArtifact, false);
+							gEngine.ConvertWeaponToGoldOrTreasure(scalpelArtifact, false);
 
-							Globals.Engine.PrintEffectDesc(32);
+							gEngine.PrintEffectDesc(32);
 						}
 					}
 				}

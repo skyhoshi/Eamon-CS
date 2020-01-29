@@ -1,7 +1,7 @@
 ﻿
 // PrintPlayerRoomState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using System.Linq;
@@ -27,7 +27,7 @@ namespace ARuncibleCargo.Game.States
 
 			if (eventType == PeBeforePlayerRoomPrint && ShouldPreTurnProcess())
 			{
-				var characterMonster = Globals.MDB[gameState.Cm];
+				var characterMonster = gMDB[gameState.Cm];
 
 				Debug.Assert(characterMonster != null);
 
@@ -110,7 +110,7 @@ namespace ARuncibleCargo.Game.States
 
 				if (room.Uid == 8 && !gameState.FireEscaped)
 				{
-					Globals.Engine.PrintEffectDesc(8);
+					gEngine.PrintEffectDesc(8);
 
 					gameState.FireEscaped = true;
 				}
@@ -123,7 +123,7 @@ namespace ARuncibleCargo.Game.States
 				{
 					gameState.R3 = 12;
 
-					var shopDoorArtifact = Globals.ADB[room.Uid == 20 ? 136 : 17];
+					var shopDoorArtifact = gADB[room.Uid == 20 ? 136 : 17];
 
 					Debug.Assert(shopDoorArtifact != null);
 
@@ -133,14 +133,14 @@ namespace ARuncibleCargo.Game.States
 
 					ac.SetOpen(false);
 
-					Globals.Engine.PrintEffectDesc(48);
+					gEngine.PrintEffectDesc(48);
 				}
 
 				// Out the Window of Ill Repute
 
 				if (gameState.R3 == 18 && room.Uid == 50 && !gameState.AmazonMet)
 				{
-					Globals.Engine.PrintEffectDesc(47);
+					gEngine.PrintEffectDesc(47);
 
 					gameState.AmazonMet = true;
 				}
@@ -151,12 +151,12 @@ namespace ARuncibleCargo.Game.States
 				{
 					gameState.R3 *= gameState.CargoInRoom;
 
-					Globals.Engine.PrintEffectDesc(68);
+					gEngine.PrintEffectDesc(68);
 
 					gameState.CampEntered = true;
 				}
 
-				var larkspurMonster = Globals.MDB[36];
+				var larkspurMonster = gMDB[36];
 
 				Debug.Assert(larkspurMonster != null);
 
@@ -164,14 +164,14 @@ namespace ARuncibleCargo.Game.States
 
 				if (room.Uid == 88 && larkspurMonster.IsInRoom(room) && !larkspurMonster.Seen)
 				{
-					Globals.Engine.PrintEffectDesc(92);
+					gEngine.PrintEffectDesc(92);
 				}
 
-				var lilMonster = Globals.MDB[37];
+				var lilMonster = gMDB[37];
 
 				Debug.Assert(lilMonster != null);
 
-				var cargoArtifact = Globals.ADB[129];
+				var cargoArtifact = gADB[129];
 
 				Debug.Assert(cargoArtifact != null);
 
@@ -183,7 +183,7 @@ namespace ARuncibleCargo.Game.States
 					{
 						cargoArtifact.SetCarriedByMonster(lilMonster);
 
-						Globals.Engine.PrintEffectDesc(119);
+						gEngine.PrintEffectDesc(119);
 
 						lilMonster.Friendliness = Friendliness.Enemy;
 
@@ -191,7 +191,7 @@ namespace ARuncibleCargo.Game.States
 					}
 				}
 
-				var princeMonster = Globals.MDB[38];
+				var princeMonster = gMDB[38];
 
 				Debug.Assert(princeMonster != null);
 
@@ -201,7 +201,7 @@ namespace ARuncibleCargo.Game.States
 				{
 					gameState.R3 = 96;
 
-					Globals.Engine.PrintEffectDesc(125);
+					gEngine.PrintEffectDesc(125);
 
 					gameState.PrinceMet = true;
 				}
@@ -210,14 +210,14 @@ namespace ARuncibleCargo.Game.States
 				{
 					gameState.R3 = 96;
 
-					Globals.Engine.PrintEffectDesc(127);
+					gEngine.PrintEffectDesc(127);
 				}
 
-				var guardsMonster = Globals.MDB[39];
+				var guardsMonster = gMDB[39];
 
 				Debug.Assert(guardsMonster != null);
 
-				var gatesArtifact = Globals.ADB[137];
+				var gatesArtifact = gADB[137];
 
 				Debug.Assert(gatesArtifact != null);
 
@@ -233,7 +233,7 @@ namespace ARuncibleCargo.Game.States
 					{
 						ac.SetOpen(false);
 
-						Globals.Engine.PrintEffectDesc(140);
+						gEngine.PrintEffectDesc(140);
 					}
 				}
 
@@ -251,7 +251,7 @@ namespace ARuncibleCargo.Game.States
 					{
 						ac.SetOpen(false);
 
-						Globals.Engine.PrintEffectDesc(130);
+						gEngine.PrintEffectDesc(130);
 					}
 				}
 			}

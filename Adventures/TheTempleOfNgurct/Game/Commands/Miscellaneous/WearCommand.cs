@@ -1,7 +1,7 @@
 ﻿
 // WearCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -22,11 +22,11 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			// Can't wear silk robes
 
-			if (DobjArtifact.Uid == 75)
+			if (gDobjArtifact.Uid == 75)
 			{
 				PrintDontNeedTo();
 
@@ -40,7 +40,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override bool IsAllowedInRoom()
 		{
-			return Globals.GameState.GetNBTL(Friendliness.Enemy) <= 0;
+			return gGameState.GetNBTL(Friendliness.Enemy) <= 0;
 		}
 
 		public WearCommand()

@@ -1,7 +1,7 @@
 ﻿
 // StatusCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -18,13 +18,13 @@ namespace TheBeginnersCave.Game.Commands
 		{
 			if (eventType == PpeAfterPlayerStatus)
 			{
-				var trollsfireArtifact = Globals.ADB[10];
+				var trollsfireArtifact = gADB[10];
 
 				Debug.Assert(trollsfireArtifact != null);
 
-				if (trollsfireArtifact.IsCarriedByCharacter() && Globals.GameState.CastTo<Framework.IGameState>().Trollsfire == 1)
+				if (trollsfireArtifact.IsCarriedByCharacter() && gGameState.Trollsfire == 1)
 				{
-					Globals.Out.Print("Trollsfire is alight!");
+					gOut.Print("Trollsfire is alight!");
 				}
 			}
 

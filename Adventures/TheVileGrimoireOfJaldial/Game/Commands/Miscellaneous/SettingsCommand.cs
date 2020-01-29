@@ -19,21 +19,13 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 		public override void PrintUsage()
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			base.PrintUsage();
 
-			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "ExitDirNames", "True, False", gameState.ExitDirNames);
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "ExitDirNames", "True, False", gGameState.ExitDirNames);
 		}
 
 		public override void PlayerExecute()
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (ExitDirNames == null)
 			{
 				base.PlayerExecute();
@@ -43,10 +35,10 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			if (ExitDirNames != null)
 			{
-				gameState.ExitDirNames = (bool)ExitDirNames;
+				gGameState.ExitDirNames = (bool)ExitDirNames;
 			}
 
-			Globals.Out.Print("Settings changed.");
+			gOut.Print("Settings changed.");
 
 			if (NextState == null)
 			{
@@ -62,13 +54,13 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 		{
 			bool boolValue = false;
 
-			if (CommandParser.CurrToken + 1 < CommandParser.Tokens.Length)
+			if (gCommandParser.CurrToken + 1 < gCommandParser.Tokens.Length)
 			{
-				if (string.Equals(CommandParser.Tokens[CommandParser.CurrToken], "exitdirnames", StringComparison.OrdinalIgnoreCase) && bool.TryParse(CommandParser.Tokens[CommandParser.CurrToken + 1], out boolValue))
+				if (string.Equals(gCommandParser.Tokens[gCommandParser.CurrToken], "exitdirnames", StringComparison.OrdinalIgnoreCase) && bool.TryParse(gCommandParser.Tokens[gCommandParser.CurrToken + 1], out boolValue))
 				{
 					ExitDirNames = boolValue;
 
-					CommandParser.CurrToken += 2;
+					gCommandParser.CurrToken += 2;
 				}
 				else
 				{

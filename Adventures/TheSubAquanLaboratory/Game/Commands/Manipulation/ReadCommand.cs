@@ -1,7 +1,7 @@
 ﻿
 // ReadCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -20,30 +20,26 @@ namespace TheSubAquanLaboratory.Game.Commands
 		{
 			Debug.Assert(obj != null);
 
-			Globals.Out.Print("You stare at {0}, but you don't see any secret messages forming.", obj.GetDecoratedName03(false, true, false, false, Globals.Buf));
+			gOut.Print("You stare at {0}, but you don't see any secret messages forming.", obj.GetTheName());
 		}
 
 		public override void PlayerExecute()
 		{
 			var rl = 0L;
 
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			switch (DobjArtifact.Uid)
+			switch (gDobjArtifact.Uid)
 			{
 				case 9:
 
 					// Bronze plaque
 
-					if (!gameState.ReadPlaque)
+					if (!gGameState.ReadPlaque)
 					{
-						gameState.QuestValue += 250;
+						gGameState.QuestValue += 250;
 
-						gameState.ReadPlaque = true;
+						gGameState.ReadPlaque = true;
 					}
 
 					base.PlayerExecute();
@@ -54,7 +50,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Display screen
 
-					rl = Globals.Engine.RollDice(1, 100, 0);
+					rl = gEngine.RollDice(1, 100, 0);
 
 					if (rl < 34)
 					{
@@ -76,49 +72,49 @@ namespace TheSubAquanLaboratory.Game.Commands
 						var d = new long[]
 						{
 							0L,
-							Globals.Engine.RollDice(1, 9, 0),
-							Globals.Engine.RollDice(1, 99, 0),
-							Globals.Engine.RollDice(1, 30, 0),
-							Globals.Engine.RollDice(1, 100, 0),
-							Globals.Engine.RollDice(1, 2, 0),
-							Globals.Engine.RollDice(1, 2, -1) + 3,
-							Globals.Engine.RollDice(1, 90, 0),
-							Globals.Engine.RollDice(1, 180, 0),
-							Globals.Engine.RollDice(1, 59, 0),
-							Globals.Engine.RollDice(1, 59, 0),
-							Globals.Engine.RollDice(1, 59, 0),
-							Globals.Engine.RollDice(1, 59, 0),
-							Globals.Engine.RollDice(1, 10, 0),
-							Globals.Engine.RollDice(1, 20, 0),
-							Globals.Engine.RollDice(1, 100, 0)
+							gEngine.RollDice(1, 9, 0),
+							gEngine.RollDice(1, 99, 0),
+							gEngine.RollDice(1, 30, 0),
+							gEngine.RollDice(1, 100, 0),
+							gEngine.RollDice(1, 2, 0),
+							gEngine.RollDice(1, 2, -1) + 3,
+							gEngine.RollDice(1, 90, 0),
+							gEngine.RollDice(1, 180, 0),
+							gEngine.RollDice(1, 59, 0),
+							gEngine.RollDice(1, 59, 0),
+							gEngine.RollDice(1, 59, 0),
+							gEngine.RollDice(1, 59, 0),
+							gEngine.RollDice(1, 10, 0),
+							gEngine.RollDice(1, 20, 0),
+							gEngine.RollDice(1, 100, 0)
 						};
 
 						var nsd = d[5] == 1 ? "North" : "South";
 
 						var ewd = d[6] == 3 ? "East" : "West";
 
-						Globals.Engine.PrintEffectDesc(51);
+						gEngine.PrintEffectDesc(51);
 
-						Globals.Out.Print("{0}{1}.{2} GMT", ls[d[13]], d[14], d[15]);
+						gOut.Print("{0}{1}.{2} GMT", ls[d[13]], d[14], d[15]);
 
-						Globals.Out.Write("{0}Magnitude.....{1}.{2}", Environment.NewLine, d[1], d[2]);
+						gOut.Write("{0}Magnitude.....{1}.{2}", Environment.NewLine, d[1], d[2]);
 
-						Globals.Out.Write("{0}Duration......{1}.{2} seconds", Environment.NewLine, d[3], d[4]);
+						gOut.Write("{0}Duration......{1}.{2} seconds", Environment.NewLine, d[3], d[4]);
 
-						Globals.Out.Write("{0}Epicenter.....{1} Latitude {2} degrees {3} minutes {4} seconds", Environment.NewLine, nsd, d[7], d[9], d[11]);
+						gOut.Write("{0}Epicenter.....{1} Latitude {2} degrees {3} minutes {4} seconds", Environment.NewLine, nsd, d[7], d[9], d[11]);
 
-						Globals.Out.Print("{0,14}{1} Longitude {2} degrees {3} minutes {4} seconds", "", ewd, d[8], d[10], d[12]);
+						gOut.Print("{0,14}{1} Longitude {2} degrees {3} minutes {4} seconds", "", ewd, d[8], d[10], d[12]);
 						
-						if (!gameState.ReadDisplayScreen)
+						if (!gGameState.ReadDisplayScreen)
 						{
-							gameState.QuestValue += 300;
+							gGameState.QuestValue += 300;
 
-							gameState.ReadDisplayScreen = true;
+							gGameState.ReadDisplayScreen = true;
 						}
 					}
 					else
 					{
-						Globals.Out.Print("The monitor screen remains blank.");
+						gOut.Print("The monitor screen remains blank.");
 					}
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
@@ -129,28 +125,28 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Terminals
 
-					rl = Globals.Engine.RollDice(1, 100, 0);
+					rl = gEngine.RollDice(1, 100, 0);
 
 					if (rl < 51)
 					{
-						Globals.Engine.PrintEffectDesc(52);
+						gEngine.PrintEffectDesc(52);
 
-						if (!gameState.ReadTerminals)
+						if (!gGameState.ReadTerminals)
 						{
-							gameState.QuestValue += 350;
+							gGameState.QuestValue += 350;
 
-							gameState.ReadTerminals = true;
+							gGameState.ReadTerminals = true;
 						}
 					}
 					else
 					{
-						rl = Globals.Engine.RollDice(1, 100, 0);
+						rl = gEngine.RollDice(1, 100, 0);
 
-						Globals.Out.Print("As you watch, the terminal screen prints:");
+						gOut.Print("As you watch, the terminal screen prints:");
 
-						Globals.Out.Print("  Error #{0}", rl);
+						gOut.Print("  Error #{0}", rl);
 
-						Globals.Out.Print("Uploading execution impossible - attempting to abort!");
+						gOut.Print("Uploading execution impossible - attempting to abort!");
 					}
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();

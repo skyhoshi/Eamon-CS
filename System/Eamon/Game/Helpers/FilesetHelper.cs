@@ -252,7 +252,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the name of the fileset." + Environment.NewLine + Environment.NewLine + "If the fileset represents an adventure, use the adventure name; if it represents an author catalog use the catalog name.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -260,7 +260,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the working directory of the fileset." + Environment.NewLine + Environment.NewLine + "This is where the files are found.  It can be an absolute or relative path, and should not end with a path separator.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -268,7 +268,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the plugin filename of the fileset.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -276,7 +276,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the config filename of the fileset.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -284,7 +284,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the fileset filename of the fileset.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -292,7 +292,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the character filename of the fileset.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -300,7 +300,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the module filename of the fileset.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -308,7 +308,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the room filename of the fileset.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -316,7 +316,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the artifact filename of the fileset.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -324,7 +324,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the effect filename of the fileset.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -332,7 +332,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the monster filename of the fileset.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -340,7 +340,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the hint filename of the fileset.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -348,7 +348,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the game state filename of the fileset.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		#endregion
@@ -364,12 +364,12 @@ namespace Eamon.Game.Helpers
 				{
 					var listNum = NumberFields ? ListNum++ : 0;
 
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Uid"), null), Record.Uid);
+					gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Uid"), null), Record.Uid);
 				}
 			}
 			else
 			{
-				Globals.Out.Write("{0}{1,3}. {2}", Environment.NewLine, Record.Uid, Record.Name);
+				gOut.Write("{0}{1,3}. {2}", Environment.NewLine, Record.Uid, Record.Name);
 			}
 		}
 
@@ -380,7 +380,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Name"), null), Record.Name);
+				gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Name"), null), Record.Name);
 			}
 		}
 
@@ -391,7 +391,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("WorkDir"), null), Record.WorkDir);
+				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("WorkDir"), null), Record.WorkDir);
 			}
 		}
 
@@ -402,9 +402,9 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}",
+				gOut.WriteLine("{0}{1}{0}{0}{2}",
 					Environment.NewLine,
-					Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("PluginFileName"), null),
+					gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("PluginFileName"), null),
 					Record.PluginFileName);
 			}
 		}
@@ -416,9 +416,9 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}",
+				gOut.WriteLine("{0}{1}{0}{0}{2}",
 					Environment.NewLine,
-					Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("ConfigFileName"), null),
+					gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("ConfigFileName"), null),
 					Record.ConfigFileName);
 			}
 		}
@@ -430,9 +430,9 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}",
+				gOut.WriteLine("{0}{1}{0}{0}{2}",
 					Environment.NewLine,
-					Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("FilesetFileName"), null),
+					gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("FilesetFileName"), null),
 					Record.FilesetFileName);
 			}
 		}
@@ -444,9 +444,9 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}",
+				gOut.WriteLine("{0}{1}{0}{0}{2}",
 					Environment.NewLine,
-					Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CharacterFileName"), null),
+					gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("CharacterFileName"), null),
 					Record.CharacterFileName);
 			}
 		}
@@ -458,9 +458,9 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}",
+				gOut.WriteLine("{0}{1}{0}{0}{2}",
 					Environment.NewLine,
-					Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("ModuleFileName"), null),
+					gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("ModuleFileName"), null),
 					Record.ModuleFileName);
 			}
 		}
@@ -472,9 +472,9 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}",
+				gOut.WriteLine("{0}{1}{0}{0}{2}",
 					Environment.NewLine,
-					Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("RoomFileName"), null),
+					gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("RoomFileName"), null),
 					Record.RoomFileName);
 			}
 		}
@@ -486,9 +486,9 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}",
+				gOut.WriteLine("{0}{1}{0}{0}{2}",
 					Environment.NewLine,
-					Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("ArtifactFileName"), null),
+					gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("ArtifactFileName"), null),
 					Record.ArtifactFileName);
 			}
 		}
@@ -500,9 +500,9 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}",
+				gOut.WriteLine("{0}{1}{0}{0}{2}",
 					Environment.NewLine,
-					Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("EffectFileName"), null),
+					gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("EffectFileName"), null),
 					Record.EffectFileName);
 			}
 		}
@@ -514,9 +514,9 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}",
+				gOut.WriteLine("{0}{1}{0}{0}{2}",
 					Environment.NewLine,
-					Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("MonsterFileName"), null),
+					gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("MonsterFileName"), null),
 					Record.MonsterFileName);
 			}
 		}
@@ -528,9 +528,9 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}",
+				gOut.WriteLine("{0}{1}{0}{0}{2}",
 					Environment.NewLine,
-					Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("HintFileName"), null),
+					gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("HintFileName"), null),
 					Record.HintFileName);
 			}
 		}
@@ -542,9 +542,9 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{0}{0}{2}",
+				gOut.Write("{0}{1}{0}{0}{2}",
 					Environment.NewLine,
-					Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("GameStateFileName"), null),
+					gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("GameStateFileName"), null),
 					Record.GameStateFileName);
 			}
 		}
@@ -556,9 +556,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		protected virtual void InputUid()
 		{
-			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
+			gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -574,11 +574,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Name", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Name"), null));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Name"), null));
 
 				var rc = Globals.In.ReadField(Buf, Constants.FsNameLen, null, '_', '\0', false, null, null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.Name = Buf.ToString();
 
@@ -590,7 +590,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -606,15 +606,15 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("WorkDir", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("WorkDir"), null));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("WorkDir"), null));
 
-				Globals.Out.WordWrap = false;
+				gOut.WordWrap = false;
 
 				var rc = Globals.In.ReadField(Buf, Constants.MaxPathLen, null, '_', '\0', false, null, null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				Globals.Out.WordWrap = true;
+				gOut.WordWrap = true;
 
 				Record.WorkDir = Buf.Trim().ToString();
 
@@ -626,7 +626,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -642,11 +642,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("PluginFileName", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("PluginFileName"), "NONE"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("PluginFileName"), "NONE"));
 
 				var rc = Globals.In.ReadField(Buf, Constants.FsFileNameLen, null, '_', '\0', true, "NONE", null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.PluginFileName = Buf.Trim().ToString();
 
@@ -658,7 +658,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -674,11 +674,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("ConfigFileName", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("ConfigFileName"), "NONE"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("ConfigFileName"), "NONE"));
 
 				var rc = Globals.In.ReadField(Buf, Constants.FsFileNameLen, null, '_', '\0', true, "NONE", null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.ConfigFileName = Buf.Trim().ToString();
 
@@ -690,7 +690,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -706,11 +706,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("FilesetFileName", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("FilesetFileName"), "NONE"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("FilesetFileName"), "NONE"));
 
 				var rc = Globals.In.ReadField(Buf, Constants.FsFileNameLen, null, '_', '\0', true, "NONE", null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.FilesetFileName = Buf.Trim().ToString();
 
@@ -722,7 +722,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -738,11 +738,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("CharacterFileName", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("CharacterFileName"), "NONE"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("CharacterFileName"), "NONE"));
 
 				var rc = Globals.In.ReadField(Buf, Constants.FsFileNameLen, null, '_', '\0', true, "NONE", null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.CharacterFileName = Buf.Trim().ToString();
 
@@ -754,7 +754,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -770,11 +770,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("ModuleFileName", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("ModuleFileName"), "NONE"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("ModuleFileName"), "NONE"));
 
 				var rc = Globals.In.ReadField(Buf, Constants.FsFileNameLen, null, '_', '\0', true, "NONE", null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.ModuleFileName = Buf.Trim().ToString();
 
@@ -786,7 +786,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -802,11 +802,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("RoomFileName", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("RoomFileName"), "NONE"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("RoomFileName"), "NONE"));
 
 				var rc = Globals.In.ReadField(Buf, Constants.FsFileNameLen, null, '_', '\0', true, "NONE", null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.RoomFileName = Buf.Trim().ToString();
 
@@ -818,7 +818,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -834,11 +834,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("ArtifactFileName", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("ArtifactFileName"), "NONE"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("ArtifactFileName"), "NONE"));
 
 				var rc = Globals.In.ReadField(Buf, Constants.FsFileNameLen, null, '_', '\0', true, "NONE", null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.ArtifactFileName = Buf.Trim().ToString();
 
@@ -850,7 +850,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -866,11 +866,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("EffectFileName", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("EffectFileName"), "NONE"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("EffectFileName"), "NONE"));
 
 				var rc = Globals.In.ReadField(Buf, Constants.FsFileNameLen, null, '_', '\0', true, "NONE", null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.EffectFileName = Buf.Trim().ToString();
 
@@ -882,7 +882,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -898,11 +898,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("MonsterFileName", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("MonsterFileName"), "NONE"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("MonsterFileName"), "NONE"));
 
 				var rc = Globals.In.ReadField(Buf, Constants.FsFileNameLen, null, '_', '\0', true, "NONE", null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.MonsterFileName = Buf.Trim().ToString();
 
@@ -914,7 +914,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -930,11 +930,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("HintFileName", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("HintFileName"), "NONE"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("HintFileName"), "NONE"));
 
 				var rc = Globals.In.ReadField(Buf, Constants.FsFileNameLen, null, '_', '\0', true, "NONE", null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.HintFileName = Buf.Trim().ToString();
 
@@ -946,7 +946,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -962,11 +962,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("GameStateFileName", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("GameStateFileName"), "NONE"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("GameStateFileName"), "NONE"));
 
 				var rc = Globals.In.ReadField(Buf, Constants.FsFileNameLen, null, '_', '\0', true, "NONE", null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.GameStateFileName = Buf.Trim().ToString();
 
@@ -978,7 +978,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		#endregion

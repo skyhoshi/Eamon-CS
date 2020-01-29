@@ -1,7 +1,7 @@
 ﻿
 // EffectHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -69,9 +69,9 @@ namespace Eamon.Game.Helpers
 
 			long invalidUid = 0;
 
-			var rc = Globals.Engine.ResolveUidMacros(Record.Desc, Buf, false, false, ref invalidUid);
+			var rc = gEngine.ResolveUidMacros(Record.Desc, Buf, false, false, ref invalidUid);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			if (invalidUid > 0)
 			{
@@ -102,7 +102,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter a detailed description of the effect.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		#endregion
@@ -116,7 +116,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Uid"), null), Record.Uid);
+				gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Uid"), null), Record.Uid);
 			}
 		}
 
@@ -127,9 +127,9 @@ namespace Eamon.Game.Helpers
 
 			if (ResolveEffects)
 			{
-				var rc = Globals.Engine.ResolveUidMacros(Record.Desc, Buf, true, true);
+				var rc = gEngine.ResolveUidMacros(Record.Desc, Buf, true, true);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 			}
 			else
 			{
@@ -138,7 +138,7 @@ namespace Eamon.Game.Helpers
 
 			var listNum = NumberFields ? ListNum++ : 0;
 
-			Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Desc"), null), Buf);
+			gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Desc"), null), Buf);
 		}
 
 		#endregion
@@ -148,9 +148,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		protected virtual void InputUid()
 		{
-			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
+			gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -166,15 +166,15 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Desc", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Desc"), null));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Desc"), null));
 
-				Globals.Out.WordWrap = false;
+				gOut.WordWrap = false;
 
 				var rc = Globals.In.ReadField(Buf, Constants.EffDescLen, null, '_', '\0', false, null, null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				Globals.Out.WordWrap = true;
+				gOut.WordWrap = true;
 
 				Record.Desc = Buf.ToString();      // Trim() intentionally omitted
 
@@ -186,7 +186,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		#endregion
@@ -232,11 +232,11 @@ namespace Eamon.Game.Helpers
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));
 
-			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
+			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
 
-			Globals.Out.WriteLine("{0}{1}{0}{0}{2}{3}",
+			gOut.WriteLine("{0}{1}{0}{0}{2}{3}",
 				Environment.NewLine,
-				Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null),
+				gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null),
 				Record.Desc,
 				string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) ? "" : Environment.NewLine);
 		}

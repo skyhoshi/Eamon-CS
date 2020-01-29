@@ -1,7 +1,7 @@
 ﻿
 // GetPlayerInputState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -17,11 +17,7 @@ namespace TheTrainingGround.Game.States
 		{
 			if (eventType == PeBeforeCommandPromptPrint && ShouldPreTurnProcess())
 			{
-				var gameState = Globals.GameState as Framework.IGameState;
-
-				Debug.Assert(gameState != null);
-
-				var characterMonster = Globals.MDB[gameState.Cm];
+				var characterMonster = gMDB[gGameState.Cm];
 
 				Debug.Assert(characterMonster != null);
 
@@ -33,49 +29,49 @@ namespace TheTrainingGround.Game.States
 
 				if (characterRoom.IsLit())
 				{
-					var redSunMonster = Globals.MDB[1];
+					var redSunMonster = gMDB[1];
 
 					Debug.Assert(redSunMonster != null);
 
 					// Red Sun speaks
 
-					if (!gameState.RedSunSpeaks && redSunMonster.IsInRoom(characterRoom))
+					if (!gGameState.RedSunSpeaks && redSunMonster.IsInRoom(characterRoom))
 					{
-						Globals.Engine.PrintEffectDesc(4);
+						gEngine.PrintEffectDesc(4);
 
-						gameState.RedSunSpeaks = true;
+						gGameState.RedSunSpeaks = true;
 					}
 
 					// Jacques shouts from behind door
 
-					if (!gameState.JacquesShouts && characterRoom.Uid == 8)
+					if (!gGameState.JacquesShouts && characterRoom.Uid == 8)
 					{
-						Globals.Engine.PrintEffectDesc(5);
+						gEngine.PrintEffectDesc(5);
 
-						gameState.JacquesShouts = true;
+						gGameState.JacquesShouts = true;
 					}
 
-					var sylvaniMonster = Globals.MDB[12];
+					var sylvaniMonster = gMDB[12];
 
 					Debug.Assert(sylvaniMonster != null);
 
 					// Sylvani speaks
 
-					if (!gameState.SylvaniSpeaks && sylvaniMonster.IsInRoom(characterRoom))
+					if (!gGameState.SylvaniSpeaks && sylvaniMonster.IsInRoom(characterRoom))
 					{
-						Globals.Engine.PrintEffectDesc(6);
+						gEngine.PrintEffectDesc(6);
 
-						gameState.SylvaniSpeaks = true;
+						gGameState.SylvaniSpeaks = true;
 					}
 				}
 
 				// You hear sounds...
 
-				if (!gameState.ScuffleSoundsHeard && characterRoom.Uid == 26)
+				if (!gGameState.ScuffleSoundsHeard && characterRoom.Uid == 26)
 				{
-					Globals.Engine.PrintEffectDesc(15);
+					gEngine.PrintEffectDesc(15);
 
-					gameState.ScuffleSoundsHeard = true;
+					gGameState.ScuffleSoundsHeard = true;
 				}
 			}
 

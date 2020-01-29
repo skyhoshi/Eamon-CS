@@ -1,7 +1,7 @@
 ﻿
 // MainLoop.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -18,15 +18,11 @@ namespace TheSubAquanLaboratory.Game
 	{
 		public override void Shutdown()
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			// End of game specials
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Engine.PrintEffectDesc(71);
+			gEngine.PrintEffectDesc(71);
 
 			Globals.In.KeyPress(Globals.Buf);
 
@@ -36,30 +32,30 @@ namespace TheSubAquanLaboratory.Game
 
 			var seenCount = rooms.Count(r => r.Seen);
 
-			gameState.QuestValue += (long)Math.Round(((double)seenCount / (double)rooms.Count) * 350);
+			gGameState.QuestValue += (long)Math.Round(((double)seenCount / (double)rooms.Count) * 350);
 
 			// 100% of quest = base reward of 1250
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			if (gameState.QuestValue > 0)
+			if (gGameState.QuestValue > 0)
 			{
-				var reward = (long)Math.Round((double)gameState.QuestValue * ((double)Globals.Character.GetStats(Stat.Charisma) / (double)10));
+				var reward = (long)Math.Round((double)gGameState.QuestValue * ((double)gCharacter.GetStats(Stat.Charisma) / (double)10));
 
 				if (reward > 3000)
 				{
 					reward = 3000;
 				}
 
-				Globals.Character.HeldGold += reward;
+				gCharacter.HeldGold += reward;
 
-				Globals.Engine.PrintEffectDesc(78);
+				gEngine.PrintEffectDesc(78);
 
-				Globals.Out.Print("The mayor then calculates the value of the information you have presented him with and pays you {0} gold piece{1}.", reward, reward != 1 ? "s" : "");
+				gOut.Print("The mayor then calculates the value of the information you have presented him with and pays you {0} gold piece{1}.", reward, reward != 1 ? "s" : "");
 			}
 			else
 			{
-				Globals.Engine.PrintEffectDesc(76);
+				gEngine.PrintEffectDesc(76);
 			}
 
 			Globals.In.KeyPress(Globals.Buf);

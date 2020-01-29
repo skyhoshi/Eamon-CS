@@ -1,7 +1,7 @@
 ﻿
 // UseCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -17,13 +17,13 @@ namespace TheTrainingGround.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			// Hammer of Thor
 
-			if (DobjArtifact.Uid == 24 && (DobjArtifact.IsCarriedByCharacter() || DobjArtifact.IsInRoom(ActorRoom)))
+			if (gDobjArtifact.Uid == 24)
 			{
-				var monsters = Globals.Engine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m.Friendliness == Friendliness.Enemy && m.Field1 == 0);
+				var monsters = gEngine.GetMonsterList(m => m.IsInRoom(gActorRoom) && m.Friendliness == Friendliness.Enemy && m.Field1 == 0);
 
 				foreach (var monster in monsters)
 				{
@@ -32,7 +32,7 @@ namespace TheTrainingGround.Game.Commands
 					monster.Field1 = 1;
 				}
 
-				Globals.Engine.PrintEffectDesc(32);
+				gEngine.PrintEffectDesc(32);
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}

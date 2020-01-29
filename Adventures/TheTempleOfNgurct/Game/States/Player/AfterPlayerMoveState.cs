@@ -16,27 +16,23 @@ namespace TheTempleOfNgurct.Game.States
 	{
 		public override void ProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (eventType == PeAfterExtinguishLightSourceCheck)
 			{
-				var rl = Globals.Engine.RollDice(1, 100, 0);
+				var rl = gEngine.RollDice(1, 100, 0);
 
 				// Spear trap
 
-				if (gameState.Ro == 5 && rl < 20)
+				if (gGameState.Ro == 5 && rl < 20)
 				{
-					Globals.Engine.PrintEffectDesc(19);
+					gEngine.PrintEffectDesc(19);
 
-					var monsters = Globals.Engine.GetTrapMonsterList(1, gameState.Ro);
+					var monsters = gEngine.GetTrapMonsterList(1, gGameState.Ro);
 
 					foreach (var m in monsters)
 					{
-						Globals.Engine.ApplyTrapDamage(s => NextState = s, m, 1, 6, false);
+						gEngine.ApplyTrapDamage(s => NextState = s, m, 1, 6, false);
 
-						if (gameState.Die == 1)
+						if (gGameState.Die == 1)
 						{
 							GotoCleanup = true;
 
@@ -47,17 +43,17 @@ namespace TheTempleOfNgurct.Game.States
 
 				// Loose rocks
 
-				if (gameState.Ro == 11 && rl < 33)
+				if (gGameState.Ro == 11 && rl < 33)
 				{
-					Globals.Engine.PrintEffectDesc(20);
+					gEngine.PrintEffectDesc(20);
 
-					var monsters = Globals.Engine.GetTrapMonsterList(1, gameState.Ro);
+					var monsters = gEngine.GetTrapMonsterList(1, gGameState.Ro);
 
 					foreach (var m in monsters)
 					{
-						Globals.Engine.ApplyTrapDamage(s => NextState = s, m, 1, 4, false);
+						gEngine.ApplyTrapDamage(s => NextState = s, m, 1, 4, false);
 
-						if (gameState.Die == 1)
+						if (gGameState.Die == 1)
 						{
 							GotoCleanup = true;
 
@@ -68,17 +64,17 @@ namespace TheTempleOfNgurct.Game.States
 
 				// Gas trap
 
-				if (gameState.Ro == 16 && rl < 15)
+				if (gGameState.Ro == 16 && rl < 15)
 				{
-					Globals.Engine.PrintEffectDesc(21);
+					gEngine.PrintEffectDesc(21);
 
-					var monsters = Globals.Engine.GetTrapMonsterList(3, gameState.Ro);
+					var monsters = gEngine.GetTrapMonsterList(3, gGameState.Ro);
 
 					foreach (var m in monsters)
 					{
-						Globals.Engine.ApplyTrapDamage(s => NextState = s, m, 2, 6, true);
+						gEngine.ApplyTrapDamage(s => NextState = s, m, 2, 6, true);
 
-						if (gameState.Die == 1)
+						if (gGameState.Die == 1)
 						{
 							GotoCleanup = true;
 
@@ -89,17 +85,17 @@ namespace TheTempleOfNgurct.Game.States
 
 				// Crossbow trap
 
-				if (gameState.Ro == 32 && rl < 51)
+				if (gGameState.Ro == 32 && rl < 51)
 				{
-					Globals.Engine.PrintEffectDesc(22);
+					gEngine.PrintEffectDesc(22);
 
-					var monsters = Globals.Engine.GetTrapMonsterList(1, gameState.Ro);
+					var monsters = gEngine.GetTrapMonsterList(1, gGameState.Ro);
 
 					foreach (var m in monsters)
 					{
-						Globals.Engine.ApplyTrapDamage(s => NextState = s, m, 1, 8, false);
+						gEngine.ApplyTrapDamage(s => NextState = s, m, 1, 8, false);
 
-						if (gameState.Die == 1)
+						if (gGameState.Die == 1)
 						{
 							GotoCleanup = true;
 
@@ -110,17 +106,17 @@ namespace TheTempleOfNgurct.Game.States
 
 				// Scything blade trap
 
-				if (gameState.Ro == 57 && rl < 20)
+				if (gGameState.Ro == 57 && rl < 20)
 				{
-					Globals.Engine.PrintEffectDesc(23);
+					gEngine.PrintEffectDesc(23);
 
-					var monsters = Globals.Engine.GetTrapMonsterList(1, gameState.Ro);
+					var monsters = gEngine.GetTrapMonsterList(1, gGameState.Ro);
 
 					foreach (var m in monsters)
 					{
-						Globals.Engine.ApplyTrapDamage(s => NextState = s, m, 2, 6, false);
+						gEngine.ApplyTrapDamage(s => NextState = s, m, 2, 6, false);
 
-						if (gameState.Die == 1)
+						if (gGameState.Die == 1)
 						{
 							GotoCleanup = true;
 
@@ -131,15 +127,15 @@ namespace TheTempleOfNgurct.Game.States
 
 				// Reveal secret doors
 
-				var room1 = Globals.RDB[24];
+				var room1 = gRDB[24];
 
 				Debug.Assert(room1 != null);
 
-				var secretDoorArtifact1 = Globals.ADB[83];
+				var secretDoorArtifact1 = gADB[83];
 
 				Debug.Assert(secretDoorArtifact1 != null);
 
-				if (gameState.Ro == 24 && gameState.R3 == 41 && secretDoorArtifact1.IsInLimbo())
+				if (gGameState.Ro == 24 && gGameState.R3 == 41 && secretDoorArtifact1.IsInLimbo())
 				{
 					secretDoorArtifact1.SetInRoomUid(24);
 
@@ -148,15 +144,15 @@ namespace TheTempleOfNgurct.Game.States
 					room1.SetDirectionDoor(Direction.North, secretDoorArtifact1);
 				}
 
-				var room2 = Globals.RDB[48];
+				var room2 = gRDB[48];
 
 				Debug.Assert(room2 != null);
 
-				var secretDoorArtifact2 = Globals.ADB[84];
+				var secretDoorArtifact2 = gADB[84];
 
 				Debug.Assert(secretDoorArtifact2 != null);
 
-				if (gameState.Ro == 48 && gameState.R3 == 49 && secretDoorArtifact2.IsInLimbo())
+				if (gGameState.Ro == 48 && gGameState.R3 == 49 && secretDoorArtifact2.IsInLimbo())
 				{
 					secretDoorArtifact2.SetInRoomUid(48);
 

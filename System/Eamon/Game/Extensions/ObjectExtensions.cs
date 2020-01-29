@@ -9,7 +9,7 @@ namespace Eamon.Game.Extensions
 {
 	public static class ObjectExtensions
 	{
-		public static T CastTo<T>(this object obj) where T : class
+		public static T Cast<T>(this object obj) where T : class
 		{
 			Debug.Assert(obj != null);
 

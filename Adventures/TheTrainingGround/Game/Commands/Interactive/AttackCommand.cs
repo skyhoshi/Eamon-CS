@@ -1,7 +1,7 @@
 ﻿
 // AttackCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -16,24 +16,24 @@ namespace TheTrainingGround.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null || DobjMonster != null);
+			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
 
-			if (BlastSpell || ActorMonster.Weapon > 0)
+			if (BlastSpell || gActorMonster.Weapon > 0)
 			{
 				// Attack Bozworth
 
-				if (DobjMonster != null && DobjMonster.Uid == 20)
+				if (gDobjMonster != null && gDobjMonster.Uid == 20)
 				{
-					Globals.Engine.PrintEffectDesc(20);
+					gEngine.PrintEffectDesc(20);
 
-					DobjMonster.SetInLimbo();
+					gDobjMonster.SetInLimbo();
 
 					NextState = Globals.CreateInstance<IStartState>();
 				}
 
 				// Attack/BLAST backpack
 
-				else if (DobjArtifact != null && DobjArtifact.Uid == 13)
+				else if (gDobjArtifact != null && gDobjArtifact.Uid == 13)
 				{
 					PrintDontNeedTo();
 

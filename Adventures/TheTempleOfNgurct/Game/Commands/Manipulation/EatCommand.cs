@@ -1,7 +1,7 @@
 ﻿
 // EatCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -33,7 +33,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (DmgTaken > 0)
 			{
-				Globals.Out.Print("Some of your wounds seem to clear up.");
+				gOut.Print("Some of your wounds seem to clear up.");
 			}
 		}
 
@@ -44,16 +44,16 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			DmgTaken = ActorMonster.DmgTaken;
+			DmgTaken = gActorMonster.DmgTaken;
 
 			base.PlayerExecute();
 		}
 
 		public override bool IsAllowedInRoom()
 		{
-			return Globals.GameState.GetNBTL(Friendliness.Enemy) <= 0;
+			return gGameState.GetNBTL(Friendliness.Enemy) <= 0;
 		}
 
 		public EatCommand()

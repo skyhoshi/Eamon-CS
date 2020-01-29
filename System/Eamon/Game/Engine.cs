@@ -35,37 +35,57 @@ namespace Eamon.Game
 		/// <summary></summary>
 		protected virtual string[] FieldDescNames { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets an array containing the name for each <see cref="Status"/>.
+		/// </summary>
 		protected virtual string[] StatusNames { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets an array containing the name for each <see cref="Clothing"/>.
+		/// </summary>
 		protected virtual string[] ClothingNames { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets an array containing the description for each <see cref="CombatCode"/>.
+		/// </summary>
 		protected virtual string[] CombatCodeDescs { get; set; }
 
 		/// <summary></summary>
 		protected virtual string[] ContainerDisplayCodeDescs { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets an array containing the name for each <see cref="LightLevel"/>.
+		/// </summary>
 		protected virtual string[] LightLevelNames { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets an array containing data for each <see cref="Stat"/>.
+		/// </summary>
 		protected virtual IStat[] Stats { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets an array containing data for each <see cref="Spell"/>.
+		/// </summary>
 		protected virtual ISpell[] Spells { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets an array containing data for each <see cref="Weapon"/>.
+		/// </summary>
 		protected virtual IWeapon[] Weapons { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets an array containing data for each <see cref="Armor"/>.
+		/// </summary>
 		protected virtual IArmor[] Armors { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets an array containing data for each <see cref="Direction"/>.
+		/// </summary>
 		protected virtual IDirection[] Directions { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets an array containing data for each <see cref="ArtifactType"/>.
+		/// </summary>
 		protected virtual IArtifactType[] ArtifactTypes { get; set; }
 
 		#endregion
@@ -335,7 +355,7 @@ namespace Eamon.Game
 
 			if (armorUid > 0)
 			{
-				var artifact = Globals.ADB[armorUid];
+				var artifact = gADB[armorUid];
 
 				Debug.Assert(artifact != null);
 
@@ -360,7 +380,7 @@ namespace Eamon.Game
 
 			if (shieldUid > 0)
 			{
-				var artifact = Globals.ADB[shieldUid];
+				var artifact = gADB[shieldUid];
 
 				Debug.Assert(artifact != null);
 
@@ -1064,7 +1084,7 @@ namespace Eamon.Game
 					result = string.Format
 					(
 						" with {0} {1} {2}",
-						contentsList.Count > 1 || contentsList[0].IsPlural ? "some stuff" : ac.Field5 == (long)ContainerDisplayCode.ArtifactNameSomeStuff ? contentsList[0].GetDecoratedName02(false, showCharOwned, false, false, buf) : "something",
+						contentsList.Count > 1 || contentsList[0].IsPlural ? "some stuff" : ac.Field5 == (long)ContainerDisplayCode.ArtifactNameSomeStuff ? contentsList[0].GetArticleName(false, showCharOwned, false, false, buf) : "something",
 						EvalContainerType(containerType, "inside", "on", "under", "behind"),
 						artifact.EvalPlural("it", "them")
 					);
@@ -1249,7 +1269,7 @@ namespace Eamon.Game
 
 			if (effectUid > 0)
 			{
-				var effect = Globals.EDB[effectUid];
+				var effect = gEDB[effectUid];
 
 				if (effect != null && effect.Desc.Length > maxSize)
 				{
@@ -1468,24 +1488,24 @@ namespace Eamon.Game
 
 			if (inBox)
 			{
-				Globals.Out.Write("{0}{1}|",
+				gOut.Write("{0}{1}|",
 					Globals.LineSep,
 					Environment.NewLine);
 			}
 
 			spaces = ((Constants.RightMargin - 2) / 2) - (size / 2);
 
-			Globals.Out.Write("{0}{1}", new string(' ', (int)spaces), title);
+			gOut.Write("{0}{1}", new string(' ', (int)spaces), title);
 
 			if (inBox)
 			{
-				Globals.Out.Write("{0}|{1}{2}",
+				gOut.Write("{0}|{1}{2}",
 					new string(' ', (int)((Constants.RightMargin - 1) - (1 + spaces + size))),
 					Environment.NewLine,
 					Globals.LineSep);
 			}
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
 		Cleanup:
 
@@ -1494,12 +1514,12 @@ namespace Eamon.Game
 
 		public virtual void PrintEffectDesc(IEffect effect, bool printFinalNewLine = true)
 		{
-			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, effect != null ? effect.Desc : "???", printFinalNewLine ? Environment.NewLine : "");
+			gOut.Write("{0}{1}{2}", Environment.NewLine, effect != null ? effect.Desc : "???", printFinalNewLine ? Environment.NewLine : "");
 		}
 
 		public virtual void PrintEffectDesc(long effectUid, bool printFinalNewLine = true)
 		{
-			var effect = Globals.EDB[effectUid];
+			var effect = gEDB[effectUid];
 
 			PrintEffectDesc(effect, printFinalNewLine);
 		}
@@ -1739,7 +1759,7 @@ namespace Eamon.Game
 			{
 				if (str[0] == '*')
 				{
-					effect = Globals.EDB[currUid];
+					effect = gEDB[currUid];
 
 					if (effect != null)
 					{
@@ -1810,7 +1830,7 @@ namespace Eamon.Game
 
 						if (numStars > 0)
 						{
-							effect = Globals.EDB[currUid];
+							effect = gEDB[currUid];
 						}
 						else
 						{
@@ -2676,70 +2696,70 @@ namespace Eamon.Game
 					x.Name = "North";
 					x.PrintedName = "North";
 					x.Abbr = "N";
-					x.ArrivalDir = Direction.South;
+					x.EnterDir = Direction.South;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "South";
 					x.PrintedName = "South";
 					x.Abbr = "S";
-					x.ArrivalDir = Direction.North;
+					x.EnterDir = Direction.North;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "East";
 					x.PrintedName = "East";
 					x.Abbr = "E";
-					x.ArrivalDir = Direction.West;
+					x.EnterDir = Direction.West;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "West";
 					x.PrintedName = "West";
 					x.Abbr = "W";
-					x.ArrivalDir = Direction.East;
+					x.EnterDir = Direction.East;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Up";
 					x.PrintedName = "Up";
 					x.Abbr = "U";
-					x.ArrivalDir = Direction.Down;
+					x.EnterDir = Direction.Down;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Down";
 					x.PrintedName = "Down";
 					x.Abbr = "D";
-					x.ArrivalDir = Direction.Up;
+					x.EnterDir = Direction.Up;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Northeast";
 					x.PrintedName = "NE";
 					x.Abbr = "NE";
-					x.ArrivalDir = Direction.Southwest;
+					x.EnterDir = Direction.Southwest;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Northwest";
 					x.PrintedName = "NW";
 					x.Abbr = "NW";
-					x.ArrivalDir = Direction.Southeast;
+					x.EnterDir = Direction.Southeast;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Southeast";
 					x.PrintedName = "SE";
 					x.Abbr = "SE";
-					x.ArrivalDir = Direction.Northwest;
+					x.EnterDir = Direction.Northwest;
 				}),
 				Globals.CreateInstance<IDirection>(x =>
 				{
 					x.Name = "Southwest";
 					x.PrintedName = "SW";
 					x.Abbr = "SW";
-					x.ArrivalDir = Direction.Northeast;
+					x.EnterDir = Direction.Northeast;
 				})
 			};
 

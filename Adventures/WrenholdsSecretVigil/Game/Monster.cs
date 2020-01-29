@@ -1,7 +1,7 @@
 ﻿
 // Monster.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -71,7 +71,7 @@ namespace WrenholdsSecretVigil.Game
 			}
 			else
 			{
-				var rl = Globals.Engine.RollDice(1, 3, 6);
+				var rl = gEngine.RollDice(1, 3, 6);
 
 				var x = DmgTaken;
 
@@ -85,7 +85,7 @@ namespace WrenholdsSecretVigil.Game
 
 					if (Globals.MonsterCurses)
 					{
-						result += Globals.Engine.GetMonsterCurse(this, rl + 3);
+						result += gEngine.GetMonsterCurse(this, rl + 3);
 					}
 				}
 				else if (x == 3)
@@ -94,7 +94,7 @@ namespace WrenholdsSecretVigil.Game
 
 					if (Globals.MonsterCurses)
 					{
-						result += Globals.Engine.GetMonsterCurse(this, rl);
+						result += gEngine.GetMonsterCurse(this, rl);
 					}
 				}
 				else if (x == 2)

@@ -1,7 +1,7 @@
 ﻿
 // GameState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Framework;
 using Eamon.Game.Attributes;
@@ -36,7 +36,7 @@ namespace WrenholdsSecretVigil.Game
 		{
 			// Dial back the medallion's power ... 8-15 charges only
 
-			MedallionCharges = Globals.Engine.RollDice(1, 8, 7);
+			MedallionCharges = gEngine.RollDice(1, 8, 7);
 
 			MonsterCurses = new bool[6];
 		}

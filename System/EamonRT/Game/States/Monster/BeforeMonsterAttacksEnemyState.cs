@@ -1,7 +1,7 @@
 ﻿
 // BeforeMonsterAttacksEnemyState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -18,7 +18,7 @@ namespace EamonRT.Game.States
 	{
 		public override void Execute()
 		{
-			var monster = Globals.MDB[Globals.LoopMonsterUid];
+			var monster = gMDB[Globals.LoopMonsterUid];
 
 			Debug.Assert(monster != null);
 
@@ -35,7 +35,7 @@ namespace EamonRT.Game.States
 				goto Cleanup;
 			}
 
-			var monsterList = Globals.Engine.GetHostileMonsterList(monster);
+			var monsterList = gEngine.GetHostileMonsterList(monster);
 
 			Debug.Assert(monsterList != null);
 
@@ -55,7 +55,7 @@ namespace EamonRT.Game.States
 				goto Cleanup;
 			}
 
-			var rl = Globals.Engine.RollDice(1, monsterList.Count, 0);
+			var rl = gEngine.RollDice(1, monsterList.Count, 0);
 
 			var command = Globals.CreateInstance<IAttackCommand>(x =>
 			{

@@ -25,7 +25,7 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			var artUids = new long[] { Globals.GameState.Ar, Globals.GameState.Sh };
+			var artUids = new long[] { gGameState.Ar, gGameState.Sh };
 
 			var armorClass = Armor.SkinClothes;
 
@@ -33,7 +33,7 @@ namespace EamonRT.Game.Commands
 			{
 				if (artUid > 0)
 				{
-					var artifact = Globals.ADB[artUid];
+					var artifact = gADB[artUid];
 
 					Debug.Assert(artifact != null);
 
@@ -45,7 +45,7 @@ namespace EamonRT.Game.Commands
 				}
 			}
 
-			var armor = Globals.Engine.GetArmors(armorClass);
+			var armor = gEngine.GetArmors(armorClass);
 
 			Debug.Assert(armor != null);
 			
@@ -53,23 +53,23 @@ namespace EamonRT.Game.Commands
 
 			var charWeight = 0L;
 
-			rc = ActorMonster.GetFullInventoryWeight(ref charWeight, recurse: true);
+			rc = gActorMonster.GetFullInventoryWeight(ref charWeight, recurse: true);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			var args = Globals.CreateInstance<IStatDisplayArgs>(x =>
 			{
-				x.Monster = ActorMonster;
+				x.Monster = gActorMonster;
 				x.ArmorString = Globals.Buf.ToString();
-				x.SpellAbilities = Globals.GameState.Sa;
-				x.Speed = Globals.GameState.Speed;
-				x.CharmMon = Globals.Engine.GetCharismaFactor(Globals.Character.GetStats(Stat.Charisma));
+				x.SpellAbilities = gGameState.Sa;
+				x.Speed = gGameState.Speed;
+				x.CharmMon = gEngine.GetCharismaFactor(gCharacter.GetStats(Stat.Charisma));
 				x.Weight = charWeight;
 			});
 
-			rc = Globals.Character.StatDisplay(args);
+			rc = gCharacter.StatDisplay(args);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			PlayerProcessEvents(PpeAfterPlayerStatus);
 

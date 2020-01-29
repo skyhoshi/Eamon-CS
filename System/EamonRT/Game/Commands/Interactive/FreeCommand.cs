@@ -1,7 +1,7 @@
 ﻿
 // FreeCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -27,16 +27,16 @@ namespace EamonRT.Game.Commands
 
 		public virtual void PrintMonsterFreed()
 		{
-			Globals.Out.Print("You have freed {0}{1}.",
-				Monster.GetDecoratedName03(false, true, false, false, Globals.Buf),
-				Key != null ? string.Format(" with {0}", Key.GetDecoratedName03(false, true, false, false, Globals.Buf01)) : "");
+			gOut.Print("You have freed {0}{1}.",
+				Monster.GetTheName(),
+				Key != null ? string.Format(" with {0}", Key.GetTheName(buf: Globals.Buf01)) : "");
 		}
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			var ac = DobjArtifact.BoundMonster;
+			var ac = gDobjArtifact.BoundMonster;
 
 			if (ac != null)
 			{
@@ -46,11 +46,11 @@ namespace EamonRT.Game.Commands
 
 				var guardUid = ac.Field3;
 
-				Monster = monsterUid > 0 ? Globals.MDB[monsterUid] : null;
+				Monster = monsterUid > 0 ? gMDB[monsterUid] : null;
 
-				Key = keyUid > 0 ? Globals.ADB[keyUid] : null;
+				Key = keyUid > 0 ? gADB[keyUid] : null;
 
-				Guard = guardUid > 0 ? Globals.MDB[guardUid] : null;
+				Guard = guardUid > 0 ? gMDB[guardUid] : null;
 
 				Debug.Assert(Monster != null);
 
@@ -61,36 +61,36 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (Guard != null && Guard.IsInRoom(ActorRoom))
+				if (Guard != null && Guard.IsInRoom(gActorRoom))
 				{
-					Globals.Out.Print("{0} won't let you!", Guard.GetDecoratedName03(true, true, false, false, Globals.Buf));
+					gOut.Print("{0} won't let you!", Guard.GetTheName(true));
 
 					goto Cleanup;
 				}
 
 				if (keyUid == -1)
 				{
-					Globals.Out.Print("There's no obvious way to do that.");
+					gOut.Print("There's no obvious way to do that.");
 
 					goto Cleanup;
 				}
 
-				if (Key != null && !Key.IsCarriedByCharacter() && !Key.IsWornByCharacter() && !Key.IsInRoom(ActorRoom))
+				if (Key != null && !Key.IsCarriedByCharacter() && !Key.IsWornByCharacter() && !Key.IsInRoom(gActorRoom))
 				{
-					Globals.Out.Print("You don't have the key.");
+					gOut.Print("You don't have the key.");
 
 					goto Cleanup;
 				}
 
 				PrintMonsterFreed();
 
-				Monster.SetInRoom(ActorRoom);
+				Monster.SetInRoom(gActorRoom);
 
-				DobjArtifact.SetInLimbo();
+				gDobjArtifact.SetInLimbo();
 			}
 			else
 			{
-				PrintCantVerbObj(DobjArtifact);
+				PrintCantVerbObj(gDobjArtifact);
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -107,9 +107,9 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerFinishParsing()
 		{
-			CommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch01;
+			gCommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch01;
 
-			CommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch01;
+			gCommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch01;
 
 			PlayerResolveArtifact();
 		}

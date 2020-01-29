@@ -1,7 +1,7 @@
 ﻿
 // HokasTokasMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -29,7 +29,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 			RetCode rc;
 			long i;
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			/* 
 				Full Credit:  Derived wholly from Donald Brown's Classic Eamon
@@ -42,7 +42,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 			{
 				var c2 = Globals.Character.GetMerchantAdjustedCharisma();
 
-				Rtio = Globals.Engine.GetMerchantRtio(c2);
+				Rtio = gEngine.GetMerchantRtio(c2);
 			}
 
 			Buf.Clear();
@@ -53,22 +53,22 @@ namespace EamonMH.Game.Menus.ActionMenus
 			{
 				i = (long)sv;
 
-				spell = Globals.Engine.GetSpells(sv);
+				spell = gEngine.GetSpells(sv);
 
 				Debug.Assert(spell != null);
 
 				Buf.AppendFormat("{0}{1}{2} for {3}",
 					i == (long)spellValues[0] ? "" : i == (long)spellValues[spellValues.Count - 1] ? " and " : ", ",
-					Globals.Engine.GetMerchantAskPrice(spell.HokasPrice, (double)Rtio),
+					gEngine.GetMerchantAskPrice(spell.HokasPrice, (double)Rtio),
 					i == (long)spellValues[0] ? " gold pieces" : "",
 					spell.HokasName != null ? spell.HokasName : spell.Name);
 			}
 
 			var spellStr = Buf.ToString();
 
-			Globals.Out.Write("{0}After a few minutes of diligent searching, you find Hokas Tokas, the old mage.  He looks at you and says, \"So you want old Tokey to teach you some magic, heh heh?  Well, it'll cost you.{0}{0}Today my fees are {1}.{0}{0}Well, which will it be?\"{0}", Environment.NewLine, spellStr);
+			gOut.Write("{0}After a few minutes of diligent searching, you find Hokas Tokas, the old mage.  He looks at you and says, \"So you want old Tokey to teach you some magic, heh heh?  Well, it'll cost you.{0}{0}Today my fees are {1}.{0}{0}Well, which will it be?\"{0}", Environment.NewLine, spellStr);
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			Buf.Clear();
 
@@ -76,7 +76,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 			{
 				i = (long)sv;
 
-				spell = Globals.Engine.GetSpells(sv);
+				spell = gEngine.GetSpells(sv);
 
 				Debug.Assert(spell != null);
 
@@ -88,21 +88,21 @@ namespace EamonMH.Game.Menus.ActionMenus
 					i == (long)spellValues[spellValues.Count - 1] ? ", X=Exit: " : "");
 			}
 
-			Globals.Out.Write("{0}", Buf);
+			gOut.Write("{0}", Buf);
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharSpellTypeOrX, Globals.Engine.IsCharSpellTypeOrX);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharSpellTypeOrX, gEngine.IsCharSpellTypeOrX);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			Globals.Thread.Sleep(150);
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			if (Buf.Length == 0 || Buf[0] == 'X')
 			{
-				Globals.Out.Print("As you leave, you hear Hokas muttering about cheapskate adventurers always wanting something for nothing.");
+				gOut.Print("As you leave, you hear Hokas muttering about cheapskate adventurers always wanting something for nothing.");
 
 				Globals.In.KeyPress(Buf);
 
@@ -113,22 +113,22 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			if (Globals.Character.GetSpellAbilities(i) > 0)
 			{
-				Globals.Out.Write("{0}Hokas says, \"I ought to take your gold anyway, but haven't you forgotten something?  I already taught you that spell!\"{0}{0}Shaking his head sadly, he returns to the bar.{0}", Environment.NewLine);
+				gOut.Write("{0}Hokas says, \"I ought to take your gold anyway, but haven't you forgotten something?  I already taught you that spell!\"{0}{0}Shaking his head sadly, he returns to the bar.{0}", Environment.NewLine);
 
 				Globals.In.KeyPress(Buf);
 
 				goto Cleanup;
 			}
 
-			spell = Globals.Engine.GetSpells((Spell)i);
+			spell = gEngine.GetSpells((Spell)i);
 
 			Debug.Assert(spell != null);
 
-			var ap = Globals.Engine.GetMerchantAskPrice(spell.HokasPrice, (double)Rtio);
+			var ap = gEngine.GetMerchantAskPrice(spell.HokasPrice, (double)Rtio);
 
 			if (ap > Globals.Character.HeldGold)
 			{
-				Globals.Out.Print("When Hokas sees that you don't have enough to pay him, he stalks to the bar, muttering about youngsters who should be turned into frogs.");
+				gOut.Print("When Hokas sees that you don't have enough to pay him, he stalks to the bar, muttering about youngsters who should be turned into frogs.");
 
 				Globals.In.KeyPress(Buf);
 
@@ -137,7 +137,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Character.HeldGold -= ap;
 
-			var sa = Globals.Engine.RollDice(1, 51, 24);
+			var sa = gEngine.RollDice(1, 51, 24);
 
 			sa += (long)Math.Round((51.0 / 100.0) * (double)Globals.Character.GetIntellectBonusPct());
 
@@ -147,7 +147,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.CharactersModified = true;
 
-			Globals.Out.Print("Hokas teaches you your spell, takes his fee, and returns to his stool at the bar.  As you walk away you hear him order a double dragon blomb.");
+			gOut.Print("Hokas teaches you your spell, takes his fee, and returns to his stool at the bar.  As you walk away you hear him order a double dragon blomb.");
 
 			Globals.In.KeyPress(Buf);
 

@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -20,7 +20,7 @@ namespace TheTrainingGround.Game
 
 			// Obsidian scroll case
 
-			var scrollCaseArtifact = Globals.ADB[51];
+			var scrollCaseArtifact = gADB[51];
 
 			Debug.Assert(scrollCaseArtifact != null);
 
@@ -32,7 +32,7 @@ namespace TheTrainingGround.Game
 
 			for (var i = 46; i <= 50; i++)
 			{
-				var graffitiArtifact = Globals.ADB[i];
+				var graffitiArtifact = gADB[i];
 
 				Debug.Assert(graffitiArtifact != null);
 
@@ -83,7 +83,7 @@ namespace TheTrainingGround.Game
 
 			// Kobold6 is mentioned in Kobold5's description
 
-			var monster = Globals.MDB[11];
+			var monster = gMDB[11];
 
 			Debug.Assert(monster != null);
 
@@ -102,11 +102,11 @@ namespace TheTrainingGround.Game
 
 			if (artifact.Uid == 30)
 			{
-				var scrollCaseArtifact = Globals.ADB[51];
+				var scrollCaseArtifact = gADB[51];
 
 				Debug.Assert(scrollCaseArtifact != null);
 
-				scrollCaseArtifact.SetInRoomUid(Globals.GameState.Ro);
+				scrollCaseArtifact.SetInRoomUid(gGameState.Ro);
 			}
 		}
 	}

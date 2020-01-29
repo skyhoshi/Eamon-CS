@@ -1,7 +1,7 @@
 ﻿
 // RemoveCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -16,13 +16,13 @@ namespace StrongholdOfKahrDur.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			// Remove magical amulet in forest
 
-			if (Globals.GameState.Ro >= 65 && Globals.GameState.Ro != 92 && Globals.GameState.Ro != 93 && DobjArtifact.Uid == 18)
+			if (gGameState.Ro >= 65 && gGameState.Ro != 92 && gGameState.Ro != 93 && gDobjArtifact.Uid == 18)
 			{
-				Globals.Out.Print("If you remove {0}, you'll be paralysed with fear!", DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+				gOut.Print("If you remove {0}, you'll be paralysed with fear!", gDobjArtifact.GetTheName());
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}

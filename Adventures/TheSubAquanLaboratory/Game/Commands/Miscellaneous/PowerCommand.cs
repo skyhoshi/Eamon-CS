@@ -1,7 +1,7 @@
 ﻿
 // PowerCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using Eamon.Game.Attributes;
@@ -17,25 +17,25 @@ namespace TheSubAquanLaboratory.Game.Commands
 	{
 		public virtual bool IsActorRoomInLab()
 		{
-			return ActorRoom.Uid == 18 || ActorRoom.Zone == 2;
+			return gActorRoom.Uid == 18 || gActorRoom.Zone == 2;
 		}
 
 		public override void PrintSonicBoom()
 		{
-			Globals.Engine.PrintEffectDesc(80 + (IsActorRoomInLab() ? 1 : 0));
+			gEngine.PrintEffectDesc(80 + (IsActorRoomInLab() ? 1 : 0));
 		}
 
 		public override void PlayerProcessEvents(long eventType)
 		{
 			if (eventType == PpeAfterPlayerSpellCastCheck)
 			{
-				var rl = Globals.Engine.RollDice(1, 100, 0);
+				var rl = gEngine.RollDice(1, 100, 0);
 
 				if (rl < 11)
 				{
 					// 10% Chance of raising the dead
 
-					var found = Globals.Engine.ResurrectDeadBodies(ActorRoom);
+					var found = gEngine.ResurrectDeadBodies(gActorRoom);
 
 					if (found)
 					{
@@ -53,7 +53,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 				{
 					// 10% Chance of stuff vanishing
 
-					var found = Globals.Engine.MakeArtifactsVanish(ActorRoom, a => a.IsInRoom(ActorRoom) && !a.IsUnmovable() && a.Uid != 82 && a.Uid != 89);
+					var found = gEngine.MakeArtifactsVanish(gActorRoom, a => a.IsInRoom(gActorRoom) && !a.IsUnmovable() && a.Uid != 82 && a.Uid != 89);
 
 					if (found)
 					{
@@ -73,9 +73,9 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					if (IsActorRoomInLab())
 					{
-						Globals.Engine.PrintEffectDesc(44);
+						gEngine.PrintEffectDesc(44);
 
-						Globals.GameState.Die = 1;
+						gGameState.Die = 1;
 
 						NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 						{
@@ -96,17 +96,17 @@ namespace TheSubAquanLaboratory.Game.Commands
 				{
 					// 10% Chance of insta-heal (tm)
 
-					if (ActorMonster.DmgTaken > 0)
+					if (gActorMonster.DmgTaken > 0)
 					{
-						ActorMonster.DmgTaken = 0;
+						gActorMonster.DmgTaken = 0;
 
-						Globals.Out.Print("All of your wounds are suddenly healed!");
+						gOut.Print("All of your wounds are suddenly healed!");
 
 						Globals.Buf.SetFormat("{0}You are ", Environment.NewLine);
 
-						ActorMonster.AddHealthStatus(Globals.Buf);
+						gActorMonster.AddHealthStatus(Globals.Buf);
 
-						Globals.Out.Write("{0}", Globals.Buf);
+						gOut.Write("{0}", Globals.Buf);
 
 						GotoCleanup = true;
 

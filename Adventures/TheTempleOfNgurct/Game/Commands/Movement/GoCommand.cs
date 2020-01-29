@@ -1,7 +1,7 @@
 ﻿
 // GoCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
@@ -20,7 +20,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override bool IsAllowedInRoom()
 		{
-			return Globals.GameState.GetNBTL(Friendliness.Enemy) <= 0;
+			return gGameState.GetNBTL(Friendliness.Enemy) <= 0;
 		}
 
 		public GoCommand()

@@ -1,7 +1,7 @@
 ﻿
 // ReadCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -17,32 +17,28 @@ namespace TheBeginnersCave.Game.Commands
 	{
 		public override void PlayerProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (eventType == PpeBeforeArtifactReadTextPrint)
 			{
 				// saving throw vs. intellect for book trap warning
 
-				if (DobjArtifact.Uid == 9)
+				if (gDobjArtifact.Uid == 9)
 				{
-					if (gameState.BookWarning == 0)
+					if (gGameState.BookWarning == 0)
 					{
-						var rl = Globals.Engine.RollDice(1, 22, 2);
+						var rl = gEngine.RollDice(1, 22, 2);
 
-						if (rl <= Globals.Character.GetStats(Stat.Intellect))
+						if (rl <= gCharacter.GetStats(Stat.Intellect))
 						{
-							Globals.Engine.PrintEffectDesc(14);
+							gEngine.PrintEffectDesc(14);
 
-							gameState.BookWarning = 1;
+							gGameState.BookWarning = 1;
 
 							GotoCleanup = true;
 						}
 					}
 					else
 					{
-						Globals.Engine.PrintEffectDesc(15);
+						gEngine.PrintEffectDesc(15);
 					}
 				}
 				else
@@ -54,11 +50,11 @@ namespace TheBeginnersCave.Game.Commands
 			{
 				// book trap
 
-				if (DobjArtifact.Uid == 9)
+				if (gDobjArtifact.Uid == 9)
 				{
-					Globals.Out.Print(ActorRoom.Uid == 26 ? "You fall into the sea and are eaten by a big fish." : "You flop three times and die.");
+					gOut.Print(gActorRoom.Uid == 26 ? "You fall into the sea and are eaten by a big fish." : "You flop three times and die.");
 
-					gameState.Die = 1;
+					gGameState.Die = 1;
 
 					NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 					{
@@ -80,15 +76,15 @@ namespace TheBeginnersCave.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			// change name of bottle
 
-			if (DobjArtifact.Uid == 3)
+			if (gDobjArtifact.Uid == 3)
 			{
-				DobjArtifact.Name = "healing potion";
+				gDobjArtifact.Name = "healing potion";
 
-				Globals.Out.Print("It says, \"HEALING POTION\".");
+				gOut.Print("It says, \"HEALING POTION\".");
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}

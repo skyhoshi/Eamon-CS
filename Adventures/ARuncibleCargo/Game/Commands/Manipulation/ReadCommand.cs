@@ -1,7 +1,7 @@
 ﻿
 // ReadCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -17,13 +17,9 @@ namespace ARuncibleCargo.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			switch (DobjArtifact.Uid)
+			switch (gDobjArtifact.Uid)
 			{
 				case 16:
 
@@ -41,28 +37,28 @@ namespace ARuncibleCargo.Game.Commands
 
 					// Student paper
 
-					if (!gameState.PaperRead)
+					if (!gGameState.PaperRead)
 					{
-						var spell = Globals.Engine.GetSpells(Spell.Speed);
+						var spell = gEngine.GetSpells(Spell.Speed);
 
 						Debug.Assert(spell != null);
 
-						Globals.Character.ModSpellAbilities(Spell.Speed, 25);
+						gCharacter.ModSpellAbilities(Spell.Speed, 25);
 
-						if (Globals.Character.GetSpellAbilities(Spell.Speed) > spell.MaxValue)
+						if (gCharacter.GetSpellAbilities(Spell.Speed) > spell.MaxValue)
 						{
-							Globals.Character.SetSpellAbilities(Spell.Speed, spell.MaxValue);
+							gCharacter.SetSpellAbilities(Spell.Speed, spell.MaxValue);
 						}
 
-						Globals.Engine.PrintEffectDesc(76);
+						gEngine.PrintEffectDesc(76);
 
-						Globals.Out.Print("Your ability to cast {0} just increased!", spell.Name);
+						gOut.Print("Your ability to cast {0} just increased!", spell.Name);
 
-						gameState.PaperRead = true;
+						gGameState.PaperRead = true;
 					}
 					else
 					{
-						Globals.Out.Print("Nothing happens.");
+						gOut.Print("Nothing happens.");
 					}
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();

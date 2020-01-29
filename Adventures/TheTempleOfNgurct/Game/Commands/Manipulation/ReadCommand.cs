@@ -1,7 +1,7 @@
 ﻿
 // ReadCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -24,11 +24,11 @@ namespace TheTempleOfNgurct.Game.Commands
 		{
 			// Book
 
-			if (eventType == PpeAfterArtifactRead && DobjArtifact.Uid == 61)
+			if (eventType == PpeAfterArtifactRead && gDobjArtifact.Uid == 61)
 			{
-				DobjArtifact.SetInRoom(ActorRoom);
+				gDobjArtifact.SetInRoom(gActorRoom);
 
-				ActorMonster.SetInRoomUid(58);
+				gActorMonster.SetInRoomUid(58);
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -42,41 +42,41 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			// Brown potion
 
-			if (DobjArtifact.Uid == 51)
+			if (gDobjArtifact.Uid == 51)
 			{
-				Globals.Engine.PrintEffectDesc(1);
+				gEngine.PrintEffectDesc(1);
 			}
 
 			// Yellow potion
 
-			else if (DobjArtifact.Uid == 53)
+			else if (gDobjArtifact.Uid == 53)
 			{
-				Globals.Engine.PrintEffectDesc(2);
+				gEngine.PrintEffectDesc(2);
 			}
 
 			// Red/black potion, fireball wand
 
-			else if (DobjArtifact.Uid == 52 || DobjArtifact.Uid == 62 || DobjArtifact.Uid == 63)
+			else if (gDobjArtifact.Uid == 52 || gDobjArtifact.Uid == 62 || gDobjArtifact.Uid == 63)
 			{
-				Globals.Engine.PrintEffectDesc(3);
+				gEngine.PrintEffectDesc(3);
 			}
 
 			// Wine
 
-			else if (DobjArtifact.Uid == 69)
+			else if (gDobjArtifact.Uid == 69)
 			{
-				Globals.Engine.PrintEffectDesc(4);
+				gEngine.PrintEffectDesc(4);
 			}
 
 			// Ring
 
-			else if (DobjArtifact.Uid == 64)
+			else if (gDobjArtifact.Uid == 64)
 			{
-				Globals.Engine.PrintEffectDesc(5);
+				gEngine.PrintEffectDesc(5);
 			}
 			else
 			{
@@ -91,7 +91,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override bool IsAllowedInRoom()
 		{
-			return Globals.GameState.GetNBTL(Friendliness.Enemy) <= 0;
+			return gGameState.GetNBTL(Friendliness.Enemy) <= 0;
 		}
 
 		public ReadCommand()

@@ -17,16 +17,12 @@ namespace BeginnersForest.Game.Commands
 	{
 		public override void PlayerProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			//          Spook Reducer 2.0
 			//  (c) 2012 Frank Black Productions
 
-			if (eventType == PpeAfterPlayerSay && string.Equals(ProcessedPhrase, "less spooks", StringComparison.OrdinalIgnoreCase) && gameState.SpookCounter < 8)
+			if (eventType == PpeAfterPlayerSay && string.Equals(ProcessedPhrase, "less spooks", StringComparison.OrdinalIgnoreCase) && gGameState.SpookCounter < 8)
 			{
-				var spookMonster = Globals.MDB[9];
+				var spookMonster = gMDB[9];
 
 				Debug.Assert(spookMonster != null);
 
@@ -36,9 +32,9 @@ namespace BeginnersForest.Game.Commands
 
 				spookMonster.OrigGroupCount = spookMonster.GroupCount;
 
-				gameState.SpookCounter = 8;
+				gGameState.SpookCounter = 8;
 
-				Globals.Out.Print("Less spooks it is!");
+				gOut.Print("Less spooks it is!");
 
 				NextState = Globals.CreateInstance<IStartState>();
 

@@ -11,8 +11,8 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="16" />
-            <Simple name="Agility" value="15" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
@@ -21,23 +21,1689 @@
             <Simple name="Armor" value="0" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="4" />
+            <Simple name="NwSides" value="1" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Friend" />
-            <Simple name="Gender" value="Male" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="200" />
+            <Simple name="OrigFriendliness" value="150" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO" />
+            <Simple name="Name" value="giant rat" />
+            <Simple name="Desc" value="You see a large rat here.  It appears to be nosing around, looking for something to eat." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="goblin" />
+            <Simple name="Desc" value="You see a small figure dressed in dark leather gear.  He is armed with a hand axe." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="skeleton" />
+            <Simple name="Desc" value="You see a skeleton, and this one appears to be animated.  It attacks with its sharp fingers." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="zombie" />
+            <Simple name="Desc" value="You see a human who is aimlessly wandering around.  He moves in your direction." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bugbear" />
+            <Simple name="Desc" value="You see a creature that resembles a hairy goblin.  Its skin is dirty yellow, and its hair is dingy brown.  In its hand it carries a weapon." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ghoul" />
+            <Simple name="Desc" value="You see an evil-looking creature with long, sharp claws and a forked tongue.  It sees you, and grimaces." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ghast" />
+            <Simple name="Desc" value="You see a humanoid creature with sharp claws, and a forked tongue.  As it nears you, you smell an overpowering stench like that of rotting flesh." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="gargoyle" />
+            <Simple name="Desc" value="You see a hideous creature with a muscular frame.  It has a long forked tail, and a large horn in the middle of its forehead.  When it sees you, it smiles with evil intent." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="shadow" />
+            <Simple name="Desc" value="You see a swiftly fleeting shadow.  A chill runs down your spine, and your hair stands on end as you realize that it's alive." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="will-o'-the-wisp" />
+            <Simple name="Desc" value="You see a brightly glowing sphere.  It changes color (from violet to red to green) as it dances and flits around you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="carrion crawler" />
+            <Simple name="Desc" value="You see a creature that strongly resembles a cross between a green cutworm and a huge cephalopod.  Many tentacles protrude from its head area, and its body is well armored." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="shambling mound" />
+            <Simple name="Desc" value="You see a humanoid-shaped heap of rotting vegetation.  It is tall (7 to 8 feet), and has a wide girth.  It lumbers toward you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ochre jelly" />
+            <Simple name="Desc" value="You see a large blob of jelly-like fluid creeping along the ground here." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="specter" />
+            <Simple name="Desc" value="You see a human, who reaches out to touch you.  As he draws near, he appears to be transparent." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="wererat" />
+            <Simple name="Desc" value="You see a giant rat-like creature.  However, it is bipedal and can use its hands like humans." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="wraith" />
+            <Simple name="Desc" value="You see a dark figure rise before you.  It has a misty consistency, with two glowing points of light for eyes." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="jackalwere" />
+            <Simple name="Desc" value="You see a humanoid, with a hairy body and the head of a jackal.  It appears to be bipedal, and can fully use its hands." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="clump of amber lotus flowers" />
+            <Simple name="Desc" value="You see a large clump of golden lilly-like flowers growing on the stream bank.  Each is about the size of a sunflower, and gives off an enticing scent." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="tanglewoode" />
+            <Simple name="Desc" value="You see a large walnut tree growing next to the stream.  Its long roots reach into the water, and deep into the ground." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="forest bloodnettle" />
+            <Simple name="Desc" value="Growing next to one of the tombstones, you glimpse a large plant.  It appears to be somewhat like a rose bush, complete with deep-red flowers." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dark hood" />
+            <Simple name="Desc" value="A grey, translucent, robed figure stands (or rather floats) next to the gravestone.  Its cowled face is completely hidden in shadow." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="whip weed" />
+            <Simple name="Desc" value="You see a strange plant growing next to the path.  It has two thin whip-like stalks, each measuring about 10 feet in length, growing from a roughly spherical, gourd-like base." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="animated suit of armor" />
+            <Simple name="Desc" value="You see a suit of plate mail, which seems to be moving along on its own.  It advances towards you, in a most threatening manner." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="pocket dragon" />
+            <Simple name="Desc" value="You spot a three-foot long lizard which closely resembles a small green dragon.  It is lazily resting upon its small hoard of &quot;treasure&quot;." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="crimson amoeba" />
+            <Simple name="Desc" value="You see a puddle of red wine on the stone floor.  However, it appears to be somewhat viscous - like an amoeba of some sort." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="saberclaw" />
+            <Simple name="Desc" value="You see a small (one foot tall) flying creature stooping over the deceased.  It has greasy black hair, leathery bat-like wings, and glowing red eyes.  Its right &quot;arm&quot; ends in a large bone-like extension that resembles a sword.  **200" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="27" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO27" />
             <Simple name="Desc" value="TODO" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="28" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO28" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="29" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO29" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="30" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO30" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="34" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="31" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="possessed cutlass" />
+            <Simple name="Desc" value="You see a large cutlass which moves under its own power.  It darts to and fro - and approaches you swiftly." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="32" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="jade statue" />
+            <Simple name="Desc" value="You see that the first of the statues is finely crafted jade, and stands about 6 feet tall.  It is sculpted in the shape of a humanoid with a tiger's head.  The remaining statues are much like the first:  one with the head of a rat, another with a **201" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="33" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO33" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="34" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO34" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="35" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO35" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="36" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="beholder" />
+            <Simple name="Desc" value="You see a floating creature with a spherical chitinous body.  Atop the sphere are 10 eyestalks, while in its central area are a great eleventh eye and a large mouth filled with pointed teeth." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="37" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="giant crayfish" />
+            <Simple name="Desc" value="You see a large marine crayfish scuttle out of the water.  It snaps its claws at you aggressively." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="38" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="water weird" />
+            <Simple name="Desc" value="You see a large creature, which is apparently made out of water!  It rears up at you, forming a large transparent wall." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="39" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="giant scorpion" />
+            <Simple name="Desc" value="You see a scorpion of enormous proportions here.  It snaps its pincers at you, and scuttles in your direction!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="40" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="griffin" />
+            <Simple name="Desc" value="You see a large creature sitting in the nest.  It has the head, claws and wings of an eagle, and the body of a lion." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="41" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="small griffin" />
+            <Simple name="Desc" value="Two small griffins, obviously under the care of the larger, also occupy the nest.  One pokes its head over, peering at you intently.  The other sits on the rim of the nest, and flaps its wings vigorously." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="42" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO42" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="43" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Jaldi'al the lich" />
+            <Simple name="Desc" value="Sitting on a throne made of wood is a skeletal figure, who wears a crown and a flowing robe.  When it sees you, it motions to the two giant leopards, hollowly chuckling at you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="44" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="jungle bekkah" />
+            <Simple name="Desc" value="You hear a roar and, looking up at a rock overhead, catch a glimpse of an enormous black jungle cat.  It has green eyes, long saber teeth, and razor-sharp claws.  Leaping to the ground, it growls at you ferociously.  Another cat, much **202" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="45" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO45" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="46" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Reginald" />
+            <Simple name="Desc" value="A companion of yours, a fellow calling himself Reginald, waits here.  He is clad in dark leather gear, and carries a mace." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="47" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dubro" />
+            <Simple name="Desc" value="Another companion, Dubro, also waits here impatiently.  He is tall and muscular, wears a flowing cloak, and leather armor.  He's armed with a maul." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="48" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Joque" />
+            <Simple name="Desc" value="You see Joque, a short stocky fellow with a long beard.  He's dressed entirely in chain mail, and carries a long claymore." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="100" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="1" />
+            <Simple name="NwSides" value="1" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="49" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Trevor" />
+            <Simple name="Desc" value="A final companion, the sly Trevor, leans heavily upon his wits for survival.  He's armed with a dirk." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="7" />
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="60" />
+            <Simple name="Agility" value="21" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="-3" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="0" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="2" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="175" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="175" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="50" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="efreeti" />
+            <Simple name="Desc" value="You see a large fiery creature floating before you, looking something like a genie.  It appears to be grinning at you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
       </Items>
@@ -48,6 +1714,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="1" />
+    <Simple name="CurrUid" value="50" />
   </Properties>
 </Complex>

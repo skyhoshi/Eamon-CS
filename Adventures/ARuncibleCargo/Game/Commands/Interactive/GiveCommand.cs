@@ -1,7 +1,7 @@
 ﻿
 // GiveCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -18,30 +18,26 @@ namespace ARuncibleCargo.Game.Commands
 	{
 		public override void PlayerProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (eventType == PpeAfterEnforceMonsterWeightLimitsCheck)
 			{
 				// Give Prince the Runcible Cargo
 
-				if ((IobjMonster.Uid == 38 || IobjMonster.Uid == 39) && DobjArtifact.Uid == 129)
+				if ((gIobjMonster.Uid == 38 || gIobjMonster.Uid == 39) && gDobjArtifact.Uid == 129)
 				{
-					DobjArtifact.SetCarriedByMonsterUid(38);
+					gDobjArtifact.SetCarriedByMonsterUid(38);
 
-					Globals.Character.HeldGold += 2000;
+					gCharacter.HeldGold += 2000;
 
-					Globals.Engine.PrintEffectDesc(132);
+					gEngine.PrintEffectDesc(132);
 
 					GotoCleanup = true;
 				}
 
 				// Give Bandit's Guild Commander the Runcible Cargo
 
-				else if ((IobjMonster.Uid == 27 || IobjMonster.Uid == 28) && DobjArtifact.Uid == 129)
+				else if ((gIobjMonster.Uid == 27 || gIobjMonster.Uid == 28) && gDobjArtifact.Uid == 129)
 				{
-					Globals.Engine.PrintEffectDesc(131);
+					gEngine.PrintEffectDesc(131);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
@@ -50,37 +46,37 @@ namespace ARuncibleCargo.Game.Commands
 
 				// Give Larkspur his pills
 
-				else if (IobjMonster.Uid == 36 && DobjArtifact.Uid == 130)
+				else if (gIobjMonster.Uid == 36 && gDobjArtifact.Uid == 130)
 				{
-					DobjArtifact.SetInLimbo();
+					gDobjArtifact.SetInLimbo();
 
-					IobjMonster.Friendliness++;
+					gIobjMonster.Friendliness++;
 
-					IobjMonster.OrigFriendliness = (Friendliness)200;
+					gIobjMonster.OrigFriendliness = (Friendliness)200;
 
-					Globals.Engine.PrintEffectDesc(94);
+					gEngine.PrintEffectDesc(94);
 
 					GotoCleanup = true;
 				}
 
 				// Further disable bribing
 
-				else if (IobjMonster.Friendliness < Friendliness.Friend)
+				else if (gIobjMonster.Friendliness < Friendliness.Friend)
 				{
-					Globals.Engine.MonsterSmiles(IobjMonster);
+					gEngine.MonsterSmiles(gIobjMonster);
 
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 
 					GotoCleanup = true;
 				}
 
 				// Nobody wants to hold the Runcible Cargo
 
-				else if (DobjArtifact.Uid == 129)
+				else if (gDobjArtifact.Uid == 129)
 				{
-					Globals.Out.Print("{0} nervously refuse{1} your offer.",
-						IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf),
-						IobjMonster.EvalPlural("s", ""));
+					gOut.Print("{0} nervously refuse{1} your offer.",
+						gIobjMonster.GetTheName(true),
+						gIobjMonster.EvalPlural("s", ""));
 
 					GotoCleanup = true;
 				}
@@ -93,24 +89,24 @@ namespace ARuncibleCargo.Game.Commands
 			{
 				// Give $ to Amazon
 
-				if (IobjMonster.Uid == 22 && IobjMonster.Friendliness == Friendliness.Friend)
+				if (gIobjMonster.Uid == 22 && gIobjMonster.Friendliness == Friendliness.Friend)
 				{
-					var gender = Math.Min((long)ActorMonster.Gender, 1);
+					var gender = Math.Min((long)gActorMonster.Gender, 1);
 
-					Globals.Engine.PrintEffectDesc(153 + gameState.GiveAmazonMoney + gender * 2);
+					gEngine.PrintEffectDesc(153 + gGameState.GiveAmazonMoney + gender * 2);
 
-					gameState.GiveAmazonMoney = 1;
+					gGameState.GiveAmazonMoney = 1;
 
 					GotoCleanup = true;
 				}
 
 				// Disable bribing
 
-				else if (IobjMonster.Friendliness < Friendliness.Friend)
+				else if (gIobjMonster.Friendliness < Friendliness.Friend)
 				{
-					Globals.Engine.MonsterSmiles(IobjMonster);
+					gEngine.MonsterSmiles(gIobjMonster);
 
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 
 					GotoCleanup = true;
 				}

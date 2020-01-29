@@ -1,7 +1,7 @@
 ﻿
 // GoOnAdventureMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -41,9 +41,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			if (index == 0)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("When you inquire with the burly Irishman about the adventures available to you he says, \"Ye cannat wait to put yerself to the test, eh?  {0}\"",
+				gOut.Print("When you inquire with the burly Irishman about the adventures available to you he says, \"Ye cannat wait to put yerself to the test, eh?  {0}\"",
 					j > 0 ? "Well, maybe one of these will suit yer fancy." : "Well, I just don't know where ye can venture right now.");
 			}
 
@@ -59,7 +59,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			while (true)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				var i = 0;
 
@@ -79,15 +79,15 @@ namespace EamonMH.Game.Menus.ActionMenus
 					{
 						nlFlag = false;
 
-						Globals.Out.WriteLine("{0}{0}{1}", Environment.NewLine, Globals.LineSep);
+						gOut.WriteLine("{0}{0}{1}", Environment.NewLine, Globals.LineSep);
 
-						Globals.Out.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
+						gOut.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
 
 						Buf.Clear();
 
-						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, Globals.Engine.ModifyCharToNullOrX, null, Globals.Engine.IsCharAny);
+						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, gEngine.ModifyCharToNullOrX, null, gEngine.IsCharAny);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						Globals.Thread.Sleep(150);
 
@@ -98,7 +98,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						if (i + 1 < filesets.Count)
 						{
-							Globals.Out.Print("{0}", Globals.LineSep);
+							gOut.Print("{0}", Globals.LineSep);
 						}
 					}
 
@@ -107,18 +107,18 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				if (nlFlag)
 				{
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 				}
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}Enter the selection or X to exit: ", Environment.NewLine);
+				gOut.Write("{0}Enter the selection or X to exit: ", Environment.NewLine);
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharDigitOrX, null);
+				rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharDigitOrX, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Globals.Thread.Sleep(150);
 
@@ -151,7 +151,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					rc = Globals.PushDatabase();
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					if (!string.IsNullOrWhiteSpace(fileset.FilesetFileName) && !string.Equals(fileset.FilesetFileName, "NONE", StringComparison.OrdinalIgnoreCase))
 					{
@@ -159,25 +159,25 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						rc = Globals.Database.LoadFilesets(fsfn, printOutput: false);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						SelectAdventure(index + 1);
 					}
 					else
 					{
-						Globals.Out.Print("{0}", Globals.LineSep);
+						gOut.Print("{0}", Globals.LineSep);
 
 						var chrfn = Globals.Path.Combine(fileset.WorkDir, "FRESHMEAT.XML");
 
 						rc = Globals.Database.LoadCharacters(chrfn, printOutput: false);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						var character = Globals.Database.CharacterTable.Records.FirstOrDefault();
 
 						if (character != null && character.Uid > 0 && !string.IsNullOrWhiteSpace(character.Name) && !string.Equals(character.Name, "NONE", StringComparison.OrdinalIgnoreCase))
 						{
-							Globals.Out.Print("{0} is already adventuring there!", character.Name);
+							gOut.Print("{0} is already adventuring there!", character.Name);
 
 							goto Cleanup01;
 						}
@@ -192,17 +192,17 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						rc = Globals.Database.AddCharacter(character);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						rc = Globals.Database.SaveCharacters(chrfn, false);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						var fsfn = Globals.Path.Combine(fileset.WorkDir, "SAVEGAME.XML");
 
 						rc = Globals.Database.LoadFilesets(fsfn, printOutput: false);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						filesets = Globals.Database.FilesetTable.Records;
 
@@ -215,13 +215,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						rc = Globals.Database.SaveFilesets(fsfn, false);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						var cfgfn = Globals.Path.Combine(fileset.WorkDir, "EAMONCFG.XML");
 
 						rc = Globals.Database.LoadConfigs(cfgfn, printOutput: false);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						Globals.Database.FreeConfigs();
 
@@ -273,33 +273,33 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						rc = Globals.Database.AddConfig(config);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						rc = Globals.Database.SaveConfigs(cfgfn, false);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
-						Globals.Out.Print("You are about to adventure in {0}{1}", fileset.Name, fileset.Name.Length > 0 && Char.IsPunctuation(fileset.Name[fileset.Name.Length - 1]) ? "" : "!");
+						gOut.Print("You are about to adventure in {0}{1}", fileset.Name, fileset.Name.Length > 0 && Char.IsPunctuation(fileset.Name[fileset.Name.Length - 1]) ? "" : "!");
 
 						IDatabase database = null;
 
 						rc = Globals.GetDatabase(0, ref database);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						rc = Globals.PushDatabase(database);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						// silently sync characters file with newly created files above
 
 						rc = Globals.Database.SaveCharacters(Globals.Config.MhCharacterFileName, false);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						rc = Globals.PopDatabase(false);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						Globals.Fileset = Globals.CloneInstance(fileset);
 
@@ -314,7 +314,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					rc = Globals.PopDatabase();
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					if (Globals.Fileset != null)
 					{

@@ -1,11 +1,12 @@
 ﻿
 // IPluginGlobals.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using Eamon.Framework.DataStorage;
 using Eamon.Framework.DataStorage.Generic;
 using Eamon.Framework.Portability;
@@ -15,6 +16,9 @@ namespace Eamon.Framework.Plugin
 	/// <summary></summary>
 	public interface IPluginGlobals
 	{
+		/// <summary></summary>
+		StringBuilder Buf { get; set; }
+
 		/// <summary></summary>
 		IDatabase Database { get; }
 

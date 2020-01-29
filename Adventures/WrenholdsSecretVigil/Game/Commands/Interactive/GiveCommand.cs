@@ -1,7 +1,7 @@
 ﻿
 // GiveCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
@@ -18,34 +18,34 @@ namespace WrenholdsSecretVigil.Game.Commands
 		{
 			if (eventType == PpeAfterEnforceMonsterWeightLimitsCheck)
 			{
-				if (IobjMonster.Uid == 1)
+				if (gIobjMonster.Uid == 1)
 				{
 					// Give death dog the dead rabbit
 
-					if (DobjArtifact.Uid == 15)
+					if (gDobjArtifact.Uid == 15)
 					{
-						DobjArtifact.SetInLimbo();
+						gDobjArtifact.SetInLimbo();
 
-						IobjMonster.Friendliness = (Friendliness)150;
+						gIobjMonster.Friendliness = (Friendliness)150;
 
-						IobjMonster.OrigFriendliness = (Friendliness)150;
+						gIobjMonster.OrigFriendliness = (Friendliness)150;
 
-						IobjMonster.ResolveFriendlinessPct(Globals.Character);
+						gIobjMonster.ResolveFriendlinessPct(gCharacter);
 
-						PrintGiveObjToActor(DobjArtifact, IobjMonster);
+						PrintGiveObjToActor(gDobjArtifact, gIobjMonster);
 
-						Globals.Engine.PrintEffectDesc(13);
+						gEngine.PrintEffectDesc(13);
 
-						if (IobjMonster.Friendliness == Friendliness.Friend)
+						if (gIobjMonster.Friendliness == Friendliness.Friend)
 						{
-							Globals.Out.Print("{0} barks once and wags its tail!", IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf));
+							gOut.Print("{0} barks once and wags its tail!", gIobjMonster.GetTheName(true));
 						}
 					}
 					else
 					{
-						Globals.Engine.MonsterSmiles(IobjMonster);
+						gEngine.MonsterSmiles(gIobjMonster);
 
-						Globals.Out.WriteLine();
+						gOut.WriteLine();
 					}
 
 					GotoCleanup = true;
@@ -53,11 +53,11 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				// Further disable bribing
 
-				else if (IobjMonster.CastTo<Framework.IMonster>().ShouldRefuseToAcceptGift01(DobjArtifact))
+				else if (gIobjMonster.ShouldRefuseToAcceptGift01(gDobjArtifact))
 				{
-					Globals.Engine.MonsterSmiles(IobjMonster);
+					gEngine.MonsterSmiles(gIobjMonster);
 
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 
 					GotoCleanup = true;
 				}
@@ -70,11 +70,11 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				// Disable bribing
 
-				if (IobjMonster.Uid == 1 || IobjMonster.Friendliness < Friendliness.Friend)
+				if (gIobjMonster.Uid == 1 || gIobjMonster.Friendliness < Friendliness.Friend)
 				{
-					Globals.Engine.MonsterSmiles(IobjMonster);
+					gEngine.MonsterSmiles(gIobjMonster);
 
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 
 					GotoCleanup = true;
 				}

@@ -1,7 +1,7 @@
 ﻿
 // Module.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Text;
@@ -93,7 +93,7 @@ namespace Eamon.Game
 
 			buf.AppendFormat("{0}{1}", Desc, Environment.NewLine);
 
-			Globals.Out.Write("{0}", buf);
+			gOut.Write("{0}", buf);
 		}
 
 		#endregion

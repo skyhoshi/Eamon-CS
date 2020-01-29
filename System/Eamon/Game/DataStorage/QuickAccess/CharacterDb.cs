@@ -1,8 +1,9 @@
 ﻿
 // CharacterDb.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using System.Collections.Generic;
 using Eamon.Framework;
 using Eamon.Framework.DataStorage.Generic;
 using Eamon.Game.Attributes;
@@ -14,11 +15,6 @@ namespace Eamon.Game.DataStorage.QuickAccess
 	public class CharacterDb : IRecordDb<ICharacter>
 	{
 		public virtual bool CopyAddedRecord { get; set; }
-
-		public CharacterDb()
-		{
-			CopyAddedRecord = true;
-		}
 
 		public virtual ICharacter this[long uid]
 		{
@@ -39,6 +35,19 @@ namespace Eamon.Game.DataStorage.QuickAccess
 					Globals.Database.AddCharacter(value, CopyAddedRecord);
 				}
 			}
+		}
+
+		public virtual ICollection<ICharacter> Records
+		{
+			get
+			{
+				return Globals?.Database?.CharacterTable?.Records;
+			}
+		}
+
+		public CharacterDb()
+		{
+			CopyAddedRecord = true;
 		}
 	}
 }

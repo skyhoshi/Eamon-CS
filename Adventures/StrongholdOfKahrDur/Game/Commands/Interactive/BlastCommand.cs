@@ -1,7 +1,7 @@
 ﻿
 // BlastCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -15,17 +15,17 @@ namespace StrongholdOfKahrDur.Game.Commands
 	{
 		public override void PlayerProcessEvents(long eventType)
 		{
-			var helmArtifact = Globals.ADB[25];
+			var helmArtifact = gADB[25];
 
 			Debug.Assert(helmArtifact != null);
 
 			// Necromancer cannot be blasted unless wearing Wizard's Helm
 
-			if (eventType == PpeAfterMonsterGetsAggravated && DobjMonster != null && DobjMonster.Uid == 22 && !helmArtifact.IsWornByCharacter())
+			if (eventType == PpeAfterMonsterGetsAggravated && gDobjMonster != null && gDobjMonster.Uid == 22 && !helmArtifact.IsWornByCharacter())
 			{
-				var rl = Globals.Engine.RollDice(1, 4, 56);
+				var rl = gEngine.RollDice(1, 4, 56);
 
-				Globals.Engine.PrintEffectDesc(rl);
+				gEngine.PrintEffectDesc(rl);
 
 				GotoCleanup = true;
 			}
@@ -39,9 +39,9 @@ namespace StrongholdOfKahrDur.Game.Commands
 		{
 			// When Necromancer is blasted only allow skill increases if wearing Wizard's Helm
 
-			if (DobjMonster != null && DobjMonster.Uid == 22)
+			if (gDobjMonster != null && gDobjMonster.Uid == 22)
 			{
-				var helmArtifact = Globals.ADB[25];
+				var helmArtifact = gADB[25];
 
 				Debug.Assert(helmArtifact != null);
 

@@ -1,7 +1,7 @@
 ﻿
 // BurnDownSpeedSpellState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -16,22 +16,22 @@ namespace EamonRT.Game.States
 	{
 		public virtual void PrintSpeedSpellExpired()
 		{
-			Globals.Out.Print("Your speed spell has{0} expired!", Globals.IsRulesetVersion(5) ? " just" : "");
+			gOut.Print("Your speed spell has{0} expired!", Globals.IsRulesetVersion(5) ? " just" : "");
 		}
 
 		public override void Execute()
 		{
-			if (Globals.GameState.Speed > 0 && ShouldPreTurnProcess())
+			if (gGameState.Speed > 0 && ShouldPreTurnProcess())
 			{
-				Globals.GameState.Speed--;
+				gGameState.Speed--;
 
-				if (Globals.GameState.Speed <= 0)
+				if (gGameState.Speed <= 0)
 				{
-					var stat = Globals.Engine.GetStats(Stat.Agility);
+					var stat = gEngine.GetStats(Stat.Agility);
 
 					Debug.Assert(stat != null);
 
-					var characterMonster = Globals.MDB[Globals.GameState.Cm];
+					var characterMonster = gMDB[gGameState.Cm];
 
 					Debug.Assert(characterMonster != null);
 
@@ -42,7 +42,7 @@ namespace EamonRT.Game.States
 						characterMonster.Agility = stat.MinValue;
 					}
 
-					var rl = Globals.Engine.RollDice(1, 100, 0);
+					var rl = gEngine.RollDice(1, 100, 0);
 
 					if (rl > 80 || !Globals.IsRulesetVersion(5))
 					{

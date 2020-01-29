@@ -1,7 +1,7 @@
 ﻿
 // WearCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -23,28 +23,28 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			var dobjAc = DobjArtifact.Wearable;
+			var dobjAc = gDobjArtifact.Wearable;
 
 			if (dobjAc != null)
 			{
-				if (DobjArtifact.IsWornByCharacter())
+				if (gDobjArtifact.IsWornByCharacter())
 				{
-					Globals.Out.Print("You're already wearing {0}!", DobjArtifact.EvalPlural("it", "them"));
+					gOut.Print("You're already wearing {0}!", gDobjArtifact.EvalPlural("it", "them"));
 
 					NextState = Globals.CreateInstance<IStartState>();
 
 					goto Cleanup;
 				}
 
-				if (!DobjArtifact.IsCarriedByCharacter())
+				if (!gDobjArtifact.IsCarriedByCharacter())
 				{
 					if (!GetCommandCalled)
 					{
-						RedirectToGetCommand<IWearCommand>(DobjArtifact);
+						RedirectToGetCommand<IWearCommand>(gDobjArtifact);
 					}
-					else if (DobjArtifact.DisguisedMonster == null)
+					else if (gDobjArtifact.DisguisedMonster == null)
 					{
 						NextState = Globals.CreateInstance<IStartState>();
 					}
@@ -54,9 +54,9 @@ namespace EamonRT.Game.Commands
 
 				if (dobjAc.Field1 > 0)
 				{
-					var arArtifact = Globals.ADB[Globals.GameState.Ar];
+					var arArtifact = gADB[gGameState.Ar];
 
-					var shArtifact = Globals.ADB[Globals.GameState.Sh];
+					var shArtifact = gADB[gGameState.Sh];
 
 					var arAc = arArtifact != null ? arArtifact.Wearable : null;
 
@@ -71,22 +71,22 @@ namespace EamonRT.Game.Commands
 
 						if (arAc != null)
 						{
-							Globals.Out.Print("You're already wearing armor!");
+							gOut.Print("You're already wearing armor!");
 
 							NextState = Globals.CreateInstance<IStartState>();
 
 							goto Cleanup;
 						}
 
-						Globals.GameState.Ar = DobjArtifact.Uid;
+						gGameState.Ar = gDobjArtifact.Uid;
 
-						ActorMonster.Armor = (dobjAc.Field1 / 2) + ((dobjAc.Field1 / 2) >= 3 ? 2 : 0) + (shAc != null ? shAc.Field1 : 0);
+						gActorMonster.Armor = (dobjAc.Field1 / 2) + ((dobjAc.Field1 / 2) >= 3 ? 2 : 0) + (shAc != null ? shAc.Field1 : 0);
 					}
 					else
 					{
 						if (shAc != null)
 						{
-							Globals.Out.Print("You're already wearing a shield!");
+							gOut.Print("You're already wearing a shield!");
 
 							NextState = Globals.CreateInstance<IStartState>();
 
@@ -95,28 +95,28 @@ namespace EamonRT.Game.Commands
 
 						// can't wear shield while using two-handed weapon
 
-						var weapon = ActorMonster.Weapon > 0 ? Globals.ADB[ActorMonster.Weapon] : null;
+						var weapon = gActorMonster.Weapon > 0 ? gADB[gActorMonster.Weapon] : null;
 
 						var weaponAc = weapon != null ? weapon.GeneralWeapon : null;
 
 						if (weaponAc != null && weaponAc.Field5 > 1)
 						{
-							PrintCantWearShieldWithWeapon(DobjArtifact, weapon);
+							PrintCantWearShieldWithWeapon(gDobjArtifact, weapon);
 
 							NextState = Globals.CreateInstance<IStartState>();
 
 							goto Cleanup;
 						}
 
-						Globals.GameState.Sh = DobjArtifact.Uid;
+						gGameState.Sh = gDobjArtifact.Uid;
 
-						ActorMonster.Armor = (arAc != null ? (arAc.Field1 / 2) + ((arAc.Field1 / 2) >= 3 ? 2 : 0) : 0) + dobjAc.Field1;
+						gActorMonster.Armor = (arAc != null ? (arAc.Field1 / 2) + ((arAc.Field1 / 2) >= 3 ? 2 : 0) : 0) + dobjAc.Field1;
 					}
 				}
 
-				DobjArtifact.SetWornByCharacter();
+				gDobjArtifact.SetWornByCharacter();
 
-				Globals.Out.Print("{0} worn.", DobjArtifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
+				PrintWorn(gDobjArtifact);
 
 				PlayerProcessEvents(PpeAfterArtifactWear);
 
@@ -127,7 +127,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{ 
-				PrintCantVerbObj(DobjArtifact);
+				PrintCantVerbObj(gDobjArtifact);
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -144,11 +144,11 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerFinishParsing()
 		{
-			CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+			gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 			{
-				a => a.IsCarriedByCharacter() || a.IsInRoom(ActorRoom),
-				a => a.IsEmbeddedInRoom(ActorRoom),
-				a => a.IsCarriedByContainerContainerTypeExposedToCharacter(Globals.Engine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, Globals.Engine.ExposeContainersRecursively),
+				a => a.IsCarriedByCharacter() || a.IsInRoom(gActorRoom),
+				a => a.IsEmbeddedInRoom(gActorRoom),
+				a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively),
 				a => a.IsWornByCharacter()
 			};
 

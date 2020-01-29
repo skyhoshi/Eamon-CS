@@ -4,5 +4,26 @@
         <name>TheVileGrimoireOfJaldial</name>
     </assembly>
     <members>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.EfreetiKilled">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.WaterWeirdKilled">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.AmoebaAppeared">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.ExitDirNames">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.PlayerResurrections">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.EfreetiSummons">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.TorchRounds">
+            <summary></summary>
+        </member>
     </members>
 </doc>

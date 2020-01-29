@@ -1,7 +1,7 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
@@ -14,9 +14,9 @@ namespace TheBeginnersCave.Game.States
 	{
 		public override void ProcessEvents(long eventType)
 		{
-			if (eventType == PeAfterBlockingArtifactCheck && Globals.GameState.R2 == -1)
+			if (eventType == PeAfterBlockingArtifactCheck && gGameState.R2 == -1)
 			{
-				Globals.Out.Print("Sorry, but I'm afraid to go into the water without my life preserver.");
+				gOut.Print("Sorry, but I'm afraid to go into the water without my life preserver.");
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}

@@ -78,7 +78,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var artType = Globals.Engine.GetArtifactTypes(Record.GetCategories(i).Type);
+			var artType = gEngine.GetArtifactTypes(Record.GetCategories(i).Type);
 
 			return string.Format("Cat #{0} {1}", i + 1, artType != null ? artType.Field1Name : "Field1");
 		}
@@ -89,7 +89,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var artType = Globals.Engine.GetArtifactTypes(Record.GetCategories(i).Type);
+			var artType = gEngine.GetArtifactTypes(Record.GetCategories(i).Type);
 
 			return string.Format("Cat #{0} {1}", i + 1, artType != null ? artType.Field2Name : "Field2");
 		}
@@ -100,7 +100,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var artType = Globals.Engine.GetArtifactTypes(Record.GetCategories(i).Type);
+			var artType = gEngine.GetArtifactTypes(Record.GetCategories(i).Type);
 
 			return string.Format("Cat #{0} {1}", i + 1, artType != null ? artType.Field3Name : "Field3");
 		}
@@ -111,7 +111,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var artType = Globals.Engine.GetArtifactTypes(Record.GetCategories(i).Type);
+			var artType = gEngine.GetArtifactTypes(Record.GetCategories(i).Type);
 
 			return string.Format("Cat #{0} {1}", i + 1, artType != null ? artType.Field4Name : "Field4");
 		}
@@ -122,7 +122,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var artType = Globals.Engine.GetArtifactTypes(Record.GetCategories(i).Type);
+			var artType = gEngine.GetArtifactTypes(Record.GetCategories(i).Type);
 
 			return string.Format("Cat #{0} {1}", i + 1, artType != null ? artType.Field5Name : "Field5");
 		}
@@ -365,7 +365,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual bool ValidatePluralType()
 		{
-			return Globals.Engine.IsValidPluralType(Record.PluralType);
+			return gEngine.IsValidPluralType(Record.PluralType);
 		}
 
 		/// <summary></summary>
@@ -428,7 +428,7 @@ namespace Eamon.Game.Helpers
 
 			if (activeCategory)
 			{
-				result = Globals.Engine.IsValidArtifactType(Record.GetCategories(i).Type);
+				result = gEngine.IsValidArtifactType(Record.GetCategories(i).Type);
 
 				if (result)
 				{
@@ -515,7 +515,7 @@ namespace Eamon.Game.Helpers
 
 					case ArtifactType.Wearable:
 
-						result = Globals.Engine.IsValidArtifactArmor(Record.GetCategories(i).Field1);
+						result = gEngine.IsValidArtifactArmor(Record.GetCategories(i).Field1);
 
 						break;
 
@@ -573,7 +573,7 @@ namespace Eamon.Game.Helpers
 
 					case ArtifactType.InContainer:
 
-						result = (Record.GetCategories(i).Field2 >= 0 && Record.GetCategories(i).Field2 <= 1) || Globals.Engine.IsArtifactFieldStrength(Record.GetCategories(i).Field2);
+						result = (Record.GetCategories(i).Field2 >= 0 && Record.GetCategories(i).Field2 <= 1) || gEngine.IsArtifactFieldStrength(Record.GetCategories(i).Field2);
 
 						break;
 
@@ -675,7 +675,7 @@ namespace Eamon.Game.Helpers
 
 					case ArtifactType.DoorGate:
 
-						result = (Record.GetCategories(i).Field3 >= 0 && Record.GetCategories(i).Field3 <= 1) || Globals.Engine.IsArtifactFieldStrength(Record.GetCategories(i).Field3);
+						result = (Record.GetCategories(i).Field3 >= 0 && Record.GetCategories(i).Field3 <= 1) || gEngine.IsArtifactFieldStrength(Record.GetCategories(i).Field3);
 
 						break;
 
@@ -833,9 +833,9 @@ namespace Eamon.Game.Helpers
 
 			long invalidUid = 0;
 
-			var rc = Globals.Engine.ResolveUidMacros(Record.Desc, Buf, false, false, ref invalidUid);
+			var rc = gEngine.ResolveUidMacros(Record.Desc, Buf, false, false, ref invalidUid);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			if (invalidUid > 0)
 			{
@@ -863,11 +863,11 @@ namespace Eamon.Game.Helpers
 		{
 			var result = true;
 
-			var effectUid = Globals.Engine.GetPluralTypeEffectUid(Record.PluralType);
+			var effectUid = gEngine.GetPluralTypeEffectUid(Record.PluralType);
 
 			if (effectUid > 0)
 			{
-				var effect = Globals.EDB[effectUid];
+				var effect = gEDB[effectUid];
 
 				if (effect == null)
 				{
@@ -900,7 +900,7 @@ namespace Eamon.Game.Helpers
 
 			if (monUid > 0)
 			{
-				var monster = Globals.MDB[monUid];
+				var monster = gMDB[monUid];
 
 				if (monster == null)
 				{
@@ -923,7 +923,7 @@ namespace Eamon.Game.Helpers
 
 				if (monUid > 0)
 				{
-					var monster = Globals.MDB[monUid];
+					var monster = gMDB[monUid];
 
 					if (monster == null)
 					{
@@ -946,7 +946,7 @@ namespace Eamon.Game.Helpers
 
 					if (roomUid > 0)
 					{
-						var room = Globals.RDB[roomUid];
+						var room = gRDB[roomUid];
 
 						if (room == null)
 						{
@@ -969,7 +969,7 @@ namespace Eamon.Game.Helpers
 
 						if (roomUid > 0)
 						{
-							var room = Globals.RDB[roomUid];
+							var room = gRDB[roomUid];
 
 							if (room == null)
 							{
@@ -994,7 +994,7 @@ namespace Eamon.Game.Helpers
 
 							if (artUid > 0)
 							{
-								var artifact = Globals.ADB[artUid];
+								var artifact = gADB[artUid];
 
 								if (artifact == null)
 								{
@@ -1010,11 +1010,11 @@ namespace Eamon.Game.Helpers
 
 									goto Cleanup;
 								}
-								else if (artifact.GetArtifactCategory(Globals.Engine.EvalContainerType(containerType, ArtifactType.InContainer, ArtifactType.OnContainer, ArtifactType.UnderContainer, ArtifactType.BehindContainer)) == null)
+								else if (artifact.GetArtifactCategory(gEngine.EvalContainerType(containerType, ArtifactType.InContainer, ArtifactType.OnContainer, ArtifactType.UnderContainer, ArtifactType.BehindContainer)) == null)
 								{
 									result = false;
 
-									Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "artifact", artUid, string.Format("which should be {0}, but isn't", Globals.Engine.EvalContainerType(containerType, "an In container", "an On container", "an Under container", "a Behind container")));
+									Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "artifact", artUid, string.Format("which should be {0}, but isn't", gEngine.EvalContainerType(containerType, "an In container", "an On container", "an Under container", "a Behind container")));
 
 									ErrorMessage = Buf.ToString();
 
@@ -1100,7 +1100,7 @@ namespace Eamon.Game.Helpers
 
 						if (artUid > 0)
 						{
-							var artifact = Globals.ADB[artUid];
+							var artifact = gADB[artUid];
 
 							if (artifact == null)
 							{
@@ -1127,7 +1127,7 @@ namespace Eamon.Game.Helpers
 
 						if (effectUid > 0)
 						{
-							var effect = Globals.EDB[effectUid];
+							var effect = gEDB[effectUid];
 
 							if (effect == null)
 							{
@@ -1154,7 +1154,7 @@ namespace Eamon.Game.Helpers
 
 						if (roomUid > 0)
 						{
-							var room = Globals.RDB[roomUid];
+							var room = gRDB[roomUid];
 
 							if (room == null)
 							{
@@ -1181,7 +1181,7 @@ namespace Eamon.Game.Helpers
 
 						if (monUid > 0)
 						{
-							var monster = Globals.MDB[monUid];
+							var monster = gMDB[monUid];
 
 							if (monster == null)
 							{
@@ -1208,7 +1208,7 @@ namespace Eamon.Game.Helpers
 
 						if (monUid > 0)
 						{
-							var monster = Globals.MDB[monUid];
+							var monster = gMDB[monUid];
 
 							if (monster == null)
 							{
@@ -1267,7 +1267,7 @@ namespace Eamon.Game.Helpers
 
 							for (var j = 1; j < Record.GetCategories(i).Field2; j++, effectUid++)
 							{
-								var effect = Globals.EDB[effectUid];
+								var effect = gEDB[effectUid];
 
 								if (effect == null)
 								{
@@ -1295,7 +1295,7 @@ namespace Eamon.Game.Helpers
 
 						if (artUid > 0)
 						{
-							var artifact = Globals.ADB[artUid];
+							var artifact = gADB[artUid];
 
 							if (artifact == null)
 							{
@@ -1322,7 +1322,7 @@ namespace Eamon.Game.Helpers
 
 						if (artUid > 0)
 						{
-							var artifact = Globals.ADB[artUid];
+							var artifact = gADB[artUid];
 
 							if (artifact == null)
 							{
@@ -1349,7 +1349,7 @@ namespace Eamon.Game.Helpers
 
 						if (effectUid > 0)
 						{
-							var effect = Globals.EDB[effectUid];
+							var effect = gEDB[effectUid];
 
 							if (effect == null)
 							{
@@ -1404,7 +1404,7 @@ namespace Eamon.Game.Helpers
 
 						if (monUid > 0)
 						{
-							var monster = Globals.MDB[monUid];
+							var monster = gMDB[monUid];
 
 							if (monster == null)
 							{
@@ -1435,7 +1435,7 @@ namespace Eamon.Game.Helpers
 
 							for (var j = 1; j < Record.GetCategories(i).Field3; j++, effectUid++)
 							{
-								var effect = Globals.EDB[effectUid];
+								var effect = gEDB[effectUid];
 
 								if (effect == null)
 								{
@@ -1480,7 +1480,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the name of the artifact." + Environment.NewLine + Environment.NewLine + "Artifact names should always be in singular form and capitalized when appropriate.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -1488,7 +1488,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the state description of the artifact (will typically be empty).";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -1496,7 +1496,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter a detailed description of the artifact.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -1506,7 +1506,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = "0=Not seen; 1=Seen";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		/// <summary></summary>
@@ -1516,7 +1516,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = "0=Not char owned; 1=Char owned";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		/// <summary></summary>
@@ -1526,7 +1526,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = "0=Singular; 1=Plural";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		/// <summary></summary>
@@ -1536,7 +1536,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = "0=Not listed; 1=Listed";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		/// <summary></summary>
@@ -1546,7 +1546,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = "0=No change; 1=Use 's'; 2=Use 'es'; 3=Use 'y' to 'ies'; (1000 + N)=Use effect uid N as plural name";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		/// <summary></summary>
@@ -1556,7 +1556,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = "0=No article; 1=Use 'a'; 2=Use 'an'; 3=Use 'some'; 4=Use 'the'";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		/// <summary></summary>
@@ -1566,7 +1566,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = string.Format("{0}-{1}=Valid value", Constants.MinGoldValue, Constants.MaxGoldValue);
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		/// <summary></summary>
@@ -1576,7 +1576,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = "-999=Fixtures, doors, buildings, structures, etc; 1-5=Handheld object; 6-10=Medium sized items; 15-35=Weapons, equipment, etc; 999=Heavy furniture, giant objects, etc";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		/// <summary></summary>
@@ -1586,7 +1586,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = "(-1000 - N)=Worn by monster uid N; -999=Worn by player; (-N - 1)=Carried by monster uid N; -1=Carried by player; 0=Limbo; 1-1000=Room uid; (1000 + N)=Inside artifact uid N; (2000 + N)=On artifact uid N; (3000 + N)=Under artifact uid N; (4000 + N)=Behind artifact uid N; (5000 + N)=Embedded in room uid N";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		/// <summary></summary>
@@ -1604,14 +1604,14 @@ namespace Eamon.Game.Helpers
 
 			for (var j = 0; j < artTypeValues.Count; j++)
 			{
-				var artType = Globals.Engine.GetArtifactTypes(artTypeValues[j]);
+				var artType = gEngine.GetArtifactTypes(artTypeValues[j]);
 
 				Debug.Assert(artType != null);
 
 				briefDesc.AppendFormat("{0}{1}={2}", i > 0 && j == 0 ? "-1=None; " : j != 0 ? "; " : "", (long)artTypeValues[j], artType.Name);
 			}
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		/// <summary></summary>
@@ -1632,7 +1632,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("-50-50=Valid value");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1642,7 +1642,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key artifact uid");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1652,7 +1652,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("-1=Never runs out; (GE 0)=Valid value");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1661,7 +1661,7 @@ namespace Eamon.Game.Helpers
 
 					fullDesc.AppendFormat("Enter the number of hits healed (or inflicted, if negative) for the artifact (category #{0}).", i + 1);
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 
 					break;
 
@@ -1671,7 +1671,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("(GT 0)=Effect uid");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1679,7 +1679,7 @@ namespace Eamon.Game.Helpers
 
 					fullDesc.AppendFormat("Enter the room uid beyond for the artifact (category #{0}).{1}{1}This is the room uid of the room on the opposite side of the door/gate.", i + 1, Environment.NewLine);
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 
 					break;
 
@@ -1689,7 +1689,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("(GT 0)=Bound monster uid");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1701,14 +1701,14 @@ namespace Eamon.Game.Helpers
 
 					for (var j = 0; j < armorValues.Count; j++)
 					{
-						var armor = Globals.Engine.GetArmors(armorValues[j]);
+						var armor = gEngine.GetArmors(armorValues[j]);
 
 						Debug.Assert(armor != null);
 
 						briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)armorValues[j], armor.Name);
 					}
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1718,7 +1718,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("(GT 0)=Disguised monster uid");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1728,7 +1728,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("0=Not takeable; 1=Takeable");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1760,14 +1760,14 @@ namespace Eamon.Game.Helpers
 
 					for (var j = 0; j < weaponValues.Count; j++)
 					{
-						var weapon = Globals.Engine.GetWeapons(weaponValues[j]);
+						var weapon = gEngine.GetWeapons(weaponValues[j]);
 
 						Debug.Assert(weapon != null);
 
 						briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)weaponValues[j], weapon.Name);
 					}
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1777,7 +1777,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("0=Closed; 1=Open; (1000 + N)=Forced open with N hits damage");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1788,7 +1788,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("(GTE 0)=Valid value");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1798,7 +1798,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("(GT 0)=Valid value");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1808,7 +1808,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key artifact uid");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1818,7 +1818,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key artifact uid");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1830,10 +1830,10 @@ namespace Eamon.Game.Helpers
 
 					for (var j = 0; j < clothingValues.Count; j++)
 					{
-						briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)clothingValues[j], Globals.Engine.GetClothingNames(clothingValues[j]));
+						briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)clothingValues[j], gEngine.GetClothingNames(clothingValues[j]));
 					}
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1843,7 +1843,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("(GT 0)=Effect uid");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1873,7 +1873,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("1-25=Valid value");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1882,13 +1882,13 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.UnderContainer:
 				case ArtifactType.BehindContainer:
 
-					var containerType = Globals.Engine.GetContainerType(Record.GetCategories(i).Type);
+					var containerType = gEngine.GetContainerType(Record.GetCategories(i).Type);
 
-					fullDesc.AppendFormat("Enter the maximum combined weight allowed {0} the artifact (category #{1}).{2}{2}This is the total weight of items immediately {0} the container (not including their contents).", Globals.Engine.EvalContainerType(containerType, "inside", "on", "under", "behind"), i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the maximum combined weight allowed {0} the artifact (category #{1}).{2}{2}This is the total weight of items immediately {0} the container (not including their contents).", gEngine.EvalContainerType(containerType, "inside", "on", "under", "behind"), i + 1, Environment.NewLine);
 
 					briefDesc.Append("(GE 0)=Valid value");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1900,7 +1900,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("0=Closed; 1=Open");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1910,7 +1910,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("0=Open; 1=Closed; (1000 + N)=Forced open with N hits damage");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1920,7 +1920,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("0=No guard; (GT 0)=Guard monster uid");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1930,7 +1930,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("(GT 0)=Valid value");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1960,7 +1960,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("1-25=Valid value");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1969,13 +1969,13 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.UnderContainer:
 				case ArtifactType.BehindContainer:
 
-					var containerType = Globals.Engine.GetContainerType(Record.GetCategories(i).Type);
+					var containerType = gEngine.GetContainerType(Record.GetCategories(i).Type);
 
-					fullDesc.AppendFormat("Enter the maximum number of items allowed {0} the artifact (category #{1}).{2}{2}Additionally, you can specify that the player can't put anything {0} the container.", Globals.Engine.EvalContainerType(containerType, "inside", "on", "under", "behind"), i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the maximum number of items allowed {0} the artifact (category #{1}).{2}{2}Additionally, you can specify that the player can't put anything {0} the container.", gEngine.EvalContainerType(containerType, "inside", "on", "under", "behind"), i + 1, Environment.NewLine);
 
-					briefDesc.AppendFormat("0=Player can't put anything {0}; (GT 0)=Valid value", Globals.Engine.EvalContainerType(containerType, "inside", "on", "under", "behind"));
+					briefDesc.AppendFormat("0=Player can't put anything {0}; (GT 0)=Valid value", gEngine.EvalContainerType(containerType, "inside", "on", "under", "behind"));
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -1985,7 +1985,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("0=Normal; 1=Hidden");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -2015,7 +2015,7 @@ namespace Eamon.Game.Helpers
 
 					briefDesc.Append("1-2=Valid value");
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -2030,10 +2030,10 @@ namespace Eamon.Game.Helpers
 
 					for (var j = 0; j < containerDisplayCodeValues.Count; j++)
 					{
-						briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)containerDisplayCodeValues[j], Globals.Engine.GetContainerDisplayCodeDescs(containerDisplayCodeValues[j]));
+						briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)containerDisplayCodeValues[j], gEngine.GetContainerDisplayCodeDescs(containerDisplayCodeValues[j]));
 					}
 
-					Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
 					break;
 
@@ -2058,12 +2058,12 @@ namespace Eamon.Game.Helpers
 				{
 					var listNum = NumberFields ? ListNum++ : 0;
 
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Uid"), null), Record.Uid);
+					gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Uid"), null), Record.Uid);
 				}
 			}
 			else
 			{
-				Globals.Out.Write("{0}{1,3}. {2}", Environment.NewLine, Record.Uid, Globals.Engine.Capitalize(Record.Name));
+				gOut.Write("{0}{1,3}. {2}", Environment.NewLine, Record.Uid, gEngine.Capitalize(Record.Name));
 			}
 		}
 
@@ -2074,7 +2074,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Name"), null), Record.Name);
+				gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Name"), null), Record.Name);
 			}
 		}
 
@@ -2091,11 +2091,11 @@ namespace Eamon.Game.Helpers
 
 					Buf.Append(Record.StateDesc);
 
-					Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("StateDesc"), null), Buf);
+					gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("StateDesc"), null), Buf);
 				}
 				else
 				{
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("StateDesc"), null), Record.StateDesc);
+					gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("StateDesc"), null), Record.StateDesc);
 				}
 			}
 		}
@@ -2109,9 +2109,9 @@ namespace Eamon.Game.Helpers
 
 				if (ResolveEffects)
 				{
-					var rc = Globals.Engine.ResolveUidMacros(Record.Desc, Buf, true, true);
+					var rc = gEngine.ResolveUidMacros(Record.Desc, Buf, true, true);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 				else
 				{
@@ -2120,7 +2120,7 @@ namespace Eamon.Game.Helpers
 
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Desc"), null), Buf);
+				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Desc"), null), Buf);
 			}
 		}
 
@@ -2131,7 +2131,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Seen"), null), Convert.ToInt64(Record.Seen));
+				gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Seen"), null), Convert.ToInt64(Record.Seen));
 			}
 		}
 
@@ -2142,7 +2142,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("IsCharOwned"), null), Convert.ToInt64(Record.IsCharOwned));
+				gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("IsCharOwned"), null), Convert.ToInt64(Record.IsCharOwned));
 			}
 		}
 
@@ -2153,7 +2153,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("IsPlural"), null), Convert.ToInt64(Record.IsPlural));
+				gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("IsPlural"), null), Convert.ToInt64(Record.IsPlural));
 			}
 		}
 
@@ -2164,7 +2164,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("IsListed"), null), Convert.ToInt64(Record.IsListed));
+				gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("IsListed"), null), Convert.ToInt64(Record.IsListed));
 			}
 		}
 
@@ -2181,9 +2181,9 @@ namespace Eamon.Game.Helpers
 
 					Buf01.Clear();
 
-					var effectUid = Globals.Engine.GetPluralTypeEffectUid(Record.PluralType);
+					var effectUid = gEngine.GetPluralTypeEffectUid(Record.PluralType);
 
-					var effect = Globals.EDB[effectUid];
+					var effect = gEDB[effectUid];
 
 					if (effect != null)
 					{
@@ -2196,10 +2196,10 @@ namespace Eamon.Game.Helpers
 						Buf.AppendFormat("Use effect uid {0}", effectUid);
 					}
 
-					Globals.Out.Write("{0}{1}{2}",
+					gOut.Write("{0}{1}{2}",
 						Environment.NewLine,
-						Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("PluralType"), null),
-						Globals.Engine.BuildValue(51, ' ', 8, (long)Record.PluralType, null,
+						gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("PluralType"), null),
+						gEngine.BuildValue(51, ' ', 8, (long)Record.PluralType, null,
 						Record.PluralType == PluralType.None ? "No change" :
 						Record.PluralType == PluralType.S ? "Use 's'" :
 						Record.PluralType == PluralType.Es ? "Use 'es'" :
@@ -2208,7 +2208,7 @@ namespace Eamon.Game.Helpers
 				}
 				else
 				{
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("PluralType"), null), (long)Record.PluralType);
+					gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("PluralType"), null), (long)Record.PluralType);
 				}
 			}
 		}
@@ -2222,10 +2222,10 @@ namespace Eamon.Game.Helpers
 
 				if (LookupMsg)
 				{
-					Globals.Out.Write("{0}{1}{2}",
+					gOut.Write("{0}{1}{2}",
 						Environment.NewLine,
-						Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("ArticleType"), null),
-						Globals.Engine.BuildValue(51, ' ', 8, (long)Record.ArticleType, null,
+						gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("ArticleType"), null),
+						gEngine.BuildValue(51, ' ', 8, (long)Record.ArticleType, null,
 						Record.ArticleType == ArticleType.None ? "No article" :
 						Record.ArticleType == ArticleType.A ? "Use 'a'" :
 						Record.ArticleType == ArticleType.An ? "Use 'an'" :
@@ -2234,7 +2234,7 @@ namespace Eamon.Game.Helpers
 				}
 				else
 				{
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("ArticleType"), null), (long)Record.ArticleType);
+					gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("ArticleType"), null), (long)Record.ArticleType);
 				}
 			}
 		}
@@ -2246,7 +2246,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Value"), null), Record.Value);
+				gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Value"), null), Record.Value);
 			}
 		}
 
@@ -2259,14 +2259,14 @@ namespace Eamon.Game.Helpers
 
 				if (LookupMsg)
 				{
-					Globals.Out.Write("{0}{1}{2}",
+					gOut.Write("{0}{1}{2}",
 						Environment.NewLine,
-						Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Weight"), null),
+						gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Weight"), null),
 						BuildValue(51, ' ', 8, "Weight"));
 				}
 				else
 				{
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Weight"), null), Record.Weight);
+					gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Weight"), null), Record.Weight);
 				}
 			}
 		}
@@ -2280,14 +2280,14 @@ namespace Eamon.Game.Helpers
 
 				if (LookupMsg)
 				{
-					Globals.Out.Write("{0}{1}{2}",
+					gOut.Write("{0}{1}{2}",
 						Environment.NewLine,
-						Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Location"), null),
+						gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Location"), null),
 						BuildValue(51, ' ', 8, "Location"));
 				}
 				else
 				{
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Location"), null), Record.Location);
+					gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Location"), null), Record.Location);
 				}
 			}
 		}
@@ -2321,14 +2321,14 @@ namespace Eamon.Game.Helpers
 
 					if (LookupMsg)
 					{
-						Globals.Out.Write("{0}{1}{2}",
+						gOut.Write("{0}{1}{2}",
 							Environment.NewLine,
-							Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesType"), null),
+							gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesType"), null),
 							BuildValue(51, ' ', 8, "CategoriesType"));
 					}
 					else
 					{
-						Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesType"), null), (long)Record.GetCategories(i).Type);
+						gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesType"), null), (long)Record.GetCategories(i).Type);
 					}
 				}
 			}
@@ -2347,14 +2347,14 @@ namespace Eamon.Game.Helpers
 
 					if (LookupMsg)
 					{
-						Globals.Out.Write("{0}{1}{2}",
+						gOut.Write("{0}{1}{2}",
 							Environment.NewLine,
-							Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField1"), null),
+							gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField1"), null),
 							BuildValue(51, ' ', 8, "CategoriesField1"));
 					}
 					else
 					{
-						Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField1"), null), Record.GetCategories(i).Field1);
+						gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField1"), null), Record.GetCategories(i).Field1);
 					}
 				}
 			}
@@ -2373,14 +2373,14 @@ namespace Eamon.Game.Helpers
 
 					if (LookupMsg)
 					{
-						Globals.Out.Write("{0}{1}{2}",
+						gOut.Write("{0}{1}{2}",
 							Environment.NewLine,
-							Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField2"), null),
+							gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField2"), null),
 							BuildValue(51, ' ', 8, "CategoriesField2"));
 					}
 					else
 					{
-						Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField2"), null), Record.GetCategories(i).Field2);
+						gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField2"), null), Record.GetCategories(i).Field2);
 					}
 				}
 			}
@@ -2399,14 +2399,14 @@ namespace Eamon.Game.Helpers
 
 					if (LookupMsg)
 					{
-						Globals.Out.Write("{0}{1}{2}",
+						gOut.Write("{0}{1}{2}",
 							Environment.NewLine,
-							Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField3"), null),
+							gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField3"), null),
 							BuildValue(51, ' ', 8, "CategoriesField3"));
 					}
 					else
 					{
-						Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField3"), null), Record.GetCategories(i).Field3);
+						gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField3"), null), Record.GetCategories(i).Field3);
 					}
 				}
 			}
@@ -2425,14 +2425,14 @@ namespace Eamon.Game.Helpers
 
 					if (LookupMsg)
 					{
-						Globals.Out.Write("{0}{1}{2}",
+						gOut.Write("{0}{1}{2}",
 							Environment.NewLine,
-							Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField4"), null),
+							gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField4"), null),
 							BuildValue(51, ' ', 8, "CategoriesField4"));
 					}
 					else
 					{
-						Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField4"), null), Record.GetCategories(i).Field4);
+						gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField4"), null), Record.GetCategories(i).Field4);
 					}
 				}
 			}
@@ -2451,14 +2451,14 @@ namespace Eamon.Game.Helpers
 
 					if (LookupMsg)
 					{
-						Globals.Out.Write("{0}{1}{2}",
+						gOut.Write("{0}{1}{2}",
 							Environment.NewLine,
-							Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField5"), null),
+							gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField5"), null),
 							BuildValue(51, ' ', 8, "CategoriesField5"));
 					}
 					else
 					{
-						Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField5"), null), Record.GetCategories(i).Field5);
+						gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("CategoriesField5"), null), Record.GetCategories(i).Field5);
 					}
 				}
 			}
@@ -2471,9 +2471,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		protected virtual void InputUid()
 		{
-			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
+			gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -2489,11 +2489,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Name", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Name"), null));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Name"), null));
 
 				var rc = Globals.In.ReadField(Buf, Constants.ArtNameLen, null, '_', '\0', false, null, null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.Name = Buf.ToString();
 
@@ -2505,7 +2505,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -2521,15 +2521,15 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("StateDesc", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("StateDesc"), null));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("StateDesc"), null));
 
-				Globals.Out.WordWrap = false;
+				gOut.WordWrap = false;
 
 				var rc = Globals.In.ReadField(Buf, Constants.ArtStateDescLen, null, '_', '\0', true, null, null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				Globals.Out.WordWrap = true;
+				gOut.WordWrap = true;
 
 				Record.StateDesc = Buf.Trim().ToString();
 
@@ -2541,7 +2541,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -2557,15 +2557,15 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Desc", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Desc"), null));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Desc"), null));
 
-				Globals.Out.WordWrap = false;
+				gOut.WordWrap = false;
 
 				var rc = Globals.In.ReadField(Buf, Constants.ArtDescLen, null, '_', '\0', false, null, null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				Globals.Out.WordWrap = true;
+				gOut.WordWrap = true;
 
 				Record.Desc = Buf.Trim().ToString();
 
@@ -2577,7 +2577,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -2593,11 +2593,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Seen", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Seen"), "0"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Seen"), "0"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsChar0Or1, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, gEngine.IsChar0Or1, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.Seen = Convert.ToInt64(Buf.Trim().ToString()) != 0 ? true : false;
 
@@ -2609,7 +2609,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -2625,11 +2625,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("IsCharOwned", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("IsCharOwned"), "0"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("IsCharOwned"), "0"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsChar0Or1, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, gEngine.IsChar0Or1, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.IsCharOwned = Convert.ToInt64(Buf.Trim().ToString()) != 0 ? true : false;
 
@@ -2641,7 +2641,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -2657,11 +2657,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("IsPlural", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("IsPlural"), "0"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("IsPlural"), "0"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsChar0Or1, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, gEngine.IsChar0Or1, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.IsPlural = Convert.ToInt64(Buf.Trim().ToString()) != 0 ? true : false;
 
@@ -2673,7 +2673,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -2689,11 +2689,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("IsListed", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("IsListed"), "1"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("IsListed"), "1"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsChar0Or1, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, gEngine.IsChar0Or1, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.IsListed = Convert.ToInt64(Buf.Trim().ToString()) != 0 ? true : false;
 
@@ -2705,7 +2705,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -2721,11 +2721,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("PluralType", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("PluralType"), "1"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("PluralType"), "1"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, gEngine.IsCharDigit, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.PluralType = (PluralType)Convert.ToInt64(Buf.Trim().ToString());
 
@@ -2737,7 +2737,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -2753,11 +2753,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("ArticleType", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("ArticleType"), "1"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("ArticleType"), "1"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, gEngine.IsCharDigit, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.ArticleType = (ArticleType)Convert.ToInt64(Buf.Trim().ToString());
 
@@ -2769,7 +2769,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -2785,11 +2785,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Value", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Value"), "25"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Value"), "25"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "25", null, Globals.Engine.IsCharPlusMinusDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "25", null, gEngine.IsCharPlusMinusDigit, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				var error = false;
 
@@ -2810,13 +2810,13 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
 		protected virtual void InputWeight()
 		{
-			var artType = EditRec ? Globals.Engine.GetArtifactTypes(Record.GetCategories(0).Type) : null;
+			var artType = EditRec ? gEngine.GetArtifactTypes(Record.GetCategories(0).Type) : null;
 
 			Debug.Assert(!EditRec || artType != null);
 
@@ -2830,11 +2830,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Weight", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Weight"), artType != null ? artType.WeightEmptyVal : "15"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Weight"), artType != null ? artType.WeightEmptyVal : "15"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType != null ? artType.WeightEmptyVal : "15", null, Globals.Engine.IsCharPlusMinusDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType != null ? artType.WeightEmptyVal : "15", null, gEngine.IsCharPlusMinusDigit, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				var error = false;
 
@@ -2855,13 +2855,13 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
 		protected virtual void InputLocation()
 		{
-			var artType = EditRec ? Globals.Engine.GetArtifactTypes(Record.GetCategories(0).Type) : null;
+			var artType = EditRec ? gEngine.GetArtifactTypes(Record.GetCategories(0).Type) : null;
 
 			Debug.Assert(!EditRec || artType != null);
 
@@ -2875,11 +2875,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Location", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Location"), artType != null ? artType.LocationEmptyVal : "0"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Location"), artType != null ? artType.LocationEmptyVal : "0"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType != null ? artType.LocationEmptyVal : "0", null, Globals.Engine.IsCharPlusMinusDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType != null ? artType.LocationEmptyVal : "0", null, gEngine.IsCharPlusMinusDigit, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				var error = false;
 
@@ -2900,7 +2900,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -2934,11 +2934,11 @@ namespace Eamon.Game.Helpers
 
 					PrintFieldDesc("CategoriesType", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("CategoriesType"), i == 0 ? "1" : "-1"));
+					gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("CategoriesType"), i == 0 ? "1" : "-1"));
 
-					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, i == 0 ? "1" : "-1", null, i == 0 ? (Func<char, bool>)Globals.Engine.IsCharDigit : Globals.Engine.IsCharPlusMinusDigit, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, i == 0 ? "1" : "-1", null, i == 0 ? (Func<char, bool>)gEngine.IsCharDigit : gEngine.IsCharPlusMinusDigit, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					var error = false;
 
@@ -2963,7 +2963,7 @@ namespace Eamon.Game.Helpers
 				{
 					if (EditRec && Record.GetCategories(i).Type != type)
 					{
-						var artType = Globals.Engine.GetArtifactTypes(Record.GetCategories(i).Type);
+						var artType = gEngine.GetArtifactTypes(Record.GetCategories(i).Type);
 
 						Debug.Assert(artType != null);
 
@@ -2996,7 +2996,7 @@ namespace Eamon.Game.Helpers
 					}
 				}
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 			}
 			else
 			{
@@ -3011,7 +3011,7 @@ namespace Eamon.Game.Helpers
 
 			if (Record.GetCategories(i).Type != ArtifactType.None)
 			{
-				var artType = Globals.Engine.GetArtifactTypes(Record.GetCategories(i).Type);
+				var artType = gEngine.GetArtifactTypes(Record.GetCategories(i).Type);
 
 				Debug.Assert(artType != null);
 
@@ -3025,11 +3025,11 @@ namespace Eamon.Game.Helpers
 
 					PrintFieldDesc("CategoriesField1", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("CategoriesField1"), artType.Field1EmptyVal));
+					gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("CategoriesField1"), artType.Field1EmptyVal));
 
-					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType.Field1EmptyVal, null, Globals.Engine.IsCharPlusMinusDigit, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType.Field1EmptyVal, null, gEngine.IsCharPlusMinusDigit, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					var error = false;
 
@@ -3050,7 +3050,7 @@ namespace Eamon.Game.Helpers
 					fieldDesc = FieldDesc.Brief;
 				}
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 			}
 			else
 			{
@@ -3065,7 +3065,7 @@ namespace Eamon.Game.Helpers
 
 			if (Record.GetCategories(i).Type != ArtifactType.None)
 			{
-				var artType = Globals.Engine.GetArtifactTypes(Record.GetCategories(i).Type);
+				var artType = gEngine.GetArtifactTypes(Record.GetCategories(i).Type);
 
 				Debug.Assert(artType != null);
 
@@ -3079,11 +3079,11 @@ namespace Eamon.Game.Helpers
 
 					PrintFieldDesc("CategoriesField2", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("CategoriesField2"), artType.Field2EmptyVal));
+					gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("CategoriesField2"), artType.Field2EmptyVal));
 
-					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType.Field2EmptyVal, null, Globals.Engine.IsCharPlusMinusDigit, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType.Field2EmptyVal, null, gEngine.IsCharPlusMinusDigit, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					var error = false;
 
@@ -3104,7 +3104,7 @@ namespace Eamon.Game.Helpers
 					fieldDesc = FieldDesc.Brief;
 				}
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 			}
 			else
 			{
@@ -3119,7 +3119,7 @@ namespace Eamon.Game.Helpers
 
 			if (Record.GetCategories(i).Type != ArtifactType.None)
 			{
-				var artType = Globals.Engine.GetArtifactTypes(Record.GetCategories(i).Type);
+				var artType = gEngine.GetArtifactTypes(Record.GetCategories(i).Type);
 
 				Debug.Assert(artType != null);
 
@@ -3133,11 +3133,11 @@ namespace Eamon.Game.Helpers
 
 					PrintFieldDesc("CategoriesField3", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("CategoriesField3"), artType.Field3EmptyVal));
+					gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("CategoriesField3"), artType.Field3EmptyVal));
 
-					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType.Field3EmptyVal, null, Globals.Engine.IsCharPlusMinusDigit, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType.Field3EmptyVal, null, gEngine.IsCharPlusMinusDigit, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					var error = false;
 
@@ -3158,7 +3158,7 @@ namespace Eamon.Game.Helpers
 					fieldDesc = FieldDesc.Brief;
 				}
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 			}
 			else
 			{
@@ -3173,7 +3173,7 @@ namespace Eamon.Game.Helpers
 
 			if (Record.GetCategories(i).Type != ArtifactType.None)
 			{
-				var artType = Globals.Engine.GetArtifactTypes(Record.GetCategories(i).Type);
+				var artType = gEngine.GetArtifactTypes(Record.GetCategories(i).Type);
 
 				Debug.Assert(artType != null);
 
@@ -3187,11 +3187,11 @@ namespace Eamon.Game.Helpers
 
 					PrintFieldDesc("CategoriesField4", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("CategoriesField4"), artType.Field4EmptyVal));
+					gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("CategoriesField4"), artType.Field4EmptyVal));
 
-					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType.Field4EmptyVal, null, Globals.Engine.IsCharPlusMinusDigit, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType.Field4EmptyVal, null, gEngine.IsCharPlusMinusDigit, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					var error = false;
 
@@ -3212,7 +3212,7 @@ namespace Eamon.Game.Helpers
 					fieldDesc = FieldDesc.Brief;
 				}
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 			}
 			else
 			{
@@ -3227,7 +3227,7 @@ namespace Eamon.Game.Helpers
 
 			if (Record.GetCategories(i).Type != ArtifactType.None)
 			{
-				var artType = Globals.Engine.GetArtifactTypes(Record.GetCategories(i).Type);
+				var artType = gEngine.GetArtifactTypes(Record.GetCategories(i).Type);
 
 				Debug.Assert(artType != null);
 
@@ -3241,11 +3241,11 @@ namespace Eamon.Game.Helpers
 
 					PrintFieldDesc("CategoriesField5", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("CategoriesField5"), artType.Field5EmptyVal));
+					gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("CategoriesField5"), artType.Field5EmptyVal));
 
-					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType.Field5EmptyVal, null, Globals.Engine.IsCharPlusMinusDigit, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, artType.Field5EmptyVal, null, gEngine.IsCharPlusMinusDigit, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					var error = false;
 
@@ -3266,7 +3266,7 @@ namespace Eamon.Game.Helpers
 					fieldDesc = FieldDesc.Brief;
 				}
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 			}
 			else
 			{
@@ -3282,7 +3282,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		protected virtual string BuildValueWeight()
 		{
-			Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.Weight, null, Record.IsUnmovable() ? "Unmovable" : null));
+			Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.Weight, null, Record.IsUnmovable() ? "Unmovable" : null));
 
 			return Buf01.ToString();
 		}
@@ -3306,14 +3306,14 @@ namespace Eamon.Game.Helpers
 				var monster = Record.GetCarriedByMonster();
 
 				lookupMsg = string.Format("Carried by {0}",
-					monster != null ? Globals.Engine.Capitalize(monster.Name.Length > 29 ? monster.Name.Substring(0, 26) + "..." : monster.Name) : Globals.Engine.UnknownName);
+					monster != null ? gEngine.Capitalize(monster.Name.Length > 29 ? monster.Name.Substring(0, 26) + "..." : monster.Name) : gEngine.UnknownName);
 			}
 			else if (Record.IsWornByMonster())
 			{
 				var monster = Record.GetWornByMonster();
 
 				lookupMsg = string.Format("Worn by {0}",
-					monster != null ? Globals.Engine.Capitalize(monster.Name.Length > 32 ? monster.Name.Substring(0, 29) + "..." : monster.Name) : Globals.Engine.UnknownName);
+					monster != null ? gEngine.Capitalize(monster.Name.Length > 32 ? monster.Name.Substring(0, 29) + "..." : monster.Name) : gEngine.UnknownName);
 			}
 			else if (Record.IsCarriedByContainer())
 			{
@@ -3322,28 +3322,28 @@ namespace Eamon.Game.Helpers
 				var artifact = Record.GetCarriedByContainer();
 
 				lookupMsg = string.Format("{0} {1}",
-					Globals.Engine.EvalContainerType(containerType, "Inside", "On", "Under", "Behind"),
-					artifact != null ? Globals.Engine.Capitalize(artifact.Name.Length > 33 ? artifact.Name.Substring(0, 30) + "..." : artifact.Name) : Globals.Engine.UnknownName);
+					gEngine.EvalContainerType(containerType, "Inside", "On", "Under", "Behind"),
+					artifact != null ? gEngine.Capitalize(artifact.Name.Length > 33 ? artifact.Name.Substring(0, 30) + "..." : artifact.Name) : gEngine.UnknownName);
 			}
 			else if (Record.IsEmbeddedInRoom())
 			{
 				var room = Record.GetEmbeddedInRoom();
 
 				lookupMsg = string.Format("Embedded in {0}",
-					room != null ? Globals.Engine.Capitalize(room.Name.Length > 28 ? room.Name.Substring(0, 25) + "..." : room.Name) : Globals.Engine.UnknownName);
+					room != null ? gEngine.Capitalize(room.Name.Length > 28 ? room.Name.Substring(0, 25) + "..." : room.Name) : gEngine.UnknownName);
 			}
 			else if (Record.IsInRoom())
 			{
 				var room = Record.GetInRoom();
 
-				lookupMsg = room != null ? Globals.Engine.Capitalize(room.Name) : Globals.Engine.UnknownName;
+				lookupMsg = room != null ? gEngine.Capitalize(room.Name) : gEngine.UnknownName;
 			}
 			else
 			{
 				lookupMsg = null;
 			}
 
-			Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.Location, null, lookupMsg));
+			Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.Location, null, lookupMsg));
 
 			return Buf01.ToString();
 		}
@@ -3354,9 +3354,9 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var artType = Globals.Engine.GetArtifactTypes(Record.GetCategories(i).Type);
+			var artType = gEngine.GetArtifactTypes(Record.GetCategories(i).Type);
 
-			Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, (long)Record.GetCategories(i).Type, null, artType != null ? artType.Name : "None"));
+			Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, (long)Record.GetCategories(i).Type, null, artType != null ? artType.Name : "None"));
 
 			return Buf01.ToString();
 		}
@@ -3374,7 +3374,7 @@ namespace Eamon.Game.Helpers
 
 					var stringVal = string.Format("{0}%", Record.GetCategories(i).Field1);
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, 0, stringVal, null));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, 0, stringVal, null));
 
 					break;
 
@@ -3382,13 +3382,13 @@ namespace Eamon.Game.Helpers
 
 					if (Record.GetCategories(i).Field1 > 0)
 					{
-						var artifact = Globals.ADB[Record.GetCategories(i).Field1];
+						var artifact = gADB[Record.GetCategories(i).Field1];
 
-						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, artifact != null ? Globals.Engine.Capitalize(artifact.Name) : Globals.Engine.UnknownName));
+						Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, artifact != null ? gEngine.Capitalize(artifact.Name) : gEngine.UnknownName));
 					}
 					else
 					{
-						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, null));
+						Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, null));
 					}
 
 					break;
@@ -3396,9 +3396,9 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.BoundMonster:
 				case ArtifactType.DisguisedMonster:
 
-					var monster = Globals.MDB[Record.GetCategories(i).Field1];
+					var monster = gMDB[Record.GetCategories(i).Field1];
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, monster != null ? Globals.Engine.Capitalize(monster.Name) : Globals.Engine.UnknownName));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, monster != null ? gEngine.Capitalize(monster.Name) : gEngine.UnknownName));
 
 					break;
 
@@ -3406,36 +3406,36 @@ namespace Eamon.Game.Helpers
 
 					if (Record.GetCategories(i).Field1 > 0)
 					{
-						var room = Globals.RDB[Record.GetCategories(i).Field1];
+						var room = gRDB[Record.GetCategories(i).Field1];
 
-						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, room != null ? Globals.Engine.Capitalize(room.Name) : Globals.Engine.UnknownName));
+						Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, room != null ? gEngine.Capitalize(room.Name) : gEngine.UnknownName));
 					}
 					else
 					{
-						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, null));
+						Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, null));
 					}
 
 					break;
 
 				case ArtifactType.Wearable:
 
-					var armor = Globals.Engine.GetArmors((Armor)Record.GetCategories(i).Field1);
+					var armor = gEngine.GetArmors((Armor)Record.GetCategories(i).Field1);
 
 					Debug.Assert(armor != null);
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, armor.Name));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, armor.Name));
 
 					break;
 
 				case ArtifactType.DeadBody:
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, Record.GetCategories(i).Field1 == 1 ? "Takeable" : "Not Takeable"));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, Record.GetCategories(i).Field1 == 1 ? "Takeable" : "Not Takeable"));
 
 					break;
 
 				default:
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, null));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field1, null, null));
 
 					break;
 			}
@@ -3454,11 +3454,11 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.Weapon:
 				case ArtifactType.MagicWeapon:
 
-					var weapon = Globals.Engine.GetWeapons((Weapon)Record.GetCategories(i).Field2);
+					var weapon = gEngine.GetWeapons((Weapon)Record.GetCategories(i).Field2);
 
 					Debug.Assert(weapon != null);
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, weapon.Name));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, weapon.Name));
 
 					break;
 
@@ -3471,7 +3471,7 @@ namespace Eamon.Game.Helpers
 						lookupMsg = string.Format("Strength of {0}", Record.GetFieldStrength(Record.GetCategories(i).Field2));
 					}
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, Record.IsFieldStrength(Record.GetCategories(i).Field2) ? lookupMsg : Record.GetCategories(i).Field2 == 1 ? "Open" : "Closed"));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, Record.IsFieldStrength(Record.GetCategories(i).Field2) ? lookupMsg : Record.GetCategories(i).Field2 == 1 ? "Open" : "Closed"));
 
 					break;
 
@@ -3480,26 +3480,26 @@ namespace Eamon.Game.Helpers
 
 					if (Record.GetCategories(i).Field2 > 0)
 					{
-						var artifact = Globals.ADB[Record.GetCategories(i).Field2];
+						var artifact = gADB[Record.GetCategories(i).Field2];
 
-						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, artifact != null ? Globals.Engine.Capitalize(artifact.Name) : Globals.Engine.UnknownName));
+						Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, artifact != null ? gEngine.Capitalize(artifact.Name) : gEngine.UnknownName));
 					}
 					else
 					{
-						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, null));
+						Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, null));
 					}
 
 					break;
 
 				case ArtifactType.Wearable:
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, Globals.Engine.GetClothingNames((Clothing)Record.GetCategories(i).Field2)));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, gEngine.GetClothingNames((Clothing)Record.GetCategories(i).Field2)));
 
 					break;
 
 				default:
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, null));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field2, null, null));
 
 					break;
 			}
@@ -3519,7 +3519,7 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.Readable:
 				case ArtifactType.Edible:
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, Record.GetCategories(i).IsOpen() ? "Open" : "Closed"));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, Record.GetCategories(i).IsOpen() ? "Open" : "Closed"));
 
 					break;
 
@@ -3527,13 +3527,13 @@ namespace Eamon.Game.Helpers
 
 					if (Record.GetCategories(i).Field3 > 0)
 					{
-						var monster = Globals.MDB[Record.GetCategories(i).Field3];
+						var monster = gMDB[Record.GetCategories(i).Field3];
 
-						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, monster != null ? Globals.Engine.Capitalize(monster.Name) : Globals.Engine.UnknownName));
+						Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, monster != null ? gEngine.Capitalize(monster.Name) : gEngine.UnknownName));
 					}
 					else
 					{
-						Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, null));
+						Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, null));
 					}
 
 					break;
@@ -3547,13 +3547,13 @@ namespace Eamon.Game.Helpers
 						lookupMsg = string.Format("Strength of {0}", Record.GetFieldStrength(Record.GetCategories(i).Field3));
 					}
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, Record.IsFieldStrength(Record.GetCategories(i).Field3) ? lookupMsg : Record.GetCategories(i).IsOpen() ? "Open" : "Closed"));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, Record.IsFieldStrength(Record.GetCategories(i).Field3) ? lookupMsg : Record.GetCategories(i).IsOpen() ? "Open" : "Closed"));
 
 					break;
 
 				default:
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, null));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field3, null, null));
 
 					break;
 			}
@@ -3571,13 +3571,13 @@ namespace Eamon.Game.Helpers
 			{
 				case ArtifactType.DoorGate:
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field4, null, Record.GetCategories(i).Field4 == 1 ? "Hidden" : "Normal"));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field4, null, Record.GetCategories(i).Field4 == 1 ? "Hidden" : "Normal"));
 
 					break;
 
 				default:
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field4, null, null));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field4, null, null));
 
 					break;
 			}
@@ -3598,13 +3598,13 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.UnderContainer:
 				case ArtifactType.BehindContainer:
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field5, null, Globals.Engine.GetContainerDisplayCodeDescs((ContainerDisplayCode)Record.GetCategories(i).Field5)));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field5, null, gEngine.GetContainerDisplayCodeDescs((ContainerDisplayCode)Record.GetCategories(i).Field5)));
 
 					break;
 
 				default:
 
-					Buf01.Append(Globals.Engine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field5, null, null));
+					Buf01.Append(gEngine.BuildValue(BufSize, FillChar, Offset, Record.GetCategories(i).Field5, null, null));
 
 					break;
 			}
@@ -3682,19 +3682,19 @@ namespace Eamon.Game.Helpers
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));
 
-			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
+			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
 
-			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Name"), null), Record.Name);
+			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Name"), null), Record.Name);
 
 			if (string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) || ShowDesc)
 			{
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null), Record.Desc);
+				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null), Record.Desc);
 			}
 
 			if (!string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase))
 			{
-				Globals.Out.Print("{0}{1}",
-					Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName(ErrorFieldName), null),
+				gOut.Print("{0}{1}",
+					gEngine.BuildPrompt(27, '.', 0, GetPrintedName(ErrorFieldName), null),
 					Convert.ToInt64(GetValue(ErrorFieldName)));
 			}
 		}

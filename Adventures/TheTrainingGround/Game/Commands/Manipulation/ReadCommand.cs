@@ -1,7 +1,7 @@
 ﻿
 // ReadCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -18,26 +18,26 @@ namespace TheTrainingGround.Game.Commands
 		{
 			// Plain scroll increases BLAST ability
 
-			if (eventType == PpeAfterArtifactRead && DobjArtifact.Uid == 29)
+			if (eventType == PpeAfterArtifactRead && gDobjArtifact.Uid == 29)
 			{
-				var spell = Globals.Engine.GetSpells(Spell.Blast);
+				var spell = gEngine.GetSpells(Spell.Blast);
 
 				Debug.Assert(spell != null);
 
-				DobjArtifact.SetInLimbo();
+				gDobjArtifact.SetInLimbo();
 
-				Globals.Character.ModSpellAbilities(Spell.Blast, 10);
+				gCharacter.ModSpellAbilities(Spell.Blast, 10);
 
-				if (Globals.Character.GetSpellAbilities(Spell.Blast) > spell.MaxValue)
+				if (gCharacter.GetSpellAbilities(Spell.Blast) > spell.MaxValue)
 				{
-					Globals.Character.SetSpellAbilities(Spell.Blast, spell.MaxValue);
+					gCharacter.SetSpellAbilities(Spell.Blast, spell.MaxValue);
 				}
 
-				Globals.GameState.ModSa(Spell.Blast, 250);
+				gGameState.ModSa(Spell.Blast, 250);
 
-				if (Globals.GameState.GetSa(Spell.Blast) > spell.MaxValue)
+				if (gGameState.GetSa(Spell.Blast) > spell.MaxValue)
 				{
-					Globals.GameState.SetSa(Spell.Blast, spell.MaxValue);
+					gGameState.SetSa(Spell.Blast, spell.MaxValue);
 				}
 			}
 

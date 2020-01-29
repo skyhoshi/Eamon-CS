@@ -1,7 +1,7 @@
 ﻿
 // ReadyCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -16,15 +16,15 @@ namespace WrenholdsSecretVigil.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			base.PlayerExecute();
 
 			// Player readies Trollsfire
 
-			if (ActorMonster.Weapon == DobjArtifact.Uid && string.Equals(DobjArtifact.Name, "Trollsfire", StringComparison.OrdinalIgnoreCase) && DobjArtifact.Field4 == 10)
+			if (gActorMonster.Weapon == gDobjArtifact.Uid && string.Equals(gDobjArtifact.Name, "Trollsfire", StringComparison.OrdinalIgnoreCase) && gDobjArtifact.Field4 == 10)
 			{
-				Globals.Engine.PrintEffectDesc(6);
+				gEngine.PrintEffectDesc(6);
 			}
 		}
 	}

@@ -22,10 +22,10 @@ namespace BeginnersForest.Game.Combat
 			{
 				if (!BlastSpell)
 				{
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 				}
 
-				Globals.Engine.PrintEffectDesc(8, false);
+				gEngine.PrintEffectDesc(8, false);
 			}
 			else
 			{

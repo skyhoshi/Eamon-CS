@@ -1,7 +1,7 @@
 ﻿
 // ExamineCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -15,13 +15,13 @@ namespace TheBeginnersCave.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null || DobjMonster != null);
+			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
 
 			// don't show bites/drinks left for spices
 
-			if (DobjArtifact != null && DobjArtifact.Uid == 8)
+			if (gDobjArtifact != null && gDobjArtifact.Uid == 8)
 			{
-				var ac = DobjArtifact.Edible;
+				var ac = gDobjArtifact.Edible;
 
 				Debug.Assert(ac != null);
 

@@ -1,7 +1,7 @@
 ﻿
 // ProcessPlayerInputState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -23,9 +23,9 @@ namespace EamonRT.Game.States
 
 			if (IncrementCurrTurn)
 			{
-				Globals.GameState.CurrTurn++;
+				gGameState.CurrTurn++;
 
-				Debug.Assert(Globals.GameState.CurrTurn > 0);
+				Debug.Assert(gGameState.CurrTurn > 0);
 			}
 
 			Globals.LastCommandList.Clear();
@@ -38,6 +38,8 @@ namespace EamonRT.Game.States
 			}
 
 			NextState = Globals.CommandParser.NextState;
+
+			Globals.CommandParser.Clear();
 
 		Cleanup:
 

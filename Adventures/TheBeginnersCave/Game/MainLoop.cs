@@ -1,7 +1,7 @@
 ﻿
 // MainLoop.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -20,19 +20,19 @@ namespace TheBeginnersCave.Game
 
 			// Duke Luxom's reward
 
-			var cynthiaMonster = Globals.MDB[3];
+			var cynthiaMonster = gMDB[3];
 
 			Debug.Assert(cynthiaMonster != null);
 
-			if (cynthiaMonster.Location == Globals.GameState.Ro && cynthiaMonster.Friendliness > Friendliness.Enemy)
+			if (cynthiaMonster.Location == gGameState.Ro && cynthiaMonster.Friendliness > Friendliness.Enemy)
 			{
-				var reward = Globals.Character.GetStats(Stat.Charisma) * 7;
+				var reward = gCharacter.GetStats(Stat.Charisma) * 7;
 
-				Globals.Character.HeldGold += reward;
+				gCharacter.HeldGold += reward;
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("Additionally, you receive {0} gold piece{1} for the safe return of Cynthia.", reward, reward != 1 ? "s" : "");
+				gOut.Print("Additionally, you receive {0} gold piece{1} for the safe return of Cynthia.", reward, reward != 1 ? "s" : "");
 
 				Globals.In.KeyPress(Globals.Buf);
 			}

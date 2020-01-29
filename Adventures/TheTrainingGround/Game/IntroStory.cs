@@ -1,7 +1,7 @@
 ﻿
 // IntroStory.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
@@ -19,15 +19,15 @@ namespace TheTrainingGround.Game
 
 			Globals.In.KeyPress(Buf);
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			// Inspect the player
 
-			Globals.Engine.PrintEffectDesc(17);
+			gEngine.PrintEffectDesc(17);
 
-			if (Globals.Character.ArmorExpertise > 25)
+			if (gCharacter.ArmorExpertise > 25)
 			{
-				Globals.Engine.PrintEffectDesc(18);
+				gEngine.PrintEffectDesc(18);
 
 				Globals.MainLoop.ShouldExecute = false;
 
@@ -35,12 +35,12 @@ namespace TheTrainingGround.Game
 			}
 			else
 			{
-				if (Globals.Character.ArmorExpertise == 0)
+				if (gCharacter.ArmorExpertise == 0)
 				{
-					Globals.Engine.PrintEffectDesc(19);
+					gEngine.PrintEffectDesc(19);
 				}
 
-				Globals.Out.Print("\"OK, let's be careful in there, {0}!\" he says, as he walks away.", Globals.Character.EvalGender("son", "miss", ""));
+				gOut.Print("\"OK, let's be careful in there, {0}!\" he says, as he walks away.", gCharacter.EvalGender("son", "miss", ""));
 			}
 		}
 	}

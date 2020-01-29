@@ -1,11 +1,12 @@
 ﻿
 // ICommandParser.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Classes;
+using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
 
 namespace EamonRT.Framework.Parsing
@@ -50,6 +51,9 @@ namespace EamonRT.Framework.Parsing
 		IState NextState { get; set; }
 
 		/// <summary></summary>
+		ICommand NextCommand { get; }
+
+		/// <summary></summary>
 		/// <returns></returns>
 		string GetActiveObjData();
 
@@ -74,6 +78,11 @@ namespace EamonRT.Framework.Parsing
 
 		/// <summary></summary>
 		void ParseName();
+
+		/// <summary></summary>
+		/// <param name="command"></param>
+		/// <param name="afterFinishParsing"></param>
+		void CheckPlayerCommand(ICommand command, bool afterFinishParsing);
 
 		/// <summary></summary>
 		void Execute();

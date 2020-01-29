@@ -1,7 +1,7 @@
 ﻿
 // UseCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -15,11 +15,11 @@ namespace TheBeginnersCave.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			// skip Trollsfire for ready redirect
 
-			if (DobjArtifact.Uid == 10)
+			if (gDobjArtifact.Uid == 10)
 			{
 				var command = Globals.CreateInstance<Framework.Commands.ITrollsfireCommand>();
 

@@ -1,7 +1,7 @@
 ﻿
 // UseCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -25,7 +25,7 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			PlayerProcessEvents(PpeBeforeArtifactUse);
 
@@ -34,7 +34,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			var ac = DobjArtifact.GetArtifactCategory(ArtTypes, false);
+			var ac = gDobjArtifact.GetArtifactCategory(ArtTypes, false);
 
 			if (ac != null)
 			{
@@ -49,19 +49,19 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Type == ArtifactType.DisguisedMonster)
 				{
-					if (!DobjArtifact.IsUnmovable() && !DobjArtifact.IsCarriedByCharacter())
+					if (!gDobjArtifact.IsUnmovable() && !gDobjArtifact.IsCarriedByCharacter())
 					{
-						if (DobjArtifact.IsCarriedByContainer())
+						if (gDobjArtifact.IsCarriedByContainer())
 						{
-							PrintRemovingFirst(DobjArtifact);
+							PrintRemovingFirst(gDobjArtifact);
 						}
 						else
 						{
-							PrintTakingFirst(DobjArtifact);
+							PrintTakingFirst(gDobjArtifact);
 						}
 					}
 
-					Globals.Engine.RevealDisguisedMonster(ActorRoom, DobjArtifact);
+					gEngine.RevealDisguisedMonster(gActorRoom, gDobjArtifact);
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
 
@@ -96,7 +96,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				PrintTryDifferentCommand(DobjArtifact);
+				PrintTryDifferentCommand(gDobjArtifact);
 			}
 
 		Cleanup:
@@ -111,17 +111,17 @@ namespace EamonRT.Game.Commands
 		{
 			PlayerResolveArtifact();
 
-			if (DobjArtifact != null && IsIobjEnabled && CommandParser.CurrToken < CommandParser.Tokens.Length)
+			if (gDobjArtifact != null && IsIobjEnabled && gCommandParser.CurrToken < gCommandParser.Tokens.Length)
 			{
-				CommandParser.ObjData = CommandParser.IobjData;
+				gCommandParser.ObjData = gCommandParser.IobjData;
 
-				CommandParser.ObjData.QueryDesc = string.Format("{0}Use {1} on who or what? ", Environment.NewLine, DobjArtifact.EvalPlural("it", "them"));
+				gCommandParser.ObjData.QueryDesc = string.Format("{0}Use {1} on who or what? ", Environment.NewLine, gDobjArtifact.EvalPlural("it", "them"));
 
-				CommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch01;
+				gCommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch01;
 
-				CommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch02;
+				gCommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch02;
 
-				CommandParser.ObjData.MonsterNotFoundFunc = PrintDontHaveItNotHere;
+				gCommandParser.ObjData.MonsterNotFoundFunc = PrintDontHaveItNotHere;
 
 				PlayerResolveArtifact();
 			}

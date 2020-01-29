@@ -1,7 +1,7 @@
 ﻿
 // AddRecordManualMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -26,23 +26,23 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			T record;
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle(Title, true);
+			gEngine.PrintTitle(Title, true);
 
 			if (!Globals.Config.GenerateUids && NewRecordUid == 0)
 			{
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(55, '\0', 0, string.Format("Enter the uid of the {0} record to add", RecordTypeName), null));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(55, '\0', 0, string.Format("Enter the uid of the {0} record to add", RecordTypeName), null));
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', false, null, null, Globals.Engine.IsCharDigit, null);
+				rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', false, null, null, gEngine.IsCharDigit, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				NewRecordUid = Convert.ToInt64(Buf.Trim().ToString());
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				if (NewRecordUid > 0)
 				{
@@ -50,7 +50,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					if (record != null)
 					{
-						Globals.Out.Print("{0} record already exists.", RecordTypeName.FirstCharToUpper());
+						gOut.Print("{0} record already exists.", RecordTypeName.FirstCharToUpper());
 
 						goto Cleanup;
 					}
@@ -73,13 +73,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Globals.Thread.Sleep(150);
 
-			Globals.Out.Write("{0}Would you like to save this {1} record (Y/N): ", Environment.NewLine, RecordTypeName);
+			gOut.Write("{0}Would you like to save this {1} record (Y/N): ", Environment.NewLine, RecordTypeName);
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, Globals.Engine.IsCharYOrN);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, gEngine.IsCharYOrN);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			Globals.Thread.Sleep(150);
 
@@ -103,39 +103,39 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (artifact != null)
 			{
-				var i = Globals.Engine.FindIndex(artifact.Categories, ac => ac != null && ac.Type == ArtifactType.None);
+				var i = gEngine.FindIndex(artifact.Categories, ac => ac != null && ac.Type == ArtifactType.None);
 				
 				if (i > 0)
 				{
 					rc = artifact.SetArtifactCategoryCount(i);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
 				rc = artifact.SyncArtifactCategories();
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				Globals.Engine.TruncatePluralTypeEffectDesc(artifact.PluralType, Constants.ArtNameLen);
+				gEngine.TruncatePluralTypeEffectDesc(artifact.PluralType, Constants.ArtNameLen);
 			}
 
 			var effect = record as IEffect;
 
 			if (effect != null)
 			{
-				Globals.Engine.TruncatePluralTypeEffectDesc(effect);
+				gEngine.TruncatePluralTypeEffectDesc(effect);
 			}
 
 			var monster = record as IMonster;
 
 			if (monster != null)
 			{
-				Globals.Engine.TruncatePluralTypeEffectDesc(monster.PluralType, Constants.MonNameLen);
+				gEngine.TruncatePluralTypeEffectDesc(monster.PluralType, Constants.MonNameLen);
 			}
 
 			rc = RecordTable.AddRecord(record);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			UpdateGlobals();
 

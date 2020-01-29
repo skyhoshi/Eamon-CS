@@ -1,7 +1,7 @@
 ﻿
 // SettingsCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -29,15 +29,15 @@ namespace EamonRT.Game.Commands
 		/// <summary></summary>
 		public virtual void PrintUsage()
 		{
-			Globals.Out.Print("Usage:  SETTINGS [Option] [Value]{0}", Environment.NewLine);
+			gOut.Print("Usage:  SETTINGS [Option] [Value]{0}", Environment.NewLine);
 
-			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "Option", "Value", "Setting");
-			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "------", "-----", "-------");
-			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseRooms", "True, False", Globals.GameState.Vr);
-			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseMonsters", "True, False", Globals.GameState.Vm);
-			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseArtifacts", "True, False", Globals.GameState.Va);
-			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "MatureContent", "True, False", Globals.GameState.MatureContent);
-			Globals.Out.WriteLine("  {0,-22}{1,-22}{2,-22}", "PauseCombatMs", "0 .. 10000", Globals.GameState.PauseCombatMs);
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "Option", "Value", "Setting");
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "------", "-----", "-------");
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseRooms", "True, False", gGameState.Vr);
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseMonsters", "True, False", gGameState.Vm);
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseArtifacts", "True, False", gGameState.Va);
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "MatureContent", "True, False", gGameState.MatureContent);
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "PauseCombatMs", "0 .. 10000", gGameState.PauseCombatMs);
 		}
 
 		public override void PlayerExecute()
@@ -46,32 +46,32 @@ namespace EamonRT.Game.Commands
 
 			if (VerboseRooms != null)
 			{
-				Globals.GameState.Vr = (bool)VerboseRooms;
+				gGameState.Vr = (bool)VerboseRooms;
 			}
 
 			if (VerboseMonsters != null)
 			{
-				Globals.GameState.Vm = (bool)VerboseMonsters;
+				gGameState.Vm = (bool)VerboseMonsters;
 			}
 
 			if (VerboseArtifacts != null)
 			{
-				Globals.GameState.Va = (bool)VerboseArtifacts;
+				gGameState.Va = (bool)VerboseArtifacts;
 			}
 
 			if (MatureContent != null)
 			{
-				Globals.GameState.MatureContent = (bool)MatureContent;
+				gGameState.MatureContent = (bool)MatureContent;
 			}
 
 			if (PauseCombatMs != null)
 			{
 				Debug.Assert(PauseCombatMs >= 0 && PauseCombatMs <= 10000);
 
-				Globals.GameState.PauseCombatMs = (long)PauseCombatMs;
+				gGameState.PauseCombatMs = (long)PauseCombatMs;
 			}
 
-			Globals.Out.Print("Settings changed.");
+			gOut.Print("Settings changed.");
 
 			if (NextState == null)
 			{
@@ -85,50 +85,50 @@ namespace EamonRT.Game.Commands
 
 			bool boolValue = false;
 
-			if (CommandParser.CurrToken + 1 < CommandParser.Tokens.Length)
+			if (gCommandParser.CurrToken + 1 < gCommandParser.Tokens.Length)
 			{
-				if (string.Equals(CommandParser.Tokens[CommandParser.CurrToken], "verboserooms", StringComparison.OrdinalIgnoreCase) && bool.TryParse(CommandParser.Tokens[CommandParser.CurrToken + 1], out boolValue))
+				if (string.Equals(gCommandParser.Tokens[gCommandParser.CurrToken], "verboserooms", StringComparison.OrdinalIgnoreCase) && bool.TryParse(gCommandParser.Tokens[gCommandParser.CurrToken + 1], out boolValue))
 				{
 					VerboseRooms = boolValue;
 
-					CommandParser.CurrToken += 2;
+					gCommandParser.CurrToken += 2;
 				}
-				else if (string.Equals(CommandParser.Tokens[CommandParser.CurrToken], "verbosemonsters", StringComparison.OrdinalIgnoreCase) && bool.TryParse(CommandParser.Tokens[CommandParser.CurrToken + 1], out boolValue))
+				else if (string.Equals(gCommandParser.Tokens[gCommandParser.CurrToken], "verbosemonsters", StringComparison.OrdinalIgnoreCase) && bool.TryParse(gCommandParser.Tokens[gCommandParser.CurrToken + 1], out boolValue))
 				{
 					VerboseMonsters = boolValue;
 
-					CommandParser.CurrToken += 2;
+					gCommandParser.CurrToken += 2;
 				}
-				else if (string.Equals(CommandParser.Tokens[CommandParser.CurrToken], "verboseartifacts", StringComparison.OrdinalIgnoreCase) && bool.TryParse(CommandParser.Tokens[CommandParser.CurrToken + 1], out boolValue))
+				else if (string.Equals(gCommandParser.Tokens[gCommandParser.CurrToken], "verboseartifacts", StringComparison.OrdinalIgnoreCase) && bool.TryParse(gCommandParser.Tokens[gCommandParser.CurrToken + 1], out boolValue))
 				{
 					VerboseArtifacts = boolValue;
 
-					CommandParser.CurrToken += 2;
+					gCommandParser.CurrToken += 2;
 				}
-				else if (string.Equals(CommandParser.Tokens[CommandParser.CurrToken], "maturecontent", StringComparison.OrdinalIgnoreCase) && bool.TryParse(CommandParser.Tokens[CommandParser.CurrToken + 1], out boolValue))
+				else if (string.Equals(gCommandParser.Tokens[gCommandParser.CurrToken], "maturecontent", StringComparison.OrdinalIgnoreCase) && bool.TryParse(gCommandParser.Tokens[gCommandParser.CurrToken + 1], out boolValue))
 				{
 					MatureContent = boolValue;
 
-					CommandParser.CurrToken += 2;
+					gCommandParser.CurrToken += 2;
 				}
-				else if (string.Equals(CommandParser.Tokens[CommandParser.CurrToken], "pausecombatms", StringComparison.OrdinalIgnoreCase) && long.TryParse(CommandParser.Tokens[CommandParser.CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 10000)
+				else if (string.Equals(gCommandParser.Tokens[gCommandParser.CurrToken], "pausecombatms", StringComparison.OrdinalIgnoreCase) && long.TryParse(gCommandParser.Tokens[gCommandParser.CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 10000)
 				{
 					PauseCombatMs = longValue;
 
-					CommandParser.CurrToken += 2;
+					gCommandParser.CurrToken += 2;
 				}
 				else
 				{
 					PrintUsage();
 
-					CommandParser.NextState = Globals.CreateInstance<IStartState>();
+					gCommandParser.NextState = Globals.CreateInstance<IStartState>();
 				}
 			}
 			else
 			{
 				PrintUsage();
 
-				CommandParser.NextState = Globals.CreateInstance<IStartState>();
+				gCommandParser.NextState = Globals.CreateInstance<IStartState>();
 			}
 		}
 

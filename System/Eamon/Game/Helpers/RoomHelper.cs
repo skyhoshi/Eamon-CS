@@ -41,7 +41,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var direction = Globals.Engine.GetDirections((Direction)i);
+			var direction = gEngine.GetDirections((Direction)i);
 
 			Debug.Assert(direction != null);
 
@@ -162,9 +162,9 @@ namespace Eamon.Game.Helpers
 
 			long invalidUid = 0;
 
-			var rc = Globals.Engine.ResolveUidMacros(Record.Desc, Buf, false, false, ref invalidUid);
+			var rc = gEngine.ResolveUidMacros(Record.Desc, Buf, false, false, ref invalidUid);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			if (invalidUid > 0)
 			{
@@ -219,13 +219,13 @@ namespace Eamon.Game.Helpers
 
 			var dv = (Direction)i;
 
-			if (Globals.Engine.IsValidDirection(dv))
+			if (gEngine.IsValidDirection(dv))
 			{
 				if (Record.IsDirectionRoom(dv))
 				{
 					var roomUid = Record.GetDirs(i);
 
-					var room = Globals.RDB[roomUid];
+					var room = gRDB[roomUid];
 
 					if (room == null)
 					{
@@ -246,7 +246,7 @@ namespace Eamon.Game.Helpers
 				{
 					var artUid = Record.GetDirectionDoorUid(dv);
 
-					var artifact = Globals.ADB[artUid];
+					var artifact = gADB[artUid];
 
 					if (artifact == null)
 					{
@@ -307,7 +307,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter the name of the room." + Environment.NewLine + Environment.NewLine + "Room names should always be able to stand alone inside a pair of brackets: [Room Name].";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -315,7 +315,7 @@ namespace Eamon.Game.Helpers
 		{
 			var fullDesc = "Enter a detailed description of the room.";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
 
 		/// <summary></summary>
@@ -325,7 +325,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = "0=Not seen; 1=Seen";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		/// <summary></summary>
@@ -339,10 +339,10 @@ namespace Eamon.Game.Helpers
 
 			for (var j = 0; j < lightLevelValues.Count; j++)
 			{
-				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)lightLevelValues[j], Globals.Engine.GetLightLevelNames(lightLevelValues[j]));
+				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)lightLevelValues[j], gEngine.GetLightLevelNames(lightLevelValues[j]));
 			}
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc.ToString());
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc.ToString());
 		}
 
 		/// <summary></summary>
@@ -356,10 +356,10 @@ namespace Eamon.Game.Helpers
 
 			for (var j = 0; j < roomTypeValues.Count; j++)
 			{
-				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)roomTypeValues[j], Globals.Engine.EvalRoomType(roomTypeValues[j], "Indoors", "Outdoors"));
+				briefDesc.AppendFormat("{0}{1}={2}", j != 0 ? "; " : "", (long)roomTypeValues[j], gEngine.EvalRoomType(roomTypeValues[j], "Indoors", "Outdoors"));
 			}
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc.ToString());
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc.ToString());
 		}
 
 		/// <summary></summary>
@@ -369,7 +369,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = "(GT 0)=Valid value";
 
-			Globals.Engine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
+			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
 
 		/// <summary></summary>
@@ -409,12 +409,12 @@ namespace Eamon.Game.Helpers
 				{
 					var listNum = NumberFields ? ListNum++ : 0;
 
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Uid"), null), Record.Uid);
+					gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Uid"), null), Record.Uid);
 				}
 			}
 			else
 			{
-				Globals.Out.Write("{0}{1,3}. {2}", Environment.NewLine, Record.Uid, Globals.Engine.Capitalize(Record.Name));
+				gOut.Write("{0}{1,3}. {2}", Environment.NewLine, Record.Uid, gEngine.Capitalize(Record.Name));
 			}
 		}
 
@@ -425,7 +425,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Name"), null), Record.Name);
+				gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Name"), null), Record.Name);
 			}
 		}
 
@@ -438,9 +438,9 @@ namespace Eamon.Game.Helpers
 
 				if (ResolveEffects)
 				{
-					var rc = Globals.Engine.ResolveUidMacros(Record.Desc, Buf, true, true);
+					var rc = gEngine.ResolveUidMacros(Record.Desc, Buf, true, true);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 				else
 				{
@@ -449,7 +449,7 @@ namespace Eamon.Game.Helpers
 
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Desc"), null), Buf);
+				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Desc"), null), Buf);
 			}
 		}
 
@@ -460,7 +460,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Seen"), null), Convert.ToInt64(Record.Seen));
+				gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Seen"), null), Convert.ToInt64(Record.Seen));
 			}
 		}
 
@@ -471,7 +471,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("LightLvl"), null), (long)Record.LightLvl);
+				gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("LightLvl"), null), (long)Record.LightLvl);
 			}
 		}
 
@@ -484,14 +484,14 @@ namespace Eamon.Game.Helpers
 
 				if (LookupMsg)
 				{
-					Globals.Out.Write("{0}{1}{2}",
+					gOut.Write("{0}{1}{2}",
 						Environment.NewLine,
-						Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Type"), null),
-						Globals.Engine.BuildValue(51, ' ', 8, (long)Record.Type, null, Record.EvalRoomType("Indoors", "Outdoors")));
+						gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Type"), null),
+						gEngine.BuildValue(51, ' ', 8, (long)Record.Type, null, Record.EvalRoomType("Indoors", "Outdoors")));
 				}
 				else
 				{
-					Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Type"), null), Record.Type);
+					gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Type"), null), Record.Type);
 				}
 			}
 		}
@@ -503,7 +503,7 @@ namespace Eamon.Game.Helpers
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
-				Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("Zone"), null), Record.Zone);
+				gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("Zone"), null), Record.Zone);
 			}
 		}
 
@@ -529,7 +529,7 @@ namespace Eamon.Game.Helpers
 
 			var dv = (Direction)i;
 
-			if (FullDetail && Globals.Engine.IsValidDirection(dv))
+			if (FullDetail && gEngine.IsValidDirection(dv))
 			{
 				var listNum = NumberFields ? ListNum++ : 0;
 
@@ -539,9 +539,9 @@ namespace Eamon.Game.Helpers
 
 					if (Record.IsDirectionRoom(dv))
 					{
-						var room = Globals.RDB[Record.GetDirs(i)];
+						var room = gRDB[Record.GetDirs(i)];
 
-						lookupMsg = room != null ? Globals.Engine.Capitalize(room.Name) : Globals.Engine.UnknownName;
+						lookupMsg = room != null ? gEngine.Capitalize(room.Name) : gEngine.UnknownName;
 					}
 					else if (Record.IsDirectionExit(dv))
 					{
@@ -551,19 +551,19 @@ namespace Eamon.Game.Helpers
 					{
 						var artifact = Record.GetDirectionDoor(dv);
 
-						lookupMsg = artifact != null ? Globals.Engine.Capitalize(artifact.Name) : Globals.Engine.UnknownName;
+						lookupMsg = artifact != null ? gEngine.Capitalize(artifact.Name) : gEngine.UnknownName;
 					}
 
-					Globals.Out.Write("{0}{1}{2}",
+					gOut.Write("{0}{1}{2}",
 						Environment.NewLine,
-						Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("DirsElement"), null),
-						Globals.Engine.BuildValue(51, ' ', 8, Record.GetDirs(i), null, lookupMsg));
+						gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("DirsElement"), null),
+						gEngine.BuildValue(51, ' ', 8, Record.GetDirs(i), null, lookupMsg));
 				}
 				else
 				{
-					Globals.Out.Write("{0}{1}{2}",
+					gOut.Write("{0}{1}{2}",
 						Environment.NewLine,
-						Globals.Engine.BuildPrompt(27, '.', listNum, GetPrintedName("DirsElement"), null), Record.GetDirs(i));
+						gEngine.BuildPrompt(27, '.', listNum, GetPrintedName("DirsElement"), null), Record.GetDirs(i));
 				}
 			}
 		}
@@ -575,9 +575,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		protected virtual void InputUid()
 		{
-			Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
+			gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -593,11 +593,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Name", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Name"), null));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Name"), null));
 
 				var rc = Globals.In.ReadField(Buf, Constants.RmNameLen, null, '_', '\0', false, null, null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.Name = Buf.ToString();
 
@@ -609,7 +609,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -625,15 +625,15 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Desc", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Desc"), null));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Desc"), null));
 
-				Globals.Out.WordWrap = false;
+				gOut.WordWrap = false;
 
 				var rc = Globals.In.ReadField(Buf, Constants.RmDescLen, null, '_', '\0', false, null, null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				Globals.Out.WordWrap = true;
+				gOut.WordWrap = true;
 
 				Record.Desc = Buf.Trim().ToString();
 
@@ -645,7 +645,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -661,11 +661,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Seen", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Seen"), "0"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Seen"), "0"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsChar0Or1, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, gEngine.IsChar0Or1, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.Seen = Convert.ToInt64(Buf.Trim().ToString()) != 0 ? true : false;
 
@@ -677,7 +677,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -693,11 +693,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("LightLvl", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("LightLvl"), "1"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("LightLvl"), "1"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsChar0Or1, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, gEngine.IsChar0Or1, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.LightLvl = (LightLevel)Convert.ToInt64(Buf.Trim().ToString());
 
@@ -709,7 +709,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -725,11 +725,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Type", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Type"), "0"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Type"), "0"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsChar0Or1, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, gEngine.IsChar0Or1, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.Type = (RoomType)Convert.ToInt64(Buf.Trim().ToString());
 
@@ -741,7 +741,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -757,11 +757,11 @@ namespace Eamon.Game.Helpers
 
 				PrintFieldDesc("Zone", EditRec, EditField, fieldDesc);
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("Zone"), "1"));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Zone"), "1"));
 
-				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharDigit, null);
+				var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, gEngine.IsCharDigit, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Record.Zone = Convert.ToInt64(Buf.Trim().ToString());
 
@@ -773,7 +773,7 @@ namespace Eamon.Game.Helpers
 				fieldDesc = FieldDesc.Brief;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		/// <summary></summary>
@@ -796,7 +796,7 @@ namespace Eamon.Game.Helpers
 
 			var dv = (Direction)i;
 
-			if (Globals.Engine.IsValidDirection(dv))
+			if (gEngine.IsValidDirection(dv))
 			{
 				var fieldDesc = FieldDesc;
 
@@ -808,11 +808,11 @@ namespace Eamon.Game.Helpers
 
 					PrintFieldDesc("DirsElement", EditRec, EditField, fieldDesc);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '\0', 0, GetPrintedName("DirsElement"), "0"));
+					gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("DirsElement"), "0"));
 
-					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsCharPlusMinusDigit, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, gEngine.IsCharPlusMinusDigit, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					var error = false;
 
@@ -833,7 +833,7 @@ namespace Eamon.Game.Helpers
 					fieldDesc = FieldDesc.Brief;
 				}
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 			}
 			else
 			{
@@ -884,20 +884,20 @@ namespace Eamon.Game.Helpers
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));
 
-			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
+			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
 
-			Globals.Out.Write("{0}{1}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Name"), null), Record.Name);
+			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Name"), null), Record.Name);
 
 			if (string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) || ShowDesc)
 			{
-				Globals.Out.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null), Record.Desc);
+				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null), Record.Desc);
 			}
 
 			if (string.Equals(ErrorFieldName, "DirsElement", StringComparison.OrdinalIgnoreCase))
 			{
 				var i = Index;
 
-				Globals.Out.Print("{0}{1}", Globals.Engine.BuildPrompt(27, '.', 0, GetPrintedName("DirsElement"), null), Record.GetDirs(i));
+				gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '.', 0, GetPrintedName("DirsElement"), null), Record.GetDirs(i));
 			}
 		}
 

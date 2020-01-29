@@ -1,7 +1,7 @@
 ﻿
 // UseCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -18,7 +18,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			if (eventType == PpeBeforeArtifactUse)
 			{
-				switch (DobjArtifact.Uid)
+				switch (gDobjArtifact.Uid)
 				{
 					case 48:
 					case 50:
@@ -53,7 +53,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						// Plastic card
 
-						if (IobjArtifact != null && (IobjArtifact.Uid == 1 || IobjArtifact.Uid == 26))
+						if (gIobjArtifact != null && (gIobjArtifact.Uid == 1 || gIobjArtifact.Uid == 26))
 						{
 							command = Globals.CreateInstance<IPutCommand>();
 
@@ -63,7 +63,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							GotoCleanup = true;
 						}
-						else if (IobjArtifact == null && IobjMonster == null)
+						else if (gIobjArtifact == null && gIobjMonster == null)
 						{
 							PrintBeMoreSpecific();
 

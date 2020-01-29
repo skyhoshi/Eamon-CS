@@ -1,7 +1,7 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -41,7 +41,7 @@ namespace EamonRT.Game.States
 		{
 			RetCode rc;
 
-			var gameState = Globals.Engine.GetGameState();
+			var gameState = gEngine.GetGameState();
 
 			Debug.Assert(gameState != null);
 
@@ -49,7 +49,7 @@ namespace EamonRT.Game.States
 			{
 				// Special blocking artifacts
 
-				var artifact = Globals.Engine.GetBlockedDirectionArtifact(gameState.Ro, gameState.R2, Direction);
+				var artifact = gEngine.GetBlockedDirectionArtifact(gameState.Ro, gameState.R2, Direction);
 
 				if (artifact != null)
 				{
@@ -64,13 +64,13 @@ namespace EamonRT.Game.States
 				{
 					PrintRideOffIntoSunset();
 
-					Globals.Out.Write("{0}Leave this adventure (Y/N): ", Environment.NewLine);
+					gOut.Write("{0}Leave this adventure (Y/N): ", Environment.NewLine);
 
 					Globals.Buf.Clear();
 
-					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'Y')
 					{
@@ -92,7 +92,7 @@ namespace EamonRT.Game.States
 		{
 			Debug.Assert(Enum.IsDefined(typeof(Direction), Direction) || Artifact != null);
 
-			Monster = Globals.MDB[Globals.GameState.Cm];
+			Monster = gMDB[gGameState.Cm];
 
 			Debug.Assert(Monster != null);
 
@@ -103,9 +103,9 @@ namespace EamonRT.Game.States
 				goto Cleanup;
 			}
 
-			if (Globals.GameState.R2 > 0 && Globals.RDB[Globals.GameState.R2] != null)
+			if (gGameState.R2 > 0 && gRDB[gGameState.R2] != null)
 			{
-				if (Monster.CanMoveToRoomUid(Globals.GameState.R2, Fleeing))
+				if (Monster.CanMoveToRoomUid(gGameState.R2, Fleeing))
 				{
 					NextState = Globals.CreateInstance<IAfterPlayerMoveState>(x =>
 					{
@@ -122,7 +122,7 @@ namespace EamonRT.Game.States
 				goto Cleanup;
 			}
 
-			Room = Globals.RDB[Globals.GameState.Ro];
+			Room = gRDB[gGameState.Ro];
 
 			Debug.Assert(Room != null);
 
@@ -132,23 +132,23 @@ namespace EamonRT.Game.States
 			{
 				if (Artifact == null)
 				{
-					Artifact = Globals.ADB[ArtUid];
+					Artifact = gADB[ArtUid];
 
 					Debug.Assert(Artifact != null);
 				}
 
-				Globals.Engine.CheckDoor(Room, Artifact, ref _found, ref _roomUid);
+				gEngine.CheckDoor(Room, Artifact, ref _found, ref _roomUid);
 
 				if (_found)
 				{
 					if (Room.IsLit())
 					{
-						Globals.Engine.RevealEmbeddedArtifact(Room, Artifact);
+						gEngine.RevealEmbeddedArtifact(Room, Artifact);
 					}
 
-					Globals.GameState.R2 = _roomUid;
+					gGameState.R2 = _roomUid;
 
-					if (Globals.GameState.R2 > 0 && Globals.RDB[Globals.GameState.R2] != null)
+					if (gGameState.R2 > 0 && gRDB[gGameState.R2] != null)
 					{
 						NextState = Globals.CreateInstance<IPlayerMoveCheckState>(x =>
 						{
@@ -161,7 +161,7 @@ namespace EamonRT.Game.States
 
 						goto Cleanup;
 					}
-					else if (Globals.GameState.R2 == 0 && Room.IsLit())
+					else if (gGameState.R2 == 0 && Room.IsLit())
 					{
 						PrintObjBlocksTheWay(Artifact);
 

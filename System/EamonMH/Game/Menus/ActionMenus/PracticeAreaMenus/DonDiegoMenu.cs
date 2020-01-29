@@ -1,7 +1,7 @@
 ﻿
 // DonDiegoMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -30,7 +30,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 			long ap = 0;
 			long i;
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			/* 
 				Full Credit:  Derived wholly from Donald Brown's Classic Eamon
@@ -43,12 +43,12 @@ namespace EamonMH.Game.Menus.ActionMenus
 			{
 				var c2 = Globals.Character.GetMerchantAdjustedCharisma();
 
-				Rtio = Globals.Engine.GetMerchantRtio(c2);
+				Rtio = gEngine.GetMerchantRtio(c2);
 			}
 
-			Globals.Out.Print("The man behind the counter says, \"I'm Don Leif Thor Robin Hercules Diego, at your service!  I teach weapons.  Select your weapon of interest.\"");
+			gOut.Print("The man behind the counter says, \"I'm Don Leif Thor Robin Hercules Diego, at your service!  I teach weapons.  Select your weapon of interest.\"");
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			Buf.Clear();
 
@@ -56,7 +56,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			for (i = 0; i < weaponValues.Count; i++)
 			{
-				weapon = Globals.Engine.GetWeapons(weaponValues[(int)i]);
+				weapon = gEngine.GetWeapons(weaponValues[(int)i]);
 
 				Debug.Assert(weapon != null);
 
@@ -68,53 +68,53 @@ namespace EamonMH.Game.Menus.ActionMenus
 					i == weaponValues.Count - 1 ? ": " : "");
 			}
 
-			Globals.Out.Write("{0}", Buf);
+			gOut.Write("{0}", Buf);
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, null, Globals.Engine.IsCharWpnType, Globals.Engine.IsCharWpnType);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, null, gEngine.IsCharWpnType, gEngine.IsCharWpnType);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			Globals.Thread.Sleep(150);
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			Debug.Assert(Buf.Length > 0);
 
 			i = Convert.ToInt64(Buf.Trim().ToString());
 
-			weapon = Globals.Engine.GetWeapons((Weapon)i);
+			weapon = gEngine.GetWeapons((Weapon)i);
 
 			Debug.Assert(weapon != null);
 
-			ap = Globals.Engine.GetMerchantAskPrice(Constants.WeaponTrainingPrice, (double)Rtio);
+			ap = gEngine.GetMerchantAskPrice(Constants.WeaponTrainingPrice, (double)Rtio);
 
-			Globals.Out.Print("\"My fee is {0} gold piece{1} per try.  Your current ability is {2}%.\"", ap, ap != 1 ? "s" : "", Globals.Character.GetWeaponAbilities(i));
+			gOut.Print("\"My fee is {0} gold piece{1} per try.  Your current ability is {2}%.\"", ap, ap != 1 ? "s" : "", Globals.Character.GetWeaponAbilities(i));
 
-			Globals.Out.Print("Don asks you to enter his shop.  \"{0}, see that {1} over there?  It's all in the wrist...  ATTACK!\"", Globals.Character.Name, i == (long)Weapon.Bow || i == (long)Weapon.Spear ? "target" : "dummy");
+			gOut.Print("Don asks you to enter his shop.  \"{0}, see that {1} over there?  It's all in the wrist...  ATTACK!\"", Globals.Character.Name, i == (long)Weapon.Bow || i == (long)Weapon.Spear ? "target" : "dummy");
 
 			while (true)
 			{
 				Globals.In.KeyPress(Buf);
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("Ability: {0}        Gold: {1}", Globals.Character.GetWeaponAbilities(i), Globals.Character.HeldGold);
+				gOut.Print("Ability: {0}        Gold: {1}", Globals.Character.GetWeaponAbilities(i), Globals.Character.HeldGold);
 
 				if (Globals.Character.HeldGold >= ap)
 				{
-					Globals.Out.Write("{0}1=Attack, 2=Rest, X=Exit: ", Environment.NewLine);
+					gOut.Write("{0}1=Attack, 2=Rest, X=Exit: ", Environment.NewLine);
 
 					Buf.Clear();
 
-					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsChar1Or2OrX, Globals.Engine.IsChar1Or2OrX);
+					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsChar1Or2OrX, gEngine.IsChar1Or2OrX);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					Globals.Thread.Sleep(150);
 
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
 					if (Buf.Length == 0 || Buf[0] == 'X')
 					{
@@ -122,23 +122,23 @@ namespace EamonMH.Game.Menus.ActionMenus
 					}
 					else if (Buf[0] == '1')
 					{
-						var rl = Globals.Engine.RollDice(1, 100, 0);
+						var rl = gEngine.RollDice(1, 100, 0);
 
 						if (rl > 90)
 						{
-							Globals.Out.Print("\"A critical hit!  Very good!  Now, continue.\"");
+							gOut.Print("\"A critical hit!  Very good!  Now, continue.\"");
 
 							Globals.Character.ModWeaponAbilities(i, 2);
 						}
 						else if (rl > 50)
 						{
-							Globals.Out.Print("\"A hit!  Good!  Now, continue.\"");
+							gOut.Print("\"A hit!  Good!  Now, continue.\"");
 
 							Globals.Character.ModWeaponAbilities(i, 1);
 						}
 						else
 						{
-							Globals.Out.Print("\"A miss!  Try harder!  Now, continue.\"");
+							gOut.Print("\"A miss!  Try harder!  Now, continue.\"");
 						}
 
 						if (Globals.Character.GetWeaponAbilities(i) > weapon.MaxValue)
@@ -152,18 +152,18 @@ namespace EamonMH.Game.Menus.ActionMenus
 					}
 					else
 					{
-						Globals.Out.Print("PUFF  PUFF  PUFF.  \"Stamina is important!\"");
+						gOut.Print("PUFF  PUFF  PUFF.  \"Stamina is important!\"");
 					}
 				}
 				else
 				{
-					Globals.Out.Print("\"Sorry, but you have too little gold!\"");
+					gOut.Print("\"Sorry, but you have too little gold!\"");
 
 					break;
 				}
 			}
 
-			Globals.Out.Print("\"Goodbye and good luck!\"");
+			gOut.Print("\"Goodbye and good luck!\"");
 
 			Globals.In.KeyPress(Buf);
 		}

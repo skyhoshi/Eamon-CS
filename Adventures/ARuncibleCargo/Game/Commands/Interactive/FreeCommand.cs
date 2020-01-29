@@ -1,7 +1,7 @@
 ﻿
 // FreeCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -23,13 +23,13 @@ namespace ARuncibleCargo.Game.Commands
 
 				var rc = Monster.BuildPrintedFullDesc(Globals.Buf, false);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				Globals.Out.Write("{0}", Globals.Buf);
+				gOut.Write("{0}", Globals.Buf);
 
 				Monster.Seen = true;
 
-				Globals.Engine.PrintEffectDesc(64);
+				gEngine.PrintEffectDesc(64);
 			}
 			else
 			{

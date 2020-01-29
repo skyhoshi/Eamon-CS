@@ -19,12 +19,12 @@ namespace StrongholdOfKahrDur.Game
 	{
 		protected override void PrintTooManyWeapons()
 		{
-			Globals.Out.Print("As you enter the Main Hall, Lord William Crankhandle approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"");
+			gOut.Print("As you enter the Main Hall, Lord William Crankhandle approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"");
 		}
 
 		protected override void PrintDeliverGoods()
 		{
-			Globals.Out.Print("You sell your goods to {0}the local buyer of treasure (under the sign of 3 balls).  He examines your items and pays you what they are worth.", string.Equals(Globals.Character.Name, "tom zucchini", StringComparison.OrdinalIgnoreCase) ? "" : "Tom Zucchini, ");
+			gOut.Print("You sell your goods to {0}the local buyer of treasure (under the sign of 3 balls).  He examines your items and pays you what they are worth.", string.Equals(gCharacter.Name, "tom zucchini", StringComparison.OrdinalIgnoreCase) ? "" : "Tom Zucchini, ");
 		}
 
 		protected override void PlayerSpellCastBrainOverload(Spell s, ISpell spell)
@@ -33,11 +33,11 @@ namespace StrongholdOfKahrDur.Game
 
 			Debug.Assert(spell != null);
 
-			Globals.Out.Print("Spell backlash!  Your ability to cast {0} temporarily diminishes!", spell.Name);
+			gOut.Print("Spell backlash!  Your ability to cast {0} temporarily diminishes!", spell.Name);
 
-			if (Globals.GameState.GetSa(s) > 10)
+			if (gGameState.GetSa(s) > 10)
 			{
-				Globals.GameState.SetSa(s, 10);
+				gGameState.SetSa(s, 10);
 			}
 		}
 
@@ -45,7 +45,7 @@ namespace StrongholdOfKahrDur.Game
 		{
 			base.AddPoundCharsToArtifactNames();
 
-			var secretDoorArtifact = Globals.ADB[10];     // Secret door #2
+			var secretDoorArtifact = gADB[10];     // Secret door #2
 
 			Debug.Assert(secretDoorArtifact != null);
 
@@ -134,7 +134,7 @@ namespace StrongholdOfKahrDur.Game
 
 			if (monster.Uid == 20 || monster.Uid == 26)
 			{
-				var monster01 = Globals.MDB[monster.Uid == 20 ? 26 : 20];
+				var monster01 = gMDB[monster.Uid == 20 ? 26 : 20];
 
 				Debug.Assert(monster01 != null);
 
@@ -146,9 +146,9 @@ namespace StrongholdOfKahrDur.Game
 		{
 			Debug.Assert(monster != null);
 
-			Globals.Out.Write("{0}{1} {2}{3} at you.",
+			gOut.Write("{0}{1} {2}{3} at you.",
 				Environment.NewLine,
-				monster.GetDecoratedName03(true, true, false, false, Globals.Buf),
+				monster.GetTheName(true),
 				monster.EvalFriendliness("growl", "look", "smile"),
 				monster.EvalPlural("s", ""));
 		}
@@ -157,19 +157,19 @@ namespace StrongholdOfKahrDur.Game
 		{
 			base.MonsterDies(OfMonster, DfMonster);
 
-			if (OfMonster != null && OfMonster.Uid == Globals.GameState.Cm)
+			if (OfMonster != null && OfMonster.Uid == gGameState.Cm)
 			{
 				// If player kills Mirabelle, Jollifrud gets angry and vice versa
 
 				if (DfMonster.Uid == 20 || DfMonster.Uid == 26)
 				{
-					var monster = Globals.MDB[DfMonster.Uid == 20 ? 26 : 20];
+					var monster = gMDB[DfMonster.Uid == 20 ? 26 : 20];
 
 					Debug.Assert(monster != null);
 
 					if (monster.Friendliness > Friendliness.Enemy)
 					{
-						Globals.Out.WriteLine();
+						gOut.WriteLine();
 					}
 
 					while (monster.Friendliness > Friendliness.Enemy)
@@ -184,11 +184,11 @@ namespace StrongholdOfKahrDur.Game
 		{
 			// Monsters can't move in/out of pit w/o magical help
 
-			var pitMove = Globals.GameState.R3 == 84 && Globals.GameState.Ro == 94;
+			var pitMove = gGameState.R3 == 84 && gGameState.Ro == 94;
 
 			if (!pitMove)
 			{
-				pitMove = Globals.GameState.R3 == 94 && Globals.GameState.Ro == 84;
+				pitMove = gGameState.R3 == 94 && gGameState.Ro == 84;
 			}
 
 			if (!pitMove)
@@ -201,19 +201,19 @@ namespace StrongholdOfKahrDur.Game
 		{
 			Debug.Assert(cauldronArtifact != null);
 
-			var dragonSpiceArtifact = Globals.ADB[19];
+			var dragonSpiceArtifact = gADB[19];
 
 			Debug.Assert(dragonSpiceArtifact != null);
 
-			var kingswortWeedArtifact = Globals.ADB[20];
+			var kingswortWeedArtifact = gADB[20];
 
 			Debug.Assert(kingswortWeedArtifact != null);
 
-			var rubyStoneArtifact = Globals.ADB[21];
+			var rubyStoneArtifact = gADB[21];
 
 			Debug.Assert(rubyStoneArtifact != null);
 
-			var residuumPowderArtifact = Globals.ADB[22];
+			var residuumPowderArtifact = gADB[22];
 
 			Debug.Assert(residuumPowderArtifact != null);
 
@@ -226,7 +226,7 @@ namespace StrongholdOfKahrDur.Game
 
 			// Necromancer summons other monsters...
 
-			var monster = Globals.MDB[monsterUid];
+			var monster = gMDB[monsterUid];
 
 			Debug.Assert(monster != null);
 

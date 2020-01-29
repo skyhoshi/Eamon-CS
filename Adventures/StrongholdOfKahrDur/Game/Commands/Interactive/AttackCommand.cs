@@ -1,12 +1,13 @@
 ﻿
 // AttackCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.Commands
 {
@@ -15,13 +16,13 @@ namespace StrongholdOfKahrDur.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null || DobjMonster != null);
+			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
 
 			// Can't attack armoire/bookshelf/pouch
 
-			if ((BlastSpell || ActorMonster.Weapon > 0) && DobjArtifact != null && (DobjArtifact.Uid == 3 || DobjArtifact.Uid == 11 || DobjArtifact.Uid == 15))
+			if ((BlastSpell || gActorMonster.Weapon > 0) && gDobjArtifact != null && (gDobjArtifact.Uid == 3 || gDobjArtifact.Uid == 11 || gDobjArtifact.Uid == 15))
 			{
-				var ac = DobjArtifact.GetArtifactCategory(new ArtifactType[] { ArtifactType.InContainer, ArtifactType.User1 });
+				var ac = gDobjArtifact.GetArtifactCategory(new ArtifactType[] { ArtifactType.InContainer, ArtifactType.User1 });
 
 				Debug.Assert(ac != null);
 

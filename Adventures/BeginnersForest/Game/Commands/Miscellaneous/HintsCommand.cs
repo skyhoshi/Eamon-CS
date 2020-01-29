@@ -29,7 +29,7 @@ namespace BeginnersForest.Game.Commands
 				question = question.Substring(prefix.Length);
 			}
 
-			Globals.Out.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, question);
+			gOut.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, question);
 		}
 	}
 }

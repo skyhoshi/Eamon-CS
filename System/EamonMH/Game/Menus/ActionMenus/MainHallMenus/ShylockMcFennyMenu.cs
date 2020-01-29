@@ -1,7 +1,7 @@
 ﻿
 // ShylockMcFennyMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -23,26 +23,26 @@ namespace EamonMH.Game.Menus.ActionMenus
 			RetCode rc;
 			long i;
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Write("{0}You have no trouble spotting Shylock McFenny, the local banker, due to his large belly.  You attract his attention, and he comes over to you.{0}{0}\"Well, {1} my dear {2} what a pleasure to see you!  Do you want to make a deposit or a withdrawal?\"{0}",
+			gOut.Write("{0}You have no trouble spotting Shylock McFenny, the local banker, due to his large belly.  You attract his attention, and he comes over to you.{0}{0}\"Well, {1} my dear {2} what a pleasure to see you!  Do you want to make a deposit or a withdrawal?\"{0}",
 				Environment.NewLine,
 				Globals.Character.Name,
 				Globals.Character.EvalGender("boy", "girl", "thing"));
 
-			Globals.Out.Print("You have {0} GP in hand, {1} GP in the bank.",
+			gOut.Print("You have {0} GP in hand, {1} GP in the bank.",
 				Globals.Character.HeldGold,
 				Globals.Character.BankGold);
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Write("{0}D=Deposit gold, W=Withdraw gold, X=Exit: ", Environment.NewLine);
+			gOut.Write("{0}D=Deposit gold, W=Withdraw gold, X=Exit: ", Environment.NewLine);
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharDOrWOrX, Globals.Engine.IsCharDOrWOrX);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharDOrWOrX, gEngine.IsCharDOrWOrX);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			Globals.Thread.Sleep(150);
 
@@ -51,31 +51,31 @@ namespace EamonMH.Game.Menus.ActionMenus
 				goto Cleanup;
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			if (Buf[0] == 'D')
 			{
-				Globals.Out.Print("Shylock gets a wide grin on his face and says, \"Good for you!  How much do you want to deposit?\"");
+				gOut.Print("Shylock gets a wide grin on his face and says, \"Good for you!  How much do you want to deposit?\"");
 
-				Globals.Out.Print("You have {0} GP in hand, {1} GP in the bank.",
+				gOut.Print("You have {0} GP in hand, {1} GP in the bank.",
 					Globals.Character.HeldGold,
 					Globals.Character.BankGold);
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}Enter the amount to deposit: ", Environment.NewLine);
+				gOut.Write("{0}Enter the amount to deposit: ", Environment.NewLine);
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, ' ', '\0', false, null, null, Globals.Engine.IsCharDigit, null);
+				rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, ' ', '\0', false, null, null, gEngine.IsCharDigit, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Globals.Thread.Sleep(150);
 
 				i = Convert.ToInt64(Buf.Trim().ToString());
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				if (i > 0)
 				{
@@ -104,35 +104,35 @@ namespace EamonMH.Game.Menus.ActionMenus
 					Buf.SetPrint("The banker says, \"Well, if you change your mind and need my services, just let me know!\"");
 				}
 
-				Globals.Out.Write("{0}", Buf);
+				gOut.Write("{0}", Buf);
 			}
 			else
 			{
 				Debug.Assert(Buf[0] == 'W');
 
-				Globals.Out.Print("Shylock says, \"Well, you have {0} gold piece{1} stored with me.  How many do you want to take back?\"", 
+				gOut.Print("Shylock says, \"Well, you have {0} gold piece{1} stored with me.  How many do you want to take back?\"", 
 					Globals.Character.BankGold,
 					Globals.Character.BankGold != 1 ? "s" : "");
 
-				Globals.Out.Print("You have {0} GP in hand, {1} GP in the bank.",
+				gOut.Print("You have {0} GP in hand, {1} GP in the bank.",
 					Globals.Character.HeldGold,
 					Globals.Character.BankGold);
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}Enter the amount to withdraw: ", Environment.NewLine);
+				gOut.Write("{0}Enter the amount to withdraw: ", Environment.NewLine);
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, ' ', '\0', false, null, null, Globals.Engine.IsCharDigit, null);
+				rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, ' ', '\0', false, null, null, gEngine.IsCharDigit, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Globals.Thread.Sleep(150);
 
 				i = Convert.ToInt64(Buf.Trim().ToString());
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				if (i > 0)
 				{
@@ -164,7 +164,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 					Buf.SetPrint("The banker says, \"Well, if you change your mind and need my services, just let me know!\"");
 				}
 
-				Globals.Out.Write("{0}", Buf);
+				gOut.Write("{0}", Buf);
 			}
 
 			Globals.In.KeyPress(Buf);

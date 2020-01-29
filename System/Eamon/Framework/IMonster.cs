@@ -356,6 +356,40 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		string GetArmorDescString();
 
+		/// <summary></summary>
+		/// <param name="room"></param>
+		/// <param name="monsterName"></param>
+		/// <param name="isPlural"></param>
+		/// <param name="fleeing"></param>
+		/// <returns></returns>
+		string GetCantFindExitDescString(IRoom room, string monsterName, bool isPlural, bool fleeing);
+
+		/// <summary></summary>
+		/// <param name="room"></param>
+		/// <param name="monsterName"></param>
+		/// <param name="isPlural"></param>
+		/// <param name="fleeing"></param>
+		/// <returns></returns>
+		string GetMembersExitRoomDescString(IRoom room, string monsterName, bool isPlural, bool fleeing);
+
+		/// <summary></summary>
+		/// <param name="room"></param>
+		/// <param name="monsterName"></param>
+		/// <param name="isPlural"></param>
+		/// <param name="fleeing"></param>
+		/// <param name="exitDirection"></param>
+		/// <returns></returns>
+		string GetExitRoomDescString(IRoom room, string monsterName, bool isPlural, bool fleeing, Direction exitDirection);
+
+		/// <summary></summary>
+		/// <param name="room"></param>
+		/// <param name="monsterName"></param>
+		/// <param name="isPlural"></param>
+		/// <param name="fleeing"></param>
+		/// <param name="enterDirection"></param>
+		/// <returns></returns>
+		string GetEnterRoomDescString(IRoom room, string monsterName, bool isPlural, bool fleeing, Direction enterDirection);
+
 		#endregion
 	}
 }

@@ -1,7 +1,7 @@
 ﻿
 // RequestCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -23,27 +23,27 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(DobjArtifact != null && IobjMonster != null);
+			Debug.Assert(gDobjArtifact != null && gIobjMonster != null);
 
-			if (IobjMonster.Friendliness < Friendliness.Friend)
+			if (gIobjMonster.Friendliness < Friendliness.Friend)
 			{
-				Globals.Engine.MonsterSmiles(IobjMonster);
+				gEngine.MonsterSmiles(gIobjMonster);
 
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 
 				goto Cleanup;
 			}
 
 			if (!GetCommandCalled)
 			{
-				RedirectToGetCommand<IRequestCommand>(DobjArtifact, false);
+				RedirectToGetCommand<IRequestCommand>(gDobjArtifact, false);
 
 				goto Cleanup;
 			}
 
-			if (!DobjArtifact.IsCarriedByCharacter())
+			if (!gDobjArtifact.IsCarriedByCharacter())
 			{
-				if (DobjArtifact.DisguisedMonster == null)
+				if (gDobjArtifact.DisguisedMonster == null)
 				{
 					NextState = Globals.CreateInstance<IStartState>();
 				}
@@ -51,18 +51,18 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (IobjMonster.Weapon == DobjArtifact.Uid)
+			if (gIobjMonster.Weapon == gDobjArtifact.Uid)
 			{
-				Debug.Assert(DobjArtifact.GeneralWeapon != null);
+				Debug.Assert(gDobjArtifact.GeneralWeapon != null);
 
-				rc = DobjArtifact.RemoveStateDesc(DobjArtifact.GetReadyWeaponDesc());
+				rc = gDobjArtifact.RemoveStateDesc(gDobjArtifact.GetReadyWeaponDesc());
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				IobjMonster.Weapon = -1;
+				gIobjMonster.Weapon = -1;
 			}
 
-			if (ActorMonster.Weapon <= 0 && DobjArtifact.IsReadyableByCharacter() && NextState == null)
+			if (gActorMonster.Weapon <= 0 && gDobjArtifact.IsReadyableByCharacter() && NextState == null)
 			{
 				NextState = Globals.CreateInstance<IReadyCommand>();
 
@@ -79,31 +79,31 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerFinishParsing()
 		{
-			CommandParser.ParseName();
+			gCommandParser.ParseName();
 
-			CommandParser.ObjData = CommandParser.IobjData;
+			gCommandParser.ObjData = gCommandParser.IobjData;
 
-			CommandParser.ObjData.QueryDesc = string.Format("{0}From whom? ", Environment.NewLine);
+			gCommandParser.ObjData.QueryDesc = string.Format("{0}From whom? ", Environment.NewLine);
 
 			PlayerResolveMonster();
 
-			if (IobjMonster != null)
+			if (gIobjMonster != null)
 			{
-				CommandParser.ObjData = CommandParser.DobjData;
+				gCommandParser.ObjData = gCommandParser.DobjData;
 
-				CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+				gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 				{
-					a => a.IsCarriedByMonster(IobjMonster),
-					a => a.IsWornByMonster(IobjMonster)
+					a => a.IsCarriedByMonster(gIobjMonster),
+					a => a.IsWornByMonster(gIobjMonster)
 				};
 
-				CommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch02;
+				gCommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch02;
 
-				CommandParser.ObjData.ArtifactNotFoundFunc = () =>
+				gCommandParser.ObjData.ArtifactNotFoundFunc = () =>
 				{
-					Globals.Out.Print("{0}{1} have it.",
-						IobjMonster.GetDecoratedName03(true, true, false, false, Globals.Buf),
-						IobjMonster.EvalPlural(" doesn't", " don't"));
+					gOut.Print("{0}{1} have it.",
+						gIobjMonster.GetTheName(true),
+						gIobjMonster.EvalPlural(" doesn't", " don't"));
 				};
 
 				PlayerResolveArtifact();

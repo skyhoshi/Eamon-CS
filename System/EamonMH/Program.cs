@@ -1,7 +1,7 @@
 ﻿
 // EamonMH.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -90,15 +90,15 @@ namespace EamonMH
 
 					// disable resolution of uid macros
 
-					Globals.Out.ResolveUidMacros = false;
+					gOut.ResolveUidMacros = false;
 
 					// disable extraneous newline suppression
 
-					Globals.Out.SuppressNewLines = false;
+					gOut.SuppressNewLines = false;
 
 					// make the cursor disappear
 
-					Globals.Out.CursorVisible = false;
+					gOut.CursorVisible = false;
 
 					// initialize Config record
 
@@ -114,14 +114,14 @@ namespace EamonMH
 
 					// change window title bar and size
 
-					Globals.Out.SetWindowTitle(ProgramName);
+					gOut.SetWindowTitle(ProgramName);
 
 					try
 					{
-						Globals.Out.SetWindowSize(Math.Min(Constants.WindowWidth, Globals.Out.GetLargestWindowWidth()),
-															Math.Min(Math.Max(Constants.WindowHeight, Globals.Out.GetWindowHeight()), (long)(Globals.Out.GetLargestWindowHeight() * 0.95)));
+						gOut.SetWindowSize(Math.Min(Constants.WindowWidth, gOut.GetLargestWindowWidth()),
+															Math.Min(Math.Max(Constants.WindowHeight, gOut.GetWindowHeight()), (long)(gOut.GetLargestWindowHeight() * 0.95)));
 
-						Globals.Out.SetBufferSize(Constants.BufferWidth, Constants.BufferHeight);
+						gOut.SetBufferSize(Constants.BufferWidth, Constants.BufferHeight);
 					}
 					catch (Exception)
 					{
@@ -130,11 +130,11 @@ namespace EamonMH
 
 					// make announcements
 
-					Globals.Out.Write("{0}Eamon CS Main Hall ({1}) {2}", Environment.NewLine, ProgramName, Constants.ProgVersion);
+					gOut.Write("{0}Eamon CS Main Hall ({1}) {2}", Environment.NewLine, ProgramName, Constants.ProgVersion);
 
-					Globals.Out.Write("{0}Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.", Environment.NewLine);
+					gOut.Write("{0}Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.", Environment.NewLine);
 
-					Globals.Out.Print("This GNU GPL'd free software has ABSOLUTELY NO WARRANTY.");
+					gOut.Print("This GNU GPL'd free software has ABSOLUTELY NO WARRANTY.");
 
 					// copy and store command line args
 
@@ -147,7 +147,7 @@ namespace EamonMH
 
 					// process command line args
 
-					Globals.Engine.MhProcessArgv(false, ref nlFlag);
+					gEngine.MhProcessArgv(false, ref nlFlag);
 
 					// assign default work directory, if necessary
 
@@ -170,17 +170,17 @@ namespace EamonMH
 
 						if (!Globals.Directory.Exists(Globals.WorkDir))
 						{
-							Globals.Out.Print("{0}", Globals.LineSep);
+							gOut.Print("{0}", Globals.LineSep);
 
-							Globals.Out.Print("The working directory [{0}] does not exist.", Globals.WorkDir);
+							gOut.Print("The working directory [{0}] does not exist.", Globals.WorkDir);
 
-							Globals.Out.Write("{0}Would you like to create it (Y/N) [N]: ", Environment.NewLine);
+							gOut.Write("{0}Would you like to create it (Y/N) [N]: ", Environment.NewLine);
 
 							Globals.Buf.Clear();
 
-							rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', true, "N", Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, Globals.Engine.IsCharYOrN);
+							rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', true, "N", gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, gEngine.IsCharYOrN);
 
-							Debug.Assert(Globals.Engine.IsSuccess(rc));
+							Debug.Assert(gEngine.IsSuccess(rc));
 
 							Globals.Thread.Sleep(150);
 
@@ -205,18 +205,18 @@ namespace EamonMH
 
 					if (Globals.ConfigFileName.Length > 0)
 					{
-						Globals.Out.Print("{0}", Globals.LineSep);
+						gOut.Print("{0}", Globals.LineSep);
 
 						rc = Globals.Database.LoadConfigs(Globals.ConfigFileName);
 
-						if (Globals.Engine.IsFailure(rc))
+						if (gEngine.IsFailure(rc))
 						{
 							Globals.Error.Write("Error: LoadConfigs function call failed");
 
 							goto Cleanup;
 						}
 
-						config = Globals.Engine.GetConfig();
+						config = gEngine.GetConfig();
 
 						if (config != null)
 						{
@@ -249,7 +249,7 @@ namespace EamonMH
 
 							rc = Globals.Database.AddConfig(Globals.Config);
 
-							if (Globals.Engine.IsFailure(rc))
+							if (gEngine.IsFailure(rc))
 							{
 								// PrintError
 
@@ -263,27 +263,27 @@ namespace EamonMH
 
 						Globals.Config = config;
 
-						Globals.Out.WriteLine();
+						gOut.WriteLine();
 					}
 
 					nlFlag = false;
 
 					// process command line args
 
-					Globals.Engine.MhProcessArgv(true, ref nlFlag);
+					gEngine.MhProcessArgv(true, ref nlFlag);
 
 					if (nlFlag)
 					{
-						Globals.Out.WriteLine();
+						gOut.WriteLine();
 					}
 
 					nlFlag = true;
 
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
 					rc = Globals.Database.LoadFilesets(Globals.Config.MhFilesetFileName);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						Globals.Error.Write("Error: LoadFilesets function call failed");
 
@@ -292,7 +292,7 @@ namespace EamonMH
 
 					rc = Globals.Database.LoadCharacters(Globals.Config.MhCharacterFileName);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						Globals.Error.Write("Error: LoadCharacters function call failed");
 
@@ -301,14 +301,14 @@ namespace EamonMH
 
 					rc = Globals.Database.LoadEffects(Globals.Config.MhEffectFileName);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						Globals.Error.Write("Error: LoadEffects function call failed");
 
 						goto Cleanup;
 					}
 
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 
 					// auto load character if necessary
 
@@ -345,7 +345,7 @@ namespace EamonMH
 
 					if (saveTextFiles)
 					{
-						Globals.Out.Print("{0}", Globals.LineSep);
+						gOut.Print("{0}", Globals.LineSep);
 
 						// save the textfiles
 
@@ -353,7 +353,7 @@ namespace EamonMH
 						{
 							rc = Globals.Database.SaveEffects(Globals.Config.MhEffectFileName);
 
-							if (Globals.Engine.IsFailure(rc))
+							if (gEngine.IsFailure(rc))
 							{
 								Globals.Error.Write("Error: SaveEffects function call failed");
 
@@ -367,7 +367,7 @@ namespace EamonMH
 						{
 							rc = Globals.Database.SaveCharacters(Globals.Config.MhCharacterFileName);
 
-							if (Globals.Engine.IsFailure(rc))
+							if (gEngine.IsFailure(rc))
 							{
 								Globals.Error.Write("Error: SaveCharacters function call failed");
 
@@ -381,7 +381,7 @@ namespace EamonMH
 						{
 							rc = Globals.Database.SaveFilesets(Globals.Config.MhFilesetFileName);
 
-							if (Globals.Engine.IsFailure(rc))
+							if (gEngine.IsFailure(rc))
 							{
 								Globals.Error.Write("Error: SaveFilesets function call failed");
 
@@ -395,7 +395,7 @@ namespace EamonMH
 						{
 							rc = Globals.Database.SaveConfigs(Globals.ConfigFileName);
 
-							if (Globals.Engine.IsFailure(rc))
+							if (gEngine.IsFailure(rc))
 							{
 								Globals.Error.Write("Error: SaveConfigs function call failed");
 
@@ -405,7 +405,7 @@ namespace EamonMH
 							}
 						}
 
-						Globals.Out.WriteLine();
+						gOut.WriteLine();
 					}
 
 					// send character on adventure if necessary
@@ -416,7 +416,7 @@ namespace EamonMH
 
 						Debug.Assert(Globals.Fileset != null);
 
-						Globals.Out.Print("{0}", Globals.LineSep);
+						gOut.Print("{0}", Globals.LineSep);
 
 						Globals.TransferProtocol.SendCharacterOnAdventure(Globals.Fileset.WorkDir, Globals.FilePrefix, Globals.Fileset.PluginFileName);
 					}

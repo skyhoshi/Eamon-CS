@@ -1,7 +1,7 @@
 ﻿
 // BeforeMonsterPicksUpWeaponState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -19,7 +19,7 @@ namespace EamonRT.Game.States
 	{
 		public override void Execute()
 		{
-			var monster = Globals.MDB[Globals.LoopMonsterUid];
+			var monster = gMDB[Globals.LoopMonsterUid];
 
 			Debug.Assert(monster != null);
 
@@ -45,11 +45,11 @@ namespace EamonRT.Game.States
 
 				if (Enum.IsDefined(typeof(ContainerType), containerType))
 				{
-					var prepName = Globals.Engine.EvalContainerType(containerType, "in", "on", "under", "behind");
+					var prepName = gEngine.EvalContainerType(containerType, "in", "on", "under", "behind");
 
 					command.Iobj = wpnArtifact.GetCarriedByContainer();
 
-					command.Prep = Globals.Engine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, prepName, StringComparison.OrdinalIgnoreCase));
+					command.Prep = gEngine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, prepName, StringComparison.OrdinalIgnoreCase));
 				}
 
 				command.NextState = Globals.CreateInstance<IBeforeMonsterReadiesWeaponState>();

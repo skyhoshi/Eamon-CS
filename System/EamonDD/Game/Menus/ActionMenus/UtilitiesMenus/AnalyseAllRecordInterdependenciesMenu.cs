@@ -1,7 +1,7 @@
 ﻿
 // AnalyseAllRecordInterdependenciesMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -54,15 +54,15 @@ namespace EamonDD.Game.Menus.ActionMenus
 							ModifyFlag = true;
 						}
 
-						Globals.Out.Print("{0}", Globals.LineSep);
+						gOut.Print("{0}", Globals.LineSep);
 
-						Globals.Out.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
+						gOut.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
 
 						Buf.Clear();
 
-						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, Globals.Engine.ModifyCharToNullOrX, null, Globals.Engine.IsCharAny);
+						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, gEngine.ModifyCharToNullOrX, null, gEngine.IsCharAny);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						if (Buf.Length > 0 && Buf[0] == 'X')
 						{
@@ -84,9 +84,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		ExitLoop:
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Print("Done analysing all record interdependencies.");
+			gOut.Print("Done analysing all record interdependencies.");
 		}
 
 		public AnalyseAllRecordInterdependenciesMenu()

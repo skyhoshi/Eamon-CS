@@ -35,9 +35,6 @@
         <member name="T:StrongholdOfKahrDur.Framework.Plugin.IPluginGlobals">
             <summary></summary>
         </member>
-        <member name="P:StrongholdOfKahrDur.Framework.Plugin.IPluginGlobals.Engine">
-            <summary></summary>
-        </member>
         <member name="T:StrongholdOfKahrDur.Framework.States.IBeforeNecromancerAttacksEnemyState">
             <summary></summary>
         </member>

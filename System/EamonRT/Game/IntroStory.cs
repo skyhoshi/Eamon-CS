@@ -1,7 +1,7 @@
 ﻿
 // IntroStory.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -30,17 +30,17 @@ namespace EamonRT.Game
 
 				if (Globals.Database.GetFilesetsCount() > 0)
 				{
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
-					Globals.Out.Print("Welcome back to {0}!", Globals.Module.Name);
+					gOut.Print("Welcome back to {0}!", Globals.Module.Name);
 
-					Globals.Out.Write("{0}Would you like to see the introduction story again (Y/N) [N]: ", Environment.NewLine);
+					gOut.Write("{0}Would you like to see the introduction story again (Y/N) [N]: ", Environment.NewLine);
 
 					Buf.Clear();
 
-					var rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, "N", Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+					var rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, "N", gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					Globals.Thread.Sleep(150);
 
@@ -66,9 +66,9 @@ namespace EamonRT.Game
 		{
 			var i = 0L;
 
-			var rc = Globals.Character.GetWeaponCount(ref i);
+			var rc = gCharacter.GetWeaponCount(ref i);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			return ch >= '1' && ch <= ('1' + (i - 1));
 		}
@@ -93,13 +93,13 @@ namespace EamonRT.Game
 		{
 			RetCode rc;
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			PrintOutputBeginnersPrelude();
 
 			var i = 0L;       // weird disambiguation hack
 
-			if (!Globals.Character.GetWeapons(i).IsActive())
+			if (!gCharacter.GetWeapons(i).IsActive())
 			{
 				PrintOutputBeginnersNoWeapons();
 
@@ -107,7 +107,7 @@ namespace EamonRT.Game
 
 				Globals.ExitType = ExitType.GoToMainHall;
 			}
-			else if (Globals.Character.ArmorExpertise != 0 || Globals.Character.GetWeaponAbilities(Weapon.Axe) != 5 || Globals.Character.GetWeaponAbilities(Weapon.Club) != 20 || Globals.Character.GetWeaponAbilities(Weapon.Sword) != 0)
+			else if (gCharacter.ArmorExpertise != 0 || gCharacter.GetWeaponAbilities(Weapon.Axe) != 5 || gCharacter.GetWeaponAbilities(Weapon.Club) != 20 || gCharacter.GetWeaponAbilities(Weapon.Sword) != 0)
 			{
 				PrintOutputBeginnersNotABeginner();
 
@@ -117,35 +117,35 @@ namespace EamonRT.Game
 			}
 			else
 			{
-				if (Globals.Character.GetWeapons(1).IsActive())
+				if (gCharacter.GetWeapons(1).IsActive())
 				{
 					PrintOutputBeginnersTooManyWeapons();
 
 					Buf.Clear();
 
-					Globals.Character.ListWeapons(Buf);
+					gCharacter.ListWeapons(Buf);
 
-					Globals.Out.WriteLine("{0}", Buf);
+					gOut.WriteLine("{0}", Buf);
 
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
-					Globals.Out.Write("{0}Press the number of the weapon to select: ", Environment.NewLine);
+					gOut.Write("{0}Press the number of the weapon to select: ", Environment.NewLine);
 
 					Buf.Clear();
 
-					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, IsCharWpnNum, null);
+					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, IsCharWpnNum, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					Globals.Thread.Sleep(150);
 
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
-					Debug.Assert(Globals.GameState != null);
+					Debug.Assert(gGameState != null);
 
-					Globals.GameState.UsedWpnIdx = Convert.ToInt64(Buf.Trim().ToString());
+					gGameState.UsedWpnIdx = Convert.ToInt64(Buf.Trim().ToString());
 
-					Globals.GameState.UsedWpnIdx--;
+					gGameState.UsedWpnIdx--;
 				}
 
 				PrintOutputBeginnersMayNowProceed();
@@ -155,17 +155,17 @@ namespace EamonRT.Game
 		/// <summary></summary>
 		protected virtual void PrintOutputDefault()
 		{
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			var effect = Globals.EDB[Globals.Module.IntroStory];
+			var effect = gEDB[Globals.Module.IntroStory];
 
 			if (effect != null)
 			{
-				Globals.Engine.PrintMacroReplacedPagedString(effect.Desc, Buf);
+				gEngine.PrintMacroReplacedPagedString(effect.Desc, Buf);
 			}
 			else
 			{
-				Globals.Out.Print("There is no introduction story for this adventure.");
+				gOut.Print("There is no introduction story for this adventure.");
 			}
 		}
 

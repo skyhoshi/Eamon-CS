@@ -1,7 +1,7 @@
 ﻿
 // GetPlayerInputState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -18,21 +18,17 @@ namespace TheSubAquanLaboratory.Game.States
 		{
 			if (eventType == PeBeforeCommandPromptPrint && ShouldPreTurnProcess())
 			{
-				var gameState = Globals.GameState as Framework.IGameState;
-
-				Debug.Assert(gameState != null);
-
 				// Electrified floor
 
-				var electrifiedFloorArtifact = Globals.ADB[85];
+				var electrifiedFloorArtifact = gADB[85];
 
 				Debug.Assert(electrifiedFloorArtifact != null);
 
-				if (electrifiedFloorArtifact.Location == Globals.GameState.Ro)
+				if (electrifiedFloorArtifact.Location == gGameState.Ro)
 				{
-					Globals.Out.Print("The electrified floor zaps everyone in the chamber!");
+					gOut.Print("The electrified floor zaps everyone in the chamber!");
 
-					var monsters = Globals.Engine.GetMonsterList(m => m.IsCharacterMonster(), m => m.Location == Globals.GameState.Ro && !m.IsCharacterMonster());
+					var monsters = gEngine.GetMonsterList(m => m.IsCharacterMonster(), m => m.Location == gGameState.Ro && !m.IsCharacterMonster());
 
 					for (var i = 0; i < monsters.Count; i++)
 					{
@@ -51,7 +47,7 @@ namespace TheSubAquanLaboratory.Game.States
 
 						combatSystem.ExecuteCalculateDamage(1, 4);
 
-						if (Globals.GameState.Die > 0)
+						if (gGameState.Die > 0)
 						{
 							GotoCleanup = true;
 
@@ -62,21 +58,21 @@ namespace TheSubAquanLaboratory.Game.States
 
 				// Flood water
 
-				if (gameState.Flood > 0 && gameState.Ro == 10)
+				if (gGameState.Flood > 0 && gGameState.Ro == 10)
 				{
-					if (gameState.Flood == 1)
+					if (gGameState.Flood == 1)
 					{
-						if (gameState.FloodLevel == 11)
+						if (gGameState.FloodLevel == 11)
 						{
-							var scubaGearArtifact = Globals.ADB[52];
+							var scubaGearArtifact = gADB[52];
 
 							Debug.Assert(scubaGearArtifact != null);
 
 							if (scubaGearArtifact.IsWornByCharacter())
 							{
-								Globals.Out.Print("The chamber has entirely flooded!");
+								gOut.Print("The chamber has entirely flooded!");
 
-								var monsters = Globals.Engine.GetMonsterList(m => m.Location == gameState.Ro && !m.IsCharacterMonster());
+								var monsters = gEngine.GetMonsterList(m => m.Location == gGameState.Ro && !m.IsCharacterMonster());
 
 								for (var i = 0; i < monsters.Count; i++)
 								{
@@ -98,9 +94,9 @@ namespace TheSubAquanLaboratory.Game.States
 							}
 							else
 							{
-								Globals.Engine.PrintEffectDesc(33);
+								gEngine.PrintEffectDesc(33);
 
-								gameState.Die = 1;
+								gGameState.Die = 1;
 
 								NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 								{
@@ -114,32 +110,32 @@ namespace TheSubAquanLaboratory.Game.States
 						}
 						else
 						{
-							if (++gameState.FloodLevel % 3 == 0)
+							if (++gGameState.FloodLevel % 3 == 0)
 							{
-								Globals.Out.Print("The water has risen to the {0} meter mark.", gameState.FloodLevel / 3);
+								gOut.Print("The water has risen to the {0} meter mark.", gGameState.FloodLevel / 3);
 							}
 							else
 							{
-								Globals.Out.Print("The water continues to pour into the chamber.");
+								gOut.Print("The water continues to pour into the chamber.");
 							}
 						}
 					}
-					else if (gameState.Flood == 2)
+					else if (gGameState.Flood == 2)
 					{
-						if (gameState.FloodLevel % 3 == 0)
+						if (gGameState.FloodLevel % 3 == 0)
 						{
-							Globals.Out.Print("The water has receded to the {0} meter mark.", gameState.FloodLevel / 3);
+							gOut.Print("The water has receded to the {0} meter mark.", gGameState.FloodLevel / 3);
 						}
 						else
 						{
-							Globals.Out.Print("The water continues to drain from the chamber.");
+							gOut.Print("The water continues to drain from the chamber.");
 						}
 
-						if (--gameState.FloodLevel < 0)
+						if (--gGameState.FloodLevel < 0)
 						{
-							gameState.Flood = 0;
+							gGameState.Flood = 0;
 
-							gameState.FloodLevel = 0;
+							gGameState.FloodLevel = 0;
 						}
 					}
 				}

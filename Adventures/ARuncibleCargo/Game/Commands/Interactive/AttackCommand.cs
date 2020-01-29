@@ -1,7 +1,7 @@
 ﻿
 // AttackCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -17,18 +17,18 @@ namespace ARuncibleCargo.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null || DobjMonster != null);
+			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
 
-			if ((BlastSpell || ActorMonster.Weapon > 0) && DobjArtifact != null)
+			if ((BlastSpell || gActorMonster.Weapon > 0) && gDobjArtifact != null)
 			{
-				switch (DobjArtifact.Uid)
+				switch (gDobjArtifact.Uid)
 				{
 					case 30:
 					case 80:
 
 						// Can't attack oven or safe
 
-						Globals.Engine.PrintEffectDesc(162);
+						gEngine.PrintEffectDesc(162);
 
 						NextState = Globals.CreateInstance<IMonsterStartState>();
 
@@ -38,7 +38,7 @@ namespace ARuncibleCargo.Game.Commands
 
 						// Attack cell = Open Jail
 
-						var ac = DobjArtifact.InContainer;
+						var ac = gDobjArtifact.InContainer;
 
 						Debug.Assert(ac != null);
 
@@ -56,7 +56,7 @@ namespace ARuncibleCargo.Game.Commands
 
 						// Can't attack/blast the Runcible Cargo
 
-						Globals.Out.Print("That sounds quite dangerous!");
+						gOut.Print("That sounds quite dangerous!");
 
 						NextState = Globals.CreateInstance<IMonsterStartState>();
 
@@ -79,7 +79,7 @@ namespace ARuncibleCargo.Game.Commands
 		{
 			// Disable AttackCommand in water rooms
 
-			return !ActorRoom.CastTo<Framework.IRoom>().IsWaterRoom();
+			return !gActorRoom.IsWaterRoom();
 		}
 	}
 }

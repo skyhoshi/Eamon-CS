@@ -1,7 +1,7 @@
 ﻿
 // BeforePlayerMoveState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -28,7 +28,7 @@ namespace EamonRT.Game.States
 		{
 			if (eventType == PeAfterDestinationRoomSet)
 			{
-				if (Globals.GameState.GetNBTL(Friendliness.Enemy) > 0 && Room.IsLit())
+				if (gGameState.GetNBTL(Friendliness.Enemy) > 0 && Room.IsLit())
 				{
 					PrintEnemiesNearby();
 
@@ -41,11 +41,11 @@ namespace EamonRT.Game.States
 		{
 			Debug.Assert(Enum.IsDefined(typeof(Direction), Direction) || Artifact != null);
 
-			Room = Globals.RDB[Globals.GameState.Ro];
+			Room = gRDB[gGameState.Ro];
 
 			Debug.Assert(Room != null);
 
-			Globals.GameState.R2 = Artifact != null ? 0 : Room.GetDirs(Direction);
+			gGameState.R2 = Artifact != null ? 0 : Room.GetDirs(Direction);
 
 			ProcessEvents(PeAfterDestinationRoomSet);
 

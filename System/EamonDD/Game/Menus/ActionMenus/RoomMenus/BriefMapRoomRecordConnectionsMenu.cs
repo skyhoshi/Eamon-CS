@@ -1,7 +1,7 @@
 ﻿
 // BriefMapRoomRecordConnectionsMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -27,16 +27,16 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var nlFlag = false;
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle("BRIEF MAP ROOM RECORD CONNECTIONS", true);
+			gEngine.PrintTitle("BRIEF MAP ROOM RECORD CONNECTIONS", true);
 
-			if (Globals.Engine.IsAdventureFilesetLoaded())
+			if (gEngine.IsAdventureFilesetLoaded())
 			{
-				Globals.Out.Print("A map of: {0}",
-					Globals.Module != null ? Globals.Module.Name : Globals.Engine.UnknownName);
+				gOut.Print("A map of: {0}",
+					Globals.Module != null ? Globals.Module.Name : gEngine.UnknownName);
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 			}
 
 			var numDirs = Globals.Module != null ? Globals.Module.NumDirs : 6;
@@ -57,7 +57,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 						for (var j = 0; j < numDirs; j++)
 						{
-							var direction = Globals.Engine.GetDirections(directionValues[j]);
+							var direction = gEngine.GetDirections(directionValues[j]);
 
 							Debug.Assert(direction != null);
 
@@ -70,7 +70,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 						for (var j = 0; j < numDirs; j++)
 						{
-							var direction = Globals.Engine.GetDirections(directionValues[j]);
+							var direction = gEngine.GetDirections(directionValues[j]);
 
 							Debug.Assert(direction != null);
 
@@ -78,9 +78,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 						}
 					}
 
-					Globals.Out.Write("{0}", Buf);
+					gOut.Write("{0}", Buf);
 
-					Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.LineSep);
+					gOut.Write("{0}{1}", Environment.NewLine, Globals.LineSep);
 
 					showHeader = false;
 				}
@@ -118,7 +118,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 					Buf.AppendFormat("{0,-4} ", room.GetDirs(directionValues[j]));
 				}
 
-				Globals.Out.Write("{0}", Buf);
+				gOut.Write("{0}", Buf);
 
 				nlFlag = true;
 
@@ -126,19 +126,19 @@ namespace EamonDD.Game.Menus.ActionMenus
 				{
 					nlFlag = false;
 
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
-					Globals.Out.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
+					gOut.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
 
 					Buf.Clear();
 
-					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, Globals.Engine.ModifyCharToNullOrX, null, Globals.Engine.IsCharAny);
+					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, gEngine.ModifyCharToNullOrX, null, gEngine.IsCharAny);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
 					if (Buf.Length > 0 && Buf[0] == 'X')
 					{
@@ -153,10 +153,10 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (nlFlag)
 			{
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 			}
 
-			Globals.Out.Print("Done briefly mapping room record connections.");
+			gOut.Print("Done briefly mapping room record connections.");
 		}
 
 		public BriefMapRoomRecordConnectionsMenu()

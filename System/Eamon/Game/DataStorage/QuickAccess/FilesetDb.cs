@@ -1,8 +1,9 @@
 ﻿
 // FilesetDb.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using System.Collections.Generic;
 using Eamon.Framework;
 using Eamon.Framework.DataStorage.Generic;
 using Eamon.Game.Attributes;
@@ -14,11 +15,6 @@ namespace Eamon.Game.DataStorage.QuickAccess
 	public class FilesetDb : IRecordDb<IFileset>
 	{
 		public virtual bool CopyAddedRecord { get; set; }
-
-		public FilesetDb()
-		{
-			CopyAddedRecord = true;
-		}
 
 		public virtual IFileset this[long uid]
 		{
@@ -39,6 +35,19 @@ namespace Eamon.Game.DataStorage.QuickAccess
 					Globals.Database.AddFileset(value, CopyAddedRecord);
 				}
 			}
+		}
+
+		public virtual ICollection<IFileset> Records
+		{
+			get
+			{
+				return Globals?.Database?.FilesetTable?.Records;
+			}
+		}
+
+		public FilesetDb()
+		{
+			CopyAddedRecord = true;
 		}
 	}
 }

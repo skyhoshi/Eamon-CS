@@ -1,7 +1,7 @@
 ﻿
 // CombatSystem.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using Eamon.Framework.Primitive.Enums;
@@ -40,15 +40,15 @@ namespace TheSubAquanLaboratory.Game.Combat
 
 		protected override void PrintBlowTurned()
 		{
-			if (DfMonster.Uid == Globals.GameState.Cm && DfMonster.Armor < 1)
+			if (DfMonster.Uid == gGameState.Cm && DfMonster.Armor < 1)
 			{
-				Globals.Out.Write("{0}{1}Blow turned!", Environment.NewLine, OmitBboaPadding ? "" : "  ");
+				gOut.Write("{0}{1}Blow turned!", Environment.NewLine, OmitBboaPadding ? "" : "  ");
 			}
 			else
 			{
 				var armorDesc = DfMonster.GetArmorDescString();
 
-				Globals.Out.Write("{0}{1}Blow bounces off {2}!", Environment.NewLine, OmitBboaPadding ? "" : "  ", armorDesc);
+				gOut.Write("{0}{1}Blow bounces off {2}!", Environment.NewLine, OmitBboaPadding ? "" : "  ", armorDesc);
 			}
 		}
 	}

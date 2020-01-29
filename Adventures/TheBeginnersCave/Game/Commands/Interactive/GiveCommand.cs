@@ -1,7 +1,7 @@
 ﻿
 // GiveCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -14,11 +14,11 @@ namespace TheBeginnersCave.Game.Commands
 	{
 		public override void PlayerProcessEvents(long eventType)
 		{
-			if (eventType == PpeBeforeMonsterTakesGold && (IobjMonster.Uid == 1 || IobjMonster.Uid == 5 || IobjMonster.Uid == 7))
+			if (eventType == PpeBeforeMonsterTakesGold && (gIobjMonster.Uid == 1 || gIobjMonster.Uid == 5 || gIobjMonster.Uid == 7))
 			{
-				Globals.Engine.MonsterSmiles(IobjMonster);
+				gEngine.MonsterSmiles(gIobjMonster);
 
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 
 				GotoCleanup = true;
 			}

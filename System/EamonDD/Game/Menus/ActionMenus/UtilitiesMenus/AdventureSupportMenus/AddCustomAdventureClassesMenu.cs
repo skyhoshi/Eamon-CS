@@ -1,7 +1,7 @@
 ﻿
 // AddCustomAdventureClassesMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -35,19 +35,19 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			while (true)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}Enter file name of interface/class: ", Environment.NewLine);
+				gOut.Write("{0}Enter file name of interface/class: ", Environment.NewLine);
 
 				Buf.Clear();
 
-				Globals.Out.WordWrap = false;
+				gOut.WordWrap = false;
 
 				var rc = Globals.In.ReadField(Buf, 120, null, '_', '\0', true, null, null, null, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				Globals.Out.WordWrap = true;
+				gOut.WordWrap = true;
 
 				classFileName = Buf.Trim().ToString().Replace('/', '\\');
 
@@ -79,9 +79,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 					{
 						if (classFileName.StartsWith(@".\EamonRT\Game\States\") || classFileName.StartsWith(@".\EamonRT\Game\Commands\") || classFileName.StartsWith(@".\EamonRT\Framework\States\") || classFileName.StartsWith(@".\EamonRT\Framework\Commands\"))
 						{
-							Globals.Out.Print("{0}", Globals.LineSep);
+							gOut.Print("{0}", Globals.LineSep);
 
-							Globals.Out.Write("{0}Would you like to derive directly from {1} (Y/N) [N]: ", Environment.NewLine, 
+							gOut.Write("{0}Would you like to derive directly from {1} (Y/N) [N]: ", Environment.NewLine, 
 								classFileName.Contains(@"\Game\States\") ? "State" :	
 								classFileName.Contains(@"\Game\Commands\") ? "Command" :	
 								classFileName.Contains(@"\Framework\States\") ? "IState" : 
@@ -89,9 +89,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 							Buf.Clear();
 
-							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, "N", Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, "N", gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, null);
 
-							Debug.Assert(Globals.Engine.IsSuccess(rc));
+							Debug.Assert(gEngine.IsSuccess(rc));
 
 							if (Buf.Length > 0 && Buf[0] == 'Y')
 							{
@@ -112,7 +112,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 					}
 				}
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				if (classFileName.Length > 0)
 				{
@@ -120,29 +120,29 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					if (!includeInterface && classFileName.Contains(@"\Game\"))
 					{
-						Globals.Out.Write("{0}Would you like to add a custom interface for this class (Y/N) [N]: ", Environment.NewLine);
+						gOut.Write("{0}Would you like to add a custom interface for this class (Y/N) [N]: ", Environment.NewLine);
 
 						Buf.Clear();
 
-						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, "N", Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, "N", gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, null);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						if (Buf.Length > 0 && Buf[0] == 'Y')
 						{
 							includeInterface = true;
 						}
 
-						Globals.Out.Print("{0}", Globals.LineSep);
+						gOut.Print("{0}", Globals.LineSep);
 					}
 
 					IncludeInterfaces.Add(includeInterface);
 
-					Globals.Out.Print("The file name path was added to the selected class files list.");
+					gOut.Print("The file name path was added to the selected class files list.");
 				}
 				else
 				{
-					Globals.Out.Print("The file name path was invalid or the source/destination file was not found, or already exists.");
+					gOut.Print("The file name path was invalid or the source/destination file was not found, or already exists.");
 				}
 			}
 
@@ -150,9 +150,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (SelectedClassFiles.Count == 0)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("The adventure was not processed.");
+				gOut.Print("The adventure was not processed.");
 
 				GotoCleanup = true;
 			}
@@ -161,9 +161,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 		/// <summary></summary>
 		protected virtual void AddSelectedClassFiles()
 		{
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
 			for (var i = 0; i < SelectedClassFiles.Count; i++)
 			{
@@ -177,11 +177,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		public override void Execute()
 		{
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle("ADD CUSTOM ADVENTURE CLASSES", true);
+			gEngine.PrintTitle("ADD CUSTOM ADVENTURE CLASSES", true);
 
-			Debug.Assert(!Globals.Engine.IsAdventureFilesetLoaded());
+			Debug.Assert(!gEngine.IsAdventureFilesetLoaded());
 
 			GotoCleanup = false;
 

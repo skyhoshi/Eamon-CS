@@ -20,6 +20,6 @@ namespace Eamon.Framework.Primitive.Classes
 		string Abbr { get; set; }
 
 		/// <summary></summary>
-		Direction ArrivalDir { get; set; }
+		Direction EnterDir { get; set; }
 	}
 }

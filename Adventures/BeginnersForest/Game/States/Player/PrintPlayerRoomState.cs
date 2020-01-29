@@ -17,19 +17,15 @@ namespace BeginnersForest.Game.States
 		{
 			if (eventType == PeBeforePlayerRoomPrint && ShouldPreTurnProcess())
 			{
-				var gameState = Globals.GameState as Framework.IGameState;
-
-				Debug.Assert(gameState != null);
-
-				var spookMonster = Globals.MDB[9];
+				var spookMonster = gMDB[9];
 
 				Debug.Assert(spookMonster != null);
 
 				// Random Annoying Spooks (4 Spook limit)
 
-				if (gameState.Ro > 1 && gameState.Ro < 5 && gameState.SpookCounter < 10 && spookMonster.GroupCount < 4)
+				if (gGameState.Ro > 1 && gGameState.Ro < 5 && gGameState.SpookCounter < 10 && spookMonster.GroupCount < 4)
 				{
-					var rl = Globals.Engine.RollDice(1, 100, 0);
+					var rl = gEngine.RollDice(1, 100, 0);
 
 					if (rl < 35)
 					{
@@ -41,9 +37,9 @@ namespace BeginnersForest.Game.States
 
 						spookMonster.OrigGroupCount++;
 
-						spookMonster.Location = gameState.Ro;
+						spookMonster.Location = gGameState.Ro;
 
-						gameState.SpookCounter++;
+						gGameState.SpookCounter++;
 					}
 				}
 			}

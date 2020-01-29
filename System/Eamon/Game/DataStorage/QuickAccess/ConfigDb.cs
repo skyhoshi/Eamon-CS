@@ -1,8 +1,9 @@
 ﻿
 // ConfigDb.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using System.Collections.Generic;
 using Eamon.Framework;
 using Eamon.Framework.DataStorage.Generic;
 using Eamon.Game.Attributes;
@@ -14,11 +15,6 @@ namespace Eamon.Game.DataStorage.QuickAccess
 	public class ConfigDb : IRecordDb<IConfig>
 	{
 		public virtual bool CopyAddedRecord { get; set; }
-
-		public ConfigDb()
-		{
-			CopyAddedRecord = true;
-		}
 
 		public virtual IConfig this[long uid]
 		{
@@ -39,6 +35,19 @@ namespace Eamon.Game.DataStorage.QuickAccess
 					Globals.Database.AddConfig(value, CopyAddedRecord);
 				}
 			}
+		}
+
+		public virtual ICollection<IConfig> Records
+		{
+			get
+			{
+				return Globals?.Database?.ConfigTable?.Records;
+			}
+		}
+
+		public ConfigDb()
+		{
+			CopyAddedRecord = true;
 		}
 	}
 }

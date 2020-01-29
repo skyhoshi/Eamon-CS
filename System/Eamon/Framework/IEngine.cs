@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Eamon.Framework.Args;
+using Eamon.Framework.DataStorage.Generic;
 using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 
@@ -17,34 +18,50 @@ namespace Eamon.Framework
 	{
 		#region Properties
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a collection of functions used to resolve macros embedded in <see cref="IGameBase.Desc">Desc</see>, 
+		/// <see cref="IArtifact">Artifact</see> <see cref="IArtifact.StateDesc">StateDesc</see> and <see cref="IMonster">Monster</see>
+		/// <see cref="IMonster.StateDesc">StateDesc</see> properties.
+		/// </summary>
 		IDictionary<long, Func<string>> MacroFuncs { get; set; }
 
 		/// <summary></summary>
 		IList<IArtifact> ArtifactContainedList { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets an array of sentence prepositions (eg, "to", "from", "inside", etc).
+		/// </summary>
 		IPrep[] Preps { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets an array of sentence articles (eg, "a", "some", "the", etc).
+		/// </summary>
 		string[] Articles { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the number of records stored in each quick-lookup <see cref="IDbTable{T}.Cache">Cache</see> in the database.
+		/// </summary>
 		long NumCacheItems { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a generic string representing an unknown name (eg, "???").
+		/// </summary>
 		string UnknownName { get; set; }
 
 		#endregion
 
 		#region Methods
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the sentence preposition (eg, "to", "from", "inside", etc).
+		/// </summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
 		IPrep GetPreps(long index);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the sentence article (eg, "a", "some", "the", etc).
+		/// </summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
 		string GetArticles(long index);
@@ -64,32 +81,44 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		string GetFieldDescNames(FieldDesc fieldDesc);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the name for a given <see cref="Status"/>.
+		/// </summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
 		string GetStatusNames(long index);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the name for a given <see cref="Status"/>.
+		/// </summary>
 		/// <param name="status"></param>
 		/// <returns></returns>
 		string GetStatusNames(Status status);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the name for a given <see cref="Clothing"/>.
+		/// </summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
 		string GetClothingNames(long index);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the name for a given <see cref="Clothing"/>.
+		/// </summary>
 		/// <param name="clothing"></param>
 		/// <returns></returns>
 		string GetClothingNames(Clothing clothing);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the description for a given <see cref="CombatCode"/>.
+		/// </summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
 		string GetCombatCodeDescs(long index);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the description for a given <see cref="CombatCode"/>.
+		/// </summary>
 		/// <param name="combatCode"></param>
 		/// <returns></returns>
 		string GetCombatCodeDescs(CombatCode combatCode);
@@ -104,107 +133,149 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		string GetContainerDisplayCodeDescs(ContainerDisplayCode containerDisplayCode);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the name for a given <see cref="LightLevel"/>.
+		/// </summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
 		string GetLightLevelNames(long index);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the name for a given <see cref="LightLevel"/>.
+		/// </summary>
 		/// <param name="lightLevel"></param>
 		/// <returns></returns>
 		string GetLightLevelNames(LightLevel lightLevel);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the data for a given <see cref="Stat"/>.
+		/// </summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
 		IStat GetStats(long index);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the data for a given <see cref="Stat"/>.
+		/// </summary>
 		/// <param name="stat"></param>
 		/// <returns></returns>
 		IStat GetStats(Stat stat);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the data for a given <see cref="Spell"/>.
+		/// </summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
 		ISpell GetSpells(long index);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the data for a given <see cref="Spell"/>.
+		/// </summary>
 		/// <param name="spell"></param>
 		/// <returns></returns>
 		ISpell GetSpells(Spell spell);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the data for a given <see cref="Weapon"/>.
+		/// </summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
 		IWeapon GetWeapons(long index);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the data for a given <see cref="Weapon"/>.
+		/// </summary>
 		/// <param name="weapon"></param>
 		/// <returns></returns>
 		IWeapon GetWeapons(Weapon weapon);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the data for a given <see cref="Armor"/>.
+		/// </summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
 		IArmor GetArmors(long index);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the data for a given <see cref="Armor"/>.
+		/// </summary>
 		/// <param name="armor"></param>
 		/// <returns></returns>
 		IArmor GetArmors(Armor armor);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the data for a given <see cref="Direction"/>.
+		/// </summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
 		IDirection GetDirections(long index);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the data for a given <see cref="Direction"/>.
+		/// </summary>
 		/// <param name="direction"></param>
 		/// <returns></returns>
 		IDirection GetDirections(Direction direction);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the data for a given <see cref="ArtifactType"/>.
+		/// </summary>
 		/// <param name="index"></param>
 		/// <returns></returns>
 		IArtifactType GetArtifactTypes(long index);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the data for a given <see cref="ArtifactType"/>.
+		/// </summary>
 		/// <param name="artifactType"></param>
 		/// <returns></returns>
 		IArtifactType GetArtifactTypes(ArtifactType artifactType);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether an operation succeeded.
+		/// </summary>
 		/// <param name="rc"></param>
 		/// <returns></returns>
 		bool IsSuccess(RetCode rc);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether an operation failed.
+		/// </summary>
 		/// <param name="rc"></param>
 		/// <returns></returns>
 		bool IsFailure(RetCode rc);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a plural type is valid.
+		/// </summary>
 		/// <param name="pluralType"></param>
 		/// <returns></returns>
 		bool IsValidPluralType(PluralType pluralType);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether an artifact type is valid.
+		/// </summary>
 		/// <param name="artifactType"></param>
 		/// <returns></returns>
 		bool IsValidArtifactType(ArtifactType artifactType);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether an armor value is valid for an wearable <see cref="IArtifact">Artifact</see>.
+		/// </summary>
 		/// <param name="armor"></param>
 		/// <returns></returns>
 		bool IsValidArtifactArmor(long armor);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether an armor value is valid for a <see cref="IMonster">Monster</see>.
+		/// </summary>
 		/// <param name="armor"></param>
 		/// <returns></returns>
 		bool IsValidMonsterArmor(long armor);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a courage value is valid for a <see cref="IMonster">Monster</see>.
+		/// </summary>
 		/// <param name="courage"></param>
 		/// <returns></returns>
 		bool IsValidMonsterCourage(long courage);
@@ -317,117 +388,163 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		double GetMerchantRtio(long charisma);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is one of ['Y', 'N'].
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharYOrN(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is one of ['S', 'T', 'R', 'X'].
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharSOrTOrROrX(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is one of ['0', '1'].
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsChar0Or1(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is one of ['0', '1', '2'].
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsChar0To2(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is one of ['0', '1', '2', '3'].
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsChar0To3(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is one of ['1', '2', '3'].
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsChar1To3(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is a numeric digit.
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharDigit(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is a numeric digit or 'X'.
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharDigitOrX(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is a numeric digit or one of ['+', '-'].
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharPlusMinusDigit(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is alphabetic.
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharAlpha(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is alphabetic or space.
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharAlphaSpace(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is alphabetic or numeric digit.
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharAlnum(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is alphabetic, numeric digit or space.
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharAlnumSpace(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is alphabetic, numeric digit, period or underscore.
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharAlnumPeriodUnderscore(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is printable.
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharPrint(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is '#'.
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharPound(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is a quote.
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharQuote(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is any character at all.
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharAny(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is any character but one of ['"', ',', ':'].
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharAnyButDquoteCommaColon(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Indicates whether a character is any character but one of ['\', '/'].
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		bool IsCharAnyButBackForwardSlash(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Given a character, produce its upper case equivalent, if any.
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		char ModifyCharToUpper(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Given a character, produce either 'X' or '\0'.
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		char ModifyCharToNullOrX(char ch);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Given a character, produce '\0'.
+		/// </summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
 		char ModifyCharToNull(char ch);
@@ -446,15 +563,21 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		IConfig GetConfig();
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IGameState">GameState</see> record.
+		/// </summary>
 		/// <returns></returns>
 		IGameState GetGameState();
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="IModule">Module</see> record.
+		/// </summary>
 		/// <returns></returns>
 		IModule GetModule();
 
-		/// <summary></summary>
+		/// <summary>
+		/// Evaluates the <see cref="Friendliness"/>, returning a value of type T.
+		/// </summary>
 		/// <param name="friendliness"></param>
 		/// <param name="enemyValue"></param>
 		/// <param name="neutralValue"></param>
@@ -462,7 +585,9 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		T EvalFriendliness<T>(Friendliness friendliness, T enemyValue, T neutralValue, T friendValue);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Evaluates the <see cref="Gender"/>, returning a value of type T.
+		/// </summary>
 		/// <param name="gender"></param>
 		/// <param name="maleValue"></param>
 		/// <param name="femaleValue"></param>
@@ -479,21 +604,27 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		T EvalContainerType<T>(ContainerType containerType, T inValue, T onValue, T underValue, T behindValue);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Evaluates the <see cref="RoomType"/>, returning a value of type T.
+		/// </summary>
 		/// <param name="roomType"></param>
 		/// <param name="indoorsValue"></param>
 		/// <param name="outdoorsValue"></param>
 		/// <returns></returns>
 		T EvalRoomType<T>(RoomType roomType, T indoorsValue, T outdoorsValue);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Evaluates the <see cref="LightLevel"/>, returning a value of type T.
+		/// </summary>
 		/// <param name="lightLevel"></param>
 		/// <param name="darkValue"></param>
 		/// <param name="lightValue"></param>
 		/// <returns></returns>
 		T EvalLightLevel<T>(LightLevel lightLevel, T darkValue, T lightValue);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Evaluates the plural value, returning a value of type T.
+		/// </summary>
 		/// <param name="isPlural"></param>
 		/// <param name="singularValue"></param>
 		/// <param name="pluralValue"></param>
@@ -560,25 +691,33 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		string GetContainerContentsDesc(IArtifact artifact);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets the <see cref="Spell.Blast">Blast</see> spell description.
+		/// </summary>
 		/// <returns></returns>
 		string GetBlastDesc();
 
-		/// <summary></summary>
+		/// <summary>
+		/// Rolls a number of dice, storing the resulting values in an array.
+		/// </summary>
 		/// <param name="numDice"></param>
 		/// <param name="numSides"></param>
 		/// <param name="dieRolls"></param>
 		/// <returns></returns>
 		RetCode RollDice(long numDice, long numSides, ref long[] dieRolls);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Rolls a number of dice, returning a sum of the results.
+		/// </summary>
 		/// <param name="numDice"></param>
 		/// <param name="numSides"></param>
 		/// <param name="modifier"></param>
 		/// <returns></returns>
 		long RollDice(long numDice, long numSides, long modifier);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Given an array of die rolls, sum the highest of them and return the result.
+		/// </summary>
 		/// <param name="dieRolls"></param>
 		/// <param name="numRollsToSum"></param>
 		/// <param name="result"></param>
@@ -590,7 +729,9 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		string Capitalize(string str);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Deletes a set of game-related files from the filesystem.
+		/// </summary>
 		void UnlinkOnFailure();
 
 		/// <summary></summary>

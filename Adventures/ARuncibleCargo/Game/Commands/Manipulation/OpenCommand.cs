@@ -1,7 +1,7 @@
 ﻿
 // OpenCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -28,21 +28,17 @@ namespace ARuncibleCargo.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			var ac = DobjArtifact.Uid == 129 ? DobjArtifact.InContainer : null;
+			var ac = gDobjArtifact.Uid == 129 ? gDobjArtifact.InContainer : null;
 
 			// Open the Runcible Cargo
 
-			if (DobjArtifact.Uid == 129 && !ac.IsOpen())
+			if (gDobjArtifact.Uid == 129 && !ac.IsOpen())
 			{
-				Globals.Engine.PrintEffectDesc(129);
+				gEngine.PrintEffectDesc(129);
 
-				gameState.CargoOpenCounter = 0;
+				gGameState.CargoOpenCounter = 0;
 			}
 
 			base.PlayerExecute();

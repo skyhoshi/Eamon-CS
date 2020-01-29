@@ -1,22 +1,18 @@
 ﻿
 // PluginGlobals.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
-using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Menus;
 using EamonMH.Framework.Menus;
 using EamonMH.Framework.Plugin;
-using static EamonMH.Game.Plugin.PluginContext;
 
 namespace EamonMH.Game.Plugin
 {
 	public class PluginGlobals : Eamon.Game.Plugin.PluginGlobals, IPluginGlobals
 	{
 		public virtual string[] Argv { get; set; }
-
-		public virtual StringBuilder Buf { get; set; } = new StringBuilder(Constants.BufSize);
 
 		public virtual long WordWrapCurrColumn { get; set; }
 

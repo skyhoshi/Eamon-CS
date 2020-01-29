@@ -1,7 +1,7 @@
 ﻿
 // CombatSystem.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -18,7 +18,7 @@ namespace WrenholdsSecretVigil.Game.Combat
 		{
 			var monsterDies = DfMonster.IsDead();
 
-			var deadBodyArtifact = DfMonster.DeadBody > 0 ? Globals.ADB[DfMonster.DeadBody] : null;
+			var deadBodyArtifact = DfMonster.DeadBody > 0 ? gADB[DfMonster.DeadBody] : null;
 
 			// Desc of dead body; set flag as seen
 
@@ -26,14 +26,14 @@ namespace WrenholdsSecretVigil.Game.Combat
 			{
 				if (!BlastSpell)
 				{
-					Globals.Out.WriteLine();
+					gOut.WriteLine();
 				}
 
 				Globals.Buf.Clear();
 
 				deadBodyArtifact.BuildPrintedFullDesc(Globals.Buf, false);
 
-				Globals.Out.Write("{0}", Globals.Buf);
+				gOut.Write("{0}", Globals.Buf);
 
 				deadBodyArtifact.Seen = true;
 			}

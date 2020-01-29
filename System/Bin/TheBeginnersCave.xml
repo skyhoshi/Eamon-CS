@@ -5,13 +5,17 @@
     </assembly>
     <members>
         <member name="T:TheBeginnersCave.Framework.Commands.ITrollsfireCommand">
-            <summary></summary>
+            <summary>
+            This is the <see cref="T:EamonRT.Framework.Commands.ICommand">Command</see> used by the player to activate/deactivate the Trollsfire sword.
+            </summary>
         </member>
         <member name="T:TheBeginnersCave.Framework.IGameState">
             <summary></summary>
         </member>
         <member name="P:TheBeginnersCave.Framework.IGameState.Trollsfire">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating the Trollsfire sword's activation state.
+            </summary>
         </member>
         <member name="P:TheBeginnersCave.Framework.IGameState.BookWarning">
             <summary></summary>

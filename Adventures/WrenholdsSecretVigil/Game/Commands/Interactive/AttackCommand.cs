@@ -1,7 +1,7 @@
 ﻿
 // AttackCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -24,7 +24,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (artifact.Uid == 31)
 			{
-				Globals.Out.Print("You already mangled {0}!", artifact.EvalPlural("it", "them"));
+				gOut.Print("You already mangled {0}!", artifact.EvalPlural("it", "them"));
 			}
 			else
 			{
@@ -34,60 +34,56 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null || DobjMonster != null);
+			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			var diaryArtifact = Globals.ADB[3];
+			var diaryArtifact = gADB[3];
 
 			Debug.Assert(diaryArtifact != null);
 
-			var wpnArtifact = ActorMonster.Weapon > 0 ? Globals.ADB[ActorMonster.Weapon] : null;
+			var wpnArtifact = gActorMonster.Weapon > 0 ? gADB[gActorMonster.Weapon] : null;
 
 			var ac = wpnArtifact != null ? wpnArtifact.GeneralWeapon : null;
 
 			// Find diary on dead adventurer
 
-			if ((BlastSpell || ActorMonster.Weapon > 0) && DobjArtifact != null && DobjArtifact.Uid == 2 && diaryArtifact.IsInLimbo())
+			if ((BlastSpell || gActorMonster.Weapon > 0) && gDobjArtifact != null && gDobjArtifact.Uid == 2 && diaryArtifact.IsInLimbo())
 			{
 				base.PlayerExecute();
 
-				Globals.Out.Print("Inside the tattered shirt is a small cloth-bound book that appears to be a diary.");
+				gOut.Print("Inside the tattered shirt is a small cloth-bound book that appears to be a diary.");
 
-				diaryArtifact.SetInRoom(ActorRoom);
+				diaryArtifact.SetInRoom(gActorRoom);
 			}
 			else if (BlastSpell)
 			{
 				// Blast rock
 
-				if (DobjArtifact != null && DobjArtifact.Uid == 17)
+				if (gDobjArtifact != null && gDobjArtifact.Uid == 17)
 				{
-					Globals.Engine.PrintEffectDesc(14);
+					gEngine.PrintEffectDesc(14);
 
-					DobjArtifact.SetInLimbo();
+					gDobjArtifact.SetInLimbo();
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
 				}
 
 				// Blast slime
 
-				else if (DobjArtifact != null && (DobjArtifact.Uid == 24 || DobjArtifact.Uid == 25))
+				else if (gDobjArtifact != null && (gDobjArtifact.Uid == 24 || gDobjArtifact.Uid == 25))
 				{
-					var slimeArtifact1 = Globals.ADB[24];
+					var slimeArtifact1 = gADB[24];
 
 					Debug.Assert(slimeArtifact1 != null);
 
-					var slimeArtifact2 = Globals.ADB[25];
+					var slimeArtifact2 = gADB[25];
 
 					Debug.Assert(slimeArtifact2 != null);
 
-					gameState.SlimeBlasts++;
+					gGameState.SlimeBlasts++;
 
-					Globals.Engine.PrintEffectDesc(1 + gameState.SlimeBlasts);
+					gEngine.PrintEffectDesc(1 + gGameState.SlimeBlasts);
 
-					if (gameState.SlimeBlasts == 3)
+					if (gGameState.SlimeBlasts == 3)
 					{
 						slimeArtifact1.SetInLimbo();
 
@@ -104,22 +100,22 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			// Attack slime will dissolve weapon (bows excluded)
 
-			else if (DobjArtifact != null && (DobjArtifact.Uid == 24 || DobjArtifact.Uid == 25) && ac != null && ac.Field2 != (long)Weapon.Bow)
+			else if (gDobjArtifact != null && (gDobjArtifact.Uid == 24 || gDobjArtifact.Uid == 25) && ac != null && ac.Field2 != (long)Weapon.Bow)
 			{
-				Globals.Engine.PrintEffectDesc(18);
+				gEngine.PrintEffectDesc(18);
 
-				if (gameState.Ls == wpnArtifact.Uid)
+				if (gGameState.Ls == wpnArtifact.Uid)
 				{
-					Globals.Engine.LightOut(wpnArtifact);
+					gEngine.LightOut(wpnArtifact);
 				}
 
 				wpnArtifact.SetInLimbo();
 
 				var rc = wpnArtifact.RemoveStateDesc(wpnArtifact.GetReadyWeaponDesc());
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				ActorMonster.Weapon = -1;
+				gActorMonster.Weapon = -1;
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}

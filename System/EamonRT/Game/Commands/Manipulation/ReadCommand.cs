@@ -1,7 +1,7 @@
 ﻿
 // ReadCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon;
@@ -27,24 +27,24 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			var ac = DobjArtifact.Readable;
+			var ac = gDobjArtifact.Readable;
 
 			if (ac != null)
 			{
 				if (!ac.IsOpen())
 				{
-					PrintMustFirstOpen(DobjArtifact);
+					PrintMustFirstOpen(gDobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
 					goto Cleanup;
 				}
 
-				if (DobjArtifact.DisguisedMonster != null)
+				if (gDobjArtifact.DisguisedMonster != null)
 				{
-					Globals.Engine.RevealDisguisedMonster(ActorRoom, DobjArtifact);
+					gEngine.RevealDisguisedMonster(gActorRoom, gDobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
@@ -60,7 +60,7 @@ namespace EamonRT.Game.Commands
 
 				for (var i = 1; i <= ac.Field2; i++)
 				{
-					var effect = Globals.EDB[ac.Field1 + i - 1];
+					var effect = gEDB[ac.Field1 + i - 1];
 
 					if (effect != null)
 					{
@@ -75,9 +75,9 @@ namespace EamonRT.Game.Commands
 						rc = RetCode.Success;
 					}
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
-					Globals.Out.Write("{0}", Globals.Buf);
+					gOut.Write("{0}", Globals.Buf);
 				}
 
 				PlayerProcessEvents(PpeAfterArtifactRead);
@@ -89,7 +89,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{ 
-				PrintCantVerbObj(DobjArtifact);
+				PrintCantVerbObj(gDobjArtifact);
 
 				NextState = Globals.CreateInstance<IStartState>();
 

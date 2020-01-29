@@ -1,7 +1,7 @@
 ﻿
 // GameStateHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -374,7 +374,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var spell = Globals.Engine.GetSpells((Spell)i);
+			var spell = gEngine.GetSpells((Spell)i);
 
 			Debug.Assert(spell != null);
 

@@ -1,7 +1,7 @@
 ﻿
 // RestoreCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -31,7 +31,7 @@ namespace EamonRT.Game.Commands
 
 			var filesetsCount = Globals.Database.GetFilesetsCount();
 
-			Debug.Assert(filesetsCount <= Globals.Engine.NumSaveSlots);
+			Debug.Assert(filesetsCount <= gEngine.NumSaveSlots);
 
 			Debug.Assert(SaveSlot >= 1 && SaveSlot <= filesetsCount);
 
@@ -45,7 +45,7 @@ namespace EamonRT.Game.Commands
 			{
 				rc = Globals.Database.LoadConfigs(fileset.ConfigFileName, printOutput: false);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: LoadConfigs function call failed");
 
@@ -56,7 +56,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				Globals.Config = Globals.Engine.GetConfig();
+				Globals.Config = gEngine.GetConfig();
 
 				if (Globals.Config == null || Globals.Config.Uid <= 0)
 				{
@@ -89,7 +89,7 @@ namespace EamonRT.Game.Commands
 
 				rc = config.LoadGameDatabase(printOutput: false);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: LoadGameDatabase function call failed");
 
@@ -104,15 +104,15 @@ namespace EamonRT.Game.Commands
 
 				Globals.Character = Globals.Database.CharacterTable.Records.FirstOrDefault();
 
-				if (Globals.Character == null || Globals.Character.Uid <= 0 || Globals.Character.Status != Status.Adventuring || string.IsNullOrWhiteSpace(Globals.Character.Name) || string.Equals(Globals.Character.Name, "NONE", StringComparison.OrdinalIgnoreCase))
+				if (gCharacter == null || gCharacter.Uid <= 0 || gCharacter.Status != Status.Adventuring || string.IsNullOrWhiteSpace(gCharacter.Name) || string.Equals(gCharacter.Name, "NONE", StringComparison.OrdinalIgnoreCase))
 				{
 					Globals.Error.Write("{0}Error: {1}",
 						Environment.NewLine,
-						Globals.Character == null ? "Globals.Character == null" :
-						Globals.Character.Uid <= 0 ? "Globals.Character.Uid <= 0" :
-						Globals.Character.Status != Status.Adventuring ? "Globals.Character.Status != Status.Adventuring" :
-						string.IsNullOrWhiteSpace(Globals.Character.Name) ? "string.IsNullOrWhiteSpace(Globals.Character.Name)" :
-						"string.Equals(Globals.Character.Name, \"NONE\", StringComparison.OrdinalIgnoreCase)");
+						gCharacter == null ? "gCharacter == null" :
+						gCharacter.Uid <= 0 ? "gCharacter.Uid <= 0" :
+						gCharacter.Status != Status.Adventuring ? "gCharacter.Status != Status.Adventuring" :
+						string.IsNullOrWhiteSpace(gCharacter.Name) ? "string.IsNullOrWhiteSpace(gCharacter.Name)" :
+						"string.Equals(gCharacter.Name, \"NONE\", StringComparison.OrdinalIgnoreCase)");
 
 					Globals.ExitType = ExitType.Error;
 
@@ -121,7 +121,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				Globals.Module = Globals.Engine.GetModule();
+				Globals.Module = gEngine.GetModule();
 
 				if (Globals.Module == null || Globals.Module.Uid <= 0)
 				{
@@ -134,11 +134,11 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				Globals.GameState = Globals.Engine.GetGameState();
+				Globals.GameState = gEngine.GetGameState();
 
-				if (Globals.GameState == null || Globals.GameState.Uid <= 0)
+				if (gGameState == null || gGameState.Uid <= 0)
 				{
-					Globals.Error.Write("{0}Error: {1}", Environment.NewLine, Globals.GameState == null ? "Globals.GameState == null" : "Globals.GameState.Uid <= 0");
+					Globals.Error.Write("{0}Error: {1}", Environment.NewLine, gGameState == null ? "gGameState == null" : "gGameState.Uid <= 0");
 
 					Globals.ExitType = ExitType.Error;
 
@@ -147,7 +147,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				var room = Globals.RDB[Globals.GameState.Ro];
+				var room = gRDB[gGameState.Ro];
 
 				if (room == null)
 				{
@@ -164,11 +164,11 @@ namespace EamonRT.Game.Commands
 
 				foreach (var artifact in artifacts)
 				{
-					if (artifact.IsCarriedByMonsterUid(Globals.GameState.Cm))
+					if (artifact.IsCarriedByMonsterUid(gGameState.Cm))
 					{
 						artifact.SetCarriedByCharacter();
 					}
-					else if (artifact.IsWornByMonsterUid(Globals.GameState.Cm))
+					else if (artifact.IsWornByMonsterUid(gGameState.Cm))
 					{
 						artifact.SetWornByCharacter();
 					}
@@ -180,12 +180,12 @@ namespace EamonRT.Game.Commands
 				{
 					monster.InitGroupCount = monster.GroupCount;
 
-					monster.ResolveFriendlinessPct(Globals.Character);
+					monster.ResolveFriendlinessPct(gCharacter);
 				}
 
-				rc = Globals.Engine.ValidateRecordsAfterDatabaseLoaded();
+				rc = gEngine.ValidateRecordsAfterDatabaseLoaded();
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: ValidateRecordsAfterDatabaseLoaded function call failed");
 
@@ -201,13 +201,13 @@ namespace EamonRT.Game.Commands
 				config.Dispose();
 			}
 
-			Globals.CommandParser.LastInputStr = "";
+			gCommandParser.LastInputStr = "";
 
-			Globals.GameState.R2 = Globals.GameState.Ro;
+			gGameState.R2 = gGameState.Ro;
 
-			Globals.Out.Print("Game restored.");
+			gOut.Print("Game restored.");
 
-			Globals.Engine.CreateInitialState(true);
+			gEngine.CreateInitialState(true);
 
 			NextState = Globals.CurrState;
 
@@ -223,11 +223,11 @@ namespace EamonRT.Game.Commands
 			RetCode rc;
 			long i;
 
-			if (CommandParser.CurrToken < CommandParser.Tokens.Length && long.TryParse(CommandParser.Tokens[CommandParser.CurrToken], out i) && i >= 1 && i <= Globals.Engine.NumSaveSlots)
+			if (gCommandParser.CurrToken < gCommandParser.Tokens.Length && long.TryParse(gCommandParser.Tokens[gCommandParser.CurrToken], out i) && i >= 1 && i <= gEngine.NumSaveSlots)
 			{
 				SaveSlot = i;
 
-				CommandParser.CurrToken++;
+				gCommandParser.CurrToken++;
 			}
 
 			var filesets = Globals.Database.FilesetTable.Records.ToList();
@@ -238,32 +238,32 @@ namespace EamonRT.Game.Commands
 			{
 				while (true)
 				{
-					if (Globals.GameState.Die == 1)
+					if (gGameState.Die == 1)
 					{
-						Globals.Out.Print("{0}", Globals.LineSep);
+						gOut.Print("{0}", Globals.LineSep);
 					}
 
-					Globals.Out.Print("Saved games:");
+					gOut.Print("Saved games:");
 
-					for (i = 0; i < Globals.Engine.NumSaveSlots; i++)
+					for (i = 0; i < gEngine.NumSaveSlots; i++)
 					{
-						Globals.Out.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, i < filesets.Count ? filesets[(int)i].Name : "(none)");
+						gOut.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, i < filesets.Count ? filesets[(int)i].Name : "(none)");
 					}
 
-					Globals.Out.Print("{0,3}. {1}", i + 1, "(Don't restore, return to game)");
+					gOut.Print("{0,3}. {1}", i + 1, "(Don't restore, return to game)");
 
-					if (Globals.GameState.Die == 1)
+					if (gGameState.Die == 1)
 					{
-						Globals.Out.Print("{0}", Globals.LineSep);
+						gOut.Print("{0}", Globals.LineSep);
 					}
 
-					Globals.Out.Write("{0}Your choice (1-{1}): ", Environment.NewLine, i + 1);
+					gOut.Write("{0}Your choice (1-{1}): ", Environment.NewLine, i + 1);
 
 					Globals.Buf.Clear();
 
-					rc = Globals.In.ReadField(Globals.Buf, 3, null, ' ', '\0', false, null, null, Globals.Engine.IsCharDigit, null);
+					rc = Globals.In.ReadField(Globals.Buf, 3, null, ' ', '\0', false, null, null, gEngine.IsCharDigit, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					i = Convert.ToInt64(Globals.Buf.Trim().ToString());
 
@@ -273,7 +273,7 @@ namespace EamonRT.Game.Commands
 
 						break;
 					}
-					else if (i == Globals.Engine.NumSaveSlots + 1)
+					else if (i == gEngine.NumSaveSlots + 1)
 					{
 						break;
 					}
@@ -282,16 +282,16 @@ namespace EamonRT.Game.Commands
 
 			if (SaveSlot < 1 || SaveSlot > filesetsCount)
 			{
-				if (Globals.GameState.Die == 1)
+				if (gGameState.Die == 1)
 				{
-					CommandParser.NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
+					gCommandParser.NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 					{
 						x.PrintLineSep = true;
 					});
 				}
 				else
 				{
-					CommandParser.NextState = Globals.CreateInstance<IStartState>();
+					gCommandParser.NextState = Globals.CreateInstance<IStartState>();
 				}
 			}
 		}

@@ -1,7 +1,7 @@
 ﻿
 // DbTable.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -61,7 +61,7 @@ namespace Eamon.Game.DataStorage.Generic
 
 			result = default(T);
 
-			h = Globals.Engine.FindIndex(Cache, r => r != null && r.Uid == uid);
+			h = gEngine.FindIndex(Cache, r => r != null && r.Uid == uid);
 
 			if (h >= 0)
 			{
@@ -174,7 +174,7 @@ namespace Eamon.Game.DataStorage.Generic
 			{
 				if (Records.Remove(result))
 				{
-					h = Globals.Engine.FindIndex(Cache, r => r != null && r.Uid == uid);
+					h = gEngine.FindIndex(Cache, r => r != null && r.Uid == uid);
 
 					if (h >= 0)
 					{
@@ -289,7 +289,7 @@ namespace Eamon.Game.DataStorage.Generic
 
 			FreeUids = new List<long>();
 
-			Cache = new T[Globals.Engine.NumCacheItems];
+			Cache = new T[gEngine.NumCacheItems];
 		}
 	}
 }

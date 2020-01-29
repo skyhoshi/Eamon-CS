@@ -1,7 +1,7 @@
 ﻿
 // OpenCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -16,28 +16,24 @@ namespace TheSubAquanLaboratory.Game.Commands
 	{
 		public override void PlayerProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (eventType == PpeAfterArtifactOpen)
 			{
 				// Large cabinet
 
-				if (DobjArtifact.Uid == 11 && !gameState.CabinetOpen)
+				if (gDobjArtifact.Uid == 11 && !gGameState.CabinetOpen)
 				{
-					Globals.Engine.PrintEffectDesc(34);
+					gEngine.PrintEffectDesc(34);
 
-					gameState.CabinetOpen = true;
+					gGameState.CabinetOpen = true;
 				}
 
 				// Locker
 
-				if (DobjArtifact.Uid == 51 && !gameState.LockerOpen)
+				if (gDobjArtifact.Uid == 51 && !gGameState.LockerOpen)
 				{
-					Globals.Engine.PrintEffectDesc(36);
+					gEngine.PrintEffectDesc(36);
 
-					gameState.LockerOpen = true;
+					gGameState.LockerOpen = true;
 				}
 			}
 
@@ -46,13 +42,13 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			// Humming cabinet
 
-			if (DobjArtifact.Uid == 49)
+			if (gDobjArtifact.Uid == 49)
 			{
-				Globals.Engine.PrintEffectDesc(35);
+				gEngine.PrintEffectDesc(35);
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}

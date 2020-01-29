@@ -1,8 +1,9 @@
 ﻿
 // RoomDb.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using System.Collections.Generic;
 using Eamon.Framework;
 using Eamon.Framework.DataStorage.Generic;
 using Eamon.Game.Attributes;
@@ -14,11 +15,6 @@ namespace Eamon.Game.DataStorage.QuickAccess
 	public class RoomDb : IRecordDb<IRoom>
 	{
 		public virtual bool CopyAddedRecord { get; set; }
-
-		public RoomDb()
-		{
-			CopyAddedRecord = true;
-		}
 
 		public virtual IRoom this[long uid]
 		{
@@ -39,6 +35,19 @@ namespace Eamon.Game.DataStorage.QuickAccess
 					Globals.Database.AddRoom(value, CopyAddedRecord);
 				}
 			}
+		}
+
+		public virtual ICollection<IRoom> Records
+		{
+			get
+			{
+				return Globals?.Database?.RoomTable?.Records;
+			}
+		}
+
+		public RoomDb()
+		{
+			CopyAddedRecord = true;
 		}
 	}
 }

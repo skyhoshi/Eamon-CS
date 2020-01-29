@@ -12,6 +12,18 @@ namespace TheVileGrimoireOfJaldial.Game
 	[ClassMappings(typeof(IGameState))]
 	public class GameState : Eamon.Game.GameState, Framework.IGameState
 	{
+		public virtual bool EfreetiKilled { get; set; }
+
+		public virtual bool WaterWeirdKilled { get; set; }
+
+		public virtual bool AmoebaAppeared { get; set; }
+
 		public virtual bool ExitDirNames { get; set; }
+
+		public virtual long PlayerResurrections { get; set; }
+
+		public virtual long EfreetiSummons { get; set; }
+
+		public virtual long TorchRounds { get; set; }
 	}
 }

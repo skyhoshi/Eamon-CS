@@ -86,8 +86,8 @@
             <summary></summary>
         </member>
         <member name="M:TheSubAquanLaboratory.Framework.IMonster.IsAndroid">
-            <summary></summary>
-            <returns></returns>
+            <summary>Indicates whether this <see cref="T:TheSubAquanLaboratory.Framework.IMonster">Monster</see> is classified as an android.</summary>
+            <returns>If so then <c>true</c>, otherwise <c>false</c>.</returns>
         </member>
         <member name="T:TheSubAquanLaboratory.Framework.Plugin.IPluginClassMappings">
             <summary></summary>

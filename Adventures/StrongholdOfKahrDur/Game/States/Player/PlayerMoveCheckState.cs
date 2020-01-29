@@ -1,7 +1,7 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -18,7 +18,7 @@ namespace StrongholdOfKahrDur.Game.States
 	{
 		public override void PrintRideOffIntoSunset()
 		{
-			Globals.Out.Print("You ride off into the sunset.");
+			gOut.Print("You ride off into the sunset.");
 		}
 
 		public override void ProcessEvents(long eventType)
@@ -27,55 +27,55 @@ namespace StrongholdOfKahrDur.Game.States
 
 			if (eventType == PeBeforeCanMoveToRoomCheck)
 			{
-				var characterMonster = Globals.MDB[Globals.GameState.Cm];
+				var characterMonster = gMDB[gGameState.Cm];
 
 				Debug.Assert(characterMonster != null);
 
-				var amuletArtifact = Globals.ADB[18];
+				var amuletArtifact = gADB[18];
 
 				Debug.Assert(amuletArtifact != null);
 
 				// Cannot enter forest if not wearing magical amulet
 
-				if (Globals.GameState.Ro == 92 && Globals.GameState.R2 == 65 && !amuletArtifact.IsWornByCharacter())
+				if (gGameState.Ro == 92 && gGameState.R2 == 65 && !amuletArtifact.IsWornByCharacter())
 				{
-					Globals.Engine.PrintEffectDesc(45);
+					gEngine.PrintEffectDesc(45);
 
 					GotoCleanup = true;
 
 					goto Cleanup;
 				}
 
-				var bootsArtifact = Globals.ADB[14];
+				var bootsArtifact = gADB[14];
 
 				Debug.Assert(bootsArtifact != null);
 
-				if (Globals.GameState.Ro == 84 && Globals.GameState.R2 == 94)
+				if (gGameState.Ro == 84 && gGameState.R2 == 94)
 				{
 					// If descend pit w/ mgk boots, write effect
 
 					if (bootsArtifact.IsWornByCharacter())
 					{
-						Globals.Engine.PrintEffectDesc(47);
+						gEngine.PrintEffectDesc(47);
 					}
 
 					// If descend pit w/out mgk boots, fall to death
 
 					else
 					{
-						Globals.Out.Write("{0}It looks dangerous, try to climb down anyway (Y/N): ", Environment.NewLine);
+						gOut.Write("{0}It looks dangerous, try to climb down anyway (Y/N): ", Environment.NewLine);
 
 						Globals.Buf.Clear();
 
-						rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+						rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, null);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'Y')
 						{
-							Globals.Engine.PrintEffectDesc(46);
+							gEngine.PrintEffectDesc(46);
 
-							Globals.GameState.Die = 1;
+							gGameState.Die = 1;
 
 							NextState = Globals.CreateInstance<IPlayerDeadState>(x =>
 							{
@@ -89,20 +89,20 @@ namespace StrongholdOfKahrDur.Game.States
 					goto Cleanup;
 				}
 
-				if (Globals.GameState.Ro == 94 && Globals.GameState.R2 == 84)
+				if (gGameState.Ro == 94 && gGameState.R2 == 84)
 				{
 					// If ascend pit w/ mgk boots, write effect
 
 					if (bootsArtifact.IsWornByCharacter())
 					{
-						Globals.Engine.PrintEffectDesc(48);
+						gEngine.PrintEffectDesc(48);
 					}
 
 					// Cannot go up the pit if not wearing mgk boots
 
 					else
 					{
-						Globals.Out.Print("The ceiling is too high to climb back up!");
+						gOut.Print("The ceiling is too high to climb back up!");
 
 						GotoCleanup = true;
 					}
@@ -112,54 +112,54 @@ namespace StrongholdOfKahrDur.Game.States
 			}
 			else if (eventType == PeAfterBlockingArtifactCheck)
 			{
-				if (Globals.GameState.R2 == Constants.DirectionExit)
+				if (gGameState.R2 == Constants.DirectionExit)
 				{
 					// Successful adventure means the necromancer (22) is dead and Lady Mirabelle (26) is alive and exiting with player
 
-					var necromancerMonster = Globals.MDB[22];
+					var necromancerMonster = gMDB[22];
 
 					Debug.Assert(necromancerMonster != null);
 
 					var vanquished = necromancerMonster.IsInLimbo();
 
-					var mirabelleMonster = Globals.MDB[26];
+					var mirabelleMonster = gMDB[26];
 
 					Debug.Assert(mirabelleMonster != null);
 
-					var rescued = mirabelleMonster.Location == Globals.GameState.Ro;
+					var rescued = mirabelleMonster.Location == gGameState.Ro;
 
 					if (!vanquished || !rescued)
 					{
-						Globals.Out.Print("You have not succeeded in your quest!");
+						gOut.Print("You have not succeeded in your quest!");
 
 						if (!vanquished)
 						{
-							Globals.Out.Print(" * The evil force here has not been vanquished");
+							gOut.Print(" * The evil force here has not been vanquished");
 						}
 
 						if (!rescued)
 						{
-							Globals.Out.Print(" * Lady Mirabelle has not been rescued");
+							gOut.Print(" * Lady Mirabelle has not been rescued");
 						}
 					}
 					else
 					{
-						Globals.Out.Print("YOU HAVE SUCCEEDED IN YOUR QUEST!  CONGRATULATIONS!");
+						gOut.Print("YOU HAVE SUCCEEDED IN YOUR QUEST!  CONGRATULATIONS!");
 					}
 
-					Globals.Out.Write("{0}Leave this adventure (Y/N): ", Environment.NewLine);
+					gOut.Write("{0}Leave this adventure (Y/N): ", Environment.NewLine);
 
 					Globals.Buf.Clear();
 
-					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'Y')
 					{
 						PrintRideOffIntoSunset();
 
-						Globals.GameState.Die = 0;
+						gGameState.Die = 0;
 
 						Globals.ExitType = ExitType.FinishAdventure;
 

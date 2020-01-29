@@ -1,7 +1,7 @@
 ﻿
 // FleeCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -29,7 +29,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Direction), Direction));
 
-			if (DobjArtifact != null && DobjArtifact.DoorGate == null)
+			if (gDobjArtifact != null && gDobjArtifact.DoorGate == null)
 			{
 				PrintDontFollowYou();
 
@@ -38,7 +38,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (!ActorMonster.CheckNBTLHostility())
+			if (!gActorMonster.CheckNBTLHostility())
 			{
 				PrintCalmDown();
 
@@ -47,11 +47,11 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (DobjArtifact == null)
+			if (gDobjArtifact == null)
 			{
 				var numExits = 0L;
 
-				Globals.Engine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref numExits);
+				gEngine.CheckNumberOfExits(gActorRoom, gActorMonster, true, ref numExits);
 
 				if (numExits == 0)
 				{
@@ -70,13 +70,13 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (DobjArtifact == null)
+			if (gDobjArtifact == null)
 			{
 				if (Direction == 0)
 				{
 					Direction direction = 0;
 
-					Globals.Engine.GetRandomMoveDirection(ActorRoom, ActorMonster, true, ref direction);
+					gEngine.GetRandomMoveDirection(gActorRoom, gActorMonster, true, ref direction);
 
 					Direction = direction;
 				}
@@ -84,9 +84,9 @@ namespace EamonRT.Game.Commands
 				Debug.Assert(Enum.IsDefined(typeof(Direction), Direction));
 			}
 
-			if (DobjArtifact != null)
+			if (gDobjArtifact != null)
 			{
-				Globals.Buf.SetFormat("{0}", DobjArtifact.GetDoorGateFleeDesc());
+				Globals.Buf.SetFormat("{0}", gDobjArtifact.GetDoorGateFleeDesc());
 			}
 			else if (Direction > Direction.West && Direction < Direction.Northeast)
 			{
@@ -97,9 +97,9 @@ namespace EamonRT.Game.Commands
 				Globals.Buf.SetFormat(" to the {0}", Direction.ToString().ToLower());
 			}
 
-			Globals.Out.Print("Attempting to flee{0}.", Globals.Buf);
+			gOut.Print("Attempting to flee{0}.", Globals.Buf);
 
-			Globals.GameState.R2 = DobjArtifact != null ? 0 : ActorRoom.GetDirs(Direction);
+			gGameState.R2 = gDobjArtifact != null ? 0 : gActorRoom.GetDirs(Direction);
 
 		Cleanup:
 
@@ -109,7 +109,7 @@ namespace EamonRT.Game.Commands
 				{
 					x.Direction = Direction;
 
-					x.Artifact = DobjArtifact;
+					x.Artifact = gDobjArtifact;
 
 					x.Fleeing = true;
 				});
@@ -118,96 +118,12 @@ namespace EamonRT.Game.Commands
 
 		public override void MonsterExecute()
 		{
-			RetCode rc;
-
 			Debug.Assert(Direction == 0);
 
-			if (ActorMonster.ShouldFleeRoom())
+			if (gActorMonster.ShouldFleeRoom())
 			{
-				var charMonster = Globals.MDB[Globals.GameState.Cm];
-
-				Debug.Assert(charMonster != null);
-
-				var numExits = 0L;
-
-				Globals.Engine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref numExits);
-
-				var rl = ActorMonster.GetFleeingMemberCount();
-
-				var monster = Globals.CloneInstance(ActorMonster);
-
-				Debug.Assert(monster != null);
-
-				monster.GroupCount = rl;
-
-				var monsterName = monster.EvalInRoomLightLevel(rl > 1 ? "Unseen entities" : "An unseen entity",
-						monster.InitGroupCount > rl ? monster.GetDecoratedName02(true, true, false, false, Globals.Buf) : monster.GetDecoratedName03(true, true, false, false, Globals.Buf));
-
-				if (numExits == 0)
-				{
-					if (charMonster.IsInRoom(ActorRoom))
-					{
-						Globals.Out.Print("{0} {1} to flee, but can't find {2}!", monsterName, rl > 1 ? "try" : "tries", ActorRoom.EvalRoomType("an exit", "a path"));
-
-						Globals.Thread.Sleep(Globals.GameState.PauseCombatMs);
-					}
-
-					goto Cleanup;
-				}
-
-				if (rl < ActorMonster.GroupCount)
-				{
-					ActorMonster.GroupCount -= rl;
-
-					if (charMonster.IsInRoom(ActorRoom))
-					{
-						Globals.Out.Print("{0} {1}!", monsterName, rl > 1 ? "flee" : "flees");
-
-						Globals.Thread.Sleep(Globals.GameState.PauseCombatMs);
-					}
-
-					if (Globals.Engine.EnforceMonsterWeightLimits)
-					{
-						rc = ActorMonster.EnforceFullInventoryWeightLimits(recurse: true);
-
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
-					}
-				}
-				else
-				{
-					Direction direction = 0;
-
-					var found = false;
-
-					var roomUid = 0L;
-
-					Globals.Engine.GetRandomMoveDirection(ActorRoom, ActorMonster, true, ref direction, ref found, ref roomUid);
-
-					Debug.Assert(Enum.IsDefined(typeof(Direction), direction));
-
-					Debug.Assert(roomUid > 0);
-
-					if (charMonster.IsInRoom(ActorRoom))
-					{
-						if (direction > Direction.West && direction < Direction.Northeast)
-						{
-							Globals.Buf.SetFormat(" {0}ward", direction.ToString().ToLower());
-						}
-						else
-						{
-							Globals.Buf.SetFormat(" to the {0}", direction.ToString().ToLower());
-						}
-
-						Globals.Out.Print("{0} {1}{2}!", monsterName, rl > 1 ? "flee" : "flees", Globals.Buf);
-
-						Globals.Thread.Sleep(Globals.GameState.PauseCombatMs);
-					}
-
-					ActorMonster.Location = roomUid;
-				}
+				gEngine.MoveMonsterToRandomAdjacentRoom(gActorRoom, gActorMonster, true, true);
 			}
-
-		Cleanup:
 
 			if (NextState == null)
 			{
@@ -220,32 +136,32 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerFinishParsing()
 		{
-			if (CommandParser.CurrToken < CommandParser.Tokens.Length)
+			if (gCommandParser.CurrToken < gCommandParser.Tokens.Length)
 			{
-				Direction = Globals.Engine.GetDirection(CommandParser.Tokens[CommandParser.CurrToken]);
+				Direction = gEngine.GetDirection(gCommandParser.Tokens[gCommandParser.CurrToken]);
 
 				if (Direction != 0)
 				{
-					CommandParser.CurrToken++;
+					gCommandParser.CurrToken++;
 				}
-				else if (ActorRoom.IsLit())
+				else if (gActorRoom.IsLit())
 				{
-					CommandParser.ParseName();
+					gCommandParser.ParseName();
 
-					CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+					gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 					{
-						a => a.IsInRoom(ActorRoom),
-						a => a.IsEmbeddedInRoom(ActorRoom),
-						a => a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, Globals.Engine.ExposeContainersRecursively)
+						a => a.IsInRoom(gActorRoom),
+						a => a.IsEmbeddedInRoom(gActorRoom),
+						a => a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively)
 					};
 
-					CommandParser.ObjData.ArtifactNotFoundFunc = PrintNothingHereByThatName;
+					gCommandParser.ObjData.ArtifactNotFoundFunc = PrintNothingHereByThatName;
 
 					PlayerResolveArtifact();
 				}
 				else
 				{
-					CommandParser.NextState = Globals.CreateInstance<IStartState>();
+					gCommandParser.NextState = Globals.CreateInstance<IStartState>();
 				}
 			}
 		}

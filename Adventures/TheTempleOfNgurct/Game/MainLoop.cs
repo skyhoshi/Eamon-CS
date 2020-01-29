@@ -1,7 +1,7 @@
 ﻿
 // MainLoop.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -19,7 +19,7 @@ namespace TheTempleOfNgurct.Game
 		{
 			var reward = 0L;
 
-			var medallionArtifact = Globals.ADB[77];
+			var medallionArtifact = gADB[77];
 
 			Debug.Assert(medallionArtifact != null);
 
@@ -29,28 +29,28 @@ namespace TheTempleOfNgurct.Game
 
 			base.Shutdown();
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			// Thera's reward
 
-			var theraMonster = Globals.MDB[29];
+			var theraMonster = gMDB[29];
 
 			Debug.Assert(theraMonster != null);
 
-			var gonzalesMonster = Globals.MDB[55];
+			var gonzalesMonster = gMDB[55];
 
 			Debug.Assert(gonzalesMonster != null);
 
-			if (theraMonster.Location == Globals.GameState.Ro && theraMonster.Friendliness > Friendliness.Enemy)
+			if (theraMonster.Location == gGameState.Ro && theraMonster.Friendliness > Friendliness.Enemy)
 			{
 				var rw = 200 + (long)Math.Round(100 * ((double)(theraMonster.Hardiness - theraMonster.DmgTaken) / (double)theraMonster.Hardiness));
 
-				Globals.Out.Print("In addition, you receive {0} gold piece{1} as a reward for the return of Princess Thera.{2}", 
+				gOut.Print("In addition, you receive {0} gold piece{1} as a reward for the return of Princess Thera.{2}", 
 					rw, 
 					rw != 1 ? "s" : "", 
-					gonzalesMonster.Location == Globals.GameState.Ro ? "  Of course, Gonzales takes his half." : "");
+					gonzalesMonster.Location == gGameState.Ro ? "  Of course, Gonzales takes his half." : "");
 
-				if (gonzalesMonster.Location == Globals.GameState.Ro)
+				if (gonzalesMonster.Location == gGameState.Ro)
 				{
 					rw /= 2;
 				}
@@ -62,16 +62,16 @@ namespace TheTempleOfNgurct.Game
 
 			if (carryingMedallion)
 			{
-				Globals.Out.Print("You also receive the 2,000 gold pieces for the return of the gold medallion of Ngurct.  It is immediately destroyed by the King.");
+				gOut.Print("You also receive the 2,000 gold pieces for the return of the gold medallion of Ngurct.  It is immediately destroyed by the King.");
 
 				reward += 2000;
 			}
 			else
 			{
-				Globals.Out.Print("Unfortunately, you have failed in your mission to return the gold medallion of Ngurct.  Shame!  Shame!  (And no money.)");
+				gOut.Print("Unfortunately, you have failed in your mission to return the gold medallion of Ngurct.  Shame!  Shame!  (And no money.)");
 			}
 
-			Globals.Character.HeldGold += reward;
+			gCharacter.HeldGold += reward;
 
 			Globals.In.KeyPress(Globals.Buf);
 		}

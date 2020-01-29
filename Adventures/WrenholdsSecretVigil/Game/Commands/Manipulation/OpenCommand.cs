@@ -1,7 +1,7 @@
 ﻿
 // OpenCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -19,7 +19,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 		{
 			// Try to open running device, all flee
 
-			if (eventType == PpeAfterArtifactOpenPrint && DobjArtifact.Uid == 44)
+			if (eventType == PpeAfterArtifactOpenPrint && gDobjArtifact.Uid == 44)
 			{
 				Globals.DeviceOpened = true;
 
@@ -39,7 +39,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (artifact.Uid == 44)
 			{
-				Globals.Out.Print("You try to open the glowing device.");
+				gOut.Print("You try to open the glowing device.");
 			}
 			else
 			{
@@ -55,7 +55,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (artifact.Uid == 31)
 			{
-				Globals.Out.Print("The hide is too hard to cut!");
+				gOut.Print("The hide is too hard to cut!");
 
 				NextState = Globals.CreateInstance<IStartState>();
 			}
@@ -73,7 +73,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (artifact.Uid == 44)
 			{
-				Globals.Out.Print("You try to open the glowing device with {0}.", key.GetDecoratedName03(false, true, false, false, Globals.Buf));
+				gOut.Print("You try to open the glowing device with {0}.", key.GetTheName());
 			}
 			else
 			{
@@ -83,13 +83,13 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			// Large rock
 
-			if (DobjArtifact.Uid == 17)
+			if (gDobjArtifact.Uid == 17)
 			{
-				PrintCantVerbObj(DobjArtifact);
+				PrintCantVerbObj(gDobjArtifact);
 
 				NextState = Globals.CreateInstance<IStartState>();
 			}

@@ -1,11 +1,12 @@
 ﻿
 // FleeCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
+using static ARuncibleCargo.Game.Plugin.PluginContext;
 
 namespace ARuncibleCargo.Game.Commands
 {
@@ -16,7 +17,7 @@ namespace ARuncibleCargo.Game.Commands
 		{
 			// Disable FleeCommand in water rooms
 
-			return !ActorRoom.CastTo<Framework.IRoom>().IsWaterRoom();
+			return !gActorRoom.IsWaterRoom();
 		}
 	}
 }

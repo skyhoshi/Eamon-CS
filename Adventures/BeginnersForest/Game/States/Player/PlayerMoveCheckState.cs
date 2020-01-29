@@ -18,33 +18,33 @@ namespace BeginnersForest.Game.States
 			{
 				// Exit gate
 
-				if (Globals.GameState.R2 == -2)
+				if (gGameState.R2 == -2)
 				{
-					Globals.Out.Print("The path is washed out!");
+					gOut.Print("The path is washed out!");
 				}
 
 				// Death by spooky water! / Death by moss!
 
-				else if (Globals.GameState.R2 == -33 || Globals.GameState.R2 == -35)
+				else if (gGameState.R2 == -33 || gGameState.R2 == -35)
 				{
-					var effectUid = Globals.GameState.R2 == -33 ? 3 : 4;
+					var effectUid = gGameState.R2 == -33 ? 3 : 4;
 
-					Globals.Engine.PrintEffectDesc(effectUid);
+					gEngine.PrintEffectDesc(effectUid);
 
-					Globals.GameState.Ro = 1;
+					gGameState.Ro = 1;
 
-					Globals.GameState.R2 = Globals.GameState.Ro;
+					gGameState.R2 = gGameState.Ro;
 
 					NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 				}
 
 				// Don't step on any beavers!
 
-				else if (Globals.GameState.R2 == -34)
+				else if (gGameState.R2 == -34)
 				{
-					Globals.GameState.R2 = 33;
+					gGameState.R2 = 33;
 
-					Globals.Engine.PrintEffectDesc(1);
+					gEngine.PrintEffectDesc(1);
 
 					NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 				}

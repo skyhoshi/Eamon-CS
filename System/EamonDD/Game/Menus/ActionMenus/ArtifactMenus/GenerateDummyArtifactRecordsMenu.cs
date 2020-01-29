@@ -1,7 +1,7 @@
 ﻿
 // GenerateDummyArtifactRecordsMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -27,17 +27,17 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var artUids = new long[2];
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle("GENERATE DUMMY ARTIFACT RECORDS", true);
+			gEngine.PrintTitle("GENERATE DUMMY ARTIFACT RECORDS", true);
 
-			Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(43, '\0', 0, "Enter the number to generate", "0"));
+			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(43, '\0', 0, "Enter the number to generate", "0"));
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, Globals.Engine.IsCharDigit, null);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "0", null, gEngine.IsCharDigit, null);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			var j = Convert.ToInt64(Buf.Trim().ToString());
 
@@ -65,7 +65,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				rc = Globals.Database.AddArtifact(artifact);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Globals.ArtifactsModified = true;
 
@@ -79,11 +79,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (j > 0)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				Buf.SetFormat(j > 1 ? "Generated dummy artifacts with uids between {0} and {1}, inclusive." : "Generated a dummy artifact with uid {0}.", artUids[0], artUids[1]);
 
-				Globals.Out.Print("{0}", Buf);
+				gOut.Print("{0}", Buf);
 			}
 		}
 

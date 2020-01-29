@@ -1,7 +1,7 @@
 ﻿
 // ReadyCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -16,13 +16,13 @@ namespace TheTrainingGround.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			// Hammer of Thor
 
-			if (DobjArtifact.Uid == 24)
+			if (gDobjArtifact.Uid == 24)
 			{
-				Globals.Out.Print("Only Thor himself could do that.");
+				gOut.Print("Only Thor himself could do that.");
 
 				NextState = Globals.CreateInstance<IStartState>();
 			}

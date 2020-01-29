@@ -1,7 +1,7 @@
 ﻿
 // Monster.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using System.Text;
@@ -24,22 +24,15 @@ namespace ARuncibleCargo.Game
 
 			// Pookas
 
-			if (Globals.Engine.IsSuccess(rc) && Uid < 4)
+			if (gEngine.IsSuccess(rc) && Uid < 4 && !gGameState.GetPookaMet(Uid - 1))
 			{
-				var gameState = Globals.GameState as Framework.IGameState;
+				var effect = gEDB[3 + Uid];
 
-				Debug.Assert(gameState != null);
+				Debug.Assert(effect != null);
 
-				if (!gameState.GetPookaMet(Uid - 1))
-				{
-					var effect = Globals.EDB[3 + Uid];
+				buf.AppendPrint("{0}", effect.Desc);
 
-					Debug.Assert(effect != null);
-
-					buf.AppendPrint("{0}", effect.Desc);
-
-					gameState.SetPookaMet(Uid - 1, true);
-				}
+				gGameState.SetPookaMet(Uid - 1, true);
 			}
 
 			return rc;
@@ -54,13 +47,13 @@ namespace ARuncibleCargo.Game
 		
 		public override bool CanMoveToRoomUid(long roomUid, bool fleeing)
 		{
-			var room = Globals.RDB[roomUid];
+			var room = gRDB[roomUid] as Framework.IRoom;
 
 			Debug.Assert(room != null);
 
 			// Nobody can flee into a water room
 
-			if (fleeing && room.CastTo<Framework.IRoom>().IsWaterRoom())
+			if (fleeing && room.IsWaterRoom())
 			{
 				return false;
 			}

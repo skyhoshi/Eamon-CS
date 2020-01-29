@@ -1,7 +1,7 @@
 ﻿
 // Program.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 /*
 
@@ -79,15 +79,15 @@ namespace EamonRT
 
 			// disable resolution of uid macros
 
-			Globals.Out.ResolveUidMacros = false;
+			gOut.ResolveUidMacros = false;
 
 			// disable extraneous newline suppression
 
-			Globals.Out.SuppressNewLines = false;
+			gOut.SuppressNewLines = false;
 
 			// make the cursor disappear
 
-			Globals.Out.CursorVisible = false;
+			gOut.CursorVisible = false;
 
 			// initialize Config record
 
@@ -103,14 +103,14 @@ namespace EamonRT
 
 			// change window title bar and size
 
-			Globals.Out.SetWindowTitle(ProgramName);
+			gOut.SetWindowTitle(ProgramName);
 
 			try
 			{
-				Globals.Out.SetWindowSize(Math.Min(Constants.WindowWidth, Globals.Out.GetLargestWindowWidth()),
-													Math.Min(Math.Max(Constants.WindowHeight, Globals.Out.GetWindowHeight()), (long)(Globals.Out.GetLargestWindowHeight() * 0.95)));
+				gOut.SetWindowSize(Math.Min(Constants.WindowWidth, gOut.GetLargestWindowWidth()),
+													Math.Min(Math.Max(Constants.WindowHeight, gOut.GetWindowHeight()), (long)(gOut.GetLargestWindowHeight() * 0.95)));
 
-				Globals.Out.SetBufferSize(Constants.BufferWidth, Constants.BufferHeight);
+				gOut.SetBufferSize(Constants.BufferWidth, Constants.BufferHeight);
 			}
 			catch (Exception)
 			{
@@ -119,11 +119,11 @@ namespace EamonRT
 
 			// make announcements
 
-			Globals.Out.Write("{0}Eamon CS Dungeon Designer ({1}) {2}", Environment.NewLine, ProgramName, Constants.DdProgVersion);
+			gOut.Write("{0}Eamon CS Dungeon Designer ({1}) {2}", Environment.NewLine, ProgramName, Constants.DdProgVersion);
 
-			Globals.Out.Write("{0}Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.", Environment.NewLine);
+			gOut.Write("{0}Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.", Environment.NewLine);
 
-			Globals.Out.Print("This GNU GPL'd free software has ABSOLUTELY NO WARRANTY.");
+			gOut.Print("This GNU GPL'd free software has ABSOLUTELY NO WARRANTY.");
 
 			// copy and store command line args
 
@@ -136,7 +136,7 @@ namespace EamonRT
 
 			// process command line args
 
-			Globals.Engine.DdProcessArgv(false, ref _ddfnFlag, ref _nlFlag);
+			gEngine.DdProcessArgv(false, ref _ddfnFlag, ref _nlFlag);
 
 			// initialize Config record
 
@@ -162,17 +162,17 @@ namespace EamonRT
 
 				if (!Globals.Directory.Exists(Globals.WorkDir))
 				{
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
-					Globals.Out.Print("The working directory [{0}] does not exist.", Globals.WorkDir);
+					gOut.Print("The working directory [{0}] does not exist.", Globals.WorkDir);
 
-					Globals.Out.Write("{0}Would you like to create it (Y/N) [N]: ", Environment.NewLine);
+					gOut.Write("{0}Would you like to create it (Y/N) [N]: ", Environment.NewLine);
 
 					Globals.Buf.Clear();
 
-					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', true, "N", Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, Globals.Engine.IsCharYOrN);
+					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', true, "N", gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, gEngine.IsCharYOrN);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					Globals.Thread.Sleep(150);
 
@@ -197,18 +197,18 @@ namespace EamonRT
 
 			if (Globals.ConfigFileName.Length > 0)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				rc = Globals.Database.LoadConfigs(Globals.ConfigFileName);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: LoadConfigs function call failed");
 
 					goto Cleanup;
 				}
 
-				config = Globals.Engine.GetConfig();
+				config = gEngine.GetConfig();
 
 				if (config != null)
 				{
@@ -297,7 +297,7 @@ namespace EamonRT
 
 					rc = Globals.Database.AddConfig(Globals.Config);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						// PrintError
 
@@ -311,32 +311,32 @@ namespace EamonRT
 
 				Globals.Config = config;
 
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 			}
 
 			_nlFlag = false;
 
 			// process command line args
 
-			Globals.Engine.DdProcessArgv(true, ref _ddfnFlag, ref _nlFlag);
+			gEngine.DdProcessArgv(true, ref _ddfnFlag, ref _nlFlag);
 
 			if (_nlFlag)
 			{
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 			}
 
 			_nlFlag = true;
 
 			if (Globals.Config.DdEditingFilesets || Globals.Config.DdEditingCharacters || Globals.Config.DdEditingModules || Globals.Config.DdEditingRooms || Globals.Config.DdEditingArtifacts || Globals.Config.DdEditingEffects || Globals.Config.DdEditingMonsters || Globals.Config.DdEditingHints)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 			}
 
 			if (Globals.Config.DdEditingFilesets)
 			{
 				rc = Globals.Database.LoadFilesets(Globals.Config.DdFilesetFileName);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: LoadFilesets function call failed");
 
@@ -348,7 +348,7 @@ namespace EamonRT
 			{
 				rc = Globals.Database.LoadCharacters(Globals.Config.DdCharacterFileName);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: LoadCharacters function call failed");
 
@@ -360,7 +360,7 @@ namespace EamonRT
 			{
 				rc = Globals.Database.LoadModules(Globals.Config.DdModuleFileName);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: LoadModules function call failed");
 
@@ -372,7 +372,7 @@ namespace EamonRT
 			{
 				rc = Globals.Database.LoadRooms(Globals.Config.DdRoomFileName);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: LoadRooms function call failed");
 
@@ -384,7 +384,7 @@ namespace EamonRT
 			{
 				rc = Globals.Database.LoadArtifacts(Globals.Config.DdArtifactFileName);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: LoadArtifacts function call failed");
 
@@ -396,7 +396,7 @@ namespace EamonRT
 			{
 				rc = Globals.Database.LoadEffects(Globals.Config.DdEffectFileName);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: LoadEffects function call failed");
 
@@ -408,7 +408,7 @@ namespace EamonRT
 			{
 				rc = Globals.Database.LoadMonsters(Globals.Config.DdMonsterFileName);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: LoadMonsters function call failed");
 
@@ -420,7 +420,7 @@ namespace EamonRT
 			{
 				rc = Globals.Database.LoadHints(Globals.Config.DdHintFileName);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: LoadHints function call failed");
 
@@ -432,7 +432,7 @@ namespace EamonRT
 			{
 				// find the first Module record
 
-				Globals.Module = Globals.Engine.GetModule();
+				Globals.Module = gEngine.GetModule();
 
 				if (Globals.Module != null)
 				{
@@ -498,7 +498,7 @@ namespace EamonRT
 
 			if (Globals.ConfigFileName.Length > 0 || Globals.Config.DdEditingFilesets || Globals.Config.DdEditingCharacters || Globals.Config.DdEditingModules || Globals.Config.DdEditingRooms || Globals.Config.DdEditingArtifacts || Globals.Config.DdEditingEffects || Globals.Config.DdEditingMonsters || Globals.Config.DdEditingHints)
 			{
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 			}
 
 			// create main menu
@@ -525,17 +525,17 @@ namespace EamonRT
 
 			if ((Globals.ConfigFileName.Length > 0 && Globals.ConfigsModified) || Globals.FilesetsModified || Globals.CharactersModified || Globals.ModulesModified || Globals.RoomsModified || Globals.ArtifactsModified || Globals.EffectsModified || Globals.MonstersModified || Globals.HintsModified)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Print("You have made changes to the in-memory contents of one or more textfiles.");
+				gOut.Print("You have made changes to the in-memory contents of one or more textfiles.");
 
-				Globals.Out.Write("{0}Would you like to save these modifications (Y/N): ", Environment.NewLine);
+				gOut.Write("{0}Would you like to save these modifications (Y/N): ", Environment.NewLine);
 
 				Globals.Buf.Clear();
 
-				rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, Globals.Engine.IsCharYOrN);
+				rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, gEngine.IsCharYOrN);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Globals.Thread.Sleep(150);
 
@@ -546,7 +546,7 @@ namespace EamonRT
 					goto Cleanup;
 				}
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				// save the textfiles
 
@@ -554,7 +554,7 @@ namespace EamonRT
 				{
 					rc = Globals.Database.SaveHints(Globals.Config.DdHintFileName);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						Globals.Error.Write("Error: SaveHints function call failed");
 
@@ -568,7 +568,7 @@ namespace EamonRT
 				{
 					rc = Globals.Database.SaveMonsters(Globals.Config.DdMonsterFileName);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						Globals.Error.Write("Error: SaveMonsters function call failed");
 
@@ -582,7 +582,7 @@ namespace EamonRT
 				{
 					rc = Globals.Database.SaveEffects(Globals.Config.DdEffectFileName);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						Globals.Error.Write("Error: SaveEffects function call failed");
 
@@ -596,7 +596,7 @@ namespace EamonRT
 				{
 					rc = Globals.Database.SaveArtifacts(Globals.Config.DdArtifactFileName);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						Globals.Error.Write("Error: SaveArtifacts function call failed");
 
@@ -610,7 +610,7 @@ namespace EamonRT
 				{
 					rc = Globals.Database.SaveRooms(Globals.Config.DdRoomFileName);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						Globals.Error.Write("Error: SaveRooms function call failed");
 
@@ -624,7 +624,7 @@ namespace EamonRT
 				{
 					rc = Globals.Database.SaveModules(Globals.Config.DdModuleFileName);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						Globals.Error.Write("Error: SaveModules function call failed");
 
@@ -638,7 +638,7 @@ namespace EamonRT
 				{
 					rc = Globals.Database.SaveCharacters(Globals.Config.DdCharacterFileName);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						Globals.Error.Write("Error: SaveCharacters function call failed");
 
@@ -652,7 +652,7 @@ namespace EamonRT
 				{
 					rc = Globals.Database.SaveFilesets(Globals.Config.DdFilesetFileName);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						Globals.Error.Write("Error: SaveFilesets function call failed");
 
@@ -666,7 +666,7 @@ namespace EamonRT
 				{
 					rc = Globals.Database.SaveConfigs(Globals.ConfigFileName);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						Globals.Error.Write("Error: SaveConfigs function call failed");
 
@@ -702,7 +702,7 @@ namespace EamonRT
 
 			// make the cursor disappear
 
-			Globals.Out.CursorVisible = false;
+			gOut.CursorVisible = false;
 
 			// initialize Config record
 
@@ -718,14 +718,14 @@ namespace EamonRT
 
 			// change window title bar and size
 
-			Globals.Out.SetWindowTitle(ProgramName);
+			gOut.SetWindowTitle(ProgramName);
 
 			try
 			{
-				Globals.Out.SetWindowSize(Math.Min(Constants.WindowWidth, Globals.Out.GetLargestWindowWidth()),
-													Math.Min(Math.Max(Constants.WindowHeight, Globals.Out.GetWindowHeight()), (long)(Globals.Out.GetLargestWindowHeight() * 0.95)));
+				gOut.SetWindowSize(Math.Min(Constants.WindowWidth, gOut.GetLargestWindowWidth()),
+													Math.Min(Math.Max(Constants.WindowHeight, gOut.GetWindowHeight()), (long)(gOut.GetLargestWindowHeight() * 0.95)));
 
-				Globals.Out.SetBufferSize(Constants.BufferWidth, Constants.BufferHeight);
+				gOut.SetBufferSize(Constants.BufferWidth, Constants.BufferHeight);
 			}
 			catch (Exception)
 			{
@@ -734,11 +734,11 @@ namespace EamonRT
 
 			// make announcements
 
-			Globals.Out.Write("{0}Eamon CS Runtime ({1}) {2}", Environment.NewLine, ProgramName, Constants.RtProgVersion);
+			gOut.Write("{0}Eamon CS Runtime ({1}) {2}", Environment.NewLine, ProgramName, Constants.RtProgVersion);
 
-			Globals.Out.Write("{0}Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.", Environment.NewLine);
+			gOut.Write("{0}Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.", Environment.NewLine);
 
-			Globals.Out.Print("This GNU GPL'd free software has ABSOLUTELY NO WARRANTY.");
+			gOut.Print("This GNU GPL'd free software has ABSOLUTELY NO WARRANTY.");
 
 			// copy and store command line args
 
@@ -751,7 +751,7 @@ namespace EamonRT
 
 			// process command line args
 
-			Globals.Engine.RtProcessArgv(false, ref _nlFlag);
+			gEngine.RtProcessArgv(false, ref _nlFlag);
 
 			// assign default work directory, if necessary
 
@@ -791,17 +791,17 @@ namespace EamonRT
 
 				if (!Globals.Directory.Exists(Globals.WorkDir))
 				{
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
-					Globals.Out.Print("The working directory [{0}] does not exist.", Globals.WorkDir);
+					gOut.Print("The working directory [{0}] does not exist.", Globals.WorkDir);
 
-					Globals.Out.Write("{0}Would you like to create it (Y/N) [N]: ", Environment.NewLine);
+					gOut.Write("{0}Would you like to create it (Y/N) [N]: ", Environment.NewLine);
 
 					Globals.Buf.Clear();
 
-					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', true, "N", Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, Globals.Engine.IsCharYOrN);
+					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', true, "N", gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, gEngine.IsCharYOrN);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					Globals.Thread.Sleep(150);
 
@@ -826,18 +826,18 @@ namespace EamonRT
 
 			if (Globals.ConfigFileName.Length > 0)
 			{
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				rc = Globals.Database.LoadConfigs(Globals.ConfigFileName);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: LoadConfigs function call failed");
 
 					goto Cleanup;
 				}
 
-				config = Globals.Engine.GetConfig();
+				config = gEngine.GetConfig();
 
 				if (config != null)
 				{
@@ -851,7 +851,7 @@ namespace EamonRT
 
 					rc = config01.CopyProperties(config);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					// config.Dispose() omitted (Uid still in use)
 
@@ -859,7 +859,7 @@ namespace EamonRT
 
 					rc = Globals.Database.AddConfig(config);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					if (config.RtFilesetFileName.Length == 0)
 					{
@@ -932,7 +932,7 @@ namespace EamonRT
 
 					rc = Globals.Database.AddConfig(Globals.Config);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						// PrintError
 
@@ -946,27 +946,27 @@ namespace EamonRT
 
 				Globals.Config = config;
 
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 			}
 
 			_nlFlag = false;
 
 			// process command line args
 
-			Globals.Engine.RtProcessArgv(true, ref _nlFlag);
+			gEngine.RtProcessArgv(true, ref _nlFlag);
 
 			if (_nlFlag)
 			{
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 			}
 
 			_nlFlag = true;
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			rc = Globals.Config.LoadGameDatabase();
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.Write("Error: LoadGameDatabase function call failed");
 
@@ -975,7 +975,7 @@ namespace EamonRT
 
 			if (!Globals.DeleteGameStateFromMainHall)
 			{
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 
 				character = Globals.Database.CharacterTable.Records.FirstOrDefault();
 
@@ -991,7 +991,7 @@ namespace EamonRT
 
 					rc = character01.CopyProperties(character);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					// character.Dispose() omitted (Uid still in use)
 
@@ -999,32 +999,32 @@ namespace EamonRT
 
 					rc = Globals.Database.AddCharacter(character);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
 				Globals.Character = character;
 
-				if (Globals.Character == null || Globals.Character.Uid <= 0 || Globals.Character.Status != Status.Adventuring || string.IsNullOrWhiteSpace(Globals.Character.Name) || string.Equals(Globals.Character.Name, "NONE", StringComparison.OrdinalIgnoreCase))
+				if (gCharacter == null || gCharacter.Uid <= 0 || gCharacter.Status != Status.Adventuring || string.IsNullOrWhiteSpace(gCharacter.Name) || string.Equals(gCharacter.Name, "NONE", StringComparison.OrdinalIgnoreCase))
 				{
 					rc = RetCode.InvalidObj;
 
 					Globals.Error.Write("{0}Error: {1}",
 						Environment.NewLine,
-						Globals.Character == null ? "Use EamonMH to send a character on this adventure." :
-						Globals.Character.Uid <= 0 ? "Globals.Character.Uid <= 0" :
-						Globals.Character.Status != Status.Adventuring ? "Globals.Character.Status != Status.Adventuring" :
-						string.IsNullOrWhiteSpace(Globals.Character.Name) ? "string.IsNullOrWhiteSpace(Globals.Character.Name)" :
-						"string.Equals(Globals.Character.Name, \"NONE\", StringComparison.OrdinalIgnoreCase)");
+						gCharacter == null ? "Use EamonMH to send a character on this adventure." :
+						gCharacter.Uid <= 0 ? "gCharacter.Uid <= 0" :
+						gCharacter.Status != Status.Adventuring ? "gCharacter.Status != Status.Adventuring" :
+						string.IsNullOrWhiteSpace(gCharacter.Name) ? "string.IsNullOrWhiteSpace(gCharacter.Name)" :
+						"string.Equals(gCharacter.Name, \"NONE\", StringComparison.OrdinalIgnoreCase)");
 
-					if (Globals.Character == null)
+					if (gCharacter == null)
 					{
-						Globals.Engine.UnlinkOnFailure();
+						gEngine.UnlinkOnFailure();
 					}
 
 					goto Cleanup;
 				}
 
-				Globals.Module = Globals.Engine.GetModule();
+				Globals.Module = gEngine.GetModule();
 
 				if (Globals.Module == null || Globals.Module.Uid <= 0)
 				{
@@ -1037,29 +1037,29 @@ namespace EamonRT
 
 					if (Globals.Module == null)
 					{
-						Globals.Engine.UnlinkOnFailure();
+						gEngine.UnlinkOnFailure();
 					}
 
 					goto Cleanup;
 				}
 
-				Globals.GameState = Globals.Engine.GetGameState();
+				Globals.GameState = gEngine.GetGameState();
 
-				if (Globals.GameState == null || Globals.GameState.Uid <= 0)
+				if (gGameState == null || gGameState.Uid <= 0)
 				{
 					Globals.GameState = Globals.CreateInstance<IGameState>(x =>
 					{
 						x.Uid = Globals.Database.GetGameStateUid();
 					});
 
-					Debug.Assert(Globals.GameState != null);
+					Debug.Assert(gGameState != null);
 
-					rc = Globals.Database.AddGameState(Globals.GameState);
+					rc = Globals.Database.AddGameState(gGameState);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
-				var room = Globals.RDB[Globals.Engine.StartRoom];
+				var room = gRDB[gEngine.StartRoom];
 
 				if (room == null)
 				{
@@ -1069,33 +1069,33 @@ namespace EamonRT
 						Environment.NewLine,
 						"Use EamonDD to define a start room record for this adventure.");
 
-					Globals.Engine.UnlinkOnFailure();
+					gEngine.UnlinkOnFailure();
 
 					goto Cleanup;
 				}
 
-				rc = Globals.Engine.ValidateRecordsAfterDatabaseLoaded();
+				rc = gEngine.ValidateRecordsAfterDatabaseLoaded();
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: ValidateRecordsAfterDatabaseLoaded function call failed");
 
-					Globals.Engine.UnlinkOnFailure();
+					gEngine.UnlinkOnFailure();
 
 					goto Cleanup;
 				}
 
 				var printIntroOutput = Globals.IntroStory.ShouldPrintOutput;
 
-				Globals.Out.WriteLine("{0}{1}{0}", Environment.NewLine, Globals.LineSep);
+				gOut.WriteLine("{0}{1}{0}", Environment.NewLine, Globals.LineSep);
 
-				Globals.Engine.PrintTitle(Globals.Module.Name, false);
+				gEngine.PrintTitle(Globals.Module.Name, false);
 
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 
 				Globals.Buf.SetFormat("By {0}", Globals.Module.Author);
 
-				Globals.Engine.PrintTitle(Globals.Buf.ToString(), false);
+				gEngine.PrintTitle(Globals.Buf.ToString(), false);
 
 				if (printIntroOutput)
 				{
@@ -1130,7 +1130,7 @@ namespace EamonRT
 				{
 					rc = Globals.Config.DeleteGameState(Globals.ConfigFileName, Globals.StartOver);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
 				if (Globals.ExportCharacterGoToMainHall || Globals.DeleteCharacter)
@@ -1139,15 +1139,15 @@ namespace EamonRT
 
 					rc = Globals.PushDatabase();
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					rc = Globals.Database.LoadCharacters(Globals.Config.MhCharacterFileName, printOutput: false);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
-					character = Globals.CHRDB[Globals.Character.Uid];
+					character = Globals.CHRDB[gCharacter.Uid];
 
-					if (character != null && string.Equals(Globals.Character.Name, character.Name, StringComparison.OrdinalIgnoreCase))
+					if (character != null && string.Equals(gCharacter.Name, character.Name, StringComparison.OrdinalIgnoreCase))
 					{
 						if (Globals.DeleteCharacter)
 						{
@@ -1159,36 +1159,36 @@ namespace EamonRT
 						{
 							if (Globals.ExportCharacter)
 							{
-								rc = character.CopyProperties(Globals.Character);
+								rc = character.CopyProperties(gCharacter);
 
-								Debug.Assert(Globals.Engine.IsSuccess(rc));
+								Debug.Assert(gEngine.IsSuccess(rc));
 							}
 
-							character.Status = (Globals.GameState.Die != 1 ? Status.Alive : Status.Dead);
+							character.Status = (gGameState.Die != 1 ? Status.Alive : Status.Dead);
 						}
 
 						rc = Globals.Database.SaveCharacters(Globals.Config.MhCharacterFileName, false);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						rc = Globals.PopDatabase();
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						character = null;
 
-						if (!Globals.DeleteCharacter && Globals.GameState.Die != 1)
+						if (!Globals.DeleteCharacter && gGameState.Die != 1)
 						{
-							Globals.Out.Print("{0}", Globals.LineSep);
+							gOut.Print("{0}", Globals.LineSep);
 
-							Globals.TransferProtocol.SendCharacterToMainHall(Globals.FilePrefix, Globals.Config.MhFilesetFileName, Globals.Config.MhCharacterFileName, Globals.Config.MhEffectFileName, Globals.Character.Name);
+							Globals.TransferProtocol.SendCharacterToMainHall(Globals.FilePrefix, Globals.Config.MhFilesetFileName, Globals.Config.MhCharacterFileName, Globals.Config.MhEffectFileName, gCharacter.Name);
 						}
 					}
 					else
 					{
 						rc = Globals.PopDatabase();
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 					}
 				}
 
@@ -1198,7 +1198,7 @@ namespace EamonRT
 			{
 				rc = Globals.Config.DeleteGameState(Globals.ConfigFileName, false);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					Globals.Error.Write("Error: DeleteGameState function call failed");
 

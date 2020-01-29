@@ -1,7 +1,7 @@
 ﻿
 // MainLoop.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon;
@@ -22,7 +22,7 @@ namespace ARuncibleCargo.Game
 
 			// Move any Artifacts dropped in StartRoom to the Private Quarters
 
-			var artifactList = Globals.Engine.GetArtifactList(a => a.IsCharOwned && a.IsInRoomUid(Globals.Engine.StartRoom));
+			var artifactList = gEngine.GetArtifactList(a => a.IsCharOwned && a.IsInRoomUid(gEngine.StartRoom));
 
 			foreach (var artifact in artifactList)
 			{
@@ -33,7 +33,7 @@ namespace ARuncibleCargo.Game
 
 			rc = Globals.SaveDatabase(Constants.SnapshotFileName);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 		}
 	}
 }

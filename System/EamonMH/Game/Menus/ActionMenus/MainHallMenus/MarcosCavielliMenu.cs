@@ -1,7 +1,7 @@
 ﻿
 // MarcosCavielliMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -75,9 +75,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			var menuState = MenuState.BuyOrSell;
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Print("As you enter the weapon shop, Marcos Cavielli (the owner) comes from out of the back room and says, \"Well, as I live and breathe, if it isn't my old pal, {0}!  So, what do you need?\"", Globals.Character.Name);
+			gOut.Print("As you enter the weapon shop, Marcos Cavielli (the owner) comes from out of the back room and says, \"Well, as I live and breathe, if it isn't my old pal, {0}!  So, what do you need?\"", Globals.Character.Name);
 
 			while (true)
 			{
@@ -85,15 +85,15 @@ namespace EamonMH.Game.Menus.ActionMenus
 				{
 					case MenuState.BuyOrSell:
 
-						Globals.Out.Print("{0}", Globals.LineSep);
+						gOut.Print("{0}", Globals.LineSep);
 
-						Globals.Out.Write("{0}B=Buy weapon, S=Sell weapon, A=Buy better armor, X=Exit: ", Environment.NewLine);
+						gOut.Write("{0}B=Buy weapon, S=Sell weapon, A=Buy better armor, X=Exit: ", Environment.NewLine);
 
 						Buf.Clear();
 
-						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharBOrSOrAOrX, Globals.Engine.IsCharBOrSOrAOrX);
+						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharBOrSOrAOrX, gEngine.IsCharBOrSOrAOrX);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						Globals.Thread.Sleep(150);
 
@@ -102,7 +102,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 								goto Cleanup;
 						}
 
-						Globals.Out.Print("{0}", Globals.LineSep);
+						gOut.Print("{0}", Globals.LineSep);
 
 						/* 
 							Full Credit:  Derived wholly from Donald Brown's Classic Eamon
@@ -115,7 +115,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 						{
 							var c2 = Globals.Character.GetMerchantAdjustedCharisma();
 
-							Rtio = Globals.Engine.GetMerchantRtio(c2);
+							Rtio = gEngine.GetMerchantRtio(c2);
 						}
 
 						if (Buf[0] == 'B')
@@ -141,9 +141,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						if (!Globals.Character.IsWeaponActive(i))
 						{
-							Globals.Out.Print("Marcos smiles at you and says, \"Good!  I gotta the best.  What kind do you want?\"");
+							gOut.Print("Marcos smiles at you and says, \"Good!  I gotta the best.  What kind do you want?\"");
 
-							Globals.Out.Print("{0}", Globals.LineSep);
+							gOut.Print("{0}", Globals.LineSep);
 
 							Buf.Clear();
 
@@ -151,7 +151,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							for (i = 0; i < weaponValues.Count; i++)
 							{
-								var weapon = Globals.Engine.GetWeapons(weaponValues[(int)i]);
+								var weapon = gEngine.GetWeapons(weaponValues[(int)i]);
 
 								Debug.Assert(weapon != null);
 
@@ -163,23 +163,23 @@ namespace EamonMH.Game.Menus.ActionMenus
 									i == weaponValues.Count - 1 ? ", X=Exit: " : "");
 							}
 
-							Globals.Out.Write("{0}", Buf);
+							gOut.Write("{0}", Buf);
 
 							Buf.Clear();
 
-							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharWpnTypeOrX, Globals.Engine.IsCharWpnTypeOrX);
+							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharWpnTypeOrX, gEngine.IsCharWpnTypeOrX);
 
-							Debug.Assert(Globals.Engine.IsSuccess(rc));
+							Debug.Assert(gEngine.IsSuccess(rc));
 
 							Globals.Thread.Sleep(150);
 
-							Globals.Out.Print("{0}", Globals.LineSep);
+							gOut.Print("{0}", Globals.LineSep);
 
 							if (Buf.Length > 0 && Buf[0] != 'X')
 							{
 								i = Convert.ToInt64(Buf.Trim().ToString());
 
-								var weapon = Globals.Engine.GetWeapons((Weapon)i);
+								var weapon = gEngine.GetWeapons((Weapon)i);
 
 								Debug.Assert(weapon != null);
 
@@ -195,50 +195,50 @@ namespace EamonMH.Game.Menus.ActionMenus
 									x.Field5 = weapon.MarcosNumHands;
 								});
 
-								Globals.Out.Print("Marcos says, \"Well, I just happen to have three {0}s in, of varying quality.  I've got a very good one for {1} GP, a fair one for {2} GP, and a kinda shabby one for {3} GP.  Which do you want?\"",
+								gOut.Print("Marcos says, \"Well, I just happen to have three {0}s in, of varying quality.  I've got a very good one for {1} GP, a fair one for {2} GP, and a kinda shabby one for {3} GP.  Which do you want?\"",
 									cw.Name,
-									Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice, (double)Rtio),
-									Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice * 0.80, (double)Rtio),
-									Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice * 0.60, (double)Rtio));
+									gEngine.GetMerchantAskPrice(weapon.MarcosPrice, (double)Rtio),
+									gEngine.GetMerchantAskPrice(weapon.MarcosPrice * 0.80, (double)Rtio),
+									gEngine.GetMerchantAskPrice(weapon.MarcosPrice * 0.60, (double)Rtio));
 
-								Globals.Out.Print("{0}", Globals.LineSep);
+								gOut.Print("{0}", Globals.LineSep);
 
-								Globals.Out.Write("{0}G=Good quality, F=Fair quality, P=Poor quality, X=Exit: ", Environment.NewLine);
+								gOut.Write("{0}G=Good quality, F=Fair quality, P=Poor quality, X=Exit: ", Environment.NewLine);
 
 								Buf.Clear();
 
-								rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharGOrFOrPOrX, Globals.Engine.IsCharGOrFOrPOrX);
+								rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharGOrFOrPOrX, gEngine.IsCharGOrFOrPOrX);
 
-								Debug.Assert(Globals.Engine.IsSuccess(rc));
+								Debug.Assert(gEngine.IsSuccess(rc));
 
 								Globals.Thread.Sleep(150);
 
-								Globals.Out.Print("{0}", Globals.LineSep);
+								gOut.Print("{0}", Globals.LineSep);
 
 								if (Buf.Length > 0 && Buf[0] != 'X')
 								{
 									if (Buf[0] == 'G')
 									{
-										ap = Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice, (double)Rtio);
+										ap = gEngine.GetMerchantAskPrice(weapon.MarcosPrice, (double)Rtio);
 
 										cw.Field1 = 10;
 									}
 									else if (Buf[0] == 'F')
 									{
-										ap = Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice * 0.80, (double)Rtio);
+										ap = gEngine.GetMerchantAskPrice(weapon.MarcosPrice * 0.80, (double)Rtio);
 									}
 									else
 									{
 										Debug.Assert(Buf[0] == 'P');
 
-										ap = Globals.Engine.GetMerchantAskPrice(weapon.MarcosPrice * 0.60, (double)Rtio);
+										ap = gEngine.GetMerchantAskPrice(weapon.MarcosPrice * 0.60, (double)Rtio);
 
 										cw.Field1 = -10;
 									}
 
 									if (ap > Globals.Character.HeldGold)
 									{
-										Globals.Out.Print("Marcos shakes a finger at you and says, \"You shouldn't play tricks on an old friend!  Come back when you gotta more gold or you want something you can afford.\"  He then shoos you out the door.");
+										gOut.Print("Marcos shakes a finger at you and says, \"You shouldn't play tricks on an old friend!  Come back when you gotta more gold or you want something you can afford.\"  He then shoos you out the door.");
 
 										Globals.In.KeyPress(Buf);
 
@@ -247,7 +247,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 									rc = Globals.Character.GetWeaponCount(ref i);
 
-									Debug.Assert(Globals.Engine.IsSuccess(rc));
+									Debug.Assert(gEngine.IsSuccess(rc));
 
 									Globals.Character.SetWeapons(i, cw);
 
@@ -261,7 +261,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 									Globals.CharactersModified = true;
 
-									Globals.Out.Print("Marcos hands you your weapon and takes the price from you.");
+									gOut.Print("Marcos hands you your weapon and takes the price from you.");
 
 									menuState = MenuState.CheckShield;
 								}
@@ -277,7 +277,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 						}
 						else
 						{
-							Globals.Out.Print("Marcos smiles at you and says, \"Thatsa good, but first you gotta sell me a weapon.  You know the law:  No more than four weapons per person!\"");
+							gOut.Print("Marcos smiles at you and says, \"Thatsa good, but first you gotta sell me a weapon.  You know the law:  No more than four weapons per person!\"");
 
 							menuState = MenuState.BuyOrSell;
 						}
@@ -286,25 +286,25 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					case MenuState.CheckShield:
 
-						ap = Globals.Engine.GetMerchantAskPrice(Constants.ShieldPrice, (double)Rtio);
+						ap = gEngine.GetMerchantAskPrice(Constants.ShieldPrice, (double)Rtio);
 
 						if (Globals.Character.HeldGold >= ap)
 						{
-							Globals.Out.Print("He now asks you, \"Now how about some armor?\"");
+							gOut.Print("He now asks you, \"Now how about some armor?\"");
 
-							Globals.Out.Print("{0}", Globals.LineSep);
+							gOut.Print("{0}", Globals.LineSep);
 
-							Globals.Out.Write("{0}Press Y for yes or N for no: ", Environment.NewLine);
+							gOut.Write("{0}Press Y for yes or N for no: ", Environment.NewLine);
 
 							Buf.Clear();
 
-							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, Globals.Engine.IsCharYOrN);
+							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, gEngine.IsCharYOrN);
 
-							Debug.Assert(Globals.Engine.IsSuccess(rc));
+							Debug.Assert(gEngine.IsSuccess(rc));
 
 							Globals.Thread.Sleep(150);
 
-							Globals.Out.Print("{0}", Globals.LineSep);
+							gOut.Print("{0}", Globals.LineSep);
 
 							if (Buf.Length > 0 && Buf[0] == 'Y')
 							{
@@ -330,23 +330,23 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 							rc = Globals.Character.ListWeapons(Buf);
 
-							Debug.Assert(Globals.Engine.IsSuccess(rc));
+							Debug.Assert(gEngine.IsSuccess(rc));
 
-							Globals.Out.Write("{0}", Buf);
+							gOut.Write("{0}", Buf);
 
-							Globals.Out.WriteLine("{0}{0}{1}", Environment.NewLine, Globals.LineSep);
+							gOut.WriteLine("{0}{0}{1}", Environment.NewLine, Globals.LineSep);
 
-							Globals.Out.Write("{0}Press the number of the weapon to sell or X to exit: ", Environment.NewLine);
+							gOut.Write("{0}Press the number of the weapon to sell or X to exit: ", Environment.NewLine);
 
 							Buf.Clear();
 
-							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharWpnNumOrX, Globals.Engine.IsCharWpnNumOrX);
+							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharWpnNumOrX, gEngine.IsCharWpnNumOrX);
 
-							Debug.Assert(Globals.Engine.IsSuccess(rc));
+							Debug.Assert(gEngine.IsSuccess(rc));
 
 							Globals.Thread.Sleep(150);
 
-							Globals.Out.Print("{0}", Globals.LineSep);
+							gOut.Print("{0}", Globals.LineSep);
 
 							if (Buf.Length > 0 && Buf[0] != 'X')
 							{
@@ -354,38 +354,38 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 								var imw = false;
 
-								var weaponPrice = Globals.Engine.GetWeaponPriceOrValue(Globals.Character.GetWeapons(i), true, ref imw);
+								var weaponPrice = gEngine.GetWeaponPriceOrValue(Globals.Character.GetWeapons(i), true, ref imw);
 
-								ap = Globals.Engine.GetMerchantAskPrice(weaponPrice, (double)Rtio);
+								ap = gEngine.GetMerchantAskPrice(weaponPrice, (double)Rtio);
 
-								bp = Globals.Engine.GetMerchantBidPrice(weaponPrice, (double)Rtio);
+								bp = gEngine.GetMerchantBidPrice(weaponPrice, (double)Rtio);
 
 								ti = Math.Min(ap, bp) / 4;
 
-								Globals.Out.Print("Marcos examines your weapon and says, \"{0}Well, {1}I can give you {2} gold piece{3} for it, take it or leave it.\"",
+								gOut.Print("Marcos examines your weapon and says, \"{0}Well, {1}I can give you {2} gold piece{3} for it, take it or leave it.\"",
 									Globals.Character.GetWeapons(i).Field3 * Globals.Character.GetWeapons(i).Field4 > 25 ? "Very nice, this is a magical weapon.  " :
 									Globals.Character.GetWeapons(i).Field3 * Globals.Character.GetWeapons(i).Field4 > 15 || Globals.Character.GetWeapons(i).Field1 > 10 ? "Hey, this is a pretty good weapon!  " : "",
 									imw ? "you've banged it up a bit, but " : "",
 									ti,
 									ti != 1 ? "s" : "");
 
-								Globals.Out.Print("{0}", Globals.LineSep);
+								gOut.Print("{0}", Globals.LineSep);
 
-								Globals.Out.Write("{0}Press T to take or L to leave: ", Environment.NewLine);
+								gOut.Write("{0}Press T to take or L to leave: ", Environment.NewLine);
 
 								Buf.Clear();
 
-								rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharTOrL, Globals.Engine.IsCharTOrL);
+								rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharTOrL, gEngine.IsCharTOrL);
 
-								Debug.Assert(Globals.Engine.IsSuccess(rc));
+								Debug.Assert(gEngine.IsSuccess(rc));
 
 								Globals.Thread.Sleep(150);
 
-								Globals.Out.Print("{0}", Globals.LineSep);
+								gOut.Print("{0}", Globals.LineSep);
 
 								if (Buf.Length > 0 && Buf[0] == 'T')
 								{
-									Globals.Out.Print("Marcos gives you your money and takes your weapon.");
+									gOut.Print("Marcos gives you your money and takes your weapon.");
 
 									Globals.Character.HeldGold += ti;
 
@@ -407,21 +407,21 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 									Globals.CharactersModified = true;
 
-									Globals.Out.Print("Marcos asks you, \"How about buying a weapon?\"");
+									gOut.Print("Marcos asks you, \"How about buying a weapon?\"");
 
-									Globals.Out.Print("{0}", Globals.LineSep);
+									gOut.Print("{0}", Globals.LineSep);
 
-									Globals.Out.Write("{0}Press Y for yes or N for no: ", Environment.NewLine);
+									gOut.Write("{0}Press Y for yes or N for no: ", Environment.NewLine);
 
 									Buf.Clear();
 
-									rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, Globals.Engine.IsCharYOrN);
+									rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, gEngine.IsCharYOrN);
 
-									Debug.Assert(Globals.Engine.IsSuccess(rc));
+									Debug.Assert(gEngine.IsSuccess(rc));
 
 									Globals.Thread.Sleep(150);
 
-									Globals.Out.Print("{0}", Globals.LineSep);
+									gOut.Print("{0}", Globals.LineSep);
 
 									if (Buf.Length > 0 && Buf[0] == 'Y')
 									{
@@ -444,7 +444,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 						}
 						else
 						{
-							Globals.Out.Print("Marcos grins and says, \"You havea no weapons to sell me, {0}!\"", Globals.Character.Name);
+							gOut.Print("Marcos grins and says, \"You havea no weapons to sell me, {0}!\"", Globals.Character.Name);
 
 							menuState = MenuState.BuyOrSell;
 						}
@@ -459,27 +459,27 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						var ima = false;
 
-						var armorPrice = Globals.Engine.GetArmorPriceOrValue(Globals.Character.ArmorClass, true, ref ima);
+						var armorPrice = gEngine.GetArmorPriceOrValue(Globals.Character.ArmorClass, true, ref ima);
 
-						ap = Globals.Engine.GetMerchantAskPrice(armorPrice, (double)Rtio);
+						ap = gEngine.GetMerchantAskPrice(armorPrice, (double)Rtio);
 
-						bp = Globals.Engine.GetMerchantBidPrice(armorPrice, (double)Rtio);
+						bp = gEngine.GetMerchantBidPrice(armorPrice, (double)Rtio);
 
 						ti = Math.Min(ap, bp) / 4;
 
-						var armor = Globals.Engine.GetArmors((Armor)(a2 * 2));
+						var armor = gEngine.GetArmors((Armor)(a2 * 2));
 
 						Debug.Assert(armor != null);
 
 						Buf.Clear();
 
-						j = Globals.Engine.GetMaxArmorMarcosNum();
+						j = gEngine.GetMaxArmorMarcosNum();
 
 						var armorValues = EnumUtil.GetValues<Armor>();
 
 						for (i = 0; i < armorValues.Count; i++)
 						{
-							armor = Globals.Engine.GetArmors(armorValues[(int)i]);
+							armor = gEngine.GetArmors(armorValues[(int)i]);
 
 							Debug.Assert(armor != null);
 
@@ -487,7 +487,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 							{
 								Buf.AppendFormat("{0}{1}{2} for the {3}",
 									armor.MarcosNum == 1 ? "" : armor.MarcosNum == j ? " and " : ", ",
-									Globals.Engine.GetMerchantAskPrice(armor.MarcosPrice, (double)Rtio),
+									gEngine.GetMerchantAskPrice(armor.MarcosPrice, (double)Rtio),
 									armor.MarcosNum == 1 ? " gold pieces" : "",
 									(armor.MarcosName ?? armor.Name).ToLower());
 							}
@@ -504,17 +504,17 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						Buf.AppendPrint("Well, what will it be?\"");
 
-						Globals.Out.Write("{0}", Buf);
+						gOut.Write("{0}", Buf);
 
-						Globals.Out.Print("{0}", Globals.LineSep);
+						gOut.Print("{0}", Globals.LineSep);
 
 						Buf.Clear();
 
-						j = Globals.Engine.GetMaxArmorMarcosNum();
+						j = gEngine.GetMaxArmorMarcosNum();
 
 						for (i = 0; i < armorValues.Count; i++)
 						{
-							armor = Globals.Engine.GetArmors(armorValues[(int)i]);
+							armor = gEngine.GetArmors(armorValues[(int)i]);
 
 							Debug.Assert(armor != null);
 
@@ -529,31 +529,31 @@ namespace EamonMH.Game.Menus.ActionMenus
 							}
 						}
 
-						Globals.Out.Write("{0}", Buf);
+						gOut.Write("{0}", Buf);
 
 						Buf.Clear();
 
-						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharMarcosNumOrX, Globals.Engine.IsCharMarcosNumOrX);
+						rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharMarcosNumOrX, gEngine.IsCharMarcosNumOrX);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						Globals.Thread.Sleep(150);
 
-						Globals.Out.Print("{0}", Globals.LineSep);
+						gOut.Print("{0}", Globals.LineSep);
 
 						if (Buf.Length > 0 && Buf[0] != 'X')
 						{
 							i = Convert.ToInt64(Buf.Trim().ToString());
 
-							armor = Globals.Engine.GetArmorByMarcosNum(i);
+							armor = gEngine.GetArmorByMarcosNum(i);
 
 							Debug.Assert(armor != null);
 
-							ap = Globals.Engine.GetMerchantAskPrice(armor.MarcosPrice, (double)Rtio);
+							ap = gEngine.GetMerchantAskPrice(armor.MarcosPrice, (double)Rtio);
 
 							if (Globals.Character.HeldGold + ti >= ap)
 							{
-								Globals.Out.Print("Marcos takes your gold{0} and helps you into your new armor.", ti > 0 ? " and your old armor" : "");
+								gOut.Print("Marcos takes your gold{0} and helps you into your new armor.", ti > 0 ? " and your old armor" : "");
 
 								Globals.Character.HeldGold += ti;
 
@@ -563,7 +563,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 								for (i = 0; i < armorValues.Count; i++)
 								{
-									if (Globals.Engine.GetArmors(armorValues[(int)i]) == armor)
+									if (gEngine.GetArmors(armorValues[(int)i]) == armor)
 									{
 										break;
 									}
@@ -575,7 +575,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 							}
 							else
 							{
-								Globals.Out.Print("Marcos frowns when he sees that you do not have enough to pay for your armor and says, \"I don't give credit!\"");
+								gOut.Print("Marcos frowns when he sees that you do not have enough to pay for your armor and says, \"I don't give credit!\"");
 							}
 						}
 
@@ -587,29 +587,29 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						if (sh != 1)
 						{
-							ap = Globals.Engine.GetMerchantAskPrice(Constants.ShieldPrice, (double)Rtio);
+							ap = gEngine.GetMerchantAskPrice(Constants.ShieldPrice, (double)Rtio);
 
-							Globals.Out.Print("Marcos smiles and says, \"Now how about a shield?  I can let you have one for only {0} gold piece{1}!\"", ap, ap != 1 ? "s" : "");
+							gOut.Print("Marcos smiles and says, \"Now how about a shield?  I can let you have one for only {0} gold piece{1}!\"", ap, ap != 1 ? "s" : "");
 
-							Globals.Out.Print("{0}", Globals.LineSep);
+							gOut.Print("{0}", Globals.LineSep);
 
-							Globals.Out.Write("{0}Press Y for yes or N for no: ", Environment.NewLine);
+							gOut.Write("{0}Press Y for yes or N for no: ", Environment.NewLine);
 
 							Buf.Clear();
 
-							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, Globals.Engine.IsCharYOrN);
+							rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, gEngine.IsCharYOrN);
 
-							Debug.Assert(Globals.Engine.IsSuccess(rc));
+							Debug.Assert(gEngine.IsSuccess(rc));
 
 							Globals.Thread.Sleep(150);
 
-							Globals.Out.Print("{0}", Globals.LineSep);
+							gOut.Print("{0}", Globals.LineSep);
 
 							if (Buf.Length > 0 && Buf[0] == 'Y')
 							{
 								if (Globals.Character.HeldGold >= ap)
 								{
-									Globals.Out.Print("Marcos takes your gold and gives you a shield.");
+									gOut.Print("Marcos takes your gold and gives you a shield.");
 
 									Globals.Character.HeldGold -= ap;
 
@@ -619,7 +619,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 								}
 								else
 								{
-									Globals.Out.Print("When he sees that you do not have enough gold to buy the shield, Marcos frowns and says, \"I'm sorry, but I don't give credit!\"");
+									gOut.Print("When he sees that you do not have enough gold to buy the shield, Marcos frowns and says, \"I'm sorry, but I don't give credit!\"");
 								}
 							}
 						}
@@ -653,7 +653,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					case MenuState.LeaveShop:
 
-						Globals.Out.Print("Marcos smiles and says, \"Come back again soon!\" as he shoos you out of his shop.");
+						gOut.Print("Marcos smiles and says, \"Come back again soon!\" as he shoos you out of his shop.");
 
 						Globals.In.KeyPress(Buf);
 

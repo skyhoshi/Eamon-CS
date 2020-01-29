@@ -1,7 +1,7 @@
 ﻿
 // GiveCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -19,39 +19,31 @@ namespace TheTrainingGround.Game.Commands
 		{
 			Debug.Assert(artifact != null && monster != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			base.PrintGiveObjToActor(artifact, monster);
 
 			// Give rapier to Jacques
 
-			if (monster.Uid == 5 && artifact.Uid == 8 && !gameState.JacquesRecoversRapier)
+			if (monster.Uid == 5 && artifact.Uid == 8 && !gGameState.JacquesRecoversRapier)
 			{
-				Globals.Engine.PrintEffectDesc(22);
+				gEngine.PrintEffectDesc(22);
 
-				gameState.JacquesRecoversRapier = true;
+				gGameState.JacquesRecoversRapier = true;
 			}
 		}
 
 		public override void PlayerProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (eventType == PpeAfterEnforceMonsterWeightLimitsCheck)
 			{
 				// Give obsidian scroll case to Emerald Warrior
 
-				if (IobjMonster.Uid == 14 && DobjArtifact.Uid == 51)
+				if (gIobjMonster.Uid == 14 && gDobjArtifact.Uid == 51)
 				{
-					DobjArtifact.SetInLimbo();
+					gDobjArtifact.SetInLimbo();
 
-					IobjMonster.SetInLimbo();
+					gIobjMonster.SetInLimbo();
 
-					Globals.Engine.PrintEffectDesc(14);
+					gEngine.PrintEffectDesc(14);
 
 					GotoCleanup = true;
 				}
@@ -64,43 +56,43 @@ namespace TheTrainingGround.Game.Commands
 			{
 				// Buy potion from gnome
 
-				if (IobjMonster.Uid == 20)
+				if (gIobjMonster.Uid == 20)
 				{
 					if (GoldAmount >= 100)
 					{
-						var redPotionArtifact = Globals.ADB[40];
+						var redPotionArtifact = gADB[40];
 
 						Debug.Assert(redPotionArtifact != null);
 
-						var bluePotionArtifact = Globals.ADB[41];
+						var bluePotionArtifact = gADB[41];
 
 						Debug.Assert(bluePotionArtifact != null);
 
 						if (redPotionArtifact.IsCarriedByMonsterUid(20) || bluePotionArtifact.IsCarriedByMonsterUid(20))
 						{
-							Globals.Character.HeldGold -= GoldAmount;
+							gCharacter.HeldGold -= GoldAmount;
 
 							if (GoldAmount > 100)
 							{
-								Globals.Engine.PrintEffectDesc(30);
+								gEngine.PrintEffectDesc(30);
 							}
 
 							var potionArtifact = redPotionArtifact.IsCarriedByMonsterUid(20) ? redPotionArtifact : bluePotionArtifact;
 
-							potionArtifact.SetInRoomUid(gameState.Ro);
+							potionArtifact.SetInRoomUid(gGameState.Ro);
 
-							Globals.Engine.PrintEffectDesc(31);
+							gEngine.PrintEffectDesc(31);
 
 							NextState = Globals.CreateInstance<IStartState>();
 						}
 						else
 						{
-							Globals.Engine.PrintEffectDesc(29);
+							gEngine.PrintEffectDesc(29);
 						}
 					}
 					else
 					{
-						Globals.Engine.PrintEffectDesc(28);
+						gEngine.PrintEffectDesc(28);
 					}
 
 					GotoCleanup = true;

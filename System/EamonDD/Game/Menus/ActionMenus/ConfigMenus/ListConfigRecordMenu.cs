@@ -1,7 +1,7 @@
 ﻿
 // ListConfigRecordMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -21,9 +21,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			RetCode rc;
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle("LIST CONFIG RECORD DETAILS", true);
+			gEngine.PrintTitle("LIST CONFIG RECORD DETAILS", true);
 			
 			var helper = Globals.CreateInstance<IConfigHelper>(x =>
 			{
@@ -32,26 +32,26 @@ namespace EamonDD.Game.Menus.ActionMenus
 			
 			helper.ListRecord(true, false, false, false, false, false);
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
+			gOut.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, Globals.Engine.ModifyCharToNullOrX, null, Globals.Engine.IsCharAny);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, gEngine.ModifyCharToNullOrX, null, gEngine.IsCharAny);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			if (Buf.Length > 0 && Buf[0] == 'X')
 			{
 				// do nothing
 			}
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Print("Done listing config record details.");
+			gOut.Print("Done listing config record details.");
 		}
 
 		public ListConfigRecordMenu()

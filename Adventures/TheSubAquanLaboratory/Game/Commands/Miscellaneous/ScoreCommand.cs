@@ -1,7 +1,7 @@
 ﻿
 // ScoreCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -18,52 +18,48 @@ namespace TheSubAquanLaboratory.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			var plaqueArtifact = Globals.ADB[9];
+			var plaqueArtifact = gADB[9];
 
 			Debug.Assert(plaqueArtifact != null);
 
 			if (plaqueArtifact.Seen)
 			{
-				Globals.Out.Write("{0}Read bronze plaque: {1}", Environment.NewLine, gameState.ReadPlaque ? "Yes" : "No");
+				gOut.Write("{0}Read bronze plaque: {1}", Environment.NewLine, gGameState.ReadPlaque ? "Yes" : "No");
 			}
 
-			var displayScreenArtifact = Globals.ADB[48];
+			var displayScreenArtifact = gADB[48];
 
 			Debug.Assert(displayScreenArtifact != null);
 
 			if (displayScreenArtifact.Seen)
 			{
-				Globals.Out.Write("{0}Read display screen: {1}", Environment.NewLine, gameState.ReadDisplayScreen ? "Yes" : "No");
+				gOut.Write("{0}Read display screen: {1}", Environment.NewLine, gGameState.ReadDisplayScreen ? "Yes" : "No");
 			}
 
-			var terminalsArtifact = Globals.ADB[50];
+			var terminalsArtifact = gADB[50];
 
 			Debug.Assert(terminalsArtifact != null);
 
 			if (terminalsArtifact.Seen)
 			{
-				Globals.Out.Write("{0}Read computer terminals: {1}", Environment.NewLine, gameState.ReadTerminals ? "Yes" : "No");
+				gOut.Write("{0}Read computer terminals: {1}", Environment.NewLine, gGameState.ReadTerminals ? "Yes" : "No");
 			}
 
 			var rooms = Globals.Database.RoomTable.Records.Where(r => r.Zone == 2).ToList();
 
 			var seenCount = rooms.Count(r => r.Seen);
 
-			Globals.Out.Print("{0}/{1} laboratory rooms explored.", seenCount, rooms.Count);
+			gOut.Print("{0}/{1} laboratory rooms explored.", seenCount, rooms.Count);
 
-			var percent = gameState.ReadPlaque ? 25L : 0L;
+			var percent = gGameState.ReadPlaque ? 25L : 0L;
 
-			percent += (gameState.ReadDisplayScreen ? 25L : 0L);
+			percent += (gGameState.ReadDisplayScreen ? 25L : 0L);
 
-			percent += (gameState.ReadTerminals ? 25L : 0L);
+			percent += (gGameState.ReadTerminals ? 25L : 0L);
 
 			percent += (long)Math.Round(((double)seenCount / (double)rooms.Count) * 25);
 
-			Globals.Out.Print("{0}% of your quest is complete.", percent);
+			gOut.Print("{0}% of your quest is complete.", percent);
 
 			if (NextState == null)
 			{

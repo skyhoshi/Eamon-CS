@@ -1,7 +1,7 @@
 ﻿
 // GameState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon;
@@ -33,7 +33,7 @@ namespace TheBeginnersCave.Game
 				{
 					// find Trollsfire in the game database
 
-					var trollsfireArtifact = Globals.ADB[10];
+					var trollsfireArtifact = gADB[10];
 
 					Debug.Assert(trollsfireArtifact != null);
 
@@ -51,7 +51,7 @@ namespace TheBeginnersCave.Game
 
 						rc = trollsfireArtifact.AddStateDesc(Constants.AlightDesc);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						// Trollsfire now does 1d10 damage; change weapon sides to 10
 
@@ -63,7 +63,7 @@ namespace TheBeginnersCave.Game
 
 						rc = trollsfireArtifact.RemoveStateDesc(Constants.AlightDesc);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
 						// Trollsfire now does 1d6 damage; change weapon sides to 6
 

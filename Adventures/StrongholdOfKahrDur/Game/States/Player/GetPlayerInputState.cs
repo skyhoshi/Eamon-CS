@@ -1,7 +1,7 @@
 ﻿
 // GetPlayerInputState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -17,25 +17,25 @@ namespace StrongholdOfKahrDur.Game.States
 		{
 			if (eventType == PeBeforeCommandPromptPrint && ShouldPreTurnProcess())
 			{
-				var room = Globals.RDB[84];
+				var room = gRDB[84];
 
 				Debug.Assert(room != null);
 
-				var necromancerMonster = Globals.MDB[22];
+				var necromancerMonster = gMDB[22];
 
 				Debug.Assert(necromancerMonster != null);
 
 				// Flavor effects
 
-				var rl = Globals.Engine.RollDice(1, 100, 0);
+				var rl = gEngine.RollDice(1, 100, 0);
 
 				var r = 5 + 5 * (!room.Seen ? 1 : 0);
 
 				if (rl < r && !necromancerMonster.IsInLimbo())
 				{
-					rl = Globals.Engine.RollDice(1, 5, 64);
+					rl = gEngine.RollDice(1, 5, 64);
 
-					Globals.Engine.PrintEffectDesc(rl);
+					gEngine.PrintEffectDesc(rl);
 				}
 			}
 

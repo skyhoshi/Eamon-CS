@@ -1,7 +1,7 @@
 ﻿
 // GetCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -21,11 +21,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			if (DobjArtifact != null && DobjArtifact.GeneralWeapon == null && Globals.GameState.GetNBTL(Friendliness.Enemy) > 0)
+			if (gDobjArtifact != null && gDobjArtifact.GeneralWeapon == null && gGameState.GetNBTL(Friendliness.Enemy) > 0)
 			{
 				PrintEnemiesNearby();
 
@@ -35,74 +31,74 @@ namespace TheTempleOfNgurct.Game.Commands
 			{
 				base.PlayerExecute();
 
-				var scimitarArtifact = Globals.ADB[41];
+				var scimitarArtifact = gADB[41];
 
 				Debug.Assert(scimitarArtifact != null);
 
 				// Alignment conflict
 
-				if (!gameState.AlignmentConflict && scimitarArtifact.IsCarriedByCharacter())
+				if (!gGameState.AlignmentConflict && scimitarArtifact.IsCarriedByCharacter())
 				{
-					Globals.Engine.PrintEffectDesc(28);
+					gEngine.PrintEffectDesc(28);
 
 					var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 					{
 						x.SetNextStateFunc = s => NextState = s;
 
-						x.DfMonster = ActorMonster;
+						x.DfMonster = gActorMonster;
 
 						x.OmitArmor = true;
 					});
 
 					combatSystem.ExecuteCalculateDamage(1, 8, 1);
 
-					gameState.AlignmentConflict = true;
+					gGameState.AlignmentConflict = true;
 				}
 			}
 		}
 
 		public override void PlayerFinishParsing()
 		{
-			CommandParser.ParseName();
+			gCommandParser.ParseName();
 
-			if (string.Equals(CommandParser.ObjData.Name, "all", StringComparison.OrdinalIgnoreCase))
+			if (string.Equals(gCommandParser.ObjData.Name, "all", StringComparison.OrdinalIgnoreCase))
 			{
-				if (Globals.GameState.GetNBTL(Friendliness.Enemy) > 0)
+				if (gGameState.GetNBTL(Friendliness.Enemy) > 0)
 				{
 					PrintEnemiesNearby();
 
-					CommandParser.NextState = Globals.CreateInstance<IStartState>();
+					gCommandParser.NextState = Globals.CreateInstance<IStartState>();
 				}
 				else
 				{
 					GetAll = true;
 				}
 			}
-			else if (ActorRoom.Type == RoomType.Indoors && CommandParser.ObjData.Name.IndexOf("torch", StringComparison.OrdinalIgnoreCase) >= 0)
+			else if (gActorRoom.Type == RoomType.Indoors && gCommandParser.ObjData.Name.IndexOf("torch", StringComparison.OrdinalIgnoreCase) >= 0)
 			{
-				if (Globals.GameState.GetNBTL(Friendliness.Enemy) > 0)
+				if (gGameState.GetNBTL(Friendliness.Enemy) > 0)
 				{
 					PrintEnemiesNearby();
 
-					CommandParser.NextState = Globals.CreateInstance<IStartState>();
+					gCommandParser.NextState = Globals.CreateInstance<IStartState>();
 				}
 				else
 				{
-					Globals.Out.Print("They are bolted firmly to the walls.");
+					gOut.Print("They are bolted firmly to the walls.");
 
-					CommandParser.NextState = Globals.CreateInstance<IMonsterStartState>();
+					gCommandParser.NextState = Globals.CreateInstance<IMonsterStartState>();
 				}
 			}
 			else
 			{
-				CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+				gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 				{
-					a => a.IsInRoom(ActorRoom),
-					a => a.IsEmbeddedInRoom(ActorRoom),
-					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(Globals.Engine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, Globals.Engine.ExposeContainersRecursively)
+					a => a.IsInRoom(gActorRoom),
+					a => a.IsEmbeddedInRoom(gActorRoom),
+					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively)
 				};
 
-				CommandParser.ObjData.ArtifactNotFoundFunc = PrintCantVerbThat;
+				gCommandParser.ObjData.ArtifactNotFoundFunc = PrintCantVerbThat;
 
 				PlayerResolveArtifact();
 			}

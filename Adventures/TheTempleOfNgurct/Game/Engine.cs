@@ -25,7 +25,7 @@ namespace TheTempleOfNgurct.Game
 
 			MacroFuncs.Add(2, () =>
 			{
-				var cellDoorArtifact = Globals.ADB[87];
+				var cellDoorArtifact = gADB[87];
 
 				Debug.Assert(cellDoorArtifact != null);
 			
@@ -38,7 +38,7 @@ namespace TheTempleOfNgurct.Game
 
 			MacroFuncs.Add(3, () =>
 			{
-				var cellDoorArtifact = Globals.ADB[88];
+				var cellDoorArtifact = gADB[88];
 
 				Debug.Assert(cellDoorArtifact != null);
 			
@@ -53,9 +53,7 @@ namespace TheTempleOfNgurct.Game
 			{
 				var result = "floor";
 
-				var gameState = Globals.GameState as Framework.IGameState;
-
-				var characterRoom = gameState != null && gameState.Ro > 0 ? Globals.RDB[gameState.Ro] : null;
+				var characterRoom = gGameState != null && gGameState.Ro > 0 ? gRDB[gGameState.Ro] : null;
 
 				if (characterRoom != null && characterRoom.Type == RoomType.Outdoors)
 				{
@@ -115,7 +113,7 @@ namespace TheTempleOfNgurct.Game
 
 			for (var i = 0; i < artUids.Length; i++)
 			{
-				var healingArtifact = Globals.ADB[artUids[i]];
+				var healingArtifact = gADB[artUids[i]];
 
 				Debug.Assert(healingArtifact != null);
 
@@ -128,13 +126,13 @@ namespace TheTempleOfNgurct.Game
 
 			// Places fireball wand and ring of regeneration
 
-			var wandArtifact = Globals.ADB[63];
+			var wandArtifact = gADB[63];
 
 			Debug.Assert(wandArtifact != null);
 
 			wandArtifact.Location = RollDice(1, 28, 28);
 
-			var ringArtifact = Globals.ADB[64];
+			var ringArtifact = gADB[64];
 
 			Debug.Assert(ringArtifact != null);
 
@@ -151,7 +149,7 @@ namespace TheTempleOfNgurct.Game
 
 			MacroFuncs.Add(1, () =>
 			{
-				var characterMonster = Globals.MDB[Globals.GameState.Cm];
+				var characterMonster = gMDB[gGameState.Cm];
 
 				Debug.Assert(characterMonster != null);
 
@@ -162,9 +160,7 @@ namespace TheTempleOfNgurct.Game
 			{
 				var result = "room";
 
-				var gameState = Globals.GameState as Framework.IGameState;
-
-				var characterRoom = gameState != null && gameState.Ro > 0 ? Globals.RDB[gameState.Ro] : null;
+				var characterRoom = gGameState != null && gGameState.Ro > 0 ? gRDB[gGameState.Ro] : null;
 
 				if (characterRoom != null && characterRoom.Type == RoomType.Outdoors)
 				{
@@ -178,7 +174,7 @@ namespace TheTempleOfNgurct.Game
 
 			for (var i = 7; i <= 11; i++)
 			{
-				var randomMonster = Globals.MDB[i];
+				var randomMonster = gMDB[i];
 
 				Debug.Assert(randomMonster != null);
 
@@ -198,16 +194,16 @@ namespace TheTempleOfNgurct.Game
 		{
 			Debug.Assert(monster != null);
 
-			monster.Agility = Globals.Character.GetStats(Stat.Agility);
+			monster.Agility = gCharacter.GetStats(Stat.Agility);
 
-			Globals.GameState.Speed = 0;
+			gGameState.Speed = 0;
 		}
 
 		public override void ConvertToCarriedInventory(IList<IArtifact> weaponList)
 		{
 			// Convert fireball wand into artifact type gold
 
-			var wandArtifact = Globals.ADB[63];
+			var wandArtifact = gADB[63];
 
 			Debug.Assert(wandArtifact != null);
 
@@ -224,7 +220,7 @@ namespace TheTempleOfNgurct.Game
 
 			if (monster.Uid == 52)
 			{
-				Globals.Out.Write("{0}{1} hisses at you.", Environment.NewLine, monster.GetDecoratedName03(true, true, false, false, Globals.Buf));
+				gOut.Write("{0}{1} hisses at you.", Environment.NewLine, monster.GetTheName(true));
 			}
 			else
 			{
@@ -236,17 +232,13 @@ namespace TheTempleOfNgurct.Game
 		{
 			Debug.Assert(DfMonster != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (DfMonster.Uid == 30)
 			{
-				gameState.KeyRingRoomUid = DfMonster.Location;
+				gGameState.KeyRingRoomUid = DfMonster.Location;
 			}
 			else if (DfMonster.Uid == 56)
 			{
-				gameState.AlkandaKilled = true;
+				gGameState.AlkandaKilled = true;
 			}
 
 			var dmgTaken = DfMonster.DmgTaken;
@@ -285,35 +277,31 @@ namespace TheTempleOfNgurct.Game
 		{
 			var found = false;
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			while (gameState.DwLoopCounter <= 15)
+			while (gGameState.DwLoopCounter <= 15)
 			{
-				if (gameState.WanderingMonster > 26)
+				if (gGameState.WanderingMonster > 26)
 				{
-					gameState.WanderingMonster = 12;
+					gGameState.WanderingMonster = 12;
 				}
 
-				var wanderingMonster = Globals.MDB[gameState.WanderingMonster];
+				var wanderingMonster = gMDB[gGameState.WanderingMonster];
 
 				Debug.Assert(wanderingMonster != null);
 
 				if (wanderingMonster.DmgTaken == 0)
 				{
-					wanderingMonster.Location = gameState.Ro;
+					wanderingMonster.Location = gGameState.Ro;
 
-					gameState.WanderingMonster++;
+					gGameState.WanderingMonster++;
 
 					found = true;
 
 					break;
 				}
 
-				gameState.WanderingMonster++;
+				gGameState.WanderingMonster++;
 
-				gameState.DwLoopCounter++;
+				gGameState.DwLoopCounter++;
 			}
 
 			return found;
@@ -325,9 +313,7 @@ namespace TheTempleOfNgurct.Game
 			{
 				var result = "(the specifics are left to your imagination)";
 
-				var gameState = Globals.GameState as Framework.IGameState;
-
-				if (gameState != null && gameState.MatureContent)
+				if (gGameState != null && gGameState.MatureContent)
 				{
 					result = Encoding.UTF8.GetString(Convert.FromBase64String("LS0gZWF0aW5nIGh1bWFuIGJhYmllcywgcmFwaW5nIHdvbWVuLCBhbmQgc28gZm9ydGg="));
 				}
@@ -339,9 +325,7 @@ namespace TheTempleOfNgurct.Game
 			{
 				var result = "You fool!  You just climbed down into the excrement duct!";
 
-				var gameState = Globals.GameState as Framework.IGameState;
-
-				if (gameState != null && gameState.MatureContent)
+				if (gGameState != null && gGameState.MatureContent)
 				{
 					result = Encoding.UTF8.GetString(Convert.FromBase64String("WW91IHN0dXBpZCBqZXJrISAgWW91IGp1c3QgY2xpbWJlZCBkb3duIGludG8gdGhlIHNoaXQgaG9sZSE="));
 				}

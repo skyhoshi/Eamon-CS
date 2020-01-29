@@ -1,7 +1,7 @@
 ﻿
 // PutCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -24,7 +24,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (artifact.Uid == 31)
 			{
-				Globals.Out.Print("You mangled {0}!", artifact.EvalPlural("it", "them"));
+				gOut.Print("You mangled {0}!", artifact.EvalPlural("it", "them"));
 			}
 			else
 			{
@@ -38,36 +38,36 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				// Put anything in slime destroys it
 
-				if (IobjArtifact.Uid == 24 || IobjArtifact.Uid == 25)
+				if (gIobjArtifact.Uid == 24 || gIobjArtifact.Uid == 25)
 				{
-					Globals.Out.Print("{0} start{1} dissolving on contact with {2}!", DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf), DobjArtifact.EvalPlural("s", ""), IobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf01));
+					gOut.Print("{0} start{1} dissolving on contact with {2}!", gDobjArtifact.GetTheName(true), gDobjArtifact.EvalPlural("s", ""), gIobjArtifact.GetTheName(buf: Globals.Buf01));
 
-					Globals.Out.Print("{0} {1} destroyed!", DobjArtifact.GetDecoratedName03(true, true, false, false, Globals.Buf), DobjArtifact.EvalPlural("is", "are"));
+					gOut.Print("{0} {1} destroyed!", gDobjArtifact.GetTheName(true), gDobjArtifact.EvalPlural("is", "are"));
 
-					DobjArtifact.SetInLimbo();
+					gDobjArtifact.SetInLimbo();
 				}
 
 				// Put orb in metal pedestal
 
-				else if (DobjArtifact.Uid == 4 && IobjArtifact.Uid == 43)
+				else if (gDobjArtifact.Uid == 4 && gIobjArtifact.Uid == 43)
 				{
-					Globals.Engine.PrintEffectDesc(43);
+					gEngine.PrintEffectDesc(43);
 
-					Globals.Engine.PrintEffectDesc(44);
+					gEngine.PrintEffectDesc(44);
 
-					var adjacentRoom = Globals.RDB[45];
+					var adjacentRoom = gRDB[45];
 
 					Debug.Assert(adjacentRoom != null);
 
-					var newRoom = Globals.RDB[15];
+					var newRoom = gRDB[15];
 
 					Debug.Assert(newRoom != null);
 
 					adjacentRoom.SetDirs(Direction.South, 15);
 
-					IobjArtifact.IsListed = false;
+					gIobjArtifact.IsListed = false;
 
-					Globals.Engine.TransportPlayerBetweenRooms(ActorRoom, newRoom, null);
+					gEngine.TransportPlayerBetweenRooms(gActorRoom, newRoom, null);
 
 					NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 				}
@@ -84,7 +84,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public virtual void ConvertSlimeToContainer()
 		{
-			var ac = IobjArtifact.Treasure;
+			var ac = gIobjArtifact.Treasure;
 
 			Debug.Assert(ac != null);
 
@@ -103,7 +103,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public virtual void ConvertSlimeToTreasure()
 		{
-			var ac = IobjArtifact.InContainer;
+			var ac = gIobjArtifact.InContainer;
 
 			Debug.Assert(ac != null);
 
@@ -122,16 +122,16 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null && IobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null && gIobjArtifact != null);
 
-			if (IobjArtifact.Uid == 24 || IobjArtifact.Uid == 25)
+			if (gIobjArtifact.Uid == 24 || gIobjArtifact.Uid == 25)
 			{
 				ConvertSlimeToContainer();
 			}
 
 			base.PlayerExecute();
 
-			if (IobjArtifact.Uid == 24 || IobjArtifact.Uid == 25)
+			if (gIobjArtifact.Uid == 24 || gIobjArtifact.Uid == 25)
 			{
 				ConvertSlimeToTreasure();
 			}

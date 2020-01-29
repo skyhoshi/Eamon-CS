@@ -1,23 +1,37 @@
 ﻿
 // CombatCode.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 namespace Eamon.Framework.Primitive.Enums
 {
-	/// <summary></summary>
+	/// <summary>
+	/// An enumeration of <see cref="IMonster">Monster</see> Combat Codes.
+	/// </summary>
+	/// <remarks>
+	/// These represent the behavior of <see cref="IMonster">Monster</see>s while in combat.  Their effect on gameplay is intended to parallel
+	/// the Combat Code setting found in Eamon Deluxe.
+	/// </remarks>
 	public enum CombatCode : long
 	{
-		/// <summary></summary>
+		/// <summary>
+		/// The <see cref="IMonster">Monster</see> will never fight.
+		/// </summary>
 		NeverFights = -2,
 
-		/// <summary></summary>
+		/// <summary>
+		/// The <see cref="IMonster">Monster</see> will favor weapons but fall back to natural weapons if necessary.
+		/// </summary>
 		NaturalWeapons,
 		
-		/// <summary></summary>
+		/// <summary>
+		/// The <see cref="IMonster">Monster</see> will use either weapons or natural weapons (but never both).
+		/// </summary>
 		Weapons,
 		
-		/// <summary></summary>
+		/// <summary>
+		/// The <see cref="IMonster">Monster</see> will be described as "attacking"; otherwise mirrors the <see cref="Weapons">Weapons</see> setting.
+		/// </summary>
 		Attacks
 	}
 }

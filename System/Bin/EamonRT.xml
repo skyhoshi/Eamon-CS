@@ -194,6 +194,10 @@
             <summary></summary>
             <param name="artifact"></param>
         </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintWorn(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintRemoved(Eamon.Framework.IArtifact)">
             <summary></summary>
             <param name="artifact"></param>
@@ -322,6 +326,18 @@
             <param name="artifact"></param>
         </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintNotWhileWearingObj(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintWontLight(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintLightObj(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintLightExtinguished(Eamon.Framework.IArtifact)">
             <summary></summary>
             <param name="artifact"></param>
         </member>
@@ -739,6 +755,10 @@
             <summary></summary>
             <param name="artifact"></param>
         </member>
+        <member name="M:EamonRT.Framework.IEngine.PrintLightOut(Eamon.Framework.IArtifact)">
+            <summary></summary>
+            <param name="artifact"></param>
+        </member>
         <member name="M:EamonRT.Framework.IEngine.WeaponPowerCompare(Eamon.Framework.IArtifact,Eamon.Framework.IArtifact)">
             <summary></summary>
             <param name="artifact1"></param>
@@ -912,6 +932,14 @@
             <param name="fleeing"></param>
             <param name="direction"></param>
         </member>
+        <member name="M:EamonRT.Framework.IEngine.MoveMonsterToRandomAdjacentRoom(Eamon.Framework.IRoom,Eamon.Framework.IMonster,System.Boolean,System.Boolean,System.Boolean)">
+            <summary></summary>
+            <param name="room"></param>
+            <param name="monster"></param>
+            <param name="fleeing"></param>
+            <param name="callSleep"></param>
+            <param name="printOutput"></param>
+        </member>
         <member name="M:EamonRT.Framework.IEngine.GetRandomMonsterList(System.Int64,System.Func{Eamon.Framework.IMonster,System.Boolean}[])">
             <summary></summary>
             <param name="numMonsters"></param>
@@ -987,11 +1015,6 @@
             <summary></summary>
             <param name="ac"></param>
             <param name="af"></param>
-        </member>
-        <member name="M:EamonRT.Framework.IEngine.CheckPlayerCommand(EamonRT.Framework.Commands.ICommand,System.Boolean)">
-            <summary></summary>
-            <param name="command"></param>
-            <param name="afterFinishParsing"></param>
         </member>
         <member name="M:EamonRT.Framework.IEngine.CheckToExtinguishLightSource">
             <summary></summary>
@@ -1121,6 +1144,9 @@
         <member name="P:EamonRT.Framework.Parsing.ICommandParser.NextState">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.NextCommand">
+            <summary></summary>
+        </member>
         <member name="M:EamonRT.Framework.Parsing.ICommandParser.GetActiveObjData">
             <summary></summary>
             <returns></returns>
@@ -1146,6 +1172,11 @@
         </member>
         <member name="M:EamonRT.Framework.Parsing.ICommandParser.ParseName">
             <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.CheckPlayerCommand(EamonRT.Framework.Commands.ICommand,System.Boolean)">
+            <summary></summary>
+            <param name="command"></param>
+            <param name="afterFinishParsing"></param>
         </member>
         <member name="M:EamonRT.Framework.Parsing.ICommandParser.Execute">
             <summary></summary>
@@ -1307,6 +1338,12 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.CommandPrompt">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.CurrCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.NextCommand">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LastCommand">
@@ -1840,6 +1877,9 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.Commands.RemoveCommand.OmitWeightCheck">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.Commands.RemoveCommand.PpeAfterWornArtifactRemove">
             <summary></summary>
         </member>
         <member name="F:EamonRT.Game.Commands.UseCommand.PpeBeforeArtifactUse">

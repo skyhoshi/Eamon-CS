@@ -1,7 +1,7 @@
 ﻿
 // MonsterLoopIncrementState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
@@ -23,7 +23,7 @@ namespace EamonRT.Game.States
 			{
 				Globals.LoopMonsterUid++;
 
-				var monster = Globals.MDB[Globals.LoopMonsterUid];
+				var monster = gMDB[Globals.LoopMonsterUid];
 
 				if (monster != null)
 				{

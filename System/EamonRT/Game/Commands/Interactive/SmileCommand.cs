@@ -1,7 +1,7 @@
 ﻿
 // SmileCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using System.Linq;
@@ -19,20 +19,20 @@ namespace EamonRT.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			var monsters = Globals.Engine.GetSmilingMonsterList(ActorRoom, ActorMonster);
+			var monsters = gEngine.GetSmilingMonsterList(gActorRoom, gActorMonster);
 
 			if (monsters.Count() > 0)
 			{
 				foreach (var monster in monsters)
 				{
-					Globals.Engine.MonsterSmiles(monster);
+					gEngine.MonsterSmiles(monster);
 				}
 
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 			}
 			else
 			{
-				Globals.Out.Print("Okay.");
+				gOut.Print("Okay.");
 			}
 
 			if (NextState == null)

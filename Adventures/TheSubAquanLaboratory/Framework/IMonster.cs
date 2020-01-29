@@ -8,8 +8,8 @@ namespace TheSubAquanLaboratory.Framework
 	/// <summary></summary>
 	public interface IMonster : Eamon.Framework.IMonster
 	{
-		/// <summary></summary>
-		/// <returns></returns>
+		/// <summary>Indicates whether this <see cref="IMonster">Monster</see> is classified as an android.</summary>
+		/// <returns>If so then <c>true</c>, otherwise <c>false</c>.</returns>
 		bool IsAndroid();
 	}
 }

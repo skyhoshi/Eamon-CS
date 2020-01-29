@@ -1,7 +1,7 @@
 ﻿
 // DeleteModuleRecordMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -23,9 +23,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (Globals.Module != null)
 			{
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 
-				Globals.Engine.PrintTitle("DELETE MODULE RECORD", true);
+				gEngine.PrintTitle("DELETE MODULE RECORD", true);
 				
 				var helper = Globals.CreateInstance<IModuleHelper>(x =>
 				{
@@ -34,17 +34,17 @@ namespace EamonDD.Game.Menus.ActionMenus
 				
 				helper.ListRecord(true, true, false, true, false, false);
 
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
-				Globals.Out.Write("{0}Would you like to delete this module record (Y/N): ", Environment.NewLine);
+				gOut.Write("{0}Would you like to delete this module record (Y/N): ", Environment.NewLine);
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, Globals.Engine.IsCharYOrN);
+				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, gEngine.IsCharYOrN);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Globals.Thread.Sleep(150);
 

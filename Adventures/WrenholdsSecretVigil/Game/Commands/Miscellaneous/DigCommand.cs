@@ -3,6 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using System.Linq;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
@@ -16,29 +17,29 @@ namespace WrenholdsSecretVigil.Game.Commands
 	{
 		public override void PrintCantVerbHere()
 		{
-			if (Globals.GameState.GetNBTL(Friendliness.Enemy) > 0)
+			if (gGameState.GetNBTL(Friendliness.Enemy) > 0)
 			{
 				PrintEnemiesNearby();
 			}
 			else
 			{
-				Globals.Out.Print("You cannot {0} here.", Verb);
+				gOut.Print("You cannot {0} here.", Verb);
 			}
 		}
 
 		public override void PlayerExecute()
 		{
-			var buriedArtifacts = Globals.Engine.GetArtifactList(a => a.CastTo<Framework.IArtifact>().IsBuriedInRoom(ActorRoom));
+			var buriedArtifacts = gADB.Records.Cast<Framework.IArtifact>().Where(a => a.IsBuriedInRoom(gActorRoom)).ToList();
 
 			if (buriedArtifacts.Count > 0)
 			{
-				Globals.Out.Print("You found something!");
+				gOut.Print("You found something!");
 
-				buriedArtifacts[0].SetInRoom(ActorRoom);
+				buriedArtifacts[0].SetInRoom(gActorRoom);
 			}
 			else
 			{
-				Globals.Out.Print("You dig but find nothing.");
+				gOut.Print("You dig but find nothing.");
 			}
 
 			if (NextState == null)
@@ -49,7 +50,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public override bool IsAllowedInRoom()
 		{
-			return Globals.GameState.GetNBTL(Friendliness.Enemy) <= 0 && ActorRoom.CastTo<Framework.IRoom>().IsDigCommandAllowedInRoom();
+			return gGameState.GetNBTL(Friendliness.Enemy) <= 0 && gActorRoom.IsDigCommandAllowedInRoom();
 		}
 
 		public DigCommand()

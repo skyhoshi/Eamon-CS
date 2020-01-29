@@ -1,7 +1,7 @@
 ﻿
 // BlastCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -33,17 +33,17 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(DobjArtifact != null || DobjMonster != null);
+			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
 
-			if (!CheckAttack && DobjMonster != null && DobjMonster.Friendliness != Friendliness.Enemy)
+			if (!CheckAttack && gDobjMonster != null && gDobjMonster.Friendliness != Friendliness.Enemy)
 			{
-				Globals.Out.Write("{0}Attack non-enemy (Y/N): ", Environment.NewLine);
+				gOut.Write("{0}Attack non-enemy (Y/N): ", Environment.NewLine);
 
 				Globals.Buf.Clear();
 
-				rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+				rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				if (Globals.Buf.Length == 0 || Globals.Buf[0] == 'N')
 				{
@@ -55,7 +55,7 @@ namespace EamonRT.Game.Commands
 				CheckAttack = true;
 			}
 
-			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Spell.Blast, ShouldAllowSkillGains()))
+			if (CastSpell && !gEngine.CheckPlayerSpellCast(Spell.Blast, ShouldAllowSkillGains()))
 			{
 				goto Cleanup;
 			}
@@ -67,9 +67,9 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (DobjMonster != null && DobjMonster.Friendliness != Friendliness.Enemy)
+			if (gDobjMonster != null && gDobjMonster.Friendliness != Friendliness.Enemy)
 			{
-				Globals.Engine.MonsterGetsAggravated(DobjMonster);
+				gEngine.MonsterGetsAggravated(gDobjMonster);
 			}
 
 			PlayerProcessEvents(PpeAfterMonsterGetsAggravated);
@@ -98,23 +98,23 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerFinishParsing()
 		{
-			CommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch03;
+			gCommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch03;
 
-			CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+			gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 			{
-				a => a.IsInRoom(ActorRoom),
-				a => a.IsEmbeddedInRoom(ActorRoom),
-				a => a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, Globals.Engine.ExposeContainersRecursively)
+				a => a.IsInRoom(gActorRoom),
+				a => a.IsEmbeddedInRoom(gActorRoom),
+				a => a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively)
 			};
 
-			CommandParser.ObjData.ArtifactNotFoundFunc = PrintNobodyHereByThatName;
+			gCommandParser.ObjData.ArtifactNotFoundFunc = PrintNobodyHereByThatName;
 
 			PlayerResolveMonster();
 		}
 
 		public override bool ShouldAllowSkillGains()
 		{
-			return DobjMonster != null || DobjArtifact.IsAttackable();
+			return gDobjMonster != null || gDobjArtifact.IsAttackable();
 		}
 
 		public BlastCommand()

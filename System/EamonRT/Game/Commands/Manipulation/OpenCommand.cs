@@ -1,7 +1,7 @@
 ﻿
 // OpenCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon;
@@ -26,19 +26,19 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			var inContainerAc = DobjArtifact.InContainer;
+			var inContainerAc = gDobjArtifact.InContainer;
 
-			var doorGateAc = DobjArtifact.DoorGate;
+			var doorGateAc = gDobjArtifact.DoorGate;
 
-			var disguisedMonsterAc = DobjArtifact.DisguisedMonster;
+			var disguisedMonsterAc = gDobjArtifact.DisguisedMonster;
 
-			var drinkableAc = DobjArtifact.Drinkable;
+			var drinkableAc = gDobjArtifact.Drinkable;
 
-			var edibleAc = DobjArtifact.Edible;
+			var edibleAc = gDobjArtifact.Edible;
 
-			var readableAc = DobjArtifact.Readable;
+			var readableAc = gDobjArtifact.Readable;
 
 			var ac =	inContainerAc != null ? inContainerAc :
 						doorGateAc != null ? doorGateAc :
@@ -49,9 +49,9 @@ namespace EamonRT.Game.Commands
 
 			if (ac != null)
 			{
-				if (DobjArtifact.IsEmbeddedInRoom(ActorRoom))
+				if (gDobjArtifact.IsEmbeddedInRoom(gActorRoom))
 				{
-					DobjArtifact.SetInRoom(ActorRoom);
+					gDobjArtifact.SetInRoom(gActorRoom);
 				}
 
 				if (ac.Type == ArtifactType.DoorGate)
@@ -61,18 +61,18 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Type == ArtifactType.DisguisedMonster)
 				{
-					Globals.Engine.RevealDisguisedMonster(ActorRoom, DobjArtifact);
+					gEngine.RevealDisguisedMonster(gActorRoom, gDobjArtifact);
 
 					goto Cleanup;
 				}
 
 				var keyUid = ac.GetKeyUid();
 
-				var key = keyUid > 0 ? Globals.ADB[keyUid] : null;
+				var key = keyUid > 0 ? gADB[keyUid] : null;
 
 				if (ac.IsOpen() || keyUid == -2)
 				{
-					PrintAlreadyOpen(DobjArtifact);
+					PrintAlreadyOpen(gDobjArtifact);
 
 					goto Cleanup;
 				}
@@ -81,22 +81,22 @@ namespace EamonRT.Game.Commands
 				{
 					ac.SetOpen(true);
 
-					rc = DobjArtifact.SyncArtifactCategories(ac);
+					rc = gDobjArtifact.SyncArtifactCategories(ac);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
-					PrintOpened(DobjArtifact);
+					PrintOpened(gDobjArtifact);
 
 					goto Cleanup;
 				}
 
-				if (ac.Type == ArtifactType.InContainer && DobjArtifact.OnContainer != null && DobjArtifact.IsInContainerOpenedFromTop())
+				if (ac.Type == ArtifactType.InContainer && gDobjArtifact.OnContainer != null && gDobjArtifact.IsInContainerOpenedFromTop())
 				{
-					var contentsList = DobjArtifact.GetContainedList(containerType: ContainerType.On);
+					var contentsList = gDobjArtifact.GetContainedList(containerType: ContainerType.On);
 
 					if (contentsList.Count > 0)
 					{
-						PrintContainerNotEmpty(DobjArtifact, ContainerType.On, contentsList.Count > 1 || contentsList[0].IsPlural);
+						PrintContainerNotEmpty(gDobjArtifact, ContainerType.On, contentsList.Count > 1 || contentsList[0].IsPlural);
 
 						goto Cleanup;
 					}
@@ -104,32 +104,32 @@ namespace EamonRT.Game.Commands
 
 				if (keyUid == -1)
 				{
-					PrintWontOpen(DobjArtifact);
+					PrintWontOpen(gDobjArtifact);
 
 					goto Cleanup;
 				}
 
-				if (key != null && !key.IsCarriedByCharacter() && !key.IsWornByCharacter() && !key.IsInRoom(ActorRoom))
+				if (key != null && !key.IsCarriedByCharacter() && !key.IsWornByCharacter() && !key.IsInRoom(gActorRoom))
 				{
-					PrintLocked(DobjArtifact);
+					PrintLocked(gDobjArtifact);
 
 					goto Cleanup;
 				}
 
 				if (keyUid == 0 && ac.GetBreakageStrength() > 0)
 				{
-					PrintHaveToForceOpen(DobjArtifact);
+					PrintHaveToForceOpen(gDobjArtifact);
 
 					goto Cleanup;
 				}
 
 				if (key != null)
 				{
-					PrintOpenObjWithKey(DobjArtifact, key);
+					PrintOpenObjWithKey(gDobjArtifact, key);
 				}
 				else
 				{
-					PrintOpened(DobjArtifact);
+					PrintOpened(gDobjArtifact);
 				}
 
 				PlayerProcessEvents(PpeAfterArtifactOpenPrint);
@@ -139,7 +139,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Type == ArtifactType.InContainer && DobjArtifact.ShouldShowContentsWhenOpened())
+				if (ac.Type == ArtifactType.InContainer && gDobjArtifact.ShouldShowContentsWhenOpened())
 				{
 					NextState = Globals.CreateInstance<IInventoryCommand>();
 
@@ -159,9 +159,9 @@ namespace EamonRT.Game.Commands
 				}
 				*/
 
-				rc = DobjArtifact.SyncArtifactCategories(ac);
+				rc = gDobjArtifact.SyncArtifactCategories(ac);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				PlayerProcessEvents(PpeAfterArtifactOpen);
 
@@ -172,7 +172,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				PrintCantVerbObj(DobjArtifact);
+				PrintCantVerbObj(gDobjArtifact);
 
 				NextState = Globals.CreateInstance<IStartState>();
 

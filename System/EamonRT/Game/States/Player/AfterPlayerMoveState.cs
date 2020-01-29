@@ -1,7 +1,7 @@
 ﻿
 // AfterPlayerMoveState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -38,26 +38,26 @@ namespace EamonRT.Game.States
 
 			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Direction), Direction));
 
-			Globals.GameState.R3 = Globals.GameState.Ro;
+			gGameState.R3 = gGameState.Ro;
 
-			Globals.GameState.Ro = Globals.GameState.R2;
+			gGameState.Ro = gGameState.R2;
 
 			if (MoveMonsters)
 			{
-				Globals.Engine.MoveMonsters();
+				gEngine.MoveMonsters();
 			}
 
 			ProcessEvents(PeAfterMoveMonsters);
 
-			Monster = Globals.MDB[Globals.GameState.Cm];
+			Monster = gMDB[gGameState.Cm];
 
 			Debug.Assert(Monster != null);
 
-			Monster.Location = Globals.GameState.Ro;
+			Monster.Location = gGameState.Ro;
 
-			if (Globals.GameState.Ls > 0 && Globals.GameState.Ro != Globals.GameState.R3)
+			if (gGameState.Ls > 0 && gGameState.Ro != gGameState.R3)
 			{
-				artifact = Globals.ADB[Globals.GameState.Ls];
+				artifact = gADB[gGameState.Ls];
 
 				Debug.Assert(artifact != null);
 
@@ -65,19 +65,19 @@ namespace EamonRT.Game.States
 				{
 					rc = artifact.RemoveStateDesc(artifact.GetProvidingLightDesc());
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
-					Globals.GameState.Ls = 0;
+					gGameState.Ls = 0;
 				}
 			}
 
-			Room = Globals.RDB[Globals.GameState.Ro];
+			Room = gRDB[gGameState.Ro];
 
 			Debug.Assert(Room != null);
 
-			if (Room.LightLvl > 0 && Globals.GameState.Ls > 0)
+			if (Room.LightLvl > 0 && gGameState.Ls > 0)
 			{
-				Globals.Engine.CheckToExtinguishLightSource();
+				gEngine.CheckToExtinguishLightSource();
 			}
 
 			ProcessEvents(PeAfterExtinguishLightSourceCheck);

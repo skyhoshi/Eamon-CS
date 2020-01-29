@@ -1,7 +1,7 @@
 ﻿
 // Menu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -55,27 +55,27 @@ namespace Eamon.Game.Menus
 
 			while (true)
 			{
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 
 				if (! string.IsNullOrWhiteSpace(Title))
 				{
-					Globals.Engine.PrintTitle(Title, true);
+					gEngine.PrintTitle(Title, true);
 				}
 
 				PrintSubtitle();
 
 				for (i = 0; i < MenuItems.Count; i++)
 				{
-					Globals.Out.Write("{0}", MenuItems[(int)i].LineText);
+					gOut.Write("{0}", MenuItems[(int)i].LineText);
 				}
 
-				Globals.Out.Write("{0}[X]: ", Environment.NewLine);
+				gOut.Write("{0}[X]: ", Environment.NewLine);
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, "X", Globals.Engine.ModifyCharToUpper, IsCharMenuItem, IsCharMenuItem);
+				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, "X", gEngine.ModifyCharToUpper, IsCharMenuItem, IsCharMenuItem);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Globals.Thread.Sleep(150);
 

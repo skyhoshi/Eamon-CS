@@ -1,7 +1,7 @@
 ﻿
 // AddRecordCopyMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -21,27 +21,27 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			RetCode rc;
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle(Title, true);
+			gEngine.PrintTitle(Title, true);
 
-			Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(55, '\0', 0, string.Format("Enter the uid of the {0} record to copy", RecordTypeName), "1"));
+			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(55, '\0', 0, string.Format("Enter the uid of the {0} record to copy", RecordTypeName), "1"));
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, Globals.Engine.IsCharDigit, null);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', true, "1", null, gEngine.IsCharDigit, null);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			var recordUid = Convert.ToInt64(Buf.Trim().ToString());
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
 			var record = RecordTable.FindRecord(recordUid);
 
 			if (record == null)
 			{
-				Globals.Out.Print("{0} record not found.", RecordTypeName.FirstCharToUpper());
+				gOut.Print("{0} record not found.", RecordTypeName.FirstCharToUpper());
 
 				goto Cleanup;
 			}
@@ -52,17 +52,17 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (!Globals.Config.GenerateUids)
 			{
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.Engine.BuildPrompt(55, '\0', 0, string.Format("Enter the uid of the {0} record copy", RecordTypeName), null));
+				gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(55, '\0', 0, string.Format("Enter the uid of the {0} record copy", RecordTypeName), null));
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', false, null, null, Globals.Engine.IsCharDigit, null);
+				rc = Globals.In.ReadField(Buf, Constants.BufSize01, null, '_', '\0', false, null, null, gEngine.IsCharDigit, null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				recordUid = Convert.ToInt64(Buf.Trim().ToString());
 
-				Globals.Out.Print("{0}", Globals.LineSep);
+				gOut.Print("{0}", Globals.LineSep);
 
 				if (recordUid > 0)
 				{
@@ -70,7 +70,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					if (record != null)
 					{
-						Globals.Out.Print("{0} record already exists.", RecordTypeName.FirstCharToUpper());
+						gOut.Print("{0} record already exists.", RecordTypeName.FirstCharToUpper());
 
 						goto Cleanup;
 					}
@@ -104,13 +104,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			PrintPostListLineSep();
 
-			Globals.Out.Write("{0}Would you like to save this {1} record (Y/N): ", Environment.NewLine, RecordTypeName);
+			gOut.Write("{0}Would you like to save this {1} record (Y/N): ", Environment.NewLine, RecordTypeName);
 
 			Buf.Clear();
 
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, Globals.Engine.IsCharYOrN);
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, gEngine.IsCharYOrN);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			Globals.Thread.Sleep(150);
 
@@ -123,7 +123,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			rc = RecordTable.AddRecord(record01);
 
-			Debug.Assert(Globals.Engine.IsSuccess(rc));
+			Debug.Assert(gEngine.IsSuccess(rc));
 
 			UpdateGlobals();
 

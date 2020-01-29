@@ -1,7 +1,7 @@
 ﻿
 // PrintPlayerRoomState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
@@ -25,7 +25,7 @@ namespace EamonRT.Game.States
 				goto Cleanup;
 			}
 
-			Globals.Engine.PrintPlayerRoom();
+			gEngine.PrintPlayerRoom();
 
 		Cleanup:
 

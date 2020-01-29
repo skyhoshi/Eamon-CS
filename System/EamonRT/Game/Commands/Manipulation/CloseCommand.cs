@@ -1,7 +1,7 @@
 ﻿
 // CloseCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon;
@@ -23,17 +23,17 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			var inContainerAc = DobjArtifact.InContainer;
+			var inContainerAc = gDobjArtifact.InContainer;
 
-			var doorGateAc = DobjArtifact.DoorGate;
+			var doorGateAc = gDobjArtifact.DoorGate;
 
-			var drinkableAc = DobjArtifact.Drinkable;
+			var drinkableAc = gDobjArtifact.Drinkable;
 
-			var edibleAc = DobjArtifact.Edible;
+			var edibleAc = gDobjArtifact.Edible;
 
-			var readableAc = DobjArtifact.Readable;
+			var readableAc = gDobjArtifact.Readable;
 
 			var ac =	inContainerAc != null ? inContainerAc :
 						doorGateAc != null ? doorGateAc :
@@ -54,7 +54,7 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Type == ArtifactType.DoorGate)
 				{
-					if (DobjArtifact.Seen)
+					if (gDobjArtifact.Seen)
 					{
 						ac.Field4 = 0;
 					}
@@ -71,27 +71,27 @@ namespace EamonRT.Game.Commands
 
 				if (ac.GetKeyUid() == -2)
 				{
-					PrintBrokeIt(DobjArtifact);
+					PrintBrokeIt(gDobjArtifact);
 
 					goto Cleanup;
 				}
 
 				if (!ac.IsOpen())
 				{
-					PrintNotOpen(DobjArtifact);
+					PrintNotOpen(gDobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
 					goto Cleanup;
 				}
 
-				PrintClosed(DobjArtifact);
+				PrintClosed(gDobjArtifact);
 
 				ac.SetOpen(false);
 
-				rc = DobjArtifact.SyncArtifactCategories(ac);
+				rc = gDobjArtifact.SyncArtifactCategories(ac);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				PlayerProcessEvents(PpeAfterArtifactClose);
 
@@ -102,7 +102,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				PrintCantVerbIt(DobjArtifact);
+				PrintCantVerbIt(gDobjArtifact);
 
 				NextState = Globals.CreateInstance<IStartState>();
 

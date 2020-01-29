@@ -1,7 +1,7 @@
 ﻿
 // CommandParser.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -46,6 +46,14 @@ namespace EamonRT.Game.Parsing
 		public virtual IParserData ObjData { get; set; }
 
 		public virtual IState NextState { get; set; }
+
+		public virtual ICommand NextCommand
+		{
+			get
+			{
+				return NextState as ICommand;
+			}
+		}
 
 		public virtual string GetActiveObjData()
 		{
@@ -137,130 +145,138 @@ namespace EamonRT.Game.Parsing
 
 			Debug.Assert(command != null);
 
-			if (ObjData == DobjData)
+			if (ObjData.Name == null)
 			{
 				ObjData.Name = "";
 
-				if (CurrToken < Tokens.Length)
+				if (ObjData == DobjData)
 				{
-					PrepTokenIndex = command.IsDobjPrepEnabled || command.IsIobjEnabled ? Globals.Engine.FindIndex(Tokens, token => Globals.Engine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, token, StringComparison.OrdinalIgnoreCase) && command.IsPrepEnabled(prep)) != null) : -1;
-
-					Prep = PrepTokenIndex >= 0 ? Globals.Engine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, Tokens[PrepTokenIndex], StringComparison.OrdinalIgnoreCase) && command.IsPrepEnabled(prep)) : null;
-
-					if (command.IsDobjPrepEnabled && PrepTokenIndex == CurrToken)
+					if (CurrToken < Tokens.Length)
 					{
-						command.Prep = Globals.CloneInstance(Prep);
+						PrepTokenIndex = command.IsDobjPrepEnabled || command.IsIobjEnabled ? gEngine.FindIndex(Tokens, token => gEngine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, token, StringComparison.OrdinalIgnoreCase) && command.IsPrepEnabled(prep)) != null) : -1;
 
-						var numTokens = Tokens.Length - CurrToken;
+						Prep = PrepTokenIndex >= 0 ? gEngine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, Tokens[PrepTokenIndex], StringComparison.OrdinalIgnoreCase) && command.IsPrepEnabled(prep)) : null;
 
-						ObjData.Name = string.Join(" ", Tokens.Skip((int)(CurrToken + 1)).Take((int)(numTokens - 1)));
+						if (command.IsDobjPrepEnabled && PrepTokenIndex == CurrToken)
+						{
+							command.Prep = Globals.CloneInstance(Prep);
 
-						CurrToken += numTokens;
+							var numTokens = Tokens.Length - CurrToken;
+
+							ObjData.Name = string.Join(" ", Tokens.Skip((int)(CurrToken + 1)).Take((int)(numTokens - 1)));
+
+							CurrToken += numTokens;
+						}
+						else if (command.IsIobjEnabled && PrepTokenIndex > CurrToken)
+						{
+							command.Prep = Globals.CloneInstance(Prep);
+
+							var numTokens = PrepTokenIndex - CurrToken;
+
+							ObjData.Name = string.Join(" ", Tokens.Skip((int)CurrToken).Take((int)numTokens));
+
+							CurrToken += numTokens;
+						}
+						else
+						{
+							PrepTokenIndex = -1;
+
+							Prep = null;
+
+							ObjData.Name = string.Join(" ", Tokens.Skip((int)CurrToken));
+
+							CurrToken = Tokens.Length;
+						}
 					}
-					else if (command.IsIobjEnabled && PrepTokenIndex > CurrToken)
+
+					Globals.Buf.SetFormat("{0}", ObjData.Name);
+
+					if (string.IsNullOrWhiteSpace(ObjData.QueryDesc))
 					{
-						command.Prep = Globals.CloneInstance(Prep);
-
-						var numTokens = PrepTokenIndex - CurrToken;
-
-						ObjData.Name = string.Join(" ", Tokens.Skip((int)CurrToken).Take((int)numTokens));
-
-						CurrToken += numTokens;
+						ObjData.QueryDesc = string.Format("{0}{1} {2}who or what? ", Environment.NewLine, command.Verb.FirstCharToUpper(), command.IsDobjPrepEnabled && command.Prep != null && Enum.IsDefined(typeof(ContainerType), command.Prep.ContainerType) ? gEngine.EvalContainerType(command.Prep.ContainerType, "inside ", "on ", "under ", "behind ") : "");
 					}
-					else
-					{
-						PrepTokenIndex = -1;
 
-						Prep = null;
+					while (true)
+					{
+						var mySeen = false;
+
+						var rc = gEngine.StripPrepsAndArticles(Globals.Buf, ref mySeen);
+
+						Debug.Assert(gEngine.IsSuccess(rc));
+
+						ObjData.Name = Globals.Buf.ToString().Trim();
+
+						if (string.IsNullOrWhiteSpace(ObjData.Name) && ActorMonster.IsCharacterMonster())
+						{
+							gOut.Write(ObjData.QueryDesc);
+
+							Globals.Buf.SetFormat("{0}", Globals.In.ReadLine());
+
+							Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\s+", " ").ToLower().Trim());
+
+							if (command.ShouldStripTrailingPunctuation())
+							{
+								Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\p{P}*$", "").Trim());
+							}
+						}
+						else
+						{
+							break;
+						}
+					}
+				}
+				else
+				{
+					if (CurrToken < Tokens.Length && PrepTokenIndex >= 0)
+					{
+						CurrToken = PrepTokenIndex + 1;
 
 						ObjData.Name = string.Join(" ", Tokens.Skip((int)CurrToken));
 
 						CurrToken = Tokens.Length;
 					}
-				}
 
-				Globals.Buf.SetFormat("{0}", ObjData.Name);
+					Globals.Buf.SetFormat("{0}", ObjData.Name);
 
-				if (string.IsNullOrWhiteSpace(ObjData.QueryDesc))
-				{
-					ObjData.QueryDesc = string.Format("{0}{1} {2}who or what? ", Environment.NewLine, command.Verb.FirstCharToUpper(), command.IsDobjPrepEnabled && command.Prep != null && Enum.IsDefined(typeof(ContainerType), command.Prep.ContainerType) ? Globals.Engine.EvalContainerType(command.Prep.ContainerType, "inside ", "on ", "under ", "behind ") : "");
-				}
+					Debug.Assert(!string.IsNullOrWhiteSpace(ObjData.QueryDesc));
 
-				while (true)
-				{
-					var mySeen = false;
-
-					var rc = Globals.Engine.StripPrepsAndArticles(Globals.Buf, ref mySeen);
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-					ObjData.Name = Globals.Buf.ToString().Trim();
-
-					if (string.IsNullOrWhiteSpace(ObjData.Name) && ActorMonster.IsCharacterMonster())
+					while (true)
 					{
-						Globals.Out.Write(ObjData.QueryDesc);
+						var mySeen = false;
 
-						Globals.Buf.SetFormat("{0}", Globals.In.ReadLine());
+						var rc = gEngine.StripPrepsAndArticles(Globals.Buf, ref mySeen);
 
-						Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\s+", " ").ToLower().Trim());
+						Debug.Assert(gEngine.IsSuccess(rc));
 
-						if (command.ShouldStripTrailingPunctuation())
+						ObjData.Name = Globals.Buf.ToString().Trim();
+
+						if (string.IsNullOrWhiteSpace(ObjData.Name) && ActorMonster.IsCharacterMonster())
 						{
-							Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\p{P}*$", "").Trim());
+							gOut.Write(ObjData.QueryDesc);
+
+							Globals.Buf.SetFormat("{0}", Globals.In.ReadLine());
+
+							Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\s+", " ").ToLower().Trim());
+
+							if (command.ShouldStripTrailingPunctuation())
+							{
+								Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\p{P}*$", "").Trim());
+							}
 						}
-					}
-					else
-					{
-						break;
+						else
+						{
+							break;
+						}
 					}
 				}
 			}
-			else
-			{
-				ObjData.Name = "";
+		}
 
-				if (CurrToken < Tokens.Length && PrepTokenIndex >= 0)
-				{
-					CurrToken = PrepTokenIndex + 1;
+		public virtual void CheckPlayerCommand(ICommand command, bool afterFinishParsing)
+		{
+			Debug.Assert(command != null);
 
-					ObjData.Name = string.Join(" ", Tokens.Skip((int)CurrToken));
-
-					CurrToken = Tokens.Length;
-				}
-
-				Globals.Buf.SetFormat("{0}", ObjData.Name);
-
-				Debug.Assert(!string.IsNullOrWhiteSpace(ObjData.QueryDesc));
-
-				while (true)
-				{
-					var mySeen = false;
-
-					var rc = Globals.Engine.StripPrepsAndArticles(Globals.Buf, ref mySeen);
-
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
-
-					ObjData.Name = Globals.Buf.ToString().Trim();
-
-					if (string.IsNullOrWhiteSpace(ObjData.Name) && ActorMonster.IsCharacterMonster())
-					{
-						Globals.Out.Write(ObjData.QueryDesc);
-
-						Globals.Buf.SetFormat("{0}", Globals.In.ReadLine());
-
-						Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\s+", " ").ToLower().Trim());
-
-						if (command.ShouldStripTrailingPunctuation())
-						{
-							Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\p{P}*$", "").Trim());
-						}
-					}
-					else
-					{
-						break;
-					}
-				}
-			}
+			// do nothing
 		}
 
 		public virtual void Execute()
@@ -277,27 +293,27 @@ namespace EamonRT.Game.Parsing
 
 				if (InputBuf.Length > 0 && ActorMonster.IsCharacterMonster())
 				{
-					if (Environment.NewLine.Length == 1 && Globals.CursorPosition.Y > -1 && Globals.CursorPosition.Y + 1 >= Globals.Out.GetBufferHeight())
+					if (Environment.NewLine.Length == 1 && Globals.CursorPosition.Y > -1 && Globals.CursorPosition.Y + 1 >= gOut.GetBufferHeight())
 					{
 						Globals.CursorPosition.Y--;
 					}
 
-					Globals.Out.SetCursorPosition(Globals.CursorPosition);
+					gOut.SetCursorPosition(Globals.CursorPosition);
 
 					if (Globals.LineWrapUserInput)
 					{
-						Globals.Engine.LineWrap(InputBuf.ToString(), Globals.Buf, Globals.CommandPrompt.Length);
+						gEngine.LineWrap(InputBuf.ToString(), Globals.Buf, Globals.CommandPrompt.Length);
 					}
 					else
 					{
 						Globals.Buf.SetFormat("{0}", InputBuf.ToString());
 					}
 
-					Globals.Out.WordWrap = false;
+					gOut.WordWrap = false;
 
-					Globals.Out.WriteLine(Globals.Buf);
+					gOut.WriteLine(Globals.Buf);
 
-					Globals.Out.WordWrap = true;
+					gOut.WordWrap = true;
 				}
 			}
 
@@ -336,12 +352,16 @@ namespace EamonRT.Game.Parsing
 					Tokens[CurrToken] = Regex.Replace(Tokens[CurrToken], @"\p{P}*$", "").Trim();
 				}
 
-				if (string.Equals(Tokens[CurrToken], "at", StringComparison.OrdinalIgnoreCase))
+				if (Tokens[CurrToken].Length == 0)
+				{
+					Tokens[CurrToken] = "???";
+				}
+				else if (string.Equals(Tokens[CurrToken], "at", StringComparison.OrdinalIgnoreCase))
 				{
 					Tokens[CurrToken] = "a";
 				}
 
-				var command = Globals.CommandList.FirstOrDefault(x => string.Equals(x.Verb, Tokens[CurrToken], StringComparison.OrdinalIgnoreCase) && x.IsEnabled(ActorMonster));
+				var command = Globals.CommandList.FirstOrDefault(x => x.Verb != null && string.Equals(x.Verb, Tokens[CurrToken], StringComparison.OrdinalIgnoreCase) && x.IsEnabled(ActorMonster));
 
 				if (command == null)
 				{
@@ -350,7 +370,7 @@ namespace EamonRT.Game.Parsing
 
 				if (command == null)
 				{
-					command = Globals.CommandList.FirstOrDefault(x => (x.Verb.StartsWith(Tokens[CurrToken], StringComparison.OrdinalIgnoreCase) || x.Verb.EndsWith(Tokens[CurrToken], StringComparison.OrdinalIgnoreCase)) && x.IsEnabled(ActorMonster));
+					command = Globals.CommandList.FirstOrDefault(x => x.Verb != null && (x.Verb.StartsWith(Tokens[CurrToken], StringComparison.OrdinalIgnoreCase) || x.Verb.EndsWith(Tokens[CurrToken], StringComparison.OrdinalIgnoreCase)) && x.IsEnabled(ActorMonster));
 				}
 
 				if (command == null)
@@ -385,7 +405,7 @@ namespace EamonRT.Game.Parsing
 
 					if (ActorMonster.IsCharacterMonster())
 					{
-						Globals.Engine.CheckPlayerCommand(command, false);
+						CheckPlayerCommand(command, false);
 
 						if (NextState == command)
 						{
@@ -395,7 +415,7 @@ namespace EamonRT.Game.Parsing
 
 								if (NextState == command)
 								{
-									Globals.Engine.CheckPlayerCommand(command, true);
+									CheckPlayerCommand(command, true);
 								}
 							}
 							else

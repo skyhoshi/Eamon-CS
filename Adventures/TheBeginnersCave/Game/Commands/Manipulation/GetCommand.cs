@@ -1,7 +1,7 @@
 ﻿
 // GetCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -19,28 +19,28 @@ namespace TheBeginnersCave.Game.Commands
 	{
 		public override void PlayerFinishParsing()
 		{
-			CommandParser.ParseName();
+			gCommandParser.ParseName();
 
-			if (string.Equals(CommandParser.ObjData.Name, "all", StringComparison.OrdinalIgnoreCase))
+			if (string.Equals(gCommandParser.ObjData.Name, "all", StringComparison.OrdinalIgnoreCase))
 			{
 				GetAll = true;
 			}
-			else if ((ActorRoom.Uid == 4 || ActorRoom.Uid == 20 || ActorRoom.Uid == 22) && CommandParser.ObjData.Name.IndexOf("torch", StringComparison.OrdinalIgnoreCase) >= 0)
+			else if ((gActorRoom.Uid == 4 || gActorRoom.Uid == 20 || gActorRoom.Uid == 22) && gCommandParser.ObjData.Name.IndexOf("torch", StringComparison.OrdinalIgnoreCase) >= 0)
 			{
-				Globals.Out.Print("All torches are bolted to the wall and cannot be removed.");
+				gOut.Print("All torches are bolted to the wall and cannot be removed.");
 
-				CommandParser.NextState = Globals.CreateInstance<IMonsterStartState>();
+				gCommandParser.NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 			else
 			{
-				CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+				gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 				{
-					a => a.IsInRoom(ActorRoom),
-					a => a.IsEmbeddedInRoom(ActorRoom),
-					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(Globals.Engine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, Globals.Engine.ExposeContainersRecursively)
+					a => a.IsInRoom(gActorRoom),
+					a => a.IsEmbeddedInRoom(gActorRoom),
+					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively)
 				};
 
-				CommandParser.ObjData.ArtifactNotFoundFunc = PrintCantVerbThat;
+				gCommandParser.ObjData.ArtifactNotFoundFunc = PrintCantVerbThat;
 
 				PlayerResolveArtifact();
 			}

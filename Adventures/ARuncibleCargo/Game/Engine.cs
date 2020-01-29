@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -19,17 +19,17 @@ namespace ARuncibleCargo.Game
 	{
 		protected override void PrintTooManyWeapons()
 		{
-			Globals.Out.Print("As you enter the Main Hall, Lord William Crankhandle approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"");
+			gOut.Print("As you enter the Main Hall, Lord William Crankhandle approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"");
 		}
 
 		protected override void PrintDeliverGoods()
 		{
-			Globals.Out.Print("As Sam Slicker, the local buyer of treasure is vacationing, you grant yourself the gold he would have given you.");
+			gOut.Print("As Sam Slicker, the local buyer of treasure is vacationing, you grant yourself the gold he would have given you.");
 		}
 
 		protected override void PrintGoodsPayment(bool goodsExist, long payment)
 		{
-			Globals.Out.Print("{0}You take {1} gold piece{2} total.", goodsExist ? Environment.NewLine : "", payment, payment != 1 ? "s" : "");
+			gOut.Print("{0}You take {1} gold piece{2} total.", goodsExist ? Environment.NewLine : "", payment, payment != 1 ? "s" : "");
 		}
 
 		public override void PrintMonsterAlive(IArtifact artifact)
@@ -54,11 +54,11 @@ namespace ARuncibleCargo.Game
 
 			MacroFuncs.Add(1, () =>
 			{
-				var cargoArtifact = Globals.ADB[129];
+				var cargoArtifact = gADB[129];
 
 				Debug.Assert(cargoArtifact != null);
 
-				var lilMonster = Globals.MDB[37];
+				var lilMonster = gMDB[37];
 
 				Debug.Assert(lilMonster != null);
 
@@ -74,9 +74,9 @@ namespace ARuncibleCargo.Game
 
 			MacroFuncs.Add(2, () =>
 			{
-				if (Globals.GameState != null)
+				if (gGameState != null)
 				{
-					var shopDoorArtifact = Globals.ADB[Globals.GameState.Ro == 20 ? 136 : 17];
+					var shopDoorArtifact = gADB[gGameState.Ro == 20 ? 136 : 17];
 
 					Debug.Assert(shopDoorArtifact != null);
 
@@ -94,9 +94,9 @@ namespace ARuncibleCargo.Game
 
 			MacroFuncs.Add(3, () =>
 			{
-				if (Globals.GameState != null)
+				if (gGameState != null)
 				{
-					var lilMonster = Globals.MDB[37];
+					var lilMonster = gMDB[37];
 
 					Debug.Assert(lilMonster != null);
 
@@ -132,25 +132,25 @@ namespace ARuncibleCargo.Game
 
 			// Signs (Sam's/weathered/supported/station)
 
-			var signArtifact = Globals.ADB[16];
+			var signArtifact = gADB[16];
 
 			Debug.Assert(signArtifact != null);
 
 			signArtifact.Seen = true;
 
-			var weatheredSignArtifact = Globals.ADB[73];
+			var weatheredSignArtifact = gADB[73];
 
 			Debug.Assert(weatheredSignArtifact != null);
 
 			weatheredSignArtifact.Seen = true;
 
-			var supportedSignArtifact = Globals.ADB[89];
+			var supportedSignArtifact = gADB[89];
 
 			Debug.Assert(supportedSignArtifact != null);
 
 			supportedSignArtifact.Seen = true;
 
-			var stationSignArtifact = Globals.ADB[90];
+			var stationSignArtifact = gADB[90];
 
 			Debug.Assert(stationSignArtifact != null);
 
@@ -205,7 +205,7 @@ namespace ARuncibleCargo.Game
 		{
 			// Can't sell Sam Slicker's shop key
 
-			var shopKeyArtifact = Globals.ADB[9];
+			var shopKeyArtifact = gADB[9];
 
 			Debug.Assert(shopKeyArtifact != null);
 
@@ -228,7 +228,7 @@ namespace ARuncibleCargo.Game
 
 				if (monster.Uid == 27 || monster.Uid == 28)
 				{
-					var monster01 = Globals.MDB[monster.Uid == 27 ? 28 : 27];
+					var monster01 = gMDB[monster.Uid == 27 ? 28 : 27];
 
 					Debug.Assert(monster01 != null);
 
@@ -236,7 +236,7 @@ namespace ARuncibleCargo.Game
 				}
 				else if (monster.Uid == 38 || monster.Uid == 39)
 				{
-					var monster01 = Globals.MDB[monster.Uid == 38 ? 39 : 38];
+					var monster01 = gMDB[monster.Uid == 38 ? 39 : 38];
 
 					Debug.Assert(monster01 != null);
 

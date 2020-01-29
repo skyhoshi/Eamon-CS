@@ -18,7 +18,7 @@ namespace TheTempleOfNgurct.Game
 			{
 				if (Uid == 33)
 				{
-					var oakDoorArtifact = Globals.ADB[85];
+					var oakDoorArtifact = gADB[85];
 
 					var ac = oakDoorArtifact != null ? oakDoorArtifact.DoorGate : null;
 
@@ -26,7 +26,7 @@ namespace TheTempleOfNgurct.Game
 				}
 				else if (Uid == 45)
 				{
-					var cellDoorArtifact = Globals.ADB[87];
+					var cellDoorArtifact = gADB[87];
 
 					var ac = cellDoorArtifact != null ? cellDoorArtifact.DoorGate : null;
 
@@ -34,7 +34,7 @@ namespace TheTempleOfNgurct.Game
 				}
 				else if (Uid == 46)
 				{
-					var cellDoorArtifact = Globals.ADB[88];
+					var cellDoorArtifact = gADB[88];
 
 					var ac = cellDoorArtifact != null ? cellDoorArtifact.DoorGate : null;
 
@@ -42,7 +42,7 @@ namespace TheTempleOfNgurct.Game
 				}
 				else if (Uid == 55)
 				{
-					var cellDoorArtifact = Globals.ADB[86];
+					var cellDoorArtifact = gADB[86];
 
 					var ac = cellDoorArtifact != null ? cellDoorArtifact.DoorGate : null;
 

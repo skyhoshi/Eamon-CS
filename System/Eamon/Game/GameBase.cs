@@ -1,13 +1,14 @@
 ﻿
 // GameBase.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
 using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
+using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
 {
@@ -57,11 +58,11 @@ namespace Eamon.Game
 			// do nothing
 		}
 
-		public virtual string GetPluralName(string fieldName, StringBuilder buf)
+		public virtual string GetPluralName(string fieldName, StringBuilder buf = null)
 		{
 			string result;
 
-			if (string.IsNullOrWhiteSpace(fieldName) || buf == null)
+			if (string.IsNullOrWhiteSpace(fieldName))
 			{
 				result = null;
 
@@ -72,6 +73,11 @@ namespace Eamon.Game
 
 			Debug.Assert(fieldName == "Name");
 
+			if (buf == null)
+			{
+				buf = Globals.Buf;
+			}
+
 			buf.Clear();
 
 			result = buf.ToString();
@@ -81,16 +87,16 @@ namespace Eamon.Game
 			return result;
 		}
 
-		public virtual string GetPluralName01(StringBuilder buf)
+		public virtual string GetPluralName01(StringBuilder buf = null)
 		{
 			return GetPluralName("Name", buf);
 		}
 
-		public virtual string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public virtual string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift = false, bool showCharOwned = true, bool showStateDesc = false, bool groupCountOne = false, StringBuilder buf = null)
 		{
 			string result;
 
-			if (string.IsNullOrWhiteSpace(fieldName) || buf == null)
+			if (string.IsNullOrWhiteSpace(fieldName))
 			{
 				result = null;
 
@@ -101,6 +107,11 @@ namespace Eamon.Game
 
 			Debug.Assert(fieldName == "Name");
 
+			if (buf == null)
+			{
+				buf = Globals.Buf;
+			}
+
 			buf.Clear();
 
 			result = buf.ToString();
@@ -110,17 +121,35 @@ namespace Eamon.Game
 			return result;
 		}
 
+		[Obsolete("GetDecoratedName01 is deprecated and will be removed; please use GetNoneName instead.")]
 		public virtual string GetDecoratedName01(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		{
+			return GetNoneName(upshift, showCharOwned, showStateDesc, groupCountOne, buf);
+		}
+
+		[Obsolete("GetDecoratedName02 is deprecated and will be removed; please use GetArticleName instead.")]
+		public virtual string GetDecoratedName02(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		{
+			return GetArticleName(upshift, showCharOwned, showStateDesc, groupCountOne, buf);
+		}
+
+		[Obsolete("GetDecoratedName03 is deprecated and will be removed; please use GetTheName instead.")]
+		public virtual string GetDecoratedName03(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		{
+			return GetTheName(upshift, showCharOwned, showStateDesc, groupCountOne, buf);
+		}
+
+		public virtual string GetNoneName(bool upshift = false, bool showCharOwned = true, bool showStateDesc = false, bool groupCountOne = false, StringBuilder buf = null)
 		{
 			return GetDecoratedName("Name", ArticleType.None, upshift, showCharOwned, showStateDesc, groupCountOne, buf);
 		}
 
-		public virtual string GetDecoratedName02(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public virtual string GetArticleName(bool upshift = false, bool showCharOwned = true, bool showStateDesc = false, bool groupCountOne = false, StringBuilder buf = null)
 		{
 			return GetDecoratedName("Name", ArticleType, upshift, showCharOwned, showStateDesc, groupCountOne, buf);
 		}
 
-		public virtual string GetDecoratedName03(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public virtual string GetTheName(bool upshift = false, bool showCharOwned = true, bool showStateDesc = false, bool groupCountOne = false, StringBuilder buf = null)
 		{
 			return GetDecoratedName("Name", ArticleType.The, upshift, showCharOwned, showStateDesc, groupCountOne, buf);
 		}

@@ -52,6 +52,10 @@ namespace EamonRT.Framework
 		void PrintMonsterAlive(IArtifact artifact);
 
 		/// <summary></summary>
+		/// <param name="artifact"></param>
+		void PrintLightOut(IArtifact artifact);
+
+		/// <summary></summary>
 		/// <param name="artifact1"></param>
 		/// <param name="artifact2"></param>
 		/// <returns></returns>
@@ -225,6 +229,14 @@ namespace EamonRT.Framework
 		void GetRandomMoveDirection(IRoom room, IMonster monster, bool fleeing, ref Direction direction);
 
 		/// <summary></summary>
+		/// <param name="room"></param>
+		/// <param name="monster"></param>
+		/// <param name="fleeing"></param>
+		/// <param name="callSleep"></param>
+		/// <param name="printOutput"></param>
+		void MoveMonsterToRandomAdjacentRoom(IRoom room, IMonster monster, bool fleeing, bool callSleep, bool printOutput = true);
+
+		/// <summary></summary>
 		/// <param name="numMonsters"></param>
 		/// <param name="whereClauseFuncs"></param>
 		/// <returns></returns>
@@ -299,11 +311,6 @@ namespace EamonRT.Framework
 		/// <param name="ac"></param>
 		/// <param name="af"></param>
 		void CheckPlayerSkillGains(IArtifactCategory ac, long af);
-
-		/// <summary></summary>
-		/// <param name="command"></param>
-		/// <param name="afterFinishParsing"></param>
-		void CheckPlayerCommand(ICommand command, bool afterFinishParsing);
 
 		/// <summary></summary>
 		void CheckToExtinguishLightSource();

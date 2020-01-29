@@ -7,6 +7,9 @@ namespace TheVileGrimoireOfJaldial.Game.Plugin
 {
 	public class PluginConstants : EamonRT.Game.Plugin.PluginConstants, Framework.Plugin.IPluginConstants
 	{
-		
+		public PluginConstants()
+		{
+			NumSaveSlots = 1;
+		}
 	}
 }

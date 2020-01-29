@@ -17,43 +17,39 @@ namespace BeginnersForest.Game.States
 		{
 			if (eventType == PeBeforeCommandPromptPrint && ShouldPreTurnProcess())
 			{
-				var gameState = Globals.GameState as Framework.IGameState;
-
-				Debug.Assert(gameState != null);
-
-				var fairyQueenMonster = Globals.MDB[8];
+				var fairyQueenMonster = gMDB[8];
 
 				Debug.Assert(fairyQueenMonster != null);
 
 				// Meet Fairy Queen
 
-				if (fairyQueenMonster.Location == gameState.Ro && fairyQueenMonster.Field1 == 0)
+				if (fairyQueenMonster.Location == gGameState.Ro && fairyQueenMonster.Field1 == 0)
 				{
-					Globals.Engine.PrintEffectDesc(gameState.QueenGiftEffectUid);
+					gEngine.PrintEffectDesc(gGameState.QueenGiftEffectUid);
 
-					var crownArtifact = Globals.ADB[gameState.QueenGiftArtifactUid];
+					var crownArtifact = gADB[gGameState.QueenGiftArtifactUid];
 
 					Debug.Assert(crownArtifact != null);
 
-					crownArtifact.SetInRoomUid(gameState.Ro);
+					crownArtifact.SetInRoomUid(gGameState.Ro);
 
-					var grassBladeArtifact = Globals.ADB[6];
+					var grassBladeArtifact = gADB[6];
 
 					Debug.Assert(grassBladeArtifact != null);
 
 					// Grass blade turns into Greenblade
 
-					if (grassBladeArtifact.IsCarriedByCharacter() || grassBladeArtifact.IsInRoomUid(gameState.Ro))
+					if (grassBladeArtifact.IsCarriedByCharacter() || grassBladeArtifact.IsInRoomUid(gGameState.Ro))
 					{
-						Globals.Engine.PrintEffectDesc(20);
+						gEngine.PrintEffectDesc(20);
 
 						grassBladeArtifact.SetInLimbo();
 
-						var greenBladeArtifact = Globals.ADB[8];
+						var greenBladeArtifact = gADB[8];
 
 						Debug.Assert(greenBladeArtifact != null);
 
-						greenBladeArtifact.SetInRoomUid(gameState.Ro);
+						greenBladeArtifact.SetInRoomUid(gGameState.Ro);
 					}
 
 					fairyQueenMonster.Field1 = 1;

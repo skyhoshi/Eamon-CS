@@ -1,7 +1,7 @@
 ﻿
 // GetCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -21,19 +21,15 @@ namespace TheTrainingGround.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			base.PrintTaken(artifact);
 
 			// Taking Purple book reveals secret passage
 
-			if (artifact.Uid == 27 && ActorMonster.Uid == gameState.Cm && ActorRoom.Uid == 24 && !gameState.LibrarySecretPassageFound)
+			if (artifact.Uid == 27 && gActorMonster.Uid == gGameState.Cm && gActorRoom.Uid == 24 && !gGameState.LibrarySecretPassageFound)
 			{
 				RevealSecretPassage = true;
 
-				gameState.LibrarySecretPassageFound = true;
+				gGameState.LibrarySecretPassageFound = true;
 			}
 		}
 
@@ -43,9 +39,9 @@ namespace TheTrainingGround.Game.Commands
 
 			if (RevealSecretPassage)
 			{
-				Globals.Engine.PrintEffectDesc(12);
+				gEngine.PrintEffectDesc(12);
 
-				ActorRoom.SetDirs(Direction.East, 25);
+				gActorRoom.SetDirs(Direction.East, 25);
 			}
 		}
 	}

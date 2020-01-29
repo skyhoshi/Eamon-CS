@@ -1,7 +1,7 @@
 ﻿
 // ExamineCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -19,13 +19,13 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 		public virtual void RevealArtifact(long artifactUid, bool examineConsole = false)
 		{
-			var artifact = Globals.ADB[artifactUid];
+			var artifact = gADB[artifactUid];
 
 			Debug.Assert(artifact != null);
 
 			if (!artifact.Seen)
 			{
-				artifact.SetInRoom(ActorRoom);
+				artifact.SetInRoom(gActorRoom);
 
 				var command = Globals.CreateInstance<IExamineCommand>(x =>
 				{
@@ -42,31 +42,27 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 		public override void PlayerProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			if (eventType == PpeAfterArtifactFullDescPrint)
 			{
-				switch (DobjArtifact.Uid)
+				switch (gDobjArtifact.Uid)
 				{
 					case 2:
 					case 83:
 
 						// Engraving/fake wall
 
-						if (gameState.FakeWallExamines < 2)
+						if (gGameState.FakeWallExamines < 2)
 						{
-							Globals.Out.Print("Examining {0} reveals something curious:", DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+							gOut.Print("Examining {0} reveals something curious:", gDobjArtifact.GetTheName());
 						}
 
-						gameState.FakeWallExamines++;
+						gGameState.FakeWallExamines++;
 
-						Globals.Engine.PrintEffectDesc(40 + gameState.FakeWallExamines);
+						gEngine.PrintEffectDesc(40 + gGameState.FakeWallExamines);
 
-						if (gameState.FakeWallExamines > 2)
+						if (gGameState.FakeWallExamines > 2)
 						{
-							gameState.FakeWallExamines = 2;
+							gGameState.FakeWallExamines = 2;
 						}
 
 						break;
@@ -75,13 +71,13 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						// Magnetic fusion power plant
 
-						Globals.Engine.PrintEffectDesc(37);
+						gEngine.PrintEffectDesc(37);
 
 						var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 						{
 							x.SetNextStateFunc = s => NextState = s;
 
-							x.DfMonster = ActorMonster;
+							x.DfMonster = gActorMonster;
 
 							x.OmitArmor = true;
 						});
@@ -94,23 +90,23 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						// Pool pals
 
-						if (!gameState.Shark)
+						if (!gGameState.Shark)
 						{
-							var largeHammerheadMonster = Globals.MDB[7];
+							var largeHammerheadMonster = gMDB[7];
 
 							Debug.Assert(largeHammerheadMonster != null);
 
-							largeHammerheadMonster.SetInRoom(ActorRoom);
+							largeHammerheadMonster.SetInRoom(gActorRoom);
 
-							var smallHammerheadMonster = Globals.MDB[8];
+							var smallHammerheadMonster = gMDB[8];
 
 							Debug.Assert(smallHammerheadMonster != null);
 
-							smallHammerheadMonster.SetInRoom(ActorRoom);
+							smallHammerheadMonster.SetInRoom(gActorRoom);
 
-							Globals.Engine.PrintEffectDesc(1);
+							gEngine.PrintEffectDesc(1);
 
-							gameState.Shark = true;
+							gGameState.Shark = true;
 
 							NextState = Globals.CreateInstance<IStartState>();
 						}

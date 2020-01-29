@@ -1,7 +1,7 @@
 ﻿
 // SpeedCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
@@ -18,24 +18,24 @@ namespace EamonRT.Game.Commands
 
 		public virtual void PrintFeelNewAgility()
 		{
-			Globals.Out.Print("You can feel the new agility flowing through you!");
+			gOut.Print("You can feel the new agility flowing through you!");
 		}
 
 		public override void PlayerExecute()
 		{
-			if (CastSpell && !Globals.Engine.CheckPlayerSpellCast(Spell.Speed, ShouldAllowSkillGains()))
+			if (CastSpell && !gEngine.CheckPlayerSpellCast(Spell.Speed, ShouldAllowSkillGains()))
 			{
 				goto Cleanup;
 			}
 
-			if (Globals.GameState.Speed <= 0)
+			if (gGameState.Speed <= 0)
 			{
-				ActorMonster.Agility *= 2;
+				gActorMonster.Agility *= 2;
 			}
 
-			var rl = Globals.IsRulesetVersion(5) ? Globals.Engine.RollDice(1, 25, 9) : Globals.Engine.RollDice(1, 10, 10);
+			var rl = Globals.IsRulesetVersion(5) ? gEngine.RollDice(1, 25, 9) : gEngine.RollDice(1, 10, 10);
 
-			Globals.GameState.Speed += (rl + 1);
+			gGameState.Speed += (rl + 1);
 
 			PrintFeelNewAgility();
 

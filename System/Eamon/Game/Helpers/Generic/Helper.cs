@@ -1,7 +1,7 @@
 ﻿
 // Helper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -454,7 +454,7 @@ namespace Eamon.Game.Helpers.Generic
 
 				if (Buf01.Length > 0)
 				{
-					Globals.Out.Write("{0}", Buf01);
+					gOut.Write("{0}", Buf01);
 				}
 			}
 		}

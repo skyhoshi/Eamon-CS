@@ -1,7 +1,7 @@
 ﻿
 // WearCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -16,11 +16,11 @@ namespace TheTrainingGround.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			// Can't wear backpack
 
-			if (DobjArtifact.Uid == 13)
+			if (gDobjArtifact.Uid == 13)
 			{
 				PrintDontNeedTo();
 

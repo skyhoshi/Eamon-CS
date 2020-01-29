@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -25,7 +25,7 @@ namespace BeginnersForest.Game
 
 			// Entrance/exit gates
 
-			var entryGateArtifact = Globals.ADB[19];
+			var entryGateArtifact = gADB[19];
 
 			Debug.Assert(entryGateArtifact != null);
 
@@ -33,7 +33,7 @@ namespace BeginnersForest.Game
 
 			entryGateArtifact.Name = entryGateArtifact.Name.TrimEnd('#');
 
-			var exitGateArtifact = Globals.ADB[20];
+			var exitGateArtifact = gADB[20];
 
 			Debug.Assert(exitGateArtifact != null);
 
@@ -72,7 +72,7 @@ namespace BeginnersForest.Game
 
 			// Set Group Spooks to 0 for Spook routine
 
-			var spookMonster = Globals.MDB[9];
+			var spookMonster = gMDB[9];
 
 			Debug.Assert(spookMonster != null);
 
@@ -82,21 +82,17 @@ namespace BeginnersForest.Game
 
 			spookMonster.OrigGroupCount = 0;
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			var sirGrummorMonster = Globals.MDB[4];
+			var sirGrummorMonster = gMDB[4];
 
 			Debug.Assert(sirGrummorMonster != null);
 
-			if (Globals.Character.Gender == Gender.Female)
+			if (gCharacter.Gender == Gender.Female)
 			{
 				// Queen's gift
 
-				gameState.QueenGiftEffectUid = 6;
+				gGameState.QueenGiftEffectUid = 6;
 
-				gameState.QueenGiftArtifactUid = 15;
+				gGameState.QueenGiftArtifactUid = 15;
 
 				// Sir Grummor is always kind to the ladies!
 
@@ -110,15 +106,13 @@ namespace BeginnersForest.Game
 		{
 			var artifact = base.ConvertWeaponToArtifact(weapon);
 
-			var gameState = Globals.GameState as Framework.IGameState;
+			var i = FindIndex(gCharacter.Weapons, x => x == weapon);
 
-			var i = FindIndex(Globals.Character.Weapons, x => x == weapon);
-
-			if (i != gameState.UsedWpnIdx)
+			if (i != gGameState.UsedWpnIdx)
 			{
 				artifact.SetInLimbo();
 
-				gameState.SetHeldWpnUids(HeldWpnIdx++, artifact.Uid);
+				gGameState.SetHeldWpnUids(HeldWpnIdx++, artifact.Uid);
 			}
 
 			return artifact;
@@ -126,13 +120,11 @@ namespace BeginnersForest.Game
 
 		public override void ConvertToCarriedInventory(IList<IArtifact> weaponList)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			for (var i = 0; i < gameState.HeldWpnUids.Length; i++)
+			for (var i = 0; i < gGameState.HeldWpnUids.Length; i++)
 			{
-				if (gameState.GetHeldWpnUids(i) > 0)
+				if (gGameState.GetHeldWpnUids(i) > 0)
 				{
-					var artifact = Globals.ADB[gameState.GetHeldWpnUids(i)];
+					var artifact = gADB[gGameState.GetHeldWpnUids(i)];
 
 					Debug.Assert(artifact != null);
 

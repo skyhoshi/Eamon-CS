@@ -205,7 +205,7 @@ namespace Eamon.Game
 		{
 			var uid = GetDirectionDoorUid(dir);
 
-			return Globals.ADB[uid];
+			return gADB[uid];
 		}
 
 		public virtual void SetDirectionExit(long index)
@@ -286,7 +286,7 @@ namespace Eamon.Game
 
 		public virtual T EvalRoomType<T>(T indoorsValue, T outdoorsValue)
 		{
-			return Globals.Engine.EvalRoomType(Type, indoorsValue, outdoorsValue);
+			return gEngine.EvalRoomType(Type, indoorsValue, outdoorsValue);
 		}
 
 		public virtual IList<IArtifact> GetTakeableList(Func<IArtifact, bool> roomFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false)
@@ -296,7 +296,7 @@ namespace Eamon.Game
 				roomFindFunc = a => a.IsInRoom(this) && a.Weight <= 900 && !a.IsUnmovable01() && (a.DeadBody == null || a.DeadBody.Field1 == 1);
 			}
 
-			var list = Globals.Engine.GetArtifactList(a => roomFindFunc(a));
+			var list = gEngine.GetArtifactList(a => roomFindFunc(a));
 
 			if (recurse && list.Count > 0)
 			{
@@ -323,7 +323,7 @@ namespace Eamon.Game
 				roomFindFunc = a => a.IsEmbeddedInRoom(this);
 			}
 
-			var list = Globals.Engine.GetArtifactList(a => roomFindFunc(a));
+			var list = gEngine.GetArtifactList(a => roomFindFunc(a));
 
 			if (recurse && list.Count > 0)
 			{
@@ -352,9 +352,9 @@ namespace Eamon.Game
 
 			var list = new List<IGameBase>();
 
-			list.AddRange(Globals.Engine.GetMonsterList(m => roomFindFunc(m)));
+			list.AddRange(gEngine.GetMonsterList(m => roomFindFunc(m)));
 
-			list.AddRange(Globals.Engine.GetArtifactList(a => roomFindFunc(a)));
+			list.AddRange(gEngine.GetArtifactList(a => roomFindFunc(a)));
 
 			if (recurse && list.Count > 0)
 			{
@@ -417,7 +417,7 @@ namespace Eamon.Game
 				{
 					if (IsDirectionInObviousExitsList(dv))
 					{
-						var direction = Globals.Engine.GetDirections(dv);
+						var direction = gEngine.GetDirections(dv);
 
 						Debug.Assert(direction != null);
 
@@ -466,14 +466,14 @@ namespace Eamon.Game
 				monsterFindFunc = IsMonsterListedInRoom;
 			}
 
-			var monsters = Globals.Engine.GetMonsterList(m => monsterFindFunc(m));
+			var monsters = gEngine.GetMonsterList(m => monsterFindFunc(m));
 
 			if (artifactFindFunc == null)
 			{
 				artifactFindFunc = IsArtifactListedInRoom;
 			}
 
-			var artifacts = Globals.Engine.GetArtifactList(a => artifactFindFunc(a));
+			var artifacts = gEngine.GetArtifactList(a => artifactFindFunc(a));
 
 			buf.AppendFormat("{0}[{1}]", Environment.NewLine, Name);
 
@@ -515,9 +515,9 @@ namespace Eamon.Game
 					showDesc ? "also " : "",
 					showDesc && !monsters.Any() ? "notice " : "see ");
 
-				rc = Globals.Engine.GetRecordNameList(combined, ArticleType.A, true, StateDescDisplayCode.AllStateDescs, true, false, buf);
+				rc = gEngine.GetRecordNameList(combined, ArticleType.A, true, StateDescDisplayCode.AllStateDescs, true, false, buf);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					// PrintError
 
@@ -535,7 +535,7 @@ namespace Eamon.Game
 
 			rc = GetExitList(buf, s => s.ToLower());
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				// PrintError
 
@@ -554,7 +554,7 @@ namespace Eamon.Game
 			{
 				rc = r.BuildPrintedFullDesc(buf, true);
 
-				if (Globals.Engine.IsFailure(rc))
+				if (gEngine.IsFailure(rc))
 				{
 					// PrintError
 

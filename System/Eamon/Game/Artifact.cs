@@ -1,7 +1,7 @@
 ﻿
 // Artifact.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -417,9 +417,9 @@ namespace Eamon.Game
 				artifactFindFunc = a => a.IsCarriedByContainer(this) && (allContainerTypes || a.GetCarriedByContainerContainerType() == containerType);
 			}
 
-			var list = Globals.Engine.GetArtifactList(a => artifactFindFunc(a) && !Globals.Engine.ArtifactContainedList.Contains(a));
+			var list = gEngine.GetArtifactList(a => artifactFindFunc(a) && !gEngine.ArtifactContainedList.Contains(a));
 
-			Globals.Engine.ArtifactContainedList.AddRange(list);
+			gEngine.ArtifactContainedList.AddRange(list);
 
 			if (recurse && list.Count > 0)
 			{
@@ -473,13 +473,13 @@ namespace Eamon.Game
 			}
 		}
 
-		public override string GetPluralName(string fieldName, StringBuilder buf)
+		public override string GetPluralName(string fieldName, StringBuilder buf = null)
 		{
 			IEffect effect;
 			long effectUid;
 			string result;
 
-			if (string.IsNullOrWhiteSpace(fieldName) || buf == null)
+			if (string.IsNullOrWhiteSpace(fieldName))
 			{
 				result = null;
 
@@ -490,11 +490,16 @@ namespace Eamon.Game
 
 			Debug.Assert(fieldName == "Name");
 
+			if (buf == null)
+			{
+				buf = Globals.Buf;
+			}
+
 			buf.Clear();
 
-			effectUid = Globals.Engine.GetPluralTypeEffectUid(PluralType);
+			effectUid = gEngine.GetPluralTypeEffectUid(PluralType);
 
-			effect = Globals.EDB[effectUid];
+			effect = gEDB[effectUid];
 
 			if (effect != null)
 			{
@@ -522,11 +527,11 @@ namespace Eamon.Game
 			return result;
 		}
 
-		public override string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
+		public override string GetDecoratedName(string fieldName, ArticleType articleType, bool upshift = false, bool showCharOwned = true, bool showStateDesc = false, bool groupCountOne = false, StringBuilder buf = null)
 		{
 			string result;
 
-			if (string.IsNullOrWhiteSpace(fieldName) || buf == null)
+			if (string.IsNullOrWhiteSpace(fieldName))
 			{
 				result = null;
 
@@ -536,6 +541,11 @@ namespace Eamon.Game
 			}
 
 			Debug.Assert(fieldName == "Name");
+
+			if (buf == null)
+			{
+				buf = Globals.Buf;
+			}
 
 			buf.Clear();
 
@@ -619,7 +629,7 @@ namespace Eamon.Game
 			{
 				buf.AppendFormat("{0}[{1}]",
 					Environment.NewLine,
-					GetDecoratedName02(true, true, false, false, new StringBuilder(Constants.BufSize)));
+					GetArticleName(true, buf: new StringBuilder(Constants.BufSize)));
 			}
 
 			if (!string.IsNullOrWhiteSpace(Desc))
@@ -714,7 +724,7 @@ namespace Eamon.Game
 		{
 			var gameState = recurse ? Globals?.Engine?.GetGameState() : null;
 
-			var characterMonster = recurse && gameState != null ? Globals.MDB[gameState.Cm] : null;
+			var characterMonster = recurse && gameState != null ? gMDB[gameState.Cm] : null;
 
 			return recurse && (IsCarriedByCharacter(recurse) || IsWornByCharacter(recurse)) && characterMonster != null ? characterMonster.IsInRoom() :
 						recurse && GetCarriedByMonster(recurse) != null ? GetCarriedByMonster(recurse).IsInRoom() : 
@@ -752,7 +762,7 @@ namespace Eamon.Game
 		{
 			var gameState = recurse ? Globals?.Engine?.GetGameState() : null;
 
-			var characterMonster = recurse && gameState != null ? Globals.MDB[gameState.Cm] : null;
+			var characterMonster = recurse && gameState != null ? gMDB[gameState.Cm] : null;
 
 			return recurse && (IsCarriedByCharacter(recurse) || IsWornByCharacter(recurse)) && characterMonster != null ? characterMonster.IsInLimbo() :
 						recurse && GetCarriedByMonster(recurse) != null ? GetCarriedByMonster(recurse).IsInLimbo() :
@@ -814,7 +824,7 @@ namespace Eamon.Game
 		{
 			var gameState = recurse ? Globals?.Engine?.GetGameState() : null;
 
-			var characterMonster = recurse && gameState != null ? Globals.MDB[gameState.Cm] : null;
+			var characterMonster = recurse && gameState != null ? gMDB[gameState.Cm] : null;
 
 			return recurse && (IsCarriedByCharacter(recurse) || IsWornByCharacter(recurse)) && characterMonster != null ? characterMonster.IsInRoomUid(roomUid) :
 						recurse && GetCarriedByMonster(recurse) != null ? GetCarriedByMonster(recurse).IsInRoomUid(roomUid) :
@@ -961,7 +971,7 @@ namespace Eamon.Game
 		{
 			var gameState = recurse ? Globals?.Engine?.GetGameState() : null;
 
-			var characterMonster = recurse && gameState != null ? Globals.MDB[gameState.Cm] : null;
+			var characterMonster = recurse && gameState != null ? gMDB[gameState.Cm] : null;
 
 			return recurse && (IsCarriedByCharacter(recurse) || IsWornByCharacter(recurse)) && characterMonster != null ? characterMonster.GetInRoomUid() :
 						recurse && GetCarriedByMonster(recurse) != null ? GetCarriedByMonster(recurse).GetInRoomUid() :
@@ -981,35 +991,35 @@ namespace Eamon.Game
 		{
 			var uid = GetCarriedByMonsterUid(recurse);
 
-			return Globals.MDB[uid];
+			return gMDB[uid];
 		}
 
 		public virtual IArtifact GetCarriedByContainer(bool recurse = false)
 		{
 			var uid = GetCarriedByContainerUid(recurse);
 
-			return Globals.ADB[uid];
+			return gADB[uid];
 		}
 
 		public virtual IMonster GetWornByMonster(bool recurse = false)
 		{
 			var uid = GetWornByMonsterUid(recurse);
 
-			return Globals.MDB[uid];
+			return gMDB[uid];
 		}
 
 		public virtual IRoom GetInRoom(bool recurse = false)
 		{
 			var uid = GetInRoomUid(recurse);
 
-			return Globals.RDB[uid];
+			return gRDB[uid];
 		}
 
 		public virtual IRoom GetEmbeddedInRoom(bool recurse = false)
 		{
 			var uid = GetEmbeddedInRoomUid(recurse);
 
-			return Globals.RDB[uid];
+			return gRDB[uid];
 		}
 
 		public virtual ContainerType GetCarriedByContainerContainerType()
@@ -1117,12 +1127,12 @@ namespace Eamon.Game
 
 		public virtual bool IsFieldStrength(long value)
 		{
-			return Globals.Engine.IsArtifactFieldStrength(value);
+			return gEngine.IsArtifactFieldStrength(value);
 		}
 
 		public virtual long GetFieldStrength(long value)
 		{
-			return Globals.Engine.GetArtifactFieldStrength(value);
+			return gEngine.GetArtifactFieldStrength(value);
 		}
 
 		public virtual bool IsWeapon(Weapon weapon)
@@ -1152,12 +1162,12 @@ namespace Eamon.Game
 
 		public virtual bool IsUnmovable()
 		{
-			return Globals.Engine.IsUnmovable(Weight);
+			return gEngine.IsUnmovable(Weight);
 		}
 
 		public virtual bool IsUnmovable01()
 		{
-			return Globals.Engine.IsUnmovable01(Weight);
+			return gEngine.IsUnmovable01(Weight);
 		}
 
 		public virtual bool IsArmor()
@@ -1272,7 +1282,7 @@ namespace Eamon.Game
 
 		public virtual T EvalPlural<T>(T singularValue, T pluralValue)
 		{
-			return Globals.Engine.EvalPlural(IsPlural, singularValue, pluralValue);
+			return gEngine.EvalPlural(IsPlural, singularValue, pluralValue);
 		}
 
 		public virtual T EvalInRoomLightLevel<T>(T darkValue, T lightValue)
@@ -1579,7 +1589,7 @@ namespace Eamon.Game
 				{
 					rc = SyncArtifactCategories(ac);
 
-					if (Globals.Engine.IsFailure(rc))
+					if (gEngine.IsFailure(rc))
 					{
 						goto Cleanup;
 					}
@@ -1679,11 +1689,11 @@ namespace Eamon.Game
 		{
 			var list = new List<IArtifact>();
 
-			Globals.Engine.ArtifactContainedList.Clear();
+			gEngine.ArtifactContainedList.Clear();
 
 			GetContainedList01(artifactFindFunc, containerType, recurse);
 
-			list.AddRange(Globals.Engine.ArtifactContainedList);
+			list.AddRange(gEngine.ArtifactContainedList);
 
 			return list;
 		}

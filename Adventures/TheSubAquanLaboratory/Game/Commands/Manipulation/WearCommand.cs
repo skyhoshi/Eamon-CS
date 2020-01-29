@@ -1,7 +1,7 @@
 ﻿
 // WearCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using System.Linq;
@@ -17,15 +17,15 @@ namespace TheSubAquanLaboratory.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			var artifacts = ActorMonster.GetWornList();
+			var artifacts = gActorMonster.GetWornList();
 
 			var scubaGearWorn = artifacts.FirstOrDefault(a => a.Uid == 52) != null;
 
 			// SCUBA gear
 
-			if ((DobjArtifact.Uid == 52 && artifacts.Count > 0 && !scubaGearWorn) || (DobjArtifact.Uid != 52 && scubaGearWorn))
+			if ((gDobjArtifact.Uid == 52 && artifacts.Count > 0 && !scubaGearWorn) || (gDobjArtifact.Uid != 52 && scubaGearWorn))
 			{
 				PrintWearingRemoveFirst01(artifacts[0]);
 

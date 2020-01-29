@@ -1,7 +1,7 @@
 ﻿
 // ICommandSignatures.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Classes;
@@ -126,6 +126,10 @@ namespace EamonRT.Framework.Commands
 		/// <summary></summary>
 		/// <param name="artifact"></param>
 		void PrintMustFirstClose(IArtifact artifact);
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		void PrintWorn(IArtifact artifact);
 
 		/// <summary></summary>
 		/// <param name="artifact"></param>
@@ -257,6 +261,18 @@ namespace EamonRT.Framework.Commands
 		/// <summary></summary>
 		/// <param name="artifact"></param>
 		void PrintNotWhileWearingObj(IArtifact artifact);
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		void PrintWontLight(IArtifact artifact);
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		void PrintLightObj(IArtifact artifact);
+
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		void PrintLightExtinguished(IArtifact artifact);
 
 		/// <summary></summary>
 		/// <param name="weapon"></param>

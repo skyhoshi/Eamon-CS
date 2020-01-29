@@ -1,7 +1,7 @@
 ﻿
 // Config.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -131,7 +131,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.LoadFilesets(RtFilesetFileName, validate, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: LoadFilesets function call failed");
 
@@ -140,7 +140,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.LoadCharacters(RtCharacterFileName, validate, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: LoadCharacters function call failed");
 
@@ -149,7 +149,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.LoadModules(RtModuleFileName, validate, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: LoadModules function call failed");
 
@@ -158,7 +158,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.LoadRooms(RtRoomFileName, validate, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: LoadRooms function call failed");
 
@@ -167,7 +167,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.LoadArtifacts(RtArtifactFileName, validate, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: LoadArtifacts function call failed");
 
@@ -176,7 +176,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.LoadEffects(RtEffectFileName, validate, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: LoadEffects function call failed");
 
@@ -185,7 +185,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.LoadMonsters(RtMonsterFileName, validate, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: LoadMonsters function call failed");
 
@@ -194,7 +194,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.LoadHints(RtHintFileName, validate, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: LoadHints function call failed");
 
@@ -203,7 +203,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.LoadGameStates(RtGameStateFileName, validate, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: LoadGameStates function call failed");
 
@@ -221,7 +221,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.SaveGameStates(RtGameStateFileName, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: SaveGameStates function call failed");
 
@@ -230,7 +230,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.SaveHints(RtHintFileName, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: SaveHints function call failed");
 
@@ -239,7 +239,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.SaveMonsters(RtMonsterFileName, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: SaveMonsters function call failed");
 
@@ -248,7 +248,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.SaveEffects(RtEffectFileName, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: SaveEffects function call failed");
 
@@ -257,7 +257,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.SaveArtifacts(RtArtifactFileName, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: SaveArtifacts function call failed");
 
@@ -266,7 +266,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.SaveRooms(RtRoomFileName, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: SaveRooms function call failed");
 
@@ -275,7 +275,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.SaveModules(RtModuleFileName, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: SaveModules function call failed");
 
@@ -284,7 +284,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.SaveCharacters(RtCharacterFileName, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: SaveCharacters function call failed");
 
@@ -293,7 +293,7 @@ namespace Eamon.Game
 
 			rc = Globals.Database.SaveFilesets(RtFilesetFileName, printOutput);
 
-			if (Globals.Engine.IsFailure(rc))
+			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: SaveFilesets function call failed");
 
@@ -324,18 +324,18 @@ namespace Eamon.Game
 			{
 				rc = fs.DeleteFiles(null);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 			}
 
 			if (startOver)
 			{
 				rc = Globals.Database.FreeFilesets();
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				rc = Globals.Database.SaveFilesets(RtFilesetFileName, false);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 			}
 			else
 			{

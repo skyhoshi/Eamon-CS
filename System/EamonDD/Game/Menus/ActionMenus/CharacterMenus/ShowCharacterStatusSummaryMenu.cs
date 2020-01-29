@@ -1,7 +1,7 @@
 ﻿
 // ShowCharacterStatusSummaryMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -31,9 +31,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		public virtual void PrintPostShowLineSep()
 		{
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 		}
 
 		public override void Execute()
@@ -42,9 +42,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var nlFlag = false;
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle("SHOW CHARACTER STATUS SUMMARY", true);
+			gEngine.PrintTitle("SHOW CHARACTER STATUS SUMMARY", true);
 
 			var advCharList = new List<AdventuringCharacter>();
 
@@ -78,15 +78,15 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					rc = Globals.PushDatabase();
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					rc = Globals.Database.LoadCharacters(chrfn, printOutput: false);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					rc = Globals.Database.LoadModules(modfn, printOutput: false);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					var character = Globals.Database.CharacterTable.Records.FirstOrDefault();
 
@@ -105,7 +105,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					rc = Globals.PopDatabase();
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
 				i++;
@@ -123,14 +123,14 @@ namespace EamonDD.Game.Menus.ActionMenus
 				{
 					var advChar = advCharList.FirstOrDefault(ac => ac.Character.Uid == character.Uid);
 
-					Buf.SetFormat("{0,3}. {1}: {2} ({3})", character.Uid, Globals.Engine.Capitalize(character.Name), character.Status, advChar != null ? Globals.Engine.Capitalize(advChar.Module.Name) : "???");
+					Buf.SetFormat("{0,3}. {1}: {2} ({3})", character.Uid, gEngine.Capitalize(character.Name), character.Status, advChar != null ? gEngine.Capitalize(advChar.Module.Name) : "???");
 				}
 				else
 				{
-					Buf.SetFormat("{0,3}. {1}: {2}", character.Uid, Globals.Engine.Capitalize(character.Name), character.Status);
+					Buf.SetFormat("{0,3}. {1}: {2}", character.Uid, gEngine.Capitalize(character.Name), character.Status);
 				}
 
-				Globals.Out.Write("{0}{1}", Environment.NewLine, Buf.ToString());
+				gOut.Write("{0}{1}", Environment.NewLine, Buf.ToString());
 
 				nlFlag = true;
 
@@ -140,15 +140,15 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					PrintPostShowLineSep();
 
-					Globals.Out.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
+					gOut.Write("{0}Press any key to continue or X to exit: ", Environment.NewLine);
 
 					Buf.Clear();
 
-					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, Globals.Engine.ModifyCharToNullOrX, null, Globals.Engine.IsCharAny);
+					rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, null, gEngine.ModifyCharToNullOrX, null, gEngine.IsCharAny);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
-					Globals.Out.Print("{0}", Globals.LineSep);
+					gOut.Print("{0}", Globals.LineSep);
 
 					if (Buf.Length > 0 && Buf[0] == 'X')
 					{
@@ -161,10 +161,10 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (nlFlag)
 			{
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 			}
 
-			Globals.Out.Print("Done showing character status summary.");
+			gOut.Print("Done showing character status summary.");
 		}
 
 		public ShowCharacterStatusSummaryMenu()

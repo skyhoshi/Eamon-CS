@@ -19,9 +19,9 @@ namespace BeginnersForest.Game.Commands
 			{
 				// Scroll vanishes
 
-				if (DobjArtifact.Uid == 3)
+				if (gDobjArtifact.Uid == 3)
 				{
-					DobjArtifact.SetInLimbo();
+					gDobjArtifact.SetInLimbo();
 				}
 			}
 
@@ -30,11 +30,11 @@ namespace BeginnersForest.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
 			// Gate at entrance/exit
 
-			if (DobjArtifact.Uid == 19 || DobjArtifact.Uid == 20)
+			if (gDobjArtifact.Uid == 19 || gDobjArtifact.Uid == 20)
 			{
 				var command = Globals.CreateInstance<IExamineCommand>();
 

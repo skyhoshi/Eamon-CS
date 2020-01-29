@@ -1,7 +1,7 @@
 ﻿
 // AddStandardAdventureMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -15,11 +15,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 	{
 		public override void Execute()
 		{
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Engine.PrintTitle("ADD STANDARD ADVENTURE", true);
+			gEngine.PrintTitle("ADD STANDARD ADVENTURE", true);
 
-			Debug.Assert(!Globals.Engine.IsAdventureFilesetLoaded());
+			Debug.Assert(!gEngine.IsAdventureFilesetLoaded());
 
 			GotoCleanup = false;
 

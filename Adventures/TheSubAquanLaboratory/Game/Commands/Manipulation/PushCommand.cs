@@ -1,7 +1,7 @@
 ﻿
 // PushCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -17,39 +17,35 @@ namespace TheSubAquanLaboratory.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			switch (DobjArtifact.Uid)
+			switch (gDobjArtifact.Uid)
 			{
 				case 3:
 
 					// Elevator up button
 
-					if (gameState.GetNBTL(Friendliness.Enemy) <= 0)
+					if (gGameState.GetNBTL(Friendliness.Enemy) <= 0)
 					{
-						if (ActorRoom.Uid != 17)
+						if (gActorRoom.Uid != 17)
 						{
-							Globals.Out.Print("Up button pushed.");
+							gOut.Print("Up button pushed.");
 
-							var newRoom = Globals.RDB[17];
+							var newRoom = gRDB[17];
 
 							Debug.Assert(newRoom != null);
 
-							var effect = Globals.EDB[2];
+							var effect = gEDB[2];
 
 							Debug.Assert(effect != null);
 
-							Globals.Engine.TransportPlayerBetweenRooms(ActorRoom, newRoom, effect);
+							gEngine.TransportPlayerBetweenRooms(gActorRoom, newRoom, effect);
 
 							NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 						}
 						else
 						{
-							Globals.Engine.PrintEffectDesc(16);
+							gEngine.PrintEffectDesc(16);
 						}
 					}
 					else
@@ -65,27 +61,27 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Elevator down button
 
-					if (gameState.GetNBTL(Friendliness.Enemy) <= 0)
+					if (gGameState.GetNBTL(Friendliness.Enemy) <= 0)
 					{
-						if (ActorRoom.Uid != 18)
+						if (gActorRoom.Uid != 18)
 						{
-							Globals.Out.Print("Down button pushed.");
+							gOut.Print("Down button pushed.");
 
-							var newRoom = Globals.RDB[18];
+							var newRoom = gRDB[18];
 
 							Debug.Assert(newRoom != null);
 
-							var effect = Globals.EDB[3];
+							var effect = gEDB[3];
 
 							Debug.Assert(effect != null);
 
-							Globals.Engine.TransportPlayerBetweenRooms(ActorRoom, newRoom, effect);
+							gEngine.TransportPlayerBetweenRooms(gActorRoom, newRoom, effect);
 
 							NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 						}
 						else
 						{
-							Globals.Engine.PrintEffectDesc(17);
+							gEngine.PrintEffectDesc(17);
 						}
 					}
 					else
@@ -103,24 +99,24 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Black/Yellow/Red buttons (Make mystery food)
 
-					Globals.Out.Print("{0} pushed.", DobjArtifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
+					gOut.Print("{0} pushed.", gDobjArtifact.GetNoneName(true, false));
 
-					var foodArtifact = Globals.ADB[22];
+					var foodArtifact = gADB[22];
 
 					Debug.Assert(foodArtifact != null);
 
-					if (!foodArtifact.IsInLimbo() || ++gameState.FoodButtonPushes < 3)
+					if (!foodArtifact.IsInLimbo() || ++gGameState.FoodButtonPushes < 3)
 					{
-						Globals.Engine.PrintEffectDesc(26);
+						gEngine.PrintEffectDesc(26);
 
 						goto Cleanup;
 					}
 
-					gameState.FoodButtonPushes = 0;
+					gGameState.FoodButtonPushes = 0;
 
-					Globals.Engine.PrintEffectDesc(27);
+					gEngine.PrintEffectDesc(27);
 
-					foodArtifact.SetInRoom(ActorRoom);
+					foodArtifact.SetInRoom(gActorRoom);
 
 					foodArtifact.Seen = false;
 
@@ -135,16 +131,16 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					var d = new long[4];
 
-					var rc = Globals.Engine.RollDice(d.Length, 6, ref d);
+					var rc = gEngine.RollDice(d.Length, 6, ref d);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					if (d[1] > 5 && d[2] < 4)
 					{
 						d[2] += 3;
 					}
 
-					Globals.Out.Print("{0} {1} {2} {3} substance {4} into the deposit area at the bottom of the machine.", 
+					gOut.Print("{0} {1} {2} {3} substance {4} into the deposit area at the bottom of the machine.", 
 						d[1] == 5 ? "An" : "A",
 						gruel[d[1]],
 						gruel[d[3] + 6],
@@ -167,23 +163,23 @@ namespace TheSubAquanLaboratory.Game.Commands
 				case 69:
 				case 70:
 
-					Globals.Out.Print("{0} pushed.", DobjArtifact.GetDecoratedName01(true, false, false, false, Globals.Buf));
+					gOut.Print("{0} pushed.", gDobjArtifact.GetNoneName(true, false));
 
-					switch (DobjArtifact.Uid)
+					switch (gDobjArtifact.Uid)
 					{
 						case 27:
 
 							// Sterilize
 
-							var glassWallsArtifact = Globals.ADB[84];
+							var glassWallsArtifact = gADB[84];
 
 							Debug.Assert(glassWallsArtifact != null);
 
-							if (!glassWallsArtifact.IsInLimbo() && !gameState.Sterilize)
+							if (!glassWallsArtifact.IsInLimbo() && !gGameState.Sterilize)
 							{
-								Globals.Engine.PrintEffectDesc(6);
+								gEngine.PrintEffectDesc(6);
 
-								gameState.Sterilize = true;
+								gGameState.Sterilize = true;
 							}
 
 							goto Cleanup;
@@ -192,7 +188,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							// Nada
 
-							Globals.Engine.PrintEffectDesc(7);
+							gEngine.PrintEffectDesc(7);
 
 							goto Cleanup;
 
@@ -200,11 +196,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							// Flood in
 
-							if (gameState.Flood != 1)
+							if (gGameState.Flood != 1)
 							{
-								Globals.Engine.PrintEffectDesc(8);
+								gEngine.PrintEffectDesc(8);
 
-								gameState.Flood = 1;
+								gGameState.Flood = 1;
 							}
 
 							goto Cleanup;
@@ -213,11 +209,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							// Flood out
 
-							if (gameState.Flood == 1 /* && gameState.FloodLevel > 1 */)
+							if (gGameState.Flood == 1 /* && gGameState.FloodLevel > 1 */)
 							{
-								Globals.Engine.PrintEffectDesc(9);
+								gEngine.PrintEffectDesc(9);
 
-								gameState.Flood = 2;
+								gGameState.Flood = 2;
 							}
 
 							goto Cleanup;
@@ -226,15 +222,15 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							// Turret up
 
-							if (gameState.Elevation < 4)
+							if (gGameState.Elevation < 4)
 							{
-								Globals.Engine.PrintEffectDesc(10);
+								gEngine.PrintEffectDesc(10);
 
-								gameState.Elevation++;
+								gGameState.Elevation++;
 							}
 							else
 							{
-								Globals.Engine.PrintEffectDesc(28);
+								gEngine.PrintEffectDesc(28);
 							}
 
 							goto Cleanup;
@@ -243,15 +239,15 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							// Turret down
 
-							if (gameState.Elevation > 0)
+							if (gGameState.Elevation > 0)
 							{
-								Globals.Engine.PrintEffectDesc(11);
+								gEngine.PrintEffectDesc(11);
 
-								gameState.Elevation--;
+								gGameState.Elevation--;
 							}
 							else
 							{
-								Globals.Engine.PrintEffectDesc(29);
+								gEngine.PrintEffectDesc(29);
 							}
 
 							goto Cleanup;
@@ -260,7 +256,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							// Turret rotate
 
-							Globals.Engine.PrintEffectDesc(12);
+							gEngine.PrintEffectDesc(12);
 
 							goto Cleanup;
 
@@ -268,15 +264,15 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							// Energize
 
-							if (!gameState.Energize)
+							if (!gGameState.Energize)
 							{
-								Globals.Engine.PrintEffectDesc(13);
+								gEngine.PrintEffectDesc(13);
 
-								gameState.Energize = true;
+								gGameState.Energize = true;
 							}
 							else
 							{
-								Globals.Engine.PrintEffectDesc(30);
+								gEngine.PrintEffectDesc(30);
 							}
 
 							goto Cleanup;
@@ -285,15 +281,15 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							// Blue laser
 
-							if (gameState.Energize)
+							if (gGameState.Energize)
 							{
-								Globals.Engine.PrintEffectDesc(14);
+								gEngine.PrintEffectDesc(14);
 
-								gameState.Energize = false;
+								gGameState.Energize = false;
 							}
 							else
 							{
-								Globals.Engine.PrintEffectDesc(30);
+								gEngine.PrintEffectDesc(30);
 							}
 
 							goto Cleanup;
@@ -305,7 +301,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 				default:
 
-					PrintCantVerbObj(DobjArtifact);
+					PrintCantVerbObj(gDobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 

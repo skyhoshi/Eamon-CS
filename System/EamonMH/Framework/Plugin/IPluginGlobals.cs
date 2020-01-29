@@ -1,9 +1,8 @@
 ﻿
 // IPluginGlobals.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
-using System.Text;
 using Eamon.Framework;
 using Eamon.Framework.Menus;
 using EamonMH.Framework.Menus;
@@ -15,9 +14,6 @@ namespace EamonMH.Framework.Plugin
 	{
 		/// <summary></summary>
 		string[] Argv { get; set; }
-
-		/// <summary></summary>
-		StringBuilder Buf { get; set; }
 
 		/// <summary></summary>
 		long WordWrapCurrColumn { get; set; }

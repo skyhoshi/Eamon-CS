@@ -1,7 +1,7 @@
 ﻿
 // EditModuleRecordMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -29,13 +29,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (!Globals.CompareInstances(EditRecord, editModule01))
 			{
-				Globals.Out.Write("{0}Would you like to save this updated module record (Y/N): ", Environment.NewLine);
+				gOut.Write("{0}Would you like to save this updated module record (Y/N): ", Environment.NewLine);
 
 				Buf.Clear();
 
-				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, Globals.Engine.IsCharYOrN);
+				rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, gEngine.IsCharYOrN);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				Globals.Thread.Sleep(150);
 
@@ -67,7 +67,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				rc = Globals.Database.AddModule(editModule01);
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
 				if (Globals.Module == EditRecord)
 				{
@@ -78,7 +78,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 			else
 			{
-				Globals.Out.Print("Module record not modified.");
+				gOut.Print("Module record not modified.");
 			}
 
 		Cleanup:

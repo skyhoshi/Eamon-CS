@@ -1,7 +1,7 @@
 ﻿
 // DropCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -25,15 +25,15 @@ namespace EamonRT.Game.Commands
 
 		public virtual void ProcessLightSource()
 		{
-			if (Globals.GameState.Ls > 0)
+			if (gGameState.Ls > 0)
 			{
-				var lsArtifact = Globals.ADB[Globals.GameState.Ls];
+				var lsArtifact = gADB[gGameState.Ls];
 
 				Debug.Assert(lsArtifact != null && lsArtifact.LightSource != null);
 
-				if ((DropAll || lsArtifact == DobjArtifact) && lsArtifact.IsCarriedByCharacter())
+				if ((DropAll || lsArtifact == gDobjArtifact) && lsArtifact.IsCarriedByCharacter())
 				{
-					Globals.Engine.LightOut(lsArtifact);
+					gEngine.LightOut(lsArtifact);
 				}
 			}
 		}
@@ -42,17 +42,17 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			artifact.SetInRoom(ActorRoom);
+			artifact.SetInRoom(gActorRoom);
 
-			if (ActorMonster.Weapon == artifact.Uid)
+			if (gActorMonster.Weapon == artifact.Uid)
 			{
 				Debug.Assert(artifact.GeneralWeapon != null);
 
 				var rc = artifact.RemoveStateDesc(artifact.GetReadyWeaponDesc());
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				ActorMonster.Weapon = -1;
+				gActorMonster.Weapon = -1;
 			}
 
 			PrintDropped(artifact);
@@ -60,33 +60,33 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DropAll || DobjArtifact != null);
+			Debug.Assert(DropAll || gDobjArtifact != null);
 
-			if (DobjArtifact != null)
+			if (gDobjArtifact != null)
 			{
-				if (DobjArtifact.IsWornByCharacter())
+				if (gDobjArtifact.IsWornByCharacter())
 				{
-					PrintWearingRemoveFirst(DobjArtifact);
+					PrintWearingRemoveFirst(gDobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
 					goto Cleanup;
 				}
 
-				if (!DobjArtifact.IsCarriedByCharacter())
+				if (!gDobjArtifact.IsCarriedByCharacter())
 				{
 					if (!GetCommandCalled)
 					{
-						if (DobjArtifact.IsCarriedByCharacter(true) && DobjArtifact.IsCarriedByContainer())
+						if (gDobjArtifact.IsCarriedByCharacter(true) && gDobjArtifact.IsCarriedByContainer())
 						{
-							RedirectToGetCommand<IDropCommand>(DobjArtifact);
+							RedirectToGetCommand<IDropCommand>(gDobjArtifact);
 						}
 						else
 						{
 							NextState = Globals.CreateInstance<IStartState>();
 						}
 					}
-					else if (DobjArtifact.DisguisedMonster == null)
+					else if (gDobjArtifact.DisguisedMonster == null)
 					{
 						NextState = Globals.CreateInstance<IStartState>();
 					}
@@ -97,7 +97,7 @@ namespace EamonRT.Game.Commands
 
 			ProcessLightSource();
 
-			ArtifactList = DropAll ? ActorMonster.GetCarriedList() : new List<IArtifact>() { DobjArtifact };
+			ArtifactList = DropAll ? gActorMonster.GetCarriedList() : new List<IArtifact>() { gDobjArtifact };
 
 			if (ArtifactList.Count > 0)
 			{
@@ -106,11 +106,11 @@ namespace EamonRT.Game.Commands
 					ProcessArtifact(artifact);
 				}
 
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 			}
 			else
 			{
-				Globals.Out.Print("There's nothing for you to drop.");
+				gOut.Print("There's nothing for you to drop.");
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -156,22 +156,22 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerFinishParsing()
 		{
-			CommandParser.ParseName();
+			gCommandParser.ParseName();
 
-			if (string.Equals(CommandParser.ObjData.Name, "all", StringComparison.OrdinalIgnoreCase))
+			if (string.Equals(gCommandParser.ObjData.Name, "all", StringComparison.OrdinalIgnoreCase))
 			{
 				DropAll = true;
 			}
 			else
 			{
-				CommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+				gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
 				{
 					a => a.IsCarriedByCharacter(),
 					a => a.IsWornByCharacter(),
-					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(Globals.Engine.ExposeContainersRecursively)
+					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively)
 				};
 
-				CommandParser.ObjData.ArtifactNotFoundFunc = PrintDontHaveIt;
+				gCommandParser.ObjData.ArtifactNotFoundFunc = PrintDontHaveIt;
 
 				PlayerResolveArtifact();
 			}

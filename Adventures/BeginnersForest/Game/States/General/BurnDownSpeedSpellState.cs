@@ -19,13 +19,13 @@ namespace BeginnersForest.Game.States
 
 			// Super Magic Agility Ring (patent pending)
 
-			var ringArtifact = Globals.ADB[2];
+			var ringArtifact = gADB[2];
 
 			Debug.Assert(ringArtifact != null);
 
 			if (ringArtifact.IsWornByCharacter())
 			{
-				Globals.Engine.PrintEffectDesc(17);
+				gEngine.PrintEffectDesc(17);
 			}
 
 			ringArtifact.SetInLimbo();

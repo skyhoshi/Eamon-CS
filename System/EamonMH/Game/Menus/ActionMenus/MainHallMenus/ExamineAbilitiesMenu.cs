@@ -1,7 +1,7 @@
 ﻿
 // ExamineAbilitiesMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -23,16 +23,16 @@ namespace EamonMH.Game.Menus.ActionMenus
 		{
 			RetCode rc;
 
-			Globals.Out.Print("{0}", Globals.LineSep);
+			gOut.Print("{0}", Globals.LineSep);
 
-			Globals.Out.Print("You are the {0} {1}", Globals.Character.EvalGender("mighty", "fair", "androgynous"), Globals.Character.Name);
+			gOut.Print("You are the {0} {1}", Globals.Character.EvalGender("mighty", "fair", "androgynous"), Globals.Character.Name);
 
 			Buf.SetFormat("{0}{1}{2}%)",
 				"(Learning: ",
 				Globals.Character.GetIntellectBonusPct() > 0 ? "+" : "",
 				Globals.Character.GetIntellectBonusPct());
 
-			Globals.Out.WriteLine("{0}{1}{2,-2}{3,20}{4,15}{5,-2}{0}{6}{7,-3}{8,34}{9,-2}{10,15}{11}{12}%)",
+			gOut.WriteLine("{0}{1}{2,-2}{3,20}{4,15}{5,-2}{0}{6}{7,-3}{8,34}{9,-2}{10,15}{11}{12}%)",
 				Environment.NewLine,
 				"Intellect:  ", Globals.Character.GetStats(Stat.Intellect),
 				Buf,
@@ -43,7 +43,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 				Globals.Character.GetCharmMonsterPct() > 0 ? "+" : "",
 				Globals.Character.GetCharmMonsterPct());
 
-			Globals.Out.Write("{0}{1}{2,39}",
+			gOut.Write("{0}{1}{2,39}",
 				Environment.NewLine,
 				"Weapon Abilities:",
 				"Spell Abilities:");
@@ -58,39 +58,39 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			while (i <= j)
 			{
-				Globals.Out.WriteLine();
+				gOut.WriteLine();
 
 				if (Enum.IsDefined(typeof(Weapon), i))
 				{
-					var weapon = Globals.Engine.GetWeapons((Weapon)i);
+					var weapon = gEngine.GetWeapons((Weapon)i);
 
 					Debug.Assert(weapon != null);
 
-					Globals.Out.Write(" {0,-5}: {1,3}%",
+					gOut.Write(" {0,-5}: {1,3}%",
 						weapon.Name,
 						Globals.Character.GetWeaponAbilities(i));
 				}
 				else
 				{
-					Globals.Out.Write("{0,12}", "");
+					gOut.Write("{0,12}", "");
 				}
 
 				if (Enum.IsDefined(typeof(Spell), i))
 				{
-					var spell = Globals.Engine.GetSpells((Spell)i);
+					var spell = gEngine.GetSpells((Spell)i);
 
 					Debug.Assert(spell != null);
 
 					if (Globals.Character.GetSpellAbilities(i) > 0)
 					{
-						Globals.Out.Write("{0,29}{1,-5}: {2,3}%",
+						gOut.Write("{0,29}{1,-5}: {2,3}%",
 						"",
 						spell.Name,
 						Globals.Character.GetSpellAbilities(i));
 					}
 					else
 					{
-						Globals.Out.Write("{0,29}{1,-5}: {2}",
+						gOut.Write("{0,29}{1,-5}: {2}",
 							"",
 							spell.Name,
 							"None");
@@ -100,31 +100,31 @@ namespace EamonMH.Game.Menus.ActionMenus
 				i++;
 			}
 
-			Globals.Out.WriteLine("{0}{0}{1}{2,-26}{3}{4,-6}",
+			gOut.WriteLine("{0}{0}{1}{2,-26}{3}{4,-6}",
 				Environment.NewLine,
 				"Gold: ",
 				Globals.Character.HeldGold,
 				"In bank: ",
 				Globals.Character.BankGold);
 
-			var armor = Globals.Engine.GetArmors(Globals.Character.ArmorClass);
+			var armor = gEngine.GetArmors(Globals.Character.ArmorClass);
 
 			Debug.Assert(armor != null);
 
-			Globals.Out.Print("{0}{1,-25}{2}{3,3}%",
+			gOut.Print("{0}{1,-25}{2}{3,3}%",
 				"Armor:  ",
 				armor.Name,
 				"Armor Expertise: ",
 				Globals.Character.ArmorExpertise);
 
-			Globals.Out.Print("{0}{1}{2}{3}{4}",
+			gOut.Print("{0}{1}{2}{3}{4}",
 				"Weight Carryable: ",
 				Globals.Character.GetWeightCarryableGronds(),
 				" Gronds  (",
 				Globals.Character.GetWeightCarryableDos(),
 				" Dos)");
 
-			Globals.Out.Write("{0}{1}{2,25}{3,10}{4,10}{5,19}",
+			gOut.Write("{0}{1}{2,25}{3,10}{4,10}{5,19}",
 				Environment.NewLine,
 				"Weapon Names:",
 				"Complexity:",
@@ -142,11 +142,11 @@ namespace EamonMH.Game.Menus.ActionMenus
 					{
 						rc = Globals.Character.GetBaseOddsToHit(i, ref odds);
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
-						Globals.Out.Write("{0} {1} {2,3}%{3,9}D{4,-9}{5,-12}{6,3}%",
+						gOut.Write("{0} {1} {2,3}%{3,9}D{4,-9}{5,-12}{6,3}%",
 							Environment.NewLine,
-							Globals.Engine.Capitalize(Globals.Character.GetWeapons(i).Name.PadTRight(29, ' ')),
+							gEngine.Capitalize(Globals.Character.GetWeapons(i).Name.PadTRight(29, ' ')),
 							Globals.Character.GetWeapons(i).Field1,
 							Globals.Character.GetWeapons(i).Field3,
 							Globals.Character.GetWeapons(i).Field4,
@@ -161,12 +161,12 @@ namespace EamonMH.Game.Menus.ActionMenus
 			}
 			else
 			{
-				Globals.Out.Write("{0}{0}{1,42}",
+				gOut.Write("{0}{0}{1,42}",
 					Environment.NewLine,
 					"No Weapons");
 			}
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
 			Globals.In.KeyPress(Buf);
 		}

@@ -11,7 +11,293 @@
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Desc" value="The sun filtering through the trees casts eerie shadows across the ground." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="With the sun fully out, this place has almost an ominously &quot;cheerful&quot; look to it." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You notice the fluffy clouds that are passing by overhead." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The trees of the nearby forest seem strangely alive." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You suddenly catch the sound of flowing water, though you're not sure where it's coming from." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You hear, in the distance, " />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You hear, seemingly very close by, " />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You smell " />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You just saw " />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The parchment says:*011" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Quote loudly the words:  &quot;Rinnuk Aukasker Frudasdus.&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The label reads:*013" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="TODO Magi-torch - Instruction tag*014" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Rugged construction and reliability set this product apart from the rest,      but prolonged exposure to moisture can shorten its life span.  Keep dry,       store in a cool climate.*015" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="                            TODO Adventuring Supplies                                                      TODO, TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="As you reach for the cutlass, it vibrates violently and flits into the air.  It now appears to be floating." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The map shows the surrounding region, including the forested areas up to TODO, and the east/west trail, which was quite a bit bigger in those days.  You'd best keep a hold of this map - it might be worth something to a cartographer or map collector." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="100" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="As you reach out over the fountain, the waters suddenly grow very rough, and before long, you find yourself in another encounter." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="101" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You've found a secret panel in the fountain bottom - you may go down." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="102" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You pop the cork out of the cask, and a thick crimson-colored wine-like fluid slowly drips out." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="200" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="There are four more creatures, much the same as the first:  one examines the dead goblin intently while the rest flit about the roof of the cave." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="201" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="lizard's head and torso and the last with a frog's head." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="202" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="the same as the first only a bit smaller, appears seemingly from nowhere.  It sits down at the feet of the lich and begins to purr." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="300" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="LARGE OVEN." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="301" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="See EAMON CS 1.6 NEW COMMANDS for additional details." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="302" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="floor and you can GET ALL." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="303" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="to remove from or add to the container." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -25,6 +311,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="1" />
+    <Simple name="CurrUid" value="303" />
   </Properties>
 </Complex>

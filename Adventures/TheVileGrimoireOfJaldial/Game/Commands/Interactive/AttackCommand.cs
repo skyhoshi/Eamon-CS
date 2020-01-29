@@ -12,6 +12,11 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 	[ClassMappings]
 	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
 	{
+		public AttackCommand()
+		{
+			// Synonyms can be applied to verbs as well
 
+			Synonyms = new string[] { "kill" };
+		}
 	}
 }

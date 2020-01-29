@@ -1,7 +1,7 @@
 ﻿
 // BeforeNecromancerAttacksEnemyState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -18,11 +18,11 @@ namespace StrongholdOfKahrDur.Game.States
 	{
 		public override void Execute()
 		{
-			var necromancerMonster = Globals.MDB[Globals.LoopMonsterUid];
+			var necromancerMonster = gMDB[Globals.LoopMonsterUid];
 
 			Debug.Assert(necromancerMonster != null);
 
-			var characterMonster = Globals.MDB[Globals.GameState.Cm];
+			var characterMonster = gMDB[gGameState.Cm];
 
 			Debug.Assert(characterMonster != null);
 
@@ -44,9 +44,9 @@ namespace StrongholdOfKahrDur.Game.States
 				x.OmitArmor = true;
 			});
 
-			var rl = Globals.Engine.RollDice(1, 7, 0);
+			var rl = gEngine.RollDice(1, 7, 0);
 
-			Globals.Engine.PrintEffectDesc(69 + rl);
+			gEngine.PrintEffectDesc(69 + rl);
 
 			switch(rl)
 			{
@@ -58,13 +58,13 @@ namespace StrongholdOfKahrDur.Game.States
 
 					foreach (var sv in spellValues)
 					{
-						if (Globals.GameState.GetSa(sv) > 5)
+						if (gGameState.GetSa(sv) > 5)
 						{
-							Globals.GameState.SetSa(sv, (long)(Globals.GameState.GetSa(sv) * 0.8));
+							gGameState.SetSa(sv, (long)(gGameState.GetSa(sv) * 0.8));
 
-							if (Globals.GameState.GetSa(sv) < 5)
+							if (gGameState.GetSa(sv) < 5)
 							{
-								Globals.GameState.SetSa(sv, 5);
+								gGameState.SetSa(sv, 5);
 							}
 						}
 					}
@@ -99,7 +99,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 				case 5:
 
-					Globals.Engine.SummonMonster(room, 25);
+					gEngine.SummonMonster(room, 25);
 
 					break;
 
@@ -107,7 +107,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 				case 6:
 
-					Globals.Engine.SummonMonster(room, 24);
+					gEngine.SummonMonster(room, 24);
 
 					break;
 
@@ -115,7 +115,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 				case 7:
 
-					Globals.Engine.SummonMonster(room, 23);
+					gEngine.SummonMonster(room, 23);
 
 					break;
 			}

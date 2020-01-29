@@ -18,6 +18,6 @@ namespace Eamon.Game.Primitive.Classes
 
 		public virtual string Abbr { get; set; }
 
-		public virtual Enums.Direction ArrivalDir { get; set; }
+		public virtual Enums.Direction EnterDir { get; set; }
 	}
 }

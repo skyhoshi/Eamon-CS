@@ -1,7 +1,7 @@
 ﻿
 // AfterPlayerMoveState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -15,19 +15,15 @@ namespace TheSubAquanLaboratory.Game.States
 	{
 		public override void ProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
-			if (eventType == PeAfterExtinguishLightSourceCheck && gameState.R3 == 43 && gameState.Ro != gameState.R3)
+			if (eventType == PeAfterExtinguishLightSourceCheck && gGameState.R3 == 43 && gGameState.Ro != gGameState.R3)
 			{
-				var glassWallsArtifact = Globals.ADB[84];
+				var glassWallsArtifact = gADB[84];
 
 				Debug.Assert(glassWallsArtifact != null);
 
 				if (!glassWallsArtifact.IsInLimbo())
 				{
-					var ovalDoorArtifact = Globals.ADB[16];
+					var ovalDoorArtifact = gADB[16];
 
 					Debug.Assert(ovalDoorArtifact != null);
 
@@ -37,7 +33,7 @@ namespace TheSubAquanLaboratory.Game.States
 					}
 				}
 
-				gameState.Sterilize = false;
+				gGameState.Sterilize = false;
 			}
 
 			base.ProcessEvents(eventType);

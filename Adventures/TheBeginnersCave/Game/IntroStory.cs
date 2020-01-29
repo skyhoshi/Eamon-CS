@@ -1,7 +1,7 @@
 ﻿
 // IntroStory.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -16,35 +16,35 @@ namespace TheBeginnersCave.Game
 	{
 		protected override void PrintOutputBeginnersPrelude()
 		{
-			Globals.Engine.PrintEffectDesc(8);
+			gEngine.PrintEffectDesc(8);
 
-			var room = Globals.RDB[Globals.Engine.StartRoom];
+			var room = gRDB[gEngine.StartRoom];
 
 			Debug.Assert(room != null);
 
-			Globals.Out.Print("{0}", room.Desc);
+			gOut.Print("{0}", room.Desc);
 
-			Globals.Engine.PrintEffectDesc(10);
+			gEngine.PrintEffectDesc(10);
 		}
 
 		protected override void PrintOutputBeginnersTooManyWeapons()
 		{
-			Globals.Engine.PrintEffectDesc(13);
+			gEngine.PrintEffectDesc(13);
 		}
 
 		protected override void PrintOutputBeginnersNoWeapons()
 		{
-			Globals.Engine.PrintEffectDesc(9);
+			gEngine.PrintEffectDesc(9);
 		}
 
 		protected override void PrintOutputBeginnersNotABeginner()
 		{
-			Globals.Engine.PrintEffectDesc(11);
+			gEngine.PrintEffectDesc(11);
 		}
 
 		protected override void PrintOutputBeginnersMayNowProceed()
 		{
-			Globals.Engine.PrintEffectDesc(12);
+			gEngine.PrintEffectDesc(12);
 		}
 
 		public IntroStory()

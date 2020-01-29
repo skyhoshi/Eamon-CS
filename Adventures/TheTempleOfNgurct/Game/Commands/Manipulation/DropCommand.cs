@@ -1,7 +1,7 @@
 ﻿
 // DropCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -18,7 +18,7 @@ namespace TheTempleOfNgurct.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Print("You're wearing {0}.  Remove {0} first.", artifact.EvalPlural("it", "them"));
+			gOut.Print("You're wearing {0}.  Remove {0} first.", artifact.EvalPlural("it", "them"));
 		}
 	}
 }

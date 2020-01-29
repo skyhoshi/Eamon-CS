@@ -1,7 +1,7 @@
 ﻿
 // GetPlayerInputState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using Eamon.Game.Attributes;
@@ -25,22 +25,22 @@ namespace EamonRT.Game.States
 				goto Cleanup;
 			}
 
-			Globals.Out.Write("{0}{1}", Environment.NewLine, Globals.CommandPrompt);
+			gOut.Write("{0}{1}", Environment.NewLine, Globals.CommandPrompt);
 
-			Globals.CursorPosition = Globals.Out.GetCursorPosition();
+			Globals.CursorPosition = gOut.GetCursorPosition();
 
-			if (Globals.CursorPosition.Y > -1 && Globals.CursorPosition.Y + 1 >= Globals.Out.GetBufferHeight())
+			if (Globals.CursorPosition.Y > -1 && Globals.CursorPosition.Y + 1 >= gOut.GetBufferHeight())
 			{
 				Globals.CursorPosition.Y--;
 			}
 
-			Globals.Out.WriteLine();
+			gOut.WriteLine();
 
-			Globals.Out.SetCursorPosition(Globals.CursorPosition);
+			gOut.SetCursorPosition(Globals.CursorPosition);
 
 			Globals.CommandParser.Clear();
 
-			Globals.CommandParser.ActorMonster = Globals.MDB[Globals.GameState.Cm];
+			Globals.CommandParser.ActorMonster = gMDB[gGameState.Cm];
 
 			Globals.CommandParser.InputBuf.SetFormat("{0}", Globals.In.ReadLine());
 

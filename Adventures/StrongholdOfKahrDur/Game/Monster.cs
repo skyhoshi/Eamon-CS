@@ -26,9 +26,9 @@ namespace StrongholdOfKahrDur.Game
 
 			// Lich will ask to be freed
 
-			if (Globals.Engine.IsSuccess(rc) && Uid == 15 && !Seen)
+			if (gEngine.IsSuccess(rc) && Uid == 15 && !Seen)
 			{
-				var effect = Globals.EDB[53];
+				var effect = gEDB[53];
 
 				Debug.Assert(effect != null);
 

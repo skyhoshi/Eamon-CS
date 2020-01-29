@@ -1,7 +1,7 @@
 ﻿
 // SearchCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -20,35 +20,35 @@ namespace TheSubAquanLaboratory.Game.Commands
 		{
 			Debug.Assert(obj != null);
 
-			Globals.Out.Print("You can only {0} dead bodies.", Verb);
+			gOut.Print("You can only {0} dead bodies.", Verb);
 		}
 
 		public virtual void PrintNothingFound(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
 
-			Globals.Out.Print("Searching {0} reveals nothing of interest.", artifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+			gOut.Print("Searching {0} reveals nothing of interest.", artifact.GetTheName());
 		}
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			switch (DobjArtifact.Uid)
+			switch (gDobjArtifact.Uid)
 			{
 				case 89:
 
 					// Dismantled worker android
 
-					var plasticCardArtifact = Globals.ADB[82];
+					var plasticCardArtifact = gADB[82];
 
 					Debug.Assert(plasticCardArtifact != null);
 
 					if (plasticCardArtifact.IsInLimbo())
 					{
-						Globals.Out.Print("{0}", plasticCardArtifact.Desc);
+						gOut.Print("{0}", plasticCardArtifact.Desc);
 
-						plasticCardArtifact.SetInRoom(ActorRoom);
+						plasticCardArtifact.SetInRoom(gActorRoom);
 
 						plasticCardArtifact.Seen = true;
 
@@ -62,20 +62,20 @@ namespace TheSubAquanLaboratory.Game.Commands
 					}
 					else
 					{
-						PrintNothingFound(DobjArtifact);
+						PrintNothingFound(gDobjArtifact);
 					}
 
 					goto Cleanup;
 
 				default:
 
-					if (DobjArtifact.DeadBody != null && DobjArtifact.Uid != 107)
+					if (gDobjArtifact.DeadBody != null && gDobjArtifact.Uid != 107)
 					{
-						PrintNothingFound(DobjArtifact);
+						PrintNothingFound(gDobjArtifact);
 					}
 					else
 					{ 
-						PrintCantVerbObj(DobjArtifact);
+						PrintCantVerbObj(gDobjArtifact);
 
 						NextState = Globals.CreateInstance<IStartState>();
 					}

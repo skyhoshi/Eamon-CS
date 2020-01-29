@@ -1,7 +1,7 @@
 ﻿
 // LightCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -22,21 +22,21 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(gDobjArtifact != null);
 
-			var ac = DobjArtifact.LightSource;
+			var ac = gDobjArtifact.LightSource;
 
 			if (ac != null)
 			{
-				if (!DobjArtifact.IsUnmovable())
+				if (!gDobjArtifact.IsUnmovable())
 				{
-					if (!DobjArtifact.IsCarriedByCharacter())
+					if (!gDobjArtifact.IsCarriedByCharacter())
 					{
 						if (!GetCommandCalled)
 						{
-							RedirectToGetCommand<ILightCommand>(DobjArtifact);
+							RedirectToGetCommand<ILightCommand>(gDobjArtifact);
 						}
-						else if (DobjArtifact.DisguisedMonster == null)
+						else if (gDobjArtifact.DisguisedMonster == null)
 						{
 							NextState = Globals.CreateInstance<IStartState>();
 						}
@@ -47,30 +47,32 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Field1 == 0)
 				{
-					Globals.Out.Print("{0} won't light.", DobjArtifact.EvalPlural("It", "They"));
+					PrintWontLight(gDobjArtifact);
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
 
 					goto Cleanup;
 				}
 
-				if (Globals.GameState.Ls == DobjArtifact.Uid)
+				if (gGameState.Ls == gDobjArtifact.Uid)
 				{
-					Globals.Out.Write("{0}Extinguish {1} (Y/N): ", Environment.NewLine, DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+					gOut.Write("{0}Extinguish {1} (Y/N): ", Environment.NewLine, gDobjArtifact.GetTheName());
 
 					Globals.Buf.Clear();
 
-					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, Globals.Engine.ModifyCharToUpper, Globals.Engine.IsCharYOrN, null);
+					rc = Globals.In.ReadField(Globals.Buf, Constants.BufSize02, null, ' ', '\0', false, null, gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, null);
 
-					Debug.Assert(Globals.Engine.IsSuccess(rc));
+					Debug.Assert(gEngine.IsSuccess(rc));
 
 					if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'Y')
 					{
-						rc = DobjArtifact.RemoveStateDesc(DobjArtifact.GetProvidingLightDesc());
+						rc = gDobjArtifact.RemoveStateDesc(gDobjArtifact.GetProvidingLightDesc());
 
-						Debug.Assert(Globals.Engine.IsSuccess(rc));
+						Debug.Assert(gEngine.IsSuccess(rc));
 
-						Globals.GameState.Ls = 0;
+						gGameState.Ls = 0;
+
+						PrintLightExtinguished(gDobjArtifact);
 					}
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
@@ -78,28 +80,28 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (Globals.GameState.Ls > 0)
+				if (gGameState.Ls > 0)
 				{
-					var lsArtifact = Globals.ADB[Globals.GameState.Ls];
+					var lsArtifact = gADB[gGameState.Ls];
 
 					Debug.Assert(lsArtifact != null && lsArtifact.LightSource != null);
 
-					Globals.Engine.LightOut(lsArtifact);
+					gEngine.LightOut(lsArtifact);
 				}
 
-				rc = DobjArtifact.AddStateDesc(DobjArtifact.GetProvidingLightDesc());
+				rc = gDobjArtifact.AddStateDesc(gDobjArtifact.GetProvidingLightDesc());
 
-				Debug.Assert(Globals.Engine.IsSuccess(rc));
+				Debug.Assert(gEngine.IsSuccess(rc));
 
-				Globals.GameState.Ls = DobjArtifact.Uid;
+				gGameState.Ls = gDobjArtifact.Uid;
 
-				Globals.Out.Print("You've lit {0}.", DobjArtifact.GetDecoratedName03(false, true, false, false, Globals.Buf));
+				PrintLightObj(gDobjArtifact);
 			}
 			else
 			{
-				if (ActorMonster.IsInRoomLit() || DobjArtifact.IsCarriedByCharacter())
+				if (gActorMonster.IsInRoomLit() || gDobjArtifact.IsCarriedByCharacter())
 				{
-					PrintCantVerbObj(DobjArtifact);
+					PrintCantVerbObj(gDobjArtifact);
 				}
 
 				NextState = Globals.CreateInstance<IStartState>();
@@ -117,9 +119,9 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerFinishParsing()
 		{
-			if (!ActorMonster.IsInRoomLit())
+			if (!gActorMonster.IsInRoomLit())
 			{
-				CommandParser.ObjData.ArtifactNotFoundFunc = () => { };
+				gCommandParser.ObjData.ArtifactNotFoundFunc = () => { };
 			}
 
 			PlayerResolveArtifact();

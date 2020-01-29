@@ -15,29 +15,29 @@ namespace BeginnersForest.Game
 	{
 		protected override void PrintOutputBeginnersPrelude()
 		{
-			Globals.Engine.PrintEffectDesc(9);
+			gEngine.PrintEffectDesc(9);
 
-			Globals.Engine.PrintEffectDesc(11);
+			gEngine.PrintEffectDesc(11);
 		}
 
 		protected override void PrintOutputBeginnersTooManyWeapons()
 		{
-			Globals.Engine.PrintEffectDesc(16);
+			gEngine.PrintEffectDesc(16);
 		}
 
 		protected override void PrintOutputBeginnersNoWeapons()
 		{
-			Globals.Engine.PrintEffectDesc(12);
+			gEngine.PrintEffectDesc(12);
 		}
 
 		protected override void PrintOutputBeginnersNotABeginner()
 		{
-			Globals.Engine.PrintEffectDesc(13);
+			gEngine.PrintEffectDesc(13);
 		}
 
 		protected override void PrintOutputBeginnersMayNowProceed()
 		{
-			Globals.Engine.PrintEffectDesc(15);
+			gEngine.PrintEffectDesc(15);
 		}
 
 		public IntroStory()

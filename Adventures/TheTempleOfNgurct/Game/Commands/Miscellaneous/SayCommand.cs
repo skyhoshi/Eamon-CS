@@ -1,7 +1,7 @@
 ﻿
 // SayCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -17,34 +17,30 @@ namespace TheTempleOfNgurct.Game.Commands
 	{
 		public override void PlayerProcessEvents(long eventType)
 		{
-			var gameState = Globals.GameState as Framework.IGameState;
-
-			Debug.Assert(gameState != null);
-
 			// Summon Alkanda
 
 			if (eventType == PpeBeforePlayerSayTextPrint && string.Equals(ProcessedPhrase, "annal natthrac", StringComparison.OrdinalIgnoreCase))
 			{
-				var medallionArtifact = Globals.ADB[77];
+				var medallionArtifact = gADB[77];
 
 				Debug.Assert(medallionArtifact != null);
 
-				if (medallionArtifact.IsCarriedByCharacter() || medallionArtifact.IsInRoom(ActorRoom))
+				if (medallionArtifact.IsCarriedByCharacter() || medallionArtifact.IsInRoom(gActorRoom))
 				{
-					var alkandaMonster = Globals.MDB[56];
+					var alkandaMonster = gMDB[56];
 
 					Debug.Assert(alkandaMonster != null);
 
-					if (!alkandaMonster.IsInRoom(ActorRoom) && !gameState.AlkandaKilled)
+					if (!alkandaMonster.IsInRoom(gActorRoom) && !gGameState.AlkandaKilled)
 					{
-						alkandaMonster.SetInRoom(ActorRoom);
+						alkandaMonster.SetInRoom(gActorRoom);
 
 						NextState = Globals.CreateInstance<IStartState>();
 					}
 				}
 				else
 				{
-					Globals.Out.Print("You don't have the medallion of Ngurct!");
+					gOut.Print("You don't have the medallion of Ngurct!");
 
 					NextState = Globals.CreateInstance<IStartState>();
 
