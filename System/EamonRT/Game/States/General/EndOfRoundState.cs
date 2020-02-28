@@ -1,7 +1,7 @@
 ﻿
 // EndOfRoundState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Linq;
 using Eamon.Game.Attributes;
@@ -13,6 +13,9 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class EndOfRoundState : State, IEndOfRoundState
 	{
+		/// <summary>
+		/// An event that fires at the end of the current round, after all processing has been done.
+		/// </summary>
 		public const long PeAfterRoundEnd = 1;
 
 		public override void Execute()

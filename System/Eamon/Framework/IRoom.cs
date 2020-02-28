@@ -15,16 +15,34 @@ namespace Eamon.Framework
 	{
 		#region Properties
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a value indicating the amount of light in this <see cref="IRoom">Room</see>.
+		/// </summary>
 		LightLevel LightLvl { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a value indicating this <see cref="IRoom">Room</see>'s general type.
+		/// </summary>
 		RoomType Type { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a value that is unused by Eamon CS, but indicates the zone of this <see cref="IRoom">Room</see>.
+		/// </summary>
+		/// <remarks>
+		/// This value is provided to the game developer to allow sets of <see cref="IRoom">Room</see>s to be arbitrarily grouped.
+		/// Then the groups of Rooms can be processed further by the game code if necessary.
+		/// </remarks>
 		long Zone { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets an array of <see cref="IRoom">Room</see> exit links, each element corresponding to one <see cref="Direction">Direction</see>.
+		/// </summary>
+		/// <remarks>
+		/// The elements of this array can be manipulated during game play, but you should never do so directly.  Instead, use the
+		/// <see cref="GetDirs(Direction)"/> and <see cref="SetDirs(Direction,long)"/> methods.  The 0'th element is unused.
+		/// </remarks>
+		/// <seealso cref="GetDirs(long)"/>
+		/// <seealso cref="SetDirs(long,long)"/>
 		long[] Dirs { get; set; }
 
 		#endregion
@@ -51,8 +69,10 @@ namespace Eamon.Framework
 		/// <param name="value"></param>
 		void SetDirs(Direction dir, long value);
 
-		/// <summary></summary>
-		/// <returns></returns>
+		/// <summary>
+		/// Indicates whether this <see cref="IRoom">Room</see> is lit.
+		/// </summary>
+		/// <returns>If <see cref="LightLvl"/> == <see cref="LightLevel.Light"/> then <c>true</c>, otherwise <c>false</c>.</returns>
 		bool IsLit();
 
 		/// <summary></summary>
@@ -155,7 +175,9 @@ namespace Eamon.Framework
 		/// <param name="artifact"></param>
 		void SetDirectionDoor(Direction dir, IArtifact artifact);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets this <see cref="IRoom">Room</see>'s obvious exits prefix string, based on its <see cref="Type">Type</see>.
+		/// </summary>
 		/// <returns></returns>
 		string GetObviousExits();
 
@@ -169,13 +191,17 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		bool IsArtifactListedInRoom(IArtifact artifact);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Evaluates this <see cref="IRoom">Room</see>'s <see cref="LightLvl">LightLvl</see>, returning a value of type T.
+		/// </summary>
 		/// <param name="darkValue"></param>
 		/// <param name="lightValue"></param>
 		/// <returns></returns>
 		T EvalLightLevel<T>(T darkValue, T lightValue);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Evaluates this <see cref="IRoom">Room</see>'s <see cref="Type">Type</see>, returning a value of type T.
+		/// </summary>
 		/// <param name="indoorsValue"></param>
 		/// <param name="outdoorsValue"></param>
 		/// <returns></returns>

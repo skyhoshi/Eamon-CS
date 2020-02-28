@@ -36,6 +36,12 @@
         <member name="P:EamonPM.Game.Portability.TextWriter.Buf01">
             <summary></summary>
         </member>
+        <member name="P:EamonPM.Game.Portability.TextWriter.SingleSpaceRegex">
+            <summary></summary>
+        </member>
+        <member name="P:EamonPM.Game.Portability.TextWriter.DoubleSpaceRegex">
+            <summary></summary>
+        </member>
         <member name="P:EamonPM.Game.Portability.TextWriter.ThreeNewLines">
             <summary></summary>
         </member>

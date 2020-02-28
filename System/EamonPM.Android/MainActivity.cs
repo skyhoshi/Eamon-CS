@@ -225,6 +225,8 @@ namespace EamonPM
 
 			pg = TheWayfarersInn.Game.Plugin.PluginContext.Globals;
 
+			pg = LandOfTheMountainKing.Game.Plugin.PluginContext.Globals;
+
 			// Note: if ECS Mobile crashes while loading textfiles it is likely that the FreeUids list in the offending textfile is
 			// defined as coming from System.Private.CoreLib.  Xamarin.Forms appears to currently only be compatible with mscorlib,
 			// so you should find a textfile in a previous adventure containing this definition and copy it over.
@@ -266,12 +268,7 @@ namespace EamonPM
 
 				foreach (var fullDir in fullDirs)
 				{
-					var fileName = Path.GetFileNameWithoutExtension(fullDir);
-
-					if (!string.Equals(fileName, "AdventureTemplates", StringComparison.OrdinalIgnoreCase))
-					{
-						dirList.Add(fileName);
-					}
+					dirList.Add(Path.GetFileNameWithoutExtension(fullDir));
 				}
 
 				return dirList.ToArray();

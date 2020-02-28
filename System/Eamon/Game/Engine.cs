@@ -648,6 +648,27 @@ namespace Eamon.Game
 			return Globals?.Database?.ModuleTable?.Records?.FirstOrDefault();
 		}
 
+		public virtual T GetRandomElement<T>(T[] array, Func<long> indexFunc = null)
+		{
+			var result = default(T);
+
+			Debug.Assert(array != null && array.Length > 0);
+
+			if (indexFunc == null)
+			{
+				indexFunc = () => RollDice(1, array.Length, -1);
+			}
+
+			var i = indexFunc();
+
+			if (i >= 0 && i < array.Length)
+			{
+				result = array[i];
+			}
+
+			return result;
+		}
+
 		public virtual T EvalFriendliness<T>(Friendliness friendliness, T enemyValue, T neutralValue, T friendValue)
 		{
 			return friendliness == Friendliness.Enemy ? enemyValue : friendliness == Friendliness.Neutral ? neutralValue : friendValue;
@@ -1420,6 +1441,7 @@ namespace Eamon.Game
 		public virtual RetCode StripPrepsAndArticles(StringBuilder buf, ref bool mySeen)
 		{
 			RetCode rc;
+			bool found;
 
 			if (buf == null)
 			{
@@ -1434,35 +1456,49 @@ namespace Eamon.Game
 
 			mySeen = false;
 
-			foreach (var p in Preps)
+			while (true)
 			{
-				var s = p.Name + " ";
+				found = false;
 
-				if (buf.StartsWith(s, true))
+				foreach (var p in Preps)
 				{
-					buf.Remove(0, s.Length);
+					var s = p.Name + " ";
 
-					buf.TrimStart();
-
-					break;
-				}
-			}
-
-			foreach (var a in Articles)
-			{
-				var s = a + " ";
-
-				if (buf.StartsWith(s, true))
-				{
-					buf.Remove(0, s.Length);
-
-					buf.TrimStart();
-
-					if (a == "my" || a == "your")
+					if (buf.StartsWith(s, true))
 					{
-						mySeen = true;
-					}
+						buf.Remove(0, s.Length);
 
+						buf.TrimStart();
+
+						found = true;
+
+						break;
+					}
+				}
+
+				foreach (var a in Articles)
+				{
+					var s = a + " ";
+
+					if (buf.StartsWith(s, true))
+					{
+						buf.Remove(0, s.Length);
+
+						buf.TrimStart();
+
+						if (a == "my" || a == "your")
+						{
+							mySeen = true;
+						}
+
+						found = true;
+
+						break;
+					}
+				}
+
+				if (!found)
+				{
 					break;
 				}
 			}

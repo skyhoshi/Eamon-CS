@@ -5,6 +5,7 @@
 
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
@@ -17,10 +18,14 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class ReadCommand : Command, IReadCommand
 	{
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires before an <see cref="IArtifact">Artifact</see>'s read text is printed.
+		/// </summary>
 		public const long PpeBeforeArtifactReadTextPrint = 1;
 
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires after the player reads an <see cref="IArtifact">Artifact</see>.
+		/// </summary>
 		public const long PpeAfterArtifactRead = 2;
 
 		public override void PlayerExecute()

@@ -17,8 +17,15 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class PlayerMoveCheckState : State, IPlayerMoveCheckState
 	{
+		/// <summary>
+		/// An event that fires before it is known whether the player can move to a <see cref="IRoom">Room</see>.
+		/// </summary>
 		public const long PeBeforeCanMoveToRoomCheck = 1;
 
+		/// <summary>
+		/// An event that fires after it is known whether a blocking <see cref="IArtifact">Artifact</see> (for example,
+		/// a door) prevents the player's movement.
+		/// </summary>
 		public const long PeAfterBlockingArtifactCheck = 2;
 
 		public bool _found;

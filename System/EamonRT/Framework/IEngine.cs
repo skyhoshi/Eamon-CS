@@ -17,10 +17,15 @@ namespace EamonRT.Framework
 	/// <summary></summary>
 	public interface IEngine : EamonDD.Framework.IEngine
 	{
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the <see cref="IRoom">Room</see><see cref="IGameBase.Uid"> Uid</see> of the player character's initial location at
+		/// the beginning of the game.
+		/// </summary>
 		long StartRoom { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the number of Saved Game slots available for use in the game.
+		/// </summary>
 		long NumSaveSlots { get; set; }
 
 		/// <summary></summary>
@@ -280,6 +285,30 @@ namespace EamonRT.Framework
 		/// <param name="monster"></param>
 		/// <returns></returns>
 		IList<IArtifact> BuildLoopArtifactList(IMonster monster);
+
+		/// <summary>
+		/// Gets the original carried/worn inventory brought by the player into the game.
+		/// </summary>
+		IList<IArtifact> GetImportedPlayerInventory();
+
+		/// <summary>
+		/// Hides the original carried/worn inventory brought by the player into the game by moving each <see cref="IArtifact">Artifact</see> into Limbo.
+		/// </summary>
+		/// <remarks>
+		/// This method is intended to be used with <see cref="RestoreImportedPlayerInventory()">RestoreImportedPlayerInventory</see> to hide the player's inventory
+		/// when entering the game and then restore it again prior to exiting the game.  It should only be used in <see cref="IMainLoop.Startup">MainLoop.Startup</see>.
+		/// </remarks>
+		void HideImportedPlayerInventory();
+
+		/// <summary>
+		/// Restores the original carried/worn inventory brought by the player into the game by moving each <see cref="IArtifact">Artifact</see> back to its initial
+		/// location.
+		/// </summary>
+		/// <remarks>
+		/// This method is intended to be used with <see cref="HideImportedPlayerInventory()">HideImportedPlayerInventory</see> to hide the player's inventory when
+		/// entering the game and then restore it again prior to exiting the game.  It should only be used in <see cref="IMainLoop.Shutdown">MainLoop.Shutdown</see>.
+		/// </remarks>
+		void RestoreImportedPlayerInventory();
 
 		/// <summary></summary>
 		/// <param name="commands"></param>

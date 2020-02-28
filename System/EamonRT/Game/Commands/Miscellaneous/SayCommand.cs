@@ -17,10 +17,14 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class SayCommand : Command, ISayCommand
 	{
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires before the player's spoken text is printed.
+		/// </summary>
 		public const long PpeBeforePlayerSayTextPrint = 1;
 
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires after the player says something.
+		/// </summary>
 		public const long PpeAfterPlayerSay = 2;
 
 		public virtual string OriginalPhrase { get; set; }

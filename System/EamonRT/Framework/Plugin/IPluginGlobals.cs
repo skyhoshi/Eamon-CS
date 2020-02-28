@@ -1,7 +1,7 @@
 ﻿
 // IPluginGlobals.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using System.Text;
@@ -45,6 +45,9 @@ namespace EamonRT.Framework.Plugin
 
 		/// <summary></summary>
 		long LoopGroupCount { get; set; }
+
+		/// <summary></summary>
+		long LoopFailedMoveMemberCount { get; set; }
 
 		/// <summary></summary>
 		IMonster LoopLastDfMonster { get; set; }

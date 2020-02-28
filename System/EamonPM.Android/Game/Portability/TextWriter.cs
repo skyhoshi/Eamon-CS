@@ -1,14 +1,16 @@
 ﻿
 // TextWriter.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Text;
+using System.Text.RegularExpressions;
 using Xamarin.Forms;
 using Eamon.Framework.Portability;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Extensions;
 using Eamon.Mobile;
 using static Eamon.Game.Plugin.PluginContext;
@@ -25,6 +27,12 @@ namespace EamonPM.Game.Portability
 
 		/// <summary></summary>
 		protected virtual StringBuilder Buf01 { get; set; }
+
+		/// <summary></summary>
+		protected virtual Regex SingleSpaceRegex { get; set; }
+
+		/// <summary></summary>
+		protected virtual Regex DoubleSpaceRegex { get; set; }
 
 		/// <summary></summary>
 		protected virtual string ThreeNewLines { get; set; }
@@ -60,6 +68,8 @@ namespace EamonPM.Game.Portability
 		}
 
 		public virtual bool Stdout { get; set; }
+
+		public virtual PunctSpaceCode PunctSpaceCode { get; set; }
 
 		/// <summary></summary>
 		protected virtual void EnforceOutputBufMaxSize()
@@ -329,6 +339,11 @@ namespace EamonPM.Game.Portability
 				Buf.SetFormat("{0}", Buf01);
 			}
 
+			if (PunctSpaceCode != PunctSpaceCode.None)
+			{
+				Buf.SetFormat("{0}", PunctSpaceCode == PunctSpaceCode.Single ? SingleSpaceRegex.Replace(Buf.ToString(), @"$1 $3") : DoubleSpaceRegex.Replace(Buf.ToString(), @"$1  $3"));
+			}
+
 			if (WordWrap && Globals?.Engine != null)
 			{
 				Globals.Engine.WordWrap(Buf.ToString(), Buf);
@@ -506,6 +521,10 @@ namespace EamonPM.Game.Portability
 			Buf = new StringBuilder(Constants.BufSize);
 
 			Buf01 = new StringBuilder(Constants.BufSize);
+
+			SingleSpaceRegex = new Regex(@"([.?!:])(  )([^ ]|$)");
+
+			DoubleSpaceRegex = new Regex(@"([.?!:])( )([^ ]|$)");
 
 			ThreeNewLines = string.Format("{0}{0}{0}", Environment.NewLine);
 

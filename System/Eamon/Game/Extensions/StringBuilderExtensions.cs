@@ -1,7 +1,7 @@
 ﻿
 // StringBuilderExtensions.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Text;
@@ -49,6 +49,19 @@ namespace Eamon.Game.Extensions
 			if (buf != null && format != null)
 			{
 				buf.AppendFormat(Environment.NewLine + format + Environment.NewLine, args);
+			}
+
+			return buf;
+		}
+
+		public static StringBuilder TrimEndPunctuationMinusPound(this StringBuilder buf)
+		{
+			if (buf != null)
+			{
+				while (buf.Length > 0 && char.IsPunctuation(buf[buf.Length - 1]) && buf[buf.Length - 1] != '#')
+				{
+					buf.Length--;
+				}
 			}
 
 			return buf;

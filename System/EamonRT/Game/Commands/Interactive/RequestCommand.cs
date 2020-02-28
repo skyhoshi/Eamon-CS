@@ -83,7 +83,7 @@ namespace EamonRT.Game.Commands
 
 			gCommandParser.ObjData = gCommandParser.IobjData;
 
-			gCommandParser.ObjData.QueryDesc = string.Format("{0}From whom? ", Environment.NewLine);
+			gCommandParser.ObjData.QueryDescFunc = () => string.Format("{0}From whom? ", Environment.NewLine);
 
 			PlayerResolveMonster();
 

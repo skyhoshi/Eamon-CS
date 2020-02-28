@@ -8,6 +8,72 @@
       <Items>
         <Complex type="TheWayfarersInn.Game.Effect, TheWayfarersInn, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You inch further out over the bridge, timidly, but realize too late that in its current compromised state, your weight exceeds its structural capacity.  With a snap of boards, your arms flail wildly, trying to grasp at anything solid.  But you **002" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheWayfarersInn.Game.Effect, TheWayfarersInn, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="drop through and plunge 80 feet, slamming into the jagged rocks below.  The raging river washes your body downstream, and you are never seen again." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheWayfarersInn.Game.Effect, TheWayfarersInn, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="As your bravado overpowers your common-sense, you step up to the edge of the dropoff.  Too late, you realize that its surface is unstable, crumbling from years of exposure to the elements.  Your feet slip out from under you and you plummet **004" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheWayfarersInn.Game.Effect, TheWayfarersInn, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="into the ravine!  The impact kills you instantly, and the churning water carries your broken body away." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheWayfarersInn.Game.Effect, TheWayfarersInn, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="gorge some 60 feet below.  The dark forest encroaches at your back and also across the river.  You get the strangest sense that you've seen this place before, but for your life, you **006" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheWayfarersInn.Game.Effect, TheWayfarersInn, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="can't quite figure out where." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheWayfarersInn.Game.Effect, TheWayfarersInn, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="Uid" value="100" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />

@@ -20,8 +20,8 @@ namespace Eamon.Framework
 
 		/// <summary>
 		/// Gets or sets a collection of functions used to resolve macros embedded in <see cref="IGameBase.Desc">Desc</see>, 
-		/// <see cref="IArtifact">Artifact</see> <see cref="IArtifact.StateDesc">StateDesc</see> and <see cref="IMonster">Monster</see>
-		/// <see cref="IMonster.StateDesc">StateDesc</see> properties.
+		/// <see cref="IArtifact">Artifact</see><see cref="IArtifact.StateDesc"> StateDesc</see> and <see cref="IMonster">Monster</see>
+		/// <see cref="IMonster.StateDesc"> StateDesc</see> properties.
 		/// </summary>
 		IDictionary<long, Func<string>> MacroFuncs { get; set; }
 
@@ -575,6 +575,12 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		IModule GetModule();
 
+		/// <summary></summary>
+		/// <param name="array"></param>
+		/// <param name="indexFunc"></param>
+		/// <returns></returns>
+		T GetRandomElement<T>(T[] array, Func<long> indexFunc = null);
+
 		/// <summary>
 		/// Evaluates the <see cref="Friendliness"/>, returning a value of type T.
 		/// </summary>
@@ -595,7 +601,9 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		T EvalGender<T>(Gender gender, T maleValue, T femaleValue, T neutralValue);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Evaluates the <see cref="ContainerType"/>, returning a value of type T.
+		/// </summary>
 		/// <param name="containerType"></param>
 		/// <param name="inValue"></param>
 		/// <param name="onValue"></param>

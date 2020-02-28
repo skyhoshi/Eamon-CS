@@ -14,7 +14,9 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : Command, IPowerCommand
 	{
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires after the player's spell cast attempt has resolved as successful.
+		/// </summary>
 		public const long PpeAfterPlayerSpellCastCheck = 1;
 
 		public virtual bool CastSpell { get; set; }

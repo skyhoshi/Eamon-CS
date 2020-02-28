@@ -1,12 +1,12 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.MonsterDbTable, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.MonsterDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IMonster, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IMonster, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
@@ -38,7 +38,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
@@ -70,7 +70,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="3" />
             <Simple name="IsUidRecycled" value="True" />
@@ -102,7 +102,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
@@ -134,7 +134,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
@@ -166,7 +166,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
@@ -198,7 +198,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="7" />
             <Simple name="IsUidRecycled" value="True" />
@@ -230,7 +230,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
@@ -262,7 +262,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
@@ -294,7 +294,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="10" />
             <Simple name="IsUidRecycled" value="True" />
@@ -326,7 +326,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="11" />
             <Simple name="IsUidRecycled" value="True" />
@@ -358,7 +358,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="12" />
             <Simple name="IsUidRecycled" value="True" />
@@ -390,7 +390,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="13" />
             <Simple name="IsUidRecycled" value="True" />
@@ -422,7 +422,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="14" />
             <Simple name="IsUidRecycled" value="True" />
@@ -454,7 +454,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="15" />
             <Simple name="IsUidRecycled" value="True" />
@@ -486,7 +486,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="16" />
             <Simple name="IsUidRecycled" value="True" />
@@ -518,7 +518,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="17" />
             <Simple name="IsUidRecycled" value="True" />
@@ -550,7 +550,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="18" />
             <Simple name="IsUidRecycled" value="True" />
@@ -582,7 +582,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="19" />
             <Simple name="IsUidRecycled" value="True" />
@@ -614,7 +614,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="20" />
             <Simple name="IsUidRecycled" value="True" />
@@ -646,7 +646,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="21" />
             <Simple name="IsUidRecycled" value="True" />
@@ -678,7 +678,7 @@
             <Simple name="Field2" value="0" />
           </Properties>
         </Complex>
-        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheSubAquanLaboratory.Game.Monster, TheSubAquanLaboratory, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="22" />
             <Simple name="IsUidRecycled" value="True" />

@@ -177,6 +177,8 @@ namespace EamonRT.Game
 
 				Debug.Assert(IsSuccess(rc));
 
+				gGameState.SetImportedArtUids(gGameState.ImportedArtUidsIdx++, artifact.Uid);
+
 				if (artifact.IsWornByCharacter())
 				{
 					gGameState.Ar = artifact.Uid;
@@ -265,6 +267,8 @@ namespace EamonRT.Game
 				rc = Globals.Database.AddArtifact(artifact);
 
 				Debug.Assert(IsSuccess(rc));
+
+				gGameState.SetImportedArtUids(gGameState.ImportedArtUidsIdx++, artifact.Uid);
 
 				if (artifact.IsWornByCharacter())
 				{
@@ -690,6 +694,8 @@ namespace EamonRT.Game
 			rc = Globals.Database.AddArtifact(artifact);
 
 			Debug.Assert(IsSuccess(rc));
+
+			gGameState.SetImportedArtUids(gGameState.ImportedArtUidsIdx++, artifact.Uid);
 
 			return artifact;
 		}
@@ -1804,6 +1810,13 @@ namespace EamonRT.Game
 					}
 				}
 
+				if (rl < monster.GroupCount)
+				{
+					monster.GroupCount -= rl;
+
+					Globals.LoopFailedMoveMemberCount = rl;
+				}
+
 				goto Cleanup;
 			}
 
@@ -1860,7 +1873,7 @@ namespace EamonRT.Game
 
 				var monsterName01 = monster.EvalInRoomLightLevel(rl > 1 ? "Unseen entities" : "An unseen entity", monster.GetArticleName(true));
 
-				var direction01 = gEngine.GetDirections(direction);
+				var direction01 = GetDirections(direction);
 
 				Debug.Assert(direction01 != null);
 
@@ -2214,6 +2227,156 @@ namespace EamonRT.Game
 			}
 
 			return artifactList;
+		}
+
+		public virtual IList<IArtifact> GetImportedPlayerInventory()
+		{
+			var artifactList = new List<IArtifact>();
+
+			if (gGameState != null)
+			{
+				for (var i = 0; i < gGameState.ImportedArtUidsIdx; i++)
+				{
+					var artifact = gADB[gGameState.GetImportedArtUids(i)];
+
+					Debug.Assert(artifact != null);
+
+					artifactList.Add(artifact);
+				}
+			}
+
+			return artifactList;
+		}
+
+		public virtual void HideImportedPlayerInventory()
+		{
+			// Look up the player character
+
+			var characterMonster = gMDB[gGameState.Cm];
+
+			Debug.Assert(characterMonster != null);
+
+			// Grab a random Room - we'll use StartRoom here since it really doesn't matter
+
+			var room = gRDB[StartRoom];
+
+			Debug.Assert(room != null);
+
+			// This queries the game database for all Artifacts brought in by the player character
+
+			var artifactList = GetImportedPlayerInventory();
+
+			// Suppress output to the console
+
+			gOut.EnableOutput = false;
+
+			foreach (var artifact in artifactList)
+			{
+				// If the Artifact is worn by the player character
+
+				if (artifact.IsWornByCharacter())
+				{
+					// In order to keep the game state from getting messed up we have to simulate an actual RemoveCommand execution
+
+					Globals.CurrState = Globals.CreateInstance<IRemoveCommand>(x =>
+					{
+						x.ActorMonster = characterMonster;
+
+						x.ActorRoom = room;
+
+						x.Dobj = artifact;
+					});
+
+					// Execute the RemoveCommand... after this the Artifact will no longer be worn (and the game state will be properly updated)
+
+					Globals.CurrCommand.PlayerExecute();
+				}
+
+				// In order to keep the game state from getting messed up we have to simulate an actual DropCommand execution
+
+				Globals.CurrState = Globals.CreateInstance<IDropCommand>(x =>
+				{
+					x.ActorMonster = characterMonster;
+
+					x.ActorRoom = room;
+
+					x.Dobj = artifact;
+				});
+
+				// Execute the DropCommand... after this the Artifact will no longer be carried (and the game state will be properly updated)
+
+				Globals.CurrCommand.PlayerExecute();
+
+				// Now we can move it into limbo without messing anything up
+
+				artifact.SetInLimbo();
+			}
+
+			// Enable console output again
+
+			gOut.EnableOutput = true;
+
+			// We need to recreate the initial game state since we were creating and executing the fake Commands above
+
+			CreateInitialState(false);
+		}
+
+		public virtual void RestoreImportedPlayerInventory()
+		{
+			// Look up the player character
+
+			var characterMonster = gMDB[gGameState.Cm];
+
+			Debug.Assert(characterMonster != null);
+
+			// grab a random Room - we'll use StartRoom here since it really doesn't matter
+
+			var room = gRDB[StartRoom];
+
+			Debug.Assert(room != null);
+
+			// This queries the game database for all Artifacts brought in by the player character
+
+			var artifactList = GetImportedPlayerInventory();
+
+			// Suppress output to the console
+
+			Globals.Out.EnableOutput = false;
+
+			foreach (var artifact in artifactList)
+			{
+				// First make the Artifact carried by the player character... you don't need to put it in Room and then do
+				// GetCommand because there isn't really any game state to mess up... but you could if you wanted to I guess
+				// just to be safe
+
+				artifact.SetCarriedByCharacter();
+
+				// If the Artifact is Wearable, make sure it's worn (otherwise it will accidentally get sold to Sam Slicker)
+
+				if (artifact.Wearable != null)
+				{
+					// In order to keep the game state from getting messed up we have to simulate an actual WearCommand execution
+
+					Globals.CurrState = Globals.CreateInstance<IWearCommand>(x =>
+					{
+						x.ActorMonster = characterMonster;
+
+						x.ActorRoom = room;
+
+						x.Dobj = artifact;
+					});
+
+					// Execute the WearCommand... after this the Artifact will be worn (and the game state will be properly updated)
+
+					Globals.CurrCommand.PlayerExecute();
+				}
+			}
+
+			// Enable console output again
+
+			gOut.EnableOutput = true;
+
+			// (no need to update Globals.CurrState to anything else since we're shutting down)
 		}
 
 		public virtual RetCode BuildCommandList(IList<ICommand> commands, CommandType cmdType, StringBuilder buf, ref bool newSeen)

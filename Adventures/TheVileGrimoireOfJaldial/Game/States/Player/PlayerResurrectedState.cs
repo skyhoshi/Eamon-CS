@@ -42,7 +42,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 				{
 					if (artifact.IsWornByCharacter())
 					{
-						var removeCommand = Globals.CreateInstance<IRemoveCommand>(x =>
+						Globals.CurrState = Globals.CreateInstance<IRemoveCommand>(x =>
 						{
 							x.ActorMonster = characterMonster;
 
@@ -51,10 +51,10 @@ namespace TheVileGrimoireOfJaldial.Game.States
 							x.Dobj = artifact;
 						});
 
-						removeCommand.PlayerExecute();
+						Globals.CurrCommand.PlayerExecute();
 					}
 
-					var dropCommand = Globals.CreateInstance<IDropCommand>(x =>
+					Globals.CurrState = Globals.CreateInstance<IDropCommand>(x =>
 					{
 						x.ActorMonster = characterMonster;
 
@@ -63,7 +63,9 @@ namespace TheVileGrimoireOfJaldial.Game.States
 						x.Dobj = artifact;
 					});
 
-					dropCommand.PlayerExecute();
+					Globals.CurrCommand.PlayerExecute();
+
+					Globals.CurrState = this;
 				}
 			}
 

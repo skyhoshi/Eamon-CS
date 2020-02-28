@@ -1,15 +1,15 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.HintDbTable, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.HintDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IHint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IHint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
-            <Simple name="Question" value="EAMON CS 1.4 GENERAL HELP." />
+            <Simple name="Question" value="EAMON CS 1.6 GENERAL HELP." />
             <Simple name="NumAnswers" value="8" />
             <SingleArray name="Answers">
               <Items>
@@ -32,10 +32,10 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
-            <Simple name="Question" value="EAMON CS 1.4 NEW COMMANDS." />
+            <Simple name="Question" value="EAMON CS 1.6 NEW COMMANDS." />
             <Simple name="NumAnswers" value="3" />
             <SingleArray name="Answers">
               <Items>
@@ -53,7 +53,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
             <Simple name="Question" value="Why am I always killed by wild animals when I exit the game?" />
@@ -79,7 +79,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
             <Simple name="Question" value="Where are the buried artifacts I can access with the DIG command?" />
@@ -105,7 +105,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
             <Simple name="Question" value="What do I do to discover the secret doors in this game?" />
@@ -131,7 +131,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
             <Simple name="Question" value="What do I do with the dead rabbit?  It doesn't appear to be edible." />
@@ -157,7 +157,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
             <Simple name="Question" value="Help!  I'm lost in the maze!  Is there anything interesting in here?" />
@@ -183,7 +183,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
             <Simple name="Question" value="How do I get past the large rock that's blocking the southern passage?" />
@@ -209,7 +209,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
             <Simple name="Question" value="How do I get past the slime in the oblong room or rough-walled passage?" />
@@ -235,7 +235,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
             <Simple name="Question" value="What do I do with the swallower shark?" />
@@ -261,7 +261,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
             <Simple name="Question" value="What do I do with the metal pedestal?" />
@@ -287,7 +287,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
             <Simple name="Question" value="How do I get past the bronze door?" />
@@ -313,7 +313,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
             <Simple name="Question" value="How do I get past the gold curtain in the worship room?" />
@@ -339,7 +339,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
             <Simple name="Question" value="What do I do in the concealed room?" />
@@ -365,7 +365,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
             <Simple name="Question" value="How do I complete the quest for this game?" />
@@ -391,7 +391,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Active" value="True" />
             <Simple name="Question" value="What is the &quot;moral quandary&quot; mentioned by the INFO command?" />

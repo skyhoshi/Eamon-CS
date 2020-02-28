@@ -17,8 +17,16 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class AfterPlayerMoveState : State, IAfterPlayerMoveState
 	{
+		/// <summary>
+		/// An event that fires after the player has moved to a new <see cref="IRoom">Room</see>, and any carried light
+		/// source has been extinguished (if necessary).
+		/// </summary>
 		public const long PeAfterExtinguishLightSourceCheck = 1;
 
+		/// <summary>
+		/// An event that fires after the player has moved to a new <see cref="IRoom">Room</see>, and any <see cref="IMonster">Monster</see>s
+		/// in the exited Room (friendly or hostile) have followed.
+		/// </summary>
 		public const long PeAfterMoveMonsters = 2;
 
 		public virtual IRoom Room { get; set; }

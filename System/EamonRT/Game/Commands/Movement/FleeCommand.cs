@@ -20,7 +20,9 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class FleeCommand : Command, IFleeCommand
 	{
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires after checking whether exits are available for fleeing, and it resolves that there are.
+		/// </summary>
 		public const long PpeAfterNumberOfExitsCheck = 1;
 
 		public virtual Direction Direction { get; set; }

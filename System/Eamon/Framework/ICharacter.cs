@@ -1,7 +1,7 @@
 ﻿
 // ICharacter.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Text;
@@ -199,7 +199,9 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		bool IsWeaponActive(long index);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Evaluates this <see cref="ICharacter">Character</see>'s <see cref="Gender">Gender</see>, returning a value of type T.
+		/// </summary>
 		/// <param name="maleValue"></param>
 		/// <param name="femaleValue"></param>
 		/// <param name="neutralValue"></param>

@@ -1,0 +1,3154 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="30" />
+            <Simple name="Weight" value="20" />
+            <Simple name="Location" value="-2" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Weapon" />
+                    <Simple name="Field1" value="5" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="2" />
+                    <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="2" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="battle axe" />
+            <Simple name="Desc" value="It is one heavy, sharp and deadly battle axe." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5003" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field1" value="15" />
+                    <Simple name="Field2" value="-1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="large tree" />
+            <Simple name="Desc" value="Inspecting the tree, you find some steps carved into the tree, which lead up." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5014" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="window opening" />
+            <Simple name="Desc" value="The opening looks like a window, though it is placed very high up the cliff wall." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="lying sprawled on the ground" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="35" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dead bat" />
+            <Simple name="Desc" value="Now that the bat is dead, you can get a better look at it. It is not a pretty sight." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5014" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="forest" />
+            <Simple name="Desc" value="The forest seems dense. You can't see much from here." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="shining a strong beam of light to the south over the ocean" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5014" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="OnContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="2" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="big lamp" />
+            <Simple name="Desc" value="It is a big lamp, which seems to shine magically in one direction. There is a button on it." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="2006" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="button" />
+            <Simple name="Desc" value="It is a circular button." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="14" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="tall cliff" />
+            <Simple name="Desc" value="You look west towards the cliffs and see a small opening high up on the cliff wall. It looks like a window, as if there was a cave inside the cliff." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="14" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="sea ocean" />
+            <Simple name="Desc" value="The beautiful sea stretches south towards the horizon." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="14" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cosy beach" />
+            <Simple name="Desc" value="The beach lies on the southeastern corner of this island. The white sand and the clear water looks lovely." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5014" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bridge" />
+            <Simple name="Desc" value="The bridge crosses the ravine to the north. It seems as if some figure is standing on th middle of the bridge. It is however, hard to tell from this distance." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5014" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="wide ravine" />
+            <Simple name="Desc" value="The ravine blocks all progress to the north from this island to the main land further north. Luckily there is a bridge spanning the ravine." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5014" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="huge tree" />
+            <Simple name="Desc" value="The tree seems huge, even from this distance. There appears to be a platform of some sort up in the tree, though it is hard to see it through the leaves and branches." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5014" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="wooden platform" />
+            <Simple name="Desc" value="There appears to be a platform up in the tree but it from here, it is hard to see since the branches and leaves block the view." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5011" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="creaky stair" />
+            <Simple name="Desc" value="The creaky stairs appear safe enough." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5001" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="sky" />
+            <Simple name="Desc" value="The sky is clouded so you can't really see the sun." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5001" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cloud" />
+            <Simple name="Desc" value="The clouds make it impossible to see the sun, and later this evening, the stars." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5001" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="beams of the sun" />
+            <Simple name="Desc" value="The beams of the sun cannot penetrate the thick layer of clouds." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5001" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="barren plain" />
+            <Simple name="Desc" value="The plain is completely barren. Nothing seems to grow here." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="50" />
+            <Simple name="Weight" value="3" />
+            <Simple name="Location" value="-4" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="MagicWeapon" />
+                    <Simple name="Field1" value="5" />
+                    <Simple name="Field2" value="2" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="2" />
+                    <Simple name="Field5" value="1" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="wand of lightning" />
+            <Simple name="Desc" value="The wand of lightning seems to be magical and you don't know how to activate the magic, so it is close to useless to you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Lisa's dead body" />
+            <Simple name="Desc" value="Lisa is lying lifeless on the ground." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="15" />
+            <Simple name="Weight" value="35" />
+            <Simple name="Location" value="-5" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Weapon" />
+                    <Simple name="Field1" value="45" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="3" />
+                    <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="2" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="big club" />
+            <Simple name="Desc" value="It is a huge club, too huge to be an effective weapon for anyone smaller than a ogre." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="sticking out of the mud" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="901" />
+            <Simple name="Location" value="8" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="handle" />
+            <Simple name="Desc" value="There is something sticking out of the mud. It seems to be some sort of handle." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="35" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="body of the swamp monster" />
+            <Simple name="Desc" value="The huge body of the swamp moster lies covered in slime. It seems to be sinking into the bubbling mud, though very slow." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="45" />
+            <Simple name="Weight" value="18" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Weapon" />
+                    <Simple name="Field1" value="10" />
+                    <Simple name="Field2" value="5" />
+                    <Simple name="Field3" value="2" />
+                    <Simple name="Field4" value="9" />
+                    <Simple name="Field5" value="1" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="silver sword" />
+            <Simple name="Desc" value="It is a beautiful sharp silver sword, which should come in handy in combat." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="body of a man" />
+            <Simple name="Desc" value="Something is happening! The werewolf shrinks and its fur vanishes. It also goes through some sort of shape transformation. After a while the process is over. Now lies the body of a dead man in front of you!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="50" />
+            <Simple name="Weight" value="3" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="27" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="necklace with a locket" />
+            <Simple name="Desc" value="It is a gold necklace with a locket. You briefly open the locket and see that there is a hair inside. You close the locket again." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="10" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="InContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="10" />
+                    <Simple name="Field4" value="2" />
+                    <Simple name="Field5" value="2" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="28" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bin" />
+            <Simple name="Desc" value="There is a bin in the corner. It appears to be bolted to the wall. You can probably open it." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="25" />
+            <Simple name="Weight" value="5" />
+            <Simple name="Location" value="1028" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Weapon" />
+                    <Simple name="Field1" value="5" />
+                    <Simple name="Field2" value="5" />
+                    <Simple name="Field3" value="2" />
+                    <Simple name="Field4" value="5" />
+                    <Simple name="Field5" value="1" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="29" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dagger" />
+            <Simple name="Desc" value="It is both long and sharp. It is probably an effective weapon. You may ready it." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="2000" />
+            <Simple name="Weight" value="1" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="30" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="diamond" />
+            <Simple name="Desc" value="." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="1" />
+            <Simple name="Weight" value="8" />
+            <Simple name="Location" value="1" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Weapon" />
+                    <Simple name="Field1" value="20" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="4" />
+                    <Simple name="Field5" value="1" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="31" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="branch" />
+            <Simple name="Desc" value="A sturdy branch is lying on the ground." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="50" />
+            <Simple name="Weight" value="15" />
+            <Simple name="Location" value="-9" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Wearable" />
+                    <Simple name="Field1" value="1" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="32" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="shield" />
+            <Simple name="Desc" value="It is a standard shield, which you obtained while you were adventuring in the land of the mountain king." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="lying sprawled on the ground" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="OnContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="50" />
+                    <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="2" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="33" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="body of the unarmed warrior" />
+            <Simple name="Desc" value="The warrior's body lies sprawled on the ground. It looks as if that plate armor would suit you!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="500" />
+            <Simple name="Weight" value="35" />
+            <Simple name="Location" value="2033" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Wearable" />
+                    <Simple name="Field1" value="6" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="34" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="plate armor" />
+            <Simple name="Desc" value="It looks as if this plate armor will suit you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="1000" />
+            <Simple name="Weight" value="15" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Weapon" />
+                    <Simple name="Field1" value="50" />
+                    <Simple name="Field2" value="2" />
+                    <Simple name="Field3" value="25" />
+                    <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="35" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Super Gun" />
+            <Simple name="Desc" value="Very dangerous!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="18" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field1" value="18" />
+                    <Simple name="Field2" value="-1" />
+                    <Simple name="Field3" value="2000" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="36" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="entry door" />
+            <Simple name="Desc" value="Your hear the doors being locked from the outside. There is no way back now. You will have to defeat the Mountain King!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="17" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="OnContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="20" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="2" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="37" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bush" />
+            <Simple name="Desc" value="The bushes are beautiful with flowers in many colors." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="Yies" />
+            <Simple name="Value" value="55" />
+            <Simple name="Weight" value="2" />
+            <Simple name="Location" value="5017" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Edible" />
+                    <Simple name="Field1" value="30" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="38" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="red berry" />
+            <Simple name="Desc" value="The red berries have a mesmerizing smell." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5002" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="39" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ravine" />
+            <Simple name="Desc" value="The ravine is deep and wide. The only way to cross it is over the bridge." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5002" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="40" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bridge" />
+            <Simple name="Desc" value="The wooden bridge is the only way to cross the ravine. Out on the middle of the bridge stands a huge creature - probably an ogre." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5002" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="41" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ogre" />
+            <Simple name="Desc" value="You cannot see it clearly from here. Go north to get a closer look." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5002" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="42" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="creature" />
+            <Simple name="Desc" value="You cannot see it clearly from here. Go north to get a closer look." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5003" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="43" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="platform" />
+            <Simple name="Desc" value="It is a large wooden platform. It is hard to see anything else from down here." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5003" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="44" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="branch" />
+            <Simple name="Desc" value="The branches are very far up in the tree. You cannot reach them from here." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5003" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="45" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ravine" />
+            <Simple name="Desc" value="It is a very deep and wide ravine. There is no way to cross it from here, but to the west there appears to be a bridge." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5003" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="46" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cliff" />
+            <Simple name="Desc" value="The tall dark cliffs block any progress in eastern directions." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5004" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="47" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cliff" />
+            <Simple name="Desc" value="The tall dark cliffs block any progress northeast and southeast. East lies the entrance to the cottage." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5004" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="48" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cottage" />
+            <Simple name="Desc" value="It looks as if the cottage could fall apart any minute. If you dare to enter, the entrance is to the east." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5004" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="49" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="entrance door" />
+            <Simple name="Desc" value="The door is open so you can enter the cottage by going east." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5005" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="50" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cliff" />
+            <Simple name="Desc" value="The cliffs block all progress to the east." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5005" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="51" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="beach" />
+            <Simple name="Desc" value="It looks like a nice, cosy and peaceful beach. The water to the south looks inviting." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5005" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="52" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="water" />
+            <Simple name="Desc" value="The water is clear and clean. This could be quite a paradise if it wasn't for that horrible mountain king..." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5005" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="53" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="sand" />
+            <Simple name="Desc" value="The sand is white and beautiful. You have no use for it though." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5006" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="54" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="lighthouse" />
+            <Simple name="Desc" value="Among the rocks stands a huge lighthouse looming threateningly under the dark sky. You may enter through the open doorway to the south." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5006" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="55" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="rock" />
+            <Simple name="Desc" value="The huge rocks which surround the lighthouse prevent any movement around the lighthouse." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5006" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="56" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="doorway" />
+            <Simple name="Desc" value="An open doorway without a door leads south into the lighthouse." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5007" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="57" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cave" />
+            <Simple name="Desc" value="Due to the darkness inside, you cannot see much of the cave from here." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5007" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="58" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="entrance" />
+            <Simple name="Desc" value="The entrance looks dark and uninviting." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5007" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="59" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cliff" />
+            <Simple name="Desc" value="The huge cliff blocks movement in southern and western directions. here, at the middle of the cliff is an entrance into a dark cave." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5008" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="60" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="mud" />
+            <Simple name="Desc" value="The bubbling mud is soft enough to drag you down if you stop moving about." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5008" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="61" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="tree" />
+            <Simple name="Desc" value="The few sick trees are completely without any leaves and look as if they have never been growing." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5009" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="62" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bridge" />
+            <Simple name="Desc" value="The bridge lies some distance to the east so you can't see much from here." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5009" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="63" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="branch" />
+            <Simple name="Desc" value="The branches block most of the light from the cloudy sky, so it is rather dark inside the forest." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5009" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="64" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="tree" />
+            <Simple name="Desc" value="The trees stand rather close in this forest, making it rather dark in here." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5009" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="65" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="sky" />
+            <Simple name="Desc" value="You can hardly see the sky from within the forest. The trees are standing too close." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5009" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="66" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ravine" />
+            <Simple name="Desc" value="The ravine blocks all progress in northern directions." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5010" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="67" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="light" />
+            <Simple name="Desc" value="The light comes in through an opening high up on the east wall and is reflected by crystals in the ceiling." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5010" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="68" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="opening" />
+            <Simple name="Desc" value="The opening is high above your reach on the east wall. Light comes in through the opening and is reflected by the crystals in the ceiling. As a result the cave is brightly lit everywhere." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5010" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="69" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ceiling" />
+            <Simple name="Desc" value="The ceiling consists of many colored crystals. When the light through the opening hits the crystals, the light is spread evenly around the cave." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5010" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="70" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="crystal" />
+            <Simple name="Desc" value="The crystals in the ceiling are far above your reach. They help spread the light evenly around the cave." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5010" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="71" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cave" />
+            <Simple name="Desc" value="The cave is quite big with a domed ceiling and an opening far up the east wall. It is mostly empty except from a bin in one corner." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5012" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="72" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="water" />
+            <Simple name="Desc" value="The water is very clear. This could really be a paradise if it wasn't for those squids!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5013" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="73" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cottage" />
+            <Simple name="Desc" value="The cottage seems stable enough once you are inside. There isn't much furniture, just a cupboard, a table and a few chairs." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5013" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="74" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="furniture" />
+            <Simple name="Desc" value="There isn't much furniture here, only a cupboard, a table and a few chairs." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5013" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="75" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cupboard" />
+            <Simple name="Desc" value="The cupboard contains mostly books and some useless junk." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5013" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="76" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="table" />
+            <Simple name="Desc" value="The dining table is rather small, though up to four people could be seated around it." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5013" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="77" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dining table" />
+            <Simple name="Desc" value="The dining table is rather small, though up to four people could be seated around it." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5013" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="78" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="chair" />
+            <Simple name="Desc" value="A few chairs are placed around the table. You find nothing useful." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5013" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="79" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="book" />
+            <Simple name="Desc" value="The letters are completely different from those you learned on Eamon so the books have no value to you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5015" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="80" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="hole" />
+            <Simple name="Desc" value="The hole is in the center of the platform, and is quite wide so that both the tree trunk and a big man can pass through." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5015" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="81" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="tree" />
+            <Simple name="Desc" value="The tree stretches far down through the hole in the center of the platform and many meters up above the platform. The lowest hanging branches are still way out of your reach." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5015" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="82" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="platform" />
+            <Simple name="Desc" value="The platform is rather wide. Still it isn't recommended to be fighting up here. The view is magnificent though." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5015" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="83" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="trunk" />
+            <Simple name="Desc" value="The trunk of this tree is rather wide here, where it passes through the hole in the middle of the platform." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5016" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="84" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bridge" />
+            <Simple name="Desc" value="The bridge is long and wooden. It seems sturdy enough." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5016" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="85" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ravine" />
+            <Simple name="Desc" value="You prefer not to look down as it makes you dizzy. But you can see that it is rather wide. Unfortunately, you are only halfway." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5017" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="86" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="castle" />
+            <Simple name="Desc" value="The castle walls block all progress north. Beyond the castle you see the tall mountains which are part of the Mountain King's domain." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5017" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="87" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="wall" />
+            <Simple name="Desc" value="the castle walls are overgrown with beautiful bushes filled with flowers and a few berries." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5017" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="88" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="flower" />
+            <Simple name="Desc" value="There are many beautiful flowers in various colors." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5017" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="89" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="stair" />
+            <Simple name="Desc" value="The marble stairs lead up to the north and into the castle of the Mountain King." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5017" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="90" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bridge" />
+            <Simple name="Desc" value="The bridge lies to the south. If you don't feel fully prepared, it is not too late to turn back..." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5018" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="91" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="torch" />
+            <Simple name="Desc" value="There are many torches along the walls. Right now they are not important." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5018" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="92" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="statue" />
+            <Simple name="Desc" value="Beneath each torch is a statue of marble. They look very heavy and expensive. But right now they are not important." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5018" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="93" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="throne" />
+            <Simple name="Desc" value="The marble throne sits on a dais in the eastern end of the room. The Mountain King is between you and the throne..." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5018" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="94" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="hall" />
+            <Simple name="Desc" value="You are in a long hall, brightly lit by torches on the walls. The room is fairly empty except from statues placed along the walls underneath the torches and the throne in the east end of the hall." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5018" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="User1" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="95" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="wall" />
+            <Simple name="Desc" value="There are many torches along the walls and there are statue beneath each of them. But right now, none of this is important." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="95" />
+  </Properties>
+</Complex>

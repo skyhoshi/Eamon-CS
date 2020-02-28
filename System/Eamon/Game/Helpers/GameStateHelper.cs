@@ -144,6 +144,36 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		/// <param name="addToNamesList"></param>
 		/// <returns></returns>
+		protected virtual string GetNameImportedArtUids(bool addToNamesList)
+		{
+			for (Index = 0; Index < Record.ImportedArtUids.Length; Index++)
+			{
+				GetName("ImportedArtUidsElement", addToNamesList);
+			}
+
+			return "ImportedArtUids";
+		}
+
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
+		protected virtual string GetNameImportedArtUidsElement(bool addToNamesList)
+		{
+			var i = Index;
+
+			var result = string.Format("ImportedArtUids[{0}].Element", i);
+
+			if (addToNamesList)
+			{
+				Names.Add(result);
+			}
+
+			return result;
+		}
+
+		/// <summary></summary>
+		/// <param name="addToNamesList"></param>
+		/// <returns></returns>
 		protected virtual string GetNameHeldWpnUids(bool addToNamesList)
 		{
 			for (Index = 0; Index < Record.HeldWpnUids.Length; Index++)
@@ -200,6 +230,15 @@ namespace Eamon.Game.Helpers
 			var i = Index;
 
 			return Record.GetSa(i);
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		protected virtual object GetValueImportedArtUidsElement()
+		{
+			var i = Index;
+
+			return Record.GetImportedArtUids(i);
 		}
 
 		/// <summary></summary>
@@ -269,6 +308,13 @@ namespace Eamon.Game.Helpers
 		protected virtual bool ValidatePauseCombatMs()
 		{
 			return Record.PauseCombatMs >= 0 && Record.PauseCombatMs <= 10000;
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		protected virtual bool ValidateImportedArtUidsIdx()
+		{
+			return Record.ImportedArtUidsIdx >= 0 && Record.ImportedArtUidsIdx <= Record.ImportedArtUids.Length;
 		}
 
 		/// <summary></summary>
@@ -379,6 +425,34 @@ namespace Eamon.Game.Helpers
 			Debug.Assert(spell != null);
 
 			return Record.GetSa(i) >= spell.MinValue && Record.GetSa(i) <= spell.MaxValue;
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		protected virtual bool ValidateImportedArtUids()
+		{
+			var result = true;
+
+			for (Index = 0; Index < Record.ImportedArtUids.Length; Index++)
+			{
+				result = ValidateField("ImportedArtUidsElement");
+
+				if (result == false)
+				{
+					break;
+				}
+			}
+
+			return result;
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		protected virtual bool ValidateImportedArtUidsElement()
+		{
+			var i = Index;
+
+			return Record.GetImportedArtUids(i) >= 0;
 		}
 
 		/// <summary></summary>
@@ -498,10 +572,12 @@ namespace Eamon.Game.Helpers
 				"MatureContent",
 				"CurrTurn",
 				"PauseCombatMs",
+				"ImportedArtUidsIdx",
 				"UsedWpnIdx",
 				"NBTL",
 				"DTTL",
 				"Sa",
+				"ImportedArtUids",
 				"HeldWpnUids",
 			};
 		}

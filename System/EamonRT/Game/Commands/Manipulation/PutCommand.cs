@@ -18,7 +18,9 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class PutCommand : Command, IPutCommand
 	{
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires after the player puts an <see cref="IArtifact">Artifact</see> into a container.
+		/// </summary>
 		public const long PpeAfterArtifactPut = 1;
 
 		public override void PlayerExecute()
@@ -184,7 +186,7 @@ namespace EamonRT.Game.Commands
 			{
 				gCommandParser.ObjData = gCommandParser.IobjData;
 
-				gCommandParser.ObjData.QueryDesc = string.Format("{0}Put {1} {2} what? ", Environment.NewLine, gDobjArtifact.EvalPlural("it", "them"), Enum.IsDefined(typeof(ContainerType), ContainerType) ? gEngine.EvalContainerType(ContainerType, "inside", "on", "under", "behind") : "in");
+				gCommandParser.ObjData.QueryDescFunc = () => string.Format("{0}Put {1} {2} what? ", Environment.NewLine, gDobjArtifact.EvalPlural("it", "them"), Enum.IsDefined(typeof(ContainerType), ContainerType) ? gEngine.EvalContainerType(ContainerType, "inside", "on", "under", "behind") : "in");
 
 				PlayerResolveArtifact();
 

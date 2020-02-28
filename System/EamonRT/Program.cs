@@ -1177,11 +1177,20 @@ namespace EamonRT
 
 						character = null;
 
-						if (!Globals.DeleteCharacter && gGameState.Die != 1)
+						if (!Globals.DeleteCharacter)
 						{
 							gOut.Print("{0}", Globals.LineSep);
 
-							Globals.TransferProtocol.SendCharacterToMainHall(Globals.FilePrefix, Globals.Config.MhFilesetFileName, Globals.Config.MhCharacterFileName, Globals.Config.MhEffectFileName, gCharacter.Name);
+							if (gGameState.Die != 1)
+							{
+								Globals.TransferProtocol.SendCharacterToMainHall(Globals.FilePrefix, Globals.Config.MhFilesetFileName, Globals.Config.MhCharacterFileName, Globals.Config.MhEffectFileName, gCharacter.Name);
+							}
+							else
+							{
+								gOut.Print("When word of your untimely passing reaches the Main Hall, all your friends gather for a round at the bar.  They honor you with tales of your great deeds and with one last toast.  If you were there you'd be surprised to see the burly Irishman tear up.");
+
+								Globals.In.KeyPress(Globals.Buf);
+							}
 						}
 					}
 					else
@@ -1190,6 +1199,16 @@ namespace EamonRT
 
 						Debug.Assert(gEngine.IsSuccess(rc));
 					}
+				}
+				else if (Globals.StartOver)
+				{
+					gOut.Print("{0}", Globals.LineSep);
+
+					gOut.Print("Your saved games have been deleted.");
+
+					gOut.Print("You can restart the game by running the Resume[GameName] .bat or .sh file.");
+
+					Globals.In.KeyPress(Globals.Buf);
 				}
 
 				_nlFlag = false;

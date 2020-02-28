@@ -118,6 +118,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Bin\TheWayfarersInn.dll</HintPath>
     </Reference>
+    <Reference Include="LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Bin\LandOfTheMountainKing.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Android.Arch.Core.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Xamarin.Android.Arch.Core.Common.1.1.1.3\lib\monoandroid81\Xamarin.Android.Arch.Core.Common.dll</HintPath>
     </Reference>
@@ -554,6 +558,24 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\Adventures\TheWayfarersInn\MONSTERS.XML" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\LandOfTheMountainKing\ROOMS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\LandOfTheMountainKing\ARTIFACTS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\LandOfTheMountainKing\EFFECTS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\LandOfTheMountainKing\HINTS.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\LandOfTheMountainKing\MODULE.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\Adventures\LandOfTheMountainKing\MONSTERS.XML" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
@@ -602,6 +624,7 @@ xcopy "$(TargetDir)..\..\Adventures\TheTrainingGround\*.XML" "$(TargetDir)..\Eam
 xcopy "$(TargetDir)..\..\Adventures\WrenholdsSecretVigil\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\WrenholdsSecretVigil" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\TheVileGrimoireOfJaldial\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheVileGrimoireOfJaldial" /I /S /Y
 xcopy "$(TargetDir)..\..\Adventures\TheWayfarersInn\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\TheWayfarersInn" /I /S /Y
+xcopy "$(TargetDir)..\..\Adventures\LandOfTheMountainKing\*.XML" "$(TargetDir)..\EamonPM.Android\Assets\Adventures\LandOfTheMountainKing" /I /S /Y
 </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>

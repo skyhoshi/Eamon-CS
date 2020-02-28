@@ -16,7 +16,7 @@ namespace EamonRT.Game.Parsing
 	{
 		public virtual string Name { get; set; }
 
-		public virtual string QueryDesc { get; set; }
+		public virtual Func<string> QueryDescFunc { get; set; }
 
 		public virtual IGameBase Obj { get; set; }
 

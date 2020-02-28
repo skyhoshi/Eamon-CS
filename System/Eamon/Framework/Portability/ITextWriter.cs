@@ -1,9 +1,10 @@
 ﻿
 // ITextWriter.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Text;
+using Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework.Portability
 {
@@ -34,6 +35,11 @@ namespace Eamon.Framework.Portability
 
 		/// <summary></summary>
 		bool Stdout { get; set; }
+
+		/// <summary>
+		/// Gets or sets a value indicating whether text being output has one or two spaces after punctuation, or if this behavior is disabled.
+		/// </summary>
+		PunctSpaceCode PunctSpaceCode { get; set; }
 
 		/// <summary></summary>
 		Encoding Encoding { get; }

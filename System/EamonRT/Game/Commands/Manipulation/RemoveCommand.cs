@@ -206,7 +206,7 @@ namespace EamonRT.Game.Commands
 				{
 					gCommandParser.ObjData = gCommandParser.IobjData;
 
-					gCommandParser.ObjData.QueryDesc = string.Format("{0}From {1}what? ", Environment.NewLine, Enum.IsDefined(typeof(ContainerType), ContainerType) ? gEngine.EvalContainerType(ContainerType, "inside ", "on ", "under ", "behind ") : "");
+					gCommandParser.ObjData.QueryDescFunc = () => string.Format("{0}From {1}what? ", Environment.NewLine, Enum.IsDefined(typeof(ContainerType), ContainerType) ? gEngine.EvalContainerType(ContainerType, "inside ", "on ", "under ", "behind ") : "");
 
 					PlayerResolveArtifact();
 

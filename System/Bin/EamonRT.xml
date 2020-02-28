@@ -8,40 +8,73 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Combat.ICombatSystem.SetNextStateFunc">
-            <summary></summary>
+            <summary>
+            Gets or sets the function used to set the <see cref="P:EamonRT.Framework.States.IStateSignatures.NextState">NextState</see> property of the Eamon CS
+            game engine's current <see cref="T:EamonRT.Framework.States.IState">State</see> or <see cref="T:EamonRT.Framework.Commands.ICommand">Command</see>.
+            </summary>
         </member>
         <member name="P:EamonRT.Framework.Combat.ICombatSystem.OfMonster">
-            <summary></summary>
+            <summary>
+            Gets or sets the offending (attacking) <see cref="T:Eamon.Framework.IMonster">Monster</see> for this <see cref="T:EamonRT.Framework.Combat.ICombatSystem">CombatSystem</see>.
+            </summary>
         </member>
         <member name="P:EamonRT.Framework.Combat.ICombatSystem.DfMonster">
-            <summary></summary>
+            <summary>
+            Gets or sets the defending <see cref="T:Eamon.Framework.IMonster">Monster</see> for this <see cref="T:EamonRT.Framework.Combat.ICombatSystem">CombatSystem</see>.
+            </summary>
         </member>
         <member name="P:EamonRT.Framework.Combat.ICombatSystem.MemberNumber">
-            <summary></summary>
+            <summary>
+            Gets or sets which member of <see cref="P:EamonRT.Framework.Combat.ICombatSystem.OfMonster">OfMonster</see>'s group is attacking (always 1 for single <see cref="T:Eamon.Framework.IMonster">Monster</see>s).
+            </summary>
         </member>
         <member name="P:EamonRT.Framework.Combat.ICombatSystem.AttackNumber">
-            <summary></summary>
+            <summary>
+            Gets or sets which attack number the <see cref="P:EamonRT.Framework.Combat.ICombatSystem.OfMonster">OfMonster</see>'s <see cref="P:EamonRT.Framework.Combat.ICombatSystem.MemberNumber">group member</see> is performing (may
+            be >= 1 based on <see cref="P:Eamon.Framework.IMonster.AttackCount">AttackCount</see>).
+            </summary>
         </member>
         <member name="P:EamonRT.Framework.Combat.ICombatSystem.BlastSpell">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:EamonRT.Framework.Combat.ICombatSystem">CombatSystem</see> was created to inflict <see cref="F:Eamon.Framework.Primitive.Enums.Spell.Blast">Blast</see>
+            spell damage.
+            </summary>
         </member>
         <member name="P:EamonRT.Framework.Combat.ICombatSystem.UseAttacks">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:EamonRT.Framework.Combat.ICombatSystem">CombatSystem</see> should use "attacks" in its combat description.
+            </summary>
         </member>
         <member name="P:EamonRT.Framework.Combat.ICombatSystem.MaxDamage">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:EamonRT.Framework.Combat.ICombatSystem">CombatSystem</see> always calculates initial damage done to be the maximum allowed.
+            </summary>
+            <remarks>
+            When this is <c>true</c> initial damage done is set to (D*S) where D=Dice and S=Sides.
+            </remarks>
         </member>
         <member name="P:EamonRT.Framework.Combat.ICombatSystem.OmitArmor">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether <see cref="P:EamonRT.Framework.Combat.ICombatSystem.DfMonster">DfMonster</see>'s armor should be omitted from damage calculations.
+            </summary>
         </member>
         <member name="P:EamonRT.Framework.Combat.ICombatSystem.OmitSkillGains">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:EamonRT.Framework.Combat.ICombatSystem">CombatSystem</see> should omit skill gains if the player
+            character's attack is successful.
+            </summary>
         </member>
         <member name="P:EamonRT.Framework.Combat.ICombatSystem.OmitMonsterStatus">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:EamonRT.Framework.Combat.ICombatSystem">CombatSystem</see> should omit printing <see cref="P:EamonRT.Framework.Combat.ICombatSystem.DfMonster">DfMonster</see>'s
+            health status after damage is calculated.
+            </summary>
         </member>
         <member name="P:EamonRT.Framework.Combat.ICombatSystem.OmitFinalNewLine">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:EamonRT.Framework.Combat.ICombatSystem">CombatSystem</see> should print a final newline after
+            processing completes.
+            </summary>
         </member>
         <member name="P:EamonRT.Framework.Combat.ICombatSystem.FixedResult">
             <summary></summary>
@@ -722,10 +755,15 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.IEngine.StartRoom">
-            <summary></summary>
+            <summary>
+            Gets or sets the <see cref="T:Eamon.Framework.IRoom">Room</see><see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see> of the player character's initial location at
+            the beginning of the game.
+            </summary>
         </member>
         <member name="P:EamonRT.Framework.IEngine.NumSaveSlots">
-            <summary></summary>
+            <summary>
+            Gets or sets the number of Saved Game slots available for use in the game.
+            </summary>
         </member>
         <member name="P:EamonRT.Framework.IEngine.ScaledHardinessUnarmedMaxDamage">
             <summary></summary>
@@ -985,6 +1023,30 @@
             <param name="monster"></param>
             <returns></returns>
         </member>
+        <member name="M:EamonRT.Framework.IEngine.GetImportedPlayerInventory">
+            <summary>
+            Gets the original carried/worn inventory brought by the player into the game.
+            </summary>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.HideImportedPlayerInventory">
+            <summary>
+            Hides the original carried/worn inventory brought by the player into the game by moving each <see cref="T:Eamon.Framework.IArtifact">Artifact</see> into Limbo.
+            </summary>
+            <remarks>
+            This method is intended to be used with <see cref="M:EamonRT.Framework.IEngine.RestoreImportedPlayerInventory">RestoreImportedPlayerInventory</see> to hide the player's inventory
+            when entering the game and then restore it again prior to exiting the game.  It should only be used in <see cref="M:EamonRT.Framework.IMainLoop.Startup">MainLoop.Startup</see>.
+            </remarks>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.RestoreImportedPlayerInventory">
+            <summary>
+            Restores the original carried/worn inventory brought by the player into the game by moving each <see cref="T:Eamon.Framework.IArtifact">Artifact</see> back to its initial
+            location.
+            </summary>
+            <remarks>
+            This method is intended to be used with <see cref="M:EamonRT.Framework.IEngine.HideImportedPlayerInventory">HideImportedPlayerInventory</see> to hide the player's inventory when
+            entering the game and then restore it again prior to exiting the game.  It should only be used in <see cref="M:EamonRT.Framework.IMainLoop.Shutdown">MainLoop.Shutdown</see>.
+            </remarks>
+        </member>
         <member name="M:EamonRT.Framework.IEngine.BuildCommandList(System.Collections.Generic.IList{EamonRT.Framework.Commands.ICommand},Eamon.Framework.Primitive.Enums.CommandType,System.Text.StringBuilder,System.Boolean@)">
             <summary></summary>
             <param name="commands"></param>
@@ -1167,6 +1229,10 @@
             <summary></summary>
             <returns></returns>
         </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.ReplacePrepositions(System.Text.StringBuilder)">
+            <summary></summary>
+            <returns></returns>
+        </member>
         <member name="M:EamonRT.Framework.Parsing.ICommandParser.Clear">
             <summary></summary>
         </member>
@@ -1187,7 +1253,7 @@
         <member name="P:EamonRT.Framework.Parsing.IParserData.Name">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.QueryDesc">
+        <member name="P:EamonRT.Framework.Parsing.IParserData.QueryDescFunc">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Parsing.IParserData.Obj">
@@ -1305,6 +1371,9 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopGroupCount">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopFailedMoveMemberCount">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopLastDfMonster">
@@ -1811,46 +1880,74 @@
             <summary></summary>
         </member>
         <member name="F:EamonRT.Game.Commands.BlastCommand.PpeAfterPlayerSpellCastCheck">
-            <summary></summary>
+            <summary>
+            An event that fires after the player's spell cast attempt has resolved as successful.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.BlastCommand.PpeAfterMonsterGetsAggravated">
-            <summary></summary>
+            <summary>
+            An event that fires after the <see cref="T:Eamon.Framework.IMonster">Monster</see> targeted by the <see cref="F:Eamon.Framework.Primitive.Enums.Spell.Blast">Blast</see>
+            spell gets aggravated.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.FreeCommand.PpeBeforeGuardMonsterCheck">
-            <summary></summary>
+            <summary>
+            An event that fires before a guard <see cref="T:Eamon.Framework.IMonster">Monster</see> prevents a bound Monster from being freed.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.GiveCommand.PpeAfterEnforceMonsterWeightLimitsCheck">
-            <summary></summary>
+            <summary>
+            An event that fires after limits are enforced on the weight a <see cref="T:Eamon.Framework.IMonster">Monster</see> can carry.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.GiveCommand.PpeAfterPlayerGivesReadiedWeaponCheck">
-            <summary></summary>
+            <summary>
+            An event that fires after checking whether the player is giving away a readied weapon.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.GiveCommand.PpeBeforeMonsterTakesGold">
-            <summary></summary>
+            <summary>
+            An event that fires before a <see cref="T:Eamon.Framework.IMonster">Monster</see> takes the gold offered by the player.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.CloseCommand.PpeAfterArtifactClose">
-            <summary></summary>
+            <summary>
+            An event that fires after the player closes an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.DrinkCommand.PpeBeforeArtifactNowEmptyCheck">
-            <summary></summary>
+            <summary>
+            An event that fires before checking whether an <see cref="T:Eamon.Framework.IArtifact">Artifact</see> has been fully drunk.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.DrinkCommand.PpeAfterArtifactDrink">
-            <summary></summary>
+            <summary>
+            An event that fires after the player drinks an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
         </member>
         <member name="P:EamonRT.Game.Commands.DropCommand.ArtifactList">
             <summary></summary>
         </member>
         <member name="F:EamonRT.Game.Commands.EatCommand.PpeBeforeArtifactNowEmptyCheck">
-            <summary></summary>
+            <summary>
+            An event that fires before checking whether an <see cref="T:Eamon.Framework.IArtifact">Artifact</see> has been fully eaten.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.EatCommand.PpeAfterArtifactEat">
-            <summary></summary>
+            <summary>
+            An event that fires after the player eats an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.ExamineCommand.PpeAfterArtifactFullDescPrint">
-            <summary></summary>
+            <summary>
+            An event that fires after an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s full description has been printed (but before
+            units are listed for drinkables/edibles).
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.ExamineCommand.PpeAfterArtifactContentsPrint">
-            <summary></summary>
+            <summary>
+            An event that fires after an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s container contents are printed.
+            </summary>
         </member>
         <member name="P:EamonRT.Game.Commands.GetCommand.OmitWeightCheck">
             <summary></summary>
@@ -1859,19 +1956,30 @@
             <summary></summary>
         </member>
         <member name="F:EamonRT.Game.Commands.OpenCommand.PpeAfterArtifactOpenPrint">
-            <summary></summary>
+            <summary>
+            An event that fires after an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s open message has been printed (but before
+            inventory is listed for containers).
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.OpenCommand.PpeAfterArtifactOpen">
-            <summary></summary>
+            <summary>
+            An event that fires after the player opens an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.PutCommand.PpeAfterArtifactPut">
-            <summary></summary>
+            <summary>
+            An event that fires after the player puts an <see cref="T:Eamon.Framework.IArtifact">Artifact</see> into a container.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.ReadCommand.PpeBeforeArtifactReadTextPrint">
-            <summary></summary>
+            <summary>
+            An event that fires before an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s read text is printed.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.ReadCommand.PpeAfterArtifactRead">
-            <summary></summary>
+            <summary>
+            An event that fires after the player reads an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
         </member>
         <member name="P:EamonRT.Game.Commands.ReadyCommand.ArtTypes">
             <summary></summary>
@@ -1883,31 +1991,45 @@
             <summary></summary>
         </member>
         <member name="F:EamonRT.Game.Commands.UseCommand.PpeBeforeArtifactUse">
-            <summary></summary>
+            <summary>
+            An event that fires before the player uses an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
         </member>
         <member name="P:EamonRT.Game.Commands.UseCommand.ArtTypes">
             <summary></summary>
         </member>
         <member name="F:EamonRT.Game.Commands.WearCommand.PpeAfterArtifactWear">
-            <summary></summary>
+            <summary>
+            An event that fires after the player wears an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.PowerCommand.PpeAfterPlayerSpellCastCheck">
-            <summary></summary>
+            <summary>
+            An event that fires after the player's spell cast attempt has resolved as successful.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.SayCommand.PpeBeforePlayerSayTextPrint">
-            <summary></summary>
+            <summary>
+            An event that fires before the player's spoken text is printed.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.SayCommand.PpeAfterPlayerSay">
-            <summary></summary>
+            <summary>
+            An event that fires after the player says something.
+            </summary>
         </member>
         <member name="M:EamonRT.Game.Commands.SettingsCommand.PrintUsage">
             <summary></summary>
         </member>
         <member name="F:EamonRT.Game.Commands.StatusCommand.PpeAfterPlayerStatus">
-            <summary></summary>
+            <summary>
+            An event that fires after the player's status text has been printed.
+            </summary>
         </member>
         <member name="F:EamonRT.Game.Commands.FleeCommand.PpeAfterNumberOfExitsCheck">
-            <summary></summary>
+            <summary>
+            An event that fires after checking whether exits are available for fleeing, and it resolves that there are.
+            </summary>
         </member>
         <member name="M:EamonRT.Game.Engine.ConvertWeaponsToArtifacts">
             <summary></summary>
@@ -1963,6 +2085,62 @@
         </member>
         <member name="M:EamonRT.Game.IntroStory.PrintOutputDefault">
             <summary></summary>
+        </member>
+        <member name="F:EamonRT.Game.States.EndOfRoundState.PeAfterRoundEnd">
+            <summary>
+            An event that fires at the end of the current round, after all processing has been done.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.StartState.PeBeforeRoundStart">
+            <summary>
+            An event that fires at the start of a new round, before any processing has been done.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.AfterPlayerMoveState.PeAfterExtinguishLightSourceCheck">
+            <summary>
+            An event that fires after the player has moved to a new <see cref="T:Eamon.Framework.IRoom">Room</see>, and any carried light
+            source has been extinguished (if necessary).
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.AfterPlayerMoveState.PeAfterMoveMonsters">
+            <summary>
+            An event that fires after the player has moved to a new <see cref="T:Eamon.Framework.IRoom">Room</see>, and any <see cref="T:Eamon.Framework.IMonster">Monster</see>s
+            in the exited Room (friendly or hostile) have followed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.BeforePlayerMoveState.PeAfterDestinationRoomSet">
+            <summary>
+            An event that fires after the player's destination <see cref="T:Eamon.Framework.IRoom">Room</see> <see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see>
+            is calculated and stored.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.GetPlayerInputState.PeBeforeCommandPromptPrint">
+            <summary>
+            An event that fires before the player's command prompt is printed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.PlayerMoveCheckState.PeBeforeCanMoveToRoomCheck">
+            <summary>
+            An event that fires before it is known whether the player can move to a <see cref="T:Eamon.Framework.IRoom">Room</see>.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.PlayerMoveCheckState.PeAfterBlockingArtifactCheck">
+            <summary>
+            An event that fires after it is known whether a blocking <see cref="T:Eamon.Framework.IArtifact">Artifact</see> (for example,
+            a door) prevents the player's movement.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.PrintPlayerRoomState.PeBeforePlayerRoomPrint">
+            <summary>
+            An event that fires before the player's <see cref="T:Eamon.Framework.IRoom">Room</see> has been printed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Game.States.ProcessPlayerInputState.PeAfterLastCommandListClear">
+            <summary>
+            An event that fires after the player's command has been processed (but not executed), 
+            the <see cref="P:Eamon.Framework.IGameState.CurrTurn">CurrTurn</see> counter incremented and the
+            <see cref="P:EamonRT.Framework.Plugin.IPluginGlobals.LastCommandList">LastCommandList</see> cleared.
+            </summary>
         </member>
         <member name="F:EamonRT.Program._ddfnFlag">
             <summary></summary>

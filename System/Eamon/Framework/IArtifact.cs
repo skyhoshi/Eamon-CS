@@ -1,7 +1,7 @@
 ﻿
 // IArtifact.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -54,7 +54,8 @@ namespace Eamon.Framework
 		long Weight { get; set; }
 
 		/// <summary>
-		/// Gets or sets the location of this <see cref="IArtifact">Artifact</see> in the game.
+		/// Gets or sets the location of this <see cref="IArtifact">Artifact</see> in the game (typically a <see cref="IRoom">Room</see>
+		/// <see cref="IGameBase.Uid">Uid</see> or a special code).
 		/// </summary>
 		long Location { get; set; }
 

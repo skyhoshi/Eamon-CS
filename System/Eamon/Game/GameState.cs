@@ -51,9 +51,13 @@ namespace Eamon.Game
 
 		public virtual long PauseCombatMs { get; set; }
 
+		public virtual long ImportedArtUidsIdx { get; set; }
+
 		public virtual long UsedWpnIdx { get; set; }
 
 		public virtual long[] Sa { get; set; }
+
+		public virtual long[] ImportedArtUids { get; set; }
 
 		public virtual long[] HeldWpnUids { get; set; }
 
@@ -145,6 +149,11 @@ namespace Eamon.Game
 			return GetSa((long)spell);
 		}
 
+		public virtual long GetImportedArtUids(long index)
+		{
+			return ImportedArtUids[index];
+		}
+
 		public virtual long GetHeldWpnUids(long index)
 		{
 			return HeldWpnUids[index];
@@ -158,6 +167,11 @@ namespace Eamon.Game
 		public virtual void SetSa(Spell spell, long value)
 		{
 			SetSa((long)spell, value);
+		}
+
+		public virtual void SetImportedArtUids(long index, long value)
+		{
+			ImportedArtUids[index] = value;
 		}
 
 		public virtual void SetHeldWpnUids(long index, long value)
@@ -186,6 +200,8 @@ namespace Eamon.Game
 			Debug.Assert(character != null);
 
 			Sa = new long[character.SpellAbilities.Length];
+
+			ImportedArtUids = new long[character.Weapons.Length + 2];
 
 			HeldWpnUids = new long[character.Weapons.Length];
 		}

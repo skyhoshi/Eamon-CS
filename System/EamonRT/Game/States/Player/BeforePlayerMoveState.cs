@@ -16,6 +16,10 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class BeforePlayerMoveState : State, IBeforePlayerMoveState
 	{
+		/// <summary>
+		/// An event that fires after the player's destination <see cref="IRoom">Room</see> <see cref="IGameBase.Uid"> Uid</see>
+		/// is calculated and stored.
+		/// </summary>
 		public const long PeAfterDestinationRoomSet = 1;
 
 		public virtual IRoom Room { get; set; }

@@ -17,7 +17,9 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class UseCommand : Command, IUseCommand
 	{
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires before the player uses an <see cref="IArtifact">Artifact</see>.
+		/// </summary>
 		public const long PpeBeforeArtifactUse = 1;
 
 		/// <summary></summary>
@@ -115,7 +117,7 @@ namespace EamonRT.Game.Commands
 			{
 				gCommandParser.ObjData = gCommandParser.IobjData;
 
-				gCommandParser.ObjData.QueryDesc = string.Format("{0}Use {1} on who or what? ", Environment.NewLine, gDobjArtifact.EvalPlural("it", "them"));
+				gCommandParser.ObjData.QueryDescFunc = () => string.Format("{0}Use {1} on who or what? ", Environment.NewLine, gDobjArtifact.EvalPlural("it", "them"));
 
 				gCommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch01;
 

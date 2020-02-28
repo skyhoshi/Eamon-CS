@@ -121,24 +121,6 @@ namespace Eamon.Game
 			return result;
 		}
 
-		[Obsolete("GetDecoratedName01 is deprecated and will be removed; please use GetNoneName instead.")]
-		public virtual string GetDecoratedName01(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
-		{
-			return GetNoneName(upshift, showCharOwned, showStateDesc, groupCountOne, buf);
-		}
-
-		[Obsolete("GetDecoratedName02 is deprecated and will be removed; please use GetArticleName instead.")]
-		public virtual string GetDecoratedName02(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
-		{
-			return GetArticleName(upshift, showCharOwned, showStateDesc, groupCountOne, buf);
-		}
-
-		[Obsolete("GetDecoratedName03 is deprecated and will be removed; please use GetTheName instead.")]
-		public virtual string GetDecoratedName03(bool upshift, bool showCharOwned, bool showStateDesc, bool groupCountOne, StringBuilder buf)
-		{
-			return GetTheName(upshift, showCharOwned, showStateDesc, groupCountOne, buf);
-		}
-
 		public virtual string GetNoneName(bool upshift = false, bool showCharOwned = true, bool showStateDesc = false, bool groupCountOne = false, StringBuilder buf = null)
 		{
 			return GetDecoratedName("Name", ArticleType.None, upshift, showCharOwned, showStateDesc, groupCountOne, buf);

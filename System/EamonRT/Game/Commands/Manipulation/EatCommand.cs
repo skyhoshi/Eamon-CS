@@ -6,6 +6,7 @@
 using System;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
@@ -18,10 +19,14 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class EatCommand : Command, IEatCommand
 	{
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires before checking whether an <see cref="IArtifact">Artifact</see> has been fully eaten.
+		/// </summary>
 		public const long PpeBeforeArtifactNowEmptyCheck = 1;
 
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires after the player eats an <see cref="IArtifact">Artifact</see>.
+		/// </summary>
 		public const long PpeAfterArtifactEat = 2;
 
 		public override void PlayerExecute()

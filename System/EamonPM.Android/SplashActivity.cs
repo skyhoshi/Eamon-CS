@@ -33,7 +33,7 @@ namespace EamonPM
 				- change the BuildGuid to upgrade the binary .apk file and the .XML textfiles in the filesystem (but not CHARACTERS.XML)
 			*/
 
-			static readonly string BuildGuid = "5EE319FB-C7A2-47BF-A84E-1249773E4718";
+			static readonly string BuildGuid = "433BD504-39EC-4B81-8146-59008B2B4874";
 
 			static readonly string TAG = "X:" + typeof (SplashActivity).Name;
 
@@ -121,34 +121,15 @@ namespace EamonPM
 
 				foreach (var dir in adventureDirs)
 				{
-					var dir01 = dir;
-
-					path = Path.Combine(App.BasePath, Path.Combine("Adventures", dir01));
+					path = Path.Combine(App.BasePath, Path.Combine("Adventures", dir));
 
 					Directory.CreateDirectory(path);
 
-					if (string.Equals(dir01, "AdventureTemplates", StringComparison.OrdinalIgnoreCase))
-					{
-						path = Path.Combine(path, "Standard");
-
-						Directory.CreateDirectory(path);
-
-						path = Path.Combine(path, "Adventures");
-
-						Directory.CreateDirectory(path);
-
-						path = Path.Combine(path, "YourAdventureName");
-
-						Directory.CreateDirectory(path);
-
-						dir01 = Path.Combine("AdventureTemplates", "Standard", "Adventures", "YourAdventureName");
-					}
-
-					var adventureFiles = Assets.List(Path.Combine("Adventures", dir01));
+					var adventureFiles = Assets.List(Path.Combine("Adventures", dir));
 
 					foreach (var file in adventureFiles)
 					{
-						var fileName = Path.Combine(Path.Combine("Adventures", dir01), file);
+						var fileName = Path.Combine(Path.Combine("Adventures", dir), file);
 
 						using (var streamReader = new StreamReader(Assets.Open(fileName)))
 						{

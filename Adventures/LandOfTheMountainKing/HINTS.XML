@@ -1,0 +1,274 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.HintDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IHint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="EAMON CS 1.6 GENERAL HELP." />
+            <Simple name="NumAnswers" value="8" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A DR&quot; or &quot;A GON&quot; for ATTACK DRAGON, &quot;REQ RAY FROM AL&quot; or &quot;REQ GUN FROM IEN&quot; for REQUEST RAY GUN FROM ALIEN." />
+                <Simple value="2. Sometimes items may be in a room but won't show up until you EXAMINE them.  Pay close attention to all descriptions.  Note:  LOOK only repeats the room description and -nothing- else.  Use EXAMINE to, well, examine things." />
+                <Simple value="3. Before you can manipulate items that are inside of, under or behind other items, you must REMOVE them from that item.  There is no REMOVE ALL command, but if you ATTACK a (breakable) container, all of its contents will be emptied to the room." />
+                <Simple value="4. Type SAVE and a number for a desired save position to Quick Save (save without having to verify).  Adding a description will rename that slot.  Examples:  &quot;SAVE 2&quot; or &quot;SAVE 5 Dark Room (NO GRUES)&quot;.  Also works with RESTORE.  (Type RESTORE 1, etc.)" />
+                <Simple value="5. You can INVENTORY companions (normally anyone whom, when you SMILE, smiles back at you) to see what they are carrying and wearing.  You can then REQUEST those items from them.  You can also INVENTORY certain containers to get a list of contents." />
+                <Simple value="6. If you GIVE food or a beverage to a friend, they will take a bite or drink and give it back to you." />
+                <Simple value="7. To give money to someone, type GIVE and an amount.  For example, GIVE 1000 TO IRS AGENT would pay 1000 gold coins to the nice IRS Agent.  In most standard adventures, if you GIVE 5000 or more, a neutral monster will -usually- become your friend." />
+                <Simple value="8. The POWER spell has been known to have strange and marvelous effects in many adventures.  When all else fails (or just for fun) try POWER." />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="EAMON CS 1.6 NEW COMMANDS." />
+            <Simple name="NumAnswers" value="3" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. The GO command allows you to travel through any door/gate you encounter, including those that are free-standing (not associated with a room directional link)." />
+                <Simple value="2. The SETTINGS command allows you to change a variety of configuration options, which are persisted across saved games.  The settings available and their effects on gameplay can vary between adventures, so trying this command is usually helpful." />
+                <Simple value="3. The LOOK, EXAMINE, REMOVE and PUT commands have been enhanced to work with prepositions.  You can LOOK or EXAMINE [in|on|under|behind] [container] to get a list of contents and then REMOVE or PUT [item] [in|on|under|behind] [container]." />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Where can I find a light source?" />
+            <Simple name="NumAnswers" value="7" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="There is a light source somewhere but it ain't portable." />
+                <Simple value="It is however, turnable." />
+                <Simple value="Have you examined the cliffs from the top of the light house?" />
+                <Simple value="Have you examined the lamp in the top of the lighthouse?" />
+                <Simple value="USE BUTTON" />
+                <Simple value="Keep using the button until the lamp shines to the west. The light will go through the opening high up on the cliff and light up the cave southwest of the location of the bat. If you go to the cave now, you can see the objects in there." />
+                <Simple value="If you by accident pushed the button too many times, you just keep using the button. The lamp will just take one more round. Stop when the lamp is pointing west." />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Most creatures will kill me if I try to fight them. How do I avoid this?" />
+            <Simple name="NumAnswers" value="8" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="Go for the weakest enemies first. Then you might find something which will increase your chances against the tougher enemies." />
+                <Simple value="SAVE often, e.g. every time you have defeated an enemy. NB: You cannot SAVE the game during a fight - then it would be too easy." />
+                <Simple value="The weakest enemy is the bat." />
+                <Simple value="Having defeated the bat, you should enter the cave to the southwest. There might be something useful in there (if you are missing a light source you should check out the hint regarding a light source)." />
+                <Simple value="The next enemy you will have a chance against is in the water south of the beach. This enemy may have something useful which can be worn." />
+                <Simple value="It can be discussed what the best next step is, but it is highly recommended to beat all available enemies before you approach the ogre on the bridge." />
+                <Simple value="Before you approach the ogre it is highly recommended to have found some armor and that Lisa has cast a helpful spell on you." />
+                <Simple value="Before approaching the Mountain King, it is recommended to find some way of healing yourself during the fight (SEIRREB TEG)." />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="How do I defeat the vampire?" />
+            <Simple name="NumAnswers" value="1" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="There is no vampire in this game." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="How do I defeat the werewolf?" />
+            <Simple name="NumAnswers" value="6" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="There is a material werewolves do not like." />
+                <Simple value="Werewolves do not like silver weapons." />
+                <Simple value="You may find a silver weapon somewhere. READY it before attacking the werewolf." />
+                <Simple value="In the swamp you must GET HANDLE." />
+                <Simple value="You will have to defeat the swamp monster first though." />
+                <Simple value="With the silver sword readied, it should be quite easy to defeat the werewolf." />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Is the large tree in the northeastern corner important?" />
+            <Simple name="NumAnswers" value="3" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="Yes." />
+                <Simple value="Try to examine it." />
+                <Simple value="After you have examined it, you can go up." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Where do I find some armor?" />
+            <Simple name="NumAnswers" value="3" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="You will have to defeat the unarmed warrior on the platform in the top of the large tree (see the other hint regarding the large tree if needed)." />
+                <Simple value="Once you have defeated him, go down and take the armor from his body." />
+                <Simple value="You must WEAR ARMOR to make it useful." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Is Lisa useful in any way?" />
+            <Simple name="NumAnswers" value="8" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="Most importantly, Lisa can cast a useful spell on you if you help her." />
+                <Simple value="It is impolite not to SAY HELLO." />
+                <Simple value="Then ask her about Damian." />
+                <Simple value="You will need to find that necklace and give it to her." />
+                <Simple value="First you will need to defeat the werewolf in the forest." />
+                <Simple value="After killing the werewolf, the werewolf transforms into a body of a dead man, i.e. Damian. Examine the body to find the necklace." />
+                <Simple value="Lisa may also be helpful regarding the large tree." />
+                <Simple value="Lisa may also have some advice regarding the many enemies you will meet in this land." />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Can I find a healing potion?" />
+            <Simple name="NumAnswers" value="2" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="No, but you can find something similar in the garden." />
+                <Simple value="GET BERRIES" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="10" />
+  </Properties>
+</Complex>

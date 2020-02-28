@@ -5,6 +5,7 @@
 
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -16,10 +17,15 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class OpenCommand : Command, IOpenCommand
 	{
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires after an <see cref="IArtifact">Artifact</see>'s open message has been printed (but before
+		/// inventory is listed for containers).
+		/// </summary>
 		public const long PpeAfterArtifactOpenPrint = 1;
 
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires after the player opens an <see cref="IArtifact">Artifact</see>.
+		/// </summary>
 		public const long PpeAfterArtifactOpen = 2;
 
 		public override void PlayerExecute()

@@ -20,12 +20,12 @@ namespace Eamon.Framework.Primitive.Enums
 		NeverFights = -2,
 
 		/// <summary>
-		/// The <see cref="IMonster">Monster</see> will favor weapons but fall back to natural weapons if necessary.
+		/// The <see cref="IMonster">Monster</see> will favor <see cref="IArtifact">Artifact</see> weapons but fall back to natural weapons if necessary.
 		/// </summary>
 		NaturalWeapons,
 		
 		/// <summary>
-		/// The <see cref="IMonster">Monster</see> will use either weapons or natural weapons (but never both).
+		/// The <see cref="IMonster">Monster</see> will use either <see cref="IArtifact">Artifact</see> weapons or natural weapons (but never both).
 		/// </summary>
 		Weapons,
 		

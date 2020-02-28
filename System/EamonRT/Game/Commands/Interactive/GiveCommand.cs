@@ -20,13 +20,19 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class GiveCommand : Command, IGiveCommand
 	{
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires after limits are enforced on the weight a <see cref="IMonster">Monster</see> can carry.
+		/// </summary>
 		public const long PpeAfterEnforceMonsterWeightLimitsCheck = 1;
 
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires after checking whether the player is giving away a readied weapon.
+		/// </summary>
 		public const long PpeAfterPlayerGivesReadiedWeaponCheck = 2;
 
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires before a <see cref="IMonster">Monster</see> takes the gold offered by the player.
+		/// </summary>
 		public const long PpeBeforeMonsterTakesGold = 3;
 
 		public virtual long GoldAmount { get; set; }
@@ -390,7 +396,7 @@ namespace EamonRT.Game.Commands
 			{
 				gCommandParser.ObjData = gCommandParser.IobjData;
 
-				gCommandParser.ObjData.QueryDesc = string.Format("{0}To whom? ", Environment.NewLine);
+				gCommandParser.ObjData.QueryDescFunc = () => string.Format("{0}To whom? ", Environment.NewLine);
 
 				PlayerResolveMonster();
 			}

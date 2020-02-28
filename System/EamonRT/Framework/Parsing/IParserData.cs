@@ -16,7 +16,7 @@ namespace EamonRT.Framework.Parsing
 		string Name { get; set; }
 
 		/// <summary></summary>
-		string QueryDesc { get; set; }
+		Func<string> QueryDescFunc { get; set; }
 
 		/// <summary></summary>
 		IGameBase Obj { get; set; }

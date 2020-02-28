@@ -74,6 +74,10 @@ namespace EamonRT.Framework.Parsing
 		IMonster GetMonster();
 
 		/// <summary></summary>
+		/// <returns></returns>
+		StringBuilder ReplacePrepositions(StringBuilder buf);
+
+		/// <summary></summary>
 		void Clear();
 
 		/// <summary></summary>

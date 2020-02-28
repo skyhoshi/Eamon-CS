@@ -1047,7 +1047,8 @@
         </member>
         <member name="P:Eamon.Framework.IArtifact.Location">
             <summary>
-            Gets or sets the location of this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> in the game.
+            Gets or sets the location of this <see cref="T:Eamon.Framework.IArtifact">Artifact</see> in the game (typically a <see cref="T:Eamon.Framework.IRoom">Room</see>
+            <see cref="P:Eamon.Framework.IGameBase.Uid">Uid</see> or a special code).
             </summary>
         </member>
         <member name="P:Eamon.Framework.IArtifact.Type">
@@ -1884,7 +1885,9 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.ICharacter.EvalGender``1(``0,``0,``0)">
-            <summary></summary>
+            <summary>
+            Evaluates this <see cref="T:Eamon.Framework.ICharacter">Character</see>'s <see cref="P:Eamon.Framework.ICharacter.Gender">Gender</see>, returning a value of type T.
+            </summary>
             <param name="maleValue"></param>
             <param name="femaleValue"></param>
             <param name="neutralValue"></param>
@@ -2078,8 +2081,8 @@
         <member name="P:Eamon.Framework.IEngine.MacroFuncs">
             <summary>
             Gets or sets a collection of functions used to resolve macros embedded in <see cref="P:Eamon.Framework.IGameBase.Desc">Desc</see>, 
-            <see cref="T:Eamon.Framework.IArtifact">Artifact</see> <see cref="P:Eamon.Framework.IArtifact.StateDesc">StateDesc</see> and <see cref="T:Eamon.Framework.IMonster">Monster</see>
-            <see cref="P:Eamon.Framework.IMonster.StateDesc">StateDesc</see> properties.
+            <see cref="T:Eamon.Framework.IArtifact">Artifact</see><see cref="P:Eamon.Framework.IArtifact.StateDesc"> StateDesc</see> and <see cref="T:Eamon.Framework.IMonster">Monster</see>
+            <see cref="P:Eamon.Framework.IMonster.StateDesc"> StateDesc</see> properties.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IEngine.ArtifactContainedList">
@@ -2628,6 +2631,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IEngine.GetRandomElement``1(``0[],System.Func{System.Int64})">
+            <summary></summary>
+            <param name="array"></param>
+            <param name="indexFunc"></param>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IEngine.EvalFriendliness``1(Eamon.Framework.Primitive.Enums.Friendliness,``0,``0,``0)">
             <summary>
             Evaluates the <see cref="T:Eamon.Framework.Primitive.Enums.Friendliness"/>, returning a value of type T.
@@ -2649,7 +2658,9 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IEngine.EvalContainerType``1(Eamon.Framework.Primitive.Enums.ContainerType,``0,``0,``0,``0)">
-            <summary></summary>
+            <summary>
+            Evaluates the <see cref="T:Eamon.Framework.Primitive.Enums.ContainerType"/>, returning a value of type T.
+            </summary>
             <param name="containerType"></param>
             <param name="inValue"></param>
             <param name="onValue"></param>
@@ -3046,25 +3057,53 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.IGameBase.Uid">
-            <summary></summary>
+            <summary>
+            Gets or sets a unique Id that distinguishes this <see cref="T:Eamon.Framework.IGameBase">Record</see> from others of its type.
+            </summary>
+            <remarks>
+            Every foundational Record Type in Eamon CS (e.g., <see cref="T:Eamon.Framework.IRoom">Room</see>, <see cref="T:Eamon.Framework.IArtifact">Artifact</see>, etc.)
+            inherits this unique Id.  This allows the game designer to find and manipulate specific <see cref="T:Eamon.Framework.IGameBase">Record</see>s,
+            either using tools like EamonDD or during gameplay.  The unique Id is a discrete sequence number starting at 1 for each
+            inheriting Record Type, which means you can get (for example) both a Room and Artifact with the same unique Id.
+            </remarks>
         </member>
         <member name="P:Eamon.Framework.IGameBase.IsUidRecycled">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Eamon.Framework.IGameBase">Record</see>'s <see cref="P:Eamon.Framework.IGameBase.Uid">Uid</see> should be
+            recycled (cached for reuse) when the Dispose method is called.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameBase.Name">
-            <summary></summary>
+            <summary>
+            Gets or sets the name of this <see cref="T:Eamon.Framework.IGameBase">Record</see> as shown in various lists or the Record's full description.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameBase.Desc">
-            <summary></summary>
+            <summary>
+            Gets or sets the detailed description of this <see cref="T:Eamon.Framework.IGameBase">Record</see> shown when the Record is 
+            first <see cref="P:Eamon.Framework.IGameBase.Seen">Seen</see> or later examined.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameBase.Synonyms">
-            <summary></summary>
+            <summary>
+            Gets or sets a string array containing <see cref="P:Eamon.Framework.IGameBase.Name">Name</see> synonyms for this <see cref="T:Eamon.Framework.IGameBase">Record</see>
+            (may be <c>null</c>).
+            </summary>
+            <remarks>
+            In the case of <see cref="T:Eamon.Framework.IArtifact">Artifact</see>s and <see cref="T:Eamon.Framework.IMonster">Monster</see>s, the game uses synonyms
+            during parsing.
+            </remarks>
         </member>
         <member name="P:Eamon.Framework.IGameBase.Seen">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Eamon.Framework.IGameBase">Record</see> has been seen by the player character.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameBase.ArticleType">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating how this <see cref="T:Eamon.Framework.IGameBase">Record</see>'s <see cref="P:Eamon.Framework.IGameBase.Name">Name</see> is
+            prefixed to produce its listed Name.
+            </summary>
         </member>
         <member name="M:Eamon.Framework.IGameBase.SetParentReferences">
             <summary></summary>
@@ -3128,61 +3167,136 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.Ar">
-            <summary></summary>
+            <summary>
+            Gets or sets the <see cref="T:Eamon.Framework.IArtifact">Artifact</see><see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see> for the armor being worn by
+            the player character (may be 0 if none exists).
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.Cm">
-            <summary></summary>
+            <summary>
+            Gets or sets the <see cref="T:Eamon.Framework.IMonster">Monster</see><see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see> being used to represent the
+            player character.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.Ls">
-            <summary></summary>
+            <summary>
+            Gets or sets the <see cref="T:Eamon.Framework.IArtifact">Artifact</see><see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see> for the currently active
+            <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.LightSource">LightSource</see> (may be 0 if none exists).
+            </summary>
+            <remarks>
+            Here are some basics about the <see cref="F:Eamon.Framework.Primitive.Enums.ArtifactType.LightSource">LightSource </see><see cref="T:Eamon.Framework.Primitive.Enums.ArtifactType">ArtifactType</see>
+            in Eamon CS.  Like Eamon Deluxe, it directly supports only one light source active at a time, and it must be in the <see cref="T:Eamon.Framework.IRoom">Room</see>
+            with the player.  When the LightSource is active, its <see cref="P:Eamon.Framework.IGameBase.Uid">Uid</see> is stored in <see cref="P:Eamon.Framework.IGameState.Ls">Ls</see>; if
+            no LightSource is active, this property will be 0.  Furthermore, if the LightSource is portable, it must be carried by the player
+            when activated as well (the game automatically causes the player character to pick it up).  If a portable LightSource is dropped,
+            it will go out; if the LightSource is not portable, it will go out when the player leaves the room.  If one LightSource is lit when
+            another is active, the currently lit LightSource will go out.
+            </remarks>
         </member>
         <member name="P:Eamon.Framework.IGameState.Ro">
-            <summary></summary>
+            <summary>
+            Gets or sets the <see cref="T:Eamon.Framework.IRoom">Room</see><see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see> for the player character's current
+            location (may be 0 if in limbo).
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.R2">
-            <summary></summary>
+            <summary>
+            Gets or sets the <see cref="T:Eamon.Framework.IRoom">Room</see><see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see> for the location the player character
+            is entering (during a movement operation).
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.R3">
-            <summary></summary>
+            <summary>
+            Gets or sets the <see cref="T:Eamon.Framework.IRoom">Room</see><see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see> for the location the player character
+            is exiting (during a movement operation).
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.Sh">
-            <summary></summary>
+            <summary>
+            Gets or sets the <see cref="T:Eamon.Framework.IArtifact">Artifact</see><see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see> for the shield being worn by
+            the player character (may be 0 if none exists).
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.Af">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.Die">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating the player character death status (-1=Quitting Game, 0=Alive, 1=Dead).
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.Speed">
-            <summary></summary>
+            <summary>
+            Gets or sets the number of rounds remaining before the player character's <see cref="F:Eamon.Framework.Primitive.Enums.Spell.Speed">Speed</see> spell expires.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.Vr">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether <see cref="T:Eamon.Framework.IRoom">Room</see>s should always be printed verbosely.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.Vm">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether <see cref="T:Eamon.Framework.IMonster">Monster</see>s should always be printed verbosely.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.Va">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether <see cref="T:Eamon.Framework.IArtifact">Artifact</see>s should always be printed verbosely.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.MatureContent">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether mature content should be allowed during gameplay.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.CurrTurn">
-            <summary></summary>
+            <summary>
+            Gets or sets the current turn in the game; this is incremented after player command parsing but before execution.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.PauseCombatMs">
-            <summary></summary>
+            <summary>
+            Gets or sets the number of milliseconds to pause between attacks during a combat round.
+            </summary>
+        </member>
+        <member name="P:Eamon.Framework.IGameState.ImportedArtUidsIdx">
+            <summary>
+            Gets or sets a value that indexes <see cref="P:Eamon.Framework.IGameState.ImportedArtUids">ImportedArtUids</see> and indicates the next
+            available element to store an imported <see cref="T:Eamon.Framework.IArtifact">Artifact</see><see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see>.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.UsedWpnIdx">
-            <summary></summary>
+            <summary>
+            Gets or sets a value that indexes <see cref="P:Eamon.Framework.IGameState.HeldWpnUids">HeldWpnUids</see> and indicates which weapon in that
+            array is being used by the player in the game.  (Only used in the beginner's adventures).
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IGameState.Sa">
-            <summary></summary>
+            <summary>
+            Gets or sets an array of player character <see cref="T:Eamon.Framework.Primitive.Enums.Spell">Spell</see> abilities that is updated during gameplay.
+            </summary>
+        </member>
+        <member name="P:Eamon.Framework.IGameState.ImportedArtUids">
+            <summary>
+            Gets or sets an array of <see cref="T:Eamon.Framework.IArtifact">Artifact</see><see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see>s corresponding
+            to the Artifacts brought into the game by the player (armor, shield and weapons).
+            </summary>
+            <remarks>
+            The <see cref="P:Eamon.Framework.IGameState.ImportedArtUidsIdx">ImportedArtUidsIdx</see> property indicates the number of
+            <see cref="T:Eamon.Framework.IArtifact">Artifact</see><see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see>s stored in the array (and also the next
+            element available to store another).
+            </remarks>
         </member>
         <member name="P:Eamon.Framework.IGameState.HeldWpnUids">
-            <summary></summary>
+            <summary>
+            Gets or sets an array of <see cref="T:Eamon.Framework.IArtifact">Artifact</see><see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see>s corresponding
+            to the weapons brought into the game by the player.  (Only used in the beginner's adventures).
+            </summary>
+            <remarks>
+            All but one of these weapons is put in limbo; the <see cref="P:Eamon.Framework.IGameState.UsedWpnIdx">UsedWpnIdx</see> property indicates which
+            weapon is being used by the player in the game.  All weapons are returned to the player when the game is exited.
+            </remarks>
         </member>
         <member name="M:Eamon.Framework.IGameState.GetNBTL(System.Int64)">
             <summary></summary>
@@ -3214,6 +3328,11 @@
             <param name="spell"></param>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IGameState.GetImportedArtUids(System.Int64)">
+            <summary></summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IGameState.GetHeldWpnUids(System.Int64)">
             <summary></summary>
             <param name="index"></param>
@@ -3227,6 +3346,11 @@
         <member name="M:Eamon.Framework.IGameState.SetSa(Eamon.Framework.Primitive.Enums.Spell,System.Int64)">
             <summary></summary>
             <param name="spell"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Eamon.Framework.IGameState.SetImportedArtUids(System.Int64,System.Int64)">
+            <summary></summary>
+            <param name="index"></param>
             <param name="value"></param>
         </member>
         <member name="M:Eamon.Framework.IGameState.SetHeldWpnUids(System.Int64,System.Int64)">
@@ -3312,13 +3436,22 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.StateDesc">
-            <summary></summary>
+            <summary>
+            Gets or sets a description shown after this <see cref="T:Eamon.Framework.IMonster">Monster</see>'s <see cref="P:Eamon.Framework.IGameBase.Name">Name</see> in
+            various lists that indicates its state.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.IsListed">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Eamon.Framework.IMonster">Monster</see> should be displayed in
+            various lists.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.PluralType">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating how this <see cref="T:Eamon.Framework.IMonster">Monster</see>'s singular <see cref="P:Eamon.Framework.IGameBase.Name">Name</see> is
+            modified to produce its plural Name.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.Hardiness">
             <summary></summary>
@@ -3327,19 +3460,28 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.GroupCount">
-            <summary></summary>
+            <summary>
+            Gets or sets the current number of members in this <see cref="T:Eamon.Framework.IMonster">Monster</see>'s group (will be 1 for individuals).
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.AttackCount">
-            <summary></summary>
+            <summary>
+            Gets or sets the number of attacks each member in this <see cref="T:Eamon.Framework.IMonster">Monster</see>'s group can make every combat round.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.Courage">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.Location">
-            <summary></summary>
+            <summary>
+            Gets or sets the location of this <see cref="T:Eamon.Framework.IMonster">Monster</see> in the game (typically a <see cref="T:Eamon.Framework.IRoom">Room</see>
+            <see cref="P:Eamon.Framework.IGameBase.Uid">Uid</see>).
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.CombatCode">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating this <see cref="T:Eamon.Framework.IMonster">Monster</see>'s behavior when in combat.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.Armor">
             <summary></summary>
@@ -3348,41 +3490,76 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.NwDice">
-            <summary></summary>
+            <summary>
+            Gets or sets the hit dice done per attack, for <see cref="T:Eamon.Framework.IMonster">Monster</see>s that can use natural attacks (based
+            on <see cref="P:Eamon.Framework.IMonster.CombatCode">CombatCode</see>).
+            </summary>
+            <remarks>
+            In the XdY nomenclature used by roleplaying games, this is X.
+            </remarks>
         </member>
         <member name="P:Eamon.Framework.IMonster.NwSides">
-            <summary></summary>
+            <summary>
+            Gets or sets the hit dice sides done per attack, for <see cref="T:Eamon.Framework.IMonster">Monster</see>s that can use natural attacks (based
+            on <see cref="P:Eamon.Framework.IMonster.CombatCode">CombatCode</see>).
+            </summary>
+            <remarks>
+            In the XdY nomenclature used by roleplaying games, this is Y.
+            </remarks>
         </member>
         <member name="P:Eamon.Framework.IMonster.DeadBody">
-            <summary></summary>
+            <summary>
+            Gets or sets the <see cref="T:Eamon.Framework.IArtifact">Artifact</see><see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see> for this <see cref="T:Eamon.Framework.IMonster">Monster</see>'s
+            dead body (may be 0 if none exists).
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.Friendliness">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.Gender">
-            <summary></summary>
+            <summary>
+            Gets or sets this <see cref="T:Eamon.Framework.IMonster">Monster</see>'s gender.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.InitGroupCount">
-            <summary></summary>
+            <summary>
+            Gets or sets the initial number of members in this <see cref="T:Eamon.Framework.IMonster">Monster</see>'s group at the beginning of the current
+            combat round (will be 1 for individuals).
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.OrigGroupCount">
-            <summary></summary>
+            <summary>
+            Gets or sets the original number of members in this <see cref="T:Eamon.Framework.IMonster">Monster</see>'s group at the beginning of the game (will
+            be 1 for individuals).
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.OrigFriendliness">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.DmgTaken">
-            <summary></summary>
+            <summary>
+            Gets or sets the number of hit points of damage taken by this <see cref="T:Eamon.Framework.IMonster">Monster</see>, either in combat or otherwise.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.Field1">
-            <summary></summary>
+            <summary>
+            Gets or sets a value that is unused by Eamon CS, but provided for game developer usage.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IMonster.Field2">
-            <summary></summary>
+            <summary>
+            Gets or sets a value that is unused by Eamon CS, but provided for game developer usage.
+            </summary>
         </member>
         <member name="M:Eamon.Framework.IMonster.IsDead">
-            <summary></summary>
-            <returns></returns>
+            <summary>
+            Indicates whether this <see cref="T:Eamon.Framework.IMonster">Monster</see> is dead.
+            </summary>
+            <remarks>
+            By default, to determine dead status the system compares <see cref="P:Eamon.Framework.IMonster.DmgTaken">DmgTaken</see> with
+            <see cref="P:Eamon.Framework.IMonster.Hardiness">Hardiness</see>.
+            </remarks>
+            <returns>If so then <c>true</c>, otherwise <c>false</c>.</returns>
         </member>
         <member name="M:Eamon.Framework.IMonster.IsCarryingWeapon">
             <summary></summary>
@@ -3445,8 +3622,16 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IMonster.CanAttackWithMultipleWeapons">
-            <summary></summary>
-            <returns></returns>
+            <summary>
+            Indicates whether this <see cref="T:Eamon.Framework.IMonster">Monster</see> is allowed to attack with multiple <see cref="T:Eamon.Framework.IArtifact">Artifact</see> weapons
+            in a single combat round, if certain other conditions are met.
+            </summary>
+            <remarks>
+            This method allows support for <see cref="T:Eamon.Framework.IMonster">Monster</see>s that can multi-attack and also multi-wield.  The conditions that need to
+            be met to trigger this behavior include:  the Monster is an individual, it is armed and carrying more than one <see cref="T:Eamon.Framework.IArtifact">Artifact</see>
+            weapon and this method must return <c>true</c>.  By default, it returns <c>false</c>.
+            </remarks>
+            <returns>If so then <c>true</c>, otherwise <c>false</c>.</returns>
         </member>
         <member name="M:Eamon.Framework.IMonster.GetCarryingWeaponUid">
             <summary></summary>
@@ -3514,27 +3699,36 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IMonster.EvalFriendliness``1(``0,``0,``0)">
-            <summary></summary>
+            <summary>
+            Evaluates this <see cref="T:Eamon.Framework.IMonster">Monster</see>'s <see cref="P:Eamon.Framework.IMonster.Friendliness">Friendliness</see>, returning a value of type T.
+            </summary>
             <param name="enemyValue"></param>
             <param name="neutralValue"></param>
             <param name="friendValue"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IMonster.EvalGender``1(``0,``0,``0)">
-            <summary></summary>
+            <summary>
+            Evaluates this <see cref="T:Eamon.Framework.IMonster">Monster</see>'s <see cref="P:Eamon.Framework.IMonster.Gender">Gender</see>, returning a value of type T.
+            </summary>
             <param name="maleValue"></param>
             <param name="femaleValue"></param>
             <param name="neutralValue"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IMonster.EvalPlural``1(``0,``0)">
-            <summary></summary>
+            <summary>
+            Evaluates this <see cref="T:Eamon.Framework.IMonster">Monster</see>'s <see cref="P:Eamon.Framework.IMonster.GroupCount">GroupCount</see>, returning a value of type T.
+            </summary>
             <param name="singularValue"></param>
             <param name="pluralValue"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IMonster.EvalInRoomLightLevel``1(``0,``0)">
-            <summary></summary>
+            <summary>
+            Evaluates the <see cref="P:Eamon.Framework.IRoom.LightLvl">LightLvl</see> of this <see cref="T:Eamon.Framework.IMonster">Monster</see>'s <see cref="T:Eamon.Framework.IRoom">Room</see> (as
+            determined by its <see cref="P:Eamon.Framework.IMonster.Location">Location</see>), returning a value of type T.
+            </summary>
             <param name="darkValue"></param>
             <param name="lightValue"></param>
             <returns></returns>
@@ -3552,8 +3746,10 @@
             <param name="value"></param>
         </member>
         <member name="M:Eamon.Framework.IMonster.IsCharacterMonster">
-            <summary></summary>
-            <returns></returns>
+            <summary>
+            Indicates whether this <see cref="T:Eamon.Framework.IMonster">Monster</see> represents the player character.
+            </summary>
+            <returns>If so then <c>true</c>, otherwise <c>false</c>.</returns>
         </member>
         <member name="M:Eamon.Framework.IMonster.IsStateDescSideNotes">
             <summary></summary>
@@ -3686,16 +3882,34 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.IRoom.LightLvl">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating the amount of light in this <see cref="T:Eamon.Framework.IRoom">Room</see>.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IRoom.Type">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating this <see cref="T:Eamon.Framework.IRoom">Room</see>'s general type.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IRoom.Zone">
-            <summary></summary>
+            <summary>
+            Gets or sets a value that is unused by Eamon CS, but indicates the zone of this <see cref="T:Eamon.Framework.IRoom">Room</see>.
+            </summary>
+            <remarks>
+            This value is provided to the game developer to allow sets of <see cref="T:Eamon.Framework.IRoom">Room</see>s to be arbitrarily grouped.
+            Then the groups of Rooms can be processed further by the game code if necessary.
+            </remarks>
         </member>
         <member name="P:Eamon.Framework.IRoom.Dirs">
-            <summary></summary>
+            <summary>
+            Gets or sets an array of <see cref="T:Eamon.Framework.IRoom">Room</see> exit links, each element corresponding to one <see cref="T:Eamon.Framework.Primitive.Enums.Direction">Direction</see>.
+            </summary>
+            <remarks>
+            The elements of this array can be manipulated during game play, but you should never do so directly.  Instead, use the
+            <see cref="M:Eamon.Framework.IRoom.GetDirs(Eamon.Framework.Primitive.Enums.Direction)"/> and <see cref="M:Eamon.Framework.IRoom.SetDirs(Eamon.Framework.Primitive.Enums.Direction,System.Int64)"/> methods.  The 0'th element is unused.
+            </remarks>
+            <seealso cref="M:Eamon.Framework.IRoom.GetDirs(System.Int64)"/>
+            <seealso cref="M:Eamon.Framework.IRoom.SetDirs(System.Int64,System.Int64)"/>
         </member>
         <member name="M:Eamon.Framework.IRoom.GetDirs(System.Int64)">
             <summary></summary>
@@ -3718,8 +3932,10 @@
             <param name="value"></param>
         </member>
         <member name="M:Eamon.Framework.IRoom.IsLit">
-            <summary></summary>
-            <returns></returns>
+            <summary>
+            Indicates whether this <see cref="T:Eamon.Framework.IRoom">Room</see> is lit.
+            </summary>
+            <returns>If <see cref="P:Eamon.Framework.IRoom.LightLvl"/> == <see cref="F:Eamon.Framework.Primitive.Enums.LightLevel.Light"/> then <c>true</c>, otherwise <c>false</c>.</returns>
         </member>
         <member name="M:Eamon.Framework.IRoom.IsDirectionInvalid(System.Int64)">
             <summary></summary>
@@ -3822,7 +4038,9 @@
             <param name="artifact"></param>
         </member>
         <member name="M:Eamon.Framework.IRoom.GetObviousExits">
-            <summary></summary>
+            <summary>
+            Gets this <see cref="T:Eamon.Framework.IRoom">Room</see>'s obvious exits prefix string, based on its <see cref="P:Eamon.Framework.IRoom.Type">Type</see>.
+            </summary>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IRoom.IsMonsterListedInRoom(Eamon.Framework.IMonster)">
@@ -3836,13 +4054,17 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IRoom.EvalLightLevel``1(``0,``0)">
-            <summary></summary>
+            <summary>
+            Evaluates this <see cref="T:Eamon.Framework.IRoom">Room</see>'s <see cref="P:Eamon.Framework.IRoom.LightLvl">LightLvl</see>, returning a value of type T.
+            </summary>
             <param name="darkValue"></param>
             <param name="lightValue"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IRoom.EvalRoomType``1(``0,``0)">
-            <summary></summary>
+            <summary>
+            Evaluates this <see cref="T:Eamon.Framework.IRoom">Room</see>'s <see cref="P:Eamon.Framework.IRoom.Type">Type</see>, returning a value of type T.
+            </summary>
             <param name="indoorsValue"></param>
             <param name="outdoorsValue"></param>
             <returns></returns>
@@ -3940,37 +4162,75 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.ClassMappingsDictionary">
-            <summary></summary>
+            <summary>
+            Gets or sets the Dictionary that stores interface to class mappings as Key/Value pairs, used for dependency injection.
+            </summary>
+            <remarks>
+            This is the heart of the customized dependency injection architecture used by Eamon CS.  If you've ever wondered
+            how the system seems to "know" which class needs to be instantiated to make any game work, it is all based on the
+            contents of this Dictionary.  When the system calls <see cref="M:Eamon.Framework.Plugin.IPluginClassMappings.CreateInstance``1(System.Action{``0})">CreateInstance</see>,
+            this Dictionary is consulted and the concrete class corresponding to the provided interface is created.  If you use the
+            debugger to step through a game while its running, looking in this Dictionary at the Key/Value pairs is very enlightening.
+            Another piece to this puzzle is how the Dictionary itself is loaded during program bootstrap, and this information will be
+            provided in the comments for <see cref="M:Eamon.Framework.Plugin.IPluginClassMappings.LoadPluginClassMappings">LoadPluginClassMappings</see> and 
+            <see cref="M:Eamon.Framework.Plugin.IPluginClassMappings.LoadPluginClassMappings01(System.Reflection.Assembly)">LoadPluginClassMappings01</see>.
+            <para>
+            Side note:  Research was done on dependency injection toolkits (like Ninject, etc.), but that avenue was avoided because it
+            would have introduced unnecessary dependencies for the project.  There don't seem to be any frameworks that fit what was
+            done in Eamon CS, so this dependency injection architecture is outside typical patterns.
+            </para>
+            </remarks>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.In">
-            <summary></summary>
+            <summary>
+            Gets or sets the text reader that accepts user input from the console window.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.Out">
-            <summary></summary>
+            <summary>
+            Gets or sets the text writer that prints text to the console window.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.Error">
-            <summary></summary>
+            <summary>
+            Gets or sets the text writer that prints error messages to the console window.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.Mutex">
-            <summary></summary>
+            <summary>
+            Gets or sets a mutex (mutual exclusion lock) that ensures only one Eamon CS process runs in a given operating system at a time.
+            </summary>
+            <remarks>
+            Eamon CS loads its textfiles into an in-memory database, requiring the use of a global system mutex to prevent textfile corruption.
+            This mutex prevents multiple Eamon CS processes from running simultaneously, even if they are run from different repositories on
+            the same computer.
+            </remarks>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.TransferProtocol">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.Directory">
-            <summary></summary>
+            <summary>
+            Gets or sets the platform-independent Directory manager that Eamon CS relies on for all directory-related operations.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.File">
-            <summary></summary>
+            <summary>
+            Gets or sets the platform-independent File manager that Eamon CS relies on for all file-related operations.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.Path">
-            <summary></summary>
+            <summary>
+            Gets or sets the platform-independent file system Path manager that Eamon CS relies on for all file system path-related operations.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.SharpSerializer">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.Thread">
-            <summary></summary>
+            <summary>
+            Gets or sets the platform-independent Thread manager that Eamon CS relies on for all thread-related operations.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.CloneStream">
             <summary></summary>
@@ -3982,16 +4242,39 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.RulesetVersion">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating which Eamon ruleset applies to the current game.
+            </summary>
+            <remarks>
+            Earlier rulesets of Eamon gave a different "vibe" to the gameplay experience, so a means to support them was introduced.  Currently supported
+            rulesets include 5 for DDD5 and 0 for Eamon Deluxe.  The Temple of Ngurct is the only game using DDD5 at the time of this writing.
+            </remarks>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.EnableGameOverrides">
-            <summary></summary>
+            <summary>
+            Gets a value indicating whether "mutating properties" (those that are dynamically calculated) should be enabled.
+            </summary>
+            <remarks>
+            Examples of mutating properties include <see cref="T:Eamon.Framework.IMonster">Monster</see> <see cref="P:Eamon.Framework.IMonster.Courage"> Courage</see> and
+            <see cref="T:Eamon.Framework.IArtifact">Artifact</see> <see cref="P:Eamon.Framework.IArtifact.Location"> Location</see>, but there are more scattered through the various games as
+            well.  You will note that both the getter and setter of a property can mutate if necessary.  In general, you want this behavior enabled during
+            gameplay so properties can respond to changes in game state, but never when the <see cref="P:Eamon.Framework.Plugin.IPluginClassMappings.SharpSerializer">SharpSerializer</see> is running
+            during textfile serialization or deserialization because it can lead to corrupted values.  This value should be checked in all mutating
+            properties and if it is <c>false</c> they should disable complex calculations and return a simple base value.
+            </remarks>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.EnableStdio">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.IgnoreMutex">
-            <summary></summary>
+            <summary>
+            Gets or sets a value indicating whether the <see cref="P:Eamon.Framework.Plugin.IPluginClassMappings.Mutex">Mutex</see> should be ignored, allowing unlimited Eamon CS processes
+            to run simultaneously.
+            </summary>
+            <remarks>
+            This should only be done when there is no chance of textfile corruption.  For example, running processes in different repositories
+            that always access different textfiles.
+            </remarks>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.RunGameEditor">
             <summary></summary>
@@ -4016,11 +4299,74 @@
             <param name="args"></param>
         </member>
         <member name="M:Eamon.Framework.Plugin.IPluginClassMappings.LoadPluginClassMappings">
-            <summary></summary>
+            <summary>
+            Loads the <see cref="P:Eamon.Framework.Plugin.IPluginClassMappings.ClassMappingsDictionary">ClassMappingsDictionary</see> with all interface to class mapping Key/Value
+            pairs necessary to allow the currently loaded Eamon CS plugin to run.
+            </summary>
+            <remarks>
+            The mechanism used to accomplish this is easy to understand but somewhat hard to describe without providing a concrete
+            example and referring you to other source code files to inspect their contents.  Let's take a look at the game Wrenhold's
+            Secret Vigil.  Please inspect the following files in the order listed (they are also executed in this order by Eamon CS -
+            a simplified call stack):
+            <list type="bullet">
+            <item>Adventures\WrenholdsSecretVigil\Game\Plugin\PluginClassMappings.cs</item>
+            <item>System\EamonRT\Game\Plugin\PluginClassMappings.cs</item>
+            <item>System\EamonDD\Game\Plugin\PluginClassMappings.cs</item>
+            <item>System\Eamon\Game\Plugin\PluginClassMappings.cs</item>
+            </list>
+            All of these files contain LoadPluginClassMappings.  In the top three files, it is an override that calls into the level
+            below by invoking base.LoadPluginClassMappings.  So it immediately drills down to the bottom of the stack (to the Eamon
+            library).
+            <para>
+            Then things get interesting.  The lowest level calls
+            <see cref="M:Eamon.Framework.Plugin.IPluginClassMappings.LoadPluginClassMappings01(System.Reflection.Assembly)">LoadPluginClassMappings01</see> which probes the current Assembly (the
+            Eamon library) using Reflection, looking for classes adorned with the
+            <see cref="T:Eamon.Game.Attributes.ClassMappingsAttribute">ClassMappings</see> attribute.  It then adds Key/Value pairs for all
+            found classes (along with their matching interfaces) to the 
+            <see cref="P:Eamon.Framework.Plugin.IPluginClassMappings.ClassMappingsDictionary">ClassMappingsDictionary</see>.  At this point, the call stack unwinds to the next
+            higher level (EamonDD), and the overridden LoadPluginClassMappings method makes the same call to
+            LoadPluginClassMappings01 which performs the same function, only this time it probes EamonDD for classes.  This process
+            repeats until the stack is fully unwound and the original call to LoadPluginClassMappings (in Program.cs) returns.
+            </para>
+            <para>
+            At each level, all newly discovered class/interface pairs are added immediately to the ClassMappingsDictionary; however,
+            for any new class that maps to a pre-existing interface already in the Dictionary, that new class becomes the Value for
+            that interface's Key/Value pair.  In other words, classes in higher layers override classes in lower layers when they map
+            to the same interface.  This is how, for example, in Wrenhold's Secret Vigil, you wind up with
+            EamonRT.Framework.Combat.ICombatSystem mapping to WrenholdsSecretVigil.Game.Combat.CombatSystem.  And why a call made to
+            <see cref="M:Eamon.Framework.Plugin.IPluginClassMappings.CreateInstance``1(System.Action{``0})">CreateInstance</see> returns the game-specific CombatSystem object.
+            </para>
+            </remarks>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.Plugin.IPluginClassMappings.LoadPluginClassMappings01(System.Reflection.Assembly)">
-            <summary></summary>
+            <summary>
+            Probes the currently executing library/plugin (Assembly) for all classes adorned with the
+            <see cref="T:Eamon.Game.Attributes.ClassMappingsAttribute">ClassMappings</see> attribute, pairs each class with its corresponding
+            interface, and updates the <see cref="P:Eamon.Framework.Plugin.IPluginClassMappings.ClassMappingsDictionary">ClassMappingsDictionary</see> accordingly.
+            </summary>
+            <remarks>
+            This is the third and final piece of the Eamon CS dependency injection puzzle.  If you haven't done so, please review the
+            remarks on <see cref="P:Eamon.Framework.Plugin.IPluginClassMappings.ClassMappingsDictionary">ClassMappingsDictionary</see> and
+            <see cref="M:Eamon.Framework.Plugin.IPluginClassMappings.LoadPluginClassMappings">LoadPluginClassMappings</see> for necessary background information before reading these
+            comments.  This method is responsible for probing the passed in library/plugin (in C# terms, an Assembly) for classes
+            adorned with the <see cref="T:Eamon.Game.Attributes.ClassMappingsAttribute">ClassMappings</see> attribute.  Then it iterates over
+            each found class and obtains all ClassMappings attribute information for that class.  (While in theory, each class can
+            have multiple ClassMappings attributes applied to it, this is not currently done.)  At this point, we know the class will
+            be the Value part of a Key/Value pair, but we still don't know what interface to associate it with (the Key part).  This
+            is decided based on which ClassMappings constructor is called.  If
+            <see cref="M:Eamon.Game.Attributes.ClassMappingsAttribute.#ctor(System.Type)">this constructor</see> is used (e.g.,
+            [ClassMappings(typeof(Eamon.Framework.IEngine))]) then the passed in interface is used as the Key.  Otherwise, for
+            <see cref="M:Eamon.Game.Attributes.ClassMappingsAttribute.#ctor(System.Type)">this constructor</see> (e.g., [ClassMappings]),
+            the name of the interface used as the Key will be synthesized by prepending "I" to the class name.  So, for example,
+            CombatSystem pairs with ICombatSystem.  In this scenario, the class must always implement or inherit the interface;
+            otherwise the system won't be able to find it.  If the interface to be used as a Key can't be found, Eamon CS will issue
+            an error and terminate the program.  Assuming everything checks out, the class is then stored as the Value in the
+            Dictionary with the interface as the Key.  If the interface already existed in the Dictionary (having been inserted by
+            a lower level of the system) then the old class associated with the interface is replaced with the new class.  This allows
+            lower-level interfaces to be associated with increasingly specialized higher-level classes, which is core to the functioning
+            of Eamon CS.
+            </remarks>
             <param name="plugin"></param>
             <returns></returns>
         </member>
@@ -4759,6 +5105,11 @@
         <member name="P:Eamon.Framework.Portability.ITextWriter.Stdout">
             <summary></summary>
         </member>
+        <member name="P:Eamon.Framework.Portability.ITextWriter.PunctSpaceCode">
+            <summary>
+            Gets or sets a value indicating whether text being output has one or two spaces after punctuation, or if this behavior is disabled.
+            </summary>
+        </member>
         <member name="P:Eamon.Framework.Portability.ITextWriter.Encoding">
             <summary></summary>
         </member>
@@ -5382,8 +5733,9 @@
             An enumeration of Article Types.
             </summary>
             <remarks>
-            These article types are applied to <see cref="T:Eamon.Framework.IArtifact">Artifact</see>s and <see cref="T:Eamon.Framework.IMonster">Monster</see>s and improve the
-            aesthetics of the output, making it more natural to read.  You can modify any record at runtime to change its article type, if desired.
+            These article types are applied to the <see cref="P:Eamon.Framework.IGameBase.Name">Name</see>s of <see cref="T:Eamon.Framework.IArtifact">Artifact</see>s and
+            <see cref="T:Eamon.Framework.IMonster">Monster</see>s to improve the aesthetics of the output, making it more natural to read.  You can modify
+            any record at runtime to change its article type if desired.
             </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.ArticleType.None">
@@ -5548,12 +5900,12 @@
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.CombatCode.NaturalWeapons">
             <summary>
-            The <see cref="T:Eamon.Framework.IMonster">Monster</see> will favor weapons but fall back to natural weapons if necessary.
+            The <see cref="T:Eamon.Framework.IMonster">Monster</see> will favor <see cref="T:Eamon.Framework.IArtifact">Artifact</see> weapons but fall back to natural weapons if necessary.
             </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.CombatCode.Weapons">
             <summary>
-            The <see cref="T:Eamon.Framework.IMonster">Monster</see> will use either weapons or natural weapons (but never both).
+            The <see cref="T:Eamon.Framework.IMonster">Monster</see> will use either <see cref="T:Eamon.Framework.IArtifact">Artifact</see> weapons or natural weapons (but never both).
             </summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.CombatCode.Attacks">
@@ -5806,6 +6158,18 @@
         <member name="F:Eamon.Framework.Primitive.Enums.PoundCharPolicy.AllArtifacts">
             <summary></summary>
         </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.PunctSpaceCode">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.PunctSpaceCode.None">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.PunctSpaceCode.Single">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.PunctSpaceCode.Double">
+            <summary></summary>
+        </member>
         <member name="T:Eamon.Framework.Primitive.Enums.Record">
             <summary></summary>
         </member>
@@ -5964,6 +6328,26 @@
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Weapon.Sword">
             <summary></summary>
+        </member>
+        <member name="T:Eamon.Game.Attributes.ClassMappingsAttribute">
+            <summary>
+            An attribute that decorates concrete classes in Eamon CS, which corresponding interfaces resolve to via
+            dependency injection.
+            </summary>
+        </member>
+        <member name="M:Eamon.Game.Attributes.ClassMappingsAttribute.#ctor(System.Type)">
+            <summary>
+            An attribute that indicates this concrete class is the Value in a Key/Value pair stored in the
+            <see cref="P:Eamon.Framework.Plugin.IPluginClassMappings.ClassMappingsDictionary">ClassMappingsDictionary</see>;
+            the Key is the interface provided as a parameter.
+            </summary>
+        </member>
+        <member name="M:Eamon.Game.Attributes.ClassMappingsAttribute.#ctor">
+            <summary>
+            An attribute that indicates this concrete class is the Value in a Key/Value pair stored in the
+            <see cref="P:Eamon.Framework.Plugin.IPluginClassMappings.ClassMappingsDictionary">ClassMappingsDictionary</see>;
+            the Key is a corresponding interface with the same name but prefixed with "I".
+            </summary>
         </member>
         <member name="P:Eamon.Game.Engine.Rand">
             <summary></summary>
@@ -7608,6 +7992,16 @@
             <param name="addToNamesList"></param>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Game.Helpers.GameStateHelper.GetNameImportedArtUids(System.Boolean)">
+            <summary></summary>
+            <param name="addToNamesList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Game.Helpers.GameStateHelper.GetNameImportedArtUidsElement(System.Boolean)">
+            <summary></summary>
+            <param name="addToNamesList"></param>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.GetNameHeldWpnUids(System.Boolean)">
             <summary></summary>
             <param name="addToNamesList"></param>
@@ -7627,6 +8021,10 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.GetValueSaElement">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Game.Helpers.GameStateHelper.GetValueImportedArtUidsElement">
             <summary></summary>
             <returns></returns>
         </member>
@@ -7666,6 +8064,10 @@
             <summary></summary>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Game.Helpers.GameStateHelper.ValidateImportedArtUidsIdx">
+            <summary></summary>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.ValidateUsedWpnIdx">
             <summary></summary>
             <returns></returns>
@@ -7691,6 +8093,14 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.ValidateSaElement">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Game.Helpers.GameStateHelper.ValidateImportedArtUids">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Game.Helpers.GameStateHelper.ValidateImportedArtUidsElement">
             <summary></summary>
             <returns></returns>
         </member>

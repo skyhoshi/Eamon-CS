@@ -9,8 +9,9 @@ namespace Eamon.Framework.Primitive.Enums
 	/// An enumeration of Article Types.
 	/// </summary>
 	/// <remarks>
-	/// These article types are applied to <see cref="IArtifact">Artifact</see>s and <see cref="IMonster">Monster</see>s and improve the
-	/// aesthetics of the output, making it more natural to read.  You can modify any record at runtime to change its article type, if desired.
+	/// These article types are applied to the <see cref="IGameBase.Name">Name</see>s of <see cref="IArtifact">Artifact</see>s and
+	/// <see cref="IMonster">Monster</see>s to improve the aesthetics of the output, making it more natural to read.  You can modify
+	/// any record at runtime to change its article type if desired.
 	/// </remarks>
 	public enum ArticleType : long
 	{

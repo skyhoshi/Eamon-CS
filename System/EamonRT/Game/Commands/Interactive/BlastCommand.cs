@@ -19,10 +19,15 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class BlastCommand : Command, IBlastCommand
 	{
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires after the player's spell cast attempt has resolved as successful.
+		/// </summary>
 		public const long PpeAfterPlayerSpellCastCheck = 1;
 
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires after the <see cref="IMonster">Monster</see> targeted by the <see cref="Spell.Blast">Blast</see>
+		/// spell gets aggravated.
+		/// </summary>
 		public const long PpeAfterMonsterGetsAggravated = 2;
 
 		public virtual bool CastSpell { get; set; }

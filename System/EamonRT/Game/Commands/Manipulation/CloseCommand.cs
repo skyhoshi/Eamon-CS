@@ -5,6 +5,7 @@
 
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -16,7 +17,9 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class CloseCommand : Command, ICloseCommand
 	{
-		/// <summary></summary>
+		/// <summary>
+		/// An event that fires after the player closes an <see cref="IArtifact">Artifact</see>.
+		/// </summary>
 		public const long PpeAfterArtifactClose = 1;
 
 		public override void PlayerExecute()

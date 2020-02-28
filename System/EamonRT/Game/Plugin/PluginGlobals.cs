@@ -1,7 +1,7 @@
 ﻿
 // PluginGlobals.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using System.Text;
@@ -37,6 +37,8 @@ namespace EamonRT.Game.Plugin
 		public virtual long LoopAttackNumber { get; set; }
 
 		public virtual long LoopGroupCount { get; set; }
+
+		public virtual long LoopFailedMoveMemberCount { get; set; }
 
 		public virtual IMonster LoopLastDfMonster { get; set; }
 

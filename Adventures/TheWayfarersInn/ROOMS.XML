@@ -9,7 +9,7 @@
         <Complex type="TheWayfarersInn.Game.Room, TheWayfarersInn, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
-            <Simple name="Type" value="Indoors" />
+            <Simple name="Type" value="Outdoors" />
             <Simple name="Zone" value="1" />
             <SingleArray name="Dirs">
               <Items>
@@ -28,8 +28,8 @@
             </SingleArray>
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="Tiaga Gorge, Granite Formation" />
+            <Simple name="Desc" value="You stand atop a towering granite formation covered with scattered shrubs, looking down over rushing water.  The swiftly-moving current cascades over a series of worn boulders, forming small waterfalls and whirlpools as it cuts through the rocky **005" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

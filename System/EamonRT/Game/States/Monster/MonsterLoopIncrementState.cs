@@ -3,6 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
@@ -16,6 +17,16 @@ namespace EamonRT.Game.States
 		{
 			if (Globals.LoopMonsterUid > 0)
 			{
+				var monster = gMDB[Globals.LoopMonsterUid];
+
+				Debug.Assert(monster != null);
+
+				Debug.Assert(Globals.LoopFailedMoveMemberCount >= 0);
+
+				monster.GroupCount += Globals.LoopFailedMoveMemberCount;
+
+				Globals.LoopFailedMoveMemberCount = 0;
+
 				ProcessRevealContentArtifacts();
 			}
 

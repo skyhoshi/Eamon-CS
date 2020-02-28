@@ -1,7 +1,7 @@
 ﻿
 // IMonster.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -15,13 +15,22 @@ namespace Eamon.Framework
 	{
 		#region Properties
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a description shown after this <see cref="IMonster">Monster</see>'s <see cref="IGameBase.Name">Name</see> in
+		/// various lists that indicates its state.
+		/// </summary>
 		string StateDesc { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a value indicating whether this <see cref="IMonster">Monster</see> should be displayed in
+		/// various lists.
+		/// </summary>
 		bool IsListed { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a value indicating how this <see cref="IMonster">Monster</see>'s singular <see cref="IGameBase.Name">Name</see> is
+		/// modified to produce its plural Name.
+		/// </summary>
 		PluralType PluralType { get; set; }
 
 		/// <summary></summary>
@@ -30,19 +39,28 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		long Agility { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the current number of members in this <see cref="IMonster">Monster</see>'s group (will be 1 for individuals).
+		/// </summary>
 		long GroupCount { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the number of attacks each member in this <see cref="IMonster">Monster</see>'s group can make every combat round.
+		/// </summary>
 		long AttackCount { get; set; }
 
 		/// <summary></summary>
 		long Courage { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the location of this <see cref="IMonster">Monster</see> in the game (typically a <see cref="IRoom">Room</see>
+		/// <see cref="IGameBase.Uid">Uid</see>).
+		/// </summary>
 		long Location { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a value indicating this <see cref="IMonster">Monster</see>'s behavior when in combat.
+		/// </summary>
 		CombatCode CombatCode { get; set; }
 
 		/// <summary></summary>
@@ -51,45 +69,80 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		long Weapon { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the hit dice done per attack, for <see cref="IMonster">Monster</see>s that can use natural attacks (based
+		/// on <see cref="CombatCode">CombatCode</see>).
+		/// </summary>
+		/// <remarks>
+		/// In the XdY nomenclature used by roleplaying games, this is X.
+		/// </remarks>
 		long NwDice { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the hit dice sides done per attack, for <see cref="IMonster">Monster</see>s that can use natural attacks (based
+		/// on <see cref="CombatCode">CombatCode</see>).
+		/// </summary>
+		/// <remarks>
+		/// In the XdY nomenclature used by roleplaying games, this is Y.
+		/// </remarks>
 		long NwSides { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the <see cref="IArtifact">Artifact</see><see cref="IGameBase.Uid"> Uid</see> for this <see cref="IMonster">Monster</see>'s
+		/// dead body (may be 0 if none exists).
+		/// </summary>
 		long DeadBody { get; set; }
 
 		/// <summary></summary>
 		Friendliness Friendliness { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets this <see cref="IMonster">Monster</see>'s gender.
+		/// </summary>
 		Gender Gender { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the initial number of members in this <see cref="IMonster">Monster</see>'s group at the beginning of the current
+		/// combat round (will be 1 for individuals).
+		/// </summary>
 		long InitGroupCount { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the original number of members in this <see cref="IMonster">Monster</see>'s group at the beginning of the game (will
+		/// be 1 for individuals).
+		/// </summary>
 		long OrigGroupCount { get; set; }
 
 		/// <summary></summary>
 		Friendliness OrigFriendliness { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets the number of hit points of damage taken by this <see cref="IMonster">Monster</see>, either in combat or otherwise.
+		/// </summary>
 		long DmgTaken { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a value that is unused by Eamon CS, but provided for game developer usage.
+		/// </summary>
 		long Field1 { get; set; }
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets a value that is unused by Eamon CS, but provided for game developer usage.
+		/// </summary>
 		long Field2 { get; set; }
 
 		#endregion
 
 		#region Methods
 
-		/// <summary></summary>
-		/// <returns></returns>
+		/// <summary>
+		/// Indicates whether this <see cref="IMonster">Monster</see> is dead.
+		/// </summary>
+		/// <remarks>
+		/// By default, to determine dead status the system compares <see cref="IMonster.DmgTaken">DmgTaken</see> with
+		/// <see cref="IMonster.Hardiness">Hardiness</see>.
+		/// </remarks>
+		/// <returns>If so then <c>true</c>, otherwise <c>false</c>.</returns>
 		bool IsDead();
 
 		/// <summary></summary>
@@ -152,8 +205,16 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		bool CanMoveToRoom(IRoom room, bool fleeing);
 
-		/// <summary></summary>
-		/// <returns></returns>
+		/// <summary>
+		/// Indicates whether this <see cref="IMonster">Monster</see> is allowed to attack with multiple <see cref="IArtifact">Artifact</see> weapons
+		/// in a single combat round, if certain other conditions are met.
+		/// </summary>
+		/// <remarks>
+		/// This method allows support for <see cref="IMonster">Monster</see>s that can multi-attack and also multi-wield.  The conditions that need to
+		/// be met to trigger this behavior include:  the Monster is an individual, it is armed and carrying more than one <see cref="IArtifact">Artifact</see>
+		/// weapon and this method must return <c>true</c>.  By default, it returns <c>false</c>.
+		/// </remarks>
+		/// <returns>If so then <c>true</c>, otherwise <c>false</c>.</returns>
 		bool CanAttackWithMultipleWeapons();
 
 		/// <summary></summary>
@@ -221,27 +282,36 @@ namespace Eamon.Framework
 		/// <returns></returns>
 		bool CheckCourage();
 
-		/// <summary></summary>
+		/// <summary>
+		/// Evaluates this <see cref="IMonster">Monster</see>'s <see cref="Friendliness">Friendliness</see>, returning a value of type T.
+		/// </summary>
 		/// <param name="enemyValue"></param>
 		/// <param name="neutralValue"></param>
 		/// <param name="friendValue"></param>
 		/// <returns></returns>
 		T EvalFriendliness<T>(T enemyValue, T neutralValue, T friendValue);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Evaluates this <see cref="IMonster">Monster</see>'s <see cref="Gender">Gender</see>, returning a value of type T.
+		/// </summary>
 		/// <param name="maleValue"></param>
 		/// <param name="femaleValue"></param>
 		/// <param name="neutralValue"></param>
 		/// <returns></returns>
 		T EvalGender<T>(T maleValue, T femaleValue, T neutralValue);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Evaluates this <see cref="IMonster">Monster</see>'s <see cref="GroupCount">GroupCount</see>, returning a value of type T.
+		/// </summary>
 		/// <param name="singularValue"></param>
 		/// <param name="pluralValue"></param>
 		/// <returns></returns>
 		T EvalPlural<T>(T singularValue, T pluralValue);
 
-		/// <summary></summary>
+		/// <summary>
+		/// Evaluates the <see cref="IRoom.LightLvl">LightLvl</see> of this <see cref="IMonster">Monster</see>'s <see cref="IRoom">Room</see> (as
+		/// determined by its <see cref="Location">Location</see>), returning a value of type T.
+		/// </summary>
 		/// <param name="darkValue"></param>
 		/// <param name="lightValue"></param>
 		/// <returns></returns>
@@ -259,8 +329,10 @@ namespace Eamon.Framework
 		/// <param name="value"></param>
 		void CalculateGiftFriendlinessPct(long value);
 
-		/// <summary></summary>
-		/// <returns></returns>
+		/// <summary>
+		/// Indicates whether this <see cref="IMonster">Monster</see> represents the player character.
+		/// </summary>
+		/// <returns>If so then <c>true</c>, otherwise <c>false</c>.</returns>
 		bool IsCharacterMonster();
 
 		/// <summary></summary>
