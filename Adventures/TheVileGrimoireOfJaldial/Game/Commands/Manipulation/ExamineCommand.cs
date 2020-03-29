@@ -145,7 +145,10 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 					case 10:
 
-						// TODO
+						gOut.Print("The grave, to your great surprise, has been dug out very recently, probably no more than {0} ago.  Hmm... it looks to be about your size.", 
+							gGameState.Day > 0 ? string.Format("{0} day{1}", gEngine.GetStringFromNumber(gGameState.Day, false, Globals.Buf), gGameState.Day != 1 ? "s" : "") :
+							gGameState.Hour > 0 ? string.Format("{0} hour{1}", gEngine.GetStringFromNumber(gGameState.Hour, false, Globals.Buf), gGameState.Hour != 1 ? "s" : "") :
+							string.Format("{0} minute{1}", gEngine.GetStringFromNumber(gGameState.Minute, false, Globals.Buf), gGameState.Minute != 1 ? "s" : ""));
 
 						break;
 
@@ -265,7 +268,8 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 					case 30:
 
-						// TODO
+						gOut.Print("The hole, which is several inches across, is far too small to fit into (and definitely too high up to reach), but when you stand directly under it, you can see {0}.", 
+							gGameState.IsDayTime() ? "blue skies above you" : "the dark nighttime sky above");
 
 						break;
 

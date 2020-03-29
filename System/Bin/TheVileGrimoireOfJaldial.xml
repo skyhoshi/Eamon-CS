@@ -4,6 +4,9 @@
         <name>TheVileGrimoireOfJaldial</name>
     </assembly>
     <members>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.GriffinAngered">
+            <summary></summary>
+        </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.EfreetiKilled">
             <summary></summary>
         </member>
@@ -16,13 +19,67 @@
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.ExitDirNames">
             <summary></summary>
         </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.FoggyRoom">
+            <summary></summary>
+        </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.PlayerResurrections">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.BloodnettleVictimUid">
             <summary></summary>
         </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.EfreetiSummons">
             <summary></summary>
         </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.TorchRounds">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.Minute">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.Hour">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.Day">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.WeatherIntensity">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.WeatherDuration">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.WeatherType">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IGameState.IsNightTime">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IGameState.IsDayTime">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IGameState.IsRaining">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IGameState.IsFoggy">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IMonster.AttackDesc">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IMonster.SetAttackModality">
+            <summary></summary>
+        </member>
+        <member name="T:TheVileGrimoireOfJaldial.Framework.Primitive.Enums.WeatherType">
+            <summary></summary>
+        </member>
+        <member name="F:TheVileGrimoireOfJaldial.Framework.Primitive.Enums.WeatherType.None">
+            <summary></summary>
+        </member>
+        <member name="F:TheVileGrimoireOfJaldial.Framework.Primitive.Enums.WeatherType.Rain">
+            <summary></summary>
+        </member>
+        <member name="F:TheVileGrimoireOfJaldial.Framework.Primitive.Enums.WeatherType.Fog">
             <summary></summary>
         </member>
     </members>

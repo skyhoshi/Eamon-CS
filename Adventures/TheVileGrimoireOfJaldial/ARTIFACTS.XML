@@ -55,9 +55,9 @@
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
-            <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="PluralType" value="YIes" />
+            <Simple name="Value" value="225" />
+            <Simple name="Weight" value="40" />
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
@@ -75,8 +75,8 @@
             </SingleArray>
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO2" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="tapestry" />
+            <Simple name="Desc" value="You see a beautiful, but very worn, tapestry.  The colors and fabrics used were woven with delicate care." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -253,17 +253,17 @@
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
-            <Simple name="PluralType" value="S" />
+            <Simple name="PluralType" value="None" />
             <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
-            <Simple name="Location" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="107" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
-                    <Simple name="Type" value="Treasure" />
-                    <Simple name="Field1" value="0" />
-                    <Simple name="Field2" value="0" />
+                    <Simple name="Type" value="InContainer" />
+                    <Simple name="Field1" value="-1" />
+                    <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
                     <Simple name="Field5" value="0" />
@@ -273,8 +273,8 @@
             </SingleArray>
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO8" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="sarcophagus" />
+            <Simple name="Desc" value="Set into a stone platform in the center of the room is a sarcophagus.  The lid is open, revealing a skeleton dressed in fine (but rotting) clothing." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -288,15 +288,15 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
-            <Simple name="Location" value="0" />
+            <Simple name="Weight" value="10" />
+            <Simple name="Location" value="1008" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
-                    <Simple name="Type" value="Treasure" />
-                    <Simple name="Field1" value="0" />
-                    <Simple name="Field2" value="0" />
+                    <Simple name="Type" value="Readable" />
+                    <Simple name="Field1" value="103" />
+                    <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
                     <Simple name="Field5" value="0" />
@@ -306,8 +306,8 @@
             </SingleArray>
             <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO9" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="leather-bound book" />
+            <Simple name="Desc" value="Clutched within the skeleton's hands is a leather-bound book.  The cover is remarkably well preserved and bears many glowing runes." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -354,8 +354,8 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
-            <Simple name="Location" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="58" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
@@ -372,11 +372,11 @@
             </SingleArray>
             <Simple name="Uid" value="11" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO11" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="dragon's treasure hoard" />
+            <Simple name="Desc" value="The dragon's treasure is here, consisting mostly of broken bits of glass and small worthless trinkets." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="The" />
           </Properties>
         </Complex>
         <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
@@ -386,8 +386,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="125" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
@@ -405,8 +405,8 @@
             </SingleArray>
             <Simple name="Uid" value="12" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO12" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="crystal goblet" />
+            <Simple name="Desc" value="You see a fine crystalline goblet here.  Its workmanship is exquisite, and it is probably worth a lot." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -452,7 +452,7 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="45" />
+            <Simple name="Value" value="75" />
             <Simple name="Weight" value="1" />
             <Simple name="Location" value="1013" />
             <SingleArray name="Categories">
@@ -551,8 +551,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="10" />
+            <Simple name="Weight" value="35" />
             <Simple name="Location" value="64" />
             <SingleArray name="Categories">
               <Items>
@@ -585,8 +585,8 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
-            <Simple name="Location" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="105" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
@@ -603,11 +603,11 @@
             </SingleArray>
             <Simple name="Uid" value="18" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO18" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="beholder's treasure hoard" />
+            <Simple name="Desc" value="You see, strewn all across the floor, the treasure hoard of the beholder.  Most of the stuff is junk, useless personal effects." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="The" />
           </Properties>
         </Complex>
         <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
@@ -647,17 +647,17 @@
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
-            <Simple name="IsPlural" value="False" />
+            <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="75" />
+            <Simple name="Weight" value="20" />
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
-                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
@@ -669,11 +669,11 @@
             </SingleArray>
             <Simple name="Uid" value="20" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO20" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="gold piece" />
+            <Simple name="Desc" value="You find 75 gold pieces scattered about in the dust." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
         <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
@@ -682,9 +682,9 @@
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
-            <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="100" />
+            <Simple name="Weight" value="1" />
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
@@ -702,8 +702,8 @@
             </SingleArray>
             <Simple name="Uid" value="21" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO21" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="pouch containing stones" />
+            <Simple name="Desc" value="You find a small pouch containing some precious stones:  three emeralds, two small rubies and a single diamond." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -716,7 +716,7 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="250" />
+            <Simple name="Value" value="300" />
             <Simple name="Weight" value="10" />
             <Simple name="Location" value="1023" />
             <SingleArray name="Categories">
@@ -849,8 +849,8 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
-            <Simple name="Location" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="117" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
@@ -867,8 +867,8 @@
             </SingleArray>
             <Simple name="Uid" value="26" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO26" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="wooden throne" />
+            <Simple name="Desc" value="You see the stump of a tree which has been carved into a wooden throne." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -880,9 +880,9 @@
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
-            <Simple name="PluralType" value="S" />
+            <Simple name="PluralType" value="None" />
             <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Weight" value="15" />
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
@@ -900,8 +900,8 @@
             </SingleArray>
             <Simple name="Uid" value="27" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO27" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="book of runes" />
+            <Simple name="Desc" value="You see a faintly glowing manuscript, bearing the title &quot;TODO&quot;." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -947,27 +947,27 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
-            <Simple name="Location" value="0" />
+            <Simple name="Value" value="20" />
+            <Simple name="Weight" value="10" />
+            <Simple name="Location" value="-47" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
-                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Field2" value="0" />
-                    <Simple name="Field3" value="0" />
-                    <Simple name="Field4" value="0" />
-                    <Simple name="Field5" value="0" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
             <Simple name="Uid" value="29" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO29" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="large mace" />
+            <Simple name="Desc" value="You see a large mace here, with a leather-bound grip." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -980,27 +980,27 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
-            <Simple name="Location" value="0" />
+            <Simple name="Value" value="25" />
+            <Simple name="Weight" value="15" />
+            <Simple name="Location" value="-48" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
-                    <Simple name="Type" value="Treasure" />
-                    <Simple name="Field1" value="0" />
-                    <Simple name="Field2" value="0" />
-                    <Simple name="Field3" value="0" />
-                    <Simple name="Field4" value="0" />
-                    <Simple name="Field5" value="0" />
+                    <Simple name="Type" value="Weapon" />
+                    <Simple name="Field1" value="10" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="2" />
+                    <Simple name="Field4" value="4" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
             <Simple name="Uid" value="30" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO30" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="maul" />
+            <Simple name="Desc" value="You see Dubro's maul, a long oaken stick with a ball and chain attached.  Looks pretty lethal." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -1013,27 +1013,27 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
-            <Simple name="Location" value="0" />
+            <Simple name="Value" value="40" />
+            <Simple name="Weight" value="20" />
+            <Simple name="Location" value="-49" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
-                    <Simple name="Type" value="Treasure" />
-                    <Simple name="Field1" value="0" />
-                    <Simple name="Field2" value="0" />
-                    <Simple name="Field3" value="0" />
-                    <Simple name="Field4" value="0" />
-                    <Simple name="Field5" value="0" />
+                    <Simple name="Type" value="Weapon" />
+                    <Simple name="Field1" value="25" />
+                    <Simple name="Field2" value="5" />
+                    <Simple name="Field3" value="3" />
+                    <Simple name="Field4" value="4" />
+                    <Simple name="Field5" value="2" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
             <Simple name="Uid" value="31" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO31" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="claymore" />
+            <Simple name="Desc" value="You see Joque's claymore, a long two-handed sword with many intricate carvings engraved into the blade and hilt." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -1046,27 +1046,27 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
-            <Simple name="Location" value="0" />
+            <Simple name="Value" value="15" />
+            <Simple name="Weight" value="5" />
+            <Simple name="Location" value="-50" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
-                    <Simple name="Type" value="Treasure" />
-                    <Simple name="Field1" value="0" />
-                    <Simple name="Field2" value="0" />
-                    <Simple name="Field3" value="0" />
-                    <Simple name="Field4" value="0" />
-                    <Simple name="Field5" value="0" />
+                    <Simple name="Type" value="Weapon" />
+                    <Simple name="Field1" value="15" />
+                    <Simple name="Field2" value="4" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="4" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
             <Simple name="Uid" value="32" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO32" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="dirk" />
+            <Simple name="Desc" value="You see a long dagger here, lying on the ground.  It appears to be a stabbing weapon - the point is sharp, but the blade is dull." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -1112,8 +1112,8 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="Es" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="40" />
+            <Simple name="Weight" value="15" />
             <Simple name="Location" value="86" />
             <SingleArray name="Categories">
               <Items>
@@ -1277,15 +1277,15 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="0" />
+            <Simple name="Value" value="5" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
-                    <Simple name="Type" value="Treasure" />
-                    <Simple name="Field1" value="0" />
+                    <Simple name="Type" value="LightSource" />
+                    <Simple name="Field1" value="5" />
                     <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
@@ -1296,8 +1296,8 @@
             </SingleArray>
             <Simple name="Uid" value="39" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO39" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="lantern" />
+            <Simple name="Desc" value="You see an old lantern, battered by many years of use.  It still appears functional, however." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -1336,6 +1336,699 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="41" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="UNUSED41" />
+            <Simple name="Desc" value="UNUSED" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="42" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dead tanglewoode" />
+            <Simple name="Desc" value="The walnut tree has been hacked down, and lies before you dead." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="43" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dead forest bloodnettle" />
+            <Simple name="Desc" value="You've succeeded in smashing down the forest bloodnettle." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="15" />
+            <Simple name="Weight" value="5" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Wearable" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="44" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cloak and cowl" />
+            <Simple name="Desc" value="All that remains of the dark hood is its soil-brown cloak and cowl." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="45" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dead whip weed" />
+            <Simple name="Desc" value="The whip weed has been hacked to pieces, and lies before you now." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="5" />
+            <Simple name="Weight" value="35" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="46" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="smashed armor" />
+            <Simple name="Desc" value="You've broken the suit of its magical enchantment and, in the process, smashed the various pieces all across the floor." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="47" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dead pocket dragon" />
+            <Simple name="Desc" value="The pocket dragon lies dead on the ground.  Its body has sustained many wounds." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="48" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="red wine" />
+            <Simple name="Desc" value="You see a puddle of red wine on the ground here.  This one seems less viscous than the first." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="49" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dead saberclaw" />
+            <Simple name="Desc" value="You survey the dead saberclaws sprawled out before you, lying in forming pools of blood." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="150" />
+            <Simple name="Weight" value="25" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="50" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="jade debris" />
+            <Simple name="Desc" value="You have destroyed the jade statues.  Most have been reduced to dust and splinters; however, one seems salvageable as a series of jade chunks." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="51" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dead beholder" />
+            <Simple name="Desc" value="The beholder lies on the floor here, its immense &quot;head&quot; split open from your attacks." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="52" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dead giant crayfish" />
+            <Simple name="Desc" value="The giant crayfish has been reduced to a pile of crawdad meat, encased in a battered shell." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="53" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dead giant scorpion" />
+            <Simple name="Desc" value="The gaint scorpion lies before you, missing several legs, and its life as well." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="54" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dead griffin" />
+            <Simple name="Desc" value="The griffin falls and dies, a victim of your anxiety." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="55" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dead small griffin" />
+            <Simple name="Desc" value="You dispatch the small griffins with minimal effort, and just a twinge of guilt." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="56" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Jaldi'al the lich's remains" />
+            <Simple name="Desc" value="A smashed skeleton in robes, the former housing for the spirit of Jaldi'al, lies in a heap before you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="57" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dead jungle bekkah" />
+            <Simple name="Desc" value="The fearsome jungle bekkahs have been slain.  Once the epitome of grace, beauty and power they now lie stretched out before you, bloody and matted." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="58" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Reginald's body" />
+            <Simple name="Desc" value="The body of Reginald lies on the ground here." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="59" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Dubro's body" />
+            <Simple name="Desc" value="You see Dubro, now hewn down at your feet." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="60" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Joque's body" />
+            <Simple name="Desc" value="The mighty Joque has now been slain, and lies on the ground." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="61" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Trevor's body" />
+            <Simple name="Desc" value="Trevor lies dead on the ground here.  A pool of blood has already begun to form." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
       </Items>
     </Collection>
     <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -1344,6 +2037,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="40" />
+    <Simple name="CurrUid" value="61" />
   </Properties>
 </Complex>

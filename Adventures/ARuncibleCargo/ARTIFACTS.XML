@@ -388,7 +388,7 @@
                     <Simple name="Field2" value="2" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="12" />
-                    <Simple name="Field5" value="2" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
               </Items>

@@ -296,7 +296,7 @@
             </SingleArray>
             <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sea ocean" />
+            <Simple name="Name" value="sea" />
             <Simple name="Desc" value="The beautiful sea stretches south towards the horizon." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
@@ -861,7 +861,7 @@
             <Simple name="Desc" value="Something is happening! The werewolf shrinks and its fur vanishes. It also goes through some sort of shape transformation. After a while the process is over. Now lies the body of a dead man in front of you!" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="The" />
           </Properties>
         </Complex>
         <Complex type="LandOfTheMountainKing.Game.Artifact, LandOfTheMountainKing, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
@@ -1947,7 +1947,7 @@
             <Simple name="Uid" value="59" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="cliff" />
-            <Simple name="Desc" value="The huge cliff blocks movement in southern and western directions. here, at the middle of the cliff is an entrance into a dark cave." />
+            <Simple name="Desc" value="The huge cliff blocks movement in southern and western directions. Here, at the middle of the cliff is an entrance into a dark cave." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="True" />
             <Simple name="ArticleType" value="The" />

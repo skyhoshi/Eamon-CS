@@ -63,5 +63,15 @@ namespace TheVileGrimoireOfJaldial.Game
 
 			return roomUids.Contains(Uid);
 		}
+
+		public virtual bool IsRainyRoom()
+		{
+			return IsGroundsRoom() && gGameState.IsRaining();
+		}
+
+		public virtual bool IsFoggyRoom()
+		{
+			return IsGroundsRoom() && gGameState.IsFoggy() && gEngine.RollDice(1, 100, 0) > 40;
+		}
 	}
 }

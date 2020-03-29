@@ -228,6 +228,17 @@
         </Complex>
         <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
+            <Simple name="Uid" value="103" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You casually browse through the book but don't find it terribly interesting — too much technical wizardry in there, nothing that you'd understand." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="Uid" value="200" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />

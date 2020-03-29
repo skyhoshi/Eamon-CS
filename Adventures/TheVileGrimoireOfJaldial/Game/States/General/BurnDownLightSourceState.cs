@@ -3,6 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using System;
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Classes;
@@ -29,6 +30,28 @@ namespace TheVileGrimoireOfJaldial.Game.States
 			else
 			{
 				base.PrintLightAlmostOutCheck(artifact, ac);
+			}
+		}
+
+		public override void DecrementLightTurnCounter(IArtifact artifact, IArtifactCategory ac)
+		{
+			Debug.Assert(artifact != null && ac != null);
+
+			var room = gRDB[gGameState.Ro] as Framework.IRoom;
+
+			Debug.Assert(room != null);
+
+			if (room.IsRainyRoom())
+			{
+				ac.Field1 -= (gGameState.WeatherIntensity * 2);
+			}
+			else if (gGameState.FoggyRoom)
+			{
+				ac.Field1 -= (long)Math.Round(gGameState.WeatherIntensity * 1.5);
+			}
+			else
+			{
+				ac.Field1--;
 			}
 		}
 	}

@@ -9,6 +9,10 @@ namespace TheVileGrimoireOfJaldial.Framework
 {
 	public interface IMonster : Eamon.Framework.IMonster
 	{
+		/// <summary></summary>
+		string AttackDesc { get; set; }
 
+		/// <summary></summary>
+		void SetAttackModality();
 	}
 }

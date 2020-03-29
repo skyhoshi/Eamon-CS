@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
@@ -76,24 +77,53 @@ namespace TheVileGrimoireOfJaldial.Game
 				{ 4, new string[] { "small tomb door", "tomb door", "tomb", "door" } },
 				{ 5, new string[] { "crypt door", "door" } },
 				{ 6, new string[] { "bucket" } },
+				{ 8, new string[] { "stone coffin", "coffin" } },
+				{ 9, new string[] { "leather bound book", "leather book", "bound book", "book" } },
 				{ 10, new string[] { "gravestone", "stone" } },
+				{ 11, new string[] { "dragon's treasure", "dragon's hoard", "treasure hoard", "treasure", "hoard" } },
+				{ 12, new string[] { "goblet", "cup" } },
 				{ 13, new string[] { "chest" } },
 				{ 14, new string[] { "old map", "map" } },
 				{ 15, new string[] { "bottle" } },
 				{ 16, new string[] { "gauntlets", "gauntlet" } },
 				{ 17, new string[] { "wine", "cask" } },
+				{ 18, new string[] { "beholder's treasure", "beholder's hoard", "treasure hoard", "treasure", "hoard" } },
 				{ 19, new string[] { "cloak" } },
+				{ 20, new string[] { "pieces" } },
+				{ 21, new string[] { "pouch with stones", "pouch", "stones" } },
 				{ 22, new string[] { "egg" } },
 				{ 23, new string[] { "nest" } },
 				{ 24, new string[] { "fountain", "basin", "grotesque face", "face" } },
 				{ 25, new string[] { "gold pile", "gold coins", "gold", "coins" } },
+				{ 26, new string[] { "wood throne", "throne" } },
+				{ 27, new string[] { "rune book", "book" } },
 				{ 28, new string[] { "rod" } },
+				{ 29, new string[] { "mace" } },
+				{ 31, new string[] { "sword" } },
+				{ 32, new string[] { "dagger" } },
 				{ 33, new string[] { "parchment" } },
 				{ 34, new string[] { "sword" } },
 				{ 35, new string[] { "buried coffin", "casket", "coffin" } },
 				{ 36, new string[] { "skeleton", "bones" } },
 				{ 37, new string[] { "cross" } },
 				{ 38, new string[] { "coil" } },
+				{ 42, new string[] { "dead tree" } },
+				{ 43, new string[] { "dead forest nettle", "dead blood nettle", "dead bloodnettle", "dead nettle" } },
+				{ 44, new string[] { "cloak", "cowl" } },
+				{ 45, new string[] { "dead whipweed", "dead weed" } },
+				{ 47, new string[] { "dead dragon" } },
+				{ 48, new string[] { "dead crimson amoeba", "dead amoeba", "wine" } },
+				{ 49, new string[] { "dead saber claws", "dead saber claw" } },
+				{ 50, new string[] { "jade dust", "jade splinters", "jade chunks", "debris" } },
+				{ 52, new string[] { "dead crayfish" } },
+				{ 53, new string[] { "dead scorpion" } },
+				{ 55, new string[] { "dead griffin cubs", "dead griffin babies", "dead baby griffins", "dead griffin cub", "dead griffin baby", "dead baby griffin" } },
+				{ 56, new string[] { "Jaldial the lich's remains", "Jaldi'al's remains", "Jaldial's remains", "lich's remains", "lich remains", "remains", "dead Jaldi'al", "dead Jaldial", "dead lich" } },
+				{ 57, new string[] { "dead jungle cats", "dead bekkahs", "dead cats", "dead jungle cat", "dead bekkah", "dead cat" } },
+				{ 58, new string[] { "dead Reginald" } },
+				{ 59, new string[] { "dead Dubro" } },
+				{ 60, new string[] { "dead Joque" } },
+				{ 61, new string[] { "dead Trevor" } },
 			};
 
 			foreach (var synonym in synonyms)
@@ -116,8 +146,6 @@ namespace TheVileGrimoireOfJaldial.Game
 		{
 			base.InitMonsters();
 
-			// TODO: complete when monster names locked down
-
 			var synonyms = new Dictionary<long, string[]>()
 			{
 				{ 1, new string[] { "rat" } },
@@ -127,13 +155,18 @@ namespace TheVileGrimoireOfJaldial.Game
 				{ 13, new string[] { "jelly" } },
 				{ 20, new string[] { "bloodnettle" } },
 				{ 21, new string[] { "hood" } },
+				{ 22, new string[] { "weed" } },
+				{ 23, new string[] { "animated armor", "suit of armor", "armor" } },
 				{ 24, new string[] { "dragon" } },
 				{ 25, new string[] { "amoeba" } },
 				{ 31, new string[] { "possessed sword", "cutlass", "sword" } },
+				{ 32, new string[] { "statues" } },
 				{ 37, new string[] { "crayfish" } },
 				{ 38, new string[] { "weird" } },
 				{ 39, new string[] { "scorpion" } },
+				{ 41, new string[] { "baby griffins", "griffin cubs", "griffins", "babies", "cubs" } },
 				{ 43, new string[] { "jaldial", "lich" } },
+				{ 44, new string[] { "jungle cats", "bekkahs", "cats" } },
 				{ 50, new string[] { "genie" } },
 			};
 
@@ -143,13 +176,101 @@ namespace TheVileGrimoireOfJaldial.Game
 			}
 		}
 
+		public override void MonsterSmiles(IMonster monster)
+		{
+			Debug.Assert(monster != null);
+
+			var rl = RollDice(1, 100, 0);
+
+			// Giant rat
+
+			if (monster.Uid == 1)
+			{
+				Globals.Out.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? "squeals" : rl > 50 ? "squeaks" : "hisses");
+			}
+
+			// Skeleton/Gargoyle
+
+			else if ((monster.Uid == 3 || monster.Uid == 8) && rl > 50)
+			{
+				Globals.Out.Write("{0}{1} hisses at you.", Environment.NewLine, monster.GetTheName(true));
+			}
+
+			// Zombie
+
+			else if (monster.Uid == 4 && rl > 50)
+			{
+				Globals.Out.Write("{0}{1} snarls at you.", Environment.NewLine, monster.GetTheName(true));
+			}
+
+			// Ghoul/Ghast
+
+			else if (monster.Uid == 6 || monster.Uid == 7)
+			{
+				Globals.Out.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? "hisses" : rl > 50 ? "snarls" : "growls");
+			}
+
+			// Shadow/Specter/Wraith/Dark Hood/Animated suit of armor
+
+			else if (monster.Uid == 9 || monster.Uid == 14 || monster.Uid == 16 || monster.Uid == 21 || monster.Uid == 23)
+			{
+				Globals.Out.Write("{0}{1} gestures at you.", Environment.NewLine, monster.GetTheName(true));
+			}
+
+			// Pocket dragon/Giant crayfish/Giant scorpion
+
+			else if ((monster.Uid == 24 && monster.Friendliness != Friendliness.Neutral) || monster.Uid == 37 || monster.Uid == 39)
+			{
+				Globals.Out.Write("{0}{1} hisses at you.", Environment.NewLine, monster.GetTheName(true));
+			}
+
+			// Griffin/Small griffin
+
+			else if (monster.Uid == 40 || (monster.Uid == 41 && monster.Friendliness != Friendliness.Neutral))
+			{
+				Globals.Out.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? monster.EvalPlural("screeches", "screech") : rl > 50 ? monster.EvalPlural("squawks", "squawk") : monster.EvalPlural("hisses", "hiss"));
+			}
+
+			// Jaldi'al the lich
+
+			else if (monster.Uid == 43)
+			{
+				Globals.Out.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? "hollowly chuckles" : rl > 50 ? "gestures" : "glares");
+			}
+
+			// Jungle bekkah
+
+			else if (monster.Uid == 44)
+			{
+				Globals.Out.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? monster.EvalPlural("roars", "roar") : rl > 50 ? monster.EvalPlural("snarls", "snarl") : monster.EvalPlural("hisses", "hiss"));
+			}
+			else
+			{
+				base.MonsterSmiles(monster);
+			}
+		}
+
 		public override void MonsterDies(IMonster OfMonster, IMonster DfMonster)	// Note: much more to implement here
 		{
 			Debug.Assert(DfMonster != null);
 
+			var room = DfMonster.GetInRoom();
+
+			Debug.Assert(room != null);
+
+			// Wandering monsters
+
+			if (DfMonster.Uid >= 1 && DfMonster.Uid <= 17)
+			{
+				if (room.IsLit())
+				{
+					gOut.Print("{0}As {1} dies, its body {2}.", Environment.NewLine, DfMonster.GetTheName(), room.Zone == 1 ? "dissolves and is absorbed into the ground" : "is enveloped in a cloud of sinister black smoke");
+				}
+			}
+
 			// Possessed cutlass
 
-			if (DfMonster.Uid == 31)
+			else if (DfMonster.Uid == 31)
 			{
 				var cutlassArtifact = gADB[34];
 
@@ -182,7 +303,41 @@ namespace TheVileGrimoireOfJaldial.Game
 				gGameState.EfreetiKilled = true;
 			}
 
+			// gGameState.ClumsyTargets.Remove(DfMonster.Uid);
+
 			base.MonsterDies(OfMonster, DfMonster);
+		}
+
+		public override IList<IMonster> GetHostileMonsterList(IMonster monster)
+		{
+			Debug.Assert(monster != null);
+
+			var monsterList = base.GetHostileMonsterList(monster);
+
+			// Bloodnettle always chooses same victim
+
+			if (monster.Uid == 20 && gGameState.BloodnettleVictimUid != 0)
+			{
+				if (monsterList.FirstOrDefault(m => m.Uid == gGameState.BloodnettleVictimUid) != null)
+				{
+					monsterList = monsterList.Where(m => m.Uid == gGameState.BloodnettleVictimUid).ToList();
+				}
+				else
+				{
+					gGameState.BloodnettleVictimUid = 0;
+				}
+			}
+
+			return monsterList;
+		}
+
+		public override IList<IMonster> GetSmilingMonsterList(IRoom room, IMonster monster)
+		{
+			var monsterUids = new long[] { 13, 18, 19, 20, 22, 25, 31, 32, 38 };
+
+			// Some monsters don't emote
+
+			return base.GetSmilingMonsterList(room, monster).Where(m => !monsterUids.Contains(m.Uid)).ToList();
 		}
 
 		public override void CheckToExtinguishLightSource()

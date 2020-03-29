@@ -36,10 +36,48 @@ namespace TheVileGrimoireOfJaldial.Game.States
 				{
 					if (efreetiMonster.IsInRoom(room) && room.IsLit())
 					{
-						gOut.Print("The efreeti{0} vanishes into thin air.", efreetiMonster.Friendliness == Friendliness.Friend ? ", seeing that you aren't in any immediate danger," : "");
+						gOut.Print("{0}{1} vanishes into thin air.", efreetiMonster.GetTheName(true), efreetiMonster.Friendliness == Friendliness.Friend ? ", seeing that you aren't in any immediate danger," : "");
 					}
 
 					efreetiMonster.SetInLimbo();
+				}
+
+				var cloakAndCowlArtifact = gADB[44];
+
+				Debug.Assert(cloakAndCowlArtifact != null);
+
+				// Dark hood and small glade
+
+				if (cloakAndCowlArtifact.IsInLimbo())
+				{
+					var darkHoodMonster = gMDB[21];
+
+					Debug.Assert(darkHoodMonster != null);
+
+					if (!darkHoodMonster.IsInLimbo())
+					{
+						var darkHoodInPlayerRoom = darkHoodMonster.IsInRoom(room);
+
+						var darkHoodVanishes = false;
+
+						if (gGameState.IsDayTime())
+						{
+							darkHoodMonster.SetInLimbo();
+
+							darkHoodVanishes = true;
+						}
+						else if (room.Uid != 23 && !darkHoodMonster.IsInRoomUid(23))
+						{
+							darkHoodMonster.SetInRoomUid(23);
+
+							darkHoodVanishes = true;
+						}
+
+						if (darkHoodInPlayerRoom && darkHoodVanishes)
+						{
+							gOut.Print("{0} suddenly vanishes, seemingly into thin air.", darkHoodMonster.GetTheName(true));
+						}
+					}
 				}
 			}
 

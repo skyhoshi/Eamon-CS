@@ -11,23 +11,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="7" />
+            <Simple name="Agility" value="11" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="Courage" value="50" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="1" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwSides" value="3" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -45,23 +45,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="10" />
+            <Simple name="Agility" value="15" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="Courage" value="65" />
             <Simple name="Location" value="0" />
-            <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="2" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwSides" value="4" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
-            <Simple name="Gender" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -79,23 +79,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="13" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="Courage" value="200" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
             <Simple name="Armor" value="0" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwSides" value="4" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -113,23 +113,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="13" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="Courage" value="200" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
             <Simple name="Armor" value="0" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwSides" value="4" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
-            <Simple name="Gender" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
+            <Simple name="Gender" value="Male" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -147,23 +147,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="18" />
+            <Simple name="Agility" value="18" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="Courage" value="85" />
             <Simple name="Location" value="0" />
-            <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="3" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwSides" value="5" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -181,23 +181,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="20" />
+            <Simple name="Agility" value="17" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="AttackCount" value="-3" />
+            <Simple name="Courage" value="76" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="2" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -215,23 +215,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="16" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="AttackCount" value="-3" />
+            <Simple name="Courage" value="76" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="1" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -249,23 +249,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="20" />
+            <Simple name="Agility" value="20" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="AttackCount" value="-4" />
+            <Simple name="Courage" value="85" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="2" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -283,23 +283,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="13" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="Courage" value="82" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
             <Simple name="Armor" value="0" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwSides" value="6" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -317,23 +317,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="10" />
+            <Simple name="Agility" value="15" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="Courage" value="56" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
             <Simple name="Armor" value="0" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="8" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -351,23 +351,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="12" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="AttackCount" value="-8" />
+            <Simple name="Courage" value="85" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="4" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -385,23 +385,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="30" />
+            <Simple name="Agility" value="14" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="AttackCount" value="-2" />
+            <Simple name="Courage" value="91" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="1" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="8" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -418,24 +418,24 @@
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
-            <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="PluralType" value="YIes" />
+            <Simple name="Hardiness" value="30" />
+            <Simple name="Agility" value="11" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="Courage" value="200" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="1" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwDice" value="3" />
+            <Simple name="NwSides" value="4" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -453,23 +453,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="35" />
+            <Simple name="Agility" value="15" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="Courage" value="88" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
             <Simple name="Armor" value="0" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwSides" value="8" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -487,23 +487,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="17" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="Courage" value="97" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="2" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -521,23 +521,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="30" />
+            <Simple name="Agility" value="13" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="Courage" value="200" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
             <Simple name="Armor" value="0" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwSides" value="8" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -555,23 +555,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="30" />
+            <Simple name="Agility" value="21" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="3" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -600,7 +600,7 @@
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
             <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
+            <Simple name="DeadBody" value="41" />
             <Simple name="Friendliness" value="Neutral" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
@@ -611,8 +611,8 @@
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="18" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="clump of amber lotus flowers" />
-            <Simple name="Desc" value="You see a large clump of golden lilly-like flowers growing on the stream bank.  Each is about the size of a sunflower, and gives off an enticing scent." />
+            <Simple name="Name" value="UNUSED18" />
+            <Simple name="Desc" value="UNUSED" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -623,23 +623,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="36" />
+            <Simple name="Agility" value="12" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="AttackCount" value="-4" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="11" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="2" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="42" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -657,23 +657,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="11" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="18" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="1" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="43" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -691,23 +691,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="60" />
+            <Simple name="Agility" value="22" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
-            <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Courage" value="88" />
+            <Simple name="Location" value="23" />
+            <Simple name="CombatCode" value="Attacks" />
+            <Simple name="Armor" value="4" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwSides" value="7" />
+            <Simple name="DeadBody" value="44" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -725,23 +725,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="15" />
+            <Simple name="Agility" value="10" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="AttackCount" value="-2" />
+            <Simple name="Courage" value="0" />
+            <Simple name="Location" value="119" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="2" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwSides" value="8" />
+            <Simple name="DeadBody" value="45" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -758,24 +758,24 @@
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
-            <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="50" />
+            <Simple name="Agility" value="18" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="56" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="5" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="46" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -793,19 +793,19 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="20" />
+            <Simple name="Agility" value="16" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="Courage" value="76" />
+            <Simple name="Location" value="58" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="1" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwSides" value="4" />
+            <Simple name="DeadBody" value="47" />
+            <Simple name="Friendliness" value="150" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
@@ -827,23 +827,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="12" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="AttackCount" value="-2" />
+            <Simple name="Courage" value="79" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="2" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="48" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -861,23 +861,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
-            <Simple name="GroupCount" value="1" />
+            <Simple name="Hardiness" value="13" />
+            <Simple name="Agility" value="16" />
+            <Simple name="GroupCount" value="5" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="Courage" value="76" />
+            <Simple name="Location" value="82" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="3" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="49" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
-            <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigGroupCount" value="5" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -917,8 +917,8 @@
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="27" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO27" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="UNUSED27" />
+            <Simple name="Desc" value="UNUSED" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -951,8 +951,8 @@
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="28" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO28" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="UNUSED28" />
+            <Simple name="Desc" value="UNUSED" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -985,8 +985,8 @@
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="29" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO29" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="UNUSED29" />
+            <Simple name="Desc" value="UNUSED" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -1019,8 +1019,8 @@
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="30" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO30" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="UNUSED30" />
+            <Simple name="Desc" value="UNUSED" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -1031,23 +1031,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="Es" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="20" />
+            <Simple name="Agility" value="18" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="AttackCount" value="-2" />
+            <Simple name="Courage" value="200" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="3" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwSides" value="8" />
             <Simple name="DeadBody" value="34" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -1065,23 +1065,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
-            <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="Hardiness" value="20" />
+            <Simple name="Agility" value="12" />
+            <Simple name="GroupCount" value="4" />
+            <Simple name="AttackCount" value="-2" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="87" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="2" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="50" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
-            <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigGroupCount" value="4" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -1121,8 +1121,8 @@
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="33" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO33" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="UNUSED33" />
+            <Simple name="Desc" value="UNUSED" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -1155,8 +1155,8 @@
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="34" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO34" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="UNUSED34" />
+            <Simple name="Desc" value="UNUSED" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -1189,8 +1189,8 @@
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="35" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO35" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="UNUSED35" />
+            <Simple name="Desc" value="UNUSED" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -1201,23 +1201,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="45" />
+            <Simple name="Agility" value="9" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="AttackCount" value="-4" />
+            <Simple name="Courage" value="91" />
+            <Simple name="Location" value="105" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="1" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwSides" value="5" />
+            <Simple name="DeadBody" value="51" />
+            <Simple name="Friendliness" value="105" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="105" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -1234,24 +1234,24 @@
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
-            <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="17" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="AttackCount" value="-2" />
+            <Simple name="Courage" value="65" />
+            <Simple name="Location" value="108" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="2" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="6" />
+            <Simple name="DeadBody" value="52" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -1269,23 +1269,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="20" />
+            <Simple name="Agility" value="12" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
+            <Simple name="Courage" value="0" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="4" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
+            <Simple name="NwSides" value="6" />
             <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -1303,23 +1303,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="20" />
+            <Simple name="Agility" value="12" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="AttackCount" value="-3" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="109" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="4" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="53" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -1337,23 +1337,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="45" />
+            <Simple name="Agility" value="13" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="AttackCount" value="-3" />
+            <Simple name="Courage" value="91" />
+            <Simple name="Location" value="113" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="3" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="54" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -1371,22 +1371,22 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
+            <Simple name="Hardiness" value="8" />
             <Simple name="Agility" value="1" />
-            <Simple name="GroupCount" value="1" />
+            <Simple name="GroupCount" value="2" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="Courage" value="68" />
+            <Simple name="Location" value="113" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="1" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="55" />
             <Simple name="Friendliness" value="Neutral" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
-            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigGroupCount" value="2" />
             <Simple name="OrigFriendliness" value="150" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
@@ -1427,8 +1427,8 @@
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="42" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO42" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="UNUSED42" />
+            <Simple name="Desc" value="UNUSED" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -1438,24 +1438,24 @@
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
-            <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Hardiness" value="55" />
+            <Simple name="Agility" value="20" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="AttackCount" value="-3" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="117" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="2" />
             <Simple name="Weapon" value="0" />
             <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwSides" value="7" />
+            <Simple name="DeadBody" value="56" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -1473,23 +1473,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
-            <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
+            <Simple name="Hardiness" value="45" />
+            <Simple name="Agility" value="13" />
+            <Simple name="GroupCount" value="2" />
+            <Simple name="AttackCount" value="-2" />
             <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="Location" value="117" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
+            <Simple name="Armor" value="3" />
             <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="57" />
+            <Simple name="Friendliness" value="100" />
             <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
-            <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigGroupCount" value="2" />
+            <Simple name="OrigFriendliness" value="100" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -1529,8 +1529,8 @@
             <Simple name="Field2" value="0" />
             <Simple name="Uid" value="45" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="TODO45" />
-            <Simple name="Desc" value="TODO" />
+            <Simple name="Name" value="UNUSED45" />
+            <Simple name="Desc" value="UNUSED" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -1541,23 +1541,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="35" />
+            <Simple name="Agility" value="21" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
             <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="Location" value="4" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
-            <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
-            <Simple name="Gender" value="Neutral" />
+            <Simple name="Armor" value="3" />
+            <Simple name="Weapon" value="29" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="58" />
+            <Simple name="Friendliness" value="190" />
+            <Simple name="Gender" value="Male" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="190" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -1575,23 +1575,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="30" />
+            <Simple name="Agility" value="18" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="4" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
-            <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
-            <Simple name="Gender" value="Neutral" />
+            <Simple name="Armor" value="3" />
+            <Simple name="Weapon" value="30" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="59" />
+            <Simple name="Friendliness" value="195" />
+            <Simple name="Gender" value="Male" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="195" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -1609,23 +1609,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="28" />
+            <Simple name="Agility" value="17" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="1" />
-            <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="Courage" value="200" />
+            <Simple name="Location" value="4" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
-            <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
-            <Simple name="Gender" value="Neutral" />
+            <Simple name="Armor" value="4" />
+            <Simple name="Weapon" value="31" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="60" />
+            <Simple name="Friendliness" value="190" />
+            <Simple name="Gender" value="Male" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="190" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -1643,23 +1643,23 @@
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Hardiness" value="1" />
-            <Simple name="Agility" value="1" />
+            <Simple name="Hardiness" value="25" />
+            <Simple name="Agility" value="11" />
             <Simple name="GroupCount" value="1" />
-            <Simple name="AttackCount" value="1" />
+            <Simple name="AttackCount" value="2" />
             <Simple name="Courage" value="100" />
-            <Simple name="Location" value="0" />
+            <Simple name="Location" value="4" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="0" />
-            <Simple name="Weapon" value="0" />
-            <Simple name="NwDice" value="1" />
-            <Simple name="NwSides" value="1" />
-            <Simple name="DeadBody" value="0" />
-            <Simple name="Friendliness" value="Neutral" />
-            <Simple name="Gender" value="Neutral" />
+            <Simple name="Armor" value="1" />
+            <Simple name="Weapon" value="32" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="61" />
+            <Simple name="Friendliness" value="190" />
+            <Simple name="Gender" value="Male" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
-            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="OrigFriendliness" value="190" />
             <Simple name="DmgTaken" value="0" />
             <Simple name="Field1" value="0" />
             <Simple name="Field2" value="0" />
@@ -1674,20 +1674,20 @@
         </Complex>
         <Complex type="TheVileGrimoireOfJaldial.Game.Monster, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="NwDice" value="2" />
-            <Simple name="NwSides" value="7" />
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="None" />
             <Simple name="Hardiness" value="60" />
-            <Simple name="Agility" value="21" />
+            <Simple name="Agility" value="22" />
             <Simple name="GroupCount" value="1" />
             <Simple name="AttackCount" value="-3" />
             <Simple name="Courage" value="200" />
             <Simple name="Location" value="0" />
             <Simple name="CombatCode" value="Weapons" />
-            <Simple name="Armor" value="2" />
+            <Simple name="Armor" value="4" />
             <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="2" />
+            <Simple name="NwSides" value="7" />
             <Simple name="DeadBody" value="0" />
             <Simple name="Friendliness" value="175" />
             <Simple name="Gender" value="Neutral" />
