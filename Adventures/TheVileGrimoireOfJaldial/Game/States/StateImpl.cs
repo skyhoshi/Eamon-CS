@@ -7,6 +7,7 @@ using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
+using TheVileGrimoireOfJaldial.Framework.Commands;
 using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
 
 namespace TheVileGrimoireOfJaldial.Game.States
@@ -32,7 +33,16 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 		public override void PrintEnemiesNearby()
 		{
-			gOut.Print("You don't want to turn your back here!");
+			var useOverride = !(this.State is ISearchCommand);
+
+			if (useOverride)
+			{
+				gOut.Print("You don't want to turn your back here!");
+			}
+			else
+			{
+				base.PrintEnemiesNearby();
+			}
 		}
 	}
 }

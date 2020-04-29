@@ -33,7 +33,7 @@ namespace EamonRT.Game.Commands
 				gActorMonster.Agility *= 2;
 			}
 
-			var rl = Globals.IsRulesetVersion(5) ? gEngine.RollDice(1, 25, 9) : gEngine.RollDice(1, 10, 10);
+			var rl = Globals.IsRulesetVersion(5, 15) ? gEngine.RollDice(1, 25, 9) : gEngine.RollDice(1, 10, 10);
 
 			gGameState.Speed += (rl + 1);
 

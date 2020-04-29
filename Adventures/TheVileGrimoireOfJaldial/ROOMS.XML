@@ -58,7 +58,7 @@
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Graveyard, Northwest Corner" />
-            <Simple name="Desc" value="You are in the northwestern-most corner of the grounds.  The lot is bounded by a tall (9 foot) wrought-iron fence which runs out of sight to the south and east.  Through it, you can see lush foliage and a dark wall of trees." />
+            <Simple name="Desc" value="You are in the northwestern-most corner of the grounds.  The lot is bounded by a tall (nine foot) wrought-iron fence which runs out of sight to the south and east.  Through it, you can see lush foliage and a dark wall of trees." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -116,7 +116,7 @@
             <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Graveyard, Exit" />
-            <Simple name="Desc" value="To the west of the spot where you stand is a large iron gate, through which you can see a footpath winding through the trees.  A tall fence runs north and south." />
+            <Simple name="Desc" value="To the west of the spot where you stand is a large iron gate, through which you can see a footpath winding amongst the trees.  A tall fence runs north and south." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -377,7 +377,7 @@
             <Simple name="Uid" value="13" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Graveyard" />
-            <Simple name="Desc" value="The ground grows soggy here, and some gravestones seem to have sunk deeper into the soil.  One has a small but interesting pictograph etched into it.  A large pile of rocks, set up in a pyramid shape, sits off the path nearby." />
+            <Simple name="Desc" value="The ground grows soggy here, and some gravestones seem to have sunk deeper into the soil.  One has a set of small but interesting pictographs etched into it.  A large pile of rocks, set up in a pyramid shape, sits off the path nearby." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -522,7 +522,7 @@
             <Simple name="Uid" value="18" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Graveyard" />
-            <Simple name="Desc" value="You are standing amongst the tombstones in the middle of a sprawling graveyard.  Some are large, up to 9 or 10 feet tall, some are small, but most are of average size.  Weeds grow all around you, and slick algae cover the ground in patches." />
+            <Simple name="Desc" value="You are standing amongst the tombstones in the middle of a sprawling graveyard.  Some are large, up to nine or 10 feet tall, some are small, but most are of average size.  Weeds grow all around you, and slick algae cover the ground in patches." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -783,7 +783,7 @@
             <Simple name="Uid" value="27" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Graveyard" />
-            <Simple name="Desc" value="A large rock sits off the path, amongst the gravestones, apparently used as a tomb marker by people who couldn't afford the real thing.  The underbrush here grows wild, reaching almost 6 feet in places." />
+            <Simple name="Desc" value="A large rock sits off the path, amongst the gravestones, apparently used as a tomb marker by people who couldn't afford the real thing.  The underbrush here grows wild, reaching almost six feet in places." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -899,7 +899,7 @@
             <Simple name="Uid" value="31" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Large Graveyard" />
-            <Simple name="Desc" value="The majority of the gravestones here are very large (over 6 feet tall), and appear to be eroded and weather-beaten.  This is apparently an ancient section of the graveyard." />
+            <Simple name="Desc" value="The majority of the gravestones here are very large (over six feet tall), and appear to be eroded and weather-beaten.  This is apparently an ancient section of the graveyard." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1551,8 +1551,8 @@
             <SingleArray name="Dirs">
               <Items>
                 <Simple value="0" />
-                <Simple value="55" />
-                <Simple value="56" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="59" />
                 <Simple value="0" />
                 <Simple value="17" />
@@ -1581,7 +1581,7 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="0" />
-                <Simple value="54" />
+                <Simple value="0" />
                 <Simple value="57" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1609,9 +1609,9 @@
             <SingleArray name="Dirs">
               <Items>
                 <Simple value="0" />
-                <Simple value="54" />
                 <Simple value="0" />
-                <Simple value="68" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1669,7 +1669,7 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="57" />
-                <Simple value="63" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1815,7 +1815,7 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
-                <Simple value="58" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1960,7 +1960,7 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
-                <Simple value="56" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="62" />
@@ -2131,8 +2131,8 @@
             <SingleArray name="Dirs">
               <Items>
                 <Simple value="0" />
-                <Simple value="75" />
-                <Simple value="76" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="80" />
                 <Simple value="0" />
                 <Simple value="33" />
@@ -2513,7 +2513,7 @@
                 <Simple value="88" />
                 <Simple value="86" />
                 <Simple value="0" />
-                <Simple value="90" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -2885,7 +2885,7 @@
             <SingleArray name="Dirs">
               <Items>
                 <Simple value="0" />
-                <Simple value="99" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="101" />
                 <Simple value="0" />
@@ -2917,7 +2917,7 @@
                 <Simple value="0" />
                 <Simple value="102" />
                 <Simple value="0" />
-                <Simple value="100" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -2945,7 +2945,7 @@
                 <Simple value="0" />
                 <Simple value="101" />
                 <Simple value="98" />
-                <Simple value="105" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -3016,7 +3016,7 @@
             <Simple name="Uid" value="104" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Small Passage" />
-            <Simple name="Desc" value="The passage ends here; you can only go north.  However, carved into the southern wall is a large (6-foot diameter) face.  Its open mouth leaves a small dark hole in the wall." />
+            <Simple name="Desc" value="The passage ends here; you can only go north.  However, carved into the southern wall is a large (six-foot diameter) face.  Its open mouth leaves a small dark hole in the wall." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -3320,7 +3320,7 @@
             <SingleArray name="Dirs">
               <Items>
                 <Simple value="0" />
-                <Simple value="116" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="110" />

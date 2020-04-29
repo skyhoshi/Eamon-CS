@@ -7,10 +7,13 @@
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.GriffinAngered">
             <summary></summary>
         </member>
-        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.EfreetiKilled">
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.GiantCrayfishKilled">
             <summary></summary>
         </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.WaterWeirdKilled">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.EfreetiKilled">
             <summary></summary>
         </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.AmoebaAppeared">
@@ -22,6 +25,12 @@
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.FoggyRoom">
             <summary></summary>
         </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.SecretDoors">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.FoggyRoomWeatherIntensity">
+            <summary></summary>
+        </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.PlayerResurrections">
             <summary></summary>
         </member>
@@ -29,6 +38,15 @@
             <summary></summary>
         </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.EfreetiSummons">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.LightningBolts">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.IceBolts">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.MentalBlasts">
             <summary></summary>
         </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.TorchRounds">
@@ -64,10 +82,22 @@
         <member name="M:TheVileGrimoireOfJaldial.Framework.IGameState.IsFoggy">
             <summary></summary>
         </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IGameState.IsFoggyHours">
+            <summary></summary>
+        </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IMonster.AttackDesc">
             <summary></summary>
         </member>
         <member name="M:TheVileGrimoireOfJaldial.Framework.IMonster.SetAttackModality">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.Plugin.IPluginGlobals.EncounterSurprises">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.Plugin.IPluginGlobals.EventRoll">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.Plugin.IPluginGlobals.InitiativeMonsterUid">
             <summary></summary>
         </member>
         <member name="T:TheVileGrimoireOfJaldial.Framework.Primitive.Enums.WeatherType">

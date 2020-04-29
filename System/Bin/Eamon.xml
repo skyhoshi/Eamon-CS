@@ -1706,7 +1706,9 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.ICharacter.Gender">
-            <summary></summary>
+            <summary>
+            Gets or sets this <see cref="T:Eamon.Framework.ICharacter">Character</see>'s gender.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.ICharacter.Status">
             <summary></summary>
@@ -3397,37 +3399,73 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.IModule.Author">
-            <summary></summary>
+            <summary>
+            Gets or sets the name(s) of the author(s) for this adventure.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IModule.VolLabel">
-            <summary></summary>
+            <summary>
+            Gets or sets the volume label for this adventure; this is a code consisting of the author(s) initials and
+            an author-specific sequence number, e.g. MRP-001.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IModule.SerialNum">
-            <summary></summary>
+            <summary>
+            Gets or sets the serial number for this adventure; this is a sequence number that spans authors and indicates
+            the number of games in Eamon CS, e.g. 013.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IModule.LastMod">
-            <summary></summary>
+            <summary>
+            Gets or sets the last date this adventure was modified; this is updated by the EamonDD game editor.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IModule.IntroStory">
-            <summary></summary>
+            <summary>
+            Gets or sets an <see cref="T:Eamon.Framework.IEffect">Effect</see> <see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see> that corresponds to the
+            introduction story for this adventure.
+            </summary>
+            <remarks>
+            The <see cref="T:Eamon.Framework.IEffect">Effect</see> referenced by this value will frequently be the initial prose in a set of
+            Events chained together using the typical Eamon CS mechanism.  You can look at any existing game for an example
+            of this.  The value may also be zero (0), in which case the adventure has no introduction story.
+            </remarks>
         </member>
         <member name="P:Eamon.Framework.IModule.NumDirs">
-            <summary></summary>
+            <summary>
+            Gets or sets the number of directional links for <see cref="T:Eamon.Framework.IRoom">Room</see>s in this adventure.  Valid values
+            are 6 or 10, corresponding to compass <see cref="T:Eamon.Framework.Primitive.Enums.Direction">Direction</see>s.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IModule.NumRooms">
-            <summary></summary>
+            <summary>
+            Gets or sets the number of <see cref="T:Eamon.Framework.IRoom">Room</see>s in this adventure.  This value is kept in sync with
+            the corresponding ROOMS.XML file.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IModule.NumArtifacts">
-            <summary></summary>
+            <summary>
+            Gets or sets the number of <see cref="T:Eamon.Framework.IArtifact">Artifact</see>s in this adventure.  This value is kept in sync with
+            the corresponding ARTIFACTS.XML file.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IModule.NumEffects">
-            <summary></summary>
+            <summary>
+            Gets or sets the number of <see cref="T:Eamon.Framework.IEffect">Effect</see>s in this adventure.  This value is kept in sync with
+            the corresponding EFFECTS.XML file.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IModule.NumMonsters">
-            <summary></summary>
+            <summary>
+            Gets or sets the number of <see cref="T:Eamon.Framework.IMonster">Monster</see>s in this adventure.  This value is kept in sync with
+            the corresponding MONSTERS.XML file.
+            </summary>
         </member>
         <member name="P:Eamon.Framework.IModule.NumHints">
-            <summary></summary>
+            <summary>
+            Gets or sets the number of <see cref="T:Eamon.Framework.IHint">Hint</see>s in this adventure.  This value is kept in sync with
+            the corresponding HINTS.XML file.
+            </summary>
         </member>
         <member name="M:Eamon.Framework.IModule.PrintInfo">
             <summary></summary>
@@ -6410,6 +6448,39 @@
             <summary>
             Gets or sets an array containing data for each <see cref="T:Eamon.Framework.Primitive.Enums.ArtifactType"/>.
             </summary>
+        </member>
+        <member name="M:Eamon.Game.Extensions.ArrayExtensions.FindAllIndexOf``1(``0[],System.Predicate{``0})">
+            <summary>
+            Gets the indexes for elements that match the conditions defined by the specified predicate.
+            </summary>
+            <typeparam name="T">The type of the elements of the array.</typeparam>
+            <param name="array">The one-dimensional, zero-based <see cref="T:System.Array"/> to search.</param>
+            <param name="match">The <see cref="T:System.Predicate`1"/> that defines the conditions of the elements to search for.</param>
+            <returns>
+            An <see cref="T:System.Array"/> containing all the indexes of elements that match the conditions defined by the
+            specified predicate, if found; otherwise, an empty Array.
+            </returns>
+            <remarks>
+            Full credit:  https://stackoverflow.com/questions/10443461/c-sharp-array-findallindexof-which-findall-indexof
+            </remarks>
+        </member>
+        <member name="M:Eamon.Game.Extensions.StringExtensions.Contains(System.String,System.String,System.StringComparison)">
+            <summary>
+            Indicates whether this <see cref="T:System.String">string</see> contains the supplied string (using <see cref="M:System.String.IndexOf(System.String,System.StringComparison)">IndexOf</see>).
+            </summary>
+            <param name="source">The string to search.</param>
+            <param name="toCheck">The string to look for.</param>
+            <param name="comp">The type of string comparison to use.</param>
+            <returns><c>True</c> if the supplied string is found; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="M:Eamon.Game.Extensions.StringExtensions.ContainsAny(System.String,System.String[],System.StringComparison)">
+            <summary>
+            Indicates whether this <see cref="T:System.String">string</see> contains any of the strings in the supplied array (using <see cref="M:System.String.IndexOf(System.String,System.StringComparison)">IndexOf</see>).
+            </summary>
+            <param name="source">The string to search.</param>
+            <param name="toCheckArray">The array of strings to look for.</param>
+            <param name="comp">The type of string comparison to use.</param>
+            <returns><c>True</c> if any of the strings are found; <c>false</c> otherwise.</returns>
         </member>
         <member name="M:Eamon.Game.Helpers.ArtifactHelper.GetPrintedNameStateDesc">
             <summary></summary>

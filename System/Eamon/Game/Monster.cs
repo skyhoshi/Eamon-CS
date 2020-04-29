@@ -48,7 +48,7 @@ namespace Eamon.Game
 		{
 			get
 			{
-				return Globals.EnableGameOverrides && Globals.IsRulesetVersion(5) && IsWeaponless(false) ? _courage / 2 : _courage;
+				return Globals.EnableGameOverrides && Globals.IsRulesetVersion(5, 15) && IsWeaponless(false) && _courage < 200 ? _courage / 2 : _courage;
 			}
 
 			set
@@ -897,7 +897,7 @@ namespace Eamon.Game
 
 				if (x == 4)
 				{
-					result = (Globals.IsRulesetVersion(5) ? "very " : "") + "badly injured.";
+					result = (Globals.IsRulesetVersion(5, 15) ? "very " : "") + "badly injured.";
 				}
 				else if (x == 3)
 				{

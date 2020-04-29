@@ -28,9 +28,14 @@ namespace TheTempleOfNgurct.Game.Commands
 			{
 				gDobjArtifact.SetInRoom(gActorRoom);
 
-				gActorMonster.SetInRoomUid(58);
+				gGameState.Ro = 58;
 
-				NextState = Globals.CreateInstance<IStartState>();
+				gGameState.R2 = gGameState.Ro;
+
+				NextState = Globals.CreateInstance<IAfterPlayerMoveState>(x =>
+				{
+					x.MoveMonsters = false;
+				});
 
 				GotoCleanup = true;
 			}

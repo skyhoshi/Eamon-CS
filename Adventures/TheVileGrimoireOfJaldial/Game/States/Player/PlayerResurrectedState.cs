@@ -71,7 +71,9 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 			gOut.EnableOutput = true;
 
-			gGameState.R2 = 19;
+			gGameState.Ro = 19;
+
+			gGameState.R2 = gGameState.Ro;
 
 			NextState = Globals.CreateInstance<IAfterPlayerMoveState>(x =>
 			{

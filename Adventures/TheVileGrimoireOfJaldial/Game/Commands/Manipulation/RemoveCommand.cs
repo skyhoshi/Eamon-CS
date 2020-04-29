@@ -86,13 +86,13 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 					{
 						gOut.Print("[Using {0}.]", bucketArtifact.GetTheName());
 
-						gOut.Print("You remove all the water from the fountain.");
+						var command = Globals.CreateInstance<IUseCommand>();
 
-						gDobjArtifact.SetInLimbo();
+						CopyCommandData(command, false);
 
-						gIobjArtifact.Desc = gIobjArtifact.Desc.Replace("squirts", "squirted");
+						command.Dobj = bucketArtifact;
 
-						NextState = Globals.CreateInstance<IMonsterStartState>();
+						NextState = command;
 					}
 					else
 					{

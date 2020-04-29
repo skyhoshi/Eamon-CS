@@ -3,11 +3,16 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using System;
 using System.Diagnostics;
+using System.Linq;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
+using EamonRT.Framework.Combat;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
 
 namespace TheVileGrimoireOfJaldial.Game.Commands
@@ -121,45 +126,6 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 			{
 				base.PrintOpenObjWithKey(artifact, key);
 			}
-		}
-
-		public override void PrintNotEnoughGold()
-		{
-			gOut.Print("You aren't carrying that much gold of your own!");
-		}
-
-		public override void PrintMustFirstReadyWeapon()
-		{
-			gOut.Print("You have no weapon ready!");
-		}
-
-		public override void PrintDontHaveItNotHere()
-		{
-			if (gCommandParser.DecorationId > 0)
-			{
-				PrintCantDoThat();
-			}
-			else
-			{
-				base.PrintDontHaveItNotHere();
-			}
-		}
-
-		public override void PrintNothingHereByThatName()
-		{
-			if (gCommandParser.DecorationId > 0)
-			{
-				PrintCantDoThat();
-			}
-			else
-			{
-				base.PrintNothingHereByThatName();
-			}
-		}
-
-		public override void PrintCalmDown()
-		{
-			gOut.Print("There's nothing to flee from!");
 		}
 	}
 }

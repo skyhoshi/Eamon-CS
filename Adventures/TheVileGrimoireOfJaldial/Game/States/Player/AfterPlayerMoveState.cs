@@ -6,6 +6,7 @@
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using EamonRT.Framework.States;
 using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
 
@@ -41,9 +42,13 @@ namespace TheVileGrimoireOfJaldial.Game.States
 					}
 					else
 					{
-						gOut.Print("Unfortunately, you hit an unseen pitfall.  But just as you thought you were doomed, you find the fortitude to pull yourself out of it.");
+						gOut.Print("Unfortunately, you hit an unseen pitfall; but just as you thought you were doomed, you find the fortitude to pull yourself out of it.");
 					}
 				}
+
+				// Check for foggy room
+
+				gGameState.SetFoggyRoom(Room.Cast<Framework.IRoom>());
 			}
 
 			base.ProcessEvents(eventType);

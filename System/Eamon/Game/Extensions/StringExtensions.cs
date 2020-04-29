@@ -22,6 +22,13 @@ namespace Eamon.Game.Extensions
 			}
 		}
 
+		/// <summary>
+		/// Indicates whether this <see cref="string">string</see> contains the supplied string (using <see cref="String.IndexOf(string, StringComparison)">IndexOf</see>).
+		/// </summary>
+		/// <param name="source">The string to search.</param>
+		/// <param name="toCheck">The string to look for.</param>
+		/// <param name="comp">The type of string comparison to use.</param>
+		/// <returns><c>True</c> if the supplied string is found; <c>false</c> otherwise.</returns>
 		public static bool Contains(this string source, string toCheck, StringComparison comp)
 		{
 			if (source != null && toCheck != null)
@@ -32,6 +39,29 @@ namespace Eamon.Game.Extensions
 			{
 				return false;
 			}
+		}
+
+		/// <summary>
+		/// Indicates whether this <see cref="string">string</see> contains any of the strings in the supplied array (using <see cref="String.IndexOf(string, StringComparison)">IndexOf</see>).
+		/// </summary>
+		/// <param name="source">The string to search.</param>
+		/// <param name="toCheckArray">The array of strings to look for.</param>
+		/// <param name="comp">The type of string comparison to use.</param>
+		/// <returns><c>True</c> if any of the strings are found; <c>false</c> otherwise.</returns>
+		public static bool ContainsAny(this string source, string[] toCheckArray, StringComparison comp)
+		{
+			if (source != null && toCheckArray != null)
+			{
+				foreach (var toCheck in toCheckArray)
+				{
+					if (source.IndexOf(toCheck, comp) >= 0)
+					{
+						return true;
+					}
+				}
+			}
+
+			return false;
 		}
 
 		public static string PadTLeft(this string text, int totalWidth, char paddingChar)

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
 
@@ -21,7 +22,55 @@ namespace TheVileGrimoireOfJaldial.Game
 		{
 			if (Globals.EnableGameOverrides)
 			{
-				if (Uid == 116)
+				if (Uid == 54)
+				{
+					return gGameState.GetSecretDoors(1) && index == 1 ? 55 : gGameState.GetSecretDoors(2) && index == 2 ? 56 : base.GetDirs(index);
+				}
+				else if (Uid == 55)
+				{
+					return gGameState.GetSecretDoors(1) && index == 2 ? 54 : base.GetDirs(index);
+				}
+				else if (Uid == 56)
+				{
+					return gGameState.GetSecretDoors(2) && index == 1 ? 54 : gGameState.GetSecretDoors(4) && index == 3 ? 68 : base.GetDirs(index);
+				}
+				else if (Uid == 58)
+				{
+					return gGameState.GetSecretDoors(3) && index == 3 ? 63 : base.GetDirs(index);
+				}
+				else if (Uid == 63)
+				{
+					return gGameState.GetSecretDoors(3) && index == 4 ? 58 : base.GetDirs(index);
+				}
+				else if (Uid == 68)
+				{
+					return gGameState.GetSecretDoors(4) && index == 4 ? 56 : base.GetDirs(index);
+				}
+				else if (Uid == 74)
+				{
+					return gGameState.GetSecretDoors(5) && index == 1 ? 75 : gGameState.GetSecretDoors(6) && index == 2 ? 76 : base.GetDirs(index);
+				}
+				else if (Uid == 87)
+				{
+					return gGameState.GetSecretDoors(7) && index == 6 ? 90 : base.GetDirs(index);
+				}
+				else if (Uid == 100)
+				{
+					return gGameState.GetSecretDoors(9) && index == 1 ? 99 : base.GetDirs(index);
+				}
+				else if (Uid == 101)
+				{
+					return gGameState.GetSecretDoors(8) && index == 4 ? 100 : base.GetDirs(index);
+				}
+				else if (Uid == 102)
+				{
+					return gGameState.GetSecretDoors(11) && index == 3 ? 105 : base.GetDirs(index);
+				}
+				else if (Uid == 115)
+				{
+					return gGameState.GetSecretDoors(10) && index == 1 ? 116 : base.GetDirs(index);
+				}
+				else if (Uid == 116)
 				{
 					var largeFountainArtifact = gADB[24];
 
@@ -38,6 +87,18 @@ namespace TheVileGrimoireOfJaldial.Game
 			}
 		}
 
+		public override bool IsDirectionInObviousExitsList(long index)
+		{
+			// Suppress secret doors in obvious exits list
+
+			var secretDoorExitDir = (Uid == 54 && (index == 1 || index == 2)) || (Uid == 55 && index == 2) || (Uid == 56 && (index == 1 || index == 3)) ||
+				(Uid == 58 && index == 3) || (Uid == 63 && index == 4) || (Uid == 68 && index == 4) || (Uid == 74 && (index == 1 || index == 2)) ||
+				(Uid == 87 && index == 6) || (Uid == 100 && index == 1) || (Uid == 101 && index == 4) || (Uid == 102 && index == 3) ||
+				(Uid == 115 && index == 1) || (Uid == 116 && index == 6);
+
+			return base.IsDirectionInObviousExitsList(index) && !secretDoorExitDir;
+		}
+
 		public override RetCode GetExitList(StringBuilder buf, Func<string, string> modFunc = null, bool useNames = true)
 		{
 			// Use exit direction names or abbreviations based on configuration setting
@@ -48,6 +109,11 @@ namespace TheVileGrimoireOfJaldial.Game
 		public virtual bool IsGroundsRoom()
 		{
 			return (Uid > 0 && Uid < 54) || (Uid > 117 && Uid < 122);
+		}
+
+		public virtual bool IsCryptRoom()
+		{
+			return !IsGroundsRoom() && Type == RoomType.Indoors;
 		}
 
 		public virtual bool IsFenceRoom()
@@ -71,7 +137,12 @@ namespace TheVileGrimoireOfJaldial.Game
 
 		public virtual bool IsFoggyRoom()
 		{
-			return IsGroundsRoom() && gGameState.IsFoggy() && gEngine.RollDice(1, 100, 0) > 40;
+			return gGameState.FoggyRoom;
+		}
+
+		public virtual long GetWeatherIntensity()
+		{
+			return IsRainyRoom() ? gGameState.WeatherIntensity : IsFoggyRoom() ? gGameState.FoggyRoomWeatherIntensity : 0;
 		}
 	}
 }

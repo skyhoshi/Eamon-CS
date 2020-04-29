@@ -19,14 +19,14 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 		{
 			Debug.Assert(gDobjArtifact != null);
 
-			var buriedCasketArtifact = gADB[35];
-
-			Debug.Assert(buriedCasketArtifact != null);
-
 			// Digging with shovel
 
 			if (gDobjArtifact.Uid == 7)
 			{
+				var buriedCasketArtifact = gADB[35];
+
+				Debug.Assert(buriedCasketArtifact != null);
+
 				if (gActorRoom.Uid == 5 && buriedCasketArtifact.IsInLimbo())
 				{
 					gOut.Print("You dig for a while and uncover something!");
@@ -41,6 +41,56 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 				}
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
+			}
+
+			// Bailing fountain water with wooden bucket
+
+			else if (gDobjArtifact.Uid == 6)
+			{
+				var waterWeirdMonster = gMDB[38];
+
+				Debug.Assert(waterWeirdMonster != null);
+
+				var largeFountainArtifact = gADB[24];
+
+				Debug.Assert(largeFountainArtifact != null);
+
+				var waterArtifact = gADB[40];
+
+				Debug.Assert(waterArtifact != null);
+
+				if (gActorRoom.Uid == 116 && !waterArtifact.IsInLimbo())
+				{
+					if (waterWeirdMonster.IsInRoom(gActorRoom))
+					{
+						gOut.Print("{0} won't let you get close enough to do that!", waterWeirdMonster.GetTheName(true));
+					}
+					else if (!gGameState.WaterWeirdKilled)
+					{
+						gEngine.PrintEffectDesc(100);
+
+						waterWeirdMonster.SetInRoom(gActorRoom);
+
+						NextState = Globals.CreateInstance<IStartState>();
+					}
+					else
+					{
+						gOut.Print("You remove all the water from the fountain.");
+
+						waterArtifact.SetInLimbo();
+
+						largeFountainArtifact.Desc = largeFountainArtifact.Desc.Replace("squirts", "squirted");
+					}
+				}
+				else
+				{
+					gOut.Print("That doesn't do anything right now.");
+				}
+
+				if (NextState == null)
+				{
+					NextState = Globals.CreateInstance<IMonsterStartState>();
+				}
 			}
 
 			// Using bronze cross on undead

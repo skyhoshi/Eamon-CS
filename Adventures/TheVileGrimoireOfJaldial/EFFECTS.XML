@@ -22,7 +22,7 @@
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="With the sun fully out, this place has almost an ominously &quot;cheerful&quot; look to it." />
+            <Simple name="Desc" value="With the sun out and the forest as a backdrop, this place has a grimly &quot;cheerful&quot; look to it." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -33,7 +33,7 @@
             <Simple name="Uid" value="3" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You notice the fluffy clouds that are passing by overhead." />
+            <Simple name="Desc" value="You notice the fluffy clouds passing by overhead." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -55,7 +55,7 @@
             <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You suddenly catch the sound of flowing water, though you're not sure where it's coming from." />
+            <Simple name="Desc" value="You suddenly catch the sound of flowing water, though you're not sure from where it's coming." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -66,7 +66,7 @@
             <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You hear, in the distance, " />
+            <Simple name="Desc" value="UNUSED" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -77,7 +77,7 @@
             <Simple name="Uid" value="7" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You hear, seemingly very close by, " />
+            <Simple name="Desc" value="UNUSED" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -88,7 +88,7 @@
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You smell " />
+            <Simple name="Desc" value="UNUSED" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -99,7 +99,7 @@
             <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You just saw " />
+            <Simple name="Desc" value="UNUSED" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -198,7 +198,7 @@
             <Simple name="Uid" value="100" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="As you reach out over the fountain, the waters suddenly grow very rough, and before long, you find yourself in another encounter." />
+            <Simple name="Desc" value="As you reach out over the fountain, the water suddenly grows very rough, and rises, forming a large wall!" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -209,7 +209,7 @@
             <Simple name="Uid" value="101" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You've found a secret panel in the fountain bottom - you may go down." />
+            <Simple name="Desc" value="As you examine the fountain, the water suddenly grows very rough, and before long, you find yourself in another encounter." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -253,7 +253,7 @@
             <Simple name="Uid" value="201" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="lizard's head and torso and the last with a frog's head." />
+            <Simple name="Desc" value="a lizard's head and torso and the last with a frog's head." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

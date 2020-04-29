@@ -23,7 +23,7 @@ namespace EamonRT.Game.Commands
 
 		public virtual void PrintSonicBoom()
 		{
-			if (Globals.IsRulesetVersion(5))
+			if (Globals.IsRulesetVersion(5, 15))
 			{
 				gOut.Print("You hear a very loud sonic boom that echoes through the {0}.", gActorRoom.EvalRoomType("tunnels", "area"));
 			}
@@ -49,7 +49,7 @@ namespace EamonRT.Game.Commands
 
 			if (eventType == PpeAfterPlayerSpellCastCheck)
 			{
-				if (Globals.IsRulesetVersion(5))
+				if (Globals.IsRulesetVersion(5, 15))
 				{
 					// Raise the dead / Make stuff vanish
 

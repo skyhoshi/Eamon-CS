@@ -10,5 +10,8 @@ namespace EamonRT.Framework.Commands
 	{
 		/// <summary></summary>
 		bool AllowExtendedContainers { get; set; }
+
+		/// <summary></summary>
+		bool OmitHealthStatus { get; set; }
 	}
 }

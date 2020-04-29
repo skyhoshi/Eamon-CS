@@ -109,9 +109,12 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					var room = gEngine.RollDice(1, 27, 32);
 
-					gActorMonster.SetInRoomUid(room);
+					gGameState.R2 = room;
 
-					NextState = Globals.CreateInstance<IStartState>();
+					NextState = Globals.CreateInstance<IAfterPlayerMoveState>(x =>
+					{
+						x.MoveMonsters = false;
+					});
 
 					GotoCleanup = true;
 
@@ -171,9 +174,14 @@ namespace TheTempleOfNgurct.Game.Commands
 				{
 					PrintAirCracklesWithEnergy();
 
-					gActorMonster.SetInRoomUid(58);
+					gGameState.Ro = 58;
 
-					NextState = Globals.CreateInstance<IStartState>();
+					gGameState.R2 = gGameState.Ro;
+
+					NextState = Globals.CreateInstance<IAfterPlayerMoveState>(x =>
+					{
+						x.MoveMonsters = false;
+					});
 
 					GotoCleanup = true;
 

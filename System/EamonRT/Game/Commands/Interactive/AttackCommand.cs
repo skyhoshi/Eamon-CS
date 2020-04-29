@@ -146,9 +146,18 @@ namespace EamonRT.Game.Commands
 
 					if (BlastSpell)
 					{
-						d = 2;
+						if (Globals.IsRulesetVersion(5, 15))
+						{
+							d = 1;
 
-						s = 5;
+							s = 6;
+						}
+						else
+						{
+							d = 2;
+
+							s = 5;
+						}
 
 						Globals.Buf.SetPrint("{0}", gEngine.GetBlastDesc());
 					}

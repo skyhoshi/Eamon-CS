@@ -745,6 +745,8 @@ namespace Eamon.Game
 
 			buf02 = new StringBuilder(Constants.BufSize);
 
+			var omitSkillStats = Globals.IsRulesetVersion(15) && gEngine.GetGameState() != null;
+
 			gOut.Print("{0,-36}Gender: {1,-9}Damage Taken: {2}/{3}",
 				args.Monster.Name.ToUpper(),
 				EvalGender("Male", "Female", "Neutral"),
@@ -773,52 +775,55 @@ namespace Eamon.Game
 				args.CharmMon > 0 ? "+" : "",
 				args.CharmMon);
 
-			gOut.Write("{0}{1}{2,39}",
-				Environment.NewLine,
-				"Weapon Abilities:",
-				"Spell Abilities:");
-
-			var weaponValues = EnumUtil.GetValues<Weapon>();
-
-			var spellValues = EnumUtil.GetValues<Spell>();
-
-			i = Math.Min((long)weaponValues[0], (long)spellValues[0]);
-
-			j = Math.Max((long)weaponValues[weaponValues.Count - 1], (long)spellValues[spellValues.Count - 1]);
-
-			while (i <= j)
+			if (!omitSkillStats)
 			{
-				gOut.WriteLine();
+				gOut.Write("{0}{1}{2,39}",
+					Environment.NewLine,
+					"Weapon Abilities:",
+					"Spell Abilities:");
 
-				if (Enum.IsDefined(typeof(Weapon), i))
+				var weaponValues = EnumUtil.GetValues<Weapon>();
+
+				var spellValues = EnumUtil.GetValues<Spell>();
+
+				i = Math.Min((long)weaponValues[0], (long)spellValues[0]);
+
+				j = Math.Max((long)weaponValues[weaponValues.Count - 1], (long)spellValues[spellValues.Count - 1]);
+
+				while (i <= j)
 				{
-					weapon = gEngine.GetWeapons((Weapon)i);
+					gOut.WriteLine();
 
-					Debug.Assert(weapon != null);
+					if (Enum.IsDefined(typeof(Weapon), i))
+					{
+						weapon = gEngine.GetWeapons((Weapon)i);
 
-					gOut.Write(" {0,-5}: {1,3}%",
-						weapon.Name,
-						GetWeaponAbilities(i));
+						Debug.Assert(weapon != null);
+
+						gOut.Write(" {0,-5}: {1,3}%",
+							weapon.Name,
+							GetWeaponAbilities(i));
+					}
+					else
+					{
+						gOut.Write("{0,12}", "");
+					}
+
+					if (Enum.IsDefined(typeof(Spell), i))
+					{
+						spell = gEngine.GetSpells((Spell)i);
+
+						Debug.Assert(spell != null);
+
+						gOut.Write("{0,29}{1,-5}: {2,3}% / {3}%",
+							"",
+							spell.Name,
+							args.GetSpellAbilities(i),
+							GetSpellAbilities(i));
+					}
+
+					i++;
 				}
-				else
-				{
-					gOut.Write("{0,12}", "");
-				}
-
-				if (Enum.IsDefined(typeof(Spell), i))
-				{
-					spell = gEngine.GetSpells((Spell)i);
-
-					Debug.Assert(spell != null);
-
-					gOut.Write("{0,29}{1,-5}: {2,3}% / {3}%",
-						"",
-						spell.Name,
-						args.GetSpellAbilities(i),
-						GetSpellAbilities(i));
-				}
-
-				i++;
 			}
 
 			gOut.WriteLine("{0}{0}{1}{2,-30}{3}{4,-6}",
@@ -828,9 +833,9 @@ namespace Eamon.Game
 				"In bank: ",
 				BankGold);
 
-			gOut.Print("Armor:  {0} Armor Expertise:  {1}%",
+			gOut.Print("Armor:  {0}{1}",
 				args.ArmorString.PadTRight(28, ' '),
-				ArmorExpertise);
+				!omitSkillStats ? string.Format(" Armor Expertise:  {0}%", ArmorExpertise) : "");
 
 			var wcg = gEngine.GetWeightCarryableGronds(args.Monster.Hardiness);
 

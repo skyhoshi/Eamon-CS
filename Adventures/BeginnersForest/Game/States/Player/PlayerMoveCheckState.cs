@@ -35,16 +35,19 @@ namespace BeginnersForest.Game.States
 
 					gGameState.R2 = gGameState.Ro;
 
-					NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
+					NextState = Globals.CreateInstance<IAfterPlayerMoveState>(x =>
+					{
+						x.MoveMonsters = false;
+					});
 				}
 
 				// Don't step on any beavers!
 
 				else if (gGameState.R2 == -34)
 				{
-					gGameState.R2 = 33;
-
 					gEngine.PrintEffectDesc(1);
+
+					gGameState.R2 = 33;
 
 					NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 				}

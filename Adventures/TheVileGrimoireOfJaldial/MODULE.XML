@@ -15,7 +15,7 @@
             <Simple name="IntroStory" value="0" />
             <Simple name="NumDirs" value="10" />
             <Simple name="NumRooms" value="121" />
-            <Simple name="NumArtifacts" value="61" />
+            <Simple name="NumArtifacts" value="62" />
             <Simple name="NumEffects" value="28" />
             <Simple name="NumMonsters" value="50" />
             <Simple name="NumHints" value="2" />

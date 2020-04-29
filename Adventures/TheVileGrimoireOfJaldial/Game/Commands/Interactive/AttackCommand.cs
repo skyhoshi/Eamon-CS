@@ -3,6 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -15,11 +16,25 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 	{
 		public override void MonsterExecute()
 		{
-			Debug.Assert(gActorMonster != null);
+			Debug.Assert(gActorMonster != null && gDobjMonster != null);
 
-			// Monster selects its attack modality
+			while (true)
+			{
+				// Monster selects its attack modality
 
-			gActorMonster.SetAttackModality();
+				gActorMonster.SetAttackModality();
+
+				// Beholder's clumsiness spells only work on non-group monsters
+
+				if (gActorMonster.Uid == 36 && string.Equals(gActorMonster.AttackDesc, "cast{0} a clumsiness spell on", StringComparison.OrdinalIgnoreCase) && gDobjMonster.OrigGroupCount > 1)
+				{
+					gGameState.ClumsySpells--;
+				}
+				else
+				{
+					break;
+				}
+			}
 
 			base.MonsterExecute();
 		}

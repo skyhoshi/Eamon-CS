@@ -32,9 +32,13 @@ namespace EamonRT.Game.Commands
 
 			if (gDobjMonster.DmgTaken > 0)
 			{
-				if (Globals.IsRulesetVersion(5))
+				if (Globals.IsRulesetVersion(5, 15))
 				{
-					Globals.Buf.SetFormat("{0}Some of your", Environment.NewLine);
+					Globals.Buf.SetFormat("{0}Some of {1}", 
+						Environment.NewLine,
+						isCharMonster ? "your" :
+						gDobjMonster.EvalPlural(gDobjMonster.GetTheName(buf: Globals.Buf01),
+														gDobjMonster.GetArticleName(false, true, false, true, Globals.Buf02)));
 				}
 				else
 				{
@@ -50,7 +54,7 @@ namespace EamonRT.Game.Commands
 					gEngine.GetPossessiveName(Globals.Buf);
 				}
 
-				if (Globals.IsRulesetVersion(5))
+				if (Globals.IsRulesetVersion(5, 15))
 				{
 					Globals.Buf.AppendFormat(" wounds seem to clear up.{0}", Environment.NewLine);
 				}
@@ -61,7 +65,7 @@ namespace EamonRT.Game.Commands
 
 				gOut.Write("{0}", Globals.Buf);
 
-				var rl = gEngine.RollDice(1, Globals.IsRulesetVersion(5) ? 10 : 12, 0);
+				var rl = gEngine.RollDice(1, Globals.IsRulesetVersion(5, 15) ? 10 : 12, 0);
 
 				gDobjMonster.DmgTaken -= rl;
 			}

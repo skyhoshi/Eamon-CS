@@ -7,6 +7,6 @@ namespace TheVileGrimoireOfJaldial.Framework.Plugin
 {
 	public interface IPluginConstants : EamonRT.Framework.Plugin.IPluginConstants
 	{
-		
+		long[] NonEmotingMonsterUids { get; set; }
 	}
 }

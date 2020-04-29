@@ -14,6 +14,37 @@ namespace TheVileGrimoireOfJaldial.Game
 	[ClassMappings(typeof(IMonster))]
 	public class Monster : Eamon.Game.Monster, Framework.IMonster
 	{
+		public override long Agility
+		{
+			get
+			{
+				var result = base.Agility;
+
+				// Beholder's clumsiness spell causes decreased Agility
+
+				if (Globals.EnableGameOverrides && gGameState != null && gGameState.ClumsyTargets.ContainsKey(Uid))
+				{
+					var roundsList = gGameState.ClumsyTargets[Uid];
+
+					Debug.Assert(roundsList != null && roundsList.Count > 0);
+
+					result -= (roundsList.Count * 3);
+
+					if (result < 1)			// TODO: use Agility.MinValue
+					{
+						result = 1;
+					}
+				}
+
+				return result;
+			}
+
+			set
+			{
+				base.Agility = value;
+			}
+		}
+
 		public virtual string AttackDesc { get; set; }
 
 		public override bool CanMoveToRoom(bool fleeing)
@@ -41,6 +72,13 @@ namespace TheVileGrimoireOfJaldial.Game
 
 				return Uid != 18 && Uid != 19 && Uid != 20 && Uid != 22 && Uid != 38 ? base.CanMoveToRoom(fleeing) : false;
 			}
+		}
+
+		public override bool ShouldProcessInGameLoop()
+		{
+			// When a monster has initiative nobody else can react this round
+
+			return (Globals.InitiativeMonsterUid == 0 || Uid == Globals.InitiativeMonsterUid) && base.ShouldProcessInGameLoop();
 		}
 
 		public override string[] GetWeaponAttackDescs(IArtifact artifact)
@@ -375,9 +413,73 @@ namespace TheVileGrimoireOfJaldial.Game
 
 					break;
 
+				case 36:
+
+					if (rl > 80 && gGameState.ClumsySpells < 4)
+					{
+						AttackDesc = "cast{0} a clumsiness spell on";
+
+						NwDice = 0;
+
+						NwSides = 0;
+
+						gGameState.ClumsySpells++;
+					}
+					else if (rl > 50 && gGameState.FireBalls < 7)
+					{
+						AttackDesc = "cast{0} a fireball at";
+
+						NwDice = 1;
+
+						NwSides = 8;
+
+						gGameState.FireBalls++;
+					}
+					else if (rl > 20 && gGameState.MysticMissiles < 5)
+					{
+						AttackDesc = "cast{0} a mystic missile at";
+
+						NwDice = 2;
+
+						NwSides = 7;
+
+						gGameState.MysticMissiles++;
+					}
+					else
+					{
+						AttackDesc = "bite{0} at";
+
+						NwDice = 1;
+
+						NwSides = 5;
+					}
+
+					break;
+
 				case 37:
 
 					AttackDesc = "pinches";
+
+					break;
+
+				case 38:
+
+					if (rl > 80)
+					{
+						AttackDesc = "envelop{0}";
+
+						NwDice = 0;
+
+						NwSides = 0;
+					}
+					else
+					{
+						AttackDesc = "bludgeon{0}";
+
+						NwDice = 1;
+
+						NwSides = 6;
+					}
 
 					break;
 
@@ -458,6 +560,49 @@ namespace TheVileGrimoireOfJaldial.Game
 						NwDice = 1;
 
 						NwSides = 2;
+					}
+
+					break;
+
+				case 43:
+
+					if (rl > 73 && gGameState.LightningBolts < 7)
+					{
+						AttackDesc = "cast{0} a lightning bolt at";
+
+						NwDice = 3;
+
+						NwSides = 4;
+
+						gGameState.LightningBolts++;
+					}
+					else if (rl > 46 && gGameState.IceBolts < 7)
+					{
+						AttackDesc = "cast{0} an ice bolt at";
+
+						NwDice = 3;
+
+						NwSides = 5;
+
+						gGameState.IceBolts++;
+					}
+					else if (rl > 19 && gGameState.MentalBlasts < 3)
+					{
+						AttackDesc = "mentally blast{0}";
+
+						NwDice = 3;
+
+						NwSides = 5;
+
+						gGameState.MentalBlasts++;
+					}
+					else
+					{
+						AttackDesc = "attack{0}";
+
+						NwDice = 1;
+
+						NwSides = 7;
 					}
 
 					break;

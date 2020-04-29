@@ -23,23 +23,26 @@ namespace BeginnersForest.Game.States
 
 				// Random Annoying Spooks (4 Spook limit)
 
-				if (gGameState.Ro > 1 && gGameState.Ro < 5 && gGameState.SpookCounter < 10 && spookMonster.GroupCount < 4)
+				if (spookMonster.IsInLimbo() || spookMonster.IsInRoomUid(gGameState.Ro))
 				{
-					var rl = gEngine.RollDice(1, 100, 0);
-
-					if (rl < 35)
+					if (gGameState.Ro > 1 && gGameState.Ro < 5 && gGameState.SpookCounter < 10 && spookMonster.GroupCount < 4)
 					{
-						spookMonster.Seen = false;
+						var rl = gEngine.RollDice(1, 100, 0);
 
-						spookMonster.GroupCount++;
+						if (rl < 35)
+						{
+							spookMonster.Seen = false;
 
-						spookMonster.InitGroupCount++;
+							spookMonster.GroupCount++;
 
-						spookMonster.OrigGroupCount++;
+							spookMonster.InitGroupCount++;
 
-						spookMonster.Location = gGameState.Ro;
+							spookMonster.OrigGroupCount++;
 
-						gGameState.SpookCounter++;
+							spookMonster.Location = gGameState.Ro;
+
+							gGameState.SpookCounter++;
+						}
 					}
 				}
 			}

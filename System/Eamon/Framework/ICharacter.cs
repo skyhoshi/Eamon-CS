@@ -16,7 +16,9 @@ namespace Eamon.Framework
 	{
 		#region Properties
 
-		/// <summary></summary>
+		/// <summary>
+		/// Gets or sets this <see cref="ICharacter">Character</see>'s gender.
+		/// </summary>
 		Gender Gender { get; set; }
 
 		/// <summary></summary>

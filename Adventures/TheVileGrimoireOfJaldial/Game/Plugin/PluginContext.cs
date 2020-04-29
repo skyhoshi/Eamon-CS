@@ -142,11 +142,11 @@ namespace TheVileGrimoireOfJaldial.Game.Plugin
 			}
 		}
 
-		public static Framework.Parsing.ICommandParser gCommandParser
+		public static EamonRT.Framework.Parsing.ICommandParser gCommandParser
 		{
 			get
 			{
-				return (Framework.Parsing.ICommandParser)EamonRT.Game.Plugin.PluginContext.gCommandParser;
+				return (EamonRT.Framework.Parsing.ICommandParser)EamonRT.Game.Plugin.PluginContext.gCommandParser;
 			}
 		}
 

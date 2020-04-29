@@ -643,6 +643,9 @@
         <member name="P:EamonRT.Framework.Commands.IInventoryCommand.AllowExtendedContainers">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.Commands.IInventoryCommand.OmitHealthStatus">
+            <summary></summary>
+        </member>
         <member name="T:EamonRT.Framework.Commands.ILookCommand">
             <summary></summary>
         </member>

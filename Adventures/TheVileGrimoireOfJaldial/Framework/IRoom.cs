@@ -11,6 +11,8 @@ namespace TheVileGrimoireOfJaldial.Framework
 	{
 		bool IsGroundsRoom();
 
+		bool IsCryptRoom();
+
 		bool IsFenceRoom();
 
 		bool IsBodyChamberRoom();
@@ -18,5 +20,7 @@ namespace TheVileGrimoireOfJaldial.Framework
 		bool IsRainyRoom();
 
 		bool IsFoggyRoom();
+
+		long GetWeatherIntensity();
 	}
 }

@@ -27,5 +27,10 @@ namespace TheVileGrimoireOfJaldial.Game.Plugin
 
 			return rc;
 		}
+
+		public PluginClassMappings()
+		{
+			RulesetVersion = 15;
+		}
 	}
 }

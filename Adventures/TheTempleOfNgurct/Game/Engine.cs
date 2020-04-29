@@ -192,7 +192,7 @@ namespace TheTempleOfNgurct.Game
 
 		public override void ResetMonsterStats(IMonster monster)
 		{
-			Debug.Assert(monster != null);
+			Debug.Assert(monster != null && monster.IsCharacterMonster());
 
 			monster.Agility = gCharacter.GetStats(Stat.Agility);
 

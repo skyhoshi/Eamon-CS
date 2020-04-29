@@ -6,6 +6,7 @@
 using System;
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Combat;
 using EamonRT.Framework.Commands;
 using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
 
@@ -18,6 +19,10 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 		{
 			if (eventType == PpeAfterPlayerSay)
 			{
+				var waterWeirdMonster = gMDB[38];
+
+				Debug.Assert(waterWeirdMonster != null);
+
 				var efreetiMonster = gMDB[50];
 
 				Debug.Assert(efreetiMonster != null);
@@ -25,6 +30,8 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 				var parchmentArtifact = gADB[33];
 
 				Debug.Assert(parchmentArtifact != null);
+
+				// Summon efreeti
 
 				if ((parchmentArtifact.IsCarriedByCharacter() || parchmentArtifact.IsInRoom(gActorRoom)) && efreetiMonster.IsInLimbo() && string.Equals(ProcessedPhrase, "rinnuk aukasker frudasdus", StringComparison.OrdinalIgnoreCase))
 				{
@@ -40,6 +47,26 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 						parchmentArtifact.SetInLimbo();
 					}
+				}
+
+				// Kill water weird
+
+				else if (waterWeirdMonster.IsInRoom(gActorRoom) && string.Equals(ProcessedPhrase, "avarchrom yarei uttoximo", StringComparison.OrdinalIgnoreCase))
+				{
+					gOut.Print("{0} jolts violently several times and then disintegrates.", waterWeirdMonster.GetTheName(true));
+
+					waterWeirdMonster.DmgTaken = waterWeirdMonster.Hardiness;
+
+					var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
+					{
+						x.SetNextStateFunc = s => NextState = s;
+
+						x.DfMonster = waterWeirdMonster;
+
+						// x.OmitFinalNewLine = false;
+					});
+
+					combatSystem.ExecuteCheckMonsterStatus();
 				}
 			}
 

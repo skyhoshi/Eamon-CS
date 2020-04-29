@@ -18,19 +18,6 @@ namespace TheVileGrimoireOfJaldial.Game
 	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, Framework.IEngine
 	{
-		protected override void PlayerSpellCastBrainOverload(Spell s, ISpell spell)
-		{
-			Debug.Assert(Enum.IsDefined(typeof(Spell), s));
-
-			Debug.Assert(spell != null);
-
-			gOut.Print("The strain of attempting to cast {0} overloads your brain and you forget it completely.", spell.Name);
-
-			gGameState.SetSa(s, 0);
-
-			gCharacter.SetSpellAbilities(s, 0);
-		}
-
 		public override void PrintMonsterAlive(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
@@ -140,6 +127,12 @@ namespace TheVileGrimoireOfJaldial.Game
 			torchArtifact.Value = (long)Math.Round(5.0 * ((double)gGameState.TorchRounds / 50.0));
 
 			torchArtifact.LightSource.Field1 = gGameState.TorchRounds;
+
+			var lanternArtifact = gADB[39];
+
+			Debug.Assert(lanternArtifact != null);
+
+			lanternArtifact.LightSource.Field1 = RollDice(1, 101, 49);
 		}
 
 		public override void InitMonsters()
@@ -174,6 +167,17 @@ namespace TheVileGrimoireOfJaldial.Game
 			{
 				CreateMonsterSynonyms(synonym.Key, synonym.Value);
 			}
+		}
+
+		public override void ResetMonsterStats(IMonster monster)
+		{
+			Debug.Assert(monster != null && monster.IsCharacterMonster());
+
+			base.ResetMonsterStats(monster);
+
+			// Ensure monster not clumsy
+
+			gGameState.ClumsyTargets.Remove(monster.Uid);
 		}
 
 		public override void MonsterSmiles(IMonster monster)
@@ -244,6 +248,13 @@ namespace TheVileGrimoireOfJaldial.Game
 			{
 				Globals.Out.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? monster.EvalPlural("roars", "roar") : rl > 50 ? monster.EvalPlural("snarls", "snarl") : monster.EvalPlural("hisses", "hiss"));
 			}
+
+			// Non-emoting monsters
+
+			else if (Constants.NonEmotingMonsterUids.Contains(monster.Uid))
+			{
+				Globals.Out.Write("{0}{1} {2} not responsive.", Environment.NewLine, monster.GetTheName(true), monster.EvalPlural("is", "are"));
+			}
 			else
 			{
 				base.MonsterSmiles(monster);
@@ -289,6 +300,13 @@ namespace TheVileGrimoireOfJaldial.Game
 				cutlassArtifact.Field5 = 1;
 			}
 
+			// Giant crayfish
+
+			else if (DfMonster.Uid == 37)
+			{
+				gGameState.GiantCrayfishKilled = true;
+			}
+
 			// Water weird
 
 			else if (DfMonster.Uid == 38)
@@ -303,7 +321,7 @@ namespace TheVileGrimoireOfJaldial.Game
 				gGameState.EfreetiKilled = true;
 			}
 
-			// gGameState.ClumsyTargets.Remove(DfMonster.Uid);
+			gGameState.ClumsyTargets.Remove(DfMonster.Uid);
 
 			base.MonsterDies(OfMonster, DfMonster);
 		}
@@ -333,11 +351,9 @@ namespace TheVileGrimoireOfJaldial.Game
 
 		public override IList<IMonster> GetSmilingMonsterList(IRoom room, IMonster monster)
 		{
-			var monsterUids = new long[] { 13, 18, 19, 20, 22, 25, 31, 32, 38 };
-
 			// Some monsters don't emote
 
-			return base.GetSmilingMonsterList(room, monster).Where(m => !monsterUids.Contains(m.Uid)).ToList();
+			return base.GetSmilingMonsterList(room, monster).Where(m => !Constants.NonEmotingMonsterUids.Contains(m.Uid)).ToList();
 		}
 
 		public override void CheckToExtinguishLightSource()

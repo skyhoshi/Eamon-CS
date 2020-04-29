@@ -22,6 +22,8 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool AllowExtendedContainers { get; set; }
 
+		public virtual bool OmitHealthStatus { get; set; }
+
 		public override void PlayerExecute()
 		{
 			RetCode rc;
@@ -190,18 +192,21 @@ namespace EamonRT.Game.Commands
 					gOut.Write("{0}", Globals.Buf);
 				}
 
-				var isUninjuredGroup = gDobjMonster.GroupCount > 1 && gDobjMonster.DmgTaken == 0;
+				if (!OmitHealthStatus)
+				{
+					var isUninjuredGroup = gDobjMonster.GroupCount > 1 && gDobjMonster.DmgTaken == 0;
 
-				Globals.Buf.SetFormat("{0}{1} {2} ",
-					Environment.NewLine,
-					isCharMonster ? "You" : 
-					isUninjuredGroup ? "They" : 
-					gDobjMonster.GetTheName(true, true, false, true, Globals.Buf01),
-					isCharMonster || isUninjuredGroup ? "are" : "is");
+					Globals.Buf.SetFormat("{0}{1} {2} ",
+						Environment.NewLine,
+						isCharMonster ? "You" :
+						isUninjuredGroup ? "They" :
+						gDobjMonster.GetTheName(true, true, false, true, Globals.Buf01),
+						isCharMonster || isUninjuredGroup ? "are" : "is");
 
-				gDobjMonster.AddHealthStatus(Globals.Buf);
+					gDobjMonster.AddHealthStatus(Globals.Buf);
 
-				gOut.Write("{0}", Globals.Buf);
+					gOut.Write("{0}", Globals.Buf);
+				}
 
 				if (goldArtifact != null)
 				{

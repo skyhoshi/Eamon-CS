@@ -325,11 +325,11 @@ namespace EamonRT.Game
 
 			Debug.Assert(spell != null);
 
-			gOut.Print("The strain of attempting to cast {0} overloads your brain and you forget it completely{1}.", spell.Name, Globals.IsRulesetVersion(5) ? "" : " for the rest of this adventure");
+			gOut.Print("The strain of attempting to cast {0} overloads your brain and you forget it completely{1}.", spell.Name, Globals.IsRulesetVersion(5, 15) ? "" : " for the rest of this adventure");
 
 			gGameState.SetSa(s, 0);
 
-			if (Globals.IsRulesetVersion(5))
+			if (Globals.IsRulesetVersion(5, 15))
 			{
 				gCharacter.SetSpellAbilities(s, 0);
 			}
@@ -886,7 +886,7 @@ namespace EamonRT.Game
 
 		public virtual void ResetMonsterStats(IMonster monster)
 		{
-			Debug.Assert(monster != null);
+			Debug.Assert(monster != null && monster.IsCharacterMonster());
 
 			if (gGameState.Speed > 0)
 			{
@@ -1242,7 +1242,7 @@ namespace EamonRT.Game
 		{
 			Debug.Assert(monster != null);
 
-			if (Globals.IsRulesetVersion(5) && monster.Friendliness == Friendliness.Friend)
+			if (Globals.IsRulesetVersion(5, 15) && monster.Friendliness == Friendliness.Friend)
 			{
 				gOut.Write("{0}{1} {2}{3} back.",
 					Environment.NewLine,
@@ -1252,12 +1252,13 @@ namespace EamonRT.Game
 			}
 			else
 			{
-				gOut.Write("{0}{1} {2}{3} {4}you.",
+				gOut.Write("{0}{1} {2}{3} {4}you{5}",
 					Environment.NewLine,
 					monster.GetTheName(true),
 					monster.EvalFriendliness("growl", "ignore", "smile"),
 					monster.EvalPlural("s", ""),
-					monster.Friendliness != Friendliness.Neutral ? "at " : "");
+					monster.Friendliness != Friendliness.Neutral ? "at " : "",
+					Globals.IsRulesetVersion(5, 15) && monster.Friendliness == Friendliness.Enemy ? "!" : ".");
 			}
 		}
 
@@ -2461,7 +2462,7 @@ namespace EamonRT.Game
 
 					artifact.SetInLimbo();
 
-					gOut.Print("{0} {1}", artifact.GetTheName(true), Globals.IsRulesetVersion(5) ? "comes alive!" : "comes to life!");
+					gOut.Print("{0} {1}", artifact.GetTheName(true), Globals.IsRulesetVersion(5, 15) ? "comes alive!" : "comes to life!");
 
 					found = true;
 				}
@@ -2534,7 +2535,7 @@ namespace EamonRT.Game
 
 					if (rl > gCharacter.GetSpellAbilities(s))
 					{
-						if (!Globals.IsRulesetVersion(5))
+						if (!Globals.IsRulesetVersion(5, 15))
 						{
 							gOut.Print("Your ability to cast {0} just increased!", spell.Name);
 						}
@@ -2580,7 +2581,7 @@ namespace EamonRT.Game
 
 					Debug.Assert(weapon != null);
 
-					if (!Globals.IsRulesetVersion(5))
+					if (!Globals.IsRulesetVersion(5, 15))
 					{
 						gOut.Print("Your {0} ability just increased!", weapon.Name);
 					}
@@ -2603,7 +2604,7 @@ namespace EamonRT.Game
 
 					if (rl > gCharacter.ArmorExpertise)
 					{
-						if (!Globals.IsRulesetVersion(5))
+						if (!Globals.IsRulesetVersion(5, 15))
 						{
 							gOut.Print("Your armor expertise just increased!");
 						}

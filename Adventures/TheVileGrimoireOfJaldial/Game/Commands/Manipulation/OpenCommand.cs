@@ -47,7 +47,18 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 		{
 			Debug.Assert(gDobjArtifact != null);
 
-			if (((gDobjArtifact.Uid == 3 || gDobjArtifact.Uid == 4 || gDobjArtifact.Uid == 5) && !gDobjArtifact.DoorGate.IsOpen()) || ((gDobjArtifact.Uid == 13 || gDobjArtifact.Uid == 35) && !gDobjArtifact.InContainer.IsOpen() && gDobjArtifact.InContainer.GetKeyUid() == -1))
+			// Book of runes can't be opened
+
+			if (gDobjArtifact.Uid == 27)
+			{
+				gOut.Print("The magic radiated from this manuscript keeps it closed to prying eyes.");
+
+				NextState = Globals.CreateInstance<IMonsterStartState>();
+			}
+
+			// DoorGates and InContainers sometimes need to be pryed open
+
+			else if (((gDobjArtifact.Uid == 3 || gDobjArtifact.Uid == 4 || gDobjArtifact.Uid == 5) && !gDobjArtifact.DoorGate.IsOpen()) || ((gDobjArtifact.Uid == 13 || gDobjArtifact.Uid == 35) && !gDobjArtifact.InContainer.IsOpen() && gDobjArtifact.InContainer.GetKeyUid() == -1))
 			{
 				// Reset the Key Uid to the available Artifact with the best leverage (if any)
 
