@@ -25,15 +25,17 @@ namespace TheVileGrimoireOfJaldial.Game
 
 		public virtual bool AmoebaAppeared { get; set; }
 
-		public virtual bool ExitDirNames { get; set; }
+		public virtual bool ShowCombatDamage { get; set; }
 
-		public virtual bool FoggyRoom { get; set; }
+		public virtual bool ExitDirNames { get; set; }
 
 		public virtual bool[] SecretDoors { get; set; }
 
 		public virtual long FoggyRoomWeatherIntensity { get; set; }
 
 		public virtual long PlayerResurrections { get; set; }
+
+		public virtual long PlayerHardinessPointsDrained { get; set; }
 
 		public virtual long BloodnettleVictimUid { get; set; }
 
@@ -64,6 +66,8 @@ namespace TheVileGrimoireOfJaldial.Game
 		public virtual long WeatherDuration { get; set; }
 
 		public virtual WeatherType WeatherType { get; set; }
+
+		public virtual IDictionary<long, long> ParalyzedTargets { get; set; }
 
 		public virtual IDictionary<long, IList<long>> ClumsyTargets { get; set; }
 
@@ -102,22 +106,59 @@ namespace TheVileGrimoireOfJaldial.Game
 			SecretDoors[index] = value;
 		}
 
-		public virtual void SetFoggyRoom(Framework.IRoom room)
+		public virtual void SetFoggyRoomWeatherIntensity(Framework.IRoom room)
 		{
 			Debug.Assert(room != null);
 
-			FoggyRoom = room.IsGroundsRoom() && IsFoggy() && gEngine.RollDice(1, 100, 0) > 40;
+			var rl = gEngine.RollDice(1, 100, 0);
 
-			FoggyRoomWeatherIntensity = FoggyRoom ? gEngine.RollDice(1, WeatherIntensity, 0) : 0;
+			if (room.IsFoggyRoom())
+			{
+				if (FoggyRoomWeatherIntensity == 0)
+				{
+					FoggyRoomWeatherIntensity++;
+				}
+				else if (FoggyRoomWeatherIntensity == 1)
+				{
+					if (FoggyRoomWeatherIntensity < WeatherIntensity && rl > 25)
+					{
+						FoggyRoomWeatherIntensity++;
+					}
+				}
+				else if (FoggyRoomWeatherIntensity < WeatherIntensity)
+				{
+					if (rl > 63)
+					{
+						FoggyRoomWeatherIntensity++;
+					}
+					else if (rl > 38)
+					{
+						FoggyRoomWeatherIntensity--;
+					}
+				}
+				else
+				{
+					if (rl > 75)
+					{
+						FoggyRoomWeatherIntensity--;
+					}
+				}
+			}
+			else
+			{
+				FoggyRoomWeatherIntensity = 0;
+			}
 		}
 
 		public GameState()
 		{
 			SecretDoors = new bool[13];
 
-			Hour = 6;
+			Hour = Constants.StartHour;
 
-			Minute = 55;
+			Minute = Constants.StartMinute;
+
+			ParalyzedTargets = new Dictionary<long, long>();
 
 			ClumsyTargets = new Dictionary<long, IList<long>>();
 		}

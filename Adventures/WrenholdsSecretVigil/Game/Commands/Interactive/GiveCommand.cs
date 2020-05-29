@@ -43,7 +43,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 					}
 					else
 					{
-						gEngine.MonsterSmiles(gIobjMonster);
+						gEngine.MonsterEmotes(gIobjMonster);
 
 						gOut.WriteLine();
 					}
@@ -55,7 +55,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				else if (gIobjMonster.ShouldRefuseToAcceptGift01(gDobjArtifact))
 				{
-					gEngine.MonsterSmiles(gIobjMonster);
+					gEngine.MonsterEmotes(gIobjMonster);
 
 					gOut.WriteLine();
 
@@ -72,7 +72,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				if (gIobjMonster.Uid == 1 || gIobjMonster.Friendliness < Friendliness.Friend)
 				{
-					gEngine.MonsterSmiles(gIobjMonster);
+					gEngine.MonsterEmotes(gIobjMonster);
 
 					gOut.WriteLine();
 

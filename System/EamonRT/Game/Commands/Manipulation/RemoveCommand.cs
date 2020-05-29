@@ -266,13 +266,6 @@ namespace EamonRT.Game.Commands
 			PlayerResolveArtifact();
 		}
 
-		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
-		{
-			Debug.Assert(artifact != null);
-
-			return gCommandParser.ObjData == gCommandParser.IobjData || artifact.IsWornByCharacter();
-		}
-
 		/*
 		public override bool IsPrepEnabled(IPrep prep)
 		{

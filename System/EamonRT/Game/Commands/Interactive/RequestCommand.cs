@@ -27,7 +27,7 @@ namespace EamonRT.Game.Commands
 
 			if (gIobjMonster.Friendliness < Friendliness.Friend)
 			{
-				gEngine.MonsterSmiles(gIobjMonster);
+				gEngine.MonsterEmotes(gIobjMonster);
 
 				gOut.WriteLine();
 
@@ -108,11 +108,6 @@ namespace EamonRT.Game.Commands
 
 				PlayerResolveArtifact();
 			}
-		}
-
-		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
-		{
-			return false;
 		}
 
 		/*

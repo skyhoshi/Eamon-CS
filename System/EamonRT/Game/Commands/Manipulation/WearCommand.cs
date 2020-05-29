@@ -157,13 +157,6 @@ namespace EamonRT.Game.Commands
 			PlayerResolveArtifact();
 		}
 
-		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
-		{
-			Debug.Assert(artifact != null);
-
-			return artifact.Wearable != null ? artifact.IsCarriedByCharacter() || artifact.IsWornByCharacter() : true;
-		}
-
 		public WearCommand()
 		{
 			SortOrder = 240;

@@ -168,7 +168,8 @@ namespace EamonRT.Framework
 
 		/// <summary></summary>
 		/// <param name="monster"></param>
-		void MonsterSmiles(IMonster monster);
+		/// <param name="friendSmile"></param>
+		void MonsterEmotes(IMonster monster, bool friendSmile = true);
 
 		/// <summary></summary>
 		/// <param name="OfMonster"></param>
@@ -278,8 +279,9 @@ namespace EamonRT.Framework
 		/// <summary></summary>
 		/// <param name="room"></param>
 		/// <param name="monster"></param>
+		/// <param name="friendSmile"></param>
 		/// <returns></returns>
-		IList<IMonster> GetSmilingMonsterList(IRoom room, IMonster monster);
+		IList<IMonster> GetEmotingMonsterList(IRoom room, IMonster monster, bool friendSmile = true);
 
 		/// <summary></summary>
 		/// <param name="monster"></param>
@@ -384,7 +386,7 @@ namespace EamonRT.Framework
 		void CreateInitialState(bool printLineSep);
 
 		/// <summary></summary>
-		void MoveMonsters();
+		void MoveMonsters(params Func<IMonster, bool>[] whereClauseFuncs);
 
 		/// <summary></summary>
 		/// <param name="secondPass"></param>

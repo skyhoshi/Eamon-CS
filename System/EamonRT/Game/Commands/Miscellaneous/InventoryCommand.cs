@@ -22,8 +22,6 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool AllowExtendedContainers { get; set; }
 
-		public virtual bool OmitHealthStatus { get; set; }
-
 		public override void PlayerExecute()
 		{
 			RetCode rc;
@@ -116,14 +114,16 @@ namespace EamonRT.Game.Commands
 
 				if (!isCharMonster && gDobjMonster.Friendliness < Friendliness.Friend)
 				{
-					gEngine.MonsterSmiles(gDobjMonster);
+					gEngine.MonsterEmotes(gDobjMonster);
 
 					gOut.WriteLine();
 
 					goto Cleanup;
 				}
 
-				if (gDobjMonster.HasWornInventory())
+				var hasWornInventory = gDobjMonster.HasWornInventory();
+
+				if (hasWornInventory)
 				{
 					var artifactList = gDobjMonster.GetWornList();
 
@@ -145,7 +145,9 @@ namespace EamonRT.Game.Commands
 					}
 				}
 
-				if (gDobjMonster.HasCarriedInventory())
+				var hasCarriedInventory = gDobjMonster.HasCarriedInventory();
+
+				if (hasCarriedInventory)
 				{
 					var artifactList = gDobjMonster.GetCarriedList();
 
@@ -192,7 +194,9 @@ namespace EamonRT.Game.Commands
 					gOut.Write("{0}", Globals.Buf);
 				}
 
-				if (!OmitHealthStatus)
+				var shouldShowHealthStatusWhenInventoried = gDobjMonster.ShouldShowHealthStatusWhenInventoried();
+
+				if (shouldShowHealthStatusWhenInventoried)
 				{
 					var isUninjuredGroup = gDobjMonster.GroupCount > 1 && gDobjMonster.DmgTaken == 0;
 
@@ -213,6 +217,15 @@ namespace EamonRT.Game.Commands
 					goldArtifact.Dispose();
 
 					goldArtifact = null;
+				}
+
+				if (!hasWornInventory && !hasCarriedInventory && !shouldShowHealthStatusWhenInventoried)
+				{
+					PrintCantVerbObj(gDobjMonster);
+
+					NextState = Globals.CreateInstance<IStartState>();
+
+					goto Cleanup;
 				}
 			}
 

@@ -48,61 +48,61 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			// Decoration
 
-			else if (gDobjArtifact?.Uid == 41 && gDobjArtifact.Field1 > 0)
+			else if (gDobjArtifact?.Uid == 41 && gDobjArtifact.Field1 > 0 && (!gActorRoom.IsDimLightRoom() || gGameState.Ls > 0))
 			{
 				switch (gDobjArtifact.Field1)
 				{
 					case 1:
 
-						gOut.Print("Those gates are made of rusted iron and are definitely out of repair.");
+						gEngine.PrintEffectDesc(18);
 
 						break;
 
 					case 2:
 
-						gOut.Print("The fence is constructed of sturdy iron rods, each nine feet tall, and sitting within a half-foot of the next.  Climbing would be foolhardy - the top of each has been filed to a sharp spear-like point.");
+						gEngine.PrintEffectDesc(19);
 
 						break;
 
 					case 3:
 
-						gOut.Print("All plant life is lush and green, due to the frequent rainstorms that pass through the area.  The climate is perfect for such growth.");
+						gEngine.PrintEffectDesc(20);
 
 						break;
 
 					case 4:
 
-						gOut.Print("You have little difficulty finding a typical tombstone to examine.  The normal appears to be made of granite, and come in all shapes and sizes, ranging from tiny (one or two feet) to gigantic (over 12 feet).  Many have etchings that are still quite legible.");
+						gEngine.PrintEffectDesc(21);
 
 						break;
 
 					case 5:
 
-						gOut.Print("The stream is small, and the water is clear.  Pebbles can be seen at the bottom.  The one-foot wide stream causes the ground around it to become quite damp, if not outright soggy.");
+						gEngine.PrintEffectDesc(22);
 
 						break;
 
 					case 6:
 
-						gOut.Print("You approach it, but start to gag and quickly retreat.  The smell makes your stomach churn.");
+						gEngine.PrintEffectDesc(23);
 
 						break;
 
 					case 7:
 
-						gOut.Print("The rat has been devoured from the waist down and has made a bloody mess of the rock.  Maybe it was butchered by an owl or vulture.  Either way, it was probably killed a while ago.");
+						gEngine.PrintEffectDesc(24);
 
 						break;
 
 					case 8:
 
-						gOut.Print("The rocks have probably been here for quite a while:  tall weeds grow up through and around them.  It stands about five feet tall.");
+						gEngine.PrintEffectDesc(25);
 
 						break;
 
 					case 9:
 
-						gOut.Print("These elms are all rather old, over 100 years, you would guess.  Their long branches stretch out over the damp ground, an imposing image.  They are entirely bare, stripped of leaves.");
+						gEngine.PrintEffectDesc(26);
 
 						break;
 
@@ -117,43 +117,43 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 					case 11:
 
-						gOut.Print("It has been lying there for quite some time:  the bones are picked completely clean.  Not quite sure what type of animal it was, though.");
+						gEngine.PrintEffectDesc(27);
 
 						break;
 
 					case 12:
 
-						gOut.Print("These things are ancient, but they look just like pines.  Very green.");
+						gEngine.PrintEffectDesc(28);
 
 						break;
 
 					case 13:
 
-						gOut.Print("The coffin looks as though it has been expelled from the ground.  The skeleton inside still has rotting clothing on.");
+						gEngine.PrintEffectDesc(29);
 
 						break;
 
 					case 14:
 
-						gOut.Print("The dust on the floor makes you choke; there's so much of it.  You wonder how long it's been since human feet walked these corridors.");
+						gEngine.PrintEffectDesc(30);
 
 						break;
 
 					case 15:
 
-						gOut.Print("This pile of bones has been here for quite some time - they've been picked thoroughly clean.");
+						gEngine.PrintEffectDesc(31);
 
 						break;
 
 					case 16:
 
-						gOut.Print("These openings were apparently once used for the storage of dead bodies.  Many of them have been sealed over with red bricks and mortar, and a few of these have crumbled away, revealing the remains of their occupants.  The remainder are empty.");
+						gEngine.PrintEffectDesc(32);
 
 						break;
 
 					case 17:
 
-						gOut.Print("The frescoes which cover the walls convey a variety of ideas.  The majority deal with the passage from life into the \"deep sleep\" of death, then finally onto the afterlife in the netherworlds.  Many of them are of stunning artistic quality, yet some hint at dark secrets and seem oddly out of place with the others.");
+						gEngine.PrintEffectDesc(33);
 
 						break;
 
@@ -179,7 +179,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 								if (!saved)
 								{
-									gOut.Print("You suddenly feel your heart stop, and you slump to the floor.");
+									gEngine.PrintEffectDesc(34);
 
 									gGameState.Die = 1;
 
@@ -192,18 +192,18 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 								}
 								else
 								{
-									gOut.Print("For some reason, you aren't affected by it.");
+									gEngine.PrintEffectDesc(35);
 								}
 							}
 							else if (rl02 == 2)
 							{
-								gOut.Print("You suddenly slump to the floor in a deep slumber.  Sometime later, you awaken and clamber to your feet.");
+								gEngine.PrintEffectDesc(36);
 
 								gGameState.Day++;
 							}
 							else if (rl02 == 3)
 							{
-								gOut.Print("The scenery melts into a mixture of colors and then separates.  You are in a new location!");
+								gEngine.PrintEffectDesc(37);
 
 								var groundsRooms = gRDB.Records.Cast<Framework.IRoom>().Where(r => r.IsGroundsRoom()).ToList();    // TODO: maybe add this crypt's Rooms as well
 
@@ -253,7 +253,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						}
 						else
 						{
-							gOut.Print("Although the majority of the runes are untranslatable, you somehow realize that they are written in several different languages.  A few of them make sense to you, however:");
+							gEngine.PrintEffectDesc(38);
 
 							gOut.WriteLine();
 
@@ -262,7 +262,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 							gEngine.PrintTitle("Yet all will surely rise again,".PadTRight(35, ' '), false);
 							gEngine.PrintTitle("To see the break of day.".PadTRight(35, ' '), false);
 
-							gOut.Print("The inscriber's poetry leaves you with a sense of bewilderment.  What is being conveyed here?");
+							gEngine.PrintEffectDesc(39);
 						}
 
 						break;
@@ -270,67 +270,67 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 					case 19:
 
-						gOut.Print("The door is made of oak and is severely dilapidated.  The thing is rotted, almost entirely through in some places.");
+						gEngine.PrintEffectDesc(40);
 
 						break;
 
 					case 20:
 
-						gOut.Print("It doesn't take much to figure out what that stuff is.  From the looks of it, the blood stain has been here for possibly years.");
+						gEngine.PrintEffectDesc(41);
 
 						break;
 
 					case 21:
 
-						gOut.Print("Unfortunately, the inscription is in a foreign tongue and isn't of much help to you.");
+						gEngine.PrintEffectDesc(42);
 
 						break;
 
 					case 22:
 
-						gOut.Print("The skeleton has been here quite a while, and so have the leathers.  They're of no use to you - age has taken its toll.");
+						gEngine.PrintEffectDesc(43);
 
 						break;
 
 					case 23:
 
-						gOut.Print("The walls show signs of work, large holes, and small.  However, the work was never completed.");
+						gEngine.PrintEffectDesc(44);
 
 						break;
 
 					case 24:
 
-						gOut.Print("The moss is brilliant green (almost phosphorescent) and grows in patches all about the room.  The growth on the ceiling hangs down over two feet in places.");
+						gEngine.PrintEffectDesc(45);
 
 						break;
 
 					case 25:
 
-						gOut.Print("The mosses growing about in this room are soft and springy, and surprisingly well nourished.  The various colors lend to a strange visual effect where they have intergrown with each other.");
+						gEngine.PrintEffectDesc(46);
 
 						break;
 
 					case 26:
 
-						gOut.Print("The box is empty, and there isn't much more to say about it.");
+						gEngine.PrintEffectDesc(47);
 
 						break;
 
 					case 27:
 
-						gOut.Print("The algae in this room provide sufficient illumination to see.  It covers the upper parts of the walls and ceiling.  You try to pick some of it, but quickly discover that it loses its unique properties that way.");
+						gEngine.PrintEffectDesc(48);
 
 						break;
 
 					case 28:
 
-						gOut.Print("The grooves are perfectly cut at a 45-degree angle.  There are no apparent tool marks, either.");
+						gEngine.PrintEffectDesc(49);
 
 						break;
 
 					case 29:
 
-						gOut.Print("The bow is broken and of no use to you.");
+						gEngine.PrintEffectDesc(50);
 
 						break;
 
@@ -343,37 +343,37 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 					case 31:
 
-						gOut.Print("The strip of cloth is just that:  cloth.");
+						gEngine.PrintEffectDesc(51);
 
 						break;
 
 					case 32:
 
-						gOut.Print("The rocks are small and, looking upward, have been dislodged from the ceiling.");
+						gEngine.PrintEffectDesc(52);
 
 						break;
 
 					case 33:
 
-						gOut.Print("The mummy is ancient, probably several hundred years old.  You'd better not touch it - no knowing what types of diseases it might carry.");
+						gEngine.PrintEffectDesc(53);
 
 						break;
 
 					case 34:
 
-						gOut.Print("They're just normal spiderwebs, dancing slowly in the slight breeze.");
+						gEngine.PrintEffectDesc(54);
 
 						break;
 
 					case 35:
 
-						gOut.Print("The frescoes depict a variety of arcane rituals.  Some show scenes of bloody and obscene sacrifice before a pagan god, while others show the times and lifestyles of the people of the region.  If you remember your lessons correctly, these beliefs were held by a group of settlers who lived in the heart of the forested lands many years ago.  As you move eastward down the corridor, the workmanship and artistic quality become more precise.");
+						gEngine.PrintEffectDesc(55);
 
 						break;
 
 					case 36:
 					{
-						gOut.Print("The scrawlings on the walls are mostly poems or prayers in some forgotten tongue, but you can make out a few things.  You pick and examine one of them:");
+						gEngine.PrintEffectDesc(56);
 
 						var rl = gEngine.RollDice(1, 4, 0);
 
@@ -385,11 +385,11 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 							gEngine.PrintTitle("River shall overflow, and tree shall bear no fruit.".PadTRight(51, ' '), false);
 							gEngine.PrintTitle("...".PadTRight(51, ' '), false);
 
-							gOut.Print("Unfortunately, the rest has worn away and is no longer legible.");
+							gEngine.PrintEffectDesc(57);
 						}
 						else if (rl == 2)
 						{
-							gOut.Print("You start to read the message but stop short, realizing that it is arcane magic.  You dare not read any further.");
+							gEngine.PrintEffectDesc(58);
 						}
 						else if (rl == 3)
 						{
@@ -419,37 +419,37 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 					case 37:
 
-						gOut.Print("These fine etchings are expertly crafted and show few signs of age.  They deal with contrasting views on the topic of enlightenment.  Some feel there are many steps required to achieve it as a corporeal being, from simple meditation to advanced astral projection.  In contrast, others believe one's \"purpose\" is determined by the gods at birth, and thus not known until the individual in question passes on to the afterlife.  Paradoxically, only through death, could the spirit understand its ultimate purpose.");
+						gEngine.PrintEffectDesc(59);
 
 						break;
 
 					case 38:
 
-						gOut.Print("You would suppose these faces belong to the ones who successfully met with destiny, and ultimately fulfilled their \"purpose\" in life (or rather in death), according to popular belief.  Strangely, you notice that many a visage bears the look of pain and suffering.");
+						gEngine.PrintEffectDesc(60);
 
 						break;
 
 					case 39:
 
-						gOut.Print("The goblin's belongings have been rifled through, thoroughly searched. The body itself is hacked to pieces - missing an arm, which sits in one corner of the chamber, and a leg in the other corner.  There are severe slashes; blood covers articles of clothing and the cold stone floor.  Its throat has been slit.");
+						gEngine.PrintEffectDesc(61);
 
 						break;
 
 					case 40:
 
-						gOut.Print("Don't bother - it doesn't look to be your size.  Besides, removing the body would be a grisly task, one which you could do without.");
+						gEngine.PrintEffectDesc(62);
 
 						break;
 
 					case 41:
 
-						gOut.Print("The slime-like substance has an ochre color.");
+						gEngine.PrintEffectDesc(63);
 
 						break;
 
 					case 42:
 
-						gOut.Print("The boot is old and made of animal skin (probably lizard).  The mound of earth is dried up, hard to tell where it came from.");
+						gEngine.PrintEffectDesc(64);
 
 						break;
 
@@ -462,43 +462,43 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 					case 44:
 
-						gOut.Print("The spoor trails the length of the floor, suggesting frequent usage.");
+						gEngine.PrintEffectDesc(65);
 
 						break;
 
 					case 45:
 
-						gOut.Print("The fog is impossible to see through.");
+						gEngine.PrintEffectDesc(66);
 
 						break;
 
 					case 46:
 
-						gOut.Print("The pickaxe marks are numerous, especially on the north and south walls.  The workmanship is decent, though you have seen better.  Chips and splinters of rock lie across the floor.");
+						gEngine.PrintEffectDesc(67);
 
 						break;
 
 					case 47:
 
-						gOut.Print("They are magnificent, but many are rotted and motheaten to the point of worthlessness.");
+						gEngine.PrintEffectDesc(68);
 
 						break;
 
 					case 48:
 
-						gOut.Print("There are numerous mining tools of various types:  picks, shovels, hammers, chisels.  Unfortunately, most are broken and are of no use to you.");
+						gEngine.PrintEffectDesc(69);
 
 						break;
 
 					case 49:
 
-						gOut.Print("The arm is covered with rotting flesh.  Pretty nasty.");
+						gEngine.PrintEffectDesc(70);
 
 						break;
 
 					case 50:
 					{
-						gOut.Print("The pit is deep and dark.  You can't see the bottom even when you shine your light into it.  Better watch your step.");
+						gEngine.PrintEffectDesc(71);
 
 						var rl = gEngine.RollDice(1, 100, 0);
 
@@ -506,15 +506,15 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						{
 							var saved = gEngine.SaveThrow(0);
 
-							gOut.Print("Whoops!  You are too close to the edge; the part of the floor on which you stand crumbles into dust.");
+							gEngine.PrintEffectDesc(72);
 
 							if (saved)
 							{
-								gOut.Print("But luckily, you manage to leap aside, thus saving yourself.");
+								gEngine.PrintEffectDesc(73);
 							}
 							else
 							{
-								gOut.Print("You tumble into the pit and perish on the way down.");
+								gEngine.PrintEffectDesc(74);
 							}
 
 							if (!saved)
@@ -535,7 +535,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 					case 51:
 
-						gOut.Print("That skeleton has been there for quite some time.  The bones are so clean they appear to be polished.");
+						gEngine.PrintEffectDesc(75);
 
 						break;
 
@@ -547,7 +547,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 					case 53:
 
-						gOut.Print("The carvings are mostly individual works by separate artists, but together they form a cohesive narrative.");
+						gEngine.PrintEffectDesc(76);
 
 						break;
 
@@ -561,11 +561,11 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 						var rl = gEngine.RollDice(1, 100, 0);
 
-						gOut.Print("The face is that of an old man, tired and sad.  A long beard and bushy brows are evident features.");
+						gEngine.PrintEffectDesc(77);
 
 						if (saved)
 						{
-							gOut.Print("As you begin to examine it, you realize that the thing is trapped.  You'd best stay away from it.");
+							gEngine.PrintEffectDesc(78);
 						}
 						else
 						{
@@ -576,12 +576,14 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						{
 							var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 							{
+								x.Cast<Framework.Combat.ICombatSystem>().CrossbowTrap = true;
+
 								x.SetNextStateFunc = s => NextState = s;
 
 								x.DfMonster = target;
 							});
 
-							combatSystem.ExecuteCalculateDamage(1, 6);
+							combatSystem.ExecuteCalculateDamage(2, 6);
 
 							goto Cleanup;
 						}
@@ -591,7 +593,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 					case 55:
 
-						gOut.Print("That's a horrible sight.  There are at least six bodies, some human, some not, but all are badly mutilated and partially eaten.  They're stacked up like firewood in one corner of the room.");
+						gEngine.PrintEffectDesc(79);
 
 						break;
 
@@ -603,11 +605,11 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 						if (!giantCrayfishMonster.IsInLimbo() || gGameState.GiantCrayfishKilled)
 						{
-							gOut.Print("You pause to take in the idyllic ocean vista.  Blue waves gently wash over the light brown sand, the cries of sea-birds echo from the cliffs above, and the smell of salt fills the air.");
+							gEngine.PrintEffectDesc(80);
 						}
 						else
 						{
-							gOut.Print("As you look at your surroundings, a large marine animal scuttles out from behind a giant rock, and quickly moves towards you!");
+							gEngine.PrintEffectDesc(81);
 
 							giantCrayfishMonster.SetInRoom(gActorRoom);
 

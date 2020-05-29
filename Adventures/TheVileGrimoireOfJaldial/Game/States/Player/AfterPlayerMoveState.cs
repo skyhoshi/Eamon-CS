@@ -19,15 +19,27 @@ namespace TheVileGrimoireOfJaldial.Game.States
 		{
 			if (eventType == PeAfterExtinguishLightSourceCheck)
 			{
-				var swampRooms = new long[] { 42, 43, 44, 45 };
+				var swampRoomUids = new long[] { 42, 43, 44, 45 };
+
+				var room01 = Room as Framework.IRoom;
+
+				Debug.Assert(room01 != null);
+
+				var room03 = gRDB[gGameState.R3] as Framework.IRoom;
+
+				Debug.Assert(room03 != null);
+
+				// Traveling through the swamp at night or in dense fog with no light source - not advisable
+
+				var odds = (room03.IsDimLightRoom() || room01.IsDimLightRoom()) && gGameState.Ls <= 0 ? 50 : 70;
 
 				// Check for travel through the swamp
 
-				if (gGameState.Ro != 19 && (swampRooms.Contains(gGameState.R3) || swampRooms.Contains(gGameState.Ro)) && gEngine.RollDice(1, 100, 0) > 70)
+				if (gGameState.Ro != 19 && (swampRoomUids.Contains(gGameState.R3) || swampRoomUids.Contains(gGameState.Ro)) && gEngine.RollDice(1, 100, 0) > odds)
 				{
 					if (!gEngine.SaveThrow(0))
 					{
-						gOut.Print("Unfortunately, you hit an unseen pitfall, and the swamp swallows you up.");
+						gEngine.PrintEffectDesc(91);
 
 						gGameState.Die = 1;
 
@@ -42,13 +54,46 @@ namespace TheVileGrimoireOfJaldial.Game.States
 					}
 					else
 					{
-						gOut.Print("Unfortunately, you hit an unseen pitfall; but just as you thought you were doomed, you find the fortitude to pull yourself out of it.");
+						gEngine.PrintEffectDesc(94);
 					}
 				}
 
+				var room03IsDimLightRoom = room03.IsDimLightRoom();
+
 				// Check for foggy room
 
-				gGameState.SetFoggyRoom(Room.Cast<Framework.IRoom>());
+				gGameState.SetFoggyRoomWeatherIntensity(room01);
+
+				var room01IsDimLightRoom = room01.IsDimLightRoom();
+
+				// Clear Seen flags when transitioning between room types and dim light levels
+
+				var roomTransition = (room03.IsGroundsRoom() && room01.IsCryptRoom()) || (room03.IsCryptRoom() && room01.IsGroundsRoom());
+
+				var dimLightTransition = (room03IsDimLightRoom && !room01IsDimLightRoom) || (!room03IsDimLightRoom && room01IsDimLightRoom);
+
+				if (roomTransition && dimLightTransition)       // TODO: verify teleportation works
+				{
+					var monsterList = gEngine.GetMonsterList(m => m.IsInRoom(room01));
+
+					foreach (var m in monsterList)
+					{
+						var artifactList = m.GetContainedList(recurse: true);
+
+						foreach (var a in artifactList)
+						{
+							if (!a.IsCharOwned)
+							{
+								a.Seen = false;
+							}
+						}
+
+						if (!m.IsCharacterMonster())
+						{
+							m.Seen = false; 
+						}
+					}
+				}
 			}
 
 			base.ProcessEvents(eventType);

@@ -4,7 +4,6 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System.Collections.Generic;
-using System.Linq;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
@@ -19,13 +18,13 @@ namespace EamonRT.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			var monsters = gEngine.GetSmilingMonsterList(gActorRoom, gActorMonster);
+			var monsters = gEngine.GetEmotingMonsterList(gActorRoom, gActorMonster);
 
-			if (monsters.Count() > 0)
+			if (monsters.Count > 0)
 			{
 				foreach (var monster in monsters)
 				{
-					gEngine.MonsterSmiles(monster);
+					gEngine.MonsterEmotes(monster);
 				}
 
 				gOut.WriteLine();

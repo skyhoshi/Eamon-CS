@@ -16,6 +16,8 @@ namespace TheVileGrimoireOfJaldial.Game.States
 		{
 			if (eventType == PeAfterRoundEnd)
 			{
+				Globals.CarrionCrawlerFlails = false;
+
 				Globals.InitiativeMonsterUid = 0;
 
 				if (Globals.EncounterSurprises)

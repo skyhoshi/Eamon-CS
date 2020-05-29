@@ -16,7 +16,7 @@ namespace TheBeginnersCave.Game.Commands
 		{
 			if (eventType == PpeBeforeMonsterTakesGold && (gIobjMonster.Uid == 1 || gIobjMonster.Uid == 5 || gIobjMonster.Uid == 7))
 			{
-				gEngine.MonsterSmiles(gIobjMonster);
+				gEngine.MonsterEmotes(gIobjMonster);
 
 				gOut.WriteLine();
 

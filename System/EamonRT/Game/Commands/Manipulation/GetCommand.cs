@@ -352,11 +352,6 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
-		{
-			return false;
-		}
-
 		public GetCommand()
 		{
 			SortOrder = 160;

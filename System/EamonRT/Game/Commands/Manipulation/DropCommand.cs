@@ -177,13 +177,6 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
-		{
-			Debug.Assert(artifact != null);
-
-			return artifact.IsWornByCharacter();
-		}
-
 		public DropCommand()
 		{
 			SortOrder = 130;

@@ -29,6 +29,8 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 
 			a.Name = ObjData == DobjData ? "DECORATION41" : "DECORATION42";
 
+			// Decorations remain in limbo unless the normal Artifact resolution process fails
+
 			a.Location = 0;
 
 			a.Field1 = 0;
@@ -40,18 +42,6 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 			if ((gActorRoom.Uid == 1 || gActorRoom.Uid == 4) && ObjData.Name.Contains("gate", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 1;
-			}
-			else if (gActorRoom.IsFenceRoom() && ObjData.Name.Contains("fence", StringComparison.OrdinalIgnoreCase))
-			{
-				a.Field1 = 2;
-			}
-			else if (gActorRoom.IsGroundsRoom() && ObjData.Name.ContainsAny(new string[] { "foliage", "trees", "forest", "weeds", "plants", "grass", "lichen", "moss" }, StringComparison.OrdinalIgnoreCase))
-			{
-				a.Field1 = 3;
-			}
-			else if (gActorRoom.IsGroundsRoom() && gActorRoom.Uid != 16 && gActorRoom.Uid != 23 && gActorRoom.Uid != 39 && ObjData.Name.ContainsAny(new string[] { "tombstone", "gravestone" }, StringComparison.OrdinalIgnoreCase))
-			{
-				a.Field1 = 4;
 			}
 			else if ((gActorRoom.Uid == 11 || gActorRoom.Uid == 16 || gActorRoom.Uid == 22) && ObjData.Name.ContainsAny(new string[] { "brook", "stream" }, StringComparison.OrdinalIgnoreCase))
 			{
@@ -89,17 +79,9 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 			{
 				a.Field1 = 13;
 			}
-			else if (gActorRoom.IsCryptRoom() && ObjData.Name.ContainsAny(new string[] { "floor", "dust" }, StringComparison.OrdinalIgnoreCase))
-			{
-				a.Field1 = 14;
-			}
 			else if (gActorRoom.Uid == 56 && ObjData.Name.ContainsAny(new string[] { "heap", "pile", "bone" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 15;
-			}
-			else if (gActorRoom.IsBodyChamberRoom() && ObjData.Name.ContainsAny(new string[] { "body", "bodies", "internment", "opening", "chamber" }, StringComparison.OrdinalIgnoreCase))
-			{
-				a.Field1 = 16;
 			}
 			else if (gActorRoom.Uid == 62 && ObjData.Name.ContainsAny(new string[] { "fresco", "mural", "painting" }, StringComparison.OrdinalIgnoreCase))
 			{
@@ -261,10 +243,6 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 			{
 				a.Field1 = 56;
 			}
-			else if (gActorRoom.IsGroundsRoom() && gActorRoom.Uid != 16 && gActorRoom.Uid != 23 && gActorRoom.Uid != 39 && ObjData.Name.Contains("epitaph", StringComparison.OrdinalIgnoreCase))
-			{
-				a.Field1 = 57;
-			}
 			else if (gActorRoom.Uid == 13 && ObjData.Name.Contains("pictograph", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 58;
@@ -277,14 +255,34 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 			{
 				a.Field1 = 60;
 			}
+			else if (gActorRoom.IsFenceRoom() && ObjData.Name.Contains("fence", StringComparison.OrdinalIgnoreCase))
+			{
+				a.Field1 = 2;
+			}
+			else if (gActorRoom.IsGroundsRoom() && ObjData.Name.ContainsAny(new string[] { "foliage", "trees", "forest", "weeds", "plants", "grass", "lichen", "moss" }, StringComparison.OrdinalIgnoreCase))
+			{
+				a.Field1 = 3;
+			}
+			else if (gActorRoom.IsGroundsRoom() && gActorRoom.Uid != 16 && gActorRoom.Uid != 23 && gActorRoom.Uid != 39 && ObjData.Name.ContainsAny(new string[] { "tombstone", "gravestone" }, StringComparison.OrdinalIgnoreCase))
+			{
+				a.Field1 = 4;
+			}
+			else if (gActorRoom.IsCryptRoom() && ObjData.Name.ContainsAny(new string[] { "floor", "dust" }, StringComparison.OrdinalIgnoreCase))
+			{
+				a.Field1 = 14;
+			}
+			else if (gActorRoom.IsBodyChamberRoom() && ObjData.Name.ContainsAny(new string[] { "body", "bodies", "internment", "opening", "chamber" }, StringComparison.OrdinalIgnoreCase))
+			{
+				a.Field1 = 16;
+			}
+			else if (gActorRoom.IsGroundsRoom() && gActorRoom.Uid != 16 && gActorRoom.Uid != 23 && gActorRoom.Uid != 39 && ObjData.Name.Contains("epitaph", StringComparison.OrdinalIgnoreCase))
+			{
+				a.Field1 = 57;
+			}
 
 			// Read decorations
 
-			if (gActorRoom.IsGroundsRoom() && gActorRoom.Uid != 16 && gActorRoom.Uid != 23 && gActorRoom.Uid != 39 && ObjData.Name.ContainsAny(new string[] { "tombstone", "gravestone", "epitaph" }, StringComparison.OrdinalIgnoreCase))
-			{
-				a.Field2 = 1;
-			}
-			else if (gActorRoom.Uid == 13 && ObjData.Name.Contains("pictograph", StringComparison.OrdinalIgnoreCase))
+			if (gActorRoom.Uid == 13 && ObjData.Name.Contains("pictograph", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field2 = 2;
 			}
@@ -312,12 +310,18 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 			{
 				a.Field2 = 8;
 			}
+			else if (gActorRoom.IsGroundsRoom() && gActorRoom.Uid != 16 && gActorRoom.Uid != 23 && gActorRoom.Uid != 39 && ObjData.Name.ContainsAny(new string[] { "tombstone", "gravestone", "epitaph" }, StringComparison.OrdinalIgnoreCase))
+			{
+				a.Field2 = 1;
+			}
 
 			if (a.Field1 > 0 || a.Field2 > 0)
 			{
 				a.Name = Globals.CloneInstance(ObjData.Name);
 
-				a.SetInRoom(gActorRoom);
+				// Make note of the Decoration so it can be used later if the normal Artifact resolution process fails
+
+				ObjData.Cast<Framework.Parsing.IParserData>().DecorationArtifact = a;
 			}
 		}
 
@@ -327,13 +331,40 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 
 			if (afterFinishParsing)
 			{
+				// Restrict various commands while paralyzed
+
+				if (!(command is ISmileCommand || (command.Type == CommandType.Miscellaneous && !(command is ISpeedCommand || command is IPowerCommand))) && gGameState.ParalyzedTargets.ContainsKey(gGameState.Cm))
+				{
+					gOut.Print("You can't do that while paralyzed!");
+
+					NextState = Globals.CreateInstance<IStartState>();
+				}
+
+				// Restrict GiveCommand and RequestCommand when targeting paralyzed Monster
+
+				else if ((command is IGiveCommand || command is IRequestCommand) && gIobjMonster != null && gGameState.ParalyzedTargets.ContainsKey(gIobjMonster.Uid))
+				{
+					gOut.Print("You can't do that while {0} {1} paralyzed!", gIobjMonster.GetTheName(), gIobjMonster.EvalPlural("is", "are"));
+
+					NextState = Globals.CreateInstance<IStartState>();
+				}
+
 				// Restrict SearchCommand while enemies are present
 
-				if (command is ISearchCommand && gGameState.GetNBTL(Friendliness.Enemy) > 0)
+				else if (command is ISearchCommand && gGameState.GetNBTL(Friendliness.Enemy) > 0)
 				{
 					command.PrintEnemiesNearby();
 
 					NextState = Globals.CreateInstance<IStartState>();
+				}
+
+				// Restrict Commands in the graveyard at night or in heavy fog
+
+				else if ((command is IReadCommand || command is ISearchCommand) && gActorRoom.IsDimLightRoom() && gGameState.Ls <= 0)
+				{
+					gOut.Print("You'll need a bit more light for that!");
+
+					NextState = Globals.CreateInstance<IMonsterStartState>();
 				}
 				else
 				{

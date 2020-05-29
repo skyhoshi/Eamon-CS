@@ -1,9 +1,8 @@
 ﻿
-// InventoryCommand.cs
+// FleeCommand.cs
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
-using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
@@ -11,11 +10,13 @@ using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
 namespace TheVileGrimoireOfJaldial.Game.Commands
 {
 	[ClassMappings]
-	public class InventoryCommand : EamonRT.Game.Commands.InventoryCommand, IInventoryCommand
+	public class FleeCommand : EamonRT.Game.Commands.FleeCommand, IFleeCommand
 	{
-		public InventoryCommand()
+		public FleeCommand()
 		{
-			OmitHealthStatus = true;
+			// Synonyms can be applied to verbs as well
+
+			Synonyms = new string[] { "retreat", "escape" };
 		}
 	}
 }

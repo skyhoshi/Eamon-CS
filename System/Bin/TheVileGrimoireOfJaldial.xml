@@ -4,6 +4,9 @@
         <name>TheVileGrimoireOfJaldial</name>
     </assembly>
     <members>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.Commands.IWaitCommand.Minutes">
+            <summary></summary>
+        </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.GriffinAngered">
             <summary></summary>
         </member>
@@ -19,10 +22,10 @@
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.AmoebaAppeared">
             <summary></summary>
         </member>
-        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.ExitDirNames">
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.ShowCombatDamage">
             <summary></summary>
         </member>
-        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.FoggyRoom">
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.ExitDirNames">
             <summary></summary>
         </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.SecretDoors">
@@ -32,6 +35,9 @@
             <summary></summary>
         </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.PlayerResurrections">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.PlayerHardinessPointsDrained">
             <summary></summary>
         </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.BloodnettleVictimUid">
@@ -92,6 +98,9 @@
             <summary></summary>
         </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.Plugin.IPluginGlobals.EncounterSurprises">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.Plugin.IPluginGlobals.CarrionCrawlerFlails">
             <summary></summary>
         </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.Plugin.IPluginGlobals.EventRoll">

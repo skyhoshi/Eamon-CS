@@ -129,33 +129,6 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
-		{
-			Debug.Assert(artifact != null);
-
-			var ac = artifact.GetArtifactCategory(ArtTypes, false);
-
-			if (ac != null)
-			{
-				if (ac.IsWeapon01())
-				{
-					return !artifact.IsReadyableByCharacter() || artifact.IsCarriedByCharacter();
-				}
-				else if (ac.Type == ArtifactType.Wearable)
-				{
-					return artifact.IsCarriedByCharacter();
-				}
-				else
-				{
-					return true;
-				}
-			}
-			else
-			{
-				return true;
-			}
-		}
-
 		/*
 		public override bool IsPrepEnabled(IPrep prep)
 		{

@@ -9,6 +9,8 @@ namespace TheVileGrimoireOfJaldial.Game.Plugin
 	{
 		public virtual bool EncounterSurprises { get; set; }
 
+		public virtual bool CarrionCrawlerFlails { get; set; }
+
 		public virtual long EventRoll { get; set; }
 
 		public virtual long InitiativeMonsterUid { get; set; }

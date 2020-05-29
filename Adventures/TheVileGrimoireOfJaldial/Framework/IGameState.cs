@@ -27,10 +27,10 @@ namespace TheVileGrimoireOfJaldial.Framework
 		bool AmoebaAppeared { get; set; }
 
 		/// <summary></summary>
-		bool ExitDirNames { get; set; }
+		bool ShowCombatDamage { get; set; }
 
 		/// <summary></summary>
-		bool FoggyRoom { get; set; }
+		bool ExitDirNames { get; set; }
 
 		/// <summary></summary>
 		bool[] SecretDoors { get; set; }
@@ -40,6 +40,9 @@ namespace TheVileGrimoireOfJaldial.Framework
 
 		/// <summary></summary>
 		long PlayerResurrections { get; set; }
+
+		/// <summary></summary>
+		long PlayerHardinessPointsDrained { get; set; }
 
 		/// <summary></summary>
 		long BloodnettleVictimUid { get; set; }
@@ -83,6 +86,8 @@ namespace TheVileGrimoireOfJaldial.Framework
 		/// <summary></summary>
 		WeatherType WeatherType { get; set; }
 
+		IDictionary<long, long> ParalyzedTargets { get; set; }
+
 		IDictionary<long, IList<long>> ClumsyTargets { get; set; }
 
 		/// <summary></summary>
@@ -104,6 +109,6 @@ namespace TheVileGrimoireOfJaldial.Framework
 
 		void SetSecretDoors(long index, bool value);
 
-		void SetFoggyRoom(IRoom room);
+		void SetFoggyRoomWeatherIntensity(IRoom room);
 	}
 }

@@ -10,6 +10,7 @@ namespace TheVileGrimoireOfJaldial.Framework.Commands
 {
 	public interface IWaitCommand : ICommand
 	{
-
+		/// <summary></summary>
+		long Minutes { get; set; }
 	}
 }

@@ -21,6 +21,8 @@ namespace TheVileGrimoireOfJaldial.Framework
 
 		bool IsFoggyRoom();
 
+		bool IsDimLightRoom();
+
 		long GetWeatherIntensity();
 	}
 }

@@ -262,6 +262,14 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		/// <returns></returns>
+		bool ShouldShowHealthStatusWhenExamined();
+
+		/// <summary></summary>
+		/// <returns></returns>
+		bool ShouldShowHealthStatusWhenInventoried();
+
+		/// <summary></summary>
+		/// <returns></returns>
 		bool ShouldProcessInGameLoop();
 
 		/// <summary></summary>

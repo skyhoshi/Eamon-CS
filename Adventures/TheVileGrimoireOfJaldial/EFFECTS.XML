@@ -6,7 +6,7 @@
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
@@ -17,7 +17,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
@@ -28,7 +28,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="3" />
             <Simple name="IsUidRecycled" value="True" />
@@ -39,7 +39,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
@@ -50,7 +50,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
@@ -61,7 +61,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
@@ -72,7 +72,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="7" />
             <Simple name="IsUidRecycled" value="True" />
@@ -83,7 +83,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
@@ -94,7 +94,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
@@ -105,7 +105,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="10" />
             <Simple name="IsUidRecycled" value="True" />
@@ -116,7 +116,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="11" />
             <Simple name="IsUidRecycled" value="True" />
@@ -127,7 +127,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="12" />
             <Simple name="IsUidRecycled" value="True" />
@@ -138,18 +138,18 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="13" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="TODO Magi-torch - Instruction tag*014" />
+            <Simple name="Desc" value="Spellunker's Magi-torch - Instruction tag*014" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="14" />
             <Simple name="IsUidRecycled" value="True" />
@@ -160,18 +160,18 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="15" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="                            TODO Adventuring Supplies                                                      TODO, TODO" />
+            <Simple name="Desc" value="                            Spellunker's Adventuring Supplies                                              Crystalbay, Lesser Stroyol" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="16" />
             <Simple name="IsUidRecycled" value="True" />
@@ -182,18 +182,920 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="17" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="The map shows the surrounding region, including the forested areas up to TODO, and the east/west trail, which was quite a bit bigger in those days.  You'd best keep a hold of this map - it might be worth something to a cartographer or map collector." />
+            <Simple name="Desc" value="The map shows the surrounding region, including the forested areas up to Banner Elk, and the east/west trail, which was quite a bit busier in those days.  You'd best keep a hold of this map - it might be worth something to a cartographer or map collector." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Those gates are made of rusted iron and are definitely out of repair." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The fence is constructed of sturdy iron rods, each nine feet tall, and sitting within a half-foot of the next.  Climbing would be foolhardy - the top of each has been filed to a sharp spear-like point." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="All plant life is lush and green, due to the frequent rainstorms that pass through the area.  The climate is perfect for such growth." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You have little difficulty finding a typical tombstone to examine.  The normal appears to be made of granite, and come in all shapes and sizes, ranging from tiny (one or two feet) to gigantic (over 12 feet).  Many have etchings that are still quite legible." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The stream is small, and the water is clear.  Pebbles can be seen at the bottom.  The one-foot wide stream causes the ground around it to become quite damp, if not outright soggy." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You approach it, but start to gag and quickly retreat.  The smell makes your stomach churn." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The rat has been devoured from the waist down and has made a bloody mess of the rock.  Maybe it was butchered by an owl or vulture.  Either way, it was probably killed a while ago." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The rocks have probably been here for quite a while:  tall weeds grow up through and around them.  It stands about five feet tall." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="These elms are all rather old, over 100 years, you would guess.  Their long branches stretch out over the damp ground, an imposing image.  They are entirely bare, stripped of leaves." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="27" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="It has been lying there for quite some time:  the bones are picked completely clean.  Not quite sure what type of animal it was, though." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="28" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="These things are ancient, but they look just like pines.  Very green." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="29" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The coffin looks as though it has been expelled from the ground.  The skeleton inside still has rotting clothing on." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="30" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The dust on the floor makes you choke; there's so much of it.  You wonder how long it's been since human feet walked these corridors." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="31" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="This pile of bones has been here for quite some time - they've been picked thoroughly clean." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="32" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="These openings were apparently once used for the storage of dead bodies.  Many of them have been sealed over with red bricks and mortar, and a few of these have crumbled away, revealing the remains of their occupants.  The remainder are empty." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="33" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The frescoes which cover the walls convey a variety of ideas.  The majority deal with the passage from life into the &quot;deep sleep&quot; of death, then finally onto the afterlife in the netherworlds.  Many of them are of stunning artistic quality, yet some hint at dark secrets and seem oddly out of place with the others." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="34" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You suddenly feel your heart stop, and you slump to the floor." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="35" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="For some reason, you aren't affected by it." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="36" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You suddenly slump to the floor in a deep slumber.  Sometime later, you awaken and clamber to your feet." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="37" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The scenery melts into a mixture of colors and then separates.  You are in a new location!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="38" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Although the majority of the runes are untranslatable, you somehow realize that they are written in several different languages.  A few of them make sense to you, however:" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="39" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The inscriber's poetry leaves you with a sense of bewilderment.  What is being conveyed here?" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="40" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The door is made of oak and is severely dilapidated.  The thing is rotted, almost entirely through in some places." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="41" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="It doesn't take much to figure out what that stuff is.  From the looks of it, the blood stain has been here for possibly years." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="42" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Unfortunately, the inscription is in a foreign tongue and isn't of much help to you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="43" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The skeleton has been here quite a while, and so have the leathers.  They're of no use to you - age has taken its toll." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="44" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The walls show signs of work, large holes, and small.  However, the work was never completed." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="45" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The moss is brilliant green (almost phosphorescent) and grows in patches all about the room.  The growth on the ceiling hangs down over two feet in places." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="46" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The mosses growing about in this room are soft and springy, and surprisingly well nourished.  The various colors lend to a strange visual effect where they have intergrown with each other." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="47" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The box is empty, and there isn't much more to say about it." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="48" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The algae in this room provide sufficient illumination to see.  It covers the upper parts of the walls and ceiling.  You try to pick some of it, but quickly discover that it loses its unique properties that way." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="49" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The grooves are perfectly cut at a 45-degree angle.  There are no apparent tool marks, either." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="50" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The bow is broken and of no use to you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="51" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The strip of cloth is just that:  cloth." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="52" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The rocks are small and, looking upward, have been dislodged from the ceiling." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="53" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The mummy is ancient, probably several hundred years old.  You'd better not touch it - no knowing what types of diseases it might carry." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="54" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="They're just normal spiderwebs, dancing slowly in the slight breeze." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="55" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The frescoes depict a variety of arcane rituals.  Some show scenes of bloody and obscene sacrifice before a pagan god, while others show the times and lifestyles of the people of the region.  If you remember your lessons correctly, these beliefs were held by a group of settlers who lived in the heart of the forested lands many years ago.  As you move eastward down the corridor, the workmanship and artistic quality become more precise." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="56" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The scrawlings on the walls are mostly poems or prayers in some forgotten tongue, but you can make out a few things.  You pick and examine one of them:" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="57" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Unfortunately, the rest has worn away and is no longer legible." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="58" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You start to read the message but stop short, realizing that it is arcane magic.  You dare not read any further." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="59" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="These fine etchings are expertly crafted and show few signs of age.  They deal with contrasting views on the topic of enlightenment.  Some feel there are many steps required to achieve it as a corporeal being, from simple meditation to advanced astral projection.  In contrast, others believe one's &quot;purpose&quot; is determined by the gods at birth, and thus not known until the individual in question passes on to the afterlife.  Paradoxically, only through death, could the spirit understand its ultimate purpose." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="60" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You would suppose these faces belong to the ones who successfully met with destiny, and ultimately fulfilled their &quot;purpose&quot; in life (or rather in death), according to popular belief.  Strangely, you notice that many a visage bears the look of pain and suffering." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="61" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The goblin's belongings have been rifled through, thoroughly searched. The body itself is hacked to pieces - missing an arm, which sits in one corner of the chamber, and a leg in the other corner.  There are severe slashes; blood covers articles of clothing and the cold stone floor.  Its throat has been slit." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="62" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Don't bother - it doesn't look to be your size.  Besides, removing the body would be a grisly task, one which you could do without." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="63" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The slime-like substance has an ochre color." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="64" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The boot is old and made of animal skin (probably lizard).  The mound of earth is dried up, hard to tell where it came from." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="65" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The spoor trails the length of the floor, suggesting frequent usage." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="66" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The fog is impossible to see through." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="67" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The pickaxe marks are numerous, especially on the north and south walls.  The workmanship is decent, though you have seen better.  Chips and splinters of rock lie across the floor." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="68" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="They are magnificent, but many are rotted and motheaten to the point of worthlessness." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="69" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="There are numerous mining tools of various types:  picks, shovels, hammers, chisels.  Unfortunately, most are broken and are of no use to you." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="70" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The arm is covered with rotting flesh.  Pretty nasty." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="71" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The pit is deep and dark.  You can't see the bottom even when you shine your light into it.  Better watch your step." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="72" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Whoops!  You are too close to the edge; the part of the floor on which you stand crumbles into dust." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="73" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="But luckily, you manage to leap aside, thus saving yourself." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="74" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You tumble into the pit and perish on the way down." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="75" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="That skeleton has been there for quite some time.  The bones are so clean they appear to be polished." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="76" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The carvings are mostly individual works by separate artists, but together they form a cohesive narrative." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="77" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The face is that of an old man, tired and sad.  A long beard and bushy brows are evident features." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="78" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="As you begin to examine it, you realize that the thing is trapped.  You'd best stay away from it." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="79" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="That's a horrible sight.  There are at least six bodies, some human, some not, but all are badly mutilated and partially eaten.  They're stacked up like firewood in one corner of the room." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="80" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You pause to take in the idyllic ocean vista.  Blue waves gently wash over the light brown sand, the cries of sea-birds echo from the cliffs above, and the smell of salt fills the air." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="81" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="As you look at your surroundings, a large marine animal scuttles out from behind a giant rock, and quickly moves towards you!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="82" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The parent griffin is enraged by your attacks on the griffin cubs!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="83" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You stare at the epitaph intently, trying to read its weather-worn message:" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="84" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You search out a tombstone, and read the epitaph:" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="85" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The pictographs read:" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="86" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Not much left that's legible now - besides which, I don't think you know the tongue in which it is written." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="87" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The etchings seem to deal with a hero of popular folklore.  According to the inscription, a long time ago, a great scourge brought strife to the land.  A peasant was called upon to do the work at which many knights had failed.  A giant had taken up residence nearby, and the man succeeded in slaying the creature.  He was then knighted at a grand ceremony held by the King in his name." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="88" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The message reads:" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="89" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="From the foundations of the earth to the upper reaches of the sky - my ascension is at hand." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="90" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The magic radiated from this manuscript keeps it closed to prying eyes." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="91" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Unfortunately, you hit an unseen pitfall, and the swamp swallows you up." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="92" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You dig for a while and uncover something!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="93" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You remove all the water from the fountain." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="94" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Unfortunately, you hit an unseen pitfall; but just as you thought you were doomed, you find the fortitude to pull yourself out of it." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="95" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You quote the words and hear a loud explosion, as a large infernal being appears in a whirlwind of fire!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="96" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You quote the words, and the parchment suddenly crumbles to dust!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="97" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You feel yourself spinning into infinity, and then re-embodied in your former self.  As you slowly open your eyes, with a sense of bewilderment, you find yourself once again in the open grave." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="98" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Without the sun, who knows?" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="99" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="There's no way of knowing, not underground!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="100" />
             <Simple name="IsUidRecycled" value="True" />
@@ -204,7 +1106,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="101" />
             <Simple name="IsUidRecycled" value="True" />
@@ -215,7 +1117,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="102" />
             <Simple name="IsUidRecycled" value="True" />
@@ -226,7 +1128,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="103" />
             <Simple name="IsUidRecycled" value="True" />
@@ -237,9 +1139,317 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="200" />
+            <Simple name="Uid" value="104" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You can't trust your sense of time in this strange place." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="105" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="However, as you look upward, you see the hideous figure of a gargoyle appear at the grave's edge.  Moments later, a ghoul appears, clutching a shovel.  They glance at each other, then peer down at you with evil contempt." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="106" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You hear the gargoyle hiss, and with that, the ghoul begins to labor.  A shower of dirt hits your face, but in your current dazed, defenseless state all you can do is splutter, gasping for air." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="107" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="It all ends for you here, buried alive in your custom-made grave." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="108" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="To go in that direction would mean certain death." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="109" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You feel yourself spinning in infinity, and then re-embodied in your former self.  You slowly open your eyes, with a sense of bewilderment, and find yourself lying in an open grave some six feet in the ground." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="110" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="A mysterious figure suddenly appears, seemingly out of thin air." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="111" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="A dull grey light creeps into the eastern parts of the sky." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="112" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The grey light in the east is brighter now, as a new day dawns." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="113" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The sun peeks over the treetops, casting grey shadows through the graveyard." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="114" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The pale morning half-light casts a pall over the graveyard." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="115" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The sun climbs higher in the sky, warming the cold air." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="116" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The ambient mid-day light fully illuminates the landscape." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="117" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The hot afternoon sun is directly above you now." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="118" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="As the evening half-light fades, a gloom settles over the cemetery." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="119" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The sun is setting, casting long shadows across the ground." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="120" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Your vision dims with the last remnants of twilight." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="121" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The sun is gone now, and your path is lit by moonlight." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="122" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="An oppressive silence hangs over the land at this late-night hour." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="123" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Stars twinkle brightly from the dark heavens above." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="124" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The rain disappears as quickly as it came." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="125" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="What little of the fog is left dissipates immediately." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="126" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The rain lets up a little bit." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="127" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The fog doesn't look as thick now." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="128" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The rain is coming down a bit harder now." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="129" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The fog is harder to see through now." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="130" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Suddenly, the clouds open up, and it begins to rain." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="131" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="As you watch, patches of fog begin to roll across the landscape." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="132" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
             <Simple name="Desc" value="There are four more creatures, much the same as the first:  one examines the dead goblin intently while the rest flit about the roof of the cave." />
@@ -248,9 +1458,9 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="201" />
+            <Simple name="Uid" value="133" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
             <Simple name="Desc" value="a lizard's head and torso and the last with a frog's head." />
@@ -259,9 +1469,9 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="202" />
+            <Simple name="Uid" value="134" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
             <Simple name="Desc" value="the same as the first only a bit smaller, appears seemingly from nowhere.  It sits down at the feet of the lich and begins to purr." />
@@ -270,7 +1480,337 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="135" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You and your party, hearing rumors of disturbances in a distant rural area, depart the Main Hall and set out along a well-traveled route to investigate.  Days later, you arrive at the trading outpost of Geldhaven and seek shelter in an isolated woodlands inn reachable by a bridge, just beyond Tiaga Gorge.  You note the sprawling structure's warm atmosphere, excellent accommodations, and thriving business; being exhausted, you rent rooms for the night.*136" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="136" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The next day, you eat a hearty breakfast and then re-provision.  On the way out, you overhear the innkeeper, who is in deep conversation with a local patron.@@PB**137" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="137" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Innkeeper:  &quot;I assume Kreqor and the Council would prefer to handle this matter internally, but they have requested outside assistance and posted a reward.  Last I heard there weren't any takers.&quot;*138" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="138" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Patron:  &quot;You know I think that conjurer was always six birds short of a flock.  Nobody's going to be foolish enough to wander into those grounds at night!&quot;*139" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="139" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="And so the conversation goes on.  Eventually, when the innkeeper is free, you wave the large man down, introduce yourself, and inquire about the situation.@@PB**140" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="140" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="&quot;Well, I'm not one to put words in the mouth of a wizard.  I think it's best you hear the story directly from Kreqor,&quot; he says, eyeing your party with interest.  &quot;You'll want to go north on the merchant's trail for a while, but then you'll find a cross-path that leads eastward, deep into the woods.  Follow that, and you'll eventually come to the estate of Kreqor Agoras, a member of the Wizard's Council.  If you ask him, I'm sure he'll be glad to tell you all about it.&quot;*141" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="141" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You thank him and head out with his directions fresh in your mind.  The journey north takes days, and you discover the cross-path at noon, turning eastward.  By evening, as the sun is setting, you come upon an isolated cottage enclosed by a picket fence, sitting in a clearing.  The warm glow of light in the windows is a cheerful contrast to the cold, dark forest all around; you eagerly approach the doorstep and knock loudly three times.@@PB**142" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="142" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="With the sound of a sliding deadbolt, a tiny viewport opens in the door, and you are greeted by a gruff voice:  &quot;Hello there?  Who are you, and what is your business here?  Speak up; the light is failing!&quot;*143" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="143" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Knowing this man is powerful and significant, you choose your words carefully.  &quot;Greetings, sir, and well met!  I am sorry for the late hour intrusion.  We have traveled for days to speak to you about the problems plaguing this district.  Rumors say you are seeking assistance, is this true?&quot;*144" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="144" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="An eye appears in the little window, looking at you and then each party member intently.  Moments later, the viewport slams shut.  You hear shuffling behind the door and the sliding of more deadbolts.  Finally, the door swings open and before you stands an old man with a long beard, in flowing robes leaning on a wooden staff.  You quickly surmise his frail appearance is a ruse, and likely why he would open the door for you so quickly.@@PB**145" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="145" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="&quot;My apologies,&quot; he says.  &quot;In these parts, one must be careful.  It wouldn't do to be attacked by brigands.  You have heard correctly, the matter has come to a head, and we require help if you are offering it.  But come, the night is falling, and you must be exhausted and hungry from your travels.  Let's not discuss this in a doorway; there are better venues.&quot;*146" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="146" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Kreqor invites your party inside, and you exchange introductions and pleasantries.  After ensuring that you have arrived in good health, he prepares supper and gets you settled around a large fireplace.  With a few more logs added, the dying embers spring back to life, casting dancing shadows across the darkened room.  **147" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="147" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Finally, when his tasks are complete, he sits back in a worn, comfortable leather chair, lit pipe in hand, to gather his thoughts.  He tells a tale as you finish dinner.@@PB**148" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="148" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="&quot;Many years ago, if you traveled northeast from here about a day, you would chance upon the thriving agricultural village of Bahyrst.  Gone now, swallowed by the surrounding forests, this was the birthplace of the infamous and powerful sorcerer Jaldi'al Dhassei.&quot;*149" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="149" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="&quot;Jaldi'al thrived in intellectual pursuits as a young child, and as an adolescent, he was enrolled in the Academy of Spellcraft, affiliated with and run by the Wizard's Council.  His natural talent with the art of spellcasting quickly became apparent; the other pupils regarded him with envy while his instructors, sensing growing darkness within him, became increasingly wary.&quot;*150" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="150" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Kreqor pauses, puffing at his pipe as he stares absently into the fire.  &quot;In later semesters, Jaldi'al's voracious appetite for arcane knowledge consumed him, and he began dabbling in forbidden magicks.  He was caught in a laboratory one day trying to induce a temporal anomaly and was promptly expelled, his journals seized by the staff.  They recoiled in horror as they discovered his true passions:  manipulations of space/time and entanglements with the Void.&quot;@@PB**151" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="151" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="&quot;After his eviction from the campus, Jaldi'al returned to Bahyrst and continued his research unhindered in a small studio at his wealthy family's compound.  All this, despite warnings from the Wizard's Council about the danger he posed.  Over time, he entertained many visitors, who left in awe given what they had witnessed inside his residence.  Rumors circulated in the village that it was far bigger on the inside and contained bizarre doorways that defied logic and nature.  A group of acolytes formed around him, drawn by his power and willing to assist him with his mysterious goals.&quot;*152" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="152" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Now Kreqor leans forward in his chair, and his voice is but a whisper.  &quot;Then, something terrible happened.  Nobody knows exactly what, but one morning most of the people of Bahyrst disappeared.  They just vanished.  Evil spellcraft was immediately suspected, and the Wizard's Council investigated.  Based on residual evidence, these lost souls were devoured by the Void, a vast nothingness where they exist, neither alive nor dead but conscious, in an eternal state of limbo.&quot;@@PB**153" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="153" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="&quot;Whether swept in by some accidental utterance or minute failure of protocol, or maybe even malice, it mattered not.  By day's end, the mourning and despair of the survivors turned to rage at the thought of this damnation.  A torch-wielding mob stormed the Dhassei compound, finding Jaldi'al extremely weak from the conjuring.  He was set upon and, offering little resistance, savagely killed.  Then the studio was ransacked in search of the grimoire that contained his dreadful knowledge.  It was never found.  Later that night, after the crowd had dispersed, his acolytes quietly reclaimed his body and buried it (along with the grimoire, we presume) in a nearby civilian cemetery that dates back centuries.  The village of Bahyrst, fatally wounded by the catastrophe, was abandoned and eventually faded from common memory.&quot;*154" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="154" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Kreqor pauses for a moment and then stands to retrieve some wood, which he puts on the dying embers of the fire, coaxing it back to life.  Noticing that you have finished dinner, he clears the dishes from the table.  When he returns, he begins to pace the floor while resuming his narrative.@@PB**155" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="155" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="&quot;The ruins of Bahyrst and the adjacent graveyard are only rarely visited these days by the occasional scholar, or explorer.  But there have been strange things happening as of late.  A noted historian sent in by the Council disappeared recently, and there have been reports by hikers of spatial rifts appearing and then vanishing in the surrounding woods.  Even the bravest warriors avoid the cemetery proper for fear of what lurks there.  We feel the hand of Jaldi'al himself may be reaching out from the grave; there is a chance he made a pact with a dark god to achieve lichdom.  If this is the case, his growing power is manifesting itself, and his plan may include revenge on the descendants of those who killed him.  All this said, the Vile Grimoire of Jaldi'al is the key to his power; deprived of it, he would surely wither.  The Wizard's Council is offering a substantial reward for the retrieval of this evil book.&quot;*156" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="156" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="&quot;I will not lie,&quot; Kreqor says sternly.  &quot;Only the most powerful should join this quest, as the graveyard is said to be unconsecrated, and now haunted by creatures of the night.  There is a real chance it will claim you as a victim.  I will allow you quarter to consider your options.&quot;@@PB**157" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="157" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You thank Kreqor for his hospitality and retire for the evening.  In the morning, after a vigorous debate amongst the party members, it is decided that you will accept the challenge.  Kreqor appreciates your courage; to aid you in your quest, he gives you an ancient parchment donated by a Council member who specializes in the summoning of elementals.  You also re-provision for the challenges ahead.*158" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="158" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="As you leave the wizard's estate, he points to a path behind his cottage.  &quot;If you follow this for maybe a day and a night, you will come to the cemetery gates.  Good luck to you in your endeavors.&quot;  You follow the path and, as expected, arrive just before daybreak; you pause outside the iron gates as your party enters the burial grounds." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="159" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You wander down the path back to Kreqor's estate.  To your surprise, he is standing on the doorstep, awaiting your arrival.  &quot;I see you survived your quest, excellent!&quot; he says.  &quot;The evil aura surrounding the grimoire, I sensed it as you approached, such is its power.  Thank the gods this malignant artifact has been captured and no longer poses a threat!&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="160" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You gladly accept Kreqor's hospitality once again.  The ale flows, and the fire crackles late into the night as you recount your experiences in the cemetery.  Your host is particularly interested in the tale of the final battle with Jaldi'al, as it confirms the suspicions of the Wizard's Council about the lich's existence and its nefarious schemes.  &quot;Hopefully, &quot; says Kreqor, &quot;the capture of his grimoire has put an end to Jaldi'al's plans once and for all.&quot;  As the midnight hour nears, you retire to your quarters." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="161" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You wander down the path back to Kreqor's estate.  When you arrive at the cottage, you step up to the door and knock loudly.  To your surprise, you receive no answer.  A moment later, after rapping on the window, you hear a muffled voice from somewhere inside.  &quot;One minute!  Just a minute!&quot;  Eventually, after using the tiny viewport, Kreqor opens the door to greet you.  He is dressed in a smock and wearing gloves.  &quot;Please come in,&quot; he says.  &quot;You caught me while I was at work in my study.&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="162" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You follow Kreqor to a well-lit room in the back of the house.  Large bookcases filled with thick tomes line the walls, and a workbench runs the length of the room, overloaded with intricate glassware and rubber tubing.  Several lit burners heat bubbling liquids; these give off white vapors.  &quot;You survived your exploration of the graveyard, excellent!  Did you find the grimoire of Jaldi'al?&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="163" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You proudly hand over the book for inspection.  Kreqor, with a doubting look on his face, receives it, and begins to leaf through the pages.  As he reaches the end, he abruptly snaps the book closed in your face!  There is a flash of light in his eyes, and his voice is trembling with barely controlled anger." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="203" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="and yet possibly pursues even broader goals.  You have joined a quest to purge the cemetery of this blight and determine the whereabouts of the once-powerful sorcerer Jaldi'al - now rumored to be a lich - interred within its borders.  This obscure Eamon was an Atari ST original, and due to its complexity remained there; now, it has found new a home in Eamon CS.  There have been many improvements to the title both in the coding logic and the prose.  Hopefully, you enjoy it!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="300" />
             <Simple name="IsUidRecycled" value="True" />
@@ -281,7 +1821,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="301" />
             <Simple name="IsUidRecycled" value="True" />
@@ -292,7 +1832,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="302" />
             <Simple name="IsUidRecycled" value="True" />
@@ -303,7 +1843,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Effect, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="303" />
             <Simple name="IsUidRecycled" value="True" />

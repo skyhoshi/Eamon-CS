@@ -4,6 +4,7 @@
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,26 @@ namespace TheVileGrimoireOfJaldial.Game
 	[ClassMappings(typeof(IRoom))]
 	public class Room : Eamon.Game.Room, Framework.IRoom
 	{
+		public override string Desc
+		{
+			get
+			{
+				var result = base.Desc;
+
+				if (Globals.EnableGameOverrides && IsDimLightRoom())
+				{
+					result = string.Format("Through the {0}, you can vaguely make out your surroundings.", gGameState.IsNightTime() ? "darkness" : "white haze");
+				}
+
+				return result;
+			}
+
+			set
+			{
+				base.Desc = value;
+			}
+		}
+
 		public override long GetDirs(long index)
 		{
 			if (Globals.EnableGameOverrides)
@@ -99,6 +120,17 @@ namespace TheVileGrimoireOfJaldial.Game
 			return base.IsDirectionInObviousExitsList(index) && !secretDoorExitDir;
 		}
 
+		public override string GetYouAlsoSee(bool showDesc, IList<IMonster> monsterList, IList<IArtifact> artifactList, IList<IGameBase> combinedList)
+		{
+			Debug.Assert(monsterList != null && artifactList != null && combinedList != null);
+
+			return string.Format("{0}You {1}{2}{3}",
+					!showDesc ? Environment.NewLine : "",
+					showDesc ? "also " : "",
+					showDesc && !monsterList.Any() ? "notice " : "see ",
+					monsterList.FirstOrDefault(m => m.Seen && (m.Uid == 10 || m.Uid == 50)) == null && IsDimLightRoom() ? "the dim image" + (combinedList.Count > 1 ? "s" : "") + " of " : "");
+		}
+
 		public override RetCode GetExitList(StringBuilder buf, Func<string, string> modFunc = null, bool useNames = true)
 		{
 			// Use exit direction names or abbreviations based on configuration setting
@@ -137,7 +169,12 @@ namespace TheVileGrimoireOfJaldial.Game
 
 		public virtual bool IsFoggyRoom()
 		{
-			return gGameState.FoggyRoom;
+			return IsGroundsRoom() && gGameState.IsFoggy();
+		}
+
+		public virtual bool IsDimLightRoom()
+		{
+			return gGameState != null && IsGroundsRoom() && (gGameState.IsNightTime() || (IsFoggyRoom() && GetWeatherIntensity() >= 3));
 		}
 
 		public virtual long GetWeatherIntensity()

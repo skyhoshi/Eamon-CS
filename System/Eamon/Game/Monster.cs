@@ -492,6 +492,16 @@ namespace Eamon.Game
 			return false;
 		}
 
+		public virtual bool ShouldShowHealthStatusWhenExamined()
+		{
+			return true;
+		}
+
+		public virtual bool ShouldShowHealthStatusWhenInventoried()
+		{
+			return true;
+		}
+
 		public virtual bool ShouldProcessInGameLoop()
 		{
 			var gameState = Globals?.Engine?.GetGameState();

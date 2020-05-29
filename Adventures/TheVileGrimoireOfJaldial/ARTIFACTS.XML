@@ -253,17 +253,17 @@
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
-            <Simple name="PluralType" value="None" />
+            <Simple name="PluralType" value="S" />
             <Simple name="Value" value="0" />
-            <Simple name="Weight" value="999" />
-            <Simple name="Location" value="107" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="1063" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
-                    <Simple name="Type" value="InContainer" />
-                    <Simple name="Field1" value="-1" />
-                    <Simple name="Field2" value="1" />
+                    <Simple name="Type" value="DeadBody" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
                     <Simple name="Field5" value="0" />
@@ -273,8 +273,8 @@
             </SingleArray>
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="sarcophagus" />
-            <Simple name="Desc" value="Set into a stone platform in the center of the room is a sarcophagus.  The lid is open, revealing a skeleton dressed in fine (but rotting) clothing." />
+            <Simple name="Name" value="skeleton" />
+            <Simple name="Desc" value="You see a skeleton dressed in fine (but rotting) clothing." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -287,9 +287,9 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
+            <Simple name="Value" value="30" />
             <Simple name="Weight" value="10" />
-            <Simple name="Location" value="1008" />
+            <Simple name="Location" value="1063" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
@@ -484,18 +484,18 @@
             <Simple name="IsCharOwned" value="False" />
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
-            <Simple name="PluralType" value="S" />
-            <Simple name="Value" value="0" />
-            <Simple name="Weight" value="2" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="60" />
+            <Simple name="Weight" value="5" />
             <Simple name="Location" value="1013" />
             <SingleArray name="Categories">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
-                    <Simple name="Field1" value="0" />
-                    <Simple name="Field2" value="0" />
-                    <Simple name="Field3" value="1" />
+                    <Simple name="Field1" value="15" />
+                    <Simple name="Field2" value="7" />
+                    <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
                     <Simple name="Field5" value="0" />
                   </Properties>
@@ -504,11 +504,11 @@
             </SingleArray>
             <Simple name="Uid" value="15" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="empty bottle" />
-            <Simple name="Desc" value="You see a bottle with the label &quot;TODO&quot; on the front.  Unfortunately, it is empty." />
+            <Simple name="Name" value="bottle of ale" />
+            <Simple name="Desc" value="You see a bottle with the label &quot;Molten Iron Ale&quot; on the front.  It contains a rust-colored liquid that glows ever-so-slightly." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="An" />
+            <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
         <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
@@ -881,7 +881,7 @@
             <Simple name="IsPlural" value="False" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="None" />
-            <Simple name="Value" value="0" />
+            <Simple name="Value" value="2000" />
             <Simple name="Weight" value="15" />
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
@@ -901,7 +901,7 @@
             <Simple name="Uid" value="27" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="book of runes" />
-            <Simple name="Desc" value="You see a faintly glowing manuscript, bearing the title &quot;TODO&quot;." />
+            <Simple name="Desc" value="You see a faintly glowing manuscript, bearing the title &quot;Anta Loquestra - Bae Nihydrali&quot;." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -924,7 +924,7 @@
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-5" />
                     <Simple name="Field2" value="4" />
-                    <Simple name="Field3" value="2" />
+                    <Simple name="Field3" value="4" />
                     <Simple name="Field4" value="5" />
                     <Simple name="Field5" value="1" />
                   </Properties>
@@ -957,7 +957,7 @@
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="3" />
-                    <Simple name="Field3" value="1" />
+                    <Simple name="Field3" value="2" />
                     <Simple name="Field4" value="6" />
                     <Simple name="Field5" value="1" />
                   </Properties>
@@ -990,7 +990,7 @@
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="3" />
-                    <Simple name="Field3" value="2" />
+                    <Simple name="Field3" value="4" />
                     <Simple name="Field4" value="4" />
                     <Simple name="Field5" value="1" />
                   </Properties>
@@ -1023,7 +1023,7 @@
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="25" />
                     <Simple name="Field2" value="5" />
-                    <Simple name="Field3" value="3" />
+                    <Simple name="Field3" value="6" />
                     <Simple name="Field4" value="4" />
                     <Simple name="Field5" value="2" />
                   </Properties>
@@ -1056,7 +1056,7 @@
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="15" />
                     <Simple name="Field2" value="4" />
-                    <Simple name="Field3" value="1" />
+                    <Simple name="Field3" value="2" />
                     <Simple name="Field4" value="4" />
                     <Simple name="Field5" value="1" />
                   </Properties>
@@ -1439,7 +1439,7 @@
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
-            <Simple name="IsPlural" value="False" />
+            <Simple name="IsPlural" value="True" />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="0" />
@@ -1462,10 +1462,10 @@
             <Simple name="Uid" value="44" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="dead forest bloodnettle" />
-            <Simple name="Desc" value="You've succeeded in smashing down the forest bloodnettle." />
+            <Simple name="Desc" value="You've succeeded in smashing down the forest bloodnettles." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="A" />
+            <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
         <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
@@ -1759,7 +1759,7 @@
             <Simple name="Uid" value="53" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="dead giant crayfish" />
-            <Simple name="Desc" value="The giant crayfish has been reduced to a pile of crawdad meat, encased in a battered shell." />
+            <Simple name="Desc" value="The giant crayfish has been reduced to a pile of meat, encased in a battered shell." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
@@ -2062,6 +2062,39 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="107" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="InContainer" />
+                    <Simple name="Field1" value="-1" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="63" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="sarcophagus" />
+            <Simple name="Desc" value="Set into a stone platform in the center of the room is a sarcophagus.  The lid is open, revealing a skeleton dressed in fine (but rotting) clothing." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
       </Items>
     </Collection>
     <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -2070,6 +2103,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="62" />
+    <Simple name="CurrUid" value="63" />
   </Properties>
 </Complex>

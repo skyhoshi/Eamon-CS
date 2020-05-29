@@ -64,14 +64,14 @@ namespace TheVileGrimoireOfJaldial.Game
 				{ 4, new string[] { "small tomb door", "tomb door", "tomb", "door" } },
 				{ 5, new string[] { "crypt door", "door" } },
 				{ 6, new string[] { "bucket" } },
-				{ 8, new string[] { "stone coffin", "coffin" } },
+				{ 8, new string[] { "bones" } },
 				{ 9, new string[] { "leather bound book", "leather book", "bound book", "book" } },
 				{ 10, new string[] { "gravestone", "stone" } },
 				{ 11, new string[] { "dragon's treasure", "dragon's hoard", "treasure hoard", "treasure", "hoard" } },
 				{ 12, new string[] { "goblet", "cup" } },
 				{ 13, new string[] { "chest" } },
 				{ 14, new string[] { "old map", "map" } },
-				{ 15, new string[] { "bottle" } },
+				{ 15, new string[] { "ale bottle", "bottle", "ale" } },
 				{ 16, new string[] { "gauntlets", "gauntlet" } },
 				{ 17, new string[] { "wine", "cask" } },
 				{ 18, new string[] { "beholder's treasure", "beholder's hoard", "treasure hoard", "treasure", "hoard" } },
@@ -94,23 +94,24 @@ namespace TheVileGrimoireOfJaldial.Game
 				{ 36, new string[] { "skeleton", "bones" } },
 				{ 37, new string[] { "cross" } },
 				{ 38, new string[] { "coil" } },
-				{ 42, new string[] { "dead tree" } },
-				{ 43, new string[] { "dead forest nettle", "dead blood nettle", "dead bloodnettle", "dead nettle" } },
-				{ 44, new string[] { "cloak", "cowl" } },
-				{ 45, new string[] { "dead whipweed", "dead weed" } },
-				{ 47, new string[] { "dead dragon" } },
-				{ 48, new string[] { "dead crimson amoeba", "dead amoeba", "wine" } },
-				{ 49, new string[] { "dead saber claws", "dead saber claw" } },
-				{ 50, new string[] { "jade dust", "jade splinters", "jade chunks", "debris" } },
-				{ 52, new string[] { "dead crayfish" } },
-				{ 53, new string[] { "dead scorpion" } },
-				{ 55, new string[] { "dead griffin cubs", "dead griffin babies", "dead baby griffins", "dead griffin cub", "dead griffin baby", "dead baby griffin" } },
-				{ 56, new string[] { "Jaldial the lich's remains", "Jaldi'al's remains", "Jaldial's remains", "lich's remains", "lich remains", "remains", "dead Jaldi'al", "dead Jaldial", "dead lich" } },
-				{ 57, new string[] { "dead jungle cats", "dead bekkahs", "dead cats", "dead jungle cat", "dead bekkah", "dead cat" } },
-				{ 58, new string[] { "dead Reginald" } },
-				{ 59, new string[] { "dead Dubro" } },
-				{ 60, new string[] { "dead Joque" } },
-				{ 61, new string[] { "dead Trevor" } },
+				{ 43, new string[] { "dead tree" } },
+				{ 44, new string[] { "dead forest nettles", "dead blood nettles", "dead bloodnettles", "dead nettles" } },
+				{ 45, new string[] { "cloak", "cowl" } },
+				{ 46, new string[] { "dead whipweed", "dead weed" } },
+				{ 48, new string[] { "dead dragon" } },
+				{ 49, new string[] { "dead crimson amoeba", "dead amoeba", "wine" } },
+				{ 50, new string[] { "dead saber claws" } },
+				{ 51, new string[] { "jade dust", "jade splinters", "jade chunks", "debris" } },
+				{ 53, new string[] { "dead crayfish" } },
+				{ 54, new string[] { "dead scorpion" } },
+				{ 56, new string[] { "dead griffin cubs", "dead griffin babies", "dead baby griffins", "dead griffin baby" } },
+				{ 57, new string[] { "Jaldial the lich's remains", "Jaldi'al's remains", "Jaldial's remains", "lich's remains", "lich remains", "remains", "dead Jaldi'al", "dead Jaldial", "dead lich" } },
+				{ 58, new string[] { "dead jungle cats", "dead bekkahs", "dead cats" } },
+				{ 59, new string[] { "dead Reginald" } },
+				{ 60, new string[] { "dead Dubro" } },
+				{ 61, new string[] { "dead Joque" } },
+				{ 62, new string[] { "dead Trevor" } },
+				{ 63, new string[] { "stone coffin", "coffin" } },
 			};
 
 			foreach (var synonym in synonyms)
@@ -132,7 +133,7 @@ namespace TheVileGrimoireOfJaldial.Game
 
 			Debug.Assert(lanternArtifact != null);
 
-			lanternArtifact.LightSource.Field1 = RollDice(1, 101, 49);
+			lanternArtifact.LightSource.Field1 = RollDice(1, 81, 299);
 		}
 
 		public override void InitMonsters()
@@ -146,7 +147,7 @@ namespace TheVileGrimoireOfJaldial.Game
 				{ 11, new string[] { "crawler" } },
 				{ 12, new string[] { "mound" } },
 				{ 13, new string[] { "jelly" } },
-				{ 20, new string[] { "bloodnettle" } },
+				{ 20, new string[] { "bloodnettle clump", "bloodnettle", "clump" } },
 				{ 21, new string[] { "hood" } },
 				{ 22, new string[] { "weed" } },
 				{ 23, new string[] { "animated armor", "suit of armor", "armor" } },
@@ -175,12 +176,14 @@ namespace TheVileGrimoireOfJaldial.Game
 
 			base.ResetMonsterStats(monster);
 
-			// Ensure monster not clumsy
+			// Ensure monster not paralyzed or clumsy
+
+			gGameState.ParalyzedTargets.Remove(monster.Uid);
 
 			gGameState.ClumsyTargets.Remove(monster.Uid);
 		}
 
-		public override void MonsterSmiles(IMonster monster)
+		public override void MonsterEmotes(IMonster monster, bool friendSmile = true)
 		{
 			Debug.Assert(monster != null);
 
@@ -257,7 +260,7 @@ namespace TheVileGrimoireOfJaldial.Game
 			}
 			else
 			{
-				base.MonsterSmiles(monster);
+				base.MonsterEmotes(monster, friendSmile);
 			}
 		}
 
@@ -295,7 +298,7 @@ namespace TheVileGrimoireOfJaldial.Game
 
 				cutlassArtifact.Field3 = 2;
 
-				cutlassArtifact.Field4 = 6;
+				cutlassArtifact.Field4 = 8;
 
 				cutlassArtifact.Field5 = 1;
 			}
@@ -320,6 +323,8 @@ namespace TheVileGrimoireOfJaldial.Game
 			{
 				gGameState.EfreetiKilled = true;
 			}
+
+			gGameState.ParalyzedTargets.Remove(DfMonster.Uid);
 
 			gGameState.ClumsyTargets.Remove(DfMonster.Uid);
 
@@ -349,16 +354,21 @@ namespace TheVileGrimoireOfJaldial.Game
 			return monsterList;
 		}
 
-		public override IList<IMonster> GetSmilingMonsterList(IRoom room, IMonster monster)
+		public override IList<IMonster> GetEmotingMonsterList(IRoom room, IMonster monster, bool friendSmile = true)
 		{
 			// Some monsters don't emote
 
-			return base.GetSmilingMonsterList(room, monster).Where(m => !Constants.NonEmotingMonsterUids.Contains(m.Uid)).ToList();
+			return base.GetEmotingMonsterList(room, monster, friendSmile).Where(m => !Constants.NonEmotingMonsterUids.Contains(m.Uid) && (friendSmile || !gGameState.ParalyzedTargets.ContainsKey(m.Uid))).ToList();
 		}
 
 		public override void CheckToExtinguishLightSource()
 		{
 			// do nothing
+		}
+
+		public override void MoveMonsters(params Func<IMonster, bool>[] whereClauseFuncs)
+		{
+			base.MoveMonsters(m => !m.IsCharacterMonster() && (m.Seen || m.Friendliness == Friendliness.Friend) && m.Location == gGameState.R3);
 		}
 
 		public virtual bool SaveThrow(Stat stat, long bonus = 0)

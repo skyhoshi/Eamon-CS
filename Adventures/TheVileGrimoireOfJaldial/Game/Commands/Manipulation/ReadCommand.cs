@@ -23,7 +23,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			if (gDobjArtifact?.Uid == 10)
 			{
-				gOut.Print("You stare at the epitaph intently, trying to read its weather-worn message:");
+				gEngine.PrintEffectDesc(83);
 
 				gOut.WriteLine();
 
@@ -56,7 +56,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 							"be treated above as life was lived down here"
 						};
 
-						gOut.Print("You search out a tombstone, and read the epitaph:");
+						gEngine.PrintEffectDesc(84);
 
 						gOut.WriteLine();
 
@@ -91,7 +91,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 					case 2:
 
-						gOut.Print("The pictographs read:");
+						gEngine.PrintEffectDesc(85);
 
 						gOut.WriteLine();
 
@@ -116,21 +116,21 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 					case 6:
 
-						gOut.Print("Not much left that's legible now - besides which, I don't think you know the tongue in which it is written.");
+						gEngine.PrintEffectDesc(86);
 
 						break;
 
 					case 7:
 
-						gOut.Print("The etchings seem to deal with a hero of popular folklore.  According to the inscription, a long time ago, a great scourge brought strife to the land.  A peasant was called upon to do the work at which many knights had failed.  A giant had taken up residence nearby, and the man succeeded in slaying the creature.  He was then knighted at a grand ceremony held by the King in his name.");
+						gEngine.PrintEffectDesc(87);
 
 						break;
 
 					case 8:
 
-						gOut.Print("The message reads:");
+						gEngine.PrintEffectDesc(88);
 
-						gOut.Print("From the foundations of the earth to the upper reaches of the sky - my ascension is at hand.");
+						gEngine.PrintEffectDesc(89);
 
 						break;
 				}

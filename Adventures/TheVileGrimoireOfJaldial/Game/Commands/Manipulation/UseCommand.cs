@@ -29,7 +29,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				if (gActorRoom.Uid == 5 && buriedCasketArtifact.IsInLimbo())
 				{
-					gOut.Print("You dig for a while and uncover something!");
+					gEngine.PrintEffectDesc(92);
 
 					buriedCasketArtifact.SetInRoom(gActorRoom);
 				}
@@ -75,7 +75,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 					}
 					else
 					{
-						gOut.Print("You remove all the water from the fountain.");
+						gEngine.PrintEffectDesc(93);
 
 						waterArtifact.SetInLimbo();
 

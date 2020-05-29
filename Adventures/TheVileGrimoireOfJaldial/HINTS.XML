@@ -6,7 +6,7 @@
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
@@ -27,7 +27,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
@@ -43,6 +43,20 @@
             </SingleArray>
           </Properties>
         </Complex>
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="Where are all the hints for this game?" />
+            <Simple name="NumAnswers" value="1" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Unfortunately, I ran out of time (and energy); the hints will have to wait for June.  On the bright side, the lack of explicit hints makes this experience more like the Atari ST game, at least for now." />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
       </Items>
     </Collection>
     <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -51,6 +65,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="2" />
+    <Simple name="CurrUid" value="3" />
   </Properties>
 </Complex>

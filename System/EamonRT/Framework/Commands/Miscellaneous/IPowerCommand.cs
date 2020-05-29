@@ -3,6 +3,9 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
 
+using System;
+using Eamon.Framework;
+
 namespace EamonRT.Framework.Commands
 {
 	/// <summary></summary>
@@ -10,5 +13,11 @@ namespace EamonRT.Framework.Commands
 	{
 		/// <summary></summary>
 		bool CastSpell { get; set; }
+
+		/// <summary></summary>
+		Func<IArtifact, bool>[] ResurrectWhereClauseFuncs { get; set; }
+
+		/// <summary></summary>
+		Func<IArtifact, bool>[] VanishWhereClauseFuncs { get; set; }
 	}
 }

@@ -175,6 +175,14 @@ namespace Eamon.Framework
 		/// <param name="artifact"></param>
 		void SetDirectionDoor(Direction dir, IArtifact artifact);
 
+		/// <summary></summary>
+		/// <param name="showDesc"></param>
+		/// <param name="monsterList"></param>
+		/// <param name="artifactList"></param>
+		/// <param name="combinedList"></param>
+		/// <returns></returns>
+		string GetYouAlsoSee(bool showDesc, IList<IMonster> monsterList, IList<IArtifact> artifactList, IList<IGameBase> combinedList);
+
 		/// <summary>
 		/// Gets this <see cref="IRoom">Room</see>'s obvious exits prefix string, based on its <see cref="Type">Type</see>.
 		/// </summary>

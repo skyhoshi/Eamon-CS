@@ -142,14 +142,14 @@ namespace StrongholdOfKahrDur.Game
 			}
 		}
 
-		public override void MonsterSmiles(IMonster monster)
+		public override void MonsterEmotes(IMonster monster, bool friendSmile = true)
 		{
 			Debug.Assert(monster != null);
 
 			gOut.Write("{0}{1} {2}{3} at you.",
 				Environment.NewLine,
 				monster.GetTheName(true),
-				monster.EvalFriendliness("growl", "look", "smile"),
+				monster.EvalFriendliness("growl", "look", friendSmile ? "smile" : "wave"),
 				monster.EvalPlural("s", ""));
 		}
 
@@ -180,7 +180,7 @@ namespace StrongholdOfKahrDur.Game
 			}
 		}
 
-		public override void MoveMonsters()
+		public override void MoveMonsters(params Func<IMonster, bool>[] whereClauseFuncs)
 		{
 			// Monsters can't move in/out of pit w/o magical help
 
@@ -193,7 +193,7 @@ namespace StrongholdOfKahrDur.Game
 
 			if (!pitMove)
 			{
-				base.MoveMonsters();
+				base.MoveMonsters(whereClauseFuncs);
 			}
 		}
 

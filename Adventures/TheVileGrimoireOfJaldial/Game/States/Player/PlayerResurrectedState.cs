@@ -24,7 +24,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 			Debug.Assert(room != null);
 
-			gOut.Print("You feel yourself spinning in infinity, and then re-embodied in your former self.  You slowly open your eyes, with a sense of bewilderment, and find yourself lying in an open grave some six feet in the ground.");
+			gEngine.PrintEffectDesc(109);
 
 			gGameState.Die = 0;
 

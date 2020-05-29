@@ -3714,6 +3714,14 @@
             <summary></summary>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IMonster.ShouldShowHealthStatusWhenExamined">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.ShouldShowHealthStatusWhenInventoried">
+            <summary></summary>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IMonster.ShouldProcessInGameLoop">
             <summary></summary>
             <returns></returns>
@@ -4074,6 +4082,14 @@
             <summary></summary>
             <param name="dir"></param>
             <param name="artifact"></param>
+        </member>
+        <member name="M:Eamon.Framework.IRoom.GetYouAlsoSee(System.Boolean,System.Collections.Generic.IList{Eamon.Framework.IMonster},System.Collections.Generic.IList{Eamon.Framework.IArtifact},System.Collections.Generic.IList{Eamon.Framework.IGameBase})">
+            <summary></summary>
+            <param name="showDesc"></param>
+            <param name="monsterList"></param>
+            <param name="artifactList"></param>
+            <param name="combinedList"></param>
+            <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IRoom.GetObviousExits">
             <summary>

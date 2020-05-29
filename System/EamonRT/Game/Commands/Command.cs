@@ -676,9 +676,19 @@ namespace EamonRT.Game.Commands
 			CommandImpl.PlayerResolveArtifact();
 		}
 
+		public virtual void PlayerResolveArtifactProcessWhereClauseList()
+		{
+			CommandImpl.PlayerResolveArtifactProcessWhereClauseList();
+		}
+
 		public virtual void PlayerResolveMonster()
 		{
 			CommandImpl.PlayerResolveMonster();
+		}
+
+		public virtual void PlayerResolveMonsterProcessWhereClauseList()
+		{
+			CommandImpl.PlayerResolveMonsterProcessWhereClauseList();
 		}
 
 		public virtual void PlayerProcessEvents(long eventType)

@@ -189,16 +189,19 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				var isUninjuredGroup = gDobjMonster.GroupCount > 1 && gDobjMonster.DmgTaken == 0;
+				if (gDobjMonster.ShouldShowHealthStatusWhenExamined())
+				{
+					var isUninjuredGroup = gDobjMonster.GroupCount > 1 && gDobjMonster.DmgTaken == 0;
 
-				Globals.Buf.SetFormat("{0}{1} {2} ",
-					Environment.NewLine,
-					isUninjuredGroup ? "They" : gDobjMonster.GetTheName(true, true, false, true, Globals.Buf01),
-					isUninjuredGroup ? "are" : "is");
+					Globals.Buf.SetFormat("{0}{1} {2} ",
+						Environment.NewLine,
+						isUninjuredGroup ? "They" : gDobjMonster.GetTheName(true, true, false, true, Globals.Buf01),
+						isUninjuredGroup ? "are" : "is");
 
-				gDobjMonster.AddHealthStatus(Globals.Buf);
+					gDobjMonster.AddHealthStatus(Globals.Buf);
 
-				gOut.Write("{0}", Globals.Buf);
+					gOut.Write("{0}", Globals.Buf);
+				}
 			}
 
 		Cleanup:
@@ -246,13 +249,6 @@ namespace EamonRT.Game.Commands
 
 				PlayerResolveArtifact();
 			}
-		}
-
-		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
-		{
-			Debug.Assert(artifact != null);
-
-			return Enum.IsDefined(typeof(ContainerType), ContainerType) && !artifact.IsWornByCharacter();
 		}
 
 		/*

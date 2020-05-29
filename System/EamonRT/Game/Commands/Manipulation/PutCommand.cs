@@ -204,13 +204,6 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
-		{
-			Debug.Assert(artifact != null);
-
-			return artifact.IsCarriedByCharacter();
-		}
-
 		/*
 		public override bool IsPrepEnabled(IPrep prep)
 		{

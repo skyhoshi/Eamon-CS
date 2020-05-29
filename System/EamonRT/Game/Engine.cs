@@ -1238,7 +1238,7 @@ namespace EamonRT.Game
 			}
 		}
 
-		public virtual void MonsterSmiles(IMonster monster)
+		public virtual void MonsterEmotes(IMonster monster, bool friendSmile = true)
 		{
 			Debug.Assert(monster != null);
 
@@ -1247,7 +1247,7 @@ namespace EamonRT.Game
 				gOut.Write("{0}{1} {2}{3} back.",
 					Environment.NewLine,
 					monster.GetTheName(true),
-					monster.EvalFriendliness("growl", "ignore", "smile"),
+					monster.EvalFriendliness("growl", "ignore", friendSmile ? "smile" : "wave"),
 					monster.EvalPlural("s", ""));
 			}
 			else
@@ -1255,7 +1255,7 @@ namespace EamonRT.Game
 				gOut.Write("{0}{1} {2}{3} {4}you{5}",
 					Environment.NewLine,
 					monster.GetTheName(true),
-					monster.EvalFriendliness("growl", "ignore", "smile"),
+					monster.EvalFriendliness("growl", "ignore", friendSmile ? "smile" : "wave"),
 					monster.EvalPlural("s", ""),
 					monster.Friendliness != Friendliness.Neutral ? "at " : "",
 					Globals.IsRulesetVersion(5, 15) && monster.Friendliness == Friendliness.Enemy ? "!" : ".");
@@ -2189,7 +2189,7 @@ namespace EamonRT.Game
 			return monsterList;
 		}
 
-		public virtual IList<IMonster> GetSmilingMonsterList(IRoom room, IMonster monster)
+		public virtual IList<IMonster> GetEmotingMonsterList(IRoom room, IMonster monster, bool friendSmile = true)
 		{
 			Debug.Assert(room != null && monster != null);
 
@@ -2853,11 +2853,19 @@ namespace EamonRT.Game
 			}
 		}
 
-		public virtual void MoveMonsters()
+		public virtual void MoveMonsters(params Func<IMonster, bool>[] whereClauseFuncs)
 		{
 			long rl = 0;
 
-			var monsters = GetMonsterList(m => !m.IsCharacterMonster() && m.Seen && m.Location == gGameState.R3);
+			if (whereClauseFuncs == null || whereClauseFuncs.Length == 0)
+			{
+				whereClauseFuncs = new Func<IMonster, bool>[]
+				{
+					m => !m.IsCharacterMonster() && m.Seen && m.Location == gGameState.R3
+				};
+			}
+
+			var monsters = GetMonsterList(whereClauseFuncs);
 
 			foreach (var monster in monsters)
 			{

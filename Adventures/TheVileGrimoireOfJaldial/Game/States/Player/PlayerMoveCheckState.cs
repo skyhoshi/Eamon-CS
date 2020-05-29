@@ -16,7 +16,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 		{
 			if (eventType == PeAfterBlockingArtifactCheck && gGameState.R2 == -17)
 			{
-				gOut.Print("To go in that direction would mean certain death.");
+				gEngine.PrintEffectDesc(108);
 			}
 			else
 			{

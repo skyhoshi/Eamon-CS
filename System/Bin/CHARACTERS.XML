@@ -8,12 +8,6 @@
       <Items>
         <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="1" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Lux Beetlebrox" />
-            <Null name="Synonyms" />
-            <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="None" />
             <Simple name="Gender" value="Female" />
             <Simple name="Status" value="Alive" />
             <SingleArray name="Stats">
@@ -48,68 +42,123 @@
             <Simple name="HeldGold" value="123" />
             <Simple name="BankGold" value="0" />
             <Simple name="ArmorClass" value="Leather" />
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="NONE" />
+                <Simple name="Desc" value="" />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="None" />
+                <Simple name="Value" value="0" />
+                <Simple name="Weight" value="0" />
+                <Simple name="Type" value="Gold" />
+                <Simple name="Field1" value="0" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="NONE" />
+                <Simple name="Desc" value="" />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="None" />
+                <Simple name="Value" value="0" />
+                <Simple name="Weight" value="0" />
+                <Simple name="Type" value="Gold" />
+                <Simple name="Field1" value="0" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
             <SingleArray name="Weapons">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="S" />
                     <Simple name="ArticleType" value="A" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="5" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear#" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="S" />
                     <Simple name="ArticleType" value="A" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="5" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Lux Beetlebrox" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="2" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Faker McDuggan" />
-            <Null name="Synonyms" />
-            <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="None" />
             <Simple name="Gender" value="Male" />
             <Simple name="Status" value="Alive" />
             <SingleArray name="Stats">
@@ -144,68 +193,123 @@
             <Simple name="HeldGold" value="172" />
             <Simple name="BankGold" value="0" />
             <Simple name="ArmorClass" value="SkinClothes" />
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="NONE" />
+                <Simple name="Desc" value="" />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="None" />
+                <Simple name="Value" value="0" />
+                <Simple name="Weight" value="0" />
+                <Simple name="Type" value="Gold" />
+                <Simple name="Field1" value="0" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="NONE" />
+                <Simple name="Desc" value="" />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="None" />
+                <Simple name="Value" value="0" />
+                <Simple name="Weight" value="0" />
+                <Simple name="Type" value="Gold" />
+                <Simple name="Field1" value="0" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
             <SingleArray name="Weapons">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="S" />
                     <Simple name="ArticleType" value="A" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="5" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Faker McDuggan" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="3" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Confucious Maximus" />
-            <Null name="Synonyms" />
-            <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="None" />
             <Simple name="Gender" value="Male" />
             <Simple name="Status" value="Alive" />
             <SingleArray name="Stats">
@@ -240,68 +344,123 @@
             <Simple name="HeldGold" value="1244" />
             <Simple name="BankGold" value="3000" />
             <Simple name="ArmorClass" value="ChainMailShield" />
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="NONE" />
+                <Simple name="Desc" value="" />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="None" />
+                <Simple name="Value" value="0" />
+                <Simple name="Weight" value="0" />
+                <Simple name="Type" value="Gold" />
+                <Simple name="Field1" value="0" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="NONE" />
+                <Simple name="Desc" value="" />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="None" />
+                <Simple name="Value" value="0" />
+                <Simple name="Weight" value="0" />
+                <Simple name="Type" value="Gold" />
+                <Simple name="Field1" value="0" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
             <SingleArray name="Weapons">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="S" />
                     <Simple name="ArticleType" value="A" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="5" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Confucious Maximus" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="4" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Moonpie Raybeam" />
-            <Null name="Synonyms" />
-            <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="None" />
             <Simple name="Gender" value="Female" />
             <Simple name="Status" value="Alive" />
             <SingleArray name="Stats">
@@ -336,68 +495,123 @@
             <Simple name="HeldGold" value="153" />
             <Simple name="BankGold" value="0" />
             <Simple name="ArmorClass" value="PlateMailShield" />
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="NONE" />
+                <Simple name="Desc" value="" />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="None" />
+                <Simple name="Value" value="0" />
+                <Simple name="Weight" value="0" />
+                <Simple name="Type" value="Gold" />
+                <Simple name="Field1" value="0" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="NONE" />
+                <Simple name="Desc" value="" />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="None" />
+                <Simple name="Value" value="0" />
+                <Simple name="Weight" value="0" />
+                <Simple name="Type" value="Gold" />
+                <Simple name="Field1" value="0" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
             <SingleArray name="Weapons">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="axe" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="S" />
                     <Simple name="ArticleType" value="An" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Moonpie Raybeam" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="5" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Hellion Coldiron" />
-            <Null name="Synonyms" />
-            <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="None" />
             <Simple name="Gender" value="Male" />
             <Simple name="Status" value="Alive" />
             <SingleArray name="Stats">
@@ -432,68 +646,123 @@
             <Simple name="HeldGold" value="322" />
             <Simple name="BankGold" value="0" />
             <Simple name="ArmorClass" value="LeatherShield" />
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="NONE" />
+                <Simple name="Desc" value="" />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="None" />
+                <Simple name="Value" value="0" />
+                <Simple name="Weight" value="0" />
+                <Simple name="Type" value="Gold" />
+                <Simple name="Field1" value="0" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="NONE" />
+                <Simple name="Desc" value="" />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="None" />
+                <Simple name="Value" value="0" />
+                <Simple name="Weight" value="0" />
+                <Simple name="Type" value="Gold" />
+                <Simple name="Field1" value="0" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
             <SingleArray name="Weapons">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="axe" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="S" />
                     <Simple name="ArticleType" value="An" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="1" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="sword" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="S" />
                     <Simple name="ArticleType" value="A" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="-10" />
                     <Simple name="Field2" value="5" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="8" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="S" />
                     <Simple name="ArticleType" value="A" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="5" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Hellion Coldiron" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="6" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Fuchsia Coldiron" />
-            <Null name="Synonyms" />
-            <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="None" />
             <Simple name="Gender" value="Female" />
             <Simple name="Status" value="Alive" />
             <SingleArray name="Stats">
@@ -528,68 +797,123 @@
             <Simple name="HeldGold" value="5" />
             <Simple name="BankGold" value="0" />
             <Simple name="ArmorClass" value="ClothesShield" />
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="NONE" />
+                <Simple name="Desc" value="" />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="None" />
+                <Simple name="Value" value="0" />
+                <Simple name="Weight" value="0" />
+                <Simple name="Type" value="Gold" />
+                <Simple name="Field1" value="0" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="NONE" />
+                <Simple name="Desc" value="" />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="None" />
+                <Simple name="Value" value="0" />
+                <Simple name="Weight" value="0" />
+                <Simple name="Type" value="Gold" />
+                <Simple name="Field1" value="0" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
             <SingleArray name="Weapons">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Fuchsia Coldiron" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="7" />
-            <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Coma Thickhide" />
-            <Null name="Synonyms" />
-            <Simple name="Seen" value="False" />
-            <Simple name="ArticleType" value="None" />
             <Simple name="Gender" value="Male" />
             <Simple name="Status" value="Alive" />
             <SingleArray name="Stats">
@@ -624,58 +948,270 @@
             <Simple name="HeldGold" value="0" />
             <Simple name="BankGold" value="0" />
             <Simple name="ArmorClass" value="LeatherShield" />
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="NONE" />
+                <Simple name="Desc" value="" />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="None" />
+                <Simple name="Value" value="0" />
+                <Simple name="Weight" value="0" />
+                <Simple name="Type" value="Gold" />
+                <Simple name="Field1" value="0" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="NONE" />
+                <Simple name="Desc" value="" />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="None" />
+                <Simple name="Value" value="0" />
+                <Simple name="Weight" value="0" />
+                <Simple name="Type" value="Gold" />
+                <Simple name="Field1" value="0" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
             <SingleArray name="Weapons">
               <Items>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="S" />
                     <Simple name="ArticleType" value="A" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="10" />
                     <Simple name="Field2" value="4" />
                     <Simple name="Field3" value="1" />
                     <Simple name="Field4" value="5" />
+                    <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
                 <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
+                    <Simple name="Desc" value="" />
                     <Simple name="IsPlural" value="False" />
                     <Simple name="PluralType" value="None" />
                     <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="0" />
+                    <Simple name="Weight" value="0" />
+                    <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
-                    <Simple name="Type" value="0" />
+                    <Simple name="Field2" value="0" />
                     <Simple name="Field3" value="0" />
                     <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
               </Items>
             </SingleArray>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Coma Thickhide" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Gender" value="Male" />
+            <Simple name="Status" value="Alive" />
+            <SingleArray name="Stats">
+              <Items>
+                <Simple value="0" />
+                <Simple value="18" />
+                <Simple value="21" />
+                <Simple value="17" />
+                <Simple value="15" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="SpellAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="37" />
+                <Simple value="67" />
+                <Simple value="50" />
+                <Simple value="87" />
+              </Items>
+            </SingleArray>
+            <SingleArray name="WeaponAbilities">
+              <Items>
+                <Simple value="0" />
+                <Simple value="5" />
+                <Simple value="-10" />
+                <Simple value="40" />
+                <Simple value="27" />
+                <Simple value="55" />
+              </Items>
+            </SingleArray>
+            <Simple name="ArmorExpertise" value="37" />
+            <Simple name="HeldGold" value="2000" />
+            <Simple name="BankGold" value="25000" />
+            <Simple name="ArmorClass" value="PlateMailShield" />
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="plate armor" />
+                <Simple name="Desc" value="This is your plate armor." />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="None" />
+                <Simple name="ArticleType" value="Some" />
+                <Simple name="Value" value="350" />
+                <Simple name="Weight" value="35" />
+                <Simple name="Type" value="Wearable" />
+                <Simple name="Field1" value="6" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+              <Properties>
+                <Simple name="Name" value="shield" />
+                <Simple name="Desc" value="This is your shield." />
+                <Simple name="IsPlural" value="False" />
+                <Simple name="PluralType" value="S" />
+                <Simple name="ArticleType" value="A" />
+                <Simple name="Value" value="50" />
+                <Simple name="Weight" value="15" />
+                <Simple name="Type" value="Wearable" />
+                <Simple name="Field1" value="1" />
+                <Simple name="Field2" value="0" />
+                <Simple name="Field3" value="0" />
+                <Simple name="Field4" value="0" />
+                <Simple name="Field5" value="0" />
+              </Properties>
+            </Complex>
+            <SingleArray name="Weapons">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="Wrath Of Ngurct" />
+                    <Simple name="Desc" value="You see &quot;Wrath Of Ngurct,&quot; the high priest's sword.  The blade seems to pulse and quiver; the hilt is inlaid with rubies." />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="None" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="45" />
+                    <Simple name="Weight" value="10" />
+                    <Simple name="Type" value="MagicWeapon" />
+                    <Simple name="Field1" value="25" />
+                    <Simple name="Field2" value="5" />
+                    <Simple name="Field3" value="3" />
+                    <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="Ervuolian sword" />
+                    <Simple name="Desc" value="You see an exquisite sword whose rococo design and encrusted hilt suggest it as an Ervuolian artifact, one Sam Slicker has held onto.  Atop its great aesthetic virtue you observe its martial virtue as well, the blade divinely sharp and perfectly weighted." />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="S" />
+                    <Simple name="ArticleType" value="An" />
+                    <Simple name="Value" value="40" />
+                    <Simple name="Weight" value="10" />
+                    <Simple name="Type" value="MagicWeapon" />
+                    <Simple name="Field1" value="25" />
+                    <Simple name="Field2" value="5" />
+                    <Simple name="Field3" value="4" />
+                    <Simple name="Field4" value="7" />
+                    <Simple name="Field5" value="1" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="Bloodthirst" />
+                    <Simple name="Desc" value="You see Bloodthirst, the priest's sword." />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="S" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="30" />
+                    <Simple name="Weight" value="15" />
+                    <Simple name="Type" value="MagicWeapon" />
+                    <Simple name="Field1" value="20" />
+                    <Simple name="Field2" value="5" />
+                    <Simple name="Field3" value="2" />
+                    <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Name" value="Necronis" />
+                    <Simple name="Desc" value="You see Necronis, the priest's sword." />
+                    <Simple name="IsPlural" value="False" />
+                    <Simple name="PluralType" value="Es" />
+                    <Simple name="ArticleType" value="None" />
+                    <Simple name="Value" value="35" />
+                    <Simple name="Weight" value="15" />
+                    <Simple name="Type" value="MagicWeapon" />
+                    <Simple name="Field1" value="20" />
+                    <Simple name="Field2" value="5" />
+                    <Simple name="Field3" value="2" />
+                    <Simple name="Field4" value="6" />
+                    <Simple name="Field5" value="1" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Pyke Clawspire" />
+            <Simple name="Desc" value="" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
       </Items>
@@ -686,6 +1222,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="7" />
+    <Simple name="CurrUid" value="8" />
   </Properties>
 </Complex>

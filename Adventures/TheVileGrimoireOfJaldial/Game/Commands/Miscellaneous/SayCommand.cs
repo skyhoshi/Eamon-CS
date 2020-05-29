@@ -37,13 +37,13 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 				{
 					if (!gGameState.EfreetiKilled && ++gGameState.EfreetiSummons <= 3)
 					{
-						gOut.Print("You quote the words and hear a loud explosion, as a large infernal being appears in a whirlwind of fire!");
+						gEngine.PrintEffectDesc(95);
 
 						efreetiMonster.SetInRoom(gActorRoom);
 					}
 					else
 					{
-						gOut.Print("You quote the words, and the parchment suddenly crumbles to dust!");
+						gEngine.PrintEffectDesc(96);
 
 						parchmentArtifact.SetInLimbo();
 					}

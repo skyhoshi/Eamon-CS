@@ -127,15 +127,6 @@ namespace EamonRT.Game.Commands
 			PlayerResolveArtifact();
 		}
 
-		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
-		{
-			Debug.Assert(room != null);
-
-			Debug.Assert(artifact != null);
-
-			return room.IsLit() && (artifact.LightSource != null ? artifact.IsCarriedByCharacter() : true);
-		}
-
 		public LightCommand()
 		{
 			SortOrder = 170;

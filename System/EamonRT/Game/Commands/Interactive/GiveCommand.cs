@@ -63,7 +63,7 @@ namespace EamonRT.Game.Commands
 
 				if (gIobjMonster.ShouldRefuseToAcceptGift(gDobjArtifact))
 				{
-					gEngine.MonsterSmiles(gIobjMonster);
+					gEngine.MonsterEmotes(gIobjMonster);
 
 					gOut.WriteLine();
 
@@ -249,7 +249,7 @@ namespace EamonRT.Game.Commands
 
 							gIobjMonster.OrigFriendliness = (Friendliness)200;
 
-							gEngine.MonsterSmiles(gIobjMonster);
+							gEngine.MonsterEmotes(gIobjMonster);
 
 							gOut.WriteLine();
 						}
@@ -314,7 +314,7 @@ namespace EamonRT.Game.Commands
 
 						gIobjMonster.OrigFriendliness = (Friendliness)200;
 
-						gEngine.MonsterSmiles(gIobjMonster);
+						gEngine.MonsterEmotes(gIobjMonster);
 
 						gOut.WriteLine();
 					}
@@ -400,13 +400,6 @@ namespace EamonRT.Game.Commands
 
 				PlayerResolveMonster();
 			}
-		}
-
-		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
-		{
-			Debug.Assert(artifact != null);
-
-			return artifact.IsCarriedByCharacter();
 		}
 
 		/*

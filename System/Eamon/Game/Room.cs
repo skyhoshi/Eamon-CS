@@ -240,6 +240,16 @@ namespace Eamon.Game
 			SetDirectionDoor((long)dir, artifact);
 		}
 
+		public virtual string GetYouAlsoSee(bool showDesc, IList<IMonster> monsterList, IList<IArtifact> artifactList, IList<IGameBase> combinedList)
+		{
+			Debug.Assert(monsterList != null && artifactList != null && combinedList != null);
+
+			return string.Format("{0}You {1}{2}",
+					!showDesc ? Environment.NewLine : "",
+					showDesc ? "also " : "",
+					showDesc && !monsterList.Any() ? "notice " : "see ");
+		}
+
 		public virtual string GetObviousExits()
 		{
 			return string.Format("{0}Obvious {1}:  ", Environment.NewLine, EvalRoomType("exits", "paths"));
@@ -510,10 +520,7 @@ namespace Eamon.Game
 
 			if (combined.Any())
 			{
-				buf.AppendFormat("{0}You {1}{2}",
-					!showDesc ? Environment.NewLine : "",
-					showDesc ? "also " : "",
-					showDesc && !monsters.Any() ? "notice " : "see ");
+				buf.AppendFormat(GetYouAlsoSee(showDesc, monsters, artifacts, combined));
 
 				rc = gEngine.GetRecordNameList(combined, ArticleType.A, true, StateDescDisplayCode.AllStateDescs, true, false, buf);
 

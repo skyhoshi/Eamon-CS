@@ -761,27 +761,7 @@ namespace EamonRT.Game.Commands
 						Command.CommandParser.ObjData.ArtifactNotFoundFunc = Command.PrintDontHaveItNotHere;
 					}
 
-					Command.CommandParser.ObjData.GetArtifactList = new List<IArtifact>();
-
-					foreach (var whereClauseFuncs in Command.CommandParser.ObjData.ArtifactWhereClauseList)
-					{
-						Command.CommandParser.ObjData.GetArtifactList = Command.CommandParser.ObjData.GetArtifactListFunc(whereClauseFuncs);
-
-						Debug.Assert(Command.CommandParser.ObjData.GetArtifactList != null);
-
-						var filterArtifactList = Command.CommandParser.ObjData.FilterArtifactListFunc(Command.CommandParser.ObjData.GetArtifactList, Command.CommandParser.ObjData.Name);
-
-						Debug.Assert(filterArtifactList != null);
-
-						Command.CommandParser.ObjData.FilterArtifactList = filterArtifactList.GroupBy(a => a.Name.ToLower()).Select(a => a.First()).ToList();
-
-						Debug.Assert(Command.CommandParser.ObjData.FilterArtifactList != null);
-
-						if (Command.CommandParser.ObjData.FilterArtifactList.Count > 0)
-						{
-							break;
-						}
-					}
+					PlayerResolveArtifactProcessWhereClauseList();
 
 					Command.CommandParser.ObjData.ArtifactMatchFunc();
 				}
@@ -791,6 +771,31 @@ namespace EamonRT.Game.Commands
 					{
 						x.ErrorMessage = string.Format("{0}: string.IsNullOrWhiteSpace(Command.CommandParser.{1}.Name)", Command.Name, Command.CommandParser.GetActiveObjData());
 					});
+				}
+			}
+		}
+
+		public virtual void PlayerResolveArtifactProcessWhereClauseList()
+		{
+			Command.CommandParser.ObjData.GetArtifactList = new List<IArtifact>();
+
+			foreach (var whereClauseFuncs in Command.CommandParser.ObjData.ArtifactWhereClauseList)
+			{
+				Command.CommandParser.ObjData.GetArtifactList = Command.CommandParser.ObjData.GetArtifactListFunc(whereClauseFuncs);
+
+				Debug.Assert(Command.CommandParser.ObjData.GetArtifactList != null);
+
+				var filterArtifactList = Command.CommandParser.ObjData.FilterArtifactListFunc(Command.CommandParser.ObjData.GetArtifactList, Command.CommandParser.ObjData.Name);
+
+				Debug.Assert(filterArtifactList != null);
+
+				Command.CommandParser.ObjData.FilterArtifactList = filterArtifactList.GroupBy(a => a.Name.ToLower()).Select(a => a.First()).ToList();
+
+				Debug.Assert(Command.CommandParser.ObjData.FilterArtifactList != null);
+
+				if (Command.CommandParser.ObjData.FilterArtifactList.Count > 0)
+				{
+					break;
 				}
 			}
 		}
@@ -834,23 +839,7 @@ namespace EamonRT.Game.Commands
 						Command.CommandParser.ObjData.MonsterNotFoundFunc = Command.PrintNobodyHereByThatName;
 					}
 
-					Command.CommandParser.ObjData.GetMonsterList = new List<IMonster>();
-
-					foreach (var whereClauseFuncs in Command.CommandParser.ObjData.MonsterWhereClauseList)
-					{
-						Command.CommandParser.ObjData.GetMonsterList = Command.CommandParser.ObjData.GetMonsterListFunc(whereClauseFuncs);
-
-						Debug.Assert(Command.CommandParser.ObjData.GetMonsterList != null);
-
-						Command.CommandParser.ObjData.FilterMonsterList = Command.CommandParser.ObjData.FilterMonsterListFunc(Command.CommandParser.ObjData.GetMonsterList, Command.CommandParser.ObjData.Name);
-
-						Debug.Assert(Command.CommandParser.ObjData.FilterMonsterList != null);
-
-						if (Command.CommandParser.ObjData.FilterMonsterList.Count > 0)
-						{
-							break;
-						}
-					}
+					PlayerResolveMonsterProcessWhereClauseList();
 
 					Command.CommandParser.ObjData.MonsterMatchFunc();
 				}
@@ -860,6 +849,27 @@ namespace EamonRT.Game.Commands
 					{
 						x.ErrorMessage = string.Format("{0}: string.IsNullOrWhiteSpace(Command.CommandParser.{1}.Name)", Command.Name, Command.CommandParser.GetActiveObjData());
 					});
+				}
+			}
+		}
+
+		public virtual void PlayerResolveMonsterProcessWhereClauseList()
+		{
+			Command.CommandParser.ObjData.GetMonsterList = new List<IMonster>();
+
+			foreach (var whereClauseFuncs in Command.CommandParser.ObjData.MonsterWhereClauseList)
+			{
+				Command.CommandParser.ObjData.GetMonsterList = Command.CommandParser.ObjData.GetMonsterListFunc(whereClauseFuncs);
+
+				Debug.Assert(Command.CommandParser.ObjData.GetMonsterList != null);
+
+				Command.CommandParser.ObjData.FilterMonsterList = Command.CommandParser.ObjData.FilterMonsterListFunc(Command.CommandParser.ObjData.GetMonsterList, Command.CommandParser.ObjData.Name);
+
+				Debug.Assert(Command.CommandParser.ObjData.FilterMonsterList != null);
+
+				if (Command.CommandParser.ObjData.FilterMonsterList.Count > 0)
+				{
+					break;
 				}
 			}
 		}
@@ -911,7 +921,110 @@ namespace EamonRT.Game.Commands
 
 		public virtual bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
 		{
-			return true;
+			if (Command is IGiveCommand)
+			{
+				Debug.Assert(artifact != null);
+
+				return artifact.IsCarriedByCharacter();
+			}
+			else if (Command is IRequestCommand)
+			{
+				return false;
+			}
+			else if (Command is IDropCommand)
+			{
+				Debug.Assert(artifact != null);
+
+				return artifact.IsWornByCharacter();
+			}
+			else if (Command is IExamineCommand)
+			{
+				Debug.Assert(artifact != null);
+
+				return Enum.IsDefined(typeof(ContainerType), Command.ContainerType) && !artifact.IsWornByCharacter();
+			}
+			else if (Command is IGetCommand)
+			{
+				return false;
+			}
+			else if (Command is ILightCommand)
+			{
+				Debug.Assert(room != null);
+
+				Debug.Assert(artifact != null);
+
+				return room.IsLit() && (artifact.LightSource != null ? artifact.IsCarriedByCharacter() : true);
+			}
+			else if (Command is IPutCommand)
+			{
+				Debug.Assert(artifact != null);
+
+				return artifact.IsCarriedByCharacter();
+			}
+			else if (Command is IReadyCommand)
+			{
+				Debug.Assert(artifact != null);
+
+				var ac = artifact.GetArtifactCategory((Command as IReadyCommand).ArtTypes, false);
+
+				if (ac != null)
+				{
+					if (ac.Type == ArtifactType.Wearable)
+					{
+						return artifact.IsCarriedByCharacter();
+					}
+					else
+					{
+						return !artifact.IsReadyableByCharacter() || artifact.IsCarriedByCharacter();
+					}
+				}
+				else
+				{
+					return true;
+				}
+			}
+			else if (Command is IRemoveCommand)
+			{
+				Debug.Assert(artifact != null);
+
+				return Command.CommandParser.ObjData == Command.CommandParser.IobjData || artifact.IsWornByCharacter();
+			}
+			else if (Command is IUseCommand)
+			{
+				Debug.Assert(artifact != null);
+
+				var ac = artifact.GetArtifactCategory((Command as IUseCommand).ArtTypes, false);
+
+				if (ac != null)
+				{
+					if (ac.IsWeapon01())
+					{
+						return !artifact.IsReadyableByCharacter() || artifact.IsCarriedByCharacter();
+					}
+					else if (ac.Type == ArtifactType.Wearable)
+					{
+						return artifact.IsCarriedByCharacter();
+					}
+					else
+					{
+						return true;
+					}
+				}
+				else
+				{
+					return true;
+				}
+			}
+			else if (Command is IWearCommand)
+			{
+				Debug.Assert(artifact != null);
+
+				return artifact.Wearable != null ? artifact.IsCarriedByCharacter() || artifact.IsWornByCharacter() : true;
+			}
+			else
+			{
+				return true;
+			}
 		}
 
 		public virtual bool ShouldPreTurnProcess()

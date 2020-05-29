@@ -40,13 +40,13 @@ namespace TheVileGrimoireOfJaldial.Game.States
 				}
 				else
 				{
-					gOut.Print("You feel yourself spinning into infinity, and then re-embodied in your former self.  As you slowly open your eyes, with a sense of bewilderment, you find yourself once again in the open grave.");
+					gEngine.PrintEffectDesc(97);
 
-					gOut.Print("However, as you look upward, you see the hideous figure of a gargoyle appear at the grave's edge.  Moments later, a ghoul appears, clutching a shovel.  They glance at each other, then peer down at you with evil contempt.");
+					gEngine.PrintEffectDesc(105);
 
-					gOut.Print("You hear the gargoyle hiss, and with that, the ghoul begins to labor.  A shower of dirt hits your face, but in your current dazed, defenseless state all you can do is splutter, gasping for air.");
+					gEngine.PrintEffectDesc(106);
 
-					gOut.Print("It all ends for you here, buried alive in your custom-made grave.");
+					gEngine.PrintEffectDesc(107);
 				}
 			}
 

@@ -609,7 +609,7 @@
             <Simple name="Uid" value="21" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Graveyard, Southern Edge" />
-            <Simple name="Desc" value="You are at the southern edge of the graveyard.  The fence breaks open to the southwest, where a small weed-overgrown footpath winds into the dimly-lit forest." />
+            <Simple name="Desc" value="You are at the southern edge of the graveyard.  The fence breaks open to the south, where a small weed-overgrown footpath winds into the dimly-lit forest." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1827,7 +1827,7 @@
             <Simple name="Uid" value="63" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Level Passageway" />
-            <Simple name="Desc" value="You have entered a passage with the floor carved level.  A trail in the dust runs the length of the corridor to the southwest through the only exit." />
+            <Simple name="Desc" value="You have entered a passage with the floor carved level.  A trail in the dust runs the length of the corridor to the southeast through the only exit." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -2030,7 +2030,7 @@
             <Simple name="Uid" value="70" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Smooth Passage" />
-            <Simple name="Desc" value="This passage has a smooth floor and walls.  You may exit to the northeast.  A series of odd grooves have been cut diagonally into the east wall." />
+            <Simple name="Desc" value="This passage has a smooth floor and walls.  You may exit to the northwest.  A series of odd grooves have been cut diagonally into the east wall." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -2552,7 +2552,7 @@
             <Simple name="Uid" value="88" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Axe-Scarred Room" />
-            <Simple name="Desc" value="This room shows the signs of mining operations - pickaxe marks scar the north and south walls.  The air is heavy, and the floor is dusty, yet disturbed.  Passages lead east and south." />
+            <Simple name="Desc" value="This room shows the signs of mining operations - pickaxe marks scar the north and south walls.  The air is heavy, and the floor is dusty, yet disturbed.  Passages lead south and west." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

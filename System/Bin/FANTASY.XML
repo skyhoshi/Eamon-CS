@@ -143,6 +143,25 @@
           <Properties>
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="The Vile Grimoire of Jaldi'al" />
+            <Simple name="WorkDir" value="..\..\Adventures\TheVileGrimoireOfJaldial" />
+            <Simple name="PluginFileName" value="TheVileGrimoireOfJaldial.dll" />
+            <Simple name="ConfigFileName" value="NONE" />
+            <Simple name="FilesetFileName" value="NONE" />
+            <Simple name="CharacterFileName" value="NONE" />
+            <Simple name="ModuleFileName" value="MODULE.XML" />
+            <Simple name="RoomFileName" value="ROOMS.XML" />
+            <Simple name="ArtifactFileName" value="ARTIFACTS.XML" />
+            <Simple name="EffectFileName" value="EFFECTS.XML" />
+            <Simple name="MonsterFileName" value="MONSTERS.XML" />
+            <Simple name="HintFileName" value="HINTS.XML" />
+            <Simple name="GameStateFileName" value="NONE" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Fileset, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Land of the Mountain King" />
             <Simple name="WorkDir" value="..\..\Adventures\LandOfTheMountainKing" />
             <Simple name="PluginFileName" value="LandOfTheMountainKing.dll" />
@@ -166,6 +185,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="8" />
+    <Simple name="CurrUid" value="9" />
   </Properties>
 </Complex>

@@ -3,6 +3,8 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using System;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -20,6 +22,10 @@ namespace EamonRT.Game.Commands
 		public const long PpeAfterPlayerSpellCastCheck = 1;
 
 		public virtual bool CastSpell { get; set; }
+
+		public virtual Func<IArtifact, bool>[] ResurrectWhereClauseFuncs { get; set; }
+
+		public virtual Func<IArtifact, bool>[] VanishWhereClauseFuncs { get; set; }
 
 		public virtual void PrintSonicBoom()
 		{
@@ -53,7 +59,7 @@ namespace EamonRT.Game.Commands
 				{
 					// Raise the dead / Make stuff vanish
 
-					if (gEngine.ResurrectDeadBodies(gActorRoom) || gEngine.MakeArtifactsVanish(gActorRoom))
+					if (gEngine.ResurrectDeadBodies(gActorRoom, ResurrectWhereClauseFuncs) || gEngine.MakeArtifactsVanish(gActorRoom, VanishWhereClauseFuncs))
 					{
 						goto Cleanup;
 					}

@@ -3,7 +3,10 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using System;
 using System.Diagnostics;
+using System.Text;
+using Eamon;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
 using Enums = Eamon.Framework.Primitive.Enums;
@@ -14,25 +17,57 @@ namespace TheVileGrimoireOfJaldial.Game
 	[ClassMappings(typeof(IMonster))]
 	public class Monster : Eamon.Game.Monster, Framework.IMonster
 	{
+		public override string Desc
+		{
+			get
+			{
+				var result = base.Desc;
+
+				var room = GetInRoom() as Framework.IRoom;
+
+				if (Globals.EnableGameOverrides && Uid != 10 && Uid != 50 && gGameState != null && room != null && room.Uid == gGameState.Ro && room.IsDimLightRoom() && gGameState.Ls <= 0)
+				{
+					result = string.Format("You can vaguely see {0} in the {1}.", GetTheName(buf: Globals.Buf01), gGameState.IsNightTime() ? "darkness" : "white haze");
+				}
+
+				return result;
+			}
+
+			set
+			{
+				base.Desc = value;
+			}
+		}
+
 		public override long Agility
 		{
 			get
 			{
 				var result = base.Agility;
 
-				// Beholder's clumsiness spell causes decreased Agility
-
-				if (Globals.EnableGameOverrides && gGameState != null && gGameState.ClumsyTargets.ContainsKey(Uid))
+				if (Globals.EnableGameOverrides && gGameState != null)
 				{
-					var roundsList = gGameState.ClumsyTargets[Uid];
+					// Beholder's clumsiness spell causes decreased Agility
 
-					Debug.Assert(roundsList != null && roundsList.Count > 0);
-
-					result -= (roundsList.Count * 3);
-
-					if (result < 1)			// TODO: use Agility.MinValue
+					if (gGameState.ClumsyTargets.ContainsKey(Uid))
 					{
-						result = 1;
+						var roundsList = gGameState.ClumsyTargets[Uid];
+
+						Debug.Assert(roundsList != null && roundsList.Count > 0);
+
+						result -= (roundsList.Count * 3);
+
+						if (result < 1)			// TODO: use Agility.MinValue
+						{
+							result = 1;
+						}
+					}
+
+					// Paralysis causes total loss of Agility
+
+					if (gGameState.ParalyzedTargets.ContainsKey(Uid))
+					{
+						result = 1;			// TODO: use Agility.MinValue
 					}
 				}
 
@@ -46,6 +81,64 @@ namespace TheVileGrimoireOfJaldial.Game
 		}
 
 		public virtual string AttackDesc { get; set; }
+
+		protected virtual bool IsJaldialMoreLethal()
+		{
+			var result = false;
+
+			var beholderMonster = gMDB[36];
+
+			Debug.Assert(beholderMonster != null);
+
+			var efreetiMonster = gMDB[50];
+
+			Debug.Assert(efreetiMonster != null);
+
+			var room = GetInRoom();
+
+			if (room != null)
+			{
+				result = (beholderMonster.IsInRoom(room) && beholderMonster.Friendliness == Enums.Friendliness.Friend) || (efreetiMonster.IsInRoom(room) && efreetiMonster.Friendliness == Enums.Friendliness.Friend);
+			}
+
+			return result;
+		}
+
+		public override RetCode BuildPrintedFullDesc(StringBuilder buf, bool showName)
+		{
+			var room = GetInRoom() as Framework.IRoom;
+
+			var result = base.BuildPrintedFullDesc(buf, showName);
+
+			if (gEngine.IsSuccess(result) && gGameState != null && room != null && !showName && (!room.IsDimLightRoom() || gGameState.Ls > 0))
+			{
+				if (gGameState.ParalyzedTargets.ContainsKey(Uid))
+				{
+					buf.AppendFormat("{0}{1} {2} paralyzed at this time.{0}", Environment.NewLine, GetTheName(true, buf: Globals.Buf01), EvalPlural("is", "are"));
+				}
+
+				if (gGameState.ClumsyTargets.ContainsKey(Uid))
+				{
+					buf.AppendFormat("{0}{1} {2} agility impaired at this time.{0}", Environment.NewLine, GetTheName(true, buf: Globals.Buf01), EvalPlural("is", "are"));
+				}
+			}
+
+			return result;
+		}
+
+		public override bool HasWornInventory()
+		{
+			// Pocket dragon and beholder have no worn inventory
+
+			return Uid != 24 && Uid != 36 ? base.HasWornInventory() : false;
+		}
+
+		public override bool HasCarriedInventory()
+		{
+			// Pocket dragon and beholder have no carried inventory
+
+			return Uid != 24 && Uid != 36 ? base.HasCarriedInventory() : false;
+		}
 
 		public override bool CanMoveToRoom(bool fleeing)
 		{
@@ -68,17 +161,29 @@ namespace TheVileGrimoireOfJaldial.Game
 			}
 			else
 			{
-				// Flora monsters and water weird can't flee or follow
+				// Flora monsters, water weird and paralyzed monsters can't flee or follow
 
-				return Uid != 18 && Uid != 19 && Uid != 20 && Uid != 22 && Uid != 38 ? base.CanMoveToRoom(fleeing) : false;
+				return Uid != 18 && Uid != 19 && Uid != 20 && Uid != 22 && Uid != 38 && !gGameState.ParalyzedTargets.ContainsKey(Uid) ? base.CanMoveToRoom(fleeing) : false;
 			}
+		}
+
+		public override bool ShouldShowHealthStatusWhenExamined()
+		{
+			var room = GetInRoom() as Framework.IRoom;
+
+			return Uid == 10 || Uid == 50 || room == null || !room.IsDimLightRoom() || gGameState == null || gGameState.Ls > 0 ? base.ShouldShowHealthStatusWhenExamined() : false;
+		}
+
+		public override bool ShouldShowHealthStatusWhenInventoried()
+		{
+			return false;
 		}
 
 		public override bool ShouldProcessInGameLoop()
 		{
-			// When a monster has initiative nobody else can react this round
+			// When a monster has initiative nobody else can react this round; paralyzed monsters sit out the round
 
-			return (Globals.InitiativeMonsterUid == 0 || Uid == Globals.InitiativeMonsterUid) && base.ShouldProcessInGameLoop();
+			return (Globals.InitiativeMonsterUid == 0 || Uid == Globals.InitiativeMonsterUid) && !gGameState.ParalyzedTargets.ContainsKey(Uid) && base.ShouldProcessInGameLoop();
 		}
 
 		public override string[] GetWeaponAttackDescs(IArtifact artifact)
@@ -214,7 +319,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "claw{0} at";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 3;
 					}
@@ -222,7 +327,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "bite{0} at";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 6;
 					}
@@ -235,7 +340,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "claw{0} at";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 4;
 					}
@@ -243,7 +348,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "bite{0} at";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 8;
 					}
@@ -256,7 +361,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "gore{0}";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 6;
 					}
@@ -264,7 +369,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "bite{0} at";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 4;
 					}
@@ -272,7 +377,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "claw{0} at";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 3;
 					}
@@ -282,6 +387,33 @@ namespace TheVileGrimoireOfJaldial.Game
 				case 10:
 
 					AttackDesc = "zap{0}";
+
+					break;
+
+				case 11:
+
+					if (rl > 70 && !Globals.CarrionCrawlerFlails)
+					{
+						AttackDesc = "bite{0} at";
+
+						AttackCount = 1;
+
+						NwDice = 6;
+
+						NwSides = 4;
+					}
+					else
+					{
+						AttackDesc = "flail{0} at";
+
+						AttackCount = -8;
+
+						NwDice = 4;
+
+						NwSides = 3;
+
+						Globals.CarrionCrawlerFlails = true;
+					}
 
 					break;
 
@@ -304,7 +436,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "claw{0} at";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 8;
 					}
@@ -312,7 +444,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "bite{0} at";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 6;
 					}
@@ -321,11 +453,11 @@ namespace TheVileGrimoireOfJaldial.Game
 
 				case 19:
 
-					if (rl > 60)
+					if (rl > 40)
 					{
 						AttackDesc = "maul{0}";
 
-						NwDice = 2;
+						NwDice = 4;
 
 						NwSides = 4;
 					}
@@ -333,7 +465,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "grapples with";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 4;
 					}
@@ -346,17 +478,17 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "drain{0} blood from";
 
-						NwDice = 1;
+						NwDice = 2;
 
-						NwSides = 8;
+						NwSides = 4;
 					}
 					else
 					{
-						AttackDesc = "prick{0}";
+						AttackDesc = "lance{0}";
 
-						NwDice = 1;
+						NwDice = 2;
 
-						NwSides = 4;
+						NwSides = 8;
 					}
 
 					break;
@@ -373,7 +505,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "kick{0} at";
 
-						NwDice = 2;
+						NwDice = 4;
 
 						NwSides = 3;
 					}
@@ -381,7 +513,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "throw{0} a punch at";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 4;
 					}
@@ -429,9 +561,9 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "cast{0} a fireball at";
 
-						NwDice = 1;
+						NwDice = 3;
 
-						NwSides = 8;
+						NwSides = 7;
 
 						gGameState.FireBalls++;
 					}
@@ -439,7 +571,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "cast{0} a mystic missile at";
 
-						NwDice = 2;
+						NwDice = 4;
 
 						NwSides = 7;
 
@@ -449,7 +581,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "bite{0} at";
 
-						NwDice = 1;
+						NwDice = 3;
 
 						NwSides = 5;
 					}
@@ -476,7 +608,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "bludgeon{0}";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 6;
 					}
@@ -489,7 +621,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "sting{0}";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 4;
 					}
@@ -497,7 +629,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "pinches";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 10;
 					}
@@ -512,15 +644,15 @@ namespace TheVileGrimoireOfJaldial.Game
 
 						if (gGameState.GriffinAngered)
 						{
-							NwDice = 2;
+							NwDice = 4;
 
 							NwSides = 8;
 						}
 						else
 						{
-							NwDice = 1;
+							NwDice = 4;
 
-							NwSides = 8;
+							NwSides = 3;
 						}
 					}
 					else
@@ -531,11 +663,11 @@ namespace TheVileGrimoireOfJaldial.Game
 						{
 							NwDice = 2;
 
-							NwSides = 3;
+							NwSides = 8;
 						}
 						else
 						{
-							NwDice = 1;
+							NwDice = 2;
 
 							NwSides = 4;
 						}
@@ -549,7 +681,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "bite{0} at";
 
-						NwDice = 2;
+						NwDice = 4;
 
 						NwSides = 3;
 					}
@@ -557,7 +689,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "claw{0} at";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 2;
 					}
@@ -565,12 +697,14 @@ namespace TheVileGrimoireOfJaldial.Game
 					break;
 
 				case 43:
+				{
+					var moreLethal = IsJaldialMoreLethal();
 
 					if (rl > 73 && gGameState.LightningBolts < 7)
 					{
 						AttackDesc = "cast{0} a lightning bolt at";
 
-						NwDice = 3;
+						NwDice = moreLethal ? 6 : 5;
 
 						NwSides = 4;
 
@@ -580,7 +714,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "cast{0} an ice bolt at";
 
-						NwDice = 3;
+						NwDice = moreLethal ? 6 : 5;
 
 						NwSides = 5;
 
@@ -590,7 +724,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "mentally blast{0}";
 
-						NwDice = 3;
+						NwDice = moreLethal ? 6 : 5;
 
 						NwSides = 5;
 
@@ -600,20 +734,23 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "attack{0}";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 7;
 					}
 
 					break;
+				}
 
 				case 44:
+				{
+					var moreLethal = IsJaldialMoreLethal();
 
 					if (rl > 50)
 					{
 						AttackDesc = "bite{0} at";
 
-						NwDice = 3;
+						NwDice = moreLethal ? 6 : 5;
 
 						NwSides = 5;
 					}
@@ -621,12 +758,13 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						AttackDesc = "claw{0} at";
 
-						NwDice = 1;
+						NwDice = 2;
 
 						NwSides = 7;
 					}
 
 					break;
+				}
 
 				case 9:
 				case 14:
@@ -664,6 +802,13 @@ namespace TheVileGrimoireOfJaldial.Game
 					else
 					{
 						AttackDesc = rl > 50 ? "thrust{0} at" : "slashes at";
+					}
+
+					// Trevor can only dual attack with less powerful one-handed weapons
+
+					if (Uid == 49)
+					{
+						AttackCount = wpnArtifact != null && wpnArtifact.GeneralWeapon.Field5 == 1 && (wpnArtifact.GeneralWeapon.Field3 * wpnArtifact.GeneralWeapon.Field4) <= 15 ? 2 : 1;
 					}
 
 					break;

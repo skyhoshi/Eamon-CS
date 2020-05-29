@@ -18,6 +18,16 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
+			if (gGameState.ParalyzedTargets.ContainsKey(gGameState.Cm))
+			{
+				gOut.Print("You are paralyzed at this time.");
+			}
+
+			if (gGameState.ClumsyTargets.ContainsKey(gGameState.Cm))
+			{
+				gOut.Print("You are agility impaired at this time.");
+			}
+
 			gOut.Print("You are at {0} percent health.", (long)Math.Round((double)(gActorMonster.Hardiness - gActorMonster.DmgTaken) / (double)gActorMonster.Hardiness * 100));
 
 			if (NextState == null)

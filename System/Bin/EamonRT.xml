@@ -470,7 +470,13 @@
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerResolveArtifact">
             <summary></summary>
         </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerResolveArtifactProcessWhereClauseList">
+            <summary></summary>
+        </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerResolveMonster">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerResolveMonsterProcessWhereClauseList">
             <summary></summary>
         </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerProcessEvents(System.Int64)">
@@ -583,6 +589,9 @@
         <member name="T:EamonRT.Framework.Commands.ISmileCommand">
             <summary></summary>
         </member>
+        <member name="T:EamonRT.Framework.Commands.IWaveCommand">
+            <summary></summary>
+        </member>
         <member name="T:EamonRT.Framework.Commands.ICloseCommand">
             <summary></summary>
         </member>
@@ -643,9 +652,6 @@
         <member name="P:EamonRT.Framework.Commands.IInventoryCommand.AllowExtendedContainers">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Commands.IInventoryCommand.OmitHealthStatus">
-            <summary></summary>
-        </member>
         <member name="T:EamonRT.Framework.Commands.ILookCommand">
             <summary></summary>
         </member>
@@ -653,6 +659,12 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Commands.IPowerCommand.CastSpell">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IPowerCommand.ResurrectWhereClauseFuncs">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IPowerCommand.VanishWhereClauseFuncs">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.IQuitCommand">
@@ -906,9 +918,10 @@
             <param name="monster"></param>
             <param name="printFinalNewLine"></param>
         </member>
-        <member name="M:EamonRT.Framework.IEngine.MonsterSmiles(Eamon.Framework.IMonster)">
+        <member name="M:EamonRT.Framework.IEngine.MonsterEmotes(Eamon.Framework.IMonster,System.Boolean)">
             <summary></summary>
             <param name="monster"></param>
+            <param name="friendSmile"></param>
         </member>
         <member name="M:EamonRT.Framework.IEngine.MonsterDies(Eamon.Framework.IMonster,Eamon.Framework.IMonster)">
             <summary></summary>
@@ -1015,10 +1028,11 @@
             <param name="monster"></param>
             <returns></returns>
         </member>
-        <member name="M:EamonRT.Framework.IEngine.GetSmilingMonsterList(Eamon.Framework.IRoom,Eamon.Framework.IMonster)">
+        <member name="M:EamonRT.Framework.IEngine.GetEmotingMonsterList(Eamon.Framework.IRoom,Eamon.Framework.IMonster,System.Boolean)">
             <summary></summary>
             <param name="room"></param>
             <param name="monster"></param>
+            <param name="friendSmile"></param>
             <returns></returns>
         </member>
         <member name="M:EamonRT.Framework.IEngine.BuildLoopArtifactList(Eamon.Framework.IMonster)">
@@ -1123,7 +1137,7 @@
             <summary></summary>
             <param name="printLineSep"></param>
         </member>
-        <member name="M:EamonRT.Framework.IEngine.MoveMonsters">
+        <member name="M:EamonRT.Framework.IEngine.MoveMonsters(System.Func{Eamon.Framework.IMonster,System.Boolean}[])">
             <summary></summary>
         </member>
         <member name="M:EamonRT.Framework.IEngine.RtProcessArgv(System.Boolean,System.Boolean@)">

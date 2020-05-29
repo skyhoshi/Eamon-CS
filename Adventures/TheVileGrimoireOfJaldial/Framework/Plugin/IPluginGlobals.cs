@@ -11,6 +11,9 @@ namespace TheVileGrimoireOfJaldial.Framework.Plugin
 		bool EncounterSurprises { get; set; }
 
 		/// <summary></summary>
+		bool CarrionCrawlerFlails { get; set; }
+
+		/// <summary></summary>
 		long EventRoll { get; set; }
 
 		/// <summary></summary>

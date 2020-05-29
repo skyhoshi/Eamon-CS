@@ -212,7 +212,7 @@ namespace TheTempleOfNgurct.Game
 			base.ConvertToCarriedInventory(weaponList);
 		}
 
-		public override void MonsterSmiles(IMonster monster)
+		public override void MonsterEmotes(IMonster monster, bool friendSmile = true)
 		{
 			Debug.Assert(monster != null);
 
@@ -224,7 +224,7 @@ namespace TheTempleOfNgurct.Game
 			}
 			else
 			{
-				base.MonsterSmiles(monster);
+				base.MonsterEmotes(monster, friendSmile);
 			}
 		}
 

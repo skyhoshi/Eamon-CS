@@ -9,6 +9,8 @@ namespace TheVileGrimoireOfJaldial.Framework
 {
 	public interface IArtifact : Eamon.Framework.IArtifact
 	{
+		bool IsDecoration();
+
 		long GetLeverageBonus();
 	}
 }

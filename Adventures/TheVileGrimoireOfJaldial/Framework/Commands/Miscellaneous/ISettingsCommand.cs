@@ -9,6 +9,8 @@ namespace TheVileGrimoireOfJaldial.Framework.Commands
 {
 	public interface ISettingsCommand : EamonRT.Framework.Commands.ISettingsCommand
 	{
+		bool? ShowCombatDamage { get; set; }
+
 		bool? ExitDirNames { get; set; }
 	}
 }

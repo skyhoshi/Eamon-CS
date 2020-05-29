@@ -51,7 +51,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			if (gDobjArtifact.Uid == 27)
 			{
-				gOut.Print("The magic radiated from this manuscript keeps it closed to prying eyes.");
+				gEngine.PrintEffectDesc(90);
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}

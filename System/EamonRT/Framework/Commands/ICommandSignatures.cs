@@ -371,7 +371,13 @@ namespace EamonRT.Framework.Commands
 		void PlayerResolveArtifact();
 
 		/// <summary></summary>
+		void PlayerResolveArtifactProcessWhereClauseList();
+
+		/// <summary></summary>
 		void PlayerResolveMonster();
+
+		/// <summary></summary>
+		void PlayerResolveMonsterProcessWhereClauseList();
 
 		/// <summary></summary>
 		/// <param name="eventType"></param>

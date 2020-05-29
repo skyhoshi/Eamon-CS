@@ -86,6 +86,8 @@ namespace TheVileGrimoireOfJaldial.Game.States
 					}
 				}
 
+				// Describe weather conditions
+
 				if (room.IsRainyRoom() || room.IsFoggyRoom())
 				{
 					var rainyWeathers = new string[] { "", "a drizzle", "light rain", "heavy rain", "a downpour" };
@@ -99,10 +101,6 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 				if (ShouldPreTurnProcess())
 				{
-					// Random events
-
-					// TODO
-
 					var shadowMonster = gMDB[9];
 
 					Debug.Assert(shadowMonster != null);
@@ -203,11 +201,49 @@ namespace TheVileGrimoireOfJaldial.Game.States
 						waterWeirdMonster.DmgTaken = 0;
 					}
 
+					// Burn down paralysis
+
+					var paralyzedMonsterList = gEngine.GetMonsterList(m => gGameState.ParalyzedTargets.ContainsKey(m.Uid));
+
+					foreach (var monster in paralyzedMonsterList)
+					{
+						var rl = gEngine.RollDice(1, 100, 0);
+
+						var saved = monster.IsCharacterMonster() ? gEngine.SaveThrow(Stat.Hardiness) : rl > 80;
+
+						if (saved || --gGameState.ParalyzedTargets[monster.Uid] <= 0)
+						{
+							gGameState.ParalyzedTargets.Remove(monster.Uid);
+
+							if (monster.IsInRoom(room) && (monster.IsCharacterMonster() || room.IsLit()))
+							{
+								var monsterName = string.Empty;
+
+								if (monster.IsCharacterMonster())
+								{
+									monsterName = "Your";
+								}
+								else
+								{
+									monsterName = monster.GetTheName(true);
+
+									Globals.Buf.SetFormat("{0}", monsterName);
+
+									gEngine.GetPossessiveName(Globals.Buf);
+
+									monsterName = Globals.Buf.ToString();
+								}
+
+								gOut.Print("{0} paralysis has worn off{1}.", monsterName, saved ? " prematurely" : "");
+							}
+						}
+					}
+
 					// Burn down beholder's clumsiness spells
 
-					var monsterList = gEngine.GetMonsterList(m => gGameState.ClumsyTargets.ContainsKey(m.Uid));
+					var clumsyMonsterList = gEngine.GetMonsterList(m => gGameState.ClumsyTargets.ContainsKey(m.Uid));
 
-					foreach (var monster in monsterList)
+					foreach (var monster in clumsyMonsterList)
 					{
 						var roundsList = gGameState.ClumsyTargets[monster.Uid];
 
@@ -270,19 +306,23 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 					Debug.Assert(efreetiMonster != null);
 
+					var efreetiRoom = efreetiMonster.GetInRoom() as Framework.IRoom;
+
+					var efreetiInRainyRoom = efreetiRoom != null && efreetiRoom.IsRainyRoom() && efreetiRoom.GetWeatherIntensity() >= 2;
+
 					// Efreeti goes poof
 
-					if (!efreetiMonster.IsInLimbo() && (!efreetiMonster.IsInRoom(room) || !efreetiMonster.CheckNBTLHostility()) && gEngine.RollDice(1, 100, 0) <= 50)
+					if (!efreetiMonster.IsInLimbo() && (efreetiInRainyRoom || !efreetiMonster.IsInRoom(room) || !efreetiMonster.CheckNBTLHostility()) && (efreetiInRainyRoom || gEngine.RollDice(1, 100, 0) <= 50))
 					{
 						if (efreetiMonster.IsInRoom(room) && room.IsLit())
 						{
-							gOut.Print("{0}{1} vanishes into thin air.", efreetiMonster.GetTheName(true), efreetiMonster.Friendliness == Friendliness.Friend ? ", seeing that you aren't in any immediate danger," : "");
+							gOut.Print("{0}{1} vanishes into thin air.", efreetiMonster.GetTheName(true), efreetiInRainyRoom ? ", seeing that it's raining," : efreetiMonster.Friendliness == Friendliness.Friend ? ", seeing that you aren't in any immediate danger," : "");
 						}
 
 						efreetiMonster.SetInLimbo();
 					}
 
-					var cloakAndCowlArtifact = gADB[44];
+					var cloakAndCowlArtifact = gADB[45];
 
 					Debug.Assert(cloakAndCowlArtifact != null);
 
@@ -316,6 +356,140 @@ namespace TheVileGrimoireOfJaldial.Game.States
 							if (darkHoodInPlayerRoom && darkHoodVanishes)
 							{
 								gOut.Print("{0} suddenly vanishes, seemingly into thin air.", darkHoodMonster.GetTheName(true));
+							}
+						}
+					}
+
+					// Flavor effects
+
+					if (Globals.EventRoll <= 3)
+					{
+						var idx = gEngine.RollDice(1, 8, -1);
+
+						if (room.IsGroundsRoom())
+						{
+							var rl = gEngine.RollDice(1, 9, 0);
+
+							if (rl <= 5)
+							{
+								if (rl >= 3 || (gGameState.IsDayTime() && !room.IsRainyRoom() && (!room.IsFoggyRoom() || room.GetWeatherIntensity() <= 2)))
+								{
+									var effect = gEDB[rl];
+
+									Debug.Assert(effect != null);
+
+									if (rl == 3)
+									{
+										gOut.Print("{0}", gGameState.IsNightTime() ? "You notice the stars are blotted out by the dark clouds overhead." : room.IsRainyRoom() ? "You notice the storm clouds swiftly rolling by overhead." : room.IsFoggyRoom() ? "You notice once in a while the sky is visible through a break in the fog." : effect.Desc);
+									}
+									else
+									{
+										gOut.Print("{0}", effect.Desc);
+									}
+								}
+							}
+
+							// Distant graveyard sounds
+
+							else if (rl == 6)
+							{
+								var distantSounds = new string[]
+								{
+									"what seems to be loud footfalls.", "a shrill scream - possibly human, but probably not.", "the sounds of wildlife - crickets, and bullfrogs.",
+									"the muffled beat of a drum.", "the whisper of wind through the trees.", "a loud crashing sound.", "the sounds of battle!", "a peal of thunder."
+								};
+
+								gOut.Print("You hear, in the distance, {0}", distantSounds[(int)idx]);
+							}
+
+							// Nearby graveyard sounds
+
+							else if (rl == 7)
+							{
+								var nearbySounds = new string[]
+								{
+									"what sounds like footsteps.", "a strange hissing sound.", "the faint sounds of sobbing.", "the rustling of leaves.", "the chirping of birds.",
+									"quiet laughter.", "a faint humming sound.", "a faint clicking sound."
+								};
+
+								gOut.Print("You hear, very close by, {0}", nearbySounds[(int)idx]);
+							}
+
+							// Graveyard aromas
+
+							else if (rl == 8)
+							{
+								var aromas = new string[]
+								{
+									"meat frying on an open skillet.", "the putrid odor of decaying flesh.", "the aroma of vanilla.", "the odor of offal.", "a refreshing pine scent, carried by the wind.",
+									"what can only be described as ancient death.", "a cloying sweet aroma, that of flowers.", "the reeking odor of swamp methane."
+								};
+
+								gOut.Print("You smell {0}", aromas[(int)idx]);
+							}
+
+							// Graveyard sightings
+
+							else
+							{
+								var sightings = new string[]
+								{
+									"a stark figure, who disappears behind a tombstone.", 
+									string.Format(gGameState.IsNightTime() || room.IsRainyRoom() ? "a bolt of lightning far to the {0}." : room.IsFoggyRoom() ? "movement through the fog in the distance to the {0}." : "a plume of smoke rising far to the {0}.", gEngine.GetRandomElement(new string[] { "north", "south", "east", "west" })),
+									"ephemeral wisps of steam rising from the damp earth.", 
+									string.Format("a {0}, which piques your interest for a fleeting moment.", gEngine.GetRandomElement(new string[] { "bush", "tree", "rock", "tombstone" })),
+									gGameState.IsDayTime() ? string.Format("a rare species of {0}, found only here.", gEngine.GetRandomElement(new string[] { "warbler", "gecko", "lichen", "mandrake root" })) : string.Format("the glow of {0} in the darkness nearby.", gEngine.GetRandomElement(new string[] { "fireflies", "mushrooms", "fungi", "corpse candles" })), 
+									"an unintelligible symbol scratched into the ground.",
+									gGameState.IsDayTime() || gGameState.Ls > 0 ? "a tombstone with an oddly familiar name on it." : "a crumbling statue of a weeping mourner, face in hands.",
+									gGameState.IsDayTime() && (!room.IsFoggyRoom() || room.GetWeatherIntensity() <= 1) ? string.Format("a {0} flying high overhead.", gEngine.GetRandomElement(new string[] { "crow", "vulture", "falcon", "dragon" })) : string.Format("a {0} shadow in the sky from something flying overhead.", gEngine.GetRandomElement(new string[] { "tiny", "small", "middling", "large" }))
+								};
+
+								gOut.Print("You see {0}", sightings[(int)idx]);
+							}
+						}
+						else if (room.IsCryptRoom())
+						{
+							var rl = gEngine.RollDice(1, 3, 0);
+
+							// Distant underground sounds
+
+							if (rl == 1)
+							{
+								var distantSounds = new string[]
+								{
+									"a hollow booming sound that echoes down the passage.", "the quiet thud of footsteps.", "a soft creaking sound.", "a strange whirring sound.",
+									"the whistle of wind down a passageway.", "the quiet rattling of chains.", "a faint clicking sound that echoes down the passage.",
+									"a blood-curdling scream!"
+								};
+
+								gOut.Print("You hear, in the distance, {0}", distantSounds[(int)idx]);
+							}
+
+							// Nearby underground sounds
+
+							else if (rl == 2)
+							{
+								var nearbySounds = new string[]
+								{
+									"a quiet conversation.", "a coughing sound, which quickly dies away.", "a wheezing sound.", "footfalls.", "cackling laughter.",
+									"the sound of water dripping from the ceiling.", "a faint moaning which echoes down the corridors.", "a faint thud."
+								};
+
+								gOut.Print("You hear, very close by, {0}", nearbySounds[(int)idx]);
+							}
+
+							// Underground aromas
+
+							else
+							{
+								var aromas = new string[]
+								{
+									"a fresh breeze that blows down the hallway.", "a putrid odor, probably unseen offal somewhere.", "the air, which grows increasingly stale.",
+									"a rotting odor, quite unpleasant.", "yourself; you've been sweating again!", "the strong aroma of vanilla.", "the reek of decaying flesh.",
+									"a cloying aroma, probably plant life somewhere nearby."
+								};
+
+								gOut.Print("You smell {0}", aromas[(int)idx]);
 							}
 						}
 					}

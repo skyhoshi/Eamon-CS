@@ -17,9 +17,11 @@ using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
 
 namespace TheVileGrimoireOfJaldial.Game.Combat
 {
-	[ClassMappings]
-	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, ICombatSystem
+	[ClassMappings(typeof(ICombatSystem))]
+	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, Framework.Combat.ICombatSystem
 	{
+		public virtual bool CrossbowTrap { get; set; }
+
 		protected virtual bool ScoredCriticalHit { get; set; }
 
 		protected override void PrintMiss()
@@ -111,11 +113,16 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 
 			base.RollToHitOrMiss();
 
-			// Bloodnettle always hits when draining blood
+			// Bloodnettle always hits when draining blood (and ignores armor)
 
-			if (OfMonster?.Uid == 20 && DfMonster.Uid == gGameState.BloodnettleVictimUid && _rl > _odds)
+			if (OfMonster?.Uid == 20 && DfMonster.Uid == gGameState.BloodnettleVictimUid)
 			{
-				_rl = _odds;
+				if (_rl > _odds)
+				{
+					_rl = _odds;
+				}
+
+				OmitArmor = true;
 			}
 		}
 
@@ -258,10 +265,57 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 					{
 						DfMonster.Hardiness = stat.MinValue;
 					}
+					else if (DfMonster.IsCharacterMonster())
+					{
+						gGameState.PlayerHardinessPointsDrained++;
+					}
 
 					if (DfMonster.DmgTaken > DfMonster.Hardiness)
 					{
 						DfMonster.DmgTaken = DfMonster.Hardiness;
+					}
+				}
+			}
+			else if (OfMonster?.Uid == 11)
+			{
+				var carrionCrawlerMonster = OfMonster as Framework.IMonster;
+
+				Debug.Assert(carrionCrawlerMonster != null);
+
+				if (DfMonster.Uid != 50 && string.Equals(carrionCrawlerMonster.AttackDesc, "flail{0} at", StringComparison.OrdinalIgnoreCase) && rl > 50)
+				{
+					var saved = DfMonster.IsCharacterMonster() ? gEngine.SaveThrow(Stat.Hardiness) : rl > 80;
+
+					if (!saved)
+					{
+						var rl02 = gEngine.RollDice(2, 2, 1);
+
+						if (ScoredCriticalHit)
+						{
+							rl02 *= 2;
+						}
+
+						var firstParalyzed = !gGameState.ParalyzedTargets.ContainsKey(DfMonster.Uid);
+
+						if (firstParalyzed)
+						{
+							gGameState.ParalyzedTargets[DfMonster.Uid] = 0;
+						}
+
+						if (DfMonster.IsCharacterMonster())
+						{
+							gOut.Write("{0}{1}You are{2} paralyzed!", Environment.NewLine, OmitBboaPadding ? "" : "  ", !firstParalyzed ? " more" : "");
+						}
+						else if (room.IsLit())
+						{
+							gOut.Write("{0}{1}{2} is{3} paralyzed!", Environment.NewLine, OmitBboaPadding ? "" : "  ", DfMonster.GetTheName(true), !firstParalyzed ? " more" : "");
+						}
+						else if (firstParalyzed)
+						{
+							gOut.Write("{0}{1}The defender falls silent!", Environment.NewLine, OmitBboaPadding ? "" : "  ");
+						}
+
+						gGameState.ParalyzedTargets[DfMonster.Uid] += rl02;
 					}
 				}
 			}
@@ -393,6 +447,11 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 				}
 			}
 
+			if (_d2 > 0 && gGameState.ShowCombatDamage && room.IsLit())
+			{
+				gOut.Write("{0}{1}Blow does {2} point{3} of damage.{4}", Environment.NewLine, OmitBboaPadding ? "" : "  ", _d2, _d2 != 1 ? "s" : "", BlastSpell || CrossbowTrap ? Environment.NewLine : "");
+			}
+
 			base.CheckMonsterStatus();
 
 			// Bloodnettle selects its next victim
@@ -419,7 +478,7 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 			{
 				if (griffinMonster.IsInRoomUid(gGameState.Ro) && griffinMonster.GetInRoom().IsLit())
 				{
-					gOut.Print("The parent griffin is enraged by your attacks on the griffin cubs!");
+					gEngine.PrintEffectDesc(82);
 				}
 
 				gGameState.GriffinAngered = true;

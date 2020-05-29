@@ -19,7 +19,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 			{
 				if (gGameState.Hour <= 4 || gGameState.Hour >= 23)
 				{
-					gOut.Print("Without the sun, who knows?");
+					gEngine.PrintEffectDesc(98);
 				}
 				else if (gGameState.Hour <= 11)
 				{
@@ -32,11 +32,11 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 			}
 			else if (gActorRoom.IsCryptRoom())
 			{
-				gOut.Print("There's no way of knowing, not underground!");
+				gEngine.PrintEffectDesc(99);
 			}
 			else
 			{
-				gOut.Print("You can't trust your sense of time in this strange place.");
+				gEngine.PrintEffectDesc(104);
 			}
 
 			if (NextState == null)

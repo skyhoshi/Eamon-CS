@@ -63,7 +63,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				else if (gIobjMonster.Friendliness < Friendliness.Friend)
 				{
-					gEngine.MonsterSmiles(gIobjMonster);
+					gEngine.MonsterEmotes(gIobjMonster);
 
 					gOut.WriteLine();
 
@@ -104,7 +104,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				else if (gIobjMonster.Friendliness < Friendliness.Friend)
 				{
-					gEngine.MonsterSmiles(gIobjMonster);
+					gEngine.MonsterEmotes(gIobjMonster);
 
 					gOut.WriteLine();
 
