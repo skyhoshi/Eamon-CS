@@ -2489,7 +2489,7 @@ namespace EamonRT.Game
 			{
 				artifact.SetInLimbo();
 
-				gOut.Print("{0} vanishes!", artifact.GetTheName(true));
+				gOut.Print("{0} vanish{1}!", artifact.GetTheName(true), artifact.EvalPlural("es", ""));
 			}
 
 			return artifacts.Count > 0;

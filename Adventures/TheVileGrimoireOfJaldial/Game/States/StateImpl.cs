@@ -6,6 +6,7 @@
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
 using TheVileGrimoireOfJaldial.Framework.Commands;
 using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
@@ -33,7 +34,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 		public override void PrintEnemiesNearby()
 		{
-			var useOverride = !(this.State is ISearchCommand);
+			var useOverride = !(this.State is ISearchCommand || this.State is IUseCommand);
 
 			if (useOverride)
 			{

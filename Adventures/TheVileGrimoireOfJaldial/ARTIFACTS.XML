@@ -255,7 +255,7 @@
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Value" value="0" />
-            <Simple name="Weight" value="-999" />
+            <Simple name="Weight" value="25" />
             <Simple name="Location" value="1063" />
             <SingleArray name="Categories">
               <Items>
@@ -1165,7 +1165,7 @@
             <Simple name="Uid" value="35" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="buried casket" />
-            <Simple name="Desc" value="Half buried in the hole is a large casket, which is currently closed." />
+            <Simple name="Desc" value="Half buried in the hole is a large casket, which is currently @@002." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />

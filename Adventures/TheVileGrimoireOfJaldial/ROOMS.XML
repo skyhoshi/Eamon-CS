@@ -957,7 +957,7 @@
             <Simple name="Uid" value="33" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Graveyard" />
-            <Simple name="Desc" value="You are in a small secluded spot to the east of dismal swamplands.  Tall weeds grow all about, and patches of moss cover the ground in various places." />
+            <Simple name="Desc" value="You are in a small secluded spot to the west of dismal swamplands.  Tall weeds grow all about, and patches of moss cover the ground in various places." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1566,7 +1566,7 @@
             <Simple name="Uid" value="54" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Entry Chamber" />
-            <Simple name="Desc" value="You are in a small chamber of carved rock, with a stonework floor.  The dust on the floor is thick and undisturbed, and the air smells dank.  A staircase leads upward to bright sunlight, and a dark passage leads east." />
+            <Simple name="Desc" value="You are in a small chamber of carved rock, with a stonework floor.  The dust on the floor is thick and undisturbed, and the air smells dank.  A staircase leads upward @@003, and a dark passage leads east." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

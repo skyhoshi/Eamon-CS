@@ -6,7 +6,7 @@
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
@@ -15,9 +15,9 @@
             <Simple name="NumAnswers" value="8" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A DR&quot; or &quot;A GON&quot; for ATTACK DRAGON, &quot;REQ RAY FROM AL&quot; or &quot;REQ GUN FROM IEN&quot; for REQUEST RAY GUN FROM ALIEN, &quot;PUT PUM IN LAR&quot; or &quot;PUT PIE IN OVEN&quot; for PUT PUMPKIN PIE IN **300" />
-                <Simple value="2. Sometimes items may be in a room but won't show up until you EXAMINE them.  Pay close attention to all descriptions.  Note:  LOOK only repeats the room description and -nothing- else.  Use EXAMINE to, well, examine things.  **301" />
-                <Simple value="3. Before you can manipulate items that are inside of, under or behind other items, you must REMOVE them from that item.  There is no REMOVE ALL command, but if you ATTACK a (breakable) container, all of its contents will be emptied to the **302" />
+                <Simple value="1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A DR&quot; or &quot;A GON&quot; for ATTACK DRAGON, &quot;REQ RAY FROM AL&quot; or &quot;REQ GUN FROM IEN&quot; for REQUEST RAY GUN FROM ALIEN, &quot;PUT PUM IN LAR&quot; or &quot;PUT PIE IN OVEN&quot; for PUT PUMPKIN PIE IN **168" />
+                <Simple value="2. Sometimes items may be in a room but won't show up until you EXAMINE them.  Pay close attention to all descriptions.  Note:  LOOK only repeats the room description and -nothing- else.  Use EXAMINE to, well, examine things.  **169" />
+                <Simple value="3. Before you can manipulate items that are inside of, under or behind other items, you must REMOVE them from that item.  There is no REMOVE ALL command, but if you ATTACK a (breakable) container, all of its contents will be emptied to the **170" />
                 <Simple value="4. Type SAVE and a number for a desired save position to Quick Save (save without having to verify).  Adding a description will rename that slot.  Examples:  &quot;SAVE 2&quot; or &quot;SAVE 5 Dark Room (NO GRUES)&quot;.  Also works with RESTORE.  (Type RESTORE 1, etc.)" />
                 <Simple value="5. You can INVENTORY companions (normally anyone whom, when you SMILE, smiles back at you) to see what they are carrying and wearing.  You can then REQUEST those items from them.  You can also INVENTORY certain containers to get a list of contents." />
                 <Simple value="6. If you GIVE food or a beverage to a friend, they will take a bite or drink and give it back to you." />
@@ -27,7 +27,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
@@ -38,21 +38,306 @@
               <Items>
                 <Simple value="1. The GO command allows you to travel through any door/gate you encounter, including those that are free-standing (not associated with a room directional link)." />
                 <Simple value="2. The SETTINGS command allows you to change a variety of configuration options, which are persisted across saved games.  The settings available and their effects on gameplay can vary between adventures, so trying this command is usually helpful." />
-                <Simple value="3. The LOOK, EXAMINE, REMOVE and PUT commands have been enhanced to work with prepositions.  You can LOOK or EXAMINE [in|on|under|behind] [container] to get a list of contents and then REMOVE or PUT [item] [in|on|under|behind] [container] **303" />
+                <Simple value="3. The LOOK, EXAMINE, REMOVE and PUT commands have been enhanced to work with prepositions.  You can LOOK or EXAMINE [in|on|under|behind] [container] to get a list of contents and then REMOVE or PUT [item] [in|on|under|behind] [container] **171" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="3" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
-            <Simple name="Question" value="Where are all the hints for this game?" />
+            <Simple name="Question" value="General information about the game." />
+            <Simple name="NumAnswers" value="6" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. There are a couple of new SETTINGS that are worth noting.  ShowCombatDamage controls whether the damage hit points inflicted during combat is displayed or omitted.  ExitDirNames controls whether exit directions are fully named or abbreviated." />
+                <Simple value="2. The game uses Saving Throws to determine various action outcomes.  The character stat(s) utilized depends on the situation.  Anytime you attempt something that fails, the failure may be temporary; never hesitate to try again." />
+                <Simple value="3. Special embedded artifacts called decorations can be found in many rooms of the game.  You can examine nearly everything explicitly mentioned in the room descriptions, and often things that aren't." />
+                <Simple value="4. Monsters have a variety of attack modalities.  Some get multiple strikes, often against different targets; attack type lethality can vary.  You will also find that some creatures have special attacks or defenses." />
+                <Simple value="5. There are many game mechanics at work at all times.  You will see day/night cycles, weather patterns, and random encounters and events.  The first three profoundly impact gameplay in ways both overt and subtle; the last is for flavor." />
+                <Simple value="6. You can SEARCH rooms or artifacts to discover any hidden secrets they may hold, including concealed doors or treasures." />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="True" />
+            <Simple name="Question" value="General tips for surviving and completing the game." />
+            <Simple name="NumAnswers" value="6" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. The game is for elite characters that have completed many previous adventures in Eamon CS.  It is a swan-song of sorts designed to send a character on one last adventure before retirement.  Weak characters will quickly die in this outing." />
+                <Simple value="2. The character should be an expert with HEAL and, at minimum, know SPEED.  Save the game often in case HEAL is lost due to brain overload; without this spell, you are likely doomed.  Be very prudent in your use of healing artifacts." />
+                <Simple value="3. Bring a full complement of powerful weapons and plan to share them with your party.  Treat your friends well, ensure they are fully healed, and with you throughout the adventure." />
+                <Simple value="4. Be very prudent in your use of the ancient parchment.  Make sure the elemental is well healed and available when you need it the most." />
+                <Simple value="5. Be very prudent in your use of light sources.  You will never be notified when a light source is active; it can be easily forgotten." />
+                <Simple value="6. Embrace death and resurrection when it is strategic.  While the initial temptation may be to restore your last save, keep in mind, you are being given a fresh start while your enemies are not." />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="False" />
+            <Simple name="Question" value="What can I do with the wooden bucket?" />
+            <Simple name="NumAnswers" value="3" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. The wooden bucket is useful in the latter part of the game." />
+                <Simple value="2. You can USE the wooden bucket after a specific opponent is defeated." />
+                <Simple value="3. After defeating the water weird, you can USE the wooden bucket to remove the water from the large fountain." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="False" />
+            <Simple name="Question" value="What can I do with the shovel?" />
+            <Simple name="NumAnswers" value="4" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. If you dig at a specific spot in the graveyard, you'll find a useful item." />
+                <Simple value="2. You will need to dig outside, in the western part of the graveyard." />
+                <Simple value="3. The specific spot is along the west fence." />
+                <Simple value="4. The specific spot is just south of the graveyard exit." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="False" />
+            <Simple name="Question" value="What can I do with the rope?" />
             <Simple name="NumAnswers" value="1" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. Unfortunately, I ran out of time (and energy); the hints will have to wait for June.  On the bright side, the lack of explicit hints makes this experience more like the Atari ST game, at least for now." />
+                <Simple value="1. The rope doesn't play a critical part in the game." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="False" />
+            <Simple name="Question" value="What can I do with the bronze cross?" />
+            <Simple name="NumAnswers" value="3" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. Certain monsters have an adverse reaction when you USE the bronze cross." />
+                <Simple value="2. The bronze cross wards off powerful undead monsters." />
+                <Simple value="3. The bronze cross kills weak undead monsters." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="False" />
+            <Simple name="Question" value="Where can I find another light source?  The torch isn't sufficient." />
+            <Simple name="NumAnswers" value="4" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. There is another light source hidden somewhere in the graveyard." />
+                <Simple value="2. It is hidden outside, in the northern part of the graveyard." />
+                <Simple value="3. It is along the north fence." />
+                <Simple value="4. It is at the entrance to the tiny footpath leading north." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="False" />
+            <Simple name="Question" value="Where are all the secret doors?" />
+            <Simple name="NumAnswers" value="5" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. The only secret doors in the game are underground, in the crypts." />
+                <Simple value="2. Sometimes you'll have to SEARCH an area repeatedly to discover all the secret doors present." />
+                <Simple value="3. In the southern-most tomb, you'll find two secret doors in the Entry Room and a trapdoor in the Large Room." />
+                <Simple value="4. In the small crypt near the northern fence, you'll find two secret doors in the Entry Chamber, a secret door in the Level Passageway, and another in the Long Passageway." />
+                <Simple value="5. The crypt in the secluded area contains secret doors in the Small Chamber, the Small Room, and the Small Secret Chamber.  There is a secret door in the Narrow Passage and a secret panel at the bottom of the large fountain." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="False" />
+            <Simple name="Question" value="How do I kill the water weird?  It seems nearly impossible." />
+            <Simple name="NumAnswers" value="6" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. The water weird is a particularly tough adversary, and there are only two ways to kill it." />
+                <Simple value="2. If your party does exceptional damage in a single combat round using powerful weapons, the water weird might die before it regenerates." />
+                <Simple value="3. Using the ancient parchment can significantly improve your damage potential." />
+                <Simple value="4. Also, a poem written on the wall of a crypt passageway contains a magic phrase that can instantly kill the creature." />
+                <Simple value="5. You may have to READ the glyphs in the frescoed passageway of the southern-most crypt several times to get the clues you need." />
+                <Simple value="6. The magic words are:  &quot;Avarchrom Yarei Uttoximo.&quot;" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="False" />
+            <Simple name="Question" value="Where is the Vile Grimoire of Jaldi'al?" />
+            <Simple name="NumAnswers" value="2" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. It is located somewhere within Jaldi'al's lair." />
+                <Simple value="2. If you SEARCH the wooden throne, you will find the Vile Grimoire." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="False" />
+            <Simple name="Question" value="How does the day/night cycle affect gameplay?" />
+            <Simple name="NumAnswers" value="6" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. The day/night cycle and passage of time adds a new dimension to this Eamon by way of flavor effects and changes to game mechanics." />
+                <Simple value="2. A limited number of monsters wander the graveyard during the day; deadlier creatures prowl the grounds at night, and with more frequency." />
+                <Simple value="3. The day/night cycle affects various flavor effects; some will occur only during the day or night (occasionally further influenced by weather conditions), while others occur at fixed times." />
+                <Simple value="4. The day/night cycle and passage of time affects some room and artifact descriptions, in subtle ways." />
+                <Simple value="5. You are vision-impaired at night without the aid of a light source.  The outdoor terrain and things encountered will be described in only the vaguest terms; you also can't READ or SEARCH." />
+                <Simple value="6. Travel through the swamp at night with no light source is very hazardous." />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="False" />
+            <Simple name="Question" value="How does the weather affect gameplay?" />
+            <Simple name="NumAnswers" value="6" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. The weather patterns of rain and fog add a new dimension to this Eamon by way of flavor effects and changes to game mechanics." />
+                <Simple value="2. Exposure to the elements can damage your torch, reducing its lifespan; the weather's type and intensity are important." />
+                <Simple value="3. The efreeti, a fire elemental, will abandon you in heavy rainfall." />
+                <Simple value="4. Dense fog can obscure your vision, just like nighttime, and to similar effect." />
+                <Simple value="5. Weather patterns can affect various flavor effects; some will occur only when it's raining or foggy, occasionally further influenced by the day/night cycle." />
+                <Simple value="6. Travel through the swamp in heavy fog with no light source is very hazardous." />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="False" />
+            <Simple name="Question" value="What is with the solitary tombstone in the small glade?" />
+            <Simple name="NumAnswers" value="2" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. A mysterious entity haunts the solitary tombstone." />
+                <Simple value="2. The entity only appears at night." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+              </Items>
+            </SingleArray>
+          </Properties>
+        </Complex>
+        <Complex type="TheVileGrimoireOfJaldial.Game.Hint, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Active" value="False" />
+            <Simple name="Question" value="What is with all the strange portals in Jaldi'al's crypt?" />
+            <Simple name="NumAnswers" value="3" />
+            <SingleArray name="Answers">
+              <Items>
+                <Simple value="1. As mentioned in the introduction story, in life, Jaldi'al was fascinated with the manipulation of space-time.  That research, undoubtedly, continued after he became a lich, and to great success." />
+                <Simple value="2. The exact nature of the portals and their reason for existing is left open to interpretation." />
+                <Simple value="3. The Wizard's Council would probably suspect the lich of raising an inter-dimensional army to exact revenge on those that wronged it, but that is pure speculation." />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
               </Items>
             </SingleArray>
           </Properties>
@@ -65,6 +350,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="3" />
+    <Simple name="CurrUid" value="16" />
   </Properties>
 </Complex>

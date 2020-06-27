@@ -53,7 +53,7 @@ namespace TheVileGrimoireOfJaldial.Game
 			{
 				var reward = (gCharacter.GetStats(Stat.Charisma) * bookOfRunesArtifact.Value) / 10;
 
-				gEngine.PrintEffectDesc(159);
+				gEngine.PrintEffectDesc(162);
 
 				gOut.Print("You hand over the book for inspection.  Kreqor accepts it, almost with a mixed look of wonder and disgust, and begins to leaf through the pages.  He scans the manuscript to determine its condition, but you note he avoids reading its contents.  Finally, he looks up at you and says, \"The Wizard's Council will undoubtedly authorize the release of the reward, which amounts to {0} gold pieces.  But you must have had many adventures in the graveyard, come inside and lodge for the night.  I am curious about what you have seen.\"", reward);
 
@@ -61,7 +61,7 @@ namespace TheVileGrimoireOfJaldial.Game
 
 				gOut.Print("{0}", Globals.LineSep);
 
-				gEngine.PrintEffectDesc(160);
+				gEngine.PrintEffectDesc(163);
 
 				gOut.Print("The next morning, after breakfast, you re-provision and set out on the final leg of your journey back to the Main Hall.  {0}Kreqor again thanks you profusely for your services and bids you a final farewell.  He watches from his doorstep as you fade into the distance.", carryingParchment ? "Before doing so, you hand over the ancient parchment so it can be returned to its rightful owner.  " : "");
 
@@ -73,15 +73,15 @@ namespace TheVileGrimoireOfJaldial.Game
 			}
 			else if (leatherBoundBookArtifact.IsCarriedByCharacter())
 			{
-				gEngine.PrintEffectDesc(161);
+				gEngine.PrintEffectDesc(164);
 
-				gEngine.PrintEffectDesc(162);
+				gEngine.PrintEffectDesc(165);
 
 				Globals.In.KeyPress(Globals.Buf);
 
 				gOut.Print("{0}", Globals.LineSep);
 
-				gEngine.PrintEffectDesc(163);
+				gEngine.PrintEffectDesc(166);
 
 				gOut.Print("\"Charlatan and swindler!  Do you take me for a doddering fool?\" he splutters.  \"A dilettante inscribed this shoddy imitation; I've seen finer wizardry from a cobbler's apprentice!\"  You note with alarm that his physical frame seems to grow larger in a menacing way.  \"Count yourself lucky the Wizard's Council has a standing rule against transmogrification!  But clearly, you are an imbecile, and we have no use for your services.  Good day!\"  With that, in disgust, he {0}ejects you from his residence.", carryingParchment ? "snatches the ancient parchment from your grip and then " : "");
 

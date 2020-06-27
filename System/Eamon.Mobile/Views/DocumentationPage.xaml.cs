@@ -3,6 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using System;
 using Xamarin.Forms;
 using Eamon.Mobile.Models;
 using Eamon.Mobile.ViewModels;
@@ -16,7 +17,7 @@ namespace Eamon.Mobile.Views
 		/// <summary></summary>
 		/// <param name="sender"></param>
 		/// <param name="args"></param>
-		async protected virtual void OnItemTapped(object sender, ItemTappedEventArgs args)
+		protected virtual void OnItemTapped(object sender, ItemTappedEventArgs args)
 		{
 			BatchFilesListView.IsEnabled = false;
 
@@ -26,22 +27,13 @@ namespace Eamon.Mobile.Views
 
 			if (batchFile != null)
 			{
-				if (batchFile.FileName.ToLower().EndsWith(".txt"))
+				if (batchFile.FileName.ToLower().StartsWith("https://"))
 				{
-					await Navigation.PushAsync(new TextFilePage(batchFile));
-				}
-				else if (batchFile.FileName.ToLower().EndsWith(".htm"))
-				{
-					await Navigation.PushAsync(new HtmlFilePage(batchFile));
+					Device.OpenUri(new Uri(batchFile.FileName));
 				}
 				else
 				{
 					// unknown file type
-				}
-
-				while (Navigation.NavigationStack.Count > 1)
-				{
-					Navigation.RemovePage(Navigation.NavigationStack[0]);
 				}
 			}
 

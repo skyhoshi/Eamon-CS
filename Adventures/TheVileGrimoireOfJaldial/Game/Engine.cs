@@ -57,6 +57,15 @@ namespace TheVileGrimoireOfJaldial.Game
 				return largeFountainArtifact?.DoorGate != null ? "A small staircase leads down into darkness, and a passage leads back southward.  From below, many different noises can be discerned." : "A passage leads back southward.";
 			});
 
+			MacroFuncs.Add(2, () =>
+			{
+				var buriedCasketArtifact = gADB[35];
+
+				Debug.Assert(buriedCasketArtifact != null);
+
+				return buriedCasketArtifact.InContainer.IsOpen() ? "open" : "closed";
+			});
+
 			var synonyms = new Dictionary<long, string[]>()
 			{
 				{ 1, new string[] { "magi-torch", "instruction label", "instruction tag", "instructions", "instruction", "label", "tag" } },
@@ -264,7 +273,7 @@ namespace TheVileGrimoireOfJaldial.Game
 			}
 		}
 
-		public override void MonsterDies(IMonster OfMonster, IMonster DfMonster)	// Note: much more to implement here
+		public override void MonsterDies(IMonster OfMonster, IMonster DfMonster)
 		{
 			Debug.Assert(DfMonster != null);
 
@@ -417,6 +426,32 @@ namespace TheVileGrimoireOfJaldial.Game
 			var rl = RollDice(1, 22, 2);
 
 			return rl <= value;
+		}
+
+		public Engine()
+		{
+			MacroFuncs.Add(3, () =>
+			{
+				var result = "to bright sunlight";
+
+				if (gGameState != null)
+				{
+					var room = gRDB[17] as Framework.IRoom;
+
+					Debug.Assert(room != null);
+
+					if (gGameState.IsNightTime())
+					{
+						result = "into the night";
+					}
+					else if (room.GetWeatherIntensity() > 1)
+					{
+						result = "to daylight";
+					}
+				}
+
+				return result;
+			});
 		}
 	}
 }

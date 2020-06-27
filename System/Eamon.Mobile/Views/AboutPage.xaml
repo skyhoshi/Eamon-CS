@@ -56,13 +56,8 @@
 
 			<Label 
 				TextColor="Black" 
-				Text="A world of endless fun and adventure awaits!"/>
+				Text="You might explore a bustling city full of intrigue, plunder a hidden tomb packed with treasure, or trek through a sweltering jungle in search of lost ruins; whatever your destination, fun, and adventure await!"/>
 
-			<Button Margin="0,10,0,0"
-               Text="Learn more" 
-               Command="{Binding OpenWebCommand}"
-               BackgroundColor="{StaticResource Primary}"
-               TextColor="White"/>
       </StackLayout>
     </ScrollView>
   </Grid>

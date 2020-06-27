@@ -32,7 +32,7 @@ namespace Eamon.Game.Plugin
 		{
 			get
 			{
-				return DbStackTop >= 0 && DbStackTop < Databases.Length ? Databases[DbStackTop] : null;
+				return Databases != null && DbStackTop >= 0 && DbStackTop < Databases.Length ? Databases[DbStackTop] : null;
 			}
 		}
 
@@ -313,7 +313,7 @@ namespace Eamon.Game.Plugin
 
 			rc = RetCode.Success;
 
-			if (DbStackTop + 1 >= Databases.Length)
+			if (Databases == null || DbStackTop + 1 >= Databases.Length)
 			{
 				rc = RetCode.IsFull;
 
@@ -342,7 +342,7 @@ namespace Eamon.Game.Plugin
 
 			rc = RetCode.Success;
 
-			if (DbStackTop + 1 >= Databases.Length)
+			if (Databases == null || DbStackTop + 1 >= Databases.Length)
 			{
 				rc = RetCode.IsFull;
 
@@ -351,7 +351,7 @@ namespace Eamon.Game.Plugin
 
 			Databases[++DbStackTop] = database;
 
-			Cleanup:
+		Cleanup:
 
 			return rc;
 		}
@@ -362,14 +362,14 @@ namespace Eamon.Game.Plugin
 
 			rc = RetCode.Success;
 
-			if (DbStackTop < 0)
+			if (Databases == null || DbStackTop < 0)
 			{
 				rc = RetCode.IsEmpty;
 
 				goto Cleanup;
 			}
 
-			if (freeDatabase)
+			if (Database != null && freeDatabase)
 			{
 				Database.FreeConfigs();
 
@@ -403,7 +403,7 @@ namespace Eamon.Game.Plugin
 		{
 			RetCode rc;
 
-			if (index < 0 || index > DbStackTop)
+			if (Databases == null || index < 0 || index > DbStackTop)
 			{
 				rc = RetCode.InvalidArg;
 
@@ -436,7 +436,7 @@ namespace Eamon.Game.Plugin
 
 			rc = RetCode.Success;
 
-			if (DbStackTop < 0)
+			if (Databases == null || DbStackTop < 0 || Database == null)
 			{
 				rc = RetCode.IsEmpty;
 
@@ -465,7 +465,7 @@ namespace Eamon.Game.Plugin
 
 			rc = RetCode.Success;
 
-			if (DbStackTop + 1 >= Databases.Length)
+			if (Databases == null || DbStackTop + 1 >= Databases.Length)
 			{
 				rc = RetCode.IsFull;
 
@@ -548,7 +548,7 @@ namespace Eamon.Game.Plugin
 
 			rc = RetCode.Success;
 
-			dbStackSize = Databases.Length;
+			dbStackSize = Databases != null ? Databases.Length : 0;
 
 			return rc;
 		}

@@ -55,7 +55,7 @@
             <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You suddenly catch the sound of flowing water, though you're not sure from where it's coming." />
+            <Simple name="Desc" value="You suddenly catch the sound of flowing water nearby, though you're not sure from where it's coming." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -286,7 +286,7 @@
             <Simple name="Uid" value="26" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="These elms are all rather old, over 100 years, you would guess.  Their long branches stretch out over the damp ground, an imposing image.  They are entirely bare, stripped of leaves." />
+            <Simple name="Desc" value="These elms are all rather old, over 200 years, you would guess.  Their long branches stretch out over the damp ground, an imposing image.  They are entirely bare, stripped of leaves." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1529,7 +1529,7 @@
             <Simple name="Uid" value="139" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="And so the conversation goes on.  Eventually, when the innkeeper is free, you wave the large man down, introduce yourself, and inquire about the situation.@@PB**140" />
+            <Simple name="Desc" value="And so the conversation goes on.  Eventually, when the innkeeper is free, you wave the man down, introduce yourself, and inquire about the situation.@@PB**140" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1551,7 +1551,7 @@
             <Simple name="Uid" value="141" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You thank him and head out with his directions fresh in your mind.  The journey north takes days, and you discover the cross-path at noon, turning eastward.  By evening, as the sun is setting, you come upon an isolated cottage enclosed by a picket fence, sitting in a clearing.  The warm glow of light in the windows is a cheerful contrast to the cold, dark forest all around; you eagerly approach the doorstep and knock loudly three times.@@PB**142" />
+            <Simple name="Desc" value="You thank him and head out with his directions fresh in your mind.  The journey north takes days, and you discover the cross-path at noon, turning eastward.  By evening, as the sun is setting, you come upon an isolated cottage enclosed by a picket fence, sitting in a clearing.  The warm glow of light in the windows is a cheerful contrast to the cold, dark forest all around; you eagerly approach the door and knock loudly three times.@@PB**142" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1595,7 +1595,7 @@
             <Simple name="Uid" value="145" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="&quot;My apologies,&quot; he says.  &quot;In these parts, one must be careful.  It wouldn't do to be attacked by brigands.  You have heard correctly, the matter has come to a head, and we require help if you are offering it.  But come, the night is falling, and you must be exhausted and hungry from your travels.  Let's not discuss this in a doorway; there are better venues.&quot;*146" />
+            <Simple name="Desc" value="&quot;My apologies,&quot; he says.  &quot;In these parts, one must be careful.  It wouldn't do to be ambushed by brigands.  You have heard correctly, the matter has come to a head, and we require help if you are offering it.  But come, the night is falling, and you must be exhausted and hungry from your travels.  Let's not discuss this in a doorway; there are better venues.&quot;*146" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1650,7 +1650,7 @@
             <Simple name="Uid" value="150" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="Kreqor pauses, puffing at his pipe as he stares absently into the fire.  &quot;In later semesters, Jaldi'al's voracious appetite for arcane knowledge consumed him, and he began dabbling in forbidden magicks.  He was caught in a laboratory one day trying to induce a temporal anomaly and was promptly expelled, his journals seized by the staff.  They recoiled in horror as they discovered his true passions:  manipulations of space/time and entanglements with the Void.&quot;@@PB**151" />
+            <Simple name="Desc" value="Kreqor pauses, puffing at his pipe as he stares absently into the fire.  &quot;In later semesters, Jaldi'al's voracious appetite for arcane knowledge consumed him, and he began dabbling in forbidden magicks.  He was caught in a laboratory one day trying to induce a temporal anomaly and was promptly expelled, his journals seized by the staff.  They recoiled in horror as they discovered his true passions:  manipulations of space-time and entanglements with the Void.&quot;@@PB**151" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1661,7 +1661,7 @@
             <Simple name="Uid" value="151" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="&quot;After his eviction from the campus, Jaldi'al returned to Bahyrst and continued his research unhindered in a small studio at his wealthy family's compound.  All this, despite warnings from the Wizard's Council about the danger he posed.  Over time, he entertained many visitors, who left in awe given what they had witnessed inside his residence.  Rumors circulated in the village that it was far bigger on the inside and contained bizarre doorways that defied logic and nature.  A group of acolytes formed around him, drawn by his power and willing to assist him with his mysterious goals.&quot;*152" />
+            <Simple name="Desc" value="&quot;After his eviction from the campus, Jaldi'al returned to Bahyrst and continued his research unhindered in a small studio at his wealthy family's compound.  All this, despite warnings from the Wizard's Council about the danger he posed.&quot;*152" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1672,7 +1672,7 @@
             <Simple name="Uid" value="152" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="Now Kreqor leans forward in his chair, and his voice is but a whisper.  &quot;Then, something terrible happened.  Nobody knows exactly what, but one morning most of the people of Bahyrst disappeared.  They just vanished.  Evil spellcraft was immediately suspected, and the Wizard's Council investigated.  Based on residual evidence, these lost souls were devoured by the Void, a vast nothingness where they exist, neither alive nor dead but conscious, in an eternal state of limbo.&quot;@@PB**153" />
+            <Simple name="Desc" value="&quot;Over time, he entertained many visitors, who left in awe given what they had witnessed inside his residence.  Rumors circulated in the village that it was far bigger on the inside and contained bizarre doorways that defied logic and nature.  A group of acolytes formed around him, drawn by his power and willing to assist him with his mysterious goals.&quot;*153" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1683,7 +1683,7 @@
             <Simple name="Uid" value="153" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="&quot;Whether swept in by some accidental utterance or minute failure of protocol, or maybe even malice, it mattered not.  By day's end, the mourning and despair of the survivors turned to rage at the thought of this damnation.  A torch-wielding mob stormed the Dhassei compound, finding Jaldi'al extremely weak from the conjuring.  He was set upon and, offering little resistance, savagely killed.  Then the studio was ransacked in search of the grimoire that contained his dreadful knowledge.  It was never found.  Later that night, after the crowd had dispersed, his acolytes quietly reclaimed his body and buried it (along with the grimoire, we presume) in a nearby civilian cemetery that dates back centuries.  The village of Bahyrst, fatally wounded by the catastrophe, was abandoned and eventually faded from common memory.&quot;*154" />
+            <Simple name="Desc" value="Now Kreqor leans forward in his chair, and his voice is but a whisper.  &quot;Then, something terrible happened.  Nobody knows exactly what, but one morning most of the people of Bahyrst disappeared.  They just vanished.  Evil spellcraft was immediately suspected, and the Wizard's Council investigated.  Based on residual evidence, these lost souls were devoured by the Void, a vast nothingness where they exist, neither alive nor dead but conscious, in an eternal state of limbo.&quot;@@PB**154" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1694,7 +1694,7 @@
             <Simple name="Uid" value="154" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="Kreqor pauses for a moment and then stands to retrieve some wood, which he puts on the dying embers of the fire, coaxing it back to life.  Noticing that you have finished dinner, he clears the dishes from the table.  When he returns, he begins to pace the floor while resuming his narrative.@@PB**155" />
+            <Simple name="Desc" value="&quot;Whether swept in by some accidental utterance or minute failure of protocol, or maybe even malice, it mattered not.  By day's end, the despair of the survivors turned to rage at the thought of this damnation.  A torch-wielding mob stormed the Dhassei compound, finding Jaldi'al extremely weak from the ritual.  He was set upon and, offering little resistance, savagely killed.&quot;*155" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1705,7 +1705,7 @@
             <Simple name="Uid" value="155" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="&quot;The ruins of Bahyrst and the adjacent graveyard are only rarely visited these days by the occasional scholar, or explorer.  But there have been strange things happening as of late.  A noted historian sent in by the Council disappeared recently, and there have been reports by hikers of spatial rifts appearing and then vanishing in the surrounding woods.  Even the bravest warriors avoid the cemetery proper for fear of what lurks there.  We feel the hand of Jaldi'al himself may be reaching out from the grave; there is a chance he made a pact with a dark god to achieve lichdom.  If this is the case, his growing power is manifesting itself, and his plan may include revenge on the descendants of those who killed him.  All this said, the Vile Grimoire of Jaldi'al is the key to his power; deprived of it, he would surely wither.  The Wizard's Council is offering a substantial reward for the retrieval of this evil book.&quot;*156" />
+            <Simple name="Desc" value="&quot;Then the studio was ransacked in search of the grimoire that contained his dreadful knowledge.  It was never found.  Later that night, after the crowd had dispersed, his acolytes quietly reclaimed his body and buried it (along with the grimoire, we presume) in a nearby civilian cemetery that dates back centuries.  The village of Bahyrst, fatally wounded by the catastrophe, was abandoned and eventually faded from common memory.&quot;*156" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1716,7 +1716,7 @@
             <Simple name="Uid" value="156" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="&quot;I will not lie,&quot; Kreqor says sternly.  &quot;Only the most powerful should join this quest, as the graveyard is said to be unconsecrated, and now haunted by creatures of the night.  There is a real chance it will claim you as a victim.  I will allow you quarter to consider your options.&quot;@@PB**157" />
+            <Simple name="Desc" value="Kreqor pauses for a moment and then stands to retrieve some wood, which he puts on the dying embers of the fire, coaxing it back to life.  Noticing that you have finished dinner, he clears the dishes from the table.  When he returns, he begins to pace the floor while resuming his narrative.@@PB**157" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1727,7 +1727,7 @@
             <Simple name="Uid" value="157" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You thank Kreqor for his hospitality and retire for the evening.  In the morning, after a vigorous debate amongst the party members, it is decided that you will accept the challenge.  Kreqor appreciates your courage; to aid you in your quest, he gives you an ancient parchment donated by a Council member who specializes in the summoning of elementals.  You also re-provision for the challenges ahead.*158" />
+            <Simple name="Desc" value="&quot;The ruins of Bahyrst and the adjacent graveyard are only rarely visited these days by the occasional scholar, or explorer.  But there have been strange happenings as of late.  A noted historian sent in by the Council disappeared recently, and there have been reports by hikers of spatial rifts appearing and then vanishing in the surrounding woods.  Even the bravest warriors avoid the cemetery proper for fear of what lurks there.&quot;*158" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1738,7 +1738,7 @@
             <Simple name="Uid" value="158" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="As you leave the wizard's estate, he points to a path behind his cottage.  &quot;If you follow this for maybe a day and a night, you will come to the cemetery gates.  Good luck to you in your endeavors.&quot;  You follow the path and, as expected, arrive just before daybreak; you pause outside the iron gates as your party enters the burial grounds." />
+            <Simple name="Desc" value="&quot;We feel the hand of Jaldi'al himself may be reaching out from the grave; there is a chance he made a pact with a dark god to achieve lichdom.  If this is the case, his growing power is manifesting itself, and his plan may include revenge on the descendants of those who killed him.  All this said, the Vile Grimoire of Jaldi'al is the key to his power; deprived of it, he would surely wither.  The Wizard's Council is offering a substantial reward for the retrieval of this evil book.&quot;*159" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1749,7 +1749,7 @@
             <Simple name="Uid" value="159" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You wander down the path back to Kreqor's estate.  To your surprise, he is standing on the doorstep, awaiting your arrival.  &quot;I see you survived your quest, excellent!&quot; he says.  &quot;The evil aura surrounding the grimoire, I sensed it as you approached, such is its power.  Thank the gods this malignant artifact has been captured and no longer poses a threat!&quot;" />
+            <Simple name="Desc" value="&quot;I will not lie,&quot; Kreqor says sternly.  &quot;Only the most powerful should join this quest, as the graveyard is said to be unconsecrated, and now haunted by creatures of the night.  There is a real chance it will claim you as a victim.  I will allow you quarter to consider your options.&quot;@@PB**160" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1760,7 +1760,7 @@
             <Simple name="Uid" value="160" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You gladly accept Kreqor's hospitality once again.  The ale flows, and the fire crackles late into the night as you recount your experiences in the cemetery.  Your host is particularly interested in the tale of the final battle with Jaldi'al, as it confirms the suspicions of the Wizard's Council about the lich's existence and its nefarious schemes.  &quot;Hopefully, &quot; says Kreqor, &quot;the capture of his grimoire has put an end to Jaldi'al's plans once and for all.&quot;  As the midnight hour nears, you retire to your quarters." />
+            <Simple name="Desc" value="You thank Kreqor for his hospitality and retire for the evening.  In the morning, after a vigorous debate amongst the party members, it is decided that you will accept the challenge.  Kreqor appreciates your courage; to aid you in your quest, he gives you an ancient parchment donated by a Council member who specializes in the summoning of elementals.  You also re-provision for the challenges ahead.*161" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1771,7 +1771,7 @@
             <Simple name="Uid" value="161" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You wander down the path back to Kreqor's estate.  When you arrive at the cottage, you step up to the door and knock loudly.  To your surprise, you receive no answer.  A moment later, after rapping on the window, you hear a muffled voice from somewhere inside.  &quot;One minute!  Just a minute!&quot;  Eventually, after using the tiny viewport, Kreqor opens the door to greet you.  He is dressed in a smock and wearing gloves.  &quot;Please come in,&quot; he says.  &quot;You caught me while I was at work in my study.&quot;" />
+            <Simple name="Desc" value="As you leave the wizard's estate, he points to a path behind his cottage.  &quot;If you follow this for maybe a day and a night, you will come to the cemetery gates.  Good luck to you in your endeavors.&quot;  You follow the path and, as expected, arrive just before daybreak; you pause outside the iron gates as your party enters the burial grounds." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1782,7 +1782,7 @@
             <Simple name="Uid" value="162" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You follow Kreqor to a well-lit room in the back of the house.  Large bookcases filled with thick tomes line the walls, and a workbench runs the length of the room, overloaded with intricate glassware and rubber tubing.  Several lit burners heat bubbling liquids; these give off white vapors.  &quot;You survived your exploration of the graveyard, excellent!  Did you find the grimoire of Jaldi'al?&quot;" />
+            <Simple name="Desc" value="You wander down the path back to Kreqor's estate.  To your surprise, he is standing on the doorstep, awaiting your arrival.  &quot;I see you survived your quest, excellent!&quot; he says.  &quot;The evil aura surrounding the grimoire, I sensed it as you approached, such is its power.  Thank the gods this malignant artifact has been captured and no longer poses a threat!&quot;" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1793,6 +1793,39 @@
             <Simple name="Uid" value="163" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
+            <Simple name="Desc" value="You gladly accept Kreqor's hospitality once again.  The ale flows, and the fire crackles late into the night as you recount your experiences in the cemetery.  Your host is particularly interested in the tale of the final battle with Jaldi'al, as it confirms the suspicions of the Wizard's Council about the lich's existence and its nefarious schemes.  &quot;Hopefully, &quot; says Kreqor, &quot;the capture of his grimoire has put an end to Jaldi'al's plans once and for all.&quot;  As the midnight hour nears, you retire to your quarters." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="164" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You wander down the path back to Kreqor's estate.  When you arrive at the cottage, you step up to the door and knock loudly.  To your surprise, you receive no answer.  A moment later, after rapping on the window, you hear a muffled voice from somewhere inside.  &quot;One minute!  Just a minute!&quot;  Eventually, after using the tiny viewport, Kreqor opens the door to greet you.  He is dressed in a smock and wearing gloves.  &quot;Please come in,&quot; he says.  &quot;You caught me while I was at work in my study.&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="165" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You follow Kreqor to a well-lit room in the back of the house.  Large bookcases filled with thick tomes line the walls, and a workbench runs the length of the room, overloaded with intricate glassware and rubber tubing.  Several lit burners heat bubbling liquids; these give off white vapors.  &quot;You survived your exploration of the graveyard, excellent!  Did you find the grimoire of Jaldi'al?&quot;" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="166" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
             <Simple name="Desc" value="You proudly hand over the book for inspection.  Kreqor, with a doubting look on his face, receives it, and begins to leaf through the pages.  As he reaches the end, he abruptly snaps the book closed in your face!  There is a flash of light in his eyes, and his voice is trembling with barely controlled anger." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
@@ -1801,10 +1834,10 @@
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="203" />
+            <Simple name="Uid" value="167" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="and yet possibly pursues even broader goals.  You have joined a quest to purge the cemetery of this blight and determine the whereabouts of the once-powerful sorcerer Jaldi'al - now rumored to be a lich - interred within its borders.  This obscure Eamon was an Atari ST original, and due to its complexity remained there; now, it has found new a home in Eamon CS.  There have been many improvements to the title both in the coding logic and the prose.  Hopefully, you enjoy it!" />
+            <Simple name="Desc" value="and yet possibly pursues even broader goals.  You have joined a quest to determine the whereabouts of the once-powerful sorcerer Jaldi'al Dhassei - now feared to be a lich - interred within its borders.  This obscure Eamon was an Atari ST original, and due to its complexity remained there; now, it has found a new home in Eamon CS.  There have been many improvements to the title both in the coding logic and the prose.  Hopefully, you enjoy it!" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1812,7 +1845,7 @@
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="300" />
+            <Simple name="Uid" value="168" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
             <Simple name="Desc" value="LARGE OVEN." />
@@ -1823,7 +1856,7 @@
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="301" />
+            <Simple name="Uid" value="169" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
             <Simple name="Desc" value="See EAMON CS 1.6 NEW COMMANDS for additional details." />
@@ -1834,7 +1867,7 @@
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="302" />
+            <Simple name="Uid" value="170" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
             <Simple name="Desc" value="floor and you can GET ALL." />
@@ -1845,7 +1878,7 @@
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Uid" value="303" />
+            <Simple name="Uid" value="171" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
             <Simple name="Desc" value="to remove from or add to the container." />
@@ -1862,6 +1895,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="303" />
+    <Simple name="CurrUid" value="171" />
   </Properties>
 </Complex>

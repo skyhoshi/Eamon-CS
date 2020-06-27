@@ -714,7 +714,7 @@
             <Simple name="Uid" value="21" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="dark hood" />
-            <Simple name="Desc" value="A grey, translucent, robed figure stands (or rather floats) next to the gravestone.  Its cowled face is completely hidden in shadow." />
+            <Simple name="Desc" value="A grey, translucent, robed figure stands (or rather floats) next to the tombstone.  Its cowled face is completely hidden in shadow." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />

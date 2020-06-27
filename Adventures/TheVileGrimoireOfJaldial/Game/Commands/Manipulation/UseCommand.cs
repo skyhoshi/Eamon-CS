@@ -5,6 +5,7 @@
 
 using System.Diagnostics;
 using System.Linq;
+using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
@@ -23,24 +24,33 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			if (gDobjArtifact.Uid == 7)
 			{
-				var buriedCasketArtifact = gADB[35];
-
-				Debug.Assert(buriedCasketArtifact != null);
-
-				if (gActorRoom.Uid == 5 && buriedCasketArtifact.IsInLimbo())
+				if (gGameState.GetNBTL(Friendliness.Enemy) <= 0)
 				{
-					gEngine.PrintEffectDesc(92);
+					var buriedCasketArtifact = gADB[35];
 
-					buriedCasketArtifact.SetInRoom(gActorRoom);
+					Debug.Assert(buriedCasketArtifact != null);
+
+					if (gActorRoom.Uid == 5 && buriedCasketArtifact.IsInLimbo())
+					{
+						gEngine.PrintEffectDesc(92);
+
+						buriedCasketArtifact.SetInRoom(gActorRoom);
+					}
+					else
+					{
+						var digResult = gActorRoom.EvalRoomType("The floor is far to hard to dig into!", "You dig for a while but find nothing of interest.");
+
+						gOut.Print(digResult);
+					}
+
+					NextState = Globals.CreateInstance<IMonsterStartState>();
 				}
 				else
 				{
-					var digResult = gActorRoom.EvalRoomType("The floor is far to hard to dig into!", "You dig for a while but find nothing of interest.");
+					PrintEnemiesNearby();
 
-					gOut.Print(digResult);
+					NextState = Globals.CreateInstance<IStartState>();
 				}
-
-				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 
 			// Bailing fountain water with wooden bucket
@@ -73,13 +83,19 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 						NextState = Globals.CreateInstance<IStartState>();
 					}
-					else
+					else if (gGameState.GetNBTL(Friendliness.Enemy) <= 0)
 					{
 						gEngine.PrintEffectDesc(93);
 
 						waterArtifact.SetInLimbo();
 
 						largeFountainArtifact.Desc = largeFountainArtifact.Desc.Replace("squirts", "squirted");
+					}
+					else
+					{
+						PrintEnemiesNearby();
+
+						NextState = Globals.CreateInstance<IStartState>();
 					}
 				}
 				else

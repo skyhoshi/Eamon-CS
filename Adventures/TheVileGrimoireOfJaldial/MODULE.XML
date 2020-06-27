@@ -16,13 +16,13 @@
             <Simple name="NumDirs" value="10" />
             <Simple name="NumRooms" value="121" />
             <Simple name="NumArtifacts" value="63" />
-            <Simple name="NumEffects" value="168" />
+            <Simple name="NumEffects" value="171" />
             <Simple name="NumMonsters" value="50" />
-            <Simple name="NumHints" value="3" />
+            <Simple name="NumHints" value="16" />
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="The Vile Grimoire of Jaldi'al" />
-            <Simple name="Desc" value="Scour a nameless graveyard, unconsecrated during groundbreaking, now a wellspring for all manner of dark creatures.  Legends hold deep in one of the crypts lurks an evil presence that exerts a malign influence on the area, **203" />
+            <Simple name="Desc" value="A nameless graveyard near the ruins of Bahyrst has become a wellspring for all manner of dark creatures.  Legends hold deep in one of the crypts lurks an evil presence.  It exerts a malign influence on the area, **167" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

@@ -39,6 +39,11 @@
                 <Simple value="1. The GO command allows you to travel through any door/gate you encounter, including those that are free-standing (not associated with a room directional link)." />
                 <Simple value="2. The SETTINGS command allows you to change a variety of configuration options, which are persisted across saved games.  The settings available and their effects on gameplay can vary between adventures, so trying this command is usually helpful." />
                 <Simple value="3. The LOOK, EXAMINE, REMOVE and PUT commands have been enhanced to work with prepositions.  You can LOOK or EXAMINE [in|on|under|behind] [container] to get a list of contents and then REMOVE or PUT [item] [in|on|under|behind] [container] **110" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
+                <Simple value="" />
               </Items>
             </SingleArray>
           </Properties>

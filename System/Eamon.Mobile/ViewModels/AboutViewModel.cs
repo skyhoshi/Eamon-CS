@@ -14,10 +14,6 @@ namespace Eamon.Mobile.ViewModels
 		public AboutViewModel()
 		{
 			Title = "About";
-
-			OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://github.com/firstmethod/Eamon-CS")));
 		}
-
-		public ICommand OpenWebCommand { get; }
 	}
 }

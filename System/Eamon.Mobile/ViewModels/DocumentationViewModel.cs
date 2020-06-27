@@ -20,17 +20,12 @@ namespace Eamon.Mobile.ViewModels
 
 			BatchFiles = new List<BatchFile>();
 
-			var docFiles = App.GetDocumentationFiles();
-
-			foreach (var docFile in docFiles)
+			BatchFiles.Add(new BatchFile()
 			{
-				BatchFiles.Add(new BatchFile()
-				{
-					Name = ClassMappings.Path.GetFileNameWithoutExtension(docFile),
+				Name = "ViewDocumentationUsingBrowser",
 
-					FileName = docFile
-				});
-			}
+				FileName = "https://firstmethod.github.io"
+			});
 
 			BatchFiles = BatchFiles.OrderBy(bf => bf.Name).ToList();
 		}

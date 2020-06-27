@@ -255,11 +255,6 @@ namespace EamonPM
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 
-			App.GetDocumentationFiles = () =>
-			{
-				return Directory.GetFiles(Path.Combine(App.BasePath, "Documentation"));
-			};
-
 			App.GetAdventureDirs = () =>
 			{
 				var fullDirs = Directory.GetDirectories(Path.Combine(App.BasePath, "Adventures"));

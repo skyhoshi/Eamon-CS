@@ -188,7 +188,7 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 						{
 							if (DfMonster.IsInRoom(room))
 							{
-								gOut.Write("{0}{1}Weapon doesn't seem to affect {2}!", Environment.NewLine, OmitBboaPadding ? "" : "  ", room.IsLit() ? DfMonster.GetTheName() : "the defender");
+								gOut.Write("{0}{1}{2} seems unaffected{3}!", Environment.NewLine, OmitBboaPadding ? "" : "  ", room.EvalLightLevel("The defender", DfMonster.GetTheName(true)), OfWeapon != null ? " by the weapon" : "");
 							}
 
 							CombatState = RTEnums.CombatState.EndAttack;
@@ -304,11 +304,11 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 
 						if (DfMonster.IsCharacterMonster())
 						{
-							gOut.Write("{0}{1}You are{2} paralyzed!", Environment.NewLine, OmitBboaPadding ? "" : "  ", !firstParalyzed ? " more" : "");
+							gOut.Write("{0}{1}You are{2} paralyzed!", Environment.NewLine, OmitBboaPadding ? "" : "  ", !firstParalyzed ? " further" : "");
 						}
 						else if (room.IsLit())
 						{
-							gOut.Write("{0}{1}{2} is{3} paralyzed!", Environment.NewLine, OmitBboaPadding ? "" : "  ", DfMonster.GetTheName(true), !firstParalyzed ? " more" : "");
+							gOut.Write("{0}{1}{2} is{3} paralyzed!", Environment.NewLine, OmitBboaPadding ? "" : "  ", DfMonster.GetTheName(true), !firstParalyzed ? " further" : "");
 						}
 						else if (firstParalyzed)
 						{
@@ -386,11 +386,11 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 
 						if (DfMonster.IsCharacterMonster())
 						{
-							gOut.Write("{0}{1}You suddenly feel {2}less agile!", Environment.NewLine, OmitBboaPadding ? "" : "  ", ScoredCriticalHit ? "much " : "");
+							gOut.Write("{0}{1}You suddenly feel {2}less agile!", Environment.NewLine, OmitBboaPadding ? "" : "  ", ScoredCriticalHit ? "far " : "");
 						}
 						else
 						{
-							gOut.Write("{0}{1}{2} suddenly {3} {4}less agile!", Environment.NewLine, OmitBboaPadding ? "" : "  ", room.EvalLightLevel("The defender", DfMonster.GetTheName(true)), room.EvalLightLevel("sounds", "looks"), ScoredCriticalHit ? "much " : "");
+							gOut.Write("{0}{1}{2} suddenly {3} {4}less agile!", Environment.NewLine, OmitBboaPadding ? "" : "  ", room.EvalLightLevel("The defender", DfMonster.GetTheName(true)), room.EvalLightLevel("sounds", "looks"), ScoredCriticalHit ? "far " : "");
 						}
 					}
 					else

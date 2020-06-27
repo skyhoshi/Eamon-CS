@@ -124,11 +124,13 @@ namespace TheVileGrimoireOfJaldial.Game
 		{
 			Debug.Assert(monsterList != null && artifactList != null && combinedList != null);
 
+			var plural = combinedList.Count > 1 || (monsterList.Count > 0 && monsterList[0].GroupCount > 1) || (artifactList.Count > 0 && artifactList[0].IsPlural);
+
 			return string.Format("{0}You {1}{2}{3}",
 					!showDesc ? Environment.NewLine : "",
 					showDesc ? "also " : "",
 					showDesc && !monsterList.Any() ? "notice " : "see ",
-					monsterList.FirstOrDefault(m => m.Seen && (m.Uid == 10 || m.Uid == 50)) == null && IsDimLightRoom() ? "the dim image" + (combinedList.Count > 1 ? "s" : "") + " of " : "");
+					monsterList.FirstOrDefault(m => m.Seen && (m.Uid == 10 || m.Uid == 50)) == null && IsDimLightRoom() ? "the dim image" + (plural ? "s" : "") + " of " : "");
 		}
 
 		public override RetCode GetExitList(StringBuilder buf, Func<string, string> modFunc = null, bool useNames = true)

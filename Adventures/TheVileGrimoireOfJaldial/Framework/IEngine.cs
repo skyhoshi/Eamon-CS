@@ -10,6 +10,6 @@ namespace TheVileGrimoireOfJaldial.Framework
 {
 	public interface IEngine : EamonRT.Framework.IEngine
 	{
-		bool SaveThrow(Stat stat, long bonus = 0);		// Note:  maybe move this into EamonRT's Engine class?
+		bool SaveThrow(Stat stat, long bonus = 0);		// TODO: maybe move this into EamonRT's Engine class?
 	}
 }

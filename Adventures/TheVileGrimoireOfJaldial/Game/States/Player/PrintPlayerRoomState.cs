@@ -97,69 +97,27 @@ namespace TheVileGrimoireOfJaldial.Game.States
 						}
 						else if (gGameState.Hour == 7 && gGameState.Minute == 0)
 						{
-							if (room.GetWeatherIntensity() > 1)
-							{
-								gEngine.PrintEffectDesc(112);
-							}
-							else
-							{
-								gEngine.PrintEffectDesc(113);
-							}
+							gEngine.PrintEffectDesc(room.GetWeatherIntensity() > 1 ? 112 : 113);
 						}
 						else if (gGameState.Hour == 8 && gGameState.Minute == 0)
 						{
-							if (room.GetWeatherIntensity() > 1)
-							{
-								gEngine.PrintEffectDesc(114);
-							}
-							else
-							{
-								gEngine.PrintEffectDesc(115);
-							}
+							gEngine.PrintEffectDesc(room.GetWeatherIntensity() > 1 ? 114 : 115);
 						}
 						else if (gGameState.Hour == 12 && gGameState.Minute == 0)
 						{
-							if (room.GetWeatherIntensity() > 1)
-							{
-								gEngine.PrintEffectDesc(116);
-							}
-							else
-							{
-								gEngine.PrintEffectDesc(117);
-							}
+							gEngine.PrintEffectDesc(room.GetWeatherIntensity() > 1 ? 116 : 117);
 						}
 						else if (gGameState.Hour == 18 && gGameState.Minute == 0)
 						{
-							if (room.GetWeatherIntensity() > 1)
-							{
-								gEngine.PrintEffectDesc(118);
-							}
-							else
-							{
-								gEngine.PrintEffectDesc(119);
-							}
+							gEngine.PrintEffectDesc(room.GetWeatherIntensity() > 1 ? 118 : 119);
 						}
 						else if (gGameState.Hour == 19 && gGameState.Minute == 0)
 						{
-							if (room.GetWeatherIntensity() > 1)
-							{
-								gEngine.PrintEffectDesc(120);
-							}
-							else
-							{
-								gEngine.PrintEffectDesc(121);
-							}
+							gEngine.PrintEffectDesc(room.GetWeatherIntensity() > 1 ? 120 : 121);
 						}
 						else if (gGameState.Hour == 0 && gGameState.Minute == 0)
 						{
-							if (room.GetWeatherIntensity() > 1)
-							{
-								gEngine.PrintEffectDesc(122);
-							}
-							else
-							{
-								gEngine.PrintEffectDesc(123);
-							}
+							gEngine.PrintEffectDesc(room.GetWeatherIntensity() > 1 ? 122 : 123);
 						}
 					}
 
@@ -336,25 +294,36 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 								var monster = encounterList[(int)idx];
 
-								if (gGameState.GetNBTL(Friendliness.Enemy) > 0)
+								// Wandering Monster appears to be fixed encounter when last Command type is Movement
+
+								var lastCommandMovement = Globals.LastCommand != null && Globals.LastCommand.Type == CommandType.Movement;
+
+								if (!lastCommandMovement)
 								{
-									gOut.Print("{0} hears the sounds of battle, and comes wandering by.", room.EvalLightLevel("Something", monster.GetArticleName(true)));
-								}
-								else if (room.IsFoggyRoom())
-								{
-									gOut.Print("{0} suddenly materializes out of the fog.", monster.GetArticleName(true));
-								}
-								else if (room.IsRainyRoom() && room.GetWeatherIntensity() > 2)
-								{
-									gOut.Print("{0} suddenly materializes out of the rain.", monster.GetArticleName(true));
-								}
-								else if (room.IsGroundsRoom())
-								{
-									gOut.Print("{0} wanders into the area!", monster.GetArticleName(true));
-								}
-								else
-								{
-									gOut.Print("{0} wanders into the room!", room.EvalLightLevel("Something", monster.GetArticleName(true)));
+									if (gGameState.GetNBTL(Friendliness.Enemy) > 0)
+									{
+										gOut.Print("{0} hears the sounds of battle, and comes wandering by.", room.EvalLightLevel("Something", monster.GetArticleName(true)));
+									}
+									else if (room.IsGroundsRoom() && gGameState.IsNightTime())
+									{
+										gOut.Print("{0} suddenly materializes out of the darkness.", monster.GetArticleName(true));
+									}
+									else if (room.IsFoggyRoom())
+									{
+										gOut.Print("{0} suddenly materializes out of the fog.", monster.GetArticleName(true));
+									}
+									else if (room.IsRainyRoom() && room.GetWeatherIntensity() > 2)
+									{
+										gOut.Print("{0} suddenly materializes out of the rain.", monster.GetArticleName(true));
+									}
+									else if (room.IsGroundsRoom())
+									{
+										gOut.Print("{0} wanders into the area!", monster.GetArticleName(true));
+									}
+									else
+									{
+										gOut.Print("{0} wanders into the room!", room.EvalLightLevel("Something", monster.GetArticleName(true)));
+									}
 								}
 
 								monster.GroupCount = monster.OrigGroupCount;
@@ -365,25 +334,28 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 								monster.SetInRoom(room);
 
-								var saved = gEngine.SaveThrow(Stat.Agility);
-
-								if (!saved)
+								if (!lastCommandMovement)
 								{
-									gOut.Print("You have been taken by surprise!");
+									var saved = gEngine.SaveThrow(Stat.Agility);
 
-									Globals.InitiativeMonsterUid = monster.Uid;
+									if (!saved)
+									{
+										gOut.Print("You have been taken by surprise!");
 
-									Globals.EncounterSurprises = true;
+										Globals.InitiativeMonsterUid = monster.Uid;
 
-									NextState = Globals.CreateInstance<IMonsterStartState>();
+										Globals.EncounterSurprises = true;
 
-									GotoCleanup = true;
+										NextState = Globals.CreateInstance<IMonsterStartState>();
+
+										GotoCleanup = true;
+									}
 								}
 							}
 						}
 					}
 
-					// Random encounters not in player room go poof
+					// Random encounters not in player Room go poof
 
 					var monsterList = gEngine.GetMonsterList(m => m.Uid <= 17 && !m.IsInLimbo() && !m.IsInRoom(room));
 

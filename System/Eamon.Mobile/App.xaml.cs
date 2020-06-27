@@ -56,8 +56,6 @@ namespace Eamon.Mobile
 
 		public static AutoResetEvent FinishInput { get; set; }
 
-		public static Func<string[]> GetDocumentationFiles { get; set; }
-
 		public static Func<string[]> GetAdventureDirs { get; set; }
 
 		public static Func<string, bool> PluginExists { get; set; }
@@ -75,8 +73,6 @@ namespace Eamon.Mobile
 		public static SettingsPage SettingsPage { get; set; }
 
 		public static SettingsViewModel SettingsViewModel { get; set; }
-
-		public static TextFilePage TextFilePage { get; set; }
 
 		public App()
 		{

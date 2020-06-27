@@ -5,4 +5,4 @@ ChangeLog: TheVileGrimoireOfJaldial
 
 Date			Version			Who			Notes
 ----------------------------------------------------------------------------------------------------------------------------------
-20200527		1.6.0				MRP			Code complete 1.6.0
+20200624		1.6.0				MRP			Code complete 1.6.0

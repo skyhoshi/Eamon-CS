@@ -5,6 +5,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using Eamon;
 using Eamon.Framework;
@@ -86,19 +87,15 @@ namespace TheVileGrimoireOfJaldial.Game
 		{
 			var result = false;
 
-			var beholderMonster = gMDB[36];
-
-			Debug.Assert(beholderMonster != null);
-
-			var efreetiMonster = gMDB[50];
-
-			Debug.Assert(efreetiMonster != null);
-
 			var room = GetInRoom();
 
 			if (room != null)
 			{
-				result = (beholderMonster.IsInRoom(room) && beholderMonster.Friendliness == Enums.Friendliness.Friend) || (efreetiMonster.IsInRoom(room) && efreetiMonster.Friendliness == Enums.Friendliness.Friend);
+				var monsterUids = new long[] { 36, 46, 47, 48, 49, 50 };
+
+				var monsterList = gEngine.GetMonsterList(m => monsterUids.Contains(m.Uid) && m.IsInRoom(room) && m.Friendliness == Enums.Friendliness.Friend);
+
+				result = monsterList.Count >= 5;
 			}
 
 			return result;
@@ -184,6 +181,13 @@ namespace TheVileGrimoireOfJaldial.Game
 			// When a monster has initiative nobody else can react this round; paralyzed monsters sit out the round
 
 			return (Globals.InitiativeMonsterUid == 0 || Uid == Globals.InitiativeMonsterUid) && !gGameState.ParalyzedTargets.ContainsKey(Uid) && base.ShouldProcessInGameLoop();
+		}
+
+		public override bool ShouldRefuseToAcceptGift(IArtifact artifact)
+		{
+			// Pocket dragon and beholder never accept gifts
+
+			return Uid == 24 || Uid == 36 || base.ShouldRefuseToAcceptGift(artifact);
 		}
 
 		public override string[] GetWeaponAttackDescs(IArtifact artifact)
