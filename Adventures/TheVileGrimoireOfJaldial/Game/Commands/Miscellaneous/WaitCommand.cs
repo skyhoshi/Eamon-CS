@@ -30,40 +30,6 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 			}
 		}
 
-		public override void PlayerFinishParsing()
-		{
-			long i;
-
-			if (gCommandParser.CurrToken < gCommandParser.Tokens.Length)
-			{
-				gCommandParser.ParseName();
-
-				// Wait up to 55 minutes in increments of 5
-
-				if (long.TryParse(gCommandParser.ObjData.Name, out i) && i > 0)
-				{
-					Minutes = i;
-
-					while (Minutes % 5 != 0)
-					{
-						Minutes++;
-					}
-
-					if (Minutes > 55)
-					{
-						Minutes = 55;
-					}
-				}
-			}
-
-			// Restrict WaitCommand while enemies are present
-
-			if (gGameState.GetNBTL(Friendliness.Enemy) > 0)
-			{
-				Minutes = 0;
-			}
-		}
-
 		public WaitCommand()
 		{
 			SortOrder = 460;

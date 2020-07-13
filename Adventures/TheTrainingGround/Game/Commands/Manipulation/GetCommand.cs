@@ -25,7 +25,7 @@ namespace TheTrainingGround.Game.Commands
 
 			// Taking Purple book reveals secret passage
 
-			if (artifact.Uid == 27 && gActorMonster.Uid == gGameState.Cm && gActorRoom.Uid == 24 && !gGameState.LibrarySecretPassageFound)
+			if (artifact.Uid == 27 && ActorMonster.Uid == gGameState.Cm && ActorRoom.Uid == 24 && !gGameState.LibrarySecretPassageFound)
 			{
 				RevealSecretPassage = true;
 
@@ -41,7 +41,7 @@ namespace TheTrainingGround.Game.Commands
 			{
 				gEngine.PrintEffectDesc(12);
 
-				gActorRoom.SetDirs(Direction.East, 25);
+				ActorRoom.SetDirs(Direction.East, 25);
 			}
 		}
 	}

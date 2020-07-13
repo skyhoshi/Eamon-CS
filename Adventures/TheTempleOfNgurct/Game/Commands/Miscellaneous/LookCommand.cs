@@ -17,7 +17,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			gActorRoom.Seen = false;
+			ActorRoom.Seen = false;
 
 			if (gGameState.GetNBTL(Friendliness.Enemy) <= 0)
 			{
@@ -33,13 +33,13 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				// Secret door
 
-				if (gActorRoom.Uid == 24 && secretDoorArtifact1.IsInLimbo() && rl < 66)
+				if (ActorRoom.Uid == 24 && secretDoorArtifact1.IsInLimbo() && rl < 66)
 				{
-					secretDoorArtifact1.SetEmbeddedInRoom(gActorRoom);
+					secretDoorArtifact1.SetEmbeddedInRoom(ActorRoom);
 
 					room1.SetDirectionDoor(Direction.North, secretDoorArtifact1);
 
-					gEngine.RevealEmbeddedArtifact(gActorRoom, secretDoorArtifact1);
+					gEngine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact1);
 				}
 
 				var room2 = gRDB[48];
@@ -52,13 +52,13 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				// Secret door
 
-				if (gActorRoom.Uid == 48 && secretDoorArtifact2.IsInLimbo() && rl < 51)
+				if (ActorRoom.Uid == 48 && secretDoorArtifact2.IsInLimbo() && rl < 51)
 				{
-					secretDoorArtifact2.SetEmbeddedInRoom(gActorRoom);
+					secretDoorArtifact2.SetEmbeddedInRoom(ActorRoom);
 
 					room2.SetDirectionDoor(Direction.South, secretDoorArtifact2);
 
-					gEngine.RevealEmbeddedArtifact(gActorRoom, secretDoorArtifact2);
+					gEngine.RevealEmbeddedArtifact(ActorRoom, secretDoorArtifact2);
 				}
 
 				var scarabArtifact = gADB[65];
@@ -67,9 +67,9 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				// Hidden scarab
 
-				if (gActorRoom.Uid == 38 && scarabArtifact.IsInLimbo())
+				if (ActorRoom.Uid == 38 && scarabArtifact.IsInLimbo())
 				{
-					scarabArtifact.SetInRoom(gActorRoom);
+					scarabArtifact.SetInRoom(ActorRoom);
 				}
 
 				var guardMonster = gMDB[30];
@@ -82,9 +82,9 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				// Hidden ring of keys
 
-				if (gActorRoom.Uid == gGameState.KeyRingRoomUid && keyRingArtifact.IsInLimbo())
+				if (ActorRoom.Uid == gGameState.KeyRingRoomUid && keyRingArtifact.IsInLimbo())
 				{
-					keyRingArtifact.SetInRoom(gActorRoom);
+					keyRingArtifact.SetInRoom(ActorRoom);
 
 					// Guard wasn't killed
 

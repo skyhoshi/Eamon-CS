@@ -21,7 +21,7 @@ namespace TheBeginnersCave.Game.Commands
 			{
 				// saving throw vs. intellect for book trap warning
 
-				if (gDobjArtifact.Uid == 9)
+				if (DobjArtifact.Uid == 9)
 				{
 					if (gGameState.BookWarning == 0)
 					{
@@ -50,9 +50,9 @@ namespace TheBeginnersCave.Game.Commands
 			{
 				// book trap
 
-				if (gDobjArtifact.Uid == 9)
+				if (DobjArtifact.Uid == 9)
 				{
-					gOut.Print(gActorRoom.Uid == 26 ? "You fall into the sea and are eaten by a big fish." : "You flop three times and die.");
+					gOut.Print(ActorRoom.Uid == 26 ? "You fall into the sea and are eaten by a big fish." : "You flop three times and die.");
 
 					gGameState.Die = 1;
 
@@ -76,13 +76,13 @@ namespace TheBeginnersCave.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			// change name of bottle
 
-			if (gDobjArtifact.Uid == 3)
+			if (DobjArtifact.Uid == 3)
 			{
-				gDobjArtifact.Name = "healing potion";
+				DobjArtifact.Name = "healing potion";
 
 				gOut.Print("It says, \"HEALING POTION\".");
 

@@ -21,7 +21,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override bool IsAllowedInRoom()
 		{
-			return gDobjArtifact == null || gGameState.GetNBTL(Friendliness.Enemy) <= 0 || !Enum.IsDefined(typeof(ContainerType), ContainerType);
+			return DobjArtifact == null || gGameState.GetNBTL(Friendliness.Enemy) <= 0 || !Enum.IsDefined(typeof(ContainerType), ContainerType);
 		}
 	}
 }

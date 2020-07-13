@@ -21,9 +21,9 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				// Disable bribing
 
-				if (!monsterUids.Contains(gIobjMonster.Uid))
+				if (!monsterUids.Contains(IobjMonster.Uid))
 				{
-					gEngine.MonsterEmotes(gIobjMonster);
+					gEngine.MonsterEmotes(IobjMonster);
 
 					gOut.WriteLine();
 

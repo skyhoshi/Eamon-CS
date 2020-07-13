@@ -15,7 +15,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			var deviceArtifact = gADB[44];
 
@@ -23,7 +23,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			// Use lever
 
-			if (gDobjArtifact.Uid == 48 && deviceArtifact.IsInRoom(gActorRoom))
+			if (DobjArtifact.Uid == 48 && deviceArtifact.IsInRoom(ActorRoom))
 			{
 				var command = Globals.CreateInstance<IGetCommand>();
 

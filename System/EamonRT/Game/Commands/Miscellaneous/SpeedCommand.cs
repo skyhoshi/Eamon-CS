@@ -30,7 +30,7 @@ namespace EamonRT.Game.Commands
 
 			if (gGameState.Speed <= 0)
 			{
-				gActorMonster.Agility *= 2;
+				ActorMonster.Agility *= 2;
 			}
 
 			var rl = Globals.IsRulesetVersion(5, 15) ? gEngine.RollDice(1, 25, 9) : gEngine.RollDice(1, 10, 10);

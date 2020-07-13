@@ -22,11 +22,11 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			// Can't wear silk robes
 
-			if (gDobjArtifact.Uid == 75)
+			if (DobjArtifact.Uid == 75)
 			{
 				PrintDontNeedTo();
 

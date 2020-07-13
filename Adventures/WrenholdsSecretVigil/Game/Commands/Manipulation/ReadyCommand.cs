@@ -16,13 +16,13 @@ namespace WrenholdsSecretVigil.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			base.PlayerExecute();
 
 			// Player readies Trollsfire
 
-			if (gActorMonster.Weapon == gDobjArtifact.Uid && string.Equals(gDobjArtifact.Name, "Trollsfire", StringComparison.OrdinalIgnoreCase) && gDobjArtifact.Field4 == 10)
+			if (ActorMonster.Weapon == DobjArtifact.Uid && string.Equals(DobjArtifact.Name, "Trollsfire", StringComparison.OrdinalIgnoreCase) && DobjArtifact.Field4 == 10)
 			{
 				gEngine.PrintEffectDesc(6);
 			}

@@ -17,13 +17,13 @@ namespace TheTrainingGround.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			// Hammer of Thor
 
-			if (gDobjArtifact.Uid == 24)
+			if (DobjArtifact.Uid == 24)
 			{
-				var monsters = gEngine.GetMonsterList(m => m.IsInRoom(gActorRoom) && m.Friendliness == Friendliness.Enemy && m.Field1 == 0);
+				var monsters = gEngine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m.Friendliness == Friendliness.Enemy && m.Field1 == 0);
 
 				foreach (var monster in monsters)
 				{

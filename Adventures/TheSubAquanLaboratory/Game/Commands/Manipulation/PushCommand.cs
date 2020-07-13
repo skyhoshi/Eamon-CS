@@ -17,9 +17,9 @@ namespace TheSubAquanLaboratory.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			switch (gDobjArtifact.Uid)
+			switch (DobjArtifact.Uid)
 			{
 				case 3:
 
@@ -27,7 +27,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					if (gGameState.GetNBTL(Friendliness.Enemy) <= 0)
 					{
-						if (gActorRoom.Uid != 17)
+						if (ActorRoom.Uid != 17)
 						{
 							gOut.Print("Up button pushed.");
 
@@ -39,7 +39,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							Debug.Assert(effect != null);
 
-							gEngine.TransportPlayerBetweenRooms(gActorRoom, newRoom, effect);
+							gEngine.TransportPlayerBetweenRooms(ActorRoom, newRoom, effect);
 
 							NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 						}
@@ -63,7 +63,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					if (gGameState.GetNBTL(Friendliness.Enemy) <= 0)
 					{
-						if (gActorRoom.Uid != 18)
+						if (ActorRoom.Uid != 18)
 						{
 							gOut.Print("Down button pushed.");
 
@@ -75,7 +75,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							Debug.Assert(effect != null);
 
-							gEngine.TransportPlayerBetweenRooms(gActorRoom, newRoom, effect);
+							gEngine.TransportPlayerBetweenRooms(ActorRoom, newRoom, effect);
 
 							NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 						}
@@ -99,7 +99,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					// Black/Yellow/Red buttons (Make mystery food)
 
-					gOut.Print("{0} pushed.", gDobjArtifact.GetNoneName(true, false));
+					gOut.Print("{0} pushed.", DobjArtifact.GetNoneName(true, false));
 
 					var foodArtifact = gADB[22];
 
@@ -116,7 +116,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 					gEngine.PrintEffectDesc(27);
 
-					foodArtifact.SetInRoom(gActorRoom);
+					foodArtifact.SetInRoom(ActorRoom);
 
 					foodArtifact.Seen = false;
 
@@ -163,9 +163,9 @@ namespace TheSubAquanLaboratory.Game.Commands
 				case 69:
 				case 70:
 
-					gOut.Print("{0} pushed.", gDobjArtifact.GetNoneName(true, false));
+					gOut.Print("{0} pushed.", DobjArtifact.GetNoneName(true, false));
 
-					switch (gDobjArtifact.Uid)
+					switch (DobjArtifact.Uid)
 					{
 						case 27:
 
@@ -301,7 +301,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 				default:
 
-					PrintCantVerbObj(gDobjArtifact);
+					PrintCantVerbObj(DobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
@@ -314,11 +314,6 @@ namespace TheSubAquanLaboratory.Game.Commands
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			PlayerResolveArtifact();
 		}
 
 		public PushCommand()

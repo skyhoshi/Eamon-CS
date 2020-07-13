@@ -36,9 +36,9 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			var ac = gDobjArtifact.BoundMonster;
+			var ac = DobjArtifact.BoundMonster;
 
 			if (ac != null)
 			{
@@ -63,7 +63,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (Guard != null && Guard.IsInRoom(gActorRoom))
+				if (Guard != null && Guard.IsInRoom(ActorRoom))
 				{
 					gOut.Print("{0} won't let you!", Guard.GetTheName(true));
 
@@ -77,7 +77,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (Key != null && !Key.IsCarriedByCharacter() && !Key.IsWornByCharacter() && !Key.IsInRoom(gActorRoom))
+				if (Key != null && !Key.IsCarriedByCharacter() && !Key.IsWornByCharacter() && !Key.IsInRoom(ActorRoom))
 				{
 					gOut.Print("You don't have the key.");
 
@@ -86,13 +86,13 @@ namespace EamonRT.Game.Commands
 
 				PrintMonsterFreed();
 
-				Monster.SetInRoom(gActorRoom);
+				Monster.SetInRoom(ActorRoom);
 
-				gDobjArtifact.SetInLimbo();
+				DobjArtifact.SetInLimbo();
 			}
 			else
 			{
-				PrintCantVerbObj(gDobjArtifact);
+				PrintCantVerbObj(DobjArtifact);
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -105,15 +105,6 @@ namespace EamonRT.Game.Commands
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			gCommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch01;
-
-			gCommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch01;
-
-			PlayerResolveArtifact();
 		}
 
 		public FreeCommand()

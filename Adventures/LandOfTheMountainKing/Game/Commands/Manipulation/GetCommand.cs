@@ -58,7 +58,7 @@ namespace LandOfTheMountainKing.Game.Commands
 			{
 				var HandleArtifact = gADB[23];
 
-				if (HandleArtifact.IsInRoom(gActorRoom))
+				if (HandleArtifact.IsInRoom(ActorRoom))
 				{
 					gEngine.PrintEffectDesc(23);
 				}

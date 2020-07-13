@@ -22,5 +22,8 @@ namespace EamonRT.Framework.Commands
 
 		/// <summary></summary>
 		long? PauseCombatMs { get; set; }
+
+		/// <summary></summary>
+		void PrintUsage();
 	}
 }

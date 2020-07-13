@@ -136,7 +136,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 				Rtio = gEngine.GetMerchantRtio(c2);
 			}
 
-			i = gEngine.FindIndex(Globals.Character.Weapons, w => !w.IsActive());
+			i = Array.FindIndex(Globals.Character.Weapons, w => !w.IsActive());
 
 			if (i < 0)
 			{

@@ -60,7 +60,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			Debug.Assert(waterArtifact != null);
 
-			if (gDobjArtifact != null)
+			if (DobjArtifact != null)
 			{
 				var crystalGobletArtifact = gADB[12];
 
@@ -88,13 +88,13 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				// Dragon's treasure hoard
 
-				if (gDobjArtifact.Uid == 11)
+				if (DobjArtifact.Uid == 11)
 				{
 					if (saved && crystalGobletArtifact.IsInLimbo())
 					{
 						foundDesc = "You find an interesting item!";
 
-						crystalGobletArtifact.SetInRoom(gActorRoom);
+						crystalGobletArtifact.SetInRoom(ActorRoom);
 
 						found = true;
 					}
@@ -102,17 +102,17 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				// Beholder's treasure hoard
 
-				else if (gDobjArtifact.Uid == 18)
+				else if (DobjArtifact.Uid == 18)
 				{
 					if (saved && crimsonCloakArtifact.IsInLimbo())
 					{
 						foundDesc = "After tearing the hoard apart, you find some interesting items!";
 
-						crimsonCloakArtifact.SetInRoom(gActorRoom);
+						crimsonCloakArtifact.SetInRoom(ActorRoom);
 
-						goldPiecesArtifact.SetInRoom(gActorRoom);
+						goldPiecesArtifact.SetInRoom(ActorRoom);
 
-						pouchContainingStonesArtifact.SetInRoom(gActorRoom);
+						pouchContainingStonesArtifact.SetInRoom(ActorRoom);
 
 						found = true;
 					}
@@ -120,13 +120,13 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				// Large nest
 
-				else if (gDobjArtifact.Uid == 23)
+				else if (DobjArtifact.Uid == 23)
 				{
 					if (saved && griffinEggArtifact.IsInLimbo())
 					{
 						foundDesc = "You find a secret compartment, in which something is hidden!";
 
-						griffinEggArtifact.SetCarriedByContainer(gDobjArtifact);
+						griffinEggArtifact.SetCarriedByContainer(DobjArtifact);
 
 						found = true;
 					}
@@ -134,7 +134,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				// Large fountain
 
-				else if (gDobjArtifact.Uid == 24)
+				else if (DobjArtifact.Uid == 24)
 				{
 					if (waterArtifact.IsInLimbo())
 					{
@@ -157,13 +157,13 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				// Wooden throne
 
-				else if (gDobjArtifact.Uid == 26)
+				else if (DobjArtifact.Uid == 26)
 				{
 					if (saved && bookOfRunesArtifact.IsInLimbo())
 					{
 						foundDesc = "You find a secret compartment in the tree stump!";
 
-						bookOfRunesArtifact.SetInRoom(gActorRoom);
+						bookOfRunesArtifact.SetInRoom(ActorRoom);
 
 						found = true;
 					}
@@ -179,18 +179,18 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				Debug.Assert(lanternArtifact != null);
 
-				if (gActorRoom.Uid == 36)
+				if (ActorRoom.Uid == 36)
 				{
 					if (saved && lanternArtifact.IsInLimbo())
 					{
 						foundDesc = "After scouring the area, you find something of interest!";
 
-						lanternArtifact.SetInRoom(gActorRoom);
+						lanternArtifact.SetInRoom(ActorRoom);
 
 						found = true;
 					}
 				}
-				else if (gActorRoom.Uid == 54)
+				else if (ActorRoom.Uid == 54)
 				{
 					if (saved && !gGameState.GetSecretDoors(1))
 					{
@@ -205,7 +205,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						found = true;
 					}
 				}
-				else if (gActorRoom.Uid == 55)
+				else if (ActorRoom.Uid == 55)
 				{
 					if (saved && !gGameState.GetSecretDoors(1))
 					{
@@ -214,7 +214,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						found = true;
 					}
 				}
-				else if (gActorRoom.Uid == 56)
+				else if (ActorRoom.Uid == 56)
 				{
 					if (saved && !gGameState.GetSecretDoors(2))
 					{
@@ -229,7 +229,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						found = true;
 					}
 				}
-				else if (gActorRoom.Uid == 58)
+				else if (ActorRoom.Uid == 58)
 				{
 					if (saved && !gGameState.GetSecretDoors(3))
 					{
@@ -238,7 +238,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						found = true;
 					}
 				}
-				else if (gActorRoom.Uid == 63)
+				else if (ActorRoom.Uid == 63)
 				{
 					if (saved && !gGameState.GetSecretDoors(3))
 					{
@@ -247,7 +247,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						found = true;
 					}
 				}
-				else if (gActorRoom.Uid == 68)
+				else if (ActorRoom.Uid == 68)
 				{
 					if (saved && !gGameState.GetSecretDoors(4))
 					{
@@ -256,7 +256,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						found = true;
 					}
 				}
-				else if (gActorRoom.Uid == 74)
+				else if (ActorRoom.Uid == 74)
 				{
 					if (saved && !gGameState.GetSecretDoors(5))
 					{
@@ -271,7 +271,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						found = true;
 					}
 				}
-				else if (gActorRoom.Uid == 87)
+				else if (ActorRoom.Uid == 87)
 				{
 					if (saved && !gGameState.GetSecretDoors(7))
 					{
@@ -280,18 +280,18 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						found = true;
 					}
 				}
-				else if (gActorRoom.Uid == 89)
+				else if (ActorRoom.Uid == 89)
 				{
 					if (saved && tapestryArtifact.IsInLimbo())
 					{
 						foundDesc = "You find an interesting tapestry!";
 
-						tapestryArtifact.SetInRoom(gActorRoom);
+						tapestryArtifact.SetInRoom(ActorRoom);
 
 						found = true;
 					}
 				}
-				else if (gActorRoom.Uid == 100)
+				else if (ActorRoom.Uid == 100)
 				{
 					if (saved && !gGameState.GetSecretDoors(9))
 					{
@@ -300,7 +300,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						found = true;
 					}
 				}
-				else if (gActorRoom.Uid == 101)
+				else if (ActorRoom.Uid == 101)
 				{
 					if (saved && !gGameState.GetSecretDoors(8))
 					{
@@ -309,7 +309,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						found = true;
 					}
 				}
-				else if (gActorRoom.Uid == 102)
+				else if (ActorRoom.Uid == 102)
 				{
 					if (saved && !gGameState.GetSecretDoors(11))
 					{
@@ -318,7 +318,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						found = true;
 					}
 				}
-				else if (gActorRoom.Uid == 115)
+				else if (ActorRoom.Uid == 115)
 				{
 					if (saved && !gGameState.GetSecretDoors(10))
 					{
@@ -327,7 +327,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						found = true;
 					}
 				}
-				else if (gActorRoom.Uid == 116)
+				else if (ActorRoom.Uid == 116)
 				{
 					if (waterArtifact.IsInLimbo())
 					{
@@ -368,7 +368,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				foreach (var a in artifactList)
 				{
-					a.SetInRoom(gActorRoom);
+					a.SetInRoom(ActorRoom);
 				}
 
 				largeFountainArtifact.Type = ArtifactType.DoorGate;
@@ -389,19 +389,6 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 			if (NextState == null)
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
-			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			if (gCommandParser.CurrToken < gCommandParser.Tokens.Length)
-			{
-				gCommandParser.ParseName();
-
-				if (!string.Equals(gCommandParser.ObjData.Name, "room", StringComparison.OrdinalIgnoreCase) && !string.Equals(gCommandParser.ObjData.Name, "area", StringComparison.OrdinalIgnoreCase) && !(gActorRoom.Uid == 89 && gCommandParser.ObjData.Name.ContainsAny(new string[] { "tapestries", "tapestry" }, StringComparison.OrdinalIgnoreCase)))
-				{
-					PlayerResolveArtifact();
-				}
 			}
 		}
 

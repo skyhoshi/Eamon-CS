@@ -25,7 +25,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			if (!artifact.Seen)
 			{
-				artifact.SetInRoom(gActorRoom);
+				artifact.SetInRoom(ActorRoom);
 
 				var command = Globals.CreateInstance<IExamineCommand>(x =>
 				{
@@ -44,7 +44,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 		{
 			if (eventType == PpeAfterArtifactFullDescPrint)
 			{
-				switch (gDobjArtifact.Uid)
+				switch (DobjArtifact.Uid)
 				{
 					case 2:
 					case 83:
@@ -53,7 +53,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						if (gGameState.FakeWallExamines < 2)
 						{
-							gOut.Print("Examining {0} reveals something curious:", gDobjArtifact.GetTheName());
+							gOut.Print("Examining {0} reveals something curious:", DobjArtifact.GetTheName());
 						}
 
 						gGameState.FakeWallExamines++;
@@ -77,7 +77,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 						{
 							x.SetNextStateFunc = s => NextState = s;
 
-							x.DfMonster = gActorMonster;
+							x.DfMonster = ActorMonster;
 
 							x.OmitArmor = true;
 						});
@@ -96,13 +96,13 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							Debug.Assert(largeHammerheadMonster != null);
 
-							largeHammerheadMonster.SetInRoom(gActorRoom);
+							largeHammerheadMonster.SetInRoom(ActorRoom);
 
 							var smallHammerheadMonster = gMDB[8];
 
 							Debug.Assert(smallHammerheadMonster != null);
 
-							smallHammerheadMonster.SetInRoom(gActorRoom);
+							smallHammerheadMonster.SetInRoom(ActorRoom);
 
 							gEngine.PrintEffectDesc(1);
 

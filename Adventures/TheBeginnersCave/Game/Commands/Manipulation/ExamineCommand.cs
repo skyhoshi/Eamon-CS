@@ -15,13 +15,13 @@ namespace TheBeginnersCave.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
+			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
 			// don't show bites/drinks left for spices
 
-			if (gDobjArtifact != null && gDobjArtifact.Uid == 8)
+			if (DobjArtifact != null && DobjArtifact.Uid == 8)
 			{
-				var ac = gDobjArtifact.Edible;
+				var ac = DobjArtifact.Edible;
 
 				Debug.Assert(ac != null);
 

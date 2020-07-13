@@ -38,10 +38,7 @@ namespace EamonRT.Game.States
 
 					if (NextState == null)
 					{
-						NextState = Globals.CreateInstance<IProcessPlayerInputState>(x =>
-						{
-							x.IncrementCurrTurn = false;
-						});
+						NextState = Globals.CreateInstance<IProcessPlayerInputState>();
 					}
 				}
 				else

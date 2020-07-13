@@ -25,28 +25,28 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			var dobjAc = gDobjArtifact.Wearable;
+			var dobjAc = DobjArtifact.Wearable;
 
 			if (dobjAc != null)
 			{
-				if (gDobjArtifact.IsWornByCharacter())
+				if (DobjArtifact.IsWornByCharacter())
 				{
-					gOut.Print("You're already wearing {0}!", gDobjArtifact.EvalPlural("it", "them"));
+					gOut.Print("You're already wearing {0}!", DobjArtifact.EvalPlural("it", "them"));
 
 					NextState = Globals.CreateInstance<IStartState>();
 
 					goto Cleanup;
 				}
 
-				if (!gDobjArtifact.IsCarriedByCharacter())
+				if (!DobjArtifact.IsCarriedByCharacter())
 				{
 					if (!GetCommandCalled)
 					{
-						RedirectToGetCommand<IWearCommand>(gDobjArtifact);
+						RedirectToGetCommand<IWearCommand>(DobjArtifact);
 					}
-					else if (gDobjArtifact.DisguisedMonster == null)
+					else if (DobjArtifact.DisguisedMonster == null)
 					{
 						NextState = Globals.CreateInstance<IStartState>();
 					}
@@ -80,9 +80,9 @@ namespace EamonRT.Game.Commands
 							goto Cleanup;
 						}
 
-						gGameState.Ar = gDobjArtifact.Uid;
+						gGameState.Ar = DobjArtifact.Uid;
 
-						gActorMonster.Armor = (dobjAc.Field1 / 2) + ((dobjAc.Field1 / 2) >= 3 ? 2 : 0) + (shAc != null ? shAc.Field1 : 0);
+						ActorMonster.Armor = (dobjAc.Field1 / 2) + ((dobjAc.Field1 / 2) >= 3 ? 2 : 0) + (shAc != null ? shAc.Field1 : 0);
 					}
 					else
 					{
@@ -97,28 +97,28 @@ namespace EamonRT.Game.Commands
 
 						// can't wear shield while using two-handed weapon
 
-						var weapon = gActorMonster.Weapon > 0 ? gADB[gActorMonster.Weapon] : null;
+						var weapon = ActorMonster.Weapon > 0 ? gADB[ActorMonster.Weapon] : null;
 
 						var weaponAc = weapon != null ? weapon.GeneralWeapon : null;
 
 						if (weaponAc != null && weaponAc.Field5 > 1)
 						{
-							PrintCantWearShieldWithWeapon(gDobjArtifact, weapon);
+							PrintCantWearShieldWithWeapon(DobjArtifact, weapon);
 
 							NextState = Globals.CreateInstance<IStartState>();
 
 							goto Cleanup;
 						}
 
-						gGameState.Sh = gDobjArtifact.Uid;
+						gGameState.Sh = DobjArtifact.Uid;
 
-						gActorMonster.Armor = (arAc != null ? (arAc.Field1 / 2) + ((arAc.Field1 / 2) >= 3 ? 2 : 0) : 0) + dobjAc.Field1;
+						ActorMonster.Armor = (arAc != null ? (arAc.Field1 / 2) + ((arAc.Field1 / 2) >= 3 ? 2 : 0) : 0) + dobjAc.Field1;
 					}
 				}
 
-				gDobjArtifact.SetWornByCharacter();
+				DobjArtifact.SetWornByCharacter();
 
-				PrintWorn(gDobjArtifact);
+				PrintWorn(DobjArtifact);
 
 				PlayerProcessEvents(PpeAfterArtifactWear);
 
@@ -129,7 +129,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{ 
-				PrintCantVerbObj(gDobjArtifact);
+				PrintCantVerbObj(DobjArtifact);
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -142,19 +142,6 @@ namespace EamonRT.Game.Commands
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
-			{
-				a => a.IsCarriedByCharacter() || a.IsInRoom(gActorRoom),
-				a => a.IsEmbeddedInRoom(gActorRoom),
-				a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively),
-				a => a.IsWornByCharacter()
-			};
-
-			PlayerResolveArtifact();
 		}
 
 		public WearCommand()

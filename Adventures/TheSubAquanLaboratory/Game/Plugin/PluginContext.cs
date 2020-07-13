@@ -5,6 +5,8 @@
 
 using Eamon.Framework.DataStorage.Generic;
 using Eamon.Framework.Portability;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.Parsing;
 
 namespace TheSubAquanLaboratory.Game.Plugin
 {
@@ -94,54 +96,6 @@ namespace TheSubAquanLaboratory.Game.Plugin
 			}
 		}
 
-		public static Framework.IMonster gActorMonster
-		{
-			get
-			{
-				return (Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gActorMonster;
-			}
-		}
-
-		public static Eamon.Framework.IRoom gActorRoom
-		{
-			get
-			{
-				return (Eamon.Framework.IRoom)EamonRT.Game.Plugin.PluginContext.gActorRoom;
-			}
-		}
-
-		public static Eamon.Framework.IArtifact gDobjArtifact
-		{
-			get
-			{
-				return (Eamon.Framework.IArtifact)EamonRT.Game.Plugin.PluginContext.gDobjArtifact;
-			}
-		}
-
-		public static Framework.IMonster gDobjMonster
-		{
-			get
-			{
-				return (Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gDobjMonster;
-			}
-		}
-
-		public static Eamon.Framework.IArtifact gIobjArtifact
-		{
-			get
-			{
-				return (Eamon.Framework.IArtifact)EamonRT.Game.Plugin.PluginContext.gIobjArtifact;
-			}
-		}
-
-		public static Framework.IMonster gIobjMonster
-		{
-			get
-			{
-				return (Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gIobjMonster;
-			}
-		}
-
 		public static EamonRT.Framework.Parsing.ICommandParser gCommandParser
 		{
 			get
@@ -163,6 +117,54 @@ namespace TheSubAquanLaboratory.Game.Plugin
 			get
 			{
 				return (Eamon.Framework.ICharacter)EamonRT.Game.Plugin.PluginContext.gCharacter;
+			}
+		}
+
+		public static Framework.IMonster gActorMonster(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Framework.IMonster)commandParser?.ActorMonster;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Framework.IMonster)command?.ActorMonster;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		public static Framework.IMonster gDobjMonster(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Framework.IMonster)commandParser?.DobjMonster;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Framework.IMonster)command?.DobjMonster;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		public static Framework.IMonster gIobjMonster(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Framework.IMonster)commandParser?.IobjMonster;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Framework.IMonster)command?.IobjMonster;
+			}
+			else
+			{
+				return null;
 			}
 		}
 	}

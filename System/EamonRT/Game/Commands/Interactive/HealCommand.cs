@@ -21,32 +21,32 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjMonster != null);
+			Debug.Assert(DobjMonster != null);
 
 			if (CastSpell && !gEngine.CheckPlayerSpellCast(Spell.Heal, ShouldAllowSkillGains()))
 			{
 				goto Cleanup;
 			}
 
-			var isCharMonster = gDobjMonster.IsCharacterMonster();
+			var isCharMonster = DobjMonster.IsCharacterMonster();
 
-			if (gDobjMonster.DmgTaken > 0)
+			if (DobjMonster.DmgTaken > 0)
 			{
 				if (Globals.IsRulesetVersion(5, 15))
 				{
 					Globals.Buf.SetFormat("{0}Some of {1}", 
 						Environment.NewLine,
 						isCharMonster ? "your" :
-						gDobjMonster.EvalPlural(gDobjMonster.GetTheName(buf: Globals.Buf01),
-														gDobjMonster.GetArticleName(false, true, false, true, Globals.Buf02)));
+						DobjMonster.EvalPlural(DobjMonster.GetTheName(buf: Globals.Buf01),
+														DobjMonster.GetArticleName(false, true, false, true, Globals.Buf02)));
 				}
 				else
 				{
 					Globals.Buf.SetFormat("{0}{1}",
 						Environment.NewLine,
 						isCharMonster ? "Your" :
-						gDobjMonster.EvalPlural(gDobjMonster.GetTheName(true, buf: Globals.Buf01),
-														gDobjMonster.GetArticleName(true, true, false, true, Globals.Buf02)));
+						DobjMonster.EvalPlural(DobjMonster.GetTheName(true, buf: Globals.Buf01),
+														DobjMonster.GetArticleName(true, true, false, true, Globals.Buf02)));
 				}
 
 				if (!isCharMonster)
@@ -67,20 +67,20 @@ namespace EamonRT.Game.Commands
 
 				var rl = gEngine.RollDice(1, Globals.IsRulesetVersion(5, 15) ? 10 : 12, 0);
 
-				gDobjMonster.DmgTaken -= rl;
+				DobjMonster.DmgTaken -= rl;
 			}
 
-			if (gDobjMonster.DmgTaken < 0)
+			if (DobjMonster.DmgTaken < 0)
 			{
-				gDobjMonster.DmgTaken = 0;
+				DobjMonster.DmgTaken = 0;
 			}
 
 			Globals.Buf.SetFormat("{0}{1} {2} ",
 				Environment.NewLine,
-				isCharMonster ? "You" : gDobjMonster.GetTheName(true, true, false, true, Globals.Buf01),
+				isCharMonster ? "You" : DobjMonster.GetTheName(true, true, false, true, Globals.Buf01),
 				isCharMonster ? "are" : "is");
 
-			gDobjMonster.AddHealthStatus(Globals.Buf);
+			DobjMonster.AddHealthStatus(Globals.Buf);
 
 			gOut.Write("{0}", Globals.Buf);
 
@@ -89,18 +89,6 @@ namespace EamonRT.Game.Commands
 			if (NextState == null)
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
-			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			if (!Globals.IsRulesetVersion(5) && gCommandParser.CurrToken < gCommandParser.Tokens.Length)
-			{
-				PlayerResolveMonster();
-			}
-			else
-			{
-				Dobj = gMDB[gGameState.Cm];
 			}
 		}
 

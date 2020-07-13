@@ -29,7 +29,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// If the cauldron is prepared (see Effect #50) and the magic words have been spoken, unlock the portcullis
 
-				if (gActorRoom.Uid == 43 && gGameState.UsedCauldron && (cauldronArtifact.IsCarriedByCharacter() || cauldronArtifact.IsInRoom(gActorRoom)) && gEngine.SpellReagentsInCauldron(cauldronArtifact))
+				if (ActorRoom.Uid == 43 && gGameState.UsedCauldron && (cauldronArtifact.IsCarriedByCharacter() || cauldronArtifact.IsInRoom(ActorRoom)) && gEngine.SpellReagentsInCauldron(cauldronArtifact))
 				{
 					gEngine.PrintEffectDesc(52);
 
@@ -68,7 +68,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// Move companions into pit
 
-				if (gActorRoom.Uid > 93 && gActorRoom.Uid < 110)
+				if (ActorRoom.Uid > 93 && ActorRoom.Uid < 110)
 				{
 					var monsters = gEngine.GetMonsterList(m => !m.IsCharacterMonster() && m.Friendliness == Friendliness.Friend && m.Seen && (m.Location < 94 || m.Location > 109));
 
@@ -80,7 +80,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 						{
 							gOut.Print("{0} suddenly appears!", m.GetTheName(true));
 
-							m.SetInRoom(gActorRoom);
+							m.SetInRoom(ActorRoom);
 						}
 
 						GotoCleanup = true;
@@ -91,7 +91,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// Move companions out of pit
 
-				if (gActorRoom.Uid < 94 || gActorRoom.Uid > 109)
+				if (ActorRoom.Uid < 94 || ActorRoom.Uid > 109)
 				{
 					var monsters = gEngine.GetMonsterList(m => !m.IsCharacterMonster() && m.Friendliness == Friendliness.Friend && m.Seen && (m.Location > 93 && m.Location < 110));
 
@@ -103,7 +103,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 						{
 							gOut.Print("{0} suddenly appears!", m.GetTheName(true));
 
-							m.SetInRoom(gActorRoom);
+							m.SetInRoom(ActorRoom);
 						}
 
 						GotoCleanup = true;

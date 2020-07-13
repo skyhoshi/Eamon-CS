@@ -20,15 +20,15 @@ namespace EamonRT.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			var ac = gDobjArtifact.DoorGate;
+			var ac = DobjArtifact.DoorGate;
 
 			if (ac != null)
 			{
 				NextState = Globals.CreateInstance<IBeforePlayerMoveState>(x =>
 				{
-					x.Artifact = gDobjArtifact;
+					x.Artifact = DobjArtifact;
 				});
 			}
 			else
@@ -46,22 +46,6 @@ namespace EamonRT.Game.Commands
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			gCommandParser.ParseName();
-
-			gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
-			{
-				a => a.IsInRoom(gActorRoom),
-				a => a.IsEmbeddedInRoom(gActorRoom),
-				a => a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively)
-			};
-
-			gCommandParser.ObjData.ArtifactNotFoundFunc = PrintNothingHereByThatName;
-
-			PlayerResolveArtifact();
 		}
 
 		public GoCommand()

@@ -21,7 +21,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			// Free caged animals
 
-			if (eventType == PpeBeforeGuardMonsterCheck && gDobjArtifact.Uid == 46 && (deviceArtifact.IsInRoom(gActorRoom) || deviceArtifact.IsEmbeddedInRoom(gActorRoom)))
+			if (eventType == PpeBeforeGuardMonsterCheck && DobjArtifact.Uid == 46 && (deviceArtifact.IsInRoom(ActorRoom) || deviceArtifact.IsEmbeddedInRoom(ActorRoom)))
 			{
 				gOut.Print("The glowing cages won't open!");
 

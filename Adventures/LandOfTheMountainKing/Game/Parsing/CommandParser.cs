@@ -1,29 +1,29 @@
 ﻿
-// SaveCommand.cs
+// CommandParser.cs
 
 // Copyright (c) 2014+ by Kenneth Pedersen.  All rights reserved.
 
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
-using EamonRT.Framework.Commands;
+using EamonRT.Framework.Parsing;
 using EamonRT.Framework.States;
 using static LandOfTheMountainKing.Game.Plugin.PluginContext;
 
-namespace LandOfTheMountainKing.Game.Commands
+namespace LandOfTheMountainKing.Game.Parsing
 {
 	[ClassMappings]
-	public class SaveCommand : EamonRT.Game.Commands.SaveCommand, ISaveCommand
+	public class CommandParser : EamonRT.Game.Parsing.CommandParser, ICommandParser
 	{
-		public override void PlayerFinishParsing()
+		public override void PlayerFinishParsingSaveCommand()
 		{
 			if (gGameState.GetNBTL(Friendliness.Enemy) > 0)
 			{
 				gEngine.PrintEffectDesc(30); //Cannot save with enemies nearby
-				gCommandParser.NextState = Globals.CreateInstance<IStartState>();
+				NextState = Globals.CreateInstance<IStartState>();
 			}
 			else
 			{
-				base.PlayerFinishParsing();
+				base.PlayerFinishParsingSaveCommand();
 			}
 		}
 	}

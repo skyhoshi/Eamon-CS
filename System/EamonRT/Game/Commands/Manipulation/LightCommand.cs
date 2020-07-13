@@ -22,21 +22,21 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			var ac = gDobjArtifact.LightSource;
+			var ac = DobjArtifact.LightSource;
 
 			if (ac != null)
 			{
-				if (!gDobjArtifact.IsUnmovable())
+				if (!DobjArtifact.IsUnmovable())
 				{
-					if (!gDobjArtifact.IsCarriedByCharacter())
+					if (!DobjArtifact.IsCarriedByCharacter())
 					{
 						if (!GetCommandCalled)
 						{
-							RedirectToGetCommand<ILightCommand>(gDobjArtifact);
+							RedirectToGetCommand<ILightCommand>(DobjArtifact);
 						}
-						else if (gDobjArtifact.DisguisedMonster == null)
+						else if (DobjArtifact.DisguisedMonster == null)
 						{
 							NextState = Globals.CreateInstance<IStartState>();
 						}
@@ -47,16 +47,16 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Field1 == 0)
 				{
-					PrintWontLight(gDobjArtifact);
+					PrintWontLight(DobjArtifact);
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
 
 					goto Cleanup;
 				}
 
-				if (gGameState.Ls == gDobjArtifact.Uid)
+				if (gGameState.Ls == DobjArtifact.Uid)
 				{
-					gOut.Write("{0}Extinguish {1} (Y/N): ", Environment.NewLine, gDobjArtifact.GetTheName());
+					gOut.Write("{0}Extinguish {1} (Y/N): ", Environment.NewLine, DobjArtifact.GetTheName());
 
 					Globals.Buf.Clear();
 
@@ -66,13 +66,13 @@ namespace EamonRT.Game.Commands
 
 					if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'Y')
 					{
-						rc = gDobjArtifact.RemoveStateDesc(gDobjArtifact.GetProvidingLightDesc());
+						rc = DobjArtifact.RemoveStateDesc(DobjArtifact.GetProvidingLightDesc());
 
 						Debug.Assert(gEngine.IsSuccess(rc));
 
 						gGameState.Ls = 0;
 
-						PrintLightExtinguished(gDobjArtifact);
+						PrintLightExtinguished(DobjArtifact);
 					}
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
@@ -89,19 +89,19 @@ namespace EamonRT.Game.Commands
 					gEngine.LightOut(lsArtifact);
 				}
 
-				rc = gDobjArtifact.AddStateDesc(gDobjArtifact.GetProvidingLightDesc());
+				rc = DobjArtifact.AddStateDesc(DobjArtifact.GetProvidingLightDesc());
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
-				gGameState.Ls = gDobjArtifact.Uid;
+				gGameState.Ls = DobjArtifact.Uid;
 
-				PrintLightObj(gDobjArtifact);
+				PrintLightObj(DobjArtifact);
 			}
 			else
 			{
-				if (gActorMonster.IsInRoomLit() || gDobjArtifact.IsCarriedByCharacter())
+				if (ActorMonster.IsInRoomLit() || DobjArtifact.IsCarriedByCharacter())
 				{
-					PrintCantVerbObj(gDobjArtifact);
+					PrintCantVerbObj(DobjArtifact);
 				}
 
 				NextState = Globals.CreateInstance<IStartState>();
@@ -115,16 +115,6 @@ namespace EamonRT.Game.Commands
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			if (!gActorMonster.IsInRoomLit())
-			{
-				gCommandParser.ObjData.ArtifactNotFoundFunc = () => { };
-			}
-
-			PlayerResolveArtifact();
 		}
 
 		public LightCommand()

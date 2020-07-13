@@ -14,9 +14,9 @@ namespace TheBeginnersCave.Game.Commands
 	{
 		public override void PlayerProcessEvents(long eventType)
 		{
-			if (eventType == PpeBeforeMonsterTakesGold && (gIobjMonster.Uid == 1 || gIobjMonster.Uid == 5 || gIobjMonster.Uid == 7))
+			if (eventType == PpeBeforeMonsterTakesGold && (IobjMonster.Uid == 1 || IobjMonster.Uid == 5 || IobjMonster.Uid == 7))
 			{
-				gEngine.MonsterEmotes(gIobjMonster);
+				gEngine.MonsterEmotes(IobjMonster);
 
 				gOut.WriteLine();
 

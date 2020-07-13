@@ -39,6 +39,24 @@ namespace EamonRT.Framework.Parsing
 		IRoom ActorRoom { get; set; }
 
 		/// <summary></summary>
+		IGameBase Dobj { get; set; }
+
+		/// <summary></summary>
+		IArtifact DobjArtifact { get; }
+
+		/// <summary></summary>
+		IMonster DobjMonster { get; }
+
+		/// <summary></summary>
+		IGameBase Iobj { get; set; }
+
+		/// <summary></summary>
+		IArtifact IobjArtifact { get; }
+
+		/// <summary></summary>
+		IMonster IobjMonster { get; }
+
+		/// <summary></summary>
 		IParserData DobjData { get; set; }
 
 		/// <summary></summary>
@@ -52,6 +70,52 @@ namespace EamonRT.Framework.Parsing
 
 		/// <summary></summary>
 		ICommand NextCommand { get; }
+
+		/// <summary></summary>
+		void PlayerArtifactMatch();
+
+		/// <summary></summary>
+		void PlayerArtifactMatch01();
+
+		/// <summary></summary>
+		void PlayerArtifactMatch02();
+
+		/// <summary></summary>
+		void PlayerMonsterMatch();
+
+		/// <summary></summary>
+		void PlayerMonsterMatch01();
+
+		/// <summary></summary>
+		void PlayerMonsterMatch02();
+
+		/// <summary></summary>
+		void PlayerMonsterMatch03();
+
+		/// <summary></summary>
+		void PlayerResolveArtifact();
+
+		/// <summary></summary>
+		void PlayerResolveArtifactProcessWhereClauseList();
+
+		/// <summary></summary>
+		void PlayerResolveMonster();
+
+		/// <summary></summary>
+		void PlayerResolveMonsterProcessWhereClauseList();
+
+		/// <summary></summary>
+		void PlayerFinishParsing();
+
+		/// <summary></summary>
+		void MonsterFinishParsing();
+
+		/// <summary></summary>
+		/// <returns></returns>
+		bool ShouldStripTrailingPunctuation();
+
+		/// <summary></summary>
+		void FinishParsing();
 
 		/// <summary></summary>
 		/// <returns></returns>
@@ -84,9 +148,8 @@ namespace EamonRT.Framework.Parsing
 		void ParseName();
 
 		/// <summary></summary>
-		/// <param name="command"></param>
 		/// <param name="afterFinishParsing"></param>
-		void CheckPlayerCommand(ICommand command, bool afterFinishParsing);
+		void CheckPlayerCommand(bool afterFinishParsing);
 
 		/// <summary></summary>
 		void Execute();

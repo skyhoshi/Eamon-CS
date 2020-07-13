@@ -17,6 +17,9 @@ namespace TheVileGrimoireOfJaldial.Framework.Plugin
 		long EventRoll { get; set; }
 
 		/// <summary></summary>
+		long ScaleRoll { get; set; }
+
+		/// <summary></summary>
 		long InitiativeMonsterUid { get; set; }
 	}
 }

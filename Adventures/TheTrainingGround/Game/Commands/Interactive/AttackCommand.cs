@@ -16,24 +16,24 @@ namespace TheTrainingGround.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
+			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
-			if (BlastSpell || gActorMonster.Weapon > 0)
+			if (BlastSpell || ActorMonster.Weapon > 0)
 			{
 				// Attack Bozworth
 
-				if (gDobjMonster != null && gDobjMonster.Uid == 20)
+				if (DobjMonster != null && DobjMonster.Uid == 20)
 				{
 					gEngine.PrintEffectDesc(20);
 
-					gDobjMonster.SetInLimbo();
+					DobjMonster.SetInLimbo();
 
 					NextState = Globals.CreateInstance<IStartState>();
 				}
 
 				// Attack/BLAST backpack
 
-				else if (gDobjArtifact != null && gDobjArtifact.Uid == 13)
+				else if (DobjArtifact != null && DobjArtifact.Uid == 13)
 				{
 					PrintDontNeedTo();
 

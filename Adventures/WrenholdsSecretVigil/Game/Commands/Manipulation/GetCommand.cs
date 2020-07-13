@@ -86,7 +86,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			// Get lever
 
-			if (artifact.Uid == 48 && deviceArtifact1.IsInRoom(gActorRoom))
+			if (artifact.Uid == 48 && deviceArtifact1.IsInRoom(ActorRoom))
 			{
 				if (ArtifactList[0] != artifact)
 				{
@@ -95,7 +95,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				deviceArtifact1.SetInLimbo();
 
-				deviceArtifact2.SetInRoom(gActorRoom);
+				deviceArtifact2.SetInRoom(ActorRoom);
 
 				gEngine.PrintEffectDesc(30);
 
@@ -122,7 +122,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				base.PrintTaken(artifact);
 
-				bronzeKeyArtifact.SetInRoom(gActorRoom);
+				bronzeKeyArtifact.SetInRoom(ActorRoom);
 
 				gOut.Write("{0}{0}You found something under the mattress!", Environment.NewLine);
 
@@ -138,7 +138,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				base.PrintTaken(artifact);
 
-				gActorRoom.SetDirs(Direction.South, 68);
+				ActorRoom.SetDirs(Direction.South, 68);
 
 				ac.Type = ArtifactType.Treasure;
 

@@ -43,15 +43,15 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			DmgTaken = gActorMonster.DmgTaken;
+			DmgTaken = ActorMonster.DmgTaken;
 
-			var ac = gDobjArtifact.Drinkable;
+			var ac = DobjArtifact.Drinkable;
 
 			// Sulphuric acid
 
-			if (gDobjArtifact.Uid == 53 && ac.IsOpen())
+			if (DobjArtifact.Uid == 53 && ac.IsOpen())
 			{
 				gEngine.PrintEffectDesc(29);
 
@@ -65,7 +65,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			// Human blood
 
-			else if (gDobjArtifact.Uid == 52 && ac.IsOpen())
+			else if (DobjArtifact.Uid == 52 && ac.IsOpen())
 			{
 				gEngine.PrintEffectDesc(30);
 
@@ -76,7 +76,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			// Wine
 
-			else if (gDobjArtifact.Uid == 69 && ac.IsOpen())
+			else if (DobjArtifact.Uid == 69 && ac.IsOpen())
 			{
 				var stat = gEngine.GetStats(Stat.Agility);
 
@@ -84,13 +84,13 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				gEngine.PrintEffectDesc(31);
 
-				gActorMonster.Agility *= 2;
+				ActorMonster.Agility *= 2;
 
-				gActorMonster.Agility = (long)Math.Round((double)gActorMonster.Agility / 3);
+				ActorMonster.Agility = (long)Math.Round((double)ActorMonster.Agility / 3);
 
-				if (gActorMonster.Agility < stat.MinValue)
+				if (ActorMonster.Agility < stat.MinValue)
 				{
-					gActorMonster.Agility = stat.MinValue;
+					ActorMonster.Agility = stat.MinValue;
 				}
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
@@ -102,9 +102,9 @@ namespace TheTempleOfNgurct.Game.Commands
 
 			if (DrankItAll)
 			{
-				gDobjArtifact.Value = 0;
+				DobjArtifact.Value = 0;
 
-				gDobjArtifact.SetInLimbo();
+				DobjArtifact.SetInLimbo();
 			}
 		}
 

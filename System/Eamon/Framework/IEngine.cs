@@ -756,27 +756,6 @@ namespace Eamon.Framework
 		void GetPossessiveName(StringBuilder buf);
 
 		/// <summary></summary>
-		/// <param name="array"></param>
-		/// <param name="startIndex"></param>
-		/// <param name="count"></param>
-		/// <param name="match"></param>
-		/// <returns></returns>
-		long FindIndex<T>(T[] array, long startIndex, long count, Predicate<T> match);
-
-		/// <summary></summary>
-		/// <param name="array"></param>
-		/// <param name="startIndex"></param>
-		/// <param name="match"></param>
-		/// <returns></returns>
-		long FindIndex<T>(T[] array, long startIndex, Predicate<T> match);
-
-		/// <summary></summary>
-		/// <param name="array"></param>
-		/// <param name="match"></param>
-		/// <returns></returns>
-		long FindIndex<T>(T[] array, Predicate<T> match);
-
-		/// <summary></summary>
 		/// <param name="fullPath"></param>
 		/// <param name="directory"></param>
 		/// <param name="fileName"></param>

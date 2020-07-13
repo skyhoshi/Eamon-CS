@@ -20,7 +20,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 		{
 			// Steel gauntlets boost weapon skills
 
-			if (eventType == PpeAfterWornArtifactRemove && gDobjArtifact.Uid == 16)
+			if (eventType == PpeAfterWornArtifactRemove && DobjArtifact.Uid == 16)
 			{
 				var weaponValues = EnumUtil.GetValues<Weapon>();
 
@@ -37,9 +37,9 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			if (gIobjArtifact == null)
+			if (IobjArtifact == null)
 			{
 				var armorArtifact = gGameState.Ar > 0 ? gADB[gGameState.Ar] : null;
 
@@ -49,14 +49,14 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				// Crimson cloak boosts armor class
 
-				if (gDobjArtifact.Uid == 19 && armorArtifact != null)
+				if (DobjArtifact.Uid == 19 && armorArtifact != null)
 				{
 					armorArtifact.Wearable.Field1 -= 2;
 				}
 
 				// Remove crimson cloak if removing armor
 
-				if (gDobjArtifact.Uid != 19 && gDobjArtifact.Uid == gGameState.Ar && cloakArtifact.IsWornByCharacter())
+				if (DobjArtifact.Uid != 19 && DobjArtifact.Uid == gGameState.Ar && cloakArtifact.IsWornByCharacter())
 				{
 					gOut.Print("[Removing {0} first.]", cloakArtifact.GetTheName());
 
@@ -70,7 +70,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			// Large fountain
 
-			else if (gIobjArtifact.Uid == 24)
+			else if (IobjArtifact.Uid == 24)
 			{
 				var bucketArtifact = gADB[6];
 
@@ -78,11 +78,11 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				// Bail out water
 
-				if (gDobjArtifact.Uid == 40)
+				if (DobjArtifact.Uid == 40)
 				{
 					// Use the wooden bucket 
 
-					if (bucketArtifact.IsCarriedByCharacter() || bucketArtifact.IsInRoom(gActorRoom))
+					if (bucketArtifact.IsCarriedByCharacter() || bucketArtifact.IsInRoom(ActorRoom))
 					{
 						gOut.Print("[Using {0}.]", bucketArtifact.GetTheName());
 

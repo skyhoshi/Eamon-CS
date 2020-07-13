@@ -103,7 +103,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (artifact != null)
 			{
-				var i = gEngine.FindIndex(artifact.Categories, ac => ac != null && ac.Type == ArtifactType.None);
+				var i = Array.FindIndex(artifact.Categories, ac => ac != null && ac.Type == ArtifactType.None);
 				
 				if (i > 0)
 				{

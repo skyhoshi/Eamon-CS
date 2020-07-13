@@ -32,9 +32,9 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			switch (gDobjArtifact.Uid)
+			switch (DobjArtifact.Uid)
 			{
 				case 89:
 
@@ -48,7 +48,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 					{
 						gOut.Print("{0}", plasticCardArtifact.Desc);
 
-						plasticCardArtifact.SetInRoom(gActorRoom);
+						plasticCardArtifact.SetInRoom(ActorRoom);
 
 						plasticCardArtifact.Seen = true;
 
@@ -62,20 +62,20 @@ namespace TheSubAquanLaboratory.Game.Commands
 					}
 					else
 					{
-						PrintNothingFound(gDobjArtifact);
+						PrintNothingFound(DobjArtifact);
 					}
 
 					goto Cleanup;
 
 				default:
 
-					if (gDobjArtifact.DeadBody != null && gDobjArtifact.Uid != 107)
+					if (DobjArtifact.DeadBody != null && DobjArtifact.Uid != 107)
 					{
-						PrintNothingFound(gDobjArtifact);
+						PrintNothingFound(DobjArtifact);
 					}
 					else
 					{ 
-						PrintCantVerbObj(gDobjArtifact);
+						PrintCantVerbObj(DobjArtifact);
 
 						NextState = Globals.CreateInstance<IStartState>();
 					}
@@ -89,11 +89,6 @@ namespace TheSubAquanLaboratory.Game.Commands
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			PlayerResolveArtifact();
 		}
 
 		public SearchCommand()

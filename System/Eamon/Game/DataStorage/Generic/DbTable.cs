@@ -61,7 +61,7 @@ namespace Eamon.Game.DataStorage.Generic
 
 			result = default(T);
 
-			h = gEngine.FindIndex(Cache, r => r != null && r.Uid == uid);
+			h = Array.FindIndex(Cache, r => r != null && r.Uid == uid);
 
 			if (h >= 0)
 			{
@@ -174,7 +174,7 @@ namespace Eamon.Game.DataStorage.Generic
 			{
 				if (Records.Remove(result))
 				{
-					h = gEngine.FindIndex(Cache, r => r != null && r.Uid == uid);
+					h = Array.FindIndex(Cache, r => r != null && r.Uid == uid);
 
 					if (h >= 0)
 					{

@@ -18,7 +18,7 @@ namespace LandOfTheMountainKing.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
+			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
 			var necklaceArtifact = gADB[27];
 
@@ -26,7 +26,7 @@ namespace LandOfTheMountainKing.Game.Commands
 
 			// Find necklace with locket on Damian's body
 
-			if ((BlastSpell || gActorMonster.Weapon > 0) && gDobjArtifact != null && gDobjArtifact.Uid == 26 && necklaceArtifact.IsInLimbo())
+			if ((BlastSpell || ActorMonster.Weapon > 0) && DobjArtifact != null && DobjArtifact.Uid == 26 && necklaceArtifact.IsInLimbo())
 			{
 				base.PlayerExecute();
 

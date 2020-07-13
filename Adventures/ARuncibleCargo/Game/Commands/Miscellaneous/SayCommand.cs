@@ -46,7 +46,7 @@ namespace ARuncibleCargo.Game.Commands
 
 			Debug.Assert(effect != null);
 
-			gEngine.TransportPlayerBetweenRooms(gActorRoom, newRoom, effect);
+			gEngine.TransportPlayerBetweenRooms(ActorRoom, newRoom, effect);
 
 			NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 
@@ -117,14 +117,14 @@ namespace ARuncibleCargo.Game.Commands
 
 				// Verify Runcible Cargo before allowing travel to Frukendorf
 
-				if ((gActorRoom.Uid == 28 || gActorRoom.Uid == 89 || gActorRoom.Uid == 90) && string.Equals(ProcessedPhrase, "frukendorf", StringComparison.OrdinalIgnoreCase))
+				if ((ActorRoom.Uid == 28 || ActorRoom.Uid == 89 || ActorRoom.Uid == 90) && string.Equals(ProcessedPhrase, "frukendorf", StringComparison.OrdinalIgnoreCase))
 				{
 					if (EnemiesInRoom())
 					{
 						goto Cleanup;
 					}
 
-					if (!cargoArtifact.IsInRoom(gActorRoom) && !cargoArtifact.IsCarriedByCharacter())
+					if (!cargoArtifact.IsInRoom(ActorRoom) && !cargoArtifact.IsCarriedByCharacter())
 					{
 						gEngine.PrintEffectDesc(107);
 
@@ -142,7 +142,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				// Route 100: Main Hall Station
 
-				if (gActorRoom.Uid == 28)
+				if (ActorRoom.Uid == 28)
 				{
 					if (string.Equals(ProcessedPhrase, "dodge", StringComparison.OrdinalIgnoreCase))
 					{
@@ -171,7 +171,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				// Route 13: Dodge Station
 
-				if (gActorRoom.Uid == 89)
+				if (ActorRoom.Uid == 89)
 				{
 					if (string.Equals(ProcessedPhrase, "main hall", StringComparison.OrdinalIgnoreCase))
 					{
@@ -200,7 +200,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				// Route 0: Mudville Station
 
-				if (gActorRoom.Uid == 90)
+				if (ActorRoom.Uid == 90)
 				{
 					if (string.Equals(ProcessedPhrase, "dodge", StringComparison.OrdinalIgnoreCase))
 					{
@@ -229,7 +229,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				// Route 66: Frukendorf Station
 
-				if (gActorRoom.Uid == 91 && (string.Equals(ProcessedPhrase, "main hall", StringComparison.OrdinalIgnoreCase) || string.Equals(ProcessedPhrase, "dodge", StringComparison.OrdinalIgnoreCase) || string.Equals(ProcessedPhrase, "mudville", StringComparison.OrdinalIgnoreCase)))
+				if (ActorRoom.Uid == 91 && (string.Equals(ProcessedPhrase, "main hall", StringComparison.OrdinalIgnoreCase) || string.Equals(ProcessedPhrase, "dodge", StringComparison.OrdinalIgnoreCase) || string.Equals(ProcessedPhrase, "mudville", StringComparison.OrdinalIgnoreCase)))
 				{
 					if (!cargoArtifact.IsCarriedByMonster(princeMonster))
 					{

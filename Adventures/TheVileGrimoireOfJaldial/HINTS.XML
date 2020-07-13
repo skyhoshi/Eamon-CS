@@ -15,9 +15,9 @@
             <Simple name="NumAnswers" value="8" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A DR&quot; or &quot;A GON&quot; for ATTACK DRAGON, &quot;REQ RAY FROM AL&quot; or &quot;REQ GUN FROM IEN&quot; for REQUEST RAY GUN FROM ALIEN, &quot;PUT PUM IN LAR&quot; or &quot;PUT PIE IN OVEN&quot; for PUT PUMPKIN PIE IN **168" />
-                <Simple value="2. Sometimes items may be in a room but won't show up until you EXAMINE them.  Pay close attention to all descriptions.  Note:  LOOK only repeats the room description and -nothing- else.  Use EXAMINE to, well, examine things.  **169" />
-                <Simple value="3. Before you can manipulate items that are inside of, under or behind other items, you must REMOVE them from that item.  There is no REMOVE ALL command, but if you ATTACK a (breakable) container, all of its contents will be emptied to the **170" />
+                <Simple value="1. Commands may be abbreviated on the left or right side.  Examples:  &quot;A DR&quot; or &quot;A GON&quot; for ATTACK DRAGON, &quot;REQ RAY FROM AL&quot; or &quot;REQ GUN FROM IEN&quot; for REQUEST RAY GUN FROM ALIEN, &quot;PUT PUM IN LAR&quot; or &quot;PUT PIE IN OVEN&quot; for PUT PUMPKIN PIE IN **169" />
+                <Simple value="2. Sometimes items may be in a room but won't show up until you EXAMINE them.  Pay close attention to all descriptions.  Note:  LOOK only repeats the room description and -nothing- else.  Use EXAMINE to, well, examine things.  **170" />
+                <Simple value="3. Before you can manipulate items that are inside of, under or behind other items, you must REMOVE them from that item.  There is no REMOVE ALL command, but if you ATTACK a (breakable) container, all of its contents will be emptied to the **171" />
                 <Simple value="4. Type SAVE and a number for a desired save position to Quick Save (save without having to verify).  Adding a description will rename that slot.  Examples:  &quot;SAVE 2&quot; or &quot;SAVE 5 Dark Room (NO GRUES)&quot;.  Also works with RESTORE.  (Type RESTORE 1, etc.)" />
                 <Simple value="5. You can INVENTORY companions (normally anyone whom, when you SMILE, smiles back at you) to see what they are carrying and wearing.  You can then REQUEST those items from them.  You can also INVENTORY certain containers to get a list of contents." />
                 <Simple value="6. If you GIVE food or a beverage to a friend, they will take a bite or drink and give it back to you." />
@@ -38,7 +38,7 @@
               <Items>
                 <Simple value="1. The GO command allows you to travel through any door/gate you encounter, including those that are free-standing (not associated with a room directional link)." />
                 <Simple value="2. The SETTINGS command allows you to change a variety of configuration options, which are persisted across saved games.  The settings available and their effects on gameplay can vary between adventures, so trying this command is usually helpful." />
-                <Simple value="3. The LOOK, EXAMINE, REMOVE and PUT commands have been enhanced to work with prepositions.  You can LOOK or EXAMINE [in|on|under|behind] [container] to get a list of contents and then REMOVE or PUT [item] [in|on|under|behind] [container] **171" />
+                <Simple value="3. The LOOK, EXAMINE, REMOVE and PUT commands have been enhanced to work with prepositions.  You can LOOK or EXAMINE [in|on|under|behind] [container] to get a list of contents and then REMOVE or PUT [item] [in|on|under|behind] [container] **172" />
                 <Simple value="" />
                 <Simple value="" />
                 <Simple value="" />
@@ -79,7 +79,7 @@
             <SingleArray name="Answers">
               <Items>
                 <Simple value="1. The game is for elite characters that have completed many previous adventures in Eamon CS.  It is a swan-song of sorts designed to send a character on one last adventure before retirement.  Weak characters will quickly die in this outing." />
-                <Simple value="2. The character should be an expert with HEAL and, at minimum, know SPEED.  Save the game often in case HEAL is lost due to brain overload; without this spell, you are likely doomed.  Be very prudent in your use of healing artifacts." />
+                <Simple value="2. The character should be an expert with HEAL and, at minimum, know SPEED.  Save the game often in case HEAL is lost due to brain overload; without this spell, the quest is likely doomed.  Be very prudent in your use of healing artifacts." />
                 <Simple value="3. Bring a full complement of powerful weapons and plan to share them with your party.  Treat your friends well, ensure they are fully healed, and with you throughout the adventure." />
                 <Simple value="4. Be very prudent in your use of the ancient parchment.  Make sure the elemental is well healed and available when you need it the most." />
                 <Simple value="5. Be very prudent in your use of light sources.  You will never be notified when a light source is active; it can be easily forgotten." />
@@ -267,10 +267,10 @@
             <Simple name="NumAnswers" value="6" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. The day/night cycle and passage of time adds a new dimension to this Eamon by way of flavor effects and changes to game mechanics." />
+                <Simple value="1. The day/night cycle and passage of time add a new dimension to this Eamon by way of flavor effects and changes to game mechanics." />
                 <Simple value="2. A limited number of monsters wander the graveyard during the day; deadlier creatures prowl the grounds at night, and with more frequency." />
                 <Simple value="3. The day/night cycle affects various flavor effects; some will occur only during the day or night (occasionally further influenced by weather conditions), while others occur at fixed times." />
-                <Simple value="4. The day/night cycle and passage of time affects some room and artifact descriptions, in subtle ways." />
+                <Simple value="4. The day/night cycle and passage of time affect some room and artifact descriptions, in subtle ways." />
                 <Simple value="5. You are vision-impaired at night without the aid of a light source.  The outdoor terrain and things encountered will be described in only the vaguest terms; you also can't READ or SEARCH." />
                 <Simple value="6. Travel through the swamp at night with no light source is very hazardous." />
                 <Simple value="" />
@@ -291,7 +291,7 @@
                 <Simple value="1. The weather patterns of rain and fog add a new dimension to this Eamon by way of flavor effects and changes to game mechanics." />
                 <Simple value="2. Exposure to the elements can damage your torch, reducing its lifespan; the weather's type and intensity are important." />
                 <Simple value="3. The efreeti, a fire elemental, will abandon you in heavy rainfall." />
-                <Simple value="4. Dense fog can obscure your vision, just like nighttime, and to similar effect." />
+                <Simple value="4. Dense fog can obscure your vision, just like the dark of night, and to similar effect." />
                 <Simple value="5. Weather patterns can affect various flavor effects; some will occur only when it's raining or foggy, occasionally further influenced by the day/night cycle." />
                 <Simple value="6. Travel through the swamp in heavy fog with no light source is very hazardous." />
                 <Simple value="" />

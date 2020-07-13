@@ -18,7 +18,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			if (gDobjArtifact != null && !Enum.IsDefined(typeof(ContainerType), ContainerType))
+			if (DobjArtifact != null && !Enum.IsDefined(typeof(ContainerType), ContainerType))
 			{
 				var diaryArtifact = gADB[3];
 
@@ -30,48 +30,48 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				// Find dead zombies are in disguise
 
-				if (gDobjArtifact.Uid >= 58 && gDobjArtifact.Uid <= 63)
+				if (DobjArtifact.Uid >= 58 && DobjArtifact.Uid <= 63)
 				{
 					gEngine.PrintEffectDesc(15);
 				}
 
 				// Find diary on dead adventurer
 
-				else if (gDobjArtifact.Uid == 2 && diaryArtifact.IsInLimbo())
+				else if (DobjArtifact.Uid == 2 && diaryArtifact.IsInLimbo())
 				{
 					gEngine.PrintEffectDesc(16);
 
-					diaryArtifact.SetInRoom(gActorRoom);
+					diaryArtifact.SetInRoom(ActorRoom);
 				}
 
 				// Examine slime
 
-				else if (gDobjArtifact.Uid == 24 || gDobjArtifact.Uid == 25)
+				else if (DobjArtifact.Uid == 24 || DobjArtifact.Uid == 25)
 				{
 					gEngine.PrintEffectDesc(17);
 				}
 
 				// Examine green device, find lever
 
-				else if (gDobjArtifact.Uid == 44 && gDobjArtifact.IsInRoom(gActorRoom))
+				else if (DobjArtifact.Uid == 44 && DobjArtifact.IsInRoom(ActorRoom))
 				{
 					base.PlayerExecute();
 
 					if (leverArtifact.IsInLimbo())
 					{
-						leverArtifact.SetInRoom(gActorRoom);
+						leverArtifact.SetInRoom(ActorRoom);
 					}
 				}
-				else if (gDobjArtifact.IsCharOwned)
+				else if (DobjArtifact.IsCharOwned)
 				{
-					gOut.Print("You see nothing unusual about {0}.", gDobjArtifact.GetArticleName());
+					gOut.Print("You see nothing unusual about {0}.", DobjArtifact.GetArticleName());
 				}
 
 				// If not special dead body, send msg
 
-				else if (gDobjArtifact.Uid >= 51)
+				else if (DobjArtifact.Uid >= 51)
 				{
-					gOut.Print("You find nothing special about {0}.", gDobjArtifact.GetTheName());
+					gOut.Print("You find nothing special about {0}.", DobjArtifact.GetTheName());
 				}
 				else
 				{

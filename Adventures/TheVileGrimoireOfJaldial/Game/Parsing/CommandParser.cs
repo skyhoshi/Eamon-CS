@@ -19,6 +19,126 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 	[ClassMappings]
 	public class CommandParser : EamonRT.Game.Parsing.CommandParser, ICommandParser
 	{
+		public virtual void PlayerFinishParsingSearchCommand()
+		{
+			if (CurrToken < Tokens.Length)
+			{
+				ParseName();
+
+				if (!string.Equals(ObjData.Name, "room", StringComparison.OrdinalIgnoreCase) && !string.Equals(ObjData.Name, "area", StringComparison.OrdinalIgnoreCase) && !(ActorRoom.Uid == 89 && ObjData.Name.ContainsAny(new string[] { "tapestries", "tapestry" }, StringComparison.OrdinalIgnoreCase)))
+				{
+					PlayerResolveArtifact();
+				}
+			}
+		}
+
+		public override void PlayerFinishParsingSettingsCommand()
+		{
+			long longValue = 0;
+
+			bool boolValue = false;
+
+			var settingsCommand = NextCommand as Framework.Commands.ISettingsCommand;
+
+			Debug.Assert(settingsCommand != null);
+
+			if (CurrToken + 1 < Tokens.Length)
+			{
+				if (string.Equals(Tokens[CurrToken], "showcombatdamage", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
+				{
+					settingsCommand.ShowCombatDamage = boolValue;
+
+					CurrToken += 2;
+				}
+				else if (string.Equals(Tokens[CurrToken], "exitdirnames", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
+				{
+					settingsCommand.ExitDirNames = boolValue;
+
+					CurrToken += 2;
+				}
+				else if (string.Equals(Tokens[CurrToken], "weatherscalepct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
+				{
+					settingsCommand.WeatherScalePct = longValue;
+
+					CurrToken += 2;
+				}
+				else if (string.Equals(Tokens[CurrToken], "encounterscalepct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
+				{
+					settingsCommand.EncounterScalePct = longValue;
+
+					CurrToken += 2;
+				}
+				else if (string.Equals(Tokens[CurrToken], "flavorscalepct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
+				{
+					settingsCommand.FlavorScalePct = longValue;
+
+					CurrToken += 2;
+				}
+				else
+				{
+					base.PlayerFinishParsingSettingsCommand();
+				}
+			}
+			else
+			{
+				base.PlayerFinishParsingSettingsCommand();
+			}
+		}
+
+		public virtual void PlayerFinishParsingWaitCommand()
+		{
+			long i;
+
+			var waitCommand = NextCommand as Framework.Commands.IWaitCommand;
+
+			Debug.Assert(waitCommand != null);
+
+			if (CurrToken < Tokens.Length)
+			{
+				ParseName();
+
+				// Wait up to 55 minutes in increments of 5
+
+				if (long.TryParse(ObjData.Name, out i) && i > 0)
+				{
+					waitCommand.Minutes = i;
+
+					while (waitCommand.Minutes % 5 != 0)
+					{
+						waitCommand.Minutes++;
+					}
+
+					if (waitCommand.Minutes > 55)
+					{
+						waitCommand.Minutes = 55;
+					}
+				}
+			}
+
+			// Restrict WaitCommand while enemies are present
+
+			if (gGameState.GetNBTL(Friendliness.Enemy) > 0)
+			{
+				waitCommand.Minutes = 0;
+			}
+		}
+
+		public override void PlayerResolveArtifactProcessWhereClauseList()
+		{
+			// Do a normal Artifact resolution, excluding Decorations (which will be in limbo)
+
+			base.PlayerResolveArtifactProcessWhereClauseList();
+
+			// If the Artifact couldn't be resolved and a Decoration was identified in ParseName, move it into the Room and try to resolve again
+
+			if (ObjData.FilterArtifactList.Count == 0 && ObjData.Cast<Framework.Parsing.IParserData>().DecorationArtifact != null)
+			{
+				ObjData.Cast<Framework.Parsing.IParserData>().DecorationArtifact.SetInRoom(ActorRoom);
+
+				base.PlayerResolveArtifactProcessWhereClauseList();
+			}
+		}
+
 		public override void ParseName()
 		{
 			base.ParseName();
@@ -27,290 +147,284 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 
 			Debug.Assert(a != null);
 
-			a.Name = ObjData == DobjData ? "DECORATION41" : "DECORATION42";
-
-			// Decorations remain in limbo unless the normal Artifact resolution process fails
-
-			a.Location = 0;
-
-			a.Field1 = 0;
-
-			a.Field2 = 0;
-
 			// Examined decorations
 
-			if ((gActorRoom.Uid == 1 || gActorRoom.Uid == 4) && ObjData.Name.Contains("gate", StringComparison.OrdinalIgnoreCase))
+			if ((ActorRoom.Uid == 1 || ActorRoom.Uid == 4) && ObjData.Name.Contains("gate", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 1;
 			}
-			else if ((gActorRoom.Uid == 11 || gActorRoom.Uid == 16 || gActorRoom.Uid == 22) && ObjData.Name.ContainsAny(new string[] { "brook", "stream" }, StringComparison.OrdinalIgnoreCase))
+			else if ((ActorRoom.Uid == 11 || ActorRoom.Uid == 16 || ActorRoom.Uid == 22) && ObjData.Name.ContainsAny(new string[] { "brook", "stream" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 5;
 			}
-			else if (gActorRoom.Uid == 12 && ObjData.Name.ContainsAny(new string[] { "pile", "offal" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 12 && ObjData.Name.ContainsAny(new string[] { "pile", "offal" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 6;
 			}
-			else if (gActorRoom.Uid == 12 && ObjData.Name.Contains("rat", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 12 && ObjData.Name.Contains("rat", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 7;
 			}
-			else if (gActorRoom.Uid == 13 && ObjData.Name.ContainsAny(new string[] { "pile", "rocks", "pyramid" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 13 && ObjData.Name.ContainsAny(new string[] { "pile", "rocks", "pyramid" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 8;
 			}
-			else if (gActorRoom.Uid == 8 && ObjData.Name.Contains("elm", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 8 && ObjData.Name.Contains("elm", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 9;
 			}
-			else if (gActorRoom.Uid == 19 && ObjData.Name.ContainsAny(new string[] { "hole", "grave" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 19 && ObjData.Name.ContainsAny(new string[] { "hole", "grave" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 10;
 			}
-			else if (gActorRoom.Uid == 20 && ObjData.Name.ContainsAny(new string[] { "skeleton", "animal", "creature" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 20 && ObjData.Name.ContainsAny(new string[] { "skeleton", "animal", "creature" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 11;
 			}
-			else if (gActorRoom.Uid == 23 && ObjData.Name.Contains("pine", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 23 && ObjData.Name.Contains("pine", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 12;
 			}
-			else if (gActorRoom.Uid == 26 && ObjData.Name.ContainsAny(new string[] { "coffin", "hand", "skeleton" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 26 && ObjData.Name.ContainsAny(new string[] { "coffin", "hand", "skeleton" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 13;
 			}
-			else if (gActorRoom.Uid == 56 && ObjData.Name.ContainsAny(new string[] { "heap", "pile", "bone" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 56 && ObjData.Name.ContainsAny(new string[] { "heap", "pile", "bone" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 15;
 			}
-			else if (gActorRoom.Uid == 62 && ObjData.Name.ContainsAny(new string[] { "fresco", "mural", "painting" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 62 && ObjData.Name.ContainsAny(new string[] { "fresco", "mural", "painting" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 17;
 			}
-			else if (gActorRoom.Uid == 62 && ObjData.Name.ContainsAny(new string[] { "rune", "writing", "inscription" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 62 && ObjData.Name.ContainsAny(new string[] { "rune", "writing", "inscription" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 18;
 			}
-			else if ((gActorRoom.Uid == 64 || gActorRoom.Uid == 65) && ObjData.Name.Contains("door", StringComparison.OrdinalIgnoreCase))
+			else if ((ActorRoom.Uid == 64 || ActorRoom.Uid == 65) && ObjData.Name.Contains("door", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 19;
 			}
-			else if (gActorRoom.Uid == 65 && ObjData.Name.ContainsAny(new string[] { "fluid", "blood" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 65 && ObjData.Name.ContainsAny(new string[] { "fluid", "blood" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 20;
 			}
-			else if ((gActorRoom.Uid == 64 || gActorRoom.Uid == 65) && ObjData.Name.ContainsAny(new string[] { "rune", "writing", "inscription" }, StringComparison.OrdinalIgnoreCase))
+			else if ((ActorRoom.Uid == 64 || ActorRoom.Uid == 65) && ObjData.Name.ContainsAny(new string[] { "rune", "writing", "inscription" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 21;
 			}
-			else if (gActorRoom.Uid == 66 && ObjData.Name.ContainsAny(new string[] { "skeleton", "leather", "armor" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 66 && ObjData.Name.ContainsAny(new string[] { "skeleton", "leather", "armor" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 22;
 			}
-			else if (gActorRoom.Uid == 66 && ObjData.Name.Contains("wall", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 66 && ObjData.Name.Contains("wall", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 23;
 			}
-			else if (gActorRoom.Uid == 68 && ObjData.Name.Contains("moss", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 68 && ObjData.Name.Contains("moss", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 24;
 			}
-			else if (gActorRoom.Uid == 69 && ObjData.Name.Contains("moss", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 69 && ObjData.Name.Contains("moss", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 25;
 			}
-			else if (gActorRoom.Uid == 69 && ObjData.Name.Contains("box", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 69 && ObjData.Name.Contains("box", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 26;
 			}
-			else if (gActorRoom.Uid == 71 && ObjData.Name.Contains("alga", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 71 && ObjData.Name.Contains("alga", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 27;
 			}
-			else if (gActorRoom.Uid == 70 && ObjData.Name.Contains("groove", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 70 && ObjData.Name.Contains("groove", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 28;
 			}
-			else if (gActorRoom.Uid == 71 && ObjData.Name.Contains("bow", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 71 && ObjData.Name.Contains("bow", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 29;
 			}
-			else if (gActorRoom.Uid == 71 && ObjData.Name.Contains("hole", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 71 && ObjData.Name.Contains("hole", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 30;
 			}
-			else if (gActorRoom.Uid == 72 && ObjData.Name.ContainsAny(new string[] { "cloth", "strip" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 72 && ObjData.Name.ContainsAny(new string[] { "cloth", "strip" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 31;
 			}
-			else if (gActorRoom.Uid == 72 && ObjData.Name.ContainsAny(new string[] { "rock", "pile" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 72 && ObjData.Name.ContainsAny(new string[] { "rock", "pile" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 32;
 			}
-			else if (gActorRoom.Uid == 73 && ObjData.Name.Contains("mummy", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 73 && ObjData.Name.Contains("mummy", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 33;
 			}
-			else if (gActorRoom.Uid == 74 && ObjData.Name.ContainsAny(new string[] { "spider", "web" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 74 && ObjData.Name.ContainsAny(new string[] { "spider", "web" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 34;
 			}
-			else if (gActorRoom.Uid == 75 && ObjData.Name.ContainsAny(new string[] { "fresco", "mural", "painting" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 75 && ObjData.Name.ContainsAny(new string[] { "fresco", "mural", "painting" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 35;
 			}
-			else if (gActorRoom.Uid == 75 && ObjData.Name.ContainsAny(new string[] { "glyph", "writing", "inscription" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 75 && ObjData.Name.ContainsAny(new string[] { "glyph", "writing", "inscription" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 36;
 			}
-			else if (gActorRoom.Uid == 76 && ObjData.Name.Contains("etching", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 76 && ObjData.Name.Contains("etching", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 37;
 			}
-			else if (gActorRoom.Uid == 77 && ObjData.Name.Contains("face", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 77 && ObjData.Name.Contains("face", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 38;
 			}
-			else if (gActorRoom.Uid == 82 && ObjData.Name.ContainsAny(new string[] { "goblin", "body" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 82 && ObjData.Name.ContainsAny(new string[] { "goblin", "body" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 39;
 			}
-			else if (gActorRoom.Uid == 82 && ObjData.Name.ContainsAny(new string[] { "chain", "armor" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 82 && ObjData.Name.ContainsAny(new string[] { "chain", "armor" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 40;
 			}
-			else if (gActorRoom.Uid == 84 && ObjData.Name.ContainsAny(new string[] { "shiny", "substance", "slime" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 84 && ObjData.Name.ContainsAny(new string[] { "shiny", "substance", "slime" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 41;
 			}
-			else if (gActorRoom.Uid == 84 && ObjData.Name.ContainsAny(new string[] { "boot", "mound", "earth" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 84 && ObjData.Name.ContainsAny(new string[] { "boot", "mound", "earth" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 42;
 			}
-			else if (gActorRoom.Uid == 86 && ObjData.Name.ContainsAny(new string[] { "goblin", "bodies", "body" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 86 && ObjData.Name.ContainsAny(new string[] { "goblin", "bodies", "body" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 43;
 			}
-			else if (gActorRoom.Uid == 86 && ObjData.Name.ContainsAny(new string[] { "spoor", "dung" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 86 && ObjData.Name.ContainsAny(new string[] { "spoor", "dung" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 44;
 			}
-			else if (gActorRoom.Uid == 87 && ObjData.Name.ContainsAny(new string[] { "fog", "mist" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 87 && ObjData.Name.ContainsAny(new string[] { "fog", "mist" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 45;
 			}
-			else if (gActorRoom.Uid == 88 && ObjData.Name.ContainsAny(new string[] { "pick", "marks" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 88 && ObjData.Name.ContainsAny(new string[] { "pick", "marks" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 46;
 			}
-			else if (gActorRoom.Uid == 89 && ObjData.Name.ContainsAny(new string[] { "tapestries", "tapestry" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 89 && ObjData.Name.ContainsAny(new string[] { "tapestries", "tapestry" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 47;
 			}
-			else if ((gActorRoom.Uid == 90 || gActorRoom.Uid == 93) && ObjData.Name.ContainsAny(new string[] { "mining", "tool" }, StringComparison.OrdinalIgnoreCase))
+			else if ((ActorRoom.Uid == 90 || ActorRoom.Uid == 93) && ObjData.Name.ContainsAny(new string[] { "mining", "tool" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 48;
 			}
-			else if (gActorRoom.Uid == 95 && ObjData.Name.ContainsAny(new string[] { "skeletal", "arm" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 95 && ObjData.Name.ContainsAny(new string[] { "skeletal", "arm" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 49;
 			}
-			else if (gActorRoom.Uid == 96 && ObjData.Name.ContainsAny(new string[] { "pit", "hole" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 96 && ObjData.Name.ContainsAny(new string[] { "pit", "hole" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 50;
 			}
-			else if (gActorRoom.Uid == 101 && ObjData.Name.Contains("skeleton", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 101 && ObjData.Name.Contains("skeleton", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 51;
 			}
-			else if (gActorRoom.Uid == 102 && ObjData.Name.ContainsAny(new string[] { "stain", "blood" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 102 && ObjData.Name.ContainsAny(new string[] { "stain", "blood" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 52;
 			}
-			else if (gActorRoom.Uid == 103 && ObjData.Name.ContainsAny(new string[] { "etching", "carving" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 103 && ObjData.Name.ContainsAny(new string[] { "etching", "carving" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 53;
 			}
-			else if (gActorRoom.Uid == 104 && ObjData.Name.ContainsAny(new string[] { "face", "mouth", "hole" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 104 && ObjData.Name.ContainsAny(new string[] { "face", "mouth", "hole" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 54;
 			}
-			else if (gActorRoom.Uid == 105 && ObjData.Name.ContainsAny(new string[] { "pile", "bodies", "body" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 105 && ObjData.Name.ContainsAny(new string[] { "pile", "bodies", "body" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 55;
 			}
-			else if (gActorRoom.Uid == 108 && ObjData.Name.ContainsAny(new string[] { "beach", "sea", "ocean" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 108 && ObjData.Name.ContainsAny(new string[] { "beach", "sea", "ocean" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 56;
 			}
-			else if (gActorRoom.Uid == 13 && ObjData.Name.Contains("pictograph", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 13 && ObjData.Name.Contains("pictograph", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 58;
 			}
-			else if (gActorRoom.Uid == 100 && ObjData.Name.Contains("rune", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 100 && ObjData.Name.Contains("rune", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 59;
 			}
-			else if (gActorRoom.Uid == 110 && ObjData.Name.Contains("message", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 110 && ObjData.Name.Contains("message", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 60;
 			}
-			else if (gActorRoom.IsFenceRoom() && ObjData.Name.Contains("fence", StringComparison.OrdinalIgnoreCase))
+			else if (gActorRoom(this).IsFenceRoom() && ObjData.Name.Contains("fence", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 2;
 			}
-			else if (gActorRoom.IsGroundsRoom() && ObjData.Name.ContainsAny(new string[] { "foliage", "trees", "forest", "weeds", "plants", "grass", "lichen", "moss" }, StringComparison.OrdinalIgnoreCase))
+			else if (gActorRoom(this).IsGroundsRoom() && ObjData.Name.ContainsAny(new string[] { "foliage", "trees", "weeds", "plants", "grass", "lichen", "moss" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 3;
 			}
-			else if (gActorRoom.IsGroundsRoom() && gActorRoom.Uid != 16 && gActorRoom.Uid != 23 && gActorRoom.Uid != 39 && ObjData.Name.ContainsAny(new string[] { "tombstone", "gravestone" }, StringComparison.OrdinalIgnoreCase))
+			else if (gActorRoom(this).IsGroundsRoom() && !gActorRoom(this).IsSwampRoom() && ActorRoom.Uid != 18 && ObjData.Name.Contains("forest", StringComparison.OrdinalIgnoreCase))
+			{
+				a.Field1 = 3;
+			}
+			else if (gActorRoom(this).IsGroundsRoom() && !gActorRoom(this).IsSwampRoom() && ActorRoom.Uid != 16 && ActorRoom.Uid != 23 && ActorRoom.Uid != 39 && ObjData.Name.ContainsAny(new string[] { "tombstone", "gravestone" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 4;
 			}
-			else if (gActorRoom.IsCryptRoom() && ObjData.Name.ContainsAny(new string[] { "floor", "dust" }, StringComparison.OrdinalIgnoreCase))
+			else if (gActorRoom(this).IsCryptRoom() && ObjData.Name.ContainsAny(new string[] { "floor", "dust" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 14;
 			}
-			else if (gActorRoom.IsBodyChamberRoom() && ObjData.Name.ContainsAny(new string[] { "body", "bodies", "internment", "opening", "chamber" }, StringComparison.OrdinalIgnoreCase))
+			else if (gActorRoom(this).IsBodyChamberRoom() && ObjData.Name.ContainsAny(new string[] { "body", "bodies", "internment", "opening", "chamber" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 16;
 			}
-			else if (gActorRoom.IsGroundsRoom() && gActorRoom.Uid != 16 && gActorRoom.Uid != 23 && gActorRoom.Uid != 39 && ObjData.Name.Contains("epitaph", StringComparison.OrdinalIgnoreCase))
+			else if (gActorRoom(this).IsGroundsRoom() && !gActorRoom(this).IsSwampRoom() && ActorRoom.Uid != 16 && ActorRoom.Uid != 23 && ActorRoom.Uid != 39 && ObjData.Name.Contains("epitaph", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field1 = 57;
 			}
 
 			// Read decorations
 
-			if (gActorRoom.Uid == 13 && ObjData.Name.Contains("pictograph", StringComparison.OrdinalIgnoreCase))
+			if (ActorRoom.Uid == 13 && ObjData.Name.Contains("pictograph", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field2 = 2;
 			}
-			else if (gActorRoom.Uid == 62 && ObjData.Name.ContainsAny(new string[] { "rune", "writing", "inscription" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 62 && ObjData.Name.ContainsAny(new string[] { "rune", "writing", "inscription" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field2 = 3;
 			}
-			else if ((gActorRoom.Uid == 64 || gActorRoom.Uid == 65) && ObjData.Name.ContainsAny(new string[] { "rune", "writing", "inscription" }, StringComparison.OrdinalIgnoreCase))
+			else if ((ActorRoom.Uid == 64 || ActorRoom.Uid == 65) && ObjData.Name.ContainsAny(new string[] { "rune", "writing", "inscription" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field2 = 4;
 			}
-			else if (gActorRoom.Uid == 75 && ObjData.Name.ContainsAny(new string[] { "glyph", "writing", "inscription" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 75 && ObjData.Name.ContainsAny(new string[] { "glyph", "writing", "inscription" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field2 = 5;
 			}
-			else if (gActorRoom.Uid == 100 && ObjData.Name.Contains("rune", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 100 && ObjData.Name.Contains("rune", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field2 = 6;
 			}
-			else if (gActorRoom.Uid == 103 && ObjData.Name.ContainsAny(new string[] { "etching", "carving" }, StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 103 && ObjData.Name.ContainsAny(new string[] { "etching", "carving" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field2 = 7;
 			}
-			else if (gActorRoom.Uid == 110 && ObjData.Name.Contains("message", StringComparison.OrdinalIgnoreCase))
+			else if (ActorRoom.Uid == 110 && ObjData.Name.Contains("message", StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field2 = 8;
 			}
-			else if (gActorRoom.IsGroundsRoom() && gActorRoom.Uid != 16 && gActorRoom.Uid != 23 && gActorRoom.Uid != 39 && ObjData.Name.ContainsAny(new string[] { "tombstone", "gravestone", "epitaph" }, StringComparison.OrdinalIgnoreCase))
+			else if (gActorRoom(this).IsGroundsRoom() && !gActorRoom(this).IsSwampRoom() && ActorRoom.Uid != 16 && ActorRoom.Uid != 23 && ActorRoom.Uid != 39 && ObjData.Name.ContainsAny(new string[] { "tombstone", "gravestone", "epitaph" }, StringComparison.OrdinalIgnoreCase))
 			{
 				a.Field2 = 1;
 			}
@@ -325,15 +439,15 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 			}
 		}
 
-		public override void CheckPlayerCommand(ICommand command, bool afterFinishParsing)
+		public override void CheckPlayerCommand(bool afterFinishParsing)
 		{
-			Debug.Assert(command != null);
+			Debug.Assert(NextCommand != null);
 
 			if (afterFinishParsing)
 			{
 				// Restrict various commands while paralyzed
 
-				if (!(command is ISmileCommand || (command.Type == CommandType.Miscellaneous && !(command is ISpeedCommand || command is IPowerCommand))) && gGameState.ParalyzedTargets.ContainsKey(gGameState.Cm))
+				if (!(NextCommand is ISmileCommand || (NextCommand.Type == CommandType.Miscellaneous && !(NextCommand is ISpeedCommand || NextCommand is IPowerCommand))) && gGameState.ParalyzedTargets.ContainsKey(gGameState.Cm))
 				{
 					gOut.Print("You can't do that while paralyzed!");
 
@@ -342,25 +456,25 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 
 				// Restrict GiveCommand and RequestCommand when targeting paralyzed Monster
 
-				else if ((command is IGiveCommand || command is IRequestCommand) && gIobjMonster != null && gGameState.ParalyzedTargets.ContainsKey(gIobjMonster.Uid))
+				else if ((NextCommand is IGiveCommand || NextCommand is IRequestCommand) && IobjMonster != null && gGameState.ParalyzedTargets.ContainsKey(IobjMonster.Uid))
 				{
-					gOut.Print("You can't do that while {0} {1} paralyzed!", gIobjMonster.GetTheName(), gIobjMonster.EvalPlural("is", "are"));
+					gOut.Print("You can't do that while {0} {1} paralyzed!", IobjMonster.GetTheName(), IobjMonster.EvalPlural("is", "are"));
 
 					NextState = Globals.CreateInstance<IStartState>();
 				}
 
 				// Restrict SearchCommand while enemies are present
 
-				else if (command is ISearchCommand && gGameState.GetNBTL(Friendliness.Enemy) > 0)
+				else if (NextCommand is ISearchCommand && gGameState.GetNBTL(Friendliness.Enemy) > 0)
 				{
-					command.PrintEnemiesNearby();
+					NextCommand.PrintEnemiesNearby();
 
 					NextState = Globals.CreateInstance<IStartState>();
 				}
 
 				// Restrict Commands in the graveyard at night or in heavy fog
 
-				else if ((command is IReadCommand || command is ISearchCommand) && gActorRoom.IsDimLightRoom() && gGameState.Ls <= 0)
+				else if ((NextCommand is IReadCommand || NextCommand is ISearchCommand) && gActorRoom(this).IsDimLightRoomWithoutGlowingMonsters() && gGameState.Ls <= 0)
 				{
 					gOut.Print("You'll need a bit more light for that!");
 
@@ -374,9 +488,9 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 
 					// Large fountain and water weird
 
-					if (gDobjArtifact != null && gDobjArtifact.Uid != 24 && gDobjArtifact.Uid != 40 && gIobjArtifact != null && gIobjArtifact.Uid == 24)
+					if (DobjArtifact != null && DobjArtifact.Uid != 24 && DobjArtifact.Uid != 40 && IobjArtifact != null && IobjArtifact.Uid == 24)
 					{
-						if (waterWeirdMonster.IsInRoom(gActorRoom))
+						if (waterWeirdMonster.IsInRoom(ActorRoom))
 						{
 							gOut.Print("{0} won't let you get close enough to do that!", waterWeirdMonster.GetTheName(true));
 
@@ -386,24 +500,24 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 						{
 							gEngine.PrintEffectDesc(100);
 
-							waterWeirdMonster.SetInRoom(gActorRoom);
+							waterWeirdMonster.SetInRoom(ActorRoom);
 
 							NextState = Globals.CreateInstance<IStartState>();
 						}
 						else
 						{
-							base.CheckPlayerCommand(command, afterFinishParsing);
+							base.CheckPlayerCommand(afterFinishParsing);
 						}
 					}
 					else
 					{
-						base.CheckPlayerCommand(command, afterFinishParsing);
+						base.CheckPlayerCommand(afterFinishParsing);
 					}
 				}
 			}
 			else
 			{
-				base.CheckPlayerCommand(command, afterFinishParsing);
+				base.CheckPlayerCommand(afterFinishParsing);
 			}
 		}
 	}

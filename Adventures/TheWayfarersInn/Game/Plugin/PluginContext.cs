@@ -94,54 +94,6 @@ namespace TheWayfarersInn.Game.Plugin
 			}
 		}
 
-		public static Eamon.Framework.IMonster gActorMonster
-		{
-			get
-			{
-				return (Eamon.Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gActorMonster;
-			}
-		}
-
-		public static Eamon.Framework.IRoom gActorRoom
-		{
-			get
-			{
-				return (Eamon.Framework.IRoom)EamonRT.Game.Plugin.PluginContext.gActorRoom;
-			}
-		}
-
-		public static Eamon.Framework.IArtifact gDobjArtifact
-		{
-			get
-			{
-				return (Eamon.Framework.IArtifact)EamonRT.Game.Plugin.PluginContext.gDobjArtifact;
-			}
-		}
-
-		public static Eamon.Framework.IMonster gDobjMonster
-		{
-			get
-			{
-				return (Eamon.Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gDobjMonster;
-			}
-		}
-
-		public static Eamon.Framework.IArtifact gIobjArtifact
-		{
-			get
-			{
-				return (Eamon.Framework.IArtifact)EamonRT.Game.Plugin.PluginContext.gIobjArtifact;
-			}
-		}
-
-		public static Eamon.Framework.IMonster gIobjMonster
-		{
-			get
-			{
-				return (Eamon.Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gIobjMonster;
-			}
-		}
-
 		public static EamonRT.Framework.Parsing.ICommandParser gCommandParser
 		{
 			get

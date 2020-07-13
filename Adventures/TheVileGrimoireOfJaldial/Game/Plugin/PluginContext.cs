@@ -5,6 +5,8 @@
 
 using Eamon.Framework.DataStorage.Generic;
 using Eamon.Framework.Portability;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.Parsing;
 
 namespace TheVileGrimoireOfJaldial.Game.Plugin
 {
@@ -94,54 +96,6 @@ namespace TheVileGrimoireOfJaldial.Game.Plugin
 			}
 		}
 
-		public static Framework.IMonster gActorMonster
-		{
-			get
-			{
-				return (Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gActorMonster;
-			}
-		}
-
-		public static Framework.IRoom gActorRoom
-		{
-			get
-			{
-				return (Framework.IRoom)EamonRT.Game.Plugin.PluginContext.gActorRoom;
-			}
-		}
-
-		public static Framework.IArtifact gDobjArtifact
-		{
-			get
-			{
-				return (Framework.IArtifact)EamonRT.Game.Plugin.PluginContext.gDobjArtifact;
-			}
-		}
-
-		public static Framework.IMonster gDobjMonster
-		{
-			get
-			{
-				return (Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gDobjMonster;
-			}
-		}
-
-		public static Framework.IArtifact gIobjArtifact
-		{
-			get
-			{
-				return (Framework.IArtifact)EamonRT.Game.Plugin.PluginContext.gIobjArtifact;
-			}
-		}
-
-		public static Framework.IMonster gIobjMonster
-		{
-			get
-			{
-				return (Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gIobjMonster;
-			}
-		}
-
 		public static EamonRT.Framework.Parsing.ICommandParser gCommandParser
 		{
 			get
@@ -163,6 +117,102 @@ namespace TheVileGrimoireOfJaldial.Game.Plugin
 			get
 			{
 				return (Eamon.Framework.ICharacter)EamonRT.Game.Plugin.PluginContext.gCharacter;
+			}
+		}
+
+		public static Framework.IMonster gActorMonster(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Framework.IMonster)commandParser?.ActorMonster;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Framework.IMonster)command?.ActorMonster;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		public static Framework.IRoom gActorRoom(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Framework.IRoom)commandParser?.ActorRoom;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Framework.IRoom)command?.ActorRoom;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		public static Framework.IArtifact gDobjArtifact(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Framework.IArtifact)commandParser?.DobjArtifact;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Framework.IArtifact)command?.DobjArtifact;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		public static Framework.IMonster gDobjMonster(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Framework.IMonster)commandParser?.DobjMonster;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Framework.IMonster)command?.DobjMonster;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		public static Framework.IArtifact gIobjArtifact(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Framework.IArtifact)commandParser?.IobjArtifact;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Framework.IArtifact)command?.IobjArtifact;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		public static Framework.IMonster gIobjMonster(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Framework.IMonster)commandParser?.IobjMonster;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Framework.IMonster)command?.IobjMonster;
+			}
+			else
+			{
+				return null;
 			}
 		}
 	}

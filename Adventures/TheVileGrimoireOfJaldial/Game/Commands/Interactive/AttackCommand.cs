@@ -16,17 +16,17 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 	{
 		public override void MonsterExecute()
 		{
-			Debug.Assert(gActorMonster != null && gDobjMonster != null);
+			Debug.Assert(ActorMonster != null && DobjMonster != null);
 
 			while (true)
 			{
 				// Monster selects its attack modality
 
-				gActorMonster.SetAttackModality();
+				gActorMonster(this).SetAttackModality();
 
 				// Beholder's clumsiness spells only work on non-group monsters
 
-				if (gActorMonster.Uid == 36 && string.Equals(gActorMonster.AttackDesc, "cast{0} a clumsiness spell on", StringComparison.OrdinalIgnoreCase) && gDobjMonster.OrigGroupCount > 1)
+				if (ActorMonster.Uid == 36 && string.Equals(gActorMonster(this).AttackDesc, "cast{0} a clumsiness spell on", StringComparison.OrdinalIgnoreCase) && DobjMonster.OrigGroupCount > 1)
 				{
 					gGameState.ClumsySpells--;
 				}

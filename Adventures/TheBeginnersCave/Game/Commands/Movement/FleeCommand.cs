@@ -34,7 +34,7 @@ namespace TheBeginnersCave.Game.Commands
 
 				Debug.Assert(mimicMonster != null);
 
-				if (mimicMonster.IsInRoom(gActorRoom))
+				if (mimicMonster.IsInRoom(ActorRoom))
 				{
 					gOut.Print("You are held fast by the mimic and cannot flee!");
 

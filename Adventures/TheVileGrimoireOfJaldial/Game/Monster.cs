@@ -26,7 +26,7 @@ namespace TheVileGrimoireOfJaldial.Game
 
 				var room = GetInRoom() as Framework.IRoom;
 
-				if (Globals.EnableGameOverrides && Uid != 10 && Uid != 50 && gGameState != null && room != null && room.Uid == gGameState.Ro && room.IsDimLightRoom() && gGameState.Ls <= 0)
+				if (Globals.EnableGameOverrides && gGameState != null && room != null && room.Uid == gGameState.Ro && room.IsDimLightRoomWithoutGlowingMonsters() && gGameState.Ls <= 0)
 				{
 					result = string.Format("You can vaguely see {0} in the {1}.", GetTheName(buf: Globals.Buf01), gGameState.IsNightTime() ? "darkness" : "white haze");
 				}
@@ -107,7 +107,7 @@ namespace TheVileGrimoireOfJaldial.Game
 
 			var result = base.BuildPrintedFullDesc(buf, showName);
 
-			if (gEngine.IsSuccess(result) && gGameState != null && room != null && !showName && (!room.IsDimLightRoom() || gGameState.Ls > 0))
+			if (gEngine.IsSuccess(result) && gGameState != null && room != null && !showName && (!room.IsDimLightRoomWithoutGlowingMonsters() || gGameState.Ls > 0))
 			{
 				if (gGameState.ParalyzedTargets.ContainsKey(Uid))
 				{
@@ -168,7 +168,7 @@ namespace TheVileGrimoireOfJaldial.Game
 		{
 			var room = GetInRoom() as Framework.IRoom;
 
-			return Uid == 10 || Uid == 50 || room == null || !room.IsDimLightRoom() || gGameState == null || gGameState.Ls > 0 ? base.ShouldShowHealthStatusWhenExamined() : false;
+			return room == null || !room.IsDimLightRoomWithoutGlowingMonsters() || gGameState == null || gGameState.Ls > 0 ? base.ShouldShowHealthStatusWhenExamined() : false;
 		}
 
 		public override bool ShouldShowHealthStatusWhenInventoried()
@@ -246,7 +246,7 @@ namespace TheVileGrimoireOfJaldial.Game
 				}
 				else if (Uid == 10)
 				{
-					armorDesc = "its glowing forcefield-like aura";
+					armorDesc = "its glowing electrified aura";
 				}
 				else if (Uid == 11 || Uid == 36 || Uid == 37 || Uid == 39)
 				{

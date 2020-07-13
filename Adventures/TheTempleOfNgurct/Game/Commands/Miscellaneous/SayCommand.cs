@@ -25,15 +25,15 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				Debug.Assert(medallionArtifact != null);
 
-				if (medallionArtifact.IsCarriedByCharacter() || medallionArtifact.IsInRoom(gActorRoom))
+				if (medallionArtifact.IsCarriedByCharacter() || medallionArtifact.IsInRoom(ActorRoom))
 				{
 					var alkandaMonster = gMDB[56];
 
 					Debug.Assert(alkandaMonster != null);
 
-					if (!alkandaMonster.IsInRoom(gActorRoom) && !gGameState.AlkandaKilled)
+					if (!alkandaMonster.IsInRoom(ActorRoom) && !gGameState.AlkandaKilled)
 					{
-						alkandaMonster.SetInRoom(gActorRoom);
+						alkandaMonster.SetInRoom(ActorRoom);
 
 						NextState = Globals.CreateInstance<IStartState>();
 					}

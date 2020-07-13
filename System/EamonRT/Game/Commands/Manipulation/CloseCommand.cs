@@ -26,17 +26,17 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			var inContainerAc = gDobjArtifact.InContainer;
+			var inContainerAc = DobjArtifact.InContainer;
 
-			var doorGateAc = gDobjArtifact.DoorGate;
+			var doorGateAc = DobjArtifact.DoorGate;
 
-			var drinkableAc = gDobjArtifact.Drinkable;
+			var drinkableAc = DobjArtifact.Drinkable;
 
-			var edibleAc = gDobjArtifact.Edible;
+			var edibleAc = DobjArtifact.Edible;
 
-			var readableAc = gDobjArtifact.Readable;
+			var readableAc = DobjArtifact.Readable;
 
 			var ac =	inContainerAc != null ? inContainerAc :
 						doorGateAc != null ? doorGateAc :
@@ -57,7 +57,7 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Type == ArtifactType.DoorGate)
 				{
-					if (gDobjArtifact.Seen)
+					if (DobjArtifact.Seen)
 					{
 						ac.Field4 = 0;
 					}
@@ -74,25 +74,25 @@ namespace EamonRT.Game.Commands
 
 				if (ac.GetKeyUid() == -2)
 				{
-					PrintBrokeIt(gDobjArtifact);
+					PrintBrokeIt(DobjArtifact);
 
 					goto Cleanup;
 				}
 
 				if (!ac.IsOpen())
 				{
-					PrintNotOpen(gDobjArtifact);
+					PrintNotOpen(DobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
 					goto Cleanup;
 				}
 
-				PrintClosed(gDobjArtifact);
+				PrintClosed(DobjArtifact);
 
 				ac.SetOpen(false);
 
-				rc = gDobjArtifact.SyncArtifactCategories(ac);
+				rc = DobjArtifact.SyncArtifactCategories(ac);
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -105,7 +105,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				PrintCantVerbIt(gDobjArtifact);
+				PrintCantVerbIt(DobjArtifact);
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -118,11 +118,6 @@ namespace EamonRT.Game.Commands
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			PlayerResolveArtifact();
 		}
 
 		public CloseCommand()

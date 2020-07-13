@@ -13,6 +13,8 @@ namespace TheVileGrimoireOfJaldial.Game.Plugin
 
 		public virtual long EventRoll { get; set; }
 
+		public virtual long ScaleRoll { get; set; }
+
 		public virtual long InitiativeMonsterUid { get; set; }
 	}
 }

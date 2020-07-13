@@ -16,13 +16,13 @@ namespace WrenholdsSecretVigil.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			// Remove orb from metal pedestal
 
-			if (gDobjArtifact.Uid == 4 && gIobjArtifact != null && gIobjArtifact.Uid == 43)
+			if (DobjArtifact.Uid == 4 && IobjArtifact != null && IobjArtifact.Uid == 43)
 			{
-				gOut.Print("{0} {1} stuck to {2} and won't budge.", gDobjArtifact.GetTheName(true), gDobjArtifact.EvalPlural("is", "are"), gIobjArtifact.GetTheName(buf: Globals.Buf01));
+				gOut.Print("{0} {1} stuck to {2} and won't budge.", DobjArtifact.GetTheName(true), DobjArtifact.EvalPlural("is", "are"), IobjArtifact.GetTheName(buf: Globals.Buf01));
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}

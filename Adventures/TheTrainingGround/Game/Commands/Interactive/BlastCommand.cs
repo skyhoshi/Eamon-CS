@@ -17,11 +17,11 @@ namespace TheTrainingGround.Game.Commands
 		{
 			// BLAST Bozworth
 
-			if (eventType == PpeAfterPlayerSpellCastCheck && gDobjMonster != null && gDobjMonster.Uid == 20)
+			if (eventType == PpeAfterPlayerSpellCastCheck && DobjMonster != null && DobjMonster.Uid == 20)
 			{
 				gEngine.PrintEffectDesc(21);
 
-				gDobjMonster.SetInLimbo();
+				DobjMonster.SetInLimbo();
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -37,7 +37,7 @@ namespace TheTrainingGround.Game.Commands
 		{
 			// BLASTing Bozworth never increases skill
 
-			return gDobjMonster != null && gDobjMonster.Uid == 20 ? false : base.ShouldAllowSkillGains();
+			return DobjMonster != null && DobjMonster.Uid == 20 ? false : base.ShouldAllowSkillGains();
 		}
 	}
 }

@@ -28,13 +28,13 @@ namespace ARuncibleCargo.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			var ac = gDobjArtifact.Uid == 129 ? gDobjArtifact.InContainer : null;
+			var ac = DobjArtifact.Uid == 129 ? DobjArtifact.InContainer : null;
 
 			// Open the Runcible Cargo
 
-			if (gDobjArtifact.Uid == 129 && !ac.IsOpen())
+			if (DobjArtifact.Uid == 129 && !ac.IsOpen())
 			{
 				gEngine.PrintEffectDesc(129);
 

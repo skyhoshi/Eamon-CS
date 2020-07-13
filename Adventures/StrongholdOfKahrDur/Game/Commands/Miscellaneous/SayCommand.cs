@@ -24,13 +24,13 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				if (string.Equals(ProcessedPhrase, "*brutis", StringComparison.OrdinalIgnoreCase))
 				{
-					var artUid = gActorMonster.Weapon;
+					var artUid = ActorMonster.Weapon;
 
-					gActorMonster.Weapon = -1;
+					ActorMonster.Weapon = -1;
 
 					gEngine.InitMonsterScaledHardinessValues();
 
-					gActorMonster.Weapon = artUid;
+					ActorMonster.Weapon = artUid;
 
 					gOut.Print("Monster stats reduced.");
 
@@ -45,7 +45,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// If the cauldron is present and the spell components (see effect #50) are in it then begin the spell casting process
 
-				if (string.Equals(ProcessedPhrase, "knock nikto mellon", StringComparison.OrdinalIgnoreCase) && (cauldronArtifact.IsCarriedByCharacter() || cauldronArtifact.IsInRoom(gActorRoom)) && gEngine.SpellReagentsInCauldron(cauldronArtifact))
+				if (string.Equals(ProcessedPhrase, "knock nikto mellon", StringComparison.OrdinalIgnoreCase) && (cauldronArtifact.IsCarriedByCharacter() || cauldronArtifact.IsInRoom(ActorRoom)) && gEngine.SpellReagentsInCauldron(cauldronArtifact))
 				{
 					gEngine.PrintEffectDesc(51);
 
@@ -58,7 +58,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// Player will agree to free the Lich
 
-				if (string.Equals(ProcessedPhrase, "i will free you", StringComparison.OrdinalIgnoreCase) && gActorRoom.Uid == 109 && lichMonster.IsInRoom(gActorRoom) && lichMonster.Friendliness > Friendliness.Enemy && gGameState.LichState < 2)
+				if (string.Equals(ProcessedPhrase, "i will free you", StringComparison.OrdinalIgnoreCase) && ActorRoom.Uid == 109 && lichMonster.IsInRoom(ActorRoom) && lichMonster.Friendliness > Friendliness.Enemy && gGameState.LichState < 2)
 				{
 					gEngine.PrintEffectDesc(54);
 
@@ -67,7 +67,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// Player actually frees the Lich
 
-				if (string.Equals(ProcessedPhrase, "barada lhain", StringComparison.OrdinalIgnoreCase) && gActorRoom.Uid == 109 && lichMonster.IsInRoom(gActorRoom) && gGameState.LichState == 1)
+				if (string.Equals(ProcessedPhrase, "barada lhain", StringComparison.OrdinalIgnoreCase) && ActorRoom.Uid == 109 && lichMonster.IsInRoom(ActorRoom) && gGameState.LichState == 1)
 				{
 					var helmArtifact = gADB[25];
 
@@ -79,7 +79,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 					gGameState.LichState = 2;
 
-					helmArtifact.SetInRoom(gActorRoom);
+					helmArtifact.SetInRoom(ActorRoom);
 				}
 			}
 

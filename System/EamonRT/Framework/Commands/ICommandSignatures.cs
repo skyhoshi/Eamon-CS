@@ -347,39 +347,6 @@ namespace EamonRT.Framework.Commands
 		void PrintNoPlaceToGo();
 
 		/// <summary></summary>
-		void PlayerArtifactMatch();
-
-		/// <summary></summary>
-		void PlayerArtifactMatch01();
-
-		/// <summary></summary>
-		void PlayerArtifactMatch02();
-
-		/// <summary></summary>
-		void PlayerMonsterMatch();
-
-		/// <summary></summary>
-		void PlayerMonsterMatch01();
-
-		/// <summary></summary>
-		void PlayerMonsterMatch02();
-
-		/// <summary></summary>
-		void PlayerMonsterMatch03();
-
-		/// <summary></summary>
-		void PlayerResolveArtifact();
-
-		/// <summary></summary>
-		void PlayerResolveArtifactProcessWhereClauseList();
-
-		/// <summary></summary>
-		void PlayerResolveMonster();
-
-		/// <summary></summary>
-		void PlayerResolveMonsterProcessWhereClauseList();
-
-		/// <summary></summary>
 		/// <param name="eventType"></param>
 		void PlayerProcessEvents(long eventType);
 
@@ -394,22 +361,12 @@ namespace EamonRT.Framework.Commands
 		void MonsterExecute();
 
 		/// <summary></summary>
-		void PlayerFinishParsing();
-
-		/// <summary></summary>
-		void MonsterFinishParsing();
-
-		/// <summary></summary>
 		/// <returns></returns>
 		bool IsAllowedInRoom();
 
 		/// <summary></summary>
 		/// <returns></returns>
 		bool ShouldAllowSkillGains();
-
-		/// <summary></summary>
-		/// <returns></returns>
-		bool ShouldStripTrailingPunctuation();
 
 		/// <summary></summary>
 		/// <param name="room"></param>
@@ -440,8 +397,5 @@ namespace EamonRT.Framework.Commands
 		/// <param name="artifact"></param>
 		/// <param name="printTaking"></param>
 		void RedirectToGetCommand<T>(IArtifact artifact, bool printTaking = true) where T : class, ICommand;
-
-		/// <summary></summary>
-		void FinishParsing();
 	}
 }

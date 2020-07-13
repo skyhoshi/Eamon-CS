@@ -28,7 +28,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 				gOut.Print("You are agility impaired at this time.");
 			}
 
-			gOut.Print("You are at {0} percent health.", (long)Math.Round((double)(gActorMonster.Hardiness - gActorMonster.DmgTaken) / (double)gActorMonster.Hardiness * 100));
+			gOut.Print("You are at {0} percent health.", (long)Math.Round((double)(ActorMonster.Hardiness - ActorMonster.DmgTaken) / (double)ActorMonster.Hardiness * 100));
 
 			if (NextState == null)
 			{

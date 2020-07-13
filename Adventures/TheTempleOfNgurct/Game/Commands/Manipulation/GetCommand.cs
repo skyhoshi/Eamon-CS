@@ -21,7 +21,7 @@ namespace TheTempleOfNgurct.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			if (gDobjArtifact != null && gDobjArtifact.GeneralWeapon == null && gGameState.GetNBTL(Friendliness.Enemy) > 0)
+			if (DobjArtifact != null && DobjArtifact.GeneralWeapon == null && gGameState.GetNBTL(Friendliness.Enemy) > 0)
 			{
 				PrintEnemiesNearby();
 
@@ -45,7 +45,7 @@ namespace TheTempleOfNgurct.Game.Commands
 					{
 						x.SetNextStateFunc = s => NextState = s;
 
-						x.DfMonster = gActorMonster;
+						x.DfMonster = ActorMonster;
 
 						x.OmitArmor = true;
 					});
@@ -54,53 +54,6 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					gGameState.AlignmentConflict = true;
 				}
-			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			gCommandParser.ParseName();
-
-			if (string.Equals(gCommandParser.ObjData.Name, "all", StringComparison.OrdinalIgnoreCase))
-			{
-				if (gGameState.GetNBTL(Friendliness.Enemy) > 0)
-				{
-					PrintEnemiesNearby();
-
-					gCommandParser.NextState = Globals.CreateInstance<IStartState>();
-				}
-				else
-				{
-					GetAll = true;
-				}
-			}
-			else if (gActorRoom.Type == RoomType.Indoors && gCommandParser.ObjData.Name.IndexOf("torch", StringComparison.OrdinalIgnoreCase) >= 0)
-			{
-				if (gGameState.GetNBTL(Friendliness.Enemy) > 0)
-				{
-					PrintEnemiesNearby();
-
-					gCommandParser.NextState = Globals.CreateInstance<IStartState>();
-				}
-				else
-				{
-					gOut.Print("They are bolted firmly to the walls.");
-
-					gCommandParser.NextState = Globals.CreateInstance<IMonsterStartState>();
-				}
-			}
-			else
-			{
-				gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
-				{
-					a => a.IsInRoom(gActorRoom),
-					a => a.IsEmbeddedInRoom(gActorRoom),
-					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively)
-				};
-
-				gCommandParser.ObjData.ArtifactNotFoundFunc = PrintCantVerbThat;
-
-				PlayerResolveArtifact();
 			}
 		}
 	}

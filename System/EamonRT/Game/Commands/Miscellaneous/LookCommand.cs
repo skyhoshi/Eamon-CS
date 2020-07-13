@@ -17,25 +17,11 @@ namespace EamonRT.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			gActorRoom.Seen = false;
+			ActorRoom.Seen = false;
 
 			if (NextState == null)
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
-			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			if (gCommandParser.CurrToken < gCommandParser.Tokens.Length)
-			{
-				var command = Globals.CreateInstance<IExamineCommand>();
-
-				CopyCommandData(command);
-
-				gCommandParser.NextState = command;
-
-				command.FinishParsing();
 			}
 		}
 

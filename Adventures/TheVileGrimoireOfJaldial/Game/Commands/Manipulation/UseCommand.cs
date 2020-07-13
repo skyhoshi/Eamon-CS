@@ -18,11 +18,11 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			// Digging with shovel
 
-			if (gDobjArtifact.Uid == 7)
+			if (DobjArtifact.Uid == 7)
 			{
 				if (gGameState.GetNBTL(Friendliness.Enemy) <= 0)
 				{
@@ -30,15 +30,15 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 					Debug.Assert(buriedCasketArtifact != null);
 
-					if (gActorRoom.Uid == 5 && buriedCasketArtifact.IsInLimbo())
+					if (ActorRoom.Uid == 5 && buriedCasketArtifact.IsInLimbo())
 					{
 						gEngine.PrintEffectDesc(92);
 
-						buriedCasketArtifact.SetInRoom(gActorRoom);
+						buriedCasketArtifact.SetInRoom(ActorRoom);
 					}
 					else
 					{
-						var digResult = gActorRoom.EvalRoomType("The floor is far to hard to dig into!", "You dig for a while but find nothing of interest.");
+						var digResult = ActorRoom.EvalRoomType("The floor is far to hard to dig into!", "You dig for a while but find nothing of interest.");
 
 						gOut.Print(digResult);
 					}
@@ -55,7 +55,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			// Bailing fountain water with wooden bucket
 
-			else if (gDobjArtifact.Uid == 6)
+			else if (DobjArtifact.Uid == 6)
 			{
 				var waterWeirdMonster = gMDB[38];
 
@@ -69,9 +69,9 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				Debug.Assert(waterArtifact != null);
 
-				if (gActorRoom.Uid == 116 && !waterArtifact.IsInLimbo())
+				if (ActorRoom.Uid == 116 && !waterArtifact.IsInLimbo())
 				{
-					if (waterWeirdMonster.IsInRoom(gActorRoom))
+					if (waterWeirdMonster.IsInRoom(ActorRoom))
 					{
 						gOut.Print("{0} won't let you get close enough to do that!", waterWeirdMonster.GetTheName(true));
 					}
@@ -79,7 +79,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 					{
 						gEngine.PrintEffectDesc(100);
 
-						waterWeirdMonster.SetInRoom(gActorRoom);
+						waterWeirdMonster.SetInRoom(ActorRoom);
 
 						NextState = Globals.CreateInstance<IStartState>();
 					}
@@ -111,13 +111,13 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			// Using bronze cross on undead
 
-			else if (gDobjArtifact.Uid == 37)
+			else if (DobjArtifact.Uid == 37)
 			{
 				var deadMonsterUids = new long[] { 3, 4, 6 };
 				
 				var wardedMonsterUids = new long[] { 7, 8, 9, 14, 16 };
 
-				var deadMonsterList = gEngine.GetMonsterList(m => deadMonsterUids.Contains(m.Uid) && m.IsInRoom(gActorRoom));
+				var deadMonsterList = gEngine.GetMonsterList(m => deadMonsterUids.Contains(m.Uid) && m.IsInRoom(ActorRoom));
 
 				foreach(var m in deadMonsterList)
 				{
@@ -128,13 +128,13 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 					m.DmgTaken = 0;
 				}
 
-				var wardedMonsterList = gEngine.GetMonsterList(m => wardedMonsterUids.Contains(m.Uid) && m.IsInRoom(gActorRoom));
+				var wardedMonsterList = gEngine.GetMonsterList(m => wardedMonsterUids.Contains(m.Uid) && m.IsInRoom(ActorRoom));
 
 				foreach (var m in wardedMonsterList)
 				{
 					gOut.Print("{0} is warded off by the cross!", m.GetTheName(true));
 
-					gEngine.MoveMonsterToRandomAdjacentRoom(gActorRoom, m, true, false);
+					gEngine.MoveMonsterToRandomAdjacentRoom(ActorRoom, m, true, false);
 				}
 
 				if (deadMonsterList.Count == 0 && wardedMonsterList.Count == 0)

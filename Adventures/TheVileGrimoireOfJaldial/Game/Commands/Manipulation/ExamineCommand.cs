@@ -24,33 +24,26 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
+			var waterWeirdMonster = gMDB[38];
+
+			Debug.Assert(waterWeirdMonster != null);
+
 			// Large fountain and water weird
 
-			if (gDobjArtifact?.Uid == 24)
+			if (DobjArtifact?.Uid == 24 && waterWeirdMonster.IsInLimbo() && !gGameState.WaterWeirdKilled && !Enum.IsDefined(typeof(ContainerType), ContainerType))
 			{
-				var waterWeirdMonster = gMDB[38];
+				gEngine.PrintEffectDesc(101);
 
-				Debug.Assert(waterWeirdMonster != null);
+				waterWeirdMonster.SetInRoom(ActorRoom);
 
-				if (waterWeirdMonster.IsInLimbo() && !gGameState.WaterWeirdKilled && !Enum.IsDefined(typeof(ContainerType), ContainerType))
-				{
-					gEngine.PrintEffectDesc(101);
-
-					waterWeirdMonster.SetInRoom(gActorRoom);
-
-					NextState = Globals.CreateInstance<IStartState>();
-				}
-				else
-				{
-					base.PlayerExecute();
-				}
+				NextState = Globals.CreateInstance<IStartState>();
 			}
 
 			// Decoration
 
-			else if (gDobjArtifact?.Uid == 41 && gDobjArtifact.Field1 > 0 && (!gActorRoom.IsDimLightRoom() || gGameState.Ls > 0))
+			else if (DobjArtifact?.Uid == 41 && DobjArtifact.Field1 > 0 && (!gActorRoom(this).IsDimLightRoomWithoutGlowingMonsters() || gGameState.Ls > 0) && !Enum.IsDefined(typeof(ContainerType), ContainerType))
 			{
-				switch (gDobjArtifact.Field1)
+				switch (DobjArtifact.Field1)
 				{
 					case 1:
 
@@ -224,7 +217,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 							{
 								Direction direction = 0;
 
-								gEngine.GetRandomMoveDirection(gActorRoom, gActorMonster, true, ref direction);
+								gEngine.GetRandomMoveDirection(ActorRoom, ActorMonster, true, ref direction);
 
 								Debug.Assert(Enum.IsDefined(typeof(Direction), direction));
 
@@ -239,7 +232,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 								gOut.Print("You flee in terror{0}!", Globals.Buf);
 
-								gGameState.R2 = gActorRoom.GetDirs(direction);
+								gGameState.R2 = ActorRoom.GetDirs(direction);
 
 								NextState = Globals.CreateInstance<IPlayerMoveCheckState>(x =>
 								{
@@ -555,7 +548,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 					{
 						var saved = gEngine.SaveThrow(Stat.Intellect);
 
-						var target = gEngine.GetRandomMonsterList(1, m => m.IsInRoom(gActorRoom)).FirstOrDefault();
+						var target = gEngine.GetRandomMonsterList(1, m => m.IsInRoom(ActorRoom)).FirstOrDefault();
 
 						Debug.Assert(target != null);
 
@@ -611,7 +604,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						{
 							gEngine.PrintEffectDesc(81);
 
-							giantCrayfishMonster.SetInRoom(gActorRoom);
+							giantCrayfishMonster.SetInRoom(ActorRoom);
 
 							var saved = gEngine.SaveThrow(Stat.Agility);
 

@@ -19,7 +19,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 		{
 			// Steel gauntlets boost weapon skills
 
-			if (eventType == PpeAfterArtifactWear && gDobjArtifact.Uid == 16)
+			if (eventType == PpeAfterArtifactWear && DobjArtifact.Uid == 16)
 			{
 				var weaponValues = EnumUtil.GetValues<Weapon>();
 
@@ -45,11 +45,11 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			// Crimson cloak boosts armor class
 
-			if (gDobjArtifact.Uid == 19 && gDobjArtifact.IsCarriedByCharacter())
+			if (DobjArtifact.Uid == 19 && DobjArtifact.IsCarriedByCharacter())
 			{
 				var armorArtifact = gGameState.Ar > 0 ? gADB[gGameState.Ar] : null;
 
@@ -59,7 +59,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 				}
 				else
 				{
-					gDobjArtifact.Wearable.Field1 += 2;
+					DobjArtifact.Wearable.Field1 += 2;
 				}
 			}
 

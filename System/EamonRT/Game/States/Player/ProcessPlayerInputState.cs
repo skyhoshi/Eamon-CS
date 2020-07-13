@@ -16,24 +16,14 @@ namespace EamonRT.Game.States
 	public class ProcessPlayerInputState : State, IProcessPlayerInputState
 	{
 		/// <summary>
-		/// An event that fires after the player's command has been processed (but not executed), 
-		/// the <see cref="IGameState.CurrTurn">CurrTurn</see> counter incremented and the
-		/// <see cref="IPluginGlobals.LastCommandList">LastCommandList</see> cleared.
+		/// An event that fires after the player's command has been processed (but not executed)
+		/// and the <see cref="IPluginGlobals.LastCommandList">LastCommandList</see> cleared.
 		/// </summary>
 		public const long PeAfterLastCommandListClear = 1;
-
-		public virtual bool IncrementCurrTurn { get; set; }
 
 		public override void Execute()
 		{
 			Globals.CommandParser.Execute();
-
-			if (IncrementCurrTurn)
-			{
-				gGameState.CurrTurn++;
-
-				Debug.Assert(gGameState.CurrTurn > 0);
-			}
 
 			Globals.LastCommandList.Clear();
 
@@ -61,8 +51,6 @@ namespace EamonRT.Game.States
 		public ProcessPlayerInputState()
 		{
 			Name = "ProcessPlayerInputState";
-
-			IncrementCurrTurn = true;
 		}
 	}
 }

@@ -17,7 +17,7 @@ namespace LandOfTheMountainKing.Game.Commands
 		{
 			if (eventType == PpeBeforeArtifactUse)
 			{
-				switch (gDobjArtifact.Uid)
+				switch (DobjArtifact.Uid)
 				{
 					case 7:
 

@@ -15,7 +15,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			if (gActorRoom.IsGroundsRoom())
+			if (gActorRoom(this).IsGroundsRoom())
 			{
 				if (gGameState.Hour <= 4 || gGameState.Hour >= 23)
 				{
@@ -30,7 +30,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 					gOut.Print("A good estimate would be around {0} p.m.", gGameState.Hour > 12 ? gGameState.Hour - 12 : 12);
 				}
 			}
-			else if (gActorRoom.IsCryptRoom())
+			else if (gActorRoom(this).IsCryptRoom())
 			{
 				gEngine.PrintEffectDesc(99);
 			}

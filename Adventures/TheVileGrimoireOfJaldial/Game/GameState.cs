@@ -31,6 +31,12 @@ namespace TheVileGrimoireOfJaldial.Game
 
 		public virtual bool[] SecretDoors { get; set; }
 
+		public virtual long WeatherScalePct { get; set; }
+
+		public virtual long EncounterScalePct { get; set; }
+
+		public virtual long FlavorScalePct { get; set; }
+
 		public virtual long FoggyRoomWeatherIntensity { get; set; }
 
 		public virtual long PlayerResurrections { get; set; }
@@ -153,6 +159,12 @@ namespace TheVileGrimoireOfJaldial.Game
 		public GameState()
 		{
 			SecretDoors = new bool[13];
+
+			WeatherScalePct = 100;
+
+			EncounterScalePct = 100;
+
+			FlavorScalePct = 100;
 
 			Hour = Constants.StartHour;
 

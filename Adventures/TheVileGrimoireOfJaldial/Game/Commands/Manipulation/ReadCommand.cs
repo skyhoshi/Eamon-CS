@@ -21,7 +21,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 		{
 			// Solitary tombstone
 
-			if (gDobjArtifact?.Uid == 10)
+			if (DobjArtifact?.Uid == 10)
 			{
 				gEngine.PrintEffectDesc(83);
 
@@ -37,9 +37,9 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			// Decoration
 
-			else if (gDobjArtifact?.Uid == 41 && gDobjArtifact.Field2 > 0)
+			else if (DobjArtifact?.Uid == 41 && DobjArtifact.Field2 > 0)
 			{
-				switch (gDobjArtifact.Field2)
+				switch (DobjArtifact.Field2)
 				{
 					case 1:
 					{

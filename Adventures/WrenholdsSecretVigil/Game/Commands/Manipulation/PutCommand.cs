@@ -38,18 +38,18 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				// Put anything in slime destroys it
 
-				if (gIobjArtifact.Uid == 24 || gIobjArtifact.Uid == 25)
+				if (IobjArtifact.Uid == 24 || IobjArtifact.Uid == 25)
 				{
-					gOut.Print("{0} start{1} dissolving on contact with {2}!", gDobjArtifact.GetTheName(true), gDobjArtifact.EvalPlural("s", ""), gIobjArtifact.GetTheName(buf: Globals.Buf01));
+					gOut.Print("{0} start{1} dissolving on contact with {2}!", DobjArtifact.GetTheName(true), DobjArtifact.EvalPlural("s", ""), IobjArtifact.GetTheName(buf: Globals.Buf01));
 
-					gOut.Print("{0} {1} destroyed!", gDobjArtifact.GetTheName(true), gDobjArtifact.EvalPlural("is", "are"));
+					gOut.Print("{0} {1} destroyed!", DobjArtifact.GetTheName(true), DobjArtifact.EvalPlural("is", "are"));
 
-					gDobjArtifact.SetInLimbo();
+					DobjArtifact.SetInLimbo();
 				}
 
 				// Put orb in metal pedestal
 
-				else if (gDobjArtifact.Uid == 4 && gIobjArtifact.Uid == 43)
+				else if (DobjArtifact.Uid == 4 && IobjArtifact.Uid == 43)
 				{
 					gEngine.PrintEffectDesc(43);
 
@@ -65,9 +65,9 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 					adjacentRoom.SetDirs(Direction.South, 15);
 
-					gIobjArtifact.IsListed = false;
+					IobjArtifact.IsListed = false;
 
-					gEngine.TransportPlayerBetweenRooms(gActorRoom, newRoom, null);
+					gEngine.TransportPlayerBetweenRooms(ActorRoom, newRoom, null);
 
 					NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
 				}
@@ -84,7 +84,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public virtual void ConvertSlimeToContainer()
 		{
-			var ac = gIobjArtifact.Treasure;
+			var ac = IobjArtifact.Treasure;
 
 			Debug.Assert(ac != null);
 
@@ -103,7 +103,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public virtual void ConvertSlimeToTreasure()
 		{
-			var ac = gIobjArtifact.InContainer;
+			var ac = IobjArtifact.InContainer;
 
 			Debug.Assert(ac != null);
 
@@ -122,16 +122,16 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null && gIobjArtifact != null);
+			Debug.Assert(DobjArtifact != null && IobjArtifact != null);
 
-			if (gIobjArtifact.Uid == 24 || gIobjArtifact.Uid == 25)
+			if (IobjArtifact.Uid == 24 || IobjArtifact.Uid == 25)
 			{
 				ConvertSlimeToContainer();
 			}
 
 			base.PlayerExecute();
 
-			if (gIobjArtifact.Uid == 24 || gIobjArtifact.Uid == 25)
+			if (IobjArtifact.Uid == 24 || IobjArtifact.Uid == 25)
 			{
 				ConvertSlimeToTreasure();
 			}

@@ -19,7 +19,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 		{
 			// Try to open running device, all flee
 
-			if (eventType == PpeAfterArtifactOpenPrint && gDobjArtifact.Uid == 44)
+			if (eventType == PpeAfterArtifactOpenPrint && DobjArtifact.Uid == 44)
 			{
 				Globals.DeviceOpened = true;
 
@@ -83,13 +83,13 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			// Large rock
 
-			if (gDobjArtifact.Uid == 17)
+			if (DobjArtifact.Uid == 17)
 			{
-				PrintCantVerbObj(gDobjArtifact);
+				PrintCantVerbObj(DobjArtifact);
 
 				NextState = Globals.CreateInstance<IStartState>();
 			}

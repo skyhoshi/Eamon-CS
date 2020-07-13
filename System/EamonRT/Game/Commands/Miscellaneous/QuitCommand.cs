@@ -49,8 +49,8 @@ namespace EamonRT.Game.Commands
 				if (Globals.Database.GetFilesetsCount() == 0)
 				{
 					gOut.Print("[You haven't saved a game yet but {0} will be left here should you choose to return.  Use \"quit hall\" if you don't want {1} to stay.]",
-						gActorMonster.Name,
-						gActorMonster.EvalGender("him", "her", "it"));
+						ActorMonster.Name,
+						ActorMonster.EvalGender("him", "her", "it"));
 				}
 
 				gOut.Write("{0}Do you really want to quit (Y/N): ", Environment.NewLine);
@@ -76,16 +76,6 @@ namespace EamonRT.Game.Commands
 			if (NextState == null)
 			{
 				NextState = Globals.CreateInstance<IStartState>();
-			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			if (gCommandParser.CurrToken < gCommandParser.Tokens.Length && string.Equals(gCommandParser.Tokens[gCommandParser.CurrToken], "hall", StringComparison.OrdinalIgnoreCase))
-			{
-				GoToMainHall = true;
-
-				gCommandParser.CurrToken++;
 			}
 		}
 

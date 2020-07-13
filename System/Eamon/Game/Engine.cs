@@ -1350,61 +1350,6 @@ namespace Eamon.Game
 			;
 		}
 
-		public virtual long FindIndex<T>(T[] array, long startIndex, long count, Predicate<T> match)
-		{
-			if (array == null)
-			{
-				throw new ArgumentNullException("array");
-			}
-
-			if (startIndex < 0 || startIndex > array.Length)
-			{
-				throw new ArgumentOutOfRangeException("startIndex");
-			}
-
-			if (count < 0 || startIndex > array.Length - count)
-			{
-				throw new ArgumentOutOfRangeException("count");
-			}
-
-			if (match == null)
-			{
-				throw new ArgumentNullException("match");
-			}
-
-			long endIndex = startIndex + count;
-
-			for (long i = startIndex; i < endIndex; i++)
-			{
-				if (match(array[i]))
-				{
-					return i;
-				}
-			}
-
-			return -1;
-		}
-
-		public virtual long FindIndex<T>(T[] array, long startIndex, Predicate<T> match)
-		{
-			if (array == null)
-			{
-				throw new ArgumentNullException("array");
-			}
-
-			return FindIndex(array, startIndex, array.Length - startIndex, match);
-		}
-
-		public virtual long FindIndex<T>(T[] array, Predicate<T> match)
-		{
-			if (array == null)
-			{
-				throw new ArgumentNullException("array");
-			}
-
-			return FindIndex(array, 0, array.Length, match);
-		}
-
 		public virtual RetCode SplitPath(string fullPath, ref string directory, ref string fileName, ref string extension, bool appendDirectorySeparatorChar = true)
 		{
 			RetCode rc;

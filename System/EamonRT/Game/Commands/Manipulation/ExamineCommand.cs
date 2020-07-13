@@ -33,24 +33,24 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
+			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
-			if (gDobjArtifact != null)
+			if (DobjArtifact != null)
 			{
 				var artTypes = new ArtifactType[] { ArtifactType.DoorGate, ArtifactType.DisguisedMonster, ArtifactType.Drinkable, ArtifactType.Edible, ArtifactType.InContainer, ArtifactType.OnContainer, ArtifactType.UnderContainer, ArtifactType.BehindContainer };
 
-				var ac = gDobjArtifact.GetArtifactCategory(artTypes, false);
+				var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
 
 				if (ac == null)
 				{
-					ac = gDobjArtifact.GetCategories(0);
+					ac = DobjArtifact.GetCategories(0);
 				}
 
 				Debug.Assert(ac != null);
 
-				if (gDobjArtifact.IsEmbeddedInRoom(gActorRoom))
+				if (DobjArtifact.IsEmbeddedInRoom(ActorRoom))
 				{
-					gDobjArtifact.SetInRoom(gActorRoom);
+					DobjArtifact.SetInRoom(ActorRoom);
 				}
 
 				if (ac.Type == ArtifactType.DoorGate)
@@ -60,7 +60,7 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Type == ArtifactType.DisguisedMonster)
 				{
-					gEngine.RevealDisguisedMonster(gActorRoom, gDobjArtifact);
+					gEngine.RevealDisguisedMonster(ActorRoom, DobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
@@ -69,11 +69,11 @@ namespace EamonRT.Game.Commands
 
 				Globals.Buf.Clear();
 
-				if (Enum.IsDefined(typeof(ContainerType), ContainerType) && !gDobjArtifact.IsWornByCharacter())
+				if (Enum.IsDefined(typeof(ContainerType), ContainerType) && !DobjArtifact.IsWornByCharacter())
 				{
 					var containerArtType = gEngine.EvalContainerType(ContainerType, ArtifactType.InContainer, ArtifactType.OnContainer, ArtifactType.UnderContainer, ArtifactType.BehindContainer);
 
-					var ac01 = gDobjArtifact.GetArtifactCategory(containerArtType);
+					var ac01 = DobjArtifact.GetArtifactCategory(containerArtType);
 
 					if (ac01 == null)
 					{
@@ -82,25 +82,25 @@ namespace EamonRT.Game.Commands
 						goto Cleanup;
 					}
 
-					if (ac01 == gDobjArtifact.InContainer && !ac01.IsOpen())
+					if (ac01 == DobjArtifact.InContainer && !ac01.IsOpen())
 					{
-						PrintMustFirstOpen(gDobjArtifact);
+						PrintMustFirstOpen(DobjArtifact);
 
 						NextState = Globals.CreateInstance<IStartState>();
 
 						goto Cleanup;
 					}
 
-					var artifactList = gDobjArtifact.GetContainedList(containerType: ContainerType);
+					var artifactList = DobjArtifact.GetContainedList(containerType: ContainerType);
 					
-					var showCharOwned = !gDobjArtifact.IsCarriedByCharacter() /* && !gDobjArtifact.IsWornByCharacter() */;
+					var showCharOwned = !DobjArtifact.IsCarriedByCharacter() /* && !DobjArtifact.IsWornByCharacter() */;
 
 					if (artifactList.Count > 0)
 					{
 						Globals.Buf.SetFormat("{0}{1} {2} you see ",
 							Environment.NewLine,
 							gEngine.EvalContainerType(ContainerType, "Inside", "On", "Under", "Behind"),
-							gDobjArtifact.GetTheName(false, showCharOwned, false, false, Globals.Buf01));
+							DobjArtifact.GetTheName(false, showCharOwned, false, false, Globals.Buf01));
 
 						var rc = gEngine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, showCharOwned, StateDescDisplayCode.None, false, false, Globals.Buf);
 
@@ -111,7 +111,7 @@ namespace EamonRT.Game.Commands
 						Globals.Buf.SetFormat("{0}There's nothing {1} {2}",
 							Environment.NewLine,
 							gEngine.EvalContainerType(ContainerType, "inside", "on", "under", "behind"),
-							gDobjArtifact.GetTheName(false, showCharOwned, false, false, Globals.Buf01));
+							DobjArtifact.GetTheName(false, showCharOwned, false, false, Globals.Buf01));
 					}
 
 					Globals.Buf.AppendFormat(".{0}", Environment.NewLine);
@@ -127,13 +127,13 @@ namespace EamonRT.Game.Commands
 				}
 				else
 				{
-					var rc = gDobjArtifact.BuildPrintedFullDesc(Globals.Buf, false);
+					var rc = DobjArtifact.BuildPrintedFullDesc(Globals.Buf, false);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
 					gOut.Write("{0}", Globals.Buf);
 
-					gDobjArtifact.Seen = true;
+					DobjArtifact.Seen = true;
 
 					PlayerProcessEvents(PpeAfterArtifactFullDescPrint);
 
@@ -151,7 +151,7 @@ namespace EamonRT.Game.Commands
 							ac.Field2 != 1 ? "s" : "");
 					}
 
-					if (((ac.Type == ArtifactType.InContainer && ac.IsOpen()) || ac.Type == ArtifactType.OnContainer || ac.Type == ArtifactType.UnderContainer || ac.Type == ArtifactType.BehindContainer) && gDobjArtifact.ShouldShowContentsWhenExamined())
+					if (((ac.Type == ArtifactType.InContainer && ac.IsOpen()) || ac.Type == ArtifactType.OnContainer || ac.Type == ArtifactType.UnderContainer || ac.Type == ArtifactType.BehindContainer) && DobjArtifact.ShouldShowContentsWhenExamined())
 					{
 						var command = Globals.CreateInstance<IInventoryCommand>(x =>
 						{
@@ -170,15 +170,15 @@ namespace EamonRT.Game.Commands
 			{
 				Globals.Buf.Clear();
 
-				var rc = gDobjMonster.BuildPrintedFullDesc(Globals.Buf, false);
+				var rc = DobjMonster.BuildPrintedFullDesc(Globals.Buf, false);
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
 				gOut.Write("{0}", Globals.Buf);
 
-				gDobjMonster.Seen = true;
+				DobjMonster.Seen = true;
 
-				if (gDobjMonster.Friendliness == Friendliness.Friend && gDobjMonster.ShouldShowContentsWhenExamined())
+				if (DobjMonster.Friendliness == Friendliness.Friend && DobjMonster.ShouldShowContentsWhenExamined())
 				{
 					var command = Globals.CreateInstance<IInventoryCommand>();
 
@@ -189,16 +189,16 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (gDobjMonster.ShouldShowHealthStatusWhenExamined())
+				if (DobjMonster.ShouldShowHealthStatusWhenExamined())
 				{
-					var isUninjuredGroup = gDobjMonster.GroupCount > 1 && gDobjMonster.DmgTaken == 0;
+					var isUninjuredGroup = DobjMonster.GroupCount > 1 && DobjMonster.DmgTaken == 0;
 
 					Globals.Buf.SetFormat("{0}{1} {2} ",
 						Environment.NewLine,
-						isUninjuredGroup ? "They" : gDobjMonster.GetTheName(true, true, false, true, Globals.Buf01),
+						isUninjuredGroup ? "They" : DobjMonster.GetTheName(true, true, false, true, Globals.Buf01),
 						isUninjuredGroup ? "are" : "is");
 
-					gDobjMonster.AddHealthStatus(Globals.Buf);
+					DobjMonster.AddHealthStatus(Globals.Buf);
 
 					gOut.Write("{0}", Globals.Buf);
 				}
@@ -209,45 +209,6 @@ namespace EamonRT.Game.Commands
 			if (NextState == null)
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
-			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			gCommandParser.ParseName();
-
-			ContainerType = Prep != null ? Prep.ContainerType : (ContainerType)(-1);
-
-			if (string.Equals(gCommandParser.ObjData.Name, "room", StringComparison.OrdinalIgnoreCase) || string.Equals(gCommandParser.ObjData.Name, "area", StringComparison.OrdinalIgnoreCase))
-			{
-				var command = Globals.CreateInstance<ILookCommand>();
-
-				CopyCommandData(command);
-
-				gCommandParser.NextState = command;
-			}
-			else
-			{
-				gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
-				{
-					a => a.IsCarriedByCharacter() || a.IsInRoom(gActorRoom),
-					a => a.IsEmbeddedInRoom(gActorRoom),
-					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively),
-					a => a.IsWornByCharacter()
-				};
-
-				if (!Enum.IsDefined(typeof(ContainerType), ContainerType))
-				{
-					gCommandParser.ObjData.RevealEmbeddedArtifactFunc = (r, a) => { };
-				}
-
-				gCommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch01;
-
-				gCommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch02;
-
-				gCommandParser.ObjData.MonsterNotFoundFunc = PrintYouSeeNothingSpecial;
-
-				PlayerResolveArtifact();
 			}
 		}
 

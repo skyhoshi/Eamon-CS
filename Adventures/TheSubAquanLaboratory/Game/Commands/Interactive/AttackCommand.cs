@@ -24,13 +24,13 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 		public virtual void ProcessWallAttack()
 		{
-			Ac = gDobjArtifact.GetCategories(0);
+			Ac = DobjArtifact.GetCategories(0);
 
 			Debug.Assert(Ac != null);
 
 			var whereClauseFuncs = gGameState.GetNBTL(Friendliness.Enemy) <= 0 ?
-				new Func<IMonster, bool>[] { m => m == gActorMonster, m => m.IsInRoom(gActorRoom) && m.Friendliness == Friendliness.Friend && ((m.Weapon > -1 && m.Weapon <= Globals.Database.GetArtifactsCount()) || m.CombatCode == CombatCode.NaturalWeapons) && m != gActorMonster } :
-				new Func<IMonster, bool>[] { m => m == gActorMonster };
+				new Func<IMonster, bool>[] { m => m == ActorMonster, m => m.IsInRoom(ActorRoom) && m.Friendliness == Friendliness.Friend && ((m.Weapon > -1 && m.Weapon <= Globals.Database.GetArtifactsCount()) || m.CombatCode == CombatCode.NaturalWeapons) && m != ActorMonster } :
+				new Func<IMonster, bool>[] { m => m == ActorMonster };
 
 			var monsters = gEngine.GetMonsterList(whereClauseFuncs);
 
@@ -40,17 +40,17 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 				gOut.Write("{0}{1} {2}{3} the {4}!{5}",
 					Environment.NewLine,
-					monster == gActorMonster ? "You" : monster.GetTheName(true, true, false, true),
-					monster == gActorMonster && BlastSpell ? "blast" : "attack",
-					monster == gActorMonster ? "" : "s",
-					gDobjArtifact.Uid == 83 ? "back wall" : "glass walls",
-					true /* monster == gActorMonster || i == monsters.Count - 1 */ ? Environment.NewLine : "");
+					monster == ActorMonster ? "You" : monster.GetTheName(true, true, false, true),
+					monster == ActorMonster && BlastSpell ? "blast" : "attack",
+					monster == ActorMonster ? "" : "s",
+					DobjArtifact.Uid == 83 ? "back wall" : "glass walls",
+					true /* monster == ActorMonster || i == monsters.Count - 1 */ ? Environment.NewLine : "");
 
 				var dice = 0L;
 
 				var sides = 0L;
 
-				if (monster == gActorMonster && BlastSpell)
+				if (monster == ActorMonster && BlastSpell)
 				{
 					dice = 2;
 
@@ -76,11 +76,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 			var effectUid = 0L;
 			var n = 0L;
 
-			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
+			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
-			if ((BlastSpell || gActorMonster.Weapon > 0) && gDobjArtifact != null)
+			if ((BlastSpell || ActorMonster.Weapon > 0) && DobjArtifact != null)
 			{
-				switch (gDobjArtifact.Uid)
+				switch (DobjArtifact.Uid)
 				{
 					case 83:
 
@@ -121,7 +121,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							Debug.Assert(electrifiedFloorArtifact != null);
 
-							electrifiedFloorArtifact.SetInRoom(gActorRoom);
+							electrifiedFloorArtifact.SetInRoom(ActorRoom);
 
 							gGameState.FloorAttack = true;
 						}
@@ -130,7 +130,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						if (effectUid == 63)
 						{
-							gDobjArtifact.SetInLimbo();
+							DobjArtifact.SetInLimbo();
 
 							var engravingArtifact = gADB[2];
 
@@ -142,7 +142,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							Debug.Assert(rubbleArtifact != null);
 
-							rubbleArtifact.SetInRoom(gActorRoom);
+							rubbleArtifact.SetInRoom(ActorRoom);
 						}
 
 						NextState = Globals.CreateInstance<IMonsterStartState>();
@@ -182,7 +182,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						if (effectUid == 69)
 						{
-							gDobjArtifact.SetInLimbo();
+							DobjArtifact.SetInLimbo();
 
 							var ovalDoorArtifact = gADB[16];
 
@@ -194,7 +194,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							Debug.Assert(shatteredGlassWallsArtifact != null);
 
-							shatteredGlassWallsArtifact.SetInRoom(gActorRoom);
+							shatteredGlassWallsArtifact.SetInRoom(ActorRoom);
 
 							gGameState.Sterilize = false;
 
@@ -206,7 +206,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							foreach (var monster in monsters)
 							{
-								monster.SetInRoom(gActorRoom);
+								monster.SetInRoom(ActorRoom);
 							}
 
 							NextState = Globals.CreateInstance<IStartState>();
@@ -224,13 +224,13 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						gEngine.PrintEffectDesc(65);
 
-						gDobjArtifact.SetInLimbo();
+						DobjArtifact.SetInLimbo();
 
 						var brokenFloorTrapArtifact = gADB[107];
 
 						Debug.Assert(brokenFloorTrapArtifact != null);
 
-						brokenFloorTrapArtifact.SetInRoom(gActorRoom);
+						brokenFloorTrapArtifact.SetInRoom(ActorRoom);
 
 						NextState = Globals.CreateInstance<IMonsterStartState>();
 
@@ -252,7 +252,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							gOut.Print("{0}", plasticCardArtifact.Desc);
 
-							plasticCardArtifact.SetInRoom(gActorRoom);
+							plasticCardArtifact.SetInRoom(ActorRoom);
 
 							plasticCardArtifact.Seen = true;
 						}

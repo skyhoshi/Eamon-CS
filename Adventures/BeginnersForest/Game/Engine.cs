@@ -3,6 +3,7 @@
 
 // Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
@@ -106,7 +107,7 @@ namespace BeginnersForest.Game
 		{
 			var artifact = base.ConvertWeaponToArtifact(weapon);
 
-			var i = FindIndex(gCharacter.Weapons, x => x == weapon);
+			var i = Array.FindIndex(gCharacter.Weapons, x => x == weapon);
 
 			if (i != gGameState.UsedWpnIdx)
 			{

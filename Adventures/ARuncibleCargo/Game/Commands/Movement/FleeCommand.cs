@@ -17,7 +17,7 @@ namespace ARuncibleCargo.Game.Commands
 		{
 			// Disable FleeCommand in water rooms
 
-			return !gActorRoom.IsWaterRoom();
+			return !gActorRoom(this).IsWaterRoom();
 		}
 	}
 }

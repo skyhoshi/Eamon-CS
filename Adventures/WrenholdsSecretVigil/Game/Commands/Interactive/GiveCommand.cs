@@ -18,32 +18,32 @@ namespace WrenholdsSecretVigil.Game.Commands
 		{
 			if (eventType == PpeAfterEnforceMonsterWeightLimitsCheck)
 			{
-				if (gIobjMonster.Uid == 1)
+				if (IobjMonster.Uid == 1)
 				{
 					// Give death dog the dead rabbit
 
-					if (gDobjArtifact.Uid == 15)
+					if (DobjArtifact.Uid == 15)
 					{
-						gDobjArtifact.SetInLimbo();
+						DobjArtifact.SetInLimbo();
 
-						gIobjMonster.Friendliness = (Friendliness)150;
+						IobjMonster.Friendliness = (Friendliness)150;
 
-						gIobjMonster.OrigFriendliness = (Friendliness)150;
+						IobjMonster.OrigFriendliness = (Friendliness)150;
 
-						gIobjMonster.ResolveFriendlinessPct(gCharacter);
+						IobjMonster.ResolveFriendlinessPct(gCharacter);
 
-						PrintGiveObjToActor(gDobjArtifact, gIobjMonster);
+						PrintGiveObjToActor(DobjArtifact, IobjMonster);
 
 						gEngine.PrintEffectDesc(13);
 
-						if (gIobjMonster.Friendliness == Friendliness.Friend)
+						if (IobjMonster.Friendliness == Friendliness.Friend)
 						{
-							gOut.Print("{0} barks once and wags its tail!", gIobjMonster.GetTheName(true));
+							gOut.Print("{0} barks once and wags its tail!", IobjMonster.GetTheName(true));
 						}
 					}
 					else
 					{
-						gEngine.MonsterEmotes(gIobjMonster);
+						gEngine.MonsterEmotes(IobjMonster);
 
 						gOut.WriteLine();
 					}
@@ -53,9 +53,9 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				// Further disable bribing
 
-				else if (gIobjMonster.ShouldRefuseToAcceptGift01(gDobjArtifact))
+				else if (gIobjMonster(this).ShouldRefuseToAcceptGift01(DobjArtifact))
 				{
-					gEngine.MonsterEmotes(gIobjMonster);
+					gEngine.MonsterEmotes(IobjMonster);
 
 					gOut.WriteLine();
 
@@ -70,9 +70,9 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				// Disable bribing
 
-				if (gIobjMonster.Uid == 1 || gIobjMonster.Friendliness < Friendliness.Friend)
+				if (IobjMonster.Uid == 1 || IobjMonster.Friendliness < Friendliness.Friend)
 				{
-					gEngine.MonsterEmotes(gIobjMonster);
+					gEngine.MonsterEmotes(IobjMonster);
 
 					gOut.WriteLine();
 

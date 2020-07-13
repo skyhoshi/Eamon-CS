@@ -39,6 +39,39 @@ namespace TheVileGrimoireOfJaldial.Game
 			}
 		}
 
+		public override LightLevel LightLvl 
+		{ 
+			get
+			{
+				var result = base.LightLvl;
+
+				if (Globals.EnableGameOverrides && result == LightLevel.Dark)
+				{
+					var willOTheWispMonster = gMDB[10];
+
+					Debug.Assert(willOTheWispMonster != null);
+
+					var efreetiMonster = gMDB[50];
+
+					Debug.Assert(efreetiMonster != null);
+
+					// The Room is lit if either Monster is present
+
+					if (willOTheWispMonster.IsInRoom(this) || efreetiMonster.IsInRoom(this))
+					{
+						result = LightLevel.Light;
+					}
+				}
+
+				return result;
+			}
+			
+			set
+			{
+				base.LightLvl = value;
+			}
+		}
+
 		public override long GetDirs(long index)
 		{
 			if (Globals.EnableGameOverrides)
@@ -130,7 +163,7 @@ namespace TheVileGrimoireOfJaldial.Game
 					!showDesc ? Environment.NewLine : "",
 					showDesc ? "also " : "",
 					showDesc && !monsterList.Any() ? "notice " : "see ",
-					monsterList.FirstOrDefault(m => m.Seen && (m.Uid == 10 || m.Uid == 50)) == null && IsDimLightRoom() ? "the dim image" + (plural ? "s" : "") + " of " : "");
+					IsDimLightRoomWithoutGlowingMonsters() && gGameState.Ls <= 0 ? "the dim image" + (plural ? "s" : "") + " of " : "");
 		}
 
 		public override RetCode GetExitList(StringBuilder buf, Func<string, string> modFunc = null, bool useNames = true)
@@ -157,6 +190,13 @@ namespace TheVileGrimoireOfJaldial.Game
 			return roomUids.Contains(Uid);
 		}
 
+		public virtual bool IsSwampRoom()
+		{
+			var roomUids = new long[] { 41, 42, 43, 44, 45 };
+
+			return roomUids.Contains(Uid);
+		}
+
 		public virtual bool IsBodyChamberRoom()
 		{
 			var roomUids = new long[] { 59, 60, 61, 80, 85, 86 };
@@ -177,6 +217,19 @@ namespace TheVileGrimoireOfJaldial.Game
 		public virtual bool IsDimLightRoom()
 		{
 			return gGameState != null && IsGroundsRoom() && (gGameState.IsNightTime() || (IsFoggyRoom() && GetWeatherIntensity() >= 3));
+		}
+
+		public virtual bool IsDimLightRoomWithoutGlowingMonsters()
+		{
+			var willOTheWispMonster = gMDB[10];
+
+			Debug.Assert(willOTheWispMonster != null);
+
+			var efreetiMonster = gMDB[50];
+
+			Debug.Assert(efreetiMonster != null);
+
+			return IsDimLightRoom() && !willOTheWispMonster.IsInRoom(this) && !efreetiMonster.IsInRoom(this);
 		}
 
 		public virtual long GetWeatherIntensity()

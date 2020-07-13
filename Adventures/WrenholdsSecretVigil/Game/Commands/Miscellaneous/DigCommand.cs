@@ -29,13 +29,13 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			var buriedArtifacts = gADB.Records.Cast<Framework.IArtifact>().Where(a => a.IsBuriedInRoom(gActorRoom)).ToList();
+			var buriedArtifacts = gADB.Records.Cast<Framework.IArtifact>().Where(a => a.IsBuriedInRoom(ActorRoom)).ToList();
 
 			if (buriedArtifacts.Count > 0)
 			{
 				gOut.Print("You found something!");
 
-				buriedArtifacts[0].SetInRoom(gActorRoom);
+				buriedArtifacts[0].SetInRoom(ActorRoom);
 			}
 			else
 			{
@@ -50,7 +50,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public override bool IsAllowedInRoom()
 		{
-			return gGameState.GetNBTL(Friendliness.Enemy) <= 0 && gActorRoom.IsDigCommandAllowedInRoom();
+			return gGameState.GetNBTL(Friendliness.Enemy) <= 0 && gActorRoom(this).IsDigCommandAllowedInRoom();
 		}
 
 		public DigCommand()

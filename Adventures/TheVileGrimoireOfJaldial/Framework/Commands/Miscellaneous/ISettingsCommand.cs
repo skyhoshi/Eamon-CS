@@ -12,5 +12,11 @@ namespace TheVileGrimoireOfJaldial.Framework.Commands
 		bool? ShowCombatDamage { get; set; }
 
 		bool? ExitDirNames { get; set; }
+
+		long? WeatherScalePct { get; set; }
+
+		long? EncounterScalePct { get; set; }
+
+		long? FlavorScalePct { get; set; }
 	}
 }

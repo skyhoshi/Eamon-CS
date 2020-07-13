@@ -362,7 +362,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 					// Flavor effects
 
-					if (Globals.EventRoll <= 3)
+					if (Globals.EventRoll <= 3 && Globals.ScaleRoll <= gGameState.FlavorScalePct)
 					{
 						var idx = gEngine.RollDice(1, 8, -1);
 
@@ -494,6 +494,32 @@ namespace TheVileGrimoireOfJaldial.Game.States
 						}
 					}
 				}
+
+				// Reset decorations; they remain in limbo unless the normal Artifact resolution process fails
+
+				var decoration41Artifact = gADB[41];
+
+				Debug.Assert(decoration41Artifact != null);
+
+				decoration41Artifact.Name = "DECORATION41";
+
+				decoration41Artifact.Location = 0;
+
+				decoration41Artifact.Field1 = 0;
+
+				decoration41Artifact.Field2 = 0;
+
+				var decoration42Artifact = gADB[42];
+
+				Debug.Assert(decoration42Artifact != null);
+
+				decoration42Artifact.Name = "DECORATION42";
+
+				decoration42Artifact.Location = 0;
+
+				decoration42Artifact.Field1 = 0;
+
+				decoration42Artifact.Field2 = 0;
 			}
 
 			base.ProcessEvents(eventType);

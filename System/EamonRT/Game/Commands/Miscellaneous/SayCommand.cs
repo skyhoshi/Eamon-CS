@@ -70,37 +70,6 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		public override void PlayerFinishParsing()
-		{
-			if (gCommandParser.CurrToken < gCommandParser.Tokens.Length)
-			{
-				OriginalPhrase = gCommandParser.InputBuf.ToString().Replace(gCommandParser.Tokens[0] + " ", "");
-
-				gCommandParser.CurrToken += (gCommandParser.Tokens.Length - gCommandParser.CurrToken);
-			}
-
-			while (true)
-			{
-				if (string.IsNullOrWhiteSpace(OriginalPhrase))
-				{
-					gOut.Write("{0}{1} who or what? ", Environment.NewLine, Verb.FirstCharToUpper());
-
-					Globals.Buf.SetFormat("{0}", Globals.In.ReadLine());
-
-					OriginalPhrase = Globals.Buf.ToString();
-				}
-				else
-				{
-					break;
-				}
-			}
-		}
-
-		public override bool ShouldStripTrailingPunctuation()
-		{
-			return false;
-		}
-
 		public SayCommand()
 		{
 			SortOrder = 340;

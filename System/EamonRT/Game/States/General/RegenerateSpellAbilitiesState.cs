@@ -16,7 +16,7 @@ namespace EamonRT.Game.States
 	{
 		public override void Execute()
 		{
-			if (ShouldPreTurnProcess())
+			if (!Globals.CommandPromptSeen || ShouldPreTurnProcess())
 			{
 				var spellValues = EnumUtil.GetValues<Spell>();
 
@@ -43,7 +43,7 @@ namespace EamonRT.Game.States
 						
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<IPrintPlayerRoomState>();
+				NextState = Globals.CreateInstance<IBeforePrintPlayerRoomEventState>();
 			}
 
 			Globals.NextState = NextState;

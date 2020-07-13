@@ -17,11 +17,11 @@ namespace ARuncibleCargo.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
+			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
-			if ((BlastSpell || gActorMonster.Weapon > 0) && gDobjArtifact != null)
+			if ((BlastSpell || ActorMonster.Weapon > 0) && DobjArtifact != null)
 			{
-				switch (gDobjArtifact.Uid)
+				switch (DobjArtifact.Uid)
 				{
 					case 30:
 					case 80:
@@ -38,7 +38,7 @@ namespace ARuncibleCargo.Game.Commands
 
 						// Attack cell = Open Jail
 
-						var ac = gDobjArtifact.InContainer;
+						var ac = DobjArtifact.InContainer;
 
 						Debug.Assert(ac != null);
 
@@ -79,7 +79,7 @@ namespace ARuncibleCargo.Game.Commands
 		{
 			// Disable AttackCommand in water rooms
 
-			return !gActorRoom.IsWaterRoom();
+			return !gActorRoom(this).IsWaterRoom();
 		}
 	}
 }

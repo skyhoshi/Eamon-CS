@@ -16,17 +16,17 @@ namespace TheSubAquanLaboratory.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null && gIobjArtifact != null);
+			Debug.Assert(DobjArtifact != null && IobjArtifact != null);
 
-			if (gDobjArtifact.Uid == 82)
+			if (DobjArtifact.Uid == 82)
 			{
-				if (gIobjArtifact.Uid == 1)
+				if (IobjArtifact.Uid == 1)
 				{
 					gEngine.PrintEffectDesc(38);
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
 				}
-				else if (gIobjArtifact.Uid == 26)
+				else if (IobjArtifact.Uid == 26)
 				{
 					var ovalDoorArtifact = gADB[16];
 

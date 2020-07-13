@@ -446,39 +446,6 @@
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintNoPlaceToGo">
             <summary></summary>
         </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerArtifactMatch">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerArtifactMatch01">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerArtifactMatch02">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerMonsterMatch">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerMonsterMatch01">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerMonsterMatch02">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerMonsterMatch03">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerResolveArtifact">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerResolveArtifactProcessWhereClauseList">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerResolveMonster">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerResolveMonsterProcessWhereClauseList">
-            <summary></summary>
-        </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerProcessEvents(System.Int64)">
             <summary></summary>
             <param name="eventType"></param>
@@ -493,21 +460,11 @@
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.MonsterExecute">
             <summary></summary>
         </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerFinishParsing">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.MonsterFinishParsing">
-            <summary></summary>
-        </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.IsAllowedInRoom">
             <summary></summary>
             <returns></returns>
         </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.ShouldAllowSkillGains">
-            <summary></summary>
-            <returns></returns>
-        </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.ShouldStripTrailingPunctuation">
             <summary></summary>
             <returns></returns>
         </member>
@@ -540,9 +497,6 @@
             <summary></summary>
             <param name="artifact"></param>
             <param name="printTaking"></param>
-        </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.FinishParsing">
-            <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.IAttackCommand">
             <summary></summary>
@@ -716,6 +670,9 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Commands.ISettingsCommand.PauseCombatMs">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Commands.ISettingsCommand.PrintUsage">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.ISpeedCommand">
@@ -1211,6 +1168,24 @@
         <member name="P:EamonRT.Framework.Parsing.ICommandParser.ActorRoom">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.Dobj">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.DobjArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.DobjMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.Iobj">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.IobjArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.IobjMonster">
+            <summary></summary>
+        </member>
         <member name="P:EamonRT.Framework.Parsing.ICommandParser.DobjData">
             <summary></summary>
         </member>
@@ -1224,6 +1199,52 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Parsing.ICommandParser.NextCommand">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerArtifactMatch">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerArtifactMatch01">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerArtifactMatch02">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerMonsterMatch">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerMonsterMatch01">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerMonsterMatch02">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerMonsterMatch03">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerResolveArtifact">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerResolveArtifactProcessWhereClauseList">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerResolveMonster">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerResolveMonsterProcessWhereClauseList">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerFinishParsing">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.MonsterFinishParsing">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.ShouldStripTrailingPunctuation">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.FinishParsing">
             <summary></summary>
         </member>
         <member name="M:EamonRT.Framework.Parsing.ICommandParser.GetActiveObjData">
@@ -1256,9 +1277,8 @@
         <member name="M:EamonRT.Framework.Parsing.ICommandParser.ParseName">
             <summary></summary>
         </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.CheckPlayerCommand(EamonRT.Framework.Commands.ICommand,System.Boolean)">
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.CheckPlayerCommand(System.Boolean)">
             <summary></summary>
-            <param name="command"></param>
             <param name="afterFinishParsing"></param>
         </member>
         <member name="M:EamonRT.Framework.Parsing.ICommandParser.Execute">
@@ -1433,6 +1453,9 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LastCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.CommandPromptSeen">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.GameRunning">
@@ -1689,6 +1712,12 @@
         <member name="P:EamonRT.Framework.States.IAfterPlayerMoveState.MoveMonsters">
             <summary></summary>
         </member>
+        <member name="T:EamonRT.Framework.States.IAfterPrintPlayerRoomEventState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IAfterPrintPlayerRoomEventState.ExitEventLoop">
+            <summary></summary>
+        </member>
         <member name="T:EamonRT.Framework.States.IBeforePlayerMoveState">
             <summary></summary>
         </member>
@@ -1696,6 +1725,12 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.States.IBeforePlayerMoveState.Artifact">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IBeforePrintPlayerRoomEventState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IBeforePrintPlayerRoomEventState.ExitEventLoop">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.States.IGetPlayerInputState">
@@ -1723,9 +1758,6 @@
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.States.IProcessPlayerInputState">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Framework.States.IProcessPlayerInputState.IncrementCurrTurn">
             <summary></summary>
         </member>
         <member name="F:EamonRT.Game.Combat.CombatSystem._odds">
@@ -2154,9 +2186,8 @@
         </member>
         <member name="F:EamonRT.Game.States.ProcessPlayerInputState.PeAfterLastCommandListClear">
             <summary>
-            An event that fires after the player's command has been processed (but not executed), 
-            the <see cref="P:Eamon.Framework.IGameState.CurrTurn">CurrTurn</see> counter incremented and the
-            <see cref="P:EamonRT.Framework.Plugin.IPluginGlobals.LastCommandList">LastCommandList</see> cleared.
+            An event that fires after the player's command has been processed (but not executed)
+            and the <see cref="P:EamonRT.Framework.Plugin.IPluginGlobals.LastCommandList">LastCommandList</see> cleared.
             </summary>
         </member>
         <member name="F:EamonRT.Program._ddfnFlag">

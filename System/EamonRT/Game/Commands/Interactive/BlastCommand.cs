@@ -38,9 +38,9 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
+			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
-			if (!CheckAttack && gDobjMonster != null && gDobjMonster.Friendliness != Friendliness.Enemy)
+			if (!CheckAttack && DobjMonster != null && DobjMonster.Friendliness != Friendliness.Enemy)
 			{
 				gOut.Write("{0}Attack non-enemy (Y/N): ", Environment.NewLine);
 
@@ -72,9 +72,9 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (gDobjMonster != null && gDobjMonster.Friendliness != Friendliness.Enemy)
+			if (DobjMonster != null && DobjMonster.Friendliness != Friendliness.Enemy)
 			{
-				gEngine.MonsterGetsAggravated(gDobjMonster);
+				gEngine.MonsterGetsAggravated(DobjMonster);
 			}
 
 			PlayerProcessEvents(PpeAfterMonsterGetsAggravated);
@@ -101,25 +101,9 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		public override void PlayerFinishParsing()
-		{
-			gCommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch03;
-
-			gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
-			{
-				a => a.IsInRoom(gActorRoom),
-				a => a.IsEmbeddedInRoom(gActorRoom),
-				a => a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively)
-			};
-
-			gCommandParser.ObjData.ArtifactNotFoundFunc = PrintNobodyHereByThatName;
-
-			PlayerResolveMonster();
-		}
-
 		public override bool ShouldAllowSkillGains()
 		{
-			return gDobjMonster != null || gDobjArtifact.IsAttackable();
+			return DobjMonster != null || DobjArtifact.IsAttackable();
 		}
 
 		public BlastCommand()

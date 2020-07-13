@@ -16,7 +16,7 @@
             <Simple name="NumDirs" value="10" />
             <Simple name="NumRooms" value="121" />
             <Simple name="NumArtifacts" value="63" />
-            <Simple name="NumEffects" value="171" />
+            <Simple name="NumEffects" value="172" />
             <Simple name="NumMonsters" value="50" />
             <Simple name="NumHints" value="16" />
             <Simple name="Uid" value="1" />

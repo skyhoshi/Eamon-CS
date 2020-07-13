@@ -20,13 +20,13 @@ namespace TheTempleOfNgurct.Game.Commands
 		{
 			// If chest opened reveal cobra
 
-			if (eventType == PpeAfterArtifactOpen && gDobjArtifact.Uid == 54 && !gGameState.CobraAppeared)
+			if (eventType == PpeAfterArtifactOpen && DobjArtifact.Uid == 54 && !gGameState.CobraAppeared)
 			{
 				var cobraMonster = gMDB[52];
 
 				Debug.Assert(cobraMonster != null);
 
-				cobraMonster.SetInRoom(gActorRoom);
+				cobraMonster.SetInRoom(ActorRoom);
 
 				gGameState.CobraAppeared = true;
 

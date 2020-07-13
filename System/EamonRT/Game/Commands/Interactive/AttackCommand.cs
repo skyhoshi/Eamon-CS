@@ -32,31 +32,31 @@ namespace EamonRT.Game.Commands
 
 		public virtual void PrintHackToBits()
 		{
-			gOut.Print("You {0} {1} to bits!", BlastSpell ? "blast" : "hack", gDobjArtifact.EvalPlural("it", "them"));
+			gOut.Print("You {0} {1} to bits!", BlastSpell ? "blast" : "hack", DobjArtifact.EvalPlural("it", "them"));
 		}
 
 		public virtual void BuildWhamHitObj()
 		{
-			Globals.Buf.SetPrint("Wham!  You hit {0}!", gDobjArtifact.GetTheName(buf: Globals.Buf01));
+			Globals.Buf.SetPrint("Wham!  You hit {0}!", DobjArtifact.GetTheName(buf: Globals.Buf01));
 		}
 
 		public virtual void BuildSmashesToPieces()
 		{
-			Globals.Buf.SetFormat("{0}{1} {2} to pieces", Environment.NewLine, gDobjArtifact.GetTheName(true, buf: Globals.Buf01), gDobjArtifact.EvalPlural("smashes", "smash"));
+			Globals.Buf.SetFormat("{0}{1} {2} to pieces", Environment.NewLine, DobjArtifact.GetTheName(true, buf: Globals.Buf01), DobjArtifact.EvalPlural("smashes", "smash"));
 		}
 
 		public virtual void BuildContentsSpillToFloor()
 		{
-			Globals.Buf.AppendFormat("; {0} contents spill to the {1}", gDobjArtifact.EvalPlural("its", "their"), gActorRoom.EvalRoomType("floor", "ground"));
+			Globals.Buf.AppendFormat("; {0} contents spill to the {1}", DobjArtifact.EvalPlural("its", "their"), ActorRoom.EvalRoomType("floor", "ground"));
 		}
 
 		public override void PlayerExecute()
 		{
 			RetCode rc;
 
-			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
+			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
-			if (!BlastSpell && gActorMonster.Weapon <= 0)
+			if (!BlastSpell && ActorMonster.Weapon <= 0)
 			{
 				PrintMustFirstReadyWeapon();
 
@@ -65,11 +65,11 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (gDobjArtifact != null)
+			if (DobjArtifact != null)
 			{
 				IArtifactCategory ac = null;
 
-				if (gDobjArtifact.IsAttackable01(ref ac))
+				if (DobjArtifact.IsAttackable01(ref ac))
 				{
 					Debug.Assert(ac != null);
 
@@ -80,7 +80,7 @@ namespace EamonRT.Game.Commands
 							gOut.Print("{0}", gEngine.GetBlastDesc());
 						}
 
-						gDobjArtifact.SetInLimbo();
+						DobjArtifact.SetInLimbo();
 
 						PrintHackToBits();
 
@@ -89,7 +89,7 @@ namespace EamonRT.Game.Commands
 
 					if (ac.Type == ArtifactType.DisguisedMonster)
 					{
-						gEngine.RevealDisguisedMonster(gActorRoom, gDobjArtifact);
+						gEngine.RevealDisguisedMonster(ActorRoom, DobjArtifact);
 
 						var monster = gMDB[ac.Field1];
 
@@ -126,7 +126,7 @@ namespace EamonRT.Game.Commands
 
 					if (keyUid == -2)
 					{
-						PrintAlreadyBrokeIt(gDobjArtifact);
+						PrintAlreadyBrokeIt(DobjArtifact);
 
 						goto Cleanup;
 					}
@@ -163,7 +163,7 @@ namespace EamonRT.Game.Commands
 					}
 					else
 					{
-						var weapon = gADB[gActorMonster.Weapon];
+						var weapon = gADB[ActorMonster.Weapon];
 
 						Debug.Assert(weapon != null);
 
@@ -188,7 +188,7 @@ namespace EamonRT.Game.Commands
 					{
 						ac.SetBreakageStrength(breakageStrength);
 
-						rc = gDobjArtifact.SyncArtifactCategories(ac);
+						rc = DobjArtifact.SyncArtifactCategories(ac);
 
 						Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -205,13 +205,13 @@ namespace EamonRT.Game.Commands
 
 					ac.Field4 = 0;
 
-					rc = gDobjArtifact.SyncArtifactCategories(ac);
+					rc = DobjArtifact.SyncArtifactCategories(ac);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
-					gDobjArtifact.Value = 0;
+					DobjArtifact.Value = 0;
 
-					rc = gDobjArtifact.AddStateDesc(gDobjArtifact.GetBrokenDesc());
+					rc = DobjArtifact.AddStateDesc(DobjArtifact.GetBrokenDesc());
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -219,16 +219,16 @@ namespace EamonRT.Game.Commands
 
 					if (ac.Type == ArtifactType.InContainer)
 					{
-						var artifactList = gDobjArtifact.GetContainedList(containerType: ContainerType.In);
+						var artifactList = DobjArtifact.GetContainedList(containerType: ContainerType.In);
 
-						if (gDobjArtifact.OnContainer != null && gDobjArtifact.IsInContainerOpenedFromTop())
+						if (DobjArtifact.OnContainer != null && DobjArtifact.IsInContainerOpenedFromTop())
 						{
-							artifactList.AddRange(gDobjArtifact.GetContainedList(containerType: ContainerType.On));
+							artifactList.AddRange(DobjArtifact.GetContainedList(containerType: ContainerType.On));
 						}
 
 						foreach (var artifact in artifactList)
 						{
-							artifact.SetInRoom(gActorRoom);
+							artifact.SetInRoom(ActorRoom);
 						}
 
 						if (artifactList.Count > 0)
@@ -245,7 +245,7 @@ namespace EamonRT.Game.Commands
 				}
 				else
 				{
-					PrintWhyAttack(gDobjArtifact);
+					PrintWhyAttack(DobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
@@ -254,7 +254,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				if (!CheckAttack && gDobjMonster.Friendliness != Friendliness.Enemy)
+				if (!CheckAttack && DobjMonster.Friendliness != Friendliness.Enemy)
 				{
 					gOut.Write("{0}Attack non-enemy (Y/N): ", Environment.NewLine);
 
@@ -273,16 +273,16 @@ namespace EamonRT.Game.Commands
 
 					CheckAttack = true;
 
-					gEngine.MonsterGetsAggravated(gDobjMonster);
+					gEngine.MonsterGetsAggravated(DobjMonster);
 				}
 
 				var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 				{
 					x.SetNextStateFunc = s => NextState = s;
 
-					x.OfMonster = gActorMonster;
+					x.OfMonster = ActorMonster;
 
-					x.DfMonster = gDobjMonster;
+					x.DfMonster = DobjMonster;
 
 					x.MemberNumber = MemberNumber;
 
@@ -306,15 +306,15 @@ namespace EamonRT.Game.Commands
 
 		public override void MonsterExecute()
 		{
-			Debug.Assert(gDobjMonster != null);
+			Debug.Assert(DobjMonster != null);
 
 			var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 			{
 				x.SetNextStateFunc = s => NextState = s;
 
-				x.OfMonster = gActorMonster;
+				x.OfMonster = ActorMonster;
 
-				x.DfMonster = gDobjMonster;
+				x.DfMonster = DobjMonster;
 
 				x.MemberNumber = MemberNumber;
 
@@ -330,22 +330,6 @@ namespace EamonRT.Game.Commands
 					x.ErrorMessage = string.Format("{0}: NextState == null", Name);
 				});
 			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			gCommandParser.ObjData.MonsterMatchFunc = PlayerMonsterMatch03;
-
-			gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
-			{
-				a => a.IsInRoom(gActorRoom),
-				a => a.IsEmbeddedInRoom(gActorRoom),
-				a => a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively)
-			};
-
-			gCommandParser.ObjData.ArtifactNotFoundFunc = PrintNobodyHereByThatName;
-
-			PlayerResolveMonster();
 		}
 
 		public AttackCommand()

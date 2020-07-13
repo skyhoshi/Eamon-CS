@@ -55,13 +55,13 @@ namespace EamonRT.Game.Commands
 
 			var charWeight = 0L;
 
-			rc = gActorMonster.GetFullInventoryWeight(ref charWeight, recurse: true);
+			rc = ActorMonster.GetFullInventoryWeight(ref charWeight, recurse: true);
 
 			Debug.Assert(gEngine.IsSuccess(rc));
 
 			var args = Globals.CreateInstance<IStatDisplayArgs>(x =>
 			{
-				x.Monster = gActorMonster;
+				x.Monster = ActorMonster;
 				x.ArmorString = Globals.Buf.ToString();
 				x.SpellAbilities = gGameState.Sa;
 				x.Speed = gGameState.Speed;

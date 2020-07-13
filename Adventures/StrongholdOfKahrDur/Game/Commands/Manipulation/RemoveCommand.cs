@@ -16,13 +16,13 @@ namespace StrongholdOfKahrDur.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			// Remove magical amulet in forest
 
-			if (gGameState.Ro >= 65 && gGameState.Ro != 92 && gGameState.Ro != 93 && gDobjArtifact.Uid == 18)
+			if (gGameState.Ro >= 65 && gGameState.Ro != 92 && gGameState.Ro != 93 && DobjArtifact.Uid == 18)
 			{
-				gOut.Print("If you remove {0}, you'll be paralysed with fear!", gDobjArtifact.GetTheName());
+				gOut.Print("If you remove {0}, you'll be paralysed with fear!", DobjArtifact.GetTheName());
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}

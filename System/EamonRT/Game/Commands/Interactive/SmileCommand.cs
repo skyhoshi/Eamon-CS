@@ -18,7 +18,7 @@ namespace EamonRT.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			var monsters = gEngine.GetEmotingMonsterList(gActorRoom, gActorMonster);
+			var monsters = gEngine.GetEmotingMonsterList(ActorRoom, ActorMonster);
 
 			if (monsters.Count > 0)
 			{

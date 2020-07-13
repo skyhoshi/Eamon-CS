@@ -27,9 +27,9 @@ namespace TheSubAquanLaboratory.Game.Commands
 		{
 			var rl = 0L;
 
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			switch (gDobjArtifact.Uid)
+			switch (DobjArtifact.Uid)
 			{
 				case 9:
 

@@ -22,7 +22,7 @@ namespace TheVileGrimoireOfJaldial.Game
 
 				var room = GetInRoom(true) as Framework.IRoom;
 
-				if (Globals.EnableGameOverrides && gGameState != null && room != null && room.Uid == gGameState.Ro && room.IsDimLightRoom() && gGameState.Ls <= 0)
+				if (Globals.EnableGameOverrides && gGameState != null && room != null && room.Uid == gGameState.Ro && room.IsDimLightRoomWithoutGlowingMonsters() && gGameState.Ls <= 0)
 				{
 					result = string.Format("You can vaguely make out {0} in the {1}.", GetTheName(buf: Globals.Buf01), gGameState.IsNightTime() ? "darkness" : "white haze");
 				}

@@ -79,59 +79,6 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
-		public override void PlayerFinishParsing()
-		{
-			long longValue = 0;
-
-			bool boolValue = false;
-
-			if (gCommandParser.CurrToken + 1 < gCommandParser.Tokens.Length)
-			{
-				if (string.Equals(gCommandParser.Tokens[gCommandParser.CurrToken], "verboserooms", StringComparison.OrdinalIgnoreCase) && bool.TryParse(gCommandParser.Tokens[gCommandParser.CurrToken + 1], out boolValue))
-				{
-					VerboseRooms = boolValue;
-
-					gCommandParser.CurrToken += 2;
-				}
-				else if (string.Equals(gCommandParser.Tokens[gCommandParser.CurrToken], "verbosemonsters", StringComparison.OrdinalIgnoreCase) && bool.TryParse(gCommandParser.Tokens[gCommandParser.CurrToken + 1], out boolValue))
-				{
-					VerboseMonsters = boolValue;
-
-					gCommandParser.CurrToken += 2;
-				}
-				else if (string.Equals(gCommandParser.Tokens[gCommandParser.CurrToken], "verboseartifacts", StringComparison.OrdinalIgnoreCase) && bool.TryParse(gCommandParser.Tokens[gCommandParser.CurrToken + 1], out boolValue))
-				{
-					VerboseArtifacts = boolValue;
-
-					gCommandParser.CurrToken += 2;
-				}
-				else if (string.Equals(gCommandParser.Tokens[gCommandParser.CurrToken], "maturecontent", StringComparison.OrdinalIgnoreCase) && bool.TryParse(gCommandParser.Tokens[gCommandParser.CurrToken + 1], out boolValue))
-				{
-					MatureContent = boolValue;
-
-					gCommandParser.CurrToken += 2;
-				}
-				else if (string.Equals(gCommandParser.Tokens[gCommandParser.CurrToken], "pausecombatms", StringComparison.OrdinalIgnoreCase) && long.TryParse(gCommandParser.Tokens[gCommandParser.CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 10000)
-				{
-					PauseCombatMs = longValue;
-
-					gCommandParser.CurrToken += 2;
-				}
-				else
-				{
-					PrintUsage();
-
-					gCommandParser.NextState = Globals.CreateInstance<IStartState>();
-				}
-			}
-			else
-			{
-				PrintUsage();
-
-				gCommandParser.NextState = Globals.CreateInstance<IStartState>();
-			}
-		}
-
 		public override bool ShouldPreTurnProcess()
 		{
 			return false;

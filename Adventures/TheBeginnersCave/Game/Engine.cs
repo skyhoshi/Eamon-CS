@@ -73,7 +73,7 @@ namespace TheBeginnersCave.Game
 		{
 			var artifact = base.ConvertWeaponToArtifact(weapon);
 
-			var i = FindIndex(gCharacter.Weapons, x => x == weapon);
+			var i = Array.FindIndex(gCharacter.Weapons, x => x == weapon);
 
 			if (i != gGameState.UsedWpnIdx)
 			{

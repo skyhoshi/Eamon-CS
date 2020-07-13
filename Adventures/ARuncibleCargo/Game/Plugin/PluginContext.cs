@@ -5,6 +5,8 @@
 
 using Eamon.Framework.DataStorage.Generic;
 using Eamon.Framework.Portability;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.Parsing;
 
 namespace ARuncibleCargo.Game.Plugin
 {
@@ -94,54 +96,6 @@ namespace ARuncibleCargo.Game.Plugin
 			}
 		}
 
-		public static Eamon.Framework.IMonster gActorMonster
-		{
-			get
-			{
-				return (Eamon.Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gActorMonster;
-			}
-		}
-
-		public static Framework.IRoom gActorRoom
-		{
-			get
-			{
-				return (Framework.IRoom)EamonRT.Game.Plugin.PluginContext.gActorRoom;
-			}
-		}
-
-		public static Eamon.Framework.IArtifact gDobjArtifact
-		{
-			get
-			{
-				return (Eamon.Framework.IArtifact)EamonRT.Game.Plugin.PluginContext.gDobjArtifact;
-			}
-		}
-
-		public static Eamon.Framework.IMonster gDobjMonster
-		{
-			get
-			{
-				return (Eamon.Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gDobjMonster;
-			}
-		}
-
-		public static Eamon.Framework.IArtifact gIobjArtifact
-		{
-			get
-			{
-				return (Eamon.Framework.IArtifact)EamonRT.Game.Plugin.PluginContext.gIobjArtifact;
-			}
-		}
-
-		public static Eamon.Framework.IMonster gIobjMonster
-		{
-			get
-			{
-				return (Eamon.Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gIobjMonster;
-			}
-		}
-
 		public static EamonRT.Framework.Parsing.ICommandParser gCommandParser
 		{
 			get
@@ -163,6 +117,22 @@ namespace ARuncibleCargo.Game.Plugin
 			get
 			{
 				return (Eamon.Framework.ICharacter)EamonRT.Game.Plugin.PluginContext.gCharacter;
+			}
+		}
+
+		public static Framework.IRoom gActorRoom(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Framework.IRoom)commandParser?.ActorRoom;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Framework.IRoom)command?.ActorRoom;
+			}
+			else
+			{
+				return null;
 			}
 		}
 	}

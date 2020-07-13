@@ -16,11 +16,11 @@ namespace TheTrainingGround.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			// Can't wear backpack
 
-			if (gDobjArtifact.Uid == 13)
+			if (DobjArtifact.Uid == 13)
 			{
 				PrintDontNeedTo();
 

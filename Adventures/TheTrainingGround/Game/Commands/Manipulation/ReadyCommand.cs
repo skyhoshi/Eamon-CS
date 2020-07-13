@@ -16,11 +16,11 @@ namespace TheTrainingGround.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			// Hammer of Thor
 
-			if (gDobjArtifact.Uid == 24)
+			if (DobjArtifact.Uid == 24)
 			{
 				gOut.Print("Only Thor himself could do that.");
 

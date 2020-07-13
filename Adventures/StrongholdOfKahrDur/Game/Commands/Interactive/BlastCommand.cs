@@ -21,7 +21,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 			// Necromancer cannot be blasted unless wearing Wizard's Helm
 
-			if (eventType == PpeAfterMonsterGetsAggravated && gDobjMonster != null && gDobjMonster.Uid == 22 && !helmArtifact.IsWornByCharacter())
+			if (eventType == PpeAfterMonsterGetsAggravated && DobjMonster != null && DobjMonster.Uid == 22 && !helmArtifact.IsWornByCharacter())
 			{
 				var rl = gEngine.RollDice(1, 4, 56);
 
@@ -39,7 +39,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 		{
 			// When Necromancer is blasted only allow skill increases if wearing Wizard's Helm
 
-			if (gDobjMonster != null && gDobjMonster.Uid == 22)
+			if (DobjMonster != null && DobjMonster.Uid == 22)
 			{
 				var helmArtifact = gADB[25];
 

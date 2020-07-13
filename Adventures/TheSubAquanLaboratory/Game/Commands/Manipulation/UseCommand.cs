@@ -18,7 +18,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			if (eventType == PpeBeforeArtifactUse)
 			{
-				switch (gDobjArtifact.Uid)
+				switch (DobjArtifact.Uid)
 				{
 					case 48:
 					case 50:
@@ -53,7 +53,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						// Plastic card
 
-						if (gIobjArtifact != null && (gIobjArtifact.Uid == 1 || gIobjArtifact.Uid == 26))
+						if (IobjArtifact != null && (IobjArtifact.Uid == 1 || IobjArtifact.Uid == 26))
 						{
 							command = Globals.CreateInstance<IPutCommand>();
 
@@ -63,7 +63,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							GotoCleanup = true;
 						}
-						else if (gIobjArtifact == null && gIobjMonster == null)
+						else if (IobjArtifact == null && IobjMonster == null)
 						{
 							PrintBeMoreSpecific();
 

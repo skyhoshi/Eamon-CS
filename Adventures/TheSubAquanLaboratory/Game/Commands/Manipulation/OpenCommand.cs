@@ -20,7 +20,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 			{
 				// Large cabinet
 
-				if (gDobjArtifact.Uid == 11 && !gGameState.CabinetOpen)
+				if (DobjArtifact.Uid == 11 && !gGameState.CabinetOpen)
 				{
 					gEngine.PrintEffectDesc(34);
 
@@ -29,7 +29,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 				// Locker
 
-				if (gDobjArtifact.Uid == 51 && !gGameState.LockerOpen)
+				if (DobjArtifact.Uid == 51 && !gGameState.LockerOpen)
 				{
 					gEngine.PrintEffectDesc(36);
 
@@ -42,11 +42,11 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			// Humming cabinet
 
-			if (gDobjArtifact.Uid == 49)
+			if (DobjArtifact.Uid == 49)
 			{
 				gEngine.PrintEffectDesc(35);
 

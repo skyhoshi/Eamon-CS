@@ -233,6 +233,13 @@ namespace TheVileGrimoireOfJaldial.Game
 				Globals.Out.Write("{0}{1} gestures at you.", Environment.NewLine, monster.GetTheName(true));
 			}
 
+			// Will-o'-the-wisp
+
+			else if (monster.Uid == 10)
+			{
+				Globals.Out.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 50 ? "brightly flashes" : "hums");
+			}
+
 			// Pocket dragon/Giant crayfish/Giant scorpion
 
 			else if ((monster.Uid == 24 && monster.Friendliness != Friendliness.Neutral) || monster.Uid == 37 || monster.Uid == 39)

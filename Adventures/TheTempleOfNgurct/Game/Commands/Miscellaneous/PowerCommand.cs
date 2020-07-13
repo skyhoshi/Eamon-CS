@@ -27,7 +27,7 @@ namespace TheTempleOfNgurct.Game.Commands
 			{
 				var rl = 0L;
 
-				var monsters = gEngine.GetMonsterList(m => !m.IsCharacterMonster() && m.Uid != 53 && m.Friendliness < Friendliness.Friend && m.Seen && m.IsInRoom(gActorRoom));
+				var monsters = gEngine.GetMonsterList(m => !m.IsCharacterMonster() && m.Uid != 53 && m.Friendliness < Friendliness.Friend && m.Seen && m.IsInRoom(ActorRoom));
 
 				foreach (var m in monsters)
 				{
@@ -41,7 +41,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 						if (m.Uid == 30)
 						{
-							gGameState.KeyRingRoomUid = gActorRoom.Uid;
+							gGameState.KeyRingRoomUid = ActorRoom.Uid;
 						}
 
 						GotoCleanup = true;
@@ -74,7 +74,7 @@ namespace TheTempleOfNgurct.Game.Commands
 						goto Cleanup;
 					}
 
-					monsters = gEngine.GetRandomMonsterList(1, m => !m.IsCharacterMonster() && m.Seen && m.IsInRoom(gActorRoom));
+					monsters = gEngine.GetRandomMonsterList(1, m => !m.IsCharacterMonster() && m.Seen && m.IsInRoom(ActorRoom));
 
 					Debug.Assert(monsters != null);
 
@@ -131,7 +131,7 @@ namespace TheTempleOfNgurct.Game.Commands
 				{
 					PrintAirCracklesWithEnergy();
 
-					heroMonster.SetInRoom(gActorRoom);
+					heroMonster.SetInRoom(ActorRoom);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
@@ -142,7 +142,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				// The Hero disappears
 
-				if (rl < 71 && heroMonster.IsInRoom(gActorRoom))
+				if (rl < 71 && heroMonster.IsInRoom(ActorRoom))
 				{
 					gOut.Print("The Hero vanishes!  (The gods giveth...)");
 
@@ -190,7 +190,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				gOut.Print("All your wounds are healed!");
 
-				gActorMonster.DmgTaken = 0;
+				ActorMonster.DmgTaken = 0;
 			}
 			else
 			{

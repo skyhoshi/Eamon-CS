@@ -26,7 +26,7 @@ namespace LandOfTheMountainKing.Game.Commands
 
 			// Give necklace to Lisa
 
-			else if (gDobjArtifact?.Uid == 27 && gIobjMonster?.Uid == 3 && gIobjMonster.Friendliness == Friendliness.Neutral)
+			else if (DobjArtifact?.Uid == 27 && IobjMonster?.Uid == 3 && IobjMonster.Friendliness == Friendliness.Neutral)
 			{
 				gEngine.PrintEffectDesc(31);
 				gEngine.PrintEffectDesc(32);
@@ -35,12 +35,12 @@ namespace LandOfTheMountainKing.Game.Commands
 				gEngine.PrintEffectDesc(35);
 				gEngine.PrintEffectDesc(36);
 				gLMKKP1.NecklaceTaken = 2;
-				gDobjArtifact.SetCarriedByMonster(gIobjMonster);
+				DobjArtifact.SetCarriedByMonster(IobjMonster);
 				NextState = Globals.CreateInstance<IStartState>();
 
 				//Set damage taken to zero:
-				gActorMonster.DmgTaken = 0;
-				gActorMonster.Hardiness = 55;
+				ActorMonster.DmgTaken = 0;
+				ActorMonster.Hardiness = 55;
 			}
 			else
 			{

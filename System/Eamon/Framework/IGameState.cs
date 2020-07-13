@@ -5,6 +5,7 @@
 
 using System;
 using Eamon.Framework.Primitive.Enums;
+using Eamon.Game.Utilities;
 
 namespace Eamon.Framework
 {
@@ -144,6 +145,14 @@ namespace Eamon.Framework
 		/// weapon is being used by the player in the game.  All weapons are returned to the player when the game is exited.
 		/// </remarks>
 		long[] HeldWpnUids { get; set; }
+
+		/// <summary></summary>
+		/// <remarks></remarks>
+		EventHeap BeforePrintPlayerRoomEventHeap { get; set; }
+
+		/// <summary></summary>
+		/// <remarks></remarks>
+		EventHeap AfterPrintPlayerRoomEventHeap { get; set; }
 
 		#endregion
 

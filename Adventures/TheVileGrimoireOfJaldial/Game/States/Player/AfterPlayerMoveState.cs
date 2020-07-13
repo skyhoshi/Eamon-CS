@@ -31,7 +31,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 				// Traveling through the swamp at night or in dense fog with no light source - not advisable
 
-				var odds = (room03.IsDimLightRoom() || room01.IsDimLightRoom()) && gGameState.Ls <= 0 ? 50 : 70;
+				var odds = (room03.IsDimLightRoomWithoutGlowingMonsters() || room01.IsDimLightRoomWithoutGlowingMonsters()) && gGameState.Ls <= 0 ? 50 : 70;
 
 				// Check for travel through the swamp
 

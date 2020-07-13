@@ -30,6 +30,8 @@ namespace EamonRT.Game.States
 
 			gOut.Write("{0}{1}", Environment.NewLine, Globals.CommandPrompt);
 
+			Globals.CommandPromptSeen = true;
+
 			Globals.CursorPosition = gOut.GetCursorPosition();
 
 			if (Globals.CursorPosition.Y > -1 && Globals.CursorPosition.Y + 1 >= gOut.GetBufferHeight())

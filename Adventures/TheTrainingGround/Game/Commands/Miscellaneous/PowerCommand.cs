@@ -26,9 +26,9 @@ namespace TheTrainingGround.Game.Commands
 
 				// Thor's hammer appears in Norse Mural room
 
-				if (gActorRoom.Uid == 22 && !gGameState.ThorsHammerAppears)
+				if (ActorRoom.Uid == 22 && !gGameState.ThorsHammerAppears)
 				{
-					hammerArtifact.SetInRoom(gActorRoom);
+					hammerArtifact.SetInRoom(ActorRoom);
 
 					gEngine.PrintEffectDesc(7);
 
@@ -47,11 +47,11 @@ namespace TheTrainingGround.Game.Commands
 
 				if (rl < 21 && gGameState.GenderChangeCounter < 2)
 				{
-					gActorMonster.Gender = gActorMonster.EvalGender(Gender.Female, Gender.Male, Gender.Neutral);
+					ActorMonster.Gender = ActorMonster.EvalGender(Gender.Female, Gender.Male, Gender.Neutral);
 
-					gCharacter.Gender = gActorMonster.Gender;
+					gCharacter.Gender = ActorMonster.Gender;
 
-					gOut.Print("You feel different... more {0}.", gActorMonster.EvalGender("masculine", "feminine", "androgynous"));
+					gOut.Print("You feel different... more {0}.", ActorMonster.EvalGender("masculine", "feminine", "androgynous"));
 
 					gGameState.GenderChangeCounter++;
 
@@ -85,7 +85,7 @@ namespace TheTrainingGround.Game.Commands
 					{
 						x.SetNextStateFunc = s => NextState = s;
 
-						x.DfMonster = gActorMonster;
+						x.DfMonster = ActorMonster;
 
 						x.OmitArmor = true;
 					});

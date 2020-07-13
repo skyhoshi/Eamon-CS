@@ -24,9 +24,9 @@ namespace TheTempleOfNgurct.Game.Commands
 		{
 			// Book
 
-			if (eventType == PpeAfterArtifactRead && gDobjArtifact.Uid == 61)
+			if (eventType == PpeAfterArtifactRead && DobjArtifact.Uid == 61)
 			{
-				gDobjArtifact.SetInRoom(gActorRoom);
+				DobjArtifact.SetInRoom(ActorRoom);
 
 				gGameState.Ro = 58;
 
@@ -47,39 +47,39 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			// Brown potion
 
-			if (gDobjArtifact.Uid == 51)
+			if (DobjArtifact.Uid == 51)
 			{
 				gEngine.PrintEffectDesc(1);
 			}
 
 			// Yellow potion
 
-			else if (gDobjArtifact.Uid == 53)
+			else if (DobjArtifact.Uid == 53)
 			{
 				gEngine.PrintEffectDesc(2);
 			}
 
 			// Red/black potion, fireball wand
 
-			else if (gDobjArtifact.Uid == 52 || gDobjArtifact.Uid == 62 || gDobjArtifact.Uid == 63)
+			else if (DobjArtifact.Uid == 52 || DobjArtifact.Uid == 62 || DobjArtifact.Uid == 63)
 			{
 				gEngine.PrintEffectDesc(3);
 			}
 
 			// Wine
 
-			else if (gDobjArtifact.Uid == 69)
+			else if (DobjArtifact.Uid == 69)
 			{
 				gEngine.PrintEffectDesc(4);
 			}
 
 			// Ring
 
-			else if (gDobjArtifact.Uid == 64)
+			else if (DobjArtifact.Uid == 64)
 			{
 				gEngine.PrintEffectDesc(5);
 			}

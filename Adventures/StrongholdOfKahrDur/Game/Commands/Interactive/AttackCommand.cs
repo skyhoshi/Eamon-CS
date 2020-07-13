@@ -16,13 +16,13 @@ namespace StrongholdOfKahrDur.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
+			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
 			// Can't attack armoire/bookshelf/pouch
 
-			if ((BlastSpell || gActorMonster.Weapon > 0) && gDobjArtifact != null && (gDobjArtifact.Uid == 3 || gDobjArtifact.Uid == 11 || gDobjArtifact.Uid == 15))
+			if ((BlastSpell || ActorMonster.Weapon > 0) && DobjArtifact != null && (DobjArtifact.Uid == 3 || DobjArtifact.Uid == 11 || DobjArtifact.Uid == 15))
 			{
-				var ac = gDobjArtifact.GetArtifactCategory(new ArtifactType[] { ArtifactType.InContainer, ArtifactType.User1 });
+				var ac = DobjArtifact.GetArtifactCategory(new ArtifactType[] { ArtifactType.InContainer, ArtifactType.User1 });
 
 				Debug.Assert(ac != null);
 

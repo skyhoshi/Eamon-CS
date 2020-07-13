@@ -36,7 +36,7 @@ namespace EamonRT.Game.States
 		{
 			var artUid = gGameState.Ls;
 
-			if (artUid > 0 && ShouldPreTurnProcess())
+			if (artUid > 0 && (!Globals.CommandPromptSeen || ShouldPreTurnProcess()))
 			{
 				var artifact = gADB[artUid];
 

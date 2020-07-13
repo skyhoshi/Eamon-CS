@@ -128,22 +128,6 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 			}
 		}
 
-		public override void PlayerResolveArtifactProcessWhereClauseList()
-		{
-			// Do a normal Artifact resolution, excluding Decorations (which will be in limbo)
-
-			base.PlayerResolveArtifactProcessWhereClauseList();
-
-			// If the Artifact couldn't be resolved and a Decoration was identified in ParseName, move it into the Room and try to resolve again
-
-			if (Command.CommandParser.ObjData.FilterArtifactList.Count == 0 && Command.CommandParser.ObjData.Cast<Framework.Parsing.IParserData>().DecorationArtifact != null)
-			{
-				Command.CommandParser.ObjData.Cast<Framework.Parsing.IParserData>().DecorationArtifact.SetInRoom(Command.ActorRoom);
-
-				base.PlayerResolveArtifactProcessWhereClauseList();
-			}
-		}
-
 		public override bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
 		{
 			return !gGameState.ParalyzedTargets.ContainsKey(gGameState.Cm) && base.ShouldShowUnseenArtifacts(room, artifact);

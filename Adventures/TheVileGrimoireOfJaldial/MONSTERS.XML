@@ -680,7 +680,7 @@
             <Simple name="Uid" value="20" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="forest bloodnettle" />
-            <Simple name="Desc" value="Growing next to one of the tombstones, you glimpse a large clumping plant.  It appears to be somewhat like a rose bush, complete with deep-red flowers." />
+            <Simple name="Desc" value="Growing next to one of the tombstones, you glimpse some clumping plants.  They appear to be somewhat like rose bushes, with deep-red flowers, but their thorn-covered vines writhe as you approach." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />

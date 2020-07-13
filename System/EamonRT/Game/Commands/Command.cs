@@ -636,61 +636,6 @@ namespace EamonRT.Game.Commands
 			CommandImpl.PrintNoPlaceToGo();
 		}
 
-		public virtual void PlayerArtifactMatch()
-		{
-			CommandImpl.PlayerArtifactMatch();
-		}
-
-		public virtual void PlayerArtifactMatch01()
-		{
-			CommandImpl.PlayerArtifactMatch01();
-		}
-
-		public virtual void PlayerArtifactMatch02()
-		{
-			CommandImpl.PlayerArtifactMatch02();
-		}
-
-		public virtual void PlayerMonsterMatch()
-		{
-			CommandImpl.PlayerMonsterMatch();
-		}
-
-		public virtual void PlayerMonsterMatch01()
-		{
-			CommandImpl.PlayerMonsterMatch01();
-		}
-
-		public virtual void PlayerMonsterMatch02()
-		{
-			CommandImpl.PlayerMonsterMatch02();
-		}
-
-		public virtual void PlayerMonsterMatch03()
-		{
-			CommandImpl.PlayerMonsterMatch03();
-		}
-
-		public virtual void PlayerResolveArtifact()
-		{
-			CommandImpl.PlayerResolveArtifact();
-		}
-
-		public virtual void PlayerResolveArtifactProcessWhereClauseList()
-		{
-			CommandImpl.PlayerResolveArtifactProcessWhereClauseList();
-		}
-
-		public virtual void PlayerResolveMonster()
-		{
-			CommandImpl.PlayerResolveMonster();
-		}
-
-		public virtual void PlayerResolveMonsterProcessWhereClauseList()
-		{
-			CommandImpl.PlayerResolveMonsterProcessWhereClauseList();
-		}
-
 		public virtual void PlayerProcessEvents(long eventType)
 		{
 			CommandImpl.PlayerProcessEvents(eventType);
@@ -711,16 +656,6 @@ namespace EamonRT.Game.Commands
 			CommandImpl.MonsterExecute();
 		}
 
-		public virtual void PlayerFinishParsing()
-		{
-			CommandImpl.PlayerFinishParsing();
-		}
-
-		public virtual void MonsterFinishParsing()
-		{
-			CommandImpl.MonsterFinishParsing();
-		}
-
 		public virtual bool IsAllowedInRoom()
 		{
 			return CommandImpl.IsAllowedInRoom();
@@ -729,11 +664,6 @@ namespace EamonRT.Game.Commands
 		public virtual bool ShouldAllowSkillGains()
 		{
 			return CommandImpl.ShouldAllowSkillGains();
-		}
-
-		public virtual bool ShouldStripTrailingPunctuation()
-		{
-			return CommandImpl.ShouldStripTrailingPunctuation();
 		}
 
 		public virtual bool ShouldShowUnseenArtifacts(IRoom room, IArtifact artifact)
@@ -774,11 +704,6 @@ namespace EamonRT.Game.Commands
 		public virtual void RedirectToGetCommand<T>(IArtifact artifact, bool printTaking = true) where T : class, ICommand
 		{
 			CommandImpl.RedirectToGetCommand<T>(artifact, printTaking);
-		}
-
-		public virtual void FinishParsing()
-		{
-			CommandImpl.FinishParsing();
 		}
 
 		public Command()

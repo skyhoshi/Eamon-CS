@@ -32,24 +32,24 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			var ac = gDobjArtifact.Readable;
+			var ac = DobjArtifact.Readable;
 
 			if (ac != null)
 			{
 				if (!ac.IsOpen())
 				{
-					PrintMustFirstOpen(gDobjArtifact);
+					PrintMustFirstOpen(DobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
 					goto Cleanup;
 				}
 
-				if (gDobjArtifact.DisguisedMonster != null)
+				if (DobjArtifact.DisguisedMonster != null)
 				{
-					gEngine.RevealDisguisedMonster(gActorRoom, gDobjArtifact);
+					gEngine.RevealDisguisedMonster(ActorRoom, DobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
@@ -94,7 +94,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{ 
-				PrintCantVerbObj(gDobjArtifact);
+				PrintCantVerbObj(DobjArtifact);
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -107,11 +107,6 @@ namespace EamonRT.Game.Commands
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			PlayerResolveArtifact();
 		}
 
 		public ReadCommand()

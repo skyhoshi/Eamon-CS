@@ -18,13 +18,13 @@ namespace TheTrainingGround.Game.Commands
 		{
 			// Plain scroll increases BLAST ability
 
-			if (eventType == PpeAfterArtifactRead && gDobjArtifact.Uid == 29)
+			if (eventType == PpeAfterArtifactRead && DobjArtifact.Uid == 29)
 			{
 				var spell = gEngine.GetSpells(Spell.Blast);
 
 				Debug.Assert(spell != null);
 
-				gDobjArtifact.SetInLimbo();
+				DobjArtifact.SetInLimbo();
 
 				gCharacter.ModSpellAbilities(Spell.Blast, 10);
 

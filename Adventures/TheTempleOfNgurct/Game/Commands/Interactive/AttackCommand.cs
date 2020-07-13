@@ -19,23 +19,23 @@ namespace TheTempleOfNgurct.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
+			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
-			if (BlastSpell || gActorMonster.Weapon > 0)
+			if (BlastSpell || ActorMonster.Weapon > 0)
 			{
 				// ATTACK/BLAST statue
 
-				if (gDobjArtifact != null && gDobjArtifact.Uid == 50)
+				if (DobjArtifact != null && DobjArtifact.Uid == 50)
 				{
-					gEngine.PrintMonsterAlive(gDobjArtifact);
+					gEngine.PrintMonsterAlive(DobjArtifact);
 
-					gDobjArtifact.SetInLimbo();
+					DobjArtifact.SetInLimbo();
 
 					var ngurctMonster = gMDB[53];
 
 					Debug.Assert(ngurctMonster != null);
 
-					ngurctMonster.SetInRoom(gActorRoom);
+					ngurctMonster.SetInRoom(ActorRoom);
 
 					var command = Globals.CreateInstance<IAttackCommand>(x =>
 					{
@@ -53,7 +53,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 				// Fireball wand
 
-				else if (!BlastSpell && gDobjMonster != null && gActorMonster.Weapon == 63)
+				else if (!BlastSpell && DobjMonster != null && ActorMonster.Weapon == 63)
 				{
 					gOut.Write("{0}What is the trigger word? ", Environment.NewLine);
 
@@ -79,7 +79,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					gGameState.WandCharges--;
 
-					gOut.Print("The {0} is filled with an incandescent fireball!", gActorRoom.EvalRoomType("room", "area"));
+					gOut.Print("The {0} is filled with an incandescent fireball!", ActorRoom.EvalRoomType("room", "area"));
 
 					var slaveGirlFireballCheck = false;
 
@@ -91,26 +91,26 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					Debug.Assert(slaveGirlMonster != null);
 
-					if (slaveGirlArtifact.IsInRoom(gActorRoom))
+					if (slaveGirlArtifact.IsInRoom(ActorRoom))
 					{
-						slaveGirlMonster.SetInRoom(gActorRoom);
+						slaveGirlMonster.SetInRoom(ActorRoom);
 
 						slaveGirlMonster.Seen = true;
 
 						slaveGirlFireballCheck = true;
 					}
 
-					var monsters = gEngine.GetRandomMonsterList(9, m => !m.IsCharacterMonster() && m.Uid != gDobjMonster.Uid && m.Seen && m.IsInRoom(gActorRoom));
+					var monsters = gEngine.GetRandomMonsterList(9, m => !m.IsCharacterMonster() && m.Uid != DobjMonster.Uid && m.Seen && m.IsInRoom(ActorRoom));
 
 					Debug.Assert(monsters != null);
 
 					if (monsters.Count > 0)
 					{
-						monsters.Insert(0, gDobjMonster);
+						monsters.Insert(0, DobjMonster);
 					}
 					else
 					{
-						monsters.Add(gDobjMonster);
+						monsters.Add(DobjMonster);
 					}
 
 					Globals.FireDamage = true;

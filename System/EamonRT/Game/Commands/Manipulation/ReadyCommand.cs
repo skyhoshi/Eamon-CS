@@ -24,9 +24,9 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			var ac = gDobjArtifact.GetArtifactCategory(ArtTypes, false);
+			var ac = DobjArtifact.GetArtifactCategory(ArtTypes, false);
 
 			if (ac != null)
 			{
@@ -39,22 +39,22 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (!gDobjArtifact.IsReadyableByCharacter())
+				if (!DobjArtifact.IsReadyableByCharacter())
 				{
-					PrintNotReadyableWeapon(gDobjArtifact);
+					PrintNotReadyableWeapon(DobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
 					goto Cleanup;
 				}
 
-				if (!gDobjArtifact.IsCarriedByCharacter())
+				if (!DobjArtifact.IsCarriedByCharacter())
 				{
 					if (!GetCommandCalled)
 					{
-						RedirectToGetCommand<IReadyCommand>(gDobjArtifact);
+						RedirectToGetCommand<IReadyCommand>(DobjArtifact);
 					}
-					else if (gDobjArtifact.DisguisedMonster == null)
+					else if (DobjArtifact.DisguisedMonster == null)
 					{
 						NextState = Globals.CreateInstance<IStartState>();
 					}
@@ -70,14 +70,14 @@ namespace EamonRT.Game.Commands
 
 					Debug.Assert(shield != null);
 
-					PrintCantReadyWeaponWithShield(gDobjArtifact, shield);
+					PrintCantReadyWeaponWithShield(DobjArtifact, shield);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
 					goto Cleanup;
 				}
 
-				var wpnArtifact = gADB[gActorMonster.Weapon];
+				var wpnArtifact = gADB[ActorMonster.Weapon];
 
 				if (wpnArtifact != null)
 				{
@@ -86,17 +86,17 @@ namespace EamonRT.Game.Commands
 					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
-				gActorMonster.Weapon = gDobjArtifact.Uid;
+				ActorMonster.Weapon = DobjArtifact.Uid;
 
-				rc = gDobjArtifact.AddStateDesc(gDobjArtifact.GetReadyWeaponDesc());
+				rc = DobjArtifact.AddStateDesc(DobjArtifact.GetReadyWeaponDesc());
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
-				gOut.Print("{0} readied.", gDobjArtifact.GetNoneName(true, false));
+				gOut.Print("{0} readied.", DobjArtifact.GetNoneName(true, false));
 			}
 			else
 			{
-				PrintNotWeapon(gDobjArtifact);
+				PrintNotWeapon(DobjArtifact);
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -115,11 +115,11 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			if (gDobjArtifact.IsReadyableByMonster(gActorMonster) && gDobjArtifact.IsCarriedByMonster(gActorMonster))
+			if (DobjArtifact.IsReadyableByMonster(ActorMonster) && DobjArtifact.IsCarriedByMonster(ActorMonster))
 			{
-				var wpnArtifact = gADB[gActorMonster.Weapon];
+				var wpnArtifact = gADB[ActorMonster.Weapon];
 
 				if (wpnArtifact != null)
 				{
@@ -128,9 +128,9 @@ namespace EamonRT.Game.Commands
 					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
-				gActorMonster.Weapon = gDobjArtifact.Uid;
+				ActorMonster.Weapon = DobjArtifact.Uid;
 
-				rc = gDobjArtifact.AddStateDesc(gDobjArtifact.GetReadyWeaponDesc());
+				rc = DobjArtifact.AddStateDesc(DobjArtifact.GetReadyWeaponDesc());
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -138,22 +138,22 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(charMonster != null);
 
-				if (charMonster.IsInRoom(gActorRoom))
+				if (charMonster.IsInRoom(ActorRoom))
 				{
-					if (gActorRoom.IsLit())
+					if (ActorRoom.IsLit())
 					{
-						var monsterName = gActorMonster.EvalPlural(gActorMonster.GetTheName(true), gActorMonster.GetArticleName(true, true, false, true, Globals.Buf01));
+						var monsterName = ActorMonster.EvalPlural(ActorMonster.GetTheName(true), ActorMonster.GetArticleName(true, true, false, true, Globals.Buf01));
 
-						gOut.Print("{0} readies {1}.", monsterName, gDobjArtifact.GetArticleName());
+						gOut.Print("{0} readies {1}.", monsterName, DobjArtifact.GetArticleName());
 					}
 					else
 					{
-						var monsterName = string.Format("An unseen {0}", gActorMonster.CheckNBTLHostility() ? "offender" : "entity");
+						var monsterName = string.Format("An unseen {0}", ActorMonster.CheckNBTLHostility() ? "offender" : "entity");
 
 						gOut.Print("{0} readies {1}.", monsterName, "a weapon");
 					}
 
-					if (gActorMonster.CheckNBTLHostility())
+					if (ActorMonster.CheckNBTLHostility())
 					{
 						Globals.Thread.Sleep(gGameState.PauseCombatMs);
 					}
@@ -167,11 +167,6 @@ namespace EamonRT.Game.Commands
 					x.ErrorMessage = string.Format("{0}: NextState == null", Name);
 				});
 			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			PlayerResolveArtifact();
 		}
 
 		public ReadyCommand()

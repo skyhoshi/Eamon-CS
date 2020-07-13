@@ -18,7 +18,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			gActorRoom.Seen = false;
+			ActorRoom.Seen = false;
 
 			if (gGameState.GetNBTL(Friendliness.Enemy) <= 0)
 			{
@@ -32,7 +32,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				Debug.Assert(ac != null);
 
-				if (gActorRoom.Uid != 67 || ac.Type == ArtifactType.Treasure || ac.GetKeyUid() == 0)
+				if (ActorRoom.Uid != 67 || ac.Type == ArtifactType.Treasure || ac.GetKeyUid() == 0)
 				{
 					var numRooms = Globals.Module.NumRooms;
 
@@ -40,7 +40,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 					foreach (var dv in directionValues)
 					{
-						if (gActorRoom.GetDirs(dv) < 0 && gActorRoom.GetDirs(dv) >= -numRooms)
+						if (ActorRoom.GetDirs(dv) < 0 && ActorRoom.GetDirs(dv) >= -numRooms)
 						{
 							var direction = gEngine.GetDirections(dv);
 
@@ -48,7 +48,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 							gOut.Print("You found a secret passage {0}!", direction.Name.ToLower());
 
-							gActorRoom.SetDirs(dv, -gActorRoom.GetDirs(dv));
+							ActorRoom.SetDirs(dv, -ActorRoom.GetDirs(dv));
 						}
 					}
 				}

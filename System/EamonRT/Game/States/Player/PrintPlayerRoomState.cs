@@ -35,7 +35,7 @@ namespace EamonRT.Game.States
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<IGetPlayerInputState>();
+				NextState = Globals.CreateInstance<IAfterPrintPlayerRoomEventState>();
 			}
 
 			Globals.NextState = NextState;

@@ -143,6 +143,8 @@ namespace YourAdventureName.Game.Plugin
 
 using Eamon.Framework.DataStorage.Generic;
 using Eamon.Framework.Portability;
+using EamonRT.Framework.Commands;
+using EamonRT.Framework.Parsing;
 
 namespace YourAdventureName.Game.Plugin
 {
@@ -232,54 +234,6 @@ namespace YourAdventureName.Game.Plugin
 			}
 		}
 
-		public static Eamon.Framework.IMonster gActorMonster
-		{
-			get
-			{
-				return (Eamon.Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gActorMonster;
-			}
-		}
-
-		public static Eamon.Framework.IRoom gActorRoom
-		{
-			get
-			{
-				return (Eamon.Framework.IRoom)EamonRT.Game.Plugin.PluginContext.gActorRoom;
-			}
-		}
-
-		public static Eamon.Framework.IArtifact gDobjArtifact
-		{
-			get
-			{
-				return (Eamon.Framework.IArtifact)EamonRT.Game.Plugin.PluginContext.gDobjArtifact;
-			}
-		}
-
-		public static Eamon.Framework.IMonster gDobjMonster
-		{
-			get
-			{
-				return (Eamon.Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gDobjMonster;
-			}
-		}
-
-		public static Eamon.Framework.IArtifact gIobjArtifact
-		{
-			get
-			{
-				return (Eamon.Framework.IArtifact)EamonRT.Game.Plugin.PluginContext.gIobjArtifact;
-			}
-		}
-
-		public static Eamon.Framework.IMonster gIobjMonster
-		{
-			get
-			{
-				return (Eamon.Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gIobjMonster;
-			}
-		}
-
 		public static EamonRT.Framework.Parsing.ICommandParser gCommandParser
 		{
 			get
@@ -301,6 +255,102 @@ namespace YourAdventureName.Game.Plugin
 			get
 			{
 				return (Eamon.Framework.ICharacter)EamonRT.Game.Plugin.PluginContext.gCharacter;
+			}
+		}
+
+		public static Eamon.Framework.IMonster gActorMonster(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Eamon.Framework.IMonster)commandParser?.ActorMonster;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Eamon.Framework.IMonster)command?.ActorMonster;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		public static Eamon.Framework.IRoom gActorRoom(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Eamon.Framework.IRoom)commandParser?.ActorRoom;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Eamon.Framework.IRoom)command?.ActorRoom;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		public static Eamon.Framework.IArtifact gDobjArtifact(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Eamon.Framework.IArtifact)commandParser?.DobjArtifact;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Eamon.Framework.IArtifact)command?.DobjArtifact;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		public static Eamon.Framework.IMonster gDobjMonster(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Eamon.Framework.IMonster)commandParser?.DobjMonster;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Eamon.Framework.IMonster)command?.DobjMonster;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		public static Eamon.Framework.IArtifact gIobjArtifact(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Eamon.Framework.IArtifact)commandParser?.IobjArtifact;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Eamon.Framework.IArtifact)command?.IobjArtifact;
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		public static Eamon.Framework.IMonster gIobjMonster(object obj)
+		{
+			if (obj is ICommandParser commandParser)
+			{
+				return (Eamon.Framework.IMonster)commandParser?.IobjMonster;
+			}
+			else if (obj is ICommand command)
+			{
+				return (Eamon.Framework.IMonster)command?.IobjMonster;
+			}
+			else
+			{
+				return null;
 			}
 		}
 	}

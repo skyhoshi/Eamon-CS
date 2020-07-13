@@ -8,6 +8,7 @@ using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
+using Eamon.Game.Utilities;
 using static Eamon.Game.Plugin.PluginContext;
 
 namespace Eamon.Game
@@ -60,6 +61,10 @@ namespace Eamon.Game
 		public virtual long[] ImportedArtUids { get; set; }
 
 		public virtual long[] HeldWpnUids { get; set; }
+
+		public virtual EventHeap BeforePrintPlayerRoomEventHeap { get; set; }
+
+		public virtual EventHeap AfterPrintPlayerRoomEventHeap { get; set; }
 
 		#endregion
 
@@ -204,6 +209,10 @@ namespace Eamon.Game
 			ImportedArtUids = new long[character.Weapons.Length + 2];
 
 			HeldWpnUids = new long[character.Weapons.Length];
+
+			BeforePrintPlayerRoomEventHeap = new EventHeap();
+
+			AfterPrintPlayerRoomEventHeap = new EventHeap();
 		}
 
 		#endregion

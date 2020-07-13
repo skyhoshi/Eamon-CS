@@ -33,11 +33,11 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			var drinkableAc = gDobjArtifact.Drinkable;
+			var drinkableAc = DobjArtifact.Drinkable;
 
-			var edibleAc = gDobjArtifact.Edible;
+			var edibleAc = DobjArtifact.Edible;
 
 			var ac = drinkableAc != null ? drinkableAc : edibleAc;
 
@@ -54,7 +54,7 @@ namespace EamonRT.Game.Commands
 
 				if (!ac.IsOpen())
 				{
-					PrintMustFirstOpen(gDobjArtifact);
+					PrintMustFirstOpen(DobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
@@ -63,7 +63,7 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Field2 < 1)
 				{
-					PrintNoneLeft(gDobjArtifact);
+					PrintNoneLeft(DobjArtifact);
 
 					goto Cleanup;
 				}
@@ -73,7 +73,7 @@ namespace EamonRT.Game.Commands
 					ac.Field2--;
 				}
 
-				rc = gDobjArtifact.SyncArtifactCategories(ac);
+				rc = DobjArtifact.SyncArtifactCategories(ac);
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -86,42 +86,42 @@ namespace EamonRT.Game.Commands
 
 				if (ac.Field2 < 1)
 				{
-					gDobjArtifact.Value = 0;
+					DobjArtifact.Value = 0;
 
-					gDobjArtifact.AddStateDesc(gDobjArtifact.GetEmptyDesc());
+					DobjArtifact.AddStateDesc(DobjArtifact.GetEmptyDesc());
 
-					PrintVerbItAll(gDobjArtifact);
+					PrintVerbItAll(DobjArtifact);
 				}
 				else if (ac.Field1 == 0)
 				{
-					PrintOkay(gDobjArtifact);
+					PrintOkay(DobjArtifact);
 				}
 
 				if (ac.Field1 != 0)
 				{
-					gActorMonster.DmgTaken -= ac.Field1;
+					ActorMonster.DmgTaken -= ac.Field1;
 
-					if (gActorMonster.DmgTaken < 0)
+					if (ActorMonster.DmgTaken < 0)
 					{
-						gActorMonster.DmgTaken = 0;
+						ActorMonster.DmgTaken = 0;
 					}
 
 					if (ac.Field1 > 0)
 					{
-						PrintFeelBetter(gDobjArtifact);
+						PrintFeelBetter(DobjArtifact);
 					}
 					else
 					{
-						PrintFeelWorse(gDobjArtifact);
+						PrintFeelWorse(DobjArtifact);
 					}
 
 					Globals.Buf.SetFormat("{0}You are ", Environment.NewLine);
 
-					gActorMonster.AddHealthStatus(Globals.Buf);
+					ActorMonster.AddHealthStatus(Globals.Buf);
 
 					gOut.Write("{0}", Globals.Buf);
 
-					if (gActorMonster.IsDead())
+					if (ActorMonster.IsDead())
 					{
 						gGameState.Die = 1;
 
@@ -143,7 +143,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				PrintCantVerbObj(gDobjArtifact);
+				PrintCantVerbObj(DobjArtifact);
 
 				NextState = Globals.CreateInstance<IStartState>();
 
@@ -156,11 +156,6 @@ namespace EamonRT.Game.Commands
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			PlayerResolveArtifact();
 		}
 
 		public DrinkCommand()

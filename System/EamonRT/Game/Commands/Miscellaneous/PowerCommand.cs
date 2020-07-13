@@ -31,7 +31,7 @@ namespace EamonRT.Game.Commands
 		{
 			if (Globals.IsRulesetVersion(5, 15))
 			{
-				gOut.Print("You hear a very loud sonic boom that echoes through the {0}.", gActorRoom.EvalRoomType("tunnels", "area"));
+				gOut.Print("You hear a very loud sonic boom that echoes through the {0}.", ActorRoom.EvalRoomType("tunnels", "area"));
 			}
 			else
 			{
@@ -59,7 +59,7 @@ namespace EamonRT.Game.Commands
 				{
 					// Raise the dead / Make stuff vanish
 
-					if (gEngine.ResurrectDeadBodies(gActorRoom, ResurrectWhereClauseFuncs) || gEngine.MakeArtifactsVanish(gActorRoom, VanishWhereClauseFuncs))
+					if (gEngine.ResurrectDeadBodies(ActorRoom, ResurrectWhereClauseFuncs) || gEngine.MakeArtifactsVanish(ActorRoom, VanishWhereClauseFuncs))
 					{
 						goto Cleanup;
 					}
@@ -68,7 +68,7 @@ namespace EamonRT.Game.Commands
 
 					if (rl < 11)
 					{
-						gOut.Print("The section of {0} collapses and you die.", gActorRoom.EvalRoomType("tunnel you are in", "ground you are on"));
+						gOut.Print("The section of {0} collapses and you die.", ActorRoom.EvalRoomType("tunnel you are in", "ground you are on"));
 
 						gGameState.Die = 1;
 
@@ -91,7 +91,7 @@ namespace EamonRT.Game.Commands
 					{
 						gOut.Print("All of your wounds are healed.");
 
-						gActorMonster.DmgTaken = 0;
+						ActorMonster.DmgTaken = 0;
 					}
 
 					// 10% chance of SPEED spell

@@ -21,13 +21,13 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 		{
 			// If wine cask opened reveal crimson amoeba
 
-			if (eventType == PpeAfterArtifactOpen && gDobjArtifact.Uid == 17 && !gGameState.AmoebaAppeared)
+			if (eventType == PpeAfterArtifactOpen && DobjArtifact.Uid == 17 && !gGameState.AmoebaAppeared)
 			{
 				var amoebaMonster = gMDB[25];
 
 				Debug.Assert(amoebaMonster != null);
 
-				amoebaMonster.SetInRoom(gActorRoom);
+				amoebaMonster.SetInRoom(ActorRoom);
 
 				gEngine.PrintEffectDesc(102);
 
@@ -45,11 +45,11 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			// Book of runes can't be opened
 
-			if (gDobjArtifact.Uid == 27)
+			if (DobjArtifact.Uid == 27)
 			{
 				gEngine.PrintEffectDesc(90);
 
@@ -58,23 +58,23 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			// DoorGates and InContainers sometimes need to be pryed open
 
-			else if (((gDobjArtifact.Uid == 3 || gDobjArtifact.Uid == 4 || gDobjArtifact.Uid == 5) && !gDobjArtifact.DoorGate.IsOpen()) || ((gDobjArtifact.Uid == 13 || gDobjArtifact.Uid == 35) && !gDobjArtifact.InContainer.IsOpen() && gDobjArtifact.InContainer.GetKeyUid() == -1))
+			else if (((DobjArtifact.Uid == 3 || DobjArtifact.Uid == 4 || DobjArtifact.Uid == 5) && !DobjArtifact.DoorGate.IsOpen()) || ((DobjArtifact.Uid == 13 || DobjArtifact.Uid == 35) && !DobjArtifact.InContainer.IsOpen() && DobjArtifact.InContainer.GetKeyUid() == -1))
 			{
 				// Reset the Key Uid to the available Artifact with the best leverage (if any)
 
-				var keyList = gADB.Records.Cast<Framework.IArtifact>().Where(a => (a.IsInRoom(gActorRoom) || a.IsCarriedByCharacter()) && a.GetLeverageBonus() > 0).OrderByDescending(a01 => a01.GetLeverageBonus()).ToList();
+				var keyList = gADB.Records.Cast<Framework.IArtifact>().Where(a => (a.IsInRoom(ActorRoom) || a.IsCarriedByCharacter()) && a.GetLeverageBonus() > 0).OrderByDescending(a01 => a01.GetLeverageBonus()).ToList();
 
 				var key = keyList.Count > 0 ? keyList[0] : null;
 
 				if (key != null)
 				{
-					if (gDobjArtifact.DoorGate != null)
+					if (DobjArtifact.DoorGate != null)
 					{
-						gDobjArtifact.DoorGate.SetKeyUid(key.Uid);
+						DobjArtifact.DoorGate.SetKeyUid(key.Uid);
 					}
 					else
 					{
-						gDobjArtifact.InContainer.SetKeyUid(key.Uid);
+						DobjArtifact.InContainer.SetKeyUid(key.Uid);
 					}
 
 					gOut.Print("[Using {0} for leverage.]", key.GetTheName());

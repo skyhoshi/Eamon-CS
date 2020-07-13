@@ -17,7 +17,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 	{
 		public virtual bool IsActorRoomInLab()
 		{
-			return gActorRoom.Uid == 18 || gActorRoom.Zone == 2;
+			return ActorRoom.Uid == 18 || ActorRoom.Zone == 2;
 		}
 
 		public override void PrintSonicBoom()
@@ -35,7 +35,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 				{
 					// 10% Chance of raising the dead
 
-					var found = gEngine.ResurrectDeadBodies(gActorRoom);
+					var found = gEngine.ResurrectDeadBodies(ActorRoom);
 
 					if (found)
 					{
@@ -53,7 +53,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 				{
 					// 10% Chance of stuff vanishing
 
-					var found = gEngine.MakeArtifactsVanish(gActorRoom, a => a.IsInRoom(gActorRoom) && !a.IsUnmovable() && a.Uid != 82 && a.Uid != 89);
+					var found = gEngine.MakeArtifactsVanish(ActorRoom, a => a.IsInRoom(ActorRoom) && !a.IsUnmovable() && a.Uid != 82 && a.Uid != 89);
 
 					if (found)
 					{
@@ -96,15 +96,15 @@ namespace TheSubAquanLaboratory.Game.Commands
 				{
 					// 10% Chance of insta-heal (tm)
 
-					if (gActorMonster.DmgTaken > 0)
+					if (ActorMonster.DmgTaken > 0)
 					{
-						gActorMonster.DmgTaken = 0;
+						ActorMonster.DmgTaken = 0;
 
 						gOut.Print("All of your wounds are suddenly healed!");
 
 						Globals.Buf.SetFormat("{0}You are ", Environment.NewLine);
 
-						gActorMonster.AddHealthStatus(Globals.Buf);
+						ActorMonster.AddHealthStatus(Globals.Buf);
 
 						gOut.Write("{0}", Globals.Buf);
 

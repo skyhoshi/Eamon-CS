@@ -2813,27 +2813,6 @@
             <summary></summary>
             <param name="buf"></param>
         </member>
-        <member name="M:Eamon.Framework.IEngine.FindIndex``1(``0[],System.Int64,System.Int64,System.Predicate{``0})">
-            <summary></summary>
-            <param name="array"></param>
-            <param name="startIndex"></param>
-            <param name="count"></param>
-            <param name="match"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Eamon.Framework.IEngine.FindIndex``1(``0[],System.Int64,System.Predicate{``0})">
-            <summary></summary>
-            <param name="array"></param>
-            <param name="startIndex"></param>
-            <param name="match"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Eamon.Framework.IEngine.FindIndex``1(``0[],System.Predicate{``0})">
-            <summary></summary>
-            <param name="array"></param>
-            <param name="match"></param>
-            <returns></returns>
-        </member>
         <member name="M:Eamon.Framework.IEngine.SplitPath(System.String,System.String@,System.String@,System.String@,System.Boolean)">
             <summary></summary>
             <param name="fullPath"></param>
@@ -3299,6 +3278,14 @@
             All but one of these weapons is put in limbo; the <see cref="P:Eamon.Framework.IGameState.UsedWpnIdx">UsedWpnIdx</see> property indicates which
             weapon is being used by the player in the game.  All weapons are returned to the player when the game is exited.
             </remarks>
+        </member>
+        <member name="P:Eamon.Framework.IGameState.BeforePrintPlayerRoomEventHeap">
+            <summary></summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Eamon.Framework.IGameState.AfterPrintPlayerRoomEventHeap">
+            <summary></summary>
+            <remarks></remarks>
         </member>
         <member name="M:Eamon.Framework.IGameState.GetNBTL(System.Int64)">
             <summary></summary>

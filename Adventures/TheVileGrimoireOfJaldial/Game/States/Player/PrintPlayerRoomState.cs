@@ -228,9 +228,11 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 					Globals.EventRoll = gEngine.RollDice(1, 100, 0);
 
+					Globals.ScaleRoll = gEngine.RollDice(1, 100, 0);
+
 					// Weather pattern starters
 
-					if (!expiredWeather && Globals.EventRoll >= 4 && Globals.EventRoll <= 9)
+					if (!expiredWeather && Globals.EventRoll >= 4 && Globals.EventRoll <= 9 && Globals.ScaleRoll <= gGameState.WeatherScalePct)
 					{
 						if (gGameState.WeatherType == WeatherType.None)
 						{
@@ -269,7 +271,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 					// Encounters
 
-					else if ((room.IsGroundsRoom() && gGameState.IsDayTime() && Globals.EventRoll >= 10 && Globals.EventRoll <= 12) || (((room.IsGroundsRoom() && gGameState.IsNightTime()) || room.IsCryptRoom()) && Globals.EventRoll >= 10 && Globals.EventRoll <= 14))
+					else if (((room.IsGroundsRoom() && gGameState.IsDayTime() && Globals.EventRoll >= 10 && Globals.EventRoll <= 12) || (((room.IsGroundsRoom() && gGameState.IsNightTime()) || room.IsCryptRoom()) && Globals.EventRoll >= 10 && Globals.EventRoll <= 14)) && Globals.ScaleRoll <= gGameState.EncounterScalePct)
 					{
 						var enemyEncounter = gEngine.GetMonsterList(m => m.Uid <= 17 && m.IsInRoom(room) && m.Friendliness == Friendliness.Enemy).FirstOrDefault();
 
@@ -296,7 +298,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 								// Wandering Monster appears to be fixed encounter when last Command type is Movement
 
-								var lastCommandMovement = Globals.LastCommand != null && Globals.LastCommand.Type == CommandType.Movement;
+								var lastCommandMovement = Globals.LastCommand != null && Globals.LastCommand.Type == CommandType.Movement && gGameState.R3 > 0 && gGameState.R2 > 0 && gGameState.R3 != gGameState.R2;
 
 								if (!lastCommandMovement)
 								{

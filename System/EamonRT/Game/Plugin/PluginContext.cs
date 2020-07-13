@@ -97,54 +97,6 @@ namespace EamonRT.Game.Plugin
 			}
 		}
 
-		public static Eamon.Framework.IMonster gActorMonster
-		{
-			get
-			{
-				return Globals?.CommandParser?.NextCommand?.ActorMonster ?? Globals?.CurrCommand?.ActorMonster;
-			}
-		}
-
-		public static Eamon.Framework.IRoom gActorRoom
-		{
-			get
-			{
-				return Globals?.CommandParser?.NextCommand?.ActorRoom ?? Globals?.CurrCommand?.ActorRoom;
-			}
-		}
-
-		public static Eamon.Framework.IArtifact gDobjArtifact
-		{
-			get
-			{
-				return Globals?.CommandParser?.NextCommand?.DobjArtifact ?? Globals?.CurrCommand?.DobjArtifact;
-			}
-		}
-
-		public static Eamon.Framework.IMonster gDobjMonster
-		{
-			get
-			{
-				return Globals?.CommandParser?.NextCommand?.DobjMonster ?? Globals?.CurrCommand?.DobjMonster;
-			}
-		}
-
-		public static Eamon.Framework.IArtifact gIobjArtifact
-		{
-			get
-			{
-				return Globals?.CommandParser?.NextCommand?.IobjArtifact ?? Globals?.CurrCommand?.IobjArtifact;
-			}
-		}
-
-		public static Eamon.Framework.IMonster gIobjMonster
-		{
-			get
-			{
-				return Globals?.CommandParser?.NextCommand?.IobjMonster ?? Globals?.CurrCommand?.IobjMonster;
-			}
-		}
-
 		public static ICommandParser gCommandParser
 		{
 			get

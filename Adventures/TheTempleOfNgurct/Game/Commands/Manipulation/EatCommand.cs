@@ -44,9 +44,9 @@ namespace TheTempleOfNgurct.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			DmgTaken = gActorMonster.DmgTaken;
+			DmgTaken = ActorMonster.DmgTaken;
 
 			base.PlayerExecute();
 		}

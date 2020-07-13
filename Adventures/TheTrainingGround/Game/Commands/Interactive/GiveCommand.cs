@@ -37,11 +37,11 @@ namespace TheTrainingGround.Game.Commands
 			{
 				// Give obsidian scroll case to Emerald Warrior
 
-				if (gIobjMonster.Uid == 14 && gDobjArtifact.Uid == 51)
+				if (IobjMonster.Uid == 14 && DobjArtifact.Uid == 51)
 				{
-					gDobjArtifact.SetInLimbo();
+					DobjArtifact.SetInLimbo();
 
-					gIobjMonster.SetInLimbo();
+					IobjMonster.SetInLimbo();
 
 					gEngine.PrintEffectDesc(14);
 
@@ -56,7 +56,7 @@ namespace TheTrainingGround.Game.Commands
 			{
 				// Buy potion from gnome
 
-				if (gIobjMonster.Uid == 20)
+				if (IobjMonster.Uid == 20)
 				{
 					if (GoldAmount >= 100)
 					{

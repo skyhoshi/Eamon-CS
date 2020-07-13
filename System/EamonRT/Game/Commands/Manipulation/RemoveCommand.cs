@@ -27,20 +27,20 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			if (gIobjArtifact != null)
+			if (IobjArtifact != null)
 			{
 				if (!GetCommandCalled)
 				{
-					RedirectToGetCommand<IRemoveCommand>(gDobjArtifact, false);
+					RedirectToGetCommand<IRemoveCommand>(DobjArtifact, false);
 
 					goto Cleanup;
 				}
 
-				if (!gDobjArtifact.IsCarriedByCharacter())
+				if (!DobjArtifact.IsCarriedByCharacter())
 				{
-					if (gDobjArtifact.DisguisedMonster == null)
+					if (DobjArtifact.DisguisedMonster == null)
 					{
 						NextState = Globals.CreateInstance<IStartState>();
 					}
@@ -48,7 +48,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (gActorMonster.Weapon <= 0 && gDobjArtifact.IsReadyableByCharacter() && NextState == null)
+				if (ActorMonster.Weapon <= 0 && DobjArtifact.IsReadyableByCharacter() && NextState == null)
 				{
 					NextState = Globals.CreateInstance<IReadyCommand>();
 
@@ -65,23 +65,23 @@ namespace EamonRT.Game.Commands
 
 				var shAc = shArtifact != null ? shArtifact.Wearable : null;
 
-				if (gDobjArtifact.Uid == gGameState.Sh)
+				if (DobjArtifact.Uid == gGameState.Sh)
 				{
-					gActorMonster.Armor = arAc != null ? (arAc.Field1 / 2) + ((arAc.Field1 / 2) >= 3 ? 2 : 0) : 0;
+					ActorMonster.Armor = arAc != null ? (arAc.Field1 / 2) + ((arAc.Field1 / 2) >= 3 ? 2 : 0) : 0;
 
 					gGameState.Sh = 0;
 				}
 
-				if (gDobjArtifact.Uid == gGameState.Ar)
+				if (DobjArtifact.Uid == gGameState.Ar)
 				{
-					gActorMonster.Armor = shAc != null ? shAc.Field1 : 0;
+					ActorMonster.Armor = shAc != null ? shAc.Field1 : 0;
 
 					gGameState.Ar = 0;
 				}
 
-				gDobjArtifact.SetCarriedByCharacter();
+				DobjArtifact.SetCarriedByCharacter();
 
-				PrintRemoved(gDobjArtifact);
+				PrintRemoved(DobjArtifact);
 
 				PlayerProcessEvents(PpeAfterWornArtifactRemove);
 
@@ -103,63 +103,63 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(gDobjArtifact != null && gIobjArtifact != null && Prep != null && Enum.IsDefined(typeof(ContainerType), Prep.ContainerType));
+			Debug.Assert(DobjArtifact != null && IobjArtifact != null && Prep != null && Enum.IsDefined(typeof(ContainerType), Prep.ContainerType));
 
-			Debug.Assert(gDobjArtifact.IsCarriedByContainer(gIobjArtifact) && gDobjArtifact.GetCarriedByContainerContainerType() == Prep.ContainerType);
+			Debug.Assert(DobjArtifact.IsCarriedByContainer(IobjArtifact) && DobjArtifact.GetCarriedByContainerContainerType() == Prep.ContainerType);
 
 			var artTypes = new ArtifactType[] { ArtifactType.DisguisedMonster, ArtifactType.DeadBody, ArtifactType.BoundMonster, ArtifactType.Weapon, ArtifactType.MagicWeapon };
 
-			var ac = gDobjArtifact.GetArtifactCategory(artTypes, false);
+			var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
 
 			if (ac == null)
 			{
-				ac = gDobjArtifact.GetCategories(0);
+				ac = DobjArtifact.GetCategories(0);
 			}
 
-			if (ac != null && ac.Type != ArtifactType.DisguisedMonster && gDobjArtifact.Weight <= 900 && !gDobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
+			if (ac != null && ac.Type != ArtifactType.DisguisedMonster && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
 			{
-				OmitWeightCheck = gDobjArtifact.IsCarriedByMonster(gActorMonster, true);
+				OmitWeightCheck = DobjArtifact.IsCarriedByMonster(ActorMonster, true);
 
 				var artCount = 0L;
 
-				var artWeight = gDobjArtifact.Weight;
+				var artWeight = DobjArtifact.Weight;
 
-				if (gDobjArtifact.GeneralContainer != null)
+				if (DobjArtifact.GeneralContainer != null)
 				{
-					rc = gDobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.In, true);
+					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.In, true);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
-					rc = gDobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.On, true);
+					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.On, true);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
 				var monWeight = 0L;
 
-				rc = gActorMonster.GetFullInventoryWeight(ref monWeight, recurse: true);
+				rc = ActorMonster.GetFullInventoryWeight(ref monWeight, recurse: true);
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
-				if (!gEngine.EnforceMonsterWeightLimits || OmitWeightCheck || (artWeight <= gActorMonster.GetWeightCarryableGronds() && artWeight + monWeight <= gActorMonster.GetWeightCarryableGronds() * gActorMonster.GroupCount))
+				if (!gEngine.EnforceMonsterWeightLimits || OmitWeightCheck || (artWeight <= ActorMonster.GetWeightCarryableGronds() && artWeight + monWeight <= ActorMonster.GetWeightCarryableGronds() * ActorMonster.GroupCount))
 				{
-					gDobjArtifact.SetCarriedByMonster(gActorMonster);
+					DobjArtifact.SetCarriedByMonster(ActorMonster);
 
 					var charMonster = gMDB[gGameState.Cm];
 
 					Debug.Assert(charMonster != null);
 
-					if (charMonster.IsInRoom(gActorRoom))
+					if (charMonster.IsInRoom(ActorRoom))
 					{
-						if (gActorRoom.IsLit())
+						if (ActorRoom.IsLit())
 						{
-							var monsterName = gActorMonster.EvalPlural(gActorMonster.GetTheName(true), gActorMonster.GetArticleName(true, true, false, true, Globals.Buf01));
+							var monsterName = ActorMonster.EvalPlural(ActorMonster.GetTheName(true), ActorMonster.GetArticleName(true, true, false, true, Globals.Buf01));
 
-							gOut.Print("{0} removes {1} from {2} {3}.", monsterName, gDobjArtifact.GetArticleName(), gEngine.EvalContainerType(Prep.ContainerType, "inside", "on", "under", "behind"), OmitWeightCheck ? gIobjArtifact.GetArticleName(buf: Globals.Buf01) : gIobjArtifact.GetTheName(buf: Globals.Buf01));
+							gOut.Print("{0} removes {1} from {2} {3}.", monsterName, DobjArtifact.GetArticleName(), gEngine.EvalContainerType(Prep.ContainerType, "inside", "on", "under", "behind"), OmitWeightCheck ? IobjArtifact.GetArticleName(buf: Globals.Buf01) : IobjArtifact.GetTheName(buf: Globals.Buf01));
 						}
 						else
 						{
-							var monsterName = string.Format("An unseen {0}", gActorMonster.CheckNBTLHostility() ? "offender" : "entity");
+							var monsterName = string.Format("An unseen {0}", ActorMonster.CheckNBTLHostility() ? "offender" : "entity");
 
 							gOut.Print("{0} picks up {1}.", monsterName, "a weapon");
 						}
@@ -167,7 +167,7 @@ namespace EamonRT.Game.Commands
 
 					// when a weapon is picked up all monster affinities to that weapon are broken
 
-					var fumbleMonsters = gEngine.GetMonsterList(m => m.Weapon == -gDobjArtifact.Uid - 1 && m != gActorMonster);
+					var fumbleMonsters = gEngine.GetMonsterList(m => m.Weapon == -DobjArtifact.Uid - 1 && m != ActorMonster);
 
 					foreach (var monster in fumbleMonsters)
 					{
@@ -183,87 +183,6 @@ namespace EamonRT.Game.Commands
 					x.ErrorMessage = string.Format("{0}: NextState == null", Name);
 				});
 			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
-			{
-				a => a.IsWornByCharacter()
-			};
-
-			gCommandParser.ObjData.ArtifactMatchFunc = () =>
-			{
-				ContainerType = Prep != null ? Prep.ContainerType : (ContainerType)(-1);
-
-				if (gCommandParser.ObjData.FilterArtifactList.Count > 1)
-				{
-					PrintDoYouMeanObj1OrObj2(gCommandParser.ObjData.FilterArtifactList[0], gCommandParser.ObjData.FilterArtifactList[1]);
-
-					gCommandParser.NextState = Globals.CreateInstance<IStartState>();
-				}
-				else if (gCommandParser.ObjData.FilterArtifactList.Count < 1)
-				{
-					gCommandParser.ObjData = gCommandParser.IobjData;
-
-					gCommandParser.ObjData.QueryDescFunc = () => string.Format("{0}From {1}what? ", Environment.NewLine, Enum.IsDefined(typeof(ContainerType), ContainerType) ? gEngine.EvalContainerType(ContainerType, "inside ", "on ", "under ", "behind ") : "");
-
-					PlayerResolveArtifact();
-
-					if (gIobjArtifact != null)
-					{
-						if (!Enum.IsDefined(typeof(ContainerType), ContainerType))
-						{
-							var artTypes = new ArtifactType[] { ArtifactType.InContainer, ArtifactType.OnContainer };
-
-							var defaultAc = gIobjArtifact.GetArtifactCategory(artTypes);
-
-							ContainerType = defaultAc != null ? gEngine.GetContainerType(defaultAc.Type) : ContainerType.In;
-						}
-
-						var ac = gEngine.EvalContainerType(ContainerType, gIobjArtifact.InContainer, gIobjArtifact.OnContainer, gIobjArtifact.UnderContainer, gIobjArtifact.BehindContainer);
-
-						if (ac != null)
-						{
-							if (ac != gIobjArtifact.InContainer || ac.IsOpen())
-							{
-								gCommandParser.ObjData = gCommandParser.DobjData;
-
-								gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
-								{
-									a => a.IsCarriedByContainer(gIobjArtifact) && a.GetCarriedByContainerContainerType() == ContainerType
-								};
-
-								gCommandParser.ObjData.ArtifactMatchFunc = PlayerArtifactMatch;
-
-								gCommandParser.ObjData.ArtifactNotFoundFunc = PrintDontFollowYou;
-
-								PlayerResolveArtifact();
-							}
-							else
-							{
-								PrintMustFirstOpen(gIobjArtifact);
-
-								gCommandParser.NextState = Globals.CreateInstance<IStartState>();
-							}
-						}
-						else
-						{
-							PrintDontFollowYou();
-
-							gCommandParser.NextState = Globals.CreateInstance<IStartState>();
-						}
-					}
-				}
-				else
-				{
-					gCommandParser.ObjData.RevealEmbeddedArtifactFunc(gActorRoom, gCommandParser.ObjData.FilterArtifactList[0]);
-
-					gCommandParser.SetArtifact(gCommandParser.ObjData.FilterArtifactList[0]);
-				}
-			};
-
-			PlayerResolveArtifact();
 		}
 
 		/*

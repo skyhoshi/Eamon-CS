@@ -17,9 +17,9 @@ namespace ARuncibleCargo.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			switch (gDobjArtifact.Uid)
+			switch (DobjArtifact.Uid)
 			{
 				case 16:
 

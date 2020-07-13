@@ -8,7 +8,6 @@ namespace EamonRT.Framework.States
 	/// <summary></summary>
 	public interface IProcessPlayerInputState : IState
 	{
-		/// <summary></summary>
-		bool IncrementCurrTurn { get; set; }
+		
 	}
 }

@@ -36,6 +36,15 @@ namespace TheVileGrimoireOfJaldial.Framework
 		bool[] SecretDoors { get; set; }
 
 		/// <summary></summary>
+		long WeatherScalePct { get; set; }
+
+		/// <summary></summary>
+		long EncounterScalePct { get; set; }
+
+		/// <summary></summary>
+		long FlavorScalePct { get; set; }
+
+		/// <summary></summary>
 		long FoggyRoomWeatherIntensity { get; set; }
 
 		/// <summary></summary>

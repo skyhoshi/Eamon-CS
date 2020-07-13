@@ -34,42 +34,42 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null || gDobjMonster != null);
+			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
 			var diaryArtifact = gADB[3];
 
 			Debug.Assert(diaryArtifact != null);
 
-			var wpnArtifact = gActorMonster.Weapon > 0 ? gADB[gActorMonster.Weapon] : null;
+			var wpnArtifact = ActorMonster.Weapon > 0 ? gADB[ActorMonster.Weapon] : null;
 
 			var ac = wpnArtifact != null ? wpnArtifact.GeneralWeapon : null;
 
 			// Find diary on dead adventurer
 
-			if ((BlastSpell || gActorMonster.Weapon > 0) && gDobjArtifact != null && gDobjArtifact.Uid == 2 && diaryArtifact.IsInLimbo())
+			if ((BlastSpell || ActorMonster.Weapon > 0) && DobjArtifact != null && DobjArtifact.Uid == 2 && diaryArtifact.IsInLimbo())
 			{
 				base.PlayerExecute();
 
 				gOut.Print("Inside the tattered shirt is a small cloth-bound book that appears to be a diary.");
 
-				diaryArtifact.SetInRoom(gActorRoom);
+				diaryArtifact.SetInRoom(ActorRoom);
 			}
 			else if (BlastSpell)
 			{
 				// Blast rock
 
-				if (gDobjArtifact != null && gDobjArtifact.Uid == 17)
+				if (DobjArtifact != null && DobjArtifact.Uid == 17)
 				{
 					gEngine.PrintEffectDesc(14);
 
-					gDobjArtifact.SetInLimbo();
+					DobjArtifact.SetInLimbo();
 
 					NextState = Globals.CreateInstance<IMonsterStartState>();
 				}
 
 				// Blast slime
 
-				else if (gDobjArtifact != null && (gDobjArtifact.Uid == 24 || gDobjArtifact.Uid == 25))
+				else if (DobjArtifact != null && (DobjArtifact.Uid == 24 || DobjArtifact.Uid == 25))
 				{
 					var slimeArtifact1 = gADB[24];
 
@@ -100,7 +100,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			// Attack slime will dissolve weapon (bows excluded)
 
-			else if (gDobjArtifact != null && (gDobjArtifact.Uid == 24 || gDobjArtifact.Uid == 25) && ac != null && ac.Field2 != (long)Weapon.Bow)
+			else if (DobjArtifact != null && (DobjArtifact.Uid == 24 || DobjArtifact.Uid == 25) && ac != null && ac.Field2 != (long)Weapon.Bow)
 			{
 				gEngine.PrintEffectDesc(18);
 
@@ -115,7 +115,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
-				gActorMonster.Weapon = -1;
+				ActorMonster.Weapon = -1;
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}

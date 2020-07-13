@@ -31,7 +31,7 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(lsArtifact != null && lsArtifact.LightSource != null);
 
-				if ((DropAll || lsArtifact == gDobjArtifact) && lsArtifact.IsCarriedByCharacter())
+				if ((DropAll || lsArtifact == DobjArtifact) && lsArtifact.IsCarriedByCharacter())
 				{
 					gEngine.LightOut(lsArtifact);
 				}
@@ -42,9 +42,9 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(artifact != null);
 
-			artifact.SetInRoom(gActorRoom);
+			artifact.SetInRoom(ActorRoom);
 
-			if (gActorMonster.Weapon == artifact.Uid)
+			if (ActorMonster.Weapon == artifact.Uid)
 			{
 				Debug.Assert(artifact.GeneralWeapon != null);
 
@@ -52,7 +52,7 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
-				gActorMonster.Weapon = -1;
+				ActorMonster.Weapon = -1;
 			}
 
 			PrintDropped(artifact);
@@ -60,33 +60,33 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DropAll || gDobjArtifact != null);
+			Debug.Assert(DropAll || DobjArtifact != null);
 
-			if (gDobjArtifact != null)
+			if (DobjArtifact != null)
 			{
-				if (gDobjArtifact.IsWornByCharacter())
+				if (DobjArtifact.IsWornByCharacter())
 				{
-					PrintWearingRemoveFirst(gDobjArtifact);
+					PrintWearingRemoveFirst(DobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
 					goto Cleanup;
 				}
 
-				if (!gDobjArtifact.IsCarriedByCharacter())
+				if (!DobjArtifact.IsCarriedByCharacter())
 				{
 					if (!GetCommandCalled)
 					{
-						if (gDobjArtifact.IsCarriedByCharacter(true) && gDobjArtifact.IsCarriedByContainer())
+						if (DobjArtifact.IsCarriedByCharacter(true) && DobjArtifact.IsCarriedByContainer())
 						{
-							RedirectToGetCommand<IDropCommand>(gDobjArtifact);
+							RedirectToGetCommand<IDropCommand>(DobjArtifact);
 						}
 						else
 						{
 							NextState = Globals.CreateInstance<IStartState>();
 						}
 					}
-					else if (gDobjArtifact.DisguisedMonster == null)
+					else if (DobjArtifact.DisguisedMonster == null)
 					{
 						NextState = Globals.CreateInstance<IStartState>();
 					}
@@ -97,7 +97,7 @@ namespace EamonRT.Game.Commands
 
 			ProcessLightSource();
 
-			ArtifactList = DropAll ? gActorMonster.GetCarriedList() : new List<IArtifact>() { gDobjArtifact };
+			ArtifactList = DropAll ? ActorMonster.GetCarriedList() : new List<IArtifact>() { DobjArtifact };
 
 			if (ArtifactList.Count > 0)
 			{
@@ -153,29 +153,6 @@ namespace EamonRT.Game.Commands
 			}
 		}
 		*/
-
-		public override void PlayerFinishParsing()
-		{
-			gCommandParser.ParseName();
-
-			if (string.Equals(gCommandParser.ObjData.Name, "all", StringComparison.OrdinalIgnoreCase))
-			{
-				DropAll = true;
-			}
-			else
-			{
-				gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
-				{
-					a => a.IsCarriedByCharacter(),
-					a => a.IsWornByCharacter(),
-					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively)
-				};
-
-				gCommandParser.ObjData.ArtifactNotFoundFunc = PrintDontHaveIt;
-
-				PlayerResolveArtifact();
-			}
-		}
 
 		public DropCommand()
 		{

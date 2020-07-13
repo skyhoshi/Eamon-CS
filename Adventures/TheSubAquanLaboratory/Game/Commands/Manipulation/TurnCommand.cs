@@ -27,9 +27,9 @@ namespace TheSubAquanLaboratory.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			switch (gDobjArtifact.Uid)
+			switch (DobjArtifact.Uid)
 			{
 				case 65:
 
@@ -74,7 +74,7 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 				default:
 
-					PrintCantVerbObj(gDobjArtifact);
+					PrintCantVerbObj(DobjArtifact);
 
 					NextState = Globals.CreateInstance<IStartState>();
 
@@ -87,11 +87,6 @@ namespace TheSubAquanLaboratory.Game.Commands
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			PlayerResolveArtifact();
 		}
 
 		public TurnCommand()

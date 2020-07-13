@@ -15,9 +15,9 @@ namespace TheBeginnersCave.Game.Commands
 	{
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			if (gDobjArtifact.Uid == 10)
+			if (DobjArtifact.Uid == 10)
 			{
 				var command = Globals.CreateInstance<Framework.Commands.ITrollsfireCommand>();
 

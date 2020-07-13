@@ -31,9 +31,9 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// Armoire (while wearing glasses)
 
-				if (gDobjArtifact.Uid == 3 && eyeglassesArtifact.IsWornByCharacter() && !secretDoorArtifact.IsInRoom(gActorRoom))
+				if (DobjArtifact.Uid == 3 && eyeglassesArtifact.IsWornByCharacter() && !secretDoorArtifact.IsInRoom(ActorRoom))
 				{
-					var ac = gDobjArtifact.InContainer;
+					var ac = DobjArtifact.InContainer;
 
 					Debug.Assert(ac != null);
 
@@ -50,13 +50,13 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// Bookshelf/secret door in library (while wearing magic glasses)
 
-				else if (gDobjArtifact.Uid == 11 && eyeglassesArtifact.IsWornByCharacter() && !secretDoorArtifact01.IsInRoom(gActorRoom))
+				else if (DobjArtifact.Uid == 11 && eyeglassesArtifact.IsWornByCharacter() && !secretDoorArtifact01.IsInRoom(ActorRoom))
 				{
 					var ac = secretDoorArtifact01.DoorGate;
 
 					Debug.Assert(ac != null);
 
-					secretDoorArtifact01.SetInRoom(gActorRoom);
+					secretDoorArtifact01.SetInRoom(ActorRoom);
 
 					ac.SetOpen(true);
 

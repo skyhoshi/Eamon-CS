@@ -92,6 +92,9 @@ namespace EamonRT.Framework.Plugin
 		ICommand LastCommand { get; }
 
 		/// <summary></summary>
+		bool CommandPromptSeen { get; set; }
+
+		/// <summary></summary>
 		bool GameRunning { get; }
 
 		/// <summary></summary>

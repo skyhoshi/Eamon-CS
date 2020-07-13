@@ -17,11 +17,11 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 	{
 		public override void PrintDontNeedTo()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
-			if (gDobjArtifact.Uid == 3 || gDobjArtifact.Uid == 4 || gDobjArtifact.Uid == 5 || gDobjArtifact.Uid == 13 || gDobjArtifact.Uid == 35)
+			if (DobjArtifact.Uid == 3 || DobjArtifact.Uid == 4 || DobjArtifact.Uid == 5 || DobjArtifact.Uid == 13 || DobjArtifact.Uid == 35)
 			{
-				PrintNotOpen(gDobjArtifact);
+				PrintNotOpen(DobjArtifact);
 			}
 			else
 			{
@@ -31,13 +31,13 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(gDobjArtifact != null);
+			Debug.Assert(DobjArtifact != null);
 
 			// Crypts can't be closed unless they can also be opened
 
-			if ((gDobjArtifact.Uid == 3 || gDobjArtifact.Uid == 4 || gDobjArtifact.Uid == 5) && gDobjArtifact.DoorGate.IsOpen())
+			if ((DobjArtifact.Uid == 3 || DobjArtifact.Uid == 4 || DobjArtifact.Uid == 5) && DobjArtifact.DoorGate.IsOpen())
 			{
-				var keyList = gADB.Records.Cast<Framework.IArtifact>().Where(a => (a.IsInRoom(gActorRoom) || a.IsCarriedByCharacter()) && a.GetLeverageBonus() > 0).ToList();
+				var keyList = gADB.Records.Cast<Framework.IArtifact>().Where(a => (a.IsInRoom(ActorRoom) || a.IsCarriedByCharacter()) && a.GetLeverageBonus() > 0).ToList();
 
 				var key = keyList.Count > 0 ? keyList[0] : null;
 

@@ -31,7 +31,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Direction), Direction));
 
-			if (gDobjArtifact != null && gDobjArtifact.DoorGate == null)
+			if (DobjArtifact != null && DobjArtifact.DoorGate == null)
 			{
 				PrintDontFollowYou();
 
@@ -40,7 +40,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (!gActorMonster.CheckNBTLHostility())
+			if (!ActorMonster.CheckNBTLHostility())
 			{
 				PrintCalmDown();
 
@@ -49,11 +49,11 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (gDobjArtifact == null)
+			if (DobjArtifact == null)
 			{
 				var numExits = 0L;
 
-				gEngine.CheckNumberOfExits(gActorRoom, gActorMonster, true, ref numExits);
+				gEngine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref numExits);
 
 				if (numExits == 0)
 				{
@@ -72,13 +72,13 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (gDobjArtifact == null)
+			if (DobjArtifact == null)
 			{
 				if (Direction == 0)
 				{
 					Direction direction = 0;
 
-					gEngine.GetRandomMoveDirection(gActorRoom, gActorMonster, true, ref direction);
+					gEngine.GetRandomMoveDirection(ActorRoom, ActorMonster, true, ref direction);
 
 					Direction = direction;
 				}
@@ -86,9 +86,9 @@ namespace EamonRT.Game.Commands
 				Debug.Assert(Enum.IsDefined(typeof(Direction), Direction));
 			}
 
-			if (gDobjArtifact != null)
+			if (DobjArtifact != null)
 			{
-				Globals.Buf.SetFormat("{0}", gDobjArtifact.GetDoorGateFleeDesc());
+				Globals.Buf.SetFormat("{0}", DobjArtifact.GetDoorGateFleeDesc());
 			}
 			else if (Direction > Direction.West && Direction < Direction.Northeast)
 			{
@@ -101,7 +101,7 @@ namespace EamonRT.Game.Commands
 
 			gOut.Print("Attempting to flee{0}.", Globals.Buf);
 
-			gGameState.R2 = gDobjArtifact != null ? 0 : gActorRoom.GetDirs(Direction);
+			gGameState.R2 = DobjArtifact != null ? 0 : ActorRoom.GetDirs(Direction);
 
 		Cleanup:
 
@@ -111,7 +111,7 @@ namespace EamonRT.Game.Commands
 				{
 					x.Direction = Direction;
 
-					x.Artifact = gDobjArtifact;
+					x.Artifact = DobjArtifact;
 
 					x.Fleeing = true;
 				});
@@ -122,9 +122,9 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(Direction == 0);
 
-			if (gActorMonster.ShouldFleeRoom())
+			if (ActorMonster.ShouldFleeRoom())
 			{
-				gEngine.MoveMonsterToRandomAdjacentRoom(gActorRoom, gActorMonster, true, true);
+				gEngine.MoveMonsterToRandomAdjacentRoom(ActorRoom, ActorMonster, true, true);
 			}
 
 			if (NextState == null)
@@ -133,38 +133,6 @@ namespace EamonRT.Game.Commands
 				{
 					x.ErrorMessage = string.Format("{0}: NextState == null", Name);
 				});
-			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			if (gCommandParser.CurrToken < gCommandParser.Tokens.Length)
-			{
-				Direction = gEngine.GetDirection(gCommandParser.Tokens[gCommandParser.CurrToken]);
-
-				if (Direction != 0)
-				{
-					gCommandParser.CurrToken++;
-				}
-				else if (gActorRoom.IsLit())
-				{
-					gCommandParser.ParseName();
-
-					gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
-					{
-						a => a.IsInRoom(gActorRoom),
-						a => a.IsEmbeddedInRoom(gActorRoom),
-						a => a.IsCarriedByContainerContainerTypeExposedToRoom(gActorRoom, gEngine.ExposeContainersRecursively)
-					};
-
-					gCommandParser.ObjData.ArtifactNotFoundFunc = PrintNothingHereByThatName;
-
-					PlayerResolveArtifact();
-				}
-				else
-				{
-					gCommandParser.NextState = Globals.CreateInstance<IStartState>();
-				}
 			}
 		}
 

@@ -5,7 +5,8 @@ ChangeLog: TheTempleOfNgurct
 
 Date			Version			Who			Notes
 ----------------------------------------------------------------------------------------------------------------------------------
-20200116		1.6.0				MRP			PluginContext convenience property overhaul
+20200709		1.6.0				MRP			CommandParser/Command overhaul
+20200116		   				MRP			PluginContext convenience property overhaul
 20190601							MRP			ContainerType overhaul
 20190225		1.5.0				MRP			Using Enums/Classes overhaul
 20181102		   				MRP			Rename CharacterWeapon to CharacterArtifact

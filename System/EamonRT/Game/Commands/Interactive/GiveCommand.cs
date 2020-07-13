@@ -41,19 +41,19 @@ namespace EamonRT.Game.Commands
 		{
 			RetCode rc;
 
-			Debug.Assert(GoldAmount > 0 || gDobjArtifact != null);
+			Debug.Assert(GoldAmount > 0 || DobjArtifact != null);
 
-			Debug.Assert(gIobjMonster != null);
+			Debug.Assert(IobjMonster != null);
 
-			if (gDobjArtifact != null)
+			if (DobjArtifact != null)
 			{
-				if (!gDobjArtifact.IsCarriedByCharacter())
+				if (!DobjArtifact.IsCarriedByCharacter())
 				{
 					if (!GetCommandCalled)
 					{
-						RedirectToGetCommand<IGiveCommand>(gDobjArtifact);
+						RedirectToGetCommand<IGiveCommand>(DobjArtifact);
 					}
-					else if (gDobjArtifact.DisguisedMonster == null)
+					else if (DobjArtifact.DisguisedMonster == null)
 					{
 						NextState = Globals.CreateInstance<IStartState>();
 					}
@@ -61,9 +61,9 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (gIobjMonster.ShouldRefuseToAcceptGift(gDobjArtifact))
+				if (IobjMonster.ShouldRefuseToAcceptGift(DobjArtifact))
 				{
-					gEngine.MonsterEmotes(gIobjMonster);
+					gEngine.MonsterEmotes(IobjMonster);
 
 					gOut.WriteLine();
 
@@ -72,15 +72,15 @@ namespace EamonRT.Game.Commands
 
 				var artCount = 0L;
 
-				var artWeight = gDobjArtifact.Weight;
+				var artWeight = DobjArtifact.Weight;
 
-				if (gDobjArtifact.GeneralContainer != null)
+				if (DobjArtifact.GeneralContainer != null)
 				{
-					rc = gDobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.In, true);
+					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.In, true);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
-					rc = gDobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.On, true);
+					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.On, true);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 				}
@@ -89,13 +89,13 @@ namespace EamonRT.Game.Commands
 				{
 					var monWeight = 0L;
 
-					rc = gIobjMonster.GetFullInventoryWeight(ref monWeight, recurse: true);
+					rc = IobjMonster.GetFullInventoryWeight(ref monWeight, recurse: true);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
-					if (artWeight > gIobjMonster.GetWeightCarryableGronds() || artWeight + monWeight > gIobjMonster.GetWeightCarryableGronds() * gIobjMonster.GroupCount)
+					if (artWeight > IobjMonster.GetWeightCarryableGronds() || artWeight + monWeight > IobjMonster.GetWeightCarryableGronds() * IobjMonster.GroupCount)
 					{
-						PrintTooHeavy(gDobjArtifact);
+						PrintTooHeavy(DobjArtifact);
 
 						goto Cleanup;
 					}
@@ -108,29 +108,29 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (gDobjArtifact.DeadBody != null && gIobjMonster.ShouldRefuseToAcceptDeadBody(gDobjArtifact))
+				if (DobjArtifact.DeadBody != null && IobjMonster.ShouldRefuseToAcceptDeadBody(DobjArtifact))
 				{
-					PrintPolitelyRefuses(gIobjMonster);
+					PrintPolitelyRefuses(IobjMonster);
 
 					goto Cleanup;
 				}
 
-				if (gGameState.Ls == gDobjArtifact.Uid)
+				if (gGameState.Ls == DobjArtifact.Uid)
 				{
-					Debug.Assert(gDobjArtifact.LightSource != null);
+					Debug.Assert(DobjArtifact.LightSource != null);
 
-					gEngine.LightOut(gDobjArtifact);
+					gEngine.LightOut(DobjArtifact);
 				}
 
-				if (gActorMonster.Weapon == gDobjArtifact.Uid)
+				if (ActorMonster.Weapon == DobjArtifact.Uid)
 				{
-					Debug.Assert(gDobjArtifact.GeneralWeapon != null);
+					Debug.Assert(DobjArtifact.GeneralWeapon != null);
 
-					rc = gDobjArtifact.RemoveStateDesc(gDobjArtifact.GetReadyWeaponDesc());
+					rc = DobjArtifact.RemoveStateDesc(DobjArtifact.GetReadyWeaponDesc());
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
-					gActorMonster.Weapon = -1;
+					ActorMonster.Weapon = -1;
 				}
 
 				PlayerProcessEvents(PpeAfterPlayerGivesReadiedWeaponCheck);
@@ -140,19 +140,19 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				PrintGiveObjToActor(gDobjArtifact, gIobjMonster);
+				PrintGiveObjToActor(DobjArtifact, IobjMonster);
 
-				var ac = gDobjArtifact.GetArtifactCategory(new ArtifactType[] { ArtifactType.Drinkable, ArtifactType.Edible });
+				var ac = DobjArtifact.GetArtifactCategory(new ArtifactType[] { ArtifactType.Drinkable, ArtifactType.Edible });
 
 				if (!Globals.IsRulesetVersion(5) && ac != null && ac.Field2 > 0)
 				{
-					var monsterName = gIobjMonster.EvalPlural(gIobjMonster.GetTheName(true), gIobjMonster.GetArticleName(true, true, false, true, Globals.Buf01));
+					var monsterName = IobjMonster.EvalPlural(IobjMonster.GetTheName(true), IobjMonster.GetArticleName(true, true, false, true, Globals.Buf01));
 
 					Globals.Buf01.Clear();
 
 					if (!ac.IsOpen())
 					{
-						Globals.Buf01.SetFormat(" opens {0}", gDobjArtifact.GetTheName());
+						Globals.Buf01.SetFormat(" opens {0}", DobjArtifact.GetTheName());
 
 						ac.SetOpen(true);
 					}
@@ -162,7 +162,7 @@ namespace EamonRT.Game.Commands
 						ac.Field2--;
 					}
 
-					rc = gDobjArtifact.SyncArtifactCategories(ac);
+					rc = DobjArtifact.SyncArtifactCategories(ac);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -173,25 +173,25 @@ namespace EamonRT.Game.Commands
 							Globals.Buf01,
 							Globals.Buf01.Length > 0 ? "," : "",
 							ac.Type == ArtifactType.Edible ? "bite" : "drink",
-							gDobjArtifact.EvalPlural("it", "them"));
+							DobjArtifact.EvalPlural("it", "them"));
 					}
 					else
 					{
-						gDobjArtifact.Value = 0;
+						DobjArtifact.Value = 0;
 
 						if (ac.Type == ArtifactType.Edible)
 						{
-							gDobjArtifact.SetInLimbo();
+							DobjArtifact.SetInLimbo();
 
 							Globals.Buf.SetPrint("{0}{1}{2} eats {3} all.",
 								monsterName,
 								Globals.Buf01,
 								Globals.Buf01.Length > 0 ? " and" : "",
-								gDobjArtifact.EvalPlural("it", "them"));
+								DobjArtifact.EvalPlural("it", "them"));
 						}
 						else
 						{
-							rc = gDobjArtifact.AddStateDesc(gDobjArtifact.GetEmptyDesc());
+							rc = DobjArtifact.AddStateDesc(DobjArtifact.GetEmptyDesc());
 
 							Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -199,8 +199,8 @@ namespace EamonRT.Game.Commands
 								monsterName,
 								Globals.Buf01,
 								Globals.Buf01.Length > 0 ? "," : "",
-								gDobjArtifact.EvalPlural("it", "them"),
-								gDobjArtifact.EvalPlural("it", "them"));
+								DobjArtifact.EvalPlural("it", "them"),
+								DobjArtifact.EvalPlural("it", "them"));
 						}
 					}
 
@@ -211,45 +211,45 @@ namespace EamonRT.Game.Commands
 						goto Cleanup;
 					}
 
-					gIobjMonster.DmgTaken -= ac.Field1;
+					IobjMonster.DmgTaken -= ac.Field1;
 
-					if (gIobjMonster.DmgTaken < 0)
+					if (IobjMonster.DmgTaken < 0)
 					{
-						gIobjMonster.DmgTaken = 0;
+						IobjMonster.DmgTaken = 0;
 					}
 
 					Globals.Buf.SetFormat("{0}{1} is ",
 						Environment.NewLine,
-						gIobjMonster.GetTheName(true, true, false, true, Globals.Buf01));
+						IobjMonster.GetTheName(true, true, false, true, Globals.Buf01));
 
-					gIobjMonster.AddHealthStatus(Globals.Buf);
+					IobjMonster.AddHealthStatus(Globals.Buf);
 
 					gOut.Write("{0}", Globals.Buf);
 
-					if (gIobjMonster.IsDead())
+					if (IobjMonster.IsDead())
 					{
-						gEngine.MonsterDies(gActorMonster, gIobjMonster);
+						gEngine.MonsterDies(ActorMonster, IobjMonster);
 					}
 				}
 				else
 				{
-					gDobjArtifact.SetCarriedByMonster(gIobjMonster);
+					DobjArtifact.SetCarriedByMonster(IobjMonster);
 
 					if (Globals.IsRulesetVersion(5))
 					{
-						gIobjMonster.CalculateGiftFriendlinessPct(gDobjArtifact.Value);
+						IobjMonster.CalculateGiftFriendlinessPct(DobjArtifact.Value);
 
-						gIobjMonster.ResolveFriendlinessPct(gCharacter);
+						IobjMonster.ResolveFriendlinessPct(gCharacter);
 					}
 					else
 					{
-						if (gIobjMonster.Friendliness == Friendliness.Neutral)
+						if (IobjMonster.Friendliness == Friendliness.Neutral)
 						{
-							gIobjMonster.Friendliness = Friendliness.Friend;
+							IobjMonster.Friendliness = Friendliness.Friend;
 
-							gIobjMonster.OrigFriendliness = (Friendliness)200;
+							IobjMonster.OrigFriendliness = (Friendliness)200;
 
-							gEngine.MonsterEmotes(gIobjMonster);
+							gEngine.MonsterEmotes(IobjMonster);
 
 							gOut.WriteLine();
 						}
@@ -261,7 +261,7 @@ namespace EamonRT.Game.Commands
 				gOut.Print("Give {0} gold piece{1} to {2}.",
 					gEngine.GetStringFromNumber(GoldAmount, false, Globals.Buf),
 					GoldAmount > 1 ? "s" : "",
-					gIobjMonster.GetTheName(buf: Globals.Buf01));
+					IobjMonster.GetTheName(buf: Globals.Buf01));
 
 				gOut.Write("{0}Are you sure (Y/N): ", Environment.NewLine);
 
@@ -295,26 +295,26 @@ namespace EamonRT.Game.Commands
 				}
 
 				gOut.Print("{0} take{1} the money.",
-					gIobjMonster.GetTheName(true),
-					gIobjMonster.EvalPlural("s", ""));
+					IobjMonster.GetTheName(true),
+					IobjMonster.EvalPlural("s", ""));
 
 				gCharacter.HeldGold -= GoldAmount;
 
 				if (Globals.IsRulesetVersion(5))
 				{
-					gIobjMonster.CalculateGiftFriendlinessPct(GoldAmount);
+					IobjMonster.CalculateGiftFriendlinessPct(GoldAmount);
 
-					gIobjMonster.ResolveFriendlinessPct(gCharacter);
+					IobjMonster.ResolveFriendlinessPct(gCharacter);
 				}
 				else
 				{
-					if (gIobjMonster.Friendliness == Friendliness.Neutral && GoldAmount > 4999)
+					if (IobjMonster.Friendliness == Friendliness.Neutral && GoldAmount > 4999)
 					{
-						gIobjMonster.Friendliness = Friendliness.Friend;
+						IobjMonster.Friendliness = Friendliness.Friend;
 
-						gIobjMonster.OrigFriendliness = (Friendliness)200;
+						IobjMonster.OrigFriendliness = (Friendliness)200;
 
-						gEngine.MonsterEmotes(gIobjMonster);
+						gEngine.MonsterEmotes(IobjMonster);
 
 						gOut.WriteLine();
 					}
@@ -326,79 +326,6 @@ namespace EamonRT.Game.Commands
 			if (NextState == null)
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
-			}
-		}
-
-		public override void PlayerFinishParsing()
-		{
-			long i;
-
-			gCommandParser.ParseName();
-
-			if (long.TryParse(gCommandParser.ObjData.Name, out i) && i > 0)
-			{
-				GoldAmount = i;
-			}
-
-			if (GoldAmount == 0)
-			{
-				gCommandParser.ObjData.ArtifactMatchFunc = () =>
-				{
-					if (gCommandParser.ObjData.FilterArtifactList.Count > 1)
-					{
-						PrintDoYouMeanObj1OrObj2(gCommandParser.ObjData.FilterArtifactList[0], gCommandParser.ObjData.FilterArtifactList[1]);
-
-						gCommandParser.NextState = Globals.CreateInstance<IStartState>();
-					}
-					else if (gCommandParser.ObjData.FilterArtifactList.Count < 1)
-					{
-						gCommandParser.ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
-						{
-							a => a.IsWornByCharacter()
-						};
-
-						gCommandParser.ObjData.ArtifactMatchFunc = () =>
-						{
-							if (gCommandParser.ObjData.FilterArtifactList.Count > 1)
-							{
-								PrintDoYouMeanObj1OrObj2(gCommandParser.ObjData.FilterArtifactList[0], gCommandParser.ObjData.FilterArtifactList[1]);
-
-								gCommandParser.NextState = Globals.CreateInstance<IStartState>();
-							}
-							else if (gCommandParser.ObjData.FilterArtifactList.Count < 1)
-							{
-								gCommandParser.ObjData.ArtifactNotFoundFunc();
-
-								gCommandParser.NextState = Globals.CreateInstance<IStartState>();
-							}
-							else
-							{
-								PrintWearingRemoveFirst(gCommandParser.ObjData.FilterArtifactList[0]);
-
-								gCommandParser.NextState = Globals.CreateInstance<IStartState>();
-							}
-						};
-
-						PlayerResolveArtifact();
-					}
-					else
-					{
-						gCommandParser.ObjData.RevealEmbeddedArtifactFunc(gActorRoom, gCommandParser.ObjData.FilterArtifactList[0]);
-
-						gCommandParser.SetArtifact(gCommandParser.ObjData.FilterArtifactList[0]);
-					}
-				};
-
-				PlayerResolveArtifact();
-			}
-
-			if (GoldAmount > 0 || gDobjArtifact != null)
-			{
-				gCommandParser.ObjData = gCommandParser.IobjData;
-
-				gCommandParser.ObjData.QueryDescFunc = () => string.Format("{0}To whom? ", Environment.NewLine);
-
-				PlayerResolveMonster();
 			}
 		}
 
