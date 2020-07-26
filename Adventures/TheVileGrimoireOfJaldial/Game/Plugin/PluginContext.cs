@@ -56,11 +56,11 @@ namespace TheVileGrimoireOfJaldial.Game.Plugin
 			}
 		}
 
-		public static Framework.IEngine gEngine
+		public static EamonRT.Framework.IEngine gEngine
 		{
 			get
 			{
-				return (Framework.IEngine)EamonRT.Game.Plugin.PluginContext.gEngine;
+				return (EamonRT.Framework.IEngine)EamonRT.Game.Plugin.PluginContext.gEngine;
 			}
 		}
 

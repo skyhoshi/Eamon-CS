@@ -18,6 +18,8 @@ namespace TheVileGrimoireOfJaldial.Game
 	[ClassMappings(typeof(IMonster))]
 	public class Monster : Eamon.Game.Monster, Framework.IMonster
 	{
+		public virtual bool DimLightSeen { get; set; }
+
 		public override string Desc
 		{
 			get
@@ -37,6 +39,37 @@ namespace TheVileGrimoireOfJaldial.Game
 			set
 			{
 				base.Desc = value;
+			}
+		}
+
+		public override bool Seen
+		{
+			get
+			{
+				var result = base.Seen;
+
+				var room = GetInRoom() as Framework.IRoom;
+
+				if (Globals.EnableGameOverrides && gGameState != null && room != null && room.Uid == gGameState.Ro && room.IsDimLightRoomWithoutGlowingMonsters() && gGameState.Ls <= 0)
+				{
+					result = DimLightSeen;
+				}
+
+				return result;
+			}
+
+			set
+			{
+				var room = GetInRoom() as Framework.IRoom;
+
+				if (Globals.EnableGameOverrides && gGameState != null && room != null && room.Uid == gGameState.Ro && room.IsDimLightRoomWithoutGlowingMonsters() && gGameState.Ls <= 0)
+				{
+					DimLightSeen = value;
+				}
+				else
+				{
+					base.Seen = value;
+				}
 			}
 		}
 
@@ -78,6 +111,14 @@ namespace TheVileGrimoireOfJaldial.Game
 			set
 			{
 				base.Agility = value;
+			}
+		}
+
+		public virtual bool Seen02
+		{
+			get
+			{
+				return DimLightSeen || base.Seen;
 			}
 		}
 
@@ -143,7 +184,7 @@ namespace TheVileGrimoireOfJaldial.Game
 
 			if (Uid == 40)
 			{
-				var smallGriffinMonster = Globals.MDB[41];
+				var smallGriffinMonster = gMDB[41];
 
 				Debug.Assert(smallGriffinMonster != null);
 
@@ -162,13 +203,6 @@ namespace TheVileGrimoireOfJaldial.Game
 
 				return Uid != 18 && Uid != 19 && Uid != 20 && Uid != 22 && Uid != 38 && !gGameState.ParalyzedTargets.ContainsKey(Uid) ? base.CanMoveToRoom(fleeing) : false;
 			}
-		}
-
-		public override bool ShouldShowHealthStatusWhenExamined()
-		{
-			var room = GetInRoom() as Framework.IRoom;
-
-			return room == null || !room.IsDimLightRoomWithoutGlowingMonsters() || gGameState == null || gGameState.Ls > 0 ? base.ShouldShowHealthStatusWhenExamined() : false;
 		}
 
 		public override bool ShouldShowHealthStatusWhenInventoried()

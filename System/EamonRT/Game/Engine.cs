@@ -2253,9 +2253,9 @@ namespace EamonRT.Game
 		{
 			// Look up the player character
 
-			var characterMonster = gMDB[gGameState.Cm];
+			var charMonster = gMDB[gGameState.Cm];
 
-			Debug.Assert(characterMonster != null);
+			Debug.Assert(charMonster != null);
 
 			// Grab a random Room - we'll use StartRoom here since it really doesn't matter
 
@@ -2281,7 +2281,7 @@ namespace EamonRT.Game
 
 					Globals.CurrState = Globals.CreateInstance<IRemoveCommand>(x =>
 					{
-						x.ActorMonster = characterMonster;
+						x.ActorMonster = charMonster;
 
 						x.ActorRoom = room;
 
@@ -2297,7 +2297,7 @@ namespace EamonRT.Game
 
 				Globals.CurrState = Globals.CreateInstance<IDropCommand>(x =>
 				{
-					x.ActorMonster = characterMonster;
+					x.ActorMonster = charMonster;
 
 					x.ActorRoom = room;
 
@@ -2326,9 +2326,9 @@ namespace EamonRT.Game
 		{
 			// Look up the player character
 
-			var characterMonster = gMDB[gGameState.Cm];
+			var charMonster = gMDB[gGameState.Cm];
 
-			Debug.Assert(characterMonster != null);
+			Debug.Assert(charMonster != null);
 
 			// grab a random Room - we'll use StartRoom here since it really doesn't matter
 
@@ -2360,7 +2360,7 @@ namespace EamonRT.Game
 
 					Globals.CurrState = Globals.CreateInstance<IWearCommand>(x =>
 					{
-						x.ActorMonster = characterMonster;
+						x.ActorMonster = charMonster;
 
 						x.ActorRoom = room;
 
@@ -2559,6 +2559,54 @@ namespace EamonRT.Game
 		Cleanup:
 
 			return result;
+		}
+
+		public virtual bool SaveThrow(Stat stat, long bonus = 0)
+		{
+			var charMonster = gMDB[gGameState.Cm];
+
+			Debug.Assert(charMonster != null);
+
+			var value = 0L;
+
+			switch (stat)
+			{
+				case Stat.Hardiness:
+
+					// This is the saving throw vs. opening doors, etc
+
+					value = charMonster.Hardiness + bonus;
+
+					break;
+
+				case Stat.Agility:
+
+					// This is the saving throw vs. avoiding traps, etc
+
+					value = charMonster.Agility + bonus;
+
+					break;
+
+				case Stat.Intellect:
+
+					// This is the saving throw vs. searching, etc
+
+					value = gCharacter.GetStats(Stat.Intellect) + bonus;
+
+					break;
+
+				default:
+
+					// This is the saving throw vs. death or magic
+
+					value = (long)Math.Round((double)(charMonster.Agility + gCharacter.GetStats(Stat.Charisma) + charMonster.Hardiness) / 3.0) + bonus;
+
+					break;
+			}
+
+			var rl = RollDice(1, 22, 2);
+
+			return rl <= value;
 		}
 
 		public virtual void CheckPlayerSkillGains(IArtifactCategory ac, long af)

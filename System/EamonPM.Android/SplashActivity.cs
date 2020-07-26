@@ -33,7 +33,7 @@ namespace EamonPM
 				- change the BuildGuid to upgrade the binary .apk file and the .XML textfiles in the filesystem (but not CHARACTERS.XML)
 			*/
 
-			static readonly string BuildGuid = "1401373B-34AB-4096-8F09-4ECCEF9EC018";
+			static readonly string BuildGuid = "C5DD8C1A-011F-41D7-A63E-9E9EA50FE33E";
 
 			static readonly string TAG = "X:" + typeof (SplashActivity).Name;
 

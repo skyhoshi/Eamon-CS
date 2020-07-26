@@ -979,7 +979,7 @@
             <Simple name="Uid" value="89" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="From the foundations of the earth to the upper reaches of the sky - my ascension is at hand." />
+            <Simple name="Desc" value="From the foundations of Eamon to the upper reaches of the sky - my ascension is at hand." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1793,7 +1793,7 @@
             <Simple name="Uid" value="163" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You gladly accept Kreqor's hospitality once again.  The ale flows, and the fire crackles late into the night as you recount your experiences in the cemetery.  Your host is particularly interested in the tale of the final battle with Jaldi'al, as it confirms the suspicions of the Wizard's Council about the lich's existence and its nefarious schemes.  &quot;Hopefully, &quot; says Kreqor, &quot;the capture of his grimoire has put an end to Jaldi'al's plans once and for all.&quot;  As the midnight hour nears, you retire to your quarters." />
+            <Simple name="Desc" value="You gladly accept Kreqor's hospitality once again.  The ale flows, and the fire crackles late into the night as you recount your experiences in the cemetery.  Your host is particularly interested in the tale of the final battle with Jaldi'al, as it confirms the suspicions of the Wizard's Council about the lich's existence and its nefarious schemes.  &quot;Hopefully, &quot; says Kreqor, &quot;the capture of the grimoire has put an end to Jaldi'al's plans once and for all.&quot;  As the midnight hour nears, you retire to your quarters." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

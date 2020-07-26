@@ -7,6 +7,15 @@
         <member name="P:TheVileGrimoireOfJaldial.Framework.Commands.IWaitCommand.Minutes">
             <summary></summary>
         </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IArtifact.Seen02">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IArtifact.IsDecoration">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IArtifact.GetLeverageBonus">
+            <summary></summary>
+        </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.GriffinAngered">
             <summary></summary>
         </member>
@@ -64,6 +73,15 @@
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.MentalBlasts">
             <summary></summary>
         </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.MysticMissiles">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.FireBalls">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.ClumsySpells">
+            <summary></summary>
+        </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.TorchRounds">
             <summary></summary>
         </member>
@@ -85,6 +103,12 @@
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.WeatherType">
             <summary></summary>
         </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.ParalyzedTargets">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.ClumsyTargets">
+            <summary></summary>
+        </member>
         <member name="M:TheVileGrimoireOfJaldial.Framework.IGameState.IsNightTime">
             <summary></summary>
         </member>
@@ -100,10 +124,55 @@
         <member name="M:TheVileGrimoireOfJaldial.Framework.IGameState.IsFoggyHours">
             <summary></summary>
         </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IGameState.GetSecretDoors(System.Int64)">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IGameState.SetSecretDoors(System.Int64,System.Boolean)">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IGameState.SetFoggyRoomWeatherIntensity(TheVileGrimoireOfJaldial.Framework.IRoom)">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IMonster.Seen02">
+            <summary></summary>
+        </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IMonster.AttackDesc">
             <summary></summary>
         </member>
         <member name="M:TheVileGrimoireOfJaldial.Framework.IMonster.SetAttackModality">
+            <summary></summary>
+        </member>
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IRoom.Seen02">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IRoom.IsGroundsRoom">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IRoom.IsCryptRoom">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IRoom.IsFenceRoom">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IRoom.IsSwampRoom">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IRoom.IsBodyChamberRoom">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IRoom.IsRainyRoom">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IRoom.IsFoggyRoom">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IRoom.IsDimLightRoom">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IRoom.IsDimLightRoomWithoutGlowingMonsters">
+            <summary></summary>
+        </member>
+        <member name="M:TheVileGrimoireOfJaldial.Framework.IRoom.GetWeatherIntensity">
             <summary></summary>
         </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.Plugin.IPluginGlobals.EncounterSurprises">

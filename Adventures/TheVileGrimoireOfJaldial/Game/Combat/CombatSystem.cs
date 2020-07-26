@@ -420,11 +420,11 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 					{
 						if (DfMonster.IsCharacterMonster())
 						{
-							gOut.Write("{0}{1}You struggle, but {2} holds you down, drowning you!", Environment.NewLine, OmitBboaPadding ? "" : "  ", room.EvalLightLevel("the offender", OfMonster?.GetTheName()));
+							gOut.Write("{0}{1}You are held down by {2}, and drown immediately!", Environment.NewLine, OmitBboaPadding ? "" : "  ", room.EvalLightLevel("the offender", OfMonster?.GetTheName()));
 						}
 						else
 						{
-							gOut.Write("{0}{1}{2} is enveloped by {3}, and drowns immediately!", Environment.NewLine, OmitBboaPadding ? "" : "  ", room.EvalLightLevel("The defender", DfMonster.GetTheName(true)), room.EvalLightLevel("the offender", OfMonster?.GetTheName()));
+							gOut.Write("{0}{1}{2} is held down by {3}, and drowns immediately!", Environment.NewLine, OmitBboaPadding ? "" : "  ", room.EvalLightLevel("The defender", DfMonster.GetTheName(true)), room.EvalLightLevel("the offender", OfMonster?.GetTheName()));
 						}
 
 						DfMonster.DmgTaken = DfMonster.Hardiness;
@@ -433,11 +433,11 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 					{
 						if (DfMonster.IsCharacterMonster())
 						{
-							gOut.Write("{0}{1}You manage to break free!", Environment.NewLine, OmitBboaPadding ? "" : "  ");
+							gOut.Write("{0}{1}You break free of {2}'s grip!", Environment.NewLine, OmitBboaPadding ? "" : "  ", room.EvalLightLevel("the offender", OfMonster?.GetTheName()));
 						}
 						else
 						{
-							gOut.Write("{0}{1}{2} manages to break free of {3}'s grip!", Environment.NewLine, OmitBboaPadding ? "" : "  ", room.EvalLightLevel("The defender", DfMonster.GetTheName(true)), room.EvalLightLevel("the offender", OfMonster?.GetTheName()));
+							gOut.Write("{0}{1}{2} breaks free of {3}'s grip!", Environment.NewLine, OmitBboaPadding ? "" : "  ", room.EvalLightLevel("The defender", DfMonster.GetTheName(true)), room.EvalLightLevel("the offender", OfMonster?.GetTheName()));
 						}
 
 						CombatState = RTEnums.CombatState.EndAttack;
@@ -468,7 +468,7 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 
 		public override void ExecuteAttack()
 		{
-			var griffinMonster = Globals.MDB[40];
+			var griffinMonster = gMDB[40];
 
 			Debug.Assert(griffinMonster != null);
 

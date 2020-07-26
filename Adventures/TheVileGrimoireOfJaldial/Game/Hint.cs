@@ -26,35 +26,35 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						case 5:
 
-							var woodenBucketArtifact = gADB[6];
+							var woodenBucketArtifact = gADB[6] as Framework.IArtifact;
 
 							Debug.Assert(woodenBucketArtifact != null);
 
-							return woodenBucketArtifact.Seen;
+							return woodenBucketArtifact.Seen02;
 
 						case 6:
 
-							var shovelArtifact = gADB[7];
+							var shovelArtifact = gADB[7] as Framework.IArtifact;
 
 							Debug.Assert(shovelArtifact != null);
 
-							return shovelArtifact.Seen;
+							return shovelArtifact.Seen02;
 
 						case 7:
 
-							var ropeArtifact = gADB[38];
+							var ropeArtifact = gADB[38] as Framework.IArtifact;
 
 							Debug.Assert(ropeArtifact != null);
 
-							return ropeArtifact.Seen;
+							return ropeArtifact.Seen02;
 
 						case 8:
 
-							var bronzeCrossArtifact = gADB[37];
+							var bronzeCrossArtifact = gADB[37] as Framework.IArtifact;
 
 							Debug.Assert(bronzeCrossArtifact != null);
 
-							return bronzeCrossArtifact.Seen;
+							return bronzeCrossArtifact.Seen02;
 
 						case 9:
 
@@ -72,19 +72,19 @@ namespace TheVileGrimoireOfJaldial.Game
 
 						case 11:
 
-							var waterWeirdMonster = gMDB[38];
+							var waterWeirdMonster = gMDB[38] as Framework.IMonster;
 
 							Debug.Assert(waterWeirdMonster != null);
 
-							return waterWeirdMonster.Seen;
+							return waterWeirdMonster.Seen02;
 
 						case 12:
 
-							var jaldialRemainsArtifact = gADB[57];
+							var jaldialRemainsArtifact = gADB[57] as Framework.IArtifact;
 
 							Debug.Assert(jaldialRemainsArtifact != null);
 
-							return jaldialRemainsArtifact.Seen;
+							return jaldialRemainsArtifact.Seen02;
 
 						case 13:
 
@@ -100,11 +100,11 @@ namespace TheVileGrimoireOfJaldial.Game
 
 						case 15:
 
-							var tombstoneArtifact = gADB[10];
+							var tombstoneArtifact = gADB[10] as Framework.IArtifact;
 
 							Debug.Assert(tombstoneArtifact != null);
 
-							return tombstoneArtifact.Seen;
+							return tombstoneArtifact.Seen02;
 
 						case 16:
 
@@ -112,11 +112,11 @@ namespace TheVileGrimoireOfJaldial.Game
 
 							Debug.Assert(room != null);
 
-							var jaldialMonster = gMDB[43];
+							var jaldialMonster = gMDB[43] as Framework.IMonster;
 
 							Debug.Assert(jaldialMonster != null);
 
-							return room.Seen && jaldialMonster.Seen;
+							return room.Seen02 && jaldialMonster.Seen02;
 
 						default:
 

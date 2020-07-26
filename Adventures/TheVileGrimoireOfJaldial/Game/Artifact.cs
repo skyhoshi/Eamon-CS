@@ -14,6 +14,8 @@ namespace TheVileGrimoireOfJaldial.Game
 	[ClassMappings(typeof(IArtifact))]
 	public class Artifact : Eamon.Game.Artifact, Framework.IArtifact
 	{
+		public virtual bool DimLightSeen { get; set; }
+
 		public override string Desc
 		{
 			get
@@ -36,13 +38,52 @@ namespace TheVileGrimoireOfJaldial.Game
 			}
 		}
 
+		public override bool Seen
+		{
+			get
+			{
+				var result = base.Seen;
+
+				var room = GetInRoom(true) as Framework.IRoom;
+
+				if (Globals.EnableGameOverrides && gGameState != null && room != null && room.Uid == gGameState.Ro && room.IsDimLightRoomWithoutGlowingMonsters() && gGameState.Ls <= 0 && !IsCharOwned && !IsDecoration())
+				{
+					result = DimLightSeen;
+				}
+
+				return result;
+			}
+
+			set
+			{
+				var room = GetInRoom(true) as Framework.IRoom;
+
+				if (Globals.EnableGameOverrides && gGameState != null && room != null && room.Uid == gGameState.Ro && room.IsDimLightRoomWithoutGlowingMonsters() && gGameState.Ls <= 0 && !IsCharOwned && !IsDecoration())
+				{
+					DimLightSeen = value;
+				}
+				else
+				{
+					base.Seen = value;
+				}
+			}
+		}
+
+		public virtual bool Seen02
+		{
+			get
+			{
+				return DimLightSeen || base.Seen;
+			}
+		}
+
 		public override RetCode BuildPrintedFullDesc(StringBuilder buf, bool showName)
 		{
 			var result = base.BuildPrintedFullDesc(buf, showName);
 
 			// Reset solitary tombstone's Desc value after initial viewing
 
-			if (Uid == 10 && !Seen)
+			if (Uid == 10 && buf != null && buf.ToString().Contains("You glimpse a solitary tombstone"))
 			{
 				Desc = "This tombstone is very old, possibly several hundred years.  Why is it all by itself, you pause to wonder?";
 			}

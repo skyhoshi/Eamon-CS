@@ -19,6 +19,8 @@ namespace TheVileGrimoireOfJaldial.Game
 	[ClassMappings(typeof(IRoom))]
 	public class Room : Eamon.Game.Room, Framework.IRoom
 	{
+		public virtual bool DimLightSeen { get; set; }
+
 		public override string Desc
 		{
 			get
@@ -36,6 +38,33 @@ namespace TheVileGrimoireOfJaldial.Game
 			set
 			{
 				base.Desc = value;
+			}
+		}
+
+		public override bool Seen
+		{
+			get
+			{
+				var result = base.Seen;
+
+				if (Globals.EnableGameOverrides && IsDimLightRoom())
+				{
+					result = DimLightSeen;
+				}
+
+				return result;
+			}
+
+			set
+			{
+				if (Globals.EnableGameOverrides && IsDimLightRoom())
+				{
+					DimLightSeen = value;
+				}
+				else
+				{
+					base.Seen = value;
+				}
 			}
 		}
 
@@ -69,6 +98,14 @@ namespace TheVileGrimoireOfJaldial.Game
 			set
 			{
 				base.LightLvl = value;
+			}
+		}
+
+		public virtual bool Seen02
+		{
+			get
+			{
+				return DimLightSeen || base.Seen;
 			}
 		}
 

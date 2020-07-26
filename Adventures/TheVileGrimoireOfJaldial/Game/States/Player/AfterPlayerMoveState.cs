@@ -65,35 +65,6 @@ namespace TheVileGrimoireOfJaldial.Game.States
 				gGameState.SetFoggyRoomWeatherIntensity(room01);
 
 				var room01IsDimLightRoom = room01.IsDimLightRoom();
-
-				// Clear Seen flags when transitioning between room types and dim light levels
-
-				var roomTransition = (room03.IsGroundsRoom() && room01.IsCryptRoom()) || (room03.IsCryptRoom() && room01.IsGroundsRoom());
-
-				var dimLightTransition = (room03IsDimLightRoom && !room01IsDimLightRoom) || (!room03IsDimLightRoom && room01IsDimLightRoom);
-
-				if (roomTransition && dimLightTransition)       // TODO: verify teleportation works
-				{
-					var monsterList = gEngine.GetMonsterList(m => m.IsInRoom(room01));
-
-					foreach (var m in monsterList)
-					{
-						var artifactList = m.GetContainedList(recurse: true);
-
-						foreach (var a in artifactList)
-						{
-							if (!a.IsCharOwned)
-							{
-								a.Seen = false;
-							}
-						}
-
-						if (!m.IsCharacterMonster())
-						{
-							m.Seen = false; 
-						}
-					}
-				}
 			}
 
 			base.ProcessEvents(eventType);

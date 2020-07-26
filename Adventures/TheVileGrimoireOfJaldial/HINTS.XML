@@ -54,16 +54,16 @@
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
             <Simple name="Question" value="General information about the game." />
-            <Simple name="NumAnswers" value="6" />
+            <Simple name="NumAnswers" value="7" />
             <SingleArray name="Answers">
               <Items>
-                <Simple value="1. There are a couple of new SETTINGS that are worth noting.  ShowCombatDamage controls whether the damage hit points inflicted during combat is displayed or omitted.  ExitDirNames controls whether exit directions are fully named or abbreviated." />
-                <Simple value="2. The game uses Saving Throws to determine various action outcomes.  The character stat(s) utilized depends on the situation.  Anytime you attempt something that fails, the failure may be temporary; never hesitate to try again." />
-                <Simple value="3. Special embedded artifacts called decorations can be found in many rooms of the game.  You can examine nearly everything explicitly mentioned in the room descriptions, and often things that aren't." />
-                <Simple value="4. Monsters have a variety of attack modalities.  Some get multiple strikes, often against different targets; attack type lethality can vary.  You will also find that some creatures have special attacks or defenses." />
-                <Simple value="5. There are many game mechanics at work at all times.  You will see day/night cycles, weather patterns, and random encounters and events.  The first three profoundly impact gameplay in ways both overt and subtle; the last is for flavor." />
-                <Simple value="6. You can SEARCH rooms or artifacts to discover any hidden secrets they may hold, including concealed doors or treasures." />
-                <Simple value="" />
+                <Simple value="1. There are a number of new SETTINGS that are worth noting.  ShowCombatDamage controls whether the damage hit points inflicted during combat is displayed or omitted.  ExitDirNames controls whether exit directions are fully named or abbreviated." />
+                <Simple value="2. The frequency of weather pattern starters, random monster encounters, and flavor effects can be controlled by the WeatherScalePct, EncounterScalePct, and FlavorScalePct SETTINGS, respectively.  These range from 0 (disabled) to 100 (game default)." />
+                <Simple value="3. The game uses Saving Throws to determine various action outcomes.  The character stat(s) utilized depends on the situation.  Anytime you attempt something that fails, the failure may be temporary; never hesitate to try again." />
+                <Simple value="4. Special embedded artifacts called decorations can be found in many rooms of the game.  You can examine nearly everything explicitly mentioned in the room descriptions, and often things that aren't." />
+                <Simple value="5. Monsters have a variety of attack modalities.  Some get multiple strikes, often against different targets; attack type lethality can vary.  You will also find that some creatures have special attacks or defenses." />
+                <Simple value="6. There are many game mechanics at work at all times.  You will see day/night cycles, weather patterns, and random encounters and events.  The first three profoundly impact gameplay in ways both overt and subtle; the last is for flavor." />
+                <Simple value="7. You can SEARCH rooms or artifacts to discover any hidden secrets they may hold, including concealed doors or treasures." />
                 <Simple value="" />
               </Items>
             </SingleArray>
@@ -200,7 +200,7 @@
             <Simple name="Uid" value="10" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="False" />
-            <Simple name="Question" value="Where are all the secret doors?" />
+            <Simple name="Question" value="Where are all the secret doors in the game?" />
             <Simple name="NumAnswers" value="5" />
             <SingleArray name="Answers">
               <Items>
@@ -226,8 +226,8 @@
             <SingleArray name="Answers">
               <Items>
                 <Simple value="1. The water weird is a particularly tough adversary, and there are only two ways to kill it." />
-                <Simple value="2. If your party does exceptional damage in a single combat round using powerful weapons, the water weird might die before it regenerates." />
-                <Simple value="3. Using the ancient parchment can significantly improve your damage potential." />
+                <Simple value="2. If your party does exceptional damage in a single combat round using powerful (blunt) weapons, the water weird might die before it regenerates." />
+                <Simple value="3. Using the ancient parchment can significantly improve your damage potential, despite the efreeti's aversion to water." />
                 <Simple value="4. Also, a poem written on the wall of a crypt passageway contains a magic phrase that can instantly kill the creature." />
                 <Simple value="5. You may have to READ the glyphs in the frescoed passageway of the southern-most crypt several times to get the clues you need." />
                 <Simple value="6. The magic words are:  &quot;Avarchrom Yarei Uttoximo.&quot;" />
@@ -290,7 +290,7 @@
               <Items>
                 <Simple value="1. The weather patterns of rain and fog add a new dimension to this Eamon by way of flavor effects and changes to game mechanics." />
                 <Simple value="2. Exposure to the elements can damage your torch, reducing its lifespan; the weather's type and intensity are important." />
-                <Simple value="3. The efreeti, a fire elemental, will abandon you in heavy rainfall." />
+                <Simple value="3. The efreeti, a dweller of the elemental plane of fire, will abandon you in heavy rainfall." />
                 <Simple value="4. Dense fog can obscure your vision, just like the dark of night, and to similar effect." />
                 <Simple value="5. Weather patterns can affect various flavor effects; some will occur only when it's raining or foggy, occasionally further influenced by the day/night cycle." />
                 <Simple value="6. Travel through the swamp in heavy fog with no light source is very hazardous." />

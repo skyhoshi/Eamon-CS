@@ -1726,7 +1726,7 @@
             <Simple name="Uid" value="52" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="dead beholder" />
-            <Simple name="Desc" value="The beholder lies on the floor here, its immense &quot;head&quot; split open from your attacks." />
+            <Simple name="Desc" value="The beholder lies on the ground here; its immense &quot;head&quot; is split open from repeated attacks." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />

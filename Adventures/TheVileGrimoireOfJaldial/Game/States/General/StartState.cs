@@ -26,11 +26,11 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 				if (gGameState.BloodnettleVictimUid != 0)
 				{
-					var bloodnettleMonster = Globals.MDB[20];
+					var bloodnettleMonster = gMDB[20];
 
 					Debug.Assert(bloodnettleMonster != null);
 
-					var victimMonster = Globals.MDB[gGameState.BloodnettleVictimUid];
+					var victimMonster = gMDB[gGameState.BloodnettleVictimUid];
 
 					Debug.Assert(victimMonster != null);
 

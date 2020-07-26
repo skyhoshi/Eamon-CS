@@ -68,10 +68,13 @@ namespace TheVileGrimoireOfJaldial.Framework
 		/// <summary></summary>
 		long MentalBlasts { get; set; }
 
+		/// <summary></summary>
 		long MysticMissiles { get; set; }
 
+		/// <summary></summary>
 		long FireBalls { get; set; }
 
+		/// <summary></summary>
 		long ClumsySpells { get; set; }
 
 		/// <summary></summary>
@@ -95,8 +98,10 @@ namespace TheVileGrimoireOfJaldial.Framework
 		/// <summary></summary>
 		WeatherType WeatherType { get; set; }
 
+		/// <summary></summary>
 		IDictionary<long, long> ParalyzedTargets { get; set; }
 
+		/// <summary></summary>
 		IDictionary<long, IList<long>> ClumsyTargets { get; set; }
 
 		/// <summary></summary>
@@ -114,10 +119,13 @@ namespace TheVileGrimoireOfJaldial.Framework
 		/// <summary></summary>
 		bool IsFoggyHours();
 
+		/// <summary></summary>
 		bool GetSecretDoors(long index);
 
+		/// <summary></summary>
 		void SetSecretDoors(long index, bool value);
 
+		/// <summary></summary>
 		void SetFoggyRoomWeatherIntensity(IRoom room);
 	}
 }

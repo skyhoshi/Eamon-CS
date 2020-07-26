@@ -1564,7 +1564,7 @@
             <Simple name="Uid" value="46" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Reginald" />
-            <Simple name="Desc" value="A companion of yours, a fellow calling himself Reginald, waits here.  He is clad in superior dark leather gear, and carries a mace." />
+            <Simple name="Desc" value="A companion of yours, a fellow calling himself Reginald, waits here.  He is clad in superior dark leather gear, and carries @@004." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1598,7 +1598,7 @@
             <Simple name="Uid" value="47" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Dubro" />
-            <Simple name="Desc" value="Another companion, Dubro, also waits here impatiently.  He is tall and muscular, wears a flowing cloak, and splint mail.  He's armed with a maul." />
+            <Simple name="Desc" value="Another companion, Dubro, also waits here impatiently.  He is tall and muscular, wears a flowing cloak, and splint mail.  He's armed with @@005." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1632,7 +1632,7 @@
             <Simple name="Uid" value="48" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Joque" />
-            <Simple name="Desc" value="You see Joque, a short stocky fellow with a long beard.  He's dressed entirely in plate mail, and carries a long claymore." />
+            <Simple name="Desc" value="You see Joque, a short stocky fellow with a long beard.  He's dressed entirely in plate mail, and carries @@006." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1666,7 +1666,7 @@
             <Simple name="Uid" value="49" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Trevor" />
-            <Simple name="Desc" value="A final companion, the sly Trevor, leans heavily upon his wits for survival.  He's armed with a dirk." />
+            <Simple name="Desc" value="A final companion, the sly Trevor, leans heavily upon his wits for survival.  He's armed with @@007." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

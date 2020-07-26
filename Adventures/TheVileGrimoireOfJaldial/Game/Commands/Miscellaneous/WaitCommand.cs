@@ -36,6 +36,8 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			IsNew = true;
 
+			IsDarkEnabled = true;
+
 			IsMonsterEnabled = false;
 
 			Name = "WaitCommand";

@@ -9,8 +9,13 @@ namespace TheVileGrimoireOfJaldial.Framework
 {
 	public interface IArtifact : Eamon.Framework.IArtifact
 	{
+		/// <summary></summary>
+		bool Seen02 { get; }
+
+		/// <summary></summary>
 		bool IsDecoration();
 
+		/// <summary></summary>
 		long GetLeverageBonus();
 	}
 }

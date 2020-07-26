@@ -174,7 +174,7 @@
             <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Graveyard, Southwest Corner" />
-            <Simple name="Desc" value="The fence stops its southward movement, heading off to the east here.  The wind from the south sweeps a woodsy aroma through the area, and the babble of water flowing over stones can be heard closeby to the east." />
+            <Simple name="Desc" value="The fence stops its southward movement, heading off to the east here.  The wind from the south sweeps a woodsy aroma through the area, and the babble of water flowing over stones can be heard close by to the east." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -2659,16 +2659,16 @@
                 <Simple value="91" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="93" />
                 <Simple value="0" />
-                <Simple value="0" />
-                <Simple value="0" />
+                <Simple value="95" />
                 <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="92" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Small Cubical Room" />
-            <Simple name="Desc" value="You have entered a small cubical room, recently carved out of packed earth.  Exits lie east and westward.  The air is stiflingly hot and dank-smelling, and a thin layer of dust coats the floor." />
+            <Simple name="Desc" value="You have entered a small cubical room, recently carved out of packed earth.  Exits lie east, west, northeast, and southeast.  The air is stiflingly hot and dank-smelling, and a thin layer of dust coats the floor." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -3190,7 +3190,7 @@
             <Simple name="Uid" value="110" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Large Circular Room" />
-            <Simple name="Desc" value="This is a large circular room, with a staircase winding upward.  Identical passages exit in all directions, save the northeast.  Through these, all manner of natural sounds can faintly be heard.  A strange message sits on the wall." />
+            <Simple name="Desc" value="This is a large circular room, with a staircase winding upward.  Identical passages exit in all directions, save the northeast.  Through these, all manner of natural sounds can faintly be heard.  A strange message is written on the wall." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

@@ -83,7 +83,7 @@ namespace TheVileGrimoireOfJaldial.Game
 
 				gEngine.PrintEffectDesc(166);
 
-				gOut.Print("\"Charlatan and swindler!  Do you take me for a doddering fool?\" he splutters.  \"A dilettante inscribed this shoddy imitation; I've seen finer wizardry from a cobbler's apprentice!\"  You note with alarm that his physical frame seems to grow larger in a menacing way.  \"Count yourself lucky the Wizard's Council has a standing rule against transmogrification!  But clearly, you are an imbecile, and we have no use for your services.  Good day!\"  With that, in disgust, he {0}ejects you from his residence.", carryingParchment ? "snatches the ancient parchment from your grip and then " : "");
+				gOut.Print("\"Charlatan and swindler!  Do you take me for a doddering fool?\" he splutters.  \"This manual is but a shoddy imitation; I've seen finer magic from a cobbler's apprentice!\"  You note with alarm that his physical frame seems to grow larger in a menacing way.  \"Count yourself lucky the Wizard's Council has a standing rule against transmogrification!  But clearly, you are an amateur, and we have no use for your services.  Good day!\"  In disgust, he {0}ejects you from his residence.", carryingParchment ? "snatches the ancient parchment from your grip and then " : "");
 
 				gOut.Print("You have no encounters of note on the way home.");
 

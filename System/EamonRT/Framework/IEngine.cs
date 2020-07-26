@@ -339,6 +339,12 @@ namespace EamonRT.Framework
 		bool CheckPlayerSpellCast(Spell spellValue, bool shouldAllowSkillGains);
 
 		/// <summary></summary>
+		/// <param name="stat"></param>
+		/// <param name="bonus"></param>
+		/// <returns></returns>
+		bool SaveThrow(Stat stat, long bonus = 0);
+
+		/// <summary></summary>
 		/// <param name="ac"></param>
 		/// <param name="af"></param>
 		void CheckPlayerSkillGains(IArtifactCategory ac, long af);

@@ -55,8 +55,6 @@ namespace TheVileGrimoireOfJaldial.Game.States
 						}
 					}
 
-					var dayTimeBefore = gGameState.IsDayTime();
-
 					// Day/night cycle logic
 
 					gGameState.Minute += 5;
@@ -118,30 +116,6 @@ namespace TheVileGrimoireOfJaldial.Game.States
 						else if (gGameState.Hour == 0 && gGameState.Minute == 0)
 						{
 							gEngine.PrintEffectDesc(room.GetWeatherIntensity() > 1 ? 122 : 123);
-						}
-					}
-
-					var dayTimeAfter = gGameState.IsDayTime();
-
-					// Clear Seen flags when transitioning between day and night
-
-					if ((dayTimeBefore && !dayTimeAfter) || (!dayTimeBefore && dayTimeAfter))
-					{
-						var groundsRooms = gRDB.Records.Cast<Framework.IRoom>().Where(r => r.IsGroundsRoom()).ToList();
-
-						foreach (var gr in groundsRooms)
-						{
-							var records = gr.GetContainedList(recurse: true);
-
-							foreach (var r in records)
-							{
-								if ((r is IMonster m && !m.IsCharacterMonster()) || (r is Framework.IArtifact a && !a.IsCharOwned && !a.IsDecoration()))
-								{
-									r.Seen = false;
-								}
-							}
-
-							gr.Seen = false;
 						}
 					}
 

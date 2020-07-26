@@ -8,16 +8,25 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Framework;
-using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
 
 namespace TheVileGrimoireOfJaldial.Game
 {
 	[ClassMappings(typeof(IEngine))]
-	public class Engine : EamonRT.Game.Engine, Framework.IEngine
+	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
 	{
+		protected virtual string GetMonsterWeaponName(IMonster monster)
+		{
+			Debug.Assert(monster != null);
+
+			var weaponArtifact = monster.Weapon > 0 ? gADB[monster.Weapon] : null;
+
+			return weaponArtifact != null ? weaponArtifact.GetArticleName() : "no weapon";
+		}
+
 		public override void PrintMonsterAlive(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
@@ -149,6 +158,34 @@ namespace TheVileGrimoireOfJaldial.Game
 		{
 			base.InitMonsters();
 
+			MacroFuncs.Add(4, () =>
+			{
+				var reginaldMonster = gMDB[46];
+
+				return GetMonsterWeaponName(reginaldMonster);
+			});
+
+			MacroFuncs.Add(5, () =>
+			{
+				var dubroMonster = gMDB[47];
+
+				return GetMonsterWeaponName(dubroMonster);
+			});
+
+			MacroFuncs.Add(6, () =>
+			{
+				var joqueMonster = gMDB[48];
+
+				return GetMonsterWeaponName(joqueMonster);
+			});
+
+			MacroFuncs.Add(7, () =>
+			{
+				var trevorMonster = gMDB[49];
+
+				return GetMonsterWeaponName(trevorMonster);
+			});
+
 			var synonyms = new Dictionary<long, string[]>()
 			{
 				{ 1, new string[] { "rat" } },
@@ -202,77 +239,84 @@ namespace TheVileGrimoireOfJaldial.Game
 
 			if (monster.Uid == 1)
 			{
-				Globals.Out.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? "squeals" : rl > 50 ? "squeaks" : "hisses");
+				gOut.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? "squeals" : rl > 50 ? "squeaks" : "hisses");
 			}
 
 			// Skeleton/Gargoyle
 
 			else if ((monster.Uid == 3 || monster.Uid == 8) && rl > 50)
 			{
-				Globals.Out.Write("{0}{1} hisses at you.", Environment.NewLine, monster.GetTheName(true));
+				gOut.Write("{0}{1} hisses at you.", Environment.NewLine, monster.GetTheName(true));
 			}
 
 			// Zombie
 
 			else if (monster.Uid == 4 && rl > 50)
 			{
-				Globals.Out.Write("{0}{1} snarls at you.", Environment.NewLine, monster.GetTheName(true));
+				gOut.Write("{0}{1} snarls at you.", Environment.NewLine, monster.GetTheName(true));
 			}
 
 			// Ghoul/Ghast
 
 			else if (monster.Uid == 6 || monster.Uid == 7)
 			{
-				Globals.Out.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? "hisses" : rl > 50 ? "snarls" : "growls");
+				gOut.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? "hisses" : rl > 50 ? "snarls" : "growls");
 			}
 
 			// Shadow/Specter/Wraith/Dark Hood/Animated suit of armor
 
 			else if (monster.Uid == 9 || monster.Uid == 14 || monster.Uid == 16 || monster.Uid == 21 || monster.Uid == 23)
 			{
-				Globals.Out.Write("{0}{1} gestures at you.", Environment.NewLine, monster.GetTheName(true));
+				gOut.Write("{0}{1} gestures at you.", Environment.NewLine, monster.GetTheName(true));
 			}
 
 			// Will-o'-the-wisp
 
 			else if (monster.Uid == 10)
 			{
-				Globals.Out.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 50 ? "brightly flashes" : "hums");
+				gOut.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 50 ? "brightly flashes" : "hums");
 			}
 
 			// Pocket dragon/Giant crayfish/Giant scorpion
 
 			else if ((monster.Uid == 24 && monster.Friendliness != Friendliness.Neutral) || monster.Uid == 37 || monster.Uid == 39)
 			{
-				Globals.Out.Write("{0}{1} hisses at you.", Environment.NewLine, monster.GetTheName(true));
+				gOut.Write("{0}{1} hisses at you.", Environment.NewLine, monster.GetTheName(true));
+			}
+
+			// Beholder
+
+			else if (monster.Uid == 36 && monster.Friendliness == Friendliness.Friend)
+			{
+				gOut.Write("{0}{1} smiles back.", Environment.NewLine, monster.GetTheName(true));
 			}
 
 			// Griffin/Small griffin
 
 			else if (monster.Uid == 40 || (monster.Uid == 41 && monster.Friendliness != Friendliness.Neutral))
 			{
-				Globals.Out.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? monster.EvalPlural("screeches", "screech") : rl > 50 ? monster.EvalPlural("squawks", "squawk") : monster.EvalPlural("hisses", "hiss"));
+				gOut.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? monster.EvalPlural("screeches", "screech") : rl > 50 ? monster.EvalPlural("squawks", "squawk") : monster.EvalPlural("hisses", "hiss"));
 			}
 
 			// Jaldi'al the lich
 
 			else if (monster.Uid == 43)
 			{
-				Globals.Out.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? "hollowly chuckles" : rl > 50 ? "gestures" : "glares");
+				gOut.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? "hollowly chuckles" : rl > 50 ? "gestures" : "glares");
 			}
 
 			// Jungle bekkah
 
 			else if (monster.Uid == 44)
 			{
-				Globals.Out.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? monster.EvalPlural("roars", "roar") : rl > 50 ? monster.EvalPlural("snarls", "snarl") : monster.EvalPlural("hisses", "hiss"));
+				gOut.Write("{0}{1} {2} at you.", Environment.NewLine, monster.GetTheName(true), rl > 80 ? monster.EvalPlural("roars", "roar") : rl > 50 ? monster.EvalPlural("snarls", "snarl") : monster.EvalPlural("hisses", "hiss"));
 			}
 
 			// Non-emoting monsters
 
 			else if (Constants.NonEmotingMonsterUids.Contains(monster.Uid))
 			{
-				Globals.Out.Write("{0}{1} {2} not responsive.", Environment.NewLine, monster.GetTheName(true), monster.EvalPlural("is", "are"));
+				gOut.Write("{0}{1} {2} not responsive.", Environment.NewLine, monster.GetTheName(true), monster.EvalPlural("is", "are"));
 			}
 			else
 			{
@@ -384,55 +428,7 @@ namespace TheVileGrimoireOfJaldial.Game
 
 		public override void MoveMonsters(params Func<IMonster, bool>[] whereClauseFuncs)
 		{
-			base.MoveMonsters(m => !m.IsCharacterMonster() && (m.Seen || m.Friendliness == Friendliness.Friend) && m.Location == gGameState.R3);
-		}
-
-		public virtual bool SaveThrow(Stat stat, long bonus = 0)
-		{
-			var characterMonster = gMDB[gGameState.Cm];
-
-			Debug.Assert(characterMonster != null);
-
-			var value = 0L;
-
-			switch (stat)
-			{
-				case Stat.Hardiness:
-
-					// This is the saving throw vs. opening doors, etc
-
-					value = characterMonster.Hardiness + bonus;
-
-					break;
-
-				case Stat.Agility:
-
-					// This is the saving throw vs. avoiding traps, etc
-
-					value = characterMonster.Agility + bonus;
-
-					break;
-
-				case Stat.Intellect:
-
-					// This is the saving throw vs. searching, etc
-
-					value = gCharacter.GetStats(Stat.Intellect) + bonus;
-
-					break;
-
-				default:
-
-					// This is the saving throw vs. death or magic
-
-					value = (long)Math.Round((double)(characterMonster.Agility + gCharacter.GetStats(Stat.Charisma) + characterMonster.Hardiness) / 3.0) + bonus;
-
-					break;
-			}
-
-			var rl = RollDice(1, 22, 2);
-
-			return rl <= value;
+			base.MoveMonsters(m => !m.IsCharacterMonster() && (m.Cast<Framework.IMonster>().Seen02 || m.Friendliness == Friendliness.Friend) && m.Location == gGameState.R3);
 		}
 
 		public Engine()

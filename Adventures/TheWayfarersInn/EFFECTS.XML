@@ -55,7 +55,7 @@
             <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="gorge some 60 feet below.  The dark forest encroaches at your back and also across the river.  You get the strangest sense that you've seen this place before, but for your life, you **006" />
+            <Simple name="Desc" value="gorge some 60 feet below.  The dark forest encroaches at your back and also across the river." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -66,7 +66,18 @@
             <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="can't quite figure out where." />
+            <Simple name="Desc" value="UNUSED" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="TheWayfarersInn.Game.Effect, TheWayfarersInn, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="99" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="(Note:  to play this game the MatureContent setting must be true.)" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

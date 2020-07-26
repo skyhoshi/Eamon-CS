@@ -1047,6 +1047,12 @@
             <param name="shouldAllowSkillGains"></param>
             <returns></returns>
         </member>
+        <member name="M:EamonRT.Framework.IEngine.SaveThrow(Eamon.Framework.Primitive.Enums.Stat,System.Int64)">
+            <summary></summary>
+            <param name="stat"></param>
+            <param name="bonus"></param>
+            <returns></returns>
+        </member>
         <member name="M:EamonRT.Framework.IEngine.CheckPlayerSkillGains(Eamon.Framework.Primitive.Classes.IArtifactCategory,System.Int64)">
             <summary></summary>
             <param name="ac"></param>
@@ -1718,6 +1724,15 @@
         <member name="P:EamonRT.Framework.States.IAfterPrintPlayerRoomEventState.ExitEventLoop">
             <summary></summary>
         </member>
+        <member name="M:EamonRT.Framework.States.IAfterPrintPlayerRoomEventState.FireEvent(System.String,System.Object)">
+            <summary></summary>
+            <param name="eventName"></param>
+            <param name="eventParam"></param>
+        </member>
+        <member name="M:EamonRT.Framework.States.IAfterPrintPlayerRoomEventState.FireEvent02(Eamon.Game.Utilities.EventData)">
+            <summary></summary>
+            <param name="eventData"></param>
+        </member>
         <member name="T:EamonRT.Framework.States.IBeforePlayerMoveState">
             <summary></summary>
         </member>
@@ -1732,6 +1747,15 @@
         </member>
         <member name="P:EamonRT.Framework.States.IBeforePrintPlayerRoomEventState.ExitEventLoop">
             <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.States.IBeforePrintPlayerRoomEventState.FireEvent(System.String,System.Object)">
+            <summary></summary>
+            <param name="eventName"></param>
+            <param name="eventParam"></param>
+        </member>
+        <member name="M:EamonRT.Framework.States.IBeforePrintPlayerRoomEventState.FireEvent02(Eamon.Game.Utilities.EventData)">
+            <summary></summary>
+            <param name="eventData"></param>
         </member>
         <member name="T:EamonRT.Framework.States.IGetPlayerInputState">
             <summary></summary>
