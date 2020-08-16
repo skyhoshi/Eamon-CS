@@ -1,7 +1,7 @@
 ﻿
 // CombatSystem.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -23,91 +23,13 @@ namespace EamonRT.Game.Combat
 	public class CombatSystem : ICombatSystem
 	{
 		/// <summary></summary>
-		protected long _odds = 0;
+		public long _odds = 0;
 
 		/// <summary></summary>
-		protected long _rl = 0;
+		public long _rl = 0;
 
 		/// <summary></summary>
-		protected long _d2 = 0;
-
-		/// <summary></summary>
-		protected virtual CombatState CombatState { get; set; }
-
-		/// <summary></summary>
-		protected virtual IArtifactCategory OfAc { get; set; }
-
-		/// <summary></summary>
-		protected virtual IArtifactCategory DfAc { get; set; }
-
-		/// <summary></summary>
-		protected virtual IArtifactCategory ArAc { get; set; }
-
-		/// <summary></summary>
-		protected virtual IArtifact WpnArtifact { get; set; }
-
-		/// <summary></summary>
-		protected virtual IArtifact OfWeapon { get; set; }
-
-		/// <summary></summary>
-		protected virtual IArtifact DfWeapon { get; set; }
-
-		/// <summary></summary>
-		protected virtual IArtifact DfArmor { get; set; }
-
-		/// <summary></summary>
-		protected virtual Weapon OfWeaponType { get; set; }
-
-		/// <summary></summary>
-		protected virtual Weapon DfWeaponType { get; set; }
-
-		/// <summary></summary>
-		protected virtual string OfMonsterName { get; set; }
-
-		/// <summary></summary>
-		protected virtual string DfMonsterName { get; set; }
-
-		/// <summary></summary>
-		protected virtual string AttackDesc { get; set; }
-
-		/// <summary></summary>
-		protected virtual string AttackDesc01 { get; set; }
-
-		/// <summary></summary>
-		protected virtual string MissDesc { get; set; }
-
-		/// <summary></summary>
-		protected virtual bool UseFractionalStrength { get; set; }
-
-		/// <summary></summary>
-		protected virtual bool OmitBboaPadding { get; set; }
-
-		/// <summary></summary>
-		protected virtual bool LightOut { get; set; }
-
-		/// <summary></summary>
-		protected virtual long OfWeaponUid { get; set; }
-
-		/// <summary></summary>
-		protected virtual long DfWeaponUid { get; set; }
-
-		/// <summary></summary>
-		protected virtual long D { get; set; }
-
-		/// <summary></summary>
-		protected virtual long S { get; set; }
-
-		/// <summary></summary>
-		protected virtual long M { get; set; }
-
-		/// <summary></summary>
-		protected virtual long A { get; set; }
-
-		/// <summary></summary>
-		protected virtual long Af { get; set; }
-
-		/// <summary></summary>
-		protected virtual double S2 { get; set; }
+		public long _d2 = 0;
 
 		public virtual Action<IState> SetNextStateFunc { get; set; }
 
@@ -138,7 +60,136 @@ namespace EamonRT.Game.Combat
 		public virtual WeaponRevealType WeaponRevealType { get; set; }
 
 		/// <summary></summary>
-		protected virtual void SetAttackDesc()
+		public virtual CombatState CombatState { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory OfAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory DfAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory ArAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact WpnArtifact { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact OfWeapon { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact DfWeapon { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact DfArmor { get; set; }
+
+		/// <summary></summary>
+		public virtual Weapon OfWeaponType { get; set; }
+
+		/// <summary></summary>
+		public virtual Weapon DfWeaponType { get; set; }
+
+		/// <summary></summary>
+		public virtual string OfMonsterName { get; set; }
+
+		/// <summary></summary>
+		public virtual string DfMonsterName { get; set; }
+
+		/// <summary></summary>
+		public virtual string AttackDesc { get; set; }
+
+		/// <summary></summary>
+		public virtual string AttackDesc01 { get; set; }
+
+		/// <summary></summary>
+		public virtual string MissDesc { get; set; }
+
+		/// <summary></summary>
+		public virtual bool UseFractionalStrength { get; set; }
+
+		/// <summary></summary>
+		public virtual bool OmitBboaPadding { get; set; }
+
+		/// <summary></summary>
+		public virtual bool LightOut { get; set; }
+
+		/// <summary></summary>
+		public virtual long OfWeaponUid { get; set; }
+
+		/// <summary></summary>
+		public virtual long DfWeaponUid { get; set; }
+
+		/// <summary></summary>
+		public virtual long D { get; set; }
+
+		/// <summary></summary>
+		public virtual long S { get; set; }
+
+		/// <summary></summary>
+		public virtual long M { get; set; }
+
+		/// <summary></summary>
+		public virtual long A { get; set; }
+
+		/// <summary></summary>
+		public virtual long Af { get; set; }
+
+		/// <summary></summary>
+		public virtual double S2 { get; set; }
+
+		public virtual void ExecuteCalculateDamage(long numDice, long numSides, long mod = 0)
+		{
+			CombatState = CombatState.CalculateDamage;
+
+			D = numDice;
+
+			S = numSides;
+
+			M = mod;
+
+			A = BlastSpell || OmitArmor ? 0 : 1;
+
+			OmitBboaPadding = true;
+
+			ExecuteStateMachine();
+		}
+
+		public virtual void ExecuteCheckMonsterStatus()
+		{
+			CombatState = CombatState.CheckMonsterStatus;
+
+			_d2 = 0;
+
+			ExecuteStateMachine();
+		}
+
+		public virtual void ExecuteAttack()
+		{
+			if (BlastSpell)
+			{
+				PrintBlast();
+
+				if (Globals.IsRulesetVersion(5, 15))
+				{
+					ExecuteCalculateDamage(1, 6);
+				}
+				else
+				{
+					ExecuteCalculateDamage(2, 5);
+				}
+			}
+			else
+			{
+				CombatState = CombatState.BeginAttack;
+
+				ExecuteStateMachine();
+			}
+
+			Globals.Thread.Sleep(gGameState.PauseCombatMs);
+		}
+
+		/// <summary></summary>
+		public virtual void SetAttackDesc()
 		{
 			AttackDesc = "attack{0}";
 
@@ -152,7 +203,7 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintAttack()
+		public virtual void PrintAttack()
 		{
 			SetAttackDesc();
 
@@ -179,7 +230,7 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintMiss()
+		public virtual void PrintMiss()
 		{
 			MissDesc = DfMonster.GetMissDescString(DfWeapon);
 
@@ -187,19 +238,19 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintFumble()
+		public virtual void PrintFumble()
 		{
 			gOut.Write("{0} ... A fumble!", Environment.NewLine);
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintRecovered()
+		public virtual void PrintRecovered()
 		{
 			gOut.Write("{0}  Recovered.", Environment.NewLine);
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintWeaponDropped()
+		public virtual void PrintWeaponDropped()
 		{
 			gOut.Write("{0}  {1} {2} {3}!",
 				Environment.NewLine,
@@ -217,13 +268,13 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintWeaponHitsUser()
+		public virtual void PrintWeaponHitsUser()
 		{
 			gOut.Write("{0}  Weapon hits user!", Environment.NewLine);
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintSparksFly()
+		public virtual void PrintSparksFly()
 		{
 			gOut.Write("{0}  Sparks fly from {1}!",
 				Environment.NewLine,
@@ -238,43 +289,43 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintWeaponDamaged()
+		public virtual void PrintWeaponDamaged()
 		{
 			gOut.Write("{0}  Weapon damaged!", Environment.NewLine);
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintWeaponBroken()
+		public virtual void PrintWeaponBroken()
 		{
 			gOut.Write("{0}  Weapon broken!", Environment.NewLine);
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintBrokenWeaponHitsUser()
+		public virtual void PrintBrokenWeaponHitsUser()
 		{
 			gOut.Write("{0}  Broken weapon hits user!", Environment.NewLine);
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintStarPlus()
+		public virtual void PrintStarPlus()
 		{
 			gOut.Write("{0} {1} ", Environment.NewLine, DfMonster.IsCharacterMonster() ? "***" : "+++");
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintHit()
+		public virtual void PrintHit()
 		{
 			gOut.Write("A hit!");
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintCriticalHit()
+		public virtual void PrintCriticalHit()
 		{
 			gOut.Write("A critical hit!");
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintBlowTurned()
+		public virtual void PrintBlowTurned()
 		{
 			if (DfMonster.Armor < 1)
 			{
@@ -289,7 +340,7 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintHealthStatus()
+		public virtual void PrintHealthStatus()
 		{
 			DfMonsterName = DfMonster.IsCharacterMonster() ? "You" :
 				BlastSpell && DfMonster.InitGroupCount > 1 ? DfMonster.EvalInRoomLightLevel(DfMonster == OfMonster ? "An offender" : "A defender", DfMonster.GetArticleName(true, true, false, true)) :
@@ -306,13 +357,13 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintBlast()
+		public virtual void PrintBlast()
 		{
 			gOut.Print("{0}", gEngine.GetBlastDesc());
 		}
 
 		/// <summary></summary>
-		protected virtual void RollToHitOrMiss()
+		public virtual void RollToHitOrMiss()
 		{
 			if (FixedResult != AttackResult.None)
 			{
@@ -352,7 +403,7 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void BeginAttack()
+		public virtual void BeginAttack()
 		{
 			Debug.Assert(OfMonster != null && OfMonster.CombatCode != CombatCode.NeverFights);
 
@@ -431,7 +482,7 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void AttackMiss()
+		public virtual void AttackMiss()
 		{
 			DfWeaponUid = DfMonster.Weapon;
 
@@ -458,7 +509,7 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void AttackFumble()
+		public virtual void AttackFumble()
 		{
 			RetCode rc;
 
@@ -577,7 +628,7 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void AttackHit()
+		public virtual void AttackHit()
 		{
 			if (OfAc != null)
 			{
@@ -657,7 +708,7 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void CalculateDamageForFractionalStrength()
+		public virtual void CalculateDamageForFractionalStrength()
 		{
 			Debug.Assert(OfMonster != null && UseFractionalStrength);
 
@@ -681,7 +732,7 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void CalculateDamage()
+		public virtual void CalculateDamage()
 		{
 			Debug.Assert(OfMonster != null || !UseFractionalStrength);
 
@@ -704,7 +755,7 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void CheckArmor()
+		public virtual void CheckArmor()
 		{
 			if (_d2 < 1)
 			{
@@ -723,7 +774,7 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void CheckMonsterStatus()
+		public virtual void CheckMonsterStatus()
 		{
 			Debug.Assert(DfMonster != null);
 
@@ -760,7 +811,7 @@ namespace EamonRT.Game.Combat
 		}
 
 		/// <summary></summary>
-		protected virtual void ExecuteStateMachine()
+		public virtual void ExecuteStateMachine()
 		{
 			Debug.Assert(CombatState == CombatState.BeginAttack || CombatState == CombatState.CalculateDamage || CombatState == CombatState.CheckMonsterStatus);
 
@@ -833,57 +884,6 @@ namespace EamonRT.Game.Combat
 			{
 				gEngine.LightOut(OfWeapon);
 			}
-		}
-
-		public virtual void ExecuteCalculateDamage(long numDice, long numSides, long mod = 0)
-		{
-			CombatState = CombatState.CalculateDamage;
-
-			D = numDice;
-
-			S = numSides;
-
-			M = mod;
-
-			A = BlastSpell || OmitArmor ? 0 : 1;
-
-			OmitBboaPadding = true;
-
-			ExecuteStateMachine();
-		}
-
-		public virtual void ExecuteCheckMonsterStatus()
-		{
-			CombatState = CombatState.CheckMonsterStatus;
-
-			_d2 = 0;
-
-			ExecuteStateMachine();
-		}
-
-		public virtual void ExecuteAttack()
-		{
-			if (BlastSpell)
-			{
-				PrintBlast();
-
-				if (Globals.IsRulesetVersion(5, 15))
-				{
-					ExecuteCalculateDamage(1, 6);
-				}
-				else
-				{
-					ExecuteCalculateDamage(2, 5);
-				}
-			}
-			else
-			{
-				CombatState = CombatState.BeginAttack;
-
-				ExecuteStateMachine();
-			}
-
-			Globals.Thread.Sleep(gGameState.PauseCombatMs);
 		}
 
 		public CombatSystem()

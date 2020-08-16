@@ -1,12 +1,10 @@
 ﻿
 // GoCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -18,17 +16,20 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class GoCommand : Command, IGoCommand
 	{
+		/// <summary></summary>
+		public virtual IArtifactCategory DobjArtAc { get; set; }
+
 		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
-			var ac = DobjArtifact.DoorGate;
+			DobjArtAc = DobjArtifact.DoorGate;
 
-			if (ac != null)
+			if (DobjArtAc != null)
 			{
 				NextState = Globals.CreateInstance<IBeforePlayerMoveState>(x =>
 				{
-					x.Artifact = DobjArtifact;
+					x.DoorGateArtifact = DobjArtifact;
 				});
 			}
 			else

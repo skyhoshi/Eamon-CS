@@ -1,7 +1,7 @@
 ﻿
 // TextWriter.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -17,28 +17,7 @@ namespace EamonPM.Game.Portability
 	public class TextWriter : ITextWriter
 	{
 		/// <summary></summary>
-		protected bool _suppressNewLines;
-
-		/// <summary></summary>
-		protected virtual StringBuilder Buf { get; set; }
-
-		/// <summary></summary>
-		protected virtual StringBuilder Buf01 { get; set; }
-
-		/// <summary></summary>
-		protected virtual Regex SingleSpaceRegex { get; set; }
-
-		/// <summary></summary>
-		protected virtual Regex DoubleSpaceRegex { get; set; }
-
-		/// <summary></summary>
-		protected virtual string ThreeNewLines { get; set; }
-
-		/// <summary></summary>
-		protected virtual string TwoNewLines { get; set; }
-
-		/// <summary></summary>
-		protected virtual long NumNewLines { get; set; }
+		public bool _suppressNewLines;
 
 		public virtual bool EnableOutput { get; set; }
 
@@ -88,6 +67,27 @@ namespace EamonPM.Game.Portability
 				Console.CursorVisible = value;
 			}
 		}
+
+		/// <summary></summary>
+		public virtual StringBuilder Buf { get; set; }
+
+		/// <summary></summary>
+		public virtual StringBuilder Buf01 { get; set; }
+
+		/// <summary></summary>
+		public virtual Regex SingleSpaceRegex { get; set; }
+
+		/// <summary></summary>
+		public virtual Regex DoubleSpaceRegex { get; set; }
+
+		/// <summary></summary>
+		public virtual string ThreeNewLines { get; set; }
+
+		/// <summary></summary>
+		public virtual string TwoNewLines { get; set; }
+
+		/// <summary></summary>
+		public virtual long NumNewLines { get; set; }
 
 		public virtual void SetCursorPosition(Coord coord)
 		{
@@ -423,6 +423,16 @@ namespace EamonPM.Game.Portability
 
 		public TextWriter()
 		{
+			EnableOutput = true;
+
+			ResolveUidMacros = true;
+
+			WordWrap = true;
+
+			SuppressNewLines = true;
+
+			Stdout = true;
+
 			Buf = new StringBuilder(Constants.BufSize);
 
 			Buf01 = new StringBuilder(Constants.BufSize);
@@ -434,16 +444,6 @@ namespace EamonPM.Game.Portability
 			ThreeNewLines = string.Format("{0}{0}{0}", Environment.NewLine);
 
 			TwoNewLines = string.Format("{0}{0}", Environment.NewLine);
-
-			EnableOutput = true;
-
-			ResolveUidMacros = true;
-
-			WordWrap = true;
-
-			SuppressNewLines = true;
-
-			Stdout = true;
 		}
 	}
 }

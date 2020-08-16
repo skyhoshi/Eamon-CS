@@ -1,7 +1,7 @@
 ﻿
 // Program.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -22,50 +22,6 @@ namespace EamonPM
 		public static string WorkDir { get; set; }
 
 		public static string[] NextArgs { get; set; }
-
-		protected static Assembly LoadAssembly(string assemblyPath)
-		{
-			Debug.Assert(!string.IsNullOrWhiteSpace(assemblyPath));
-
-			var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);
-
-			Debug.Assert(assembly != null);
-
-			foreach (var dependency in assembly.GetReferencedAssemblies())
-			{
-				var dependencyPath = Path.Combine(WorkDir, dependency.Name + ".dll");
-
-				if (File.Exists(dependencyPath))
-				{
-					LoadAssembly(dependencyPath);
-				}
-			}
-
-			return assembly;
-		}
-
-		protected static void LoadPortabilityClassMappings(IDictionary<Type, Type> classMappings)
-		{
-			Debug.Assert(classMappings != null);
-
-			classMappings[typeof(ITextReader)] = typeof(Game.Portability.TextReader);
-
-			classMappings[typeof(ITextWriter)] = typeof(Game.Portability.TextWriter);
-
-			classMappings[typeof(IMutex)] = typeof(Game.Portability.Mutex);
-
-			classMappings[typeof(ITransferProtocol)] = typeof(Game.Portability.TransferProtocol);
-
-			classMappings[typeof(IDirectory)] = typeof(Game.Portability.Directory);
-
-			classMappings[typeof(IFile)] = typeof(Game.Portability.File);
-
-			classMappings[typeof(IPath)] = typeof(Game.Portability.Path);
-
-			classMappings[typeof(ISharpSerializer)] = typeof(Game.Portability.SharpSerializer);
-
-			classMappings[typeof(IThread)] = typeof(Game.Portability.Thread);
-		}
 
 		public static void ExecutePlugin(string[] args, bool enableStdio = true)
 		{
@@ -96,6 +52,50 @@ namespace EamonPM
 			program.LoadPortabilityClassMappings = LoadPortabilityClassMappings;
 
 			program.Main(args.Skip(2).ToArray());
+		}
+
+		public static Assembly LoadAssembly(string assemblyPath)
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(assemblyPath));
+
+			var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(assemblyPath);
+
+			Debug.Assert(assembly != null);
+
+			foreach (var dependency in assembly.GetReferencedAssemblies())
+			{
+				var dependencyPath = Path.Combine(WorkDir, dependency.Name + ".dll");
+
+				if (File.Exists(dependencyPath))
+				{
+					LoadAssembly(dependencyPath);
+				}
+			}
+
+			return assembly;
+		}
+
+		public static void LoadPortabilityClassMappings(IDictionary<Type, Type> classMappings)
+		{
+			Debug.Assert(classMappings != null);
+
+			classMappings[typeof(ITextReader)] = typeof(Game.Portability.TextReader);
+
+			classMappings[typeof(ITextWriter)] = typeof(Game.Portability.TextWriter);
+
+			classMappings[typeof(IMutex)] = typeof(Game.Portability.Mutex);
+
+			classMappings[typeof(ITransferProtocol)] = typeof(Game.Portability.TransferProtocol);
+
+			classMappings[typeof(IDirectory)] = typeof(Game.Portability.Directory);
+
+			classMappings[typeof(IFile)] = typeof(Game.Portability.File);
+
+			classMappings[typeof(IPath)] = typeof(Game.Portability.Path);
+
+			classMappings[typeof(ISharpSerializer)] = typeof(Game.Portability.SharpSerializer);
+
+			classMappings[typeof(IThread)] = typeof(Game.Portability.Thread);
 		}
 
 		public static void Main(string[] args)

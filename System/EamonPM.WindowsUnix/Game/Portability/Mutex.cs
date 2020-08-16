@@ -1,7 +1,7 @@
 ﻿
 // Mutex.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Threading;
 using Eamon.Framework.Portability;
@@ -12,7 +12,7 @@ namespace EamonPM.Game.Portability
 	public class Mutex : IMutex
 	{
 		/// <summary></summary>
-		protected virtual System.Threading.Mutex ProcessMutex { get; set; }
+		public virtual System.Threading.Mutex ProcessMutex { get; set; }
 
 		public virtual void CreateAndWaitOne()
 		{

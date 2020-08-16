@@ -1,13 +1,14 @@
 ﻿
 // PowerCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
@@ -16,9 +17,9 @@ namespace TheTrainingGround.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
-		public override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(EventType eventType)
 		{
-			if (eventType == PpeAfterPlayerSpellCastCheck)
+			if (eventType == EventType.AfterPlayerSpellCastCheck)
 			{
 				var hammerArtifact = gADB[24];
 

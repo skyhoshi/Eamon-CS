@@ -1,7 +1,7 @@
 ﻿
 // SearchCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -21,13 +21,6 @@ namespace TheSubAquanLaboratory.Game.Commands
 			Debug.Assert(obj != null);
 
 			gOut.Print("You can only {0} dead bodies.", Verb);
-		}
-
-		public virtual void PrintNothingFound(IArtifact artifact)
-		{
-			Debug.Assert(artifact != null);
-
-			gOut.Print("Searching {0} reveals nothing of interest.", artifact.GetTheName());
 		}
 
 		public override void PlayerExecute()
@@ -89,6 +82,13 @@ namespace TheSubAquanLaboratory.Game.Commands
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
+		}
+
+		public virtual void PrintNothingFound(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			gOut.Print("Searching {0} reveals nothing of interest.", artifact.GetTheName());
 		}
 
 		public SearchCommand()

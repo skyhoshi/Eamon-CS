@@ -1,12 +1,13 @@
 ﻿
 // ExamineCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
@@ -17,32 +18,9 @@ namespace TheSubAquanLaboratory.Game.Commands
 	{
 		public virtual bool ExamineConsole { get; set; }
 
-		public virtual void RevealArtifact(long artifactUid, bool examineConsole = false)
+		public override void PlayerProcessEvents(EventType eventType)
 		{
-			var artifact = gADB[artifactUid];
-
-			Debug.Assert(artifact != null);
-
-			if (!artifact.Seen)
-			{
-				artifact.SetInRoom(ActorRoom);
-
-				var command = Globals.CreateInstance<IExamineCommand>(x =>
-				{
-					((Framework.Commands.IExamineCommand)x).ExamineConsole = examineConsole;
-				});
-
-				CopyCommandData(command);
-
-				command.Dobj = artifact;
-
-				NextState = command;
-			}
-		}
-
-		public override void PlayerProcessEvents(long eventType)
-		{
-			if (eventType == PpeAfterArtifactFullDescPrint)
+			if (eventType == EventType.AfterArtifactFullDescPrint)
 			{
 				switch (DobjArtifact.Uid)
 				{
@@ -193,6 +171,29 @@ namespace TheSubAquanLaboratory.Game.Commands
 			else
 			{
 				base.PlayerProcessEvents(eventType);
+			}
+		}
+
+		public virtual void RevealArtifact(long artifactUid, bool examineConsole = false)
+		{
+			var artifact = gADB[artifactUid];
+
+			Debug.Assert(artifact != null);
+
+			if (!artifact.Seen)
+			{
+				artifact.SetInRoom(ActorRoom);
+
+				var command = Globals.CreateInstance<IExamineCommand>(x =>
+				{
+					((Framework.Commands.IExamineCommand)x).ExamineConsole = examineConsole;
+				});
+
+				CopyCommandData(command);
+
+				command.Dobj = artifact;
+
+				NextState = command;
 			}
 		}
 	}

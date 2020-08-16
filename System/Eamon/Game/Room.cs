@@ -1,7 +1,7 @@
 ﻿
 // Room.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -240,9 +240,9 @@ namespace Eamon.Game
 			SetDirectionDoor((long)dir, artifact);
 		}
 
-		public virtual string GetYouAlsoSee(bool showDesc, IList<IMonster> monsterList, IList<IArtifact> artifactList, IList<IGameBase> combinedList)
+		public virtual string GetYouAlsoSee(bool showDesc, IList<IMonster> monsterList, IList<IArtifact> artifactList, IList<IGameBase> recordList)
 		{
-			Debug.Assert(monsterList != null && artifactList != null && combinedList != null);
+			Debug.Assert(monsterList != null && artifactList != null && recordList != null);
 
 			return string.Format("{0}You {1}{2}",
 					!showDesc ? Environment.NewLine : "",
@@ -306,24 +306,24 @@ namespace Eamon.Game
 				roomFindFunc = a => a.IsInRoom(this) && a.Weight <= 900 && !a.IsUnmovable01() && (a.DeadBody == null || a.DeadBody.Field1 == 1);
 			}
 
-			var list = gEngine.GetArtifactList(a => roomFindFunc(a));
+			var artifactList = gEngine.GetArtifactList(a => roomFindFunc(a));
 
-			if (recurse && list.Count > 0)
+			if (recurse && artifactList.Count > 0)
 			{
-				var list01 = new List<IArtifact>();
+				var artifactList01 = new List<IArtifact>();
 
-				foreach (var a in list)
+				foreach (var a in artifactList)
 				{
 					if (a.GeneralContainer != null)
 					{
-						list01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
+						artifactList01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
 					}
 				}
 
-				list.AddRange(list01);
+				artifactList.AddRange(artifactList01);
 			}
 
-			return list;
+			return artifactList;
 		}
 
 		public virtual IList<IArtifact> GetEmbeddedList(Func<IArtifact, bool> roomFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false)
@@ -333,62 +333,62 @@ namespace Eamon.Game
 				roomFindFunc = a => a.IsEmbeddedInRoom(this);
 			}
 
-			var list = gEngine.GetArtifactList(a => roomFindFunc(a));
+			var artifactList = gEngine.GetArtifactList(a => roomFindFunc(a));
 
-			if (recurse && list.Count > 0)
+			if (recurse && artifactList.Count > 0)
 			{
-				var list01 = new List<IArtifact>();
+				var artifactList01 = new List<IArtifact>();
 
-				foreach (var a in list)
+				foreach (var a in artifactList)
 				{
 					if (a.GeneralContainer != null)
 					{
-						list01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
+						artifactList01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
 					}
 				}
 
-				list.AddRange(list01);
+				artifactList.AddRange(artifactList01);
 			}
 
-			return list;
+			return artifactList;
 		}
 
 		public virtual IList<IGameBase> GetContainedList(Func<IGameBase, bool> roomFindFunc = null, Func<IArtifact, bool> monsterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false)
 		{
 			if (roomFindFunc == null)
 			{
-				roomFindFunc = x => (x is IMonster m && m.IsInRoom(this)) || (x is IArtifact a && a.IsInRoom(this));        // && !m.IsCharacterMonster()
+				roomFindFunc = r => (r is IMonster m && m.IsInRoom(this)) || (r is IArtifact a && a.IsInRoom(this));        // && !m.IsCharacterMonster()
 			}
 
-			var list = new List<IGameBase>();
+			var recordList = new List<IGameBase>();
 
-			list.AddRange(gEngine.GetMonsterList(m => roomFindFunc(m)));
+			recordList.AddRange(gEngine.GetMonsterList(m => roomFindFunc(m)));
 
-			list.AddRange(gEngine.GetArtifactList(a => roomFindFunc(a)));
+			recordList.AddRange(gEngine.GetArtifactList(a => roomFindFunc(a)));
 
-			if (recurse && list.Count > 0)
+			if (recurse && recordList.Count > 0)
 			{
-				var list01 = new List<IArtifact>();
+				var artifactList = new List<IArtifact>();
 
-				foreach (var x in list)
+				foreach (var r in recordList)
 				{
-					if (x is IMonster m)
+					if (r is IMonster m)
 					{
-						list01.AddRange(m.GetContainedList(monsterFindFunc, artifactFindFunc, recurse));
+						artifactList.AddRange(m.GetContainedList(monsterFindFunc, artifactFindFunc, recurse));
 					}
-					else if (x is IArtifact a)
+					else if (r is IArtifact a)
 					{
 						if (a.GeneralContainer != null)
 						{
-							list01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
+							artifactList.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
 						}
 					}
 				}
 
-				list.AddRange(list01);
+				recordList.AddRange(artifactList);
 			}
 
-			return list;
+			return recordList;
 		}
 
 		public virtual RetCode GetExitList(StringBuilder buf, Func<string, string> modFunc = null, bool useNames = true)
@@ -476,14 +476,14 @@ namespace Eamon.Game
 				monsterFindFunc = IsMonsterListedInRoom;
 			}
 
-			var monsters = gEngine.GetMonsterList(m => monsterFindFunc(m));
+			var monsterList = gEngine.GetMonsterList(m => monsterFindFunc(m));
 
 			if (artifactFindFunc == null)
 			{
 				artifactFindFunc = IsArtifactListedInRoom;
 			}
 
-			var artifacts = gEngine.GetArtifactList(a => artifactFindFunc(a));
+			var artifactList = gEngine.GetArtifactList(a => artifactFindFunc(a));
 
 			buf.AppendFormat("{0}[{1}]", Environment.NewLine, Name);
 
@@ -491,7 +491,7 @@ namespace Eamon.Game
 			{
 				buf.AppendFormat("{0}{1}", Environment.NewLine, Desc);
 
-				if (monsters.Any() || artifacts.Any())
+				if (monsterList.Any() || artifactList.Any())
 				{
 					while (buf.Length > 0 && Char.IsWhiteSpace(buf[buf.Length - 1]))
 					{
@@ -506,23 +506,23 @@ namespace Eamon.Game
 				Seen = true;
 			}
 
-			var combined = new List<IGameBase>();
+			var recordList = new List<IGameBase>();
 
 			if (!verboseMonsterDesc)
 			{
-				combined.AddRange(monsters.Where(m => m.Seen));
+				recordList.AddRange(monsterList.Where(m => m.Seen));
 			}
 
 			if (!verboseArtifactDesc)
 			{
-				combined.AddRange(artifacts.Where(a => a.Seen));
+				recordList.AddRange(artifactList.Where(a => a.Seen));
 			}
 
-			if (combined.Any())
+			if (recordList.Any())
 			{
-				buf.AppendFormat(GetYouAlsoSee(showDesc, monsters, artifacts, combined));
+				buf.AppendFormat(GetYouAlsoSee(showDesc, monsterList, artifactList, recordList));
 
-				rc = gEngine.GetRecordNameList(combined, ArticleType.A, true, StateDescDisplayCode.AllStateDescs, true, false, buf);
+				rc = gEngine.GetRecordNameList(recordList, ArticleType.A, true, StateDescDisplayCode.AllStateDescs, true, false, buf);
 
 				if (gEngine.IsFailure(rc))
 				{
@@ -551,13 +551,13 @@ namespace Eamon.Game
 
 			buf.AppendFormat(".{0}", Environment.NewLine);
 
-			combined.Clear();
+			recordList.Clear();
 
-			combined.AddRange(monsters.Where(m => verboseMonsterDesc || !m.Seen));
+			recordList.AddRange(monsterList.Where(m => verboseMonsterDesc || !m.Seen));
 
-			combined.AddRange(artifacts.Where(a => verboseArtifactDesc || !a.Seen));
+			recordList.AddRange(artifactList.Where(a => verboseArtifactDesc || !a.Seen));
 
-			foreach (var r in combined)
+			foreach (var r in recordList)
 			{
 				rc = r.BuildPrintedFullDesc(buf, true);
 

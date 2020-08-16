@@ -167,13 +167,13 @@
         <member name="T:EamonDD.Framework.Menus.ActionMenus.IAnalyseRecordInterdependenciesMenu`1">
             <summary></summary>
         </member>
-        <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseRecordInterdependenciesMenu`1.SkipNames">
+        <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseRecordInterdependenciesMenu`1.SkipNameList">
             <summary></summary>
         </member>
         <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseRecordInterdependenciesMenu`1.ErrorRecord">
             <summary></summary>
         </member>
-        <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseRecordInterdependenciesMenu`1.ClearSkipNames">
+        <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseRecordInterdependenciesMenu`1.ClearSkipNameList">
             <summary></summary>
         </member>
         <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseRecordInterdependenciesMenu`1.ModifyFlag">
@@ -188,10 +188,10 @@
         <member name="T:EamonDD.Framework.Menus.ActionMenus.IAnalyseRecordInterdependenciesMenu01`1">
             <summary></summary>
         </member>
-        <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseRecordInterdependenciesMenu01`1.SkipFieldNames">
+        <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseRecordInterdependenciesMenu01`1.SkipFieldNameList">
             <summary></summary>
         </member>
-        <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseRecordInterdependenciesMenu01`1.ClearSkipFieldNames">
+        <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseRecordInterdependenciesMenu01`1.ClearSkipFieldNameList">
             <summary></summary>
         </member>
         <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseRecordInterdependenciesMenu01`1.ModifyFlag">
@@ -353,7 +353,7 @@
         <member name="T:EamonDD.Framework.Menus.ActionMenus.IAnalyseAdventureRecordTreeMenu">
             <summary></summary>
         </member>
-        <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseAdventureRecordTreeMenu.RecordTreeStrings">
+        <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseAdventureRecordTreeMenu.RecordTreeStringList">
             <summary></summary>
         </member>
         <member name="T:EamonDD.Framework.Menus.ActionMenus.IAnalyseAllRecordInterdependenciesMenu">
@@ -362,7 +362,7 @@
         <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseAllRecordInterdependenciesMenu.AnalyseMenus">
             <summary></summary>
         </member>
-        <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseAllRecordInterdependenciesMenu.SkipFieldNames">
+        <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseAllRecordInterdependenciesMenu.SkipFieldNameList">
             <summary></summary>
         </member>
         <member name="P:EamonDD.Framework.Menus.ActionMenus.IAnalyseAllRecordInterdependenciesMenu.ModifyFlag">
@@ -617,7 +617,7 @@
         <member name="P:EamonDD.Game.Menus.ActionMenus.AnalyseRecordInterdependenciesMenu01`1.AnalyseMenu">
             <summary></summary>
         </member>
-        <member name="P:EamonDD.Game.Menus.ActionMenus.AddCustomAdventureClassesMenu.IncludeInterfaces">
+        <member name="P:EamonDD.Game.Menus.ActionMenus.AddCustomAdventureClassesMenu.IncludeInterfaceList">
             <summary></summary>
         </member>
         <member name="M:EamonDD.Game.Menus.ActionMenus.AddCustomAdventureClassesMenu.SelectClassFilesToAdd">
@@ -704,10 +704,10 @@
         <member name="P:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.ClassCsText">
             <summary></summary>
         </member>
-        <member name="P:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.SelectedAdvDbTextFiles">
+        <member name="P:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.SelectedAdvDbTextFileList">
             <summary></summary>
         </member>
-        <member name="P:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.SelectedClassFiles">
+        <member name="P:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.SelectedClassFileList">
             <summary></summary>
         </member>
         <member name="P:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.VsaAssembly">

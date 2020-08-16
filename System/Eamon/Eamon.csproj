@@ -5,8 +5,8 @@
     <Copyright>Copyright (C) 2014+</Copyright>
     <Product>The Wonderful World of Eamon CS</Product>
     <Description>Eamon CS Library</Description>
-    <Company>Michael R. Penner</Company>
-    <Authors>Michael R. Penner</Authors>
+    <Company>Michael Penner</Company>
+    <Authors>Michael Penner</Authors>
     <Version>1.6.0.0</Version>
     <AssemblyName>Eamon</AssemblyName>
   </PropertyGroup>

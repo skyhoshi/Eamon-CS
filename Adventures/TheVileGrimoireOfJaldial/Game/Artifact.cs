@@ -1,7 +1,7 @@
 ﻿
 // Artifact.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Text;
 using Eamon;
@@ -14,8 +14,6 @@ namespace TheVileGrimoireOfJaldial.Game
 	[ClassMappings(typeof(IArtifact))]
 	public class Artifact : Eamon.Game.Artifact, Framework.IArtifact
 	{
-		public virtual bool DimLightSeen { get; set; }
-
 		public override string Desc
 		{
 			get
@@ -68,6 +66,8 @@ namespace TheVileGrimoireOfJaldial.Game
 				}
 			}
 		}
+
+		public virtual bool DimLightSeen { get; set; }
 
 		public virtual bool Seen02
 		{

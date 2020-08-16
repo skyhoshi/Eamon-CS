@@ -1,17 +1,17 @@
 ﻿
 // GiveCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon;
-using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -20,22 +20,61 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class GiveCommand : Command, IGiveCommand
 	{
-		/// <summary>
-		/// An event that fires after limits are enforced on the weight a <see cref="IMonster">Monster</see> can carry.
-		/// </summary>
-		public const long PpeAfterEnforceMonsterWeightLimitsCheck = 1;
+		public long _dobjArtifactCount;
 
-		/// <summary>
-		/// An event that fires after checking whether the player is giving away a readied weapon.
-		/// </summary>
-		public const long PpeAfterPlayerGivesReadiedWeaponCheck = 2;
+		public long _dobjArtifactWeight;
 
-		/// <summary>
-		/// An event that fires before a <see cref="IMonster">Monster</see> takes the gold offered by the player.
-		/// </summary>
-		public const long PpeBeforeMonsterTakesGold = 3;
+		public long _iobjMonsterInventoryWeight;
 
 		public virtual long GoldAmount { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory DobjArtAc { get; set; }
+
+		/// <summary></summary>
+		public virtual string IobjMonsterName { get; set; }
+
+		/// <summary></summary>
+		public virtual long DobjArtifactCount
+		{
+			get
+			{
+				return _dobjArtifactCount;
+			}
+
+			set
+			{
+				_dobjArtifactCount = value;
+			}
+		}
+
+		/// <summary></summary>
+		public virtual long DobjArtifactWeight
+		{
+			get
+			{
+				return _dobjArtifactWeight;
+			}
+
+			set
+			{
+				_dobjArtifactWeight = value;
+			}
+		}
+
+		/// <summary></summary>
+		public virtual long IobjMonsterInventoryWeight
+		{
+			get
+			{
+				return _iobjMonsterInventoryWeight;
+			}
+
+			set
+			{
+				_iobjMonsterInventoryWeight = value;
+			}
+		}
 
 		public override void PlayerExecute()
 		{
@@ -70,30 +109,30 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				var artCount = 0L;
+				DobjArtifactCount = 0;
 
-				var artWeight = DobjArtifact.Weight;
+				DobjArtifactWeight = DobjArtifact.Weight;
 
 				if (DobjArtifact.GeneralContainer != null)
 				{
-					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.In, true);
+					rc = DobjArtifact.GetContainerInfo(ref _dobjArtifactCount, ref _dobjArtifactWeight, ContainerType.In, true);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
-					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.On, true);
+					rc = DobjArtifact.GetContainerInfo(ref _dobjArtifactCount, ref _dobjArtifactWeight, ContainerType.On, true);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
 				if (gEngine.EnforceMonsterWeightLimits)
 				{
-					var monWeight = 0L;
+					IobjMonsterInventoryWeight = 0;
 
-					rc = IobjMonster.GetFullInventoryWeight(ref monWeight, recurse: true);
+					rc = IobjMonster.GetFullInventoryWeight(ref _iobjMonsterInventoryWeight, recurse: true);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
-					if (artWeight > IobjMonster.GetWeightCarryableGronds() || artWeight + monWeight > IobjMonster.GetWeightCarryableGronds() * IobjMonster.GroupCount)
+					if (DobjArtifactWeight > IobjMonster.GetWeightCarryableGronds() || DobjArtifactWeight + IobjMonsterInventoryWeight > IobjMonster.GetWeightCarryableGronds() * IobjMonster.GroupCount)
 					{
 						PrintTooHeavy(DobjArtifact);
 
@@ -101,7 +140,7 @@ namespace EamonRT.Game.Commands
 					}
 				}
 
-				PlayerProcessEvents(PpeAfterEnforceMonsterWeightLimitsCheck);
+				PlayerProcessEvents(EventType.AfterEnforceMonsterWeightLimitsCheck);
 
 				if (GotoCleanup)
 				{
@@ -133,7 +172,7 @@ namespace EamonRT.Game.Commands
 					ActorMonster.Weapon = -1;
 				}
 
-				PlayerProcessEvents(PpeAfterPlayerGivesReadiedWeaponCheck);
+				PlayerProcessEvents(EventType.AfterPlayerGivesReadiedWeaponCheck);
 
 				if (GotoCleanup)
 				{
@@ -142,49 +181,49 @@ namespace EamonRT.Game.Commands
 
 				PrintGiveObjToActor(DobjArtifact, IobjMonster);
 
-				var ac = DobjArtifact.GetArtifactCategory(new ArtifactType[] { ArtifactType.Drinkable, ArtifactType.Edible });
+				DobjArtAc = DobjArtifact.GetArtifactCategory(new ArtifactType[] { ArtifactType.Drinkable, ArtifactType.Edible });
 
-				if (!Globals.IsRulesetVersion(5) && ac != null && ac.Field2 > 0)
+				if (!Globals.IsRulesetVersion(5) && DobjArtAc != null && DobjArtAc.Field2 > 0)
 				{
-					var monsterName = IobjMonster.EvalPlural(IobjMonster.GetTheName(true), IobjMonster.GetArticleName(true, true, false, true, Globals.Buf01));
+					IobjMonsterName = IobjMonster.EvalPlural(IobjMonster.GetTheName(true), IobjMonster.GetArticleName(true, true, false, true, Globals.Buf01));
 
 					Globals.Buf01.Clear();
 
-					if (!ac.IsOpen())
+					if (!DobjArtAc.IsOpen())
 					{
 						Globals.Buf01.SetFormat(" opens {0}", DobjArtifact.GetTheName());
 
-						ac.SetOpen(true);
+						DobjArtAc.SetOpen(true);
 					}
 
-					if (ac.Field2 != Constants.InfiniteDrinkableEdible)
+					if (DobjArtAc.Field2 != Constants.InfiniteDrinkableEdible)
 					{
-						ac.Field2--;
+						DobjArtAc.Field2--;
 					}
 
-					rc = DobjArtifact.SyncArtifactCategories(ac);
+					rc = DobjArtifact.SyncArtifactCategories(DobjArtAc);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
-					if (ac.Field2 > 0)
+					if (DobjArtAc.Field2 > 0)
 					{
 						Globals.Buf.SetPrint("{0}{1}{2} takes a {3} and hands {4} back.",
-							monsterName,
+							IobjMonsterName,
 							Globals.Buf01,
 							Globals.Buf01.Length > 0 ? "," : "",
-							ac.Type == ArtifactType.Edible ? "bite" : "drink",
+							DobjArtAc.Type == ArtifactType.Edible ? "bite" : "drink",
 							DobjArtifact.EvalPlural("it", "them"));
 					}
 					else
 					{
 						DobjArtifact.Value = 0;
 
-						if (ac.Type == ArtifactType.Edible)
+						if (DobjArtAc.Type == ArtifactType.Edible)
 						{
 							DobjArtifact.SetInLimbo();
 
 							Globals.Buf.SetPrint("{0}{1}{2} eats {3} all.",
-								monsterName,
+								IobjMonsterName,
 								Globals.Buf01,
 								Globals.Buf01.Length > 0 ? " and" : "",
 								DobjArtifact.EvalPlural("it", "them"));
@@ -196,7 +235,7 @@ namespace EamonRT.Game.Commands
 							Debug.Assert(gEngine.IsSuccess(rc));
 
 							Globals.Buf.SetPrint("{0}{1}{2} drinks {3} all and hands {4} back.",
-								monsterName,
+								IobjMonsterName,
 								Globals.Buf01,
 								Globals.Buf01.Length > 0 ? "," : "",
 								DobjArtifact.EvalPlural("it", "them"),
@@ -206,12 +245,12 @@ namespace EamonRT.Game.Commands
 
 					gOut.Write("{0}", Globals.Buf);
 
-					if (ac.Field1 == 0)
+					if (DobjArtAc.Field1 == 0)
 					{
 						goto Cleanup;
 					}
 
-					IobjMonster.DmgTaken -= ac.Field1;
+					IobjMonster.DmgTaken -= DobjArtAc.Field1;
 
 					if (IobjMonster.DmgTaken < 0)
 					{
@@ -287,7 +326,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				PlayerProcessEvents(PpeBeforeMonsterTakesGold);
+				PlayerProcessEvents(EventType.BeforeMonsterTakesGold);
 
 				if (GotoCleanup)
 				{
@@ -334,9 +373,9 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(prep != null);
 
-			var prepNames = new string[] { "to" };
+			PrepNames = new string[] { "to" };
 
-			return prepNames.FirstOrDefault(pn => string.Equals(prep.Name, pn, StringComparison.OrdinalIgnoreCase)) != null;
+			return PrepNames.FirstOrDefault(pn => string.Equals(prep.Name, pn, StringComparison.OrdinalIgnoreCase)) != null;
 		}
 		*/
 

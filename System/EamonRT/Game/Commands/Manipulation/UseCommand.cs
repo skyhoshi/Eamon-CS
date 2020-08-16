@@ -1,14 +1,14 @@
 ﻿
 // UseCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
-using System;
 using System.Diagnostics;
-using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -17,30 +17,27 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class UseCommand : Command, IUseCommand
 	{
-		/// <summary>
-		/// An event that fires before the player uses an <see cref="IArtifact">Artifact</see>.
-		/// </summary>
-		public const long PpeBeforeArtifactUse = 1;
+		public virtual ArtifactType[] ArtTypes { get; set; }
 
 		/// <summary></summary>
-		public virtual ArtifactType[] ArtTypes { get; set; }
+		public virtual IArtifactCategory DobjArtAc { get; set; }
 
 		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
-			PlayerProcessEvents(PpeBeforeArtifactUse);
+			PlayerProcessEvents(EventType.BeforeArtifactUse);
 
 			if (GotoCleanup)
 			{
 				goto Cleanup;
 			}
 
-			var ac = DobjArtifact.GetArtifactCategory(ArtTypes, false);
+			DobjArtAc = DobjArtifact.GetArtifactCategory(ArtTypes, false);
 
-			if (ac != null)
+			if (DobjArtAc != null)
 			{
-				if (ac.IsWeapon01())
+				if (DobjArtAc.IsWeapon01())
 				{
 					NextState = Globals.CreateInstance<IReadyCommand>();
 
@@ -49,7 +46,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Type == ArtifactType.DisguisedMonster)
+				if (DobjArtAc.Type == ArtifactType.DisguisedMonster)
 				{
 					if (!DobjArtifact.IsUnmovable() && !DobjArtifact.IsCarriedByCharacter())
 					{
@@ -70,7 +67,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Type == ArtifactType.Drinkable)
+				if (DobjArtAc.Type == ArtifactType.Drinkable)
 				{
 					NextState = Globals.CreateInstance<IDrinkCommand>();
 
@@ -79,7 +76,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Type == ArtifactType.Edible)
+				if (DobjArtAc.Type == ArtifactType.Edible)
 				{
 					NextState = Globals.CreateInstance<IEatCommand>();
 
@@ -88,7 +85,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				Debug.Assert(ac.Type == ArtifactType.Wearable);
+				Debug.Assert(DobjArtAc.Type == ArtifactType.Wearable);
 
 				NextState = Globals.CreateInstance<IWearCommand>();
 
@@ -114,9 +111,9 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(prep != null);
 
-			var prepNames = new string[] { TODO };
+			PrepNames = new string[] { TODO };
 
-			return prepNames.FirstOrDefault(pn => string.Equals(prep.Name, pn, StringComparison.OrdinalIgnoreCase)) != null;
+			return PrepNames.FirstOrDefault(pn => string.Equals(prep.Name, pn, StringComparison.OrdinalIgnoreCase)) != null;
 		}
 		*/
 

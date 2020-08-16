@@ -1,7 +1,7 @@
 ﻿
 // PluginLauncherViewModel.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using Xamarin.Forms;
@@ -10,21 +10,21 @@ namespace Eamon.Mobile.ViewModels
 {
 	public class PluginLauncherViewModel : BaseViewModel
 	{
-		protected Color _foregroundColor;
+		public Color _foregroundColor;
 
-		protected Color _backgroundColor;
+		public Color _backgroundColor;
 
-		protected string _foregroundColorName;
+		public string _foregroundColorName;
 
-		protected string _backgroundColorName;
+		public string _backgroundColorName;
 
-		protected string _fontFamily;
+		public string _fontFamily;
 
-		protected long _fontSize;
+		public long _fontSize;
 
-		protected string _inputText;
+		public string _inputText;
 
-		protected string _outputText;
+		public string _outputText;
 
 		public ColorTypeConverter ColorTypeConverter { get; set; }
 

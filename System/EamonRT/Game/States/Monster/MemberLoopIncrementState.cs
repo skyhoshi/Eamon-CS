@@ -1,9 +1,10 @@
 ﻿
 // MemberLoopIncrementState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
@@ -13,19 +14,25 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class MemberLoopIncrementState : State, IMemberLoopIncrementState
 	{
+		/// <summary></summary>
+		public virtual IMonster LoopMonster { get; set; }
+
+		/// <summary></summary>
+		public virtual long MaxMemberAttackCount { get; set; }
+
 		public override void Execute()
 		{
-			var monster = gMDB[Globals.LoopMonsterUid];
+			LoopMonster = gMDB[Globals.LoopMonsterUid];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(LoopMonster != null);
 
-			var maxMemberAttackCount = monster.GetMaxMemberAttackCount();
+			MaxMemberAttackCount = LoopMonster.GetMaxMemberAttackCount();
 
-			Debug.Assert(Globals.LoopMemberNumber >= 0 && Globals.LoopMemberNumber <= monster.GroupCount && Globals.LoopMemberNumber <= maxMemberAttackCount);
+			Debug.Assert(Globals.LoopMemberNumber >= 0 && Globals.LoopMemberNumber <= LoopMonster.GroupCount && Globals.LoopMemberNumber <= MaxMemberAttackCount);
 
 			Globals.LoopMemberNumber++;
 
-			if (Globals.LoopMemberNumber > monster.GroupCount || Globals.LoopMemberNumber > maxMemberAttackCount)
+			if (Globals.LoopMemberNumber > LoopMonster.GroupCount || Globals.LoopMemberNumber > MaxMemberAttackCount)
 			{
 				NextState = Globals.CreateInstance<IMonsterLoopIncrementState>();
 

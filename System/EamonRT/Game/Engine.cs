@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -42,298 +42,6 @@ namespace EamonRT.Game
 		public virtual bool ExposeContainersRecursively { get; set; }
 
 		public virtual PoundCharPolicy PoundCharPolicy { get; set; }
-
-		/// <summary></summary>
-		/// <returns></returns>
-		protected virtual long ConvertWeaponsToArtifacts()
-		{
-			long cw = -1;
-
-			foreach (var weapon in gCharacter.Weapons)
-			{
-				if (weapon.IsActive())
-				{
-					var artifact = ConvertWeaponToArtifact(weapon);
-
-					Debug.Assert(artifact != null);
-
-					var ac = artifact.GeneralWeapon;
-
-					Debug.Assert(ac != null);
-
-					if (artifact.IsCarriedByCharacter() && (cw == -1 || WeaponPowerCompare(artifact.Uid, cw) > 0) && (gGameState.Sh < 1 || ac.Field5 < 2))
-					{
-						cw = artifact.Uid;
-
-						Debug.Assert(cw > 0);
-					}
-				}
-			}
-
-			return cw;
-		}
-
-		/// <summary></summary>
-		/// <returns></returns>
-		protected virtual long ConvertArmorToArtifacts()
-		{
-			RetCode rc;
-
-			var armorNames = new string[]
-			{
-					"",
-					"leather",
-					"chain",
-					"plate",
-					"magic"
-			};
-
-			var a2 = (long)gCharacter.ArmorClass / 2;
-
-			var x = (long)gCharacter.ArmorClass % 2;
-
-			var s = a2 + ((4 - a2) * (a2 > 4 ? 1 : 0));
-
-			if (a2 > 0)
-			{
-				var armor = gCharacter.Armor;
-
-				Debug.Assert(armor != null);
-
-				var artifact = Globals.CreateInstance<IArtifact>(y =>
-				{
-					y.SetArtifactCategoryCount(1);
-
-					y.Uid = Globals.Database.GetArtifactUid();
-
-					y.Name = armor.IsActive() ? Globals.CloneInstance(armor.Name) : string.Format("{0} armor", armorNames[s]);
-
-					Debug.Assert(!string.IsNullOrWhiteSpace(y.Name));
-
-					y.Desc = armor.IsActive() && !string.IsNullOrWhiteSpace(armor.Desc) ? Globals.CloneInstance(armor.Desc) : null;
-
-					y.Seen = true;
-
-					y.IsCharOwned = true;
-
-					y.IsListed = true;
-
-					if (armor.IsActive())
-					{
-						y.IsPlural = armor.IsPlural;
-
-						y.PluralType = armor.PluralType;
-
-						y.ArticleType = armor.ArticleType;
-
-						y.GetCategories(0).Field1 = armor.Field1;
-
-						y.GetCategories(0).Field2 = armor.Field2;
-
-						y.GetCategories(0).Type = armor.Type;
-
-						y.Value = armor.Value;
-
-						y.Weight = armor.Weight;
-					}
-					else
-					{
-						y.IsPlural = false;
-
-						y.PluralType = PluralType.None;
-
-						y.ArticleType = ArticleType.Some;
-
-						y.GetCategories(0).Field1 = a2 * 2;
-
-						y.GetCategories(0).Field2 = 0;
-
-						y.GetCategories(0).Type = ArtifactType.Wearable;
-
-						var ima = false;
-
-						y.Value = (long)GetArmorPriceOrValue(gCharacter.ArmorClass, false, ref ima);
-
-						y.Weight = (a2 == 1 ? 15 : a2 == 2 ? 25 : 35);
-					}
-					
-					var charWeight = 0L;
-
-					rc = gCharacter.GetFullInventoryWeight(ref charWeight, recurse: true);
-
-					Debug.Assert(IsSuccess(rc));
-
-					if (y.Weight + charWeight <= gCharacter.GetWeightCarryableGronds())
-					{
-						y.SetWornByCharacter();
-					}
-					else
-					{
-						y.SetInRoomUid(StartRoom);
-					}
-				});
-
-				rc = Globals.Database.AddArtifact(artifact);
-
-				Debug.Assert(IsSuccess(rc));
-
-				gGameState.SetImportedArtUids(gGameState.ImportedArtUidsIdx++, artifact.Uid);
-
-				if (artifact.IsWornByCharacter())
-				{
-					gGameState.Ar = artifact.Uid;
-
-					Debug.Assert(gGameState.Ar > 0);
-				}
-			}
-
-			if (x == 1)
-			{
-				var shield = gCharacter.Shield;
-
-				Debug.Assert(shield != null);
-
-				var artifact = Globals.CreateInstance<IArtifact>(y =>
-				{
-					y.SetArtifactCategoryCount(1);
-
-					y.Uid = Globals.Database.GetArtifactUid();
-
-					y.Name = shield.IsActive() ? Globals.CloneInstance(shield.Name) : "shield";
-
-					Debug.Assert(!string.IsNullOrWhiteSpace(y.Name));
-
-					y.Desc = shield.IsActive() && !string.IsNullOrWhiteSpace(shield.Desc) ? Globals.CloneInstance(shield.Desc) : null;
-
-					y.Seen = true;
-
-					y.IsCharOwned = true;
-
-					y.IsListed = true;
-
-					if (shield.IsActive())
-					{
-						y.IsPlural = shield.IsPlural;
-
-						y.PluralType = shield.PluralType;
-
-						y.ArticleType = shield.ArticleType;
-
-						y.GetCategories(0).Field1 = shield.Field1;
-
-						y.GetCategories(0).Field2 = shield.Field2;
-
-						y.GetCategories(0).Type = shield.Type;
-
-						y.Value = shield.Value;
-
-						y.Weight = shield.Weight;
-					}
-					else
-					{
-						y.IsPlural = false;
-
-						y.PluralType = PluralType.S;
-
-						y.ArticleType = ArticleType.A;
-
-						y.GetCategories(0).Field1 = 1;
-
-						y.GetCategories(0).Field2 = 0;
-
-						y.GetCategories(0).Type = ArtifactType.Wearable;
-
-						y.Value = Constants.ShieldPrice;
-
-						y.Weight = 15;
-					}
-
-					var charWeight = 0L;
-
-					rc = gCharacter.GetFullInventoryWeight(ref charWeight, recurse: true);
-
-					Debug.Assert(IsSuccess(rc));
-
-					if (y.Weight + charWeight <= gCharacter.GetWeightCarryableGronds())
-					{
-						y.SetWornByCharacter();
-					}
-					else
-					{
-						y.SetInRoomUid(StartRoom);
-					}
-				});
-
-				rc = Globals.Database.AddArtifact(artifact);
-
-				Debug.Assert(IsSuccess(rc));
-
-				gGameState.SetImportedArtUids(gGameState.ImportedArtUidsIdx++, artifact.Uid);
-
-				if (artifact.IsWornByCharacter())
-				{
-					gGameState.Sh = artifact.Uid;
-
-					Debug.Assert(gGameState.Sh > 0);
-				}
-			}
-
-			return (a2 + x) + (a2 >= 3 ? 2 : 0);
-		}
-
-		/// <summary></summary>
-		protected virtual void PrintTooManyWeapons()
-		{
-			gOut.Print("As you enter the Main Hall, Lord William Missilefire approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"");
-		}
-
-		/// <summary></summary>
-		protected virtual void PrintDeliverGoods()
-		{
-			gOut.Print("You deliver your goods to Sam Slicker, the local buyer for such things.  He examines your items and pays you what they are worth.");
-		}
-
-		/// <summary></summary>
-		/// <param name="goodsExist"></param>
-		/// <param name="payment"></param>
-		protected virtual void PrintGoodsPayment(bool goodsExist, long payment)
-		{
-			gOut.Print("{0}He pays you {1} gold piece{2} total.", goodsExist ? Environment.NewLine : "", payment, payment != 1 ? "s" : "");
-		}
-
-		/// <summary></summary>
-		/// <param name="monster"></param>
-		/// <param name="damageFactor"></param>
-		protected virtual void SetScaledHardiness(IMonster monster, long damageFactor)
-		{
-			Debug.Assert(monster != null);
-
-			Debug.Assert(damageFactor > 0);
-
-			if (monster.Field1 > 0)
-			{
-				monster.Hardiness = damageFactor * monster.Field1;
-			}
-		}
-
-		/// <summary></summary>
-		/// <param name="s"></param>
-		/// <param name="spell"></param>
-		protected virtual void PlayerSpellCastBrainOverload(Spell s, ISpell spell)
-		{
-			Debug.Assert(Enum.IsDefined(typeof(Spell), s));
-
-			Debug.Assert(spell != null);
-
-			gOut.Print("The strain of attempting to cast {0} overloads your brain and you forget it completely{1}.", spell.Name, Globals.IsRulesetVersion(5, 15) ? "" : " for the rest of this adventure");
-
-			gGameState.SetSa(s, 0);
-
-			if (Globals.IsRulesetVersion(5, 15))
-			{
-				gCharacter.SetSpellAbilities(s, 0);
-			}
-		}
 
 		public virtual void PrintPlayerRoom()
 		{
@@ -420,9 +128,9 @@ namespace EamonRT.Game
 
 		public virtual void EnforceCharacterWeightLimits()
 		{
-			var artifacts = GetArtifactList(a => a.IsCarriedByCharacter() || a.IsWornByCharacter());
+			var artifactList = GetArtifactList(a => a.IsCarriedByCharacter() || a.IsWornByCharacter());
 
-			foreach (var artifact in artifacts)
+			foreach (var artifact in artifactList)
 			{
 				if (artifact.IsWornByCharacter())
 				{
@@ -449,7 +157,7 @@ namespace EamonRT.Game
 
 		public virtual void AddPoundCharsToArtifactNames()
 		{
-			var nameList = new List<IGameBase>();
+			var recordList = new List<IGameBase>();
 
 			var artifactList = PoundCharPolicy == PoundCharPolicy.PlayerArtifactsOnly ? Globals.Database.ArtifactTable.Records.Where(a => a.IsCharOwned).ToList() :
 									PoundCharPolicy == PoundCharPolicy.AllArtifacts ? Globals.Database.ArtifactTable.Records.ToList() :
@@ -474,23 +182,23 @@ namespace EamonRT.Game
 				artifactList.Reverse(i, artifactList.Count - i);
 			}
 
-			nameList.AddRange(artifactList);
+			recordList.AddRange(artifactList);
 
-			AddPoundCharsToRecordNames(nameList);
+			AddPoundCharsToRecordNames(recordList);
 		}
 
 		public virtual void AddMissingDescs()
 		{
-			var monsters = GetMonsterList(m => string.IsNullOrWhiteSpace(m.Desc) || string.Equals(m.Desc, "NONE", StringComparison.OrdinalIgnoreCase));
+			var monsterList = GetMonsterList(m => string.IsNullOrWhiteSpace(m.Desc) || string.Equals(m.Desc, "NONE", StringComparison.OrdinalIgnoreCase));
 
-			foreach (var monster in monsters)
+			foreach (var monster in monsterList)
 			{
 				monster.Desc = string.Format("{0} {1}.", monster.EvalPlural("This is", "These are"), monster.GetArticleName());
 			}
 
-			var artifacts = GetArtifactList(a => string.IsNullOrWhiteSpace(a.Desc) || string.Equals(a.Desc, "NONE", StringComparison.OrdinalIgnoreCase));
+			var artifactList = GetArtifactList(a => string.IsNullOrWhiteSpace(a.Desc) || string.Equals(a.Desc, "NONE", StringComparison.OrdinalIgnoreCase));
 
-			foreach (var artifact in artifacts)
+			foreach (var artifact in artifactList)
 			{
 				artifact.Desc = string.Format("{0} {1}.", artifact.EvalPlural("This is", "These are"), artifact.GetArticleName());
 			}
@@ -582,13 +290,11 @@ namespace EamonRT.Game
 		{
 			var maxDamage = ScaledHardinessUnarmedMaxDamage;
 
-			var monster = gMDB[gGameState.Cm];
+			Debug.Assert(gCharMonster != null);
 
-			Debug.Assert(monster != null);
-
-			if (monster.Weapon > 0)       // will always be most powerful weapon
+			if (gCharMonster.Weapon > 0)       // will always be most powerful weapon
 			{
-				var artifact = gADB[monster.Weapon];
+				var artifact = gADB[gCharMonster.Weapon];
 
 				Debug.Assert(artifact != null);
 
@@ -985,9 +691,9 @@ namespace EamonRT.Game
 
 			weaponList.Clear();
 
-			var artifacts = GetArtifactList(a => a.IsWornByCharacter());
+			var artifactList = GetArtifactList(a => a.IsWornByCharacter());
 
-			foreach (var artifact in artifacts)
+			foreach (var artifact in artifactList)
 			{
 				artifact.SetCarriedByCharacter();
 			}
@@ -996,17 +702,17 @@ namespace EamonRT.Game
 			{
 				c = 0;
 
-				artifacts = GetArtifactList(a => a.IsCarriedByCharacter());
+				artifactList = GetArtifactList(a => a.IsCarriedByCharacter());
 
-				foreach (var artifact in artifacts)
+				foreach (var artifact in artifactList)
 				{
 					var ac = artifact.GeneralContainer;
 
 					if (ac != null)
 					{
-						var artifacts01 = GetArtifactList(a => a.IsCarriedByContainer(artifact));
+						var artifactList01 = GetArtifactList(a => a.IsCarriedByContainer(artifact));
 
-						foreach (var artifact01 in artifacts01)
+						foreach (var artifact01 in artifactList01)
 						{
 							if (artifact01.Seen == true || artifact01.GetCarriedByContainerContainerType() != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen()))
 							{
@@ -1020,9 +726,9 @@ namespace EamonRT.Game
 			}
 			while (c == 1);
 
-			artifacts = Globals.Database.ArtifactTable.Records.ToList();
+			artifactList = Globals.Database.ArtifactTable.Records.ToList();
 
-			foreach (var artifact in artifacts)
+			foreach (var artifact in artifactList)
 			{
 				artifact.Seen = false;
 
@@ -1103,9 +809,9 @@ namespace EamonRT.Game
 
 				var rtio = GetMerchantRtio(c2);
 
-				var artifacts = GetArtifactList(a => a.IsCarriedByCharacter());
+				var artifactList = GetArtifactList(a => a.IsCarriedByCharacter());
 
-				foreach (var artifact in artifacts)
+				foreach (var artifact in artifactList)
 				{
 					var m = artifact.Gold != null ? artifact.Value : GetMerchantBidPrice(artifact.Value, rtio);
 
@@ -1368,9 +1074,9 @@ namespace EamonRT.Game
 
 			if (ac.Field2 > 0)
 			{
-				for (var i = 1; i <= ac.Field3; i++)
+				for (var i = 0; i < ac.Field3; i++)
 				{
-					var effect = gEDB[ac.Field2 + i - 1];
+					var effect = gEDB[ac.Field2 + i];
 
 					if (effect != null)
 					{
@@ -1452,24 +1158,24 @@ namespace EamonRT.Game
 			}
 		}
 
-		public virtual void RevealContainerContents(IRoom room, long revealContentIndex, ContainerType[] containerTypes, IList<string> containerContentsList = null)
+		public virtual void RevealContainerContents(IRoom room, long revealContentListIndex, ContainerType[] containerTypes, IList<string> containerContentsList = null)
 		{
 			RetCode rc;
 
 			Debug.Assert(room != null);
 
-			Debug.Assert(revealContentIndex >= 0 && revealContentIndex < Globals.RevealContentArtifacts.Count);
+			Debug.Assert(revealContentListIndex >= 0 && revealContentListIndex < Globals.RevealContentArtifactList.Count);
 
 			if (containerTypes == null || containerTypes.Length < 1)
 			{
 				containerTypes = new ContainerType[] { ContainerType.Under, ContainerType.Behind };
 			}
 
-			var artifact = Globals.RevealContentArtifacts[(int)revealContentIndex];
+			var artifact = Globals.RevealContentArtifactList[(int)revealContentListIndex];
 
 			Debug.Assert(artifact != null);
 
-			var charMonster = gMDB[gGameState.Cm];
+			var charMonster = gCharMonster;
 
 			Debug.Assert(charMonster != null);
 
@@ -1491,7 +1197,7 @@ namespace EamonRT.Game
 					{
 						revealContentsList.Add(revealArtifact);
 
-						revealArtifact.Location = Globals.RevealContentLocations[(int)revealContentIndex];
+						revealArtifact.Location = Globals.RevealContentLocationList[(int)revealContentListIndex];
 
 						if (revealShowCharOwned == null)
 						{
@@ -1781,9 +1487,7 @@ namespace EamonRT.Game
 
 			Debug.Assert(monster != null);
 
-			var charMonster = gMDB[gGameState.Cm];
-
-			Debug.Assert(charMonster != null);
+			Debug.Assert(gCharMonster != null);
 
 			var numExits = 0L;
 
@@ -1801,7 +1505,7 @@ namespace EamonRT.Game
 
 			if (numExits == 0)
 			{
-				if (charMonster.IsInRoom(room) && printOutput)
+				if (gCharMonster.IsInRoom(room) && printOutput)
 				{
 					gOut.Print("{0}", monster.GetCantFindExitDescString(room, monsterName, rl > 1, fleeing));
 
@@ -1825,7 +1529,7 @@ namespace EamonRT.Game
 			{
 				monster.GroupCount -= rl;
 
-				if (charMonster.IsInRoom(room) && printOutput)
+				if (gCharMonster.IsInRoom(room) && printOutput)
 				{
 					gOut.Print("{0}", monster.GetMembersExitRoomDescString(room, monsterName, rl > 1, fleeing));
 
@@ -1856,7 +1560,7 @@ namespace EamonRT.Game
 
 				Debug.Assert(roomUid > 0);
 
-				if (charMonster.IsInRoom(room) && printOutput)
+				if (gCharMonster.IsInRoom(room) && printOutput)
 				{
 					gOut.Print("{0}", monster.GetExitRoomDescString(room, monsterName, rl > 1, fleeing, direction));
 
@@ -1878,7 +1582,7 @@ namespace EamonRT.Game
 
 				Debug.Assert(direction01 != null);
 
-				if (charMonster.IsInRoom(room01) && printOutput)
+				if (gCharMonster.IsInRoom(room01) && printOutput)
 				{
 					gOut.Print("{0}", monster.GetEnterRoomDescString(room01, monsterName01, rl > 1, fleeing, direction01.EnterDir));
 
@@ -1900,20 +1604,20 @@ namespace EamonRT.Game
 
 			var monsterList = new List<IMonster>();
 
-			var origList = GetMonsterList(whereClauseFuncs);
+			var origMonsterList = GetMonsterList(whereClauseFuncs);
 
-			if (numMonsters > origList.Count)
+			if (numMonsters > origMonsterList.Count)
 			{
-				numMonsters = origList.Count;
+				numMonsters = origMonsterList.Count;
 			}
 
 			while (numMonsters > 0)
 			{
-				var rl = (int)RollDice(1, origList.Count, 0);
+				var rl = (int)RollDice(1, origMonsterList.Count, 0);
 
-				monsterList.Add(origList[rl - 1]);
+				monsterList.Add(origMonsterList[rl - 1]);
 
-				origList.RemoveAt(rl - 1);
+				origMonsterList.RemoveAt(rl - 1);
 
 				numMonsters--;
 			}
@@ -2022,15 +1726,15 @@ namespace EamonRT.Game
 
 			Debug.Assert(!string.IsNullOrWhiteSpace(name));
 
-			var filteredRecordList = recordList.Where(x => string.Equals(x.Name, name, StringComparison.OrdinalIgnoreCase)).ToList();
+			var filteredRecordList = recordList.Where(r => string.Equals(r.Name, name, StringComparison.OrdinalIgnoreCase)).ToList();
 
 			if (filteredRecordList.Count == 0)
 			{
-				filteredRecordList = recordList.Where(x =>
+				filteredRecordList = recordList.Where(r =>
 				{
 					var result = false;
 
-					var m = x as IMonster;
+					var m = r as IMonster;
 
 					if (m != null)
 					{
@@ -2038,7 +1742,7 @@ namespace EamonRT.Game
 					}
 					else
 					{
-						var a = x as IArtifact;
+						var a = r as IArtifact;
 
 						Debug.Assert(a != null);
 
@@ -2047,7 +1751,7 @@ namespace EamonRT.Game
 
 					if (result)
 					{
-						result = string.Equals(x.GetPluralName01(Globals.Buf), name, StringComparison.OrdinalIgnoreCase);
+						result = string.Equals(r.GetPluralName01(Globals.Buf), name, StringComparison.OrdinalIgnoreCase);
 					}
 
 					return result;
@@ -2056,21 +1760,21 @@ namespace EamonRT.Game
 
 			if (filteredRecordList.Count == 0)
 			{
-				filteredRecordList = recordList.Where(x => x.Synonyms != null && x.Synonyms.FirstOrDefault(s => string.Equals(s, name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
+				filteredRecordList = recordList.Where(r => r.Synonyms != null && r.Synonyms.FirstOrDefault(s => string.Equals(s, name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
 			}
 
 			if (filteredRecordList.Count == 0)
 			{
-				filteredRecordList = recordList.Where(x => x.Name.StartsWith(name, StringComparison.OrdinalIgnoreCase) || x.Name.EndsWith(name, StringComparison.OrdinalIgnoreCase)).ToList();
+				filteredRecordList = recordList.Where(r => r.Name.StartsWith(name, StringComparison.OrdinalIgnoreCase) || r.Name.EndsWith(name, StringComparison.OrdinalIgnoreCase)).ToList();
 			}
 
 			if (filteredRecordList.Count == 0)
 			{
-				filteredRecordList = recordList.Where(x =>
+				filteredRecordList = recordList.Where(r =>
 				{
 					var result = false;
 
-					var m = x as IMonster;
+					var m = r as IMonster;
 
 					if (m != null)
 					{
@@ -2078,7 +1782,7 @@ namespace EamonRT.Game
 					}
 					else
 					{
-						var a = x as IArtifact;
+						var a = r as IArtifact;
 
 						Debug.Assert(a != null);
 
@@ -2087,7 +1791,7 @@ namespace EamonRT.Game
 
 					if (result)
 					{
-						result = x.GetPluralName01(Globals.Buf).StartsWith(name, StringComparison.OrdinalIgnoreCase) || x.GetPluralName01(Globals.Buf01).EndsWith(name, StringComparison.OrdinalIgnoreCase);
+						result = r.GetPluralName01(Globals.Buf).StartsWith(name, StringComparison.OrdinalIgnoreCase) || r.GetPluralName01(Globals.Buf01).EndsWith(name, StringComparison.OrdinalIgnoreCase);
 					}
 
 					return result;
@@ -2096,7 +1800,7 @@ namespace EamonRT.Game
 
 			if (filteredRecordList.Count == 0)
 			{
-				filteredRecordList = recordList.Where(x => x.Synonyms != null && x.Synonyms.FirstOrDefault(s => s.StartsWith(name, StringComparison.OrdinalIgnoreCase) || s.EndsWith(name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
+				filteredRecordList = recordList.Where(r => r.Synonyms != null && r.Synonyms.FirstOrDefault(s => s.StartsWith(name, StringComparison.OrdinalIgnoreCase) || s.EndsWith(name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
 			}
 
 			return filteredRecordList;
@@ -2106,7 +1810,7 @@ namespace EamonRT.Game
 		{
 			Debug.Assert(monster != null);
 
-			var charMonster = gMDB[gGameState.Cm];
+			var charMonster = gCharMonster;
 
 			Debug.Assert(charMonster != null);
 
@@ -2196,7 +1900,7 @@ namespace EamonRT.Game
 			return room.IsLit() ? GetMonsterList(m => m.IsInRoom(room) && m != monster) : new List<IMonster>();
 		}
 
-		public virtual IList<IArtifact> BuildLoopArtifactList(IMonster monster)
+		public virtual IList<IArtifact> BuildLoopWeaponArtifactList(IMonster monster)
 		{
 			Debug.Assert(monster != null);
 
@@ -2253,7 +1957,7 @@ namespace EamonRT.Game
 		{
 			// Look up the player character
 
-			var charMonster = gMDB[gGameState.Cm];
+			var charMonster = gCharMonster;
 
 			Debug.Assert(charMonster != null);
 
@@ -2326,7 +2030,7 @@ namespace EamonRT.Game
 		{
 			// Look up the player character
 
-			var charMonster = gMDB[gGameState.Cm];
+			var charMonster = gCharMonster;
 
 			Debug.Assert(charMonster != null);
 
@@ -2425,7 +2129,7 @@ namespace EamonRT.Game
 			}
 
 			buf.AppendFormat("{0}{1}{2}",
-				buf03.Length > 0 ? Environment.NewLine : "",
+				Environment.NewLine,
 				buf03.Length > 0 ? buf03.ToString() : "(None)",
 				i == 0 || (i % 5) != 0 ? Environment.NewLine : "");
 
@@ -2448,9 +2152,9 @@ namespace EamonRT.Game
 
 			var found = false;
 
-			var artifacts = GetArtifactList(whereClauseFuncs);
+			var artifactList = GetArtifactList(whereClauseFuncs);
 			
-			foreach (var artifact in artifacts)
+			foreach (var artifact in artifactList)
 			{
 				var monster = Globals.Database.MonsterTable.Records.FirstOrDefault(m => m.DeadBody == artifact.Uid);
 
@@ -2483,16 +2187,16 @@ namespace EamonRT.Game
 				};
 			}
 
-			var artifacts = GetArtifactList(whereClauseFuncs);
+			var artifactList = GetArtifactList(whereClauseFuncs);
 
-			foreach (var artifact in artifacts)
+			foreach (var artifact in artifactList)
 			{
 				artifact.SetInLimbo();
 
 				gOut.Print("{0} vanish{1}!", artifact.GetTheName(true), artifact.EvalPlural("es", ""));
 			}
 
-			return artifacts.Count > 0;
+			return artifactList.Count > 0;
 		}
 
 		public virtual bool CheckPlayerSpellCast(Spell spellValue, bool shouldAllowSkillGains)
@@ -2563,9 +2267,7 @@ namespace EamonRT.Game
 
 		public virtual bool SaveThrow(Stat stat, long bonus = 0)
 		{
-			var charMonster = gMDB[gGameState.Cm];
-
-			Debug.Assert(charMonster != null);
+			Debug.Assert(gCharMonster != null);
 
 			var value = 0L;
 
@@ -2575,7 +2277,7 @@ namespace EamonRT.Game
 
 					// This is the saving throw vs. opening doors, etc
 
-					value = charMonster.Hardiness + bonus;
+					value = gCharMonster.Hardiness + bonus;
 
 					break;
 
@@ -2583,7 +2285,7 @@ namespace EamonRT.Game
 
 					// This is the saving throw vs. avoiding traps, etc
 
-					value = charMonster.Agility + bonus;
+					value = gCharMonster.Agility + bonus;
 
 					break;
 
@@ -2599,7 +2301,7 @@ namespace EamonRT.Game
 
 					// This is the saving throw vs. death or magic
 
-					value = (long)Math.Round((double)(charMonster.Agility + gCharacter.GetStats(Stat.Charisma) + charMonster.Hardiness) / 3.0) + bonus;
+					value = (long)Math.Round((double)(gCharMonster.Agility + gCharacter.GetStats(Stat.Charisma) + gCharMonster.Hardiness) / 3.0) + bonus;
 
 					break;
 			}
@@ -2913,9 +2615,9 @@ namespace EamonRT.Game
 				};
 			}
 
-			var monsters = GetMonsterList(whereClauseFuncs);
+			var monsterList = GetMonsterList(whereClauseFuncs);
 
-			foreach (var monster in monsters)
+			foreach (var monster in monsterList)
 			{
 				if (monster.CanMoveToRoomUid(gGameState.Ro, false))
 				{
@@ -3066,6 +2768,298 @@ namespace EamonRT.Game
 
 					nlFlag = true;
 				}
+			}
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual long ConvertWeaponsToArtifacts()
+		{
+			long cw = -1;
+
+			foreach (var weapon in gCharacter.Weapons)
+			{
+				if (weapon.IsActive())
+				{
+					var artifact = ConvertWeaponToArtifact(weapon);
+
+					Debug.Assert(artifact != null);
+
+					var ac = artifact.GeneralWeapon;
+
+					Debug.Assert(ac != null);
+
+					if (artifact.IsCarriedByCharacter() && (cw == -1 || WeaponPowerCompare(artifact.Uid, cw) > 0) && (gGameState.Sh < 1 || ac.Field5 < 2))
+					{
+						cw = artifact.Uid;
+
+						Debug.Assert(cw > 0);
+					}
+				}
+			}
+
+			return cw;
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual long ConvertArmorToArtifacts()
+		{
+			RetCode rc;
+
+			var armorNames = new string[]
+			{
+					"",
+					"leather",
+					"chain",
+					"plate",
+					"magic"
+			};
+
+			var a2 = (long)gCharacter.ArmorClass / 2;
+
+			var x = (long)gCharacter.ArmorClass % 2;
+
+			var s = a2 + ((4 - a2) * (a2 > 4 ? 1 : 0));
+
+			if (a2 > 0)
+			{
+				var armor = gCharacter.Armor;
+
+				Debug.Assert(armor != null);
+
+				var artifact = Globals.CreateInstance<IArtifact>(y =>
+				{
+					y.SetArtifactCategoryCount(1);
+
+					y.Uid = Globals.Database.GetArtifactUid();
+
+					y.Name = armor.IsActive() ? Globals.CloneInstance(armor.Name) : string.Format("{0} armor", armorNames[s]);
+
+					Debug.Assert(!string.IsNullOrWhiteSpace(y.Name));
+
+					y.Desc = armor.IsActive() && !string.IsNullOrWhiteSpace(armor.Desc) ? Globals.CloneInstance(armor.Desc) : null;
+
+					y.Seen = true;
+
+					y.IsCharOwned = true;
+
+					y.IsListed = true;
+
+					if (armor.IsActive())
+					{
+						y.IsPlural = armor.IsPlural;
+
+						y.PluralType = armor.PluralType;
+
+						y.ArticleType = armor.ArticleType;
+
+						y.GetCategories(0).Field1 = armor.Field1;
+
+						y.GetCategories(0).Field2 = armor.Field2;
+
+						y.GetCategories(0).Type = armor.Type;
+
+						y.Value = armor.Value;
+
+						y.Weight = armor.Weight;
+					}
+					else
+					{
+						y.IsPlural = false;
+
+						y.PluralType = PluralType.None;
+
+						y.ArticleType = ArticleType.Some;
+
+						y.GetCategories(0).Field1 = a2 * 2;
+
+						y.GetCategories(0).Field2 = 0;
+
+						y.GetCategories(0).Type = ArtifactType.Wearable;
+
+						var ima = false;
+
+						y.Value = (long)GetArmorPriceOrValue(gCharacter.ArmorClass, false, ref ima);
+
+						y.Weight = (a2 == 1 ? 15 : a2 == 2 ? 25 : 35);
+					}
+
+					var charWeight = 0L;
+
+					rc = gCharacter.GetFullInventoryWeight(ref charWeight, recurse: true);
+
+					Debug.Assert(IsSuccess(rc));
+
+					if (y.Weight + charWeight <= gCharacter.GetWeightCarryableGronds())
+					{
+						y.SetWornByCharacter();
+					}
+					else
+					{
+						y.SetInRoomUid(StartRoom);
+					}
+				});
+
+				rc = Globals.Database.AddArtifact(artifact);
+
+				Debug.Assert(IsSuccess(rc));
+
+				gGameState.SetImportedArtUids(gGameState.ImportedArtUidsIdx++, artifact.Uid);
+
+				if (artifact.IsWornByCharacter())
+				{
+					gGameState.Ar = artifact.Uid;
+
+					Debug.Assert(gGameState.Ar > 0);
+				}
+			}
+
+			if (x == 1)
+			{
+				var shield = gCharacter.Shield;
+
+				Debug.Assert(shield != null);
+
+				var artifact = Globals.CreateInstance<IArtifact>(y =>
+				{
+					y.SetArtifactCategoryCount(1);
+
+					y.Uid = Globals.Database.GetArtifactUid();
+
+					y.Name = shield.IsActive() ? Globals.CloneInstance(shield.Name) : "shield";
+
+					Debug.Assert(!string.IsNullOrWhiteSpace(y.Name));
+
+					y.Desc = shield.IsActive() && !string.IsNullOrWhiteSpace(shield.Desc) ? Globals.CloneInstance(shield.Desc) : null;
+
+					y.Seen = true;
+
+					y.IsCharOwned = true;
+
+					y.IsListed = true;
+
+					if (shield.IsActive())
+					{
+						y.IsPlural = shield.IsPlural;
+
+						y.PluralType = shield.PluralType;
+
+						y.ArticleType = shield.ArticleType;
+
+						y.GetCategories(0).Field1 = shield.Field1;
+
+						y.GetCategories(0).Field2 = shield.Field2;
+
+						y.GetCategories(0).Type = shield.Type;
+
+						y.Value = shield.Value;
+
+						y.Weight = shield.Weight;
+					}
+					else
+					{
+						y.IsPlural = false;
+
+						y.PluralType = PluralType.S;
+
+						y.ArticleType = ArticleType.A;
+
+						y.GetCategories(0).Field1 = 1;
+
+						y.GetCategories(0).Field2 = 0;
+
+						y.GetCategories(0).Type = ArtifactType.Wearable;
+
+						y.Value = Constants.ShieldPrice;
+
+						y.Weight = 15;
+					}
+
+					var charWeight = 0L;
+
+					rc = gCharacter.GetFullInventoryWeight(ref charWeight, recurse: true);
+
+					Debug.Assert(IsSuccess(rc));
+
+					if (y.Weight + charWeight <= gCharacter.GetWeightCarryableGronds())
+					{
+						y.SetWornByCharacter();
+					}
+					else
+					{
+						y.SetInRoomUid(StartRoom);
+					}
+				});
+
+				rc = Globals.Database.AddArtifact(artifact);
+
+				Debug.Assert(IsSuccess(rc));
+
+				gGameState.SetImportedArtUids(gGameState.ImportedArtUidsIdx++, artifact.Uid);
+
+				if (artifact.IsWornByCharacter())
+				{
+					gGameState.Sh = artifact.Uid;
+
+					Debug.Assert(gGameState.Sh > 0);
+				}
+			}
+
+			return (a2 + x) + (a2 >= 3 ? 2 : 0);
+		}
+
+		/// <summary></summary>
+		public virtual void PrintTooManyWeapons()
+		{
+			gOut.Print("As you enter the Main Hall, Lord William Missilefire approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"");
+		}
+
+		/// <summary></summary>
+		public virtual void PrintDeliverGoods()
+		{
+			gOut.Print("You deliver your goods to Sam Slicker, the local buyer for such things.  He examines your items and pays you what they are worth.");
+		}
+
+		/// <summary></summary>
+		/// <param name="goodsExist"></param>
+		/// <param name="payment"></param>
+		public virtual void PrintGoodsPayment(bool goodsExist, long payment)
+		{
+			gOut.Print("{0}He pays you {1} gold piece{2} total.", goodsExist ? Environment.NewLine : "", payment, payment != 1 ? "s" : "");
+		}
+
+		/// <summary></summary>
+		/// <param name="monster"></param>
+		/// <param name="damageFactor"></param>
+		public virtual void SetScaledHardiness(IMonster monster, long damageFactor)
+		{
+			Debug.Assert(monster != null);
+
+			Debug.Assert(damageFactor > 0);
+
+			if (monster.Field1 > 0)
+			{
+				monster.Hardiness = damageFactor * monster.Field1;
+			}
+		}
+
+		/// <summary></summary>
+		/// <param name="s"></param>
+		/// <param name="spell"></param>
+		public virtual void PlayerSpellCastBrainOverload(Spell s, ISpell spell)
+		{
+			Debug.Assert(Enum.IsDefined(typeof(Spell), s));
+
+			Debug.Assert(spell != null);
+
+			gOut.Print("The strain of attempting to cast {0} overloads your brain and you forget it completely{1}.", spell.Name, Globals.IsRulesetVersion(5, 15) ? "" : " for the rest of this adventure");
+
+			gGameState.SetSa(s, 0);
+
+			if (Globals.IsRulesetVersion(5, 15))
+			{
+				gCharacter.SetSpellAbilities(s, 0);
 			}
 		}
 

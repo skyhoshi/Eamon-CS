@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -149,11 +149,9 @@ namespace TheTempleOfNgurct.Game
 
 			MacroFuncs.Add(1, () =>
 			{
-				var characterMonster = gMDB[gGameState.Cm];
+				Debug.Assert(gCharMonster != null);
 
-				Debug.Assert(characterMonster != null);
-
-				return characterMonster.EvalGender(" sir", " madam", "");
+				return gCharMonster.EvalGender(" sir", " madam", "");
 			});
 
 			MacroFuncs.Add(5, () =>

@@ -1,7 +1,7 @@
 ﻿
 // MainLoop.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -19,11 +19,9 @@ namespace TheVileGrimoireOfJaldial.Game
 	{
 		public override void Shutdown()
 		{
-			var characterMonster = gMDB[gGameState.Cm];
+			Debug.Assert(gCharMonster != null);
 
-			Debug.Assert(characterMonster != null);
-
-			characterMonster.SetInLimbo();
+			gCharMonster.SetInLimbo();
 
 			var leatherBoundBookArtifact = gADB[9];
 

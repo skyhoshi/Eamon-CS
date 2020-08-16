@@ -1,7 +1,7 @@
 ﻿
 // AnalyseRecordInterdependenciesMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -16,13 +16,13 @@ namespace EamonDD.Game.Menus.ActionMenus
 {
 	public abstract class AnalyseRecordInterdependenciesMenu<T, U> : RecordMenu<T>, IAnalyseRecordInterdependenciesMenu<T> where T : class, IGameBase where U : class, IHelper<T>
 	{
-		public virtual IList<string> SkipNames { get; set; }
+		public virtual IList<string> SkipNameList { get; set; }
 
 		public virtual IHelper<T> ValidateHelper { get; set; }
 
 		public virtual T ErrorRecord { get; set; }
 
-		public virtual bool ClearSkipNames { get; set; }
+		public virtual bool ClearSkipNameList { get; set; }
 
 		public virtual bool ModifyFlag { get; set; }
 
@@ -67,7 +67,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			{
 				var uniqueName = string.Format("{0}_{1}_{2}", typeof(T).Name, ErrorRecord.Uid, errorHelper.GetName(errorHelper.ErrorFieldName));
 
-				SkipNames.Add(uniqueName);
+				SkipNameList.Add(uniqueName);
 			}
 			else if (ValidateHelper.Buf[0] == 'T')
 			{
@@ -235,9 +235,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			gEngine.PrintTitle(Title, true);
 
-			if (ClearSkipNames)
+			if (ClearSkipNameList)
 			{
-				SkipNames.Clear();
+				SkipNameList.Clear();
 			}
 
 			ValidateHelper.Clear();
@@ -254,14 +254,14 @@ namespace EamonDD.Game.Menus.ActionMenus
 				{
 					ValidateHelper.Record = record;
 
-					var names = ValidateHelper.GetNames((n) =>
+					var nameList = ValidateHelper.GetNameList((n) =>
 					{
 						var uniqueName = string.Format("{0}_{1}_{2}", typeof(T).Name, record.Uid, n);
 
-						return !SkipNames.Contains(uniqueName);
+						return !SkipNameList.Contains(uniqueName);
 					});
 
-					foreach (var name in names)
+					foreach (var name in nameList)
 					{
 						ValidateHelper.Clear();
 
@@ -298,11 +298,11 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		public AnalyseRecordInterdependenciesMenu()
 		{
-			SkipNames = new List<string>();
+			SkipNameList = new List<string>();
 
 			ValidateHelper = Globals.CreateInstance<U>();
 
-			ClearSkipNames = true;
+			ClearSkipNameList = true;
 		}
 	}
 }

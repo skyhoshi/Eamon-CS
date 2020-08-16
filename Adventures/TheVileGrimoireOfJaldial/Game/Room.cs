@@ -1,7 +1,7 @@
 ﻿
 // Room.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -19,8 +19,6 @@ namespace TheVileGrimoireOfJaldial.Game
 	[ClassMappings(typeof(IRoom))]
 	public class Room : Eamon.Game.Room, Framework.IRoom
 	{
-		public virtual bool DimLightSeen { get; set; }
-
 		public override string Desc
 		{
 			get
@@ -100,6 +98,8 @@ namespace TheVileGrimoireOfJaldial.Game
 				base.LightLvl = value;
 			}
 		}
+
+		public virtual bool DimLightSeen { get; set; }
 
 		public virtual bool Seen02
 		{
@@ -190,11 +190,11 @@ namespace TheVileGrimoireOfJaldial.Game
 			return base.IsDirectionInObviousExitsList(index) && !secretDoorExitDir;
 		}
 
-		public override string GetYouAlsoSee(bool showDesc, IList<IMonster> monsterList, IList<IArtifact> artifactList, IList<IGameBase> combinedList)
+		public override string GetYouAlsoSee(bool showDesc, IList<IMonster> monsterList, IList<IArtifact> artifactList, IList<IGameBase> recordList)
 		{
-			Debug.Assert(monsterList != null && artifactList != null && combinedList != null);
+			Debug.Assert(monsterList != null && artifactList != null && recordList != null);
 
-			var plural = combinedList.Count > 1 || (monsterList.Count > 0 && monsterList[0].GroupCount > 1) || (artifactList.Count > 0 && artifactList[0].IsPlural);
+			var plural = recordList.Count > 1 || (monsterList.Count > 0 && monsterList[0].GroupCount > 1) || (artifactList.Count > 0 && artifactList[0].IsPlural);
 
 			return string.Format("{0}You {1}{2}{3}",
 					!showDesc ? Environment.NewLine : "",

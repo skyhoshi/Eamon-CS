@@ -1,7 +1,7 @@
 ﻿
 // GoOnAdventureMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -22,9 +22,14 @@ namespace EamonMH.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class GoOnAdventureMenu : Menu, IGoOnAdventureMenu
 	{
+		public override void Execute()
+		{
+			SelectAdventure(0);
+		}
+
 		/// <summary></summary>
 		/// <param name="index"></param>
-		protected virtual void SelectAdventure(long index)
+		public virtual void SelectAdventure(long index)
 		{
 			RetCode rc;
 
@@ -330,11 +335,6 @@ namespace EamonMH.Game.Menus.ActionMenus
 		Cleanup:
 
 			;
-		}
-
-		public override void Execute()
-		{
-			SelectAdventure(0);
 		}
 
 		public GoOnAdventureMenu()

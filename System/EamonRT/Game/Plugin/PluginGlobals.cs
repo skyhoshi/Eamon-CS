@@ -1,7 +1,7 @@
 ﻿
 // PluginGlobals.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using System.Text;
@@ -26,9 +26,9 @@ namespace EamonRT.Game.Plugin
 
 		public virtual IList<ICommand> LastCommandList { get; set; }
 
-		public virtual IList<IArtifact> LoopArtifactList { get; set; }
+		public virtual IList<IArtifact> LoopWeaponArtifactList { get; set; }
 
-		public virtual long LoopArtifactListIndex { get; set; }
+		public virtual long LoopWeaponArtifactListIndex { get; set; }
 
 		public virtual long LoopMonsterUid { get; set; }
 

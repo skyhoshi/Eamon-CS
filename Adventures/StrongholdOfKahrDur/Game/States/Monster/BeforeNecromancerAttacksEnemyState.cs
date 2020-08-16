@@ -1,7 +1,7 @@
 ﻿
 // BeforeNecromancerAttacksEnemyState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -22,11 +22,9 @@ namespace StrongholdOfKahrDur.Game.States
 
 			Debug.Assert(necromancerMonster != null);
 
-			var characterMonster = gMDB[gGameState.Cm];
+			Debug.Assert(gCharMonster != null);
 
-			Debug.Assert(characterMonster != null);
-
-			var room = characterMonster.GetInRoom();
+			var room = gCharMonster.GetInRoom();
 
 			Debug.Assert(room != null);
 
@@ -39,7 +37,7 @@ namespace StrongholdOfKahrDur.Game.States
 			{
 				x.SetNextStateFunc = s => NextState = s;
 
-				x.DfMonster = characterMonster;
+				x.DfMonster = gCharMonster;
 
 				x.OmitArmor = true;
 			});

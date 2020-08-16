@@ -15,7 +15,7 @@ namespace LandOfTheMountainKing.Game.Combat
 	[ClassMappings]
 	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, ICombatSystem
 	{
-		protected override void PrintHealthStatus()
+		public override void PrintHealthStatus()
 		{
 			// Alt "deaths":
 
@@ -51,7 +51,7 @@ namespace LandOfTheMountainKing.Game.Combat
 			{
 				gEngine.PrintEffectDesc(43);
 				gEngine.PrintEffectDesc(42);
-				gMDB[gGameState.Cm].DmgTaken = 0;
+				gCharMonster.DmgTaken = 0;
 			}
 			else if (DfMonster.Uid == 3 && monsterDies)
 			{
@@ -62,32 +62,32 @@ namespace LandOfTheMountainKing.Game.Combat
 				gEngine.PrintEffectDesc(53);
 				gEngine.PrintEffectDesc(42);
 				gADB[22].SetInLimbo();
-				gMDB[gGameState.Cm].DmgTaken = 0;
+				gCharMonster.DmgTaken = 0;
 			}
 			else if (DfMonster.Uid == 5 && monsterDies)
 			{
 				gEngine.PrintEffectDesc(54);
 				gEngine.PrintEffectDesc(42);
-				gMDB[gGameState.Cm].DmgTaken = 0;
+				gCharMonster.DmgTaken = 0;
 				gADB[33].SetInRoomUid(3);
 			}
 			else if (DfMonster.Uid == 6 && monsterDies)
 			{
 				gEngine.PrintEffectDesc(55);
 				gEngine.PrintEffectDesc(42);
-				gMDB[gGameState.Cm].DmgTaken = 0;
+				gCharMonster.DmgTaken = 0;
 				gLMKKP1.SwampMonsterKilled = 1;
 			}
 			else if (DfMonster.Uid == 7 && monsterDies)
 			{
 				gEngine.PrintEffectDesc(56);
-				gMDB[gGameState.Cm].DmgTaken = 0;
+				gCharMonster.DmgTaken = 0;
 			}
 			else if (DfMonster.Uid == 8 && monsterDies)
 			{
 				gEngine.PrintEffectDesc(57);
 				gEngine.PrintEffectDesc(42);
-				gMDB[gGameState.Cm].DmgTaken = 0;
+				gCharMonster.DmgTaken = 0;
 			}
 			else
 			{
@@ -95,7 +95,7 @@ namespace LandOfTheMountainKing.Game.Combat
 			}
 		}
 
-		protected override void AttackHit()
+		public override void AttackHit()
 		{
 			// Werewolf can only be hit by silver sword:
 

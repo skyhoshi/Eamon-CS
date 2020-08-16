@@ -1,7 +1,7 @@
 ﻿
 // ConfigHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -21,36 +21,41 @@ namespace Eamon.Game.Helpers
 	[ClassMappings]
 	public class ConfigHelper : Helper<IConfig>, IConfigHelper
 	{
-		#region Protected Methods
+		#region Public Methods
 
 		#region Interface IHelper
+
+		public override bool ValidateRecordAfterDatabaseLoaded()
+		{
+			return true;
+		}
 
 		#region GetPrintedName Methods
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameShowDesc()
+		public virtual string GetPrintedNameShowDesc()
 		{
 			return "Show Descs";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameResolveEffects()
+		public virtual string GetPrintedNameResolveEffects()
 		{
 			return "Resolve Effects";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameGenerateUids()
+		public virtual string GetPrintedNameGenerateUids()
 		{
 			return "Generate Uids";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameFieldDesc()
+		public virtual string GetPrintedNameFieldDesc()
 		{
 			return "Field Descs";
 		}
@@ -73,21 +78,21 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateUid()
+		public virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateFieldDesc()
+		public virtual bool ValidateFieldDesc()
 		{
 			return Enum.IsDefined(typeof(FieldDesc), Record.FieldDesc);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWordWrapMargin()
+		public virtual bool ValidateWordWrapMargin()
 		{
 			return Record.WordWrapMargin == Constants.RightMargin;
 		}
@@ -103,7 +108,7 @@ namespace Eamon.Game.Helpers
 		#region PrintDesc Methods
 
 		/// <summary></summary>
-		protected virtual void PrintDescShowDesc()
+		public virtual void PrintDescShowDesc()
 		{
 			var fullDesc = "Enter whether to omit or show descriptions during record detail listing.";
 
@@ -113,7 +118,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescResolveEffects()
+		public virtual void PrintDescResolveEffects()
 		{
 			var fullDesc = "Enter whether to show or resolve effect uids in descriptions during record detail listing.";
 
@@ -123,7 +128,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescGenerateUids()
+		public virtual void PrintDescGenerateUids()
 		{
 			var fullDesc = "Enter whether to allow user input of uids or use system generated uids when adding new records.";
 
@@ -133,7 +138,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescFieldDesc()
+		public virtual void PrintDescFieldDesc()
 		{
 			var fullDesc = "Enter the verbosity of the field descriptions shown during record input.";
 
@@ -154,7 +159,7 @@ namespace Eamon.Game.Helpers
 		#region List Methods
 
 		/// <summary></summary>
-		protected virtual void ListUid()
+		public virtual void ListUid()
 		{
 			if (!ExcludeROFields)
 			{
@@ -165,7 +170,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListShowDesc()
+		public virtual void ListShowDesc()
 		{
 			var listNum = NumberFields ? ListNum++ : 0;
 
@@ -173,7 +178,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListResolveEffects()
+		public virtual void ListResolveEffects()
 		{
 			var listNum = NumberFields ? ListNum++ : 0;
 
@@ -181,7 +186,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListGenerateUids()
+		public virtual void ListGenerateUids()
 		{
 			var listNum = NumberFields ? ListNum++ : 0;
 
@@ -189,7 +194,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListFieldDesc()
+		public virtual void ListFieldDesc()
 		{
 			var listNum = NumberFields ? ListNum++ : 0;
 
@@ -201,7 +206,7 @@ namespace Eamon.Game.Helpers
 		#region Input Methods
 
 		/// <summary></summary>
-		protected virtual void InputUid()
+		public virtual void InputUid()
 		{
 			gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
 
@@ -209,7 +214,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputShowDesc()
+		public virtual void InputShowDesc()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -241,7 +246,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputResolveEffects()
+		public virtual void InputResolveEffects()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -273,7 +278,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputGenerateUids()
+		public virtual void InputGenerateUids()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -305,7 +310,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputFieldDesc()
+		public virtual void InputFieldDesc()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -348,7 +353,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class ConfigHelper
 
-		protected override void SetUidIfInvalid()
+		public override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -362,26 +367,9 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		#endregion
-
-		#endregion
-
-		#region Public Methods
-
-		#region Interface IHelper
-
-		public override bool ValidateRecordAfterDatabaseLoaded()
-		{
-			return true;
-		}
-
-		#endregion
-
-		#region Class ConfigHelper
-
 		public ConfigHelper()
 		{
-			FieldNames = new List<string>()
+			FieldNameList = new List<string>()
 			{
 				"Uid",
 				"IsUidRecycled",

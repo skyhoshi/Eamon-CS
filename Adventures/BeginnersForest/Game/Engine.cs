@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace BeginnersForest.Game
 	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
 	{
 		/// <summary></summary>
-		protected virtual long HeldWpnIdx { get; set; }
+		public virtual long HeldWpnIdx { get; set; }
 
 		public override void AddPoundCharsToArtifactNames()
 		{

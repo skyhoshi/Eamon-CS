@@ -1,12 +1,13 @@
 ﻿
 // OpenCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
@@ -15,22 +16,6 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, IOpenCommand
 	{
-		public override void PlayerProcessEvents(long eventType)
-		{
-			// Try to open running device, all flee
-
-			if (eventType == PpeAfterArtifactOpenPrint && DobjArtifact.Uid == 44)
-			{
-				Globals.DeviceOpened = true;
-
-				GotoCleanup = true;
-			}
-			else
-			{
-				base.PlayerProcessEvents(eventType);
-			}
-		}
-
 		public override void PrintOpened(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
@@ -78,6 +63,22 @@ namespace WrenholdsSecretVigil.Game.Commands
 			else
 			{
 				base.PrintOpenObjWithKey(artifact, key);
+			}
+		}
+
+		public override void PlayerProcessEvents(EventType eventType)
+		{
+			// Try to open running device, all flee
+
+			if (eventType == EventType.AfterArtifactOpenPrint && DobjArtifact.Uid == 44)
+			{
+				Globals.DeviceOpened = true;
+
+				GotoCleanup = true;
+			}
+			else
+			{
+				base.PlayerProcessEvents(eventType);
 			}
 		}
 

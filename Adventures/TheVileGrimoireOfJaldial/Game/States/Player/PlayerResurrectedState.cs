@@ -1,7 +1,7 @@
 ﻿
 // PlayerResurrectedState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -16,11 +16,11 @@ namespace TheVileGrimoireOfJaldial.Game.States
 	{
 		public override void Execute()
 		{
-			var characterMonster = gMDB[gGameState.Cm];
+			var charMonster = gCharMonster;
 
-			Debug.Assert(characterMonster != null);
+			Debug.Assert(charMonster != null);
 
-			var room = characterMonster.GetInRoom();
+			var room = charMonster.GetInRoom();
 
 			Debug.Assert(room != null);
 
@@ -28,11 +28,11 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 			gGameState.Die = 0;
 
-			characterMonster.DmgTaken = 0;
+			charMonster.DmgTaken = 0;
 
-			gEngine.ResetMonsterStats(characterMonster);
+			gEngine.ResetMonsterStats(charMonster);
 
-			var artifactList = characterMonster.GetContainedList();
+			var artifactList = charMonster.GetContainedList();
 
 			gOut.EnableOutput = false;
 
@@ -44,7 +44,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 					{
 						Globals.CurrState = Globals.CreateInstance<IRemoveCommand>(x =>
 						{
-							x.ActorMonster = characterMonster;
+							x.ActorMonster = charMonster;
 
 							x.ActorRoom = room;
 
@@ -56,7 +56,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 					Globals.CurrState = Globals.CreateInstance<IDropCommand>(x =>
 					{
-						x.ActorMonster = characterMonster;
+						x.ActorMonster = charMonster;
 
 						x.ActorRoom = room;
 

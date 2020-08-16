@@ -1,7 +1,7 @@
 ﻿
 // GetCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -88,7 +88,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			if (artifact.Uid == 48 && deviceArtifact1.IsInRoom(ActorRoom))
 			{
-				if (ArtifactList[0] != artifact)
+				if (TakenArtifactList[0] != artifact)
 				{
 					gOut.WriteLine();
 				}
@@ -110,7 +110,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				gOut.Write("{0}{0}Your hand feels relaxed, but strong.", Environment.NewLine);
 
-				if (ArtifactList[ArtifactList.Count - 1] != artifact)
+				if (TakenArtifactList[TakenArtifactList.Count - 1] != artifact)
 				{
 					gOut.WriteLine();
 				}
@@ -126,7 +126,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				gOut.Write("{0}{0}You found something under the mattress!", Environment.NewLine);
 
-				if (ArtifactList[ArtifactList.Count - 1] != artifact)
+				if (TakenArtifactList[TakenArtifactList.Count - 1] != artifact)
 				{
 					gOut.WriteLine();
 				}
@@ -158,16 +158,6 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		public virtual void PrintCantGetSlime()
-		{
-			gOut.Print("Corrosive slime is not something to get.");
-		}
-
-		public virtual void PrintCantDetachRope()
-		{
-			gOut.Print("You cannot detach the rope.");
-		}
-
 		public override void ProcessArtifact(IArtifact artifact, IArtifactCategory ac, ref bool nlFlag)
 		{
 			Debug.Assert(artifact != null);
@@ -189,9 +179,9 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 				if (!gGameState.PulledRope)
 				{
-					var monsters = gEngine.GetMonsterList(m => m.Uid >= 14 && m.Uid <= 16);
+					var monsterList = gEngine.GetMonsterList(m => m.Uid >= 14 && m.Uid <= 16);
 
-					foreach (var monster in monsters)
+					foreach (var monster in monsterList)
 					{
 						monster.SetInRoomUid(48);
 					}
@@ -205,6 +195,16 @@ namespace WrenholdsSecretVigil.Game.Commands
 			{
 				base.ProcessArtifact(artifact, ac, ref nlFlag);
 			}
+		}
+
+		public virtual void PrintCantGetSlime()
+		{
+			gOut.Print("Corrosive slime is not something to get.");
+		}
+
+		public virtual void PrintCantDetachRope()
+		{
+			gOut.Print("You cannot detach the rope.");
 		}
 	}
 }

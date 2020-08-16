@@ -1,7 +1,7 @@
 ﻿
 // SettingsCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -19,30 +19,15 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 		public virtual bool? ExitDirNames { get; set; }
 
-		public virtual long? WeatherScalePct { get; set; }
+		public virtual long? WeatherFreqPct { get; set; }
 
-		public virtual long? EncounterScalePct { get; set; }
+		public virtual long? EncounterFreqPct { get; set; }
 
-		public virtual long? FlavorScalePct { get; set; }
-
-		public override void PrintUsage()
-		{
-			base.PrintUsage();
-
-			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "WeatherScalePct", "0 .. 100", gGameState.WeatherScalePct);
-
-			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "EncounterScalePct", "0 .. 100", gGameState.EncounterScalePct);
-
-			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "FlavorScalePct", "0 .. 100", gGameState.FlavorScalePct);
-
-			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "ShowCombatDamage", "True, False", gGameState.ShowCombatDamage);
-
-			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "ExitDirNames", "True, False", gGameState.ExitDirNames);
-		}
+		public virtual long? FlavorFreqPct { get; set; }
 
 		public override void PlayerExecute()
 		{
-			if (ShowCombatDamage == null && ExitDirNames == null && WeatherScalePct == null && EncounterScalePct == null && FlavorScalePct == null)
+			if (ShowCombatDamage == null && ExitDirNames == null && WeatherFreqPct == null && EncounterFreqPct == null && FlavorFreqPct == null)
 			{
 				base.PlayerExecute();
 
@@ -59,25 +44,25 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 				gGameState.ExitDirNames = (bool)ExitDirNames;
 			}
 
-			if (WeatherScalePct != null)
+			if (WeatherFreqPct != null)
 			{
-				Debug.Assert(WeatherScalePct >= 0 && WeatherScalePct <= 100);
+				Debug.Assert(WeatherFreqPct >= 0 && WeatherFreqPct <= 100);
 
-				gGameState.WeatherScalePct = (long)WeatherScalePct;
+				gGameState.WeatherFreqPct = (long)WeatherFreqPct;
 			}
 
-			if (EncounterScalePct != null)
+			if (EncounterFreqPct != null)
 			{
-				Debug.Assert(EncounterScalePct >= 0 && EncounterScalePct <= 100);
+				Debug.Assert(EncounterFreqPct >= 0 && EncounterFreqPct <= 100);
 
-				gGameState.EncounterScalePct = (long)EncounterScalePct;
+				gGameState.EncounterFreqPct = (long)EncounterFreqPct;
 			}
 
-			if (FlavorScalePct != null)
+			if (FlavorFreqPct != null)
 			{
-				Debug.Assert(FlavorScalePct >= 0 && FlavorScalePct <= 100);
+				Debug.Assert(FlavorFreqPct >= 0 && FlavorFreqPct <= 100);
 
-				gGameState.FlavorScalePct = (long)FlavorScalePct;
+				gGameState.FlavorFreqPct = (long)FlavorFreqPct;
 			}
 
 			gOut.Print("Settings changed.");
@@ -90,6 +75,21 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 		Cleanup:
 
 			;
+		}
+
+		public override void PrintUsage()
+		{
+			base.PrintUsage();
+
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "ShowCombatDamage", "True, False", gGameState.ShowCombatDamage);
+
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "ExitDirNames", "True, False", gGameState.ExitDirNames);
+
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "WeatherFreqPct", "0 .. 100", gGameState.WeatherFreqPct);
+
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "EncounterFreqPct", "0 .. 100", gGameState.EncounterFreqPct);
+
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "FlavorFreqPct", "0 .. 100", gGameState.FlavorFreqPct);
 		}
 	}
 }

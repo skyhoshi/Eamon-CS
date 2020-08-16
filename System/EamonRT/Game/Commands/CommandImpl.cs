@@ -1,18 +1,17 @@
 ﻿
 // CommandImpl.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.Parsing;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -21,7 +20,7 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class CommandImpl : ICommandImpl
 	{
-		protected IMonster _actorMonster;
+		public IMonster _actorMonster;
 
 		public virtual ICommand Command { get; set; }
 
@@ -595,12 +594,12 @@ namespace EamonRT.Game.Commands
 			gOut.Print("There's no place to go!");
 		}
 
-		public virtual void PlayerProcessEvents(long eventType)
+		public virtual void PlayerProcessEvents(EventType eventType)
 		{
 
 		}
 
-		public virtual void MonsterProcessEvents(long eventType)
+		public virtual void MonsterProcessEvents(EventType eventType)
 		{
 
 		}
@@ -667,11 +666,11 @@ namespace EamonRT.Game.Commands
 
 				return artifact.IsCarriedByCharacter();
 			}
-			else if (Command is IReadyCommand)
+			else if (Command is IReadyCommand readyCommand)
 			{
 				Debug.Assert(artifact != null);
 
-				var ac = artifact.GetArtifactCategory((Command as IReadyCommand).ArtTypes, false);
+				var ac = artifact.GetArtifactCategory(readyCommand.ArtTypes, false);
 
 				if (ac != null)
 				{
@@ -695,11 +694,11 @@ namespace EamonRT.Game.Commands
 
 				return Command.CommandParser.ObjData == Command.CommandParser.IobjData || artifact.IsWornByCharacter();
 			}
-			else if (Command is IUseCommand)
+			else if (Command is IUseCommand useCommand)
 			{
 				Debug.Assert(artifact != null);
 
-				var ac = artifact.GetArtifactCategory((Command as IUseCommand).ArtTypes, false);
+				var ac = artifact.GetArtifactCategory(useCommand.ArtTypes, false);
 
 				if (ac != null)
 				{

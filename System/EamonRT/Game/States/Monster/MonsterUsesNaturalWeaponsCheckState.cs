@@ -1,9 +1,10 @@
 ﻿
 // MonsterUsesNaturalWeaponsCheckState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
@@ -14,18 +15,21 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class MonsterUsesNaturalWeaponsCheckState : State, IMonsterUsesNaturalWeaponsCheckState
 	{
+		/// <summary></summary>
+		public virtual IMonster LoopMonster { get; set; }
+
 		public override void Execute()
 		{
-			var monster = gMDB[Globals.LoopMonsterUid];
+			LoopMonster = gMDB[Globals.LoopMonsterUid];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(LoopMonster != null);
 
-			if (monster.CombatCode == CombatCode.NaturalWeapons && monster.Weapon < 0)
+			if (LoopMonster.CombatCode == CombatCode.NaturalWeapons && LoopMonster.Weapon < 0)
 			{
-				monster.Weapon = 0;
+				LoopMonster.Weapon = 0;
 			}
 
-			if (monster.CheckNBTLHostility())
+			if (LoopMonster.CheckNBTLHostility())
 			{
 				NextState = Globals.CreateInstance<IMonsterReadiedWeaponCheckState>();
 			

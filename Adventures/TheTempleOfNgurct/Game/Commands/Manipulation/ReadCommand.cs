@@ -1,12 +1,13 @@
 ﻿
 // ReadCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
@@ -20,11 +21,11 @@ namespace TheTempleOfNgurct.Game.Commands
 			PrintEnemiesNearby();
 		}
 
-		public override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(EventType eventType)
 		{
 			// Book
 
-			if (eventType == PpeAfterArtifactRead && DobjArtifact.Uid == 61)
+			if (eventType == EventType.AfterArtifactRead && DobjArtifact.Uid == 61)
 			{
 				DobjArtifact.SetInRoom(ActorRoom);
 

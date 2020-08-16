@@ -1,7 +1,7 @@
 ﻿
 // PluginGlobals.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -20,12 +20,6 @@ namespace Eamon.Game.Plugin
 {
 	public class PluginGlobals : IPluginGlobals
 	{
-		/// <summary></summary>
-		protected virtual IDatabase[] Databases { get; set; }
-
-		/// <summary></summary>
-		protected virtual long DbStackTop { get; set; }
-
 		public virtual StringBuilder Buf { get; set; } = new StringBuilder(Constants.BufSize);
 
 		public virtual IDatabase Database
@@ -182,9 +176,9 @@ namespace Eamon.Game.Plugin
 
 		public virtual IMonster RevealContentMonster { get; set; }
 
-		public virtual IList<IArtifact> RevealContentArtifacts { get; set; }
+		public virtual IList<IArtifact> RevealContentArtifactList { get; set; }
 
-		public virtual IList<long> RevealContentLocations { get; set; }
+		public virtual IList<long> RevealContentLocationList { get; set; }
 
 		public virtual bool EnableRevealContentOverrides { get; set; }
 
@@ -283,24 +277,10 @@ namespace Eamon.Game.Plugin
 		public virtual IRecordDb<IGameState> GSDB { get; set; }
 
 		/// <summary></summary>
-		/// <param name="records"></param>
-		protected virtual void RestoreRecords(IList<IGameBase> records)
-		{
-			if (records != null)
-			{
-				foreach (var r in records)
-				{
-					r.SetParentReferences();
+		public virtual IDatabase[] Databases { get; set; }
 
-					// Note: may want to be really rigorous here and also validate record
-
-					if (r is IMonster)
-					{
-						// Note: may want to be really rigorous here and also validate weapon/shield combo
-					}
-				}
-			}
-		}
+		/// <summary></summary>
+		public virtual long DbStackTop { get; set; }
 
 		public virtual void HandleException(Exception ex, string stackTraceFile, string errorMessage)
 		{
@@ -562,9 +542,9 @@ namespace Eamon.Game.Plugin
 
 			Engine = ClassMappings.CreateInstance<IEngine>();
 
-			RevealContentArtifacts = new List<IArtifact>();
+			RevealContentArtifactList = new List<IArtifact>();
 
-			RevealContentLocations = new List<long>();
+			RevealContentLocationList = new List<long>();
 
 			EnableRevealContentOverrides = true;
 
@@ -880,9 +860,29 @@ namespace Eamon.Game.Plugin
 
 			RevealContentMonster = null;
 
-			RevealContentArtifacts.Clear();
+			RevealContentArtifactList.Clear();
 
-			RevealContentLocations.Clear();
+			RevealContentLocationList.Clear();
+		}
+
+		/// <summary></summary>
+		/// <param name="recordList"></param>
+		public virtual void RestoreRecords(IList<IGameBase> recordList)
+		{
+			if (recordList != null)
+			{
+				foreach (var r in recordList)
+				{
+					r.SetParentReferences();
+
+					// Note: may want to be really rigorous here and also validate record
+
+					if (r is IMonster)
+					{
+						// Note: may want to be really rigorous here and also validate weapon/shield combo
+					}
+				}
+			}
 		}
 	}
 }

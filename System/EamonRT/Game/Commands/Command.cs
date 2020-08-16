@@ -1,13 +1,14 @@
 ﻿
 // Command.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.Parsing;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Game.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -636,12 +637,12 @@ namespace EamonRT.Game.Commands
 			CommandImpl.PrintNoPlaceToGo();
 		}
 
-		public virtual void PlayerProcessEvents(long eventType)
+		public virtual void PlayerProcessEvents(EventType eventType)
 		{
 			CommandImpl.PlayerProcessEvents(eventType);
 		}
 
-		public virtual void MonsterProcessEvents(long eventType)
+		public virtual void MonsterProcessEvents(EventType eventType)
 		{
 			CommandImpl.MonsterProcessEvents(eventType);
 		}

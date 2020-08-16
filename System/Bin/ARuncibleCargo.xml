@@ -81,7 +81,7 @@
         <member name="T:ARuncibleCargo.Framework.Plugin.IPluginGlobals">
             <summary></summary>
         </member>
-        <member name="P:ARuncibleCargo.Framework.Plugin.IPluginGlobals.DoubleDoors">
+        <member name="P:ARuncibleCargo.Framework.Plugin.IPluginGlobals.DoubleDoorList">
             <summary></summary>
         </member>
         <member name="M:ARuncibleCargo.Game.Helpers.GameStateHelper.ValidateDreamCounter">

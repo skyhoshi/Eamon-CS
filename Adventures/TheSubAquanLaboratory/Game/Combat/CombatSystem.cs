@@ -1,7 +1,7 @@
 ﻿
 // CombatSystem.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using Eamon.Framework.Primitive.Enums;
@@ -14,7 +14,7 @@ namespace TheSubAquanLaboratory.Game.Combat
 	[ClassMappings]
 	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, ICombatSystem
 	{
-		protected override void SetAttackDesc()
+		public override void SetAttackDesc()
 		{
 			AttackDesc = "attack{0}";
 
@@ -38,7 +38,7 @@ namespace TheSubAquanLaboratory.Game.Combat
 			}
 		}
 
-		protected override void PrintBlowTurned()
+		public override void PrintBlowTurned()
 		{
 			if (DfMonster.Uid == gGameState.Cm && DfMonster.Armor < 1)
 			{

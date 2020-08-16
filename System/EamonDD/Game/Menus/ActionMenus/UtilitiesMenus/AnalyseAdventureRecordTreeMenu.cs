@@ -1,7 +1,7 @@
 ﻿
 // AnalyseAdventureRecordTreeMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -19,92 +19,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class AnalyseAdventureRecordTreeMenu : Menu, IAnalyseAdventureRecordTreeMenu
 	{
-		public virtual IList<string> RecordTreeStrings { get; set; }
-
-		/// <summary></summary>
-		/// <param name="artifact"></param>
-		/// <param name="tag"></param>
-		/// <param name="indentLevel"></param>
-		protected virtual void AnalyseArtifactRecordTree(IArtifact artifact, string tag, long indentLevel)
-		{
-			Debug.Assert(artifact != null && tag != null && indentLevel > 0);
-
-			var indentString = new string('\t', (int)indentLevel);
-
-			RecordTreeStrings.Add(string.Format("{0}{1}[{2}{3}: {4}", Environment.NewLine, indentString, tag, artifact.Uid, artifact.GetArticleName(true, buf: Buf)));
-
-			var containedList = artifact.GetContainedList(containerType: (ContainerType)(-1));
-
-			foreach (var containedArtifact in containedList)
-			{
-				AnalyseArtifactRecordTree(containedArtifact, 
-					containedArtifact.GetCarriedByContainerContainerType() == ContainerType.On ? "OA" :
-					containedArtifact.GetCarriedByContainerContainerType() == ContainerType.Under ? "UA" :
-					containedArtifact.GetCarriedByContainerContainerType() == ContainerType.Behind ? "BA" :
-					"IA", 
-					indentLevel + 1);
-			}
-
-			RecordTreeStrings.Add(string.Format("{0}]", containedList.Count > 0 ? Environment.NewLine + indentString : ""));
-		}
-
-		/// <summary></summary>
-		/// <param name="monster"></param>
-		/// <param name="tag"></param>
-		/// <param name="indentLevel"></param>
-		protected virtual void AnalyseMonsterRecordTree(IMonster monster, string tag, long indentLevel)
-		{
-			Debug.Assert(monster != null && tag != null && indentLevel > 0);
-
-			var indentString = new string('\t', (int)indentLevel);
-
-			RecordTreeStrings.Add(string.Format("{0}{1}[{2}{3}: {4}", Environment.NewLine, indentString, tag, monster.Uid, monster.GetArticleName(true, buf: Buf)));
-
-			var wornList = monster.GetWornList();
-
-			foreach (var wornArtifact in wornList)
-			{
-				AnalyseArtifactRecordTree(wornArtifact, "WA", indentLevel + 1);
-			}
-
-			var carriedList = monster.GetCarriedList();
-
-			foreach (var carriedArtifact in carriedList)
-			{
-				AnalyseArtifactRecordTree(carriedArtifact, "CA", indentLevel + 1);
-			}
-
-			RecordTreeStrings.Add(string.Format("{0}]", wornList.Count > 0 || carriedList.Count > 0 ? Environment.NewLine + indentString : ""));
-		}
-
-		/// <summary></summary>
-		/// <param name="room"></param>
-		/// <param name="tag"></param>
-		/// <param name="indentLevel"></param>
-		protected virtual void AnalyseRoomRecordTree(IRoom room, string tag, long indentLevel)
-		{
-			Debug.Assert(room != null && tag != null && indentLevel > 0);
-
-			var indentString = new string('\t', (int)indentLevel);
-
-			RecordTreeStrings.Add(string.Format("{0}{1}[{2}{3}: {4}", Environment.NewLine, indentString, tag, room.Uid, room.Name));
-
-			var monsterList = gEngine.GetMonsterList(m => m.IsInRoom(room));
-
-			foreach (var monster in monsterList)
-			{
-				AnalyseMonsterRecordTree(monster, "M", indentLevel + 1);
-			}
-
-			var artifactList = gEngine.GetArtifactList(a => a.IsInRoom(room) || a.IsEmbeddedInRoom(room));
-
-			foreach (var artifact in artifactList)
-			{
-				AnalyseArtifactRecordTree(artifact, artifact.IsEmbeddedInRoom() ? "EA" : "A", indentLevel + 1);
-			}
-
-			RecordTreeStrings.Add(string.Format("{0}]", monsterList.Count > 0 || artifactList.Count > 0 ? Environment.NewLine + indentString : ""));
-		}
+		public virtual IList<string> RecordTreeStringList { get; set; }
 
 		public override void Execute()
 		{
@@ -118,9 +33,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			Debug.Assert(gEngine.IsAdventureFilesetLoaded());
 
-			RecordTreeStrings.Clear();
+			RecordTreeStringList.Clear();
 
-			RecordTreeStrings.Add(string.Format("{0}[{1}",
+			RecordTreeStringList.Add(string.Format("{0}[{1}",
 				Environment.NewLine,
 				Globals.Module != null ? Globals.Module.Name : gEngine.UnknownName));
 
@@ -145,7 +60,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				AnalyseArtifactRecordTree(artifact, "A", 1);
 			}
 
-			RecordTreeStrings.Add(string.Format("{0}]", roomList.Count > 0 || monsterList.Count > 0 || artifactList.Count > 0 ? Environment.NewLine : ""));
+			RecordTreeStringList.Add(string.Format("{0}]", roomList.Count > 0 || monsterList.Count > 0 || artifactList.Count > 0 ? Environment.NewLine : ""));
 
 			gOut.Write("{0}Would you like to use page breaks (Y/N) [Y]: ", Environment.NewLine);
 
@@ -163,20 +78,20 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				var j = 0;
 
-				var k = RecordTreeStrings.Count;
+				var k = RecordTreeStringList.Count;
 
 				while (i < k)
 				{
-					gOut.Write(RecordTreeStrings[i]);
+					gOut.Write(RecordTreeStringList[i]);
 
-					if (RecordTreeStrings[i].Contains(Environment.NewLine))
+					if (RecordTreeStringList[i].Contains(Environment.NewLine))
 					{
 						j++;
 					}
 
 					nlFlag = true;
 
-					if (i == k - 1 || (j >= Constants.NumRows - 10 && (RecordTreeStrings[i + 1].StartsWith(Environment.NewLine + "\t[R") || RecordTreeStrings[i + 1].StartsWith(Environment.NewLine + "\t[M") || RecordTreeStrings[i + 1].StartsWith(Environment.NewLine + "\t[A"))))
+					if (i == k - 1 || (j >= Constants.NumRows - 10 && (RecordTreeStringList[i + 1].StartsWith(Environment.NewLine + "\t[R") || RecordTreeStringList[i + 1].StartsWith(Environment.NewLine + "\t[M") || RecordTreeStringList[i + 1].StartsWith(Environment.NewLine + "\t[A"))))
 					{
 						nlFlag = false;
 
@@ -207,9 +122,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 			}
 			else
 			{
-				for (var i = 0; i < RecordTreeStrings.Count; i++)
+				for (var i = 0; i < RecordTreeStringList.Count; i++)
 				{
-					gOut.Write(RecordTreeStrings[i]);
+					gOut.Write(RecordTreeStringList[i]);
 				}
 
 				gOut.WriteLine();
@@ -227,11 +142,96 @@ namespace EamonDD.Game.Menus.ActionMenus
 			gOut.Print("Done analysing adventure record tree.");
 		}
 
+		/// <summary></summary>
+		/// <param name="artifact"></param>
+		/// <param name="tag"></param>
+		/// <param name="indentLevel"></param>
+		public virtual void AnalyseArtifactRecordTree(IArtifact artifact, string tag, long indentLevel)
+		{
+			Debug.Assert(artifact != null && tag != null && indentLevel > 0);
+
+			var indentString = new string('\t', (int)indentLevel);
+
+			RecordTreeStringList.Add(string.Format("{0}{1}[{2}{3}: {4}", Environment.NewLine, indentString, tag, artifact.Uid, artifact.GetArticleName(true, buf: Buf)));
+
+			var containedList = artifact.GetContainedList(containerType: (ContainerType)(-1));
+
+			foreach (var containedArtifact in containedList)
+			{
+				AnalyseArtifactRecordTree(containedArtifact,
+					containedArtifact.GetCarriedByContainerContainerType() == ContainerType.On ? "OA" :
+					containedArtifact.GetCarriedByContainerContainerType() == ContainerType.Under ? "UA" :
+					containedArtifact.GetCarriedByContainerContainerType() == ContainerType.Behind ? "BA" :
+					"IA",
+					indentLevel + 1);
+			}
+
+			RecordTreeStringList.Add(string.Format("{0}]", containedList.Count > 0 ? Environment.NewLine + indentString : ""));
+		}
+
+		/// <summary></summary>
+		/// <param name="monster"></param>
+		/// <param name="tag"></param>
+		/// <param name="indentLevel"></param>
+		public virtual void AnalyseMonsterRecordTree(IMonster monster, string tag, long indentLevel)
+		{
+			Debug.Assert(monster != null && tag != null && indentLevel > 0);
+
+			var indentString = new string('\t', (int)indentLevel);
+
+			RecordTreeStringList.Add(string.Format("{0}{1}[{2}{3}: {4}", Environment.NewLine, indentString, tag, monster.Uid, monster.GetArticleName(true, buf: Buf)));
+
+			var wornList = monster.GetWornList();
+
+			foreach (var wornArtifact in wornList)
+			{
+				AnalyseArtifactRecordTree(wornArtifact, "WA", indentLevel + 1);
+			}
+
+			var carriedList = monster.GetCarriedList();
+
+			foreach (var carriedArtifact in carriedList)
+			{
+				AnalyseArtifactRecordTree(carriedArtifact, "CA", indentLevel + 1);
+			}
+
+			RecordTreeStringList.Add(string.Format("{0}]", wornList.Count > 0 || carriedList.Count > 0 ? Environment.NewLine + indentString : ""));
+		}
+
+		/// <summary></summary>
+		/// <param name="room"></param>
+		/// <param name="tag"></param>
+		/// <param name="indentLevel"></param>
+		public virtual void AnalyseRoomRecordTree(IRoom room, string tag, long indentLevel)
+		{
+			Debug.Assert(room != null && tag != null && indentLevel > 0);
+
+			var indentString = new string('\t', (int)indentLevel);
+
+			RecordTreeStringList.Add(string.Format("{0}{1}[{2}{3}: {4}", Environment.NewLine, indentString, tag, room.Uid, room.Name));
+
+			var monsterList = gEngine.GetMonsterList(m => m.IsInRoom(room));
+
+			foreach (var monster in monsterList)
+			{
+				AnalyseMonsterRecordTree(monster, "M", indentLevel + 1);
+			}
+
+			var artifactList = gEngine.GetArtifactList(a => a.IsInRoom(room) || a.IsEmbeddedInRoom(room));
+
+			foreach (var artifact in artifactList)
+			{
+				AnalyseArtifactRecordTree(artifact, artifact.IsEmbeddedInRoom() ? "EA" : "A", indentLevel + 1);
+			}
+
+			RecordTreeStringList.Add(string.Format("{0}]", monsterList.Count > 0 || artifactList.Count > 0 ? Environment.NewLine + indentString : ""));
+		}
+
 		public AnalyseAdventureRecordTreeMenu()
 		{
 			Buf = Globals.Buf;
 
-			RecordTreeStrings = new List<string>();
+			RecordTreeStringList = new List<string>();
 		}
 	}
 }

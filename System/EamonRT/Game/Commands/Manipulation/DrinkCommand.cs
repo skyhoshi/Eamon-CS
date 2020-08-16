@@ -1,16 +1,17 @@
 ﻿
 // DrinkCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
 using Eamon;
-using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -19,15 +20,14 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class DrinkCommand : Command, IDrinkCommand
 	{
-		/// <summary>
-		/// An event that fires before checking whether an <see cref="IArtifact">Artifact</see> has been fully drunk.
-		/// </summary>
-		public const long PpeBeforeArtifactNowEmptyCheck = 1;
+		/// <summary></summary>
+		public virtual IArtifactCategory DrinkableAc { get; set; }
 
-		/// <summary>
-		/// An event that fires after the player drinks an <see cref="IArtifact">Artifact</see>.
-		/// </summary>
-		public const long PpeAfterArtifactDrink = 2;
+		/// <summary></summary>
+		public virtual IArtifactCategory EdibleAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory DobjArtAc { get; set; }
 
 		public override void PlayerExecute()
 		{
@@ -35,15 +35,15 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var drinkableAc = DobjArtifact.Drinkable;
+			DrinkableAc = DobjArtifact.Drinkable;
 
-			var edibleAc = DobjArtifact.Edible;
+			EdibleAc = DobjArtifact.Edible;
 
-			var ac = drinkableAc != null ? drinkableAc : edibleAc;
+			DobjArtAc = DrinkableAc != null ? DrinkableAc : EdibleAc;
 
-			if (ac != null)
+			if (DobjArtAc != null)
 			{
-				if (ac.Type == ArtifactType.Edible)
+				if (DobjArtAc.Type == ArtifactType.Edible)
 				{
 					NextState = Globals.CreateInstance<IEatCommand>();
 
@@ -52,7 +52,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (!ac.IsOpen())
+				if (!DobjArtAc.IsOpen())
 				{
 					PrintMustFirstOpen(DobjArtifact);
 
@@ -61,30 +61,30 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Field2 < 1)
+				if (DobjArtAc.Field2 < 1)
 				{
 					PrintNoneLeft(DobjArtifact);
 
 					goto Cleanup;
 				}
 
-				if (ac.Field2 != Constants.InfiniteDrinkableEdible)
+				if (DobjArtAc.Field2 != Constants.InfiniteDrinkableEdible)
 				{
-					ac.Field2--;
+					DobjArtAc.Field2--;
 				}
 
-				rc = DobjArtifact.SyncArtifactCategories(ac);
+				rc = DobjArtifact.SyncArtifactCategories(DobjArtAc);
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
-				PlayerProcessEvents(PpeBeforeArtifactNowEmptyCheck);
+				PlayerProcessEvents(EventType.BeforeArtifactNowEmptyCheck);
 
 				if (GotoCleanup)
 				{
 					goto Cleanup;
 				}
 
-				if (ac.Field2 < 1)
+				if (DobjArtAc.Field2 < 1)
 				{
 					DobjArtifact.Value = 0;
 
@@ -92,21 +92,21 @@ namespace EamonRT.Game.Commands
 
 					PrintVerbItAll(DobjArtifact);
 				}
-				else if (ac.Field1 == 0)
+				else if (DobjArtAc.Field1 == 0)
 				{
 					PrintOkay(DobjArtifact);
 				}
 
-				if (ac.Field1 != 0)
+				if (DobjArtAc.Field1 != 0)
 				{
-					ActorMonster.DmgTaken -= ac.Field1;
+					ActorMonster.DmgTaken -= DobjArtAc.Field1;
 
 					if (ActorMonster.DmgTaken < 0)
 					{
 						ActorMonster.DmgTaken = 0;
 					}
 
-					if (ac.Field1 > 0)
+					if (DobjArtAc.Field1 > 0)
 					{
 						PrintFeelBetter(DobjArtifact);
 					}
@@ -134,7 +134,7 @@ namespace EamonRT.Game.Commands
 					}
 				}
 
-				PlayerProcessEvents(PpeAfterArtifactDrink);
+				PlayerProcessEvents(EventType.AfterArtifactDrink);
 
 				if (GotoCleanup)
 				{

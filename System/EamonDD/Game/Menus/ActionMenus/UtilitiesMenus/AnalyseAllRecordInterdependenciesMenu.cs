@@ -1,7 +1,7 @@
 ﻿
 // AnalyseAllRecordInterdependenciesMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 	{
 		public virtual IAnalyseRecordInterdependenciesMenu01<IGameBase>[] AnalyseMenus { get; set; }
 
-		public virtual IList<string> SkipFieldNames { get; set; }
+		public virtual IList<string> SkipFieldNameList { get; set; }
 
 		public virtual bool ModifyFlag { get; set; }
 
@@ -30,7 +30,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			RetCode rc;
 
-			SkipFieldNames.Clear();
+			SkipFieldNameList.Clear();
 
 			ExitFlag = false;
 
@@ -93,39 +93,39 @@ namespace EamonDD.Game.Menus.ActionMenus
 		{
 			Buf = Globals.Buf;
 
-			SkipFieldNames = new List<string>();
+			SkipFieldNameList = new List<string>();
 
 			AnalyseMenus = new IAnalyseRecordInterdependenciesMenu01<IGameBase>[]
 			{
 				Globals.CreateInstance<IAnalyseArtifactRecordInterdependenciesMenu01>(x =>
 				{
-					x.SkipFieldNames = SkipFieldNames;
-					x.ClearSkipFieldNames = false;
+					x.SkipFieldNameList = SkipFieldNameList;
+					x.ClearSkipFieldNameList = false;
 				}),
 				Globals.CreateInstance<IAnalyseEffectRecordInterdependenciesMenu01>(x =>
 				{
-					x.SkipFieldNames = SkipFieldNames;
-					x.ClearSkipFieldNames = false;
+					x.SkipFieldNameList = SkipFieldNameList;
+					x.ClearSkipFieldNameList = false;
 				}),
 				Globals.CreateInstance<IAnalyseHintRecordInterdependenciesMenu01>(x =>
 				{
-					x.SkipFieldNames = SkipFieldNames;
-					x.ClearSkipFieldNames = false;
+					x.SkipFieldNameList = SkipFieldNameList;
+					x.ClearSkipFieldNameList = false;
 				}),
 				Globals.CreateInstance<IAnalyseModuleRecordInterdependenciesMenu01>(x =>
 				{
-					x.SkipFieldNames = SkipFieldNames;
-					x.ClearSkipFieldNames = false;
+					x.SkipFieldNameList = SkipFieldNameList;
+					x.ClearSkipFieldNameList = false;
 				}),
 				Globals.CreateInstance<IAnalyseMonsterRecordInterdependenciesMenu01>(x =>
 				{
-					x.SkipFieldNames = SkipFieldNames;
-					x.ClearSkipFieldNames = false;
+					x.SkipFieldNameList = SkipFieldNameList;
+					x.ClearSkipFieldNameList = false;
 				}),
 				Globals.CreateInstance<IAnalyseRoomRecordInterdependenciesMenu01>(x =>
 				{
-					x.SkipFieldNames = SkipFieldNames;
-					x.ClearSkipFieldNames = false;
+					x.SkipFieldNameList = SkipFieldNameList;
+					x.ClearSkipFieldNameList = false;
 				})
 			};
 

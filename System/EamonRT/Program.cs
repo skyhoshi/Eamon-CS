@@ -1,7 +1,7 @@
 ﻿
 // Program.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 /*
 
@@ -41,22 +41,10 @@ namespace EamonRT
 	public class Program : IProgram
 	{
 		/// <summary></summary>
-		protected bool _ddfnFlag;
+		public bool _ddfnFlag;
 
 		/// <summary></summary>
-		protected bool _nlFlag;
-
-		/// <summary></summary>
-		protected virtual string ProgramName { get; set; } = "EamonRT";
-
-		/// <summary></summary>
-		protected virtual Type ConstantsType { get; set; } = typeof(Game.Plugin.PluginConstants);
-
-		/// <summary></summary>
-		protected virtual Type ClassMappingsType { get; set; } = typeof(Game.Plugin.PluginClassMappings);
-
-		/// <summary></summary>
-		protected virtual Type GlobalsType { get; set; } = typeof(Game.Plugin.PluginGlobals);
+		public bool _nlFlag;
 
 		public virtual bool EnableStdio { get; set; }
 
@@ -65,9 +53,21 @@ namespace EamonRT
 		public virtual Action<IDictionary<Type, Type>> LoadPortabilityClassMappings { get; set; }
 
 		/// <summary></summary>
+		public virtual string ProgramName { get; set; } = "EamonRT";
+
+		/// <summary></summary>
+		public virtual Type ConstantsType { get; set; } = typeof(Game.Plugin.PluginConstants);
+
+		/// <summary></summary>
+		public virtual Type ClassMappingsType { get; set; } = typeof(Game.Plugin.PluginClassMappings);
+
+		/// <summary></summary>
+		public virtual Type GlobalsType { get; set; } = typeof(Game.Plugin.PluginGlobals);
+
+		/// <summary></summary>
 		/// <param name="args"></param>
 		/// <returns></returns>
-		protected virtual RetCode DdMain(string[] args)
+		public virtual RetCode DdMain(string[] args)
 		{
 			IConfig config;
 			RetCode rc;
@@ -121,7 +121,7 @@ namespace EamonRT
 
 			gOut.Write("{0}Eamon CS Dungeon Designer ({1}) {2}", Environment.NewLine, ProgramName, Constants.DdProgVersion);
 
-			gOut.Write("{0}Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.", Environment.NewLine);
+			gOut.Write("{0}Copyright (c) 2014+ by Michael Penner.  All rights reserved.", Environment.NewLine);
 
 			gOut.Print("This GNU GPL'd free software has ABSOLUTELY NO WARRANTY.");
 
@@ -691,7 +691,7 @@ namespace EamonRT
 		/// <summary></summary>
 		/// <param name="args"></param>
 		/// <returns></returns>
-		protected virtual RetCode RtMain(string[] args)
+		public virtual RetCode RtMain(string[] args)
 		{
 			ICharacter character;
 			IConfig config;
@@ -736,7 +736,7 @@ namespace EamonRT
 
 			gOut.Write("{0}Eamon CS Runtime ({1}) {2}", Environment.NewLine, ProgramName, Constants.RtProgVersion);
 
-			gOut.Write("{0}Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.", Environment.NewLine);
+			gOut.Write("{0}Copyright (c) 2014+ by Michael Penner.  All rights reserved.", Environment.NewLine);
 
 			gOut.Print("This GNU GPL'd free software has ABSOLUTELY NO WARRANTY.");
 

@@ -1,13 +1,14 @@
 ﻿
 // GiveCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
@@ -16,9 +17,9 @@ namespace ARuncibleCargo.Game.Commands
 	[ClassMappings]
 	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, IGiveCommand
 	{
-		public override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(EventType eventType)
 		{
-			if (eventType == PpeAfterEnforceMonsterWeightLimitsCheck)
+			if (eventType == EventType.AfterEnforceMonsterWeightLimitsCheck)
 			{
 				// Give Prince the Runcible Cargo
 
@@ -85,7 +86,7 @@ namespace ARuncibleCargo.Game.Commands
 					base.PlayerProcessEvents(eventType);
 				}
 			}
-			else if (eventType == PpeBeforeMonsterTakesGold)
+			else if (eventType == EventType.BeforeMonsterTakesGold)
 			{
 				// Give $ to Amazon
 

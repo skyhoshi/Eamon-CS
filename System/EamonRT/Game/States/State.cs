@@ -1,11 +1,12 @@
 ﻿
 // State.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -108,14 +109,14 @@ namespace EamonRT.Game.States
 			StateImpl.PrintEnemiesNearby();
 		}
 
-		public virtual void ProcessEvents(long eventType)
+		public virtual void ProcessEvents(EventType eventType)
 		{
 			StateImpl.ProcessEvents(eventType);
 		}
 
-		public virtual void ProcessRevealContentArtifacts(bool printOutput = true)
+		public virtual void ProcessRevealContentArtifactList(bool printOutput = true)
 		{
-			StateImpl.ProcessRevealContentArtifacts(printOutput);
+			StateImpl.ProcessRevealContentArtifactList(printOutput);
 		}
 
 		public virtual string GetDarkName(IGameBase target, ArticleType articleType, string nameType, bool upshift, bool groupCountOne)

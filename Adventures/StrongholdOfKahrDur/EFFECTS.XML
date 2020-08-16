@@ -570,7 +570,7 @@
           <Properties>
             <Simple name="Uid" value="81" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Desc" value="by Derek C. Jeter.  Eamon CS port by Michael R. Penner." />
+            <Simple name="Desc" value="by Derek C. Jeter.  Eamon CS port by Michael Penner." />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">

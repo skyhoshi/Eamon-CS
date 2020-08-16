@@ -1,7 +1,7 @@
 ﻿
 // HtmlFileViewModel.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Xamarin.Forms;
@@ -12,7 +12,7 @@ namespace Eamon.Mobile.ViewModels
 {
 	public class HtmlFileViewModel : BaseViewModel
 	{
-		protected HtmlWebViewSource _outputHtmlWebViewSource;
+		public HtmlWebViewSource _outputHtmlWebViewSource;
 
 		public virtual HtmlWebViewSource OutputHtmlWebViewSource
 		{

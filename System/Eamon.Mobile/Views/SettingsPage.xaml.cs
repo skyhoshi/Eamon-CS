@@ -1,7 +1,7 @@
 ﻿
 // SettingsPage.xaml.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using Xamarin.Forms;
@@ -13,7 +13,7 @@ namespace Eamon.Mobile.Views
 	{
 		SettingsViewModel viewModel;
 
-		protected void BrowseSettingsPage_SizeChanged(object sender, EventArgs e)
+		public void BrowseSettingsPage_SizeChanged(object sender, EventArgs e)
 		{
 			Device.BeginInvokeOnMainThread(() =>
 			{

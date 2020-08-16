@@ -1,7 +1,7 @@
 ﻿
 // IRoom.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -179,9 +179,9 @@ namespace Eamon.Framework
 		/// <param name="showDesc"></param>
 		/// <param name="monsterList"></param>
 		/// <param name="artifactList"></param>
-		/// <param name="combinedList"></param>
+		/// <param name="recordList"></param>
 		/// <returns></returns>
-		string GetYouAlsoSee(bool showDesc, IList<IMonster> monsterList, IList<IArtifact> artifactList, IList<IGameBase> combinedList);
+		string GetYouAlsoSee(bool showDesc, IList<IMonster> monsterList, IList<IArtifact> artifactList, IList<IGameBase> recordList);
 
 		/// <summary>
 		/// Gets this <see cref="IRoom">Room</see>'s obvious exits prefix string, based on its <see cref="Type">Type</see>.

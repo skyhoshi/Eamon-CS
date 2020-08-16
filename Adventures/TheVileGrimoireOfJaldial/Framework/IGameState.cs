@@ -1,7 +1,7 @@
 ﻿
 // IGameState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using TheVileGrimoireOfJaldial.Framework.Primitive.Enums;
@@ -36,13 +36,13 @@ namespace TheVileGrimoireOfJaldial.Framework
 		bool[] SecretDoors { get; set; }
 
 		/// <summary></summary>
-		long WeatherScalePct { get; set; }
+		long WeatherFreqPct { get; set; }
 
 		/// <summary></summary>
-		long EncounterScalePct { get; set; }
+		long EncounterFreqPct { get; set; }
 
 		/// <summary></summary>
-		long FlavorScalePct { get; set; }
+		long FlavorFreqPct { get; set; }
 
 		/// <summary></summary>
 		long FoggyRoomWeatherIntensity { get; set; }

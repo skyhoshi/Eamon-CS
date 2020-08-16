@@ -16,7 +16,7 @@ namespace LandOfTheMountainKing
 {
 	public class Program : EamonRT.Program, IProgram
 	{
-		protected override RetCode RtMain(string[] args)
+		public override RetCode RtMain(string[] args)
 		{
 			gOut.PunctSpaceCode = PunctSpaceCode.Single;
 

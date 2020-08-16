@@ -36,7 +36,7 @@
 			<Label 
 				FontSize="Micro" 
 				TextColor="{StaticResource LightTextColor}"
-				Text="Copyright (c) 2014+ by Michael R. Penner.  All rights reserved." />
+				Text="Copyright (c) 2014+ by Michael Penner.  All rights reserved." />
 
 			<Label/>
 

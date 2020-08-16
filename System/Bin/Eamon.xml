@@ -879,7 +879,7 @@
             <param name="listNum"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.Helpers.Generic.IHelper`1.GetNames(System.Func{System.String,System.Boolean})">
+        <member name="M:Eamon.Framework.Helpers.Generic.IHelper`1.GetNameList(System.Func{System.String,System.Boolean})">
             <summary></summary>
             <param name="matchFunc"></param>
             <returns></returns>
@@ -892,7 +892,7 @@
         <member name="M:Eamon.Framework.Helpers.Generic.IHelper`1.GetName(System.String,System.Boolean)">
             <summary></summary>
             <param name="fieldName"></param>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.Helpers.Generic.IHelper`1.GetValue(System.String)">
@@ -1657,7 +1657,7 @@
             <param name="categoryArrayPrecedence"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.GetArtifactCategories(Eamon.Framework.Primitive.Enums.ArtifactType[])">
+        <member name="M:Eamon.Framework.IArtifact.GetArtifactCategoryList(Eamon.Framework.Primitive.Enums.ArtifactType[])">
             <summary></summary>
             <param name="artifactTypes"></param>
             <returns></returns>
@@ -2849,7 +2849,7 @@
         </member>
         <member name="M:Eamon.Framework.IEngine.GetRecordNameList(System.Collections.Generic.IList{Eamon.Framework.IGameBase},Eamon.Framework.Primitive.Enums.ArticleType,System.Boolean,Eamon.Framework.Primitive.Enums.StateDescDisplayCode,System.Boolean,System.Boolean,System.Text.StringBuilder)">
             <summary></summary>
-            <param name="records"></param>
+            <param name="recordList"></param>
             <param name="articleType"></param>
             <param name="showCharOwned"></param>
             <param name="stateDescCode"></param>
@@ -2860,7 +2860,7 @@
         </member>
         <member name="M:Eamon.Framework.IEngine.GetRecordNameCount(System.Collections.Generic.IList{Eamon.Framework.IGameBase},System.String,System.Boolean,System.Int64@)">
             <summary></summary>
-            <param name="records"></param>
+            <param name="recordList"></param>
             <param name="name"></param>
             <param name="exactMatch"></param>
             <param name="count"></param>
@@ -2868,7 +2868,7 @@
         </member>
         <member name="M:Eamon.Framework.IEngine.ListRecords(System.Collections.Generic.IList{Eamon.Framework.IGameBase},System.Boolean,System.Boolean,System.Text.StringBuilder)">
             <summary></summary>
-            <param name="records"></param>
+            <param name="recordList"></param>
             <param name="capitalize"></param>
             <param name="showExtraInfo"></param>
             <param name="buf"></param>
@@ -4075,7 +4075,7 @@
             <param name="showDesc"></param>
             <param name="monsterList"></param>
             <param name="artifactList"></param>
-            <param name="combinedList"></param>
+            <param name="recordList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IRoom.GetObviousExits">
@@ -4163,7 +4163,7 @@
         <member name="P:Eamon.Framework.Menus.IMenu.Buf">
             <summary></summary>
         </member>
-        <member name="P:Eamon.Framework.Menus.IMenu.MenuItems">
+        <member name="P:Eamon.Framework.Menus.IMenu.MenuItemList">
             <summary></summary>
         </member>
         <member name="M:Eamon.Framework.Menus.IMenu.IsCharMenuItem(System.Char)">
@@ -4725,10 +4725,10 @@
         <member name="P:Eamon.Framework.Plugin.IPluginGlobals.RevealContentMonster">
             <summary></summary>
         </member>
-        <member name="P:Eamon.Framework.Plugin.IPluginGlobals.RevealContentArtifacts">
+        <member name="P:Eamon.Framework.Plugin.IPluginGlobals.RevealContentArtifactList">
             <summary></summary>
         </member>
-        <member name="P:Eamon.Framework.Plugin.IPluginGlobals.RevealContentLocations">
+        <member name="P:Eamon.Framework.Plugin.IPluginGlobals.RevealContentLocationList">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginGlobals.EnableRevealContentOverrides">
@@ -6531,37 +6531,37 @@
         </member>
         <member name="M:Eamon.Game.Helpers.ArtifactHelper.GetNameCategories(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.ArtifactHelper.GetNameCategoriesType(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.ArtifactHelper.GetNameCategoriesField1(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.ArtifactHelper.GetNameCategoriesField2(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.ArtifactHelper.GetNameCategoriesField3(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.ArtifactHelper.GetNameCategoriesField4(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.ArtifactHelper.GetNameCategoriesField5(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.ArtifactHelper.GetValueCategoriesType">
@@ -6952,212 +6952,212 @@
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameStats(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameStatsElement(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameSpellAbilities(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameSpellAbilitiesElement(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponAbilities(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponAbilitiesElement(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameArmor(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameArmorName(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameArmorDesc(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameArmorIsPlural(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameArmorPluralType(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameArmorArticleType(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameArmorValue(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameArmorWeight(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameArmorType(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameArmorField1(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameArmorField2(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameShield(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameShieldName(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameShieldDesc(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameShieldIsPlural(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameShieldPluralType(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameShieldArticleType(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameShieldValue(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameShieldWeight(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameShieldType(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameShieldField1(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameShieldField2(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeapons(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponsName(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponsDesc(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponsIsPlural(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponsPluralType(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponsArticleType(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponsValue(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponsWeight(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponsType(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponsField1(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponsField2(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponsField3(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponsField4(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetNameWeaponsField5(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.CharacterHelper.GetValueStatsElement">
@@ -8038,52 +8038,52 @@
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.GetNameNBTL(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.GetNameNBTLElement(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.GetNameDTTL(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.GetNameDTTLElement(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.GetNameSa(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.GetNameSaElement(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.GetNameImportedArtUids(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.GetNameImportedArtUidsElement(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.GetNameHeldWpnUids(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.GetNameHeldWpnUidsElement(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.GameStateHelper.GetValueNBTLElement">
@@ -8189,13 +8189,13 @@
         <member name="F:Eamon.Game.Helpers.Generic.Helper`1._record">
             <summary></summary>
         </member>
-        <member name="P:Eamon.Game.Helpers.Generic.Helper`1.FieldNames">
+        <member name="P:Eamon.Game.Helpers.Generic.Helper`1.FieldNameList">
             <summary></summary>
         </member>
-        <member name="P:Eamon.Game.Helpers.Generic.Helper`1.ListedNames">
+        <member name="P:Eamon.Game.Helpers.Generic.Helper`1.ListedNameList">
             <summary></summary>
         </member>
-        <member name="P:Eamon.Game.Helpers.Generic.Helper`1.Names">
+        <member name="P:Eamon.Game.Helpers.Generic.Helper`1.NameList">
             <summary></summary>
         </member>
         <member name="M:Eamon.Game.Helpers.Generic.Helper`1.GetPrintedNameIsUidRecycled">
@@ -8228,12 +8228,12 @@
         </member>
         <member name="M:Eamon.Game.Helpers.HintHelper.GetNameAnswers(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.HintHelper.GetNameAnswersElement(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.HintHelper.GetValueAnswersElement">
@@ -8898,12 +8898,12 @@
         </member>
         <member name="M:Eamon.Game.Helpers.RoomHelper.GetNameDirs(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.RoomHelper.GetNameDirsElement(System.Boolean)">
             <summary></summary>
-            <param name="addToNamesList"></param>
+            <param name="addToNameList"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.RoomHelper.GetValueDirsElement">
@@ -9029,7 +9029,7 @@
         </member>
         <member name="M:Eamon.Game.Plugin.PluginGlobals.RestoreRecords(System.Collections.Generic.IList{Eamon.Framework.IGameBase})">
             <summary></summary>
-            <param name="records"></param>
+            <param name="recordList"></param>
         </member>
         <member name="T:Eamon.RetCode">
             <summary></summary>

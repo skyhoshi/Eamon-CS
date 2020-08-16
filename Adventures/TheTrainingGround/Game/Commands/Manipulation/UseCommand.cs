@@ -1,7 +1,7 @@
 ﻿
 // UseCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -23,9 +23,9 @@ namespace TheTrainingGround.Game.Commands
 
 			if (DobjArtifact.Uid == 24)
 			{
-				var monsters = gEngine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m.Friendliness == Friendliness.Enemy && m.Field1 == 0);
+				var monsterList = gEngine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m.Friendliness == Friendliness.Enemy && m.Field1 == 0);
 
-				foreach (var monster in monsters)
+				foreach (var monster in monsterList)
 				{
 					monster.Courage /= 4;
 

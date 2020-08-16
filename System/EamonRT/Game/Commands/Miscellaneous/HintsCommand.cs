@@ -1,7 +1,7 @@
 ﻿
 // HintsCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -21,43 +21,30 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class HintsCommand : Command, IHintsCommand
 	{
-		public virtual void PrintHintsQuestion(IList<IHint> hints, int i)
-		{
-			Debug.Assert(hints != null);
+		/// <summary></summary>
+		public virtual IList<IHint> ActiveHintList { get; set; }
 
-			gOut.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, hints[i].Question);
-		}
+		/// <summary></summary>
+		public virtual int ActiveHintListIndex { get; set; }
 
-		public virtual void PrintHintsQuestion01(IList<IHint> hints, int i)
-		{
-			Debug.Assert(hints != null);
-
-			gOut.Print("{0}", hints[i].Question);
-		}
-
-		public virtual void PrintHintsAnswer(IList<IHint> hints, int i, int j)
-		{
-			Debug.Assert(hints != null);
-
-			gEngine.PrintMacroReplacedPagedString(hints[i].GetAnswers(j), Globals.Buf);
-		}
+		/// <summary></summary>
+		public virtual int HintAnswerIndex { get; set; }
 
 		public override void PlayerExecute()
 		{
 			RetCode rc;
-			int i, j;
 
 			if (Globals.Database.GetHintsCount() > 0)
 			{
-				var hints = Globals.Database.HintTable.Records.Where(h => h.Active).OrderBy(h => h.Uid).ToList();
+				ActiveHintList = Globals.Database.HintTable.Records.Where(h => h.Active).OrderBy(h => h.Uid).ToList();
 
-				if (hints.Count > 0)
+				if (ActiveHintList.Count > 0)
 				{
 					gOut.Print("Your question?");
 
-					for (i = 0; i < hints.Count; i++)
+					for (ActiveHintListIndex = 0; ActiveHintListIndex < ActiveHintList.Count; ActiveHintListIndex++)
 					{
-						PrintHintsQuestion(hints, i);
+						PrintHintsQuestion();
 					}
 
 					gOut.Write("{0}{0}Enter your choice: ", Environment.NewLine);
@@ -68,19 +55,17 @@ namespace EamonRT.Game.Commands
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
-					i = Convert.ToInt32(Globals.Buf.Trim().ToString());
+					ActiveHintListIndex = Convert.ToInt32(Globals.Buf.Trim().ToString()) - 1;
 
-					i--;
-
-					if (i >= 0 && i < hints.Count)
+					if (ActiveHintListIndex >= 0 && ActiveHintListIndex < ActiveHintList.Count)
 					{
-						PrintHintsQuestion01(hints, i);
+						PrintHintsQuestion01();
 
-						for (j = 0; j < hints[i].NumAnswers; j++)
+						for (HintAnswerIndex = 0; HintAnswerIndex < ActiveHintList[ActiveHintListIndex].NumAnswers; HintAnswerIndex++)
 						{
-							PrintHintsAnswer(hints, i, j);
+							PrintHintsAnswer();
 
-							if (j + 1 < hints[i].NumAnswers)
+							if (HintAnswerIndex + 1 < ActiveHintList[ActiveHintListIndex].NumAnswers)
 							{
 								gOut.Write("{0}Another (Y/N): ", Environment.NewLine);
 
@@ -117,6 +102,27 @@ namespace EamonRT.Game.Commands
 		public override bool ShouldPreTurnProcess()
 		{
 			return false;
+		}
+
+		public virtual void PrintHintsQuestion()
+		{
+			Debug.Assert(ActiveHintList != null);
+
+			gOut.Write("{0}{1,3}. {2}", Environment.NewLine, ActiveHintListIndex + 1, ActiveHintList[ActiveHintListIndex].Question);
+		}
+
+		public virtual void PrintHintsQuestion01()
+		{
+			Debug.Assert(ActiveHintList != null);
+
+			gOut.Print("{0}", ActiveHintList[ActiveHintListIndex].Question);
+		}
+
+		public virtual void PrintHintsAnswer()
+		{
+			Debug.Assert(ActiveHintList != null);
+
+			gEngine.PrintMacroReplacedPagedString(ActiveHintList[ActiveHintListIndex].GetAnswers(HintAnswerIndex), Globals.Buf);
 		}
 
 		public HintsCommand()

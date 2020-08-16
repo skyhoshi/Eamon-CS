@@ -1,7 +1,7 @@
 ﻿
 // EventHeap.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using System.Linq;
@@ -30,35 +30,61 @@ namespace Eamon.Game.Utilities
 			EventDictionary.Clear();
 		}
 
-		public virtual void Insert(long key, string eventName)
+		public virtual bool Insert(long key, string eventName, bool allowDuplicates = true)
 		{
-			Insert02(key, eventName, null);
+			return Insert02(key, eventName, null, allowDuplicates);
 		}
 
-		public virtual void Insert02(long key, string eventName, object eventParam)
+		public virtual bool Insert02(long key, string eventName, object eventParam, bool allowDuplicates = true)
 		{
-			Insert03(key, new EventData() { EventName = eventName, EventParam = eventParam });
+			return Insert03(key, new EventData() { EventName = eventName, EventParam = eventParam }, allowDuplicates);
 		}
 
-		public virtual void Insert03(long key, EventData value)
+		public virtual bool Insert03(long key, EventData value, bool allowDuplicates = true)
 		{
+			var result = false;
+
 			IList<EventData> listValue;
 
 			if (key >= 0 && value != null && !string.IsNullOrWhiteSpace(value.EventName))
 			{
-				if (EventDictionary.TryGetValue(key, out listValue))
+				var foundValue = false;
+
+				if (!allowDuplicates)
 				{
-					listValue.Add(value);
+					var eventList = FindRegex(value.EventName, true);
+
+					foreach (var entry in eventList)
+					{
+						if (entry.Value.EventName == value.EventName)
+						{
+							foundValue = true;
+
+							break;
+						}
+					}
 				}
-				else
+
+				if (!foundValue)
 				{
-					listValue = new List<EventData>();
+					if (EventDictionary.TryGetValue(key, out listValue))
+					{
+						listValue.Add(value);
+					}
+					else
+					{
+						listValue = new List<EventData>();
 
-					listValue.Add(value);
+						listValue.Add(value);
 
-					EventDictionary.Add(key, listValue);
+						EventDictionary.Add(key, listValue);
+					}
+
+					result = true;
 				}
 			}
+
+			return result;
 		}
 
 		public virtual IList<KeyValuePair<long, EventData>> FindRegex(string eventNameRegexPattern, bool FindAll)
@@ -93,13 +119,15 @@ namespace Eamon.Game.Utilities
 			return eventList;
 		}
 
-		public virtual void Remove(long key, string eventName)
+		public virtual bool Remove(long key, string eventName)
 		{
-			Remove02(key, new EventData() { EventName = eventName });
+			return Remove02(key, new EventData() { EventName = eventName });
 		}
 
-		public virtual void Remove02(long key, EventData value)
+		public virtual bool Remove02(long key, EventData value)
 		{
+			var result = false;
+
 			IList<EventData> listValue;
 
 			if (key >= 0 && value != null && !string.IsNullOrWhiteSpace(value.EventName))
@@ -111,6 +139,8 @@ namespace Eamon.Game.Utilities
 					if (foundValue != null)
 					{
 						listValue.Remove(foundValue);
+
+						result = true;
 					}
 
 					if (listValue.Count <= 0)
@@ -119,6 +149,8 @@ namespace Eamon.Game.Utilities
 					}
 				}
 			}
+
+			return result;
 		}
 
 		public virtual IList<KeyValuePair<long, EventData>> RemoveRegex(string eventNameRegexPattern, bool removeAll)

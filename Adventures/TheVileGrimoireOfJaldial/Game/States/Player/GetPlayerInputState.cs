@@ -1,12 +1,13 @@
 ﻿
 // GetPlayerInputState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using TheVileGrimoireOfJaldial.Framework.Primitive.Enums;
 using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
@@ -16,15 +17,13 @@ namespace TheVileGrimoireOfJaldial.Game.States
 	[ClassMappings]
 	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, IGetPlayerInputState
 	{
-		public override void ProcessEvents(long eventType)
+		public override void ProcessEvents(EventType eventType)
 		{
-			if (eventType == PeBeforeCommandPromptPrint)
+			if (eventType == EventType.BeforeCommandPromptPrint)
 			{
-				var characterMonster = gMDB[gGameState.Cm];
+				Debug.Assert(gCharMonster != null);
 
-				Debug.Assert(characterMonster != null);
-
-				var room = characterMonster.GetInRoom() as Framework.IRoom;
+				var room = gCharMonster.GetInRoom() as Framework.IRoom;
 
 				Debug.Assert(room != null);
 
@@ -362,7 +361,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 					// Flavor effects
 
-					if (Globals.EventRoll <= 3 && Globals.ScaleRoll <= gGameState.FlavorScalePct)
+					if (Globals.EventRoll <= 3 && Globals.FrequencyRoll <= gGameState.FlavorFreqPct)
 					{
 						var idx = gEngine.RollDice(1, 8, -1);
 

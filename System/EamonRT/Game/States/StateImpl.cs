@@ -1,7 +1,7 @@
 ﻿
 // StateImpl.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -11,6 +11,7 @@ using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -58,12 +59,12 @@ namespace EamonRT.Game.States
 			gOut.Print("You can't do that with unfriendlies about!");
 		}
 
-		public virtual void ProcessEvents(long eventType)
+		public virtual void ProcessEvents(EventType eventType)
 		{
 
 		}
 
-		public virtual void ProcessRevealContentArtifacts(bool printOutput = true)
+		public virtual void ProcessRevealContentArtifactList(bool printOutput = true)
 		{
 			Globals.EnableRevealContentOverrides = false;
 
@@ -77,13 +78,13 @@ namespace EamonRT.Game.States
 
 			if (room != null)
 			{
-				Debug.Assert(Globals.RevealContentArtifacts.Count == Globals.RevealContentLocations.Count);
+				Debug.Assert(Globals.RevealContentArtifactList.Count == Globals.RevealContentLocationList.Count);
 
-				for (var i = 0; i < Globals.RevealContentArtifacts.Count; i++)
+				for (var i = 0; i < Globals.RevealContentArtifactList.Count; i++)
 				{
-					var artifact = Globals.RevealContentArtifacts[i];
+					var artifact = Globals.RevealContentArtifactList[i];
 
-					var location = Globals.RevealContentLocations[i];
+					var location = Globals.RevealContentLocationList[i];
 
 					if (artifact.IsInLimbo())
 					{

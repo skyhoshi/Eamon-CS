@@ -1,10 +1,11 @@
 ﻿
 // EndOfRoundState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
@@ -13,13 +14,11 @@ namespace TheTempleOfNgurct.Game.States
 	[ClassMappings]
 	public class EndOfRoundState : EamonRT.Game.States.EndOfRoundState, IEndOfRoundState
 	{
-		public override void ProcessEvents(long eventType)
+		public override void ProcessEvents(EventType eventType)
 		{
-			if (eventType == PeAfterRoundEnd)
+			if (eventType == EventType.AfterRoundEnd)
 			{
-				var characterMonster = gMDB[gGameState.Cm];
-
-				Debug.Assert(characterMonster != null);
+				Debug.Assert(gCharMonster != null);
 
 				var ringArtifact = gADB[64];
 
@@ -27,9 +26,9 @@ namespace TheTempleOfNgurct.Game.States
 
 				// Ring of regeneration
 
-				if (ringArtifact.IsWornByCharacter() && characterMonster.DmgTaken > 0 && ++gGameState.Regenerate == 5)
+				if (ringArtifact.IsWornByCharacter() && gCharMonster.DmgTaken > 0 && ++gGameState.Regenerate == 5)
 				{
-					characterMonster.DmgTaken--;
+					gCharMonster.DmgTaken--;
 
 					gGameState.Regenerate = 0;
 				}

@@ -1,7 +1,7 @@
 ﻿
 // ISettingsCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
 
@@ -13,10 +13,10 @@ namespace TheVileGrimoireOfJaldial.Framework.Commands
 
 		bool? ExitDirNames { get; set; }
 
-		long? WeatherScalePct { get; set; }
+		long? WeatherFreqPct { get; set; }
 
-		long? EncounterScalePct { get; set; }
+		long? EncounterFreqPct { get; set; }
 
-		long? FlavorScalePct { get; set; }
+		long? FlavorFreqPct { get; set; }
 	}
 }

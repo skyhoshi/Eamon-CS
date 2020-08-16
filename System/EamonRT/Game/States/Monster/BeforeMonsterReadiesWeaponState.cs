@@ -1,9 +1,10 @@
 ﻿
 // BeforeMonsterReadiesWeaponState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
@@ -14,33 +15,45 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class BeforeMonsterReadiesWeaponState : State, IBeforeMonsterReadiesWeaponState
 	{
+		/// <summary></summary>
+		public virtual IMonster LoopMonster { get; set; }
+
+		/// <summary></summary>
+		public virtual IRoom LoopMonsterRoom { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact WeaponArtifact { get; set; }
+
+		/// <summary></summary>
+		public virtual ICommand RedirectCommand { get; set; }
+
 		public override void Execute()
 		{
-			var monster = gMDB[Globals.LoopMonsterUid];
+			LoopMonster = gMDB[Globals.LoopMonsterUid];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(LoopMonster != null);
 
-			var room = monster.GetInRoom();
+			LoopMonsterRoom = LoopMonster.GetInRoom();
 
-			Debug.Assert(room != null);
+			Debug.Assert(LoopMonsterRoom != null);
 
-			var wpnArtifact = Globals.LoopArtifactList[(int)Globals.LoopArtifactListIndex];
+			WeaponArtifact = Globals.LoopWeaponArtifactList[(int)Globals.LoopWeaponArtifactListIndex];
 
-			Debug.Assert(wpnArtifact != null);
+			Debug.Assert(WeaponArtifact != null);
 
-			if (wpnArtifact.IsCarriedByMonster(monster))
+			if (WeaponArtifact.IsCarriedByMonster(LoopMonster))
 			{
-				var command = Globals.CreateInstance<IReadyCommand>();
+				RedirectCommand = Globals.CreateInstance<IReadyCommand>();
 
-				command.ActorMonster = monster;
+				RedirectCommand.ActorMonster = LoopMonster;
 
-				command.ActorRoom = room;
+				RedirectCommand.ActorRoom = LoopMonsterRoom;
 
-				command.Dobj = wpnArtifact;
+				RedirectCommand.Dobj = WeaponArtifact;
 
-				command.NextState = Globals.CreateInstance<IArtifactLoopIncrementState>();
+				RedirectCommand.NextState = Globals.CreateInstance<IWeaponArtifactLoopIncrementState>();
 
-				NextState = command;
+				NextState = RedirectCommand;
 
 				goto Cleanup;
 			}
@@ -49,7 +62,7 @@ namespace EamonRT.Game.States
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<IArtifactLoopIncrementState>();
+				NextState = Globals.CreateInstance<IWeaponArtifactLoopIncrementState>();
 			}
 
 			Globals.NextState = NextState;

@@ -1,10 +1,11 @@
 ﻿
 // IStateSignatures.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
+using EamonRT.Framework.Primitive.Enums;
 
 namespace EamonRT.Framework.States
 {
@@ -48,11 +49,11 @@ namespace EamonRT.Framework.States
 
 		/// <summary></summary>
 		/// <param name="eventType"></param>
-		void ProcessEvents(long eventType);
+		void ProcessEvents(EventType eventType);
 
 		/// <summary></summary>
 		/// <param name="printOutput"></param>
-		void ProcessRevealContentArtifacts(bool printOutput = true);
+		void ProcessRevealContentArtifactList(bool printOutput = true);
 
 		/// <summary></summary>
 		/// <param name="target"></param>

@@ -1,13 +1,14 @@
 ﻿
 // PutCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
@@ -32,9 +33,9 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
-		public override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(EventType eventType)
 		{
-			if (eventType == PpeAfterArtifactPut)
+			if (eventType == EventType.AfterArtifactPut)
 			{
 				// Put anything in slime destroys it
 
@@ -82,6 +83,23 @@ namespace WrenholdsSecretVigil.Game.Commands
 			}
 		}
 
+		public override void PlayerExecute()
+		{
+			Debug.Assert(DobjArtifact != null && IobjArtifact != null);
+
+			if (IobjArtifact.Uid == 24 || IobjArtifact.Uid == 25)
+			{
+				ConvertSlimeToContainer();
+			}
+
+			base.PlayerExecute();
+
+			if (IobjArtifact.Uid == 24 || IobjArtifact.Uid == 25)
+			{
+				ConvertSlimeToTreasure();
+			}
+		}
+
 		public virtual void ConvertSlimeToContainer()
 		{
 			var ac = IobjArtifact.Treasure;
@@ -118,23 +136,6 @@ namespace WrenholdsSecretVigil.Game.Commands
 			ac.Field4 = 0;
 
 			ac.Field5 = 0;
-		}
-
-		public override void PlayerExecute()
-		{
-			Debug.Assert(DobjArtifact != null && IobjArtifact != null);
-
-			if (IobjArtifact.Uid == 24 || IobjArtifact.Uid == 25)
-			{
-				ConvertSlimeToContainer();
-			}
-
-			base.PlayerExecute();
-
-			if (IobjArtifact.Uid == 24 || IobjArtifact.Uid == 25)
-			{
-				ConvertSlimeToTreasure();
-			}
 		}
 	}
 }

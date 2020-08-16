@@ -1,7 +1,7 @@
 ﻿
 // TurnCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -16,13 +16,6 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class TurnCommand : EamonRT.Game.Commands.Command, Framework.Commands.ITurnCommand
 	{
-		public virtual bool IsCharUOrD(char ch)
-		{
-			ch = Char.ToUpper(ch);
-
-			return ch == 'U' || ch == 'D';
-		}
-
 		public override void PlayerExecute()
 		{
 			RetCode rc;
@@ -87,6 +80,13 @@ namespace TheSubAquanLaboratory.Game.Commands
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
+		}
+
+		public virtual bool IsCharUOrD(char ch)
+		{
+			ch = Char.ToUpper(ch);
+
+			return ch == 'U' || ch == 'D';
 		}
 
 		public TurnCommand()

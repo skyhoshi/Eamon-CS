@@ -1,7 +1,7 @@
 ﻿
 // SpeedCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
@@ -16,10 +16,8 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool CastSpell { get; set; }
 
-		public virtual void PrintFeelNewAgility()
-		{
-			gOut.Print("You can feel the new agility flowing through you!");
-		}
+		/// <summary></summary>
+		public virtual long SpeedTurns { get; set; }
 
 		public override void PlayerExecute()
 		{
@@ -33,9 +31,9 @@ namespace EamonRT.Game.Commands
 				ActorMonster.Agility *= 2;
 			}
 
-			var rl = Globals.IsRulesetVersion(5, 15) ? gEngine.RollDice(1, 25, 9) : gEngine.RollDice(1, 10, 10);
+			SpeedTurns = Globals.IsRulesetVersion(5, 15) ? gEngine.RollDice(1, 25, 9) : gEngine.RollDice(1, 10, 10);
 
-			gGameState.Speed += (rl + 1);
+			gGameState.Speed += (SpeedTurns + 1);
 
 			PrintFeelNewAgility();
 
@@ -45,6 +43,11 @@ namespace EamonRT.Game.Commands
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
+		}
+
+		public virtual void PrintFeelNewAgility()
+		{
+			gOut.Print("You can feel the new agility flowing through you!");
 		}
 
 		public SpeedCommand()

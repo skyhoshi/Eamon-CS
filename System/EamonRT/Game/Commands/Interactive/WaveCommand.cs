@@ -1,7 +1,7 @@
 ﻿
 // WaveCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using Eamon.Framework;
@@ -16,13 +16,16 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class WaveCommand : Command, IWaveCommand
 	{
+		/// <summary></summary>
+		public virtual IList<IMonster> WavingMonsterList { get; set; }
+
 		public override void PlayerExecute()
 		{
-			var monsters = gEngine.GetEmotingMonsterList(ActorRoom, ActorMonster, false);
+			WavingMonsterList = gEngine.GetEmotingMonsterList(ActorRoom, ActorMonster, false);
 
-			if (monsters.Count > 0)
+			if (WavingMonsterList.Count > 0)
 			{
-				foreach (var monster in monsters)
+				foreach (var monster in WavingMonsterList)
 				{
 					gEngine.MonsterEmotes(monster, false);
 				}

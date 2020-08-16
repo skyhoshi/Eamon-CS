@@ -1,9 +1,10 @@
 ﻿
 // AfterMonsterFleesRoomState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
@@ -14,13 +15,16 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class AfterMonsterFleesRoomState : State, IAfterMonsterFleesRoomState
 	{
+		/// <summary></summary>
+		public virtual IMonster LoopMonster { get; set; }
+
 		public override void Execute()
 		{
-			var monster = gMDB[Globals.LoopMonsterUid];
+			LoopMonster = gMDB[Globals.LoopMonsterUid];
 
-			Debug.Assert(monster != null && monster.Friendliness != Friendliness.Neutral);
+			Debug.Assert(LoopMonster != null && LoopMonster.Friendliness != Friendliness.Neutral);
 
-			if (monster.CombatCode != CombatCode.NeverFights && monster.GroupCount < Globals.LoopGroupCount)
+			if (LoopMonster.CombatCode != CombatCode.NeverFights && LoopMonster.GroupCount < Globals.LoopGroupCount)
 			{
 				NextState = Globals.CreateInstance<IMemberLoopInitializeState>();
 			}

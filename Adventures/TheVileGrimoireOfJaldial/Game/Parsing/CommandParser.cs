@@ -1,7 +1,7 @@
 ﻿
 // CommandParser.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -56,21 +56,21 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 
 					CurrToken += 2;
 				}
-				else if (string.Equals(Tokens[CurrToken], "weatherscalepct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
+				else if (string.Equals(Tokens[CurrToken], "weatherfreqpct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
 				{
-					settingsCommand.WeatherScalePct = longValue;
+					settingsCommand.WeatherFreqPct = longValue;
 
 					CurrToken += 2;
 				}
-				else if (string.Equals(Tokens[CurrToken], "encounterscalepct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
+				else if (string.Equals(Tokens[CurrToken], "encounterfreqpct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
 				{
-					settingsCommand.EncounterScalePct = longValue;
+					settingsCommand.EncounterFreqPct = longValue;
 
 					CurrToken += 2;
 				}
-				else if (string.Equals(Tokens[CurrToken], "flavorscalepct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
+				else if (string.Equals(Tokens[CurrToken], "flavorfreqpct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
 				{
-					settingsCommand.FlavorScalePct = longValue;
+					settingsCommand.FlavorFreqPct = longValue;
 
 					CurrToken += 2;
 				}

@@ -1,7 +1,7 @@
 ﻿
 // GameStateHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using Eamon.Framework.Helpers;
@@ -31,42 +31,42 @@ namespace TheTempleOfNgurct.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWanderingMonster()
+		public virtual bool ValidateWanderingMonster()
 		{
 			return Record.WanderingMonster >= 12 && Record.WanderingMonster <= 27;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateDwLoopCounter()
+		public virtual bool ValidateDwLoopCounter()
 		{
 			return Record.DwLoopCounter >= 0 && Record.DwLoopCounter <= 16;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWandCharges()
+		public virtual bool ValidateWandCharges()
 		{
 			return Record.WandCharges >= 0 && Record.WandCharges <= 5;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateRegenerate()
+		public virtual bool ValidateRegenerate()
 		{
 			return Record.Regenerate >= 0 && Record.Regenerate <= 5;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateKeyRingRoomUid()
+		public virtual bool ValidateKeyRingRoomUid()
 		{
 			return Record.KeyRingRoomUid >= 0 && Record.KeyRingRoomUid <= 59;
 		}
 
 		public GameStateHelper()
 		{
-			FieldNames.AddRange(new List<string>()
+			FieldNameList.AddRange(new List<string>()
 			{
 				"WanderingMonster",
 				"DwLoopCounter",

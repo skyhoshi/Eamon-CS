@@ -1,11 +1,12 @@
 ﻿
 // ExamineCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
 namespace StrongholdOfKahrDur.Game.Commands
@@ -13,9 +14,9 @@ namespace StrongholdOfKahrDur.Game.Commands
 	[ClassMappings]
 	public class ExamineCommand : EamonRT.Game.Commands.ExamineCommand, IExamineCommand
 	{
-		public override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(EventType eventType)
 		{
-			if (eventType == PpeAfterArtifactFullDescPrint)
+			if (eventType == EventType.AfterArtifactFullDescPrint)
 			{
 				var eyeglassesArtifact = gADB[2];
 

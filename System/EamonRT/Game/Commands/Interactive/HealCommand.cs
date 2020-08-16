@@ -1,7 +1,7 @@
 ﻿
 // HealCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -19,6 +19,12 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool CastSpell { get; set; }
 
+		/// <summary></summary>
+		public virtual bool IsCharMonster { get; set; }
+
+		/// <summary></summary>
+		public virtual long DamageHealed { get; set; }
+
 		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjMonster != null);
@@ -28,7 +34,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			var isCharMonster = DobjMonster.IsCharacterMonster();
+			IsCharMonster = DobjMonster.IsCharacterMonster();
 
 			if (DobjMonster.DmgTaken > 0)
 			{
@@ -36,7 +42,7 @@ namespace EamonRT.Game.Commands
 				{
 					Globals.Buf.SetFormat("{0}Some of {1}", 
 						Environment.NewLine,
-						isCharMonster ? "your" :
+						IsCharMonster ? "your" :
 						DobjMonster.EvalPlural(DobjMonster.GetTheName(buf: Globals.Buf01),
 														DobjMonster.GetArticleName(false, true, false, true, Globals.Buf02)));
 				}
@@ -44,12 +50,12 @@ namespace EamonRT.Game.Commands
 				{
 					Globals.Buf.SetFormat("{0}{1}",
 						Environment.NewLine,
-						isCharMonster ? "Your" :
+						IsCharMonster ? "Your" :
 						DobjMonster.EvalPlural(DobjMonster.GetTheName(true, buf: Globals.Buf01),
 														DobjMonster.GetArticleName(true, true, false, true, Globals.Buf02)));
 				}
 
-				if (!isCharMonster)
+				if (!IsCharMonster)
 				{
 					gEngine.GetPossessiveName(Globals.Buf);
 				}
@@ -65,9 +71,9 @@ namespace EamonRT.Game.Commands
 
 				gOut.Write("{0}", Globals.Buf);
 
-				var rl = gEngine.RollDice(1, Globals.IsRulesetVersion(5, 15) ? 10 : 12, 0);
+				DamageHealed = gEngine.RollDice(1, Globals.IsRulesetVersion(5, 15) ? 10 : 12, 0);
 
-				DobjMonster.DmgTaken -= rl;
+				DobjMonster.DmgTaken -= DamageHealed;
 			}
 
 			if (DobjMonster.DmgTaken < 0)
@@ -77,8 +83,8 @@ namespace EamonRT.Game.Commands
 
 			Globals.Buf.SetFormat("{0}{1} {2} ",
 				Environment.NewLine,
-				isCharMonster ? "You" : DobjMonster.GetTheName(true, true, false, true, Globals.Buf01),
-				isCharMonster ? "are" : "is");
+				IsCharMonster ? "You" : DobjMonster.GetTheName(true, true, false, true, Globals.Buf01),
+				IsCharMonster ? "are" : "is");
 
 			DobjMonster.AddHealthStatus(Globals.Buf);
 

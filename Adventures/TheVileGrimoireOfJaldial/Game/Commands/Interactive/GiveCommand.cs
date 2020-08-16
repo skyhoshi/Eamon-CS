@@ -1,11 +1,12 @@
 ﻿
 // GiveCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Linq;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
 
 namespace TheVileGrimoireOfJaldial.Game.Commands
@@ -13,9 +14,9 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 	[ClassMappings]
 	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, IGiveCommand
 	{
-		public override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(EventType eventType)
 		{
-			if (eventType == PpeBeforeMonsterTakesGold)
+			if (eventType == EventType.BeforeMonsterTakesGold)
 			{
 				var monsterUids = new long[] { 46, 47, 48, 49, 50 };
 

@@ -1,12 +1,13 @@
 ﻿
 // PowerCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
@@ -15,19 +16,9 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
-		public virtual bool IsActorRoomInLab()
+		public override void PlayerProcessEvents(EventType eventType)
 		{
-			return ActorRoom.Uid == 18 || ActorRoom.Zone == 2;
-		}
-
-		public override void PrintSonicBoom()
-		{
-			gEngine.PrintEffectDesc(80 + (IsActorRoomInLab() ? 1 : 0));
-		}
-
-		public override void PlayerProcessEvents(long eventType)
-		{
-			if (eventType == PpeAfterPlayerSpellCastCheck)
+			if (eventType == EventType.AfterPlayerSpellCastCheck)
 			{
 				var rl = gEngine.RollDice(1, 100, 0);
 
@@ -133,6 +124,16 @@ namespace TheSubAquanLaboratory.Game.Commands
 		Cleanup:
 
 			;
+		}
+
+		public override void PrintSonicBoom()
+		{
+			gEngine.PrintEffectDesc(80 + (IsActorRoomInLab() ? 1 : 0));
+		}
+
+		public virtual bool IsActorRoomInLab()
+		{
+			return ActorRoom.Uid == 18 || ActorRoom.Zone == 2;
 		}
 	}
 }

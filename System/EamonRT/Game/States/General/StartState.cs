@@ -1,10 +1,11 @@
 ﻿
 // StartState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -13,16 +14,11 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class StartState : State, IStartState
 	{
-		/// <summary>
-		/// An event that fires at the start of a new round, before any processing has been done.
-		/// </summary>
-		public const long PeBeforeRoundStart = 1;
-
 		public override void Execute()
 		{
-			ProcessRevealContentArtifacts();
+			ProcessRevealContentArtifactList();
 
-			ProcessEvents(PeBeforeRoundStart);
+			ProcessEvents(EventType.BeforeRoundStart);
 
 			if (!Globals.CommandPromptSeen || ShouldPreTurnProcess())
 			{

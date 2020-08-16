@@ -1,7 +1,7 @@
 ﻿
 // Directory.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Linq;
 using Eamon.Framework.Portability;
@@ -10,14 +10,6 @@ namespace EamonPM.Game.Portability
 {
 	public class Directory : IDirectory
 	{
-		/// <summary></summary>
-		/// <param name="path"></param>
-		/// <returns></returns>
-		protected virtual string NormalizePath(string path)
-		{
-			return path != null ? path.Replace(System.IO.Path.DirectorySeparatorChar == '\\' ? '/' : '\\', System.IO.Path.DirectorySeparatorChar) : null;
-		}
-
 		public virtual bool Exists(string path)
 		{
 			return System.IO.Directory.Exists(NormalizePath(path));
@@ -71,6 +63,14 @@ namespace EamonPM.Game.Portability
 		public virtual string[] GetDirectories(string path)
 		{
 			return System.IO.Directory.GetDirectories(NormalizePath(path));
+		}
+
+		/// <summary></summary>
+		/// <param name="path"></param>
+		/// <returns></returns>
+		public virtual string NormalizePath(string path)
+		{
+			return path != null ? path.Replace(System.IO.Path.DirectorySeparatorChar == '\\' ? '/' : '\\', System.IO.Path.DirectorySeparatorChar) : null;
 		}
 	}
 }

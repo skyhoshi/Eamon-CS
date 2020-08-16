@@ -1,15 +1,15 @@
 ﻿
 // WearCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -18,18 +18,34 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class WearCommand : Command, IWearCommand
 	{
-		/// <summary>
-		/// An event that fires after the player wears an <see cref="IArtifact">Artifact</see>.
-		/// </summary>
-		public const long PpeAfterArtifactWear = 1;
+		/// <summary></summary>
+		public virtual IArtifactCategory DobjArtAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory ArmorArtifactAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory ShieldArtifactAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory WeaponArtifactAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact ArmorArtifact { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact ShieldArtifact { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact WeaponArtifact { get; set; }
 
 		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
-			var dobjAc = DobjArtifact.Wearable;
+			DobjArtAc = DobjArtifact.Wearable;
 
-			if (dobjAc != null)
+			if (DobjArtAc != null)
 			{
 				if (DobjArtifact.IsWornByCharacter())
 				{
@@ -54,24 +70,24 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (dobjAc.Field1 > 0)
+				if (DobjArtAc.Field1 > 0)
 				{
-					var arArtifact = gADB[gGameState.Ar];
+					ArmorArtifact = gADB[gGameState.Ar];
 
-					var shArtifact = gADB[gGameState.Sh];
+					ShieldArtifact = gADB[gGameState.Sh];
 
-					var arAc = arArtifact != null ? arArtifact.Wearable : null;
+					ArmorArtifactAc = ArmorArtifact != null ? ArmorArtifact.Wearable : null;
 
-					var shAc = shArtifact != null ? shArtifact.Wearable : null;
+					ShieldArtifactAc = ShieldArtifact != null ? ShieldArtifact.Wearable : null;
 
-					if (dobjAc.Field1 > 1)
+					if (DobjArtAc.Field1 > 1)
 					{
-						if (dobjAc.Field1 > 14)
+						if (DobjArtAc.Field1 > 14)
 						{
-							dobjAc.Field1 = 14;
+							DobjArtAc.Field1 = 14;
 						}
 
-						if (arAc != null)
+						if (ArmorArtifactAc != null)
 						{
 							gOut.Print("You're already wearing armor!");
 
@@ -82,11 +98,11 @@ namespace EamonRT.Game.Commands
 
 						gGameState.Ar = DobjArtifact.Uid;
 
-						ActorMonster.Armor = (dobjAc.Field1 / 2) + ((dobjAc.Field1 / 2) >= 3 ? 2 : 0) + (shAc != null ? shAc.Field1 : 0);
+						ActorMonster.Armor = (DobjArtAc.Field1 / 2) + ((DobjArtAc.Field1 / 2) >= 3 ? 2 : 0) + (ShieldArtifactAc != null ? ShieldArtifactAc.Field1 : 0);
 					}
 					else
 					{
-						if (shAc != null)
+						if (ShieldArtifactAc != null)
 						{
 							gOut.Print("You're already wearing a shield!");
 
@@ -97,13 +113,13 @@ namespace EamonRT.Game.Commands
 
 						// can't wear shield while using two-handed weapon
 
-						var weapon = ActorMonster.Weapon > 0 ? gADB[ActorMonster.Weapon] : null;
+						WeaponArtifact = ActorMonster.Weapon > 0 ? gADB[ActorMonster.Weapon] : null;
 
-						var weaponAc = weapon != null ? weapon.GeneralWeapon : null;
+						WeaponArtifactAc = WeaponArtifact != null ? WeaponArtifact.GeneralWeapon : null;
 
-						if (weaponAc != null && weaponAc.Field5 > 1)
+						if (WeaponArtifactAc != null && WeaponArtifactAc.Field5 > 1)
 						{
-							PrintCantWearShieldWithWeapon(DobjArtifact, weapon);
+							PrintCantWearShieldWithWeapon(DobjArtifact, WeaponArtifact);
 
 							NextState = Globals.CreateInstance<IStartState>();
 
@@ -112,7 +128,7 @@ namespace EamonRT.Game.Commands
 
 						gGameState.Sh = DobjArtifact.Uid;
 
-						ActorMonster.Armor = (arAc != null ? (arAc.Field1 / 2) + ((arAc.Field1 / 2) >= 3 ? 2 : 0) : 0) + dobjAc.Field1;
+						ActorMonster.Armor = (ArmorArtifactAc != null ? (ArmorArtifactAc.Field1 / 2) + ((ArmorArtifactAc.Field1 / 2) >= 3 ? 2 : 0) : 0) + DobjArtAc.Field1;
 					}
 				}
 
@@ -120,7 +136,7 @@ namespace EamonRT.Game.Commands
 
 				PrintWorn(DobjArtifact);
 
-				PlayerProcessEvents(PpeAfterArtifactWear);
+				PlayerProcessEvents(EventType.AfterArtifactWear);
 
 				if (GotoCleanup)
 				{

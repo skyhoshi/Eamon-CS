@@ -1,7 +1,7 @@
 ﻿
 // MainHallMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -45,51 +45,51 @@ namespace EamonMH.Game.Menus.HierarchicalMenus
 
 			Buf = Globals.Buf;
 
-			MenuItems = new List<IMenuItem>();
+			MenuItemList = new List<IMenuItem>();
 
-			MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
+			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
-				x.SelectChar = (char)('1' + MenuItems.Count);
-				x.LineText = string.Format("{0}{1}. Go on an adventure.", Environment.NewLine, MenuItems.Count + 1);
+				x.SelectChar = (char)('1' + MenuItemList.Count);
+				x.LineText = string.Format("{0}{1}. Go on an adventure.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IGoOnAdventureMenu>();
 			}));
 
-			MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
+			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
-				x.SelectChar = (char)('1' + MenuItems.Count);
-				x.LineText = string.Format("{0}{1}. Visit the Weapons and Armor Shop.", Environment.NewLine, MenuItems.Count + 1);
+				x.SelectChar = (char)('1' + MenuItemList.Count);
+				x.LineText = string.Format("{0}{1}. Visit the Weapons and Armor Shop.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IMarcosCavielliMenu>();
 			}));
 
-			MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
+			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
-				x.SelectChar = (char)('1' + MenuItems.Count);
-				x.LineText = string.Format("{0}{1}. Hire a Wizard to teach you some spells.", Environment.NewLine, MenuItems.Count + 1);
+				x.SelectChar = (char)('1' + MenuItemList.Count);
+				x.LineText = string.Format("{0}{1}. Hire a Wizard to teach you some spells.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IHokasTokasMenu>();
 			}));
 
-			MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
+			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
-				x.SelectChar = (char)('1' + MenuItems.Count);
-				x.LineText = string.Format("{0}{1}. Find the banker to deposit or withdraw some gold.", Environment.NewLine, MenuItems.Count + 1);
+				x.SelectChar = (char)('1' + MenuItemList.Count);
+				x.LineText = string.Format("{0}{1}. Find the banker to deposit or withdraw some gold.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IShylockMcFennyMenu>();
 			}));
 
-			MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
+			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
-				x.SelectChar = (char)('1' + MenuItems.Count);
-				x.LineText = string.Format("{0}{1}. Examine your abilities.", Environment.NewLine, MenuItems.Count + 1);
+				x.SelectChar = (char)('1' + MenuItemList.Count);
+				x.LineText = string.Format("{0}{1}. Examine your abilities.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IExamineAbilitiesMenu>();
 			}));
 
-			MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
+			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
-				x.SelectChar = (char)('1' + MenuItems.Count);
-				x.LineText = string.Format("{0}{1}. Enter the Village.", Environment.NewLine, MenuItems.Count + 1);
+				x.SelectChar = (char)('1' + MenuItemList.Count);
+				x.LineText = string.Format("{0}{1}. Enter the Village.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IVillageMenu>();
 			}));
 
-			MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
+			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
 				x.SelectChar = 'X';
 				x.LineText = string.Format("{0}X. Temporarily leave the universe.{0}", Environment.NewLine);

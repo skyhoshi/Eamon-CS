@@ -6,6 +6,7 @@
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using static LandOfTheMountainKing.Game.Plugin.PluginContext;
 
 namespace LandOfTheMountainKing.Game.Commands
@@ -13,9 +14,9 @@ namespace LandOfTheMountainKing.Game.Commands
 	[ClassMappings]
 	public class UseCommand : EamonRT.Game.Commands.UseCommand, IUseCommand
 	{
-		public override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(EventType eventType)
 		{
-			if (eventType == PpeBeforeArtifactUse)
+			if (eventType == EventType.BeforeArtifactUse)
 			{
 				switch (DobjArtifact.Uid)
 				{

@@ -40,13 +40,13 @@
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.SecretDoors">
             <summary></summary>
         </member>
-        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.WeatherScalePct">
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.WeatherFreqPct">
             <summary></summary>
         </member>
-        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.EncounterScalePct">
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.EncounterFreqPct">
             <summary></summary>
         </member>
-        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.FlavorScalePct">
+        <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.FlavorFreqPct">
             <summary></summary>
         </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.IGameState.FoggyRoomWeatherIntensity">
@@ -184,7 +184,7 @@
         <member name="P:TheVileGrimoireOfJaldial.Framework.Plugin.IPluginGlobals.EventRoll">
             <summary></summary>
         </member>
-        <member name="P:TheVileGrimoireOfJaldial.Framework.Plugin.IPluginGlobals.ScaleRoll">
+        <member name="P:TheVileGrimoireOfJaldial.Framework.Plugin.IPluginGlobals.FrequencyRoll">
             <summary></summary>
         </member>
         <member name="P:TheVileGrimoireOfJaldial.Framework.Plugin.IPluginGlobals.InitiativeMonsterUid">

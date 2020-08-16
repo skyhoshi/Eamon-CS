@@ -1,7 +1,7 @@
 ﻿
 // GameStateHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using Eamon.Framework.Helpers;
@@ -31,14 +31,14 @@ namespace TheTrainingGround.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateGenderChangeCounter()
+		public virtual bool ValidateGenderChangeCounter()
 		{
 			return Record.GenderChangeCounter >= 0 && Record.GenderChangeCounter <= 2;
 		}
 
 		public GameStateHelper()
 		{
-			FieldNames.AddRange(new List<string>()
+			FieldNameList.AddRange(new List<string>()
 			{
 				"GenderChangeCounter",
 			});

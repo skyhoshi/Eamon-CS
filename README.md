@@ -5,21 +5,19 @@
 
 #### Last Wiki Update 20200101
 
-This is Eamon CS (ECS), a C# port of the classic Eamon roleplaying game that debuted on the Apple II.  Created initially by Donald Brown, there have been many variants over the years, on a variety of computer systems.  ECS is the production version of Eamon AC (EAC), a prototype intended to extract the game from BASIC.  Hopefully, this Eamon will be the definitive version for the C family of languages, as EAC is obsolete.
+This is Eamon CS (ECS), a C# port of the classic Eamon roleplaying game that debuted on the Apple II.  Initially created by Donald Brown, there have been many variants over the years on various computer systems.  ECS is the production version of Eamon AC (EAC), a prototype intended to convert the game from BASIC.  Hopefully, this Eamon will be the definitive version for the C family of languages, as EAC is obsolete.
 
 #### Prerequisites
 
-Eamon CS requires a .NET Standard 2.0 compliant runtime; for example, .NET 4.7.2+ on Windows and Mono 5.18.0+ on Unix.  Also needed is the .NET Core 2.X runtime or SDK (for developers).  All modern Windows platforms come with the latest .NET runtime installed, but for Unix, you may have to do a manual Mono install depending on your distribution.
+Eamon CS requires a .NET Standard 2.0 compliant runtime; for example, .NET 4.7.2+ on Windows and Mono 5.18.0+ on Unix.  Also needed is the .NET Core 2.X runtime or SDK (for developers).  There are instructions for obtaining and installing these prerequisites, if necessary, in WorkingDraft under DOCUMENT LINKS on the [Eamon CS website](https://firstmethod.github.io).
 
 Eamon CS Mobile currently runs on devices using Android 4.0 through 8.1.
 
 #### Installing
 
-There is no formal installer for Eamon CS.  You can obtain a copy of this repository (and a full set of binaries) in one of two ways.  Either do a Git Clone using Visual Studio 2017+ or, more simply, download a .zip file using the green Code button above.  (To obtain and install Eamon CS Mobile, look at the Wiki Development Log entry dated 20170613.)
+There is no formal installer for Eamon CS.  To obtain a copy of this repository (and a full set of binaries), you can either do a Git Clone using Visual Studio 2017+ or, more simply, download a .zip file using the green Code button above.  If you download a .zip file on Windows, before unzipping it, you should right-click on it and select Properties.  Then click the Unblock checkbox (or button) in the lower right corner of the form, and finally click Apply and OK.  The gameplay experience will improve by eliminating security warning message boxes.
 
-If you are on Windows and choose the second option, before unzipping the file, you should right-click on it.  Then select Properties and click the Unblock checkbox (or button) in the lower right corner of the form.  Finally, click Apply and OK.  The gameplay experience will improve by eliminating security warning message boxes.
-
-It is possible to have multiple ECS repositories present on your system.  They will not interfere with each other, provided they are in separate directories.  It can be useful in upgrade scenarios.
+To obtain Eamon CS Mobile, download the EamonPM.Android-Signed.apk file (located [here](https://github.com/firstmethod/Eamon-CS-Misc/tree/master/System/Bin)) directly onto your mobile device and install it.
 
 #### Playing
 

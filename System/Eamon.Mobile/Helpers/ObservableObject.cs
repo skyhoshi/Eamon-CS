@@ -20,7 +20,7 @@ namespace Eamon.Mobile.Helpers
 		/// <param name="propertyName">Property name.</param>
 		/// <param name="onChanged">On changed.</param>
 		/// <typeparam name="T">The 1st type parameter.</typeparam>
-		protected bool SetProperty<T>(
+		public bool SetProperty<T>(
 			ref T backingStore, T value,
 			[CallerMemberName]string propertyName = "",
 			Action onChanged = null)
@@ -43,7 +43,7 @@ namespace Eamon.Mobile.Helpers
 		/// Raises the property changed event.
 		/// </summary>
 		/// <param name="propertyName">Property name.</param>
-		protected void OnPropertyChanged([CallerMemberName]string propertyName = "")
+		public void OnPropertyChanged([CallerMemberName]string propertyName = "")
 		{
 			var changed = PropertyChanged;
 			if (changed == null)

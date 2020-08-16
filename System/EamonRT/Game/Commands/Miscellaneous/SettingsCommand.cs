@@ -1,7 +1,7 @@
 ﻿
 // SettingsCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -25,20 +25,6 @@ namespace EamonRT.Game.Commands
 		public virtual bool? MatureContent { get; set; } = null;
 
 		public virtual long? PauseCombatMs { get; set; } = null;
-
-		/// <summary></summary>
-		public virtual void PrintUsage()
-		{
-			gOut.Print("Usage:  SETTINGS [Option] [Value]{0}", Environment.NewLine);
-
-			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "Option", "Value", "Setting");
-			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "------", "-----", "-------");
-			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseRooms", "True, False", gGameState.Vr);
-			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseMonsters", "True, False", gGameState.Vm);
-			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseArtifacts", "True, False", gGameState.Va);
-			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "MatureContent", "True, False", gGameState.MatureContent);
-			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "PauseCombatMs", "0 .. 10000", gGameState.PauseCombatMs);
-		}
 
 		public override void PlayerExecute()
 		{
@@ -82,6 +68,19 @@ namespace EamonRT.Game.Commands
 		public override bool ShouldPreTurnProcess()
 		{
 			return false;
+		}
+
+		public virtual void PrintUsage()
+		{
+			gOut.Print("Usage:  SETTINGS [Option] [Value]{0}", Environment.NewLine);
+
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "Option", "Value", "Setting");
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "------", "-----", "-------");
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseRooms", "True, False", gGameState.Vr);
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseMonsters", "True, False", gGameState.Vm);
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseArtifacts", "True, False", gGameState.Va);
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "MatureContent", "True, False", gGameState.MatureContent);
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "PauseCombatMs", "0 .. 10000", gGameState.PauseCombatMs);
 		}
 
 		public SettingsCommand()

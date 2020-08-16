@@ -1,7 +1,7 @@
 ﻿
 // IHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -101,7 +101,7 @@ namespace Eamon.Framework.Helpers.Generic
 		/// <summary></summary>
 		/// <param name="matchFunc"></param>
 		/// <returns></returns>
-		IList<string> GetNames(Func<string, bool> matchFunc = null);
+		IList<string> GetNameList(Func<string, bool> matchFunc = null);
 
 		/// <summary></summary>
 		/// <param name="fieldName"></param>
@@ -110,9 +110,9 @@ namespace Eamon.Framework.Helpers.Generic
 
 		/// <summary></summary>
 		/// <param name="fieldName"></param>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		string GetName(string fieldName, bool addToNamesList = false);
+		string GetName(string fieldName, bool addToNameList = false);
 
 		/// <summary></summary>
 		/// <param name="fieldName"></param>

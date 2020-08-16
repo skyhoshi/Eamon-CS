@@ -1,7 +1,7 @@
 ﻿
 // CombatSystem.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -22,9 +22,30 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 	{
 		public virtual bool CrossbowTrap { get; set; }
 
-		protected virtual bool ScoredCriticalHit { get; set; }
+		public virtual bool ScoredCriticalHit { get; set; }
 
-		protected override void PrintMiss()
+		public override void ExecuteAttack()
+		{
+			var griffinMonster = gMDB[40];
+
+			Debug.Assert(griffinMonster != null);
+
+			// Attacking baby griffins makes the parent angry
+
+			if (DfMonster.Uid == 41 && !griffinMonster.IsInLimbo() && !gGameState.GriffinAngered)
+			{
+				if (griffinMonster.IsInRoomUid(gGameState.Ro) && griffinMonster.GetInRoom().IsLit())
+				{
+					gEngine.PrintEffectDesc(82);
+				}
+
+				gGameState.GriffinAngered = true;
+			}
+
+			base.ExecuteAttack();
+		}
+
+		public override void PrintMiss()
 		{
 			MissDesc = null;
 
@@ -100,14 +121,14 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 			}
 		}
 
-		protected override void PrintCriticalHit()
+		public override void PrintCriticalHit()
 		{
 			ScoredCriticalHit = true;
 
 			base.PrintCriticalHit();
 		}
 
-		protected override void RollToHitOrMiss()
+		public override void RollToHitOrMiss()
 		{
 			ScoredCriticalHit = false;
 
@@ -126,7 +147,7 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 			}
 		}
 
-		protected override void CalculateDamage()
+		public override void CalculateDamage()
 		{
 			var beholderMonster = gMDB[36] as Framework.IMonster;
 
@@ -148,7 +169,7 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 			}
 		}
 
-		protected override void CheckArmor()
+		public override void CheckArmor()
 		{
 			var beholderMonster = gMDB[36] as Framework.IMonster;
 
@@ -236,7 +257,7 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 			}
 		}
 
-		protected override void CheckMonsterStatus()
+		public override void CheckMonsterStatus()
 		{
 			var room = DfMonster.GetInRoom();
 
@@ -464,27 +485,6 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 		Cleanup:
 
 			;
-		}
-
-		public override void ExecuteAttack()
-		{
-			var griffinMonster = gMDB[40];
-
-			Debug.Assert(griffinMonster != null);
-
-			// Attacking baby griffins makes the parent angry
-
-			if (DfMonster.Uid == 41 && !griffinMonster.IsInLimbo() && !gGameState.GriffinAngered)
-			{
-				if (griffinMonster.IsInRoomUid(gGameState.Ro) && griffinMonster.GetInRoom().IsLit())
-				{
-					gEngine.PrintEffectDesc(82);
-				}
-
-				gGameState.GriffinAngered = true;
-			}
-
-			base.ExecuteAttack();
 		}
 	}
 }

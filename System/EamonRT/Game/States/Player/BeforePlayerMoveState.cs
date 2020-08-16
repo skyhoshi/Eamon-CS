@@ -1,13 +1,14 @@
 ﻿
 // BeforePlayerMoveState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -16,23 +17,18 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class BeforePlayerMoveState : State, IBeforePlayerMoveState
 	{
-		/// <summary>
-		/// An event that fires after the player's destination <see cref="IRoom">Room</see> <see cref="IGameBase.Uid"> Uid</see>
-		/// is calculated and stored.
-		/// </summary>
-		public const long PeAfterDestinationRoomSet = 1;
-
-		public virtual IRoom Room { get; set; }
-
 		public virtual Direction Direction { get; set; }
 
-		public virtual IArtifact Artifact { get; set; }
+		public virtual IArtifact DoorGateArtifact { get; set; }
 
-		public override void ProcessEvents(long eventType)
+		/// <summary></summary>
+		public virtual IRoom OldRoom { get; set; }
+
+		public override void ProcessEvents(EventType eventType)
 		{
-			if (eventType == PeAfterDestinationRoomSet)
+			if (eventType == EventType.AfterDestinationRoomSet)
 			{
-				if (gGameState.GetNBTL(Friendliness.Enemy) > 0 && Room.IsLit())
+				if (gGameState.GetNBTL(Friendliness.Enemy) > 0 && OldRoom.IsLit())
 				{
 					PrintEnemiesNearby();
 
@@ -43,15 +39,15 @@ namespace EamonRT.Game.States
 
 		public override void Execute()
 		{
-			Debug.Assert(Enum.IsDefined(typeof(Direction), Direction) || Artifact != null);
+			Debug.Assert(Enum.IsDefined(typeof(Direction), Direction) || DoorGateArtifact != null);
 
-			Room = gRDB[gGameState.Ro];
+			OldRoom = gRDB[gGameState.Ro];
 
-			Debug.Assert(Room != null);
+			Debug.Assert(OldRoom != null);
 
-			gGameState.R2 = Artifact != null ? 0 : Room.GetDirs(Direction);
+			gGameState.R2 = DoorGateArtifact != null ? 0 : OldRoom.GetDirs(Direction);
 
-			ProcessEvents(PeAfterDestinationRoomSet);
+			ProcessEvents(EventType.AfterDestinationRoomSet);
 
 			if (NextState == null)
 			{
@@ -59,7 +55,7 @@ namespace EamonRT.Game.States
 				{
 					x.Direction = Direction;
 
-					x.Artifact = Artifact;
+					x.DoorGateArtifact = DoorGateArtifact;
 				});
 			}
 

@@ -1,12 +1,13 @@
 ﻿
 // GiveCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
 namespace WrenholdsSecretVigil.Game.Commands
@@ -14,9 +15,9 @@ namespace WrenholdsSecretVigil.Game.Commands
 	[ClassMappings]
 	public class GiveCommand : EamonRT.Game.Commands.GiveCommand, IGiveCommand
 	{
-		public override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(EventType eventType)
 		{
-			if (eventType == PpeAfterEnforceMonsterWeightLimitsCheck)
+			if (eventType == EventType.AfterEnforceMonsterWeightLimitsCheck)
 			{
 				if (IobjMonster.Uid == 1)
 				{
@@ -66,7 +67,7 @@ namespace WrenholdsSecretVigil.Game.Commands
 					base.PlayerProcessEvents(eventType);
 				}
 			}
-			else if (eventType == PpeBeforeMonsterTakesGold)
+			else if (eventType == EventType.BeforeMonsterTakesGold)
 			{
 				// Disable bribing
 

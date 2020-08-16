@@ -1,7 +1,7 @@
 ﻿
 // RegistrationDeskMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -26,16 +26,21 @@ namespace EamonMH.Game.Menus.ActionMenus
 	public class RegistrationDeskMenu : Menu, IRegistrationDeskMenu
 	{
 		/// <summary></summary>
-		protected virtual double? Rtio { get; set; }
+		public virtual double? Rtio { get; set; }
 
 		/// <summary></summary>
-		protected virtual string AdventureName { get; set; }
+		public virtual string AdventureName { get; set; }
 
 		/// <summary></summary>
-		protected virtual long NumChances { get; set; }
+		public virtual long NumChances { get; set; }
+
+		public override void Execute()
+		{
+			SelectCharacter();
+		}
 
 		/// <summary></summary>
-		protected virtual void BadCharacterName()
+		public virtual void BadCharacterName()
 		{
 			gOut.Print("{0}", Globals.LineSep);
 
@@ -50,7 +55,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 		}
 
 		/// <summary></summary>
-		protected virtual void RecallCharacterFromAdventure()
+		public virtual void RecallCharacterFromAdventure()
 		{
 			RetCode rc;
 
@@ -110,7 +115,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 		/// <summary></summary>
 		/// <param name="character"></param>
-		protected virtual void CreateCharacter(ICharacter character)
+		public virtual void CreateCharacter(ICharacter character)
 		{
 			RetCode rc;
 
@@ -136,12 +141,12 @@ namespace EamonMH.Game.Menus.ActionMenus
 			Debug.Assert(gEngine.IsSuccess(rc));
 
 			character.Gender = (Gender)Convert.ToInt64(Buf.Trim().ToString());
-			
+
 			var helper = Globals.CreateInstance<ICharacterHelper>(x =>
 			{
 				x.Record = character;
 			});
-			
+
 			Debug.Assert(helper.ValidateField("Gender"));
 
 			Globals.Thread.Sleep(150);
@@ -319,7 +324,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 		}
 
 		/// <summary></summary>
-		protected virtual void SelectCharacter()
+		public virtual void SelectCharacter()
 		{
 			RetCode rc;
 
@@ -350,12 +355,12 @@ namespace EamonMH.Game.Menus.ActionMenus
 				Buf.SetFormat("{0}", Regex.Replace(Buf.ToString(), @"\s+", " ").Trim());
 
 				character.Name = Buf.ToString();
-				
+
 				var helper = Globals.CreateInstance<ICharacterHelper>(x =>
 				{
 					x.Record = character;
 				});
-				
+
 				Globals.Thread.Sleep(150);
 
 				if (helper.ValidateField("Name"))
@@ -519,11 +524,6 @@ namespace EamonMH.Game.Menus.ActionMenus
 		Cleanup:
 
 			;
-		}
-
-		public override void Execute()
-		{
-			SelectCharacter();
 		}
 
 		public RegistrationDeskMenu()

@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -24,72 +24,6 @@ namespace Eamon.Game
 	[ClassMappings]
 	public class Engine : IEngine
 	{
-		#region Protected Properties
-
-		/// <summary></summary>
-		protected virtual Random Rand { get; set; }
-
-		/// <summary></summary>
-		protected virtual string[] NumberStrings { get; set; }
-
-		/// <summary></summary>
-		protected virtual string[] FieldDescNames { get; set; }
-
-		/// <summary>
-		/// Gets or sets an array containing the name for each <see cref="Status"/>.
-		/// </summary>
-		protected virtual string[] StatusNames { get; set; }
-
-		/// <summary>
-		/// Gets or sets an array containing the name for each <see cref="Clothing"/>.
-		/// </summary>
-		protected virtual string[] ClothingNames { get; set; }
-
-		/// <summary>
-		/// Gets or sets an array containing the description for each <see cref="CombatCode"/>.
-		/// </summary>
-		protected virtual string[] CombatCodeDescs { get; set; }
-
-		/// <summary></summary>
-		protected virtual string[] ContainerDisplayCodeDescs { get; set; }
-
-		/// <summary>
-		/// Gets or sets an array containing the name for each <see cref="LightLevel"/>.
-		/// </summary>
-		protected virtual string[] LightLevelNames { get; set; }
-
-		/// <summary>
-		/// Gets or sets an array containing data for each <see cref="Stat"/>.
-		/// </summary>
-		protected virtual IStat[] Stats { get; set; }
-
-		/// <summary>
-		/// Gets or sets an array containing data for each <see cref="Spell"/>.
-		/// </summary>
-		protected virtual ISpell[] Spells { get; set; }
-
-		/// <summary>
-		/// Gets or sets an array containing data for each <see cref="Weapon"/>.
-		/// </summary>
-		protected virtual IWeapon[] Weapons { get; set; }
-
-		/// <summary>
-		/// Gets or sets an array containing data for each <see cref="Armor"/>.
-		/// </summary>
-		protected virtual IArmor[] Armors { get; set; }
-
-		/// <summary>
-		/// Gets or sets an array containing data for each <see cref="Direction"/>.
-		/// </summary>
-		protected virtual IDirection[] Directions { get; set; }
-
-		/// <summary>
-		/// Gets or sets an array containing data for each <see cref="ArtifactType"/>.
-		/// </summary>
-		protected virtual IArtifactType[] ArtifactTypes { get; set; }
-
-		#endregion
-
 		#region Public Properties
 
 		public virtual IDictionary<long, Func<string>> MacroFuncs { get; set; }
@@ -103,6 +37,68 @@ namespace Eamon.Game
 		public virtual long NumCacheItems { get; set; }
 
 		public virtual string UnknownName { get; set; }
+
+		/// <summary></summary>
+		public virtual Random Rand { get; set; }
+
+		/// <summary></summary>
+		public virtual string[] NumberStrings { get; set; }
+
+		/// <summary></summary>
+		public virtual string[] FieldDescNames { get; set; }
+
+		/// <summary>
+		/// Gets or sets an array containing the name for each <see cref="Status"/>.
+		/// </summary>
+		public virtual string[] StatusNames { get; set; }
+
+		/// <summary>
+		/// Gets or sets an array containing the name for each <see cref="Clothing"/>.
+		/// </summary>
+		public virtual string[] ClothingNames { get; set; }
+
+		/// <summary>
+		/// Gets or sets an array containing the description for each <see cref="CombatCode"/>.
+		/// </summary>
+		public virtual string[] CombatCodeDescs { get; set; }
+
+		/// <summary></summary>
+		public virtual string[] ContainerDisplayCodeDescs { get; set; }
+
+		/// <summary>
+		/// Gets or sets an array containing the name for each <see cref="LightLevel"/>.
+		/// </summary>
+		public virtual string[] LightLevelNames { get; set; }
+
+		/// <summary>
+		/// Gets or sets an array containing data for each <see cref="Stat"/>.
+		/// </summary>
+		public virtual IStat[] Stats { get; set; }
+
+		/// <summary>
+		/// Gets or sets an array containing data for each <see cref="Spell"/>.
+		/// </summary>
+		public virtual ISpell[] Spells { get; set; }
+
+		/// <summary>
+		/// Gets or sets an array containing data for each <see cref="Weapon"/>.
+		/// </summary>
+		public virtual IWeapon[] Weapons { get; set; }
+
+		/// <summary>
+		/// Gets or sets an array containing data for each <see cref="Armor"/>.
+		/// </summary>
+		public virtual IArmor[] Armors { get; set; }
+
+		/// <summary>
+		/// Gets or sets an array containing data for each <see cref="Direction"/>.
+		/// </summary>
+		public virtual IDirection[] Directions { get; set; }
+
+		/// <summary>
+		/// Gets or sets an array containing data for each <see cref="ArtifactType"/>.
+		/// </summary>
+		public virtual IArtifactType[] ArtifactTypes { get; set; }
 
 		#endregion
 
@@ -1542,13 +1538,13 @@ namespace Eamon.Game
 			return rc;
 		}
 
-		public virtual RetCode GetRecordNameList(IList<IGameBase> records, ArticleType articleType, bool showCharOwned, StateDescDisplayCode stateDescCode, bool showContents, bool groupCountOne, StringBuilder buf)
+		public virtual RetCode GetRecordNameList(IList<IGameBase> recordList, ArticleType articleType, bool showCharOwned, StateDescDisplayCode stateDescCode, bool showContents, bool groupCountOne, StringBuilder buf)
 		{
 			StringBuilder buf01;
 			RetCode rc;
 			long i;
 
-			if (records == null || buf == null)
+			if (recordList == null || buf == null)
 			{
 				rc = RetCode.InvalidArg;
 
@@ -1561,13 +1557,13 @@ namespace Eamon.Game
 
 			buf01 = new StringBuilder(Constants.BufSize);
 
-			for (i = 0; i < records.Count; i++)
+			for (i = 0; i < recordList.Count; i++)
 			{
-				var x = records[(int)i];
+				var r = recordList[(int)i];
 
-				var a = x as IArtifact;
+				var a = r as IArtifact;
 
-				var m = x as IMonster;
+				var m = r as IMonster;
 
 				var contentsDesc = "";
 
@@ -1589,11 +1585,11 @@ namespace Eamon.Game
 				}
 
 				buf.AppendFormat("{0}{1}{2}",
-					i == 0 ? "" : i == records.Count - 1 ? " and " : ", ",
-					x.GetDecoratedName
+					i == 0 ? "" : i == recordList.Count - 1 ? " and " : ", ",
+					r.GetDecoratedName
 					(
 						"Name",
-						articleType == ArticleType.None || articleType == ArticleType.The ? articleType : x.ArticleType,
+						articleType == ArticleType.None || articleType == ArticleType.The ? articleType : r.ArticleType,
 						false,
 						showCharOwned,
 						showStateDesc && contentsDesc.Length == 0,
@@ -1609,11 +1605,11 @@ namespace Eamon.Game
 			return rc;
 		}
 
-		public virtual RetCode GetRecordNameCount(IList<IGameBase> records, string name, bool exactMatch, ref long count)
+		public virtual RetCode GetRecordNameCount(IList<IGameBase> recordList, string name, bool exactMatch, ref long count)
 		{
 			RetCode rc;
 
-			if (records == null || string.IsNullOrWhiteSpace(name))
+			if (recordList == null || string.IsNullOrWhiteSpace(name))
 			{
 				rc = RetCode.InvalidArg;
 
@@ -1626,18 +1622,18 @@ namespace Eamon.Game
 
 			count = 0;
 
-			foreach (var x in records)
+			foreach (var r in recordList)
 			{
 				if (exactMatch)
 				{
-					if (string.Equals(x.Name, name, StringComparison.OrdinalIgnoreCase))
+					if (string.Equals(r.Name, name, StringComparison.OrdinalIgnoreCase))
 					{
 						count++;
 					}
 				}
 				else
 				{
-					if (x.Name.Contains(name, StringComparison.OrdinalIgnoreCase))
+					if (r.Name.Contains(name, StringComparison.OrdinalIgnoreCase))
 					{
 						count++;
 					}
@@ -1649,12 +1645,12 @@ namespace Eamon.Game
 			return rc;
 		}
 
-		public virtual RetCode ListRecords(IList<IGameBase> records, bool capitalize, bool showExtraInfo, StringBuilder buf)
+		public virtual RetCode ListRecords(IList<IGameBase> recordList, bool capitalize, bool showExtraInfo, StringBuilder buf)
 		{
 			RetCode rc;
 			long i;
 
-			if (records == null || buf == null)
+			if (recordList == null || buf == null)
 			{
 				rc = RetCode.InvalidArg;
 
@@ -1665,11 +1661,11 @@ namespace Eamon.Game
 
 			rc = RetCode.Success;
 
-			for (i = 0; i < records.Count; i++)
+			for (i = 0; i < recordList.Count; i++)
 			{
-				var x = records[(int)i];
+				var r = recordList[(int)i];
 
-				var a = x as IArtifact;
+				var a = r as IArtifact;
 
 				if (showExtraInfo && a != null && a.GeneralWeapon != null)
 				{
@@ -1696,7 +1692,7 @@ namespace Eamon.Game
 					buf.AppendFormat("{0}{1,2}. {2}",
 						Environment.NewLine,
 						i + 1,
-						capitalize ? Capitalize(x.Name) : x.Name);
+						capitalize ? Capitalize(r.Name) : r.Name);
 				}
 			}
 
@@ -2216,10 +2212,10 @@ namespace Eamon.Game
 
 			Debug.Assert(whereClauseFunc != null);
 
-			return recordList.Where(x => whereClauseFunc(x)).OrderBy((x) =>
+			return recordList.Where(r => whereClauseFunc(r)).OrderBy((r) =>
 			{
 
-				return string.Format("{0}_{1}", x.Name.ToLower(), x.Uid);
+				return string.Format("{0}_{1}", r.Name.ToLower(), r.Uid);
 
 			}).Skip((int)(which - 1)).Take(1).FirstOrDefault();
 		}
@@ -2321,6 +2317,120 @@ namespace Eamon.Game
 
 		public Engine()
 		{
+			MacroFuncs = new Dictionary<long, Func<string>>();
+
+			ArtifactContainedList = new List<IArtifact>();
+
+			Preps = new IPrep[]
+			{
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "in";
+					x.ContainerType = ContainerType.In;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "into";
+					x.ContainerType = ContainerType.In;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "fromin";
+					x.ContainerType = ContainerType.In;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "on";
+					x.ContainerType = ContainerType.On;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "onto";
+					x.ContainerType = ContainerType.On;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "fromon";
+					x.ContainerType = ContainerType.On;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "under";
+					x.ContainerType = ContainerType.Under;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "fromunder";
+					x.ContainerType = ContainerType.Under;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "behind";
+					x.ContainerType = ContainerType.Behind;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "frombehind";
+					x.ContainerType = ContainerType.Behind;
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "to";
+					x.ContainerType = (ContainerType)(-1);
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "at";
+					x.ContainerType = (ContainerType)(-1);
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "from";
+					x.ContainerType = (ContainerType)(-1);
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "with";
+					x.ContainerType = (ContainerType)(-1);
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "through";
+					x.ContainerType = (ContainerType)(-1);
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "along";
+					x.ContainerType = (ContainerType)(-1);
+				}),
+				Globals.CreateInstance<IPrep>(x =>
+				{
+					x.Name = "across";
+					x.ContainerType = (ContainerType)(-1);
+				})
+			};
+
+			Articles = new string[]			// TODO: fix ???
+			{
+				"a",
+				"an",
+				"some",
+				"the",
+				"this",
+				"these",
+				"that",
+				"those",
+				"my",
+				"your",
+				"his",
+				"her",
+				"its"
+			};
+
+			NumCacheItems = Constants.NumCacheItems;
+
+			UnknownName = "???";
+
 			Rand = new Random();
 
 			NumberStrings = new string[]
@@ -2387,7 +2497,7 @@ namespace Eamon.Game
 				"Light"
 			};
 
-			Stats = new IStat[]
+			Stats = new IStat[]			// TODO: fix
 			{
 				Globals.CreateInstance<IStat>(x =>
 				{
@@ -2423,7 +2533,7 @@ namespace Eamon.Game
 				})
 			};
 
-			Spells = new ISpell[]
+			Spells = new ISpell[]			// TODO: fix
 			{
 				Globals.CreateInstance<ISpell>(x =>
 				{
@@ -2459,7 +2569,7 @@ namespace Eamon.Game
 				})
 			};
 
-			Weapons = new IWeapon[]
+			Weapons = new IWeapon[]			// TODO: fix
 			{
 				Globals.CreateInstance<IWeapon>(x =>
 				{
@@ -2670,7 +2780,7 @@ namespace Eamon.Game
 				})
 			};
 
-			Directions = new IDirection[]
+			Directions = new IDirection[]			// TODO: fix
 			{
 				Globals.CreateInstance<IDirection>(x =>
 				{
@@ -3067,120 +3177,6 @@ namespace Eamon.Game
 					x.Field5EmptyVal = "0";
 				})
 			};
-
-			MacroFuncs = new Dictionary<long, Func<string>>();
-
-			ArtifactContainedList = new List<IArtifact>();
-
-			Preps = new IPrep[]
-			{
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "in";
-					x.ContainerType = ContainerType.In;
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "into";
-					x.ContainerType = ContainerType.In;
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "fromin";
-					x.ContainerType = ContainerType.In;
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "on";
-					x.ContainerType = ContainerType.On;
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "onto";
-					x.ContainerType = ContainerType.On;
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "fromon";
-					x.ContainerType = ContainerType.On;
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "under";
-					x.ContainerType = ContainerType.Under;
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "fromunder";
-					x.ContainerType = ContainerType.Under;
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "behind";
-					x.ContainerType = ContainerType.Behind;
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "frombehind";
-					x.ContainerType = ContainerType.Behind;
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "to";
-					x.ContainerType = (ContainerType)(-1);
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "at";
-					x.ContainerType = (ContainerType)(-1);
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "from";
-					x.ContainerType = (ContainerType)(-1);
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "with";
-					x.ContainerType = (ContainerType)(-1);
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "through";
-					x.ContainerType = (ContainerType)(-1);
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "along";
-					x.ContainerType = (ContainerType)(-1);
-				}),
-				Globals.CreateInstance<IPrep>(x =>
-				{
-					x.Name = "across";
-					x.ContainerType = (ContainerType)(-1);
-				})
-			};
-
-			Articles = new string[]
-			{
-				"a",
-				"an",
-				"some",
-				"the",
-				"this",
-				"these",
-				"that",
-				"those",
-				"my",
-				"your",
-				"his",
-				"her",
-				"its"
-			};
-
-			NumCacheItems = Constants.NumCacheItems;
-
-			UnknownName = "???";
 		}
 
 		#endregion

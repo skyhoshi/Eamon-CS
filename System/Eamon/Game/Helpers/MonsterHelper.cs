@@ -1,7 +1,7 @@
 ﻿
 // MonsterHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -24,92 +24,130 @@ namespace Eamon.Game.Helpers
 	[ClassMappings]
 	public class MonsterHelper : Helper<IMonster>, IMonsterHelper
 	{
-		#region Protected Methods
+		#region Public Methods
 
 		#region Interface IHelper
+
+		public override bool ValidateRecordAfterDatabaseLoaded()
+		{
+			Clear();
+
+			return ValidateFieldAfterDatabaseLoaded("Weapon");
+		}
+
+		public override void ListErrorField()
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));
+
+			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
+
+			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Name"), null), Record.Name);
+
+			if (string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) || ShowDesc)
+			{
+				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null), Record.Desc);
+			}
+
+			if (string.Equals(ErrorFieldName, "PluralType", StringComparison.OrdinalIgnoreCase))
+			{
+				gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '.', 0, GetPrintedName("PluralType"), null), (long)Record.PluralType);
+			}
+			else if (string.Equals(ErrorFieldName, "Location", StringComparison.OrdinalIgnoreCase))
+			{
+				gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Location"), null), Record.Location);
+			}
+			else if (string.Equals(ErrorFieldName, "Weapon", StringComparison.OrdinalIgnoreCase))
+			{
+				gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Weapon"), null), Record.Weapon);
+			}
+			else if (string.Equals(ErrorFieldName, "DeadBody", StringComparison.OrdinalIgnoreCase))
+			{
+				gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '.', 0, GetPrintedName("DeadBody"), null), Record.DeadBody);
+			}
+		}
 
 		#region GetPrintedName Methods
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameStateDesc()
+		public virtual string GetPrintedNameStateDesc()
 		{
 			return "State Description";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameIsListed()
+		public virtual string GetPrintedNameIsListed()
 		{
 			return "Is Listed";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNamePluralType()
+		public virtual string GetPrintedNamePluralType()
 		{
 			return "Plural Type";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameGroupCount()
+		public virtual string GetPrintedNameGroupCount()
 		{
 			return "Group Count";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameAttackCount()
+		public virtual string GetPrintedNameAttackCount()
 		{
 			return "Attack Count";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameCombatCode()
+		public virtual string GetPrintedNameCombatCode()
 		{
 			return "Combat Code";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameWeapon()
+		public virtual string GetPrintedNameWeapon()
 		{
 			return "Weapon Uid";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameNwDice()
+		public virtual string GetPrintedNameNwDice()
 		{
 			return "Natural Wpn Dice";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameNwSides()
+		public virtual string GetPrintedNameNwSides()
 		{
 			return "Natural Wpn Sides";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameDeadBody()
+		public virtual string GetPrintedNameDeadBody()
 		{
 			return "Dead Body Uid";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameField1()
+		public virtual string GetPrintedNameField1()
 		{
 			return "Field #1";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameField2()
+		public virtual string GetPrintedNameField2()
 		{
 			return "Field #2";
 		}
@@ -132,14 +170,14 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateUid()
+		public virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateName()
+		public virtual bool ValidateName()
 		{
 			if (Record.Name != null)
 			{
@@ -166,56 +204,56 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateStateDesc()
+		public virtual bool ValidateStateDesc()
 		{
 			return Record.StateDesc != null && Record.StateDesc.Length <= Constants.MonStateDescLen;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateDesc()
+		public virtual bool ValidateDesc()
 		{
 			return string.IsNullOrWhiteSpace(Record.Desc) == false && Record.Desc.Length <= Constants.MonDescLen;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidatePluralType()
+		public virtual bool ValidatePluralType()
 		{
 			return gEngine.IsValidPluralType(Record.PluralType);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArticleType()
+		public virtual bool ValidateArticleType()
 		{
 			return Enum.IsDefined(typeof(ArticleType), Record.ArticleType);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateHardiness()
+		public virtual bool ValidateHardiness()
 		{
 			return Record.Hardiness >= 0;           // 0=Must be calculated
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateAgility()
+		public virtual bool ValidateAgility()
 		{
 			return Record.Agility >= 0;          // 0=Must be calculated
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateGroupCount()
+		public virtual bool ValidateGroupCount()
 		{
 			return Record.GroupCount >= 0;          // 0=Must be calculated
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateAttackCount()
+		public virtual bool ValidateAttackCount()
 		{
 			if (Record.AttackCount == 0)
 			{
@@ -227,63 +265,63 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateCourage()
+		public virtual bool ValidateCourage()
 		{
 			return gEngine.IsValidMonsterCourage(Record.Courage);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateCombatCode()
+		public virtual bool ValidateCombatCode()
 		{
 			return Enum.IsDefined(typeof(CombatCode), Record.CombatCode);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArmor()
+		public virtual bool ValidateArmor()
 		{
 			return gEngine.IsValidMonsterArmor(Record.Armor);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateNwDice()
+		public virtual bool ValidateNwDice()
 		{
 			return Record.NwDice >= 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateNwSides()
+		public virtual bool ValidateNwSides()
 		{
 			return Record.NwSides >= 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateFriendliness()
+		public virtual bool ValidateFriendliness()
 		{
 			return gEngine.IsValidMonsterFriendliness(Record.Friendliness);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateGender()
+		public virtual bool ValidateGender()
 		{
 			return Enum.IsDefined(typeof(Gender), Record.Gender);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateOrigGroupCount()
+		public virtual bool ValidateOrigGroupCount()
 		{
 			return Record.OrigGroupCount >= Record.GroupCount;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateOrigFriendliness()
+		public virtual bool ValidateOrigFriendliness()
 		{
 			if (Record.OrigFriendliness == 0)
 			{
@@ -298,7 +336,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateDmgTaken()
+		public virtual bool ValidateDmgTaken()
 		{
 			return Record.DmgTaken >= 0;
 		}
@@ -309,7 +347,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateAfterDatabaseLoadedWeapon()
+		public virtual bool ValidateAfterDatabaseLoadedWeapon()
 		{
 			var result = true;
 
@@ -348,7 +386,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateInterdependenciesDesc()
+		public virtual bool ValidateInterdependenciesDesc()
 		{
 			var result = true;
 
@@ -380,7 +418,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateInterdependenciesPluralType()
+		public virtual bool ValidateInterdependenciesPluralType()
 		{
 			var result = true;
 
@@ -413,7 +451,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateInterdependenciesLocation()
+		public virtual bool ValidateInterdependenciesLocation()
 		{
 			var result = true;
 
@@ -446,7 +484,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateInterdependenciesWeapon()
+		public virtual bool ValidateInterdependenciesWeapon()
 		{
 			var result = true;
 
@@ -507,7 +545,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateInterdependenciesDeadBody()
+		public virtual bool ValidateInterdependenciesDeadBody()
 		{
 			var result = true;
 
@@ -557,7 +595,7 @@ namespace Eamon.Game.Helpers
 		#region PrintDesc Methods
 
 		/// <summary></summary>
-		protected virtual void PrintDescName()
+		public virtual void PrintDescName()
 		{
 			var fullDesc = "Enter the name of the monster." + Environment.NewLine + Environment.NewLine + "Monster names should always be in singular form and capitalized when appropriate.";
 
@@ -565,7 +603,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescStateDesc()
+		public virtual void PrintDescStateDesc()
 		{
 			var fullDesc = "Enter the state description of the monster (will typically be empty).";
 
@@ -573,7 +611,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescDesc()
+		public virtual void PrintDescDesc()
 		{
 			var fullDesc = "Enter a detailed description of the monster.";
 
@@ -581,7 +619,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescSeen()
+		public virtual void PrintDescSeen()
 		{
 			var fullDesc = "Enter the Seen status of the monster.";
 
@@ -591,7 +629,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescIsListed()
+		public virtual void PrintDescIsListed()
 		{
 			var fullDesc = "Enter the Is Listed status of the monster." + Environment.NewLine + Environment.NewLine + "If true, the monster will be included in any listing (room, inventory, etc); if false, it will not.";
 
@@ -601,7 +639,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescPluralType()
+		public virtual void PrintDescPluralType()
 		{
 			var fullDesc = "Enter the plural type of the monster.";
 
@@ -611,7 +649,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescArticleType()
+		public virtual void PrintDescArticleType()
 		{
 			var fullDesc = "Enter the article type of the monster.";
 
@@ -621,7 +659,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescHardiness()
+		public virtual void PrintDescHardiness()
 		{
 			var fullDesc = "Enter the Hardiness of the monster.";
 
@@ -638,7 +676,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescAgility()
+		public virtual void PrintDescAgility()
 		{
 			var fullDesc = "Enter the Agility of the monster.";
 
@@ -662,7 +700,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescGroupCount()
+		public virtual void PrintDescGroupCount()
 		{
 			var fullDesc = "Enter the number of members in the monster's group." + (Globals.IsRulesetVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be 1." : "");
 
@@ -672,7 +710,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescAttackCount()
+		public virtual void PrintDescAttackCount()
 		{
 			var fullDesc = "Enter the number of attacks per round for the monster." + Environment.NewLine + Environment.NewLine + (Globals.IsRulesetVersion(5) ? "For classic Eamon games this value should always be 1." : "The monster can attack this many times per round.  For group monsters, each member has this many attacks per round.  For AttackCounts < -1, use ABS(AttackCount) as attacks per round.");
 
@@ -682,7 +720,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescCourage()
+		public virtual void PrintDescCourage()
 		{
 			var fullDesc = "Enter the courage of the monster." + (Globals.IsRulesetVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be between 1 and 100, inclusive." : "");
 
@@ -706,7 +744,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescLocation()
+		public virtual void PrintDescLocation()
 		{
 			var fullDesc = "Enter the location of the monster.";
 
@@ -716,7 +754,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescCombatCode()
+		public virtual void PrintDescCombatCode()
 		{
 			var fullDesc = "Enter the combat code of the monster.";
 
@@ -733,7 +771,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescArmor()
+		public virtual void PrintDescArmor()
 		{
 			var fullDesc = "Enter the armor of the monster.";
 
@@ -765,7 +803,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescWeapon()
+		public virtual void PrintDescWeapon()
 		{
 			var fullDesc = "Enter the weapon of the monster.";
 
@@ -775,7 +813,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescNwDice()
+		public virtual void PrintDescNwDice()
 		{
 			var fullDesc = "Enter the monster's natural weapon hit dice.";
 
@@ -785,7 +823,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescNwSides()
+		public virtual void PrintDescNwSides()
 		{
 			var fullDesc = "Enter the monster's natural weapon hit dice sides.";
 
@@ -795,7 +833,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescDeadBody()
+		public virtual void PrintDescDeadBody()
 		{
 			var fullDesc = "Enter the dead body of the monster.";
 
@@ -805,7 +843,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescFriendliness()
+		public virtual void PrintDescFriendliness()
 		{
 			int j;
 
@@ -826,7 +864,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescGender()
+		public virtual void PrintDescGender()
 		{
 			var fullDesc = "Enter the gender of the monster.";
 
@@ -847,7 +885,7 @@ namespace Eamon.Game.Helpers
 		#region List Methods
 
 		/// <summary></summary>
-		protected virtual void ListUid()
+		public virtual void ListUid()
 		{
 			if (FullDetail)
 			{
@@ -865,7 +903,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListName()
+		public virtual void ListName()
 		{
 			if (FullDetail)
 			{
@@ -876,7 +914,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListStateDesc()
+		public virtual void ListStateDesc()
 		{
 			if (FullDetail)
 			{
@@ -898,7 +936,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListDesc()
+		public virtual void ListDesc()
 		{
 			if (FullDetail && ShowDesc)
 			{
@@ -922,7 +960,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListSeen()
+		public virtual void ListSeen()
 		{
 			if (FullDetail)
 			{
@@ -933,7 +971,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListIsListed()
+		public virtual void ListIsListed()
 		{
 			if (FullDetail)
 			{
@@ -944,7 +982,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListPluralType()
+		public virtual void ListPluralType()
 		{
 			if (FullDetail)
 			{
@@ -989,7 +1027,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListArticleType()
+		public virtual void ListArticleType()
 		{
 			if (FullDetail)
 			{
@@ -1015,7 +1053,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListHardiness()
+		public virtual void ListHardiness()
 		{
 			if (FullDetail)
 			{
@@ -1026,7 +1064,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListAgility()
+		public virtual void ListAgility()
 		{
 			if (FullDetail)
 			{
@@ -1037,7 +1075,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListGroupCount()
+		public virtual void ListGroupCount()
 		{
 			if (FullDetail)
 			{
@@ -1048,7 +1086,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListAttackCount()
+		public virtual void ListAttackCount()
 		{
 			if (FullDetail)
 			{
@@ -1059,7 +1097,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListCourage()
+		public virtual void ListCourage()
 		{
 			if (FullDetail)
 			{
@@ -1070,7 +1108,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListLocation()
+		public virtual void ListLocation()
 		{
 			if (FullDetail)
 			{
@@ -1093,7 +1131,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListCombatCode()
+		public virtual void ListCombatCode()
 		{
 			if (FullDetail)
 			{
@@ -1114,7 +1152,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListArmor()
+		public virtual void ListArmor()
 		{
 			if (FullDetail)
 			{
@@ -1139,7 +1177,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListWeapon()
+		public virtual void ListWeapon()
 		{
 			if (FullDetail)
 			{
@@ -1172,7 +1210,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListNwDice()
+		public virtual void ListNwDice()
 		{
 			if (FullDetail)
 			{
@@ -1183,7 +1221,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListNwSides()
+		public virtual void ListNwSides()
 		{
 			if (FullDetail)
 			{
@@ -1194,7 +1232,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListDeadBody()
+		public virtual void ListDeadBody()
 		{
 			if (FullDetail)
 			{
@@ -1227,7 +1265,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListFriendliness()
+		public virtual void ListFriendliness()
 		{
 			if (FullDetail)
 			{
@@ -1260,7 +1298,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListGender()
+		public virtual void ListGender()
 		{
 			if (FullDetail)
 			{
@@ -1281,7 +1319,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListField1()
+		public virtual void ListField1()
 		{
 			if (FullDetail)
 			{
@@ -1292,7 +1330,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListField2()
+		public virtual void ListField2()
 		{
 			if (FullDetail)
 			{
@@ -1307,7 +1345,7 @@ namespace Eamon.Game.Helpers
 		#region Input Methods
 
 		/// <summary></summary>
-		protected virtual void InputUid()
+		public virtual void InputUid()
 		{
 			gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
 
@@ -1315,7 +1353,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputName()
+		public virtual void InputName()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1347,7 +1385,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputStateDesc()
+		public virtual void InputStateDesc()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1383,7 +1421,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputDesc()
+		public virtual void InputDesc()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1419,7 +1457,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputSeen()
+		public virtual void InputSeen()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1451,7 +1489,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputIsListed()
+		public virtual void InputIsListed()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1483,7 +1521,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputPluralType()
+		public virtual void InputPluralType()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1515,7 +1553,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputArticleType()
+		public virtual void InputArticleType()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1547,7 +1585,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputHardiness()
+		public virtual void InputHardiness()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1581,7 +1619,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputAgility()
+		public virtual void InputAgility()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1613,7 +1651,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputGroupCount()
+		public virtual void InputGroupCount()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1647,7 +1685,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputAttackCount()
+		public virtual void InputAttackCount()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1693,7 +1731,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputCourage()
+		public virtual void InputCourage()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1725,7 +1763,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputLocation()
+		public virtual void InputLocation()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1766,7 +1804,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputCombatCode()
+		public virtual void InputCombatCode()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1807,7 +1845,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputArmor()
+		public virtual void InputArmor()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1839,7 +1877,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputWeapon()
+		public virtual void InputWeapon()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1880,7 +1918,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputNwDice()
+		public virtual void InputNwDice()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1912,7 +1950,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputNwSides()
+		public virtual void InputNwSides()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1944,7 +1982,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputDeadBody()
+		public virtual void InputDeadBody()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -1976,7 +2014,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputFriendliness()
+		public virtual void InputFriendliness()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -2013,7 +2051,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputGender()
+		public virtual void InputGender()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -2045,7 +2083,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputField1()
+		public virtual void InputField1()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -2086,7 +2124,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputField2()
+		public virtual void InputField2()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -2138,7 +2176,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class MonsterHelper
 
-		protected override void SetUidIfInvalid()
+		public override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -2152,59 +2190,9 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		#endregion
-
-		#endregion
-
-		#region Public Methods
-
-		#region Interface IHelper
-
-		public override bool ValidateRecordAfterDatabaseLoaded()
-		{
-			Clear();
-
-			return ValidateFieldAfterDatabaseLoaded("Weapon");
-		}
-
-		public override void ListErrorField()
-		{
-			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));
-
-			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
-
-			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Name"), null), Record.Name);
-
-			if (string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) || ShowDesc)
-			{
-				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null), Record.Desc);
-			}
-
-			if (string.Equals(ErrorFieldName, "PluralType", StringComparison.OrdinalIgnoreCase))
-			{
-				gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '.', 0, GetPrintedName("PluralType"), null), (long)Record.PluralType);
-			}
-			else if (string.Equals(ErrorFieldName, "Location", StringComparison.OrdinalIgnoreCase))
-			{
-				gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Location"), null), Record.Location);
-			}
-			else if (string.Equals(ErrorFieldName, "Weapon", StringComparison.OrdinalIgnoreCase))
-			{
-				gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Weapon"), null), Record.Weapon);
-			}
-			else if (string.Equals(ErrorFieldName, "DeadBody", StringComparison.OrdinalIgnoreCase))
-			{
-				gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '.', 0, GetPrintedName("DeadBody"), null), Record.DeadBody);
-			}
-		}
-
-		#endregion
-
-		#region Class MonsterHelper
-
 		public MonsterHelper()
 		{
-			FieldNames = new List<string>()
+			FieldNameList = new List<string>()
 			{
 				"Uid",
 				"IsUidRecycled",

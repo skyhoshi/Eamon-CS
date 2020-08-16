@@ -1,11 +1,11 @@
 ﻿
 // DropCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
@@ -21,42 +21,10 @@ namespace EamonRT.Game.Commands
 		public virtual bool DropAll { get; set; }
 
 		/// <summary></summary>
-		public virtual IList<IArtifact> ArtifactList { get; set; }
+		public virtual IList<IArtifact> DroppedArtifactList { get; set; }
 
-		public virtual void ProcessLightSource()
-		{
-			if (gGameState.Ls > 0)
-			{
-				var lsArtifact = gADB[gGameState.Ls];
-
-				Debug.Assert(lsArtifact != null && lsArtifact.LightSource != null);
-
-				if ((DropAll || lsArtifact == DobjArtifact) && lsArtifact.IsCarriedByCharacter())
-				{
-					gEngine.LightOut(lsArtifact);
-				}
-			}
-		}
-
-		public virtual void ProcessArtifact(IArtifact artifact)
-		{
-			Debug.Assert(artifact != null);
-
-			artifact.SetInRoom(ActorRoom);
-
-			if (ActorMonster.Weapon == artifact.Uid)
-			{
-				Debug.Assert(artifact.GeneralWeapon != null);
-
-				var rc = artifact.RemoveStateDesc(artifact.GetReadyWeaponDesc());
-
-				Debug.Assert(gEngine.IsSuccess(rc));
-
-				ActorMonster.Weapon = -1;
-			}
-
-			PrintDropped(artifact);
-		}
+		/// <summary></summary>
+		public virtual IArtifact LsArtifact { get; set; }
 
 		public override void PlayerExecute()
 		{
@@ -97,11 +65,11 @@ namespace EamonRT.Game.Commands
 
 			ProcessLightSource();
 
-			ArtifactList = DropAll ? ActorMonster.GetCarriedList() : new List<IArtifact>() { DobjArtifact };
+			DroppedArtifactList = DropAll ? ActorMonster.GetCarriedList() : new List<IArtifact>() { DobjArtifact };
 
-			if (ArtifactList.Count > 0)
+			if (DroppedArtifactList.Count > 0)
 			{
-				foreach (var artifact in ArtifactList)
+				foreach (var artifact in DroppedArtifactList)
 				{
 					ProcessArtifact(artifact);
 				}
@@ -128,6 +96,8 @@ namespace EamonRT.Game.Commands
 		/*
 		public override void MonsterExecute()
 		{
+			RetCode rc;
+
 			// Note: just the starting point for a real implementation
 
 			Debug.Assert(artifact.IsCarriedByMonster(monster) || artifact.IsWornByMonster(monster));
@@ -145,7 +115,7 @@ namespace EamonRT.Game.Commands
 			{
 				Debug.Assert(artifact.GeneralWeapon != null);
 
-				var rc = artifact.RemoveStateDesc(artifact.GetReadyWeaponDesc());
+				rc = artifact.RemoveStateDesc(artifact.GetReadyWeaponDesc());
 
 				Debug.Assert(IsSuccess(rc));
 
@@ -153,6 +123,43 @@ namespace EamonRT.Game.Commands
 			}
 		}
 		*/
+
+		public virtual void ProcessArtifact(IArtifact artifact)
+		{
+			RetCode rc;
+
+			Debug.Assert(artifact != null);
+
+			artifact.SetInRoom(ActorRoom);
+
+			if (ActorMonster.Weapon == artifact.Uid)
+			{
+				Debug.Assert(artifact.GeneralWeapon != null);
+
+				rc = artifact.RemoveStateDesc(artifact.GetReadyWeaponDesc());
+
+				Debug.Assert(gEngine.IsSuccess(rc));
+
+				ActorMonster.Weapon = -1;
+			}
+
+			PrintDropped(artifact);
+		}
+
+		public virtual void ProcessLightSource()
+		{
+			if (gGameState.Ls > 0)
+			{
+				LsArtifact = gADB[gGameState.Ls];
+
+				Debug.Assert(LsArtifact != null && LsArtifact.LightSource != null);
+
+				if ((DropAll || LsArtifact == DobjArtifact) && LsArtifact.IsCarriedByCharacter())
+				{
+					gEngine.LightOut(LsArtifact);
+				}
+			}
+		}
 
 		public DropCommand()
 		{

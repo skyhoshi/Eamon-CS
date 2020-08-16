@@ -14,6 +14,21 @@ namespace LandOfTheMountainKing.Game.Commands
 	[ClassMappings]
 	public class GetCommand : EamonRT.Game.Commands.GetCommand, IGetCommand
 	{
+		public override void PlayerExecute()
+		{
+			if (GetAll)
+			{
+				var HandleArtifact = gADB[23];
+
+				if (HandleArtifact.IsInRoom(ActorRoom))
+				{
+					gEngine.PrintEffectDesc(23);
+				}
+			}
+
+			base.PlayerExecute();
+		}
+
 		public override void ProcessArtifact(IArtifact artifact, IArtifactCategory ac, ref bool nlFlag)
 		{
 			// Get the handle
@@ -50,21 +65,6 @@ namespace LandOfTheMountainKing.Game.Commands
 			{
 				base.ProcessArtifact(artifact, ac, ref nlFlag);
 			}
-		}
-
-		public override void PlayerExecute()
-		{
-			if (GetAll)
-			{
-				var HandleArtifact = gADB[23];
-
-				if (HandleArtifact.IsInRoom(ActorRoom))
-				{
-					gEngine.PrintEffectDesc(23);
-				}
-			}
-
-			base.PlayerExecute();
 		}
 	}
 }

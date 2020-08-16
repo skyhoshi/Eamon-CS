@@ -11,7 +11,7 @@
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="The Beginner's Cave" />
-            <Simple name="Desc" value="This is the original adventure that introduced Donald Brown's Eamon roleplaying game in the early 1980s.  The Eamon CS port by Michael R. Penner is derived from Eamon Deluxe." />
+            <Simple name="Desc" value="This is the original adventure that introduced Donald Brown's Eamon roleplaying game in the early 1980s.  The Eamon CS port by Michael Penner is derived from Eamon Deluxe." />
             <Simple name="Author" value="Donald Brown" />
             <Simple name="VolLabel" value="DB-001" />
             <Simple name="SerialNum" value="001" />

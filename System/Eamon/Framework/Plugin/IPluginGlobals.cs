@@ -1,7 +1,7 @@
 ﻿
 // IPluginGlobals.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -68,10 +68,10 @@ namespace Eamon.Framework.Plugin
 		IMonster RevealContentMonster { get; set; }
 
 		/// <summary></summary>
-		IList<IArtifact> RevealContentArtifacts { get; set; }
+		IList<IArtifact> RevealContentArtifactList { get; set; }
 
 		/// <summary></summary>
-		IList<long> RevealContentLocations { get; set; }
+		IList<long> RevealContentLocationList { get; set; }
 
 		/// <summary></summary>
 		bool EnableRevealContentOverrides { get; set; }

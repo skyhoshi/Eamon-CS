@@ -1,10 +1,11 @@
 ﻿
 // PrintPlayerRoomState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
@@ -13,15 +14,13 @@ namespace TheTrainingGround.Game.States
 	[ClassMappings]
 	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, IPrintPlayerRoomState
 	{
-		public override void ProcessEvents(long eventType)
+		public override void ProcessEvents(EventType eventType)
 		{
-			if (eventType == PeBeforePlayerRoomPrint && ShouldPreTurnProcess())
+			if (eventType == EventType.BeforePlayerRoomPrint && ShouldPreTurnProcess())
 			{
-				var characterMonster = gMDB[gGameState.Cm];
+				Debug.Assert(gCharMonster != null);
 
-				Debug.Assert(characterMonster != null);
-
-				var characterRoom = characterMonster.GetInRoom();
+				var characterRoom = gCharMonster.GetInRoom();
 
 				Debug.Assert(characterRoom != null);
 

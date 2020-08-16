@@ -1,7 +1,7 @@
 ﻿
 // CommandParser.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -26,9 +26,9 @@ namespace EamonRT.Game.Parsing
 	[ClassMappings]
 	public class CommandParser : ICommandParser
 	{
-		protected IMonster _actorMonster;
+		public IMonster _actorMonster;
 
-		protected IRoom _actorRoom;
+		public IRoom _actorRoom;
 
 		public virtual StringBuilder InputBuf { get; set; }
 
@@ -288,7 +288,7 @@ namespace EamonRT.Game.Parsing
 			}
 			else
 			{
-				Dobj = gMDB[gGameState.Cm];
+				Dobj = gCharMonster;
 			}
 		}
 
@@ -616,7 +616,7 @@ namespace EamonRT.Game.Parsing
 			}
 			else
 			{
-				Dobj = gMDB[gGameState.Cm];
+				Dobj = gCharMonster;
 			}
 		}
 

@@ -1,13 +1,14 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 
@@ -21,16 +22,12 @@ namespace StrongholdOfKahrDur.Game.States
 			gOut.Print("You ride off into the sunset.");
 		}
 
-		public override void ProcessEvents(long eventType)
+		public override void ProcessEvents(EventType eventType)
 		{
 			RetCode rc;
 
-			if (eventType == PeBeforeCanMoveToRoomCheck)
+			if (eventType == EventType.BeforeCanMoveToRoomCheck)
 			{
-				var characterMonster = gMDB[gGameState.Cm];
-
-				Debug.Assert(characterMonster != null);
-
 				var amuletArtifact = gADB[18];
 
 				Debug.Assert(amuletArtifact != null);
@@ -110,7 +107,7 @@ namespace StrongholdOfKahrDur.Game.States
 					goto Cleanup;
 				}
 			}
-			else if (eventType == PeAfterBlockingArtifactCheck)
+			else if (eventType == EventType.AfterBlockingArtifactCheck)
 			{
 				if (gGameState.R2 == Constants.DirectionExit)
 				{

@@ -1,7 +1,7 @@
 ﻿
 // FreeCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -17,17 +17,17 @@ namespace ARuncibleCargo.Game.Commands
 		{
 			// Swarmy
 
-			if (Monster.Uid == 31)
+			if (BoundMonster.Uid == 31)
 			{
 				Globals.Buf.Clear();
 
-				var rc = Monster.BuildPrintedFullDesc(Globals.Buf, false);
+				var rc = BoundMonster.BuildPrintedFullDesc(Globals.Buf, false);
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
 				gOut.Write("{0}", Globals.Buf);
 
-				Monster.Seen = true;
+				BoundMonster.Seen = true;
 
 				gEngine.PrintEffectDesc(64);
 			}

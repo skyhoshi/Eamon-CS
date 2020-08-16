@@ -1,7 +1,7 @@
 ﻿
 // Character.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -21,11 +21,11 @@ namespace Eamon.Game
 	[ClassMappings]
 	public class Character : GameBase, ICharacter
 	{
-		#region Protected Fields
+		#region Public Fields
 
-		protected long _heldGold;
+		public long _heldGold;
 
-		protected long _bankGold;
+		public long _bankGold;
 
 		#endregion
 
@@ -82,94 +82,6 @@ namespace Eamon.Game
 		public virtual ICharacterArtifact Shield { get; set; }
 
 		public virtual ICharacterArtifact[] Weapons { get; set; }
-
-		#endregion
-
-		#endregion
-
-		#region Protected Methods
-
-		#region Class Character
-
-		protected virtual void NormalizeGoldValues()
-		{
-			if (Globals.EnableGameOverrides)
-			{
-				// extinguish HeldGold debt with BankGold assets
-
-				if (_heldGold < 0 && _bankGold > 0)
-				{
-					if (_heldGold + _bankGold >= 0)
-					{
-						_bankGold += _heldGold;
-
-						_heldGold = 0;
-					}
-					else
-					{
-						_heldGold += _bankGold;
-
-						_bankGold = 0;
-					}
-				}
-
-				// extinguish BankGold debt with HeldGold assets
-
-				if (_bankGold < 0 && _heldGold > 0)
-				{
-					if (_bankGold + _heldGold >= 0)
-					{
-						_heldGold += _bankGold;
-
-						_bankGold = 0;
-					}
-					else
-					{
-						_bankGold += _heldGold;
-
-						_heldGold = 0;
-					}
-				}
-
-				// move remaining debt to HeldGold if possible
-
-				if (_bankGold < 0)
-				{
-					_heldGold += _bankGold;
-
-					if (_heldGold < Constants.MinGoldValue)
-					{
-						_bankGold = _heldGold - Constants.MinGoldValue;
-
-						_heldGold = Constants.MinGoldValue;
-					}
-					else
-					{
-						_bankGold = 0;
-					}
-				}
-			}
-
-			// force values into valid range
-
-			if (_heldGold < Constants.MinGoldValue)
-			{
-				_heldGold = Constants.MinGoldValue;
-			}
-			else if (_heldGold > Constants.MaxGoldValue)
-			{
-				_heldGold = Constants.MaxGoldValue;
-			}
-
-			if (_bankGold < Constants.MinGoldValue)
-			{
-				_bankGold = Constants.MinGoldValue;
-			}
-			else if (_bankGold > Constants.MaxGoldValue)
-			{
-				_bankGold = Constants.MaxGoldValue;
-			}
-		}
 
 		#endregion
 
@@ -486,24 +398,24 @@ namespace Eamon.Game
 				characterFindFunc = a => a.IsCarriedByCharacter() || a.IsWornByCharacter();
 			}
 
-			var list = gEngine.GetArtifactList(a => characterFindFunc(a));
+			var artifactList = gEngine.GetArtifactList(a => characterFindFunc(a));
 
-			if (recurse && list.Count > 0)
+			if (recurse && artifactList.Count > 0)
 			{
-				var list01 = new List<IArtifact>();
+				var artifactList01 = new List<IArtifact>();
 
-				foreach (var a in list)
+				foreach (var a in artifactList)
 				{
 					if (a.GeneralContainer != null)
 					{
-						list01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
+						artifactList01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
 					}
 				}
 
-				list.AddRange(list01);
+				artifactList.AddRange(artifactList01);
 			}
 
-			foreach (var a in list)
+			foreach (var a in artifactList)
 			{
 				if (!a.IsUnmovable01())
 				{
@@ -929,6 +841,86 @@ namespace Eamon.Game
 		#endregion
 
 		#region Class Character
+
+		public virtual void NormalizeGoldValues()
+		{
+			if (Globals.EnableGameOverrides)
+			{
+				// extinguish HeldGold debt with BankGold assets
+
+				if (_heldGold < 0 && _bankGold > 0)
+				{
+					if (_heldGold + _bankGold >= 0)
+					{
+						_bankGold += _heldGold;
+
+						_heldGold = 0;
+					}
+					else
+					{
+						_heldGold += _bankGold;
+
+						_bankGold = 0;
+					}
+				}
+
+				// extinguish BankGold debt with HeldGold assets
+
+				if (_bankGold < 0 && _heldGold > 0)
+				{
+					if (_bankGold + _heldGold >= 0)
+					{
+						_heldGold += _bankGold;
+
+						_bankGold = 0;
+					}
+					else
+					{
+						_bankGold += _heldGold;
+
+						_heldGold = 0;
+					}
+				}
+
+				// move remaining debt to HeldGold if possible
+
+				if (_bankGold < 0)
+				{
+					_heldGold += _bankGold;
+
+					if (_heldGold < Constants.MinGoldValue)
+					{
+						_bankGold = _heldGold - Constants.MinGoldValue;
+
+						_heldGold = Constants.MinGoldValue;
+					}
+					else
+					{
+						_bankGold = 0;
+					}
+				}
+			}
+
+			// force values into valid range
+
+			if (_heldGold < Constants.MinGoldValue)
+			{
+				_heldGold = Constants.MinGoldValue;
+			}
+			else if (_heldGold > Constants.MaxGoldValue)
+			{
+				_heldGold = Constants.MaxGoldValue;
+			}
+
+			if (_bankGold < Constants.MinGoldValue)
+			{
+				_bankGold = Constants.MinGoldValue;
+			}
+			else if (_bankGold > Constants.MaxGoldValue)
+			{
+				_bankGold = Constants.MaxGoldValue;
+			}
+		}
 
 		public Character()
 		{

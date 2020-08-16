@@ -1,7 +1,7 @@
 ﻿
 // AttackCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -18,58 +18,9 @@ namespace TheSubAquanLaboratory.Game.Commands
 	[ClassMappings]
 	public class AttackCommand : EamonRT.Game.Commands.AttackCommand, IAttackCommand
 	{
-		public virtual IArtifactCategory Ac { get; set; }
+		public virtual IArtifactCategory DobjArtZeroAc { get; set; }
 
-		public virtual long Damage { get; set; }
-
-		public virtual void ProcessWallAttack()
-		{
-			Ac = DobjArtifact.GetCategories(0);
-
-			Debug.Assert(Ac != null);
-
-			var whereClauseFuncs = gGameState.GetNBTL(Friendliness.Enemy) <= 0 ?
-				new Func<IMonster, bool>[] { m => m == ActorMonster, m => m.IsInRoom(ActorRoom) && m.Friendliness == Friendliness.Friend && ((m.Weapon > -1 && m.Weapon <= Globals.Database.GetArtifactsCount()) || m.CombatCode == CombatCode.NaturalWeapons) && m != ActorMonster } :
-				new Func<IMonster, bool>[] { m => m == ActorMonster };
-
-			var monsters = gEngine.GetMonsterList(whereClauseFuncs);
-
-			for (var i = 0; i < monsters.Count; i++)
-			{
-				var monster = monsters[i];
-
-				gOut.Write("{0}{1} {2}{3} the {4}!{5}",
-					Environment.NewLine,
-					monster == ActorMonster ? "You" : monster.GetTheName(true, true, false, true),
-					monster == ActorMonster && BlastSpell ? "blast" : "attack",
-					monster == ActorMonster ? "" : "s",
-					DobjArtifact.Uid == 83 ? "back wall" : "glass walls",
-					true /* monster == ActorMonster || i == monsters.Count - 1 */ ? Environment.NewLine : "");
-
-				var dice = 0L;
-
-				var sides = 0L;
-
-				if (monster == ActorMonster && BlastSpell)
-				{
-					dice = 2;
-
-					sides = 5;
-				}
-				else
-				{
-					var weapon = monster.Weapon > 0 ? gADB[monster.Weapon] : null;
-
-					var wpnAc = weapon != null ? weapon.GetCategories(0) : null;
-
-					dice = wpnAc != null ? wpnAc.Field3 : monster.NwDice;
-
-					sides = wpnAc != null ? wpnAc.Field4 : monster.NwSides;
-				}
-
-				Damage += gEngine.RollDice(dice, sides, 0);
-			}
-		}
+		public virtual long WallDamage { get; set; }
 
 		public override void PlayerExecute()
 		{
@@ -88,19 +39,19 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						ProcessWallAttack();
 
-						if (Damage > 17)
+						if (WallDamage > 17)
 						{
-							Damage = 17;
+							WallDamage = 17;
 						}
 
-						Ac.Field4 -= Damage;
+						DobjArtZeroAc.Field4 -= WallDamage;
 
-						if (Ac.Field4 < 0)
+						if (DobjArtZeroAc.Field4 < 0)
 						{
-							Ac.Field4 = 0;
+							DobjArtZeroAc.Field4 = 0;
 						}
 
-						n = (long)Math.Round((double)Ac.Field4 / 16);
+						n = (long)Math.Round((double)DobjArtZeroAc.Field4 / 16);
 
 						if (n > 5)
 						{
@@ -155,19 +106,19 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 						ProcessWallAttack();
 
-						if (Damage > 9)
+						if (WallDamage > 9)
 						{
-							Damage = 9;
+							WallDamage = 9;
 						}
 
-						Ac.Field4 -= Damage;
+						DobjArtZeroAc.Field4 -= WallDamage;
 
-						if (Ac.Field4 < 0)
+						if (DobjArtZeroAc.Field4 < 0)
 						{
-							Ac.Field4 = 0;
+							DobjArtZeroAc.Field4 = 0;
 						}
 
-						n = (long)Math.Round((double)Ac.Field4 / 12);
+						n = (long)Math.Round((double)DobjArtZeroAc.Field4 / 12);
 
 						if (n > 3)
 						{
@@ -202,9 +153,9 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 							gOut.Print("Enemies storm into the room!");
 
-							var monsters = gEngine.GetMonsterList(m => m.Uid >= 20 && m.Uid <= 22);
+							var monsterList = gEngine.GetMonsterList(m => m.Uid >= 20 && m.Uid <= 22);
 
-							foreach (var monster in monsters)
+							foreach (var monster in monsterList)
 							{
 								monster.SetInRoom(ActorRoom);
 							}
@@ -269,6 +220,55 @@ namespace TheSubAquanLaboratory.Game.Commands
 			else
 			{
 				base.PlayerExecute();
+			}
+		}
+
+		public virtual void ProcessWallAttack()
+		{
+			DobjArtZeroAc = DobjArtifact.GetCategories(0);
+
+			Debug.Assert(DobjArtZeroAc != null);
+
+			var whereClauseFuncs = gGameState.GetNBTL(Friendliness.Enemy) <= 0 ?
+				new Func<IMonster, bool>[] { m => m == ActorMonster, m => m.IsInRoom(ActorRoom) && m.Friendliness == Friendliness.Friend && ((m.Weapon > -1 && m.Weapon <= Globals.Database.GetArtifactsCount()) || m.CombatCode == CombatCode.NaturalWeapons) && m != ActorMonster } :
+				new Func<IMonster, bool>[] { m => m == ActorMonster };
+
+			var monsterList = gEngine.GetMonsterList(whereClauseFuncs);
+
+			for (var i = 0; i < monsterList.Count; i++)
+			{
+				var monster = monsterList[i];
+
+				gOut.Write("{0}{1} {2}{3} the {4}!{5}",
+					Environment.NewLine,
+					monster == ActorMonster ? "You" : monster.GetTheName(true, true, false, true),
+					monster == ActorMonster && BlastSpell ? "blast" : "attack",
+					monster == ActorMonster ? "" : "s",
+					DobjArtifact.Uid == 83 ? "back wall" : "glass walls",
+					true /* monster == ActorMonster || i == monsters.Count - 1 */ ? Environment.NewLine : "");
+
+				var dice = 0L;
+
+				var sides = 0L;
+
+				if (monster == ActorMonster && BlastSpell)
+				{
+					dice = 2;
+
+					sides = 5;
+				}
+				else
+				{
+					var weapon = monster.Weapon > 0 ? gADB[monster.Weapon] : null;
+
+					var wpnAc = weapon != null ? weapon.GetCategories(0) : null;
+
+					dice = wpnAc != null ? wpnAc.Field3 : monster.NwDice;
+
+					sides = wpnAc != null ? wpnAc.Field4 : monster.NwSides;
+				}
+
+				WallDamage += gEngine.RollDice(dice, sides, 0);
 			}
 		}
 	}

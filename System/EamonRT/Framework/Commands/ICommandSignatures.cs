@@ -1,12 +1,13 @@
 ﻿
 // ICommandSignatures.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using EamonRT.Framework.Parsing;
+using EamonRT.Framework.Primitive.Enums;
 
 namespace EamonRT.Framework.Commands
 {
@@ -348,11 +349,11 @@ namespace EamonRT.Framework.Commands
 
 		/// <summary></summary>
 		/// <param name="eventType"></param>
-		void PlayerProcessEvents(long eventType);
+		void PlayerProcessEvents(EventType eventType);
 
 		/// <summary></summary>
 		/// <param name="eventType"></param>
-		void MonsterProcessEvents(long eventType);
+		void MonsterProcessEvents(EventType eventType);
 
 		/// <summary></summary>
 		void PlayerExecute();

@@ -8,7 +8,7 @@
       <Items>
         <Complex type="Eamon.Game.Module, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Author" value="Michael R. Penner" />
+            <Simple name="Author" value="Michael Penner" />
             <Simple name="VolLabel" value="MRP-002" />
             <Simple name="SerialNum" value="009" />
             <Simple name="LastMod" value="2020-05-28T18:48:55.2325616-07:00" />

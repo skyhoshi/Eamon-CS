@@ -1,7 +1,7 @@
 ﻿
 // GameStateHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -19,9 +19,14 @@ namespace Eamon.Game.Helpers
 	[ClassMappings]
 	public class GameStateHelper : Helper<IGameState>, IGameStateHelper
 	{
-		#region Protected Methods
+		#region Public Methods
 
 		#region Interface IHelper
+
+		public override bool ValidateRecordAfterDatabaseLoaded()
+		{
+			return true;
+		}
 
 		#region GetPrintedName Methods
 
@@ -32,9 +37,9 @@ namespace Eamon.Game.Helpers
 		#region GetName Methods
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameNBTL(bool addToNamesList)
+		public virtual string GetNameNBTL(bool addToNameList)
 		{
 			var friendlinessValues = EnumUtil.GetValues<Friendliness>();
 
@@ -42,33 +47,33 @@ namespace Eamon.Game.Helpers
 			{
 				Index = (long)fv;
 
-				GetName("NBTLElement", addToNamesList);
+				GetName("NBTLElement", addToNameList);
 			}
 
 			return "NBTL";
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameNBTLElement(bool addToNamesList)
+		public virtual string GetNameNBTLElement(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("NBTL[{0}].Element", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameDTTL(bool addToNamesList)
+		public virtual string GetNameDTTL(bool addToNameList)
 		{
 			if (Globals.IsRulesetVersion(5))
 			{
@@ -78,7 +83,7 @@ namespace Eamon.Game.Helpers
 				{
 					Index = (long)fv;
 
-					GetName("DTTLElement", addToNamesList);
+					GetName("DTTLElement", addToNameList);
 				}
 			}
 
@@ -86,9 +91,9 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameDTTLElement(bool addToNamesList)
+		public virtual string GetNameDTTLElement(bool addToNameList)
 		{
 			string result = string.Empty;
 
@@ -98,9 +103,9 @@ namespace Eamon.Game.Helpers
 
 				result = string.Format("DTTL[{0}].Element", i);
 
-				if (addToNamesList)
+				if (addToNameList)
 				{
-					Names.Add(result);
+					NameList.Add(result);
 				}
 			}
 
@@ -108,9 +113,9 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameSa(bool addToNamesList)
+		public virtual string GetNameSa(bool addToNameList)
 		{
 			var spellValues = EnumUtil.GetValues<Spell>();
 
@@ -118,84 +123,84 @@ namespace Eamon.Game.Helpers
 			{
 				Index = (long)sv;
 
-				GetName("SaElement", addToNamesList);
+				GetName("SaElement", addToNameList);
 			}
 
 			return "Sa";
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameSaElement(bool addToNamesList)
+		public virtual string GetNameSaElement(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Sa[{0}].Element", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameImportedArtUids(bool addToNamesList)
+		public virtual string GetNameImportedArtUids(bool addToNameList)
 		{
 			for (Index = 0; Index < Record.ImportedArtUids.Length; Index++)
 			{
-				GetName("ImportedArtUidsElement", addToNamesList);
+				GetName("ImportedArtUidsElement", addToNameList);
 			}
 
 			return "ImportedArtUids";
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameImportedArtUidsElement(bool addToNamesList)
+		public virtual string GetNameImportedArtUidsElement(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("ImportedArtUids[{0}].Element", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameHeldWpnUids(bool addToNamesList)
+		public virtual string GetNameHeldWpnUids(bool addToNameList)
 		{
 			for (Index = 0; Index < Record.HeldWpnUids.Length; Index++)
 			{
-				GetName("HeldWpnUidsElement", addToNamesList);
+				GetName("HeldWpnUidsElement", addToNameList);
 			}
 
 			return "HeldWpnUids";
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameHeldWpnUidsElement(bool addToNamesList)
+		public virtual string GetNameHeldWpnUidsElement(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("HeldWpnUids[{0}].Element", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
@@ -207,7 +212,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueNBTLElement()
+		public virtual object GetValueNBTLElement()
 		{
 			var i = Index;
 
@@ -216,7 +221,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueDTTLElement()
+		public virtual object GetValueDTTLElement()
 		{
 			var i = Index;
 
@@ -225,7 +230,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueSaElement()
+		public virtual object GetValueSaElement()
 		{
 			var i = Index;
 
@@ -234,7 +239,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueImportedArtUidsElement()
+		public virtual object GetValueImportedArtUidsElement()
 		{
 			var i = Index;
 
@@ -243,7 +248,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueHeldWpnUidsElement()
+		public virtual object GetValueHeldWpnUidsElement()
 		{
 			var i = Index;
 
@@ -256,77 +261,77 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateUid()
+		public virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateAr()
+		public virtual bool ValidateAr()
 		{
 			return Record.Ar >= 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateCm()
+		public virtual bool ValidateCm()
 		{
 			return Record.Cm > 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateLs()
+		public virtual bool ValidateLs()
 		{
 			return Record.Ls >= 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateSh()
+		public virtual bool ValidateSh()
 		{
 			return Record.Sh >= 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateSpeed()
+		public virtual bool ValidateSpeed()
 		{
 			return Record.Speed >= 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateCurrTurn()
+		public virtual bool ValidateCurrTurn()
 		{
 			return Record.CurrTurn >= 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidatePauseCombatMs()
+		public virtual bool ValidatePauseCombatMs()
 		{
 			return Record.PauseCombatMs >= 0 && Record.PauseCombatMs <= 10000;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateImportedArtUidsIdx()
+		public virtual bool ValidateImportedArtUidsIdx()
 		{
 			return Record.ImportedArtUidsIdx >= 0 && Record.ImportedArtUidsIdx <= Record.ImportedArtUids.Length;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateUsedWpnIdx()
+		public virtual bool ValidateUsedWpnIdx()
 		{
 			return Record.UsedWpnIdx >= 0 && Record.UsedWpnIdx < Record.HeldWpnUids.Length;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateNBTL()
+		public virtual bool ValidateNBTL()
 		{
 			var result = true;
 
@@ -349,7 +354,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateNBTLElement()
+		public virtual bool ValidateNBTLElement()
 		{
 			var i = Index;
 
@@ -358,7 +363,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateDTTL()
+		public virtual bool ValidateDTTL()
 		{
 			var result = true;
 
@@ -384,7 +389,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateDTTLElement()
+		public virtual bool ValidateDTTLElement()
 		{
 			var i = Index;
 
@@ -393,7 +398,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateSa()
+		public virtual bool ValidateSa()
 		{
 			var result = true;
 
@@ -416,7 +421,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateSaElement()
+		public virtual bool ValidateSaElement()
 		{
 			var i = Index;
 
@@ -429,7 +434,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateImportedArtUids()
+		public virtual bool ValidateImportedArtUids()
 		{
 			var result = true;
 
@@ -448,7 +453,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateImportedArtUidsElement()
+		public virtual bool ValidateImportedArtUidsElement()
 		{
 			var i = Index;
 
@@ -457,7 +462,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateHeldWpnUids()
+		public virtual bool ValidateHeldWpnUids()
 		{
 			var result = true;
 
@@ -476,7 +481,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateHeldWpnUidsElement()
+		public virtual bool ValidateHeldWpnUidsElement()
 		{
 			var i = Index;
 
@@ -519,7 +524,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class GameStateHelper
 
-		protected override void SetUidIfInvalid()
+		public override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -533,26 +538,9 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		#endregion
-
-		#endregion
-
-		#region Public Methods
-
-		#region Interface IHelper
-
-		public override bool ValidateRecordAfterDatabaseLoaded()
-		{
-			return true;
-		}
-
-		#endregion
-
-		#region Class GameStateHelper
-
 		public GameStateHelper()
 		{
-			FieldNames = new List<string>()
+			FieldNameList = new List<string>()
 			{
 				"Uid",
 				"IsUidRecycled",

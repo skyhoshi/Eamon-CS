@@ -8,6 +8,7 @@ using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Extensions;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static LandOfTheMountainKing.Game.Plugin.PluginContext;
 
@@ -16,9 +17,9 @@ namespace LandOfTheMountainKing.Game.Commands
 	[ClassMappings]
 	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
 	{
-		public override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(EventType eventType)
 		{
-			if (eventType == PpeBeforePlayerSayTextPrint)
+			if (eventType == EventType.BeforePlayerSayTextPrint)
 			{
 				var Lisa = gMDB[3];
 

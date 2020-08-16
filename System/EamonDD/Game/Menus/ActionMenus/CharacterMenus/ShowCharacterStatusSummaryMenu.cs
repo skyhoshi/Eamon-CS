@@ -1,7 +1,7 @@
 ﻿
 // ShowCharacterStatusSummaryMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 	[ClassMappings]
 	public class ShowCharacterStatusSummaryMenu : Menu, IShowCharacterStatusSummaryMenu
 	{
-		protected class AdventuringCharacter
+		public class AdventuringCharacter
 		{
 			public virtual IModule Module { get; set; }
 

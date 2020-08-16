@@ -1,13 +1,15 @@
 ﻿
 // FreeCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -16,68 +18,71 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class FreeCommand : Command, IFreeCommand
 	{
-		/// <summary>
-		/// An event that fires before a guard <see cref="IMonster">Monster</see> prevents a bound Monster from being freed.
-		/// </summary>
-		public const long PpeBeforeGuardMonsterCheck = 1;
+		/// <summary></summary>
+		public virtual IArtifactCategory DobjArtAc { get; set; }
 
-		public virtual IMonster Monster { get; set; }
+		/// <summary></summary>
+		public virtual IMonster BoundMonster { get; set; }
 
-		public virtual IMonster Guard { get; set; }
+		/// <summary></summary>
+		public virtual IMonster GuardMonster { get; set; }
 
-		public virtual IArtifact Key { get; set; }
+		/// <summary></summary>
+		public virtual IArtifact KeyArtifact { get; set; }
 
-		public virtual void PrintMonsterFreed()
-		{
-			gOut.Print("You have freed {0}{1}.",
-				Monster.GetTheName(),
-				Key != null ? string.Format(" with {0}", Key.GetTheName(buf: Globals.Buf01)) : "");
-		}
+		/// <summary></summary>
+		public virtual long BoundMonsterUid { get; set; }
+
+		/// <summary></summary>
+		public virtual long GuardMonsterUid { get; set; }
+
+		/// <summary></summary>
+		public virtual long KeyArtifactUid { get; set; }
 
 		public override void PlayerExecute()
 		{
 			Debug.Assert(DobjArtifact != null);
 
-			var ac = DobjArtifact.BoundMonster;
+			DobjArtAc = DobjArtifact.BoundMonster;
 
-			if (ac != null)
+			if (DobjArtAc != null)
 			{
-				var monsterUid = ac.GetMonsterUid();
+				BoundMonsterUid = DobjArtAc.GetMonsterUid();
 
-				var keyUid = ac.GetKeyUid();
+				KeyArtifactUid = DobjArtAc.GetKeyUid();
 
-				var guardUid = ac.Field3;
+				GuardMonsterUid = DobjArtAc.Field3;
 
-				Monster = monsterUid > 0 ? gMDB[monsterUid] : null;
+				BoundMonster = BoundMonsterUid > 0 ? gMDB[BoundMonsterUid] : null;
 
-				Key = keyUid > 0 ? gADB[keyUid] : null;
+				KeyArtifact = KeyArtifactUid > 0 ? gADB[KeyArtifactUid] : null;
 
-				Guard = guardUid > 0 ? gMDB[guardUid] : null;
+				GuardMonster = GuardMonsterUid > 0 ? gMDB[GuardMonsterUid] : null;
 
-				Debug.Assert(Monster != null);
+				Debug.Assert(BoundMonster != null);
 
-				PlayerProcessEvents(PpeBeforeGuardMonsterCheck);
+				PlayerProcessEvents(EventType.BeforeGuardMonsterCheck);
 
 				if (GotoCleanup)
 				{
 					goto Cleanup;
 				}
 
-				if (Guard != null && Guard.IsInRoom(ActorRoom))
+				if (GuardMonster != null && GuardMonster.IsInRoom(ActorRoom))
 				{
-					gOut.Print("{0} won't let you!", Guard.GetTheName(true));
+					gOut.Print("{0} won't let you!", GuardMonster.GetTheName(true));
 
 					goto Cleanup;
 				}
 
-				if (keyUid == -1)
+				if (KeyArtifactUid == -1)
 				{
 					gOut.Print("There's no obvious way to do that.");
 
 					goto Cleanup;
 				}
 
-				if (Key != null && !Key.IsCarriedByCharacter() && !Key.IsWornByCharacter() && !Key.IsInRoom(ActorRoom))
+				if (KeyArtifact != null && !KeyArtifact.IsCarriedByCharacter() && !KeyArtifact.IsWornByCharacter() && !KeyArtifact.IsInRoom(ActorRoom))
 				{
 					gOut.Print("You don't have the key.");
 
@@ -86,7 +91,7 @@ namespace EamonRT.Game.Commands
 
 				PrintMonsterFreed();
 
-				Monster.SetInRoom(ActorRoom);
+				BoundMonster.SetInRoom(ActorRoom);
 
 				DobjArtifact.SetInLimbo();
 			}
@@ -105,6 +110,13 @@ namespace EamonRT.Game.Commands
 			{
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
+		}
+
+		public virtual void PrintMonsterFreed()
+		{
+			gOut.Print("You have freed {0}{1}.",
+				BoundMonster.GetTheName(),
+				KeyArtifact != null ? string.Format(" with {0}", KeyArtifact.GetTheName(buf: Globals.Buf01)) : "");
 		}
 
 		public FreeCommand()

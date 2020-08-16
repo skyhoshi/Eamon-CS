@@ -1,7 +1,7 @@
 ﻿
 // PrintPlayerRoomState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,6 +9,7 @@ using System.Linq;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using TheVileGrimoireOfJaldial.Framework.Primitive.Enums;
 using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
@@ -18,17 +19,15 @@ namespace TheVileGrimoireOfJaldial.Game.States
 	[ClassMappings]
 	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, IPrintPlayerRoomState
 	{
-		public override void ProcessEvents(long eventType)
+		public override void ProcessEvents(EventType eventType)
 		{
 			if (!Globals.EncounterSurprises)
 			{
-				if (eventType == PeBeforePlayerRoomPrint && ShouldPreTurnProcess())
+				if (eventType == EventType.BeforePlayerRoomPrint && ShouldPreTurnProcess())
 				{
-					var characterMonster = gMDB[gGameState.Cm];
+					Debug.Assert(gCharMonster != null);
 
-					Debug.Assert(characterMonster != null);
-
-					var room = characterMonster.GetInRoom() as Framework.IRoom;
+					var room = gCharMonster.GetInRoom() as Framework.IRoom;
 
 					Debug.Assert(room != null);
 
@@ -202,11 +201,11 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 					Globals.EventRoll = gEngine.RollDice(1, 100, 0);
 
-					Globals.ScaleRoll = gEngine.RollDice(1, 100, 0);
+					Globals.FrequencyRoll = gEngine.RollDice(1, 100, 0);
 
 					// Weather pattern starters
 
-					if (!expiredWeather && Globals.EventRoll >= 4 && Globals.EventRoll <= 9 && Globals.ScaleRoll <= gGameState.WeatherScalePct)
+					if (!expiredWeather && Globals.EventRoll >= 4 && Globals.EventRoll <= 9 && Globals.FrequencyRoll <= gGameState.WeatherFreqPct)
 					{
 						if (gGameState.WeatherType == WeatherType.None)
 						{
@@ -245,7 +244,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 					// Encounters
 
-					else if (((room.IsGroundsRoom() && gGameState.IsDayTime() && Globals.EventRoll >= 10 && Globals.EventRoll <= 12) || (((room.IsGroundsRoom() && gGameState.IsNightTime()) || room.IsCryptRoom()) && Globals.EventRoll >= 10 && Globals.EventRoll <= 14)) && Globals.ScaleRoll <= gGameState.EncounterScalePct)
+					else if (((room.IsGroundsRoom() && gGameState.IsDayTime() && Globals.EventRoll >= 10 && Globals.EventRoll <= 12) || (((room.IsGroundsRoom() && gGameState.IsNightTime()) || room.IsCryptRoom()) && Globals.EventRoll >= 10 && Globals.EventRoll <= 14)) && Globals.FrequencyRoll <= gGameState.EncounterFreqPct)
 					{
 						var enemyEncounter = gEngine.GetMonsterList(m => m.Uid <= 17 && m.IsInRoom(room) && m.Friendliness == Friendliness.Enemy).FirstOrDefault();
 

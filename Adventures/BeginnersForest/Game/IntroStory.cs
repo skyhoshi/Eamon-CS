@@ -1,7 +1,7 @@
 ﻿
 // IntroStory.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using EamonRT.Framework;
@@ -13,29 +13,29 @@ namespace BeginnersForest.Game
 	[ClassMappings]
 	public class IntroStory : EamonRT.Game.IntroStory, IIntroStory
 	{
-		protected override void PrintOutputBeginnersPrelude()
+		public override void PrintOutputBeginnersPrelude()
 		{
 			gEngine.PrintEffectDesc(9);
 
 			gEngine.PrintEffectDesc(11);
 		}
 
-		protected override void PrintOutputBeginnersTooManyWeapons()
+		public override void PrintOutputBeginnersTooManyWeapons()
 		{
 			gEngine.PrintEffectDesc(16);
 		}
 
-		protected override void PrintOutputBeginnersNoWeapons()
+		public override void PrintOutputBeginnersNoWeapons()
 		{
 			gEngine.PrintEffectDesc(12);
 		}
 
-		protected override void PrintOutputBeginnersNotABeginner()
+		public override void PrintOutputBeginnersNotABeginner()
 		{
 			gEngine.PrintEffectDesc(13);
 		}
 
-		protected override void PrintOutputBeginnersMayNowProceed()
+		public override void PrintOutputBeginnersMayNowProceed()
 		{
 			gEngine.PrintEffectDesc(15);
 		}

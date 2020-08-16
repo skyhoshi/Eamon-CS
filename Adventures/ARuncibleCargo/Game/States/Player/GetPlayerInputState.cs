@@ -1,13 +1,14 @@
 ﻿
 // GetPlayerInputState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
@@ -16,15 +17,13 @@ namespace ARuncibleCargo.Game.States
 	[ClassMappings]
 	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, IGetPlayerInputState
 	{
-		public override void ProcessEvents(long eventType)
+		public override void ProcessEvents(EventType eventType)
 		{
-			if (eventType == PeBeforeCommandPromptPrint && ShouldPreTurnProcess())
+			if (eventType == EventType.BeforeCommandPromptPrint && ShouldPreTurnProcess())
 			{
-				var characterMonster = gMDB[gGameState.Cm];
+				Debug.Assert(gCharMonster != null);
 
-				Debug.Assert(characterMonster != null);
-
-				var room = characterMonster.GetInRoom();
+				var room = gCharMonster.GetInRoom();
 
 				Debug.Assert(room != null);
 
@@ -84,7 +83,7 @@ namespace ARuncibleCargo.Game.States
 					{
 						x.SetNextStateFunc = s => NextState = s;
 
-						x.DfMonster = characterMonster;
+						x.DfMonster = gCharMonster;
 
 						x.OmitArmor = true;
 					});
@@ -343,9 +342,9 @@ namespace ARuncibleCargo.Game.States
 
 				// Maintenance grate, sewer grate, and (Barney) Rubble
 
-				var doubleDoors = Globals.DoubleDoors.Where(dd => dd.RoomUid == room.Uid).ToList();
+				var doubleDoorList = Globals.DoubleDoorList.Where(dd => dd.RoomUid == room.Uid).ToList();
 
-				foreach (var dd in doubleDoors)
+				foreach (var dd in doubleDoorList)
 				{
 					var doorArtifact = gADB[dd.ArtifactUid1];
 

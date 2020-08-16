@@ -1,7 +1,7 @@
 ﻿
 // ModuleHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -21,78 +21,102 @@ namespace Eamon.Game.Helpers
 	[ClassMappings]
 	public class ModuleHelper : Helper<IModule>, IModuleHelper
 	{
-		#region Protected Methods
+		#region Public Methods
 
 		#region Interface IHelper
+
+		public override bool ValidateRecordAfterDatabaseLoaded()
+		{
+			return true;
+		}
+
+		public override void ListErrorField()
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));
+
+			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
+
+			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Name"), null), Record.Name);
+
+			if (string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) || ShowDesc)
+			{
+				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null), Record.Desc);
+			}
+
+			if (string.Equals(ErrorFieldName, "IntroStory", StringComparison.OrdinalIgnoreCase))
+			{
+				gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '.', 0, GetPrintedName("IntroStory"), null), Record.IntroStory);
+			}
+		}
 
 		#region GetPrintedName Methods
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameVolLabel()
+		public virtual string GetPrintedNameVolLabel()
 		{
 			return "Volume Label";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameSerialNum()
+		public virtual string GetPrintedNameSerialNum()
 		{
 			return "Serial Number";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameLastMod()
+		public virtual string GetPrintedNameLastMod()
 		{
 			return "Last Modified";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameIntroStory()
+		public virtual string GetPrintedNameIntroStory()
 		{
 			return "Intro Story";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameNumDirs()
+		public virtual string GetPrintedNameNumDirs()
 		{
 			return "Compass Directions";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameNumRooms()
+		public virtual string GetPrintedNameNumRooms()
 		{
 			return "Number Of Rooms";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameNumArtifacts()
+		public virtual string GetPrintedNameNumArtifacts()
 		{
 			return "Number Of Artifacts";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameNumEffects()
+		public virtual string GetPrintedNameNumEffects()
 		{
 			return "Number Of Effects";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameNumMonsters()
+		public virtual string GetPrintedNameNumMonsters()
 		{
 			return "Number Of Monsters";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameNumHints()
+		public virtual string GetPrintedNameNumHints()
 		{
 			return "Number Of Hints";
 		}
@@ -115,14 +139,14 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateUid()
+		public virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateName()
+		public virtual bool ValidateName()
 		{
 			if (Record.Name != null)
 			{
@@ -134,84 +158,84 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateDesc()
+		public virtual bool ValidateDesc()
 		{
 			return string.IsNullOrWhiteSpace(Record.Desc) == false && Record.Desc.Length <= Constants.ModDescLen;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateAuthor()
+		public virtual bool ValidateAuthor()
 		{
 			return string.IsNullOrWhiteSpace(Record.Author) == false && Record.Author.Length <= Constants.ModAuthorLen;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateVolLabel()
+		public virtual bool ValidateVolLabel()
 		{
 			return string.IsNullOrWhiteSpace(Record.VolLabel) == false && Record.VolLabel.Length <= Constants.ModVolLabelLen;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateSerialNum()
+		public virtual bool ValidateSerialNum()
 		{
 			return string.IsNullOrWhiteSpace(Record.SerialNum) == false && Record.SerialNum.Length <= Constants.ModSerialNumLen;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateLastMod()
+		public virtual bool ValidateLastMod()
 		{
 			return Record.LastMod != null && Record.LastMod <= DateTime.Now;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateIntroStory()
+		public virtual bool ValidateIntroStory()
 		{
 			return Record.IntroStory >= 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateNumDirs()
+		public virtual bool ValidateNumDirs()
 		{
 			return Record.NumDirs == 6 || Record.NumDirs == 10;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateNumRooms()
+		public virtual bool ValidateNumRooms()
 		{
 			return Record.NumRooms >= 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateNumArtifacts()
+		public virtual bool ValidateNumArtifacts()
 		{
 			return Record.NumArtifacts >= 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateNumEffects()
+		public virtual bool ValidateNumEffects()
 		{
 			return Record.NumEffects >= 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateNumMonsters()
+		public virtual bool ValidateNumMonsters()
 		{
 			return Record.NumMonsters >= 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateNumHints()
+		public virtual bool ValidateNumHints()
 		{
 			return Record.NumHints >= 0;
 		}
@@ -222,7 +246,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateInterdependenciesDesc()
+		public virtual bool ValidateInterdependenciesDesc()
 		{
 			var result = true;
 
@@ -254,7 +278,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateInterdependenciesIntroStory()
+		public virtual bool ValidateInterdependenciesIntroStory()
 		{
 			var result = true;
 
@@ -290,7 +314,7 @@ namespace Eamon.Game.Helpers
 		#region PrintDesc Methods
 
 		/// <summary></summary>
-		protected virtual void PrintDescName()
+		public virtual void PrintDescName()
 		{
 			var fullDesc = "Enter the name of the adventure.";
 
@@ -298,7 +322,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescDesc()
+		public virtual void PrintDescDesc()
 		{
 			var fullDesc = "Enter a detailed description of the adventure.";
 
@@ -306,7 +330,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescAuthor()
+		public virtual void PrintDescAuthor()
 		{
 			var fullDesc = "Enter the name(s) of the adventure's author(s).";
 
@@ -314,7 +338,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescVolLabel()
+		public virtual void PrintDescVolLabel()
 		{
 			var fullDesc = "Enter the volume label of the adventure, typically the author(s) initials followed by a private serial number.";
 
@@ -322,7 +346,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescSerialNum()
+		public virtual void PrintDescSerialNum()
 		{
 			var fullDesc = "Enter the global serial number of the adventure, typically assigned by an Eamon CS administrator.";
 
@@ -330,7 +354,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescIntroStory()
+		public virtual void PrintDescIntroStory()
 		{
 			var fullDesc = "Enter the effect uid of the introduction story for the module." + Environment.NewLine + Environment.NewLine + "You can link multiple effects together to create an extended story segment.";
 
@@ -340,7 +364,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescNumDirs()
+		public virtual void PrintDescNumDirs()
 		{
 			var fullDesc = "Enter the number of compass directions to use for connections between rooms in the adventure." + Environment.NewLine + Environment.NewLine + "Typically, six directions are used for simpler indoor adventures while ten directions are used for more complex outdoor adventures, but this is only a rule of thumb not a requirement.";
 
@@ -354,7 +378,7 @@ namespace Eamon.Game.Helpers
 		#region List Methods
 
 		/// <summary></summary>
-		protected virtual void ListUid()
+		public virtual void ListUid()
 		{
 			if (FullDetail)
 			{
@@ -372,7 +396,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListName()
+		public virtual void ListName()
 		{
 			if (FullDetail)
 			{
@@ -383,7 +407,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListDesc()
+		public virtual void ListDesc()
 		{
 			if (FullDetail && ShowDesc)
 			{
@@ -407,7 +431,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListAuthor()
+		public virtual void ListAuthor()
 		{
 			if (FullDetail)
 			{
@@ -418,7 +442,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListVolLabel()
+		public virtual void ListVolLabel()
 		{
 			if (FullDetail)
 			{
@@ -429,7 +453,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListSerialNum()
+		public virtual void ListSerialNum()
 		{
 			if (FullDetail)
 			{
@@ -440,7 +464,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListLastMod()
+		public virtual void ListLastMod()
 		{
 			if (FullDetail && !ExcludeROFields)
 			{
@@ -455,7 +479,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListIntroStory()
+		public virtual void ListIntroStory()
 		{
 			if (FullDetail)
 			{
@@ -499,7 +523,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListNumDirs()
+		public virtual void ListNumDirs()
 		{
 			if (FullDetail)
 			{
@@ -510,7 +534,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListNumRooms()
+		public virtual void ListNumRooms()
 		{
 			if (FullDetail && !ExcludeROFields)
 			{
@@ -521,7 +545,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListNumArtifacts()
+		public virtual void ListNumArtifacts()
 		{
 			if (FullDetail && !ExcludeROFields)
 			{
@@ -532,7 +556,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListNumEffects()
+		public virtual void ListNumEffects()
 		{
 			if (FullDetail && !ExcludeROFields)
 			{
@@ -543,7 +567,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListNumMonsters()
+		public virtual void ListNumMonsters()
 		{
 			if (FullDetail && !ExcludeROFields)
 			{
@@ -554,7 +578,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListNumHints()
+		public virtual void ListNumHints()
 		{
 			if (FullDetail && !ExcludeROFields)
 			{
@@ -569,7 +593,7 @@ namespace Eamon.Game.Helpers
 		#region Input Methods
 
 		/// <summary></summary>
-		protected virtual void InputUid()
+		public virtual void InputUid()
 		{
 			gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
 
@@ -577,7 +601,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputName()
+		public virtual void InputName()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -609,7 +633,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputDesc()
+		public virtual void InputDesc()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -645,7 +669,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputAuthor()
+		public virtual void InputAuthor()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -677,7 +701,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputVolLabel()
+		public virtual void InputVolLabel()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -709,7 +733,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputSerialNum()
+		public virtual void InputSerialNum()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -741,7 +765,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputLastMod()
+		public virtual void InputLastMod()
 		{
 			if (!EditRec)
 			{
@@ -754,7 +778,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputIntroStory()
+		public virtual void InputIntroStory()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -786,7 +810,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputNumDirs()
+		public virtual void InputNumDirs()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -818,7 +842,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputNumRooms()
+		public virtual void InputNumRooms()
 		{
 			if (!EditRec)
 			{
@@ -831,7 +855,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputNumArtifacts()
+		public virtual void InputNumArtifacts()
 		{
 			if (!EditRec)
 			{
@@ -844,7 +868,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputNumEffects()
+		public virtual void InputNumEffects()
 		{
 			if (!EditRec)
 			{
@@ -857,7 +881,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputNumMonsters()
+		public virtual void InputNumMonsters()
 		{
 			if (!EditRec)
 			{
@@ -870,7 +894,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputNumHints()
+		public virtual void InputNumHints()
 		{
 			if (!EditRec)
 			{
@@ -894,7 +918,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class ModuleHelper
 
-		protected override void SetUidIfInvalid()
+		public override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -908,45 +932,9 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		#endregion
-
-		#endregion
-
-		#region Public Methods
-
-		#region Interface IHelper
-
-		public override bool ValidateRecordAfterDatabaseLoaded()
-		{
-			return true;
-		}
-
-		public override void ListErrorField()
-		{
-			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));
-
-			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
-
-			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Name"), null), Record.Name);
-
-			if (string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) || ShowDesc)
-			{
-				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null), Record.Desc);
-			}
-
-			if (string.Equals(ErrorFieldName, "IntroStory", StringComparison.OrdinalIgnoreCase))
-			{
-				gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '.', 0, GetPrintedName("IntroStory"), null), Record.IntroStory);
-			}
-		}
-
-		#endregion
-
-		#region Class ModuleHelper
-
 		public ModuleHelper()
 		{
-			FieldNames = new List<string>()
+			FieldNameList = new List<string>()
 			{
 				"Uid",
 				"IsUidRecycled",

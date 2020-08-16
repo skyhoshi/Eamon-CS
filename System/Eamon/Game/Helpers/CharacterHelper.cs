@@ -1,7 +1,7 @@
 ﻿
 // CharacterHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -23,15 +23,20 @@ namespace Eamon.Game.Helpers
 	[ClassMappings]
 	public class CharacterHelper : Helper<ICharacter>, ICharacterHelper
 	{
-		#region Protected Methods
+		#region Public Methods
 
 		#region Interface IHelper
+
+		public override bool ValidateRecordAfterDatabaseLoaded()
+		{
+			return true;
+		}
 
 		#region GetPrintedName Methods
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameStatsElement()
+		public virtual string GetPrintedNameStatsElement()
 		{
 			var i = Index;
 
@@ -44,7 +49,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameSpellAbilitiesElement()
+		public virtual string GetPrintedNameSpellAbilitiesElement()
 		{
 			var i = Index;
 
@@ -57,7 +62,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameWeaponAbilitiesElement()
+		public virtual string GetPrintedNameWeaponAbilitiesElement()
 		{
 			var i = Index;
 
@@ -70,35 +75,35 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameArmorExpertise()
+		public virtual string GetPrintedNameArmorExpertise()
 		{
 			return "Armor Expertise";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameHeldGold()
+		public virtual string GetPrintedNameHeldGold()
 		{
 			return "Held Gold";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameBankGold()
+		public virtual string GetPrintedNameBankGold()
 		{
 			return "Bank Gold";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameArmorClass()
+		public virtual string GetPrintedNameArmorClass()
 		{
 			return "Armor Class";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameWeaponsName()
+		public virtual string GetPrintedNameWeaponsName()
 		{
 			var i = Index;
 
@@ -107,7 +112,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameWeaponsIsPlural()
+		public virtual string GetPrintedNameWeaponsIsPlural()
 		{
 			var i = Index;
 
@@ -116,7 +121,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameWeaponsPluralType()
+		public virtual string GetPrintedNameWeaponsPluralType()
 		{
 			var i = Index;
 
@@ -125,7 +130,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameWeaponsArticleType()
+		public virtual string GetPrintedNameWeaponsArticleType()
 		{
 			var i = Index;
 
@@ -134,7 +139,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameWeaponsField1()
+		public virtual string GetPrintedNameWeaponsField1()
 		{
 			var i = Index;
 
@@ -143,7 +148,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameWeaponsField2()
+		public virtual string GetPrintedNameWeaponsField2()
 		{
 			var i = Index;
 
@@ -152,7 +157,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameWeaponsField3()
+		public virtual string GetPrintedNameWeaponsField3()
 		{
 			var i = Index;
 
@@ -161,7 +166,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameWeaponsField4()
+		public virtual string GetPrintedNameWeaponsField4()
 		{
 			var i = Index;
 
@@ -170,7 +175,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameWeaponsField5()
+		public virtual string GetPrintedNameWeaponsField5()
 		{
 			var i = Index;
 
@@ -182,9 +187,9 @@ namespace Eamon.Game.Helpers
 		#region GetName Methods
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameStats(bool addToNamesList)
+		public virtual string GetNameStats(bool addToNameList)
 		{
 			var statValues = EnumUtil.GetValues<Stat>();
 
@@ -192,33 +197,33 @@ namespace Eamon.Game.Helpers
 			{
 				Index = (long)sv;
 
-				GetName("StatsElement", addToNamesList);
+				GetName("StatsElement", addToNameList);
 			}
 
 			return "Stats";
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameStatsElement(bool addToNamesList)
+		public virtual string GetNameStatsElement(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Stats[{0}].Element", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameSpellAbilities(bool addToNamesList)
+		public virtual string GetNameSpellAbilities(bool addToNameList)
 		{
 			var spellValues = EnumUtil.GetValues<Spell>();
 
@@ -226,33 +231,33 @@ namespace Eamon.Game.Helpers
 			{
 				Index = (long)sv;
 
-				GetName("SpellAbilitiesElement", addToNamesList);
+				GetName("SpellAbilitiesElement", addToNameList);
 			}
 
 			return "SpellAbilities";
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameSpellAbilitiesElement(bool addToNamesList)
+		public virtual string GetNameSpellAbilitiesElement(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("SpellAbilities[{0}].Element", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponAbilities(bool addToNamesList)
+		public virtual string GetNameWeaponAbilities(bool addToNameList)
 		{
 			var weaponValues = EnumUtil.GetValues<Weapon>();
 
@@ -260,608 +265,608 @@ namespace Eamon.Game.Helpers
 			{
 				Index = (long)wv;
 
-				GetName("WeaponAbilitiesElement", addToNamesList);
+				GetName("WeaponAbilitiesElement", addToNameList);
 			}
 
 			return "WeaponAbilities";
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponAbilitiesElement(bool addToNamesList)
+		public virtual string GetNameWeaponAbilitiesElement(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("WeaponAbilities[{0}].Element", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameArmor(bool addToNamesList)
+		public virtual string GetNameArmor(bool addToNameList)
 		{
-			GetName("ArmorName", addToNamesList);
-			GetName("ArmorDesc", addToNamesList);
-			GetName("ArmorIsPlural", addToNamesList);
-			GetName("ArmorPluralType", addToNamesList);
-			GetName("ArmorArticleType", addToNamesList);
-			GetName("ArmorValue", addToNamesList);
-			GetName("ArmorWeight", addToNamesList);
-			GetName("ArmorType", addToNamesList);
-			GetName("ArmorField1", addToNamesList);
-			GetName("ArmorField2", addToNamesList);
+			GetName("ArmorName", addToNameList);
+			GetName("ArmorDesc", addToNameList);
+			GetName("ArmorIsPlural", addToNameList);
+			GetName("ArmorPluralType", addToNameList);
+			GetName("ArmorArticleType", addToNameList);
+			GetName("ArmorValue", addToNameList);
+			GetName("ArmorWeight", addToNameList);
+			GetName("ArmorType", addToNameList);
+			GetName("ArmorField1", addToNameList);
+			GetName("ArmorField2", addToNameList);
 
 			return "Armor";
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameArmorName(bool addToNamesList)
+		public virtual string GetNameArmorName(bool addToNameList)
 		{
 			var result = "Armor.Name";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameArmorDesc(bool addToNamesList)
+		public virtual string GetNameArmorDesc(bool addToNameList)
 		{
 			var result = "Armor.Desc";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameArmorIsPlural(bool addToNamesList)
+		public virtual string GetNameArmorIsPlural(bool addToNameList)
 		{
 			var result = "Armor.IsPlural";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameArmorPluralType(bool addToNamesList)
+		public virtual string GetNameArmorPluralType(bool addToNameList)
 		{
 			var result = "Armor.PluralType";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameArmorArticleType(bool addToNamesList)
+		public virtual string GetNameArmorArticleType(bool addToNameList)
 		{
 			var result = "Armor.ArticleType";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameArmorValue(bool addToNamesList)
+		public virtual string GetNameArmorValue(bool addToNameList)
 		{
 			var result = "Armor.Value";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameArmorWeight(bool addToNamesList)
+		public virtual string GetNameArmorWeight(bool addToNameList)
 		{
 			var result = "Armor.Weight";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameArmorType(bool addToNamesList)
+		public virtual string GetNameArmorType(bool addToNameList)
 		{
 			var result = "Armor.Type";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameArmorField1(bool addToNamesList)
+		public virtual string GetNameArmorField1(bool addToNameList)
 		{
 			var result = "Armor.Field1";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameArmorField2(bool addToNamesList)
+		public virtual string GetNameArmorField2(bool addToNameList)
 		{
 			var result = "Armor.Field2";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameShield(bool addToNamesList)
+		public virtual string GetNameShield(bool addToNameList)
 		{
-			GetName("ShieldName", addToNamesList);
-			GetName("ShieldDesc", addToNamesList);
-			GetName("ShieldIsPlural", addToNamesList);
-			GetName("ShieldPluralType", addToNamesList);
-			GetName("ShieldArticleType", addToNamesList);
-			GetName("ShieldValue", addToNamesList);
-			GetName("ShieldWeight", addToNamesList);
-			GetName("ShieldType", addToNamesList);
-			GetName("ShieldField1", addToNamesList);
-			GetName("ShieldField2", addToNamesList);
+			GetName("ShieldName", addToNameList);
+			GetName("ShieldDesc", addToNameList);
+			GetName("ShieldIsPlural", addToNameList);
+			GetName("ShieldPluralType", addToNameList);
+			GetName("ShieldArticleType", addToNameList);
+			GetName("ShieldValue", addToNameList);
+			GetName("ShieldWeight", addToNameList);
+			GetName("ShieldType", addToNameList);
+			GetName("ShieldField1", addToNameList);
+			GetName("ShieldField2", addToNameList);
 
 			return "Shield";
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameShieldName(bool addToNamesList)
+		public virtual string GetNameShieldName(bool addToNameList)
 		{
 			var result = "Shield.Name";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameShieldDesc(bool addToNamesList)
+		public virtual string GetNameShieldDesc(bool addToNameList)
 		{
 			var result = "Shield.Desc";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameShieldIsPlural(bool addToNamesList)
+		public virtual string GetNameShieldIsPlural(bool addToNameList)
 		{
 			var result = "Shield.IsPlural";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameShieldPluralType(bool addToNamesList)
+		public virtual string GetNameShieldPluralType(bool addToNameList)
 		{
 			var result = "Shield.PluralType";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameShieldArticleType(bool addToNamesList)
+		public virtual string GetNameShieldArticleType(bool addToNameList)
 		{
 			var result = "Shield.ArticleType";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameShieldValue(bool addToNamesList)
+		public virtual string GetNameShieldValue(bool addToNameList)
 		{
 			var result = "Shield.Value";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameShieldWeight(bool addToNamesList)
+		public virtual string GetNameShieldWeight(bool addToNameList)
 		{
 			var result = "Shield.Weight";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameShieldType(bool addToNamesList)
+		public virtual string GetNameShieldType(bool addToNameList)
 		{
 			var result = "Shield.Type";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameShieldField1(bool addToNamesList)
+		public virtual string GetNameShieldField1(bool addToNameList)
 		{
 			var result = "Shield.Field1";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameShieldField2(bool addToNamesList)
+		public virtual string GetNameShieldField2(bool addToNameList)
 		{
 			var result = "Shield.Field2";
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeapons(bool addToNamesList)
+		public virtual string GetNameWeapons(bool addToNameList)
 		{
 			for (Index = 0; Index < Record.Weapons.Length; Index++)
 			{
-				GetName("WeaponsName", addToNamesList);
-				GetName("WeaponsDesc", addToNamesList);
-				GetName("WeaponsIsPlural", addToNamesList);
-				GetName("WeaponsPluralType", addToNamesList);
-				GetName("WeaponsArticleType", addToNamesList);
-				GetName("WeaponsValue", addToNamesList);
-				GetName("WeaponsWeight", addToNamesList);
-				GetName("WeaponsType", addToNamesList);
-				GetName("WeaponsField1", addToNamesList);
-				GetName("WeaponsField2", addToNamesList);
-				GetName("WeaponsField3", addToNamesList);
-				GetName("WeaponsField4", addToNamesList);
-				GetName("WeaponsField5", addToNamesList);
+				GetName("WeaponsName", addToNameList);
+				GetName("WeaponsDesc", addToNameList);
+				GetName("WeaponsIsPlural", addToNameList);
+				GetName("WeaponsPluralType", addToNameList);
+				GetName("WeaponsArticleType", addToNameList);
+				GetName("WeaponsValue", addToNameList);
+				GetName("WeaponsWeight", addToNameList);
+				GetName("WeaponsType", addToNameList);
+				GetName("WeaponsField1", addToNameList);
+				GetName("WeaponsField2", addToNameList);
+				GetName("WeaponsField3", addToNameList);
+				GetName("WeaponsField4", addToNameList);
+				GetName("WeaponsField5", addToNameList);
 			}
 
 			return "Weapons";
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponsName(bool addToNamesList)
+		public virtual string GetNameWeaponsName(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Weapons[{0}].Name", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponsDesc(bool addToNamesList)
+		public virtual string GetNameWeaponsDesc(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Weapons[{0}].Desc", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponsIsPlural(bool addToNamesList)
+		public virtual string GetNameWeaponsIsPlural(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Weapons[{0}].IsPlural", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponsPluralType(bool addToNamesList)
+		public virtual string GetNameWeaponsPluralType(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Weapons[{0}].PluralType", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponsArticleType(bool addToNamesList)
+		public virtual string GetNameWeaponsArticleType(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Weapons[{0}].ArticleType", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponsValue(bool addToNamesList)
+		public virtual string GetNameWeaponsValue(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Weapons[{0}].Value", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponsWeight(bool addToNamesList)
+		public virtual string GetNameWeaponsWeight(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Weapons[{0}].Weight", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponsType(bool addToNamesList)
+		public virtual string GetNameWeaponsType(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Weapons[{0}].Type", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponsField1(bool addToNamesList)
+		public virtual string GetNameWeaponsField1(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Weapons[{0}].Field1", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponsField2(bool addToNamesList)
+		public virtual string GetNameWeaponsField2(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Weapons[{0}].Field2", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponsField3(bool addToNamesList)
+		public virtual string GetNameWeaponsField3(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Weapons[{0}].Field3", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponsField4(bool addToNamesList)
+		public virtual string GetNameWeaponsField4(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Weapons[{0}].Field4", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameWeaponsField5(bool addToNamesList)
+		public virtual string GetNameWeaponsField5(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Weapons[{0}].Field5", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
@@ -873,7 +878,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueStatsElement()
+		public virtual object GetValueStatsElement()
 		{
 			var i = Index;
 
@@ -882,7 +887,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueSpellAbilitiesElement()
+		public virtual object GetValueSpellAbilitiesElement()
 		{
 			var i = Index;
 
@@ -891,7 +896,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueWeaponAbilitiesElement()
+		public virtual object GetValueWeaponAbilitiesElement()
 		{
 			var i = Index;
 
@@ -900,147 +905,147 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueArmorName()
+		public virtual object GetValueArmorName()
 		{
 			return Record.Armor.Name;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueArmorDesc()
+		public virtual object GetValueArmorDesc()
 		{
 			return Record.Armor.Desc;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueArmorIsPlural()
+		public virtual object GetValueArmorIsPlural()
 		{
 			return Record.Armor.IsPlural;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueArmorPluralType()
+		public virtual object GetValueArmorPluralType()
 		{
 			return Record.Armor.PluralType;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueArmorArticleType()
+		public virtual object GetValueArmorArticleType()
 		{
 			return Record.Armor.ArticleType;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueArmorValue()
+		public virtual object GetValueArmorValue()
 		{
 			return Record.Armor.Value;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueArmorWeight()
+		public virtual object GetValueArmorWeight()
 		{
 			return Record.Armor.Weight;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueArmorType()
+		public virtual object GetValueArmorType()
 		{
 			return Record.Armor.Type;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueArmorField1()
+		public virtual object GetValueArmorField1()
 		{
 			return Record.Armor.Field1;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueArmorField2()
+		public virtual object GetValueArmorField2()
 		{
 			return Record.Armor.Field2;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueShieldName()
+		public virtual object GetValueShieldName()
 		{
 			return Record.Shield.Name;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueShieldDesc()
+		public virtual object GetValueShieldDesc()
 		{
 			return Record.Shield.Desc;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueShieldIsPlural()
+		public virtual object GetValueShieldIsPlural()
 		{
 			return Record.Shield.IsPlural;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueShieldPluralType()
+		public virtual object GetValueShieldPluralType()
 		{
 			return Record.Shield.PluralType;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueShieldArticleType()
+		public virtual object GetValueShieldArticleType()
 		{
 			return Record.Shield.ArticleType;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueShieldValue()
+		public virtual object GetValueShieldValue()
 		{
 			return Record.Shield.Value;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueShieldWeight()
+		public virtual object GetValueShieldWeight()
 		{
 			return Record.Shield.Weight;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueShieldType()
+		public virtual object GetValueShieldType()
 		{
 			return Record.Shield.Type;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueShieldField1()
+		public virtual object GetValueShieldField1()
 		{
 			return Record.Shield.Field1;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueShieldField2()
+		public virtual object GetValueShieldField2()
 		{
 			return Record.Shield.Field2;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueWeaponsName()
+		public virtual object GetValueWeaponsName()
 		{
 			var i = Index;
 
@@ -1049,7 +1054,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueWeaponsDesc()
+		public virtual object GetValueWeaponsDesc()
 		{
 			var i = Index;
 
@@ -1058,7 +1063,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueWeaponsIsPlural()
+		public virtual object GetValueWeaponsIsPlural()
 		{
 			var i = Index;
 
@@ -1067,7 +1072,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueWeaponsPluralType()
+		public virtual object GetValueWeaponsPluralType()
 		{
 			var i = Index;
 
@@ -1076,7 +1081,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueWeaponsArticleType()
+		public virtual object GetValueWeaponsArticleType()
 		{
 			var i = Index;
 
@@ -1085,7 +1090,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueWeaponsValue()
+		public virtual object GetValueWeaponsValue()
 		{
 			var i = Index;
 
@@ -1094,7 +1099,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueWeaponsWeight()
+		public virtual object GetValueWeaponsWeight()
 		{
 			var i = Index;
 
@@ -1103,7 +1108,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueWeaponsType()
+		public virtual object GetValueWeaponsType()
 		{
 			var i = Index;
 
@@ -1112,7 +1117,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueWeaponsField1()
+		public virtual object GetValueWeaponsField1()
 		{
 			var i = Index;
 
@@ -1121,7 +1126,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueWeaponsField2()
+		public virtual object GetValueWeaponsField2()
 		{
 			var i = Index;
 
@@ -1130,7 +1135,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueWeaponsField3()
+		public virtual object GetValueWeaponsField3()
 		{
 			var i = Index;
 
@@ -1139,7 +1144,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueWeaponsField4()
+		public virtual object GetValueWeaponsField4()
 		{
 			var i = Index;
 
@@ -1148,7 +1153,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueWeaponsField5()
+		public virtual object GetValueWeaponsField5()
 		{
 			var i = Index;
 
@@ -1161,14 +1166,14 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateUid()
+		public virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateName()
+		public virtual bool ValidateName()
 		{
 			if (Record.Name != null)
 			{
@@ -1180,28 +1185,28 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArticleType()
+		public virtual bool ValidateArticleType()
 		{
 			return Record.ArticleType == ArticleType.None;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateGender()
+		public virtual bool ValidateGender()
 		{
 			return Enum.IsDefined(typeof(Gender), Record.Gender);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateStatus()
+		public virtual bool ValidateStatus()
 		{
 			return Enum.IsDefined(typeof(Status), Record.Status);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateStats()
+		public virtual bool ValidateStats()
 		{
 			var result = true;
 
@@ -1224,7 +1229,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateStatsElement()
+		public virtual bool ValidateStatsElement()
 		{
 			var i = Index;
 
@@ -1237,7 +1242,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateSpellAbilities()
+		public virtual bool ValidateSpellAbilities()
 		{
 			var result = true;
 
@@ -1260,7 +1265,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateSpellAbilitiesElement()
+		public virtual bool ValidateSpellAbilitiesElement()
 		{
 			var i = Index;
 
@@ -1273,7 +1278,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponAbilities()
+		public virtual bool ValidateWeaponAbilities()
 		{
 			var result = true;
 
@@ -1296,11 +1301,11 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponAbilitiesElement()
+		public virtual bool ValidateWeaponAbilitiesElement()
 		{
 			var i = Index;
 
-			var weapon = gEngine.GetWeapons((Weapon)i);
+			var weapon = gEngine.GetWeapons((Weapon)i);			// TODO: should this be just GetWeapons(i) ???  Verify this and all other Validate methods like it
 
 			Debug.Assert(weapon != null);
 
@@ -1309,35 +1314,35 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArmorExpertise()
+		public virtual bool ValidateArmorExpertise()
 		{
 			return Record.ArmorExpertise >= 0 && Record.ArmorExpertise <= 79;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateHeldGold()
+		public virtual bool ValidateHeldGold()
 		{
 			return Record.HeldGold >= Constants.MinGoldValue && Record.HeldGold <= Constants.MaxGoldValue;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateBankGold()
+		public virtual bool ValidateBankGold()
 		{
 			return Record.BankGold >= Constants.MinGoldValue && Record.BankGold <= Constants.MaxGoldValue;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArmorClass()
+		public virtual bool ValidateArmorClass()
 		{
 			return Enum.IsDefined(typeof(Armor), Record.ArmorClass);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArmor()
+		public virtual bool ValidateArmor()
 		{
 			var result = true;
 
@@ -1357,7 +1362,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArmorName()
+		public virtual bool ValidateArmorName()
 		{
 			var result = true;
 
@@ -1380,7 +1385,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArmorDesc()
+		public virtual bool ValidateArmorDesc()
 		{
 			var result = true;
 
@@ -1398,7 +1403,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArmorIsPlural()
+		public virtual bool ValidateArmorIsPlural()
 		{
 			var result = true;
 
@@ -1412,7 +1417,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArmorPluralType()
+		public virtual bool ValidateArmorPluralType()
 		{
 			var result = true;
 
@@ -1430,7 +1435,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArmorArticleType()
+		public virtual bool ValidateArmorArticleType()
 		{
 			var result = true;
 
@@ -1448,7 +1453,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArmorValue()
+		public virtual bool ValidateArmorValue()
 		{
 			var result = true;
 
@@ -1466,7 +1471,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArmorWeight()
+		public virtual bool ValidateArmorWeight()
 		{
 			var result = true;
 
@@ -1480,7 +1485,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArmorType()
+		public virtual bool ValidateArmorType()
 		{
 			var result = true;
 
@@ -1498,7 +1503,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArmorField1()
+		public virtual bool ValidateArmorField1()
 		{
 			var result = true;
 
@@ -1516,7 +1521,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateArmorField2()
+		public virtual bool ValidateArmorField2()
 		{
 			var result = true;
 
@@ -1534,7 +1539,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateShield()
+		public virtual bool ValidateShield()
 		{
 			var result = true;
 
@@ -1554,7 +1559,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateShieldName()
+		public virtual bool ValidateShieldName()
 		{
 			var result = true;
 
@@ -1577,7 +1582,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateShieldDesc()
+		public virtual bool ValidateShieldDesc()
 		{
 			var result = true;
 
@@ -1595,7 +1600,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateShieldIsPlural()
+		public virtual bool ValidateShieldIsPlural()
 		{
 			var result = true;
 
@@ -1609,7 +1614,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateShieldPluralType()
+		public virtual bool ValidateShieldPluralType()
 		{
 			var result = true;
 
@@ -1627,7 +1632,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateShieldArticleType()
+		public virtual bool ValidateShieldArticleType()
 		{
 			var result = true;
 
@@ -1645,7 +1650,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateShieldValue()
+		public virtual bool ValidateShieldValue()
 		{
 			var result = true;
 
@@ -1663,7 +1668,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateShieldWeight()
+		public virtual bool ValidateShieldWeight()
 		{
 			var result = true;
 
@@ -1677,7 +1682,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateShieldType()
+		public virtual bool ValidateShieldType()
 		{
 			var result = true;
 
@@ -1695,7 +1700,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateShieldField1()
+		public virtual bool ValidateShieldField1()
 		{
 			var result = true;
 
@@ -1713,7 +1718,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateShieldField2()
+		public virtual bool ValidateShieldField2()
 		{
 			var result = true;
 
@@ -1731,7 +1736,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeapons()
+		public virtual bool ValidateWeapons()
 		{
 			var result = true;
 
@@ -1762,7 +1767,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponsName()
+		public virtual bool ValidateWeaponsName()
 		{
 			var result = true;
 
@@ -1810,7 +1815,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponsDesc()
+		public virtual bool ValidateWeaponsDesc()
 		{
 			var result = true;
 
@@ -1842,7 +1847,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponsIsPlural()
+		public virtual bool ValidateWeaponsIsPlural()
 		{
 			var result = true;
 
@@ -1870,7 +1875,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponsPluralType()
+		public virtual bool ValidateWeaponsPluralType()
 		{
 			var result = true;
 
@@ -1902,7 +1907,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponsArticleType()
+		public virtual bool ValidateWeaponsArticleType()
 		{
 			var result = true;
 
@@ -1934,7 +1939,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponsValue()
+		public virtual bool ValidateWeaponsValue()
 		{
 			var result = true;
 
@@ -1966,7 +1971,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponsWeight()
+		public virtual bool ValidateWeaponsWeight()
 		{
 			var result = true;
 
@@ -1994,7 +1999,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponsType()
+		public virtual bool ValidateWeaponsType()
 		{
 			var result = true;
 
@@ -2026,7 +2031,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponsField1()
+		public virtual bool ValidateWeaponsField1()
 		{
 			var result = true;
 
@@ -2058,7 +2063,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponsField2()
+		public virtual bool ValidateWeaponsField2()
 		{
 			var result = true;
 
@@ -2090,7 +2095,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponsField3()
+		public virtual bool ValidateWeaponsField3()
 		{
 			var result = true;
 
@@ -2122,7 +2127,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponsField4()
+		public virtual bool ValidateWeaponsField4()
 		{
 			var result = true;
 
@@ -2154,7 +2159,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateWeaponsField5()
+		public virtual bool ValidateWeaponsField5()
 		{
 			var result = true;
 
@@ -2200,7 +2205,7 @@ namespace Eamon.Game.Helpers
 		#region PrintDesc Methods
 
 		/// <summary></summary>
-		protected virtual void PrintDescName()
+		public virtual void PrintDescName()
 		{
 			var fullDesc = "Enter the name of the character.";
 
@@ -2208,7 +2213,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescGender()
+		public virtual void PrintDescGender()
 		{
 			var fullDesc = "Enter the gender of the character.";
 
@@ -2225,7 +2230,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescStatus()
+		public virtual void PrintDescStatus()
 		{
 			var fullDesc = "Enter the status of the character.";
 
@@ -2242,7 +2247,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescStatsElement()
+		public virtual void PrintDescStatsElement()
 		{
 			var i = Index;
 
@@ -2258,7 +2263,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescSpellAbilitiesElement()
+		public virtual void PrintDescSpellAbilitiesElement()
 		{
 			var i = Index;
 
@@ -2274,7 +2279,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescWeaponAbilitiesElement()
+		public virtual void PrintDescWeaponAbilitiesElement()
 		{
 			var i = Index;
 
@@ -2290,7 +2295,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescArmorExpertise()
+		public virtual void PrintDescArmorExpertise()
 		{
 			var fullDesc = "Enter the armor expertise of the character.";
 
@@ -2300,7 +2305,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescHeldGold()
+		public virtual void PrintDescHeldGold()
 		{
 			var fullDesc = "Enter the character's gold in hand.";
 
@@ -2310,7 +2315,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescBankGold()
+		public virtual void PrintDescBankGold()
 		{
 			var fullDesc = "Enter the character's gold in the bank.";
 
@@ -2320,7 +2325,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescArmorClass()
+		public virtual void PrintDescArmorClass()
 		{
 			var fullDesc = "Enter the armor class of the character.";
 
@@ -2341,7 +2346,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescWeaponsName()
+		public virtual void PrintDescWeaponsName()
 		{
 			var i = Index;
 
@@ -2351,7 +2356,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescWeaponsIsPlural()
+		public virtual void PrintDescWeaponsIsPlural()
 		{
 			var i = Index;
 
@@ -2363,7 +2368,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescWeaponsPluralType()
+		public virtual void PrintDescWeaponsPluralType()
 		{
 			var i = Index;
 
@@ -2375,7 +2380,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescWeaponsArticleType()
+		public virtual void PrintDescWeaponsArticleType()
 		{
 			var i = Index;
 
@@ -2387,7 +2392,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescWeaponsField1()
+		public virtual void PrintDescWeaponsField1()
 		{
 			var i = Index;
 
@@ -2399,7 +2404,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescWeaponsField2()
+		public virtual void PrintDescWeaponsField2()
 		{
 			var i = Index;
 
@@ -2422,7 +2427,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescWeaponsField3()
+		public virtual void PrintDescWeaponsField3()
 		{
 			var i = Index;
 
@@ -2434,7 +2439,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescWeaponsField4()
+		public virtual void PrintDescWeaponsField4()
 		{
 			var i = Index;
 
@@ -2446,7 +2451,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescWeaponsField5()
+		public virtual void PrintDescWeaponsField5()
 		{
 			var i = Index;
 
@@ -2462,7 +2467,7 @@ namespace Eamon.Game.Helpers
 		#region List Methods
 
 		/// <summary></summary>
-		protected virtual void ListUid()
+		public virtual void ListUid()
 		{
 			if (FullDetail)
 			{
@@ -2480,7 +2485,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListName()
+		public virtual void ListName()
 		{
 			if (FullDetail)
 			{
@@ -2491,7 +2496,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListGender()
+		public virtual void ListGender()
 		{
 			if (FullDetail)
 			{
@@ -2502,7 +2507,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListStatus()
+		public virtual void ListStatus()
 		{
 			if (FullDetail)
 			{
@@ -2513,7 +2518,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListStats()
+		public virtual void ListStats()
 		{
 			var statValues = EnumUtil.GetValues<Stat>();
 
@@ -2528,7 +2533,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListStatsElement()
+		public virtual void ListStatsElement()
 		{
 			var i = Index;
 
@@ -2578,7 +2583,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListSpellAbilities()
+		public virtual void ListSpellAbilities()
 		{
 			var spellValues = EnumUtil.GetValues<Spell>();
 
@@ -2593,7 +2598,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListSpellAbilitiesElement()
+		public virtual void ListSpellAbilitiesElement()
 		{
 			var i = Index;
 
@@ -2609,7 +2614,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListWeaponAbilities()
+		public virtual void ListWeaponAbilities()
 		{
 			var weaponValues = EnumUtil.GetValues<Weapon>();
 
@@ -2624,7 +2629,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListWeaponAbilitiesElement()
+		public virtual void ListWeaponAbilitiesElement()
 		{
 			var i = Index;
 
@@ -2640,7 +2645,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListArmorExpertise()
+		public virtual void ListArmorExpertise()
 		{
 			if (FullDetail)
 			{
@@ -2651,7 +2656,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListHeldGold()
+		public virtual void ListHeldGold()
 		{
 			if (FullDetail)
 			{
@@ -2662,7 +2667,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListBankGold()
+		public virtual void ListBankGold()
 		{
 			if (FullDetail)
 			{
@@ -2673,7 +2678,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListArmorClass()
+		public virtual void ListArmorClass()
 		{
 			if (FullDetail)
 			{
@@ -2688,7 +2693,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListWeapons()
+		public virtual void ListWeapons()
 		{
 			for (Index = 0; Index < Record.Weapons.Length; Index++)
 			{
@@ -2707,7 +2712,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListWeaponsName()
+		public virtual void ListWeaponsName()
 		{
 			var i = Index;
 
@@ -2723,7 +2728,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListWeaponsIsPlural()
+		public virtual void ListWeaponsIsPlural()
 		{
 			var i = Index;
 
@@ -2739,7 +2744,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListWeaponsPluralType()
+		public virtual void ListWeaponsPluralType()
 		{
 			var i = Index;
 
@@ -2770,7 +2775,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListWeaponsArticleType()
+		public virtual void ListWeaponsArticleType()
 		{
 			var i = Index;
 
@@ -2802,7 +2807,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListWeaponsField1()
+		public virtual void ListWeaponsField1()
 		{
 			var i = Index;
 
@@ -2818,7 +2823,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListWeaponsField2()
+		public virtual void ListWeaponsField2()
 		{
 			var i = Index;
 
@@ -2837,7 +2842,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListWeaponsField3()
+		public virtual void ListWeaponsField3()
 		{
 			var i = Index;
 
@@ -2853,7 +2858,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListWeaponsField4()
+		public virtual void ListWeaponsField4()
 		{
 			var i = Index;
 
@@ -2869,7 +2874,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListWeaponsField5()
+		public virtual void ListWeaponsField5()
 		{
 			var i = Index;
 
@@ -2889,7 +2894,7 @@ namespace Eamon.Game.Helpers
 		#region Input Methods
 
 		/// <summary></summary>
-		protected virtual void InputUid()
+		public virtual void InputUid()
 		{
 			gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
 
@@ -2897,7 +2902,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputName()
+		public virtual void InputName()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -2929,7 +2934,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputGender()
+		public virtual void InputGender()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -2961,7 +2966,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputStatus()
+		public virtual void InputStatus()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -2993,7 +2998,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputStats()
+		public virtual void InputStats()
 		{
 			var statValues = EnumUtil.GetValues<Stat>();
 
@@ -3006,7 +3011,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputStatsElement()
+		public virtual void InputStatsElement()
 		{
 			var i = Index;
 
@@ -3044,7 +3049,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputSpellAbilities()
+		public virtual void InputSpellAbilities()
 		{
 			var spellValues = EnumUtil.GetValues<Spell>();
 
@@ -3057,7 +3062,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputSpellAbilitiesElement()
+		public virtual void InputSpellAbilitiesElement()
 		{
 			var i = Index;
 
@@ -3091,7 +3096,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputWeaponAbilities()
+		public virtual void InputWeaponAbilities()
 		{
 			var weaponValues = EnumUtil.GetValues<Weapon>();
 
@@ -3104,7 +3109,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputWeaponAbilitiesElement()
+		public virtual void InputWeaponAbilitiesElement()
 		{
 			var i = Index;
 
@@ -3151,7 +3156,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputArmorExpertise()
+		public virtual void InputArmorExpertise()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -3183,7 +3188,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputHeldGold()
+		public virtual void InputHeldGold()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -3224,7 +3229,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputBankGold()
+		public virtual void InputBankGold()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -3265,7 +3270,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputArmorClass()
+		public virtual void InputArmorClass()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -3310,7 +3315,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputWeapons()
+		public virtual void InputWeapons()
 		{
 			for (Index = 0; Index < Record.Weapons.Length; Index++)
 			{
@@ -3327,7 +3332,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputWeaponsName()
+		public virtual void InputWeaponsName()
 		{
 			var i = Index;
 
@@ -3426,7 +3431,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputWeaponsIsPlural()
+		public virtual void InputWeaponsIsPlural()
 		{
 			var i = Index;
 
@@ -3472,7 +3477,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputWeaponsPluralType()
+		public virtual void InputWeaponsPluralType()
 		{
 			var i = Index;
 
@@ -3527,7 +3532,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputWeaponsArticleType()
+		public virtual void InputWeaponsArticleType()
 		{
 			var i = Index;
 
@@ -3582,7 +3587,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputWeaponsField1()
+		public virtual void InputWeaponsField1()
 		{
 			var i = Index;
 
@@ -3637,7 +3642,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputWeaponsField2()
+		public virtual void InputWeaponsField2()
 		{
 			var i = Index;
 
@@ -3683,7 +3688,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputWeaponsField3()
+		public virtual void InputWeaponsField3()
 		{
 			var i = Index;
 
@@ -3729,7 +3734,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputWeaponsField4()
+		public virtual void InputWeaponsField4()
 		{
 			var i = Index;
 
@@ -3775,7 +3780,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputWeaponsField5()
+		public virtual void InputWeaponsField5()
 		{
 			var i = Index;
 
@@ -3832,7 +3837,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class CharacterHelper
 
-		protected override void SetUidIfInvalid()
+		public override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -3846,26 +3851,9 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		#endregion
-
-		#endregion
-
-		#region Public Methods
-
-		#region Interface IHelper
-
-		public override bool ValidateRecordAfterDatabaseLoaded()
-		{
-			return true;
-		}
-
-		#endregion
-
-		#region Class CharacterHelper
-
 		public CharacterHelper()
 		{
-			FieldNames = new List<string>()
+			FieldNameList = new List<string>()
 			{
 				"Uid",
 				"IsUidRecycled",

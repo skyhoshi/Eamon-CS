@@ -99,7 +99,7 @@
             <Simple name="Uid" value="101" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="Can you survive an exploration of the region's most infamous landmark?  An original Eamon CS adventure by Michael R. Penner." />
+            <Simple name="Desc" value="Can you survive an exploration of the region's most infamous landmark?  An original Eamon CS adventure by Michael Penner." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

@@ -1,7 +1,7 @@
 ﻿
 // PowerCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -17,24 +17,24 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
-		protected virtual IList<long> FriendDeadBodyUids { get; set; }
+		public virtual IList<long> FriendDeadBodyUidList { get; set; }
 
 		public PowerCommand()
 		{
-			FriendDeadBodyUids = gEngine.GetMonsterList(m => m.Friendliness == Friendliness.Friend && !m.IsCharacterMonster()).Select(m => m.DeadBody).ToList();
+			FriendDeadBodyUidList = gEngine.GetMonsterList(m => m.Friendliness == Friendliness.Friend && !m.IsCharacterMonster()).Select(m => m.DeadBody).ToList();
 
 			// Can't resurrect dead friends
 
 			ResurrectWhereClauseFuncs = new Func<IArtifact, bool>[]
 			{
-				a => (a.IsCarriedByCharacter() || a.IsInRoomUid(gGameState.Ro)) && a.DeadBody != null && !FriendDeadBodyUids.Contains(a.Uid)
+				a => (a.IsCarriedByCharacter() || a.IsInRoomUid(gGameState.Ro)) && a.DeadBody != null && !FriendDeadBodyUidList.Contains(a.Uid)
 			};
 
 			// Can't make dead friends vanish
 
 			VanishWhereClauseFuncs = new Func<IArtifact, bool>[]
 			{
-				a => a.IsInRoomUid(gGameState.Ro) && !a.IsUnmovable() && !FriendDeadBodyUids.Contains(a.Uid)
+				a => a.IsInRoomUid(gGameState.Ro) && !a.IsUnmovable() && !FriendDeadBodyUidList.Contains(a.Uid)
 			};
 		}
 	}

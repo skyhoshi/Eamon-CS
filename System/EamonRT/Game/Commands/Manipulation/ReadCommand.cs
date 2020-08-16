@@ -1,15 +1,17 @@
 ﻿
 // ReadCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -18,15 +20,14 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class ReadCommand : Command, IReadCommand
 	{
-		/// <summary>
-		/// An event that fires before an <see cref="IArtifact">Artifact</see>'s read text is printed.
-		/// </summary>
-		public const long PpeBeforeArtifactReadTextPrint = 1;
+		/// <summary></summary>
+		public virtual IArtifactCategory DobjArtAc { get; set; }
 
-		/// <summary>
-		/// An event that fires after the player reads an <see cref="IArtifact">Artifact</see>.
-		/// </summary>
-		public const long PpeAfterArtifactRead = 2;
+		/// <summary></summary>
+		public virtual IEffect ReadEffect { get; set; }
+
+		/// <summary></summary>
+		public virtual long ReadEffectIndex { get; set; }
 
 		public override void PlayerExecute()
 		{
@@ -34,11 +35,11 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var ac = DobjArtifact.Readable;
+			DobjArtAc = DobjArtifact.Readable;
 
-			if (ac != null)
+			if (DobjArtAc != null)
 			{
-				if (!ac.IsOpen())
+				if (!DobjArtAc.IsOpen())
 				{
 					PrintMustFirstOpen(DobjArtifact);
 
@@ -56,22 +57,22 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				PlayerProcessEvents(PpeBeforeArtifactReadTextPrint);
+				PlayerProcessEvents(EventType.BeforeArtifactReadTextPrint);
 
 				if (GotoCleanup)
 				{
 					goto Cleanup;
 				}
 
-				for (var i = 1; i <= ac.Field2; i++)
+				for (ReadEffectIndex = 0; ReadEffectIndex < DobjArtAc.Field2; ReadEffectIndex++)
 				{
-					var effect = gEDB[ac.Field1 + i - 1];
+					ReadEffect = gEDB[DobjArtAc.Field1 + ReadEffectIndex];
 
-					if (effect != null)
+					if (ReadEffect != null)
 					{
 						Globals.Buf.Clear();
 
-						rc = effect.BuildPrintedFullDesc(Globals.Buf);
+						rc = ReadEffect.BuildPrintedFullDesc(Globals.Buf);
 					}
 					else
 					{
@@ -85,7 +86,7 @@ namespace EamonRT.Game.Commands
 					gOut.Write("{0}", Globals.Buf);
 				}
 
-				PlayerProcessEvents(PpeAfterArtifactRead);
+				PlayerProcessEvents(EventType.AfterArtifactRead);
 
 				if (GotoCleanup)
 				{

@@ -1,7 +1,7 @@
 ﻿
 // CombatSystem.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -15,55 +15,6 @@ namespace StrongholdOfKahrDur.Game.Combat
 	[ClassMappings]
 	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, ICombatSystem
 	{
-		protected override void PrintCriticalHit()
-		{
-			gOut.Write("Well struck!");
-		}
-
-		protected override void PrintBlowTurned()
-		{
-			if (DfMonster.Armor > 0)
-			{
-				var armorDesc = DfMonster.GetArmorDescString();
-
-				gOut.Write("{0}{1}Blow glances off {2}!", Environment.NewLine, OmitBboaPadding ? "" : "  ", armorDesc);
-			}
-			else
-			{
-				base.PrintBlowTurned();
-			}
-		}
-
-		protected override void BeginAttack()
-		{
-			// Necromancer (22) is impervious to weapon attacks
-
-			if (DfMonster != null && DfMonster.Uid == 22)
-			{
-				OmitSkillGains = true;
-			}
-
-			base.BeginAttack();
-		}
-
-		protected override void AttackHit()
-		{
-			// Necromancer (22) is impervious to weapon attacks
-
-			if (DfMonster.Uid == 22)
-			{
-				var rl = gEngine.RollDice(1, 4, 60);
-
-				gEngine.PrintEffectDesc(rl, false);
-
-				CombatState = CombatState.EndAttack;
-			}
-			else
-			{
-				base.AttackHit();
-			}
-		}
-
 		public override void ExecuteAttack()
 		{
 			if (BlastSpell)
@@ -83,6 +34,55 @@ namespace StrongholdOfKahrDur.Game.Combat
 			else
 			{
 				base.ExecuteAttack();
+			}
+		}
+
+		public override void PrintCriticalHit()
+		{
+			gOut.Write("Well struck!");
+		}
+
+		public override void PrintBlowTurned()
+		{
+			if (DfMonster.Armor > 0)
+			{
+				var armorDesc = DfMonster.GetArmorDescString();
+
+				gOut.Write("{0}{1}Blow glances off {2}!", Environment.NewLine, OmitBboaPadding ? "" : "  ", armorDesc);
+			}
+			else
+			{
+				base.PrintBlowTurned();
+			}
+		}
+
+		public override void BeginAttack()
+		{
+			// Necromancer (22) is impervious to weapon attacks
+
+			if (DfMonster != null && DfMonster.Uid == 22)
+			{
+				OmitSkillGains = true;
+			}
+
+			base.BeginAttack();
+		}
+
+		public override void AttackHit()
+		{
+			// Necromancer (22) is impervious to weapon attacks
+
+			if (DfMonster.Uid == 22)
+			{
+				var rl = gEngine.RollDice(1, 4, 60);
+
+				gEngine.PrintEffectDesc(rl, false);
+
+				CombatState = CombatState.EndAttack;
+			}
+			else
+			{
+				base.AttackHit();
 			}
 		}
 	}

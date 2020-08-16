@@ -1,17 +1,15 @@
 ﻿
 // FleeCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using Eamon;
-using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -20,12 +18,39 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class FleeCommand : Command, IFleeCommand
 	{
-		/// <summary>
-		/// An event that fires after checking whether exits are available for fleeing, and it resolves that there are.
-		/// </summary>
-		public const long PpeAfterNumberOfExitsCheck = 1;
+		public long _numExits;
+
+		public Direction _randomDirection;
 
 		public virtual Direction Direction { get; set; }
+
+		/// <summary></summary>
+		public virtual long NumExits
+		{
+			get
+			{
+				return _numExits;
+			}
+
+			set
+			{
+				_numExits = value;
+			}
+		}
+
+		/// <summary></summary>
+		public virtual Direction RandomDirection
+		{
+			get
+			{
+				return _randomDirection;
+			}
+
+			set
+			{
+				_randomDirection = value;
+			}
+		}
 
 		public override void PlayerExecute()
 		{
@@ -51,11 +76,11 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact == null)
 			{
-				var numExits = 0L;
+				NumExits = 0;
 
-				gEngine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref numExits);
+				gEngine.CheckNumberOfExits(ActorRoom, ActorMonster, true, ref _numExits);
 
-				if (numExits == 0)
+				if (NumExits == 0)
 				{
 					PrintNoPlaceToGo();
 
@@ -65,7 +90,7 @@ namespace EamonRT.Game.Commands
 				}
 			}
 
-			PlayerProcessEvents(PpeAfterNumberOfExitsCheck);
+			PlayerProcessEvents(EventType.AfterNumberOfExitsCheck);
 
 			if (GotoCleanup)
 			{
@@ -76,11 +101,11 @@ namespace EamonRT.Game.Commands
 			{
 				if (Direction == 0)
 				{
-					Direction direction = 0;
+					RandomDirection = 0;
 
-					gEngine.GetRandomMoveDirection(ActorRoom, ActorMonster, true, ref direction);
+					gEngine.GetRandomMoveDirection(ActorRoom, ActorMonster, true, ref _randomDirection);
 
-					Direction = direction;
+					Direction = RandomDirection;
 				}
 
 				Debug.Assert(Enum.IsDefined(typeof(Direction), Direction));
@@ -111,7 +136,7 @@ namespace EamonRT.Game.Commands
 				{
 					x.Direction = Direction;
 
-					x.Artifact = DobjArtifact;
+					x.DoorGateArtifact = DobjArtifact;
 
 					x.Fleeing = true;
 				});

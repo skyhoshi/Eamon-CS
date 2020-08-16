@@ -1,7 +1,7 @@
 ﻿
 // GenerateDeadBodyArtifactRecordsMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -63,9 +63,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			monUids[1] = Convert.ToInt64(Buf.Trim().ToString());
 
-			var monsters = gEngine.GetMonsterList(m => m.Uid >= monUids[0] && m.Uid <= monUids[1]);
+			var monsterList = gEngine.GetMonsterList(m => m.Uid >= monUids[0] && m.Uid <= monUids[1]);
 
-			var k = monsters.Count();
+			var k = monsterList.Count();
 
 			if (k > 0)
 			{
@@ -76,7 +76,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var j = 0;
 
-			foreach (var monster in monsters)
+			foreach (var monster in monsterList)
 			{
 				if (!exited)
 				{
@@ -142,7 +142,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				for (var i = 0; i < j; i++)
 				{
-					var monster = monsters.ElementAt(i);
+					var monster = monsterList.ElementAt(i);
 
 					Debug.Assert(monster != null);
 

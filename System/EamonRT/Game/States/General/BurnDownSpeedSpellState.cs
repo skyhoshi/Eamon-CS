@@ -1,10 +1,10 @@
 ﻿
 // BurnDownSpeedSpellState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
-using Eamon.Framework.Primitive.Enums;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
@@ -14,10 +14,11 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class BurnDownSpeedSpellState : State, IBurnDownSpeedSpellState
 	{
-		public virtual void PrintSpeedSpellExpired()
-		{
-			gOut.Print("Your speed spell has{0} expired!", Globals.IsRulesetVersion(5, 15) ? " just" : "");
-		}
+		/// <summary></summary>
+		public virtual IStat AgilityStat { get; set; }
+
+		/// <summary></summary>
+		public virtual long PrintSpellExpiredRoll { get; set; }
 
 		public override void Execute()
 		{
@@ -27,24 +28,22 @@ namespace EamonRT.Game.States
 
 				if (gGameState.Speed <= 0)
 				{
-					var stat = gEngine.GetStats(Stat.Agility);
+					AgilityStat = gEngine.GetStats(Eamon.Framework.Primitive.Enums.Stat.Agility);
 
-					Debug.Assert(stat != null);
+					Debug.Assert(AgilityStat != null);
 
-					var characterMonster = gMDB[gGameState.Cm];
+					Debug.Assert(gCharMonster != null);
 
-					Debug.Assert(characterMonster != null);
+					gCharMonster.Agility /= 2;
 
-					characterMonster.Agility /= 2;
-
-					if (characterMonster.Agility < stat.MinValue)
+					if (gCharMonster.Agility < AgilityStat.MinValue)
 					{
-						characterMonster.Agility = stat.MinValue;
+						gCharMonster.Agility = AgilityStat.MinValue;
 					}
 
-					var rl = gEngine.RollDice(1, 100, 0);
+					PrintSpellExpiredRoll = gEngine.RollDice(1, 100, 0);
 
-					if (rl > 80 || !Globals.IsRulesetVersion(5, 15))
+					if (PrintSpellExpiredRoll > 80 || !Globals.IsRulesetVersion(5, 15))
 					{
 						PrintSpeedSpellExpired();
 					}
@@ -57,6 +56,11 @@ namespace EamonRT.Game.States
 			}
 
 			Globals.NextState = NextState;
+		}
+
+		public virtual void PrintSpeedSpellExpired()
+		{
+			gOut.Print("Your speed spell has{0} expired!", Globals.IsRulesetVersion(5, 15) ? " just" : "");
 		}
 
 		public BurnDownSpeedSpellState()

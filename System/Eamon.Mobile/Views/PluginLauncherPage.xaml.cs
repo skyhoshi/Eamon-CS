@@ -1,7 +1,7 @@
 ﻿
 // PluginLauncherPage.xaml.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Threading.Tasks;
@@ -13,23 +13,6 @@ namespace Eamon.Mobile.Views
 	public partial class PluginLauncherPage : ContentPage
 	{
 		PluginLauncherViewModel viewModel;
-
-		public PluginLauncherPage(string title)
-		{
-			InitializeComponent();
-
-			BindingContext = viewModel = new PluginLauncherViewModel(title);
-
-			viewModel.PropertyChanged += (o, e) =>
-			{
-				if (e.PropertyName == "OutputText")
-				{
-					ScrollToBottomOfPluginScrollView();
-				}
-			};
-
-			App.PluginLauncherPage = this;
-		}
 
 		public void RedrawPluginLauncherPageControls()
 		{
@@ -185,7 +168,7 @@ namespace Eamon.Mobile.Views
 			});
 		}
 
-		protected void BrowsePluginLauncherPage_SizeChanged(object sender, EventArgs e)
+		public void BrowsePluginLauncherPage_SizeChanged(object sender, EventArgs e)
 		{
 			Device.BeginInvokeOnMainThread(() =>
 			{
@@ -195,6 +178,23 @@ namespace Eamon.Mobile.Views
 			RedrawPluginLauncherPageControls();
 
 			ScrollToBottomOfPluginScrollView();
+		}
+
+		public PluginLauncherPage(string title)
+		{
+			InitializeComponent();
+
+			BindingContext = viewModel = new PluginLauncherViewModel(title);
+
+			viewModel.PropertyChanged += (o, e) =>
+			{
+				if (e.PropertyName == "OutputText")
+				{
+					ScrollToBottomOfPluginScrollView();
+				}
+			};
+
+			App.PluginLauncherPage = this;
 		}
 	}
 }

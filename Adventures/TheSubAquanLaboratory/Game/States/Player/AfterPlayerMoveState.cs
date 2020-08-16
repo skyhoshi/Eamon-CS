@@ -1,10 +1,11 @@
 ﻿
 // AfterPlayerMoveState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
@@ -13,9 +14,9 @@ namespace TheSubAquanLaboratory.Game.States
 	[ClassMappings]
 	public class AfterPlayerMoveState : EamonRT.Game.States.AfterPlayerMoveState, IAfterPlayerMoveState
 	{
-		public override void ProcessEvents(long eventType)
+		public override void ProcessEvents(EventType eventType)
 		{
-			if (eventType == PeAfterExtinguishLightSourceCheck && gGameState.R3 == 43 && gGameState.Ro != gGameState.R3)
+			if (eventType == EventType.AfterExtinguishLightSourceCheck && gGameState.R3 == 43 && gGameState.Ro != gGameState.R3)
 			{
 				var glassWallsArtifact = gADB[84];
 

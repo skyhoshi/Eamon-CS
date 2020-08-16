@@ -1,9 +1,10 @@
 ﻿
 // BeforeMonsterFleesRoomState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -15,27 +16,36 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class BeforeMonsterFleesRoomState : State, IBeforeMonsterFleesRoomState
 	{
+		/// <summary></summary>
+		public virtual IMonster LoopMonster { get; set; }
+
+		/// <summary></summary>
+		public virtual IRoom LoopMonsterRoom { get; set; }
+
+		/// <summary></summary>
+		public virtual ICommand RedirectCommand { get; set; }
+
 		public override void Execute()
 		{
-			var monster = gMDB[Globals.LoopMonsterUid];
+			LoopMonster = gMDB[Globals.LoopMonsterUid];
 
-			Debug.Assert(monster != null && monster.Friendliness != Friendliness.Neutral);
+			Debug.Assert(LoopMonster != null && LoopMonster.Friendliness != Friendliness.Neutral);
 
-			var room = monster.GetInRoom();
+			LoopMonsterRoom = LoopMonster.GetInRoom();
 
-			Debug.Assert(room != null);
+			Debug.Assert(LoopMonsterRoom != null);
 
-			var command = Globals.CreateInstance<IFleeCommand>();
+			RedirectCommand = Globals.CreateInstance<IFleeCommand>();
 
-			command.ActorMonster = monster;
+			RedirectCommand.ActorMonster = LoopMonster;
 
-			command.ActorRoom = room;
+			RedirectCommand.ActorRoom = LoopMonsterRoom;
 
-			Globals.LoopGroupCount = monster.GroupCount;
+			Globals.LoopGroupCount = LoopMonster.GroupCount;
 
-			command.NextState = Globals.CreateInstance<IAfterMonsterFleesRoomState>();
+			RedirectCommand.NextState = Globals.CreateInstance<IAfterMonsterFleesRoomState>();
 
-			NextState = command;
+			NextState = RedirectCommand;
 
 			Globals.NextState = NextState;
 		}

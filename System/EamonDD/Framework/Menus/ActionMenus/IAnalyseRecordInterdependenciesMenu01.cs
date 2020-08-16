@@ -1,7 +1,7 @@
 ﻿
 // IAnalyseRecordInterdependenciesMenu01.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using Eamon.Framework;
@@ -12,10 +12,10 @@ namespace EamonDD.Framework.Menus.ActionMenus
 	public interface IAnalyseRecordInterdependenciesMenu01<out T> where T : class, IGameBase
 	{
 		/// <summary></summary>
-		IList<string> SkipFieldNames { get; set; }
+		IList<string> SkipFieldNameList { get; set; }
 
 		/// <summary></summary>
-		bool ClearSkipFieldNames { get; set; }
+		bool ClearSkipFieldNameList { get; set; }
 
 		/// <summary></summary>
 		bool ModifyFlag { get; set; }

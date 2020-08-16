@@ -1,7 +1,7 @@
 ﻿
 // AddCustomAdventureMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -14,7 +14,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 	public class AddCustomAdventureMenu : AdventureSupportMenu01, IAddCustomAdventureMenu
 	{
 		/// <summary></summary>
-		protected virtual string ProgramCsText { get; set; } =
+		public virtual string ProgramCsText { get; set; } =
 @"
 // Program.cs
 
@@ -45,7 +45,7 @@ namespace YourAdventureName
 ";
 
 		/// <summary></summary>
-		protected virtual string[] IPluginCsText { get; set; } = new string[]
+		public virtual string[] IPluginCsText { get; set; } = new string[]
 		{
 @"
 // IPluginClassMappings.cs
@@ -89,7 +89,7 @@ namespace YourAdventureName.Framework.Plugin
 		};
 
 		/// <summary></summary>
-		protected virtual string[] PluginCsText { get; set; } = new string[]
+		public virtual string[] PluginCsText { get; set; } = new string[]
 		{
 @"
 // PluginClassMappings.cs
@@ -258,6 +258,14 @@ namespace YourAdventureName.Game.Plugin
 			}
 		}
 
+		public static Eamon.Framework.IMonster gCharMonster
+		{
+			get
+			{
+				return (Eamon.Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gCharMonster;
+			}
+		}
+
 		public static Eamon.Framework.IMonster gActorMonster(object obj)
 		{
 			if (obj is ICommandParser commandParser)
@@ -372,7 +380,7 @@ namespace YourAdventureName.Game.Plugin
 		};
 
 		/// <summary></summary>
-		protected virtual string EngineCsText { get; set; } =
+		public virtual string EngineCsText { get; set; } =
 @"
 // Engine.cs
 
@@ -393,7 +401,7 @@ namespace YourAdventureName.Game
 ";
 
 		/// <summary></summary>
-		protected virtual string ChangeLogText { get; set; } =
+		public virtual string ChangeLogText { get; set; } =
 @"
 ==================================================================================================================================
 ChangeLog: YourAdventureName
@@ -405,7 +413,7 @@ Date			Version			Who			Notes
 ";
 
 		/// <summary></summary>
-		protected virtual string AdventureCsprojText { get; set; } =
+		public virtual string AdventureCsprojText { get; set; } =
 @"<Project Sdk=""Microsoft.NET.Sdk"">
 
   <PropertyGroup>
@@ -448,74 +456,6 @@ Date			Version			Who			Notes
 
 </Project>
 ";
-
-		/// <summary></summary>
-		protected virtual void CreateCustomFiles()
-		{
-			Globals.Directory.CreateDirectory(Constants.AdventuresDir + @"\" + AdventureName + @"\Framework\Plugin");
-
-			Globals.Directory.CreateDirectory(Constants.AdventuresDir + @"\" + AdventureName + @"\Game\Plugin");
-
-			Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\ChangeLog.txt", ReplaceMacros(ChangeLogText));
-
-			Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\Program.cs", ReplaceMacros(ProgramCsText));
-
-			Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\" + AdventureName + @".csproj", ReplaceMacros(AdventureCsprojText));
-
-			var fileNames = new string[] { "IPluginClassMappings.cs", "IPluginConstants.cs", "IPluginGlobals.cs" };
-
-			for (var i = 0; i < fileNames.Length; i++)
-			{
-				Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\Framework\Plugin\" + fileNames[i], ReplaceMacros(IPluginCsText[i]));
-			}
-
-			fileNames = new string[] { "PluginClassMappings.cs", "PluginConstants.cs", "PluginContext.cs", "PluginGlobals.cs" };
-
-			for (var i = 0; i < fileNames.Length; i++)
-			{
-				Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\Game\Plugin\" + fileNames[i], ReplaceMacros(PluginCsText[i]));
-			}
-
-			Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\Game\Engine.cs", ReplaceMacros(EngineCsText));
-
-			fileNames = new string[] { "Artifact.cs", "Effect.cs", "GameState.cs", "Hint.cs", "Module.cs", "Monster.cs", "Room.cs" };
-
-			for (var i = 0; i < fileNames.Length; i++)
-			{
-				IncludeInterface = (i == 2);
-
-				ParentClassFileName = @"..\Eamon\Game\" + fileNames[i];
-
-				CreateCustomClassFile();
-			}
-		}
-
-		/// <summary></summary>
-		protected virtual void AddProjectToSolution()
-		{
-			gOut.Print("{0}", Globals.LineSep);
-
-			gOut.WriteLine();
-
-			LoadVsaAssemblyIfNecessary();
-
-			GetVsaObjectIfNecessary();
-
-			if (VsaObject != null)
-			{
-				var projName = Globals.Path.GetFullPath(Globals.Path.Combine(Constants.AdventuresDir + @"\" + AdventureName, AdventureName + ".csproj"));
-
-				VsaObject.AddProjectToSolution(projName);
-			}
-			else
-			{
-				gOut.Print("{0}", Globals.LineSep);
-
-				gOut.Print("The adventure was not created.");
-
-				GotoCleanup = true;
-			}
-		}
 
 		public override void Execute()
 		{
@@ -590,6 +530,74 @@ Date			Version			Who			Notes
 			}
 
 			Globals.Directory.SetCurrentDirectory(workDir);
+		}
+
+		/// <summary></summary>
+		public virtual void CreateCustomFiles()
+		{
+			Globals.Directory.CreateDirectory(Constants.AdventuresDir + @"\" + AdventureName + @"\Framework\Plugin");
+
+			Globals.Directory.CreateDirectory(Constants.AdventuresDir + @"\" + AdventureName + @"\Game\Plugin");
+
+			Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\ChangeLog.txt", ReplaceMacros(ChangeLogText));
+
+			Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\Program.cs", ReplaceMacros(ProgramCsText));
+
+			Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\" + AdventureName + @".csproj", ReplaceMacros(AdventureCsprojText));
+
+			var fileNames = new string[] { "IPluginClassMappings.cs", "IPluginConstants.cs", "IPluginGlobals.cs" };
+
+			for (var i = 0; i < fileNames.Length; i++)
+			{
+				Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\Framework\Plugin\" + fileNames[i], ReplaceMacros(IPluginCsText[i]));
+			}
+
+			fileNames = new string[] { "PluginClassMappings.cs", "PluginConstants.cs", "PluginContext.cs", "PluginGlobals.cs" };
+
+			for (var i = 0; i < fileNames.Length; i++)
+			{
+				Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\Game\Plugin\" + fileNames[i], ReplaceMacros(PluginCsText[i]));
+			}
+
+			Globals.File.WriteAllText(Constants.AdventuresDir + @"\" + AdventureName + @"\Game\Engine.cs", ReplaceMacros(EngineCsText));
+
+			fileNames = new string[] { "Artifact.cs", "Effect.cs", "GameState.cs", "Hint.cs", "Module.cs", "Monster.cs", "Room.cs" };
+
+			for (var i = 0; i < fileNames.Length; i++)
+			{
+				IncludeInterface = (i == 2);
+
+				ParentClassFileName = @"..\Eamon\Game\" + fileNames[i];
+
+				CreateCustomClassFile();
+			}
+		}
+
+		/// <summary></summary>
+		public virtual void AddProjectToSolution()
+		{
+			gOut.Print("{0}", Globals.LineSep);
+
+			gOut.WriteLine();
+
+			LoadVsaAssemblyIfNecessary();
+
+			GetVsaObjectIfNecessary();
+
+			if (VsaObject != null)
+			{
+				var projName = Globals.Path.GetFullPath(Globals.Path.Combine(Constants.AdventuresDir + @"\" + AdventureName, AdventureName + ".csproj"));
+
+				VsaObject.AddProjectToSolution(projName);
+			}
+			else
+			{
+				gOut.Print("{0}", Globals.LineSep);
+
+				gOut.Print("The adventure was not created.");
+
+				GotoCleanup = true;
+			}
 		}
 
 		public AddCustomAdventureMenu()

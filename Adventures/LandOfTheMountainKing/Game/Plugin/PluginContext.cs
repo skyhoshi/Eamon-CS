@@ -118,6 +118,14 @@ namespace LandOfTheMountainKing.Game.Plugin
 			}
 		}
 
+		public static Eamon.Framework.IMonster gCharMonster
+		{
+			get
+			{
+				return (Eamon.Framework.IMonster)EamonRT.Game.Plugin.PluginContext.gCharMonster;
+			}
+		}
+
 		public static LandOfTheMountainKing.Framework.ILMKKP1 gLMKKP1
 		{
 			get

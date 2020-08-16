@@ -8,7 +8,7 @@ using Android.App;
 [assembly: AssemblyTitle("Eamon CS Plugin Manager")]
 [assembly: AssemblyDescription("Eamon CS Plugin Manager")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Michael R. Penner")]
+[assembly: AssemblyCompany("Michael Penner")]
 [assembly: AssemblyProduct("The Wonderful World of Eamon CS")]
 [assembly: AssemblyCopyright("Copyright (C) 2014+")]
 [assembly: AssemblyTrademark("")]

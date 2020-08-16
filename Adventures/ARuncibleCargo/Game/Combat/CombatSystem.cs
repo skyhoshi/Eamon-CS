@@ -1,7 +1,7 @@
 ﻿
 // CombatSystem.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
@@ -12,7 +12,7 @@ namespace ARuncibleCargo.Game.Combat
 	[ClassMappings]
 	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, ICombatSystem
 	{
-		protected override void PrintHealthStatus()
+		public override void PrintHealthStatus()
 		{
 			// Alt "death" for Hokas, Larkspur, and Cargo-Stealing Lil
 

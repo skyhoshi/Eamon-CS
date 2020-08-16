@@ -1,10 +1,11 @@
 ﻿
 // CloseCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using System.Linq;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
@@ -15,6 +16,22 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 	[ClassMappings]
 	public class CloseCommand : EamonRT.Game.Commands.CloseCommand, ICloseCommand
 	{
+		public override void PrintClosed(IArtifact artifact)
+		{
+			Debug.Assert(artifact != null);
+
+			if (artifact.Uid == 3 || artifact.Uid == 4 || artifact.Uid == 5)
+			{
+				gOut.Print("With great effort, {0}'s door slides closed.", artifact.GetTheName());
+
+				artifact.DoorGate.SetKeyUid(-1);
+			}
+			else
+			{
+				base.PrintClosed(artifact);
+			}
+		}
+
 		public override void PrintDontNeedTo()
 		{
 			Debug.Assert(DobjArtifact != null);

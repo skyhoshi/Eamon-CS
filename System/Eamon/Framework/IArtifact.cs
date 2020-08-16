@@ -1,7 +1,7 @@
 ﻿
 // IArtifact.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -672,7 +672,7 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <param name="artifactTypes"></param>
 		/// <returns></returns>
-		IList<IArtifactCategory> GetArtifactCategories(ArtifactType[] artifactTypes);
+		IList<IArtifactCategory> GetArtifactCategoryList(ArtifactType[] artifactTypes);
 
 		/// <summary></summary>
 		/// <param name="count"></param>

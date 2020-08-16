@@ -1165,7 +1165,7 @@
           <Properties>
             <Simple name="Uid" value="166" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Desc" value="A riveting experience, not to be missed!  Original Eamon Deluxe adventure EDX-22 by Thomas Ferguson.  Eamon CS port by Michael R. Penner." />
+            <Simple name="Desc" value="A riveting experience, not to be missed!  Original Eamon Deluxe adventure EDX-22 by Thomas Ferguson.  Eamon CS port by Michael Penner." />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">

@@ -1,7 +1,7 @@
 ﻿
 // Menu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -19,11 +19,11 @@ namespace Eamon.Game.Menus
 
 		public virtual StringBuilder Buf { get; set; }
 
-		public virtual IList<IMenuItem> MenuItems { get; set; }
+		public virtual IList<IMenuItem> MenuItemList { get; set; }
 
 		public virtual bool IsCharMenuItem(char ch)
 		{
-			return MenuItems != null && MenuItems.FirstOrDefault(mi => mi.SelectChar == ch) != null;
+			return MenuItemList != null && MenuItemList.FirstOrDefault(mi => mi.SelectChar == ch) != null;
 		}
 
 		public virtual void PrintSubtitle()
@@ -64,9 +64,9 @@ namespace Eamon.Game.Menus
 
 				PrintSubtitle();
 
-				for (i = 0; i < MenuItems.Count; i++)
+				for (i = 0; i < MenuItemList.Count; i++)
 				{
-					gOut.Write("{0}", MenuItems[(int)i].LineText);
+					gOut.Write("{0}", MenuItemList[(int)i].LineText);
 				}
 
 				gOut.Write("{0}[X]: ", Environment.NewLine);
@@ -79,7 +79,7 @@ namespace Eamon.Game.Menus
 
 				Globals.Thread.Sleep(150);
 
-				var menuItem = MenuItems.FirstOrDefault(mi => mi.SelectChar == Buf[0]);
+				var menuItem = MenuItemList.FirstOrDefault(mi => mi.SelectChar == Buf[0]);
 
 				Debug.Assert(menuItem != null);
 

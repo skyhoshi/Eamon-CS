@@ -446,11 +446,11 @@
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintNoPlaceToGo">
             <summary></summary>
         </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerProcessEvents(System.Int64)">
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PlayerProcessEvents(EamonRT.Framework.Primitive.Enums.EventType)">
             <summary></summary>
             <param name="eventType"></param>
         </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.MonsterProcessEvents(System.Int64)">
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.MonsterProcessEvents(EamonRT.Framework.Primitive.Enums.EventType)">
             <summary></summary>
             <param name="eventType"></param>
         </member>
@@ -589,6 +589,9 @@
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.IUseCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.IUseCommand.ArtTypes">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.IWearCommand">
@@ -902,7 +905,7 @@
         <member name="M:EamonRT.Framework.IEngine.RevealContainerContents(Eamon.Framework.IRoom,System.Int64,Eamon.Framework.Primitive.Enums.ContainerType[],System.Collections.Generic.IList{System.String})">
             <summary></summary>
             <param name="room"></param>
-            <param name="revealContentIndex"></param>
+            <param name="revealContentListIndex"></param>
             <param name="containerTypes"></param>
             <param name="containerContentsList"></param>
         </member>
@@ -992,7 +995,7 @@
             <param name="friendSmile"></param>
             <returns></returns>
         </member>
-        <member name="M:EamonRT.Framework.IEngine.BuildLoopArtifactList(Eamon.Framework.IMonster)">
+        <member name="M:EamonRT.Framework.IEngine.BuildLoopWeaponArtifactList(Eamon.Framework.IMonster)">
             <summary></summary>
             <param name="monster"></param>
             <returns></returns>
@@ -1398,10 +1401,10 @@
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LastCommandList">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopArtifactList">
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopWeaponArtifactList">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopArtifactListIndex">
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopWeaponArtifactListIndex">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopMonsterUid">
@@ -1542,6 +1545,190 @@
         <member name="F:EamonRT.Framework.Primitive.Enums.CombatState.User3">
             <summary></summary>
         </member>
+        <member name="T:EamonRT.Framework.Primitive.Enums.EventType">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterRoundEnd">
+            <summary>
+            An event that fires at the end of the current round, after all processing has been done.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.BeforeRoundStart">
+            <summary>
+            An event that fires at the start of a new round, before any processing has been done.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterExtinguishLightSourceCheck">
+            <summary>
+            An event that fires after the player has moved to a new <see cref="T:Eamon.Framework.IRoom">Room</see>, and any carried light
+            source has been extinguished (if necessary).
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterMoveMonsters">
+            <summary>
+            An event that fires after the player has moved to a new <see cref="T:Eamon.Framework.IRoom">Room</see>, and any <see cref="T:Eamon.Framework.IMonster">Monster</see>s
+            in the exited Room (friendly or hostile) have followed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterDestinationRoomSet">
+            <summary>
+            An event that fires after the player's destination <see cref="T:Eamon.Framework.IRoom">Room</see> <see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see>
+            is calculated and stored.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.BeforeCommandPromptPrint">
+            <summary>
+            An event that fires before the player's command prompt is printed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.BeforeCanMoveToRoomCheck">
+            <summary>
+            An event that fires before it is known whether the player can move to a <see cref="T:Eamon.Framework.IRoom">Room</see>.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterBlockingArtifactCheck">
+            <summary>
+            An event that fires after it is known whether a blocking <see cref="T:Eamon.Framework.IArtifact">Artifact</see> (for example,
+            a door) prevents the player's movement.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.BeforePlayerRoomPrint">
+            <summary>
+            An event that fires before the player's <see cref="T:Eamon.Framework.IRoom">Room</see> has been printed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterLastCommandListClear">
+            <summary>
+            An event that fires after the player's command has been processed (but not executed)
+            and the <see cref="!:IPluginGlobals.LastCommandList">LastCommandList</see> cleared.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterPlayerSpellCastCheck">
+            <summary>
+            An event that fires after the player's spell cast attempt has resolved as successful.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterMonsterGetsAggravated">
+            <summary>
+            An event that fires after the <see cref="T:Eamon.Framework.IMonster">Monster</see> targeted by the <see cref="F:Eamon.Framework.Primitive.Enums.Spell.Blast">Blast</see>
+            spell gets aggravated.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.BeforeGuardMonsterCheck">
+            <summary>
+            An event that fires before a guard <see cref="T:Eamon.Framework.IMonster">Monster</see> prevents a bound Monster from being freed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.BeforeKeyArtifactCheck">
+            <summary>
+            An event that fires before a key <see cref="T:Eamon.Framework.IArtifact">Artifact</see> prevents a bound Monster from being freed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterEnforceMonsterWeightLimitsCheck">
+            <summary>
+            An event that fires after limits are enforced on the weight a <see cref="T:Eamon.Framework.IMonster">Monster</see> can carry.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterPlayerGivesReadiedWeaponCheck">
+            <summary>
+            An event that fires after checking whether the player is giving away a readied weapon.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.BeforeMonsterTakesGold">
+            <summary>
+            An event that fires before a <see cref="T:Eamon.Framework.IMonster">Monster</see> takes the gold offered by the player.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterArtifactClose">
+            <summary>
+            An event that fires after the player closes an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.BeforeArtifactNowEmptyCheck">
+            <summary>
+            An event that fires before checking whether an <see cref="T:Eamon.Framework.IArtifact">Artifact</see> has been fully drunk.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterArtifactDrink">
+            <summary>
+            An event that fires after the player drinks an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterArtifactEat">
+            <summary>
+            An event that fires after the player eats an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterArtifactFullDescPrint">
+            <summary>
+            An event that fires after an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s full description has been printed (but before
+            units are listed for drinkables/edibles).
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterArtifactContentsPrint">
+            <summary>
+            An event that fires after an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s container contents are printed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterArtifactOpenPrint">
+            <summary>
+            An event that fires after an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s open message has been printed (but before
+            inventory is listed for containers).
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterArtifactOpen">
+            <summary>
+            An event that fires after the player opens an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterArtifactPut">
+            <summary>
+            An event that fires after the player puts an <see cref="T:Eamon.Framework.IArtifact">Artifact</see> into a container.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.BeforeArtifactReadTextPrint">
+            <summary>
+            An event that fires before an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s read text is printed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterArtifactRead">
+            <summary>
+            An event that fires after the player reads an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterWornArtifactRemove">
+            <summary></summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.BeforeArtifactUse">
+            <summary>
+            An event that fires before the player uses an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterArtifactWear">
+            <summary>
+            An event that fires after the player wears an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.BeforePlayerSayTextPrint">
+            <summary>
+            An event that fires before the player's spoken text is printed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterPlayerSay">
+            <summary>
+            An event that fires after the player says something.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterPlayerStatus">
+            <summary>
+            An event that fires after the player's status text has been printed.
+            </summary>
+        </member>
+        <member name="F:EamonRT.Framework.Primitive.Enums.EventType.AfterNumberOfExitsCheck">
+            <summary>
+            An event that fires after checking whether exits are available for fleeing, and it resolves that there are.
+            </summary>
+        </member>
         <member name="T:EamonRT.Framework.Primitive.Enums.IntroStoryType">
             <summary></summary>
         </member>
@@ -1631,11 +1818,11 @@
         <member name="M:EamonRT.Framework.States.IStateSignatures.PrintEnemiesNearby">
             <summary></summary>
         </member>
-        <member name="M:EamonRT.Framework.States.IStateSignatures.ProcessEvents(System.Int64)">
+        <member name="M:EamonRT.Framework.States.IStateSignatures.ProcessEvents(EamonRT.Framework.Primitive.Enums.EventType)">
             <summary></summary>
             <param name="eventType"></param>
         </member>
-        <member name="M:EamonRT.Framework.States.IStateSignatures.ProcessRevealContentArtifacts(System.Boolean)">
+        <member name="M:EamonRT.Framework.States.IStateSignatures.ProcessRevealContentArtifactList(System.Boolean)">
             <summary></summary>
             <param name="printOutput"></param>
         </member>
@@ -1656,12 +1843,6 @@
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.States.IAfterMonsterFleesRoomState">
-            <summary></summary>
-        </member>
-        <member name="T:EamonRT.Framework.States.IArtifactLoopIncrementState">
-            <summary></summary>
-        </member>
-        <member name="T:EamonRT.Framework.States.IArtifactLoopInitializeState">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.States.IAttackLoopIncrementState">
@@ -1706,13 +1887,19 @@
         <member name="T:EamonRT.Framework.States.IMonsterUsesNaturalWeaponsCheckState">
             <summary></summary>
         </member>
+        <member name="T:EamonRT.Framework.States.IWeaponArtifactLoopIncrementState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IWeaponArtifactLoopInitializeState">
+            <summary></summary>
+        </member>
         <member name="T:EamonRT.Framework.States.IAfterPlayerMoveState">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.States.IAfterPlayerMoveState.Direction">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.States.IAfterPlayerMoveState.Artifact">
+        <member name="P:EamonRT.Framework.States.IAfterPlayerMoveState.DoorGateArtifact">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.States.IAfterPlayerMoveState.MoveMonsters">
@@ -1739,7 +1926,7 @@
         <member name="P:EamonRT.Framework.States.IBeforePlayerMoveState.Direction">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.States.IBeforePlayerMoveState.Artifact">
+        <member name="P:EamonRT.Framework.States.IBeforePlayerMoveState.DoorGateArtifact">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.States.IBeforePrintPlayerRoomEventState">
@@ -1772,7 +1959,7 @@
         <member name="P:EamonRT.Framework.States.IPlayerMoveCheckState.Direction">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.States.IPlayerMoveCheckState.Artifact">
+        <member name="P:EamonRT.Framework.States.IPlayerMoveCheckState.DoorGateArtifact">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.States.IPlayerMoveCheckState.Fleeing">
@@ -1952,107 +2139,227 @@
         <member name="M:EamonRT.Game.Combat.CombatSystem.ExecuteStateMachine">
             <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.BlastCommand.PpeAfterPlayerSpellCastCheck">
-            <summary>
-            An event that fires after the player's spell cast attempt has resolved as successful.
-            </summary>
-        </member>
-        <member name="F:EamonRT.Game.Commands.BlastCommand.PpeAfterMonsterGetsAggravated">
-            <summary>
-            An event that fires after the <see cref="T:Eamon.Framework.IMonster">Monster</see> targeted by the <see cref="F:Eamon.Framework.Primitive.Enums.Spell.Blast">Blast</see>
-            spell gets aggravated.
-            </summary>
-        </member>
-        <member name="F:EamonRT.Game.Commands.FreeCommand.PpeBeforeGuardMonsterCheck">
-            <summary>
-            An event that fires before a guard <see cref="T:Eamon.Framework.IMonster">Monster</see> prevents a bound Monster from being freed.
-            </summary>
-        </member>
-        <member name="F:EamonRT.Game.Commands.GiveCommand.PpeAfterEnforceMonsterWeightLimitsCheck">
-            <summary>
-            An event that fires after limits are enforced on the weight a <see cref="T:Eamon.Framework.IMonster">Monster</see> can carry.
-            </summary>
-        </member>
-        <member name="F:EamonRT.Game.Commands.GiveCommand.PpeAfterPlayerGivesReadiedWeaponCheck">
-            <summary>
-            An event that fires after checking whether the player is giving away a readied weapon.
-            </summary>
-        </member>
-        <member name="F:EamonRT.Game.Commands.GiveCommand.PpeBeforeMonsterTakesGold">
-            <summary>
-            An event that fires before a <see cref="T:Eamon.Framework.IMonster">Monster</see> takes the gold offered by the player.
-            </summary>
-        </member>
-        <member name="F:EamonRT.Game.Commands.CloseCommand.PpeAfterArtifactClose">
-            <summary>
-            An event that fires after the player closes an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
-            </summary>
-        </member>
-        <member name="F:EamonRT.Game.Commands.DrinkCommand.PpeBeforeArtifactNowEmptyCheck">
-            <summary>
-            An event that fires before checking whether an <see cref="T:Eamon.Framework.IArtifact">Artifact</see> has been fully drunk.
-            </summary>
-        </member>
-        <member name="F:EamonRT.Game.Commands.DrinkCommand.PpeAfterArtifactDrink">
-            <summary>
-            An event that fires after the player drinks an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
-            </summary>
-        </member>
-        <member name="P:EamonRT.Game.Commands.DropCommand.ArtifactList">
+        <member name="P:EamonRT.Game.Commands.AttackCommand.SpilledArtifactList">
             <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.EatCommand.PpeBeforeArtifactNowEmptyCheck">
-            <summary>
-            An event that fires before checking whether an <see cref="T:Eamon.Framework.IArtifact">Artifact</see> has been fully eaten.
-            </summary>
+        <member name="P:EamonRT.Game.Commands.AttackCommand.DobjArtAc">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.EatCommand.PpeAfterArtifactEat">
-            <summary>
-            An event that fires after the player eats an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
-            </summary>
+        <member name="P:EamonRT.Game.Commands.AttackCommand.ActorWeaponAc">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.ExamineCommand.PpeAfterArtifactFullDescPrint">
-            <summary>
-            An event that fires after an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s full description has been printed (but before
-            units are listed for drinkables/edibles).
-            </summary>
+        <member name="P:EamonRT.Game.Commands.AttackCommand.DisguisedMonster">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.ExamineCommand.PpeAfterArtifactContentsPrint">
-            <summary>
-            An event that fires after an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s container contents are printed.
-            </summary>
+        <member name="P:EamonRT.Game.Commands.AttackCommand.ActorWeapon">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.AttackCommand.RedirectCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.AttackCommand.PlayerCombatSystem">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.AttackCommand.MonsterCombatSystem">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.AttackCommand.KeyArtifactUid">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.AttackCommand.BreakageStrength">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.AttackCommand.BreakageDice">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.AttackCommand.BreakageSides">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.AttackCommand.BreakageDamage">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.FreeCommand.DobjArtAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.FreeCommand.BoundMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.FreeCommand.GuardMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.FreeCommand.KeyArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.FreeCommand.BoundMonsterUid">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.FreeCommand.GuardMonsterUid">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.FreeCommand.KeyArtifactUid">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GiveCommand.DobjArtAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GiveCommand.IobjMonsterName">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GiveCommand.DobjArtifactCount">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GiveCommand.DobjArtifactWeight">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GiveCommand.IobjMonsterInventoryWeight">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.HealCommand.IsCharMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.HealCommand.DamageHealed">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.SmileCommand.SmilingMonsterList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.WaveCommand.WavingMonsterList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.CloseCommand.InContainerAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.CloseCommand.DoorGateAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.CloseCommand.DrinkableAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.CloseCommand.EdibleAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.CloseCommand.ReadableAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.CloseCommand.DobjArtAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.DrinkCommand.DrinkableAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.DrinkCommand.EdibleAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.DrinkCommand.DobjArtAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.DropCommand.DroppedArtifactList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.DropCommand.LsArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.EatCommand.DrinkableAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.EatCommand.EdibleAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.EatCommand.DobjArtAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ExamineCommand.ArtTypes">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ExamineCommand.ContainerArtifactList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ExamineCommand.DobjArtAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ExamineCommand.DobjArtContainerAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ExamineCommand.ContainerArtType">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ExamineCommand.ArtifactInventoryCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ExamineCommand.MonsterInventoryCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ExamineCommand.ShowCharOwned">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ExamineCommand.IsUninjuredGroupMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.TakenArtifactList">
+            <summary></summary>
         </member>
         <member name="P:EamonRT.Game.Commands.GetCommand.OmitWeightCheck">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.Commands.GetCommand.ArtifactList">
+        <member name="P:EamonRT.Game.Commands.LightCommand.DobjArtAc">
             <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.OpenCommand.PpeAfterArtifactOpenPrint">
-            <summary>
-            An event that fires after an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s open message has been printed (but before
-            inventory is listed for containers).
-            </summary>
+        <member name="P:EamonRT.Game.Commands.LightCommand.LsArtifact">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.OpenCommand.PpeAfterArtifactOpen">
-            <summary>
-            An event that fires after the player opens an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
-            </summary>
+        <member name="P:EamonRT.Game.Commands.OpenCommand.OnContainerArtifactList">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.PutCommand.PpeAfterArtifactPut">
-            <summary>
-            An event that fires after the player puts an <see cref="T:Eamon.Framework.IArtifact">Artifact</see> into a container.
-            </summary>
+        <member name="P:EamonRT.Game.Commands.OpenCommand.InContainerAc">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.ReadCommand.PpeBeforeArtifactReadTextPrint">
-            <summary>
-            An event that fires before an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>'s read text is printed.
-            </summary>
+        <member name="P:EamonRT.Game.Commands.OpenCommand.DoorGateAc">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.ReadCommand.PpeAfterArtifactRead">
-            <summary>
-            An event that fires after the player reads an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
-            </summary>
+        <member name="P:EamonRT.Game.Commands.OpenCommand.DisguisedMonsterAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.OpenCommand.DrinkableAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.OpenCommand.EdibleAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.OpenCommand.ReadableAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.OpenCommand.DobjArtAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.OpenCommand.KeyArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.OpenCommand.KeyArtifactUid">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.PutCommand.DobjAllContainerArtifactList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.PutCommand.IobjArtAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.PutCommand.IobjArtifactCount">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.PutCommand.IobjArtifactWeight">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.PutCommand.MaxItemsReached">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ReadCommand.DobjArtAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ReadCommand.ReadEffect">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ReadCommand.ReadEffectIndex">
+            <summary></summary>
         </member>
         <member name="P:EamonRT.Game.Commands.ReadyCommand.ArtTypes">
             <summary></summary>
@@ -2060,49 +2367,80 @@
         <member name="P:EamonRT.Game.Commands.RemoveCommand.OmitWeightCheck">
             <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.RemoveCommand.PpeAfterWornArtifactRemove">
+        <member name="P:EamonRT.Game.Commands.UseCommand.DobjArtAc">
             <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.UseCommand.PpeBeforeArtifactUse">
-            <summary>
-            An event that fires before the player uses an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
-            </summary>
-        </member>
-        <member name="P:EamonRT.Game.Commands.UseCommand.ArtTypes">
+        <member name="P:EamonRT.Game.Commands.WearCommand.DobjArtAc">
             <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.WearCommand.PpeAfterArtifactWear">
-            <summary>
-            An event that fires after the player wears an <see cref="T:Eamon.Framework.IArtifact">Artifact</see>.
-            </summary>
-        </member>
-        <member name="F:EamonRT.Game.Commands.PowerCommand.PpeAfterPlayerSpellCastCheck">
-            <summary>
-            An event that fires after the player's spell cast attempt has resolved as successful.
-            </summary>
-        </member>
-        <member name="F:EamonRT.Game.Commands.SayCommand.PpeBeforePlayerSayTextPrint">
-            <summary>
-            An event that fires before the player's spoken text is printed.
-            </summary>
-        </member>
-        <member name="F:EamonRT.Game.Commands.SayCommand.PpeAfterPlayerSay">
-            <summary>
-            An event that fires after the player says something.
-            </summary>
-        </member>
-        <member name="M:EamonRT.Game.Commands.SettingsCommand.PrintUsage">
+        <member name="P:EamonRT.Game.Commands.WearCommand.ArmorArtifactAc">
             <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.StatusCommand.PpeAfterPlayerStatus">
-            <summary>
-            An event that fires after the player's status text has been printed.
-            </summary>
+        <member name="P:EamonRT.Game.Commands.WearCommand.ShieldArtifactAc">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.Commands.FleeCommand.PpeAfterNumberOfExitsCheck">
-            <summary>
-            An event that fires after checking whether exits are available for fleeing, and it resolves that there are.
-            </summary>
+        <member name="P:EamonRT.Game.Commands.WearCommand.WeaponArtifactAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.WearCommand.ArmorArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.WearCommand.ShieldArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.WearCommand.WeaponArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.HintsCommand.ActiveHintList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.HintsCommand.ActiveHintListIndex">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.HintsCommand.HintAnswerIndex">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.PowerCommand.SpeedCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.PowerCommand.PowerEventRoll">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.PowerCommand.FortuneCookieRoll">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.SpeedCommand.SpeedTurns">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.StatusCommand.ArmorArtifactUids">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.StatusCommand.StatDisplayArgs">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.StatusCommand.ArmorArtifactAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.StatusCommand.ArmorArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.StatusCommand.CharArmor">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.StatusCommand.CharArmorClass">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.StatusCommand.CharInventoryWeight">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.FleeCommand.NumExits">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.FleeCommand.RandomDirection">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GoCommand.DobjArtAc">
+            <summary></summary>
         </member>
         <member name="M:EamonRT.Game.Engine.ConvertWeaponsToArtifacts">
             <summary></summary>
@@ -2159,60 +2497,176 @@
         <member name="M:EamonRT.Game.IntroStory.PrintOutputDefault">
             <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.EndOfRoundState.PeAfterRoundEnd">
-            <summary>
-            An event that fires at the end of the current round, after all processing has been done.
-            </summary>
+        <member name="P:EamonRT.Game.States.BurnDownLightSourceState.LsArtAc">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.StartState.PeBeforeRoundStart">
-            <summary>
-            An event that fires at the start of a new round, before any processing has been done.
-            </summary>
+        <member name="P:EamonRT.Game.States.BurnDownLightSourceState.LsArtifact">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.AfterPlayerMoveState.PeAfterExtinguishLightSourceCheck">
-            <summary>
-            An event that fires after the player has moved to a new <see cref="T:Eamon.Framework.IRoom">Room</see>, and any carried light
-            source has been extinguished (if necessary).
-            </summary>
+        <member name="P:EamonRT.Game.States.BurnDownLightSourceState.LsArtifactUid">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.AfterPlayerMoveState.PeAfterMoveMonsters">
-            <summary>
-            An event that fires after the player has moved to a new <see cref="T:Eamon.Framework.IRoom">Room</see>, and any <see cref="T:Eamon.Framework.IMonster">Monster</see>s
-            in the exited Room (friendly or hostile) have followed.
-            </summary>
+        <member name="P:EamonRT.Game.States.BurnDownSpeedSpellState.AgilityStat">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.BeforePlayerMoveState.PeAfterDestinationRoomSet">
-            <summary>
-            An event that fires after the player's destination <see cref="T:Eamon.Framework.IRoom">Room</see> <see cref="P:Eamon.Framework.IGameBase.Uid"> Uid</see>
-            is calculated and stored.
-            </summary>
+        <member name="P:EamonRT.Game.States.BurnDownSpeedSpellState.PrintSpellExpiredRoll">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.GetPlayerInputState.PeBeforeCommandPromptPrint">
-            <summary>
-            An event that fires before the player's command prompt is printed.
-            </summary>
+        <member name="P:EamonRT.Game.States.EndOfRoundState.ResetMonsterList">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.PlayerMoveCheckState.PeBeforeCanMoveToRoomCheck">
-            <summary>
-            An event that fires before it is known whether the player can move to a <see cref="T:Eamon.Framework.IRoom">Room</see>.
-            </summary>
+        <member name="P:EamonRT.Game.States.RegenerateSpellAbilitiesState.SpellValueList">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.PlayerMoveCheckState.PeAfterBlockingArtifactCheck">
-            <summary>
-            An event that fires after it is known whether a blocking <see cref="T:Eamon.Framework.IArtifact">Artifact</see> (for example,
-            a door) prevents the player's movement.
-            </summary>
+        <member name="P:EamonRT.Game.States.RegenerateSpellAbilitiesState.SpellIncrement">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.PrintPlayerRoomState.PeBeforePlayerRoomPrint">
-            <summary>
-            An event that fires before the player's <see cref="T:Eamon.Framework.IRoom">Room</see> has been printed.
-            </summary>
+        <member name="P:EamonRT.Game.States.UnrecognizedCommandState.EnabledCommandList">
+            <summary></summary>
         </member>
-        <member name="F:EamonRT.Game.States.ProcessPlayerInputState.PeAfterLastCommandListClear">
-            <summary>
-            An event that fires after the player's command has been processed (but not executed)
-            and the <see cref="P:EamonRT.Framework.Plugin.IPluginGlobals.LastCommandList">LastCommandList</see> cleared.
-            </summary>
+        <member name="P:EamonRT.Game.States.UnrecognizedCommandState.CharMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.UnrecognizedCommandState.NewSeen">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.AfterMonsterFleesRoomState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.AttackLoopIncrementState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.AttackLoopInitializeState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterAttacksEnemyState.HostileMonsterList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterAttacksEnemyState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterAttacksEnemyState.LoopMonsterRoom">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterAttacksEnemyState.RedirectCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterAttacksEnemyState.HostileMonsterListIndex">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterFleesRoomState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterFleesRoomState.LoopMonsterRoom">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterFleesRoomState.RedirectCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterPicksUpWeaponState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterPicksUpWeaponState.LoopMonsterRoom">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterPicksUpWeaponState.WeaponArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterPicksUpWeaponState.RedirectCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterPicksUpWeaponState.WeaponContainerType">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterPicksUpWeaponState.ContainerPrepName">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterReadiesWeaponState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterReadiesWeaponState.LoopMonsterRoom">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterReadiesWeaponState.WeaponArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforeMonsterReadiesWeaponState.RedirectCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.DefaultMonsterDecisionState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MemberLoopIncrementState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MemberLoopIncrementState.MaxMemberAttackCount">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MemberLoopInitializeState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MonsterLoopIncrementState.FailedMoveMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MonsterLoopIncrementState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MonsterReadiedWeaponCheckState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MonsterUsesNaturalWeaponsCheckState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.WeaponArtifactLoopIncrementState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.WeaponArtifactLoopInitializeState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.AfterPlayerMoveState.NewRoom">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.AfterPlayerMoveState.LsArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.AfterPrintPlayerRoomEventState.EventMethodName">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.AfterPrintPlayerRoomEventState.EventMethodInfo">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.AfterPrintPlayerRoomEventState.EventTurn">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.AfterPrintPlayerRoomEventState.EventData">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforePlayerMoveState.OldRoom">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforePrintPlayerRoomEventState.EventMethodName">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforePrintPlayerRoomEventState.EventMethodInfo">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforePrintPlayerRoomEventState.EventTurn">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.BeforePrintPlayerRoomEventState.EventData">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.PlayerDeadState.RestoreGame">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.PlayerMoveCheckState.OldRoom">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.PlayerMoveCheckState.BlockingArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.PlayerMoveCheckState.DoorGateArtifactUid">
+            <summary></summary>
         </member>
         <member name="F:EamonRT.Program._ddfnFlag">
             <summary></summary>

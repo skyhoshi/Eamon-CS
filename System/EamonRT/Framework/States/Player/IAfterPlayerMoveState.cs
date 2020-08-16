@@ -1,7 +1,7 @@
 ﻿
 // IAfterPlayerMoveState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
@@ -15,7 +15,7 @@ namespace EamonRT.Framework.States
 		Direction Direction { get; set; }
 
 		/// <summary></summary>
-		IArtifact Artifact { get; set; }
+		IArtifact DoorGateArtifact { get; set; }
 
 		/// <summary></summary>
 		bool MoveMonsters { get; set; }

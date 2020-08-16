@@ -1,7 +1,7 @@
 ﻿
 // Helper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -18,23 +18,10 @@ namespace Eamon.Game.Helpers.Generic
 {
 	public abstract class Helper<T> : IHelper<T> where T : class, IGameBase
 	{
-		#region Protected Fields
+		#region Public Fields
 
 		/// <summary></summary>
-		protected T _record;
-
-		#endregion
-
-		#region Protected Properties
-
-		/// <summary></summary>
-		protected virtual IList<string> FieldNames { get; set; }
-
-		/// <summary></summary>
-		protected virtual IList<string> ListedNames { get; set; }
-
-		/// <summary></summary>
-		protected virtual IList<string> Names { get; set; }
+		public T _record;
 
 		#endregion
 
@@ -102,67 +89,14 @@ namespace Eamon.Game.Helpers.Generic
 
 		public virtual long ListNum { get; set; }
 
-		#endregion
-
-		#region Protected Methods
-
-		#region Interface IHelper
+		/// <summary></summary>
+		public virtual IList<string> FieldNameList { get; set; }
 
 		/// <summary></summary>
-		/// <returns></returns>
-		protected virtual string GetPrintedNameIsUidRecycled()
-		{
-			return "Is Uid Recycled";
-		}
+		public virtual IList<string> ListedNameList { get; set; }
 
 		/// <summary></summary>
-		/// <returns></returns>
-		protected virtual string GetPrintedNameDesc()
-		{
-			return "Description";
-		}
-
-		/// <summary></summary>
-		/// <returns></returns>
-		protected virtual string GetPrintedNameArticleType()
-		{
-			return "Article Type";
-		}
-
-		/// <summary></summary>
-		/// <param name="fieldName"></param>
-		/// <returns></returns>
-		protected virtual string BuildValue(string fieldName)
-		{
-			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
-
-			var result = "";
-
-			var methodName = string.Format("BuildValue{0}", fieldName);
-
-			var methodInfo = GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-
-			if (methodInfo != null)
-			{
-				Buf01.Clear();
-
-				result = (string)methodInfo.Invoke(this, null);
-			}
-
-			return result;
-		}
-
-		#endregion
-
-		#region Class Helper
-
-		/// <summary></summary>
-		protected virtual void SetUidIfInvalid()
-		{
-
-		}
-
-		#endregion
+		public virtual IList<string> NameList { get; set; }
 
 		#endregion
 
@@ -198,24 +132,24 @@ namespace Eamon.Game.Helpers.Generic
 
 		public virtual string GetFieldName(long listNum)
 		{
-			return listNum >= 1 && listNum <= ListedNames.Count ? GetFieldName(ListedNames[(int)listNum - 1]) : null;
+			return listNum >= 1 && listNum <= ListedNameList.Count ? GetFieldName(ListedNameList[(int)listNum - 1]) : null;
 		}
 
-		public virtual IList<string> GetNames(Func<string, bool> matchFunc = null)
+		public virtual IList<string> GetNameList(Func<string, bool> matchFunc = null)
 		{
 			if (matchFunc == null)
 			{
 				matchFunc = n => true;
 			}
 
-			Names.Clear();
+			NameList.Clear();
 
-			foreach (var fieldName in FieldNames)
+			foreach (var fieldName in FieldNameList)
 			{
 				GetName(fieldName, true);
 			}
 
-			return Names.Where(matchFunc).ToList();
+			return NameList.Where(matchFunc).ToList();
 		}
 
 		public virtual string GetPrintedName(string fieldName)
@@ -236,7 +170,7 @@ namespace Eamon.Game.Helpers.Generic
 			return result;
 		}
 
-		public virtual string GetName(string fieldName, bool addToNamesList = false)
+		public virtual string GetName(string fieldName, bool addToNameList = false)
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
 
@@ -248,11 +182,11 @@ namespace Eamon.Game.Helpers.Generic
 
 			if (methodInfo != null)
 			{
-				result = (string)methodInfo.Invoke(this, new object[] { addToNamesList });
+				result = (string)methodInfo.Invoke(this, new object[] { addToNameList });
 			}
-			else if (addToNamesList)
+			else if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
@@ -291,7 +225,7 @@ namespace Eamon.Game.Helpers.Generic
 
 			var result = true;
 
-			foreach (var fieldName in FieldNames)
+			foreach (var fieldName in FieldNameList)
 			{
 				result = ValidateField(fieldName);
 
@@ -333,7 +267,7 @@ namespace Eamon.Game.Helpers.Generic
 
 			var result = true;
 
-			foreach (var fieldName in FieldNames)
+			foreach (var fieldName in FieldNameList)
 			{
 				result = ValidateFieldAfterDatabaseLoaded(fieldName);
 
@@ -375,7 +309,7 @@ namespace Eamon.Game.Helpers.Generic
 
 			var result = true;
 
-			foreach (var fieldName in FieldNames)
+			foreach (var fieldName in FieldNameList)
 			{
 				result = ValidateFieldInterdependencies(fieldName);
 
@@ -485,7 +419,7 @@ namespace Eamon.Game.Helpers.Generic
 				Clear();
 			}
 
-			foreach (var fieldName in FieldNames)
+			foreach (var fieldName in FieldNameList)
 			{
 				ListField(fieldName);
 			}
@@ -511,7 +445,7 @@ namespace Eamon.Game.Helpers.Generic
 
 				if (AddToListedNames && origListNum + 1 == ListNum)
 				{
-					ListedNames.Add(GetName(fieldName));
+					ListedNameList.Add(GetName(fieldName));
 				}
 
 				AddToListedNames = origAddToListedNames;
@@ -545,7 +479,7 @@ namespace Eamon.Game.Helpers.Generic
 
 			SetUidIfInvalid();
 
-			foreach (var fieldName in FieldNames)
+			foreach (var fieldName in FieldNameList)
 			{
 				InputField(fieldName);
 			}
@@ -567,9 +501,9 @@ namespace Eamon.Game.Helpers.Generic
 
 		public virtual void Clear()
 		{
-			ListedNames.Clear();
+			ListedNameList.Clear();
 
-			Names.Clear();
+			NameList.Clear();
 
 			Index = -1;
 
@@ -614,21 +548,71 @@ namespace Eamon.Game.Helpers.Generic
 			ListNum = 1;
 		}
 
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual string GetPrintedNameIsUidRecycled()
+		{
+			return "Is Uid Recycled";
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual string GetPrintedNameDesc()
+		{
+			return "Description";
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual string GetPrintedNameArticleType()
+		{
+			return "Article Type";
+		}
+
+		/// <summary></summary>
+		/// <param name="fieldName"></param>
+		/// <returns></returns>
+		public virtual string BuildValue(string fieldName)
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(fieldName));
+
+			var result = "";
+
+			var methodName = string.Format("BuildValue{0}", fieldName);
+
+			var methodInfo = GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+			if (methodInfo != null)
+			{
+				Buf01.Clear();
+
+				result = (string)methodInfo.Invoke(this, null);
+			}
+
+			return result;
+		}
+
 		#endregion
 
 		#region Class Helper
 
+		/// <summary></summary>
+		public virtual void SetUidIfInvalid()
+		{
+
+		}
+
 		public Helper()
 		{
-			FieldNames = new List<string>();
-
-			ListedNames = new List<string>();
-
-			Names = new List<string>();
-
 			Buf = new StringBuilder(Constants.BufSize);
 
 			Buf01 = new StringBuilder(Constants.BufSize);
+
+			FieldNameList = new List<string>();
+
+			ListedNameList = new List<string>();
+
+			NameList = new List<string>();
 
 			Clear();
 		}

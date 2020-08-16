@@ -1,7 +1,7 @@
 ﻿
 // IPluginGlobals.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using System.Text;
@@ -29,10 +29,10 @@ namespace EamonRT.Framework.Plugin
 		IList<ICommand> LastCommandList { get; set; }
 
 		/// <summary></summary>
-		IList<IArtifact> LoopArtifactList { get; set; }
+		IList<IArtifact> LoopWeaponArtifactList { get; set; }
 
 		/// <summary></summary>
-		long LoopArtifactListIndex { get; set; }
+		long LoopWeaponArtifactListIndex { get; set; }
 
 		/// <summary></summary>
 		long LoopMonsterUid { get; set; }

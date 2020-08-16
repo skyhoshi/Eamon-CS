@@ -1,7 +1,7 @@
 ﻿
 // SmileCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using Eamon.Framework;
@@ -16,13 +16,16 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class SmileCommand : Command, ISmileCommand
 	{
+		/// <summary></summary>
+		public virtual IList<IMonster> SmilingMonsterList { get; set; }
+
 		public override void PlayerExecute()
 		{
-			var monsters = gEngine.GetEmotingMonsterList(ActorRoom, ActorMonster);
+			SmilingMonsterList = gEngine.GetEmotingMonsterList(ActorRoom, ActorMonster);
 
-			if (monsters.Count > 0)
+			if (SmilingMonsterList.Count > 0)
 			{
-				foreach (var monster in monsters)
+				foreach (var monster in SmilingMonsterList)
 				{
 					gEngine.MonsterEmotes(monster);
 				}

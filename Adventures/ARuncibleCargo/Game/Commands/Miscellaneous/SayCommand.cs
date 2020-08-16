@@ -1,13 +1,14 @@
 ﻿
 // SayCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
@@ -16,46 +17,9 @@ namespace ARuncibleCargo.Game.Commands
 	[ClassMappings]
 	public class SayCommand : EamonRT.Game.Commands.SayCommand, ISayCommand
 	{
-		public virtual bool EnemiesInRoom()
+		public override void PlayerProcessEvents(EventType eventType)
 		{
-			var result = false;
-
-			if (gGameState.GetNBTL(Friendliness.Enemy) > 0)
-			{
-				PrintEnemiesNearby();
-
-				NextState = Globals.CreateInstance<IStartState>();
-
-				GotoCleanup = true;
-
-				result = true;
-			}
-
-			return result;
-		}
-
-		public virtual void TravelByTrain(long newRoomUid, long effectUid)
-		{
-			// Train Routine
-
-			var newRoom = gRDB[newRoomUid];
-
-			Debug.Assert(newRoom != null);
-
-			var effect = gEDB[effectUid];
-
-			Debug.Assert(effect != null);
-
-			gEngine.TransportPlayerBetweenRooms(ActorRoom, newRoom, effect);
-
-			NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
-
-			GotoCleanup = true;
-		}
-
-		public override void PlayerProcessEvents(long eventType)
-		{
-			if (eventType == PpeBeforePlayerSayTextPrint)
+			if (eventType == EventType.BeforePlayerSayTextPrint)
 			{
 				var found = false;
 
@@ -102,7 +66,7 @@ namespace ARuncibleCargo.Game.Commands
 					gOut.Print("Thank you for flying Frank Black Airlines!");
 				}
 			}
-			else if (eventType == PpeAfterPlayerSay)
+			else if (eventType == EventType.AfterPlayerSay)
 			{
 				var princeMonster = gMDB[38];
 
@@ -287,6 +251,43 @@ namespace ARuncibleCargo.Game.Commands
 		Cleanup:
 
 			;
+		}
+
+		public virtual bool EnemiesInRoom()
+		{
+			var result = false;
+
+			if (gGameState.GetNBTL(Friendliness.Enemy) > 0)
+			{
+				PrintEnemiesNearby();
+
+				NextState = Globals.CreateInstance<IStartState>();
+
+				GotoCleanup = true;
+
+				result = true;
+			}
+
+			return result;
+		}
+
+		public virtual void TravelByTrain(long newRoomUid, long effectUid)
+		{
+			// Train Routine
+
+			var newRoom = gRDB[newRoomUid];
+
+			Debug.Assert(newRoom != null);
+
+			var effect = gEDB[effectUid];
+
+			Debug.Assert(effect != null);
+
+			gEngine.TransportPlayerBetweenRooms(ActorRoom, newRoom, effect);
+
+			NextState = Globals.CreateInstance<IAfterPlayerMoveState>();
+
+			GotoCleanup = true;
 		}
 	}
 }

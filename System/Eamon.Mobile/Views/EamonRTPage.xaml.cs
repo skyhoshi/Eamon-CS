@@ -1,7 +1,7 @@
 ﻿
 // EamonRTPage.xaml.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using Xamarin.Forms;
 using Eamon.Mobile.Models;
@@ -16,7 +16,7 @@ namespace Eamon.Mobile.Views
 		/// <summary></summary>
 		/// <param name="sender"></param>
 		/// <param name="args"></param>
-		async protected virtual void OnItemTapped(object sender, ItemTappedEventArgs args)
+		async public virtual void OnItemTapped(object sender, ItemTappedEventArgs args)
 		{
 			BatchFilesListView.IsEnabled = false;
 

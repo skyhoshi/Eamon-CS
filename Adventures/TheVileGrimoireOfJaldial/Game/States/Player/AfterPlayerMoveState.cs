@@ -1,12 +1,13 @@
 ﻿
 // AfterPlayerMoveState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using System.Linq;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
 
@@ -15,13 +16,13 @@ namespace TheVileGrimoireOfJaldial.Game.States
 	[ClassMappings]
 	public class AfterPlayerMoveState : EamonRT.Game.States.AfterPlayerMoveState, IAfterPlayerMoveState
 	{
-		public override void ProcessEvents(long eventType)
+		public override void ProcessEvents(EventType eventType)
 		{
-			if (eventType == PeAfterExtinguishLightSourceCheck)
+			if (eventType == EventType.AfterExtinguishLightSourceCheck)
 			{
 				var swampRoomUids = new long[] { 42, 43, 44, 45 };
 
-				var room01 = Room as Framework.IRoom;
+				var room01 = NewRoom as Framework.IRoom;
 
 				Debug.Assert(room01 != null);
 

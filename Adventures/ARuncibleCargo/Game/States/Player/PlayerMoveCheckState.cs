@@ -1,9 +1,10 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
@@ -17,9 +18,9 @@ namespace ARuncibleCargo.Game.States
 			gOut.Print("You ride off into the moonlight.");
 		}
 
-		public override void ProcessEvents(long eventType)
+		public override void ProcessEvents(EventType eventType)
 		{
-			if (eventType == PeAfterBlockingArtifactCheck && gGameState.R2 == -34)
+			if (eventType == EventType.AfterBlockingArtifactCheck && gGameState.R2 == -34)
 			{
 				gOut.Print("The broken opening is too small to fit through.");
 			}

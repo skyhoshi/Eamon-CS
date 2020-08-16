@@ -1,7 +1,7 @@
 ﻿
 // GameState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -31,11 +31,11 @@ namespace TheVileGrimoireOfJaldial.Game
 
 		public virtual bool[] SecretDoors { get; set; }
 
-		public virtual long WeatherScalePct { get; set; }
+		public virtual long WeatherFreqPct { get; set; }
 
-		public virtual long EncounterScalePct { get; set; }
+		public virtual long EncounterFreqPct { get; set; }
 
-		public virtual long FlavorScalePct { get; set; }
+		public virtual long FlavorFreqPct { get; set; }
 
 		public virtual long FoggyRoomWeatherIntensity { get; set; }
 
@@ -160,11 +160,11 @@ namespace TheVileGrimoireOfJaldial.Game
 		{
 			SecretDoors = new bool[13];
 
-			WeatherScalePct = 100;
+			WeatherFreqPct = 100;
 
-			EncounterScalePct = 100;
+			EncounterFreqPct = 100;
 
-			FlavorScalePct = 100;
+			FlavorFreqPct = 100;
 
 			Hour = Constants.StartHour;
 

@@ -1,7 +1,7 @@
 ﻿
 // TextWriter.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -20,28 +20,7 @@ namespace EamonPM.Game.Portability
 	public class TextWriter : ITextWriter
 	{
 		/// <summary></summary>
-		protected bool _suppressNewLines;
-
-		/// <summary></summary>
-		protected virtual StringBuilder Buf { get; set; }
-
-		/// <summary></summary>
-		protected virtual StringBuilder Buf01 { get; set; }
-
-		/// <summary></summary>
-		protected virtual Regex SingleSpaceRegex { get; set; }
-
-		/// <summary></summary>
-		protected virtual Regex DoubleSpaceRegex { get; set; }
-
-		/// <summary></summary>
-		protected virtual string ThreeNewLines { get; set; }
-
-		/// <summary></summary>
-		protected virtual string TwoNewLines { get; set; }
-
-		/// <summary></summary>
-		protected virtual long NumNewLines { get; set; }
+		public bool _suppressNewLines;
 
 		public virtual bool EnableOutput { get; set; }
 
@@ -72,63 +51,25 @@ namespace EamonPM.Game.Portability
 		public virtual PunctSpaceCode PunctSpaceCode { get; set; }
 
 		/// <summary></summary>
-		protected virtual void EnforceOutputBufMaxSize()
-		{
-			if (App.OutputBuf.Length - (App.OutputBufStartIndex + 1) > App.SettingsViewModel.OutputBufMaxSize)
-			{
-				App.OutputBufMutex.ReleaseMutex();
-
-				System.Threading.Thread.Sleep(1000);
-
-				App.OutputBufMutex.WaitOne();
-
-				while (App.OutputBuf.Length - (App.OutputBufStartIndex + 1) > App.SettingsViewModel.OutputBufMaxSize)
-				{
-					App.OutputBufStartIndex += (long)(App.SettingsViewModel.OutputBufMaxSize * 0.25);
-				}
-
-				var nlChar = Environment.NewLine[Environment.NewLine.Length - 1];
-
-				while (App.OutputBufStartIndex > -1 && App.OutputBuf[(int)App.OutputBufStartIndex] != nlChar)
-				{
-					App.OutputBufStartIndex--;
-				}
-
-				RefreshOutputText();
-
-				App.OutputBufMutex.ReleaseMutex();
-
-				System.Threading.Thread.Sleep(1000);
-
-				App.OutputBufMutex.WaitOne();
-			}
-		}
+		public virtual StringBuilder Buf { get; set; }
 
 		/// <summary></summary>
-		protected virtual void RefreshOutputText()
-		{
-			Device.BeginInvokeOnMainThread(() =>
-			{
-				try
-				{
-					App.OutputBufMutex.WaitOne();
+		public virtual StringBuilder Buf01 { get; set; }
 
-					var startIndex = (int)(App.OutputBufStartIndex + 1);
+		/// <summary></summary>
+		public virtual Regex SingleSpaceRegex { get; set; }
 
-					var length = App.OutputBuf.Length - startIndex;
+		/// <summary></summary>
+		public virtual Regex DoubleSpaceRegex { get; set; }
 
-					App.PluginLauncherViewModel.OutputText = App.OutputBuf.ToString(startIndex, length);
-				}
-				catch (Exception ex)
-				{
-					// do something
-				}
-				finally
-				{
-					App.OutputBufMutex.ReleaseMutex();
-				}
-			});
-		}
+		/// <summary></summary>
+		public virtual string ThreeNewLines { get; set; }
+
+		/// <summary></summary>
+		public virtual string TwoNewLines { get; set; }
+
+		/// <summary></summary>
+		public virtual long NumNewLines { get; set; }
 
 		public virtual Encoding Encoding
 		{
@@ -516,8 +457,77 @@ namespace EamonPM.Game.Portability
 			WriteLine(format, new object[] { arg0, arg1, arg2 });
 		}
 
+		/// <summary></summary>
+		public virtual void EnforceOutputBufMaxSize()
+		{
+			if (App.OutputBuf.Length - (App.OutputBufStartIndex + 1) > App.SettingsViewModel.OutputBufMaxSize)
+			{
+				App.OutputBufMutex.ReleaseMutex();
+
+				System.Threading.Thread.Sleep(1000);
+
+				App.OutputBufMutex.WaitOne();
+
+				while (App.OutputBuf.Length - (App.OutputBufStartIndex + 1) > App.SettingsViewModel.OutputBufMaxSize)
+				{
+					App.OutputBufStartIndex += (long)(App.SettingsViewModel.OutputBufMaxSize * 0.25);
+				}
+
+				var nlChar = Environment.NewLine[Environment.NewLine.Length - 1];
+
+				while (App.OutputBufStartIndex > -1 && App.OutputBuf[(int)App.OutputBufStartIndex] != nlChar)
+				{
+					App.OutputBufStartIndex--;
+				}
+
+				RefreshOutputText();
+
+				App.OutputBufMutex.ReleaseMutex();
+
+				System.Threading.Thread.Sleep(1000);
+
+				App.OutputBufMutex.WaitOne();
+			}
+		}
+
+		/// <summary></summary>
+		public virtual void RefreshOutputText()
+		{
+			Device.BeginInvokeOnMainThread(() =>
+			{
+				try
+				{
+					App.OutputBufMutex.WaitOne();
+
+					var startIndex = (int)(App.OutputBufStartIndex + 1);
+
+					var length = App.OutputBuf.Length - startIndex;
+
+					App.PluginLauncherViewModel.OutputText = App.OutputBuf.ToString(startIndex, length);
+				}
+				catch (Exception ex)
+				{
+					// do something
+				}
+				finally
+				{
+					App.OutputBufMutex.ReleaseMutex();
+				}
+			});
+		}
+
 		public TextWriter()
 		{
+			EnableOutput = true;
+
+			ResolveUidMacros = true;
+
+			WordWrap = true;
+
+			SuppressNewLines = true;
+
+			Stdout = true;
+
 			Buf = new StringBuilder(Constants.BufSize);
 
 			Buf01 = new StringBuilder(Constants.BufSize);
@@ -529,16 +539,6 @@ namespace EamonPM.Game.Portability
 			ThreeNewLines = string.Format("{0}{0}{0}", Environment.NewLine);
 
 			TwoNewLines = string.Format("{0}{0}", Environment.NewLine);
-
-			EnableOutput = true;
-
-			ResolveUidMacros = true;
-
-			WordWrap = true;
-
-			SuppressNewLines = true;
-
-			Stdout = true;
 		}
 	}
 }

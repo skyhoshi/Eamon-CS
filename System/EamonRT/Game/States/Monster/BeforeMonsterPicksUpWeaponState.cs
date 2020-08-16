@@ -1,11 +1,12 @@
 ﻿
 // BeforeMonsterPicksUpWeaponState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
 using System.Linq;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -17,44 +18,62 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class BeforeMonsterPicksUpWeaponState : State, IBeforeMonsterPicksUpWeaponState
 	{
+		/// <summary></summary>
+		public virtual IMonster LoopMonster { get; set; }
+
+		/// <summary></summary>
+		public virtual IRoom LoopMonsterRoom { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact WeaponArtifact { get; set; }
+
+		/// <summary></summary>
+		public virtual ICommand RedirectCommand { get; set; }
+
+		/// <summary></summary>
+		public virtual ContainerType WeaponContainerType { get; set; }
+
+		/// <summary></summary>
+		public virtual string ContainerPrepName { get; set; }
+
 		public override void Execute()
 		{
-			var monster = gMDB[Globals.LoopMonsterUid];
+			LoopMonster = gMDB[Globals.LoopMonsterUid];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(LoopMonster != null);
 
-			var room = monster.GetInRoom();
+			LoopMonsterRoom = LoopMonster.GetInRoom();
 
-			Debug.Assert(room != null);
+			Debug.Assert(LoopMonsterRoom != null);
 
-			var wpnArtifact = Globals.LoopArtifactList[(int)Globals.LoopArtifactListIndex];
+			WeaponArtifact = Globals.LoopWeaponArtifactList[(int)Globals.LoopWeaponArtifactListIndex];
 
-			Debug.Assert(wpnArtifact != null);
+			Debug.Assert(WeaponArtifact != null);
 
-			if (!wpnArtifact.IsCarriedByMonster(monster))
+			if (!WeaponArtifact.IsCarriedByMonster(LoopMonster))
 			{
-				var containerType = wpnArtifact.GetCarriedByContainerContainerType();
+				WeaponContainerType = WeaponArtifact.GetCarriedByContainerContainerType();
 
-				var command = Enum.IsDefined(typeof(ContainerType), containerType) ? (ICommand)Globals.CreateInstance<IRemoveCommand>() : (ICommand)Globals.CreateInstance<IGetCommand>();
+				RedirectCommand = Enum.IsDefined(typeof(ContainerType), WeaponContainerType) ? (ICommand)Globals.CreateInstance<IRemoveCommand>() : (ICommand)Globals.CreateInstance<IGetCommand>();
 
-				command.ActorMonster = monster;
+				RedirectCommand.ActorMonster = LoopMonster;
 
-				command.ActorRoom = room;
+				RedirectCommand.ActorRoom = LoopMonsterRoom;
 
-				command.Dobj = wpnArtifact;
+				RedirectCommand.Dobj = WeaponArtifact;
 
-				if (Enum.IsDefined(typeof(ContainerType), containerType))
+				if (Enum.IsDefined(typeof(ContainerType), WeaponContainerType))
 				{
-					var prepName = gEngine.EvalContainerType(containerType, "in", "on", "under", "behind");
+					ContainerPrepName = gEngine.EvalContainerType(WeaponContainerType, "in", "on", "under", "behind");
 
-					command.Iobj = wpnArtifact.GetCarriedByContainer();
+					RedirectCommand.Iobj = WeaponArtifact.GetCarriedByContainer();
 
-					command.Prep = gEngine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, prepName, StringComparison.OrdinalIgnoreCase));
+					RedirectCommand.Prep = gEngine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, ContainerPrepName, StringComparison.OrdinalIgnoreCase));
 				}
 
-				command.NextState = Globals.CreateInstance<IBeforeMonsterReadiesWeaponState>();
+				RedirectCommand.NextState = Globals.CreateInstance<IBeforeMonsterReadiesWeaponState>();
 
-				NextState = command;
+				NextState = RedirectCommand;
 
 				goto Cleanup;
 			}

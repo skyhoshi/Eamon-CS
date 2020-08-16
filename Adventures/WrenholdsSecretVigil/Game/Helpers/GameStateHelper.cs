@@ -1,7 +1,7 @@
 ﻿
 // GameStateHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using Eamon.Framework.Helpers;
@@ -31,21 +31,21 @@ namespace WrenholdsSecretVigil.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateMedallionCharges()
+		public virtual bool ValidateMedallionCharges()
 		{
 			return Record.MedallionCharges >= 0 && Record.MedallionCharges <= 15;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateSlimeBlasts()
+		public virtual bool ValidateSlimeBlasts()
 		{
 			return Record.SlimeBlasts >= 0 && Record.SlimeBlasts <= 3;
 		}
 
 		public GameStateHelper()
 		{
-			FieldNames.AddRange(new List<string>()
+			FieldNameList.AddRange(new List<string>()
 			{
 				"MedallionCharges",
 				"SlimeBlasts",

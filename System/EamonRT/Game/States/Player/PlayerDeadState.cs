@@ -1,7 +1,7 @@
 ﻿
 // PlayerDeadState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
@@ -14,25 +14,39 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class PlayerDeadState : State, IPlayerDeadState
 	{
+		public bool _restoreGame;
+
 		public virtual bool PrintLineSep { get; set; }
+
+		/// <summary></summary>
+		public virtual bool RestoreGame 
+		{ 
+			get
+			{
+				return _restoreGame;
+			}
+
+			set
+			{
+				_restoreGame = value;
+			}
+		}
 
 		public override void Execute()
 		{
 			if (gGameState.Die > 0)
 			{
-				var restoreGame = false;
+				RestoreGame = false;
 
-				var monster = gMDB[gGameState.Cm];
+				Debug.Assert(gCharMonster != null);
 
-				Debug.Assert(monster != null);
+				gEngine.DeadMenu(gCharMonster, PrintLineSep, ref _restoreGame);
 
-				gEngine.DeadMenu(monster, PrintLineSep, ref restoreGame);
-
-				if (restoreGame)
+				if (RestoreGame)
 				{
 					Globals.CommandParser.Clear();
 
-					Globals.CommandParser.ActorMonster = gMDB[gGameState.Cm];
+					Globals.CommandParser.ActorMonster = gCharMonster;
 
 					Globals.CommandParser.InputBuf.SetFormat("restore");
 

@@ -1,13 +1,14 @@
 ﻿
 // OpenCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
@@ -16,30 +17,6 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class OpenCommand : EamonRT.Game.Commands.OpenCommand, IOpenCommand
 	{
-		public override void PlayerProcessEvents(long eventType)
-		{
-			// If chest opened reveal cobra
-
-			if (eventType == PpeAfterArtifactOpen && DobjArtifact.Uid == 54 && !gGameState.CobraAppeared)
-			{
-				var cobraMonster = gMDB[52];
-
-				Debug.Assert(cobraMonster != null);
-
-				cobraMonster.SetInRoom(ActorRoom);
-
-				gGameState.CobraAppeared = true;
-
-				NextState = Globals.CreateInstance<IStartState>();
-
-				GotoCleanup = true;
-			}
-			else
-			{
-				base.PlayerProcessEvents(eventType);
-			}
-		}
-
 		public override void PrintOpened(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
@@ -121,6 +98,30 @@ namespace TheTempleOfNgurct.Game.Commands
 		public override void PrintCantVerbHere()
 		{
 			PrintEnemiesNearby();
+		}
+
+		public override void PlayerProcessEvents(EventType eventType)
+		{
+			// If chest opened reveal cobra
+
+			if (eventType == EventType.AfterArtifactOpen && DobjArtifact.Uid == 54 && !gGameState.CobraAppeared)
+			{
+				var cobraMonster = gMDB[52];
+
+				Debug.Assert(cobraMonster != null);
+
+				cobraMonster.SetInRoom(ActorRoom);
+
+				gGameState.CobraAppeared = true;
+
+				NextState = Globals.CreateInstance<IStartState>();
+
+				GotoCleanup = true;
+			}
+			else
+			{
+				base.PlayerProcessEvents(eventType);
+			}
 		}
 
 		public override bool IsAllowedInRoom()

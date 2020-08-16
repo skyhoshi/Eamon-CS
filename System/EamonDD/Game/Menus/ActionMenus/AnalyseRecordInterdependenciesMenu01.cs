@@ -1,7 +1,7 @@
 ﻿
 // AnalyseRecordInterdependenciesMenu01.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using Eamon.Framework;
@@ -11,32 +11,29 @@ namespace EamonDD.Game.Menus.ActionMenus
 {
 	public abstract class AnalyseRecordInterdependenciesMenu01<T> : IAnalyseRecordInterdependenciesMenu01<T> where T : class, IGameBase
 	{
-		/// <summary></summary>
-		protected virtual IAnalyseRecordInterdependenciesMenu<T> AnalyseMenu { get; set; }
-
-		public virtual IList<string> SkipFieldNames
+		public virtual IList<string> SkipFieldNameList
 		{
 			get
 			{
-				return AnalyseMenu.SkipNames;
+				return AnalyseMenu.SkipNameList;
 			}
 
 			set
 			{
-				AnalyseMenu.SkipNames = value;
+				AnalyseMenu.SkipNameList = value;
 			}
 		}
 
-		public virtual bool ClearSkipFieldNames
+		public virtual bool ClearSkipFieldNameList
 		{
 			get
 			{
-				return AnalyseMenu.ClearSkipNames;
+				return AnalyseMenu.ClearSkipNameList;
 			}
 
 			set
 			{
-				AnalyseMenu.ClearSkipNames = value;
+				AnalyseMenu.ClearSkipNameList = value;
 			}
 		}
 
@@ -65,6 +62,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 				AnalyseMenu.ExitFlag = value;
 			}
 		}
+
+		/// <summary></summary>
+		public virtual IAnalyseRecordInterdependenciesMenu<T> AnalyseMenu { get; set; }
 
 		public virtual void Execute()
 		{

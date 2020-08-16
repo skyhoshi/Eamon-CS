@@ -1,7 +1,7 @@
 ﻿
 // IPluginGlobals.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 namespace TheVileGrimoireOfJaldial.Framework.Plugin
 {
@@ -17,7 +17,7 @@ namespace TheVileGrimoireOfJaldial.Framework.Plugin
 		long EventRoll { get; set; }
 
 		/// <summary></summary>
-		long ScaleRoll { get; set; }
+		long FrequencyRoll { get; set; }
 
 		/// <summary></summary>
 		long InitiativeMonsterUid { get; set; }

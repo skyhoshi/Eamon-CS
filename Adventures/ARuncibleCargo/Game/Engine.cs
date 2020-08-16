@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -17,21 +17,6 @@ namespace ARuncibleCargo.Game
 	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
 	{
-		protected override void PrintTooManyWeapons()
-		{
-			gOut.Print("As you enter the Main Hall, Lord William Crankhandle approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"");
-		}
-
-		protected override void PrintDeliverGoods()
-		{
-			gOut.Print("As Sam Slicker, the local buyer of treasure is vacationing, you grant yourself the gold he would have given you.");
-		}
-
-		protected override void PrintGoodsPayment(bool goodsExist, long payment)
-		{
-			gOut.Print("{0}You take {1} gold piece{2} total.", goodsExist ? Environment.NewLine : "", payment, payment != 1 ? "s" : "");
-		}
-
 		public override void PrintMonsterAlive(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
@@ -158,42 +143,42 @@ namespace ARuncibleCargo.Game
 
 			// (Barney) Rubble, Maintenance grate, Sewer grate
 
-			Globals.DoubleDoors.Add(Globals.CreateInstance<IArtifactLinkage>(x => 
+			Globals.DoubleDoorList.Add(Globals.CreateInstance<IArtifactLinkage>(x => 
 			{
 				x.RoomUid = 12;
 				x.ArtifactUid1 = 18;
 				x.ArtifactUid2 = 139;
 			}));
 
-			Globals.DoubleDoors.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
+			Globals.DoubleDoorList.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
 			{
 				x.RoomUid = 13;
 				x.ArtifactUid1 = 139;
 				x.ArtifactUid2 = 18;
 			}));
 
-			Globals.DoubleDoors.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
+			Globals.DoubleDoorList.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
 			{
 				x.RoomUid = 13;
 				x.ArtifactUid1 = 24;
 				x.ArtifactUid2 = 140;
 			}));
 
-			Globals.DoubleDoors.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
+			Globals.DoubleDoorList.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
 			{
 				x.RoomUid = 14;
 				x.ArtifactUid1 = 140;
 				x.ArtifactUid2 = 24;
 			}));
 
-			Globals.DoubleDoors.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
+			Globals.DoubleDoorList.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
 			{
 				x.RoomUid = 17;
 				x.ArtifactUid1 = 26;
 				x.ArtifactUid2 = 138;
 			}));
 
-			Globals.DoubleDoors.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
+			Globals.DoubleDoorList.Add(Globals.CreateInstance<IArtifactLinkage>(x =>
 			{
 				x.RoomUid = 29;
 				x.ArtifactUid1 = 138;
@@ -243,6 +228,21 @@ namespace ARuncibleCargo.Game
 					base.MonsterGetsAggravated(monster01, printFinalNewLine);
 				}
 			}
+		}
+
+		public override void PrintTooManyWeapons()
+		{
+			gOut.Print("As you enter the Main Hall, Lord William Crankhandle approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"");
+		}
+
+		public override void PrintDeliverGoods()
+		{
+			gOut.Print("As Sam Slicker, the local buyer of treasure is vacationing, you grant yourself the gold he would have given you.");
+		}
+
+		public override void PrintGoodsPayment(bool goodsExist, long payment)
+		{
+			gOut.Print("{0}You take {1} gold piece{2} total.", goodsExist ? Environment.NewLine : "", payment, payment != 1 ? "s" : "");
 		}
 
 		public Engine()

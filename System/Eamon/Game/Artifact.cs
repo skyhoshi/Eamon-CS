@@ -1,7 +1,7 @@
 ﻿
 // Artifact.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -22,11 +22,11 @@ namespace Eamon.Game
 	[ClassMappings]
 	public class Artifact : GameBase, IArtifact
 	{
-		#region Protected Fields
+		#region Public Fields
 
-		protected long _location;
+		public long _location;
 
-		protected IArtifactCategory _lastArtifactCategory;
+		public IArtifactCategory _lastArtifactCategory;
 
 		#endregion
 
@@ -57,11 +57,11 @@ namespace Eamon.Game
 
 			set
 			{
-				if (Globals.EnableGameOverrides && Globals.EnableRevealContentOverrides && _location != value && !Globals.RevealContentArtifacts.Contains(this))
+				if (Globals.EnableGameOverrides && Globals.EnableRevealContentOverrides && _location != value && !Globals.RevealContentArtifactList.Contains(this))
 				{
-					Globals.RevealContentArtifacts.Add(this);
+					Globals.RevealContentArtifactList.Add(this);
 
-					Globals.RevealContentLocations.Add(_location);
+					Globals.RevealContentLocationList.Add(_location);
 				}
 
 				_location = value;
@@ -402,43 +402,6 @@ namespace Eamon.Game
 
 		#endregion
 
-		#region Protected Methods
-
-		#region Class Artifact
-
-		protected virtual void GetContainedList01(Func<IArtifact, bool> artifactFindFunc = null, ContainerType containerType = ContainerType.In, bool recurse = false)
-		{
-			var origArtifactFindFunc = artifactFindFunc;
-
-			var allContainerTypes = !Enum.IsDefined(typeof(ContainerType), containerType);
-
-			if (artifactFindFunc == null)
-			{
-				artifactFindFunc = a => a.IsCarriedByContainer(this) && (allContainerTypes || a.GetCarriedByContainerContainerType() == containerType);
-			}
-
-			var list = gEngine.GetArtifactList(a => artifactFindFunc(a) && !gEngine.ArtifactContainedList.Contains(a));
-
-			gEngine.ArtifactContainedList.AddRange(list);
-
-			if (recurse && list.Count > 0)
-			{
-				foreach (var a in list)
-				{
-					var a01 = a as Artifact;
-
-					if (a.GeneralContainer != null && a01 != null)
-					{
-						a01.GetContainedList01(origArtifactFindFunc, (ContainerType)(-1), recurse);
-					}
-				}
-			}
-		}
-
-		#endregion
-
-		#endregion
-
 		#region Public Methods
 
 		#region Interface IDisposable
@@ -724,9 +687,9 @@ namespace Eamon.Game
 		{
 			var gameState = recurse ? Globals?.Engine?.GetGameState() : null;
 
-			var characterMonster = recurse && gameState != null ? gMDB[gameState.Cm] : null;
+			var charMonster = recurse && gameState != null ? gMDB[gameState.Cm] : null;
 
-			return recurse && (IsCarriedByCharacter(recurse) || IsWornByCharacter(recurse)) && characterMonster != null ? characterMonster.IsInRoom() :
+			return recurse && (IsCarriedByCharacter(recurse) || IsWornByCharacter(recurse)) && charMonster != null ? charMonster.IsInRoom() :
 						recurse && GetCarriedByMonster(recurse) != null ? GetCarriedByMonster(recurse).IsInRoom() : 
 						recurse && GetWornByMonster(recurse) != null ? GetWornByMonster(recurse).IsInRoom() : 
 						recurse && GetCarriedByContainer(recurse) != null ? GetCarriedByContainer(recurse).IsInRoom() :
@@ -762,9 +725,9 @@ namespace Eamon.Game
 		{
 			var gameState = recurse ? Globals?.Engine?.GetGameState() : null;
 
-			var characterMonster = recurse && gameState != null ? gMDB[gameState.Cm] : null;
+			var charMonster = recurse && gameState != null ? gMDB[gameState.Cm] : null;
 
-			return recurse && (IsCarriedByCharacter(recurse) || IsWornByCharacter(recurse)) && characterMonster != null ? characterMonster.IsInLimbo() :
+			return recurse && (IsCarriedByCharacter(recurse) || IsWornByCharacter(recurse)) && charMonster != null ? charMonster.IsInLimbo() :
 						recurse && GetCarriedByMonster(recurse) != null ? GetCarriedByMonster(recurse).IsInLimbo() :
 						recurse && GetWornByMonster(recurse) != null ? GetWornByMonster(recurse).IsInLimbo() :
 						recurse && GetCarriedByContainer(recurse) != null ? GetCarriedByContainer(recurse).IsInLimbo() :
@@ -824,9 +787,9 @@ namespace Eamon.Game
 		{
 			var gameState = recurse ? Globals?.Engine?.GetGameState() : null;
 
-			var characterMonster = recurse && gameState != null ? gMDB[gameState.Cm] : null;
+			var charMonster = recurse && gameState != null ? gMDB[gameState.Cm] : null;
 
-			return recurse && (IsCarriedByCharacter(recurse) || IsWornByCharacter(recurse)) && characterMonster != null ? characterMonster.IsInRoomUid(roomUid) :
+			return recurse && (IsCarriedByCharacter(recurse) || IsWornByCharacter(recurse)) && charMonster != null ? charMonster.IsInRoomUid(roomUid) :
 						recurse && GetCarriedByMonster(recurse) != null ? GetCarriedByMonster(recurse).IsInRoomUid(roomUid) :
 						recurse && GetWornByMonster(recurse) != null ? GetWornByMonster(recurse).IsInRoomUid(roomUid) :
 						recurse && GetCarriedByContainer(recurse) != null ? GetCarriedByContainer(recurse).IsInRoomUid(roomUid) :
@@ -971,9 +934,9 @@ namespace Eamon.Game
 		{
 			var gameState = recurse ? Globals?.Engine?.GetGameState() : null;
 
-			var characterMonster = recurse && gameState != null ? gMDB[gameState.Cm] : null;
+			var charMonster = recurse && gameState != null ? gMDB[gameState.Cm] : null;
 
-			return recurse && (IsCarriedByCharacter(recurse) || IsWornByCharacter(recurse)) && characterMonster != null ? characterMonster.GetInRoomUid() :
+			return recurse && (IsCarriedByCharacter(recurse) || IsWornByCharacter(recurse)) && charMonster != null ? charMonster.GetInRoomUid() :
 						recurse && GetCarriedByMonster(recurse) != null ? GetCarriedByMonster(recurse).GetInRoomUid() :
 						recurse && GetWornByMonster(recurse) != null ? GetWornByMonster(recurse).GetInRoomUid() :
 						recurse && GetCarriedByContainer(recurse) != null ? GetCarriedByContainer(recurse).GetInRoomUid() :
@@ -1359,7 +1322,7 @@ namespace Eamon.Game
 			return result;
 		}
 
-		public virtual IList<IArtifactCategory> GetArtifactCategories(ArtifactType[] artifactTypes)
+		public virtual IList<IArtifactCategory> GetArtifactCategoryList(ArtifactType[] artifactTypes)
 		{
 			IList<IArtifactCategory> result = null;
 
@@ -1687,15 +1650,15 @@ namespace Eamon.Game
 
 		public virtual IList<IArtifact> GetContainedList(Func<IArtifact, bool> artifactFindFunc = null, ContainerType containerType = ContainerType.In, bool recurse = false)
 		{
-			var list = new List<IArtifact>();
+			var artifactList = new List<IArtifact>();
 
 			gEngine.ArtifactContainedList.Clear();
 
 			GetContainedList01(artifactFindFunc, containerType, recurse);
 
-			list.AddRange(gEngine.ArtifactContainedList);
+			artifactList.AddRange(gEngine.ArtifactContainedList);
 
-			return list;
+			return artifactList;
 		}
 
 		public virtual RetCode GetContainerInfo(ref long count, ref long weight, ContainerType containerType = ContainerType.In, bool recurse = false)
@@ -1729,6 +1692,35 @@ namespace Eamon.Game
 		#endregion
 
 		#region Class Artifact
+
+		public virtual void GetContainedList01(Func<IArtifact, bool> artifactFindFunc = null, ContainerType containerType = ContainerType.In, bool recurse = false)
+		{
+			var origArtifactFindFunc = artifactFindFunc;
+
+			var allContainerTypes = !Enum.IsDefined(typeof(ContainerType), containerType);
+
+			if (artifactFindFunc == null)
+			{
+				artifactFindFunc = a => a.IsCarriedByContainer(this) && (allContainerTypes || a.GetCarriedByContainerContainerType() == containerType);
+			}
+
+			var artifactList = gEngine.GetArtifactList(a => artifactFindFunc(a) && !gEngine.ArtifactContainedList.Contains(a));
+
+			gEngine.ArtifactContainedList.AddRange(artifactList);
+
+			if (recurse && artifactList.Count > 0)
+			{
+				foreach (var a in artifactList)
+				{
+					var a01 = a as Artifact;
+
+					if (a.GeneralContainer != null && a01 != null)
+					{
+						a01.GetContainedList01(origArtifactFindFunc, (ContainerType)(-1), recurse);
+					}
+				}
+			}
+		}
 
 		public Artifact()
 		{

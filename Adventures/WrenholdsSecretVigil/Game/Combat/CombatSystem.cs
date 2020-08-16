@@ -1,7 +1,7 @@
 ﻿
 // CombatSystem.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
@@ -14,7 +14,23 @@ namespace WrenholdsSecretVigil.Game.Combat
 	[ClassMappings]
 	public class CombatSystem : EamonRT.Game.Combat.CombatSystem, ICombatSystem
 	{
-		protected override void PrintHealthStatus()
+		public override void ExecuteAttack()
+		{
+			Debug.Assert(DfMonster != null);
+
+			// Allow cursing if defender is enemy
+
+			if (DfMonster.Friendliness == Friendliness.Enemy)
+			{
+				Globals.MonsterCurses = true;
+			}
+
+			base.ExecuteAttack();
+
+			Globals.MonsterCurses = false;
+		}
+
+		public override void PrintHealthStatus()
 		{
 			var monsterDies = DfMonster.IsDead();
 
@@ -39,22 +55,6 @@ namespace WrenholdsSecretVigil.Game.Combat
 			}
 
 			base.PrintHealthStatus();
-		}
-
-		public override void ExecuteAttack()
-		{
-			Debug.Assert(DfMonster != null);
-
-			// Allow cursing if defender is enemy
-
-			if (DfMonster.Friendliness == Friendliness.Enemy)
-			{
-				Globals.MonsterCurses = true;
-			}
-
-			base.ExecuteAttack();
-
-			Globals.MonsterCurses = false;
 		}
 	}
 }

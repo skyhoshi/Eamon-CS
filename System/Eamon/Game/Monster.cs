@@ -1,7 +1,7 @@
 ﻿
 // Monster.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -20,9 +20,9 @@ namespace Eamon.Game
 	[ClassMappings]
 	public class Monster : GameBase, IMonster
 	{
-		#region Protected Fields
+		#region Public Fields
 
-		protected long _courage;
+		public long _courage;
 
 		#endregion
 
@@ -721,24 +721,24 @@ namespace Eamon.Game
 				}
 			}
 
-			var list = gEngine.GetArtifactList(a => monsterFindFunc(a));
+			var artifactList = gEngine.GetArtifactList(a => monsterFindFunc(a));
 
-			if (recurse && list.Count > 0)
+			if (recurse && artifactList.Count > 0)
 			{
-				var list01 = new List<IArtifact>();
+				var artifactList01 = new List<IArtifact>();
 
-				foreach (var a in list)
+				foreach (var a in artifactList)
 				{
 					if (a.GeneralContainer != null)
 					{
-						list01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
+						artifactList01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
 					}
 				}
 
-				list.AddRange(list01);
+				artifactList.AddRange(artifactList01);
 			}
 
-			return list;
+			return artifactList;
 		}
 
 		public virtual IList<IArtifact> GetWornList(Func<IArtifact, bool> monsterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false)
@@ -755,24 +755,24 @@ namespace Eamon.Game
 				}
 			}
 
-			var list = gEngine.GetArtifactList(a => monsterFindFunc(a));
+			var artifactList = gEngine.GetArtifactList(a => monsterFindFunc(a));
 
-			if (recurse && list.Count > 0)
+			if (recurse && artifactList.Count > 0)
 			{
-				var list01 = new List<IArtifact>();
+				var artifactList01 = new List<IArtifact>();
 
-				foreach (var a in list)
+				foreach (var a in artifactList)
 				{
 					if (a.GeneralContainer != null)
 					{
-						list01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
+						artifactList01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
 					}
 				}
 
-				list.AddRange(list01);
+				artifactList.AddRange(artifactList01);
 			}
 
-			return list;
+			return artifactList;
 		}
 
 		public virtual IList<IArtifact> GetContainedList(Func<IArtifact, bool> monsterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false)
@@ -789,24 +789,24 @@ namespace Eamon.Game
 				}
 			}
 
-			var list = gEngine.GetArtifactList(a => monsterFindFunc(a));
+			var artifactList = gEngine.GetArtifactList(a => monsterFindFunc(a));
 
-			if (recurse && list.Count > 0)
+			if (recurse && artifactList.Count > 0)
 			{
-				var list01 = new List<IArtifact>();
+				var artifactList01 = new List<IArtifact>();
 
-				foreach (var a in list)
+				foreach (var a in artifactList)
 				{
 					if (a.GeneralContainer != null)
 					{
-						list01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
+						artifactList01.AddRange(a.GetContainedList(artifactFindFunc, (ContainerType)(-1), recurse));
 					}
 				}
 
-				list.AddRange(list01);
+				artifactList.AddRange(artifactList01);
 			}
 
-			return list;
+			return artifactList;
 		}
 
 		public virtual RetCode EnforceFullInventoryWeightLimits(Func<IArtifact, bool> monsterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false)
@@ -819,9 +819,9 @@ namespace Eamon.Game
 
 			mwt = 0;
 
-			var list = GetContainedList(monsterFindFunc, artifactFindFunc);
+			var artifactList = GetContainedList(monsterFindFunc, artifactFindFunc);
 
-			foreach (var a in list)
+			foreach (var a in artifactList)
 			{
 				c = 0;
 
@@ -869,9 +869,9 @@ namespace Eamon.Game
 
 			rc = RetCode.Success;
 
-			var list = GetContainedList(monsterFindFunc, artifactFindFunc, recurse);
+			var artifactList = GetContainedList(monsterFindFunc, artifactFindFunc, recurse);
 
-			foreach (var a in list)
+			foreach (var a in artifactList)
 			{
 				if (!a.IsUnmovable01())
 				{

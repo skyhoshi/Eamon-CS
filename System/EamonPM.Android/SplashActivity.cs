@@ -1,7 +1,7 @@
 ﻿
 // SplashActivity.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -33,12 +33,41 @@ namespace EamonPM
 				- change the BuildGuid to upgrade the binary .apk file and the .XML textfiles in the filesystem (but not CHARACTERS.XML)
 			*/
 
-			static readonly string BuildGuid = "C5DD8C1A-011F-41D7-A63E-9E9EA50FE33E";
+			static readonly string BuildGuid = "723434D7-800C-429A-8E96-AAD313D3DD95";
 
 			static readonly string TAG = "X:" + typeof (SplashActivity).Name;
 
+		// Launches the startup task
+		protected override void OnResume()
+		{
+			base.OnResume();
+
+			App.Rc = RetCode.Success;
+
+			App.BasePath = Application.Context.FilesDir.Path;
+
+			MirrorAssets();
+
+			StartActivity(new Intent(this, typeof(MainActivity)));         // StartActivity(new Intent(Application.Context, typeof(MainActivity)));
+
+			Finish();
+		}
+
+		// Launches the startup task
+		public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
+		{
+			base.OnCreate(savedInstanceState, persistentState);
+			Log.Debug(TAG, "SplashActivity.OnCreate");
+		}
+
+		// Prevent the back button from canceling the startup process
+		public override void OnBackPressed() 
+		{ 
+		
+		}
+
 		/// <summary></summary>
-		protected virtual void MirrorAssets()
+		public virtual void MirrorAssets()
 		{
 			var path = Path.Combine(App.BasePath, Path.Combine("System", "Bin"));
 
@@ -123,31 +152,5 @@ namespace EamonPM
 				}
 			}
 		}
-
-		// Launches the startup task
-		public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
-      {
-         base.OnCreate(savedInstanceState, persistentState);
-			Log.Debug(TAG, "SplashActivity.OnCreate");
-       }
-
-		// Launches the startup task
-		protected override void OnResume()
-		{
-			base.OnResume();
-
-			App.Rc = RetCode.Success;
-
-			App.BasePath = Application.Context.FilesDir.Path;
-
-			MirrorAssets();
-
-			StartActivity(new Intent(this, typeof(MainActivity)));         // StartActivity(new Intent(Application.Context, typeof(MainActivity)));
-
-			Finish();
-		}
-
-		// Prevent the back button from canceling the startup process
-		public override void OnBackPressed() { }
    }
 }

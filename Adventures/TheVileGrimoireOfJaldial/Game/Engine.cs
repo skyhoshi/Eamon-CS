@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -18,15 +18,6 @@ namespace TheVileGrimoireOfJaldial.Game
 	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
 	{
-		protected virtual string GetMonsterWeaponName(IMonster monster)
-		{
-			Debug.Assert(monster != null);
-
-			var weaponArtifact = monster.Weapon > 0 ? gADB[monster.Weapon] : null;
-
-			return weaponArtifact != null ? weaponArtifact.GetArticleName() : "no weapon";
-		}
-
 		public override void PrintMonsterAlive(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
@@ -77,7 +68,7 @@ namespace TheVileGrimoireOfJaldial.Game
 
 			var synonyms = new Dictionary<long, string[]>()
 			{
-				{ 1, new string[] { "magi-torch", "instruction label", "instruction tag", "instructions", "instruction", "label", "tag" } },
+				{ 1, new string[] { "magi-torch", "torch instruction label", "torch instructions", "torch label", "instruction label", "instruction tag", "instructions", "label", "tag" } },
 				{ 3, new string[] { "small crypt door", "crypt door", "crypt", "door" } },
 				{ 4, new string[] { "small tomb door", "tomb door", "tomb", "door" } },
 				{ 5, new string[] { "crypt door", "door" } },
@@ -429,6 +420,15 @@ namespace TheVileGrimoireOfJaldial.Game
 		public override void MoveMonsters(params Func<IMonster, bool>[] whereClauseFuncs)
 		{
 			base.MoveMonsters(m => !m.IsCharacterMonster() && (m.Cast<Framework.IMonster>().Seen02 || m.Friendliness == Friendliness.Friend) && m.Location == gGameState.R3);
+		}
+
+		public virtual string GetMonsterWeaponName(IMonster monster)
+		{
+			Debug.Assert(monster != null);
+
+			var weaponArtifact = monster.Weapon > 0 ? gADB[monster.Weapon] : null;
+
+			return weaponArtifact != null ? weaponArtifact.GetArticleName() : "no weapon";
 		}
 
 		public Engine()

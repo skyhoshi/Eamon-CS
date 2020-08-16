@@ -1,7 +1,7 @@
 ﻿
 // SayCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -9,6 +9,7 @@ using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -17,16 +18,6 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class SayCommand : Command, ISayCommand
 	{
-		/// <summary>
-		/// An event that fires before the player's spoken text is printed.
-		/// </summary>
-		public const long PpeBeforePlayerSayTextPrint = 1;
-
-		/// <summary>
-		/// An event that fires after the player says something.
-		/// </summary>
-		public const long PpeAfterPlayerSay = 2;
-
 		public virtual string OriginalPhrase { get; set; }
 
 		public virtual string PrintedPhrase { get; set; }
@@ -46,7 +37,7 @@ namespace EamonRT.Game.Commands
 
 			ProcessedPhrase = PrintedPhrase.Trim(new char[] { '.', '?', '!' }).ToLower();
 
-			PlayerProcessEvents(PpeBeforePlayerSayTextPrint);
+			PlayerProcessEvents(EventType.BeforePlayerSayTextPrint);
 
 			if (GotoCleanup)
 			{
@@ -55,7 +46,7 @@ namespace EamonRT.Game.Commands
 
 			gOut.Print("Okay, \"{0}\"", PrintedPhrase);
 
-			PlayerProcessEvents(PpeAfterPlayerSay);
+			PlayerProcessEvents(EventType.AfterPlayerSay);
 
 			if (GotoCleanup)
 			{

@@ -13,7 +13,7 @@ namespace LandOfTheMountainKing.Game
 	[ClassMappings]
 	public class IntroStory : EamonRT.Game.IntroStory, IIntroStory
 	{
-		protected override void PrintOutputDefault() //test
+		public override void PrintOutputDefault() //test
 		{
 			gOut.Print("{0}", Globals.LineSep);
 

@@ -1,7 +1,7 @@
 ﻿
 // MainActivity.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -28,209 +28,7 @@ namespace EamonPM
 	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 	{
 		/// <summary></summary>
-		protected virtual Thread GameThread { get; set; }
-
-		/// <summary></summary>
-		/// <param name="classMappings"></param>
-		protected virtual void LoadPortabilityClassMappings(IDictionary<Type, Type> classMappings)
-		{
-			//Debug.Assert(classMappings != null);
-
-			classMappings[typeof(ITextReader)] = typeof(Game.Portability.TextReader);
-
-			classMappings[typeof(ITextWriter)] = typeof(Game.Portability.TextWriter);
-
-			classMappings[typeof(IMutex)] = typeof(Game.Portability.Mutex);
-
-			classMappings[typeof(ITransferProtocol)] = typeof(Game.Portability.TransferProtocol);
-
-			classMappings[typeof(IDirectory)] = typeof(Game.Portability.Directory);
-
-			classMappings[typeof(IFile)] = typeof(Game.Portability.File);
-
-			classMappings[typeof(IPath)] = typeof(Game.Portability.Path);
-
-			classMappings[typeof(ISharpSerializer)] = typeof(Game.Portability.SharpSerializer);
-
-			classMappings[typeof(IThread)] = typeof(Game.Portability.Thread);
-		}
-
-		/// <summary></summary>
-		/// <param name="args"></param>
-		/// <param name="enableStdio"></param>
-		protected virtual void ExecutePlugin(string[] args, bool enableStdio = true)
-		{
-			//Debug.Assert(args != null);
-
-			//Debug.Assert(args.Length > 1);
-
-			//Debug.Assert(string.Equals(args[0], "-pfn", StringComparison.OrdinalIgnoreCase));
-
-			var pluginFileName = System.IO.Path.GetFileNameWithoutExtension(args[1]);
-
-			var assemblyName = Assembly.GetExecutingAssembly().GetReferencedAssemblies().Where(an => an.Name == pluginFileName).FirstOrDefault();
-
-			while (App.PluginLauncherViewModel == null)
-			{
-				Thread.Sleep(150);
-			}
-
-			App.PluginLauncherViewModel.Title =
-				args.Contains("-dgs") || args.Contains("EamonMH.dll") ? "EamonMH" :
-				args.Contains("-rge") ? "EamonDD" :
-				args.Contains("EamonRT.dll") ? "EamonRT" :
-				pluginFileName;
-
-			//Debug.Assert(assemblyName != null);
-
-			var plugin = Assembly.Load(assemblyName);
-
-			//Debug.Assert(plugin != null);
-
-			var typeName = string.Format("{0}.Program", pluginFileName);
-
-			var type = plugin.GetType(typeName);
-
-			//Debug.Assert(type != null);
-
-			var program = (IProgram)Activator.CreateInstance(type);
-
-			//Debug.Assert(program != null);
-
-			program.EnableStdio = enableStdio;
-
-			program.LineWrapUserInput = true;
-
-			program.LoadPortabilityClassMappings = LoadPortabilityClassMappings;
-
-			program.Main(args.Skip(2).ToArray());
-		}
-
-		/// <summary></summary>
-		protected virtual void SaveSettings()
-		{
-			if (App.SettingsViewModel != null)
-			{
-				var path = Path.Combine(App.BasePath, Path.Combine("System", "Bin"));
-
-				var fileName = Path.Combine(path, "MOBILE_SETTINGS.XML");
-
-				ClassMappings.SharpSerializer.Serialize(App.SettingsViewModel, fileName);
-			}
-		}
-
-		/// <summary></summary>
-		/// <param name="obj"></param>
-		protected virtual void PluginLoop(object obj)
-		{
-			var args = (string[])obj;
-
-			while (true)
-			{
-				if (args == null || args.Length < 2 || !string.Equals(args[0], "-pfn", StringComparison.OrdinalIgnoreCase))
-				{
-					goto Cleanup;
-				}
-
-				var systemBinDir = string.Format("{0}System{0}Bin", Path.DirectorySeparatorChar);
-
-				var currWorkDir = Directory.GetCurrentDirectory();
-
-				// if current working directory invalid, bail out
-
-				if (!currWorkDir.EndsWith(systemBinDir) || currWorkDir.Length <= systemBinDir.Length || !Directory.Exists(Constants.AdventuresDir.Replace('\\', Path.DirectorySeparatorChar)))
-				{
-					goto Cleanup;
-				}
-
-				try
-				{
-					App.ExecutePlugin(args, true);
-				}
-				catch (Exception e)
-				{
-					// print message box
-
-					// goto Cleanup;
-				}
-
-				args = App.NextArgs;
-
-				App.NextArgs = null;
-			}
-
-		Cleanup:
-
-			if (App.SettingsViewModel.KeepKeyboardVisible)
-			{
-				App.PluginLauncherPage.InputEntry_Unfocus();
-			}
-
-			Thread.Sleep(750);
-
-			RunOnUiThread(SaveSettingsAndTerminate);
-		}
-
-		/// <summary></summary>
-		protected virtual void StartGameThread()
-		{
-			var threadStart = new System.Threading.ParameterizedThreadStart(App.PluginLoop);
-
-			GameThread = new System.Threading.Thread(threadStart);
-
-			GameThread.Start(App.BatchFile.PluginArgs);
-		}
-
-		/// <summary></summary>
-		protected virtual void SaveSettingsAndTerminate()
-		{
-			SaveSettings();
-
-			Finish();
-
-			Device.BeginInvokeOnMainThread(() =>
-			{
-				Thread.Sleep(150);
-
-				Process.KillProcess(Process.MyPid());
-			});
-		}
-
-		/// <summary></summary>
-		protected virtual void ForcePluginLinkage()
-		{
-			IPluginGlobals pg = EamonMH.Game.Plugin.PluginContext.Globals;
-
-			pg = EamonDD.Game.Plugin.PluginContext.Globals;
-
-			pg = EamonRT.Game.Plugin.PluginContext.Globals;
-
-			pg = ARuncibleCargo.Game.Plugin.PluginContext.Globals;
-
-			pg = BeginnersForest.Game.Plugin.PluginContext.Globals;
-
-			pg = StrongholdOfKahrDur.Game.Plugin.PluginContext.Globals;
-
-			pg = TheBeginnersCave.Game.Plugin.PluginContext.Globals;
-
-			pg = TheSubAquanLaboratory.Game.Plugin.PluginContext.Globals;
-
-			pg = TheTempleOfNgurct.Game.Plugin.PluginContext.Globals;
-
-			pg = TheTrainingGround.Game.Plugin.PluginContext.Globals;
-
-			pg = WrenholdsSecretVigil.Game.Plugin.PluginContext.Globals;
-
-			pg = TheVileGrimoireOfJaldial.Game.Plugin.PluginContext.Globals;
-
-			pg = TheWayfarersInn.Game.Plugin.PluginContext.Globals;
-
-			pg = LandOfTheMountainKing.Game.Plugin.PluginContext.Globals;
-
-			// Note: if ECS Mobile crashes while loading textfiles it is likely that the FreeUids list in the offending textfile is
-			// defined as coming from System.Private.CoreLib.  Xamarin.Forms appears to currently only be compatible with mscorlib,
-			// so you should find a textfile in a previous adventure containing this definition and copy it over.
-		}
+		public virtual Thread GameThread { get; set; }
 
 		protected override void OnCreate(Bundle bundle)
 		{
@@ -321,6 +119,208 @@ namespace EamonPM
 			{
 				base.OnBackPressed();
 			}
+		}
+
+		/// <summary></summary>
+		/// <param name="classMappings"></param>
+		public virtual void LoadPortabilityClassMappings(IDictionary<Type, Type> classMappings)
+		{
+			//Debug.Assert(classMappings != null);
+
+			classMappings[typeof(ITextReader)] = typeof(Game.Portability.TextReader);
+
+			classMappings[typeof(ITextWriter)] = typeof(Game.Portability.TextWriter);
+
+			classMappings[typeof(IMutex)] = typeof(Game.Portability.Mutex);
+
+			classMappings[typeof(ITransferProtocol)] = typeof(Game.Portability.TransferProtocol);
+
+			classMappings[typeof(IDirectory)] = typeof(Game.Portability.Directory);
+
+			classMappings[typeof(IFile)] = typeof(Game.Portability.File);
+
+			classMappings[typeof(IPath)] = typeof(Game.Portability.Path);
+
+			classMappings[typeof(ISharpSerializer)] = typeof(Game.Portability.SharpSerializer);
+
+			classMappings[typeof(IThread)] = typeof(Game.Portability.Thread);
+		}
+
+		/// <summary></summary>
+		/// <param name="args"></param>
+		/// <param name="enableStdio"></param>
+		public virtual void ExecutePlugin(string[] args, bool enableStdio = true)
+		{
+			//Debug.Assert(args != null);
+
+			//Debug.Assert(args.Length > 1);
+
+			//Debug.Assert(string.Equals(args[0], "-pfn", StringComparison.OrdinalIgnoreCase));
+
+			var pluginFileName = System.IO.Path.GetFileNameWithoutExtension(args[1]);
+
+			var assemblyName = Assembly.GetExecutingAssembly().GetReferencedAssemblies().Where(an => an.Name == pluginFileName).FirstOrDefault();
+
+			while (App.PluginLauncherViewModel == null)
+			{
+				Thread.Sleep(150);
+			}
+
+			App.PluginLauncherViewModel.Title =
+				args.Contains("-dgs") || args.Contains("EamonMH.dll") ? "EamonMH" :
+				args.Contains("-rge") ? "EamonDD" :
+				args.Contains("EamonRT.dll") ? "EamonRT" :
+				pluginFileName;
+
+			//Debug.Assert(assemblyName != null);
+
+			var plugin = Assembly.Load(assemblyName);
+
+			//Debug.Assert(plugin != null);
+
+			var typeName = string.Format("{0}.Program", pluginFileName);
+
+			var type = plugin.GetType(typeName);
+
+			//Debug.Assert(type != null);
+
+			var program = (IProgram)Activator.CreateInstance(type);
+
+			//Debug.Assert(program != null);
+
+			program.EnableStdio = enableStdio;
+
+			program.LineWrapUserInput = true;
+
+			program.LoadPortabilityClassMappings = LoadPortabilityClassMappings;
+
+			program.Main(args.Skip(2).ToArray());
+		}
+
+		/// <summary></summary>
+		public virtual void SaveSettings()
+		{
+			if (App.SettingsViewModel != null)
+			{
+				var path = Path.Combine(App.BasePath, Path.Combine("System", "Bin"));
+
+				var fileName = Path.Combine(path, "MOBILE_SETTINGS.XML");
+
+				ClassMappings.SharpSerializer.Serialize(App.SettingsViewModel, fileName);
+			}
+		}
+
+		/// <summary></summary>
+		/// <param name="obj"></param>
+		public virtual void PluginLoop(object obj)
+		{
+			var args = (string[])obj;
+
+			while (true)
+			{
+				if (args == null || args.Length < 2 || !string.Equals(args[0], "-pfn", StringComparison.OrdinalIgnoreCase))
+				{
+					goto Cleanup;
+				}
+
+				var systemBinDir = string.Format("{0}System{0}Bin", Path.DirectorySeparatorChar);
+
+				var currWorkDir = Directory.GetCurrentDirectory();
+
+				// if current working directory invalid, bail out
+
+				if (!currWorkDir.EndsWith(systemBinDir) || currWorkDir.Length <= systemBinDir.Length || !Directory.Exists(Constants.AdventuresDir.Replace('\\', Path.DirectorySeparatorChar)))
+				{
+					goto Cleanup;
+				}
+
+				try
+				{
+					App.ExecutePlugin(args, true);
+				}
+				catch (Exception e)
+				{
+					// print message box
+
+					// goto Cleanup;
+				}
+
+				args = App.NextArgs;
+
+				App.NextArgs = null;
+			}
+
+		Cleanup:
+
+			if (App.SettingsViewModel.KeepKeyboardVisible)
+			{
+				App.PluginLauncherPage.InputEntry_Unfocus();
+			}
+
+			Thread.Sleep(750);
+
+			RunOnUiThread(SaveSettingsAndTerminate);
+		}
+
+		/// <summary></summary>
+		public virtual void StartGameThread()
+		{
+			var threadStart = new System.Threading.ParameterizedThreadStart(App.PluginLoop);
+
+			GameThread = new System.Threading.Thread(threadStart);
+
+			GameThread.Start(App.BatchFile.PluginArgs);
+		}
+
+		/// <summary></summary>
+		public virtual void SaveSettingsAndTerminate()
+		{
+			SaveSettings();
+
+			Finish();
+
+			Device.BeginInvokeOnMainThread(() =>
+			{
+				Thread.Sleep(150);
+
+				Process.KillProcess(Process.MyPid());
+			});
+		}
+
+		/// <summary></summary>
+		public virtual void ForcePluginLinkage()
+		{
+			IPluginGlobals pg = EamonMH.Game.Plugin.PluginContext.Globals;
+
+			pg = EamonDD.Game.Plugin.PluginContext.Globals;
+
+			pg = EamonRT.Game.Plugin.PluginContext.Globals;
+
+			pg = ARuncibleCargo.Game.Plugin.PluginContext.Globals;
+
+			pg = BeginnersForest.Game.Plugin.PluginContext.Globals;
+
+			pg = StrongholdOfKahrDur.Game.Plugin.PluginContext.Globals;
+
+			pg = TheBeginnersCave.Game.Plugin.PluginContext.Globals;
+
+			pg = TheSubAquanLaboratory.Game.Plugin.PluginContext.Globals;
+
+			pg = TheTempleOfNgurct.Game.Plugin.PluginContext.Globals;
+
+			pg = TheTrainingGround.Game.Plugin.PluginContext.Globals;
+
+			pg = WrenholdsSecretVigil.Game.Plugin.PluginContext.Globals;
+
+			pg = TheVileGrimoireOfJaldial.Game.Plugin.PluginContext.Globals;
+
+			pg = TheWayfarersInn.Game.Plugin.PluginContext.Globals;
+
+			pg = LandOfTheMountainKing.Game.Plugin.PluginContext.Globals;
+
+			// Note: if ECS Mobile crashes while loading textfiles it is likely that the FreeUids list in the offending textfile is
+			// defined as coming from System.Private.CoreLib.  Xamarin.Forms appears to currently only be compatible with mscorlib,
+			// so you should find a textfile in a previous adventure containing this definition and copy it over.
 		}
 	}
 }

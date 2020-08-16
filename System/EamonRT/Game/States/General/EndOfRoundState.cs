@@ -1,10 +1,13 @@
 ﻿
 // EndOfRoundState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
+using System.Collections.Generic;
 using System.Linq;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -13,21 +16,19 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class EndOfRoundState : State, IEndOfRoundState
 	{
-		/// <summary>
-		/// An event that fires at the end of the current round, after all processing has been done.
-		/// </summary>
-		public const long PeAfterRoundEnd = 1;
+		/// <summary></summary>
+		public virtual IList<IMonster> ResetMonsterList { get; set; }
 
 		public override void Execute()
 		{
-			var monsters = Globals.Database.MonsterTable.Records.ToList();
+			ResetMonsterList = Globals.Database.MonsterTable.Records.ToList();
 
-			foreach (var monster in monsters)
+			foreach (var monster in ResetMonsterList)
 			{
 				monster.InitGroupCount = monster.GroupCount;
 			}
 
-			ProcessEvents(PeAfterRoundEnd);
+			ProcessEvents(EventType.AfterRoundEnd);
 
 			if (NextState == null)
 			{

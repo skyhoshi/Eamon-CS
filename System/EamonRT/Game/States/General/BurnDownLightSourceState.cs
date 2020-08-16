@@ -1,7 +1,7 @@
 ﻿
 // BurnDownLightSourceState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
@@ -15,51 +15,43 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class BurnDownLightSourceState : State, IBurnDownLightSourceState
 	{
-		public virtual void PrintLightAlmostOutCheck(IArtifact artifact, IArtifactCategory ac)
-		{
-			Debug.Assert(artifact != null && ac != null);
+		/// <summary></summary>
+		public virtual IArtifactCategory LsArtAc { get; set; }
 
-			if (ac.Field1 <= 20)
-			{
-				gOut.Print("{0}{1}", artifact.GetTheName(true, buf: Globals.Buf01), ac.Field1 <= 10 ? " is almost out!" : " grows dim!");
-			}
-		}
+		/// <summary></summary>
+		public virtual IArtifact LsArtifact { get; set; }
 
-		public virtual void DecrementLightTurnCounter(IArtifact artifact, IArtifactCategory ac)
-		{
-			Debug.Assert(artifact != null && ac != null);
-
-			ac.Field1--;
-		}
+		/// <summary></summary>
+		public virtual long LsArtifactUid { get; set; }
 
 		public override void Execute()
 		{
-			var artUid = gGameState.Ls;
+			LsArtifactUid = gGameState.Ls;
 
-			if (artUid > 0 && (!Globals.CommandPromptSeen || ShouldPreTurnProcess()))
+			if (LsArtifactUid > 0 && (!Globals.CommandPromptSeen || ShouldPreTurnProcess()))
 			{
-				var artifact = gADB[artUid];
+				LsArtifact = gADB[LsArtifactUid];
 
-				Debug.Assert(artifact != null);
+				Debug.Assert(LsArtifact != null);
 
-				var ac = artifact.LightSource;
+				LsArtAc = LsArtifact.LightSource;
 
-				if (ac != null && ac.Field1 != -1)
+				if (LsArtAc != null && LsArtAc.Field1 != -1)
 				{
-					if (ac.Field1 > 0)
+					if (LsArtAc.Field1 > 0)
 					{
-						PrintLightAlmostOutCheck(artifact, ac);
+						PrintLightAlmostOutCheck();
 
-						DecrementLightTurnCounter(artifact, ac);
+						DecrementLightTurnCounter();
 
-						if (ac.Field1 < 0)
+						if (LsArtAc.Field1 < 0)
 						{
-							ac.Field1 = 0;
+							LsArtAc.Field1 = 0;
 						}
 					}
 					else
 					{
-						gEngine.LightOut(artifact);
+						gEngine.LightOut(LsArtifact);
 					}
 				}
 			}
@@ -70,6 +62,23 @@ namespace EamonRT.Game.States
 			}
 
 			Globals.NextState = NextState;
+		}
+
+		public virtual void PrintLightAlmostOutCheck()
+		{
+			Debug.Assert(LsArtifact != null && LsArtAc != null);
+
+			if (LsArtAc.Field1 <= 20)
+			{
+				gOut.Print("{0}{1}", LsArtifact.GetTheName(true, buf: Globals.Buf01), LsArtAc.Field1 <= 10 ? " is almost out!" : " grows dim!");
+			}
+		}
+
+		public virtual void DecrementLightTurnCounter()
+		{
+			Debug.Assert(LsArtifact != null && LsArtAc != null);
+
+			LsArtAc.Field1--;
 		}
 
 		public BurnDownLightSourceState()

@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -17,30 +17,6 @@ namespace StrongholdOfKahrDur.Game
 	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, Framework.IEngine
 	{
-		protected override void PrintTooManyWeapons()
-		{
-			gOut.Print("As you enter the Main Hall, Lord William Crankhandle approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"");
-		}
-
-		protected override void PrintDeliverGoods()
-		{
-			gOut.Print("You sell your goods to {0}the local buyer of treasure (under the sign of 3 balls).  He examines your items and pays you what they are worth.", string.Equals(gCharacter.Name, "tom zucchini", StringComparison.OrdinalIgnoreCase) ? "" : "Tom Zucchini, ");
-		}
-
-		protected override void PlayerSpellCastBrainOverload(Spell s, ISpell spell)
-		{
-			Debug.Assert(Enum.IsDefined(typeof(Spell), s));
-
-			Debug.Assert(spell != null);
-
-			gOut.Print("Spell backlash!  Your ability to cast {0} temporarily diminishes!", spell.Name);
-
-			if (gGameState.GetSa(s) > 10)
-			{
-				gGameState.SetSa(s, 10);
-			}
-		}
-
 		public override void AddPoundCharsToArtifactNames()
 		{
 			base.AddPoundCharsToArtifactNames();
@@ -194,6 +170,30 @@ namespace StrongholdOfKahrDur.Game
 			if (!pitMove)
 			{
 				base.MoveMonsters(whereClauseFuncs);
+			}
+		}
+
+		public override void PrintTooManyWeapons()
+		{
+			gOut.Print("As you enter the Main Hall, Lord William Crankhandle approaches you and says, \"You have too many weapons to keep them all, four is the legal limit.\"");
+		}
+
+		public override void PrintDeliverGoods()
+		{
+			gOut.Print("You sell your goods to {0}the local buyer of treasure (under the sign of 3 balls).  He examines your items and pays you what they are worth.", string.Equals(gCharacter.Name, "tom zucchini", StringComparison.OrdinalIgnoreCase) ? "" : "Tom Zucchini, ");
+		}
+
+		public override void PlayerSpellCastBrainOverload(Spell s, ISpell spell)
+		{
+			Debug.Assert(Enum.IsDefined(typeof(Spell), s));
+
+			Debug.Assert(spell != null);
+
+			gOut.Print("Spell backlash!  Your ability to cast {0} temporarily diminishes!", spell.Name);
+
+			if (gGameState.GetSa(s) > 10)
+			{
+				gGameState.SetSa(s, 10);
 			}
 		}
 

@@ -1,9 +1,10 @@
 ﻿
 // DefaultMonsterDecisionState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
@@ -14,30 +15,33 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class DefaultMonsterDecisionState : State, IDefaultMonsterDecisionState
 	{
+		/// <summary></summary>
+		public virtual IMonster LoopMonster { get; set; }
+
 		public override void Execute()
 		{
-			var monster = gMDB[Globals.LoopMonsterUid];
+			LoopMonster = gMDB[Globals.LoopMonsterUid];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(LoopMonster != null);
 
-			if (monster.CheckNBTLHostility())
+			if (LoopMonster.CheckNBTLHostility())
 			{
-				if (monster.CanMoveToRoom(true) && !monster.CheckCourage())
+				if (LoopMonster.CanMoveToRoom(true) && !LoopMonster.CheckCourage())
 				{
 					NextState = Globals.CreateInstance<IBeforeMonsterFleesRoomState>();
 
 					goto Cleanup;
 				}
-				else if (monster.CombatCode != CombatCode.NeverFights)
+				else if (LoopMonster.CombatCode != CombatCode.NeverFights)
 				{
 					NextState = Globals.CreateInstance<IMemberLoopInitializeState>();
 
 					goto Cleanup;
 				}
 			}
-			else if (monster.ShouldReadyWeapon())
+			else if (LoopMonster.ShouldReadyWeapon())
 			{
-				NextState = Globals.CreateInstance<IArtifactLoopInitializeState>();
+				NextState = Globals.CreateInstance<IWeaponArtifactLoopInitializeState>();
 
 				goto Cleanup;
 			}

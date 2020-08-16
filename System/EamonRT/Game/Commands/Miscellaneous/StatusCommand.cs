@@ -1,15 +1,18 @@
 ﻿
 // StatusCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework;
 using Eamon.Framework.Args;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -18,62 +21,91 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class StatusCommand : Command, IStatusCommand
 	{
-		/// <summary>
-		/// An event that fires after the player's status text has been printed.
-		/// </summary>
-		public const long PpeAfterPlayerStatus = 1;
+		public long _charInventoryWeight;
+
+		/// <summary></summary>
+		public virtual long[] ArmorArtifactUids { get; set; }
+
+		/// <summary></summary>
+		public virtual IStatDisplayArgs StatDisplayArgs { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory ArmorArtifactAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact ArmorArtifact { get; set; }
+
+		/// <summary></summary>
+		public virtual IArmor CharArmor { get; set; }
+
+		/// <summary></summary>
+		public virtual Armor CharArmorClass { get; set; }
+
+		/// <summary></summary>
+		public virtual long CharInventoryWeight
+		{
+			get
+			{
+				return _charInventoryWeight;
+			}
+
+			set
+			{
+				_charInventoryWeight = value;
+			}
+		}
 
 		public override void PlayerExecute()
 		{
 			RetCode rc;
 
-			var artUids = new long[] { gGameState.Ar, gGameState.Sh };
+			ArmorArtifactUids = new long[] { gGameState.Ar, gGameState.Sh };
 
-			var armorClass = Armor.SkinClothes;
+			CharArmorClass = Armor.SkinClothes;
 
-			foreach (var artUid in artUids)
+			foreach (var armorArtifactUid in ArmorArtifactUids)
 			{
-				if (artUid > 0)
+				if (armorArtifactUid > 0)
 				{
-					var artifact = gADB[artUid];
+					ArmorArtifact = gADB[armorArtifactUid];
 
-					Debug.Assert(artifact != null);
+					Debug.Assert(ArmorArtifact != null);
 
-					var ac = artifact.Wearable;
+					ArmorArtifactAc = ArmorArtifact.Wearable;
 
-					Debug.Assert(ac != null);
+					Debug.Assert(ArmorArtifactAc != null);
 
-					armorClass += ac.Field1;
+					CharArmorClass += ArmorArtifactAc.Field1;
 				}
 			}
 
-			var armor = gEngine.GetArmors(armorClass);
+			CharArmor = gEngine.GetArmors(CharArmorClass);
 
-			Debug.Assert(armor != null);
+			Debug.Assert(CharArmor != null);
 			
-			Globals.Buf.SetFormat("{0}", armor.Name);
+			Globals.Buf.SetFormat("{0}", CharArmor.Name);
 
-			var charWeight = 0L;
+			CharInventoryWeight = 0;
 
-			rc = ActorMonster.GetFullInventoryWeight(ref charWeight, recurse: true);
+			rc = ActorMonster.GetFullInventoryWeight(ref _charInventoryWeight, recurse: true);
 
 			Debug.Assert(gEngine.IsSuccess(rc));
 
-			var args = Globals.CreateInstance<IStatDisplayArgs>(x =>
+			StatDisplayArgs = Globals.CreateInstance<IStatDisplayArgs>(x =>
 			{
 				x.Monster = ActorMonster;
 				x.ArmorString = Globals.Buf.ToString();
 				x.SpellAbilities = gGameState.Sa;
 				x.Speed = gGameState.Speed;
 				x.CharmMon = gEngine.GetCharismaFactor(gCharacter.GetStats(Stat.Charisma));
-				x.Weight = charWeight;
+				x.Weight = CharInventoryWeight;
 			});
 
-			rc = gCharacter.StatDisplay(args);
+			rc = gCharacter.StatDisplay(StatDisplayArgs);
 
 			Debug.Assert(gEngine.IsSuccess(rc));
 
-			PlayerProcessEvents(PpeAfterPlayerStatus);
+			PlayerProcessEvents(EventType.AfterPlayerStatus);
 
 			if (NextState == null)
 			{

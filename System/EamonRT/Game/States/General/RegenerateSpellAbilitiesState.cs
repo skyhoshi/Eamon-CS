@@ -1,8 +1,9 @@
 ﻿
 // RegenerateSpellAbilitiesState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
+using System.Collections.Generic;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Utilities;
@@ -14,24 +15,30 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class RegenerateSpellAbilitiesState : State, IRegenerateSpellAbilitiesState
 	{
+		/// <summary></summary>
+		public virtual IList<Spell> SpellValueList { get; set; }
+
+		/// <summary></summary>
+		public virtual long SpellIncrement { get; set; }
+
 		public override void Execute()
 		{
 			if (!Globals.CommandPromptSeen || ShouldPreTurnProcess())
 			{
-				var spellValues = EnumUtil.GetValues<Spell>();
+				SpellValueList = EnumUtil.GetValues<Spell>();
 
-				foreach (var sv in spellValues)
+				foreach (var sv in SpellValueList)
 				{
 					if (gGameState.GetSa(sv) < gCharacter.GetSpellAbilities(sv))
 					{
-						var n = (long)((double)gGameState.GetSa(sv) * 1.1) - gGameState.GetSa(sv);
+						SpellIncrement = (long)((double)gGameState.GetSa(sv) * 1.1) - gGameState.GetSa(sv);
 
-						if (gGameState.GetSa(sv) > 0 && n < 1)
+						if (gGameState.GetSa(sv) > 0 && SpellIncrement < 1)
 						{
-							n = 1;
+							SpellIncrement = 1;
 						}
 
-						gGameState.ModSa(sv, n);
+						gGameState.ModSa(sv, SpellIncrement);
 
 						if (gGameState.GetSa(sv) > gCharacter.GetSpellAbilities(sv))
 						{

@@ -1,12 +1,16 @@
 ﻿
 // UnrecognizedCommandState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using Eamon;
+using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Commands;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -15,21 +19,45 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class UnrecognizedCommandState : State, IUnrecognizedCommandState
 	{
+		public bool _newSeen;
+
+		/// <summary></summary>
+		public virtual IList<ICommand> EnabledCommandList { get; set; }
+
+		/// <summary></summary>
+		public virtual IMonster CharMonster { get; set; }
+
+		/// <summary></summary>
+		public virtual bool NewSeen
+		{
+			get
+			{
+				return _newSeen;
+			}
+
+			set
+			{
+				_newSeen = value;
+			}
+		}
+
 		public override void Execute()
 		{
-			var newSeen = false;
+			RetCode rc;
 
-			var charMonster = gMDB[gGameState.Cm];
+			NewSeen = false;
 
-			Debug.Assert(charMonster != null);
+			CharMonster = gCharMonster;
 
-			var commandList = Globals.CommandList.Where(x => x.IsEnabled(charMonster) && x.IsListed).ToList();
+			Debug.Assert(CharMonster != null);
+
+			EnabledCommandList = Globals.CommandList.Where(x => x.IsEnabled(CharMonster) && x.IsListed).ToList();
 
 			gOut.Print("Movement Commands:");
 
 			Globals.Buf.Clear();
 
-			var rc = gEngine.BuildCommandList(commandList, CommandType.Movement, Globals.Buf, ref newSeen);
+			rc = gEngine.BuildCommandList(EnabledCommandList, CommandType.Movement, Globals.Buf, ref _newSeen);
 			
 			Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -39,7 +67,7 @@ namespace EamonRT.Game.States
 
 			Globals.Buf.Clear();
 
-			rc = gEngine.BuildCommandList(commandList, CommandType.Manipulation, Globals.Buf, ref newSeen);
+			rc = gEngine.BuildCommandList(EnabledCommandList, CommandType.Manipulation, Globals.Buf, ref _newSeen);
 
 			Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -49,7 +77,7 @@ namespace EamonRT.Game.States
 
 			Globals.Buf.Clear();
 
-			rc = gEngine.BuildCommandList(commandList, CommandType.Interactive, Globals.Buf, ref newSeen);
+			rc = gEngine.BuildCommandList(EnabledCommandList, CommandType.Interactive, Globals.Buf, ref _newSeen);
 
 			Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -59,13 +87,13 @@ namespace EamonRT.Game.States
 
 			Globals.Buf.Clear();
 
-			rc = gEngine.BuildCommandList(commandList, CommandType.Miscellaneous, Globals.Buf, ref newSeen);
+			rc = gEngine.BuildCommandList(EnabledCommandList, CommandType.Miscellaneous, Globals.Buf, ref _newSeen);
 
 			Debug.Assert(gEngine.IsSuccess(rc));
 
 			gOut.Write("{0}", Globals.Buf);
 
-			if (newSeen)
+			if (NewSeen)
 			{
 				gOut.Print("(*) New Command");
 			}

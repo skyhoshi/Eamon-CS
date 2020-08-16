@@ -55,10 +55,10 @@ namespace LandOfTheMountainKing.Game
 			gGameState.Sa[(long)Spell.Power] = 0;
 
 			// Initialize Hardiness and Agility:
-			gLMKKP1.Agil = gMDB[gGameState.Cm].Agility;
-			gLMKKP1.Hard = gMDB[gGameState.Cm].Hardiness;
-			gMDB[gGameState.Cm].Hardiness = 20;
-			gMDB[gGameState.Cm].Agility = 20;
+			gLMKKP1.Agil = gCharMonster.Agility;
+			gLMKKP1.Hard = gCharMonster.Hardiness;
+			gCharMonster.Hardiness = 20;
+			gCharMonster.Agility = 20;
 
 			gEngine.HideImportedPlayerInventory();
 		}
@@ -86,8 +86,8 @@ namespace LandOfTheMountainKing.Game
 			gGameState.Sa[(long)Spell.Power] = gLMKKP1.power;
 
 			// Set Hardiness and Agility to original values:
-			gMDB[gGameState.Cm].Hardiness = gLMKKP1.Hard;
-			gMDB[gGameState.Cm].Agility = gLMKKP1.Agil;
+			gCharMonster.Hardiness = gLMKKP1.Hard;
+			gCharMonster.Agility = gLMKKP1.Agil;
 
 			gEngine.RestoreImportedPlayerInventory();
 

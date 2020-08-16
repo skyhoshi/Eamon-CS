@@ -1,7 +1,7 @@
 ﻿
 // GameStateHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using Eamon.Framework.Helpers;
@@ -31,21 +31,21 @@ namespace TheBeginnersCave.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateTrollsfire()
+		public virtual bool ValidateTrollsfire()
 		{
 			return Record.Trollsfire >= 0 && Record.Trollsfire <= 1;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateBookWarning()
+		public virtual bool ValidateBookWarning()
 		{
 			return Record.BookWarning >= 0 && Record.BookWarning <= 1;
 		}
 
 		public GameStateHelper()
 		{
-			FieldNames.AddRange(new List<string>()
+			FieldNameList.AddRange(new List<string>()
 			{
 				"Trollsfire",
 				"BookWarning",

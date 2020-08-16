@@ -1,10 +1,11 @@
 ﻿
 // BlastCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
@@ -13,11 +14,11 @@ namespace TheTrainingGround.Game.Commands
 	[ClassMappings]
 	public class BlastCommand : EamonRT.Game.Commands.BlastCommand, IBlastCommand
 	{
-		public override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(EventType eventType)
 		{
 			// BLAST Bozworth
 
-			if (eventType == PpeAfterPlayerSpellCastCheck && DobjMonster != null && DobjMonster.Uid == 20)
+			if (eventType == EventType.AfterPlayerSpellCastCheck && DobjMonster != null && DobjMonster.Uid == 20)
 			{
 				gEngine.PrintEffectDesc(21);
 

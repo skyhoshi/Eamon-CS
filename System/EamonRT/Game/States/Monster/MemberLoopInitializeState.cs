@@ -1,9 +1,10 @@
 ﻿
 // MemberLoopInitializeState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
@@ -13,11 +14,14 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class MemberLoopInitializeState : State, IMemberLoopInitializeState
 	{
+		/// <summary></summary>
+		public virtual IMonster LoopMonster { get; set; }
+
 		public override void Execute()
 		{
-			var monster = gMDB[Globals.LoopMonsterUid];
+			LoopMonster = gMDB[Globals.LoopMonsterUid];
 
-			Debug.Assert(monster != null);
+			Debug.Assert(LoopMonster != null);
 
 			Globals.LoopMemberNumber = 0;
 

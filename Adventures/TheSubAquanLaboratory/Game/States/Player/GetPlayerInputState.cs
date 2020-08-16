@@ -1,11 +1,12 @@
 ﻿
 // GetPlayerInputState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static TheSubAquanLaboratory.Game.Plugin.PluginContext;
 
@@ -14,9 +15,9 @@ namespace TheSubAquanLaboratory.Game.States
 	[ClassMappings]
 	public class GetPlayerInputState : EamonRT.Game.States.GetPlayerInputState, IGetPlayerInputState
 	{
-		public override void ProcessEvents(long eventType)
+		public override void ProcessEvents(EventType eventType)
 		{
-			if (eventType == PeBeforeCommandPromptPrint && ShouldPreTurnProcess())
+			if (eventType == EventType.BeforeCommandPromptPrint && ShouldPreTurnProcess())
 			{
 				// Electrified floor
 
@@ -28,11 +29,11 @@ namespace TheSubAquanLaboratory.Game.States
 				{
 					gOut.Print("The electrified floor zaps everyone in the chamber!");
 
-					var monsters = gEngine.GetMonsterList(m => m.IsCharacterMonster(), m => m.Location == gGameState.Ro && !m.IsCharacterMonster());
+					var monsterList = gEngine.GetMonsterList(m => m.IsCharacterMonster(), m => m.Location == gGameState.Ro && !m.IsCharacterMonster());
 
-					for (var i = 0; i < monsters.Count; i++)
+					for (var i = 0; i < monsterList.Count; i++)
 					{
-						var monster = monsters[i];
+						var monster = monsterList[i];
 
 						var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 						{
@@ -72,11 +73,11 @@ namespace TheSubAquanLaboratory.Game.States
 							{
 								gOut.Print("The chamber has entirely flooded!");
 
-								var monsters = gEngine.GetMonsterList(m => m.Location == gGameState.Ro && !m.IsCharacterMonster());
+								var monsterList = gEngine.GetMonsterList(m => m.Location == gGameState.Ro && !m.IsCharacterMonster());
 
-								for (var i = 0; i < monsters.Count; i++)
+								for (var i = 0; i < monsterList.Count; i++)
 								{
-									var monster = monsters[i];
+									var monster = monsterList[i];
 
 									monster.DmgTaken = monster.Hardiness;
 

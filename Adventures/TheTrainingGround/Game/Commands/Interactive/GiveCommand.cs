@@ -1,12 +1,13 @@
 ﻿
 // GiveCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static TheTrainingGround.Game.Plugin.PluginContext;
 
@@ -31,9 +32,9 @@ namespace TheTrainingGround.Game.Commands
 			}
 		}
 
-		public override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(EventType eventType)
 		{
-			if (eventType == PpeAfterEnforceMonsterWeightLimitsCheck)
+			if (eventType == EventType.AfterEnforceMonsterWeightLimitsCheck)
 			{
 				// Give obsidian scroll case to Emerald Warrior
 
@@ -52,7 +53,7 @@ namespace TheTrainingGround.Game.Commands
 					base.PlayerProcessEvents(eventType);
 				}
 			}
-			else if (eventType == PpeBeforeMonsterTakesGold)
+			else if (eventType == EventType.BeforeMonsterTakesGold)
 			{
 				// Buy potion from gnome
 

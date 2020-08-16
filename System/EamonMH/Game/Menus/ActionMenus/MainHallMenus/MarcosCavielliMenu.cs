@@ -1,7 +1,7 @@
 ﻿
 // MarcosCavielliMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -22,7 +22,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 	public class MarcosCavielliMenu : Menu, IMarcosCavielliMenu
 	{
 		/// <summary></summary>
-		protected enum MenuState : long
+		public enum MenuState : long
 		{
 			/// <summary></summary>
 			None = 0,
@@ -53,7 +53,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 		}
 
 		/// <summary></summary>
-		protected virtual double? Rtio { get; set; }
+		public virtual double? Rtio { get; set; }
 
 		public override void Execute()
 		{

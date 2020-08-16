@@ -1,7 +1,7 @@
 ﻿
 // MainLoop.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -73,11 +73,9 @@ namespace EamonRT.Game
 
 			gEngine.SellExcessWeapons(weaponList);
 
-			var monster = gMDB[gGameState.Cm];
+			Debug.Assert(gCharMonster != null);
 
-			Debug.Assert(monster != null);
-
-			gEngine.ConvertMonsterToCharacter(monster, weaponList);
+			gEngine.ConvertMonsterToCharacter(gCharMonster, weaponList);
 
 			gEngine.SellInventoryToMerchant();
 		}

@@ -1,16 +1,15 @@
 ﻿
 // BlastCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon;
-using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -19,17 +18,6 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class BlastCommand : Command, IBlastCommand
 	{
-		/// <summary>
-		/// An event that fires after the player's spell cast attempt has resolved as successful.
-		/// </summary>
-		public const long PpeAfterPlayerSpellCastCheck = 1;
-
-		/// <summary>
-		/// An event that fires after the <see cref="IMonster">Monster</see> targeted by the <see cref="Spell.Blast">Blast</see>
-		/// spell gets aggravated.
-		/// </summary>
-		public const long PpeAfterMonsterGetsAggravated = 2;
-
 		public virtual bool CastSpell { get; set; }
 
 		public virtual bool CheckAttack { get; set; }
@@ -65,7 +53,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			PlayerProcessEvents(PpeAfterPlayerSpellCastCheck);
+			PlayerProcessEvents(EventType.AfterPlayerSpellCastCheck);
 
 			if (GotoCleanup)
 			{
@@ -77,7 +65,7 @@ namespace EamonRT.Game.Commands
 				gEngine.MonsterGetsAggravated(DobjMonster);
 			}
 
-			PlayerProcessEvents(PpeAfterMonsterGetsAggravated);
+			PlayerProcessEvents(EventType.AfterMonsterGetsAggravated);
 
 			if (GotoCleanup)
 			{

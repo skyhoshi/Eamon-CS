@@ -1,7 +1,7 @@
 ﻿
 // IEngine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -192,10 +192,10 @@ namespace EamonRT.Framework
 
 		/// <summary></summary>
 		/// <param name="room"></param>
-		/// <param name="revealContentIndex"></param>
+		/// <param name="revealContentListIndex"></param>
 		/// <param name="containerTypes"></param>
 		/// <param name="containerContentsList"></param>
-		void RevealContainerContents(IRoom room, long revealContentIndex, ContainerType[] containerTypes, IList<string> containerContentsList = null);
+		void RevealContainerContents(IRoom room, long revealContentListIndex, ContainerType[] containerTypes, IList<string> containerContentsList = null);
 
 		/// <summary></summary>
 		/// <param name="ro"></param>
@@ -286,7 +286,7 @@ namespace EamonRT.Framework
 		/// <summary></summary>
 		/// <param name="monster"></param>
 		/// <returns></returns>
-		IList<IArtifact> BuildLoopArtifactList(IMonster monster);
+		IList<IArtifact> BuildLoopWeaponArtifactList(IMonster monster);
 
 		/// <summary>
 		/// Gets the original carried/worn inventory brought by the player into the game.

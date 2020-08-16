@@ -1,7 +1,7 @@
 ﻿
 // RoomHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -22,22 +22,48 @@ namespace Eamon.Game.Helpers
 	[ClassMappings]
 	public class RoomHelper : Helper<IRoom>, IRoomHelper
 	{
-		#region Protected Methods
+		#region Public Methods
 
 		#region Interface IHelper
+
+		public override bool ValidateRecordAfterDatabaseLoaded()
+		{
+			return true;
+		}
+
+		public override void ListErrorField()
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));
+
+			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
+
+			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Name"), null), Record.Name);
+
+			if (string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) || ShowDesc)
+			{
+				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null), Record.Desc);
+			}
+
+			if (string.Equals(ErrorFieldName, "DirsElement", StringComparison.OrdinalIgnoreCase))
+			{
+				var i = Index;
+
+				gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '.', 0, GetPrintedName("DirsElement"), null), Record.GetDirs(i));
+			}
+		}
 
 		#region GetPrintedName Methods
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameLightLvl()
+		public virtual string GetPrintedNameLightLvl()
 		{
 			return "Light Level";
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual string GetPrintedNameDirsElement()
+		public virtual string GetPrintedNameDirsElement()
 		{
 			var i = Index;
 
@@ -53,9 +79,9 @@ namespace Eamon.Game.Helpers
 		#region GetName Methods
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameDirs(bool addToNamesList)
+		public virtual string GetNameDirs(bool addToNameList)
 		{
 			var directionValues = EnumUtil.GetValues<Direction>();
 
@@ -63,24 +89,24 @@ namespace Eamon.Game.Helpers
 			{
 				Index = (long)dv;
 
-				GetName("DirsElement", addToNamesList);
+				GetName("DirsElement", addToNameList);
 			}
 
 			return "Dirs";
 		}
 
 		/// <summary></summary>
-		/// <param name="addToNamesList"></param>
+		/// <param name="addToNameList"></param>
 		/// <returns></returns>
-		protected virtual string GetNameDirsElement(bool addToNamesList)
+		public virtual string GetNameDirsElement(bool addToNameList)
 		{
 			var i = Index;
 
 			var result = string.Format("Dirs[{0}].Element", i);
 
-			if (addToNamesList)
+			if (addToNameList)
 			{
-				Names.Add(result);
+				NameList.Add(result);
 			}
 
 			return result;
@@ -92,7 +118,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual object GetValueDirsElement()
+		public virtual object GetValueDirsElement()
 		{
 			var i = Index;
 
@@ -105,14 +131,14 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateUid()
+		public virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateName()
+		public virtual bool ValidateName()
 		{
 			if (Record.Name != null)
 			{
@@ -124,28 +150,28 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateDesc()
+		public virtual bool ValidateDesc()
 		{
 			return string.IsNullOrWhiteSpace(Record.Desc) == false && Record.Desc.Length <= Constants.RmDescLen;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateLightLvl()
+		public virtual bool ValidateLightLvl()
 		{
 			return Enum.IsDefined(typeof(LightLevel), Record.LightLvl);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateType()
+		public virtual bool ValidateType()
 		{
 			return Enum.IsDefined(typeof(RoomType), Record.Type);
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateZone()
+		public virtual bool ValidateZone()
 		{
 			return Record.Zone > 0;
 		}
@@ -156,7 +182,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateInterdependenciesDesc()
+		public virtual bool ValidateInterdependenciesDesc()
 		{
 			var result = true;
 
@@ -188,7 +214,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateInterdependenciesDirs()
+		public virtual bool ValidateInterdependenciesDirs()
 		{
 			var result = true;
 
@@ -211,7 +237,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateInterdependenciesDirsElement()
+		public virtual bool ValidateInterdependenciesDirsElement()
 		{
 			var result = true;
 
@@ -303,7 +329,7 @@ namespace Eamon.Game.Helpers
 		#region PrintDesc Methods
 
 		/// <summary></summary>
-		protected virtual void PrintDescName()
+		public virtual void PrintDescName()
 		{
 			var fullDesc = "Enter the name of the room." + Environment.NewLine + Environment.NewLine + "Room names should always be able to stand alone inside a pair of brackets: [Room Name].";
 
@@ -311,7 +337,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescDesc()
+		public virtual void PrintDescDesc()
 		{
 			var fullDesc = "Enter a detailed description of the room.";
 
@@ -319,7 +345,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescSeen()
+		public virtual void PrintDescSeen()
 		{
 			var fullDesc = "Enter the Seen status of the room.";
 
@@ -329,7 +355,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescLightLvl()
+		public virtual void PrintDescLightLvl()
 		{
 			var fullDesc = "Enter the level of light in the room.";
 
@@ -346,7 +372,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescType()
+		public virtual void PrintDescType()
 		{
 			var fullDesc = "Enter the type of the room.";
 
@@ -363,7 +389,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescZone()
+		public virtual void PrintDescZone()
 		{
 			var fullDesc = "Enter the zone of the room.";
 
@@ -373,7 +399,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintDescDirsElement()
+		public virtual void PrintDescDirsElement()
 		{
 			var i = Index;
 
@@ -401,7 +427,7 @@ namespace Eamon.Game.Helpers
 		#region List Methods
 
 		/// <summary></summary>
-		protected virtual void ListUid()
+		public virtual void ListUid()
 		{
 			if (FullDetail)
 			{
@@ -419,7 +445,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListName()
+		public virtual void ListName()
 		{
 			if (FullDetail)
 			{
@@ -430,7 +456,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListDesc()
+		public virtual void ListDesc()
 		{
 			if (FullDetail && ShowDesc)
 			{
@@ -454,7 +480,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListSeen()
+		public virtual void ListSeen()
 		{
 			if (FullDetail)
 			{
@@ -465,7 +491,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListLightLvl()
+		public virtual void ListLightLvl()
 		{
 			if (FullDetail)
 			{
@@ -476,7 +502,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListType()
+		public virtual void ListType()
 		{
 			if (FullDetail)
 			{
@@ -497,7 +523,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListZone()
+		public virtual void ListZone()
 		{
 			if (FullDetail)
 			{
@@ -508,7 +534,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListDirs()
+		public virtual void ListDirs()
 		{
 			var directionValues = EnumUtil.GetValues<Direction>();
 
@@ -523,7 +549,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListDirsElement()
+		public virtual void ListDirsElement()
 		{
 			var i = Index;
 
@@ -573,7 +599,7 @@ namespace Eamon.Game.Helpers
 		#region Input Methods
 
 		/// <summary></summary>
-		protected virtual void InputUid()
+		public virtual void InputUid()
 		{
 			gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
 
@@ -581,7 +607,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputName()
+		public virtual void InputName()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -613,7 +639,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputDesc()
+		public virtual void InputDesc()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -649,7 +675,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputSeen()
+		public virtual void InputSeen()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -681,7 +707,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputLightLvl()
+		public virtual void InputLightLvl()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -713,7 +739,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputType()
+		public virtual void InputType()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -745,7 +771,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputZone()
+		public virtual void InputZone()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -777,7 +803,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputDirs()
+		public virtual void InputDirs()
 		{
 			var directionValues = EnumUtil.GetValues<Direction>();
 
@@ -790,7 +816,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputDirsElement()
+		public virtual void InputDirsElement()
 		{
 			var i = Index;
 
@@ -853,7 +879,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class RoomHelper
 
-		protected override void SetUidIfInvalid()
+		public override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -867,47 +893,9 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		#endregion
-
-		#endregion
-
-		#region Public Methods
-
-		#region Interface IHelper
-
-		public override bool ValidateRecordAfterDatabaseLoaded()
-		{
-			return true;
-		}
-
-		public override void ListErrorField()
-		{
-			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));
-
-			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
-
-			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Name"), null), Record.Name);
-
-			if (string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) || ShowDesc)
-			{
-				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null), Record.Desc);
-			}
-
-			if (string.Equals(ErrorFieldName, "DirsElement", StringComparison.OrdinalIgnoreCase))
-			{
-				var i = Index;
-
-				gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '.', 0, GetPrintedName("DirsElement"), null), Record.GetDirs(i));
-			}
-		}
-
-		#endregion
-
-		#region Class RoomHelper
-
 		public RoomHelper()
 		{
-			FieldNames = new List<string>()
+			FieldNameList = new List<string>()
 			{
 						"Uid",
 						"IsUidRecycled",

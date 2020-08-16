@@ -1,7 +1,7 @@
 ﻿
 // GameStateHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using Eamon.Framework.Helpers;
@@ -31,28 +31,28 @@ namespace BeginnersForest.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateQueenGiftEffectUid()
+		public virtual bool ValidateQueenGiftEffectUid()
 		{
 			return Record.QueenGiftEffectUid >= 5 && Record.QueenGiftEffectUid <= 6;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateQueenGiftArtifactUid()
+		public virtual bool ValidateQueenGiftArtifactUid()
 		{
 			return Record.QueenGiftArtifactUid == 7 || Record.QueenGiftArtifactUid == 15;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateSpookCounter()
+		public virtual bool ValidateSpookCounter()
 		{
 			return Record.SpookCounter >= 0 && Record.SpookCounter <= 10;
 		}
 
 		public GameStateHelper()
 		{
-			FieldNames.AddRange(new List<string>()
+			FieldNameList.AddRange(new List<string>()
 			{
 				"QueenGiftEffectUid",
 				"QueenGiftArtifactUid",

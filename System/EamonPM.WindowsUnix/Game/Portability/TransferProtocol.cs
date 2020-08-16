@@ -1,7 +1,7 @@
 ﻿
 // TransferProtocol.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Portability;
@@ -10,14 +10,6 @@ namespace EamonPM.Game.Portability
 {
 	public class TransferProtocol : ITransferProtocol
 	{
-		/// <summary></summary>
-		/// <param name="path"></param>
-		/// <returns></returns>
-		protected virtual string NormalizePath(string path)
-		{
-			return path != null ? path.Replace(System.IO.Path.DirectorySeparatorChar == '\\' ? '/' : '\\', System.IO.Path.DirectorySeparatorChar) : null;
-		}
-
 		public virtual void SendCharacterToMainHall(string filePrefix, string filesetFileName, string characterFileName, string effectFileName, string characterName)
 		{
 			Debug.Assert(!string.IsNullOrWhiteSpace(filesetFileName));
@@ -76,6 +68,14 @@ namespace EamonPM.Game.Portability
 			Program.ExecutePlugin(args, false);
 
 			System.IO.Directory.SetCurrentDirectory(dir);
+		}
+
+		/// <summary></summary>
+		/// <param name="path"></param>
+		/// <returns></returns>
+		public virtual string NormalizePath(string path)
+		{
+			return path != null ? path.Replace(System.IO.Path.DirectorySeparatorChar == '\\' ? '/' : '\\', System.IO.Path.DirectorySeparatorChar) : null;
 		}
 	}
 }

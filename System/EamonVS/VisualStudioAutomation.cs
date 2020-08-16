@@ -1,7 +1,7 @@
 ﻿
 // VisualStudioAutomation.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Threading;
@@ -21,292 +21,18 @@ namespace EamonVS
 {
 	public class VisualStudioAutomation : IVisualStudioAutomation
 	{
-		/// <summary></summary>
-		protected virtual EnvDTE.DTE Dte { get; set; }
-
-		/// <summary></summary>
-		protected virtual EnvDTE.Solution Solution { get; set; }
-
 		public virtual string DevenvExePath { get; set; }
 
 		public virtual string SolutionFile { get; set; }
 
-		/// <summary>Creates and returns a DTE instance of specified VS version.</summary>
-		/// <returns>DTE instance or <see langword="null"> if not found.</see></returns>
-		protected virtual EnvDTE.DTE CreateDteInstance()
-		{
-			Debug.Assert(!string.IsNullOrWhiteSpace(DevenvExePath));
+		/// <summary></summary>
+		public virtual EnvDTE.DTE Dte { get; set; }
 
-			EnvDTE.DTE dte = null;
-			Process proc = null;
-
-			// start devenv
-			ProcessStartInfo procStartInfo = new ProcessStartInfo();
-			procStartInfo.Arguments = "-Embedding";
-			procStartInfo.CreateNoWindow = true;
-			procStartInfo.FileName = DevenvExePath;
-			procStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-			procStartInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(DevenvExePath);
-
-			try
-			{
-				proc = Process.Start(procStartInfo);
-			}
-			catch (Exception)
-			{
-				return null;
-			}
-
-			if (proc == null)
-			{
-				return null;
-			}
-
-			// get DTE
-			dte = GetDTE(proc.Id, 120);
-
-			return dte;
-		}
-
-		/// <summary>Gets the DTE object from any devenv process.</summary>
-		/// <remarks>After starting devenv.exe, the DTE object is not ready. We need to try repeatedly and fail after the timeout.</remarks>
-		/// <param name="processId">The process id of devenv.exe</param>
-		/// <param name="timeout">Timeout in seconds.</param>
-		/// <returns>Retrieved DTE object or <see langword="null"> if not found.</see></returns>
-		protected virtual EnvDTE.DTE GetDTE(int processId, int timeout)
-		{
-			EnvDTE.DTE res = null;
-			DateTime startTime = DateTime.Now;
-
-			while (res == null && DateTime.Now.Subtract(startTime).Seconds < timeout)
-			{
-				Thread.Sleep(1000);
-				res = GetDTE(processId);
-			}
-
-			return res;
-		}
+		/// <summary></summary>
+		public virtual EnvDTE.Solution Solution { get; set; }
 
 		[DllImport("ole32.dll")]
-		protected static extern int CreateBindCtx(uint reserved, out IBindCtx ppbc);
-
-		/// <summary>Gets the DTE object from any devenv process.</summary>
-		/// <param name="processId">The process id of devenv.exe</param>
-		/// <returns>Retrieved DTE object or <see langword="null"> if not found.</see></returns>
-		protected virtual EnvDTE.DTE GetDTE(int processId)
-		{
-			object runningObject = null;
-
-			IBindCtx bindCtx = null;
-			IRunningObjectTable rot = null;
-			IEnumMoniker enumMonikers = null;
-
-			try
-			{
-				Marshal.ThrowExceptionForHR(CreateBindCtx(reserved: 0, ppbc: out bindCtx));
-				bindCtx.GetRunningObjectTable(out rot);
-				rot.EnumRunning(out enumMonikers);
-
-				IMoniker[] moniker = new IMoniker[1];
-				IntPtr numberFetched = IntPtr.Zero;
-				while (enumMonikers.Next(1, moniker, numberFetched) == 0)
-				{
-					IMoniker runningObjectMoniker = moniker[0];
-
-					string name = null;
-
-					try
-					{
-						if (runningObjectMoniker != null)
-						{
-							runningObjectMoniker.GetDisplayName(bindCtx, null, out name);
-						}
-					}
-					catch (UnauthorizedAccessException)
-					{
-						// Do nothing, there is something in the ROT that we do not have access to.
-					}
-
-					Regex monikerRegex = new Regex(@"!VisualStudio.DTE\.\d+\.\d+\:" + processId, RegexOptions.IgnoreCase);
-					if (!string.IsNullOrEmpty(name) && monikerRegex.IsMatch(name))
-					{
-						Marshal.ThrowExceptionForHR(rot.GetObject(runningObjectMoniker, out runningObject));
-						break;
-					}
-				}
-			}
-			finally
-			{
-				if (enumMonikers != null)
-				{
-					Marshal.ReleaseComObject(enumMonikers);
-				}
-
-				if (rot != null)
-				{
-					Marshal.ReleaseComObject(rot);
-				}
-
-				if (bindCtx != null)
-				{
-					Marshal.ReleaseComObject(bindCtx);
-				}
-			}
-
-			return runningObject as EnvDTE.DTE;
-		}
-
-		/// <summary></summary>
-		/// <param name="func"></param>
-		/// <param name="numTries"></param>
-		/// <param name="sleepMs"></param>
-		/// <returns></returns>
-		protected virtual RetCode ExecuteWithRetry(Func<bool> func, long numTries, long sleepMs)
-		{
-			Debug.Assert(func != null);
-
-			Exception savedEx = null;
-
-			bool result = false;
-
-			for (var i = 0; i < numTries; i++)
-			{
-				try
-				{
-					result = func();
-				}
-				catch (Exception ex)
-				{
-					if (savedEx == null)
-					{
-						savedEx = ex;
-					}
-
-					result = false;
-				}
-
-				Thread.Sleep(result ? 500 : (int)sleepMs);
-
-				if (result)
-				{
-					break;
-				}
-			}
-
-			if (!result && savedEx != null)
-			{
-				throw new Exception("ExecuteWithRetry: caught exception", savedEx);
-			}
-
-			return result ? RetCode.Success : RetCode.Failure;
-		}
-
-		/// <summary></summary>
-		/// <returns></returns>
-		protected virtual RetCode CreateDteIfNecessary()
-		{
-			RetCode result;
-
-			try
-			{
-				result = RetCode.Success;
-
-				if (Dte == null)
-				{
-					Console.Out.Write("Creating Visual Studio DTE... ");
-
-					// create DTE
-					result = ExecuteWithRetry(() => 
-					{
-						Dte = CreateDteInstance();
-						return Dte != null;
-					}, 50, 250);
-
-					if (result == RetCode.Success && Dte != null)
-					{
-						result = ExecuteWithRetry(() => 
-						{
-							Dte.UserControl = false;
-							return true;
-						}, 50, 250);
-					}
-
-					if (result == RetCode.Success)
-					{ 
-						Console.Out.WriteLine("succeeded");
-					}
-					else
-					{
-						Console.Out.WriteLine("failed");
-					}
-				}
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine(ex.ToString());
-
-				Dte = null;
-
-				result = RetCode.Failure;
-			}
-
-			return result;
-		}
-
-		/// <summary></summary>
-		/// <returns></returns>
-		protected virtual RetCode OpenSolutionIfNecessary()
-		{
-			RetCode result;
-
-			Debug.Assert(Dte != null);
-
-			Debug.Assert(!string.IsNullOrWhiteSpace(SolutionFile));
-
-			try
-			{
-				result = RetCode.Success;
-
-				if (Solution == null)
-				{
-					Console.Out.Write("Opening {0} solution... ", Path.GetFileNameWithoutExtension(SolutionFile));
-
-					result = ExecuteWithRetry(() =>
-					{
-						Solution = Dte.Solution;
-						return Solution != null;
-					}, 50, 250);
-
-					if (result == RetCode.Success && Solution != null)
-					{
-						result = ExecuteWithRetry(() =>
-						{
-							Solution.Open(SolutionFile);
-							return true;
-						}, 50, 250);
-					}
-
-					if (result == RetCode.Success)
-					{
-						Console.Out.WriteLine("succeeded");
-					}
-					else
-					{
-						Console.Out.WriteLine("failed");
-					}
-				}
-			}
-			catch (Exception ex)
-			{
-				Console.WriteLine(ex.ToString());
-
-				Solution = null;
-
-				result = RetCode.Failure;
-			}
-
-			return result;
-		}
+		public static extern int CreateBindCtx(uint reserved, out IBindCtx ppbc);
 
 		public virtual RetCode AddProjectToSolution(string projName)
 		{
@@ -628,6 +354,280 @@ namespace EamonVS
 			catch (Exception ex)
 			{
 				Console.WriteLine(ex.ToString());
+
+				result = RetCode.Failure;
+			}
+
+			return result;
+		}
+
+		/// <summary>Creates and returns a DTE instance of specified VS version.</summary>
+		/// <returns>DTE instance or <see langword="null"> if not found.</see></returns>
+		public virtual EnvDTE.DTE CreateDteInstance()
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(DevenvExePath));
+
+			EnvDTE.DTE dte = null;
+			Process proc = null;
+
+			// start devenv
+			ProcessStartInfo procStartInfo = new ProcessStartInfo();
+			procStartInfo.Arguments = "-Embedding";
+			procStartInfo.CreateNoWindow = true;
+			procStartInfo.FileName = DevenvExePath;
+			procStartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+			procStartInfo.WorkingDirectory = System.IO.Path.GetDirectoryName(DevenvExePath);
+
+			try
+			{
+				proc = Process.Start(procStartInfo);
+			}
+			catch (Exception)
+			{
+				return null;
+			}
+
+			if (proc == null)
+			{
+				return null;
+			}
+
+			// get DTE
+			dte = GetDTE(proc.Id, 120);
+
+			return dte;
+		}
+
+		/// <summary>Gets the DTE object from any devenv process.</summary>
+		/// <remarks>After starting devenv.exe, the DTE object is not ready. We need to try repeatedly and fail after the timeout.</remarks>
+		/// <param name="processId">The process id of devenv.exe</param>
+		/// <param name="timeout">Timeout in seconds.</param>
+		/// <returns>Retrieved DTE object or <see langword="null"> if not found.</see></returns>
+		public virtual EnvDTE.DTE GetDTE(int processId, int timeout)
+		{
+			EnvDTE.DTE res = null;
+			DateTime startTime = DateTime.Now;
+
+			while (res == null && DateTime.Now.Subtract(startTime).Seconds < timeout)
+			{
+				Thread.Sleep(1000);
+				res = GetDTE(processId);
+			}
+
+			return res;
+		}
+
+		/// <summary>Gets the DTE object from any devenv process.</summary>
+		/// <param name="processId">The process id of devenv.exe</param>
+		/// <returns>Retrieved DTE object or <see langword="null"> if not found.</see></returns>
+		public virtual EnvDTE.DTE GetDTE(int processId)
+		{
+			object runningObject = null;
+
+			IBindCtx bindCtx = null;
+			IRunningObjectTable rot = null;
+			IEnumMoniker enumMonikers = null;
+
+			try
+			{
+				Marshal.ThrowExceptionForHR(CreateBindCtx(reserved: 0, ppbc: out bindCtx));
+				bindCtx.GetRunningObjectTable(out rot);
+				rot.EnumRunning(out enumMonikers);
+
+				IMoniker[] moniker = new IMoniker[1];
+				IntPtr numberFetched = IntPtr.Zero;
+				while (enumMonikers.Next(1, moniker, numberFetched) == 0)
+				{
+					IMoniker runningObjectMoniker = moniker[0];
+
+					string name = null;
+
+					try
+					{
+						if (runningObjectMoniker != null)
+						{
+							runningObjectMoniker.GetDisplayName(bindCtx, null, out name);
+						}
+					}
+					catch (UnauthorizedAccessException)
+					{
+						// Do nothing, there is something in the ROT that we do not have access to.
+					}
+
+					Regex monikerRegex = new Regex(@"!VisualStudio.DTE\.\d+\.\d+\:" + processId, RegexOptions.IgnoreCase);
+					if (!string.IsNullOrEmpty(name) && monikerRegex.IsMatch(name))
+					{
+						Marshal.ThrowExceptionForHR(rot.GetObject(runningObjectMoniker, out runningObject));
+						break;
+					}
+				}
+			}
+			finally
+			{
+				if (enumMonikers != null)
+				{
+					Marshal.ReleaseComObject(enumMonikers);
+				}
+
+				if (rot != null)
+				{
+					Marshal.ReleaseComObject(rot);
+				}
+
+				if (bindCtx != null)
+				{
+					Marshal.ReleaseComObject(bindCtx);
+				}
+			}
+
+			return runningObject as EnvDTE.DTE;
+		}
+
+		/// <summary></summary>
+		/// <param name="func"></param>
+		/// <param name="numTries"></param>
+		/// <param name="sleepMs"></param>
+		/// <returns></returns>
+		public virtual RetCode ExecuteWithRetry(Func<bool> func, long numTries, long sleepMs)
+		{
+			Debug.Assert(func != null);
+
+			Exception savedEx = null;
+
+			bool result = false;
+
+			for (var i = 0; i < numTries; i++)
+			{
+				try
+				{
+					result = func();
+				}
+				catch (Exception ex)
+				{
+					if (savedEx == null)
+					{
+						savedEx = ex;
+					}
+
+					result = false;
+				}
+
+				Thread.Sleep(result ? 500 : (int)sleepMs);
+
+				if (result)
+				{
+					break;
+				}
+			}
+
+			if (!result && savedEx != null)
+			{
+				throw new Exception("ExecuteWithRetry: caught exception", savedEx);
+			}
+
+			return result ? RetCode.Success : RetCode.Failure;
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual RetCode CreateDteIfNecessary()
+		{
+			RetCode result;
+
+			try
+			{
+				result = RetCode.Success;
+
+				if (Dte == null)
+				{
+					Console.Out.Write("Creating Visual Studio DTE... ");
+
+					// create DTE
+					result = ExecuteWithRetry(() =>
+					{
+						Dte = CreateDteInstance();
+						return Dte != null;
+					}, 50, 250);
+
+					if (result == RetCode.Success && Dte != null)
+					{
+						result = ExecuteWithRetry(() =>
+						{
+							Dte.UserControl = false;
+							return true;
+						}, 50, 250);
+					}
+
+					if (result == RetCode.Success)
+					{
+						Console.Out.WriteLine("succeeded");
+					}
+					else
+					{
+						Console.Out.WriteLine("failed");
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+
+				Dte = null;
+
+				result = RetCode.Failure;
+			}
+
+			return result;
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual RetCode OpenSolutionIfNecessary()
+		{
+			RetCode result;
+
+			Debug.Assert(Dte != null);
+
+			Debug.Assert(!string.IsNullOrWhiteSpace(SolutionFile));
+
+			try
+			{
+				result = RetCode.Success;
+
+				if (Solution == null)
+				{
+					Console.Out.Write("Opening {0} solution... ", Path.GetFileNameWithoutExtension(SolutionFile));
+
+					result = ExecuteWithRetry(() =>
+					{
+						Solution = Dte.Solution;
+						return Solution != null;
+					}, 50, 250);
+
+					if (result == RetCode.Success && Solution != null)
+					{
+						result = ExecuteWithRetry(() =>
+						{
+							Solution.Open(SolutionFile);
+							return true;
+						}, 50, 250);
+					}
+
+					if (result == RetCode.Success)
+					{
+						Console.Out.WriteLine("succeeded");
+					}
+					else
+					{
+						Console.Out.WriteLine("failed");
+					}
+				}
+			}
+			catch (Exception ex)
+			{
+				Console.WriteLine(ex.ToString());
+
+				Solution = null;
 
 				result = RetCode.Failure;
 			}

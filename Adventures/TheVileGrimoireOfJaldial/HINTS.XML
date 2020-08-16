@@ -58,7 +58,7 @@
             <SingleArray name="Answers">
               <Items>
                 <Simple value="1. There are a number of new SETTINGS that are worth noting.  ShowCombatDamage controls whether the damage hit points inflicted during combat is displayed or omitted.  ExitDirNames controls whether exit directions are fully named or abbreviated." />
-                <Simple value="2. The frequency of weather pattern starters, random monster encounters, and flavor effects can be controlled by the WeatherScalePct, EncounterScalePct, and FlavorScalePct SETTINGS, respectively.  These range from 0 (disabled) to 100 (game default)." />
+                <Simple value="2. The frequency of weather pattern starters, random monster encounters, and flavor effects can be controlled by the WeatherFreqPct, EncounterFreqPct, and FlavorFreqPct SETTINGS, respectively.  These range from 0 (disabled) to 100 (game default)." />
                 <Simple value="3. The game uses Saving Throws to determine various action outcomes.  The character stat(s) utilized depends on the situation.  Anytime you attempt something that fails, the failure may be temporary; never hesitate to try again." />
                 <Simple value="4. Special embedded artifacts called decorations can be found in many rooms of the game.  You can examine nearly everything explicitly mentioned in the room descriptions, and often things that aren't." />
                 <Simple value="5. Monsters have a variety of attack modalities.  Some get multiple strikes, often against different targets; attack type lethality can vary.  You will also find that some creatures have special attacks or defenses." />

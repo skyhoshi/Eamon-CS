@@ -1,7 +1,7 @@
 ﻿
 // IMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using System.Text;
@@ -18,7 +18,7 @@ namespace Eamon.Framework.Menus
 		StringBuilder Buf { get; set; }
 
 		/// <summary></summary>
-		IList<IMenuItem> MenuItems { get; set; }
+		IList<IMenuItem> MenuItemList { get; set; }
 
 		/// <summary></summary>
 		/// <param name="ch"></param>

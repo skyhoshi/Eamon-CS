@@ -1,11 +1,12 @@
 ﻿
 // GetPlayerInputState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -14,14 +15,9 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class GetPlayerInputState : State, IGetPlayerInputState
 	{
-		/// <summary>
-		/// An event that fires before the player's command prompt is printed.
-		/// </summary>
-		public const long PeBeforeCommandPromptPrint = 1;
-
 		public override void Execute()
 		{
-			ProcessEvents(PeBeforeCommandPromptPrint);
+			ProcessEvents(EventType.BeforeCommandPromptPrint);
 
 			if (GotoCleanup)
 			{
@@ -45,7 +41,7 @@ namespace EamonRT.Game.States
 
 			Globals.CommandParser.Clear();
 
-			Globals.CommandParser.ActorMonster = gMDB[gGameState.Cm];
+			Globals.CommandParser.ActorMonster = gCharMonster;
 
 			Globals.CommandParser.InputBuf.SetFormat("{0}", Globals.In.ReadLine());
 

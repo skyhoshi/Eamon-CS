@@ -1,7 +1,7 @@
 ﻿
 // GrendelSmithyMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -24,92 +24,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 	public class GrendelSmithyMenu : Menu, IGrendelSmithyMenu
 	{
 		/// <summary></summary>
-		protected virtual double? Rtio { get; set; }
-
-		/// <summary></summary>
-		/// <returns></returns>
-		protected virtual long GetWeaponType()
-		{
-			RetCode rc;
-			long i;
-
-			Buf.Clear();
-
-			var weaponValues = EnumUtil.GetValues<Weapon>();
-
-			for (i = 0; i < weaponValues.Count; i++)
-			{
-				var weapon = gEngine.GetWeapons(weaponValues[(int)i]);
-
-				Debug.Assert(weapon != null);
-
-				Buf.AppendFormat("{0}{1}{2}={3}{4}",
-					i == 0 ? Environment.NewLine : "",
-					i != 0 ? ", " : "",
-					(long)weaponValues[(int)i],
-					weapon.MarcosName ?? weapon.Name,
-					i == weaponValues.Count - 1 ? ": " : "");
-			}
-
-			gOut.Write("{0}", Buf);
-
-			Buf.Clear();
-
-			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, null, gEngine.IsCharWpnType, gEngine.IsCharWpnType);
-
-			Debug.Assert(gEngine.IsSuccess(rc));
-
-			Globals.Thread.Sleep(150);
-
-			gOut.Print("{0}", Globals.LineSep);
-
-			Debug.Assert(Buf.Length > 0);
-
-			return Convert.ToInt64(Buf.Trim().ToString());
-		}
-
-		/// <summary></summary>
-		/// <param name="i"></param>
-		/// <param name="ap"></param>
-		/// <param name="name"></param>
-		/// <param name="type"></param>
-		/// <param name="complexity"></param>
-		/// <param name="dice"></param>
-		/// <param name="sides"></param>
-		/// <param name="numHands"></param>
-		protected virtual void UpdateCharacterWeapon(long i, long ap, string name, long type, long complexity, long dice, long sides, long numHands)
-		{
-			var cw = Globals.CreateInstance<ICharacterArtifact>(x =>
-			{
-				x.Name = name;
-				x.IsPlural = false;
-				x.PluralType = PluralType.None;
-				x.ArticleType = ArticleType.None;
-				x.Field1 = complexity;
-				x.Field2 = type;
-				x.Field3 = dice;
-				x.Field4 = sides;
-				x.Field5 = numHands;
-			});
-
-			Globals.Character.SetWeapons(i, cw);
-
-			Globals.Character.GetWeapons(i).Parent = Globals.Character;
-
-			Globals.Character.StripPoundCharsFromWeaponNames();
-
-			Globals.Character.AddPoundCharsToWeaponNames();
-
-			Globals.Character.HeldGold -= ap;
-
-			Globals.CharactersModified = true;
-		}
-
-		/// <summary></summary>
-		protected virtual void PrintNotEnoughGold()
-		{
-			gOut.Print("\"Sorry, but you don't seem to have enough gold to pay for your weapon at this time.  Come back when you have enough.\"");
-		}
+		public virtual double? Rtio { get; set; }
 
 		public override void Execute()
 		{
@@ -388,6 +303,91 @@ namespace EamonMH.Game.Menus.ActionMenus
 			gOut.Print("\"Goodbye, {0}!  Come again.\"", Globals.Character.Name);
 
 			Globals.In.KeyPress(Buf);
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual long GetWeaponType()
+		{
+			RetCode rc;
+			long i;
+
+			Buf.Clear();
+
+			var weaponValues = EnumUtil.GetValues<Weapon>();
+
+			for (i = 0; i < weaponValues.Count; i++)
+			{
+				var weapon = gEngine.GetWeapons(weaponValues[(int)i]);
+
+				Debug.Assert(weapon != null);
+
+				Buf.AppendFormat("{0}{1}{2}={3}{4}",
+					i == 0 ? Environment.NewLine : "",
+					i != 0 ? ", " : "",
+					(long)weaponValues[(int)i],
+					weapon.MarcosName ?? weapon.Name,
+					i == weaponValues.Count - 1 ? ": " : "");
+			}
+
+			gOut.Write("{0}", Buf);
+
+			Buf.Clear();
+
+			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', false, null, null, gEngine.IsCharWpnType, gEngine.IsCharWpnType);
+
+			Debug.Assert(gEngine.IsSuccess(rc));
+
+			Globals.Thread.Sleep(150);
+
+			gOut.Print("{0}", Globals.LineSep);
+
+			Debug.Assert(Buf.Length > 0);
+
+			return Convert.ToInt64(Buf.Trim().ToString());
+		}
+
+		/// <summary></summary>
+		/// <param name="i"></param>
+		/// <param name="ap"></param>
+		/// <param name="name"></param>
+		/// <param name="type"></param>
+		/// <param name="complexity"></param>
+		/// <param name="dice"></param>
+		/// <param name="sides"></param>
+		/// <param name="numHands"></param>
+		public virtual void UpdateCharacterWeapon(long i, long ap, string name, long type, long complexity, long dice, long sides, long numHands)
+		{
+			var cw = Globals.CreateInstance<ICharacterArtifact>(x =>
+			{
+				x.Name = name;
+				x.IsPlural = false;
+				x.PluralType = PluralType.None;
+				x.ArticleType = ArticleType.None;
+				x.Field1 = complexity;
+				x.Field2 = type;
+				x.Field3 = dice;
+				x.Field4 = sides;
+				x.Field5 = numHands;
+			});
+
+			Globals.Character.SetWeapons(i, cw);
+
+			Globals.Character.GetWeapons(i).Parent = Globals.Character;
+
+			Globals.Character.StripPoundCharsFromWeaponNames();
+
+			Globals.Character.AddPoundCharsToWeaponNames();
+
+			Globals.Character.HeldGold -= ap;
+
+			Globals.CharactersModified = true;
+		}
+
+		/// <summary></summary>
+		public virtual void PrintNotEnoughGold()
+		{
+			gOut.Print("\"Sorry, but you don't seem to have enough gold to pay for your weapon at this time.  Come back when you have enough.\"");
 		}
 
 		public GrendelSmithyMenu()

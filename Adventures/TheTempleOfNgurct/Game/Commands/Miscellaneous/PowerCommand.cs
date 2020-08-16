@@ -1,13 +1,14 @@
 ﻿
 // PowerCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Combat;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static TheTempleOfNgurct.Game.Plugin.PluginContext;
 
@@ -16,20 +17,15 @@ namespace TheTempleOfNgurct.Game.Commands
 	[ClassMappings]
 	public class PowerCommand : EamonRT.Game.Commands.PowerCommand, IPowerCommand
 	{
-		public virtual void PrintAirCracklesWithEnergy()
+		public override void PlayerProcessEvents(EventType eventType)
 		{
-			gOut.Print("The air crackles with magical energy!");
-		}
-
-		public override void PlayerProcessEvents(long eventType)
-		{
-			if (eventType == PpeAfterPlayerSpellCastCheck)
+			if (eventType == EventType.AfterPlayerSpellCastCheck)
 			{
 				var rl = 0L;
 
-				var monsters = gEngine.GetMonsterList(m => !m.IsCharacterMonster() && m.Uid != 53 && m.Friendliness < Friendliness.Friend && m.Seen && m.IsInRoom(ActorRoom));
+				var monsterList = gEngine.GetMonsterList(m => !m.IsCharacterMonster() && m.Uid != 53 && m.Friendliness < Friendliness.Friend && m.Seen && m.IsInRoom(ActorRoom));
 
-				foreach (var m in monsters)
+				foreach (var m in monsterList)
 				{
 					rl = gEngine.RollDice(1, 100, 0);
 
@@ -74,11 +70,11 @@ namespace TheTempleOfNgurct.Game.Commands
 						goto Cleanup;
 					}
 
-					monsters = gEngine.GetRandomMonsterList(1, m => !m.IsCharacterMonster() && m.Seen && m.IsInRoom(ActorRoom));
+					monsterList = gEngine.GetRandomMonsterList(1, m => !m.IsCharacterMonster() && m.Seen && m.IsInRoom(ActorRoom));
 
-					Debug.Assert(monsters != null);
+					Debug.Assert(monsterList != null);
 
-					foreach (var m in monsters)
+					foreach (var m in monsterList)
 					{
 						gOut.Print("{0} falls into the crack!", m.GetTheName(true));
 
@@ -200,6 +196,11 @@ namespace TheTempleOfNgurct.Game.Commands
 		Cleanup:
 
 			;
+		}
+
+		public virtual void PrintAirCracklesWithEnergy()
+		{
+			gOut.Print("The air crackles with magical energy!");
 		}
 	}
 }

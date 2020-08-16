@@ -1,9 +1,10 @@
 ﻿
 // MonsterLoopIncrementState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
+using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
@@ -13,32 +14,38 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class MonsterLoopIncrementState : State, IMonsterLoopIncrementState
 	{
+		/// <summary></summary>
+		public virtual IMonster FailedMoveMonster { get; set; }
+
+		/// <summary></summary>
+		public virtual IMonster LoopMonster { get; set; }
+
 		public override void Execute()
 		{
 			if (Globals.LoopMonsterUid > 0)
 			{
-				var monster = gMDB[Globals.LoopMonsterUid];
+				FailedMoveMonster = gMDB[Globals.LoopMonsterUid];
 
-				Debug.Assert(monster != null);
+				Debug.Assert(FailedMoveMonster != null);
 
 				Debug.Assert(Globals.LoopFailedMoveMemberCount >= 0);
 
-				monster.GroupCount += Globals.LoopFailedMoveMemberCount;
+				FailedMoveMonster.GroupCount += Globals.LoopFailedMoveMemberCount;
 
 				Globals.LoopFailedMoveMemberCount = 0;
 
-				ProcessRevealContentArtifacts();
+				ProcessRevealContentArtifactList();
 			}
 
 			while (true)
 			{
 				Globals.LoopMonsterUid++;
 
-				var monster = gMDB[Globals.LoopMonsterUid];
+				LoopMonster = gMDB[Globals.LoopMonsterUid];
 
-				if (monster != null)
+				if (LoopMonster != null)
 				{
-					if (monster.ShouldProcessInGameLoop())
+					if (LoopMonster.ShouldProcessInGameLoop())
 					{
 						NextState = Globals.CreateInstance<IDefaultMonsterDecisionState>();
 

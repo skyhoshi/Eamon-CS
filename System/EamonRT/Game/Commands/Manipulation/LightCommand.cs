@@ -1,12 +1,13 @@
 ﻿
 // LightCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -18,15 +19,21 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class LightCommand : Command, ILightCommand
 	{
+		/// <summary></summary>
+		public virtual IArtifactCategory DobjArtAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact LsArtifact { get; set; }
+
 		public override void PlayerExecute()
 		{
 			RetCode rc;
 
 			Debug.Assert(DobjArtifact != null);
 
-			var ac = DobjArtifact.LightSource;
+			DobjArtAc = DobjArtifact.LightSource;
 
-			if (ac != null)
+			if (DobjArtAc != null)
 			{
 				if (!DobjArtifact.IsUnmovable())
 				{
@@ -45,7 +52,7 @@ namespace EamonRT.Game.Commands
 					}
 				}
 
-				if (ac.Field1 == 0)
+				if (DobjArtAc.Field1 == 0)
 				{
 					PrintWontLight(DobjArtifact);
 
@@ -82,11 +89,11 @@ namespace EamonRT.Game.Commands
 
 				if (gGameState.Ls > 0)
 				{
-					var lsArtifact = gADB[gGameState.Ls];
+					LsArtifact = gADB[gGameState.Ls];
 
-					Debug.Assert(lsArtifact != null && lsArtifact.LightSource != null);
+					Debug.Assert(LsArtifact != null && LsArtifact.LightSource != null);
 
-					gEngine.LightOut(lsArtifact);
+					gEngine.LightOut(LsArtifact);
 				}
 
 				rc = DobjArtifact.AddStateDesc(DobjArtifact.GetProvidingLightDesc());

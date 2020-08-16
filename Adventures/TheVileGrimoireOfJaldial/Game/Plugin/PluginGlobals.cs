@@ -1,7 +1,7 @@
 ﻿
 // PluginGlobals.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 namespace TheVileGrimoireOfJaldial.Game.Plugin
 {
@@ -13,7 +13,7 @@ namespace TheVileGrimoireOfJaldial.Game.Plugin
 
 		public virtual long EventRoll { get; set; }
 
-		public virtual long ScaleRoll { get; set; }
+		public virtual long FrequencyRoll { get; set; }
 
 		public virtual long InitiativeMonsterUid { get; set; }
 	}

@@ -1,7 +1,7 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -9,6 +9,7 @@ using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -17,57 +18,45 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class PlayerMoveCheckState : State, IPlayerMoveCheckState
 	{
-		/// <summary>
-		/// An event that fires before it is known whether the player can move to a <see cref="IRoom">Room</see>.
-		/// </summary>
-		public const long PeBeforeCanMoveToRoomCheck = 1;
+		public bool _doorGateFound;
 
-		/// <summary>
-		/// An event that fires after it is known whether a blocking <see cref="IArtifact">Artifact</see> (for example,
-		/// a door) prevents the player's movement.
-		/// </summary>
-		public const long PeAfterBlockingArtifactCheck = 2;
-
-		public bool _found;
-
-		public long _roomUid;
-
-		public virtual IRoom Room { get; set; }
-
-		public virtual IMonster Monster { get; set; }
-
-		public virtual long ArtUid { get; set; }
+		public long _newRoomUid;
 
 		public virtual Direction Direction { get; set; }
 
-		public virtual IArtifact Artifact { get; set; }
+		public virtual IArtifact DoorGateArtifact { get; set; }
 
 		public virtual bool Fleeing { get; set; }
 
-		public override void ProcessEvents(long eventType)
+		/// <summary></summary>
+		public virtual IRoom OldRoom { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact BlockingArtifact { get; set; }
+
+		/// <summary></summary>
+		public virtual long DoorGateArtifactUid { get; set; }
+
+		public override void ProcessEvents(EventType eventType)
 		{
 			RetCode rc;
 
-			var gameState = gEngine.GetGameState();
-
-			Debug.Assert(gameState != null);
-
-			if (eventType == PeBeforeCanMoveToRoomCheck)
+			if (eventType == EventType.BeforeCanMoveToRoomCheck)
 			{
 				// Special blocking artifacts
 
-				var artifact = gEngine.GetBlockedDirectionArtifact(gameState.Ro, gameState.R2, Direction);
+				BlockingArtifact = gEngine.GetBlockedDirectionArtifact(gGameState.Ro, gGameState.R2, Direction);
 
-				if (artifact != null)
+				if (BlockingArtifact != null)
 				{
-					PrintObjBlocksTheWay(artifact);
+					PrintObjBlocksTheWay(BlockingArtifact);
 
 					GotoCleanup = true;
 				}
 			}
-			else if (eventType == PeAfterBlockingArtifactCheck)
+			else if (eventType == EventType.AfterBlockingArtifactCheck)
 			{
-				if (gameState.R2 == Constants.DirectionExit)
+				if (gGameState.R2 == Constants.DirectionExit)
 				{
 					PrintRideOffIntoSunset();
 
@@ -81,7 +70,7 @@ namespace EamonRT.Game.States
 
 					if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'Y')
 					{
-						gameState.Die = 0;
+						gGameState.Die = 0;
 
 						Globals.ExitType = ExitType.FinishAdventure;
 
@@ -97,13 +86,11 @@ namespace EamonRT.Game.States
 
 		public override void Execute()
 		{
-			Debug.Assert(Enum.IsDefined(typeof(Direction), Direction) || Artifact != null);
+			Debug.Assert(Enum.IsDefined(typeof(Direction), Direction) || DoorGateArtifact != null);
 
-			Monster = gMDB[gGameState.Cm];
+			Debug.Assert(gCharMonster != null);
 
-			Debug.Assert(Monster != null);
-
-			ProcessEvents(PeBeforeCanMoveToRoomCheck);
+			ProcessEvents(EventType.BeforeCanMoveToRoomCheck);
 
 			if (GotoCleanup)
 			{
@@ -112,13 +99,13 @@ namespace EamonRT.Game.States
 
 			if (gGameState.R2 > 0 && gRDB[gGameState.R2] != null)
 			{
-				if (Monster.CanMoveToRoomUid(gGameState.R2, Fleeing))
+				if (gCharMonster.CanMoveToRoomUid(gGameState.R2, Fleeing))
 				{
 					NextState = Globals.CreateInstance<IAfterPlayerMoveState>(x =>
 					{
 						x.Direction = Direction;
 
-						x.Artifact = Artifact;
+						x.DoorGateArtifact = DoorGateArtifact;
 					});
 				}
 				else
@@ -129,31 +116,31 @@ namespace EamonRT.Game.States
 				goto Cleanup;
 			}
 
-			Room = gRDB[gGameState.Ro];
+			OldRoom = gRDB[gGameState.Ro];
 
-			Debug.Assert(Room != null);
+			Debug.Assert(OldRoom != null);
 
-			ArtUid = Artifact != null ? Artifact.Uid : Room.GetDirectionDoorUid(Direction);
+			DoorGateArtifactUid = DoorGateArtifact != null ? DoorGateArtifact.Uid : OldRoom.GetDirectionDoorUid(Direction);
 
-			if (ArtUid > 0)
+			if (DoorGateArtifactUid > 0)
 			{
-				if (Artifact == null)
+				if (DoorGateArtifact == null)
 				{
-					Artifact = gADB[ArtUid];
+					DoorGateArtifact = gADB[DoorGateArtifactUid];
 
-					Debug.Assert(Artifact != null);
+					Debug.Assert(DoorGateArtifact != null);
 				}
 
-				gEngine.CheckDoor(Room, Artifact, ref _found, ref _roomUid);
+				gEngine.CheckDoor(OldRoom, DoorGateArtifact, ref _doorGateFound, ref _newRoomUid);
 
-				if (_found)
+				if (_doorGateFound)
 				{
-					if (Room.IsLit())
+					if (OldRoom.IsLit())
 					{
-						gEngine.RevealEmbeddedArtifact(Room, Artifact);
+						gEngine.RevealEmbeddedArtifact(OldRoom, DoorGateArtifact);
 					}
 
-					gGameState.R2 = _roomUid;
+					gGameState.R2 = _newRoomUid;
 
 					if (gGameState.R2 > 0 && gRDB[gGameState.R2] != null)
 					{
@@ -161,23 +148,23 @@ namespace EamonRT.Game.States
 						{
 							x.Direction = Direction;
 
-							x.Artifact = Artifact;
+							x.DoorGateArtifact = DoorGateArtifact;
 
 							x.Fleeing = Fleeing;
 						});
 
 						goto Cleanup;
 					}
-					else if (gGameState.R2 == 0 && Room.IsLit())
+					else if (gGameState.R2 == 0 && OldRoom.IsLit())
 					{
-						PrintObjBlocksTheWay(Artifact);
+						PrintObjBlocksTheWay(DoorGateArtifact);
 
 						goto Cleanup;
 					}
 				}
 			}
 
-			ProcessEvents(PeAfterBlockingArtifactCheck);
+			ProcessEvents(EventType.AfterBlockingArtifactCheck);
 
 		Cleanup:
 

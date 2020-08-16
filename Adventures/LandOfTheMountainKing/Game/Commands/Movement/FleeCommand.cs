@@ -12,14 +12,14 @@ namespace LandOfTheMountainKing.Game.Commands
 	[ClassMappings]
 	public class FleeCommand : EamonRT.Game.Commands.FleeCommand, IFleeCommand
 	{
-		public override bool IsAllowedInRoom()
-		{
-			return false; // Disable Fleeing everywhere
-		}
-
 		public override void PrintCantVerbHere()
 		{
 			gEngine.PrintEffectDesc(59);
+		}
+
+		public override bool IsAllowedInRoom()
+		{
+			return false; // Disable Fleeing everywhere
 		}
 	}
 }

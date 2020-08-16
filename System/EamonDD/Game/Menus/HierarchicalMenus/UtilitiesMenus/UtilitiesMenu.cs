@@ -1,7 +1,7 @@
 ﻿
 // UtilitiesMenu.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -32,35 +32,35 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 
 			Buf = Globals.Buf;
 
-			MenuItems = new List<IMenuItem>();
+			MenuItemList = new List<IMenuItem>();
 
 			if (gEngine.IsAdventureFilesetLoaded())
 			{
-				MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
+				MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 				{
-					x.SelectChar = (char)('1' + MenuItems.Count);
-					x.LineText = string.Format("{0}{1}. Analyse all record interdependencies.", Environment.NewLine, MenuItems.Count + 1);
+					x.SelectChar = (char)('1' + MenuItemList.Count);
+					x.LineText = string.Format("{0}{1}. Analyse all record interdependencies.", Environment.NewLine, MenuItemList.Count + 1);
 					x.SubMenu = Globals.CreateInstance<IAnalyseAllRecordInterdependenciesMenu>();
 				}));
 
-				MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
+				MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 				{
-					x.SelectChar = (char)('1' + MenuItems.Count);
-					x.LineText = string.Format("{0}{1}. Analyse adventure record tree.", Environment.NewLine, MenuItems.Count + 1);
+					x.SelectChar = (char)('1' + MenuItemList.Count);
+					x.LineText = string.Format("{0}{1}. Analyse adventure record tree.", Environment.NewLine, MenuItemList.Count + 1);
 					x.SubMenu = Globals.CreateInstance<IAnalyseAdventureRecordTreeMenu>();
 				}));
 			}
 			else
 			{
-				MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
+				MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 				{
-					x.SelectChar = (char)('1' + MenuItems.Count);
-					x.LineText = string.Format("{0}{1}. Adventure support.", Environment.NewLine, MenuItems.Count + 1);
+					x.SelectChar = (char)('1' + MenuItemList.Count);
+					x.LineText = string.Format("{0}{1}. Adventure support.", Environment.NewLine, MenuItemList.Count + 1);
 					x.SubMenu = Globals.CreateInstance<IAdventureSupportMenu>();
 				}));
 			}
 
-			MenuItems.Add(Globals.CreateInstance<IMenuItem>(x =>
+			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
 				x.SelectChar = 'X';
 				x.LineText = string.Format("{0}X. Exit.{0}", Environment.NewLine);

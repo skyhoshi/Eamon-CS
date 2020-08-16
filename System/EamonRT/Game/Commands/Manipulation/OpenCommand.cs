@@ -1,14 +1,17 @@
 ﻿
 // OpenCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
+using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -17,16 +20,35 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class OpenCommand : Command, IOpenCommand
 	{
-		/// <summary>
-		/// An event that fires after an <see cref="IArtifact">Artifact</see>'s open message has been printed (but before
-		/// inventory is listed for containers).
-		/// </summary>
-		public const long PpeAfterArtifactOpenPrint = 1;
+		/// <summary></summary>
+		public virtual IList<IArtifact> OnContainerArtifactList { get; set; }
 
-		/// <summary>
-		/// An event that fires after the player opens an <see cref="IArtifact">Artifact</see>.
-		/// </summary>
-		public const long PpeAfterArtifactOpen = 2;
+		/// <summary></summary>
+		public virtual IArtifactCategory InContainerAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory DoorGateAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory DisguisedMonsterAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory DrinkableAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory EdibleAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory ReadableAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory DobjArtAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact KeyArtifact { get; set; }
+
+		/// <summary></summary>
+		public virtual long KeyArtifactUid { get; set; }
 
 		public override void PlayerExecute()
 		{
@@ -34,60 +56,60 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var inContainerAc = DobjArtifact.InContainer;
+			InContainerAc = DobjArtifact.InContainer;
 
-			var doorGateAc = DobjArtifact.DoorGate;
+			DoorGateAc = DobjArtifact.DoorGate;
 
-			var disguisedMonsterAc = DobjArtifact.DisguisedMonster;
+			DisguisedMonsterAc = DobjArtifact.DisguisedMonster;
 
-			var drinkableAc = DobjArtifact.Drinkable;
+			DrinkableAc = DobjArtifact.Drinkable;
 
-			var edibleAc = DobjArtifact.Edible;
+			EdibleAc = DobjArtifact.Edible;
 
-			var readableAc = DobjArtifact.Readable;
+			ReadableAc = DobjArtifact.Readable;
 
-			var ac =	inContainerAc != null ? inContainerAc :
-						doorGateAc != null ? doorGateAc :
-						disguisedMonsterAc != null ? disguisedMonsterAc :
-						drinkableAc != null ? drinkableAc :
-						edibleAc != null ? edibleAc : 
-						readableAc;
+			DobjArtAc =	InContainerAc != null ? InContainerAc :
+						DoorGateAc != null ? DoorGateAc :
+						DisguisedMonsterAc != null ? DisguisedMonsterAc :
+						DrinkableAc != null ? DrinkableAc :
+						EdibleAc != null ? EdibleAc : 
+						ReadableAc;
 
-			if (ac != null)
+			if (DobjArtAc != null)
 			{
 				if (DobjArtifact.IsEmbeddedInRoom(ActorRoom))
 				{
 					DobjArtifact.SetInRoom(ActorRoom);
 				}
 
-				if (ac.Type == ArtifactType.DoorGate)
+				if (DobjArtAc.Type == ArtifactType.DoorGate)
 				{
-					ac.Field4 = 0;
+					DobjArtAc.Field4 = 0;
 				}
 
-				if (ac.Type == ArtifactType.DisguisedMonster)
+				if (DobjArtAc.Type == ArtifactType.DisguisedMonster)
 				{
 					gEngine.RevealDisguisedMonster(ActorRoom, DobjArtifact);
 
 					goto Cleanup;
 				}
 
-				var keyUid = ac.GetKeyUid();
+				KeyArtifactUid = DobjArtAc.GetKeyUid();
 
-				var key = keyUid > 0 ? gADB[keyUid] : null;
+				KeyArtifact = KeyArtifactUid > 0 ? gADB[KeyArtifactUid] : null;
 
-				if (ac.IsOpen() || keyUid == -2)
+				if (DobjArtAc.IsOpen() || KeyArtifactUid == -2)
 				{
 					PrintAlreadyOpen(DobjArtifact);
 
 					goto Cleanup;
 				}
 
-				if (ac.Type == ArtifactType.Drinkable || ac.Type == ArtifactType.Edible || ac.Type == ArtifactType.Readable)
+				if (DobjArtAc.Type == ArtifactType.Drinkable || DobjArtAc.Type == ArtifactType.Edible || DobjArtAc.Type == ArtifactType.Readable)
 				{
-					ac.SetOpen(true);
+					DobjArtAc.SetOpen(true);
 
-					rc = DobjArtifact.SyncArtifactCategories(ac);
+					rc = DobjArtifact.SyncArtifactCategories(DobjArtAc);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -96,80 +118,80 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Type == ArtifactType.InContainer && DobjArtifact.OnContainer != null && DobjArtifact.IsInContainerOpenedFromTop())
+				if (DobjArtAc.Type == ArtifactType.InContainer && DobjArtifact.OnContainer != null && DobjArtifact.IsInContainerOpenedFromTop())
 				{
-					var contentsList = DobjArtifact.GetContainedList(containerType: ContainerType.On);
+					OnContainerArtifactList = DobjArtifact.GetContainedList(containerType: ContainerType.On);
 
-					if (contentsList.Count > 0)
+					if (OnContainerArtifactList.Count > 0)
 					{
-						PrintContainerNotEmpty(DobjArtifact, ContainerType.On, contentsList.Count > 1 || contentsList[0].IsPlural);
+						PrintContainerNotEmpty(DobjArtifact, ContainerType.On, OnContainerArtifactList.Count > 1 || OnContainerArtifactList[0].IsPlural);
 
 						goto Cleanup;
 					}
 				}
 
-				if (keyUid == -1)
+				if (KeyArtifactUid == -1)
 				{
 					PrintWontOpen(DobjArtifact);
 
 					goto Cleanup;
 				}
 
-				if (key != null && !key.IsCarriedByCharacter() && !key.IsWornByCharacter() && !key.IsInRoom(ActorRoom))
+				if (KeyArtifact != null && !KeyArtifact.IsCarriedByCharacter() && !KeyArtifact.IsWornByCharacter() && !KeyArtifact.IsInRoom(ActorRoom))
 				{
 					PrintLocked(DobjArtifact);
 
 					goto Cleanup;
 				}
 
-				if (keyUid == 0 && ac.GetBreakageStrength() > 0)
+				if (KeyArtifactUid == 0 && DobjArtAc.GetBreakageStrength() > 0)
 				{
 					PrintHaveToForceOpen(DobjArtifact);
 
 					goto Cleanup;
 				}
 
-				if (key != null)
+				if (KeyArtifact != null)
 				{
-					PrintOpenObjWithKey(DobjArtifact, key);
+					PrintOpenObjWithKey(DobjArtifact, KeyArtifact);
 				}
 				else
 				{
 					PrintOpened(DobjArtifact);
 				}
 
-				PlayerProcessEvents(PpeAfterArtifactOpenPrint);
+				PlayerProcessEvents(EventType.AfterArtifactOpenPrint);
 
 				if (GotoCleanup)
 				{
 					goto Cleanup;
 				}
 
-				if (ac.Type == ArtifactType.InContainer && DobjArtifact.ShouldShowContentsWhenOpened())
+				if (DobjArtAc.Type == ArtifactType.InContainer && DobjArtifact.ShouldShowContentsWhenOpened())
 				{
 					NextState = Globals.CreateInstance<IInventoryCommand>();
 
 					CopyCommandData(NextState as ICommand);
 				}
 
-				ac.SetKeyUid(0);
+				DobjArtAc.SetKeyUid(0);
 
-				ac.SetOpen(true);
+				DobjArtAc.SetOpen(true);
 
 				/*
 				Note: duplicated above?
 
-				if (Ac.Type != ArtifactType.InContainer)
+				if (DobjArtAc.Type != ArtifactType.InContainer)
 				{
-					Ac.Field4 = 0;
+					DobjArtAc.Field4 = 0;
 				}
 				*/
 
-				rc = DobjArtifact.SyncArtifactCategories(ac);
+				rc = DobjArtifact.SyncArtifactCategories(DobjArtAc);
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
-				PlayerProcessEvents(PpeAfterArtifactOpen);
+				PlayerProcessEvents(EventType.AfterArtifactOpen);
 
 				if (GotoCleanup)
 				{

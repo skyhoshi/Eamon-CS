@@ -1,7 +1,7 @@
 ﻿
 // GameStateHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Collections.Generic;
 using Eamon.Framework.Helpers;
@@ -31,42 +31,42 @@ namespace ARuncibleCargo.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateDreamCounter()
+		public virtual bool ValidateDreamCounter()
 		{
 			return Record.DreamCounter >= 0 && Record.DreamCounter <= 13;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateSwarmyCounter()
+		public virtual bool ValidateSwarmyCounter()
 		{
 			return Record.SwarmyCounter >= 1 && Record.SwarmyCounter <= 3;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateCargoOpenCounter()
+		public virtual bool ValidateCargoOpenCounter()
 		{
 			return Record.CargoOpenCounter >= 0 && Record.CargoOpenCounter <= 3;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateCargoInRoom()
+		public virtual bool ValidateCargoInRoom()
 		{
 			return Record.CargoInRoom >= 0 && Record.CargoInRoom <= 1;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateGiveAmazonMoney()
+		public virtual bool ValidateGiveAmazonMoney()
 		{
 			return Record.GiveAmazonMoney >= 0 && Record.GiveAmazonMoney <= 1;
 		}
 
 		public GameStateHelper()
 		{
-			FieldNames.AddRange(new List<string>()
+			FieldNameList.AddRange(new List<string>()
 			{
 				"DreamCounter",
 				"SwarmyCounter",

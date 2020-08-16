@@ -1,7 +1,7 @@
 ﻿
 // TextReader.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -15,9 +15,9 @@ namespace EamonPM.Game.Portability
 {
 	public class TextReader : ITextReader
 	{
-		protected virtual bool ReadLineMode { get; set; }
-
 		public virtual bool EnableInput { get; set; }
+
+		public virtual bool ReadLineMode { get; set; }
 
 		public virtual RetCode ReadField(StringBuilder buf, long bufSize, char[] boxChars, char fillChar, char maskChar, bool emptyAllowed, string emptyVal, Func<char, char> modifyCharFunc, Func<char, bool> validCharFunc, Func<char, bool> termCharFunc)
 		{

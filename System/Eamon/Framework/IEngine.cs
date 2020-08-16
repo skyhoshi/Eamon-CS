@@ -1,7 +1,7 @@
 ﻿
 // IEngine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -790,7 +790,7 @@ namespace Eamon.Framework
 		RetCode ValidateRecordsAfterDatabaseLoaded();
 
 		/// <summary></summary>
-		/// <param name="records"></param>
+		/// <param name="recordList"></param>
 		/// <param name="articleType"></param>
 		/// <param name="showCharOwned"></param>
 		/// <param name="stateDescCode"></param>
@@ -798,23 +798,23 @@ namespace Eamon.Framework
 		/// <param name="groupCountOne"></param>
 		/// <param name="buf"></param>
 		/// <returns></returns>
-		RetCode GetRecordNameList(IList<IGameBase> records, ArticleType articleType, bool showCharOwned, StateDescDisplayCode stateDescCode, bool showContents, bool groupCountOne, StringBuilder buf);
+		RetCode GetRecordNameList(IList<IGameBase> recordList, ArticleType articleType, bool showCharOwned, StateDescDisplayCode stateDescCode, bool showContents, bool groupCountOne, StringBuilder buf);
 
 		/// <summary></summary>
-		/// <param name="records"></param>
+		/// <param name="recordList"></param>
 		/// <param name="name"></param>
 		/// <param name="exactMatch"></param>
 		/// <param name="count"></param>
 		/// <returns></returns>
-		RetCode GetRecordNameCount(IList<IGameBase> records, string name, bool exactMatch, ref long count);
+		RetCode GetRecordNameCount(IList<IGameBase> recordList, string name, bool exactMatch, ref long count);
 
 		/// <summary></summary>
-		/// <param name="records"></param>
+		/// <param name="recordList"></param>
 		/// <param name="capitalize"></param>
 		/// <param name="showExtraInfo"></param>
 		/// <param name="buf"></param>
 		/// <returns></returns>
-		RetCode ListRecords(IList<IGameBase> records, bool capitalize, bool showExtraInfo, StringBuilder buf);
+		RetCode ListRecords(IList<IGameBase> recordList, bool capitalize, bool showExtraInfo, StringBuilder buf);
 
 		/// <summary></summary>
 		/// <param name="str"></param>

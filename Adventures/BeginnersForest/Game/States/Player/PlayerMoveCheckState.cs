@@ -1,9 +1,10 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using Eamon.Game.Attributes;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static BeginnersForest.Game.Plugin.PluginContext;
 
@@ -12,9 +13,9 @@ namespace BeginnersForest.Game.States
 	[ClassMappings]
 	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
-		public override void ProcessEvents(long eventType)
+		public override void ProcessEvents(EventType eventType)
 		{
-			if (eventType == PeAfterBlockingArtifactCheck)
+			if (eventType == EventType.AfterBlockingArtifactCheck)
 			{
 				// Exit gate
 

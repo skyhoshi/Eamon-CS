@@ -1,11 +1,10 @@
 ﻿
 // ReadyCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon;
-using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -134,11 +133,9 @@ namespace EamonRT.Game.Commands
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
-				var charMonster = gMDB[gGameState.Cm];
+				Debug.Assert(gCharMonster != null);
 
-				Debug.Assert(charMonster != null);
-
-				if (charMonster.IsInRoom(ActorRoom))
+				if (gCharMonster.IsInRoom(ActorRoom))
 				{
 					if (ActorRoom.IsLit())
 					{

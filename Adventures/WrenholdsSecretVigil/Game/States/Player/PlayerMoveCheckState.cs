@@ -1,7 +1,7 @@
 ﻿
 // PlayerMoveCheckState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -12,6 +12,7 @@ using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Combat;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static WrenholdsSecretVigil.Game.Plugin.PluginContext;
 
@@ -20,11 +21,11 @@ namespace WrenholdsSecretVigil.Game.States
 	[ClassMappings]
 	public class PlayerMoveCheckState : EamonRT.Game.States.PlayerMoveCheckState, IPlayerMoveCheckState
 	{
-		public override void ProcessEvents(long eventType)
+		public override void ProcessEvents(EventType eventType)
 		{
 			RetCode rc;
 
-			if (eventType == PeBeforeCanMoveToRoomCheck)
+			if (eventType == EventType.BeforeCanMoveToRoomCheck)
 			{
 				var room5 = gRDB[5];
 
@@ -63,7 +64,7 @@ namespace WrenholdsSecretVigil.Game.States
 					{
 						x.SetNextStateFunc = s => NextState = s;
 
-						x.DfMonster = Monster;
+						x.DfMonster = gCharMonster;
 
 						x.OmitArmor = true;
 					});
@@ -87,7 +88,7 @@ namespace WrenholdsSecretVigil.Game.States
 					base.ProcessEvents(eventType);
 				}
 			}
-			else if (eventType == PeAfterBlockingArtifactCheck)
+			else if (eventType == EventType.AfterBlockingArtifactCheck)
 			{
 				var ropeArtifact = gADB[28];
 
@@ -122,7 +123,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 				else if (gGameState.R2 == -102)
 				{
-					gEngine.RevealEmbeddedArtifact(Room, ropeArtifact);
+					gEngine.RevealEmbeddedArtifact(OldRoom, ropeArtifact);
 
 					gEngine.PrintEffectDesc(25);
 
@@ -130,9 +131,9 @@ namespace WrenholdsSecretVigil.Game.States
 
 					if (!gGameState.PulledRope)
 					{
-						var monsters = gEngine.GetMonsterList(m => m.Uid >= 14 && m.Uid <= 16);
+						var monsterList = gEngine.GetMonsterList(m => m.Uid >= 14 && m.Uid <= 16);
 
-						foreach (var monster in monsters)
+						foreach (var monster in monsterList)
 						{
 							monster.SetInRoomUid(48);
 						}

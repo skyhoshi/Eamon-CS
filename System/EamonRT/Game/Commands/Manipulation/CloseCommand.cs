@@ -1,14 +1,15 @@
 ﻿
 // CloseCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon;
-using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
@@ -17,10 +18,23 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class CloseCommand : Command, ICloseCommand
 	{
-		/// <summary>
-		/// An event that fires after the player closes an <see cref="IArtifact">Artifact</see>.
-		/// </summary>
-		public const long PpeAfterArtifactClose = 1;
+		/// <summary></summary>
+		public virtual IArtifactCategory InContainerAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory DoorGateAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory DrinkableAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory EdibleAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory ReadableAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory DobjArtAc { get; set; }
 
 		public override void PlayerExecute()
 		{
@@ -28,25 +42,25 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var inContainerAc = DobjArtifact.InContainer;
+			InContainerAc = DobjArtifact.InContainer;
 
-			var doorGateAc = DobjArtifact.DoorGate;
+			DoorGateAc = DobjArtifact.DoorGate;
 
-			var drinkableAc = DobjArtifact.Drinkable;
+			DrinkableAc = DobjArtifact.Drinkable;
 
-			var edibleAc = DobjArtifact.Edible;
+			EdibleAc = DobjArtifact.Edible;
 
-			var readableAc = DobjArtifact.Readable;
+			ReadableAc = DobjArtifact.Readable;
 
-			var ac =	inContainerAc != null ? inContainerAc :
-						doorGateAc != null ? doorGateAc :
-						drinkableAc != null ? drinkableAc :
-						edibleAc != null ? edibleAc :
-						readableAc;
+			DobjArtAc =	InContainerAc != null ? InContainerAc :
+						DoorGateAc != null ? DoorGateAc :
+						DrinkableAc != null ? DrinkableAc :
+						EdibleAc != null ? EdibleAc :
+						ReadableAc;
 
-			if (ac != null)
+			if (DobjArtAc != null)
 			{
-				if (ac.Type == ArtifactType.Drinkable || ac.Type == ArtifactType.Edible || ac.Type == ArtifactType.Readable || ac.GetKeyUid() == -1)
+				if (DobjArtAc.Type == ArtifactType.Drinkable || DobjArtAc.Type == ArtifactType.Edible || DobjArtAc.Type == ArtifactType.Readable || DobjArtAc.GetKeyUid() == -1)
 				{
 					PrintDontNeedTo();
 
@@ -55,14 +69,14 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				if (ac.Type == ArtifactType.DoorGate)
+				if (DobjArtAc.Type == ArtifactType.DoorGate)
 				{
 					if (DobjArtifact.Seen)
 					{
-						ac.Field4 = 0;
+						DobjArtAc.Field4 = 0;
 					}
 
-					if (ac.Field4 == 1)
+					if (DobjArtAc.Field4 == 1)
 					{
 						PrintDontFollowYou();
 
@@ -72,14 +86,14 @@ namespace EamonRT.Game.Commands
 					}
 				}
 
-				if (ac.GetKeyUid() == -2)
+				if (DobjArtAc.GetKeyUid() == -2)
 				{
 					PrintBrokeIt(DobjArtifact);
 
 					goto Cleanup;
 				}
 
-				if (!ac.IsOpen())
+				if (!DobjArtAc.IsOpen())
 				{
 					PrintNotOpen(DobjArtifact);
 
@@ -90,13 +104,13 @@ namespace EamonRT.Game.Commands
 
 				PrintClosed(DobjArtifact);
 
-				ac.SetOpen(false);
+				DobjArtAc.SetOpen(false);
 
-				rc = DobjArtifact.SyncArtifactCategories(ac);
+				rc = DobjArtifact.SyncArtifactCategories(DobjArtAc);
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
-				PlayerProcessEvents(PpeAfterArtifactClose);
+				PlayerProcessEvents(EventType.AfterArtifactClose);
 
 				if (GotoCleanup)
 				{

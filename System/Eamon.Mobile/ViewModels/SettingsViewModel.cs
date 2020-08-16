@@ -1,7 +1,7 @@
 ﻿
 // SettingsViewModel.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -14,17 +14,17 @@ namespace Eamon.Mobile.ViewModels
 {
 	public class SettingsViewModel : BaseViewModel
 	{
-		protected string _foregroundColorName;
+		public string _foregroundColorName;
 
-		protected string _backgroundColorName;
+		public string _backgroundColorName;
 
-		protected string _fontFamily;
+		public string _fontFamily;
 
-		protected long _fontSize;
+		public long _fontSize;
 
-		protected long _outputBufMaxSize;
+		public long _outputBufMaxSize;
 
-		protected bool _keepKeyboardVisible;
+		public bool _keepKeyboardVisible;
 
 		[ExcludeFromSerialization]
 		public List<string> ColorNames { get; set; }
@@ -122,7 +122,7 @@ namespace Eamon.Mobile.ViewModels
 
 		/// <summary></summary>
 		/// <param name="args"></param>
-		protected virtual void OnSettingsChanged(EventArgs args)
+		public virtual void OnSettingsChanged(EventArgs args)
 		{
 			var handler = SettingsChanged;
 

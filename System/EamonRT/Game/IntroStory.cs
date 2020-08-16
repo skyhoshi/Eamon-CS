@@ -1,7 +1,7 @@
 ﻿
 // IntroStory.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -59,10 +59,28 @@ namespace EamonRT.Game
 			}
 		}
 
+		public virtual void PrintOutput()
+		{
+			switch (StoryType)
+			{
+				case IntroStoryType.Beginners:
+
+					PrintOutputBeginners();
+
+					break;
+
+				default:
+
+					PrintOutputDefault();
+
+					break;
+			}
+		}
+
 		/// <summary></summary>
 		/// <param name="ch"></param>
 		/// <returns></returns>
-		protected virtual bool IsCharWpnNum(char ch)
+		public virtual bool IsCharWpnNum(char ch)
 		{
 			var i = 0L;
 
@@ -74,22 +92,37 @@ namespace EamonRT.Game
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintOutputBeginnersPrelude() { }
+		public virtual void PrintOutputBeginnersPrelude() 
+		{ 
+		
+		}
 
 		/// <summary></summary>
-		protected virtual void PrintOutputBeginnersTooManyWeapons() { }
+		public virtual void PrintOutputBeginnersTooManyWeapons() 
+		{ 
+		
+		}
 
 		/// <summary></summary>
-		protected virtual void PrintOutputBeginnersNoWeapons() { }
+		public virtual void PrintOutputBeginnersNoWeapons() 
+		{ 
+		
+		}
 
 		/// <summary></summary>
-		protected virtual void PrintOutputBeginnersNotABeginner() { }
+		public virtual void PrintOutputBeginnersNotABeginner() 
+		{ 
+		
+		}
 
 		/// <summary></summary>
-		protected virtual void PrintOutputBeginnersMayNowProceed() { }
+		public virtual void PrintOutputBeginnersMayNowProceed() 
+		{ 
+		
+		}
 
 		/// <summary></summary>
-		protected virtual void PrintOutputBeginners()
+		public virtual void PrintOutputBeginners()
 		{
 			RetCode rc;
 
@@ -153,7 +186,7 @@ namespace EamonRT.Game
 		}
 
 		/// <summary></summary>
-		protected virtual void PrintOutputDefault()
+		public virtual void PrintOutputDefault()
 		{
 			gOut.Print("{0}", Globals.LineSep);
 
@@ -166,24 +199,6 @@ namespace EamonRT.Game
 			else
 			{
 				gOut.Print("There is no introduction story for this adventure.");
-			}
-		}
-
-		public virtual void PrintOutput()
-		{
-			switch(StoryType)
-			{
-				case IntroStoryType.Beginners:
-
-					PrintOutputBeginners();
-
-					break;
-
-				default:
-
-					PrintOutputDefault();
-
-					break;
 			}
 		}
 

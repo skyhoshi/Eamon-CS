@@ -1,7 +1,7 @@
 ﻿
 // Engine.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -18,12 +18,7 @@ namespace TheBeginnersCave.Game
 	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
 	{
 		/// <summary></summary>
-		protected virtual long HeldWpnIdx { get; set; }
-
-		protected override void PrintTooManyWeapons()
-		{
-			gOut.Print("As you leave for the Main Hall, the Knight Marshal reappears and tells you, \"You have too many weapons to keep them all, four is the legal limit.\"");
-		}
+		public virtual long HeldWpnIdx { get; set; }
 
 		public override void InitArtifacts()
 		{
@@ -129,6 +124,11 @@ namespace TheBeginnersCave.Game
 			{
 				base.MonsterDies(OfMonster, DfMonster);
 			}
+		}
+
+		public override void PrintTooManyWeapons()
+		{
+			gOut.Print("As you leave for the Main Hall, the Knight Marshal reappears and tells you, \"You have too many weapons to keep them all, four is the legal limit.\"");
 		}
 	}
 }

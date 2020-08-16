@@ -1,7 +1,7 @@
 ﻿
 // Path.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using Eamon.Framework.Portability;
@@ -16,14 +16,6 @@ namespace EamonPM.Game.Portability
 			{
 				return System.IO.Path.DirectorySeparatorChar;
 			}
-		}
-
-		/// <summary></summary>
-		/// <param name="path"></param>
-		/// <returns></returns>
-		protected virtual string NormalizePath(string path)
-		{
-			return path != null ? path.Replace(System.IO.Path.DirectorySeparatorChar == '\\' ? '/' : '\\', System.IO.Path.DirectorySeparatorChar) : null;
 		}
 
 		public virtual bool EqualPaths(string path1, string path2)
@@ -71,6 +63,14 @@ namespace EamonPM.Game.Portability
 		public virtual string GetFullPath(string path)
 		{
 			return System.IO.Path.GetFullPath(NormalizePath(path));
+		}
+
+		/// <summary></summary>
+		/// <param name="path"></param>
+		/// <returns></returns>
+		public virtual string NormalizePath(string path)
+		{
+			return path != null ? path.Replace(System.IO.Path.DirectorySeparatorChar == '\\' ? '/' : '\\', System.IO.Path.DirectorySeparatorChar) : null;
 		}
 	}
 }

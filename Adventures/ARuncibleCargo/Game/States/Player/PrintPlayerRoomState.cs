@@ -1,7 +1,7 @@
 ﻿
 // PrintPlayerRoomState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using System.Linq;
@@ -9,6 +9,7 @@ using Eamon;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
 using static ARuncibleCargo.Game.Plugin.PluginContext;
 
@@ -17,7 +18,7 @@ namespace ARuncibleCargo.Game.States
 	[ClassMappings]
 	public class PrintPlayerRoomState : EamonRT.Game.States.PrintPlayerRoomState, IPrintPlayerRoomState
 	{
-		public override void ProcessEvents(long eventType)
+		public override void ProcessEvents(EventType eventType)
 		{
 			RetCode rc;
 
@@ -25,13 +26,13 @@ namespace ARuncibleCargo.Game.States
 
 			Debug.Assert(gameState != null);
 
-			if (eventType == PeBeforePlayerRoomPrint && ShouldPreTurnProcess())
+			if (eventType == EventType.BeforePlayerRoomPrint && ShouldPreTurnProcess())
 			{
-				var characterMonster = gMDB[gameState.Cm];
+				var charMonster = gMDB[gameState.Cm];
 
-				Debug.Assert(characterMonster != null);
+				Debug.Assert(charMonster != null);
 
-				var room = characterMonster.GetInRoom();
+				var room = charMonster.GetInRoom();
 
 				Debug.Assert(room != null);
 
@@ -97,11 +98,11 @@ namespace ARuncibleCargo.Game.States
 
 					gameState.PauseCombatMs = gameState01.PauseCombatMs;
 
-					characterMonster = Globals.MDB[gameState.Cm];
+					charMonster = Globals.MDB[gameState.Cm];
 
 					room = Globals.RDB[gameState.Ro];
 
-					characterMonster.SetInRoom(room);
+					charMonster.SetInRoom(room);			// TODO: determine if AfterPlayerMoveState is needed
 
 					Globals.Engine.PrintEffectDesc(7);
 				}

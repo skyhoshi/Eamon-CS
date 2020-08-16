@@ -1,13 +1,14 @@
 ﻿
 // WearCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Utilities;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.Primitive.Enums;
 using static TheVileGrimoireOfJaldial.Game.Plugin.PluginContext;
 
 namespace TheVileGrimoireOfJaldial.Game.Commands
@@ -15,11 +16,11 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 	[ClassMappings]
 	public class WearCommand : EamonRT.Game.Commands.WearCommand, IWearCommand
 	{
-		public override void PlayerProcessEvents(long eventType)
+		public override void PlayerProcessEvents(EventType eventType)
 		{
 			// Steel gauntlets boost weapon skills
 
-			if (eventType == PpeAfterArtifactWear && DobjArtifact.Uid == 16)
+			if (eventType == EventType.AfterArtifactWear && DobjArtifact.Uid == 16)
 			{
 				var weaponValues = EnumUtil.GetValues<Weapon>();
 

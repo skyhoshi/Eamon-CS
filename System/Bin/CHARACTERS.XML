@@ -301,7 +301,7 @@
             </SingleArray>
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Faker McDuggan" />
+            <Simple name="Name" value="Wigla McDuggan" />
             <Simple name="Desc" value="" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
@@ -603,7 +603,7 @@
             </SingleArray>
             <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Moonpie Raybeam" />
+            <Simple name="Name" value="Malia Yaryll" />
             <Simple name="Desc" value="" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
@@ -754,7 +754,7 @@
             </SingleArray>
             <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Hellion Coldiron" />
+            <Simple name="Name" value="Hellion Brightshard" />
             <Simple name="Desc" value="" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
@@ -905,7 +905,7 @@
             </SingleArray>
             <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Fuchsia Coldiron" />
+            <Simple name="Name" value="Fuchsia Brightshard" />
             <Simple name="Desc" value="" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
@@ -1207,7 +1207,7 @@
             </SingleArray>
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Pyke Clawspire" />
+            <Simple name="Name" value="Thiles Clawspire" />
             <Simple name="Desc" value="" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />

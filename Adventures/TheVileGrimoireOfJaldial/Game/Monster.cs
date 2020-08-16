@@ -1,7 +1,7 @@
 ﻿
 // Monster.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Diagnostics;
@@ -18,8 +18,6 @@ namespace TheVileGrimoireOfJaldial.Game
 	[ClassMappings(typeof(IMonster))]
 	public class Monster : Eamon.Game.Monster, Framework.IMonster
 	{
-		public virtual bool DimLightSeen { get; set; }
-
 		public override string Desc
 		{
 			get
@@ -114,32 +112,16 @@ namespace TheVileGrimoireOfJaldial.Game
 			}
 		}
 
+		public virtual string AttackDesc { get; set; }
+
+		public virtual bool DimLightSeen { get; set; }
+
 		public virtual bool Seen02
 		{
 			get
 			{
 				return DimLightSeen || base.Seen;
 			}
-		}
-
-		public virtual string AttackDesc { get; set; }
-
-		protected virtual bool IsJaldialMoreLethal()
-		{
-			var result = false;
-
-			var room = GetInRoom();
-
-			if (room != null)
-			{
-				var monsterUids = new long[] { 36, 46, 47, 48, 49, 50 };
-
-				var monsterList = gEngine.GetMonsterList(m => monsterUids.Contains(m.Uid) && m.IsInRoom(room) && m.Friendliness == Enums.Friendliness.Friend);
-
-				result = monsterList.Count >= 5;
-			}
-
-			return result;
 		}
 
 		public override RetCode BuildPrintedFullDesc(StringBuilder buf, bool showName)
@@ -256,7 +238,7 @@ namespace TheVileGrimoireOfJaldial.Game
 			{
 				if (Uid == 1 || Uid == 15)
 				{
-					armorDesc = "its course fur";
+					armorDesc = "its coarse fur";
 				}
 				else if (Uid == 2)
 				{
@@ -325,6 +307,24 @@ namespace TheVileGrimoireOfJaldial.Game
 			}
 
 			return armorDesc;
+		}
+
+		public virtual bool IsJaldialMoreLethal()
+		{
+			var result = false;
+
+			var room = GetInRoom();
+
+			if (room != null)
+			{
+				var monsterUids = new long[] { 36, 46, 47, 48, 49, 50 };
+
+				var monsterList = gEngine.GetMonsterList(m => monsterUids.Contains(m.Uid) && m.IsInRoom(room) && m.Friendliness == Enums.Friendliness.Friend);
+
+				result = monsterList.Count >= 5;
+			}
+
+			return result;
 		}
 
 		public virtual void SetAttackModality()

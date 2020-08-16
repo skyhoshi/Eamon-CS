@@ -1,7 +1,7 @@
 ﻿
 // AfterPrintPlayerRoomEventState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using System.Reflection;
@@ -15,7 +15,77 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class AfterPrintPlayerRoomEventState : State, IAfterPrintPlayerRoomEventState
 	{
+		public long _eventTurn;
+
+		public EventData _eventData;
+
 		public virtual bool ExitEventLoop { get; set; }
+
+		/// <summary></summary>
+		public virtual string EventMethodName { get; set; }
+
+		/// <summary></summary>
+		public virtual MethodInfo EventMethodInfo { get; set; }
+
+		/// <summary></summary>
+		public virtual long EventTurn 
+		{
+			get
+			{
+				return _eventTurn;
+			}
+
+			set
+			{
+				_eventTurn = value;
+			}
+		}
+
+		/// <summary></summary>
+		public virtual EventData EventData
+		{
+			get
+			{
+				return _eventData;
+			}
+
+			set
+			{
+				_eventData = value;
+			}
+		}
+
+		public override void Execute()
+		{
+			if (!Globals.CommandPromptSeen || ShouldPreTurnProcess())
+			{
+				EventTurn = 0;
+
+				EventData = null;
+
+				gGameState.AfterPrintPlayerRoomEventHeap.PeekMin(ref _eventTurn, ref _eventData);
+
+				while (!ExitEventLoop && EventData != null && !string.IsNullOrWhiteSpace(EventData.EventName) && EventTurn <= gGameState.CurrTurn)
+				{
+					gGameState.AfterPrintPlayerRoomEventHeap.RemoveMin(ref _eventTurn, ref _eventData);
+
+					FireEvent02(EventData);
+
+					EventTurn = 0;
+
+					EventData = null;
+
+					gGameState.AfterPrintPlayerRoomEventHeap.PeekMin(ref _eventTurn, ref _eventData);
+				}
+			}
+
+			if (NextState == null)
+			{
+				NextState = Globals.CreateInstance<IGetPlayerInputState>();
+			}
+
+			Globals.NextState = NextState;
+		}
 
 		public virtual void FireEvent(string eventName, object eventParam)
 		{
@@ -26,46 +96,14 @@ namespace EamonRT.Game.States
 		{
 			Debug.Assert(eventData != null && !string.IsNullOrWhiteSpace(eventData.EventName));
 
-			var methodName = string.Format("{0}{1}", eventData.EventName, !eventData.EventName.EndsWith("Event") ? "Event" : "");
+			EventMethodName = string.Format("{0}{1}", eventData.EventName, !eventData.EventName.EndsWith("Event") ? "Event" : "");
 
-			var methodInfo = GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+			EventMethodInfo = GetType().GetMethod(EventMethodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
 
-			if (methodInfo != null)
+			if (EventMethodInfo != null)
 			{
-				methodInfo.Invoke(this, new object[] { eventData.EventParam });
+				EventMethodInfo.Invoke(this, new object[] { eventData.EventParam });
 			}
-		}
-
-		public override void Execute()
-		{
-			if (!Globals.CommandPromptSeen || ShouldPreTurnProcess())
-			{
-				var eventTurn = 0L;
-
-				EventData eventData = null;
-
-				gGameState.AfterPrintPlayerRoomEventHeap.PeekMin(ref eventTurn, ref eventData);
-
-				while (!ExitEventLoop && eventData != null && !string.IsNullOrWhiteSpace(eventData.EventName) && eventTurn <= gGameState.CurrTurn)
-				{
-					gGameState.AfterPrintPlayerRoomEventHeap.RemoveMin(ref eventTurn, ref eventData);
-
-					FireEvent02(eventData);
-
-					eventTurn = 0;
-
-					eventData = null;
-
-					gGameState.AfterPrintPlayerRoomEventHeap.PeekMin(ref eventTurn, ref eventData);
-				}
-			}
-
-			if (NextState == null)
-			{
-				NextState = Globals.CreateInstance<IGetPlayerInputState>();
-			}
-
-			Globals.NextState = NextState;
 		}
 
 		public AfterPrintPlayerRoomEventState()

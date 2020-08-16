@@ -1,7 +1,7 @@
 ﻿
 // GameState.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System.Diagnostics;
 using Eamon;
@@ -14,7 +14,7 @@ namespace TheBeginnersCave.Game
 	[ClassMappings(typeof(IGameState))]
 	public class GameState : Eamon.Game.GameState, Framework.IGameState
 	{
-		protected long _trollsfire = 0;
+		public long _trollsfire = 0;
 
 		public virtual long Trollsfire
 		{

@@ -1,7 +1,7 @@
 ﻿
 // HintsCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -16,20 +16,20 @@ namespace BeginnersForest.Game.Commands
 	[ClassMappings]
 	public class HintsCommand : EamonRT.Game.Commands.HintsCommand, IHintsCommand
 	{
-		public override void PrintHintsQuestion(IList<IHint> hints, int i)
+		public override void PrintHintsQuestion()
 		{
-			Debug.Assert(hints != null);
+			Debug.Assert(ActiveHintList != null);
 
 			var prefix = "Beginner's Forest -- ";
 
-			var question = hints[i].Question;
+			var question = ActiveHintList[ActiveHintListIndex].Question;
 
 			if (question.StartsWith(prefix))
 			{
 				question = question.Substring(prefix.Length);
 			}
 
-			gOut.Write("{0}{1,3}. {2}", Environment.NewLine, i + 1, question);
+			gOut.Write("{0}{1,3}. {2}", Environment.NewLine, ActiveHintListIndex + 1, question);
 		}
 	}
 }

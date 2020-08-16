@@ -1,7 +1,7 @@
 ﻿
 // EffectHelper.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -19,9 +19,27 @@ namespace Eamon.Game.Helpers
 	[ClassMappings]
 	public class EffectHelper : Helper<IEffect>, IEffectHelper
 	{
-		#region Protected Methods
+		#region Public Methods
 
 		#region Interface IHelper
+
+		public override bool ValidateRecordAfterDatabaseLoaded()
+		{
+			return true;
+		}
+
+		public override void ListErrorField()
+		{
+			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));
+
+			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
+
+			gOut.WriteLine("{0}{1}{0}{0}{2}{3}",
+				Environment.NewLine,
+				gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null),
+				Record.Desc,
+				string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) ? "" : Environment.NewLine);
+		}
 
 		#region GetPrintedName Methods
 
@@ -45,14 +63,14 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateUid()
+		public virtual bool ValidateUid()
 		{
 			return Record.Uid > 0;
 		}
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateDesc()
+		public virtual bool ValidateDesc()
 		{
 			return string.IsNullOrWhiteSpace(Record.Desc) == false && Record.Desc.Length <= Constants.EffDescLen;
 		}
@@ -63,7 +81,7 @@ namespace Eamon.Game.Helpers
 
 		/// <summary></summary>
 		/// <returns></returns>
-		protected virtual bool ValidateInterdependenciesDesc()
+		public virtual bool ValidateInterdependenciesDesc()
 		{
 			var result = true;
 
@@ -98,7 +116,7 @@ namespace Eamon.Game.Helpers
 		#region PrintDesc Methods
 
 		/// <summary></summary>
-		protected virtual void PrintDescDesc()
+		public virtual void PrintDescDesc()
 		{
 			var fullDesc = "Enter a detailed description of the effect.";
 
@@ -110,7 +128,7 @@ namespace Eamon.Game.Helpers
 		#region List Methods
 
 		/// <summary></summary>
-		protected virtual void ListUid()
+		public virtual void ListUid()
 		{
 			if (!ExcludeROFields)
 			{
@@ -121,7 +139,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void ListDesc()
+		public virtual void ListDesc()
 		{
 			Buf.Clear();
 
@@ -146,7 +164,7 @@ namespace Eamon.Game.Helpers
 		#region Input Methods
 
 		/// <summary></summary>
-		protected virtual void InputUid()
+		public virtual void InputUid()
 		{
 			gOut.Print("{0}{1}", gEngine.BuildPrompt(27, '\0', 0, GetPrintedName("Uid"), null), Record.Uid);
 
@@ -154,7 +172,7 @@ namespace Eamon.Game.Helpers
 		}
 
 		/// <summary></summary>
-		protected virtual void InputDesc()
+		public virtual void InputDesc()
 		{
 			var fieldDesc = FieldDesc;
 
@@ -201,7 +219,7 @@ namespace Eamon.Game.Helpers
 
 		#region Class EffectHelper
 
-		protected override void SetUidIfInvalid()
+		public override void SetUidIfInvalid()
 		{
 			if (Record.Uid <= 0)
 			{
@@ -215,39 +233,9 @@ namespace Eamon.Game.Helpers
 			}
 		}
 
-		#endregion
-
-		#endregion
-
-		#region Public Methods
-
-		#region Interface IHelper
-
-		public override bool ValidateRecordAfterDatabaseLoaded()
-		{
-			return true;
-		}
-
-		public override void ListErrorField()
-		{
-			Debug.Assert(!string.IsNullOrWhiteSpace(ErrorFieldName));
-
-			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
-
-			gOut.WriteLine("{0}{1}{0}{0}{2}{3}",
-				Environment.NewLine,
-				gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null),
-				Record.Desc,
-				string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) ? "" : Environment.NewLine);
-		}
-
-		#endregion
-
-		#region Class EffectHelper
-
 		public EffectHelper()
 		{
-			FieldNames = new List<string>()
+			FieldNameList = new List<string>()
 			{
 				"Uid",
 				"IsUidRecycled",

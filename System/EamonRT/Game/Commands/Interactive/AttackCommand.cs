@@ -1,7 +1,7 @@
 ﻿
 // AttackCommand.cs
 
-// Copyright (c) 2014+ by Michael R. Penner.  All rights reserved.
+// Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
 using System.Collections.Generic;
@@ -22,6 +22,8 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class AttackCommand : Command, IAttackCommand
 	{
+		public IArtifactCategory _dobjArtAc;
+
 		public virtual bool BlastSpell { get; set; }
 
 		public virtual bool CheckAttack { get; set; }
@@ -30,25 +32,55 @@ namespace EamonRT.Game.Commands
 
 		public virtual long AttackNumber { get; set; }
 
-		public virtual void PrintHackToBits()
+		/// <summary></summary>
+		public virtual IList<IArtifact> SpilledArtifactList { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory DobjArtAc
 		{
-			gOut.Print("You {0} {1} to bits!", BlastSpell ? "blast" : "hack", DobjArtifact.EvalPlural("it", "them"));
+			get
+			{
+				return _dobjArtAc;
+			}
+
+			set
+			{
+				_dobjArtAc = value;
+			}
 		}
 
-		public virtual void BuildWhamHitObj()
-		{
-			Globals.Buf.SetPrint("Wham!  You hit {0}!", DobjArtifact.GetTheName(buf: Globals.Buf01));
-		}
+		/// <summary></summary>
+		public virtual IArtifactCategory ActorWeaponAc { get; set; }
 
-		public virtual void BuildSmashesToPieces()
-		{
-			Globals.Buf.SetFormat("{0}{1} {2} to pieces", Environment.NewLine, DobjArtifact.GetTheName(true, buf: Globals.Buf01), DobjArtifact.EvalPlural("smashes", "smash"));
-		}
+		/// <summary></summary>
+		public virtual IMonster DisguisedMonster { get; set; }
 
-		public virtual void BuildContentsSpillToFloor()
-		{
-			Globals.Buf.AppendFormat("; {0} contents spill to the {1}", DobjArtifact.EvalPlural("its", "their"), ActorRoom.EvalRoomType("floor", "ground"));
-		}
+		/// <summary></summary>
+		public virtual IArtifact ActorWeapon { get; set; }
+
+		/// <summary></summary>
+		public virtual ICommand RedirectCommand { get; set; }
+
+		/// <summary></summary>
+		public virtual ICombatSystem PlayerCombatSystem { get; set; }
+
+		/// <summary></summary>
+		public virtual ICombatSystem MonsterCombatSystem { get; set; }
+
+		/// <summary></summary>
+		public virtual long KeyArtifactUid { get; set; }
+
+		/// <summary></summary>
+		public virtual long BreakageStrength { get; set; }
+
+		/// <summary></summary>
+		public virtual long BreakageDice { get; set; }
+
+		/// <summary></summary>
+		public virtual long BreakageSides { get; set; }
+
+		/// <summary></summary>
+		public virtual long BreakageDamage { get; set; }
 
 		public override void PlayerExecute()
 		{
@@ -67,13 +99,13 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact != null)
 			{
-				IArtifactCategory ac = null;
+				DobjArtAc = null;
 
-				if (DobjArtifact.IsAttackable01(ref ac))
+				if (DobjArtifact.IsAttackable01(ref _dobjArtAc))
 				{
-					Debug.Assert(ac != null);
+					Debug.Assert(DobjArtAc != null);
 
-					if (ac.Type == ArtifactType.DeadBody)
+					if (DobjArtAc.Type == ArtifactType.DeadBody)
 					{
 						if (BlastSpell)
 						{
@@ -87,33 +119,33 @@ namespace EamonRT.Game.Commands
 						goto Cleanup;
 					}
 
-					if (ac.Type == ArtifactType.DisguisedMonster)
+					if (DobjArtAc.Type == ArtifactType.DisguisedMonster)
 					{
 						gEngine.RevealDisguisedMonster(ActorRoom, DobjArtifact);
 
-						var monster = gMDB[ac.Field1];
+						DisguisedMonster = gMDB[DobjArtAc.Field1];
 
-						Debug.Assert(monster != null);
+						Debug.Assert(DisguisedMonster != null);
 
-						ICommand command = null;
+						RedirectCommand = null;
 
 						if (BlastSpell)
 						{
-							command = Globals.CreateInstance<IBlastCommand>(x =>
+							RedirectCommand = Globals.CreateInstance<IBlastCommand>(x =>
 							{
 								x.CastSpell = false;
 							});
 						}
 						else
 						{
-							command = Globals.CreateInstance<IAttackCommand>();
+							RedirectCommand = Globals.CreateInstance<IAttackCommand>();
 						}
 
-						CopyCommandData(command);
+						CopyCommandData(RedirectCommand);
 
-						command.Dobj = monster;
+						RedirectCommand.Dobj = DisguisedMonster;
 
-						NextState = command;
+						NextState = RedirectCommand;
 
 						goto Cleanup;
 					}
@@ -122,73 +154,73 @@ namespace EamonRT.Game.Commands
 						Damage it...
 					*/
 
-					var keyUid = ac.GetKeyUid();
+					KeyArtifactUid = DobjArtAc.GetKeyUid();
 
-					if (keyUid == -2)
+					if (KeyArtifactUid == -2)
 					{
 						PrintAlreadyBrokeIt(DobjArtifact);
 
 						goto Cleanup;
 					}
 
-					var breakageStrength = ac.GetBreakageStrength();
+					BreakageStrength = DobjArtAc.GetBreakageStrength();
 
-					if (breakageStrength < 1000)
+					if (BreakageStrength < 1000)
 					{
 						gOut.Print("Nothing happens.");
 
 						goto Cleanup;
 					}
 
-					var d = 0L;
+					BreakageDice = 0;
 
-					var s = 0L;
+					BreakageSides = 0;
 
 					if (BlastSpell)
 					{
 						if (Globals.IsRulesetVersion(5, 15))
 						{
-							d = 1;
+							BreakageDice = 1;
 
-							s = 6;
+							BreakageSides = 6;
 						}
 						else
 						{
-							d = 2;
+							BreakageDice = 2;
 
-							s = 5;
+							BreakageSides = 5;
 						}
 
 						Globals.Buf.SetPrint("{0}", gEngine.GetBlastDesc());
 					}
 					else
 					{
-						var weapon = gADB[ActorMonster.Weapon];
+						ActorWeapon = gADB[ActorMonster.Weapon];
 
-						Debug.Assert(weapon != null);
+						Debug.Assert(ActorWeapon != null);
 
-						var weaponAc = weapon.GeneralWeapon;
+						ActorWeaponAc = ActorWeapon.GeneralWeapon;
 
-						Debug.Assert(weaponAc != null);
+						Debug.Assert(ActorWeaponAc != null);
 
-						d = weaponAc.Field3;
+						BreakageDice = ActorWeaponAc.Field3;
 
-						s = weaponAc.Field4;
+						BreakageSides = ActorWeaponAc.Field4;
 
 						BuildWhamHitObj();
 					}
 
 					gOut.Write("{0}", Globals.Buf);
 
-					var rl = gEngine.RollDice(d, s, 0);
+					BreakageDamage = gEngine.RollDice(BreakageDice, BreakageSides, 0);
 
-					breakageStrength -= rl;
+					BreakageStrength -= BreakageDamage;
 
-					if (breakageStrength > 1000)
+					if (BreakageStrength > 1000)
 					{
-						ac.SetBreakageStrength(breakageStrength);
+						DobjArtAc.SetBreakageStrength(BreakageStrength);
 
-						rc = DobjArtifact.SyncArtifactCategories(ac);
+						rc = DobjArtifact.SyncArtifactCategories(DobjArtAc);
 
 						Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -199,13 +231,13 @@ namespace EamonRT.Game.Commands
 						Broken!
 					*/
 
-					ac.SetOpen(true);
+					DobjArtAc.SetOpen(true);
 
-					ac.SetKeyUid(-2);
+					DobjArtAc.SetKeyUid(-2);
 
-					ac.Field4 = 0;
+					DobjArtAc.Field4 = 0;
 
-					rc = DobjArtifact.SyncArtifactCategories(ac);
+					rc = DobjArtifact.SyncArtifactCategories(DobjArtAc);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -217,26 +249,26 @@ namespace EamonRT.Game.Commands
 
 					BuildSmashesToPieces();
 
-					if (ac.Type == ArtifactType.InContainer)
+					if (DobjArtAc.Type == ArtifactType.InContainer)
 					{
-						var artifactList = DobjArtifact.GetContainedList(containerType: ContainerType.In);
+						SpilledArtifactList = DobjArtifact.GetContainedList(containerType: ContainerType.In);
 
 						if (DobjArtifact.OnContainer != null && DobjArtifact.IsInContainerOpenedFromTop())
 						{
-							artifactList.AddRange(DobjArtifact.GetContainedList(containerType: ContainerType.On));
+							SpilledArtifactList.AddRange(DobjArtifact.GetContainedList(containerType: ContainerType.On));
 						}
 
-						foreach (var artifact in artifactList)
+						foreach (var artifact in SpilledArtifactList)
 						{
 							artifact.SetInRoom(ActorRoom);
 						}
 
-						if (artifactList.Count > 0)
+						if (SpilledArtifactList.Count > 0)
 						{
 							BuildContentsSpillToFloor();
 						}
 
-						ac.Field3 = 0;
+						DobjArtAc.Field3 = 0;
 					}
 
 					Globals.Buf.AppendFormat("!{0}", Environment.NewLine);
@@ -276,7 +308,7 @@ namespace EamonRT.Game.Commands
 					gEngine.MonsterGetsAggravated(DobjMonster);
 				}
 
-				var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
+				PlayerCombatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 				{
 					x.SetNextStateFunc = s => NextState = s;
 
@@ -293,7 +325,7 @@ namespace EamonRT.Game.Commands
 					x.OmitSkillGains = !BlastSpell && !ShouldAllowSkillGains();
 				});
 
-				combatSystem.ExecuteAttack();
+				PlayerCombatSystem.ExecuteAttack();
 			}
 
 		Cleanup:
@@ -308,7 +340,7 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(DobjMonster != null);
 
-			var combatSystem = Globals.CreateInstance<ICombatSystem>(x =>
+			MonsterCombatSystem = Globals.CreateInstance<ICombatSystem>(x =>
 			{
 				x.SetNextStateFunc = s => NextState = s;
 
@@ -321,7 +353,7 @@ namespace EamonRT.Game.Commands
 				x.AttackNumber = AttackNumber;
 			});
 
-			combatSystem.ExecuteAttack();
+			MonsterCombatSystem.ExecuteAttack();
 
 			if (NextState == null)
 			{
@@ -330,6 +362,26 @@ namespace EamonRT.Game.Commands
 					x.ErrorMessage = string.Format("{0}: NextState == null", Name);
 				});
 			}
+		}
+
+		public virtual void PrintHackToBits()
+		{
+			gOut.Print("You {0} {1} to bits!", BlastSpell ? "blast" : "hack", DobjArtifact.EvalPlural("it", "them"));
+		}
+
+		public virtual void BuildWhamHitObj()
+		{
+			Globals.Buf.SetPrint("Wham!  You hit {0}!", DobjArtifact.GetTheName(buf: Globals.Buf01));
+		}
+
+		public virtual void BuildSmashesToPieces()
+		{
+			Globals.Buf.SetFormat("{0}{1} {2} to pieces", Environment.NewLine, DobjArtifact.GetTheName(true, buf: Globals.Buf01), DobjArtifact.EvalPlural("smashes", "smash"));
+		}
+
+		public virtual void BuildContentsSpillToFloor()
+		{
+			Globals.Buf.AppendFormat("; {0} contents spill to the {1}", DobjArtifact.EvalPlural("its", "their"), ActorRoom.EvalRoomType("floor", "ground"));
 		}
 
 		public AttackCommand()
