@@ -53,7 +53,7 @@ namespace Eamon.ThirdParty
 
 		#region Construction
 
-		// +++ MRP BEGIN +++
+		// +++ MP BEGIN +++
 
 		/// <summary>
 		/// Initializes a new BTree instance.
@@ -64,7 +64,7 @@ namespace Eamon.ThirdParty
 
 		}
 
-		// +++ MRP END +++
+		// +++ MP END +++
 
 		/// <summary>
 		/// Initializes a new BTree instance.

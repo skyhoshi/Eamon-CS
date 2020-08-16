@@ -20,7 +20,7 @@ namespace Eamon.Framework
 
 		/// <summary>
 		/// Gets or sets the volume label for this adventure; this is a code consisting of the author(s) initials and
-		/// an author-specific sequence number, e.g. MRP-001.
+		/// an author-specific sequence number, e.g. MP-001.
 		/// </summary>
 		string VolLabel { get; set; }
 

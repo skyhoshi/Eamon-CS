@@ -13,7 +13,7 @@
             <Simple name="Name" value="Test Adventure" />
             <Simple name="Desc" value="This is a generic test adventure for Eamon CS designed to stress the EamonRT program with a variety of artifact and monster types.  It is not intended to be used for real adventuring." />
             <Simple name="Author" value="Michael Penner" />
-            <Simple name="VolLabel" value="MRP-000" />
+            <Simple name="VolLabel" value="MP-000" />
             <Simple name="SerialNum" value="000" />
             <Simple name="LastMod" value="04/12/2019 21:02:00" />
             <Simple name="IntroStory" value="23" />

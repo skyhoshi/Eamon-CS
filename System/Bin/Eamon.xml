@@ -3393,7 +3393,7 @@
         <member name="P:Eamon.Framework.IModule.VolLabel">
             <summary>
             Gets or sets the volume label for this adventure; this is a code consisting of the author(s) initials and
-            an author-specific sequence number, e.g. MRP-001.
+            an author-specific sequence number, e.g. MP-001.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IModule.SerialNum">

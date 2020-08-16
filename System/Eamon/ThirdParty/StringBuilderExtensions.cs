@@ -22,7 +22,7 @@
 // THE SOFTWARE.
 #endregion License
 
-// 20151102		MRP		Commented out the Contracts stuff
+// 20151102		MP		Commented out the Contracts stuff
 
 //using System.Diagnostics.Contracts;
 using System.Globalization;

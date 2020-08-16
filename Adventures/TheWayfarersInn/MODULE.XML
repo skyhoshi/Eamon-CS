@@ -9,7 +9,7 @@
         <Complex type="TheWayfarersInn.Game.Module, TheWayfarersInn, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Author" value="Michael Penner" />
-            <Simple name="VolLabel" value="MRP-003" />
+            <Simple name="VolLabel" value="MP-003" />
             <Simple name="SerialNum" value="010" />
             <Simple name="LastMod" value="2020-02-11T17:37:21.5045118-08:00" />
             <Simple name="IntroStory" value="99" />
