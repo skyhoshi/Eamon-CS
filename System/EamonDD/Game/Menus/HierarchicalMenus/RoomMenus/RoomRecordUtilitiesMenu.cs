@@ -33,14 +33,14 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
 				x.SelectChar = (char)('1' + MenuItemList.Count);
-				x.LineText = string.Format("{0}{1}. Brief map of room record connections.", Environment.NewLine, MenuItemList.Count + 1);
+				x.LineText = string.Format("{0}{1}. Brief map of Room record connections.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IBriefMapRoomRecordConnectionsMenu>();
 			}));
 
 			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
 				x.SelectChar = (char)('1' + MenuItemList.Count);
-				x.LineText = string.Format("{0}{1}. Full map of room record connections.", Environment.NewLine, MenuItemList.Count + 1);
+				x.LineText = string.Format("{0}{1}. Full map of Room record connections.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IFullMapRoomRecordConnectionsMenu>();
 			}));
 
@@ -49,7 +49,7 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 				MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 				{
 					x.SelectChar = (char)('1' + MenuItemList.Count);
-					x.LineText = string.Format("{0}{1}. Analyse room record interdependencies.", Environment.NewLine, MenuItemList.Count + 1);
+					x.LineText = string.Format("{0}{1}. Analyse Room record interdependencies.", Environment.NewLine, MenuItemList.Count + 1);
 					x.SubMenu = Globals.CreateInstance<IAnalyseRoomRecordInterdependenciesMenu>();
 				}));
 			}

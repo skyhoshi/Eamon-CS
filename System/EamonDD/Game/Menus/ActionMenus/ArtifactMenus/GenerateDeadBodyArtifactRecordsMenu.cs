@@ -41,7 +41,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var maxMonUid = Globals.Database.GetMonsterUid(false);
 
-			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(43, '\0', 0, "Enter the starting monster uid", "1"));
+			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(43, '\0', 0, "Enter the starting Monster Uid", "1"));
 
 			Buf.Clear();
 
@@ -53,7 +53,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			gOut.Print("{0}", Globals.LineSep);
 
-			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(43, '\0', 0, "Enter the ending monster uid", maxMonUid > 0 ? maxMonUid.ToString() : "1"));
+			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(43, '\0', 0, "Enter the ending Monster Uid", maxMonUid > 0 ? maxMonUid.ToString() : "1"));
 
 			Buf.Clear();
 
@@ -125,7 +125,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			{
 				gOut.Print("{0}", Globals.LineSep);
 
-				gOut.Write("{0}Would you like to generate {1} (Y/N): ", Environment.NewLine, j > 1 ? "dead body artifact records" : "a dead body artifact record");
+				gOut.Write("{0}Would you like to generate {1} (Y/N): ", Environment.NewLine, j > 1 ? "dead body Artifact records" : "a dead body Artifact record");
 
 				Buf.Clear();
 
@@ -185,7 +185,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				gOut.Print("{0}", Globals.LineSep);
 
-				Buf.SetFormat(j > 1 ? "Generated dead body artifacts with uids between {0} and {1}, inclusive." : "Generated a dead body artifact with uid {0}.", artUids[0], artUids[1]);
+				Buf.SetFormat(j > 1 ? "Generated dead body Artifacts with Uids between {0} and {1}, inclusive." : "Generated a dead body Artifact with Uid {0}.", artUids[0], artUids[1]);
 
 				gOut.Print("{0}", Buf);
 			}

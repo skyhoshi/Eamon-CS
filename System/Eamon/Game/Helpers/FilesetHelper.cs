@@ -255,7 +255,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescName()
 		{
-			var fullDesc = "Enter the name of the fileset." + Environment.NewLine + Environment.NewLine + "If the fileset represents an adventure, use the adventure name; if it represents an author catalog use the catalog name.";
+			var fullDesc = "Enter the name of the Fileset." + Environment.NewLine + Environment.NewLine + "If the Fileset represents an adventure, use the adventure name; if it represents an author catalog use the catalog name.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -263,7 +263,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescWorkDir()
 		{
-			var fullDesc = "Enter the working directory of the fileset." + Environment.NewLine + Environment.NewLine + "This is where the files are found.  It can be an absolute or relative path, and should not end with a path separator.";
+			var fullDesc = "Enter the working directory of the Fileset." + Environment.NewLine + Environment.NewLine + "This is where the files are found.  It can be an absolute or relative path, and should not end with a path separator.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -271,7 +271,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescPluginFileName()
 		{
-			var fullDesc = "Enter the plugin filename of the fileset.";
+			var fullDesc = "Enter the plugin filename of the Fileset.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -279,7 +279,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescConfigFileName()
 		{
-			var fullDesc = "Enter the config filename of the fileset.";
+			var fullDesc = "Enter the Config filename of the Fileset.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -287,7 +287,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescFilesetFileName()
 		{
-			var fullDesc = "Enter the fileset filename of the fileset.";
+			var fullDesc = "Enter the Fileset filename of the Fileset.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -295,7 +295,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescCharacterFileName()
 		{
-			var fullDesc = "Enter the character filename of the fileset.";
+			var fullDesc = "Enter the Character filename of the Fileset.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -303,7 +303,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescModuleFileName()
 		{
-			var fullDesc = "Enter the module filename of the fileset.";
+			var fullDesc = "Enter the Module filename of the Fileset.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -311,7 +311,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescRoomFileName()
 		{
-			var fullDesc = "Enter the room filename of the fileset.";
+			var fullDesc = "Enter the Room filename of the Fileset.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -319,7 +319,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescArtifactFileName()
 		{
-			var fullDesc = "Enter the artifact filename of the fileset.";
+			var fullDesc = "Enter the Artifact filename of the Fileset.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -327,7 +327,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescEffectFileName()
 		{
-			var fullDesc = "Enter the effect filename of the fileset.";
+			var fullDesc = "Enter the Effect filename of the Fileset.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -335,7 +335,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescMonsterFileName()
 		{
-			var fullDesc = "Enter the monster filename of the fileset.";
+			var fullDesc = "Enter the Monster filename of the Fileset.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -343,7 +343,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescHintFileName()
 		{
-			var fullDesc = "Enter the hint filename of the fileset.";
+			var fullDesc = "Enter the Hint filename of the Fileset.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -351,7 +351,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescGameStateFileName()
 		{
-			var fullDesc = "Enter the game state filename of the fileset.";
+			var fullDesc = "Enter the GameState filename of the Fileset.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}

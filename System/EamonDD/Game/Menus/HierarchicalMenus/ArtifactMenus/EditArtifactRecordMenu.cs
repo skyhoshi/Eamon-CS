@@ -33,14 +33,14 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
 				x.SelectChar = (char)('1' + MenuItemList.Count);
-				x.LineText = string.Format("{0}{1}. Edit many fields of an artifact record.", Environment.NewLine, MenuItemList.Count + 1);
+				x.LineText = string.Format("{0}{1}. Edit many fields of an Artifact record.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IEditArtifactRecordManyFieldsMenu>();
 			}));
 
 			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
 				x.SelectChar = (char)('1' + MenuItemList.Count);
-				x.LineText = string.Format("{0}{1}. Edit one field of an artifact record.", Environment.NewLine, MenuItemList.Count + 1);
+				x.LineText = string.Format("{0}{1}. Edit one field of an Artifact record.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IEditArtifactRecordOneFieldMenu>();
 			}));
 

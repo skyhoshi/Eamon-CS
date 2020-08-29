@@ -27,9 +27,9 @@ namespace TheTempleOfNgurct.Game.States
 				{
 					gEngine.PrintEffectDesc(19);
 
-					var monsters = gEngine.GetTrapMonsterList(1, gGameState.Ro);
+					var monsterList = gEngine.GetTrapMonsterList(1, gGameState.Ro);
 
-					foreach (var m in monsters)
+					foreach (var m in monsterList)
 					{
 						gEngine.ApplyTrapDamage(s => NextState = s, m, 1, 6, false);
 
@@ -48,9 +48,9 @@ namespace TheTempleOfNgurct.Game.States
 				{
 					gEngine.PrintEffectDesc(20);
 
-					var monsters = gEngine.GetTrapMonsterList(1, gGameState.Ro);
+					var monsterList = gEngine.GetTrapMonsterList(1, gGameState.Ro);
 
-					foreach (var m in monsters)
+					foreach (var m in monsterList)
 					{
 						gEngine.ApplyTrapDamage(s => NextState = s, m, 1, 4, false);
 
@@ -69,9 +69,9 @@ namespace TheTempleOfNgurct.Game.States
 				{
 					gEngine.PrintEffectDesc(21);
 
-					var monsters = gEngine.GetTrapMonsterList(3, gGameState.Ro);
+					var monsterList = gEngine.GetTrapMonsterList(3, gGameState.Ro);
 
-					foreach (var m in monsters)
+					foreach (var m in monsterList)
 					{
 						gEngine.ApplyTrapDamage(s => NextState = s, m, 2, 6, true);
 
@@ -90,9 +90,9 @@ namespace TheTempleOfNgurct.Game.States
 				{
 					gEngine.PrintEffectDesc(22);
 
-					var monsters = gEngine.GetTrapMonsterList(1, gGameState.Ro);
+					var monsterList = gEngine.GetTrapMonsterList(1, gGameState.Ro);
 
-					foreach (var m in monsters)
+					foreach (var m in monsterList)
 					{
 						gEngine.ApplyTrapDamage(s => NextState = s, m, 1, 8, false);
 
@@ -111,9 +111,9 @@ namespace TheTempleOfNgurct.Game.States
 				{
 					gEngine.PrintEffectDesc(23);
 
-					var monsters = gEngine.GetTrapMonsterList(1, gGameState.Ro);
+					var monsterList = gEngine.GetTrapMonsterList(1, gGameState.Ro);
 
-					foreach (var m in monsters)
+					foreach (var m in monsterList)
 					{
 						gEngine.ApplyTrapDamage(s => NextState = s, m, 2, 6, false);
 

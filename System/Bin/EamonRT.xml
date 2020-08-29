@@ -585,6 +585,9 @@
         <member name="T:EamonRT.Framework.Commands.IReadyCommand">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.Commands.IReadyCommand.ArtTypes">
+            <summary></summary>
+        </member>
         <member name="T:EamonRT.Framework.Commands.IRemoveCommand">
             <summary></summary>
         </member>
@@ -2283,10 +2286,10 @@
         <member name="P:EamonRT.Game.Commands.ExamineCommand.ContainerArtType">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.Commands.ExamineCommand.ArtifactInventoryCommand">
+        <member name="P:EamonRT.Game.Commands.ExamineCommand.RedirectCommand">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.Commands.ExamineCommand.MonsterInventoryCommand">
+        <member name="P:EamonRT.Game.Commands.ExamineCommand.RedirectCommand01">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.Commands.ExamineCommand.ShowCharOwned">
@@ -2295,10 +2298,67 @@
         <member name="P:EamonRT.Game.Commands.ExamineCommand.IsUninjuredGroupMonster">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.PlayerArtTypes">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.MonsterArtTypes">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.PlayerFumbleMonsterList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.MonsterFumbleMonsterList">
+            <summary></summary>
+        </member>
         <member name="P:EamonRT.Game.Commands.GetCommand.TakenArtifactList">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.PlayerDobjArtAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.MonsterDobjArtAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.WeaponArtifactAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.WeaponAffinityMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.WeaponArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.RedirectCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.MonsterName">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.PlayerDobjArtifactCount">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.PlayerDobjArtifactWeight">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.PlayerActorMonsterInventoryWeight">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.MonsterDobjArtifactCount">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.MonsterDobjArtifactWeight">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.MonsterActorMonsterInventoryWeight">
+            <summary></summary>
+        </member>
         <member name="P:EamonRT.Game.Commands.GetCommand.OmitWeightCheck">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.IsCarriedByContainer">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.GetCommand.NewlineFlag">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.Commands.LightCommand.DobjArtAc">
@@ -2361,7 +2421,52 @@
         <member name="P:EamonRT.Game.Commands.ReadCommand.ReadEffectIndex">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.Commands.ReadyCommand.ArtTypes">
+        <member name="P:EamonRT.Game.Commands.ReadyCommand.DobjArtAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ReadyCommand.ShieldArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ReadyCommand.PlayerActorWeapon">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ReadyCommand.MonsterActorWeapon">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.ReadyCommand.MonsterName">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.ArtTypes">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.FumbleMonsterList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.DobjArtAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.ArmorArtifactAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.ShieldArtifactAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.ArmorArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.ShieldArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.MonsterName">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.DobjArtifactCount">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.DobjArtifactWeight">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RemoveCommand.ActorMonsterInventoryWeight">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.Commands.RemoveCommand.OmitWeightCheck">
@@ -2400,13 +2505,109 @@
         <member name="P:EamonRT.Game.Commands.HintsCommand.HintAnswerIndex">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.Commands.PowerCommand.SpeedCommand">
+        <member name="P:EamonRT.Game.Commands.InventoryCommand.DobjArtContainedArtifactList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.InventoryCommand.DobjMonsterWornArtifactList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.InventoryCommand.DobjMonsterCarriedArtifactList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.InventoryCommand.DobjArtAc">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.InventoryCommand.GoldArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.InventoryCommand.DobjArtContainerType">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.InventoryCommand.TotalGold">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.InventoryCommand.ShowCharOwned">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.InventoryCommand.IsCharMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.InventoryCommand.HasWornInventory">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.InventoryCommand.HasCarriedInventory">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.InventoryCommand.ShouldShowHealthStatusWhenInventoried">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.InventoryCommand.IsUninjuredGroup">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.PowerCommand.RedirectCommand">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.Commands.PowerCommand.PowerEventRoll">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.Commands.PowerCommand.FortuneCookieRoll">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RestoreCommand.FullArtifactList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RestoreCommand.FullMonsterList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RestoreCommand.SaveFilesetList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RestoreCommand.SaveFileset">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RestoreCommand.SaveConfig">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RestoreCommand.CharacterRoom">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RestoreCommand.OrigCurrState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.RestoreCommand.SaveFilesetsCount">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.SaveCommand.FullArtifactList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.SaveCommand.SaveFilesetList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.SaveCommand.SaveFileset">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.SaveCommand.SaveConfig">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.SaveCommand.SaveSlotString">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.SaveCommand.SaveFilePath">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.SaveCommand.SaveFileName">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.SaveCommand.SaveFileExtension">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.SaveCommand.SaveFilesetsCount">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.SaveCommand.SaveFileNameIndex">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Commands.SaveCommand.GameSaved">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.Commands.SpeedCommand.SpeedTurns">

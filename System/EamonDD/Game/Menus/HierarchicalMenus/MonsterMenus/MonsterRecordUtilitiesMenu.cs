@@ -33,7 +33,7 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
 				x.SelectChar = (char)('1' + MenuItemList.Count);
-				x.LineText = string.Format("{0}{1}. Generate dead body artifact records.", Environment.NewLine, MenuItemList.Count + 1);
+				x.LineText = string.Format("{0}{1}. Generate dead body Artifact records.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IGenerateDeadBodyArtifactRecordsMenu>();
 			}));
 
@@ -42,7 +42,7 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 				MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 				{
 					x.SelectChar = (char)('1' + MenuItemList.Count);
-					x.LineText = string.Format("{0}{1}. Analyse monster record interdependencies.", Environment.NewLine, MenuItemList.Count + 1);
+					x.LineText = string.Format("{0}{1}. Analyse Monster record interdependencies.", Environment.NewLine, MenuItemList.Count + 1);
 					x.SubMenu = Globals.CreateInstance<IAnalyseMonsterRecordInterdependenciesMenu>();
 				}));
 			}

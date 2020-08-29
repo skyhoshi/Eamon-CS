@@ -33,28 +33,28 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
 				x.SelectChar = (char)('1' + MenuItemList.Count);
-				x.LineText = string.Format("{0}{1}. Add a fileset record.", Environment.NewLine, MenuItemList.Count + 1);
+				x.LineText = string.Format("{0}{1}. Add a Fileset record.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IAddFilesetRecordMenu>();
 			}));
 
 			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
 				x.SelectChar = (char)('1' + MenuItemList.Count);
-				x.LineText = string.Format("{0}{1}. Edit a fileset record.", Environment.NewLine, MenuItemList.Count + 1);
+				x.LineText = string.Format("{0}{1}. Edit a Fileset record.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IEditFilesetRecordMenu>();
 			}));
 
 			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
 				x.SelectChar = (char)('1' + MenuItemList.Count);
-				x.LineText = string.Format("{0}{1}. Delete a fileset record.", Environment.NewLine, MenuItemList.Count + 1);
+				x.LineText = string.Format("{0}{1}. Delete a Fileset record.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IDeleteFilesetRecordMenu>();
 			}));
 
 			MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 			{
 				x.SelectChar = (char)('1' + MenuItemList.Count);
-				x.LineText = string.Format("{0}{1}. List fileset records.", Environment.NewLine, MenuItemList.Count + 1);
+				x.LineText = string.Format("{0}{1}. List Fileset records.", Environment.NewLine, MenuItemList.Count + 1);
 				x.SubMenu = Globals.CreateInstance<IListFilesetRecordMenu>();
 			}));
 

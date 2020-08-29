@@ -19,15 +19,15 @@ namespace TheSubAquanLaboratory.Game.Commands
 		{
 			Debug.Assert(DobjArtifact != null);
 
-			var artifacts = ActorMonster.GetWornList();
+			var artifactList = ActorMonster.GetWornList();
 
-			var scubaGearWorn = artifacts.FirstOrDefault(a => a.Uid == 52) != null;
+			var scubaGearWorn = artifactList.FirstOrDefault(a => a.Uid == 52) != null;
 
 			// SCUBA gear
 
-			if ((DobjArtifact.Uid == 52 && artifacts.Count > 0 && !scubaGearWorn) || (DobjArtifact.Uid != 52 && scubaGearWorn))
+			if ((DobjArtifact.Uid == 52 && artifactList.Count > 0 && !scubaGearWorn) || (DobjArtifact.Uid != 52 && scubaGearWorn))
 			{
-				PrintWearingRemoveFirst01(artifacts[0]);
+				PrintWearingRemoveFirst01(artifactList[0]);
 
 				NextState = Globals.CreateInstance<IStartState>();
 			}

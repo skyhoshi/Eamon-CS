@@ -39,10 +39,10 @@ namespace EamonRT.Game.Commands
 		public virtual ArtifactType ContainerArtType { get; set; }
 
 		/// <summary></summary>
-		public virtual ICommand ArtifactInventoryCommand { get; set; }
+		public virtual ICommand RedirectCommand { get; set; }
 
 		/// <summary></summary>
-		public virtual ICommand MonsterInventoryCommand { get; set; }
+		public virtual ICommand RedirectCommand01 { get; set; }
 
 		/// <summary></summary>
 		public virtual bool ShowCharOwned { get; set; }
@@ -172,14 +172,14 @@ namespace EamonRT.Game.Commands
 
 					if (((DobjArtAc.Type == ArtifactType.InContainer && DobjArtAc.IsOpen()) || DobjArtAc.Type == ArtifactType.OnContainer || DobjArtAc.Type == ArtifactType.UnderContainer || DobjArtAc.Type == ArtifactType.BehindContainer) && DobjArtifact.ShouldShowContentsWhenExamined())
 					{
-						ArtifactInventoryCommand = Globals.CreateInstance<IInventoryCommand>(x =>
+						RedirectCommand = Globals.CreateInstance<IInventoryCommand>(x =>
 						{
 							x.AllowExtendedContainers = true;
 						});
 
-						CopyCommandData(ArtifactInventoryCommand);
+						CopyCommandData(RedirectCommand);
 
-						NextState = ArtifactInventoryCommand;
+						NextState = RedirectCommand;
 
 						goto Cleanup;
 					}
@@ -199,11 +199,11 @@ namespace EamonRT.Game.Commands
 
 				if (DobjMonster.Friendliness == Friendliness.Friend && DobjMonster.ShouldShowContentsWhenExamined())
 				{
-					MonsterInventoryCommand = Globals.CreateInstance<IInventoryCommand>();
+					RedirectCommand01 = Globals.CreateInstance<IInventoryCommand>();
 
-					CopyCommandData(MonsterInventoryCommand);
+					CopyCommandData(RedirectCommand01);
 
-					NextState = MonsterInventoryCommand;
+					NextState = RedirectCommand01;
 
 					goto Cleanup;
 				}

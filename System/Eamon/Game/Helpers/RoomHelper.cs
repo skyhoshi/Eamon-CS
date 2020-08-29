@@ -196,7 +196,7 @@ namespace Eamon.Game.Helpers
 			{
 				result = false;
 
-				Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Desc"), "effect", invalidUid, "which doesn't exist");
+				Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Desc"), "Effect", invalidUid, "which doesn't exist");
 
 				ErrorMessage = Buf.ToString();
 
@@ -257,7 +257,7 @@ namespace Eamon.Game.Helpers
 					{
 						result = false;
 
-						Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("DirsElement"), "room", roomUid, "which doesn't exist");
+						Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("DirsElement"), "Room", roomUid, "which doesn't exist");
 
 						ErrorMessage = Buf.ToString();
 
@@ -278,7 +278,7 @@ namespace Eamon.Game.Helpers
 					{
 						result = false;
 
-						Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("DirsElement"), "artifact", artUid, "which doesn't exist");
+						Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("DirsElement"), "Artifact", artUid, "which doesn't exist");
 
 						ErrorMessage = Buf.ToString();
 
@@ -292,7 +292,7 @@ namespace Eamon.Game.Helpers
 					{
 						result = false;
 
-						Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("DirsElement"), "artifact", artUid, "which should be a door/gate, but isn't");
+						Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("DirsElement"), "Artifact", artUid, "which should be a door/gate, but isn't");
 
 						ErrorMessage = Buf.ToString();
 
@@ -306,7 +306,7 @@ namespace Eamon.Game.Helpers
 					{
 						result = false;
 
-						Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("DirsElement"), "artifact", artUid, "which should be located in this room, but isn't");
+						Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("DirsElement"), "Artifact", artUid, "which should be located in this Room, but isn't");
 
 						ErrorMessage = Buf.ToString();
 
@@ -331,7 +331,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescName()
 		{
-			var fullDesc = "Enter the name of the room." + Environment.NewLine + Environment.NewLine + "Room names should always be able to stand alone inside a pair of brackets: [Room Name].";
+			var fullDesc = "Enter the name of the Room." + Environment.NewLine + Environment.NewLine + "Room names should always be able to stand alone inside a pair of brackets: [Room name].";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -339,7 +339,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescDesc()
 		{
-			var fullDesc = "Enter a detailed description of the room.";
+			var fullDesc = "Enter a detailed description of the Room.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -347,7 +347,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescSeen()
 		{
-			var fullDesc = "Enter the Seen status of the room.";
+			var fullDesc = "Enter whether the player has seen the Room.";
 
 			var briefDesc = "0=Not seen; 1=Seen";
 
@@ -357,7 +357,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescLightLvl()
 		{
-			var fullDesc = "Enter the level of light in the room.";
+			var fullDesc = "Enter the level of light in the Room.";
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
@@ -374,7 +374,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescType()
 		{
-			var fullDesc = "Enter the type of the room.";
+			var fullDesc = "Enter the type of the Room.";
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
@@ -391,7 +391,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescZone()
 		{
-			var fullDesc = "Enter the zone of the room.";
+			var fullDesc = "Enter the zone of the Room." + Environment.NewLine + Environment.NewLine + "This value allows the arbitrary grouping of Rooms.  Ignored by Eamon CS, utilizing it requires special (user-programmed) events.";
 
 			var briefDesc = "(GT 0)=Valid value";
 
@@ -407,7 +407,7 @@ namespace Eamon.Game.Helpers
 
 			var fullDesc01 = "Enter a connection value for each direction the player can move in.";
 
-			var briefDesc = "-999=Return to Main Hall; (LT 0)=Special (user programmed) event; 0=No connection; 1-1000=Room uid; (1000 + N)=Door with artifact uid N";
+			var briefDesc = "-999=Return to Main Hall; (LT 0)=Special (user-programmed) event; 0=No connection; 1-1000=Room Uid; (1000 + N)=Door with Artifact Uid N";
 
 			if ((EditRec && EditField) || i == 1)
 			{

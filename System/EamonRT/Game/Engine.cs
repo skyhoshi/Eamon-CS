@@ -238,9 +238,9 @@ namespace EamonRT.Game
 
 		public virtual void InitArtifacts()
 		{
-			var artifacts = Globals.Database.ArtifactTable.Records.ToList();
+			var artifactList = Globals.Database.ArtifactTable.Records.ToList();
 
-			foreach (var artifact in artifacts)
+			foreach (var artifact in artifactList)
 			{
 				var rc = artifact.SyncArtifactCategories();
 
@@ -257,9 +257,9 @@ namespace EamonRT.Game
 				InitMonsterScaledHardinessValues();
 			}
 
-			var monsters = Globals.Database.MonsterTable.Records.ToList();
+			var monsterList = Globals.Database.MonsterTable.Records.ToList();
 
-			foreach (var monster in monsters)
+			foreach (var monster in monsterList)
 			{
 				monster.InitGroupCount = monster.GroupCount;
 
@@ -312,9 +312,9 @@ namespace EamonRT.Game
 				damageFactor = 1;
 			}
 
-			var monsters = Globals.Database.MonsterTable.Records.ToList();
+			var monsterList = Globals.Database.MonsterTable.Records.ToList();
 
-			foreach (var m in monsters)
+			foreach (var m in monsterList)
 			{
 				SetScaledHardiness(m, damageFactor);
 			}

@@ -215,7 +215,7 @@ namespace Eamon.Game.Helpers
 			{
 				result = false;
 
-				Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Question"), "effect", invalidUid, "which doesn't exist");
+				Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Question"), "Effect", invalidUid, "which doesn't exist");
 
 				ErrorMessage = Buf.ToString();
 
@@ -272,7 +272,7 @@ namespace Eamon.Game.Helpers
 				{
 					result = false;
 
-					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("AnswersElement"), "effect", invalidUid, "which doesn't exist");
+					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("AnswersElement"), "Effect", invalidUid, "which doesn't exist");
 
 					ErrorMessage = Buf.ToString();
 
@@ -296,7 +296,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescActive()
 		{
-			var fullDesc = "Enter the active status of the hint." + Environment.NewLine + Environment.NewLine + "An active hint is immediately available to the player, while inactive hints must be activated by special (user programmed) events.";
+			var fullDesc = "Enter whether the Hint is active." + Environment.NewLine + Environment.NewLine + "An active Hint is immediately available to the player, while inactive Hints must be activated by special (user-programmed) events.";
 
 			var briefDesc = "0=Inactive; 1=Active";
 
@@ -306,7 +306,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescQuestion()
 		{
-			var fullDesc = "Enter the name, topic or question of the hint.";
+			var fullDesc = "Enter the name, topic or question of the Hint.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -314,7 +314,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescNumAnswers()
 		{
-			var fullDesc = "Enter the number of answers for the hint.";
+			var fullDesc = "Enter the number of answers for the Hint.";
 
 			var briefDesc = string.Format("1-{0}=Valid value", Record.Answers.Length);
 
@@ -326,7 +326,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var fullDesc = string.Format("Enter the hint's answer #{0}.", i + 1);
+			var fullDesc = string.Format("Enter the Hint's answer #{0}.", i + 1);
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}

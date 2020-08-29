@@ -4,6 +4,7 @@
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -21,43 +22,116 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class SaveCommand : Command, ISaveCommand
 	{
+		public string _saveFilePath;
+
+		public string _saveFileName;
+
+		public string _saveFileExtension;
+
 		public virtual long SaveSlot { get; set; }
 
 		public virtual string SaveName { get; set; }
 
+		/// <summary></summary>
+		public virtual IList<IArtifact> FullArtifactList { get; set; }
+
+		/// <summary></summary>
+		public virtual IList<IFileset> SaveFilesetList { get; set; }
+
+		/// <summary></summary>
+		public virtual IFileset SaveFileset { get; set; }
+
+		/// <summary></summary>
+		public virtual IConfig SaveConfig { get; set; }
+
+		/// <summary></summary>
+		public virtual string SaveSlotString { get; set; }
+
+		/// <summary></summary>
+		public virtual string SaveFilePath
+		{
+			get
+			{
+				return _saveFilePath;
+			}
+
+			set
+			{
+				_saveFilePath = value;
+			}
+		}
+
+		/// <summary></summary>
+		public virtual string SaveFileName
+		{
+			get
+			{
+				return _saveFileName;
+			}
+
+			set
+			{
+				_saveFileName = value;
+			}
+		}
+
+		/// <summary></summary>
+		public virtual string SaveFileExtension
+		{
+			get
+			{
+				return _saveFileExtension;
+			}
+
+			set
+			{
+				_saveFileExtension = value;
+			}
+		}
+
+		/// <summary></summary>
+		public virtual long SaveFilesetsCount { get; set; }
+
+		/// <summary></summary>
+		public virtual long SaveFileNameIndex { get; set; }
+
+		/// <summary></summary>
+		public virtual bool GameSaved { get; set; }
+
 		public override void PlayerExecute()
 		{
-			IFileset fileset;
 			RetCode rc;
 
-			var filesetsCount = Globals.Database.GetFilesetsCount();
+			Globals.EnableRevealContentOverrides = false;
 
-			Debug.Assert(filesetsCount <= gEngine.NumSaveSlots);
+			SaveFilesetsCount = Globals.Database.GetFilesetsCount();
 
-			Debug.Assert(SaveSlot >= 1 && SaveSlot <= Math.Min(filesetsCount + 1, gEngine.NumSaveSlots));
+			Debug.Assert(SaveFilesetsCount <= gEngine.NumSaveSlots);
+
+			Debug.Assert(SaveSlot >= 1 && SaveSlot <= Math.Min(SaveFilesetsCount + 1, gEngine.NumSaveSlots));
 
 			Debug.Assert(SaveName != null);
 
-			if (SaveSlot == filesetsCount + 1)
+			if (SaveSlot == SaveFilesetsCount + 1)
 			{
-				fileset = Globals.CreateInstance<IFileset>(x =>
+				SaveFileset = Globals.CreateInstance<IFileset>(x =>
 				{
 					x.Uid = Globals.Database.GetFilesetUid();
 					x.Name = "(none)";
 				});
 
-				rc = Globals.Database.AddFileset(fileset);
+				rc = Globals.Database.AddFileset(SaveFileset);
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 			}
 
-			var filesets = Globals.Database.FilesetTable.Records.OrderBy(f => f.Uid).ToList();
+			SaveFilesetList = Globals.Database.FilesetTable.Records.OrderBy(f => f.Uid).ToList();
 
-			fileset = filesets[(int)SaveSlot - 1];
+			SaveFileset = SaveFilesetList[(int)SaveSlot - 1];
 
 			if (SaveName.Length == 0)
 			{
-				if (!string.Equals(fileset.Name, "(none)", StringComparison.OrdinalIgnoreCase))
+				if (!string.Equals(SaveFileset.Name, "(none)", StringComparison.OrdinalIgnoreCase))
 				{
 					gOut.Write("{0}Change name of save (Y/N): ", Environment.NewLine);
 
@@ -69,11 +143,11 @@ namespace EamonRT.Game.Commands
 
 					if (Globals.Buf.Length > 0 && Globals.Buf[0] == 'Y')
 					{
-						fileset.Name = "(none)";
+						SaveFileset.Name = "(none)";
 					}
 				}
 
-				while (string.Equals(fileset.Name, "(none)", StringComparison.OrdinalIgnoreCase))
+				while (string.Equals(SaveFileset.Name, "(none)", StringComparison.OrdinalIgnoreCase))
 				{
 					gOut.Write("{0}Enter new name: ", Environment.NewLine);
 
@@ -85,156 +159,156 @@ namespace EamonRT.Game.Commands
 
 					Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\s+", " ").ToLower().Trim());
 
-					fileset.Name = gEngine.Capitalize(Globals.Buf.ToString());
+					SaveFileset.Name = gEngine.Capitalize(Globals.Buf.ToString());
 
-					if (fileset.Name.Length == 0)
+					if (SaveFileset.Name.Length == 0)
 					{
-						fileset.Name = "(none)";
+						SaveFileset.Name = "(none)";
 					}
 				}
 			}
 			else
 			{
-				if (!string.Equals(fileset.Name, "(none)", StringComparison.OrdinalIgnoreCase) && string.Equals(SaveName, "Quick Saved Game", StringComparison.OrdinalIgnoreCase))
+				if (!string.Equals(SaveFileset.Name, "(none)", StringComparison.OrdinalIgnoreCase) && string.Equals(SaveName, "Quick Saved Game", StringComparison.OrdinalIgnoreCase))
 				{
-					SaveName = Globals.CloneInstance(fileset.Name);
+					SaveName = Globals.CloneInstance(SaveFileset.Name);
 				}
 
 				SaveName = gEngine.Capitalize(SaveName);
 
-				fileset.Name = Globals.CloneInstance(SaveName);
+				SaveFileset.Name = Globals.CloneInstance(SaveName);
 
 				gOut.Print("[QUICK SAVE {0}: {1}]", SaveSlot, SaveName);
 			}
 
-			var config = Globals.CreateInstance<IConfig>();
+			SaveConfig = Globals.CreateInstance<IConfig>();
 
-			var saveSlotStr = SaveSlot.ToString("D3");
+			SaveSlotString = SaveSlot.ToString("D3");
 
-			fileset.WorkDir = "NONE";
+			SaveFileset.WorkDir = "NONE";
 
-			fileset.PluginFileName = "NONE";
+			SaveFileset.PluginFileName = "NONE";
 
-			var path = "";
+			SaveFilePath = "";
 
-			var name = "";
+			SaveFileName = "";
 
-			var ext = "";
+			SaveFileExtension = "";
 
-			rc = gEngine.SplitPath(Globals.ConfigFileName, ref path, ref name, ref ext);
+			rc = gEngine.SplitPath(Globals.ConfigFileName, ref _saveFilePath, ref _saveFileName, ref _saveFileExtension);
 
 			Debug.Assert(gEngine.IsSuccess(rc));
 
-			var idx = name.IndexOf('_');
+			SaveFileNameIndex = SaveFileName.IndexOf('_');
 
-			if (idx >= 0)
+			if (SaveFileNameIndex >= 0)
 			{
-				name = name.Substring(0, idx);
+				SaveFileName = SaveFileName.Substring(0, (int)SaveFileNameIndex);
 			}
 
-			Globals.Buf.SetFormat("{0}{1}_{2}{3}", path, name, saveSlotStr, ext);
+			Globals.Buf.SetFormat("{0}{1}_{2}{3}", SaveFilePath, SaveFileName, SaveSlotString, SaveFileExtension);
 
-			fileset.ConfigFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
+			SaveFileset.ConfigFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
 
-			fileset.FilesetFileName = "NONE";
+			SaveFileset.FilesetFileName = "NONE";
 
-			rc = gEngine.SplitPath(Globals.Config.RtCharacterFileName, ref path, ref name, ref ext);
-
-			Debug.Assert(gEngine.IsSuccess(rc));
-
-			Globals.Buf.SetFormat("{0}{1}_{2}{3}", path, name, saveSlotStr, ext);
-
-			fileset.CharacterFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
-
-			rc = gEngine.SplitPath(Globals.Config.RtModuleFileName, ref path, ref name, ref ext);
+			rc = gEngine.SplitPath(Globals.Config.RtCharacterFileName, ref _saveFilePath, ref _saveFileName, ref _saveFileExtension);
 
 			Debug.Assert(gEngine.IsSuccess(rc));
 
-			Globals.Buf.SetFormat("{0}{1}_{2}{3}", path, name, saveSlotStr, ext);
+			Globals.Buf.SetFormat("{0}{1}_{2}{3}", SaveFilePath, SaveFileName, SaveSlotString, SaveFileExtension);
 
-			fileset.ModuleFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
+			SaveFileset.CharacterFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
 
-			rc = gEngine.SplitPath(Globals.Config.RtRoomFileName, ref path, ref name, ref ext);
-
-			Debug.Assert(gEngine.IsSuccess(rc));
-
-			Globals.Buf.SetFormat("{0}{1}_{2}{3}", path, name, saveSlotStr, ext);
-
-			fileset.RoomFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
-
-			rc = gEngine.SplitPath(Globals.Config.RtArtifactFileName, ref path, ref name, ref ext);
+			rc = gEngine.SplitPath(Globals.Config.RtModuleFileName, ref _saveFilePath, ref _saveFileName, ref _saveFileExtension);
 
 			Debug.Assert(gEngine.IsSuccess(rc));
 
-			Globals.Buf.SetFormat("{0}{1}_{2}{3}", path, name, saveSlotStr, ext);
+			Globals.Buf.SetFormat("{0}{1}_{2}{3}", SaveFilePath, SaveFileName, SaveSlotString, SaveFileExtension);
 
-			fileset.ArtifactFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
+			SaveFileset.ModuleFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
 
-			rc = gEngine.SplitPath(Globals.Config.RtEffectFileName, ref path, ref name, ref ext);
-
-			Debug.Assert(gEngine.IsSuccess(rc));
-
-			Globals.Buf.SetFormat("{0}{1}_{2}{3}", path, name, saveSlotStr, ext);
-
-			fileset.EffectFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
-
-			rc = gEngine.SplitPath(Globals.Config.RtMonsterFileName, ref path, ref name, ref ext);
+			rc = gEngine.SplitPath(Globals.Config.RtRoomFileName, ref _saveFilePath, ref _saveFileName, ref _saveFileExtension);
 
 			Debug.Assert(gEngine.IsSuccess(rc));
 
-			Globals.Buf.SetFormat("{0}{1}_{2}{3}", path, name, saveSlotStr, ext);
+			Globals.Buf.SetFormat("{0}{1}_{2}{3}", SaveFilePath, SaveFileName, SaveSlotString, SaveFileExtension);
 
-			fileset.MonsterFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
+			SaveFileset.RoomFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
 
-			rc = gEngine.SplitPath(Globals.Config.RtHintFileName, ref path, ref name, ref ext);
-
-			Debug.Assert(gEngine.IsSuccess(rc));
-
-			Globals.Buf.SetFormat("{0}{1}_{2}{3}", path, name, saveSlotStr, ext);
-
-			fileset.HintFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
-
-			rc = gEngine.SplitPath(Globals.Config.RtGameStateFileName, ref path, ref name, ref ext);
+			rc = gEngine.SplitPath(Globals.Config.RtArtifactFileName, ref _saveFilePath, ref _saveFileName, ref _saveFileExtension);
 
 			Debug.Assert(gEngine.IsSuccess(rc));
 
-			Globals.Buf.SetFormat("{0}{1}_{2}{3}", path, name, saveSlotStr, ext);
+			Globals.Buf.SetFormat("{0}{1}_{2}{3}", SaveFilePath, SaveFileName, SaveSlotString, SaveFileExtension);
 
-			fileset.GameStateFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
+			SaveFileset.ArtifactFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
 
-			config.RtFilesetFileName = Globals.CloneInstance(Globals.Config.RtFilesetFileName);
+			rc = gEngine.SplitPath(Globals.Config.RtEffectFileName, ref _saveFilePath, ref _saveFileName, ref _saveFileExtension);
 
-			config.RtCharacterFileName = Globals.CloneInstance(fileset.CharacterFileName);
+			Debug.Assert(gEngine.IsSuccess(rc));
 
-			config.RtModuleFileName = Globals.CloneInstance(fileset.ModuleFileName);
+			Globals.Buf.SetFormat("{0}{1}_{2}{3}", SaveFilePath, SaveFileName, SaveSlotString, SaveFileExtension);
 
-			config.RtRoomFileName = Globals.CloneInstance(fileset.RoomFileName);
+			SaveFileset.EffectFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
 
-			config.RtArtifactFileName = Globals.CloneInstance(fileset.ArtifactFileName);
+			rc = gEngine.SplitPath(Globals.Config.RtMonsterFileName, ref _saveFilePath, ref _saveFileName, ref _saveFileExtension);
 
-			config.RtEffectFileName = Globals.CloneInstance(fileset.EffectFileName);
+			Debug.Assert(gEngine.IsSuccess(rc));
 
-			config.RtMonsterFileName = Globals.CloneInstance(fileset.MonsterFileName);
+			Globals.Buf.SetFormat("{0}{1}_{2}{3}", SaveFilePath, SaveFileName, SaveSlotString, SaveFileExtension);
 
-			config.RtHintFileName = Globals.CloneInstance(fileset.HintFileName);
+			SaveFileset.MonsterFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
 
-			config.RtGameStateFileName = Globals.CloneInstance(fileset.GameStateFileName);
+			rc = gEngine.SplitPath(Globals.Config.RtHintFileName, ref _saveFilePath, ref _saveFileName, ref _saveFileExtension);
+
+			Debug.Assert(gEngine.IsSuccess(rc));
+
+			Globals.Buf.SetFormat("{0}{1}_{2}{3}", SaveFilePath, SaveFileName, SaveSlotString, SaveFileExtension);
+
+			SaveFileset.HintFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
+
+			rc = gEngine.SplitPath(Globals.Config.RtGameStateFileName, ref _saveFilePath, ref _saveFileName, ref _saveFileExtension);
+
+			Debug.Assert(gEngine.IsSuccess(rc));
+
+			Globals.Buf.SetFormat("{0}{1}_{2}{3}", SaveFilePath, SaveFileName, SaveSlotString, SaveFileExtension);
+
+			SaveFileset.GameStateFileName = Globals.Buf.ToString().Truncate(Constants.FsFileNameLen);
+
+			SaveConfig.RtFilesetFileName = Globals.CloneInstance(Globals.Config.RtFilesetFileName);
+
+			SaveConfig.RtCharacterFileName = Globals.CloneInstance(SaveFileset.CharacterFileName);
+
+			SaveConfig.RtModuleFileName = Globals.CloneInstance(SaveFileset.ModuleFileName);
+
+			SaveConfig.RtRoomFileName = Globals.CloneInstance(SaveFileset.RoomFileName);
+
+			SaveConfig.RtArtifactFileName = Globals.CloneInstance(SaveFileset.ArtifactFileName);
+
+			SaveConfig.RtEffectFileName = Globals.CloneInstance(SaveFileset.EffectFileName);
+
+			SaveConfig.RtMonsterFileName = Globals.CloneInstance(SaveFileset.MonsterFileName);
+
+			SaveConfig.RtHintFileName = Globals.CloneInstance(SaveFileset.HintFileName);
+
+			SaveConfig.RtGameStateFileName = Globals.CloneInstance(SaveFileset.GameStateFileName);
 			
-			Globals.Config.DdFilesetFileName = config.RtFilesetFileName;
+			Globals.Config.DdFilesetFileName = SaveConfig.RtFilesetFileName;
 
-			Globals.Config.DdCharacterFileName = config.RtCharacterFileName;
+			Globals.Config.DdCharacterFileName = SaveConfig.RtCharacterFileName;
 
-			Globals.Config.DdModuleFileName = config.RtModuleFileName;
+			Globals.Config.DdModuleFileName = SaveConfig.RtModuleFileName;
 
-			Globals.Config.DdRoomFileName = config.RtRoomFileName;
+			Globals.Config.DdRoomFileName = SaveConfig.RtRoomFileName;
 
-			Globals.Config.DdArtifactFileName = config.RtArtifactFileName;
+			Globals.Config.DdArtifactFileName = SaveConfig.RtArtifactFileName;
 
-			Globals.Config.DdEffectFileName = config.RtEffectFileName;
+			Globals.Config.DdEffectFileName = SaveConfig.RtEffectFileName;
 
-			Globals.Config.DdMonsterFileName = config.RtMonsterFileName;
+			Globals.Config.DdMonsterFileName = SaveConfig.RtMonsterFileName;
 
-			Globals.Config.DdHintFileName = config.RtHintFileName;
+			Globals.Config.DdHintFileName = SaveConfig.RtHintFileName;
 
 			Globals.Config.DdEditingFilesets = true;
 
@@ -252,9 +326,9 @@ namespace EamonRT.Game.Commands
 
 			Globals.Config.DdEditingHints = true;
 
-			var artifacts = Globals.Database.ArtifactTable.Records.ToList();
+			FullArtifactList = Globals.Database.ArtifactTable.Records.ToList();
 
-			foreach (var artifact in artifacts)
+			foreach (var artifact in FullArtifactList)
 			{
 				if (artifact.IsCarriedByCharacter())
 				{
@@ -266,18 +340,18 @@ namespace EamonRT.Game.Commands
 				}
 			}
 
-			var gameSaved = true;
+			GameSaved = true;
 
-			rc = config.SaveGameDatabase(false);
+			rc = SaveConfig.SaveGameDatabase(false);
 
 			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: SaveGameDatabase function call failed");
 
-				gameSaved = false;
+				GameSaved = false;
 			}
 
-			foreach (var artifact in artifacts)
+			foreach (var artifact in FullArtifactList)
 			{
 				if (artifact.IsCarriedByMonsterUid(gGameState.Cm))
 				{
@@ -289,23 +363,25 @@ namespace EamonRT.Game.Commands
 				}
 			}
 
-			rc = Globals.Database.SaveConfigs(fileset.ConfigFileName, false);
+			rc = Globals.Database.SaveConfigs(SaveFileset.ConfigFileName, false);
 
 			if (gEngine.IsFailure(rc))
 			{
 				Globals.Error.WriteLine("Error: SaveConfigs function call failed");
 
-				gameSaved = false;
+				GameSaved = false;
 			}
 
-			config.Dispose();
+			SaveConfig.Dispose();
 
-			gOut.Print(gameSaved ? "Game saved." : "Game not saved.");
+			gOut.Print(GameSaved ? "Game saved." : "Game not saved.");
 
 			if (NextState == null)
 			{
 				NextState = Globals.CreateInstance<IStartState>();
 			}
+
+			Globals.EnableRevealContentOverrides = true;
 		}
 
 		public override bool ShouldPreTurnProcess()

@@ -570,7 +570,7 @@
           <Properties>
             <Simple name="Uid" value="81" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Desc" value="by Derek C. Jeter.  Eamon CS port by Michael Penner." />
+            <Simple name="Desc" value="unique mechanics like scaled monster toughness, and a powerful villain with complex behavior.  Original Eamon Deluxe adventure EDX-24 by Derek C. Jeter.  Eamon CS port by Michael Penner." />
           </Properties>
         </Complex>
         <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">

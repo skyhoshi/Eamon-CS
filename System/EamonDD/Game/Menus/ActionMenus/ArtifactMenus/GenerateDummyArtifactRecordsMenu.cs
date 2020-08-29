@@ -81,7 +81,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			{
 				gOut.Print("{0}", Globals.LineSep);
 
-				Buf.SetFormat(j > 1 ? "Generated dummy artifacts with uids between {0} and {1}, inclusive." : "Generated a dummy artifact with uid {0}.", artUids[0], artUids[1]);
+				Buf.SetFormat(j > 1 ? "Generated dummy Artifacts with Uids between {0} and {1}, inclusive." : "Generated a dummy Artifact with Uid {0}.", artUids[0], artUids[1]);
 
 				gOut.Print("{0}", Buf);
 			}

@@ -10,6 +10,7 @@ namespace EamonRT.Framework.Commands
 	/// <summary></summary>
 	public interface IReadyCommand : ICommand
 	{
+		/// <summary></summary>
 		ArtifactType[] ArtTypes { get; set; }
 	}
 }

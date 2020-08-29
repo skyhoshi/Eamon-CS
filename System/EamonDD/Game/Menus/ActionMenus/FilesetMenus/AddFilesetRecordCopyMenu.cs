@@ -25,7 +25,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			RecordTable = Globals.Database.FilesetTable;
 
-			RecordTypeName = "fileset";
+			RecordTypeName = "Fileset";
 		}
 	}
 }

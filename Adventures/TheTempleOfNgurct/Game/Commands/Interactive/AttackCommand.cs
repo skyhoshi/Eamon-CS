@@ -100,22 +100,22 @@ namespace TheTempleOfNgurct.Game.Commands
 						slaveGirlFireballCheck = true;
 					}
 
-					var monsters = gEngine.GetRandomMonsterList(9, m => !m.IsCharacterMonster() && m.Uid != DobjMonster.Uid && m.Seen && m.IsInRoom(ActorRoom));
+					var monsterList = gEngine.GetRandomMonsterList(9, m => !m.IsCharacterMonster() && m.Uid != DobjMonster.Uid && m.Seen && m.IsInRoom(ActorRoom));
 
-					Debug.Assert(monsters != null);
+					Debug.Assert(monsterList != null);
 
-					if (monsters.Count > 0)
+					if (monsterList.Count > 0)
 					{
-						monsters.Insert(0, DobjMonster);
+						monsterList.Insert(0, DobjMonster);
 					}
 					else
 					{
-						monsters.Add(DobjMonster);
+						monsterList.Add(DobjMonster);
 					}
 
 					Globals.FireDamage = true;
 
-					foreach (var m in monsters)
+					foreach (var m in monsterList)
 					{
 						var rl = gEngine.RollDice(1, 100, 0);
 

@@ -156,7 +156,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				gOut.WriteLine();
 			}
 
-			gOut.Print("Done briefly mapping room record connections.");
+			gOut.Print("Done briefly mapping Room record connections.");
 		}
 
 		public BriefMapRoomRecordConnectionsMenu()

@@ -29,7 +29,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (!Globals.CompareInstances(EditRecord, editModule01))
 			{
-				gOut.Write("{0}Would you like to save this updated module record (Y/N): ", Environment.NewLine);
+				gOut.Write("{0}Would you like to save this updated Module record (Y/N): ", Environment.NewLine);
 
 				Buf.Clear();
 

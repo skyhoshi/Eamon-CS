@@ -10,6 +10,18 @@ namespace Eamon.Game.Extensions
 {
 	public static class StringExtensions
 	{
+		public static string FirstCharToLower(this string str)
+		{
+			if (!string.IsNullOrEmpty(str))
+			{
+				return Char.ToLower(str[0]) + str.Substring(1);
+			}
+			else
+			{
+				return str;
+			}
+		}
+
 		public static string FirstCharToUpper(this string str)
 		{
 			if (!string.IsNullOrEmpty(str))

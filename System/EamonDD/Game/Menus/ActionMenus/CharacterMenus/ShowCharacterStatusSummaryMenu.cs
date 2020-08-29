@@ -164,7 +164,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				gOut.WriteLine();
 			}
 
-			gOut.Print("Done showing character status summary.");
+			gOut.Print("Done showing Character status summary.");
 		}
 
 		public ShowCharacterStatusSummaryMenu()

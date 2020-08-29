@@ -867,7 +867,7 @@ namespace Eamon.Game.Helpers
 			{
 				result = false;
 
-				Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Desc"), "effect", invalidUid, "which doesn't exist");
+				Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Desc"), "Effect", invalidUid, "which doesn't exist");
 
 				ErrorMessage = Buf.ToString();
 
@@ -899,7 +899,7 @@ namespace Eamon.Game.Helpers
 				{
 					result = false;
 
-					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("PluralType"), "effect", effectUid, "which doesn't exist");
+					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("PluralType"), "Effect", effectUid, "which doesn't exist");
 
 					ErrorMessage = Buf.ToString();
 
@@ -932,7 +932,7 @@ namespace Eamon.Game.Helpers
 				{
 					result = false;
 
-					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "monster", monUid, "which doesn't exist");
+					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "Monster", monUid, "which doesn't exist");
 
 					ErrorMessage = Buf.ToString();
 
@@ -955,7 +955,7 @@ namespace Eamon.Game.Helpers
 					{
 						result = false;
 
-						Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "monster", monUid, "which doesn't exist");
+						Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "Monster", monUid, "which doesn't exist");
 
 						ErrorMessage = Buf.ToString();
 
@@ -978,7 +978,7 @@ namespace Eamon.Game.Helpers
 						{
 							result = false;
 
-							Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "room", roomUid, "which doesn't exist");
+							Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "Room", roomUid, "which doesn't exist");
 
 							ErrorMessage = Buf.ToString();
 
@@ -1001,7 +1001,7 @@ namespace Eamon.Game.Helpers
 							{
 								result = false;
 
-								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "room", roomUid, "which doesn't exist");
+								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "Room", roomUid, "which doesn't exist");
 
 								ErrorMessage = Buf.ToString();
 
@@ -1026,7 +1026,7 @@ namespace Eamon.Game.Helpers
 								{
 									result = false;
 
-									Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "artifact", artUid, "which doesn't exist");
+									Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "Artifact", artUid, "which doesn't exist");
 
 									ErrorMessage = Buf.ToString();
 
@@ -1040,7 +1040,7 @@ namespace Eamon.Game.Helpers
 								{
 									result = false;
 
-									Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "artifact", artUid, string.Format("which should be {0}, but isn't", gEngine.EvalContainerType(containerType, "an In container", "an On container", "an Under container", "a Behind container")));
+									Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "Artifact", artUid, string.Format("which should be {0}, but isn't", gEngine.EvalContainerType(containerType, "an In container", "an On container", "an Under container", "a Behind container")));
 
 									ErrorMessage = Buf.ToString();
 
@@ -1060,7 +1060,7 @@ namespace Eamon.Game.Helpers
 									{
 										result = false;
 
-										Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "artifact", artUid, "which produces a cyclic graph");
+										Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "Artifact", artUid, "which produces a cyclic graph");
 
 										ErrorMessage = Buf.ToString();
 
@@ -1132,7 +1132,7 @@ namespace Eamon.Game.Helpers
 							{
 								result = false;
 
-								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField1"), "artifact", artUid, "which doesn't exist");
+								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField1"), "Artifact", artUid, "which doesn't exist");
 
 								ErrorMessage = Buf.ToString();
 
@@ -1159,7 +1159,7 @@ namespace Eamon.Game.Helpers
 							{
 								result = false;
 
-								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField1"), "effect", effectUid, "which doesn't exist");
+								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField1"), "Effect", effectUid, "which doesn't exist");
 
 								ErrorMessage = Buf.ToString();
 
@@ -1186,7 +1186,7 @@ namespace Eamon.Game.Helpers
 							{
 								result = false;
 
-								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField1"), "room", roomUid, "which doesn't exist");
+								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField1"), "Room", roomUid, "which doesn't exist");
 
 								ErrorMessage = Buf.ToString();
 
@@ -1213,7 +1213,7 @@ namespace Eamon.Game.Helpers
 							{
 								result = false;
 
-								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField1"), "monster", monUid, "which doesn't exist");
+								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField1"), "Monster", monUid, "which doesn't exist");
 
 								ErrorMessage = Buf.ToString();
 
@@ -1240,7 +1240,7 @@ namespace Eamon.Game.Helpers
 							{
 								result = false;
 
-								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField1"), "monster", monUid, "which doesn't exist");
+								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField1"), "Monster", monUid, "which doesn't exist");
 
 								ErrorMessage = Buf.ToString();
 
@@ -1299,7 +1299,7 @@ namespace Eamon.Game.Helpers
 								{
 									result = false;
 
-									Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField2"), "effect", effectUid, "which doesn't exist");
+									Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField2"), "Effect", effectUid, "which doesn't exist");
 
 									ErrorMessage = Buf.ToString();
 
@@ -1327,7 +1327,7 @@ namespace Eamon.Game.Helpers
 							{
 								result = false;
 
-								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField2"), "artifact", artUid, "which doesn't exist");
+								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField2"), "Artifact", artUid, "which doesn't exist");
 
 								ErrorMessage = Buf.ToString();
 
@@ -1354,7 +1354,7 @@ namespace Eamon.Game.Helpers
 							{
 								result = false;
 
-								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField2"), "artifact", artUid, "which doesn't exist");
+								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField2"), "Artifact", artUid, "which doesn't exist");
 
 								ErrorMessage = Buf.ToString();
 
@@ -1381,7 +1381,7 @@ namespace Eamon.Game.Helpers
 							{
 								result = false;
 
-								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField2"), "effect", effectUid, "which doesn't exist");
+								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField2"), "Effect", effectUid, "which doesn't exist");
 
 								ErrorMessage = Buf.ToString();
 
@@ -1436,7 +1436,7 @@ namespace Eamon.Game.Helpers
 							{
 								result = false;
 
-								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField3"), "monster", monUid, "which doesn't exist");
+								Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField3"), "Monster", monUid, "which doesn't exist");
 
 								ErrorMessage = Buf.ToString();
 
@@ -1467,7 +1467,7 @@ namespace Eamon.Game.Helpers
 								{
 									result = false;
 
-									Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField3"), "effect", effectUid, "which doesn't exist");
+									Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("CategoriesField3"), "Effect", effectUid, "which doesn't exist");
 
 									ErrorMessage = Buf.ToString();
 
@@ -1504,7 +1504,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescName()
 		{
-			var fullDesc = "Enter the name of the artifact." + Environment.NewLine + Environment.NewLine + "Artifact names should always be in singular form and capitalized when appropriate.";
+			var fullDesc = "Enter the name of the Artifact." + Environment.NewLine + Environment.NewLine + "Artifact names should always be in singular form and capitalized when appropriate.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -1512,7 +1512,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescStateDesc()
 		{
-			var fullDesc = "Enter the state description of the artifact (will typically be empty).";
+			var fullDesc = "Enter the state description of the Artifact (will typically be empty).";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -1520,7 +1520,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescDesc()
 		{
-			var fullDesc = "Enter a detailed description of the artifact.";
+			var fullDesc = "Enter a detailed description of the Artifact.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -1528,7 +1528,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescSeen()
 		{
-			var fullDesc = "Enter the Seen status of the artifact.";
+			var fullDesc = "Enter whether the player has seen the Artifact.";
 
 			var briefDesc = "0=Not seen; 1=Seen";
 
@@ -1538,7 +1538,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescIsCharOwned()
 		{
-			var fullDesc = "Enter the Is Char Owned status of the artifact.";
+			var fullDesc = "Enter whether the player owns the Artifact.";
 
 			var briefDesc = "0=Not char owned; 1=Char owned";
 
@@ -1548,7 +1548,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescIsPlural()
 		{
-			var fullDesc = "Enter the Is Plural status of the artifact.";
+			var fullDesc = "Enter whether the Artifact is singular or plural.";
 
 			var briefDesc = "0=Singular; 1=Plural";
 
@@ -1558,7 +1558,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescIsListed()
 		{
-			var fullDesc = "Enter the Is Listed status of the artifact." + Environment.NewLine + Environment.NewLine + "If true, the artifact will be included in any listing (room, inventory, etc); if false, it will not.";
+			var fullDesc = "Enter whether the Artifact is included in all appropriate content lists (Room, inventory, etc.)" + Environment.NewLine + Environment.NewLine + "Artifacts should always be included in content lists except in rare circumstances (invisibility, vision impairment, etc.); excluding them typically requires support from special (user-programmed) events.";
 
 			var briefDesc = "0=Not listed; 1=Listed";
 
@@ -1568,9 +1568,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescPluralType()
 		{
-			var fullDesc = "Enter the plural type of the artifact.";
+			var fullDesc = "Enter the plural type that converts the Artifact's name from singular to plural.";
 
-			var briefDesc = "0=No change; 1=Use 's'; 2=Use 'es'; 3=Use 'y' to 'ies'; (1000 + N)=Use effect uid N as plural name";
+			var briefDesc = "0=No change; 1=Use 's'; 2=Use 'es'; 3=Use 'y' to 'ies'; (1000 + N)=Use Effect Uid N as plural name";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
@@ -1578,7 +1578,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescArticleType()
 		{
-			var fullDesc = "Enter the article type of the artifact.";
+			var fullDesc = "Enter the article type that prefixes the Artifact's name with an article.";
 
 			var briefDesc = "0=No article; 1=Use 'a'; 2=Use 'an'; 3=Use 'some'; 4=Use 'the'";
 
@@ -1588,7 +1588,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescValue()
 		{
-			var fullDesc = "Enter the value of the artifact in gold pieces.";
+			var fullDesc = "Enter the value of the Artifact in gold pieces.";
 
 			var briefDesc = string.Format("{0}-{1}=Valid value", Constants.MinGoldValue, Constants.MaxGoldValue);
 
@@ -1598,7 +1598,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescWeight()
 		{
-			var fullDesc = "Enter the weight of the artifact." + Environment.NewLine + Environment.NewLine + "Be sure to factor bulk and encumberance into weight values.";
+			var fullDesc = "Enter the weight of the Artifact in gronds." + Environment.NewLine + Environment.NewLine + "Be sure to factor bulk and encumberance into weight values.";
 
 			var briefDesc = "-999=Fixtures, doors, buildings, structures, etc; 1-5=Handheld object; 6-10=Medium sized items; 15-35=Weapons, equipment, etc; 999=Heavy furniture, giant objects, etc";
 
@@ -1608,9 +1608,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescLocation()
 		{
-			var fullDesc = "Enter the location of the artifact.";
+			var fullDesc = "Enter the location of the Artifact.";
 
-			var briefDesc = "(-1000 - N)=Worn by monster uid N; -999=Worn by player; (-N - 1)=Carried by monster uid N; -1=Carried by player; 0=Limbo; 1-1000=Room uid; (1000 + N)=Inside artifact uid N; (2000 + N)=On artifact uid N; (3000 + N)=Under artifact uid N; (4000 + N)=Behind artifact uid N; (5000 + N)=Embedded in room uid N";
+			var briefDesc = "(-1000 - N)=Worn by Monster Uid N; -999=Worn by player; (-N - 1)=Carried by Monster Uid N; -1=Carried by player; 0=Limbo; 1-1000=Room Uid; (1000 + N)=Inside Artifact Uid N; (2000 + N)=On Artifact Uid N; (3000 + N)=Under Artifact Uid N; (4000 + N)=Behind Artifact Uid N; (5000 + N)=Embedded in Room Uid N";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
@@ -1624,7 +1624,7 @@ namespace Eamon.Game.Helpers
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
-			fullDesc.AppendFormat("Enter the type of the artifact (category #{0}).", i + 1);
+			fullDesc.Append("Enter the type of the Artifact.");
 
 			var artTypeValues = EnumUtil.GetValues<ArtifactType>(at => at != ArtifactType.None);
 
@@ -1654,7 +1654,7 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.Weapon:
 				case ArtifactType.MagicWeapon:
 
-					fullDesc.AppendFormat("Enter the artifact's weapon complexity (category #{0}).", i + 1);
+					fullDesc.Append("Enter the Artifact's weapon complexity.");
 
 					briefDesc.Append("-50-50=Valid value");
 
@@ -1664,9 +1664,9 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.InContainer:
 
-					fullDesc.AppendFormat("Enter the key uid of the artifact (category #{0}).{1}{1}This is the artifact uid of the key used to lock/unlock the container.", i + 1, Environment.NewLine);
+					fullDesc.Append("Enter the Artifact Uid of the key used to lock/unlock the container.");
 
-					briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key artifact uid");
+					briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key Artifact Uid");
 
 					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
@@ -1674,7 +1674,7 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.LightSource:
 
-					fullDesc.AppendFormat("Enter the light counter of the artifact (category #{0}).{1}{1}This is the number of rounds before the light source is exhausted/goes out.", i + 1, Environment.NewLine);
+					fullDesc.Append("Enter the number of rounds before the light source is exhausted/goes out.");
 
 					briefDesc.Append("-1=Never runs out; (GE 0)=Valid value");
 
@@ -1685,7 +1685,7 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.Drinkable:
 				case ArtifactType.Edible:
 
-					fullDesc.AppendFormat("Enter the number of hits healed (or inflicted, if negative) for the artifact (category #{0}).", i + 1);
+					fullDesc.Append("Enter the number of hits healed (or inflicted, if negative) for the Artifact.");
 
 					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 
@@ -1693,9 +1693,9 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.Readable:
 
-					fullDesc.AppendFormat("Enter the artifact's effect uid #1 (category #{0}).{1}{1}This is the first of one or more effects displayed when the artifact is read.", i + 1, Environment.NewLine);
+					fullDesc.Append("Enter the Uid of the first Effect displayed when the Artifact is read.");
 
-					briefDesc.Append("(GT 0)=Effect uid");
+					briefDesc.Append("(GT 0)=Effect Uid");
 
 					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
@@ -1703,7 +1703,7 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.DoorGate:
 
-					fullDesc.AppendFormat("Enter the room uid beyond for the artifact (category #{0}).{1}{1}This is the room uid of the room on the opposite side of the door/gate.", i + 1, Environment.NewLine);
+					fullDesc.Append("Enter the Uid of the Room on the opposite side of the door/gate.");
 
 					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 
@@ -1711,9 +1711,9 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.BoundMonster:
 
-					fullDesc.AppendFormat("Enter the monster uid of the artifact (category #{0}).{1}{1}This is the monster uid of the entity that is bound.", i + 1, Environment.NewLine);
+					fullDesc.Append("Enter the Uid of the Monster that is bound.");
 
-					briefDesc.Append("(GT 0)=Bound monster uid");
+					briefDesc.Append("(GT 0)=Bound Monster Uid");
 
 					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
@@ -1721,7 +1721,7 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.Wearable:
 
-					fullDesc.AppendFormat("Enter the armor class of the artifact (category #{0}).", i + 1);
+					fullDesc.Append("Enter the armor class of the Artifact.");
 
 					var armorValues = EnumUtil.GetValues<Armor>(a => a == Armor.ClothesShield || ((long)a) % 2 == 0);
 
@@ -1740,9 +1740,9 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.DisguisedMonster:
 
-					fullDesc.AppendFormat("Enter the monster uid of the artifact (category #{0}).{1}{1}This is the monster uid of the entity that is disguised.", i + 1, Environment.NewLine);
+					fullDesc.Append("Enter the Uid of the Monster that is disguised.");
 
-					briefDesc.Append("(GT 0)=Disguised monster uid");
+					briefDesc.Append("(GT 0)=Disguised Monster Uid");
 
 					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
@@ -1750,7 +1750,7 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.DeadBody:
 
-					fullDesc.AppendFormat("Enter the takeable status of the artifact (category #{0}).{1}{1}Typically, dead bodies should not be takeable unless it serves some useful purpose.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter whether the Artifact is takeable.{0}{0}Typically, dead bodies should not be takeable unless it serves some useful purpose.", Environment.NewLine);
 
 					briefDesc.Append("0=Not takeable; 1=Takeable");
 
@@ -1780,7 +1780,7 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.Weapon:
 				case ArtifactType.MagicWeapon:
 
-					fullDesc.AppendFormat("Enter the artifact's weapon type (category #{0}).", i + 1);
+					fullDesc.Append("Enter the Artifact's weapon type.");
 
 					var weaponValues = EnumUtil.GetValues<Weapon>();
 
@@ -1799,7 +1799,7 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.InContainer:
 
-					fullDesc.AppendFormat("Enter the open/closed status of the artifact (category #{0}).{1}{1}Additionally, you can specify that the container must be forced open.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter whether the Artifact is open/closed.{0}{0}Additionally, you can specify that the container must be forced open.", Environment.NewLine);
 
 					briefDesc.Append("0=Closed; 1=Open; (1000 + N)=Forced open with N hits damage");
 
@@ -1810,7 +1810,7 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.Drinkable:
 				case ArtifactType.Edible:
 
-					fullDesc.AppendFormat("Enter the number of times the artifact can be used (category #{0}).", i + 1);
+					fullDesc.Append("Enter the number of times the Artifact can be used.");
 
 					briefDesc.Append("(GTE 0)=Valid value");
 
@@ -1820,7 +1820,7 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.Readable:
 
-					fullDesc.AppendFormat("Enter the number of sequential effects used by the artifact (category #{0}).", i + 1);
+					fullDesc.Append("Enter the number of sequential Effects displayed when the Artifact is read.");
 
 					briefDesc.Append("(GT 0)=Valid value");
 
@@ -1830,9 +1830,9 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.DoorGate:
 
-					fullDesc.AppendFormat("Enter the key uid of the artifact (category #{0}).{1}{1}This is the artifact uid of the key used to lock/unlock the door/gate.", i + 1, Environment.NewLine);
+					fullDesc.Append("Enter the Artifact Uid of the key used to lock/unlock the door/gate.");
 
-					briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key artifact uid");
+					briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key Artifact Uid");
 
 					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
@@ -1840,9 +1840,9 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.BoundMonster:
 
-					fullDesc.AppendFormat("Enter the key uid of the artifact (category #{0}).{1}{1}This is the artifact uid of the key used to lock/unlock the bound monster.", i + 1, Environment.NewLine);
+					fullDesc.Append("Enter the Artifact Uid of the key used to lock/unlock the bound Monster.");
 
-					briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key artifact uid");
+					briefDesc.Append("-1=Can't be unlocked/opened normally; 0=No key; (GT 0)=Key Artifact Uid");
 
 					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
@@ -1850,7 +1850,7 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.Wearable:
 
-					fullDesc.AppendFormat("Enter the clothing type of the artifact (category #{0}).", i + 1);
+					fullDesc.Append("Enter the clothing type of the Artifact.");
 
 					var clothingValues = EnumUtil.GetValues<Clothing>();
 
@@ -1865,9 +1865,9 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.DisguisedMonster:
 
-					fullDesc.AppendFormat("Enter the artifact's effect uid #1 (category #{0}).{1}{1}This is the first of one or more effects displayed when the disguised monster is revealed.", i + 1, Environment.NewLine);
+					fullDesc.Append("Enter the Uid of the first Effect displayed when the disguised Monster is revealed.");
 
-					briefDesc.Append("(GT 0)=Effect uid");
+					briefDesc.Append("(GT 0)=Effect Uid");
 
 					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
@@ -1895,7 +1895,7 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.Weapon:
 				case ArtifactType.MagicWeapon:
 
-					fullDesc.AppendFormat("Enter the artifact's weapon hit dice (category #{0}).", i + 1);
+					fullDesc.Append("Enter the Artifact's weapon hit dice.");
 
 					briefDesc.Append("1-25=Valid value");
 
@@ -1910,7 +1910,7 @@ namespace Eamon.Game.Helpers
 
 					var containerType = gEngine.GetContainerType(Record.GetCategories(i).Type);
 
-					fullDesc.AppendFormat("Enter the maximum combined weight allowed {0} the artifact (category #{1}).{2}{2}This is the total weight of items immediately {0} the container (not including their contents).", gEngine.EvalContainerType(containerType, "inside", "on", "under", "behind"), i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the maximum weight allowed in the Artifact's container content list.{0}{0}This is the total combined weight of all Artifacts immediately {1} the container (not including their contents).", Environment.NewLine, gEngine.EvalContainerType(containerType, "inside", "on", "under", "behind"));
 
 					briefDesc.Append("(GE 0)=Valid value");
 
@@ -1922,7 +1922,7 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.Edible:
 				case ArtifactType.Readable:
 
-					fullDesc.AppendFormat("Enter the open/closed status of the artifact (category #{0}).", i + 1);
+					fullDesc.Append("Enter whether the Artifact is open/closed.");
 
 					briefDesc.Append("0=Closed; 1=Open");
 
@@ -1932,7 +1932,7 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.DoorGate:
 
-					fullDesc.AppendFormat("Enter the open/closed status of the artifact (category #{0}).{1}{1}Additionally, you can specify that the door/gate must be forced open.", i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter whether the Artifact is open/closed.{0}{0}Additionally, you can specify that the door/gate must be forced open.", Environment.NewLine);
 
 					briefDesc.Append("0=Open; 1=Closed; (1000 + N)=Forced open with N hits damage");
 
@@ -1942,9 +1942,9 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.BoundMonster:
 
-					fullDesc.AppendFormat("Enter the guard uid of the artifact (category #{0}).{1}{1}This is the monster uid of the entity that is guarding the bound monster.", i + 1, Environment.NewLine);
+					fullDesc.Append("Enter the Uid of the Monster that is guarding the bound Monster.");
 
-					briefDesc.Append("0=No guard; (GT 0)=Guard monster uid");
+					briefDesc.Append("0=No guard; (GT 0)=Guard Monster Uid");
 
 					gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 
@@ -1952,7 +1952,7 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.DisguisedMonster:
 
-					fullDesc.AppendFormat("Enter the number of sequential effects used by the artifact (category #{0}).", i + 1);
+					fullDesc.Append("Enter the number of sequential Effects displayed when the disguised Monster is revealed.");
 
 					briefDesc.Append("(GT 0)=Valid value");
 
@@ -1982,7 +1982,7 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.Weapon:
 				case ArtifactType.MagicWeapon:
 
-					fullDesc.AppendFormat("Enter the artifact's weapon hit dice sides (category #{0}).", i + 1);
+					fullDesc.Append("Enter the Artifact's weapon hit dice sides.");
 
 					briefDesc.Append("1-25=Valid value");
 
@@ -1997,7 +1997,7 @@ namespace Eamon.Game.Helpers
 
 					var containerType = gEngine.GetContainerType(Record.GetCategories(i).Type);
 
-					fullDesc.AppendFormat("Enter the maximum number of items allowed {0} the artifact (category #{1}).{2}{2}Additionally, you can specify that the player can't put anything {0} the container.", gEngine.EvalContainerType(containerType, "inside", "on", "under", "behind"), i + 1, Environment.NewLine);
+					fullDesc.AppendFormat("Enter the maximum number of items allowed in the Artifact's container content list.{0}{0}Additionally, you can specify that the player can't put anything {1} the container.", Environment.NewLine, gEngine.EvalContainerType(containerType, "inside", "on", "under", "behind"));
 
 					briefDesc.AppendFormat("0=Player can't put anything {0}; (GT 0)=Valid value", gEngine.EvalContainerType(containerType, "inside", "on", "under", "behind"));
 
@@ -2007,7 +2007,7 @@ namespace Eamon.Game.Helpers
 
 				case ArtifactType.DoorGate:
 
-					fullDesc.AppendFormat("Enter the normal/hidden status of the artifact (category #{0}).", i + 1);
+					fullDesc.Append("Enter whether the Artifact is normal/hidden.");
 
 					briefDesc.Append("0=Normal; 1=Hidden");
 
@@ -2037,7 +2037,7 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.Weapon:
 				case ArtifactType.MagicWeapon:
 
-					fullDesc.AppendFormat("Enter the artifact's weapon number of hands required (category #{0}).", i + 1);
+					fullDesc.Append("Enter the Artifact's weapon number of hands required.");
 
 					briefDesc.Append("1-2=Valid value");
 
@@ -2050,7 +2050,7 @@ namespace Eamon.Game.Helpers
 				case ArtifactType.UnderContainer:
 				case ArtifactType.BehindContainer:
 
-					fullDesc.AppendFormat("Enter the container display code of the artifact (category #{0}).", i + 1);
+					fullDesc.Append("Enter the display code that describes how to show the Artifact's container content list.");
 
 					var containerDisplayCodeValues = EnumUtil.GetValues<ContainerDisplayCode>();
 
@@ -2219,7 +2219,7 @@ namespace Eamon.Game.Helpers
 					}
 					else
 					{
-						Buf.AppendFormat("Use effect uid {0}", effectUid);
+						Buf.AppendFormat("Use Effect Uid {0}", effectUid);
 					}
 
 					gOut.Write("{0}{1}{2}",

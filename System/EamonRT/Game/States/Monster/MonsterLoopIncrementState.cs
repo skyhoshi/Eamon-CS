@@ -33,8 +33,6 @@ namespace EamonRT.Game.States
 				FailedMoveMonster.GroupCount += Globals.LoopFailedMoveMemberCount;
 
 				Globals.LoopFailedMoveMemberCount = 0;
-
-				ProcessRevealContentArtifactList();
 			}
 
 			while (true)

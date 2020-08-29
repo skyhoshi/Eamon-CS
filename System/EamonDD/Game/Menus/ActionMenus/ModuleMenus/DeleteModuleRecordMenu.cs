@@ -38,7 +38,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				gOut.Print("{0}", Globals.LineSep);
 
-				gOut.Write("{0}Would you like to delete this module record (Y/N): ", Environment.NewLine);
+				gOut.Write("{0}Would you like to delete this Module record (Y/N): ", Environment.NewLine);
 
 				Buf.Clear();
 

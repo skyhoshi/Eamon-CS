@@ -31,7 +31,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				if (!Globals.Config.GenerateUids && NewRecordUid == 0)
 				{
-					gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(55, '\0', 0, "Enter the uid of the module record to add", null));
+					gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(55, '\0', 0, "Enter the Uid of the Module record to add", null));
 
 					Buf.Clear();
 
@@ -72,7 +72,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				Globals.Thread.Sleep(150);
 
-				gOut.Write("{0}Would you like to save this module record (Y/N): ", Environment.NewLine);
+				gOut.Write("{0}Would you like to save this Module record (Y/N): ", Environment.NewLine);
 
 				Buf.Clear();
 

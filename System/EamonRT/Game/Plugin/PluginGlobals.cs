@@ -18,6 +18,8 @@ namespace EamonRT.Game.Plugin
 {
 	public class PluginGlobals : EamonDD.Game.Plugin.PluginGlobals, IPluginGlobals
 	{
+		public IState _currState;
+
 		public virtual StringBuilder Buf01 { get; set; } = new StringBuilder(Constants.BufSize);
 
 		public virtual StringBuilder Buf02 { get; set; } = new StringBuilder(Constants.BufSize);
@@ -64,7 +66,23 @@ namespace EamonRT.Game.Plugin
 
 		public virtual ICommandParser CommandParser { get; set; }
 
-		public virtual IState CurrState { get; set; }
+		public virtual IState CurrState 
+		{
+			get
+			{
+				return _currState;
+			}
+
+			set
+			{
+				if (_currState != null && RevealContentArtifactList != null && RevealContentArtifactList.Count > 0)
+				{
+					_currState.ProcessRevealContentArtifactList();
+				}
+
+				_currState = value;
+			}
+		}
 
 		public virtual IState NextState { get; set; }
 

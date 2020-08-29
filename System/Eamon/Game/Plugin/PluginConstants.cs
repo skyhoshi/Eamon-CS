@@ -116,7 +116,7 @@ namespace Eamon.Game.Plugin
 
 		public virtual string ValidWorkDirRegexPattern { get; protected set; } = @"^(NONE)$|^(\.)$|^(\.\.\\\.\.\\Adventures\\[a-zA-Z0-9]+)$|^(\.\.\/\.\.\/Adventures\/[a-zA-Z0-9]+)$";
 
-		public virtual string RecIdepErrorFmtStr { get; protected set; } = "The {0} field refers to {1} uid {2}, {3}.";
+		public virtual string RecIdepErrorFmtStr { get; protected set; } = "The {0} field refers to {1} Uid {2}, {3}.";
 
 		public virtual string AndroidAdventuresDir { get; protected set; } = @"..\EamonPM.Android\Assets\Adventures";
 
@@ -162,9 +162,9 @@ namespace Eamon.Game.Plugin
 
 		public PluginConstants()
 		{
-			ToughDesc = string.Format("Monsters usually fall into one of the following categories, but it is possible to create hybrids that are weak in some areas and strong in others:{0}{0}Weak Monsters - wimps and small creatures like rats, kobolds, etc.{0}Medium Monsters - petty thugs, orcs, goblins, etc.{0}Tough Monsters - giants, trolls, highly skilled warriors, etc.{0}Exceptional Monsters - dragons, demons, special villians, etc.{0}{0}For group monsters, enter data relating to a single member of the group and scale values down lower than usual for groups with five or more members.", Environment.NewLine);
+			ToughDesc = string.Format("Monsters usually fall into one of the following categories, but it is possible to create hybrids that are weak in some areas and strong in others:{0}{0}Weak Monsters - wimps and small creatures like rats, kobolds, etc.{0}Medium Monsters - petty thugs, orcs, goblins, etc.{0}Tough Monsters - giants, trolls, highly skilled warriors, etc.{0}Exceptional Monsters - dragons, demons, special villians, etc.{0}{0}For group Monsters, enter data relating to a single member of the group and scale values down lower than usual for groups with five or more members.", Environment.NewLine);
 
-			CourageDesc = string.Format("Courage works as follows:{0}{0}1-100% - the chance the monster won't flee combat and/or follow a fleeing player (if enemy).  If the monster is injured or gravely injured, then effective courage is reduced by 5% or 10%, respectively.{0}200% - the monster will never flee and always follow the player.", Environment.NewLine);
+			CourageDesc = string.Format("Courage works as follows:{0}{0}1-100% - the chance the Monster won't flee combat and/or follow a fleeing player (if enemy).  If the Monster is injured or gravely injured, then effective courage is reduced by 5% or 10%, respectively.{0}200% - the Monster will never flee and always follow the player.", Environment.NewLine);
 
 			ProcessMutexName = string.Format(@"Global\Eamon_CS_{0}_Process_Mutex", ProgVersion);
 		}

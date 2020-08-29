@@ -21,16 +21,166 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class GetCommand : Command, IGetCommand
 	{
+		public long _playerDobjArtifactCount;
+
+		public long _playerDobjArtifactWeight;
+
+		public long _playerActorMonsterInventoryWeight;
+
+		public long _monsterDobjArtifactCount;
+
+		public long _monsterDobjArtifactWeight;
+
+		public long _monsterActorMonsterInventoryWeight;
+
+		public bool _newlineFlag;
+
 		public virtual bool GetAll { get; set; }
+
+		/// <summary></summary>
+		public virtual ArtifactType[] PlayerArtTypes { get; set; }
+
+		/// <summary></summary>
+		public virtual ArtifactType[] MonsterArtTypes { get; set; }
+
+		/// <summary></summary>
+		public virtual IList<IMonster> PlayerFumbleMonsterList { get; set; }
+
+		/// <summary></summary>
+		public virtual IList<IMonster> MonsterFumbleMonsterList { get; set; }
 
 		/// <summary></summary>
 		public virtual IList<IArtifact> TakenArtifactList { get; set; }
 
 		/// <summary></summary>
+		public virtual IArtifactCategory PlayerDobjArtAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory MonsterDobjArtAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory WeaponArtifactAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IMonster WeaponAffinityMonster { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact WeaponArtifact { get; set; }
+
+		/// <summary></summary>
+		public virtual ICommand RedirectCommand { get; set; }
+
+		/// <summary></summary>
+		public virtual string MonsterName { get; set; }
+
+		/// <summary></summary>
+		public virtual long PlayerDobjArtifactCount
+		{
+			get
+			{
+				return _playerDobjArtifactCount;
+			}
+
+			set
+			{
+				_playerDobjArtifactCount = value;
+			}
+		}
+
+		/// <summary></summary>
+		public virtual long PlayerDobjArtifactWeight
+		{
+			get
+			{
+				return _playerDobjArtifactWeight;
+			}
+
+			set
+			{
+				_playerDobjArtifactWeight = value;
+			}
+		}
+
+		/// <summary></summary>
+		public virtual long PlayerActorMonsterInventoryWeight
+		{
+			get
+			{
+				return _playerActorMonsterInventoryWeight;
+			}
+
+			set
+			{
+				_playerActorMonsterInventoryWeight = value;
+			}
+		}
+
+		/// <summary></summary>
+		public virtual long MonsterDobjArtifactCount
+		{
+			get
+			{
+				return _monsterDobjArtifactCount;
+			}
+
+			set
+			{
+				_monsterDobjArtifactCount = value;
+			}
+		}
+
+		/// <summary></summary>
+		public virtual long MonsterDobjArtifactWeight
+		{
+			get
+			{
+				return _monsterDobjArtifactWeight;
+			}
+
+			set
+			{
+				_monsterDobjArtifactWeight = value;
+			}
+		}
+
+		/// <summary></summary>
+		public virtual long MonsterActorMonsterInventoryWeight
+		{
+			get
+			{
+				return _monsterActorMonsterInventoryWeight;
+			}
+
+			set
+			{
+				_monsterActorMonsterInventoryWeight = value;
+			}
+		}
+
+		/// <summary></summary>
 		public virtual bool OmitWeightCheck { get; set; }
+
+		/// <summary></summary>
+		public virtual bool IsCarriedByContainer { get; set; }
+
+		/// <summary></summary>
+		public virtual bool NewlineFlag
+		{
+			get
+			{
+				return _newlineFlag;
+			}
+
+			set
+			{
+				_newlineFlag = value;
+			}
+		}
 
 		public override void PlayerExecute()
 		{
+			RetCode rc;
+
 			Debug.Assert(GetAll || DobjArtifact != null);
 
 			if (GetAll)
@@ -46,52 +196,50 @@ namespace EamonRT.Game.Commands
 
 			if (TakenArtifactList.Count > 0)
 			{
-				var artTypes = new ArtifactType[] { ArtifactType.DisguisedMonster, ArtifactType.DeadBody, ArtifactType.BoundMonster, ArtifactType.Weapon, ArtifactType.MagicWeapon };
+				PlayerArtTypes = new ArtifactType[] { ArtifactType.DisguisedMonster, ArtifactType.DeadBody, ArtifactType.BoundMonster, ArtifactType.Weapon, ArtifactType.MagicWeapon };
 
-				var nlFlag = false;
-
-				IArtifact wpnArtifact = null;
+				NewlineFlag = false;
 
 				foreach (var artifact in TakenArtifactList)
 				{
-					var ac = artifact.GetArtifactCategory(artTypes, false);
+					PlayerDobjArtAc = artifact.GetArtifactCategory(PlayerArtTypes, false);
 
-					if (ac == null)
+					if (PlayerDobjArtAc == null)
 					{
-						ac = artifact.GetCategories(0);
+						PlayerDobjArtAc = artifact.GetCategories(0);
 					}
 
-					Debug.Assert(ac != null);
+					Debug.Assert(PlayerDobjArtAc != null);
 
 					OmitWeightCheck = artifact.IsCarriedByCharacter(true);
 
-					ProcessArtifact(artifact, ac, ref nlFlag);
+					ProcessArtifact(artifact, PlayerDobjArtAc, ref _newlineFlag);
 
 					if (artifact.IsCarriedByCharacter())
 					{
 						// when a weapon is picked up all monster affinities to that weapon are broken
 
-						var fumbleMonsterList = gEngine.GetMonsterList(m => m.Weapon == -artifact.Uid - 1 && m != ActorMonster);
+						PlayerFumbleMonsterList = gEngine.GetMonsterList(m => m.Weapon == -artifact.Uid - 1 && m != ActorMonster);
 
-						foreach (var monster in fumbleMonsterList)
+						foreach (var monster in PlayerFumbleMonsterList)
 						{
 							monster.Weapon = -1;
 						}
 
-						var ac01 = artifact.GeneralWeapon;
+						WeaponArtifactAc = artifact.GeneralWeapon;
 
-						if (artifact.IsReadyableByCharacter() && (wpnArtifact == null || gEngine.WeaponPowerCompare(artifact, wpnArtifact) > 0) && (!GetAll || TakenArtifactList.Count == 1 || gGameState.Sh < 1 || ac01.Field5 < 2))
+						if (artifact.IsReadyableByCharacter() && (WeaponArtifact == null || gEngine.WeaponPowerCompare(artifact, WeaponArtifact) > 0) && (!GetAll || TakenArtifactList.Count == 1 || gGameState.Sh < 1 || WeaponArtifactAc.Field5 < 2))
 						{
-							wpnArtifact = artifact;
+							WeaponArtifact = artifact;
 						}
 					}
 				}
 
-				if (nlFlag)
+				if (NewlineFlag)
 				{
 					gOut.WriteLine();
 
-					nlFlag = false;
+					NewlineFlag = false;
 				}
 
 				if (ActorRoom.IsLit())
@@ -100,7 +248,7 @@ namespace EamonRT.Game.Commands
 					{
 						Globals.Buf.Clear();
 
-						var rc = DobjArtifact.BuildPrintedFullDesc(Globals.Buf, false);
+						rc = DobjArtifact.BuildPrintedFullDesc(Globals.Buf, false);
 
 						Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -110,15 +258,15 @@ namespace EamonRT.Game.Commands
 					}
 				}
 
-				if (ActorMonster.Weapon <= 0 && wpnArtifact != null && NextState == null)
+				if (ActorMonster.Weapon <= 0 && WeaponArtifact != null && NextState == null)
 				{
-					var command = Globals.CreateInstance<IReadyCommand>();
+					RedirectCommand = Globals.CreateInstance<IReadyCommand>();
 
-					CopyCommandData(command);
+					CopyCommandData(RedirectCommand);
 
-					command.Dobj = wpnArtifact;
+					RedirectCommand.Dobj = WeaponArtifact;
 
-					NextState = command;
+					NextState = RedirectCommand;
 				}
 			}
 			else
@@ -144,41 +292,41 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact != null);
 
-			var artTypes = new ArtifactType[] { ArtifactType.DisguisedMonster, ArtifactType.DeadBody, ArtifactType.BoundMonster, ArtifactType.Weapon, ArtifactType.MagicWeapon };
+			MonsterArtTypes = new ArtifactType[] { ArtifactType.DisguisedMonster, ArtifactType.DeadBody, ArtifactType.BoundMonster, ArtifactType.Weapon, ArtifactType.MagicWeapon };
 
-			var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
+			MonsterDobjArtAc = DobjArtifact.GetArtifactCategory(MonsterArtTypes, false);
 
-			if (ac == null)
+			if (MonsterDobjArtAc == null)
 			{
-				ac = DobjArtifact.GetCategories(0);
+				MonsterDobjArtAc = DobjArtifact.GetCategories(0);
 			}
 
-			if (ac != null && ac.Type != ArtifactType.DisguisedMonster && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
+			if (MonsterDobjArtAc != null && MonsterDobjArtAc.Type != ArtifactType.DisguisedMonster && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (MonsterDobjArtAc.Type != ArtifactType.DeadBody || MonsterDobjArtAc.Field1 == 1) && MonsterDobjArtAc.Type != ArtifactType.BoundMonster)
 			{
 				OmitWeightCheck = DobjArtifact.IsCarriedByMonster(ActorMonster, true);
 
-				var artCount = 0L;
+				MonsterDobjArtifactCount = 0;
 
-				var artWeight = DobjArtifact.Weight;
+				MonsterDobjArtifactWeight = DobjArtifact.Weight;
 
 				if (DobjArtifact.GeneralContainer != null)
 				{
-					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.In, true);
+					rc = DobjArtifact.GetContainerInfo(ref _monsterDobjArtifactCount, ref _monsterDobjArtifactWeight, ContainerType.In, true);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
-					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.On, true);
+					rc = DobjArtifact.GetContainerInfo(ref _monsterDobjArtifactCount, ref _monsterDobjArtifactWeight, ContainerType.On, true);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
-				var monWeight = 0L;
+				MonsterActorMonsterInventoryWeight = 0;
 
-				rc = ActorMonster.GetFullInventoryWeight(ref monWeight, recurse: true);
+				rc = ActorMonster.GetFullInventoryWeight(ref _monsterActorMonsterInventoryWeight, recurse: true);
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
-				if (!gEngine.EnforceMonsterWeightLimits || OmitWeightCheck || (artWeight <= ActorMonster.GetWeightCarryableGronds() && artWeight + monWeight <= ActorMonster.GetWeightCarryableGronds() * ActorMonster.GroupCount))
+				if (!gEngine.EnforceMonsterWeightLimits || OmitWeightCheck || (MonsterDobjArtifactWeight <= ActorMonster.GetWeightCarryableGronds() && MonsterDobjArtifactWeight + MonsterActorMonsterInventoryWeight <= ActorMonster.GetWeightCarryableGronds() * ActorMonster.GroupCount))
 				{
 					DobjArtifact.SetCarriedByMonster(ActorMonster);
 
@@ -188,23 +336,23 @@ namespace EamonRT.Game.Commands
 					{
 						if (ActorRoom.IsLit())
 						{
-							var monsterName = ActorMonster.EvalPlural(ActorMonster.GetTheName(true), ActorMonster.GetArticleName(true, true, false, true, Globals.Buf01));
+							MonsterName = ActorMonster.EvalPlural(ActorMonster.GetTheName(true), ActorMonster.GetArticleName(true, true, false, true, Globals.Buf01));
 
-							gOut.Print("{0} picks up {1}.", monsterName, DobjArtifact.GetTheName());
+							gOut.Print("{0} picks up {1}.", MonsterName, DobjArtifact.GetTheName());
 						}
 						else
 						{
-							var monsterName = string.Format("An unseen {0}", ActorMonster.CheckNBTLHostility() ? "offender" : "entity");
+							MonsterName = string.Format("An unseen {0}", ActorMonster.CheckNBTLHostility() ? "offender" : "entity");
 
-							gOut.Print("{0} picks up {1}.", monsterName, "a weapon");
+							gOut.Print("{0} picks up {1}.", MonsterName, "a weapon");
 						}
 					}
 
 					// when a weapon is picked up all monster affinities to that weapon are broken
 
-					var fumbleMonsterList = gEngine.GetMonsterList(m => m.Weapon == -DobjArtifact.Uid - 1 && m != ActorMonster);
+					MonsterFumbleMonsterList = gEngine.GetMonsterList(m => m.Weapon == -DobjArtifact.Uid - 1 && m != ActorMonster);
 
-					foreach (var monster in fumbleMonsterList)
+					foreach (var monster in MonsterFumbleMonsterList)
 					{
 						monster.Weapon = -1;
 					}
@@ -242,24 +390,24 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				var count = 0L;
+				PlayerDobjArtifactCount = 0;
 
-				var weight = artifact.Weight;
+				PlayerDobjArtifactWeight = artifact.Weight;
 
 				if (artifact.GeneralContainer != null)
 				{
-					rc = artifact.GetContainerInfo(ref count, ref weight, ContainerType.In, true);
+					rc = artifact.GetContainerInfo(ref _playerDobjArtifactCount, ref _playerDobjArtifactWeight, ContainerType.In, true);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
-					rc = artifact.GetContainerInfo(ref count, ref weight, ContainerType.On, true);
+					rc = artifact.GetContainerInfo(ref _playerDobjArtifactCount, ref _playerDobjArtifactWeight, ContainerType.On, true);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
-				var charWeight = 0L;
+				PlayerActorMonsterInventoryWeight = 0;
 
-				rc = ActorMonster.GetFullInventoryWeight(ref charWeight, recurse: true);
+				rc = ActorMonster.GetFullInventoryWeight(ref _playerActorMonsterInventoryWeight, recurse: true);
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -267,7 +415,7 @@ namespace EamonRT.Game.Commands
 				{
 					ProcessAction(() => PrintBestLeftAlone(artifact), ref nlFlag);
 				}
-				else if (!OmitWeightCheck && (weight + charWeight > ActorMonster.GetWeightCarryableGronds()))
+				else if (!OmitWeightCheck && (PlayerDobjArtifactWeight + PlayerActorMonsterInventoryWeight > ActorMonster.GetWeightCarryableGronds()))
 				{
 					ProcessAction(() => PrintTooHeavy(artifact), ref nlFlag);
 				}
@@ -277,15 +425,15 @@ namespace EamonRT.Game.Commands
 				}
 				else
 				{
-					var monster = gEngine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m.Weapon == -artifact.Uid - 1 && m != ActorMonster).FirstOrDefault();
+					WeaponAffinityMonster = gEngine.GetMonsterList(m => m.IsInRoom(ActorRoom) && m.Weapon == -artifact.Uid - 1 && m != ActorMonster).FirstOrDefault();
 
-					if (monster != null)
+					if (WeaponAffinityMonster != null)
 					{
-						ProcessAction(() => PrintObjBelongsToActor(artifact, monster), ref nlFlag);
+						ProcessAction(() => PrintObjBelongsToActor(artifact, WeaponAffinityMonster), ref nlFlag);
 					}
 					else
 					{
-						var isCarriedByContainer = artifact.IsCarriedByContainer();
+						IsCarriedByContainer = artifact.IsCarriedByContainer();
 
 						artifact.SetCarriedByCharacter();
 
@@ -293,7 +441,7 @@ namespace EamonRT.Game.Commands
 						{
 							PrintReceived(artifact);
 						}
-						else if (NextState is IRemoveCommand || isCarriedByContainer)
+						else if (NextState is IRemoveCommand || IsCarriedByContainer)
 						{
 							PrintRetrieved(artifact);
 						}

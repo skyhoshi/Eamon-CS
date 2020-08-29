@@ -10,7 +10,6 @@ using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Helpers.Generic;
 using Eamon.Framework.Primitive.Enums;
-using Eamon.Game.Extensions;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
 
@@ -26,7 +25,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			gEngine.PrintTitle(Title, true);
 
-			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(55, '\0', 0, string.Format("Enter the uid of the {0} record to delete", RecordTypeName), null));
+			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(55, '\0', 0, string.Format("Enter the Uid of the {0} record to delete", RecordTypeName), null));
 
 			Buf.Clear();
 
@@ -42,7 +41,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (record == null)
 			{
-				gOut.Print("{0} record not found.", RecordTypeName.FirstCharToUpper());
+				gOut.Print("{0} record not found.", RecordTypeName);
 
 				goto Cleanup;
 			}
@@ -51,7 +50,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (character != null && character.Status != Status.Alive && character.Status != Status.Dead)
 			{
-				gOut.Print("{0} record Status not marked as Alive or Dead.", RecordTypeName.FirstCharToUpper());
+				gOut.Print("{0} record Status not marked as Alive or Dead.", RecordTypeName);
 
 				goto Cleanup;
 			}

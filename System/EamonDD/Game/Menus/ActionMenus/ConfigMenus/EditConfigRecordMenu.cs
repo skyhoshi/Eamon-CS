@@ -27,7 +27,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (!Globals.CompareInstances(EditRecord, editConfig01))
 			{
-				gOut.Write("{0}Would you like to save this updated config record (Y/N): ", Environment.NewLine);
+				gOut.Write("{0}Would you like to save this updated Config record (Y/N): ", Environment.NewLine);
 
 				Buf.Clear();
 

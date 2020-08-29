@@ -4,8 +4,11 @@
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon;
+using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
@@ -18,6 +21,78 @@ namespace EamonRT.Game.Commands
 	[ClassMappings]
 	public class RemoveCommand : Command, IRemoveCommand
 	{
+		public long _dobjArtifactCount;
+
+		public long _dobjArtifactWeight;
+
+		public long _actorMonsterInventoryWeight;
+
+		/// <summary></summary>
+		public virtual ArtifactType[] ArtTypes { get; set; }
+
+		/// <summary></summary>
+		public virtual IList<IMonster> FumbleMonsterList { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory DobjArtAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory ArmorArtifactAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory ShieldArtifactAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact ArmorArtifact { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact ShieldArtifact { get; set; }
+
+		/// <summary></summary>
+		public virtual string MonsterName { get; set; }
+
+		/// <summary></summary>
+		public virtual long DobjArtifactCount
+		{
+			get
+			{
+				return _dobjArtifactCount;
+			}
+
+			set
+			{
+				_dobjArtifactCount = value;
+			}
+		}
+
+		/// <summary></summary>
+		public virtual long DobjArtifactWeight
+		{
+			get
+			{
+				return _dobjArtifactWeight;
+			}
+
+			set
+			{
+				_dobjArtifactWeight = value;
+			}
+		}
+
+		/// <summary></summary>
+		public virtual long ActorMonsterInventoryWeight
+		{
+			get
+			{
+				return _actorMonsterInventoryWeight;
+			}
+
+			set
+			{
+				_actorMonsterInventoryWeight = value;
+			}
+		}
+
 		/// <summary></summary>
 		public virtual bool OmitWeightCheck { get; set; }
 
@@ -53,24 +128,24 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				var arArtifact = gADB[gGameState.Ar];
+				ArmorArtifact = gADB[gGameState.Ar];
 
-				var shArtifact = gADB[gGameState.Sh];
+				ShieldArtifact = gADB[gGameState.Sh];
 
-				var arAc = arArtifact != null ? arArtifact.Wearable : null;
+				ArmorArtifactAc = ArmorArtifact != null ? ArmorArtifact.Wearable : null;
 
-				var shAc = shArtifact != null ? shArtifact.Wearable : null;
+				ShieldArtifactAc = ShieldArtifact != null ? ShieldArtifact.Wearable : null;
 
 				if (DobjArtifact.Uid == gGameState.Sh)
 				{
-					ActorMonster.Armor = arAc != null ? (arAc.Field1 / 2) + ((arAc.Field1 / 2) >= 3 ? 2 : 0) : 0;
+					ActorMonster.Armor = ArmorArtifactAc != null ? (ArmorArtifactAc.Field1 / 2) + ((ArmorArtifactAc.Field1 / 2) >= 3 ? 2 : 0) : 0;
 
 					gGameState.Sh = 0;
 				}
 
 				if (DobjArtifact.Uid == gGameState.Ar)
 				{
-					ActorMonster.Armor = shAc != null ? shAc.Field1 : 0;
+					ActorMonster.Armor = ShieldArtifactAc != null ? ShieldArtifactAc.Field1 : 0;
 
 					gGameState.Ar = 0;
 				}
@@ -103,41 +178,41 @@ namespace EamonRT.Game.Commands
 
 			Debug.Assert(DobjArtifact.IsCarriedByContainer(IobjArtifact) && DobjArtifact.GetCarriedByContainerContainerType() == Prep.ContainerType);
 
-			var artTypes = new ArtifactType[] { ArtifactType.DisguisedMonster, ArtifactType.DeadBody, ArtifactType.BoundMonster, ArtifactType.Weapon, ArtifactType.MagicWeapon };
+			ArtTypes = new ArtifactType[] { ArtifactType.DisguisedMonster, ArtifactType.DeadBody, ArtifactType.BoundMonster, ArtifactType.Weapon, ArtifactType.MagicWeapon };
 
-			var ac = DobjArtifact.GetArtifactCategory(artTypes, false);
+			DobjArtAc = DobjArtifact.GetArtifactCategory(ArtTypes, false);
 
-			if (ac == null)
+			if (DobjArtAc == null)
 			{
-				ac = DobjArtifact.GetCategories(0);
+				DobjArtAc = DobjArtifact.GetCategories(0);
 			}
 
-			if (ac != null && ac.Type != ArtifactType.DisguisedMonster && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (ac.Type != ArtifactType.DeadBody || ac.Field1 == 1) && ac.Type != ArtifactType.BoundMonster)
+			if (DobjArtAc != null && DobjArtAc.Type != ArtifactType.DisguisedMonster && DobjArtifact.Weight <= 900 && !DobjArtifact.IsUnmovable01() && (DobjArtAc.Type != ArtifactType.DeadBody || DobjArtAc.Field1 == 1) && DobjArtAc.Type != ArtifactType.BoundMonster)
 			{
 				OmitWeightCheck = DobjArtifact.IsCarriedByMonster(ActorMonster, true);
 
-				var artCount = 0L;
+				DobjArtifactCount = 0;
 
-				var artWeight = DobjArtifact.Weight;
+				DobjArtifactWeight = DobjArtifact.Weight;
 
 				if (DobjArtifact.GeneralContainer != null)
 				{
-					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.In, true);
+					rc = DobjArtifact.GetContainerInfo(ref _dobjArtifactCount, ref _dobjArtifactWeight, ContainerType.In, true);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
-					rc = DobjArtifact.GetContainerInfo(ref artCount, ref artWeight, ContainerType.On, true);
+					rc = DobjArtifact.GetContainerInfo(ref _dobjArtifactCount, ref _dobjArtifactWeight, ContainerType.On, true);
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
-				var monWeight = 0L;
+				ActorMonsterInventoryWeight = 0;
 
-				rc = ActorMonster.GetFullInventoryWeight(ref monWeight, recurse: true);
+				rc = ActorMonster.GetFullInventoryWeight(ref _actorMonsterInventoryWeight, recurse: true);
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
-				if (!gEngine.EnforceMonsterWeightLimits || OmitWeightCheck || (artWeight <= ActorMonster.GetWeightCarryableGronds() && artWeight + monWeight <= ActorMonster.GetWeightCarryableGronds() * ActorMonster.GroupCount))
+				if (!gEngine.EnforceMonsterWeightLimits || OmitWeightCheck || (DobjArtifactWeight <= ActorMonster.GetWeightCarryableGronds() && DobjArtifactWeight + ActorMonsterInventoryWeight <= ActorMonster.GetWeightCarryableGronds() * ActorMonster.GroupCount))
 				{
 					DobjArtifact.SetCarriedByMonster(ActorMonster);
 
@@ -147,23 +222,23 @@ namespace EamonRT.Game.Commands
 					{
 						if (ActorRoom.IsLit())
 						{
-							var monsterName = ActorMonster.EvalPlural(ActorMonster.GetTheName(true), ActorMonster.GetArticleName(true, true, false, true, Globals.Buf01));
+							MonsterName = ActorMonster.EvalPlural(ActorMonster.GetTheName(true), ActorMonster.GetArticleName(true, true, false, true, Globals.Buf01));
 
-							gOut.Print("{0} removes {1} from {2} {3}.", monsterName, DobjArtifact.GetArticleName(), gEngine.EvalContainerType(Prep.ContainerType, "inside", "on", "under", "behind"), OmitWeightCheck ? IobjArtifact.GetArticleName(buf: Globals.Buf01) : IobjArtifact.GetTheName(buf: Globals.Buf01));
+							gOut.Print("{0} removes {1} from {2} {3}.", MonsterName, DobjArtifact.GetArticleName(), gEngine.EvalContainerType(Prep.ContainerType, "inside", "on", "under", "behind"), OmitWeightCheck ? IobjArtifact.GetArticleName(buf: Globals.Buf01) : IobjArtifact.GetTheName(buf: Globals.Buf01));
 						}
 						else
 						{
-							var monsterName = string.Format("An unseen {0}", ActorMonster.CheckNBTLHostility() ? "offender" : "entity");
+							MonsterName = string.Format("An unseen {0}", ActorMonster.CheckNBTLHostility() ? "offender" : "entity");
 
-							gOut.Print("{0} picks up {1}.", monsterName, "a weapon");
+							gOut.Print("{0} picks up {1}.", MonsterName, "a weapon");
 						}
 					}
 
 					// when a weapon is picked up all monster affinities to that weapon are broken
 
-					var fumbleMonsterList = gEngine.GetMonsterList(m => m.Weapon == -DobjArtifact.Uid - 1 && m != ActorMonster);
+					FumbleMonsterList = gEngine.GetMonsterList(m => m.Weapon == -DobjArtifact.Uid - 1 && m != ActorMonster);
 
-					foreach (var monster in fumbleMonsterList)
+					foreach (var monster in FumbleMonsterList)
 					{
 						monster.Weapon = -1;
 					}
@@ -184,9 +259,9 @@ namespace EamonRT.Game.Commands
 		{
 			Debug.Assert(prep != null);
 
-			var prepNames = new string[] { "in", "fromin", "on", "fromon", "under", "fromunder", "behind", "frombehind", "from" };
+			PrepNames = new string[] { "in", "fromin", "on", "fromon", "under", "fromunder", "behind", "frombehind", "from" };
 
-			return prepNames.FirstOrDefault(pn => string.Equals(prep.Name, pn, StringComparison.OrdinalIgnoreCase)) != null;
+			return PrepNames.FirstOrDefault(pn => string.Equals(prep.Name, pn, StringComparison.OrdinalIgnoreCase)) != null;
 		}
 		*/
 

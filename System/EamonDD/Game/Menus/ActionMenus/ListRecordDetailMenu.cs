@@ -31,7 +31,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			var maxRecUid = RecordTable.GetRecordUid(false);
 
-			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(43, '\0', 0, string.Format("Enter the starting {0} uid", RecordTypeName), "1"));
+			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(43, '\0', 0, string.Format("Enter the starting {0} Uid", RecordTypeName), "1"));
 
 			Buf.Clear();
 
@@ -43,7 +43,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			gOut.Print("{0}", Globals.LineSep);
 
-			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(43, '\0', 0, string.Format("Enter the ending {0} uid", RecordTypeName), maxRecUid > 0 ? maxRecUid.ToString() : "1"));
+			gOut.Write("{0}{1}", Environment.NewLine, gEngine.BuildPrompt(43, '\0', 0, string.Format("Enter the ending {0} Uid", RecordTypeName), maxRecUid > 0 ? maxRecUid.ToString() : "1"));
 
 			Buf.Clear();
 

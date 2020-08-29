@@ -4,6 +4,7 @@
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Eamon;
@@ -11,6 +12,7 @@ using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Commands;
+using EamonRT.Framework.States;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Commands
@@ -20,28 +22,53 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual long SaveSlot { get; set; }
 
+		/// <summary></summary>
+		public virtual IList<IArtifact> FullArtifactList { get; set; }
+
+		/// <summary></summary>
+		public virtual IList<IMonster> FullMonsterList { get; set; }
+
+		/// <summary></summary>
+		public virtual IList<IFileset> SaveFilesetList { get; set; }
+
+		/// <summary></summary>
+		public virtual IFileset SaveFileset { get; set; }
+
+		/// <summary></summary>
+		public virtual IConfig SaveConfig { get; set; }
+
+		/// <summary></summary>
+		public virtual IRoom CharacterRoom { get; set; }
+
+		/// <summary></summary>
+		public virtual IState OrigCurrState { get; set; }
+
+		/// <summary></summary>
+		public virtual long SaveFilesetsCount { get; set; }
+
 		public override void PlayerExecute()
 		{
-			IFileset fileset;
 			RetCode rc;
 
-			var origCurrState = Globals.CurrState;
+			Globals.EnableRevealContentOverrides = false;
 
-			var filesetsCount = Globals.Database.GetFilesetsCount();
+			OrigCurrState = Globals.CurrState;
 
-			Debug.Assert(filesetsCount <= gEngine.NumSaveSlots);
+			SaveFilesetsCount = Globals.Database.GetFilesetsCount();
 
-			Debug.Assert(SaveSlot >= 1 && SaveSlot <= filesetsCount);
+			Debug.Assert(SaveFilesetsCount <= gEngine.NumSaveSlots);
 
-			var filesets = Globals.Database.FilesetTable.Records.OrderBy(f => f.Uid).ToList();
+			Debug.Assert(SaveSlot >= 1 && SaveSlot <= SaveFilesetsCount);
 
-			fileset = filesets[(int)SaveSlot - 1];
+			SaveFilesetList = Globals.Database.FilesetTable.Records.OrderBy(f => f.Uid).ToList();
 
-			var config = Globals.CreateInstance<IConfig>();
+			SaveFileset = SaveFilesetList[(int)SaveSlot - 1];
+
+			SaveConfig = Globals.CreateInstance<IConfig>();
 
 			try
 			{
-				rc = Globals.Database.LoadConfigs(fileset.ConfigFileName, printOutput: false);
+				rc = Globals.Database.LoadConfigs(SaveFileset.ConfigFileName, printOutput: false);
 
 				if (gEngine.IsFailure(rc))
 				{
@@ -67,25 +94,25 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				config.RtFilesetFileName = Globals.CloneInstance(Globals.Config.RtFilesetFileName);
+				SaveConfig.RtFilesetFileName = Globals.CloneInstance(Globals.Config.RtFilesetFileName);
 
-				config.RtCharacterFileName = Globals.CloneInstance(fileset.CharacterFileName);
+				SaveConfig.RtCharacterFileName = Globals.CloneInstance(SaveFileset.CharacterFileName);
 
-				config.RtModuleFileName = Globals.CloneInstance(fileset.ModuleFileName);
+				SaveConfig.RtModuleFileName = Globals.CloneInstance(SaveFileset.ModuleFileName);
 
-				config.RtRoomFileName = Globals.CloneInstance(fileset.RoomFileName);
+				SaveConfig.RtRoomFileName = Globals.CloneInstance(SaveFileset.RoomFileName);
 
-				config.RtArtifactFileName = Globals.CloneInstance(fileset.ArtifactFileName);
+				SaveConfig.RtArtifactFileName = Globals.CloneInstance(SaveFileset.ArtifactFileName);
 
-				config.RtEffectFileName = Globals.CloneInstance(fileset.EffectFileName);
+				SaveConfig.RtEffectFileName = Globals.CloneInstance(SaveFileset.EffectFileName);
 
-				config.RtMonsterFileName = Globals.CloneInstance(fileset.MonsterFileName);
+				SaveConfig.RtMonsterFileName = Globals.CloneInstance(SaveFileset.MonsterFileName);
 
-				config.RtHintFileName = Globals.CloneInstance(fileset.HintFileName);
+				SaveConfig.RtHintFileName = Globals.CloneInstance(SaveFileset.HintFileName);
 
-				config.RtGameStateFileName = Globals.CloneInstance(fileset.GameStateFileName);
+				SaveConfig.RtGameStateFileName = Globals.CloneInstance(SaveFileset.GameStateFileName);
 
-				rc = config.LoadGameDatabase(printOutput: false);
+				rc = SaveConfig.LoadGameDatabase(printOutput: false);
 
 				if (gEngine.IsFailure(rc))
 				{
@@ -145,9 +172,9 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				var room = gRDB[gGameState.Ro];
+				CharacterRoom = gRDB[gGameState.Ro];
 
-				if (room == null)
+				if (CharacterRoom == null)
 				{
 					Globals.Error.Write("{0}Error: room == null", Environment.NewLine);
 
@@ -158,9 +185,9 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				var artifacts = Globals.Database.ArtifactTable.Records.ToList();
+				FullArtifactList = Globals.Database.ArtifactTable.Records.ToList();
 
-				foreach (var artifact in artifacts)
+				foreach (var artifact in FullArtifactList)
 				{
 					if (artifact.IsCarriedByMonsterUid(gGameState.Cm))
 					{
@@ -172,9 +199,9 @@ namespace EamonRT.Game.Commands
 					}
 				}
 
-				var monsters = Globals.Database.MonsterTable.Records.ToList();
+				FullMonsterList = Globals.Database.MonsterTable.Records.ToList();
 
-				foreach (var monster in monsters)
+				foreach (var monster in FullMonsterList)
 				{
 					monster.InitGroupCount = monster.GroupCount;
 
@@ -196,7 +223,7 @@ namespace EamonRT.Game.Commands
 			}
 			finally
 			{
-				config.Dispose();
+				SaveConfig.Dispose();
 			}
 
 			gCommandParser.LastInputStr = "";
@@ -209,11 +236,11 @@ namespace EamonRT.Game.Commands
 
 			NextState = Globals.CurrState;
 
-			Globals.CurrState = origCurrState;
+			Globals.CurrState = OrigCurrState;
 
 		Cleanup:
 
-			;
+			Globals.EnableRevealContentOverrides = true;
 		}
 
 		public override bool ShouldPreTurnProcess()

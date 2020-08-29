@@ -20,7 +20,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			RecordTable = Globals.Database.ModuleTable;
 
-			RecordTypeName = "module";
+			RecordTypeName = "Module";
 		}
 	}
 }

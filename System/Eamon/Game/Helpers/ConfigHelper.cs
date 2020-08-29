@@ -120,9 +120,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescResolveEffects()
 		{
-			var fullDesc = "Enter whether to show or resolve effect uids in descriptions during record detail listing.";
+			var fullDesc = "Enter whether to show or resolve Effect Uids in descriptions during record detail listing.";
 
-			var briefDesc = string.Format("{0}=Show effect uids; {1}=Resolve effect uids", Convert.ToInt64(false), Convert.ToInt64(true));
+			var briefDesc = string.Format("{0}=Show Effect Uids; {1}=Resolve Effect Uids", Convert.ToInt64(false), Convert.ToInt64(true));
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
@@ -130,9 +130,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescGenerateUids()
 		{
-			var fullDesc = "Enter whether to allow user input of uids or use system generated uids when adding new records.";
+			var fullDesc = "Enter whether to allow user input of Uids or use system generated Uids when adding new records.";
 
-			var briefDesc = string.Format("{0}=Allow user input of uids; {1}=Use system generated uids", Convert.ToInt64(false), Convert.ToInt64(true));
+			var briefDesc = string.Format("{0}=Allow user input of Uids; {1}=Use system generated Uids", Convert.ToInt64(false), Convert.ToInt64(true));
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}

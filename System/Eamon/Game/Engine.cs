@@ -1511,11 +1511,11 @@ namespace Eamon.Game
 
 			var monsterHelper = Globals.CreateInstance<IMonsterHelper>();
 
-			var monsters = Globals.Database.MonsterTable.Records.ToList();
+			var monsterList = Globals.Database.MonsterTable.Records.ToList();
 
 			long i = 1;
 
-			foreach (var r in monsters)
+			foreach (var r in monsterList)
 			{
 				monsterHelper.Record = r;
 

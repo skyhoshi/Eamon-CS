@@ -74,7 +74,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 				}
 			}
 
-			gOut.Print("Done fully mapping room record connections.");
+			gOut.Print("Done fully mapping Room record connections.");
 		}
 
 		public FullMapRoomRecordConnectionsMenu()

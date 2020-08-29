@@ -2207,7 +2207,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescName()
 		{
-			var fullDesc = "Enter the name of the character.";
+			var fullDesc = "Enter the name of the Character.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -2215,7 +2215,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescGender()
 		{
-			var fullDesc = "Enter the gender of the character.";
+			var fullDesc = "Enter the gender of the Character.";
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
@@ -2232,7 +2232,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescStatus()
 		{
-			var fullDesc = "Enter the status of the character.";
+			var fullDesc = "Enter the status of the Character.";
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
@@ -2255,7 +2255,7 @@ namespace Eamon.Game.Helpers
 
 			Debug.Assert(stat != null);
 
-			var fullDesc = string.Format("Enter the {0} of the character.", stat.Name);
+			var fullDesc = string.Format("Enter the {0} of the Character.", stat.Name);
 
 			var briefDesc = string.Format("{0}-{1}=Valid value", stat.MinValue, stat.MaxValue);
 
@@ -2271,7 +2271,7 @@ namespace Eamon.Game.Helpers
 
 			Debug.Assert(spell != null);
 
-			var fullDesc = string.Format("Enter the character's {0} spell ability.", spell.Name);
+			var fullDesc = string.Format("Enter the Character's {0} spell ability.", spell.Name);
 
 			var briefDesc = string.Format("{0}-{1}=Valid value", spell.MinValue, spell.MaxValue);
 
@@ -2287,7 +2287,7 @@ namespace Eamon.Game.Helpers
 
 			Debug.Assert(weapon != null);
 
-			var fullDesc = string.Format("Enter the character's {0} weapon ability.", weapon.Name);
+			var fullDesc = string.Format("Enter the Character's {0} weapon ability.", weapon.Name);
 
 			var briefDesc = string.Format("{0}-{1}=Valid value", weapon.MinValue, weapon.MaxValue);
 
@@ -2297,7 +2297,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescArmorExpertise()
 		{
-			var fullDesc = "Enter the armor expertise of the character.";
+			var fullDesc = "Enter the armor expertise of the Character.";
 
 			var briefDesc = "0-79=Valid value";
 
@@ -2307,7 +2307,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescHeldGold()
 		{
-			var fullDesc = "Enter the character's gold in hand.";
+			var fullDesc = "Enter the Character's gold in hand.";
 
 			var briefDesc = string.Format("{0}-{1}=Valid value", Constants.MinGoldValue, Constants.MaxGoldValue);
 
@@ -2317,7 +2317,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescBankGold()
 		{
-			var fullDesc = "Enter the character's gold in the bank.";
+			var fullDesc = "Enter the Character's gold in the bank.";
 
 			var briefDesc = string.Format("{0}-{1}=Valid value", Constants.MinGoldValue, Constants.MaxGoldValue);
 
@@ -2327,7 +2327,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescArmorClass()
 		{
-			var fullDesc = "Enter the armor class of the character.";
+			var fullDesc = "Enter the armor class of the Character.";
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
@@ -2350,7 +2350,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var fullDesc = string.Format("Enter the character's weapon #{0} name.", i + 1);
+			var fullDesc = string.Format("Enter the Character's weapon #{0} name.{1}{1}Weapon names should always be in singular form and capitalized when appropriate.", i + 1, Environment.NewLine);
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -2360,7 +2360,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var fullDesc = string.Format("Enter the character's weapon #{0} Is Plural status.", i + 1);
+			var fullDesc = string.Format("Enter whether the Character's weapon #{0} is singular or plural.", i + 1);
 
 			var briefDesc = "0=Singular; 1=Plural";
 
@@ -2372,7 +2372,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var fullDesc = string.Format("Enter the character's weapon #{0} plural type.", i + 1);
+			var fullDesc = string.Format("Enter the plural type that converts the Character's weapon #{0} name from singular to plural.", i + 1);
 
 			var briefDesc = "0=No change; 1=Use 's'; 2=Use 'es'; 3=Use 'y' to 'ies'";
 
@@ -2384,7 +2384,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var fullDesc = string.Format("Enter the character's weapon #{0} article type.", i + 1);
+			var fullDesc = string.Format("Enter the article type that prefixes the Character's weapon #{0} name with an article.", i + 1);
 
 			var briefDesc = "0=No article; 1=Use 'a'; 2=Use 'an'; 3=Use 'some'; 4=Use 'the'";
 
@@ -2396,7 +2396,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var fullDesc = string.Format("Enter the character's weapon #{0} complexity.", i + 1);
+			var fullDesc = string.Format("Enter the Character's weapon #{0} complexity.", i + 1);
 
 			var briefDesc = "-50-50=Valid value";          // TODO: eliminate hardcode
 
@@ -2408,7 +2408,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var fullDesc = string.Format("Enter the character's weapon #{0} type.", i + 1);
+			var fullDesc = string.Format("Enter the Character's weapon #{0} type.", i + 1);
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
@@ -2431,7 +2431,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var fullDesc = string.Format("Enter the character's weapon #{0} hit dice.", i + 1);
+			var fullDesc = string.Format("Enter the Character's weapon #{0} hit dice.", i + 1);
 
 			var briefDesc = "1-25=Valid value";
 
@@ -2443,7 +2443,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var fullDesc = string.Format("Enter the character's weapon #{0} hit dice sides.", i + 1);
+			var fullDesc = string.Format("Enter the Character's weapon #{0} hit dice sides.", i + 1);
 
 			var briefDesc = "1-25=Valid value";
 
@@ -2455,7 +2455,7 @@ namespace Eamon.Game.Helpers
 		{
 			var i = Index;
 
-			var fullDesc = string.Format("Enter the character's weapon #{0} number of hands required.", i + 1);
+			var fullDesc = string.Format("Enter the Character's weapon #{0} number of hands required.", i + 1);
 
 			var briefDesc = "1-2=Valid value";
 

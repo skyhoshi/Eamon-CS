@@ -319,7 +319,7 @@ namespace TheVileGrimoireOfJaldial.Game
 		{
 			Debug.Assert(DfMonster != null);
 
-			var room = DfMonster.GetInRoom();
+			var room = DfMonster.GetInRoom() as Framework.IRoom;
 
 			Debug.Assert(room != null);
 
@@ -329,7 +329,7 @@ namespace TheVileGrimoireOfJaldial.Game
 			{
 				if (room.IsLit())
 				{
-					gOut.Print("{0}As {1} dies, its body {2}.", Environment.NewLine, DfMonster.GetTheName(), room.Zone == 1 ? "dissolves and is absorbed into the ground" : "is enveloped in a cloud of sinister black smoke");
+					gOut.Print("{0}As {1} dies, its body {2}.", Environment.NewLine, DfMonster.GetTheName(), room.IsCryptRoom() ? "is enveloped in a cloud of sinister black smoke" : "dissolves and is absorbed into the ground");
 				}
 			}
 

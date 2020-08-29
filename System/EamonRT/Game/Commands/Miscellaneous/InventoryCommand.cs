@@ -4,10 +4,12 @@
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using Eamon;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
@@ -22,6 +24,45 @@ namespace EamonRT.Game.Commands
 	{
 		public virtual bool AllowExtendedContainers { get; set; }
 
+		/// <summary></summary>
+		public virtual IList<IArtifact> DobjArtContainedArtifactList { get; set; }
+
+		/// <summary></summary>
+		public virtual IList<IArtifact> DobjMonsterWornArtifactList { get; set; }
+
+		/// <summary></summary>
+		public virtual IList<IArtifact> DobjMonsterCarriedArtifactList { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifactCategory DobjArtAc { get; set; }
+
+		/// <summary></summary>
+		public virtual IArtifact GoldArtifact { get; set; }
+
+		/// <summary></summary>
+		public virtual ContainerType DobjArtContainerType { get; set; }
+
+		/// <summary></summary>
+		public virtual long TotalGold { get; set; }
+
+		/// <summary></summary>
+		public virtual bool ShowCharOwned { get; set; }
+
+		/// <summary></summary>
+		public virtual bool IsCharMonster { get; set; }
+
+		/// <summary></summary>
+		public virtual bool HasWornInventory { get; set; }
+
+		/// <summary></summary>
+		public virtual bool HasCarriedInventory { get; set; }
+
+		/// <summary></summary>
+		public virtual bool ShouldShowHealthStatusWhenInventoried { get; set; }
+
+		/// <summary></summary>
+		public virtual bool IsUninjuredGroup { get; set; }
+
 		public override void PlayerExecute()
 		{
 			RetCode rc;
@@ -35,33 +76,33 @@ namespace EamonRT.Game.Commands
 
 			if (DobjArtifact != null)
 			{
-				var ac = DobjArtifact.InContainer;
+				DobjArtAc = DobjArtifact.InContainer;
 
-				if (ac == null)
+				if (DobjArtAc == null)
 				{
-					ac = DobjArtifact.OnContainer;
+					DobjArtAc = DobjArtifact.OnContainer;
 				}
 
-				if (ac == null && AllowExtendedContainers)
+				if (DobjArtAc == null && AllowExtendedContainers)
 				{
-					ac = DobjArtifact.UnderContainer;
+					DobjArtAc = DobjArtifact.UnderContainer;
 				}
 
-				if (ac == null && AllowExtendedContainers)
+				if (DobjArtAc == null && AllowExtendedContainers)
 				{
-					ac = DobjArtifact.BehindContainer;
+					DobjArtAc = DobjArtifact.BehindContainer;
 				}
 
-				if (ac != null)
+				if (DobjArtAc != null)
 				{
-					var containerType = gEngine.GetContainerType(ac.Type);
+					DobjArtContainerType = gEngine.GetContainerType(DobjArtAc.Type);
 
 					if (DobjArtifact.IsEmbeddedInRoom(ActorRoom))
 					{
 						DobjArtifact.SetInRoom(ActorRoom);
 					}
 
-					if (ac == DobjArtifact.InContainer && !ac.IsOpen())
+					if (DobjArtAc == DobjArtifact.InContainer && !DobjArtAc.IsOpen())
 					{
 						PrintMustFirstOpen(DobjArtifact);
 
@@ -70,18 +111,18 @@ namespace EamonRT.Game.Commands
 						goto Cleanup;
 					}
 
-					var artifactList = DobjArtifact.GetContainedList(containerType: containerType);
+					DobjArtContainedArtifactList = DobjArtifact.GetContainedList(containerType: DobjArtContainerType);
 
-					var showCharOwned = !DobjArtifact.IsCarriedByCharacter() && !DobjArtifact.IsWornByCharacter();
+					ShowCharOwned = !DobjArtifact.IsCarriedByCharacter() && !DobjArtifact.IsWornByCharacter();
 
-					if (artifactList.Count > 0)
+					if (DobjArtContainedArtifactList.Count > 0)
 					{
 						Globals.Buf.SetFormat("{0}{1} {2} you see ",
 							Environment.NewLine,
-							gEngine.EvalContainerType(containerType, "Inside", "On", "Under", "Behind"),
-							DobjArtifact.GetTheName(false, showCharOwned, false, false, Globals.Buf01));
+							gEngine.EvalContainerType(DobjArtContainerType, "Inside", "On", "Under", "Behind"),
+							DobjArtifact.GetTheName(false, ShowCharOwned, false, false, Globals.Buf01));
 
-						rc = gEngine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, showCharOwned, StateDescDisplayCode.None, false, false, Globals.Buf);
+						rc = gEngine.GetRecordNameList(DobjArtContainedArtifactList.Cast<IGameBase>().ToList(), ArticleType.A, ShowCharOwned, StateDescDisplayCode.None, false, false, Globals.Buf);
 
 						Debug.Assert(gEngine.IsSuccess(rc));
 					}
@@ -89,8 +130,8 @@ namespace EamonRT.Game.Commands
 					{
 						Globals.Buf.SetFormat("{0}There's nothing {1} {2}",
 							Environment.NewLine,
-							gEngine.EvalContainerType(containerType, "inside", "on", "under", "behind"),
-							DobjArtifact.GetTheName(false, showCharOwned, false, false, Globals.Buf01));
+							gEngine.EvalContainerType(DobjArtContainerType, "inside", "on", "under", "behind"),
+							DobjArtifact.GetTheName(false, ShowCharOwned, false, false, Globals.Buf01));
 					}
 
 					Globals.Buf.AppendFormat(".{0}", Environment.NewLine);
@@ -108,11 +149,9 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				IArtifact goldArtifact = null;
+				IsCharMonster = DobjMonster.IsCharacterMonster();
 
-				var isCharMonster = DobjMonster.IsCharacterMonster();
-
-				if (!isCharMonster && DobjMonster.Friendliness < Friendliness.Friend)
+				if (!IsCharMonster && DobjMonster.Friendliness < Friendliness.Friend)
 				{
 					gEngine.MonsterEmotes(DobjMonster);
 
@@ -121,21 +160,21 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 
-				var hasWornInventory = DobjMonster.HasWornInventory();
+				HasWornInventory = DobjMonster.HasWornInventory();
 
-				if (hasWornInventory)
+				if (HasWornInventory)
 				{
-					var artifactList = DobjMonster.GetWornList();
+					DobjMonsterWornArtifactList = DobjMonster.GetWornList();
 
-					if (artifactList.Count > 0)
+					if (DobjMonsterWornArtifactList.Count > 0)
 					{
 						Globals.Buf.SetFormat("{0}{1} {2} {3}",
 							Environment.NewLine,
-							isCharMonster ? "You" : DobjMonster.EvalPlural(DobjMonster.GetTheName(true, true, false, true, Globals.Buf01), "They"),
-							isCharMonster ? "are" : DobjMonster.EvalPlural("is", "are"),
-							isCharMonster ? "wearing " : DobjMonster.EvalPlural("wearing ", "wearing among them "));
+							IsCharMonster ? "You" : DobjMonster.EvalPlural(DobjMonster.GetTheName(true, true, false, true, Globals.Buf01), "They"),
+							IsCharMonster ? "are" : DobjMonster.EvalPlural("is", "are"),
+							IsCharMonster ? "wearing " : DobjMonster.EvalPlural("wearing ", "wearing among them "));
 
-						rc = gEngine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, isCharMonster ? false : true, isCharMonster ? StateDescDisplayCode.AllStateDescs : StateDescDisplayCode.SideNotesOnly, isCharMonster ? true : false, false, Globals.Buf);
+						rc = gEngine.GetRecordNameList(DobjMonsterWornArtifactList.Cast<IGameBase>().ToList(), ArticleType.A, IsCharMonster ? false : true, IsCharMonster ? StateDescDisplayCode.AllStateDescs : StateDescDisplayCode.SideNotesOnly, IsCharMonster ? true : false, false, Globals.Buf);
 
 						Debug.Assert(gEngine.IsSuccess(rc));
 
@@ -145,42 +184,42 @@ namespace EamonRT.Game.Commands
 					}
 				}
 
-				var hasCarriedInventory = DobjMonster.HasCarriedInventory();
+				HasCarriedInventory = DobjMonster.HasCarriedInventory();
 
-				if (hasCarriedInventory)
+				if (HasCarriedInventory)
 				{
-					var artifactList = DobjMonster.GetCarriedList();
+					DobjMonsterCarriedArtifactList = DobjMonster.GetCarriedList();
 
-					if (isCharMonster)
+					if (IsCharMonster)
 					{
 						// use total debt for characters with no assets; otherwise use HeldGold (which may be debt or asset)
 
-						var totalGold = gCharacter.HeldGold < 0 && gCharacter.BankGold < 0 ? gCharacter.HeldGold + gCharacter.BankGold : gCharacter.HeldGold;
+						TotalGold = gCharacter.HeldGold < 0 && gCharacter.BankGold < 0 ? gCharacter.HeldGold + gCharacter.BankGold : gCharacter.HeldGold;
 
-						if (totalGold != 0)
+						if (TotalGold != 0)
 						{
-							goldArtifact = Globals.CreateInstance<IArtifact>(x =>
+							GoldArtifact = Globals.CreateInstance<IArtifact>(x =>
 							{
 								x.Name = string.Format("{0}{1} gold piece{2}",
-												totalGold < 0 ? "a debt of " : "",
-												gEngine.GetStringFromNumber(Math.Abs(totalGold), false, Globals.Buf),
-												Math.Abs(totalGold) != 1 ? "s" : "");
+												TotalGold < 0 ? "a debt of " : "",
+												gEngine.GetStringFromNumber(Math.Abs(TotalGold), false, Globals.Buf),
+												Math.Abs(TotalGold) != 1 ? "s" : "");
 							});
 
-							artifactList.Add(goldArtifact);
+							DobjMonsterCarriedArtifactList.Add(GoldArtifact);
 						}
 					}
 
 					Globals.Buf.SetFormat("{0}{1} {2} {3}",
 						Environment.NewLine,
-						isCharMonster ? "You" : DobjMonster.EvalPlural(DobjMonster.GetTheName(true, true, false, true, Globals.Buf01), "They"),
-						isCharMonster ? "are" : DobjMonster.EvalPlural("is", "are"),
-						artifactList.Count == 0 ? "" :
-						isCharMonster ? "carrying " : DobjMonster.EvalPlural("carrying ", "carrying among them "));
+						IsCharMonster ? "You" : DobjMonster.EvalPlural(DobjMonster.GetTheName(true, true, false, true, Globals.Buf01), "They"),
+						IsCharMonster ? "are" : DobjMonster.EvalPlural("is", "are"),
+						DobjMonsterCarriedArtifactList.Count == 0 ? "" :
+						IsCharMonster ? "carrying " : DobjMonster.EvalPlural("carrying ", "carrying among them "));
 
-					if (artifactList.Count > 0)
+					if (DobjMonsterCarriedArtifactList.Count > 0)
 					{
-						rc = gEngine.GetRecordNameList(artifactList.Cast<IGameBase>().ToList(), ArticleType.A, isCharMonster ? false : true, isCharMonster ? StateDescDisplayCode.AllStateDescs : StateDescDisplayCode.SideNotesOnly, isCharMonster ? true : false, false, Globals.Buf);
+						rc = gEngine.GetRecordNameList(DobjMonsterCarriedArtifactList.Cast<IGameBase>().ToList(), ArticleType.A, IsCharMonster ? false : true, IsCharMonster ? StateDescDisplayCode.AllStateDescs : StateDescDisplayCode.SideNotesOnly, IsCharMonster ? true : false, false, Globals.Buf);
 
 						Debug.Assert(gEngine.IsSuccess(rc));
 					}
@@ -194,32 +233,32 @@ namespace EamonRT.Game.Commands
 					gOut.Write("{0}", Globals.Buf);
 				}
 
-				var shouldShowHealthStatusWhenInventoried = DobjMonster.ShouldShowHealthStatusWhenInventoried();
+				ShouldShowHealthStatusWhenInventoried = DobjMonster.ShouldShowHealthStatusWhenInventoried();
 
-				if (shouldShowHealthStatusWhenInventoried)
+				if (ShouldShowHealthStatusWhenInventoried)
 				{
-					var isUninjuredGroup = DobjMonster.GroupCount > 1 && DobjMonster.DmgTaken == 0;
+					IsUninjuredGroup = DobjMonster.GroupCount > 1 && DobjMonster.DmgTaken == 0;
 
 					Globals.Buf.SetFormat("{0}{1} {2} ",
 						Environment.NewLine,
-						isCharMonster ? "You" :
-						isUninjuredGroup ? "They" :
+						IsCharMonster ? "You" :
+						IsUninjuredGroup ? "They" :
 						DobjMonster.GetTheName(true, true, false, true, Globals.Buf01),
-						isCharMonster || isUninjuredGroup ? "are" : "is");
+						IsCharMonster || IsUninjuredGroup ? "are" : "is");
 
 					DobjMonster.AddHealthStatus(Globals.Buf);
 
 					gOut.Write("{0}", Globals.Buf);
 				}
 
-				if (goldArtifact != null)
+				if (GoldArtifact != null)
 				{
-					goldArtifact.Dispose();
+					GoldArtifact.Dispose();
 
-					goldArtifact = null;
+					GoldArtifact = null;
 				}
 
-				if (!hasWornInventory && !hasCarriedInventory && !shouldShowHealthStatusWhenInventoried)
+				if (!HasWornInventory && !HasCarriedInventory && !ShouldShowHealthStatusWhenInventoried)
 				{
 					PrintCantVerbObj(DobjMonster);
 

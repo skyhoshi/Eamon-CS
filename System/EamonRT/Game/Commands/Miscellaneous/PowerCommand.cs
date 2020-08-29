@@ -24,7 +24,7 @@ namespace EamonRT.Game.Commands
 		public virtual Func<IArtifact, bool>[] VanishWhereClauseFuncs { get; set; }
 
 		/// <summary></summary>
-		public virtual ICommand SpeedCommand { get; set; }
+		public virtual ICommand RedirectCommand { get; set; }
 
 		/// <summary></summary>
 		public virtual long PowerEventRoll { get; set; }
@@ -81,14 +81,14 @@ namespace EamonRT.Game.Commands
 
 					else
 					{
-						SpeedCommand = Globals.CreateInstance<ISpeedCommand>(x =>
+						RedirectCommand = Globals.CreateInstance<ISpeedCommand>(x =>
 						{
 							x.CastSpell = false;
 						});
 
-						CopyCommandData(SpeedCommand);
+						CopyCommandData(RedirectCommand);
 
-						NextState = SpeedCommand;
+						NextState = RedirectCommand;
 					}
 				}
 				else

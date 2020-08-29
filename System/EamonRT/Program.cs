@@ -1032,7 +1032,7 @@ namespace EamonRT
 
 					Globals.Error.Write("{0}Error: {1}",
 						Environment.NewLine,
-						Globals.Module == null ? "Use EamonDD to define a module record for this adventure." :
+						Globals.Module == null ? "Use EamonDD to define a Module record for this adventure." :
 						"Globals.Module.Uid <= 0");
 
 					if (Globals.Module == null)
@@ -1067,7 +1067,7 @@ namespace EamonRT
 
 					Globals.Error.Write("{0}Error: {1}",
 						Environment.NewLine,
-						"Use EamonDD to define a start room record for this adventure.");
+						"Use EamonDD to define a start Room record for this adventure.");
 
 					gEngine.UnlinkOnFailure();
 

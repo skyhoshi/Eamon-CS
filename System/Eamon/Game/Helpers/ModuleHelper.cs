@@ -260,7 +260,7 @@ namespace Eamon.Game.Helpers
 			{
 				result = false;
 
-				Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Desc"), "effect", invalidUid, "which doesn't exist");
+				Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Desc"), "Effect", invalidUid, "which doesn't exist");
 
 				ErrorMessage = Buf.ToString();
 
@@ -292,7 +292,7 @@ namespace Eamon.Game.Helpers
 				{
 					result = false;
 
-					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("IntroStory"), "effect", effectUid, "which doesn't exist");
+					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("IntroStory"), "Effect", effectUid, "which doesn't exist");
 
 					ErrorMessage = Buf.ToString();
 
@@ -356,7 +356,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescIntroStory()
 		{
-			var fullDesc = "Enter the effect uid of the introduction story for the module." + Environment.NewLine + Environment.NewLine + "You can link multiple effects together to create an extended story segment.";
+			var fullDesc = "Enter the Effect Uid of the introduction story for the Module." + Environment.NewLine + Environment.NewLine + "You can link multiple Effects together to create an extended story segment.";
 
 			var briefDesc = "(GE 0)=Valid value";
 
@@ -366,7 +366,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescNumDirs()
 		{
-			var fullDesc = "Enter the number of compass directions to use for connections between rooms in the adventure." + Environment.NewLine + Environment.NewLine + "Typically, six directions are used for simpler indoor adventures while ten directions are used for more complex outdoor adventures, but this is only a rule of thumb not a requirement.";
+			var fullDesc = "Enter the number of compass directions to use for connections between Rooms in the adventure." + Environment.NewLine + Environment.NewLine + "Typically, the number of directions used determines the intricacy of a game's map.  Simple and complex adventures use six and ten directions, respectively, but this is only a rule of thumb, not a requirement.";
 
 			var briefDesc = "6=Six compass directions; 10=Ten compass directions";
 

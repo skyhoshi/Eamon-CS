@@ -248,11 +248,11 @@ namespace TheTempleOfNgurct.Game
 
 		public virtual IList<IMonster> GetTrapMonsterList(long numMonsters, long roomUid)
 		{
-			var monsters = GetRandomMonsterList(numMonsters, m => m.IsCharacterMonster() || (m.Seen && m.IsInRoomUid(roomUid)));
+			var monsterList = GetRandomMonsterList(numMonsters, m => m.IsCharacterMonster() || (m.Seen && m.IsInRoomUid(roomUid)));
 
-			Debug.Assert(monsters != null);
+			Debug.Assert(monsterList != null);
 
-			return monsters;
+			return monsterList;
 		}
 
 		public virtual void ApplyTrapDamage(Action<IState> setNextStateFunc, IMonster monster, long numDice, long numSides, bool omitArmor)

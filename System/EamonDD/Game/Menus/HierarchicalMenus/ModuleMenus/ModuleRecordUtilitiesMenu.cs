@@ -41,7 +41,7 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 				MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 				{
 					x.SelectChar = (char)('1' + MenuItemList.Count);
-					x.LineText = string.Format("{0}{1}. Analyse module record interdependencies.", Environment.NewLine, MenuItemList.Count + 1);
+					x.LineText = string.Format("{0}{1}. Analyse Module record interdependencies.", Environment.NewLine, MenuItemList.Count + 1);
 					x.SubMenu = Globals.CreateInstance<IAnalyseModuleRecordInterdependenciesMenu>();
 				}));
 			}

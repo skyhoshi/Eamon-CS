@@ -400,7 +400,7 @@ namespace Eamon.Game.Helpers
 			{
 				result = false;
 
-				Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Desc"), "effect", invalidUid, "which doesn't exist");
+				Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Desc"), "Effect", invalidUid, "which doesn't exist");
 
 				ErrorMessage = Buf.ToString();
 
@@ -432,7 +432,7 @@ namespace Eamon.Game.Helpers
 				{
 					result = false;
 
-					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("PluralType"), "effect", effectUid, "which doesn't exist");
+					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("PluralType"), "Effect", effectUid, "which doesn't exist");
 
 					ErrorMessage = Buf.ToString();
 
@@ -465,7 +465,7 @@ namespace Eamon.Game.Helpers
 				{
 					result = false;
 
-					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "room", roomUid, "which doesn't exist");
+					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Location"), "Room", roomUid, "which doesn't exist");
 
 					ErrorMessage = Buf.ToString();
 
@@ -498,7 +498,7 @@ namespace Eamon.Game.Helpers
 				{
 					result = false;
 
-					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Weapon"), "artifact", artUid, "which doesn't exist");
+					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Weapon"), "Artifact", artUid, "which doesn't exist");
 
 					ErrorMessage = Buf.ToString();
 
@@ -512,7 +512,7 @@ namespace Eamon.Game.Helpers
 				{
 					result = false;
 
-					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Weapon"), "artifact", artUid, "which should be a readyable weapon, but isn't");
+					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Weapon"), "Artifact", artUid, "which should be a readyable weapon, but isn't");
 
 					ErrorMessage = Buf.ToString();
 
@@ -526,7 +526,7 @@ namespace Eamon.Game.Helpers
 				{
 					result = false;
 
-					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Weapon"), "artifact", artUid, "which should be carried/worn by this monster, but isn't");
+					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("Weapon"), "Artifact", artUid, "which should be carried/worn by this Monster, but isn't");
 
 					ErrorMessage = Buf.ToString();
 
@@ -559,7 +559,7 @@ namespace Eamon.Game.Helpers
 				{
 					result = false;
 
-					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("DeadBody"), "artifact", artUid, "which doesn't exist");
+					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("DeadBody"), "Artifact", artUid, "which doesn't exist");
 
 					ErrorMessage = Buf.ToString();
 
@@ -573,7 +573,7 @@ namespace Eamon.Game.Helpers
 				{
 					result = false;
 
-					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("DeadBody"), "artifact", artUid, "which should have a location compatible with this monster's, but doesn't");
+					Buf.SetFormat(Constants.RecIdepErrorFmtStr, GetPrintedName("DeadBody"), "Artifact", artUid, "which should have a location compatible with this Monster's, but doesn't");
 
 					ErrorMessage = Buf.ToString();
 
@@ -597,7 +597,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescName()
 		{
-			var fullDesc = "Enter the name of the monster." + Environment.NewLine + Environment.NewLine + "Monster names should always be in singular form and capitalized when appropriate.";
+			var fullDesc = "Enter the name of the Monster." + Environment.NewLine + Environment.NewLine + "Monster names should always be in singular form and capitalized when appropriate.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -605,7 +605,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescStateDesc()
 		{
-			var fullDesc = "Enter the state description of the monster (will typically be empty).";
+			var fullDesc = "Enter the state description of the Monster (will typically be empty).";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -613,7 +613,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescDesc()
 		{
-			var fullDesc = "Enter a detailed description of the monster.";
+			var fullDesc = "Enter a detailed description of the Monster.";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, null);
 		}
@@ -621,7 +621,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescSeen()
 		{
-			var fullDesc = "Enter the Seen status of the monster.";
+			var fullDesc = "Enter whether the player has seen the Monster.";
 
 			var briefDesc = "0=Not seen; 1=Seen";
 
@@ -631,7 +631,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescIsListed()
 		{
-			var fullDesc = "Enter the Is Listed status of the monster." + Environment.NewLine + Environment.NewLine + "If true, the monster will be included in any listing (room, inventory, etc); if false, it will not.";
+			var fullDesc = "Enter whether the Monster is included in all appropriate content lists (Room, inventory, etc.)" + Environment.NewLine + Environment.NewLine + "Monsters should always be included in content lists except in rare circumstances (invisibility, vision impairment, etc.); excluding them typically requires support from special (user-programmed) events.";
 
 			var briefDesc = "0=Not listed; 1=Listed";
 
@@ -641,9 +641,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescPluralType()
 		{
-			var fullDesc = "Enter the plural type of the monster.";
+			var fullDesc = "Enter the plural type that converts the Monster's name from singular to plural.";
 
-			var briefDesc = "0=No change; 1=Use 's'; 2=Use 'es'; 3=Use 'y' to 'ies'; (1000 + N)=Use effect uid N as plural name";
+			var briefDesc = "0=No change; 1=Use 's'; 2=Use 'es'; 3=Use 'y' to 'ies'; (1000 + N)=Use Effect Uid N as plural name";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
@@ -651,7 +651,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescArticleType()
 		{
-			var fullDesc = "Enter the article type of the monster.";
+			var fullDesc = "Enter the article type that prefixes the Monster's name with an article.";
 
 			var briefDesc = "0=No article; 1=Use 'a'; 2=Use 'an'; 3=Use 'some'; 4=Use 'the'";
 
@@ -661,9 +661,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescHardiness()
 		{
-			var fullDesc = "Enter the Hardiness of the monster.";
+			var fullDesc = "Enter the Hardiness of the Monster.";
 
-			var briefDesc = "2-8=Weak monster; 9-15=Medium monster; 16-30=Tough monster; 31-60=Exceptional monster";
+			var briefDesc = "2-8=Weak Monster; 9-15=Medium Monster; 16-30=Tough Monster; 31-60=Exceptional Monster";
 
 			if (FieldDesc == FieldDesc.Full)
 			{
@@ -678,9 +678,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescAgility()
 		{
-			var fullDesc = "Enter the Agility of the monster.";
+			var fullDesc = "Enter the Agility of the Monster.";
 
-			var briefDesc = "5-9=Weak monster; 10-16=Medium monster; 17-24=Tough monster; 25-30=Exceptional monster";
+			var briefDesc = "5-9=Weak Monster; 10-16=Medium Monster; 17-24=Tough Monster; 25-30=Exceptional Monster";
 
 			if (FieldDesc == FieldDesc.Full)
 			{
@@ -702,9 +702,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescGroupCount()
 		{
-			var fullDesc = "Enter the number of members in the monster's group." + (Globals.IsRulesetVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be 1." : "");
+			var fullDesc = "Enter the number of members in the Monster's group." + (Globals.IsRulesetVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be 1." : "");
 
-			var briefDesc = "1=Single monster; (GT 1)=Multiple monsters";
+			var briefDesc = "1=Single Monster; (GT 1)=Multiple Monsters";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
@@ -712,7 +712,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescAttackCount()
 		{
-			var fullDesc = "Enter the number of attacks per round for the monster." + Environment.NewLine + Environment.NewLine + (Globals.IsRulesetVersion(5) ? "For classic Eamon games this value should always be 1." : "The monster can attack this many times per round.  For group monsters, each member has this many attacks per round.  For AttackCounts < -1, use ABS(AttackCount) as attacks per round.");
+			var fullDesc = "Enter the number of attacks per round for each member of the Monster's group." + Environment.NewLine + Environment.NewLine + (Globals.IsRulesetVersion(5) ? "For classic Eamon games this value should always be 1." : "When the value is < -1, ABS(value) is attacks per round.");
 
 			var briefDesc = "1=Single attack, single target; (GT 1)=Multiple attacks, single target;      (LT -1)=Multiple attacks, multiple targets";
 
@@ -722,9 +722,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescCourage()
 		{
-			var fullDesc = "Enter the courage of the monster." + (Globals.IsRulesetVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be between 1 and 100, inclusive." : "");
+			var fullDesc = "Enter the courage of the Monster." + (Globals.IsRulesetVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be between 1 and 100, inclusive." : "");
 
-			var briefDesc = "80-90=Weak monster; 95-100=Medium monster; 200=Tough/Exceptional monster";
+			var briefDesc = "80-90=Weak Monster; 95-100=Medium Monster; 200=Tough/Exceptional Monster";
 
 			if (FieldDesc == FieldDesc.Full)
 			{
@@ -746,9 +746,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescLocation()
 		{
-			var fullDesc = "Enter the location of the monster.";
+			var fullDesc = "Enter the location of the Monster.";
 
-			var briefDesc = "(LE 0)=Limbo; (GT 0)=Room uid";
+			var briefDesc = "(LE 0)=Limbo; (GT 0)=Room Uid";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
@@ -756,7 +756,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescCombatCode()
 		{
-			var fullDesc = "Enter the combat code of the monster.";
+			var fullDesc = "Enter the combat code that describes the Monster's combat behavior.";
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
@@ -773,9 +773,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescArmor()
 		{
-			var fullDesc = "Enter the armor of the monster.";
+			var fullDesc = "Enter the armor of the Monster." + Environment.NewLine + Environment.NewLine + "The Monster absorbs up to this many hit points of damage per strike before being injured in combat.";
 
-			var briefDesc = "0=Weak monster; 1=Medium monster; 2-3=Tough monster; 4-7+=Exceptional monster";
+			var briefDesc = "0=Weak Monster; 1=Medium Monster; 2-3=Tough Monster; 4-7+=Exceptional Monster";
 
 			var briefDesc01 = new StringBuilder(Constants.BufSize);
 
@@ -805,9 +805,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescWeapon()
 		{
-			var fullDesc = "Enter the weapon of the monster.";
+			var fullDesc = "Enter the weapon of the Monster.";
 
-			var briefDesc = "(LT 0)=Weaponless; 0=Natural weapons; (GT 0)=Weapon artifact uid";
+			var briefDesc = "(LT 0)=Weaponless; 0=Natural weapons; (GT 0)=Weapon Artifact Uid";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
@@ -815,7 +815,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescNwDice()
 		{
-			var fullDesc = "Enter the monster's natural weapon hit dice.";
+			var fullDesc = "Enter the Monster's natural weapon hit dice.";
 
 			var briefDesc = "(GE 0)=Valid value";
 
@@ -825,7 +825,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescNwSides()
 		{
-			var fullDesc = "Enter the monster's natural weapon hit dice sides.";
+			var fullDesc = "Enter the Monster's natural weapon hit dice sides.";
 
 			var briefDesc = "(GE 0)=Valid value";
 
@@ -835,9 +835,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescDeadBody()
 		{
-			var fullDesc = "Enter the dead body of the monster.";
+			var fullDesc = "Enter the dead body of the Monster.";
 
-			var briefDesc = "0=No dead body used; (GT 0)=Dead body artifact uid";
+			var briefDesc = "0=No dead body used; (GT 0)=Dead body Artifact Uid";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}
@@ -847,7 +847,7 @@ namespace Eamon.Game.Helpers
 		{
 			int j;
 
-			var fullDesc = "Enter the friendliness of the monster." + (Globals.IsRulesetVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be between 100 and 200, inclusive." : "");
+			var fullDesc = "Enter the friendliness of the Monster." + (Globals.IsRulesetVersion(5) ? Environment.NewLine + Environment.NewLine + "For classic Eamon games this value should always be between 100 and 200, inclusive." : "");
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
@@ -866,7 +866,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescGender()
 		{
-			var fullDesc = "Enter the gender of the monster.";
+			var fullDesc = "Enter the gender of the Monster.";
 
 			var briefDesc = new StringBuilder(Constants.BufSize);
 
@@ -1006,7 +1006,7 @@ namespace Eamon.Game.Helpers
 					}
 					else
 					{
-						Buf.AppendFormat("Use effect uid {0}", effectUid);
+						Buf.AppendFormat("Use Effect Uid {0}", effectUid);
 					}
 
 					gOut.Write("{0}{1}{2}",

@@ -53,7 +53,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				gOut.Print("{0}", Globals.LineSep);
 
-				gOut.Print("Done listing module record details.");
+				gOut.Print("Done listing Module record details.");
 			}
 		}
 

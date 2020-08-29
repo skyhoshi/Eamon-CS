@@ -3,7 +3,6 @@
 
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
-using Eamon.Framework;
 using Eamon.Game.Attributes;
 using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
@@ -16,8 +15,6 @@ namespace EamonRT.Game.States
 	{
 		public override void Execute()
 		{
-			ProcessRevealContentArtifactList();
-
 			ProcessEvents(EventType.BeforePlayerRoomPrint);
 
 			if (GotoCleanup)

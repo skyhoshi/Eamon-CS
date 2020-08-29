@@ -51,7 +51,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			gOut.Print("{0}", Globals.LineSep);
 
-			gOut.Print("Done listing config record details.");
+			gOut.Print("Done listing Config record details.");
 		}
 
 		public ListConfigRecordMenu()

@@ -25,7 +25,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			RecordTable = Globals.Database.RoomTable;
 
-			RecordTypeName = "room";
+			RecordTypeName = "Room";
 		}
 	}
 }

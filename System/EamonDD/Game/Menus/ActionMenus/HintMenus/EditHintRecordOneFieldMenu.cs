@@ -30,7 +30,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			RecordTable = Globals.Database.HintTable;
 
-			RecordTypeName = "hint";
+			RecordTypeName = "Hint";
 		}
 	}
 }
