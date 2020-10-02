@@ -68,7 +68,7 @@ namespace EamonRT.Game.States
 
 					RedirectCommand.Iobj = WeaponArtifact.GetCarriedByContainer();
 
-					RedirectCommand.Prep = gEngine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, ContainerPrepName, StringComparison.OrdinalIgnoreCase));
+					RedirectCommand.Prep = gEngine.Preps.FirstOrDefault(prep => prep.Name.Equals(ContainerPrepName, StringComparison.OrdinalIgnoreCase));
 				}
 
 				RedirectCommand.NextState = Globals.CreateInstance<IBeforeMonsterReadiesWeaponState>();

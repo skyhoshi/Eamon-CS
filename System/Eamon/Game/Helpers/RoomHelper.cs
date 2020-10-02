@@ -39,12 +39,12 @@ namespace Eamon.Game.Helpers
 
 			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Name"), null), Record.Name);
 
-			if (string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) || ShowDesc)
+			if (ErrorFieldName.Equals("Desc", StringComparison.OrdinalIgnoreCase) || ShowDesc)
 			{
 				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null), Record.Desc);
 			}
 
-			if (string.Equals(ErrorFieldName, "DirsElement", StringComparison.OrdinalIgnoreCase))
+			if (ErrorFieldName.Equals("DirsElement", StringComparison.OrdinalIgnoreCase))
 			{
 				var i = Index;
 

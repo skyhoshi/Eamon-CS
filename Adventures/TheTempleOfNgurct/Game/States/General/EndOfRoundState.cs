@@ -47,6 +47,10 @@ namespace TheTempleOfNgurct.Game.States
 
 					if (ac == null || ac.GetKeyUid() <= 0)
 					{
+						gSentenceParser.PrintDiscardingCommands();
+
+						gSentenceParser.Clear();
+
 						gEngine.GetWanderingMonster();
 					}
 				}

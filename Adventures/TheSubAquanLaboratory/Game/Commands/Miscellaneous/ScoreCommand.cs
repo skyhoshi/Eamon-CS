@@ -78,6 +78,8 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			IsNew = true;
 
+			IsSentenceParserEnabled = false;
+
 			IsMonsterEnabled = false;
 
 			Name = "ScoreCommand";

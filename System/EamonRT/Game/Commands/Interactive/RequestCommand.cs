@@ -81,7 +81,7 @@ namespace EamonRT.Game.Commands
 
 			PrepNames = new string[] { "from" };
 
-			return PrepNames.FirstOrDefault(pn => string.Equals(prep.Name, pn, StringComparison.OrdinalIgnoreCase)) != null;
+			return PrepNames.FirstOrDefault(pn => prep.Name.Equals(pn, StringComparison.OrdinalIgnoreCase)) != null;
 		}
 		*/
 

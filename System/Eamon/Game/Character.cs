@@ -620,7 +620,7 @@ namespace Eamon.Game
 					{
 						for (var j = i + 1; j < Weapons.Length; j++)
 						{
-							if (IsWeaponActive(j) && string.Equals(GetWeapons(j).Name, GetWeapons(i).Name, StringComparison.OrdinalIgnoreCase))
+							if (IsWeaponActive(j) && GetWeapons(j).Name.Equals(GetWeapons(i).Name, StringComparison.OrdinalIgnoreCase))
 							{
 								GetWeapons(j).Name += "#";
 

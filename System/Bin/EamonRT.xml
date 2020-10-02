@@ -167,6 +167,9 @@
         <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IsListed">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IsSentenceParserEnabled">
+            <summary></summary>
+        </member>
         <member name="P:EamonRT.Framework.Commands.ICommandSignatures.IsDobjPrepEnabled">
             <summary></summary>
         </member>
@@ -434,9 +437,6 @@
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintYouSeeNothingSpecial">
             <summary></summary>
         </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintDontFollowYou">
-            <summary></summary>
-        </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintDontBeAbsurd">
             <summary></summary>
         </member>
@@ -673,6 +673,15 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Commands.ISettingsCommand.MatureContent">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ISettingsCommand.EnhancedParser">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ISettingsCommand.ShowPronounChanges">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Commands.ISettingsCommand.ShowFulfillMessages">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Commands.ISettingsCommand.PauseCombatMs">
@@ -919,6 +928,14 @@
             <param name="dir"></param>
             <returns></returns>
         </member>
+        <member name="M:EamonRT.Framework.IEngine.GetCommandUsingToken(Eamon.Framework.IMonster,System.String,System.Boolean,System.Boolean)">
+            <summary></summary>
+            <param name="monster"></param>
+            <param name="token"></param>
+            <param name="synonymMatch"></param>
+            <param name="partialMatch"></param>
+            <returns></returns>
+        </member>
         <member name="M:EamonRT.Framework.IEngine.CheckDoor(Eamon.Framework.IRoom,Eamon.Framework.IArtifact,System.Boolean@,System.Int64@)">
             <summary></summary>
             <param name="room"></param>
@@ -1033,6 +1050,21 @@
             <param name="cmdType"></param>
             <param name="buf"></param>
             <param name="newSeen"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.NormalizePlayerInput(System.Text.StringBuilder)">
+            <summary></summary>
+            <param name="buf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.ReplacePrepositions(System.Text.StringBuilder)">
+            <summary></summary>
+            <param name="buf"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EamonRT.Framework.IEngine.IsQuotedStringCommand(EamonRT.Framework.Commands.ICommand)">
+            <summary></summary>
+            <param name="command"></param>
             <returns></returns>
         </member>
         <member name="M:EamonRT.Framework.IEngine.ResurrectDeadBodies(Eamon.Framework.IRoom,System.Func{Eamon.Framework.IArtifact,System.Boolean}[])">
@@ -1162,6 +1194,18 @@
         <member name="P:EamonRT.Framework.Parsing.ICommandParser.LastInputStr">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.LastHimNameStr">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.LastHerNameStr">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.LastItNameStr">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.ICommandParser.LastThemNameStr">
+            <summary></summary>
+        </member>
         <member name="P:EamonRT.Framework.Parsing.ICommandParser.Tokens">
             <summary></summary>
         </member>
@@ -1279,15 +1323,18 @@
             <summary></summary>
             <returns></returns>
         </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.ReplacePrepositions(System.Text.StringBuilder)">
-            <summary></summary>
-            <returns></returns>
-        </member>
         <member name="M:EamonRT.Framework.Parsing.ICommandParser.Clear">
             <summary></summary>
         </member>
         <member name="M:EamonRT.Framework.Parsing.ICommandParser.ParseName">
             <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.SetLastNameStrings(Eamon.Framework.IGameBase,System.String,Eamon.Framework.IArtifact,Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="obj"></param>
+            <param name="objDataName"></param>
+            <param name="artifact"></param>
+            <param name="monster"></param>
         </member>
         <member name="M:EamonRT.Framework.Parsing.ICommandParser.CheckPlayerCommand(System.Boolean)">
             <summary></summary>
@@ -1360,6 +1407,33 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Parsing.IParserData.MonsterNotFoundFunc">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Parsing.ISentenceParser">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.ISentenceParser.InputBuf">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.ISentenceParser.LastInputStr">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.ISentenceParser.ParserInputStrList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Parsing.ISentenceParser.ParserInputStr">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ISentenceParser.PrintDiscardingCommands">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ISentenceParser.Clear">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ISentenceParser.ReplacePronounsAndProcessDobjNameList">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.Parsing.ISentenceParser.Execute">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Plugin.IPluginClassMappings">
@@ -1435,6 +1509,9 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.MainLoop">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.SentenceParser">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.CommandParser">
@@ -1808,6 +1885,12 @@
             <summary></summary>
             <param name="artifact"></param>
         </member>
+        <member name="M:EamonRT.Framework.States.IStateSignatures.PrintDontFollowYou">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Framework.States.IStateSignatures.PrintDontFollowYou02">
+            <summary></summary>
+        </member>
         <member name="M:EamonRT.Framework.States.IStateSignatures.PrintCantGoThatWay">
             <summary></summary>
         </member>
@@ -1948,6 +2031,9 @@
             <param name="eventData"></param>
         </member>
         <member name="T:EamonRT.Framework.States.IGetPlayerInputState">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IGetPlayerInputState.RestartCommand">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.States.IPlayerDeadState">
@@ -2698,6 +2784,66 @@
         <member name="M:EamonRT.Game.IntroStory.PrintOutputDefault">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.TokenCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.CurrInputStr">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.OrigInputStr">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.DobjNameStr">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.IobjNameStr">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.CommandFormatStr">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.NewCommandStr">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.Tokens">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.DobjNameTokens">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.NumDobjNameTokens">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.IobjNameTokens">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.NumIobjNameTokens">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.CurrToken">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.StartToken">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.CurrIndex">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.RemoveIndex">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.NameIndex">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.PrepTokenIndex">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.Parsing.SentenceParser.LoopCounter">
+            <summary></summary>
+        </member>
+        <member name="M:EamonRT.Game.Parsing.SentenceParser.IsValidTokenCommandMatch">
+            <summary></summary>
+        </member>
         <member name="P:EamonRT.Game.States.BurnDownLightSourceState.LsArtAc">
             <summary></summary>
         </member>
@@ -2855,6 +3001,9 @@
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.States.BeforePrintPlayerRoomEventState.EventData">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.GetPlayerInputState.ParsingSuccessful">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.States.PlayerDeadState.RestoreGame">

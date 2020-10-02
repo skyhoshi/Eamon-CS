@@ -9,6 +9,8 @@ using System.Diagnostics;
 using System.Text;
 using System.Text.RegularExpressions;
 using Eamon;
+using Eamon.Framework;
+using Eamon.Framework.Helpers;
 using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
@@ -177,16 +179,32 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Buf.SetFormat("{0}", Regex.Replace(Buf.ToString(), @"\s+", " ").Trim());
 
-				var wpnName01 = Buf.ToString();
+				var wpnArtifact = Globals.CreateInstance<IArtifact>(x =>
+				{
+					x.Name = gEngine.Capitalize(Buf.ToString());
+				});
+
+				Debug.Assert(wpnArtifact != null);
+
+				var artifactHelper = Globals.CreateInstance<IArtifactHelper>(x =>
+				{
+					x.Record = wpnArtifact;
+				});
+
+				Debug.Assert(artifactHelper != null);
 
 				Globals.Thread.Sleep(150);
 
-				if (wpnName01 == "" || string.Equals(wpnName01, "NONE", StringComparison.OrdinalIgnoreCase))
+				if (!artifactHelper.ValidateField("Name") || wpnArtifact.Name.Equals("NONE", StringComparison.OrdinalIgnoreCase))
 				{
-					wpnName01 = string.Format("Grendel{0}", wpnName);
+					wpnArtifact.Name = string.Format("Grendel{0}", wpnName);
 				}
 
-				wpnName01 = gEngine.Capitalize(wpnName01.ToLower());
+				var wpnName01 = wpnArtifact.Name;
+
+				wpnArtifact.Dispose();
+
+				wpnArtifact = null;
 
 				gOut.Print("{0}", Globals.LineSep);
 

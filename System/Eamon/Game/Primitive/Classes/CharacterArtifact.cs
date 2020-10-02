@@ -46,7 +46,7 @@ namespace Eamon.Game.Primitive.Classes
 
 		public virtual bool IsActive()
 		{
-			return !string.IsNullOrWhiteSpace(Name) && !string.Equals(Name, "NONE", StringComparison.OrdinalIgnoreCase);
+			return !string.IsNullOrWhiteSpace(Name) && !Name.Equals("NONE", StringComparison.OrdinalIgnoreCase);
 		}
 
 		public virtual void ClearExtraFields()

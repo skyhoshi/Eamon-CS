@@ -3231,6 +3231,15 @@
             Gets or sets a value indicating whether mature content should be allowed during gameplay.
             </summary>
         </member>
+        <member name="P:Eamon.Framework.IGameState.EnhancedParser">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.IGameState.ShowPronounChanges">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.IGameState.ShowFulfillMessages">
+            <summary></summary>
+        </member>
         <member name="P:Eamon.Framework.IGameState.CurrTurn">
             <summary>
             Gets or sets the current turn in the game; this is incremented after player command parsing but before execution.
@@ -4444,6 +4453,12 @@
             <returns></returns>
         </member>
         <member name="T:Eamon.Framework.Plugin.IPluginConstants">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Plugin.IPluginConstants.CommandSepTokens">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Plugin.IPluginConstants.PronounTokens">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginConstants.ToughDesc">

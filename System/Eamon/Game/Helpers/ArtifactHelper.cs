@@ -39,12 +39,12 @@ namespace Eamon.Game.Helpers
 
 			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Name"), null), Record.Name);
 
-			if (string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) || ShowDesc)
+			if (ErrorFieldName.Equals("Desc", StringComparison.OrdinalIgnoreCase) || ShowDesc)
 			{
 				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null), Record.Desc);
 			}
 
-			if (!string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase))
+			if (!ErrorFieldName.Equals("Desc", StringComparison.OrdinalIgnoreCase))
 			{
 				gOut.Print("{0}{1}",
 					gEngine.BuildPrompt(27, '.', 0, GetPrintedName(ErrorFieldName), null),
@@ -368,6 +368,20 @@ namespace Eamon.Game.Helpers
 						break;
 					}
 				}
+			}
+
+			if (result)
+			{
+				var recordName = string.Format(" {0} ", Record.Name.ToLower());
+
+				result = Array.FindIndex(Constants.CommandSepTokens, token => !Char.IsPunctuation(token[0]) ? recordName.IndexOf(" " + token + " ") >= 0 : recordName.IndexOf(token) >= 0) < 0;
+
+				if (result)
+				{
+					result = Array.FindIndex(Constants.PronounTokens, token => recordName.IndexOf(" " + token + " ") >= 0) < 0;
+				}
+
+				// TODO: might need to disallow verb name matches as well
 			}
 
 			return result;
@@ -1558,7 +1572,7 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescIsListed()
 		{
-			var fullDesc = "Enter whether the Artifact is included in all appropriate content lists (Room, inventory, etc.)" + Environment.NewLine + Environment.NewLine + "Artifacts should always be included in content lists except in rare circumstances (invisibility, vision impairment, etc.); excluding them typically requires support from special (user-programmed) events.";
+			var fullDesc = "Enter whether the Artifact is included in all appropriate content lists (Room, inventory, etc.)" + Environment.NewLine + Environment.NewLine + "Artifacts are typically included in content lists except in unusual circumstances (invisibility, vision impairment, mentioned in Room description, etc.); excluding them requires occasional support from special (user-programmed) events.";
 
 			var briefDesc = "0=Not listed; 1=Listed";
 

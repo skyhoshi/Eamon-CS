@@ -5,7 +5,8 @@ ChangeLog: EamonRT
 
 Date			Version			Who			Notes
 ----------------------------------------------------------------------------------------------------------------------------------
-20200709		1.6.0				MP 			CommandParser/Command overhaul
+20200930		1.6.0				MP 			Full-sentence parser overhaul
+20200709		   				MP 			CommandParser/Command overhaul
 20200705		   				MP 			EventHeap enhancements
 20200116		   				MP 			PluginContext convenience property overhaul
 20190601							MP 			ContainerType overhaul

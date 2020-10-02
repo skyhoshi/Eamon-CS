@@ -31,29 +31,29 @@ namespace EamonDD.Game
 
 			for (i = 0; i < Globals.Argv.Length; i++)
 			{
-				if (string.Equals(Globals.Argv[i], "--workingDirectory", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-wd", StringComparison.OrdinalIgnoreCase))
+				if (Globals.Argv[i].Equals("--workingDirectory", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-wd", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
 						// do nothing
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--filePrefix", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-fp", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--filePrefix", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-fp", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
 						// do nothing
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--ignoreMutex", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-im", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--ignoreMutex", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-im", StringComparison.OrdinalIgnoreCase))
 				{
 					// do nothing
 				}
-				else if (string.Equals(Globals.Argv[i], "--runGameEditor", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-rge", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--runGameEditor", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-rge", StringComparison.OrdinalIgnoreCase))
 				{
 					// do nothing
 				}
-				else if (string.Equals(Globals.Argv[i], "--configFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-cfgfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--configFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-cfgfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
@@ -63,7 +63,7 @@ namespace EamonDD.Game
 						}
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--filesetFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-fsfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--filesetFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-fsfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
@@ -81,7 +81,7 @@ namespace EamonDD.Game
 						}
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--characterFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-chrfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--characterFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-chrfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
@@ -99,7 +99,7 @@ namespace EamonDD.Game
 						}
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--moduleFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-modfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--moduleFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-modfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
@@ -117,7 +117,7 @@ namespace EamonDD.Game
 						}
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--roomFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-rfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--roomFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-rfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
@@ -135,7 +135,7 @@ namespace EamonDD.Game
 						}
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--artifactFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-afn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--artifactFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-afn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
@@ -153,7 +153,7 @@ namespace EamonDD.Game
 						}
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--effectFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-efn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--effectFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-efn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
@@ -171,7 +171,7 @@ namespace EamonDD.Game
 						}
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--monsterFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-monfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--monsterFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-monfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
@@ -189,7 +189,7 @@ namespace EamonDD.Game
 						}
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--hintFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-hfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--hintFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-hfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
@@ -207,14 +207,14 @@ namespace EamonDD.Game
 						}
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--devenvExePath", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-dep", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--devenvExePath", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-dep", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && secondPass)
 					{
 						Globals.DevenvExePath = Globals.Argv[i].Trim();
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--loadAdventure", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-la", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--loadAdventure", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-la", StringComparison.OrdinalIgnoreCase))
 				{
 					if (secondPass)
 					{

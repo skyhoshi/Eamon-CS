@@ -596,7 +596,7 @@ namespace Eamon.Game
 
 			for (var i = 0; i < numDirs; i++)
 			{
-				if (string.Equals(GetDirections(i).PrintedName, printedName, StringComparison.OrdinalIgnoreCase))
+				if (GetDirections(i).PrintedName.Equals(printedName, StringComparison.OrdinalIgnoreCase))
 				{
 					result = directionValues[i];
 
@@ -1046,7 +1046,7 @@ namespace Eamon.Game
 
 			for (i = 0; i < NumberStrings.Length; i++)
 			{
-				if (string.Equals(NumberStrings[i], str, StringComparison.OrdinalIgnoreCase))
+				if (NumberStrings[i].Equals(str, StringComparison.OrdinalIgnoreCase))
 				{
 					result = i;
 
@@ -1626,7 +1626,7 @@ namespace Eamon.Game
 			{
 				if (exactMatch)
 				{
-					if (string.Equals(r.Name, name, StringComparison.OrdinalIgnoreCase))
+					if (r.Name.Equals(name, StringComparison.OrdinalIgnoreCase))
 					{
 						count++;
 					}
@@ -1938,7 +1938,7 @@ namespace Eamon.Game
 				wp *= 0.60;
 			}
 
-			isMarcosWeapon = string.Equals(name, weapon.MarcosName ?? weapon.Name, StringComparison.OrdinalIgnoreCase) && (complexity == -10 || complexity == 0 || complexity == 10) && dice == weapon.MarcosDice && sides == weapon.MarcosSides && numHands == weapon.MarcosNumHands;
+			isMarcosWeapon = name.Equals(weapon.MarcosName ?? weapon.Name, StringComparison.OrdinalIgnoreCase) && (complexity == -10 || complexity == 0 || complexity == 10) && dice == weapon.MarcosDice && sides == weapon.MarcosSides && numHands == weapon.MarcosNumHands;
 
 			if (!isMarcosWeapon)
 			{
@@ -2248,7 +2248,7 @@ namespace Eamon.Game
 				{
 					for (var j = i + 1; j < sz; j++)
 					{
-						if (string.Equals(recordList[j].Name, recordList[i].Name, StringComparison.OrdinalIgnoreCase))
+						if (recordList[j].Name.Equals(recordList[i].Name, StringComparison.OrdinalIgnoreCase))
 						{
 							recordList[j].Name += "#";
 

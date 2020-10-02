@@ -94,11 +94,13 @@ namespace EamonRT.Game.Commands
 
 		public virtual ContainerType ContainerType { get; set; }
 
-		public virtual bool IsNew { get; set; }
-
 		public virtual bool GetCommandCalled { get; set; }
 
+		public virtual bool IsNew { get; set; }
+
 		public virtual bool IsListed { get; set; }
+
+		public virtual bool IsSentenceParserEnabled { get; set; }
 
 		public virtual bool IsDobjPrepEnabled { get; set; }
 
@@ -567,11 +569,6 @@ namespace EamonRT.Game.Commands
 			gOut.Print("You see nothing special.");
 		}
 
-		public virtual void PrintDontFollowYou()
-		{
-			gOut.Print("I don't follow you.");
-		}
-
 		public virtual void PrintDontBeAbsurd()
 		{
 			gOut.Print("Don't be absurd.");
@@ -845,6 +842,8 @@ namespace EamonRT.Game.Commands
 			SortOrder = Int64.MaxValue;
 
 			IsListed = true;
+
+			IsSentenceParserEnabled = true;
 
 			IsPlayerEnabled = true;
 

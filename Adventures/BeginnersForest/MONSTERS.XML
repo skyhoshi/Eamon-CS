@@ -158,7 +158,7 @@
             <Simple name="NwSides" value="10" />
             <Simple name="DeadBody" value="0" />
             <Simple name="Friendliness" value="150" />
-            <Simple name="Gender" value="Male" />
+            <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="DmgTaken" value="0" />
@@ -318,7 +318,7 @@
             <Simple name="NwSides" value="8" />
             <Simple name="DeadBody" value="0" />
             <Simple name="Friendliness" value="Enemy" />
-            <Simple name="Gender" value="Male" />
+            <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="DmgTaken" value="0" />

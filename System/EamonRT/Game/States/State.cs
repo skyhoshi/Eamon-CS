@@ -89,6 +89,16 @@ namespace EamonRT.Game.States
 			StateImpl.PrintObjBlocksTheWay(artifact);
 		}
 
+		public virtual void PrintDontFollowYou()
+		{
+			StateImpl.PrintDontFollowYou();
+		}
+
+		public virtual void PrintDontFollowYou02()
+		{
+			StateImpl.PrintDontFollowYou02();
+		}
+
 		public virtual void PrintCantGoThatWay()
 		{
 			StateImpl.PrintCantGoThatWay();

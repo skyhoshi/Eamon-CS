@@ -1494,8 +1494,8 @@
             </SingleArray>
             <Simple name="Uid" value="45" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="cloak and cowl" />
-            <Simple name="Desc" value="All that remains of the dark hood is its soil-brown cloak and cowl." />
+            <Simple name="Name" value="cowled cloak" />
+            <Simple name="Desc" value="All that remains of the dark hood is its soil-brown cowled cloak." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />

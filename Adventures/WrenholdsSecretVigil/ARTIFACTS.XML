@@ -1682,7 +1682,7 @@
             </SingleArray>
             <Simple name="Uid" value="51" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="large, but dead, death dog" />
+            <Simple name="Name" value="large but dead death dog" />
             <Simple name="Desc" value="The dog collapses with multiple chest and head wounds, breathing hard and in great pain.  Unsuccessfully, it tries to get to its feet; legs too weak, claws scraping the rock floor.  The legs slow, then stop." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
@@ -1715,7 +1715,7 @@
             </SingleArray>
             <Simple name="Uid" value="52" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="smoldering ash and fluid" />
+            <Simple name="Name" value="smoldering ashen fluid" />
             <Simple name="Desc" value="The magician drops to his knees, then on his side.  His skin quickly darkens to black as the last breath leaves his body.  Small wisps of smoke rise and then the body smolders, dissolving into ash and vile fluids." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
@@ -1748,7 +1748,7 @@
             </SingleArray>
             <Simple name="Uid" value="53" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="very ugly, very dead one-eyed ogre" />
+            <Simple name="Name" value="very ugly but dead one-eyed ogre" />
             <Simple name="Desc" value="The good eye of the ogre rolls back in his head as he lets out one last, rotten-fish smelled grunt.  Momentarily balanced, the body falls backward with a heavy smack!" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />

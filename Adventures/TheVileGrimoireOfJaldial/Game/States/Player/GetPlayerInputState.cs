@@ -29,7 +29,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 				// Describe secret doors
 
-				if (room.IsLit())
+				if (room.IsLit() && string.IsNullOrWhiteSpace(gSentenceParser.ParserInputStr))
 				{
 					if (room.Uid == 54 && (gGameState.GetSecretDoors(1) || gGameState.GetSecretDoors(2)))
 					{
@@ -87,7 +87,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 				// Describe weather conditions
 
-				if (room.IsRainyRoom() || room.IsFoggyRoom())
+				if ((room.IsRainyRoom() || room.IsFoggyRoom()) && string.IsNullOrWhiteSpace(gSentenceParser.ParserInputStr))
 				{
 					var rainyWeathers = new string[] { "", "a drizzle", "light rain", "heavy rain", "a downpour" };
 

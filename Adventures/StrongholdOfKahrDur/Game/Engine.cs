@@ -180,7 +180,7 @@ namespace StrongholdOfKahrDur.Game
 
 		public override void PrintDeliverGoods()
 		{
-			gOut.Print("You sell your goods to {0}the local buyer of treasure (under the sign of 3 balls).  He examines your items and pays you what they are worth.", string.Equals(gCharacter.Name, "tom zucchini", StringComparison.OrdinalIgnoreCase) ? "" : "Tom Zucchini, ");
+			gOut.Print("You sell your goods to {0}the local buyer of treasure (under the sign of 3 balls).  He examines your items and pays you what they are worth.", gCharacter.Name.Equals("tom zucchini", StringComparison.OrdinalIgnoreCase) ? "" : "Tom Zucchini, ");
 		}
 
 		public override void PlayerSpellCastBrainOverload(Spell s, ISpell spell)

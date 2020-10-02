@@ -690,7 +690,7 @@
             <Simple name="NwSides" value="6" />
             <Simple name="DeadBody" value="0" />
             <Simple name="Friendliness" value="100" />
-            <Simple name="Gender" value="Male" />
+            <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="100" />
@@ -1350,7 +1350,7 @@
             <Simple name="NwSides" value="8" />
             <Simple name="DeadBody" value="0" />
             <Simple name="Friendliness" value="100" />
-            <Simple name="Gender" value="Male" />
+            <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="100" />
@@ -1500,7 +1500,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="You see the source of the musty smell shuffling towards you.  It is a ragged mummy, wrapped head to toe in filthy bandages.  He advances, shuffling, one arm reaching to grab you." />
+            <Simple name="Desc" value="You see the source of the musty smell shuffling towards you.  It is a ragged mummy, wrapped head to toe in filthy bandages.  It advances, shuffling, one arm reaching to grab you." />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="YIes" />
             <Simple name="Hardiness" value="24" />

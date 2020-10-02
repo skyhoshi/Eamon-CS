@@ -30,7 +30,7 @@ namespace EamonRT.Game.Commands
 
 			PrintedPhrase = OriginalPhrase.Trim(new char[] { ' ', '"', '\'' }).FirstCharToUpper();
 
-			if (!Char.IsPunctuation(PrintedPhrase[PrintedPhrase.Length - 1]))
+			if (PrintedPhrase.Length == 0 || !Char.IsPunctuation(PrintedPhrase[PrintedPhrase.Length - 1]))
 			{
 				PrintedPhrase += ".";
 			}
@@ -64,6 +64,8 @@ namespace EamonRT.Game.Commands
 		public SayCommand()
 		{
 			SortOrder = 340;
+
+			IsSentenceParserEnabled = false;
 
 			Name = "SayCommand";
 

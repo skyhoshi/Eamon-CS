@@ -48,6 +48,12 @@ namespace Eamon.Game
 
 		public virtual bool MatureContent { get; set; }
 
+		public virtual bool EnhancedParser { get; set; }
+
+		public virtual bool ShowPronounChanges { get; set; }
+
+		public virtual bool ShowFulfillMessages { get; set; }
+
 		public virtual long CurrTurn { get; set; }
 
 		public virtual long PauseCombatMs { get; set; }
@@ -203,6 +209,8 @@ namespace Eamon.Game
 			var character = Globals.CreateInstance<ICharacter>();
 
 			Debug.Assert(character != null);
+
+			EnhancedParser = !Globals.IsRulesetVersion(5);
 
 			Sa = new long[character.SpellAbilities.Length];
 

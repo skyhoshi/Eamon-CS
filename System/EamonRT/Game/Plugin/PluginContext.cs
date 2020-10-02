@@ -97,6 +97,14 @@ namespace EamonRT.Game.Plugin
 			}
 		}
 
+		public static ISentenceParser gSentenceParser
+		{
+			get
+			{
+				return Globals?.SentenceParser;
+			}
+		}
+
 		public static ICommandParser gCommandParser
 		{
 			get

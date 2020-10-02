@@ -24,11 +24,17 @@ namespace EamonRT.Game.Commands
 
 		public virtual bool? MatureContent { get; set; } = null;
 
+		public virtual bool? EnhancedParser { get; set; } = null;
+
+		public virtual bool? ShowPronounChanges { get; set; } = null;
+
+		public virtual bool? ShowFulfillMessages { get; set; } = null;
+
 		public virtual long? PauseCombatMs { get; set; } = null;
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(VerboseRooms != null || VerboseMonsters != null || VerboseArtifacts != null || MatureContent != null || PauseCombatMs != null);
+			Debug.Assert(VerboseRooms != null || VerboseMonsters != null || VerboseArtifacts != null || MatureContent != null || EnhancedParser != null || ShowPronounChanges != null || ShowFulfillMessages != null || PauseCombatMs != null);
 
 			if (VerboseRooms != null)
 			{
@@ -48,6 +54,40 @@ namespace EamonRT.Game.Commands
 			if (MatureContent != null)
 			{
 				gGameState.MatureContent = (bool)MatureContent;
+			}
+
+			if (EnhancedParser != null)
+			{
+				gGameState.EnhancedParser = (bool)EnhancedParser;
+
+				if (!gGameState.EnhancedParser)
+				{
+					gSentenceParser.LastInputStr = "";
+
+					gSentenceParser.Clear();
+
+					gCommandParser.LastHimNameStr = "";
+
+					gCommandParser.LastHerNameStr = "";
+
+					gCommandParser.LastItNameStr = "";
+
+					gCommandParser.LastThemNameStr = "";
+
+					gGameState.ShowPronounChanges = false;
+
+					gGameState.ShowFulfillMessages = false;
+				}
+			}
+
+			if (ShowPronounChanges != null)
+			{
+				gGameState.ShowPronounChanges = (bool)ShowPronounChanges;
+			}
+
+			if (ShowFulfillMessages != null)
+			{
+				gGameState.ShowFulfillMessages = (bool)ShowFulfillMessages;
 			}
 
 			if (PauseCombatMs != null)
@@ -80,12 +120,22 @@ namespace EamonRT.Game.Commands
 			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseMonsters", "True, False", gGameState.Vm);
 			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "VerboseArtifacts", "True, False", gGameState.Va);
 			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "MatureContent", "True, False", gGameState.MatureContent);
+			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "EnhancedParser", "True, False", gGameState.EnhancedParser);
+
+			if (gGameState.EnhancedParser)
+			{
+				gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "ShowPronounChanges", "True, False", gGameState.ShowPronounChanges);
+				gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "ShowFulfillMessages", "True, False", gGameState.ShowFulfillMessages);
+			}
+
 			gOut.WriteLine("  {0,-22}{1,-22}{2,-22}", "PauseCombatMs", "0 .. 10000", gGameState.PauseCombatMs);
 		}
 
 		public SettingsCommand()
 		{
 			SortOrder = 400;
+
+			IsSentenceParserEnabled = false;
 
 			IsDarkEnabled = true;
 

@@ -23,7 +23,7 @@ namespace TheTempleOfNgurct.Game.Parsing
 		{
 			ParseName();
 
-			if (string.Equals(ObjData.Name, "all", StringComparison.OrdinalIgnoreCase))
+			if (ObjData.Name.Equals("all", StringComparison.OrdinalIgnoreCase))
 			{
 				if (gGameState.GetNBTL(Friendliness.Enemy) > 0)
 				{

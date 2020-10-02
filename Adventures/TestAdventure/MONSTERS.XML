@@ -31,7 +31,7 @@
             <Simple name="NwSides" value="3" />
             <Simple name="DeadBody" value="4" />
             <Simple name="Friendliness" value="195" />
-            <Simple name="Gender" value="Male" />
+            <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="4" />
             <Simple name="DmgTaken" value="0" />
@@ -80,7 +80,7 @@
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />
             <Simple name="StateDesc" value="" />
-            <Simple name="Desc" value="A clumbsily mobile chest-shaped monster is in the room, attacking you with a number of rubbery tentacles." />
+            <Simple name="Desc" value="A clumsily mobile chest-shaped monster is in the room, attacking you with numerous rubbery tentacles." />
             <Simple name="IsListed" value="True" />
             <Simple name="PluralType" value="S" />
             <Simple name="Hardiness" value="15" />
@@ -128,7 +128,7 @@
             <Simple name="NwSides" value="5" />
             <Simple name="DeadBody" value="46" />
             <Simple name="Friendliness" value="Enemy" />
-            <Simple name="Gender" value="Male" />
+            <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="DmgTaken" value="0" />

@@ -58,7 +58,7 @@ namespace EamonVS
 							{
 								var proj = Solution.Projects.Item(i);
 
-								if (string.Equals(proj.Name, Path.GetFileNameWithoutExtension(projName), StringComparison.OrdinalIgnoreCase))
+								if (proj.Name.Equals(Path.GetFileNameWithoutExtension(projName), StringComparison.OrdinalIgnoreCase))
 								{
 									Solution.Remove(proj);
 									goto Cleanup;
@@ -143,7 +143,7 @@ namespace EamonVS
 							{
 								var proj = Solution.Projects.Item(i);
 
-								if (string.Equals(proj.Name, Path.GetFileNameWithoutExtension(projName), StringComparison.OrdinalIgnoreCase))
+								if (proj.Name.Equals(Path.GetFileNameWithoutExtension(projName), StringComparison.OrdinalIgnoreCase))
 								{
 									Solution.Remove(proj);
 									goto Cleanup;

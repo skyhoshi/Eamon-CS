@@ -171,7 +171,7 @@ namespace Eamon.Game.Plugin
 
 			for (var i = 0; i < args.Length; i++)
 			{
-				if (string.Equals(args[i], "--workingDirectory", StringComparison.OrdinalIgnoreCase) || string.Equals(args[i], "-wd", StringComparison.OrdinalIgnoreCase))
+				if (args[i].Equals("--workingDirectory", StringComparison.OrdinalIgnoreCase) || args[i].Equals("-wd", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < args.Length)
 					{
@@ -179,24 +179,24 @@ namespace Eamon.Game.Plugin
 
 						var regex = new Regex(Constants.ValidWorkDirRegexPattern);
 
-						if (string.Equals(WorkDir, "NONE", StringComparison.OrdinalIgnoreCase) || !regex.IsMatch(WorkDir))
+						if (WorkDir.Equals("NONE", StringComparison.OrdinalIgnoreCase) || !regex.IsMatch(WorkDir))
 						{
 							WorkDir = Constants.DefaultWorkDir;
 						}
 					}
 				}
-				else if (string.Equals(args[i], "--filePrefix", StringComparison.OrdinalIgnoreCase) || string.Equals(args[i], "-fp", StringComparison.OrdinalIgnoreCase))
+				else if (args[i].Equals("--filePrefix", StringComparison.OrdinalIgnoreCase) || args[i].Equals("-fp", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < args.Length)
 					{
 						FilePrefix = args[i].Trim();
 					}
 				}
-				else if (string.Equals(args[i], "--ignoreMutex", StringComparison.OrdinalIgnoreCase) || string.Equals(args[i], "-im", StringComparison.OrdinalIgnoreCase))
+				else if (args[i].Equals("--ignoreMutex", StringComparison.OrdinalIgnoreCase) || args[i].Equals("-im", StringComparison.OrdinalIgnoreCase))
 				{
 					IgnoreMutex = true;
 				}
-				else if (string.Equals(args[i], "--runGameEditor", StringComparison.OrdinalIgnoreCase) || string.Equals(args[i], "-rge", StringComparison.OrdinalIgnoreCase))
+				else if (args[i].Equals("--runGameEditor", StringComparison.OrdinalIgnoreCase) || args[i].Equals("-rge", StringComparison.OrdinalIgnoreCase))
 				{
 					RunGameEditor = true;
 				}
@@ -247,7 +247,7 @@ namespace Eamon.Game.Plugin
 					{
 						var ifaces = t.GetInterfaces();
 
-						ift = ifaces != null ? ifaces.FirstOrDefault(t01 => string.Equals(t01.Name, string.Format("I{0}", t.Name), StringComparison.Ordinal)) : null;
+						ift = ifaces != null ? ifaces.FirstOrDefault(t01 => t01.Name.Equals(string.Format("I{0}", t.Name), StringComparison.Ordinal)) : null;
 					}
 
 					if (ift == null)

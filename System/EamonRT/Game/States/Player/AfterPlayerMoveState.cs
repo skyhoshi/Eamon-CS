@@ -36,6 +36,14 @@ namespace EamonRT.Game.States
 
 			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Direction), Direction));
 
+			gCommandParser.LastHimNameStr = "";
+
+			gCommandParser.LastHerNameStr = "";
+
+			gCommandParser.LastItNameStr = "";
+
+			gCommandParser.LastThemNameStr = "";
+
 			gGameState.R3 = gGameState.Ro;
 
 			gGameState.Ro = gGameState.R2;

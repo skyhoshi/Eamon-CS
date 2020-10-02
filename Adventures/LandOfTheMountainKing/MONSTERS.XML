@@ -126,7 +126,7 @@
             <Simple name="NwSides" value="7" />
             <Simple name="DeadBody" value="0" />
             <Simple name="Friendliness" value="Enemy" />
-            <Simple name="Gender" value="Male" />
+            <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="100" />
@@ -228,7 +228,7 @@
             <Simple name="NwSides" value="3" />
             <Simple name="DeadBody" value="26" />
             <Simple name="Friendliness" value="Enemy" />
-            <Simple name="Gender" value="Male" />
+            <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="100" />
@@ -262,7 +262,7 @@
             <Simple name="NwSides" value="3" />
             <Simple name="DeadBody" value="0" />
             <Simple name="Friendliness" value="Enemy" />
-            <Simple name="Gender" value="Female" />
+            <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="OrigFriendliness" value="100" />

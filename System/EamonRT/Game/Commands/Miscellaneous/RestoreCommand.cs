@@ -129,7 +129,7 @@ namespace EamonRT.Game.Commands
 
 				Globals.Character = Globals.Database.CharacterTable.Records.FirstOrDefault();
 
-				if (gCharacter == null || gCharacter.Uid <= 0 || gCharacter.Status != Status.Adventuring || string.IsNullOrWhiteSpace(gCharacter.Name) || string.Equals(gCharacter.Name, "NONE", StringComparison.OrdinalIgnoreCase))
+				if (gCharacter == null || gCharacter.Uid <= 0 || gCharacter.Status != Status.Adventuring || string.IsNullOrWhiteSpace(gCharacter.Name) || gCharacter.Name.Equals("NONE", StringComparison.OrdinalIgnoreCase))
 				{
 					Globals.Error.Write("{0}Error: {1}",
 						Environment.NewLine,
@@ -137,7 +137,7 @@ namespace EamonRT.Game.Commands
 						gCharacter.Uid <= 0 ? "gCharacter.Uid <= 0" :
 						gCharacter.Status != Status.Adventuring ? "gCharacter.Status != Status.Adventuring" :
 						string.IsNullOrWhiteSpace(gCharacter.Name) ? "string.IsNullOrWhiteSpace(gCharacter.Name)" :
-						"string.Equals(gCharacter.Name, \"NONE\", StringComparison.OrdinalIgnoreCase)");
+						"gCharacter.Name.Equals(\"NONE\", StringComparison.OrdinalIgnoreCase)");
 
 					Globals.ExitType = ExitType.Error;
 
@@ -226,7 +226,19 @@ namespace EamonRT.Game.Commands
 				SaveConfig.Dispose();
 			}
 
+			gSentenceParser.LastInputStr = "";
+
+			gSentenceParser.Clear();
+
 			gCommandParser.LastInputStr = "";
+
+			gCommandParser.LastHimNameStr = "";
+
+			gCommandParser.LastHerNameStr = "";
+
+			gCommandParser.LastItNameStr = "";
+
+			gCommandParser.LastThemNameStr = "";
 
 			gGameState.R2 = gGameState.Ro;
 
@@ -251,6 +263,8 @@ namespace EamonRT.Game.Commands
 		public RestoreCommand()
 		{
 			SortOrder = 420;
+
+			IsSentenceParserEnabled = false;
 
 			IsDarkEnabled = true;
 

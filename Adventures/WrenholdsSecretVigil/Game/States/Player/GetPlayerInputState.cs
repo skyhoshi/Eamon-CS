@@ -29,7 +29,7 @@ namespace WrenholdsSecretVigil.Game.States
 
 				// Magic cube code
 
-				if (magicCubeArtifact.IsCarriedByCharacter() && gGameState.Ro >= 40 && lifeOrbArtifact.IsCarriedByContainerUid(49))
+				if (magicCubeArtifact.IsCarriedByCharacter() && gGameState.Ro >= 40 && lifeOrbArtifact.IsCarriedByContainerUid(49) && string.IsNullOrWhiteSpace(gSentenceParser.ParserInputStr))
 				{
 					var characterRoom = gRDB[gGameState.Ro];
 

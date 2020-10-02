@@ -26,11 +26,11 @@ namespace Eamon.Mobile.Views
 
 			if (!string.IsNullOrWhiteSpace(folder))
 			{
-				if (string.Equals(folder, "EamonDD", StringComparison.OrdinalIgnoreCase))
+				if (folder.Equals("EamonDD", StringComparison.OrdinalIgnoreCase))
 				{
 					await Navigation.PushAsync(new EamonDDPage());
 				}
-				else if (string.Equals(folder, "EamonMH", StringComparison.OrdinalIgnoreCase))
+				else if (folder.Equals("EamonMH", StringComparison.OrdinalIgnoreCase))
 				{
 					await Navigation.PushAsync(new EamonMHPage());
 				}

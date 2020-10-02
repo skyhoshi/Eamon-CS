@@ -21,6 +21,15 @@ namespace EamonRT.Framework.Commands
 		bool? MatureContent { get; set; }
 
 		/// <summary></summary>
+		bool? EnhancedParser { get; set; }
+
+		/// <summary></summary>
+		bool? ShowPronounChanges { get; set; }
+
+		/// <summary></summary>
+		bool? ShowFulfillMessages { get; set; }
+
+		/// <summary></summary>
 		long? PauseCombatMs { get; set; }
 
 		/// <summary></summary>

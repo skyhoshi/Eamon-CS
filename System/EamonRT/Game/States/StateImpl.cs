@@ -37,6 +37,16 @@ namespace EamonRT.Game.States
 			gOut.Print("{0} block{1} the way!", artifact.GetTheName(true), artifact.EvalPlural("s", ""));
 		}
 
+		public virtual void PrintDontFollowYou()
+		{
+			gOut.Print("I don't follow you.");
+		}
+
+		public virtual void PrintDontFollowYou02()
+		{
+			State.PrintDontFollowYou();
+		}
+
 		public virtual void PrintCantGoThatWay()
 		{
 			gOut.Print("You can't go that way!");

@@ -6,10 +6,12 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
+using Eamon.Game.Extensions;
 using Eamon.Game.Menus;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -69,6 +71,20 @@ namespace EamonDD.Game.Menus.ActionMenus
 			rc = Globals.In.ReadField(Buf, Constants.BufSize02, null, ' ', '\0', true, "Y", gEngine.ModifyCharToUpper, gEngine.IsCharYOrN, null);
 
 			Debug.Assert(gEngine.IsSuccess(rc));
+
+			gOut.Print("{0}", Globals.LineSep);
+
+			gOut.WriteLine();
+			gEngine.PrintTitle("--- Legend ---", false);
+			gOut.WriteLine();
+
+			gOut.WriteLine("{0}{1}", "R#  = Room Uid #".PadTRight(40, ' '), "M#  = Monster Uid #");
+			gOut.WriteLine("{0}{1}", "A#  = Artifact Uid #".PadTRight(40, ' '), "EA# = Embedded Artifact Uid #");
+			gOut.WriteLine("{0}{1}", "CA# = Carried Artifact Uid #".PadTRight(40, ' '), "WA# = Worn Artifact Uid #");
+			gOut.WriteLine("{0}{1}", "IA# = In Container Artifact Uid #".PadTRight(40, ' '), "OA# = On Container Artifact Uid #");
+			gOut.WriteLine("{0}{1}", "UA# = Under Container Artifact Uid #".PadTRight(40, ' '), "BA# = Behind Container Artifact Uid #");
+
+			Globals.In.KeyPress(new StringBuilder(Constants.BufSize));
 
 			gOut.Print("{0}", Globals.LineSep);
 

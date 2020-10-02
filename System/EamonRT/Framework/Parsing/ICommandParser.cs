@@ -21,6 +21,18 @@ namespace EamonRT.Framework.Parsing
 		string LastInputStr { get; set; }
 
 		/// <summary></summary>
+		string LastHimNameStr { get; set; }
+
+		/// <summary></summary>
+		string LastHerNameStr { get; set; }
+
+		/// <summary></summary>
+		string LastItNameStr { get; set; }
+
+		/// <summary></summary>
+		string LastThemNameStr { get; set; }
+
+		/// <summary></summary>
 		string[] Tokens { get; set; }
 
 		/// <summary></summary>
@@ -138,14 +150,17 @@ namespace EamonRT.Framework.Parsing
 		IMonster GetMonster();
 
 		/// <summary></summary>
-		/// <returns></returns>
-		StringBuilder ReplacePrepositions(StringBuilder buf);
-
-		/// <summary></summary>
 		void Clear();
 
 		/// <summary></summary>
 		void ParseName();
+
+		/// <summary></summary>
+		/// <param name="obj"></param>
+		/// <param name="objDataName"></param>
+		/// <param name="artifact"></param>
+		/// <param name="monster"></param>
+		void SetLastNameStrings(IGameBase obj, string objDataName, IArtifact artifact, IMonster monster);
 
 		/// <summary></summary>
 		/// <param name="afterFinishParsing"></param>

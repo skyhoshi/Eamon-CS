@@ -59,7 +59,7 @@ namespace TheTempleOfNgurct.Game.Commands
 
 					Globals.Buf.SetFormat("{0}", Globals.In.ReadLine());
 
-					if (!string.Equals(Globals.Buf.ToString(), "fire", StringComparison.OrdinalIgnoreCase))
+					if (!Globals.Buf.ToString().Equals("fire", StringComparison.OrdinalIgnoreCase))
 					{
 						gOut.Print("Wrong!  Nothing happens!");
 

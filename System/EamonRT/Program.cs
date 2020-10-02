@@ -1004,7 +1004,7 @@ namespace EamonRT
 
 				Globals.Character = character;
 
-				if (gCharacter == null || gCharacter.Uid <= 0 || gCharacter.Status != Status.Adventuring || string.IsNullOrWhiteSpace(gCharacter.Name) || string.Equals(gCharacter.Name, "NONE", StringComparison.OrdinalIgnoreCase))
+				if (gCharacter == null || gCharacter.Uid <= 0 || gCharacter.Status != Status.Adventuring || string.IsNullOrWhiteSpace(gCharacter.Name) || gCharacter.Name.Equals("NONE", StringComparison.OrdinalIgnoreCase))
 				{
 					rc = RetCode.InvalidObj;
 
@@ -1014,7 +1014,7 @@ namespace EamonRT
 						gCharacter.Uid <= 0 ? "gCharacter.Uid <= 0" :
 						gCharacter.Status != Status.Adventuring ? "gCharacter.Status != Status.Adventuring" :
 						string.IsNullOrWhiteSpace(gCharacter.Name) ? "string.IsNullOrWhiteSpace(gCharacter.Name)" :
-						"string.Equals(gCharacter.Name, \"NONE\", StringComparison.OrdinalIgnoreCase)");
+						"gCharacter.Name.Equals(\"NONE\", StringComparison.OrdinalIgnoreCase)");
 
 					if (gCharacter == null)
 					{
@@ -1147,7 +1147,7 @@ namespace EamonRT
 
 					character = Globals.CHRDB[gCharacter.Uid];
 
-					if (character != null && string.Equals(gCharacter.Name, character.Name, StringComparison.OrdinalIgnoreCase))
+					if (character != null && gCharacter.Name.Equals(character.Name, StringComparison.OrdinalIgnoreCase))
 					{
 						if (Globals.DeleteCharacter)
 						{

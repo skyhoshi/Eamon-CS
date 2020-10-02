@@ -270,5 +270,8 @@
             <summary></summary>
             <returns></returns>
         </member>
+        <member name="M:TheVileGrimoireOfJaldial.Game.Parsing.SentenceParser.IsValidTokenCommandMatch">
+            <summary></summary>
+        </member>
     </members>
 </doc>

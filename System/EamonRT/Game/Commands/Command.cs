@@ -232,6 +232,19 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		public virtual bool IsSentenceParserEnabled
+		{
+			get
+			{
+				return CommandImpl.IsSentenceParserEnabled;
+			}
+
+			set
+			{
+				CommandImpl.IsSentenceParserEnabled = value;
+			}
+		}
+
 		public virtual bool IsDobjPrepEnabled
 		{
 			get
@@ -615,11 +628,6 @@ namespace EamonRT.Game.Commands
 		public virtual void PrintYouSeeNothingSpecial()
 		{
 			CommandImpl.PrintYouSeeNothingSpecial();
-		}
-
-		public virtual void PrintDontFollowYou()
-		{
-			CommandImpl.PrintDontFollowYou();
 		}
 
 		public virtual void PrintDontBeAbsurd()

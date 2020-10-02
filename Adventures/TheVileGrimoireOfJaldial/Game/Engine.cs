@@ -105,7 +105,7 @@ namespace TheVileGrimoireOfJaldial.Game
 				{ 38, new string[] { "coil" } },
 				{ 43, new string[] { "dead tree" } },
 				{ 44, new string[] { "dead forest nettles", "dead blood nettles", "dead bloodnettles", "dead nettles" } },
-				{ 45, new string[] { "cloak", "cowl" } },
+				{ 45, new string[] { "cloak" } },
 				{ 46, new string[] { "dead whipweed", "dead weed" } },
 				{ 48, new string[] { "dead dragon" } },
 				{ 49, new string[] { "dead crimson amoeba", "dead amoeba", "wine" } },

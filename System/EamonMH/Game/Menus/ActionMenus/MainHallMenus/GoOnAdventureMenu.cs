@@ -158,7 +158,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
-					if (!string.IsNullOrWhiteSpace(fileset.FilesetFileName) && !string.Equals(fileset.FilesetFileName, "NONE", StringComparison.OrdinalIgnoreCase))
+					if (!string.IsNullOrWhiteSpace(fileset.FilesetFileName) && !fileset.FilesetFileName.Equals("NONE", StringComparison.OrdinalIgnoreCase))
 					{
 						var fsfn = Globals.Path.Combine(fileset.WorkDir, fileset.FilesetFileName);
 
@@ -180,7 +180,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						var character = Globals.Database.CharacterTable.Records.FirstOrDefault();
 
-						if (character != null && character.Uid > 0 && !string.IsNullOrWhiteSpace(character.Name) && !string.Equals(character.Name, "NONE", StringComparison.OrdinalIgnoreCase))
+						if (character != null && character.Uid > 0 && !string.IsNullOrWhiteSpace(character.Name) && !character.Name.Equals("NONE", StringComparison.OrdinalIgnoreCase))
 						{
 							gOut.Print("{0} is already adventuring there!", character.Name);
 

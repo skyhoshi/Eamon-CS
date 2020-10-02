@@ -20,7 +20,7 @@ namespace EamonPM.Game.Portability
 
 		public virtual bool EqualPaths(string path1, string path2)
 		{
-			return string.Equals(NormalizePath(path1), NormalizePath(path2), System.IO.Path.DirectorySeparatorChar == '\\' ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal);
+			return NormalizePath(path1).Equals(NormalizePath(path2), System.IO.Path.DirectorySeparatorChar == '\\' ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal);
 		}
 
 		public virtual string Combine(params string[] paths)

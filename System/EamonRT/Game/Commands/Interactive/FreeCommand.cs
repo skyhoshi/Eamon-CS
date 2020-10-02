@@ -121,6 +121,8 @@ namespace EamonRT.Game.Commands
 
 		public FreeCommand()
 		{
+			Synonyms = new string[] { "release" };
+
 			SortOrder = 270;
 
 			if (Globals.IsRulesetVersion(5))

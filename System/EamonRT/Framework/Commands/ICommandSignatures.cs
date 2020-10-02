@@ -69,6 +69,9 @@ namespace EamonRT.Framework.Commands
 		bool IsListed { get; set; }
 
 		/// <summary></summary>
+		bool IsSentenceParserEnabled { get; set; }
+
+		/// <summary></summary>
 		bool IsDobjPrepEnabled { get; set; }
 
 		/// <summary></summary>
@@ -334,9 +337,6 @@ namespace EamonRT.Framework.Commands
 
 		/// <summary></summary>
 		void PrintYouSeeNothingSpecial();
-
-		/// <summary></summary>
-		void PrintDontFollowYou();
 
 		/// <summary></summary>
 		void PrintDontBeAbsurd();

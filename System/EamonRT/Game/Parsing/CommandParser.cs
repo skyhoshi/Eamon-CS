@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using Eamon;
@@ -19,6 +20,7 @@ using Eamon.Game.Extensions;
 using EamonRT.Framework.Commands;
 using EamonRT.Framework.Parsing;
 using EamonRT.Framework.States;
+using EamonRT.Game.Exceptions;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.Parsing
@@ -26,6 +28,14 @@ namespace EamonRT.Game.Parsing
 	[ClassMappings]
 	public class CommandParser : ICommandParser
 	{
+		public string _lastHimNameStr;
+
+		public string _lastHerNameStr;
+
+		public string _lastItNameStr;
+
+		public string _lastThemNameStr;
+
 		public IMonster _actorMonster;
 
 		public IRoom _actorRoom;
@@ -34,9 +44,91 @@ namespace EamonRT.Game.Parsing
 
 		public virtual string LastInputStr { get; set; }
 
+		public virtual string LastHimNameStr 
+		{ 
+			get
+			{
+				return _lastHimNameStr;
+			}
+
+			set
+			{
+				if (gGameState != null && gGameState.ShowPronounChanges && !_lastHimNameStr.Equals(value, StringComparison.OrdinalIgnoreCase))
+				{
+					gOut.Print("{{Changing him:  \"{0}\"}}", value);
+				}
+
+				_lastHimNameStr = value;
+			}
+		}
+
+		public virtual string LastHerNameStr
+		{
+			get
+			{
+				return _lastHerNameStr;
+			}
+
+			set
+			{
+				if (gGameState != null && gGameState.ShowPronounChanges && !_lastHerNameStr.Equals(value, StringComparison.OrdinalIgnoreCase))
+				{
+					gOut.Print("{{Changing her:  \"{0}\"}}", value);
+				}
+
+				_lastHerNameStr = value;
+			}
+		}
+
+		public virtual string LastItNameStr
+		{
+			get
+			{
+				return _lastItNameStr;
+			}
+
+			set
+			{
+				if (gGameState != null && gGameState.ShowPronounChanges && !_lastItNameStr.Equals(value, StringComparison.OrdinalIgnoreCase))
+				{
+					gOut.Print("{{Changing it:  \"{0}\"}}", value);
+				}
+
+				_lastItNameStr = value;
+			}
+		}
+
+		public virtual string LastThemNameStr
+		{
+			get
+			{
+				return _lastThemNameStr;
+			}
+
+			set
+			{
+				if (gGameState != null && gGameState.ShowPronounChanges && !_lastThemNameStr.Equals(value, StringComparison.OrdinalIgnoreCase))
+				{
+					gOut.Print("{{Changing them:  \"{0}\"}}", value);
+				}
+
+				_lastThemNameStr = value;
+			}
+		}
+
+		public virtual string CurrInputStr { get; set; }
+
+		public virtual string OrigInputStr { get; set; }
+
+		public virtual string CommandFormatStr { get; set; }
+
+		public virtual string NewCommandStr { get; set; }
+
 		public virtual string[] Tokens { get; set; }
 
 		public virtual long CurrToken { get; set; }
+
+		public virtual long NameIndex { get; set; }
 
 		public virtual long PrepTokenIndex { get; set; }
 
@@ -339,7 +431,7 @@ namespace EamonRT.Game.Parsing
 		{
 			ParseName();
 
-			if (string.Equals(ObjData.Name, "all", StringComparison.OrdinalIgnoreCase))
+			if (ObjData.Name.Equals("all", StringComparison.OrdinalIgnoreCase))
 			{
 				NextCommand.Cast<IDropCommand>().DropAll = true;
 			}
@@ -369,7 +461,7 @@ namespace EamonRT.Game.Parsing
 
 			NextCommand.ContainerType = NextCommand.Prep != null ? NextCommand.Prep.ContainerType : (ContainerType)(-1);
 
-			if (string.Equals(ObjData.Name, "room", StringComparison.OrdinalIgnoreCase) || string.Equals(ObjData.Name, "area", StringComparison.OrdinalIgnoreCase))
+			if (ObjData.Name.Equals("room", StringComparison.OrdinalIgnoreCase) || ObjData.Name.Equals("area", StringComparison.OrdinalIgnoreCase))
 			{
 				var command = Globals.CreateInstance<ILookCommand>();
 
@@ -406,7 +498,7 @@ namespace EamonRT.Game.Parsing
 		{
 			ParseName();
 
-			if (string.Equals(ObjData.Name, "all", StringComparison.OrdinalIgnoreCase))
+			if (ObjData.Name.Equals("all", StringComparison.OrdinalIgnoreCase))
 			{
 				NextCommand.Cast<IGetCommand>().GetAll = true;
 			}
@@ -636,7 +728,7 @@ namespace EamonRT.Game.Parsing
 
 		public virtual void PlayerFinishParsingQuitCommand()
 		{
-			if (CurrToken < Tokens.Length && string.Equals(Tokens[CurrToken], "hall", StringComparison.OrdinalIgnoreCase))
+			if (CurrToken < Tokens.Length && Tokens[CurrToken].Equals("hall", StringComparison.OrdinalIgnoreCase))
 			{
 				NextCommand.Cast<IQuitCommand>().GoToMainHall = true;
 
@@ -821,7 +913,7 @@ namespace EamonRT.Game.Parsing
 
 			if (CurrToken < Tokens.Length)
 			{
-				sayCommand.OriginalPhrase = InputBuf.ToString().Replace(Tokens[0] + " ", "");
+				sayCommand.OriginalPhrase = InputBuf.ToString().Substring((Tokens[0] + " ").Length);
 
 				CurrToken += (Tokens.Length - CurrToken);
 			}
@@ -834,7 +926,7 @@ namespace EamonRT.Game.Parsing
 
 					Globals.Buf.SetFormat("{0}", Globals.In.ReadLine());
 
-					sayCommand.OriginalPhrase = Globals.Buf.ToString();
+					sayCommand.OriginalPhrase = Regex.Replace(Globals.Buf.ToString(), @"\s+", " ").Trim();
 				}
 				else
 				{
@@ -855,31 +947,49 @@ namespace EamonRT.Game.Parsing
 
 			if (CurrToken + 1 < Tokens.Length)
 			{
-				if (string.Equals(Tokens[CurrToken], "verboserooms", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
+				if (Tokens[CurrToken].Equals("verboserooms", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
 				{
 					settingsCommand.VerboseRooms = boolValue;
 
 					CurrToken += 2;
 				}
-				else if (string.Equals(Tokens[CurrToken], "verbosemonsters", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
+				else if (Tokens[CurrToken].Equals("verbosemonsters", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
 				{
 					settingsCommand.VerboseMonsters = boolValue;
 
 					CurrToken += 2;
 				}
-				else if (string.Equals(Tokens[CurrToken], "verboseartifacts", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
+				else if (Tokens[CurrToken].Equals("verboseartifacts", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
 				{
 					settingsCommand.VerboseArtifacts = boolValue;
 
 					CurrToken += 2;
 				}
-				else if (string.Equals(Tokens[CurrToken], "maturecontent", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
+				else if (Tokens[CurrToken].Equals("maturecontent", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
 				{
 					settingsCommand.MatureContent = boolValue;
 
 					CurrToken += 2;
 				}
-				else if (string.Equals(Tokens[CurrToken], "pausecombatms", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 10000)
+				else if (Tokens[CurrToken].Equals("enhancedparser", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
+				{
+					settingsCommand.EnhancedParser = boolValue;
+
+					CurrToken += 2;
+				}
+				else if (gGameState.EnhancedParser && Tokens[CurrToken].Equals("showpronounchanges", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
+				{
+					settingsCommand.ShowPronounChanges = boolValue;
+
+					CurrToken += 2;
+				}
+				else if (gGameState.EnhancedParser && Tokens[CurrToken].Equals("showfulfillmessages", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
+				{
+					settingsCommand.ShowFulfillMessages = boolValue;
+
+					CurrToken += 2;
+				}
+				else if (Tokens[CurrToken].Equals("pausecombatms", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 10000)
 				{
 					settingsCommand.PauseCombatMs = longValue;
 
@@ -1237,7 +1347,21 @@ namespace EamonRT.Game.Parsing
 
 			if (methodInfo != null)
 			{
-				methodInfo.Invoke(this, null);
+				try
+				{
+					methodInfo.Invoke(this, null);
+				}
+				catch (TargetInvocationException ex)
+				{
+					if (ex.InnerException != null)
+					{
+						ExceptionDispatchInfo.Capture(ex.InnerException).Throw();
+					}
+					else
+					{
+						throw;
+					}
+				}
 			}
 		}
 
@@ -1320,42 +1444,23 @@ namespace EamonRT.Game.Parsing
 			return ObjData == DobjData ? DobjMonster : IobjMonster;
 		}
 
-		public virtual StringBuilder ReplacePrepositions(StringBuilder buf)
-		{
-			Debug.Assert(buf != null);
-
-			buf.SetFormat(" {0} ", Regex.Replace(buf.ToString(), @"\s+", " ").ToLower().Trim());
-
-			buf = buf.Replace(" in to ", " into ");
-
-			buf = buf.Replace(" inside ", " in ");
-
-			buf = buf.Replace(" from in ", " fromin ");
-
-			buf = buf.Replace(" on to ", " onto ");
-
-			buf = buf.Replace(" on top of ", " on ");
-
-			buf = buf.Replace(" from on ", " fromon ");
-
-			buf = buf.Replace(" below ", " under ").Replace(" beneath ", " under ").Replace(" underneath ", " under ");
-
-			buf = buf.Replace(" from under ", " fromunder ");
-
-			buf = buf.Replace(" in back of ", " behind ");
-
-			buf = buf.Replace(" from behind ", " frombehind ");
-
-			return buf.Trim();
-		}
-
 		public virtual void Clear()
 		{
 			InputBuf.Clear();
 
+			CurrInputStr = "";
+
+			OrigInputStr = "";
+
+			CommandFormatStr = "";
+
+			NewCommandStr = "";
+
 			Tokens = null;
 
 			CurrToken = 0;
+
+			NameIndex = -1;
 
 			PrepTokenIndex = -1;
 
@@ -1386,59 +1491,38 @@ namespace EamonRT.Game.Parsing
 
 				while (string.IsNullOrWhiteSpace(ObjData.Name))
 				{
-					if (CurrToken < Tokens.Length && PrepTokenIndex < 0)
+					if (NextCommand.IsDobjPrepEnabled || NextCommand.IsIobjEnabled)
 					{
-						PrepTokenIndex = NextCommand.IsDobjPrepEnabled || NextCommand.IsIobjEnabled ? Array.FindLastIndex(Tokens, token => gEngine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, token, StringComparison.OrdinalIgnoreCase) && NextCommand.IsPrepEnabled(prep)) != null) : -1;
+						Predicate<string> prepFindFunc = token => gEngine.Preps.FirstOrDefault(prep => prep.Name.Equals(token, StringComparison.OrdinalIgnoreCase) && NextCommand.IsPrepEnabled(prep)) != null;
 
-						Prep = PrepTokenIndex >= 0 ? gEngine.Preps.FirstOrDefault(prep => string.Equals(prep.Name, Tokens[PrepTokenIndex], StringComparison.OrdinalIgnoreCase) && NextCommand.IsPrepEnabled(prep)) : null;
+						PrepTokenIndex = NextCommand.IsDobjPrepEnabled ? Array.FindIndex(Tokens, prepFindFunc) : NextCommand.IsIobjEnabled ? Array.FindLastIndex(Tokens, prepFindFunc) : -1;
 
-						if (((ObjData == DobjData && NextCommand.IsDobjPrepEnabled) || (ObjData == IobjData && NextCommand.IsIobjEnabled)) && PrepTokenIndex == CurrToken)
+						Prep = PrepTokenIndex >= 0 ? gEngine.Preps.FirstOrDefault(prep => prep.Name.Equals(Tokens[PrepTokenIndex], StringComparison.OrdinalIgnoreCase) && NextCommand.IsPrepEnabled(prep)) : null;
+
+						if (Prep != null)
 						{
 							NextCommand.Prep = Globals.CloneInstance(Prep);
 
 							NextCommand.ContainerType = Prep.ContainerType;
-
-							var numTokens = Tokens.Length - CurrToken;
-
-							ObjData.Name = string.Join(" ", Tokens.Skip((int)(CurrToken + 1)).Take((int)(numTokens - 1)));
-
-							CurrToken += numTokens;
-						}
-						else if ((ObjData == DobjData && NextCommand.IsIobjEnabled) && PrepTokenIndex > CurrToken)
-						{
-							NextCommand.Prep = Globals.CloneInstance(Prep);
-
-							NextCommand.ContainerType = Prep.ContainerType;
-
-							var numTokens = PrepTokenIndex - CurrToken;
-
-							ObjData.Name = string.Join(" ", Tokens.Skip((int)CurrToken).Take((int)numTokens));
-
-							CurrToken += numTokens;
-						}
-						else
-						{
-							PrepTokenIndex = -1;
-
-							Prep = null;
-
-							ObjData.Name = string.Join(" ", Tokens.Skip((int)CurrToken));
-
-							CurrToken = Tokens.Length;
 						}
 					}
 
-					if (ObjData == IobjData && CurrToken < Tokens.Length && PrepTokenIndex >= 0)
+					var numTokens = Tokens.Length - CurrToken;
+
+					if (((ObjData == DobjData && NextCommand.IsDobjPrepEnabled) || (ObjData == IobjData && NextCommand.IsIobjEnabled)) && PrepTokenIndex == CurrToken)
 					{
-						CurrToken = PrepTokenIndex + 1;
-					}
+						CurrToken++;
 
-					if (CurrToken < Tokens.Length && string.IsNullOrWhiteSpace(ObjData.Name))
+						numTokens--;
+					}
+					else if (ObjData == DobjData && NextCommand.IsIobjEnabled && PrepTokenIndex >= CurrToken)
 					{
-						ObjData.Name = string.Join(" ", Tokens.Skip((int)CurrToken));
-
-						CurrToken = Tokens.Length;
+						numTokens = PrepTokenIndex - CurrToken;
 					}
+
+					ObjData.Name = string.Join(" ", Tokens.Skip((int)CurrToken).Take((int)numTokens));
+
+					CurrToken += numTokens;
 
 					if (string.IsNullOrWhiteSpace(ObjData.Name))
 					{
@@ -1460,26 +1544,144 @@ namespace EamonRT.Game.Parsing
 
 						Globals.Buf.SetFormat("{0}", Globals.In.ReadLine());
 
-						Globals.Buf = ReplacePrepositions(Globals.Buf);
+						Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\s+", " ").Trim());
+
+						var newTokenList = Globals.Buf.ToString().Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+						var origTokenList = OrigInputStr.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+
+						if (CurrToken == 1 && CurrToken < origTokenList.Count)
+						{
+							origTokenList.InsertRange((int)CurrToken, newTokenList);
+						}
+						else
+						{
+							origTokenList.AddRange(newTokenList);
+						}
+
+						Globals.Buf.SetFormat("{0}", string.Join(" ", origTokenList.ToArray()));
+
+						OrigInputStr = Globals.Buf.ToString();
+
+						Globals.Buf.SetFormat("{0}", gEngine.NormalizePlayerInput(Globals.Buf).ToString());
+
+						CurrInputStr = string.Format(" {0} ", Globals.Buf.ToString());
+
+						Globals.Buf.SetFormat("{0}", gEngine.ReplacePrepositions(Globals.Buf).ToString());
 
 						if (ShouldStripTrailingPunctuation())
 						{
 							Globals.Buf.SetFormat("{0}", Globals.Buf.TrimEndPunctuationMinusPound().ToString().Trim());
 						}
 
-						Tokens = Tokens.Concat(Globals.Buf.ToString().Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries)).ToArray();
+						Tokens = Globals.Buf.ToString().Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
 					}
 					else
 					{
-						var mySeen = false;
+						ObjData.Name = string.Format(" {0} ", ObjData.Name);
 
-						Globals.Buf.SetFormat("{0}", ObjData.Name);
+						if (gGameState.EnhancedParser && ObjData == DobjData)
+						{
+							NameIndex = CurrInputStr.IndexOf(ObjData.Name);
 
-						rc = gEngine.StripPrepsAndArticles(Globals.Buf, ref mySeen);
+							if (NameIndex < 0)
+							{
+								throw new GeneralParsingErrorException();
+							}
 
-						Debug.Assert(gEngine.IsSuccess(rc));
+							CommandFormatStr = CurrInputStr.Substring(0, (int)NameIndex) + "{0}" + CurrInputStr.Substring((int)NameIndex + ObjData.Name.Length);
+						}
 
-						ObjData.Name = Globals.Buf.ToString().Trim();
+						var objNameTokens = ObjData.Name.IndexOf(" , ") >= 0 ? ObjData.Name.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries) : new string[] { ObjData.Name };
+
+						objNameTokens = objNameTokens.Where(objNameToken => !string.IsNullOrWhiteSpace(objNameToken) && Array.FindIndex(Constants.CommandSepTokens, token => !Char.IsPunctuation(token[0]) ? objNameToken.IndexOf(" " + token + " ") >= 0 : token[0] != ',' && objNameToken.IndexOf(token) >= 0) < 0).ToArray();
+
+						for (var i = 0; i < objNameTokens.Length; i++)
+						{
+							var mySeen = false;
+
+							Globals.Buf.SetFormat("{0}", objNameTokens[i].Trim());
+
+							rc = gEngine.StripPrepsAndArticles(Globals.Buf, ref mySeen);
+
+							Debug.Assert(gEngine.IsSuccess(rc));
+
+							objNameTokens[i] = string.Format(" {0} ", Globals.Buf.ToString().Trim());
+						}
+
+						ObjData.Name = string.Join(",", objNameTokens).Trim();
+					}
+				}
+
+				if (gGameState.EnhancedParser)
+				{
+					if (ObjData.Name.Equals("him", StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(LastHimNameStr))
+					{
+						ObjData.Name = LastHimNameStr;
+					}
+					else if (ObjData.Name.Equals("her", StringComparison.OrdinalIgnoreCase) && !string.IsNullOrWhiteSpace(LastHerNameStr))
+					{
+						ObjData.Name = LastHerNameStr;
+					}
+					else if ((ObjData.Name.Equals("it", StringComparison.OrdinalIgnoreCase) || ObjData.Name.Equals("that", StringComparison.OrdinalIgnoreCase)) && !string.IsNullOrWhiteSpace(LastItNameStr))
+					{
+						ObjData.Name = LastItNameStr;
+					}
+					else if ((ObjData.Name.Equals("them", StringComparison.OrdinalIgnoreCase) || ObjData.Name.Equals("those", StringComparison.OrdinalIgnoreCase)) && !string.IsNullOrWhiteSpace(LastThemNameStr) && (ObjData == DobjData || LastThemNameStr.IndexOf(" , ") < 0))
+					{
+						ObjData.Name = LastThemNameStr;
+					}
+
+					if (ObjData == DobjData && ObjData.Name.IndexOf(" , ") >= 0)
+					{
+						throw new InvalidDobjNameListException(string.Format(" {0} ", ObjData.Name));
+					}
+				}
+			}
+		}
+
+		public virtual void SetLastNameStrings(IGameBase obj, string objDataName, IArtifact artifact, IMonster monster)
+		{
+			if (gGameState.EnhancedParser && obj != null && !string.IsNullOrWhiteSpace(objDataName))
+			{
+				var objDataName01 = string.Format(" {0} ", objDataName);
+
+				if (Array.FindIndex(Constants.CommandSepTokens, token => !Char.IsPunctuation(token[0]) ? objDataName01.IndexOf(" " + token + " ") >= 0 : objDataName01.IndexOf(token) >= 0) < 0 && Array.FindIndex(Constants.PronounTokens, token => objDataName01.IndexOf(" " + token + " ") >= 0) < 0)
+				{
+					if (artifact != null)
+					{
+						if (artifact.IsPlural)
+						{
+							LastThemNameStr = Globals.CloneInstance(objDataName);
+						}
+						else
+						{
+							LastItNameStr = Globals.CloneInstance(objDataName);
+						}
+					}
+					else
+					{
+						Debug.Assert(monster != null);
+
+						if (monster.OrigGroupCount > 1)
+						{
+							LastThemNameStr = Globals.CloneInstance(objDataName);
+						}
+						else
+						{
+							if (monster.Gender == Gender.Male)
+							{
+								LastHimNameStr = Globals.CloneInstance(objDataName);
+							}
+							else if (monster.Gender == Gender.Female)
+							{
+								LastHerNameStr = Globals.CloneInstance(objDataName);
+							}
+							else
+							{
+								LastItNameStr = Globals.CloneInstance(objDataName);
+							}
+						}
 					}
 				}
 			}
@@ -1499,6 +1701,8 @@ namespace EamonRT.Game.Parsing
 			ActorRoom = ActorMonster.GetInRoom();
 
 			Debug.Assert(ActorRoom != null);
+
+			InputBuf.SetFormat("{0}", Regex.Replace(InputBuf.ToString(), @"\s+", " ").Trim());
 
 			if (InputBuf.Length == 0)
 			{
@@ -1530,103 +1734,141 @@ namespace EamonRT.Game.Parsing
 				}
 			}
 
+			OrigInputStr = InputBuf.ToString();
+
 			LastInputStr = InputBuf.ToString();
 
-			InputBuf = ReplacePrepositions(InputBuf);
+			InputBuf = gEngine.NormalizePlayerInput(InputBuf);
+
+			CurrInputStr = string.Format(" {0} ", InputBuf.ToString());
+
+			InputBuf = gEngine.ReplacePrepositions(InputBuf);
 
 			Tokens = InputBuf.ToString().Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
 
-			if (CurrToken < Tokens.Length)
+			try
 			{
-				if (Tokens.Length == 1)
+				if (CurrToken < Tokens.Length)
 				{
-					Globals.Buf.SetFormat("{0}", Tokens[CurrToken]);
-
-					Tokens[CurrToken] = Globals.Buf.TrimEndPunctuationMinusPound().ToString().Trim();
-				}
-
-				if (Tokens[CurrToken].Length == 0)
-				{
-					Tokens[CurrToken] = "???";
-				}
-				else if (string.Equals(Tokens[CurrToken], "at", StringComparison.OrdinalIgnoreCase))
-				{
-					Tokens[CurrToken] = "a";
-				}
-
-				var command = Globals.CommandList.FirstOrDefault(x => x.Verb != null && string.Equals(x.Verb, Tokens[CurrToken], StringComparison.OrdinalIgnoreCase) && x.IsEnabled(ActorMonster));
-
-				if (command == null)
-				{
-					command = Globals.CommandList.FirstOrDefault(x => x.Synonyms != null && x.Synonyms.FirstOrDefault(s => string.Equals(s, Tokens[CurrToken], StringComparison.OrdinalIgnoreCase)) != null && x.IsEnabled(ActorMonster));
-				}
-
-				if (command == null)
-				{
-					command = Globals.CommandList.FirstOrDefault(x => x.Verb != null && (x.Verb.StartsWith(Tokens[CurrToken], StringComparison.OrdinalIgnoreCase) || x.Verb.EndsWith(Tokens[CurrToken], StringComparison.OrdinalIgnoreCase)) && x.IsEnabled(ActorMonster));
-				}
-
-				if (command == null)
-				{
-					command = Globals.CommandList.FirstOrDefault(x => x.Synonyms != null && x.Synonyms.FirstOrDefault(s => s.StartsWith(Tokens[CurrToken], StringComparison.OrdinalIgnoreCase) || s.EndsWith(Tokens[CurrToken], StringComparison.OrdinalIgnoreCase)) != null && x.IsEnabled(ActorMonster));
-				}
-
-				if (command != null)
-				{
-					CurrToken++;
-
-					NextState = Activator.CreateInstance(command.GetType()) as IState;
-
-					Debug.Assert(NextCommand != null);
-
-					NextCommand.CommandParser = this;
-
-					NextCommand.ActorMonster = _actorMonster;
-
-					NextCommand.ActorRoom = _actorRoom;
-
-					NextCommand.Dobj = DobjData.Obj;
-
-					NextCommand.Iobj = IobjData.Obj;
-
-					if (ShouldStripTrailingPunctuation() && Tokens.Length > 1)
+					if (Tokens.Length == 1)
 					{
-						Globals.Buf.SetFormat("{0}", Tokens[Tokens.Length - 1]);
+						Globals.Buf.SetFormat("{0}", Tokens[CurrToken]);
 
-						Tokens[Tokens.Length - 1] = Globals.Buf.TrimEndPunctuationMinusPound().ToString().Trim();
+						Tokens[CurrToken] = Globals.Buf.TrimEndPunctuationMinusPound().ToString().Trim();
 					}
 
-					if (ActorMonster.IsCharacterMonster())
+					if (Tokens[CurrToken].Length == 0)
 					{
-						CheckPlayerCommand(false);
+						Tokens[CurrToken] = "???";
+					}
+					else if (Tokens[CurrToken].Equals("at", StringComparison.OrdinalIgnoreCase))
+					{
+						Tokens[CurrToken] = "a";
+					}
 
-						if (NextCommand != null)
+					var command = gEngine.GetCommandUsingToken(ActorMonster, Tokens[CurrToken]);
+
+					if (command != null)
+					{
+						CurrToken++;
+
+						if (gEngine.IsQuotedStringCommand(command))
 						{
-							if (ActorRoom.IsLit() || NextCommand.IsDarkEnabled)
-							{
-								FinishParsing();
+							InputBuf.SetFormat("{0}", OrigInputStr);
 
-								if (NextCommand != null)
+							Tokens = InputBuf.ToString().Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+						}
+
+						NextState = Activator.CreateInstance(command.GetType()) as IState;
+
+						Debug.Assert(NextCommand != null);
+
+						NextCommand.CommandParser = this;
+
+						NextCommand.ActorMonster = _actorMonster;
+
+						NextCommand.ActorRoom = _actorRoom;
+
+						NextCommand.Dobj = DobjData.Obj;
+
+						NextCommand.Iobj = IobjData.Obj;
+
+						if (ShouldStripTrailingPunctuation() && Tokens.Length > 1)
+						{
+							Globals.Buf.SetFormat("{0}", Tokens[Tokens.Length - 1]);
+
+							Tokens[Tokens.Length - 1] = Globals.Buf.TrimEndPunctuationMinusPound().ToString().Trim();
+						}
+
+						if (ActorMonster.IsCharacterMonster())
+						{
+							CheckPlayerCommand(false);
+
+							if (NextCommand != null)
+							{
+								if (ActorRoom.IsLit() || NextCommand.IsDarkEnabled)
 								{
-									CheckPlayerCommand(true);
+									FinishParsing();
+
+									if (NextCommand != null)
+									{
+										CheckPlayerCommand(true);
+									}
+								}
+								else
+								{
+									NextState = null;
 								}
 							}
-							else
-							{
-								NextState = null;
-							}
+						}
+						else
+						{
+							FinishParsing();
+						}
+
+						if (NextState == null)
+						{
+							NextState = Globals.CreateInstance<IStartState>();
 						}
 					}
-					else
-					{
-						FinishParsing();
-					}
-
-					if (NextState == null)
-					{
-						NextState = Globals.CreateInstance<IStartState>();
-					}
 				}
+
+				if (Dobj != null)
+				{
+					SetLastNameStrings(Dobj, DobjData.Name, DobjArtifact, DobjMonster);
+
+					SetLastNameStrings(Iobj, IobjData.Name, IobjArtifact, IobjMonster);
+				}
+			}
+			catch (InvalidDobjNameListException ex)
+			{
+				Debug.Assert(!string.IsNullOrWhiteSpace(ex.DobjNameStr));
+
+				Debug.Assert(!string.IsNullOrWhiteSpace(CommandFormatStr));
+
+				NewCommandStr = string.Format(CommandFormatStr, ex.DobjNameStr).Trim();
+
+				if (gSentenceParser.ParserInputStrList.Count > 0)
+				{
+					gSentenceParser.ParserInputStrList.Insert(0, NewCommandStr);
+				}
+				else
+				{
+					gSentenceParser.ParserInputStrList.Add(NewCommandStr);
+				}
+
+				NextState = Globals.CreateInstance<IGetPlayerInputState>(x =>
+				{
+					x.RestartCommand = true;
+				});
+			}
+			catch (GeneralParsingErrorException)
+			{
+				Debug.Assert(NextState != null);
+
+				NextState.PrintDontFollowYou02();
+
+				NextState = Globals.CreateInstance<IStartState>();
 			}
 		}
 
@@ -1635,6 +1877,16 @@ namespace EamonRT.Game.Parsing
 			InputBuf = new StringBuilder(Constants.BufSize);
 
 			LastInputStr = "";
+
+			LastHimNameStr = "";
+
+			LastHerNameStr = "";
+
+			LastItNameStr = "";
+
+			LastThemNameStr = "";
+
+			Clear();
 		}
 	}
 }

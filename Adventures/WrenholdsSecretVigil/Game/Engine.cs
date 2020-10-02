@@ -108,7 +108,7 @@ namespace WrenholdsSecretVigil.Game
 				{ 49, new string[] { "large device", "green device", "device" } },
 				{ 50, new string[] { "magic bow", "elven bow", "bow" } },
 				{ 51, new string[] { "large dead death dog", "dead death dog", "dead dog" } },
-				{ 52, new string[] { "smoldering fluids", "ash and fluids", "ash", "fluids" } },
+				{ 52, new string[] { "smoldering fluids", "ashen fluids", "ash", "fluids" } },
 				{ 53, new string[] { "ugly dead one-eyed ogre", "ugly dead one eyed ogre", "ugly dead ogre", "dead one-eyed ogre", "dead one eyed ogre", "dead ogre" } },
 				{ 54, new string[] { "body" } },
 				{ 55, new string[] { "body" } },

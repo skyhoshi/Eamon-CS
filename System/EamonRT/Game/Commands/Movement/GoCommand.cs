@@ -51,6 +51,8 @@ namespace EamonRT.Game.Commands
 
 		public GoCommand()
 		{
+			Synonyms = new string[] { "enter" };
+
 			SortOrder = 95;
 
 			if (Globals.IsRulesetVersion(5))

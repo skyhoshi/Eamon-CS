@@ -50,6 +50,10 @@ namespace ARuncibleCargo.Game.States
 						Globals.Engine.PrintPlayerRoom();
 					}
 
+					// Globals.SentenceParser.PrintDiscardingCommands() not called for this abrupt reality shift
+
+					Globals.SentenceParser.Clear();
+
 					// Nothing in the dream affects the real world; revert game state now that player is awake
 
 					var filesetTable = Globals.CloneInstance(Globals.Database.FilesetTable);
@@ -95,6 +99,12 @@ namespace ARuncibleCargo.Game.States
 					gameState.Va = gameState01.Va;
 
 					gameState.MatureContent = gameState01.MatureContent;
+
+					gameState.EnhancedParser = gameState01.EnhancedParser;
+
+					gameState.ShowPronounChanges = gameState01.ShowPronounChanges;
+
+					gameState.ShowFulfillMessages = gameState01.ShowFulfillMessages;
 
 					gameState.PauseCombatMs = gameState01.PauseCombatMs;
 

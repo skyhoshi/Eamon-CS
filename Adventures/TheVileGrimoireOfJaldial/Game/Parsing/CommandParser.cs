@@ -25,7 +25,7 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 			{
 				ParseName();
 
-				if (!string.Equals(ObjData.Name, "room", StringComparison.OrdinalIgnoreCase) && !string.Equals(ObjData.Name, "area", StringComparison.OrdinalIgnoreCase) && !(ActorRoom.Uid == 89 && ObjData.Name.ContainsAny(new string[] { "tapestries", "tapestry" }, StringComparison.OrdinalIgnoreCase)))
+				if (!ObjData.Name.Equals("room", StringComparison.OrdinalIgnoreCase) && !ObjData.Name.Equals("area", StringComparison.OrdinalIgnoreCase) && !(ActorRoom.Uid == 89 && ObjData.Name.ContainsAny(new string[] { "tapestries", "tapestry" }, StringComparison.OrdinalIgnoreCase)))
 				{
 					PlayerResolveArtifact();
 				}
@@ -44,31 +44,31 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 
 			if (CurrToken + 1 < Tokens.Length)
 			{
-				if (string.Equals(Tokens[CurrToken], "showcombatdamage", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
+				if (Tokens[CurrToken].Equals("showcombatdamage", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
 				{
 					settingsCommand.ShowCombatDamage = boolValue;
 
 					CurrToken += 2;
 				}
-				else if (string.Equals(Tokens[CurrToken], "exitdirnames", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
+				else if (Tokens[CurrToken].Equals("exitdirnames", StringComparison.OrdinalIgnoreCase) && bool.TryParse(Tokens[CurrToken + 1], out boolValue))
 				{
 					settingsCommand.ExitDirNames = boolValue;
 
 					CurrToken += 2;
 				}
-				else if (string.Equals(Tokens[CurrToken], "weatherfreqpct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
+				else if (Tokens[CurrToken].Equals("weatherfreqpct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
 				{
 					settingsCommand.WeatherFreqPct = longValue;
 
 					CurrToken += 2;
 				}
-				else if (string.Equals(Tokens[CurrToken], "encounterfreqpct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
+				else if (Tokens[CurrToken].Equals("encounterfreqpct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
 				{
 					settingsCommand.EncounterFreqPct = longValue;
 
 					CurrToken += 2;
 				}
-				else if (string.Equals(Tokens[CurrToken], "flavorfreqpct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
+				else if (Tokens[CurrToken].Equals("flavorfreqpct", StringComparison.OrdinalIgnoreCase) && long.TryParse(Tokens[CurrToken + 1], out longValue) && longValue >= 0 && longValue <= 100)
 				{
 					settingsCommand.FlavorFreqPct = longValue;
 

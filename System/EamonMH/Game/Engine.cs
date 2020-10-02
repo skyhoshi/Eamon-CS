@@ -204,32 +204,32 @@ namespace EamonMH.Game
 
 			for (i = 0; i < Globals.Argv.Length; i++)
 			{
-				if (string.Equals(Globals.Argv[i], "--workingDirectory", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-wd", StringComparison.OrdinalIgnoreCase))
+				if (Globals.Argv[i].Equals("--workingDirectory", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-wd", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
 						// do nothing
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--filePrefix", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-fp", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--filePrefix", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-fp", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
 						// do nothing
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--ignoreMutex", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-im", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--ignoreMutex", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-im", StringComparison.OrdinalIgnoreCase))
 				{
 					// do nothing
 				}
-				else if (string.Equals(Globals.Argv[i], "--configFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-cfgfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--configFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-cfgfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && !secondPass)
 					{
 						Globals.ConfigFileName = Globals.Argv[i].Trim();
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--filesetFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-fsfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--filesetFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-fsfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && secondPass)
 					{
@@ -238,7 +238,7 @@ namespace EamonMH.Game
 						Globals.ConfigsModified = true;
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--characterFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-chrfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--characterFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-chrfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && secondPass)
 					{
@@ -247,7 +247,7 @@ namespace EamonMH.Game
 						Globals.ConfigsModified = true;
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--effectFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-efn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--effectFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-efn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && secondPass)
 					{
@@ -256,7 +256,7 @@ namespace EamonMH.Game
 						Globals.ConfigsModified = true;
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--characterName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-chrnm", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--characterName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-chrnm", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && secondPass)
 					{

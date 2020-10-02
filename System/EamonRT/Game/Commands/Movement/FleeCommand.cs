@@ -163,6 +163,8 @@ namespace EamonRT.Game.Commands
 
 		public FleeCommand()
 		{
+			Synonyms = new string[] { "retreat", "escape" };
+
 			SortOrder = 100;
 
 			IsDarkEnabled = true;

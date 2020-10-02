@@ -44,11 +44,13 @@ namespace EamonRT.Game.States
 
 				if (RestoreGame)
 				{
-					Globals.CommandParser.Clear();
+					gSentenceParser.Clear();
 
-					Globals.CommandParser.ActorMonster = gCharMonster;
+					gCommandParser.Clear();
 
-					Globals.CommandParser.InputBuf.SetFormat("restore");
+					gCommandParser.ActorMonster = gCharMonster;
+
+					gCommandParser.InputBuf.SetFormat("restore");
 
 					if (NextState == null)
 					{

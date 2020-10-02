@@ -38,7 +38,7 @@ namespace Eamon.Game.Helpers
 				Environment.NewLine,
 				gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Desc"), null),
 				Record.Desc,
-				string.Equals(ErrorFieldName, "Desc", StringComparison.OrdinalIgnoreCase) ? "" : Environment.NewLine);
+				ErrorFieldName.Equals("Desc", StringComparison.OrdinalIgnoreCase) ? "" : Environment.NewLine);
 		}
 
 		#region GetPrintedName Methods

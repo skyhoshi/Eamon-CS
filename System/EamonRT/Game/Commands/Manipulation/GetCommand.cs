@@ -477,6 +477,8 @@ namespace EamonRT.Game.Commands
 
 		public GetCommand()
 		{
+			Synonyms = new string[] { "take" };
+
 			SortOrder = 160;
 
 			Name = "GetCommand";

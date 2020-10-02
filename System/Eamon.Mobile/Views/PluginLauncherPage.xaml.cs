@@ -46,7 +46,7 @@ namespace Eamon.Mobile.Views
 
 		public async void SetInputTextNoEvents(string value)
 		{
-			if (viewModel.InputText == null || !string.Equals(viewModel.InputText, value, StringComparison.Ordinal))
+			if (viewModel.InputText == null || !viewModel.InputText.Equals(value, StringComparison.Ordinal))
 			{
 				InputEntry.TextChanged -= InputEntry_TextChanged;
 

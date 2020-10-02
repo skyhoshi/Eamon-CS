@@ -26,7 +26,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				// Beholder's clumsiness spells only work on non-group monsters
 
-				if (ActorMonster.Uid == 36 && string.Equals(gActorMonster(this).AttackDesc, "cast{0} a clumsiness spell on", StringComparison.OrdinalIgnoreCase) && DobjMonster.OrigGroupCount > 1)
+				if (ActorMonster.Uid == 36 && gActorMonster(this).AttackDesc.Equals("cast{0} a clumsiness spell on", StringComparison.OrdinalIgnoreCase) && DobjMonster.OrigGroupCount > 1)
 				{
 					gGameState.ClumsySpells--;
 				}
@@ -37,13 +37,6 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 			}
 
 			base.MonsterExecute();
-		}
-
-		public AttackCommand()
-		{
-			// Synonyms can be applied to verbs as well
-
-			Synonyms = new string[] { "kill" };
 		}
 	}
 }

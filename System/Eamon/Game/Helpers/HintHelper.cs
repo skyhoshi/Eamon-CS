@@ -35,11 +35,11 @@ namespace Eamon.Game.Helpers
 
 			gOut.Write("{0}{1}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Uid"), null), Record.Uid);
 
-			if (string.Equals(ErrorFieldName, "Question", StringComparison.OrdinalIgnoreCase))
+			if (ErrorFieldName.Equals("Question", StringComparison.OrdinalIgnoreCase))
 			{
 				gOut.WriteLine("{0}{1}{0}{0}{2}", Environment.NewLine, gEngine.BuildPrompt(27, '.', 0, GetPrintedName("Question"), null), Record.Question);
 			}
-			else if (string.Equals(ErrorFieldName, "AnswersElement", StringComparison.OrdinalIgnoreCase))
+			else if (ErrorFieldName.Equals("AnswersElement", StringComparison.OrdinalIgnoreCase))
 			{
 				var i = Index;
 

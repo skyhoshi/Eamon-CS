@@ -159,7 +159,7 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 
 			// Bypass damage calculation for beholder clumsiness spell and water weird envelopment
 
-			if ((OfMonster?.Uid == 36 && string.Equals(beholderMonster.AttackDesc, "cast{0} a clumsiness spell on", StringComparison.OrdinalIgnoreCase)) || (OfMonster?.Uid == 38 && string.Equals(waterWeirdMonster.AttackDesc, "envelop{0}", StringComparison.OrdinalIgnoreCase)))
+			if ((OfMonster?.Uid == 36 && beholderMonster.AttackDesc.Equals("cast{0} a clumsiness spell on", StringComparison.OrdinalIgnoreCase)) || (OfMonster?.Uid == 38 && waterWeirdMonster.AttackDesc.Equals("envelop{0}", StringComparison.OrdinalIgnoreCase)))
 			{
 				CombatState = RTEnums.CombatState.CheckMonsterStatus;
 			}
@@ -181,7 +181,7 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 
 			// Bypass armor check for beholder clumsiness spell and water weird envelopment
 
-			if ((OfMonster?.Uid == 36 && string.Equals(beholderMonster.AttackDesc, "cast{0} a clumsiness spell on", StringComparison.OrdinalIgnoreCase)) || (OfMonster?.Uid == 38 && string.Equals(waterWeirdMonster.AttackDesc, "envelop{0}", StringComparison.OrdinalIgnoreCase)))
+			if ((OfMonster?.Uid == 36 && beholderMonster.AttackDesc.Equals("cast{0} a clumsiness spell on", StringComparison.OrdinalIgnoreCase)) || (OfMonster?.Uid == 38 && waterWeirdMonster.AttackDesc.Equals("envelop{0}", StringComparison.OrdinalIgnoreCase)))
 			{
 				CombatState = RTEnums.CombatState.CheckMonsterStatus;
 			}
@@ -303,7 +303,7 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 
 				Debug.Assert(carrionCrawlerMonster != null);
 
-				if (DfMonster.Uid != 50 && string.Equals(carrionCrawlerMonster.AttackDesc, "flail{0} at", StringComparison.OrdinalIgnoreCase) && rl > 50)
+				if (DfMonster.Uid != 50 && carrionCrawlerMonster.AttackDesc.Equals("flail{0} at", StringComparison.OrdinalIgnoreCase) && rl > 50)
 				{
 					var saved = DfMonster.IsCharacterMonster() ? gEngine.SaveThrow(Stat.Hardiness) : rl > 80;
 
@@ -377,7 +377,7 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 
 				Debug.Assert(beholderMonster != null);
 
-				if (string.Equals(beholderMonster.AttackDesc, "cast{0} a clumsiness spell on", StringComparison.OrdinalIgnoreCase))
+				if (beholderMonster.AttackDesc.Equals("cast{0} a clumsiness spell on", StringComparison.OrdinalIgnoreCase))
 				{
 					var saved = DfMonster.IsCharacterMonster() ? gEngine.SaveThrow(Stat.Intellect) : rl > 50;
 
@@ -433,7 +433,7 @@ namespace TheVileGrimoireOfJaldial.Game.Combat
 
 				Debug.Assert(waterWeirdMonster != null);
 
-				if (string.Equals(waterWeirdMonster.AttackDesc, "envelop{0}", StringComparison.OrdinalIgnoreCase))
+				if (waterWeirdMonster.AttackDesc.Equals("envelop{0}", StringComparison.OrdinalIgnoreCase))
 				{
 					var saved = DfMonster.IsCharacterMonster() ? gEngine.SaveThrow(Stat.Hardiness) : rl > 40;
 

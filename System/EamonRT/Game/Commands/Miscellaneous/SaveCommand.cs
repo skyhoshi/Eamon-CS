@@ -131,7 +131,7 @@ namespace EamonRT.Game.Commands
 
 			if (SaveName.Length == 0)
 			{
-				if (!string.Equals(SaveFileset.Name, "(none)", StringComparison.OrdinalIgnoreCase))
+				if (!SaveFileset.Name.Equals("(none)", StringComparison.OrdinalIgnoreCase))
 				{
 					gOut.Write("{0}Change name of save (Y/N): ", Environment.NewLine);
 
@@ -147,7 +147,7 @@ namespace EamonRT.Game.Commands
 					}
 				}
 
-				while (string.Equals(SaveFileset.Name, "(none)", StringComparison.OrdinalIgnoreCase))
+				while (SaveFileset.Name.Equals("(none)", StringComparison.OrdinalIgnoreCase))
 				{
 					gOut.Write("{0}Enter new name: ", Environment.NewLine);
 
@@ -157,7 +157,7 @@ namespace EamonRT.Game.Commands
 
 					Debug.Assert(gEngine.IsSuccess(rc));
 
-					Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\s+", " ").ToLower().Trim());
+					Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\s+", " ").Trim());
 
 					SaveFileset.Name = gEngine.Capitalize(Globals.Buf.ToString());
 
@@ -169,7 +169,7 @@ namespace EamonRT.Game.Commands
 			}
 			else
 			{
-				if (!string.Equals(SaveFileset.Name, "(none)", StringComparison.OrdinalIgnoreCase) && string.Equals(SaveName, "Quick Saved Game", StringComparison.OrdinalIgnoreCase))
+				if (!SaveFileset.Name.Equals("(none)", StringComparison.OrdinalIgnoreCase) && SaveName.Equals("Quick Saved Game", StringComparison.OrdinalIgnoreCase))
 				{
 					SaveName = Globals.CloneInstance(SaveFileset.Name);
 				}
@@ -392,6 +392,8 @@ namespace EamonRT.Game.Commands
 		public SaveCommand()
 		{
 			SortOrder = 410;
+
+			IsSentenceParserEnabled = false;
 
 			IsDarkEnabled = true;
 

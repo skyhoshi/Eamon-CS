@@ -289,7 +289,7 @@ namespace EamonPM.Game.Portability
 
 				var s = Buf.ToString();
 
-				if (Buf.Length > 0 && !string.Equals(s, Environment.NewLine) && !string.Equals(s, TwoNewLines))
+				if (Buf.Length > 0 && !s.Equals(Environment.NewLine) && !s.Equals(TwoNewLines))
 				{
 					NumNewLines = Buf.EndsWith(TwoNewLines) ? 2 : Buf.EndsWith(Environment.NewLine) ? 1 : 0;
 				}

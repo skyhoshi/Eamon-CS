@@ -25,7 +25,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				// Fly FBA today and get there faster!
 
-				if (string.Equals(ProcessedPhrase, "*d", StringComparison.OrdinalIgnoreCase))
+				if (ProcessedPhrase.Equals("*d", StringComparison.OrdinalIgnoreCase))
 				{
 					PrintedPhrase = "Dodge.";
 
@@ -34,7 +34,7 @@ namespace ARuncibleCargo.Game.Commands
 					found = true;
 				}
 
-				if (string.Equals(ProcessedPhrase, "*f", StringComparison.OrdinalIgnoreCase))
+				if (ProcessedPhrase.Equals("*f", StringComparison.OrdinalIgnoreCase))
 				{
 					PrintedPhrase = "Frukendorf.";
 
@@ -43,7 +43,7 @@ namespace ARuncibleCargo.Game.Commands
 					found = true;
 				}
 
-				if (string.Equals(ProcessedPhrase, "*h", StringComparison.OrdinalIgnoreCase))
+				if (ProcessedPhrase.Equals("*h", StringComparison.OrdinalIgnoreCase))
 				{
 					PrintedPhrase = "Main Hall.";
 
@@ -52,7 +52,7 @@ namespace ARuncibleCargo.Game.Commands
 					found = true;
 				}
 
-				if (string.Equals(ProcessedPhrase, "*m", StringComparison.OrdinalIgnoreCase))
+				if (ProcessedPhrase.Equals("*m", StringComparison.OrdinalIgnoreCase))
 				{
 					PrintedPhrase = "Mudville.";
 
@@ -81,7 +81,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				// Verify Runcible Cargo before allowing travel to Frukendorf
 
-				if ((ActorRoom.Uid == 28 || ActorRoom.Uid == 89 || ActorRoom.Uid == 90) && string.Equals(ProcessedPhrase, "frukendorf", StringComparison.OrdinalIgnoreCase))
+				if ((ActorRoom.Uid == 28 || ActorRoom.Uid == 89 || ActorRoom.Uid == 90) && ProcessedPhrase.Equals("frukendorf", StringComparison.OrdinalIgnoreCase))
 				{
 					if (EnemiesInRoom())
 					{
@@ -108,7 +108,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				if (ActorRoom.Uid == 28)
 				{
-					if (string.Equals(ProcessedPhrase, "dodge", StringComparison.OrdinalIgnoreCase))
+					if (ProcessedPhrase.Equals("dodge", StringComparison.OrdinalIgnoreCase))
 					{
 						if (EnemiesInRoom())
 						{
@@ -120,7 +120,7 @@ namespace ARuncibleCargo.Game.Commands
 						goto Cleanup;
 					}
 
-					if (string.Equals(ProcessedPhrase, "mudville", StringComparison.OrdinalIgnoreCase))
+					if (ProcessedPhrase.Equals("mudville", StringComparison.OrdinalIgnoreCase))
 					{
 						if (EnemiesInRoom())
 						{
@@ -137,7 +137,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				if (ActorRoom.Uid == 89)
 				{
-					if (string.Equals(ProcessedPhrase, "main hall", StringComparison.OrdinalIgnoreCase))
+					if (ProcessedPhrase.Equals("main hall", StringComparison.OrdinalIgnoreCase))
 					{
 						if (EnemiesInRoom())
 						{
@@ -149,7 +149,7 @@ namespace ARuncibleCargo.Game.Commands
 						goto Cleanup;
 					}
 
-					if (string.Equals(ProcessedPhrase, "mudville", StringComparison.OrdinalIgnoreCase))
+					if (ProcessedPhrase.Equals("mudville", StringComparison.OrdinalIgnoreCase))
 					{
 						if (EnemiesInRoom())
 						{
@@ -166,7 +166,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				if (ActorRoom.Uid == 90)
 				{
-					if (string.Equals(ProcessedPhrase, "dodge", StringComparison.OrdinalIgnoreCase))
+					if (ProcessedPhrase.Equals("dodge", StringComparison.OrdinalIgnoreCase))
 					{
 						if (EnemiesInRoom())
 						{
@@ -178,7 +178,7 @@ namespace ARuncibleCargo.Game.Commands
 						goto Cleanup;
 					}
 
-					if (string.Equals(ProcessedPhrase, "main hall", StringComparison.OrdinalIgnoreCase))
+					if (ProcessedPhrase.Equals("main hall", StringComparison.OrdinalIgnoreCase))
 					{
 						if (EnemiesInRoom())
 						{
@@ -193,7 +193,7 @@ namespace ARuncibleCargo.Game.Commands
 
 				// Route 66: Frukendorf Station
 
-				if (ActorRoom.Uid == 91 && (string.Equals(ProcessedPhrase, "main hall", StringComparison.OrdinalIgnoreCase) || string.Equals(ProcessedPhrase, "dodge", StringComparison.OrdinalIgnoreCase) || string.Equals(ProcessedPhrase, "mudville", StringComparison.OrdinalIgnoreCase)))
+				if (ActorRoom.Uid == 91 && (ProcessedPhrase.Equals("main hall", StringComparison.OrdinalIgnoreCase) || ProcessedPhrase.Equals("dodge", StringComparison.OrdinalIgnoreCase) || ProcessedPhrase.Equals("mudville", StringComparison.OrdinalIgnoreCase)))
 				{
 					if (!cargoArtifact.IsCarriedByMonster(princeMonster))
 					{
@@ -211,7 +211,7 @@ namespace ARuncibleCargo.Game.Commands
 						goto Cleanup;
 					}
 
-					if (string.Equals(ProcessedPhrase, "dodge", StringComparison.OrdinalIgnoreCase) || string.Equals(ProcessedPhrase, "mudville", StringComparison.OrdinalIgnoreCase))
+					if (ProcessedPhrase.Equals("dodge", StringComparison.OrdinalIgnoreCase) || ProcessedPhrase.Equals("mudville", StringComparison.OrdinalIgnoreCase))
 					{
 						gEngine.PrintEffectDesc(141);
 

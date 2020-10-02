@@ -26,7 +26,7 @@ namespace Eamon.Mobile.Views
 
 			if (!string.IsNullOrWhiteSpace(folder))
 			{
-				if (string.Equals(folder, "Documentation", StringComparison.OrdinalIgnoreCase))
+				if (folder.Equals("Documentation", StringComparison.OrdinalIgnoreCase))
 				{
 					await Navigation.PushAsync(new DocumentationPage());
 				}

@@ -62,6 +62,9 @@ namespace EamonRT.Framework.Plugin
 		IMainLoop MainLoop { get; set; }
 
 		/// <summary></summary>
+		ISentenceParser SentenceParser { get; set; }
+
+		/// <summary></summary>
 		ICommandParser CommandParser { get; set; }
 
 		/// <summary></summary>

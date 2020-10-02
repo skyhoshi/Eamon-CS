@@ -476,7 +476,7 @@
             <Simple name="Uid" value="14" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="specter" />
-            <Simple name="Desc" value="You see a human, who reaches out to touch you.  As he draws near, he appears to be transparent." />
+            <Simple name="Desc" value="You see a human who reaches out to touch you.  As he draws near, he appears to be transparent." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="A" />

@@ -34,7 +34,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				// Summon efreeti
 
-				if ((parchmentArtifact.IsCarriedByCharacter() || parchmentArtifact.IsInRoom(ActorRoom)) && efreetiMonster.IsInLimbo() && string.Equals(ProcessedPhrase, "rinnuk aukasker frudasdus", StringComparison.OrdinalIgnoreCase))
+				if ((parchmentArtifact.IsCarriedByCharacter() || parchmentArtifact.IsInRoom(ActorRoom)) && efreetiMonster.IsInLimbo() && ProcessedPhrase.Equals("rinnuk aukasker frudasdus", StringComparison.OrdinalIgnoreCase))
 				{
 					if (!gGameState.EfreetiKilled && ++gGameState.EfreetiSummons <= 3)
 					{
@@ -52,7 +52,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				// Kill water weird
 
-				else if (waterWeirdMonster.IsInRoom(ActorRoom) && string.Equals(ProcessedPhrase, "avarchrom yarei uttoximo", StringComparison.OrdinalIgnoreCase))
+				else if (waterWeirdMonster.IsInRoom(ActorRoom) && ProcessedPhrase.Equals("avarchrom yarei uttoximo", StringComparison.OrdinalIgnoreCase))
 				{
 					gOut.Print("{0} jolts violently several times and then disintegrates.", waterWeirdMonster.GetTheName(true));
 

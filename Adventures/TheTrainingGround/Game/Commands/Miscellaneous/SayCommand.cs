@@ -23,7 +23,7 @@ namespace TheTrainingGround.Game.Commands
 
 				Debug.Assert(hammerArtifact != null);
 
-				var magicWordsSpoken = string.Equals(ProcessedPhrase, "thor", StringComparison.OrdinalIgnoreCase) || string.Equals(ProcessedPhrase, "thor's hammer", StringComparison.OrdinalIgnoreCase);
+				var magicWordsSpoken = ProcessedPhrase.Equals("thor", StringComparison.OrdinalIgnoreCase) || ProcessedPhrase.Equals("thor's hammer", StringComparison.OrdinalIgnoreCase);
 
 				var hammerPresent = hammerArtifact.IsCarriedByCharacter() || hammerArtifact.IsInRoom(ActorRoom);
 

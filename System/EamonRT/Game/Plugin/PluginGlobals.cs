@@ -64,6 +64,8 @@ namespace EamonRT.Game.Plugin
 
 		public virtual IMainLoop MainLoop { get; set; }
 
+		public virtual ISentenceParser SentenceParser { get; set; }
+
 		public virtual ICommandParser CommandParser { get; set; }
 
 		public virtual IState CurrState 
@@ -195,6 +197,8 @@ namespace EamonRT.Game.Plugin
 			IntroStory = CreateInstance<IIntroStory>();
 
 			MainLoop = CreateInstance<IMainLoop>();
+
+			SentenceParser = CreateInstance<ISentenceParser>();
 
 			CommandParser = CreateInstance<ICommandParser>();
 

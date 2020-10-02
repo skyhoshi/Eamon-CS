@@ -94,6 +94,14 @@ namespace TheTempleOfNgurct.Game.Plugin
 			}
 		}
 
+		public static EamonRT.Framework.Parsing.ISentenceParser gSentenceParser
+		{
+			get
+			{
+				return (EamonRT.Framework.Parsing.ISentenceParser)EamonRT.Game.Plugin.PluginContext.gSentenceParser;
+			}
+		}
+
 		public static EamonRT.Framework.Parsing.ICommandParser gCommandParser
 		{
 			get

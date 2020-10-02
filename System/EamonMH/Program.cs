@@ -312,9 +312,9 @@ namespace EamonMH
 
 					// auto load character if necessary
 
-					if (Globals.CharacterName.Length > 0 && !string.Equals(Globals.CharacterName, "NONE", StringComparison.OrdinalIgnoreCase))
+					if (Globals.CharacterName.Length > 0 && !Globals.CharacterName.Equals("NONE", StringComparison.OrdinalIgnoreCase))
 					{
-						Globals.Character = Globals.Database.CharacterTable.Records.FirstOrDefault(c => string.Equals(c.Name, Globals.CharacterName, StringComparison.OrdinalIgnoreCase));
+						Globals.Character = Globals.Database.CharacterTable.Records.FirstOrDefault(c => c.Name.Equals(Globals.CharacterName, StringComparison.OrdinalIgnoreCase));
 
 						if (Globals.Character == null || Globals.Character.Uid <= 0 || Globals.Character.Status != Status.Alive)
 						{

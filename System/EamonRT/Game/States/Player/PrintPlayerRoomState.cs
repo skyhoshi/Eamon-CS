@@ -22,7 +22,12 @@ namespace EamonRT.Game.States
 				goto Cleanup;
 			}
 
-			gEngine.PrintPlayerRoom();
+			// If we've run out of player input print player Room
+
+			if (string.IsNullOrWhiteSpace(gSentenceParser.ParserInputStr))
+			{
+				gEngine.PrintPlayerRoom();
+			}
 
 		Cleanup:
 

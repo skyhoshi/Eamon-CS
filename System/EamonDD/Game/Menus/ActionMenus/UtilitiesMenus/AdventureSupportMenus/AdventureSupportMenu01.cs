@@ -452,7 +452,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				AdventureName = new string((from char ch in tempStr where gEngine.IsCharAlnum(ch) select ch).ToArray());
 
-				if (AdventureName.Length > 0 && (gEngine.IsCharDigit(AdventureName[0]) || invalidAdventureNames.FirstOrDefault(n => string.Equals(AdventureName, n, StringComparison.OrdinalIgnoreCase)) != null))
+				if (AdventureName.Length > 0 && (gEngine.IsCharDigit(AdventureName[0]) || invalidAdventureNames.FirstOrDefault(n => AdventureName.Equals(n, StringComparison.OrdinalIgnoreCase)) != null))
 				{
 					AdventureName = string.Empty;
 				}
@@ -579,7 +579,7 @@ namespace YourAdventureName.YourGameNamespaceName
 					{
 						SelectedAdvDbTextFileList.Add(advDbTextFile);
 
-						if (!string.Equals(advDbTextFile, "ADVENTURES.XML"))
+						if (!advDbTextFile.Equals("ADVENTURES.XML"))
 						{
 							inputDefaultValue = "N";
 						}
@@ -614,7 +614,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				if (customAdvDbTextFile.Length > 0)
 				{
-					if (SelectedAdvDbTextFileList.FirstOrDefault(fn => string.Equals(fn, customAdvDbTextFile, StringComparison.OrdinalIgnoreCase)) == null)
+					if (SelectedAdvDbTextFileList.FirstOrDefault(fn => fn.Equals(customAdvDbTextFile, StringComparison.OrdinalIgnoreCase)) == null)
 					{
 							SelectedAdvDbTextFileList.Add(customAdvDbTextFile);
 					}
@@ -769,7 +769,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 					var yourEamonRTUsingStatement = string.Empty;
 
-					if (string.Equals(eamonLibraryName, "Eamon"))
+					if (eamonLibraryName.Equals("Eamon"))
 					{
 						yourEamonUsingStatement = string.Format("using {0}.{1};{2}", eamonLibraryName, yourFrameworkNamespaceName, Environment.NewLine);
 					}
@@ -925,7 +925,7 @@ namespace YourAdventureName.YourGameNamespaceName
 				}
 				else
 				{
-					var fileset = Globals.Database.FilesetTable.Records.FirstOrDefault(fs => string.Equals(fs.WorkDir, Constants.AdventuresDir + @"\" + AdventureName, StringComparison.OrdinalIgnoreCase));
+					var fileset = Globals.Database.FilesetTable.Records.FirstOrDefault(fs => fs.WorkDir.Equals(Constants.AdventuresDir + @"\" + AdventureName, StringComparison.OrdinalIgnoreCase));
 
 					if (fileset != null)
 					{
@@ -952,7 +952,7 @@ namespace YourAdventureName.YourGameNamespaceName
 			{
 				var className = Globals.Path.GetFileNameWithoutExtension(selectedClassFile);
 
-				var fileName = @".\" + className.ToUpper() + (string.Equals(className, "Module") ? ".XML" : "S.XML");
+				var fileName = @".\" + className.ToUpper() + (className.Equals("Module") ? ".XML" : "S.XML");
 
 				if (Globals.File.Exists(fileName))
 				{

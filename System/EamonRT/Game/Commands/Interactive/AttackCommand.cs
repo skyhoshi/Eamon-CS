@@ -386,6 +386,8 @@ namespace EamonRT.Game.Commands
 
 		public AttackCommand()
 		{
+			Synonyms = new string[] { "kill" };
+
 			SortOrder = 250;
 
 			Name = "AttackCommand";

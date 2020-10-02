@@ -205,6 +205,14 @@ namespace EamonRT.Framework
 		IArtifact GetBlockedDirectionArtifact(long ro, long r2, Direction dir);
 
 		/// <summary></summary>
+		/// <param name="monster"></param>
+		/// <param name="token"></param>
+		/// <param name="synonymMatch"></param>
+		/// <param name="partialMatch"></param>
+		/// <returns></returns>
+		ICommand GetCommandUsingToken(IMonster monster, string token, bool synonymMatch = true, bool partialMatch = true);
+
+		/// <summary></summary>
 		/// <param name="room"></param>
 		/// <param name="artifact"></param>
 		/// <param name="found"></param>
@@ -319,6 +327,21 @@ namespace EamonRT.Framework
 		/// <param name="newSeen"></param>
 		/// <returns></returns>
 		RetCode BuildCommandList(IList<ICommand> commands, CommandType cmdType, StringBuilder buf, ref bool newSeen);
+
+		/// <summary></summary>
+		/// <param name="buf"></param>
+		/// <returns></returns>
+		StringBuilder NormalizePlayerInput(StringBuilder buf);
+
+		/// <summary></summary>
+		/// <param name="buf"></param>
+		/// <returns></returns>
+		StringBuilder ReplacePrepositions(StringBuilder buf);
+
+		/// <summary></summary>
+		/// <param name="command"></param>
+		/// <returns></returns>
+		bool IsQuotedStringCommand(ICommand command);
 
 		/// <summary></summary>
 		/// <param name="room"></param>

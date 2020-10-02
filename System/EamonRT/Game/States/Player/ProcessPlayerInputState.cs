@@ -15,20 +15,23 @@ namespace EamonRT.Game.States
 	{
 		public override void Execute()
 		{
-			Globals.CommandParser.Execute();
+			gCommandParser.Execute();
 
-			Globals.LastCommandList.Clear();
-
-			ProcessEvents(EventType.AfterLastCommandListClear);
-
-			if (GotoCleanup)
+			if (gCommandParser.NextState == null || !(gCommandParser.NextState is IGetPlayerInputState gpis) || !gpis.RestartCommand)
 			{
-				goto Cleanup;
+				Globals.LastCommandList.Clear();
+
+				ProcessEvents(EventType.AfterLastCommandListClear);
+
+				if (GotoCleanup)
+				{
+					goto Cleanup;
+				}
 			}
 
-			NextState = Globals.CommandParser.NextState;
+			NextState = gCommandParser.NextState;
 
-			Globals.CommandParser.Clear();
+			gCommandParser.Clear();
 
 		Cleanup:
 

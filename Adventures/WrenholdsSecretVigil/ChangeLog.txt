@@ -5,7 +5,8 @@ ChangeLog: WrenholdsSecretVigil
 
 Date			Version			Who			Notes
 ----------------------------------------------------------------------------------------------------------------------------------
-20200116		1.6.0				MP 			PluginContext convenience property overhaul
+20200930		1.6.0				MP 			Full-sentence parser overhaul
+20200116		   				MP 			PluginContext convenience property overhaul
 20190601							MP 			ContainerType overhaul
 20190225		1.5.0				MP 			Using Enums/Classes overhaul
 20181102		   				MP 			Rename CharacterWeapon to CharacterArtifact

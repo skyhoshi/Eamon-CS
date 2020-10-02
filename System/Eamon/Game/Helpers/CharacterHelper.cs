@@ -1374,10 +1374,24 @@ namespace Eamon.Game.Helpers
 			if (Record.IsArmorActive())
 			{
 				result = !string.IsNullOrWhiteSpace(Record.Armor.Name) && Record.Armor.Name.Length <= Constants.CharArtNameLen;
+
+				if (result)
+				{
+					var recordArmorName = string.Format(" {0} ", Record.Armor.Name.ToLower());
+
+					result = Array.FindIndex(Constants.CommandSepTokens, token => !Char.IsPunctuation(token[0]) ? recordArmorName.IndexOf(" " + token + " ") >= 0 : recordArmorName.IndexOf(token) >= 0) < 0;
+
+					if (result)
+					{
+						result = Array.FindIndex(Constants.PronounTokens, token => recordArmorName.IndexOf(" " + token + " ") >= 0) < 0;
+					}
+
+					// TODO: might need to disallow verb name matches as well
+				}
 			}
 			else
 			{
-				result = Record.Armor.Name != null && (Record.Armor.Name == "" || string.Equals(Record.Armor.Name, "NONE", StringComparison.OrdinalIgnoreCase));
+				result = Record.Armor.Name != null && (Record.Armor.Name == "" || Record.Armor.Name.Equals("NONE", StringComparison.OrdinalIgnoreCase));
 			}
 
 			return result;
@@ -1571,10 +1585,24 @@ namespace Eamon.Game.Helpers
 			if (Record.IsShieldActive())
 			{
 				result = !string.IsNullOrWhiteSpace(Record.Shield.Name) && Record.Shield.Name.Length <= Constants.CharArtNameLen;
+
+				if (result)
+				{
+					var recordShieldName = string.Format(" {0} ", Record.Shield.Name.ToLower());
+
+					result = Array.FindIndex(Constants.CommandSepTokens, token => !Char.IsPunctuation(token[0]) ? recordShieldName.IndexOf(" " + token + " ") >= 0 : recordShieldName.IndexOf(token) >= 0) < 0;
+
+					if (result)
+					{
+						result = Array.FindIndex(Constants.PronounTokens, token => recordShieldName.IndexOf(" " + token + " ") >= 0) < 0;
+					}
+
+					// TODO: might need to disallow verb name matches as well
+				}
 			}
 			else
 			{
-				result = Record.Shield.Name != null && (Record.Shield.Name == "" || string.Equals(Record.Shield.Name, "NONE", StringComparison.OrdinalIgnoreCase));
+				result = Record.Shield.Name != null && (Record.Shield.Name == "" || Record.Shield.Name.Equals("NONE", StringComparison.OrdinalIgnoreCase));
 			}
 
 			return result;
@@ -1804,10 +1832,24 @@ namespace Eamon.Game.Helpers
 						}
 					}
 				}
+
+				if (result)
+				{
+					var recordWeaponName = string.Format(" {0} ", Record.GetWeapons(i).Name.ToLower());
+
+					result = Array.FindIndex(Constants.CommandSepTokens, token => !Char.IsPunctuation(token[0]) ? recordWeaponName.IndexOf(" " + token + " ") >= 0 : recordWeaponName.IndexOf(token) >= 0) < 0;
+
+					if (result)
+					{
+						result = Array.FindIndex(Constants.PronounTokens, token => recordWeaponName.IndexOf(" " + token + " ") >= 0) < 0;
+					}
+
+					// TODO: might need to disallow verb name matches as well
+				}
 			}
 			else
 			{
-				result = Record.GetWeapons(i).Name != null && (Record.GetWeapons(i).Name == "" || string.Equals(Record.GetWeapons(i).Name, "NONE", StringComparison.OrdinalIgnoreCase));
+				result = Record.GetWeapons(i).Name != null && (Record.GetWeapons(i).Name == "" || Record.GetWeapons(i).Name.Equals("NONE", StringComparison.OrdinalIgnoreCase));
 			}
 
 			return result;
@@ -3366,7 +3408,7 @@ namespace Eamon.Game.Helpers
 
 				if (Record.IsWeaponActive(i))
 				{
-					var clearExtraFields = !string.Equals(Record.GetWeapons(i).Name, name, StringComparison.OrdinalIgnoreCase);
+					var clearExtraFields = !Record.GetWeapons(i).Name.Equals(name, StringComparison.OrdinalIgnoreCase);
 
 					if (EditRec && (Record.GetWeapons(i).Field3 == 0 || Record.GetWeapons(i).Field4 == 0))
 					{

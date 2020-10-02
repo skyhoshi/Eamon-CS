@@ -67,7 +67,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 				Debug.Assert(gEngine.IsSuccess(rc));
 
-				if (!string.IsNullOrWhiteSpace(fileset.FilesetFileName) && !string.Equals(fileset.FilesetFileName, "NONE", StringComparison.OrdinalIgnoreCase))
+				if (!string.IsNullOrWhiteSpace(fileset.FilesetFileName) && !fileset.FilesetFileName.Equals("NONE", StringComparison.OrdinalIgnoreCase))
 				{
 					var fsfn = Globals.Path.Combine(fileset.WorkDir, fileset.FilesetFileName);
 
@@ -89,7 +89,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						var character = Globals.Database.CharacterTable.Records.FirstOrDefault();
 
-						if (character != null && character.Uid == Globals.Character.Uid && string.Equals(character.Name, Globals.Character.Name, StringComparison.OrdinalIgnoreCase))
+						if (character != null && character.Uid == Globals.Character.Uid && character.Name.Equals(Globals.Character.Name, StringComparison.OrdinalIgnoreCase))
 						{
 							AdventureName = fileset.Name;
 
@@ -376,7 +376,7 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 					gOut.Print("He starts looking through his book, while muttering something about {0}", effect != null ? effect.Desc : "not having enough snappy comments.");
 
-					Globals.Character = Globals.Database.CharacterTable.Records.Where(c => string.Equals(c.Name, character.Name, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+					Globals.Character = Globals.Database.CharacterTable.Records.Where(c => c.Name.Equals(character.Name, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
 
 					if (Globals.Character == null)
 					{

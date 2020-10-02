@@ -158,7 +158,7 @@
             <Simple name="NwSides" value="4" />
             <Simple name="DeadBody" value="20" />
             <Simple name="Friendliness" value="Enemy" />
-            <Simple name="Gender" value="Male" />
+            <Simple name="Gender" value="Neutral" />
             <Simple name="InitGroupCount" value="0" />
             <Simple name="OrigGroupCount" value="1" />
             <Simple name="DmgTaken" value="0" />

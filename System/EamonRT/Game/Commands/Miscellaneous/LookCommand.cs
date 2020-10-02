@@ -28,6 +28,8 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 330;
 
+			IsDobjPrepEnabled = true;
+
 			Name = "LookCommand";
 
 			Verb = "look";

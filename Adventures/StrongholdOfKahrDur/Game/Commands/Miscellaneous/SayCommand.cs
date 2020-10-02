@@ -23,7 +23,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 			{
 				// Restore monster stats to average for testing/debugging
 
-				if (string.Equals(ProcessedPhrase, "*brutis", StringComparison.OrdinalIgnoreCase))
+				if (ProcessedPhrase.Equals("*brutis", StringComparison.OrdinalIgnoreCase))
 				{
 					var artUid = ActorMonster.Weapon;
 
@@ -46,7 +46,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// If the cauldron is present and the spell components (see effect #50) are in it then begin the spell casting process
 
-				if (string.Equals(ProcessedPhrase, "knock nikto mellon", StringComparison.OrdinalIgnoreCase) && (cauldronArtifact.IsCarriedByCharacter() || cauldronArtifact.IsInRoom(ActorRoom)) && gEngine.SpellReagentsInCauldron(cauldronArtifact))
+				if (ProcessedPhrase.Equals("knock nikto mellon", StringComparison.OrdinalIgnoreCase) && (cauldronArtifact.IsCarriedByCharacter() || cauldronArtifact.IsInRoom(ActorRoom)) && gEngine.SpellReagentsInCauldron(cauldronArtifact))
 				{
 					gEngine.PrintEffectDesc(51);
 
@@ -59,7 +59,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// Player will agree to free the Lich
 
-				if (string.Equals(ProcessedPhrase, "i will free you", StringComparison.OrdinalIgnoreCase) && ActorRoom.Uid == 109 && lichMonster.IsInRoom(ActorRoom) && lichMonster.Friendliness > Friendliness.Enemy && gGameState.LichState < 2)
+				if (ProcessedPhrase.Equals("i will free you", StringComparison.OrdinalIgnoreCase) && ActorRoom.Uid == 109 && lichMonster.IsInRoom(ActorRoom) && lichMonster.Friendliness > Friendliness.Enemy && gGameState.LichState < 2)
 				{
 					gEngine.PrintEffectDesc(54);
 
@@ -68,7 +68,7 @@ namespace StrongholdOfKahrDur.Game.Commands
 
 				// Player actually frees the Lich
 
-				if (string.Equals(ProcessedPhrase, "barada lhain", StringComparison.OrdinalIgnoreCase) && ActorRoom.Uid == 109 && lichMonster.IsInRoom(ActorRoom) && gGameState.LichState == 1)
+				if (ProcessedPhrase.Equals("barada lhain", StringComparison.OrdinalIgnoreCase) && ActorRoom.Uid == 109 && lichMonster.IsInRoom(ActorRoom) && gGameState.LichState == 1)
 				{
 					var helmArtifact = gADB[25];
 

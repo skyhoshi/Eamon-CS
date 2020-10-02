@@ -35,6 +35,12 @@ namespace EamonRT.Framework.States
 		void PrintObjBlocksTheWay(IArtifact artifact);
 
 		/// <summary></summary>
+		void PrintDontFollowYou();
+
+		/// <summary></summary>
+		void PrintDontFollowYou02();
+
+		/// <summary></summary>
 		void PrintCantGoThatWay();
 
 		/// <summary></summary>

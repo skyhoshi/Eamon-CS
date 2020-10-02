@@ -8,6 +8,7 @@ using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
 using EamonRT.Framework.Primitive.Enums;
 using EamonRT.Framework.States;
+using EamonRT.Game.Exceptions;
 using static EamonRT.Game.Plugin.PluginContext;
 
 namespace EamonRT.Game.States
@@ -15,35 +16,82 @@ namespace EamonRT.Game.States
 	[ClassMappings]
 	public class GetPlayerInputState : State, IGetPlayerInputState
 	{
+		public virtual bool RestartCommand { get; set; }
+
+		/// <summary></summary>
+		public virtual bool ParsingSuccessful { get; set; }
+
 		public override void Execute()
 		{
-			ProcessEvents(EventType.BeforeCommandPromptPrint);
-
-			if (GotoCleanup)
+			if (!RestartCommand)
 			{
-				goto Cleanup;
+				ProcessEvents(EventType.BeforeCommandPromptPrint);
+
+				if (GotoCleanup)
+				{
+					goto Cleanup;
+				}
+
+				// If we've run out of player input get more player input
+
+				if (string.IsNullOrWhiteSpace(gSentenceParser.ParserInputStr))
+				{
+					gOut.Write("{0}{1}", Environment.NewLine, Globals.CommandPrompt);
+
+					Globals.CommandPromptSeen = true;
+
+					Globals.CursorPosition = gOut.GetCursorPosition();
+
+					if (Globals.CursorPosition.Y > -1 && Globals.CursorPosition.Y + 1 >= gOut.GetBufferHeight())
+					{
+						Globals.CursorPosition.Y--;
+					}
+
+					gOut.WriteLine();
+
+					gOut.SetCursorPosition(Globals.CursorPosition);
+
+					gSentenceParser.Clear();
+
+					gSentenceParser.InputBuf.SetFormat("{0}", Globals.In.ReadLine());
+
+					gSentenceParser.Execute();
+				}
 			}
 
-			gOut.Write("{0}{1}", Environment.NewLine, Globals.CommandPrompt);
+			gCommandParser.Clear();
 
-			Globals.CommandPromptSeen = true;
+			gCommandParser.ActorMonster = gCharMonster;
 
-			Globals.CursorPosition = gOut.GetCursorPosition();
-
-			if (Globals.CursorPosition.Y > -1 && Globals.CursorPosition.Y + 1 >= gOut.GetBufferHeight())
+			try
 			{
-				Globals.CursorPosition.Y--;
+				gSentenceParser.ReplacePronounsAndProcessDobjNameList();
+			}
+			catch (GeneralParsingErrorException)
+			{
+				ParsingSuccessful = false;
+
+				NextState = Globals.CreateInstance<IStartState>();
 			}
 
-			gOut.WriteLine();
+			if (!string.IsNullOrWhiteSpace(gSentenceParser.ParserInputStr))
+			{
+				if (gGameState.ShowFulfillMessages)
+				{
+					gOut.Print("{{Fulfilling:  \"{0}\"}}", gSentenceParser.ParserInputStr);
+				}
 
-			gOut.SetCursorPosition(Globals.CursorPosition);
+				if (ParsingSuccessful)
+				{
+					gCommandParser.InputBuf.SetFormat("{0}", gSentenceParser.ParserInputStr);
+				}
+				else
+				{
+					PrintDontFollowYou02();
+				}
 
-			Globals.CommandParser.Clear();
-
-			Globals.CommandParser.ActorMonster = gCharMonster;
-
-			Globals.CommandParser.InputBuf.SetFormat("{0}", Globals.In.ReadLine());
+				gSentenceParser.ParserInputStrList.RemoveAt(0);
+			}
 
 		Cleanup:
 
@@ -58,6 +106,8 @@ namespace EamonRT.Game.States
 		public GetPlayerInputState()
 		{
 			Name = "GetPlayerInputState";
+
+			ParsingSuccessful = true;
 		}
 	}
 }

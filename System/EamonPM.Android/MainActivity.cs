@@ -155,7 +155,7 @@ namespace EamonPM
 
 			//Debug.Assert(args.Length > 1);
 
-			//Debug.Assert(string.Equals(args[0], "-pfn", StringComparison.OrdinalIgnoreCase));
+			//Debug.Assert(args[0].Equals("-pfn", StringComparison.OrdinalIgnoreCase));
 
 			var pluginFileName = System.IO.Path.GetFileNameWithoutExtension(args[1]);
 
@@ -218,7 +218,7 @@ namespace EamonPM
 
 			while (true)
 			{
-				if (args == null || args.Length < 2 || !string.Equals(args[0], "-pfn", StringComparison.OrdinalIgnoreCase))
+				if (args == null || args.Length < 2 || !args[0].Equals("-pfn", StringComparison.OrdinalIgnoreCase))
 				{
 					goto Cleanup;
 				}

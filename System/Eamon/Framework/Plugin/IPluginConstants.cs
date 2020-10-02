@@ -9,6 +9,12 @@ namespace Eamon.Framework.Plugin
 	public interface IPluginConstants
 	{
 		/// <summary></summary>
+		string[] CommandSepTokens { get; }
+
+		/// <summary></summary>
+		string[] PronounTokens { get; }
+
+		/// <summary></summary>
 		string ToughDesc { get; }
 
 		/// <summary></summary>

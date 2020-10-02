@@ -10,6 +10,10 @@ namespace Eamon.Game.Plugin
 {
 	public class PluginConstants : IPluginConstants
 	{
+		public virtual string[] CommandSepTokens { get; protected set; }
+
+		public virtual string[] PronounTokens { get; protected set; }
+
 		public virtual string ToughDesc { get; protected set; }
 
 		public virtual string CourageDesc { get; protected set; }
@@ -162,6 +166,10 @@ namespace Eamon.Game.Plugin
 
 		public PluginConstants()
 		{
+			CommandSepTokens = new string[] { ".", "!", "?", ";", ",", "and", "then", "also" };
+
+			PronounTokens = new string[] { "him", "her", "it", "that", "them", "those" };
+
 			ToughDesc = string.Format("Monsters usually fall into one of the following categories, but it is possible to create hybrids that are weak in some areas and strong in others:{0}{0}Weak Monsters - wimps and small creatures like rats, kobolds, etc.{0}Medium Monsters - petty thugs, orcs, goblins, etc.{0}Tough Monsters - giants, trolls, highly skilled warriors, etc.{0}Exceptional Monsters - dragons, demons, special villians, etc.{0}{0}For group Monsters, enter data relating to a single member of the group and scale values down lower than usual for groups with five or more members.", Environment.NewLine);
 
 			CourageDesc = string.Format("Courage works as follows:{0}{0}1-100% - the chance the Monster won't flee combat and/or follow a fleeing player (if enemy).  If the Monster is injured or gravely injured, then effective courage is reduced by 5% or 10%, respectively.{0}200% - the Monster will never flee and always follow the player.", Environment.NewLine);

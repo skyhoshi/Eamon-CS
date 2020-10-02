@@ -108,9 +108,9 @@ namespace Eamon.Game
 
 				fileName = pi.GetValue(this, null) as string;
 
-				if (!string.IsNullOrWhiteSpace(fileName) && !string.Equals(fileName, "NONE", StringComparison.OrdinalIgnoreCase))
+				if (!string.IsNullOrWhiteSpace(fileName) && !fileName.Equals("NONE", StringComparison.OrdinalIgnoreCase))
 				{
-					if (!string.IsNullOrWhiteSpace(WorkDir) && !string.Equals(WorkDir, "NONE", StringComparison.OrdinalIgnoreCase))
+					if (!string.IsNullOrWhiteSpace(WorkDir) && !WorkDir.Equals("NONE", StringComparison.OrdinalIgnoreCase))
 					{
 						buf.Append(Globals.Path.Combine(WorkDir, fileName));
 					}

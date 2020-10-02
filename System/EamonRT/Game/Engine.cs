@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Eamon;
 using Eamon.Framework;
 using Eamon.Framework.Primitive.Classes;
@@ -189,14 +190,14 @@ namespace EamonRT.Game
 
 		public virtual void AddMissingDescs()
 		{
-			var monsterList = GetMonsterList(m => string.IsNullOrWhiteSpace(m.Desc) || string.Equals(m.Desc, "NONE", StringComparison.OrdinalIgnoreCase));
+			var monsterList = GetMonsterList(m => string.IsNullOrWhiteSpace(m.Desc) || m.Desc.Equals("NONE", StringComparison.OrdinalIgnoreCase));
 
 			foreach (var monster in monsterList)
 			{
 				monster.Desc = string.Format("{0} {1}.", monster.EvalPlural("This is", "These are"), monster.GetArticleName());
 			}
 
-			var artifactList = GetArtifactList(a => string.IsNullOrWhiteSpace(a.Desc) || string.Equals(a.Desc, "NONE", StringComparison.OrdinalIgnoreCase));
+			var artifactList = GetArtifactList(a => string.IsNullOrWhiteSpace(a.Desc) || a.Desc.Equals("NONE", StringComparison.OrdinalIgnoreCase));
 
 			foreach (var artifact in artifactList)
 			{
@@ -1137,7 +1138,7 @@ namespace EamonRT.Game
 
 			if (!shouldShowUnseenArtifacts)
 			{
-				var command = Globals.CommandParser.NextState as ICommand;
+				var command = gCommandParser.NextState as ICommand;
 
 				shouldShowUnseenArtifacts = command != null && command.ShouldShowUnseenArtifacts(room, artifact);
 			}
@@ -1336,6 +1337,32 @@ namespace EamonRT.Game
 		public virtual IArtifact GetBlockedDirectionArtifact(long ro, long r2, Direction dir)
 		{
 			return null;
+		}
+
+		public virtual ICommand GetCommandUsingToken(IMonster monster, string token, bool synonymMatch = true, bool partialMatch = true)
+		{
+			Debug.Assert(monster != null);
+
+			Debug.Assert(!string.IsNullOrWhiteSpace(token));
+
+			var command = Globals.CommandList.FirstOrDefault(x => x.Verb != null && x.Verb.Equals(token, StringComparison.OrdinalIgnoreCase) && x.IsEnabled(monster));
+
+			if (command == null && synonymMatch)
+			{
+				command = Globals.CommandList.FirstOrDefault(x => x.Synonyms != null && x.Synonyms.FirstOrDefault(s => s.Equals(token, StringComparison.OrdinalIgnoreCase)) != null && x.IsEnabled(monster));
+			}
+
+			if (command == null && partialMatch)
+			{
+				command = Globals.CommandList.FirstOrDefault(x => x.Verb != null && (x.Verb.StartsWith(token, StringComparison.OrdinalIgnoreCase) || x.Verb.EndsWith(token, StringComparison.OrdinalIgnoreCase)) && x.IsEnabled(monster));
+			}
+
+			if (command == null && synonymMatch && partialMatch)
+			{
+				command = Globals.CommandList.FirstOrDefault(x => x.Synonyms != null && x.Synonyms.FirstOrDefault(s => s.StartsWith(token, StringComparison.OrdinalIgnoreCase) || s.EndsWith(token, StringComparison.OrdinalIgnoreCase)) != null && x.IsEnabled(monster));
+			}
+
+			return command;
 		}
 
 		public virtual void CheckDoor(IRoom room, IArtifact artifact, ref bool found, ref long roomUid)
@@ -1631,16 +1658,16 @@ namespace EamonRT.Game
 
 			Debug.Assert(!string.IsNullOrWhiteSpace(name));
 
-			var filteredArtifactList = artifactList.Where(a => string.Equals(a.Name, name, StringComparison.OrdinalIgnoreCase)).ToList();
+			var filteredArtifactList = artifactList.Where(a => a.Name.Equals(name, StringComparison.OrdinalIgnoreCase)).ToList();
 
 			if (filteredArtifactList.Count == 0)
 			{
-				filteredArtifactList = artifactList.Where(a => a.IsPlural && string.Equals(a.GetPluralName01(Globals.Buf), name, StringComparison.OrdinalIgnoreCase)).ToList();
+				filteredArtifactList = artifactList.Where(a => a.IsPlural && a.GetPluralName01(Globals.Buf).Equals(name, StringComparison.OrdinalIgnoreCase)).ToList();
 			}
 
 			if (filteredArtifactList.Count == 0)
 			{
-				filteredArtifactList = artifactList.Where(a => a.Synonyms != null && a.Synonyms.FirstOrDefault(s => string.Equals(s, name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
+				filteredArtifactList = artifactList.Where(a => a.Synonyms != null && a.Synonyms.FirstOrDefault(s => s.Equals(name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
 			}
 
 			if (filteredArtifactList.Count == 0)
@@ -1685,16 +1712,16 @@ namespace EamonRT.Game
 				}
 			}
 
-			var filteredMonsterList = monsterList.Where(m => string.Equals(m.Name, name, StringComparison.OrdinalIgnoreCase)).ToList();
+			var filteredMonsterList = monsterList.Where(m => m.Name.Equals(name, StringComparison.OrdinalIgnoreCase)).ToList();
 
 			if (filteredMonsterList.Count == 0)
 			{
-				filteredMonsterList = monsterList.Where(m => m.OrigGroupCount > 1 && string.Equals(m.GetPluralName01(Globals.Buf), name, StringComparison.OrdinalIgnoreCase)).ToList();
+				filteredMonsterList = monsterList.Where(m => m.OrigGroupCount > 1 && m.GetPluralName01(Globals.Buf).Equals(name, StringComparison.OrdinalIgnoreCase)).ToList();
 			}
 
 			if (filteredMonsterList.Count == 0)
 			{
-				filteredMonsterList = monsterList.Where(m => m.Synonyms != null && m.Synonyms.FirstOrDefault(s => string.Equals(s, name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
+				filteredMonsterList = monsterList.Where(m => m.Synonyms != null && m.Synonyms.FirstOrDefault(s => s.Equals(name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
 			}
 
 			if (filteredMonsterList.Count == 0)
@@ -1726,7 +1753,7 @@ namespace EamonRT.Game
 
 			Debug.Assert(!string.IsNullOrWhiteSpace(name));
 
-			var filteredRecordList = recordList.Where(r => string.Equals(r.Name, name, StringComparison.OrdinalIgnoreCase)).ToList();
+			var filteredRecordList = recordList.Where(r => r.Name.Equals(name, StringComparison.OrdinalIgnoreCase)).ToList();
 
 			if (filteredRecordList.Count == 0)
 			{
@@ -1751,7 +1778,7 @@ namespace EamonRT.Game
 
 					if (result)
 					{
-						result = string.Equals(r.GetPluralName01(Globals.Buf), name, StringComparison.OrdinalIgnoreCase);
+						result = r.GetPluralName01(Globals.Buf).Equals(name, StringComparison.OrdinalIgnoreCase);
 					}
 
 					return result;
@@ -1760,7 +1787,7 @@ namespace EamonRT.Game
 
 			if (filteredRecordList.Count == 0)
 			{
-				filteredRecordList = recordList.Where(r => r.Synonyms != null && r.Synonyms.FirstOrDefault(s => string.Equals(s, name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
+				filteredRecordList = recordList.Where(r => r.Synonyms != null && r.Synonyms.FirstOrDefault(s => s.Equals(name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
 			}
 
 			if (filteredRecordList.Count == 0)
@@ -2136,6 +2163,91 @@ namespace EamonRT.Game
 		Cleanup:
 
 			return rc;
+		}
+
+		public virtual StringBuilder NormalizePlayerInput(StringBuilder buf)
+		{
+			Debug.Assert(buf != null);
+
+			buf.SetFormat(" {0} ", buf.ToString().ToLower());
+
+			// begin TODO: validate Artifact and Monster names don't contain these tokens (add to invalid name tokens array)
+
+			buf.SetFormat("{0}", buf.ToString().Replace(" everything ", " all "));
+
+			buf.SetFormat("{0}", buf.ToString().Replace(" except ", " but "));
+
+			buf.SetFormat("{0}", buf.ToString().Replace(" excluding ", " but "));
+
+			buf.SetFormat("{0}", buf.ToString().Replace(" omitting ", " but "));
+
+			// end TODO
+
+			foreach (var token in Constants.CommandSepTokens)
+			{
+				buf.SetFormat("{0}", buf.ToString().Replace(!Char.IsPunctuation(token[0]) ? " " + token + " " : token, " , "));
+			}
+
+			buf.SetFormat(" {0} ", Regex.Replace(buf.ToString(), @"\s+", " ").Trim());
+
+			while (buf.ToString().IndexOf(" , , ") >= 0)
+			{
+				buf.SetFormat("{0}", buf.ToString().Replace(" , , ", " , "));
+			}
+
+			while (buf.ToString().StartsWith(" , "))
+			{
+				buf.SetFormat("{0}", buf.ToString().Substring(3));
+			}
+
+			while (buf.ToString().EndsWith(" , "))
+			{
+				buf.SetFormat("{0}", buf.ToString().Substring(0, buf.Length - 3));
+			}
+
+			return buf.Trim();
+		}
+
+		public virtual StringBuilder ReplacePrepositions(StringBuilder buf)
+		{
+			Debug.Assert(buf != null);
+
+			buf.SetFormat(" {0} ", buf.ToString().ToLower());
+
+			// begin TODO: validate Artifact and Monster names don't contain these tokens (add to invalid name tokens array)
+
+			buf = buf.Replace(" in to ", " into ");
+
+			buf = buf.Replace(" inside ", " in ");
+
+			buf = buf.Replace(" from in ", " fromin ");
+
+			buf = buf.Replace(" on to ", " onto ");
+
+			buf = buf.Replace(" on top of ", " on ");
+
+			buf = buf.Replace(" from on ", " fromon ");
+
+			buf = buf.Replace(" below ", " under ").Replace(" beneath ", " under ").Replace(" underneath ", " under ");
+
+			buf = buf.Replace(" from under ", " fromunder ");
+
+			buf = buf.Replace(" in back of ", " behind ");
+
+			buf = buf.Replace(" from behind ", " frombehind ");
+
+			// end TODO
+
+			return buf.Trim();
+		}
+
+		public virtual bool IsQuotedStringCommand(ICommand command)
+		{
+			Debug.Assert(command != null);
+
+			// These Commands are free form and may contain quoted strings
+
+			return command is ISaveCommand || command is ISayCommand;
 		}
 
 		public virtual bool ResurrectDeadBodies(IRoom room, params Func<IArtifact, bool>[] whereClauseFuncs)
@@ -2644,32 +2756,32 @@ namespace EamonRT.Game
 
 			for (i = 0; i < Globals.Argv.Length; i++)
 			{
-				if (string.Equals(Globals.Argv[i], "--workingDirectory", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-wd", StringComparison.OrdinalIgnoreCase))
+				if (Globals.Argv[i].Equals("--workingDirectory", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-wd", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
 						// do nothing
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--filePrefix", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-fp", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--filePrefix", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-fp", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length)
 					{
 						// do nothing
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--ignoreMutex", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-im", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--ignoreMutex", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-im", StringComparison.OrdinalIgnoreCase))
 				{
 					// do nothing
 				}
-				else if (string.Equals(Globals.Argv[i], "--configFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-cfgfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--configFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-cfgfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && !secondPass)
 					{
 						Globals.ConfigFileName = Globals.Argv[i].Trim();
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--filesetFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-fsfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--filesetFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-fsfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && secondPass)
 					{
@@ -2678,7 +2790,7 @@ namespace EamonRT.Game
 						Globals.ConfigsModified = true;
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--characterFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-chrfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--characterFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-chrfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && secondPass)
 					{
@@ -2687,7 +2799,7 @@ namespace EamonRT.Game
 						Globals.ConfigsModified = true;
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--moduleFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-modfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--moduleFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-modfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && secondPass)
 					{
@@ -2696,7 +2808,7 @@ namespace EamonRT.Game
 						Globals.ConfigsModified = true;
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--roomFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-rfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--roomFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-rfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && secondPass)
 					{
@@ -2705,7 +2817,7 @@ namespace EamonRT.Game
 						Globals.ConfigsModified = true;
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--artifactFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-afn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--artifactFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-afn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && secondPass)
 					{
@@ -2714,7 +2826,7 @@ namespace EamonRT.Game
 						Globals.ConfigsModified = true;
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--effectFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-efn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--effectFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-efn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && secondPass)
 					{
@@ -2723,7 +2835,7 @@ namespace EamonRT.Game
 						Globals.ConfigsModified = true;
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--monsterFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-monfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--monsterFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-monfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && secondPass)
 					{
@@ -2732,7 +2844,7 @@ namespace EamonRT.Game
 						Globals.ConfigsModified = true;
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--hintFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-hfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--hintFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-hfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && secondPass)
 					{
@@ -2741,7 +2853,7 @@ namespace EamonRT.Game
 						Globals.ConfigsModified = true;
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--gameStateFileName", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-gsfn", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--gameStateFileName", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-gsfn", StringComparison.OrdinalIgnoreCase))
 				{
 					if (++i < Globals.Argv.Length && secondPass)
 					{
@@ -2750,7 +2862,7 @@ namespace EamonRT.Game
 						Globals.ConfigsModified = true;
 					}
 				}
-				else if (string.Equals(Globals.Argv[i], "--deleteGameState", StringComparison.OrdinalIgnoreCase) || string.Equals(Globals.Argv[i], "-dgs", StringComparison.OrdinalIgnoreCase))
+				else if (Globals.Argv[i].Equals("--deleteGameState", StringComparison.OrdinalIgnoreCase) || Globals.Argv[i].Equals("-dgs", StringComparison.OrdinalIgnoreCase))
 				{
 					if (secondPass)
 					{

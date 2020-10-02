@@ -8,6 +8,7 @@ namespace EamonRT.Framework.States
 	/// <summary></summary>
 	public interface IGetPlayerInputState : IState
 	{
-
+		/// <summary></summary>
+		bool RestartCommand { get; set; }
 	}
 }

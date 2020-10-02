@@ -5,9 +5,9 @@
 
 using System;
 using System.Diagnostics;
-using System.Text;
 using System.Text.RegularExpressions;
 using Eamon;
+using Eamon.Framework.Helpers;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
@@ -202,14 +202,19 @@ namespace WrenholdsSecretVigil.Game.States
 
 							Globals.Buf.SetFormat("{0}", Regex.Replace(Globals.Buf.ToString(), @"\s+", " ").Trim());
 
-							var wpnName = Globals.Buf.ToString();
+							magicBowArtifact.Name = gEngine.Capitalize(Globals.Buf.ToString());
 
-							if (wpnName == "" || string.Equals(wpnName, "NONE", StringComparison.OrdinalIgnoreCase))
+							var artifactHelper = Globals.CreateInstance<IArtifactHelper>(x =>
 							{
-								wpnName = "whisperwind";
-							}
+								x.Record = magicBowArtifact;
+							});
 
-							magicBowArtifact.Name = gEngine.Capitalize(wpnName.ToLower());
+							Debug.Assert(artifactHelper != null);
+
+							if (!artifactHelper.ValidateField("Name") || magicBowArtifact.Name.Equals("NONE", StringComparison.OrdinalIgnoreCase))
+							{
+								magicBowArtifact.Name = "Whisperwind";
+							}
 
 							if (carryingLifeOrb)
 							{

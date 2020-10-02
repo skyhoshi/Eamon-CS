@@ -98,6 +98,15 @@ namespace Eamon.Framework
 		/// </summary>
 		bool MatureContent { get; set; }
 
+		/// <summary></summary>
+		bool EnhancedParser { get; set; }
+
+		/// <summary></summary>
+		bool ShowPronounChanges { get; set; }
+
+		/// <summary></summary>
+		bool ShowFulfillMessages { get; set; }
+
 		/// <summary>
 		/// Gets or sets the current turn in the game; this is incremented after player command parsing but before execution.
 		/// </summary>
