@@ -1,3 +1,3 @@
 @echo off
 cd ..\..\..
-start chrome https://firstmethod.github.io
+start chrome https://TheRealEamonCS.github.io

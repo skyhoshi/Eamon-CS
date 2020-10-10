@@ -714,6 +714,9 @@
         <member name="T:EamonRT.Framework.Commands.IGoCommand">
             <summary></summary>
         </member>
+        <member name="T:EamonRT.Framework.Commands.IInCommand">
+            <summary></summary>
+        </member>
         <member name="T:EamonRT.Framework.Commands.INeCommand">
             <summary></summary>
         </member>
@@ -721,6 +724,9 @@
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.INwCommand">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.Commands.IOutCommand">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Commands.ISeCommand">
@@ -773,6 +779,9 @@
         <member name="P:EamonRT.Framework.IEngine.PoundCharPolicy">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.IEngine.PercentCharPolicy">
+            <summary></summary>
+        </member>
         <member name="M:EamonRT.Framework.IEngine.PrintPlayerRoom">
             <summary></summary>
         </member>
@@ -809,7 +818,7 @@
         <member name="M:EamonRT.Framework.IEngine.EnforceCharacterWeightLimits">
             <summary></summary>
         </member>
-        <member name="M:EamonRT.Framework.IEngine.AddPoundCharsToArtifactNames">
+        <member name="M:EamonRT.Framework.IEngine.AddUniqueCharsToArtifactAndMonsterNames">
             <summary></summary>
         </member>
         <member name="M:EamonRT.Framework.IEngine.AddMissingDescs">
@@ -978,18 +987,6 @@
             <summary></summary>
             <param name="numMonsters"></param>
             <param name="whereClauseFuncs"></param>
-            <returns></returns>
-        </member>
-        <member name="M:EamonRT.Framework.IEngine.FilterArtifactList(System.Collections.Generic.IList{Eamon.Framework.IArtifact},System.String)">
-            <summary></summary>
-            <param name="artifactList"></param>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
-        <member name="M:EamonRT.Framework.IEngine.FilterMonsterList(System.Collections.Generic.IList{Eamon.Framework.IMonster},System.String)">
-            <summary></summary>
-            <param name="monsterList"></param>
-            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="M:EamonRT.Framework.IEngine.FilterRecordList(System.Collections.Generic.IList{Eamon.Framework.IGameBase},System.String)">
@@ -1257,37 +1254,16 @@
         <member name="P:EamonRT.Framework.Parsing.ICommandParser.NextCommand">
             <summary></summary>
         </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerArtifactMatch">
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerRecordMatch">
             <summary></summary>
         </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerArtifactMatch01">
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerRecordMatch01">
             <summary></summary>
         </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerArtifactMatch02">
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerResolveRecord(System.Boolean,System.Boolean)">
             <summary></summary>
         </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerMonsterMatch">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerMonsterMatch01">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerMonsterMatch02">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerMonsterMatch03">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerResolveArtifact">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerResolveArtifactProcessWhereClauseList">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerResolveMonster">
-            <summary></summary>
-        </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerResolveMonsterProcessWhereClauseList">
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerResolveRecordProcessWhereClauseList">
             <summary></summary>
         </member>
         <member name="M:EamonRT.Framework.Parsing.ICommandParser.PlayerFinishParsing">
@@ -1307,19 +1283,11 @@
             <summary></summary>
             <returns></returns>
         </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.SetArtifact(Eamon.Framework.IArtifact)">
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.SetRecord(Eamon.Framework.IGameBase)">
             <summary></summary>
-            <param name="artifact"></param>
+            <param name="record"></param>
         </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.SetMonster(Eamon.Framework.IMonster)">
-            <summary></summary>
-            <param name="monster"></param>
-        </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.GetArtifact">
-            <summary></summary>
-            <returns></returns>
-        </member>
-        <member name="M:EamonRT.Framework.Parsing.ICommandParser.GetMonster">
+        <member name="M:EamonRT.Framework.Parsing.ICommandParser.GetRecord">
             <summary></summary>
             <returns></returns>
         </member>
@@ -1361,34 +1329,16 @@
         <member name="P:EamonRT.Framework.Parsing.IParserData.Monster">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.GetArtifactList">
+        <member name="P:EamonRT.Framework.Parsing.IParserData.GetRecordList">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.GetMonsterList">
+        <member name="P:EamonRT.Framework.Parsing.IParserData.FilterRecordList">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.FilterArtifactList">
+        <member name="P:EamonRT.Framework.Parsing.IParserData.RecordWhereClauseList">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.FilterMonsterList">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.ArtifactWhereClauseList">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.MonsterWhereClauseList">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.GetArtifactListFunc">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.GetMonsterListFunc">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.FilterArtifactListFunc">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.FilterMonsterListFunc">
+        <member name="P:EamonRT.Framework.Parsing.IParserData.GetRecordListFunc">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.Parsing.IParserData.FilterRecordListFunc">
@@ -1397,16 +1347,10 @@
         <member name="P:EamonRT.Framework.Parsing.IParserData.RevealEmbeddedArtifactFunc">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.ArtifactMatchFunc">
+        <member name="P:EamonRT.Framework.Parsing.IParserData.RecordMatchFunc">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.MonsterMatchFunc">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.ArtifactNotFoundFunc">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Framework.Parsing.IParserData.MonsterNotFoundFunc">
+        <member name="P:EamonRT.Framework.Parsing.IParserData.RecordNotFoundFunc">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.Parsing.ISentenceParser">

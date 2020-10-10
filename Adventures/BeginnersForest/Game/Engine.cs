@@ -20,9 +20,9 @@ namespace BeginnersForest.Game
 		/// <summary></summary>
 		public virtual long HeldWpnIdx { get; set; }
 
-		public override void AddPoundCharsToArtifactNames()
+		public override void AddUniqueCharsToArtifactAndMonsterNames()
 		{
-			base.AddPoundCharsToArtifactNames();
+			base.AddUniqueCharsToArtifactAndMonsterNames();
 
 			// Entrance/exit gates
 

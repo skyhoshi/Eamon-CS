@@ -595,7 +595,7 @@ namespace Eamon.Game
 			return rc;
 		}
 
-		public virtual void StripPoundCharsFromWeaponNames()
+		public virtual void StripUniqueCharsFromWeaponNames()
 		{
 			for (var i = 0; i < Weapons.Length; i++)
 			{
@@ -606,7 +606,7 @@ namespace Eamon.Game
 			}
 		}
 
-		public virtual void AddPoundCharsToWeaponNames()
+		public virtual void AddUniqueCharsToWeaponNames()
 		{
 			long c;
 

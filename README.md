@@ -9,7 +9,7 @@ This is Eamon CS (ECS), a C# port of the classic Eamon roleplaying game that deb
 
 #### Prerequisites
 
-Eamon CS requires a .NET Standard 2.0 compliant runtime; for example, .NET 4.7.2+ on Windows and Mono 5.18.0+ on Unix.  Also needed is the .NET Core 2.X runtime or SDK (for developers).  There are instructions for obtaining and installing these prerequisites, if necessary, in WorkingDraft under DOCUMENT LINKS on the [Eamon CS website](https://firstmethod.github.io).
+Eamon CS requires a .NET Standard 2.0 compliant runtime; for example, .NET 4.7.2+ on Windows and Mono 5.18.0+ on Unix.  Also needed is the .NET Core 2.X runtime or SDK (for developers).  There are instructions for obtaining and installing these prerequisites, if necessary, in WorkingDraft under DOCUMENT LINKS on the [Eamon CS website](https://TheRealEamonCS.github.io).
 
 Eamon CS Mobile currently runs on devices using Android 4.0 through 8.1.
 
@@ -17,7 +17,7 @@ Eamon CS Mobile currently runs on devices using Android 4.0 through 8.1.
 
 There is no formal installer for Eamon CS.  To obtain a copy of this repository (and a full set of binaries), you can either do a Git Clone using Visual Studio 2017+ or, more simply, download a .zip file using the green Code button above.  If you download a .zip file on Windows, before unzipping it, you should right-click on it and select Properties.  Then click the Unblock checkbox (or button) in the lower right corner of the form, and finally click Apply and OK.  The gameplay experience will improve by eliminating security warning message boxes.
 
-To obtain Eamon CS Mobile, download the EamonPM.Android-Signed.apk file (located [here](https://github.com/firstmethod/Eamon-CS-Misc/tree/master/System/Bin)) directly onto your mobile device and install it.
+To obtain Eamon CS Mobile, download the EamonPM.Android-Signed.apk file (located [here](https://github.com/TheRealEamonCS/Eamon-CS-Misc/tree/master/System/Bin)) directly onto your mobile device and install it.
 
 #### Playing
 

@@ -16,17 +16,17 @@ namespace TheSubAquanLaboratory.Game.Parsing
 	{
 		public virtual void PlayerFinishParsingPushCommand()
 		{
-			PlayerResolveArtifact();
+			PlayerResolveRecord(false);
 		}
 
 		public virtual void PlayerFinishParsingSearchCommand()
 		{
-			PlayerResolveArtifact();
+			PlayerResolveRecord(false);
 		}
 
 		public virtual void PlayerFinishParsingTurnCommand()
 		{
-			PlayerResolveArtifact();
+			PlayerResolveRecord(false);
 		}
 	}
 }

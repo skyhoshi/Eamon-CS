@@ -44,7 +44,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 					goto Cleanup;
 				}
 
-				if (EditRecord.NumDirs == 10 && editModule01.NumDirs == 6)
+				if (EditRecord.NumDirs == 12 && editModule01.NumDirs == 6)
 				{
 					var directionValues = EnumUtil.GetValues<Direction>();
 

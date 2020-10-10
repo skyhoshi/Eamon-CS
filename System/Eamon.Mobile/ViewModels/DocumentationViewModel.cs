@@ -24,7 +24,7 @@ namespace Eamon.Mobile.ViewModels
 			{
 				Name = "ViewDocumentationUsingBrowser",
 
-				FileName = "https://firstmethod.github.io"
+				FileName = "https://TheRealEamonCS.github.io"
 			});
 
 			BatchFiles = BatchFiles.OrderBy(bf => bf.Name).ToList();

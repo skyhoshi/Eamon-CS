@@ -242,10 +242,10 @@ namespace Eamon.Framework
 		RetCode ListWeapons(StringBuilder buf, bool capitalize = true);
 
 		/// <summary></summary>
-		void StripPoundCharsFromWeaponNames();
+		void StripUniqueCharsFromWeaponNames();
 
 		/// <summary></summary>
-		void AddPoundCharsToWeaponNames();
+		void AddUniqueCharsToWeaponNames();
 
 		/// <summary></summary>
 		/// <param name="args"></param>

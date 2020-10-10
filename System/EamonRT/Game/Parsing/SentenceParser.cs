@@ -106,9 +106,12 @@ namespace EamonRT.Game.Parsing
 
 		public virtual void PrintDiscardingCommands()
 		{
-			for (var i = 0; i < ParserInputStrList.Count; i++)
+			if (gGameState.EnhancedParser)
 			{
-				gOut.Print("{{Discarding:  \"{0}\"}}", ParserInputStrList[i]);
+				for (var i = 0; i < ParserInputStrList.Count; i++)
+				{
+					gOut.Print("{{Discarding:  \"{0}\"}}", ParserInputStrList[i]);
+				}
 			}
 		}
 
@@ -194,7 +197,7 @@ namespace EamonRT.Game.Parsing
 						{
 							Globals.Buf.SetFormat("{0}", Tokens[CurrToken]);
 
-							Tokens[CurrToken] = Globals.Buf.TrimEndPunctuationMinusPound().ToString().Trim();
+							Tokens[CurrToken] = Globals.Buf.TrimEndPunctuationMinusUniqueChars().ToString().Trim();
 						}
 
 						if (Tokens[CurrToken].Length == 0)

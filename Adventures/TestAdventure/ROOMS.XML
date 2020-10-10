@@ -1,12 +1,12 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.RoomDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.RoomDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IRoom, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IRoom, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
@@ -29,11 +29,13 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
@@ -56,11 +58,13 @@
                 <Simple value="0" />
                 <Simple value="5" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="3" />
             <Simple name="IsUidRecycled" value="True" />
@@ -83,11 +87,13 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="4" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
@@ -110,11 +116,13 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
@@ -137,11 +145,13 @@
                 <Simple value="2" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
@@ -164,11 +174,13 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="7" />
             <Simple name="IsUidRecycled" value="True" />
@@ -191,11 +203,13 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
@@ -218,11 +232,13 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
@@ -245,11 +261,13 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="10" />
             <Simple name="IsUidRecycled" value="True" />
@@ -263,6 +281,8 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="5" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />

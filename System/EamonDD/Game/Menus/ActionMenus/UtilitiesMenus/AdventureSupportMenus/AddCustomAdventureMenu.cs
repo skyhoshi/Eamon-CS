@@ -417,7 +417,7 @@ ChangeLog: YourAdventureName
 
 Date			Version			Who			Notes
 ----------------------------------------------------------------------------------------------------------------------------------
-20XXXXXX		1.6.0				YourAuthorInitials			Code complete 1.6.0
+20XXXXXX		1.7.0				YourAuthorInitials			Code complete 1.7.0
 ";
 
 		/// <summary></summary>
@@ -426,7 +426,7 @@ Date			Version			Who			Notes
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.6.0.0</Version>
+    <Version>1.7.0.0</Version>
     <Authors>YourAuthorName</Authors>
     <Company>YourAuthorName</Company>
     <Product>The Wonderful World of Eamon CS</Product>

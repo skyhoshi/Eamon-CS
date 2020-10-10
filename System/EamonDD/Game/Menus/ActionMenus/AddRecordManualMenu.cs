@@ -93,9 +93,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			if (character != null)
 			{
-				character.StripPoundCharsFromWeaponNames();
+				character.StripUniqueCharsFromWeaponNames();
 
-				character.AddPoundCharsToWeaponNames();
+				character.AddUniqueCharsToWeaponNames();
 			}
 
 			var artifact = record as IArtifact;

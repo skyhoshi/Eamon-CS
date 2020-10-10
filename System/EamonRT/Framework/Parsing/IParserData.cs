@@ -28,34 +28,16 @@ namespace EamonRT.Framework.Parsing
 		IMonster Monster { get; }
 
 		/// <summary></summary>
-		IList<IArtifact> GetArtifactList { get; set; }
+		IList<IGameBase> GetRecordList { get; set; }
 
 		/// <summary></summary>
-		IList<IMonster> GetMonsterList { get; set; }
+		IList<IGameBase> FilterRecordList { get; set; }
 
 		/// <summary></summary>
-		IList<IArtifact> FilterArtifactList { get; set; }
+		IList<Func<IGameBase, bool>> RecordWhereClauseList { get; set; }
 
 		/// <summary></summary>
-		IList<IMonster> FilterMonsterList { get; set; }
-
-		/// <summary></summary>
-		IList<Func<IArtifact, bool>> ArtifactWhereClauseList { get; set; }
-
-		/// <summary></summary>
-		IList<Func<IMonster, bool>> MonsterWhereClauseList { get; set; }
-
-		/// <summary></summary>
-		Delegates.GetArtifactListFunc GetArtifactListFunc { get; set; }
-
-		/// <summary></summary>
-		Delegates.GetMonsterListFunc GetMonsterListFunc { get; set; }
-
-		/// <summary></summary>
-		Delegates.FilterArtifactListFunc FilterArtifactListFunc { get; set; }
-
-		/// <summary></summary>
-		Delegates.FilterMonsterListFunc FilterMonsterListFunc { get; set; }
+		Delegates.GetRecordListFunc GetRecordListFunc { get; set; }
 
 		/// <summary></summary>
 		Delegates.FilterRecordListFunc FilterRecordListFunc { get; set; }
@@ -64,15 +46,9 @@ namespace EamonRT.Framework.Parsing
 		Delegates.RevealEmbeddedArtifactFunc RevealEmbeddedArtifactFunc { get; set; }
 
 		/// <summary></summary>
-		Action ArtifactMatchFunc { get; set; }
+		Action RecordMatchFunc { get; set; }
 
 		/// <summary></summary>
-		Action MonsterMatchFunc { get; set; }
-
-		/// <summary></summary>
-		Action ArtifactNotFoundFunc { get; set; }
-
-		/// <summary></summary>
-		Action MonsterNotFoundFunc { get; set; }
+		Action RecordNotFoundFunc { get; set; }
 	}
 }

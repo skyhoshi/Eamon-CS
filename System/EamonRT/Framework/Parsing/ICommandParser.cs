@@ -84,37 +84,16 @@ namespace EamonRT.Framework.Parsing
 		ICommand NextCommand { get; }
 
 		/// <summary></summary>
-		void PlayerArtifactMatch();
+		void PlayerRecordMatch();
 
 		/// <summary></summary>
-		void PlayerArtifactMatch01();
+		void PlayerRecordMatch01();
 
 		/// <summary></summary>
-		void PlayerArtifactMatch02();
+		void PlayerResolveRecord(bool includeMonsters = true, bool includeArtifacts = true);
 
 		/// <summary></summary>
-		void PlayerMonsterMatch();
-
-		/// <summary></summary>
-		void PlayerMonsterMatch01();
-
-		/// <summary></summary>
-		void PlayerMonsterMatch02();
-
-		/// <summary></summary>
-		void PlayerMonsterMatch03();
-
-		/// <summary></summary>
-		void PlayerResolveArtifact();
-
-		/// <summary></summary>
-		void PlayerResolveArtifactProcessWhereClauseList();
-
-		/// <summary></summary>
-		void PlayerResolveMonster();
-
-		/// <summary></summary>
-		void PlayerResolveMonsterProcessWhereClauseList();
+		void PlayerResolveRecordProcessWhereClauseList();
 
 		/// <summary></summary>
 		void PlayerFinishParsing();
@@ -134,20 +113,12 @@ namespace EamonRT.Framework.Parsing
 		string GetActiveObjData();
 
 		/// <summary></summary>
-		/// <param name="artifact"></param>
-		void SetArtifact(IArtifact artifact);
-
-		/// <summary></summary>
-		/// <param name="monster"></param>
-		void SetMonster(IMonster monster);
+		/// <param name="record"></param>
+		void SetRecord(IGameBase record);
 
 		/// <summary></summary>
 		/// <returns></returns>
-		IArtifact GetArtifact();
-
-		/// <summary></summary>
-		/// <returns></returns>
-		IMonster GetMonster();
+		IGameBase GetRecord();
 
 		/// <summary></summary>
 		void Clear();

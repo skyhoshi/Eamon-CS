@@ -1,341 +1,341 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.EffectDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.EffectDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IEffect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IEffect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="It reads:  &quot;HEALING POTION.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="It reads:  &quot;H2SO4.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="3" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="It's unmarked." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="It reads:  &quot;Fireberry wine.  170 proof.  Y.N.1428.&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="It reads:  &quot;Hale to he who wears this ring!&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You hear a rasping voice, hissing all around you:  &quot;You mortal fool!  Dare you attempt to learn the secrets of Ngurct?  For your temerity, you are banished from this world!&quot;*007" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="7" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="****************************************************************************** **008" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="********************************* YOU FOOL! ********************************** **009" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="******************************************************************************" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="10" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The inscription is in strange, foreign symbols; you find that you can read them, however -- they seem to speak to you...  &quot;This is the crypt of the Great Alkanda, right hand of Ngurct on earth.*011" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="11" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The body of Alkanda, though embalmed, is still vulnerable; but his spirit will live forever.  The spirit of the Great Alkanda can once again be made to manifest itself in this world:  if an infidel, **012" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="12" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="of his own free will, holds the gold medallion of Ngurct and says the words of power:*013" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="13" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="                                ANNAL NATTHRAC *014" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="14" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="the reward shall be beyond the reach of the immortal gods!&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="15" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The room is lit by a blinding flash!*007" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="16" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You hear a thunderous voice commanding:  &quot;Mortal!  Bother me no more!&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="17" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The earth shakes!  A huge crack appears in the @@004..." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="18" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You scream as you fall down into the bowels of the earth -- &quot;AAAAAAAAAAAHHH!&quot;*025" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="19" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You trigger a spear trap in the wall!" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="20" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You slipped on a loose stone!" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="21" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You see a jet of green gas!" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="22" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You trigger a crossbow trap!" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="23" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="A scything blade sweeps out of the slit!" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="24" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="@@007  The walls are smooth, the sewage is deep, your armour is heavy -- the foul muck stifles any attempt to cast the POWER spell; you're dead!" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="25" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="&quot;AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA **026" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="26" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHH!!!!!!!!&quot;*027" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="27" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="                                   (SPLAT!)" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="28" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Alignment conflict!  You take damage!" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="29" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You just drank sulfuric acid!  You cry out in agony as the caustic liquid dissolves your throat.  &quot;AAAAAARGH!&quot;" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="30" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You shudder in disgust as you realize that you've just drunk human blood.  Aside from feeling grossed out, you suffer no ill effects." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="31" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You knew the wine was strong, but you drank it anyway; now you're roaring drunk and in no shape for combat." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="32" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Also noteworthy:  Robert Plamondon's 1983 Creative Computing article, &quot;An Adventure Game For The Apple II With (Almost) Everything&quot; introduced many gamers of the era to this intriguing system.*033" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="33" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Eamon CS port of Eamon #23 by Mike Penner." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="34" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="There is an old ruin of a small citadel on a cliff overlooking a rarely used pass.  The road through the pass has become increasingly hazardous in recent years.  Now, only rash and desperate travelers -- or **035" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="35" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="those travelling in very large parties -- dare to use it.  Those who have survived the crossing tell dark tales of fearsome beasts and strange happenings; in all these tales the citadel is the eye of **036" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="36" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="the storm.@@PB**037" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="37" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="It is rumoured that the evil priests of Ngurct have occupied the citadel; their foul creed worships the black demon of the same name.  Ngurct is the patron demon of exotic monsters -- and he requires **038" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="38" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="the regular sacrifice of human unbelievers.*039" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="39" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Ngurct is associated with Nektor, god of the undead.*040" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="40" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="You have been hired by your king to eradicate this scourge, and make the pass safe for travel and commerce once again.*041" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="41" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="The power of Ngurct is locked into a gold medallion.  If you return the medallion to the king, the power of Ngurct will be broken.@@PB**042" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="42" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="It is rumoured that Ngurct himself abides in the citadel, though it is not known in what form.  For your efforts, you will be paid 2,000 gold pieces upon the return of the medallion.  And, of course, you will get **043" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="43" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="to keep any loot you find.*044" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="44" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="Good luck!" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="45" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="LARGE OVEN." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="46" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Desc" value="See EAMON CS 1.6 NEW COMMANDS for additional details." />
+            <Simple name="Desc" value="See EAMON CS 1.7 NEW COMMANDS for additional details." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="47" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="floor and you can GET ALL." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="48" />
             <Simple name="IsUidRecycled" value="True" />

@@ -1,3 +1,3 @@
 @echo off
 cd ..\..\..
-start microsoft-edge:https://firstmethod.github.io
+start microsoft-edge:https://TheRealEamonCS.github.io

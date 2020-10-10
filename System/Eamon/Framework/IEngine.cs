@@ -921,11 +921,11 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		/// <param name="recordList"></param>
-		void StripPoundCharsFromRecordNames(IList<IGameBase> recordList);
+		void StripUniqueCharsFromRecordNames(IList<IGameBase> recordList);
 
 		/// <summary></summary>
 		/// <param name="recordList"></param>
-		void AddPoundCharsToRecordNames(IList<IGameBase> recordList);
+		void AddUniqueCharsToRecordNames(IList<IGameBase> recordList);
 
 		/// <summary></summary>
 		/// <param name="artifact"></param>

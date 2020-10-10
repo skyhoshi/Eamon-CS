@@ -115,7 +115,7 @@ namespace EamonRT.Game.Commands
 			{
 				Globals.Buf.SetFormat("{0}", DobjArtifact.GetDoorGateFleeDesc());
 			}
-			else if (Direction > Direction.West && Direction < Direction.Northeast)
+			else if (Direction == Direction.Up || Direction == Direction.Down || Direction == Direction.In || Direction == Direction.Out)
 			{
 				Globals.Buf.SetFormat(" {0}ward", Direction.ToString().ToLower());
 			}
@@ -166,6 +166,8 @@ namespace EamonRT.Game.Commands
 			Synonyms = new string[] { "retreat", "escape" };
 
 			SortOrder = 100;
+
+			IsDobjPrepEnabled = true;
 
 			IsDarkEnabled = true;
 

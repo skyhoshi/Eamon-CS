@@ -1,12 +1,12 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.MonsterDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.MonsterDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IMonster, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IMonster, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Monster, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
@@ -40,7 +40,7 @@
             <Simple name="ArticleType" value="The" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Monster, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="hovering in the air in front of you" />
             <Simple name="IsListed" value="True" />
@@ -74,7 +74,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Monster, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
@@ -108,7 +108,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Monster, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
@@ -142,7 +142,7 @@
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Monster, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
@@ -176,7 +176,7 @@
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Monster, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsListed" value="True" />
@@ -210,7 +210,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Monster, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="ready to attack" />
             <Simple name="IsListed" value="True" />
@@ -244,7 +244,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Monster, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Monster, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="waving a shield ready to attack" />
             <Simple name="IsListed" value="True" />

@@ -10,8 +10,8 @@ namespace Eamon.Framework.Primitive.Enums
 	/// </summary>
 	/// <remarks>
 	/// These represent the possible directional links between <see cref="IRoom">Room</see>s in a game.  Each Room contains an
-	/// array that is indexed using these Direction values.  The array will always be created assuming a 10-direction game; for
-	/// 6-direction games, the last four (4) elements will be unused.
+	/// array that is indexed using these Direction values.  The array will always be created assuming a 12-direction game; for
+	/// 6-direction games, the last six (6) elements will be unused.
 	/// </remarks>
 	public enum Direction : long
 	{
@@ -43,6 +43,12 @@ namespace Eamon.Framework.Primitive.Enums
 		Southeast,
 		
 		/// <summary></summary>
-		Southwest
+		Southwest,
+
+		/// <summary></summary>
+		In,
+
+		/// <summary></summary>
+		Out
 	}
 }

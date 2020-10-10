@@ -14,9 +14,9 @@ namespace TheSubAquanLaboratory.Game
 	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
 	{
-		public override void AddPoundCharsToArtifactNames()
+		public override void AddUniqueCharsToArtifactAndMonsterNames()
 		{
-			base.AddPoundCharsToArtifactNames();
+			base.AddUniqueCharsToArtifactAndMonsterNames();
 
 			var cardSlotArtifact = gADB[26];     // Card slot #2
 

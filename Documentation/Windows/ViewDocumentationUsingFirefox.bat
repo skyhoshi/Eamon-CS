@@ -1,3 +1,3 @@
 @echo off
 cd ..\..\..
-start firefox https://firstmethod.github.io
+start firefox https://TheRealEamonCS.github.io

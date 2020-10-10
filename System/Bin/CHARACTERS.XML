@@ -1,12 +1,12 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.CharacterDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.CharacterDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.ICharacter, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.ICharacter, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Gender" value="Female" />
             <Simple name="Status" value="Alive" />
@@ -42,7 +42,7 @@
             <Simple name="HeldGold" value="123" />
             <Simple name="BankGold" value="0" />
             <Simple name="ArmorClass" value="Leather" />
-            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="NONE" />
                 <Simple name="Desc" value="" />
@@ -59,7 +59,7 @@
                 <Simple name="Field5" value="0" />
               </Properties>
             </Complex>
-            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="NONE" />
                 <Simple name="Desc" value="" />
@@ -78,7 +78,7 @@
             </Complex>
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
                     <Simple name="Desc" value="" />
@@ -95,7 +95,7 @@
                     <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear#" />
                     <Simple name="Desc" value="" />
@@ -112,7 +112,7 @@
                     <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -129,7 +129,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -157,7 +157,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Gender" value="Male" />
             <Simple name="Status" value="Alive" />
@@ -193,7 +193,7 @@
             <Simple name="HeldGold" value="172" />
             <Simple name="BankGold" value="0" />
             <Simple name="ArmorClass" value="SkinClothes" />
-            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="NONE" />
                 <Simple name="Desc" value="" />
@@ -210,7 +210,7 @@
                 <Simple name="Field5" value="0" />
               </Properties>
             </Complex>
-            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="NONE" />
                 <Simple name="Desc" value="" />
@@ -229,7 +229,7 @@
             </Complex>
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
                     <Simple name="Desc" value="" />
@@ -246,7 +246,7 @@
                     <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -263,7 +263,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -280,7 +280,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -308,7 +308,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Gender" value="Male" />
             <Simple name="Status" value="Alive" />
@@ -344,7 +344,7 @@
             <Simple name="HeldGold" value="1244" />
             <Simple name="BankGold" value="3000" />
             <Simple name="ArmorClass" value="ChainMailShield" />
-            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="NONE" />
                 <Simple name="Desc" value="" />
@@ -361,7 +361,7 @@
                 <Simple name="Field5" value="0" />
               </Properties>
             </Complex>
-            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="NONE" />
                 <Simple name="Desc" value="" />
@@ -380,7 +380,7 @@
             </Complex>
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
                     <Simple name="Desc" value="" />
@@ -397,7 +397,7 @@
                     <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -414,7 +414,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -431,7 +431,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -459,7 +459,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Gender" value="Female" />
             <Simple name="Status" value="Alive" />
@@ -495,7 +495,7 @@
             <Simple name="HeldGold" value="153" />
             <Simple name="BankGold" value="0" />
             <Simple name="ArmorClass" value="PlateMailShield" />
-            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="NONE" />
                 <Simple name="Desc" value="" />
@@ -512,7 +512,7 @@
                 <Simple name="Field5" value="0" />
               </Properties>
             </Complex>
-            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="NONE" />
                 <Simple name="Desc" value="" />
@@ -531,7 +531,7 @@
             </Complex>
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="axe" />
                     <Simple name="Desc" value="" />
@@ -548,7 +548,7 @@
                     <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -565,7 +565,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -582,7 +582,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -610,7 +610,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Gender" value="Male" />
             <Simple name="Status" value="Alive" />
@@ -646,7 +646,7 @@
             <Simple name="HeldGold" value="322" />
             <Simple name="BankGold" value="0" />
             <Simple name="ArmorClass" value="LeatherShield" />
-            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="NONE" />
                 <Simple name="Desc" value="" />
@@ -663,7 +663,7 @@
                 <Simple name="Field5" value="0" />
               </Properties>
             </Complex>
-            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="NONE" />
                 <Simple name="Desc" value="" />
@@ -682,7 +682,7 @@
             </Complex>
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="axe" />
                     <Simple name="Desc" value="" />
@@ -699,7 +699,7 @@
                     <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="sword" />
                     <Simple name="Desc" value="" />
@@ -716,7 +716,7 @@
                     <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
                     <Simple name="Desc" value="" />
@@ -733,7 +733,7 @@
                     <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -761,7 +761,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Gender" value="Female" />
             <Simple name="Status" value="Alive" />
@@ -797,7 +797,7 @@
             <Simple name="HeldGold" value="5" />
             <Simple name="BankGold" value="0" />
             <Simple name="ArmorClass" value="ClothesShield" />
-            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="NONE" />
                 <Simple name="Desc" value="" />
@@ -814,7 +814,7 @@
                 <Simple name="Field5" value="0" />
               </Properties>
             </Complex>
-            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="NONE" />
                 <Simple name="Desc" value="" />
@@ -833,7 +833,7 @@
             </Complex>
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -850,7 +850,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -867,7 +867,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -884,7 +884,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -912,7 +912,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Gender" value="Male" />
             <Simple name="Status" value="Alive" />
@@ -948,7 +948,7 @@
             <Simple name="HeldGold" value="0" />
             <Simple name="BankGold" value="0" />
             <Simple name="ArmorClass" value="LeatherShield" />
-            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="NONE" />
                 <Simple name="Desc" value="" />
@@ -965,7 +965,7 @@
                 <Simple name="Field5" value="0" />
               </Properties>
             </Complex>
-            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="NONE" />
                 <Simple name="Desc" value="" />
@@ -984,7 +984,7 @@
             </Complex>
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="spear" />
                     <Simple name="Desc" value="" />
@@ -1001,7 +1001,7 @@
                     <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -1018,7 +1018,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -1035,7 +1035,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="NONE" />
                     <Simple name="Desc" value="" />
@@ -1063,7 +1063,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Character, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Character, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Gender" value="Male" />
             <Simple name="Status" value="Alive" />
@@ -1099,7 +1099,7 @@
             <Simple name="HeldGold" value="2000" />
             <Simple name="BankGold" value="25000" />
             <Simple name="ArmorClass" value="PlateMailShield" />
-            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Armor" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="plate armor" />
                 <Simple name="Desc" value="This is your plate armor." />
@@ -1116,7 +1116,7 @@
                 <Simple name="Field5" value="0" />
               </Properties>
             </Complex>
-            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+            <Complex name="Shield" type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
               <Properties>
                 <Simple name="Name" value="shield" />
                 <Simple name="Desc" value="This is your shield." />
@@ -1135,7 +1135,7 @@
             </Complex>
             <SingleArray name="Weapons">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="Wrath Of Ngurct" />
                     <Simple name="Desc" value="You see &quot;Wrath Of Ngurct,&quot; the high priest's sword.  The blade seems to pulse and quiver; the hilt is inlaid with rubies." />
@@ -1152,7 +1152,7 @@
                     <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="Ervuolian sword" />
                     <Simple name="Desc" value="You see an exquisite sword whose rococo design and encrusted hilt suggest it as an Ervuolian artifact, one Sam Slicker has held onto.  Atop its great aesthetic virtue you observe its martial virtue as well, the blade divinely sharp and perfectly weighted." />
@@ -1169,7 +1169,7 @@
                     <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="Bloodthirst" />
                     <Simple name="Desc" value="You see Bloodthirst, the priest's sword." />
@@ -1186,7 +1186,7 @@
                     <Simple name="Field5" value="1" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.CharacterArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Name" value="Necronis" />
                     <Simple name="Desc" value="You see Necronis, the priest's sword." />

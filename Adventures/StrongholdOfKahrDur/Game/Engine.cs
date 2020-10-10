@@ -17,9 +17,9 @@ namespace StrongholdOfKahrDur.Game
 	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, Framework.IEngine
 	{
-		public override void AddPoundCharsToArtifactNames()
+		public override void AddUniqueCharsToArtifactAndMonsterNames()
 		{
-			base.AddPoundCharsToArtifactNames();
+			base.AddUniqueCharsToArtifactAndMonsterNames();
 
 			var secretDoorArtifact = gADB[10];     // Secret door #2
 

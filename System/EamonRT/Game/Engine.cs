@@ -44,6 +44,8 @@ namespace EamonRT.Game
 
 		public virtual PoundCharPolicy PoundCharPolicy { get; set; }
 
+		public virtual PercentCharPolicy PercentCharPolicy { get; set; }
+
 		public virtual void PrintPlayerRoom()
 		{
 			var room = gRDB[gGameState.Ro];
@@ -156,7 +158,7 @@ namespace EamonRT.Game
 			}
 		}
 
-		public virtual void AddPoundCharsToArtifactNames()
+		public virtual void AddUniqueCharsToArtifactAndMonsterNames()
 		{
 			var recordList = new List<IGameBase>();
 
@@ -185,7 +187,12 @@ namespace EamonRT.Game
 
 			recordList.AddRange(artifactList);
 
-			AddPoundCharsToRecordNames(recordList);
+			var monsterList = PercentCharPolicy == PercentCharPolicy.AllMonsters ? Globals.Database.MonsterTable.Records.ToList() :
+									new List<IMonster>();
+
+			recordList.AddRange(monsterList);
+
+			AddUniqueCharsToRecordNames(recordList);
 		}
 
 		public virtual void AddMissingDescs()
@@ -223,7 +230,7 @@ namespace EamonRT.Game
 
 			foreach (var command in commands)
 			{
-				if (Globals.Module.NumDirs == 10 || !(command.IsSameOrSubclassOf(typeof(INeCommand)) || command.IsSameOrSubclassOf(typeof(INwCommand)) || command.IsSameOrSubclassOf(typeof(ISeCommand)) || command.IsSameOrSubclassOf(typeof(ISwCommand))))
+				if (Globals.Module.NumDirs == 12 || !(command.IsSameOrSubclassOf(typeof(INeCommand)) || command.IsSameOrSubclassOf(typeof(INwCommand)) || command.IsSameOrSubclassOf(typeof(ISeCommand)) || command.IsSameOrSubclassOf(typeof(ISwCommand)) || command.IsSameOrSubclassOf(typeof(IInCommand)) || command.IsSameOrSubclassOf(typeof(IOutCommand))))
 				{
 					var command01 = Globals.CreateInstance<ICommand>(command);
 
@@ -586,7 +593,7 @@ namespace EamonRT.Game
 				gCharacter.GetWeapons(i).Parent = gCharacter;
 			}
 
-			gCharacter.AddPoundCharsToWeaponNames();
+			gCharacter.AddUniqueCharsToWeaponNames();
 
 			gOut.Print("{0}", Globals.LineSep);
 		}
@@ -1652,49 +1659,15 @@ namespace EamonRT.Game
 			return monsterList;
 		}
 
-		public virtual IList<IArtifact> FilterArtifactList(IList<IArtifact> artifactList, string name)
+		public virtual IList<IGameBase> FilterRecordList(IList<IGameBase> recordList, string name)
 		{
-			Debug.Assert(artifactList != null);
+			Debug.Assert(recordList != null);
 
 			Debug.Assert(!string.IsNullOrWhiteSpace(name));
 
-			var filteredArtifactList = artifactList.Where(a => a.Name.Equals(name, StringComparison.OrdinalIgnoreCase)).ToList();
+			var name01 = Globals.CloneInstance(name);
 
-			if (filteredArtifactList.Count == 0)
-			{
-				filteredArtifactList = artifactList.Where(a => a.IsPlural && a.GetPluralName01(Globals.Buf).Equals(name, StringComparison.OrdinalIgnoreCase)).ToList();
-			}
-
-			if (filteredArtifactList.Count == 0)
-			{
-				filteredArtifactList = artifactList.Where(a => a.Synonyms != null && a.Synonyms.FirstOrDefault(s => s.Equals(name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
-			}
-
-			if (filteredArtifactList.Count == 0)
-			{
-				filteredArtifactList = artifactList.Where(a => a.Name.StartsWith(name, StringComparison.OrdinalIgnoreCase) || a.Name.EndsWith(name, StringComparison.OrdinalIgnoreCase)).ToList();
-			}
-
-			if (filteredArtifactList.Count == 0)
-			{
-				filteredArtifactList = artifactList.Where(a => a.IsPlural && (a.GetPluralName01(Globals.Buf).StartsWith(name, StringComparison.OrdinalIgnoreCase) || a.GetPluralName01(Globals.Buf01).EndsWith(name, StringComparison.OrdinalIgnoreCase))).ToList();
-			}
-
-			if (filteredArtifactList.Count == 0)
-			{
-				filteredArtifactList = artifactList.Where(a => a.Synonyms != null && a.Synonyms.FirstOrDefault(s => s.StartsWith(name, StringComparison.OrdinalIgnoreCase) || s.EndsWith(name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
-			}
-
-			return filteredArtifactList;
-		}
-
-		public virtual IList<IMonster> FilterMonsterList(IList<IMonster> monsterList, string name)
-		{
-			Debug.Assert(monsterList != null);
-
-			Debug.Assert(!string.IsNullOrWhiteSpace(name));
-
-			var tokens = name.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+			var tokens = name01.Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
 
 			long i = -1;
 
@@ -1704,7 +1677,7 @@ namespace EamonRT.Game
 
 				if (i > 0)
 				{
-					name = name.Substring(tokens[0].Length + 1);
+					name01 = name01.Substring(tokens[0].Length + 1);
 				}
 				else
 				{
@@ -1712,122 +1685,28 @@ namespace EamonRT.Game
 				}
 			}
 
-			var filteredMonsterList = monsterList.Where(m => m.Name.Equals(name, StringComparison.OrdinalIgnoreCase)).ToList();
+			var filteredRecordList = recordList.Where(r => (((r is IMonster m && m.OrigGroupCount == 1) || (r is IArtifact a && !a.IsPlural)) && r.Name.Equals(r is IMonster ? name01 : name, StringComparison.OrdinalIgnoreCase)) || (((r is IMonster m01 && m01.OrigGroupCount > 1) || (r is IArtifact a01 && a01.IsPlural)) && r.GetPluralName01(Globals.Buf).Equals(r is IMonster ? name01 : name, StringComparison.OrdinalIgnoreCase))).ToList();
 
-			if (filteredMonsterList.Count == 0)
+			if (filteredRecordList.Count == 0)
 			{
-				filteredMonsterList = monsterList.Where(m => m.OrigGroupCount > 1 && m.GetPluralName01(Globals.Buf).Equals(name, StringComparison.OrdinalIgnoreCase)).ToList();
+				filteredRecordList = recordList.Where(r => r.Synonyms != null && r.Synonyms.FirstOrDefault(s => s.Equals(r is IMonster ? name01 : name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
 			}
 
-			if (filteredMonsterList.Count == 0)
+			if (filteredRecordList.Count == 0)
 			{
-				filteredMonsterList = monsterList.Where(m => m.Synonyms != null && m.Synonyms.FirstOrDefault(s => s.Equals(name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
+				filteredRecordList = recordList.Where(r => (((r is IMonster m && m.OrigGroupCount == 1) || (r is IArtifact a && !a.IsPlural)) && (r.Name.StartsWith(r is IMonster ? name01 : name, StringComparison.OrdinalIgnoreCase) || r.Name.EndsWith(r is IMonster ? name01 : name, StringComparison.OrdinalIgnoreCase))) || (((r is IMonster m01 && m01.OrigGroupCount > 1) || (r is IArtifact a01 && a01.IsPlural)) && (r.GetPluralName01(Globals.Buf).StartsWith(r is IMonster ? name01 : name, StringComparison.OrdinalIgnoreCase) || r.GetPluralName01(Globals.Buf01).EndsWith(r is IMonster ? name01 : name, StringComparison.OrdinalIgnoreCase)))).ToList();
 			}
 
-			if (filteredMonsterList.Count == 0)
+			if (filteredRecordList.Count == 0)
 			{
-				filteredMonsterList = monsterList.Where(m => m.Name.StartsWith(name, StringComparison.OrdinalIgnoreCase) || m.Name.EndsWith(name, StringComparison.OrdinalIgnoreCase)).ToList();
+				filteredRecordList = recordList.Where(r => r.Synonyms != null && r.Synonyms.FirstOrDefault(s => s.StartsWith(r is IMonster ? name01 : name, StringComparison.OrdinalIgnoreCase) || s.EndsWith(r is IMonster ? name01 : name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
 			}
 
-			if (filteredMonsterList.Count == 0)
-			{
-				filteredMonsterList = monsterList.Where(m => m.OrigGroupCount > 1 && (m.GetPluralName01(Globals.Buf).StartsWith(name, StringComparison.OrdinalIgnoreCase) || m.GetPluralName01(Globals.Buf01).EndsWith(name, StringComparison.OrdinalIgnoreCase))).ToList();
-			}
-
-			if (filteredMonsterList.Count == 0)
-			{
-				filteredMonsterList = monsterList.Where(m => m.Synonyms != null && m.Synonyms.FirstOrDefault(s => s.StartsWith(name, StringComparison.OrdinalIgnoreCase) || s.EndsWith(name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
-			}
+			filteredRecordList = filteredRecordList.Distinct().GroupBy(r => ((r is IMonster m && m.OrigGroupCount > 1) || (r is IArtifact a && a.IsPlural)) ? r.GetPluralName01(Globals.Buf).ToLower() : r.Name.ToLower()).Select(r => r.FirstOrDefault()).OrderBy(r => r is IMonster ? 1 : 2).ToList();
 
 			if (i > 0)
 			{
-				filteredMonsterList.RemoveAll(m => m.OrigGroupCount == 1 || m.OrigGroupCount < i);
-			}
-
-			return filteredMonsterList;
-		}
-
-		public virtual IList<IGameBase> FilterRecordList(IList<IGameBase> recordList, string name)
-		{
-			Debug.Assert(recordList != null);
-
-			Debug.Assert(!string.IsNullOrWhiteSpace(name));
-
-			var filteredRecordList = recordList.Where(r => r.Name.Equals(name, StringComparison.OrdinalIgnoreCase)).ToList();
-
-			if (filteredRecordList.Count == 0)
-			{
-				filteredRecordList = recordList.Where(r =>
-				{
-					var result = false;
-
-					var m = r as IMonster;
-
-					if (m != null)
-					{
-						result = m.OrigGroupCount > 1;
-					}
-					else
-					{
-						var a = r as IArtifact;
-
-						Debug.Assert(a != null);
-
-						result = a.IsPlural;
-					}
-
-					if (result)
-					{
-						result = r.GetPluralName01(Globals.Buf).Equals(name, StringComparison.OrdinalIgnoreCase);
-					}
-
-					return result;
-				}).ToList();
-			}
-
-			if (filteredRecordList.Count == 0)
-			{
-				filteredRecordList = recordList.Where(r => r.Synonyms != null && r.Synonyms.FirstOrDefault(s => s.Equals(name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
-			}
-
-			if (filteredRecordList.Count == 0)
-			{
-				filteredRecordList = recordList.Where(r => r.Name.StartsWith(name, StringComparison.OrdinalIgnoreCase) || r.Name.EndsWith(name, StringComparison.OrdinalIgnoreCase)).ToList();
-			}
-
-			if (filteredRecordList.Count == 0)
-			{
-				filteredRecordList = recordList.Where(r =>
-				{
-					var result = false;
-
-					var m = r as IMonster;
-
-					if (m != null)
-					{
-						result = m.OrigGroupCount > 1;
-					}
-					else
-					{
-						var a = r as IArtifact;
-
-						Debug.Assert(a != null);
-
-						result = a.IsPlural;
-					}
-
-					if (result)
-					{
-						result = r.GetPluralName01(Globals.Buf).StartsWith(name, StringComparison.OrdinalIgnoreCase) || r.GetPluralName01(Globals.Buf01).EndsWith(name, StringComparison.OrdinalIgnoreCase);
-					}
-
-					return result;
-				}).ToList();
-			}
-
-			if (filteredRecordList.Count == 0)
-			{
-				filteredRecordList = recordList.Where(r => r.Synonyms != null && r.Synonyms.FirstOrDefault(s => s.StartsWith(name, StringComparison.OrdinalIgnoreCase) || s.EndsWith(name, StringComparison.OrdinalIgnoreCase)) != null).ToList();
+				filteredRecordList.RemoveAll(r => r is IMonster m && (m.OrigGroupCount == 1 || m.OrigGroupCount < i));
 			}
 
 			return filteredRecordList;
@@ -3188,6 +3067,8 @@ namespace EamonRT.Game
 			EnforceMonsterWeightLimits = true;
 
 			PoundCharPolicy = PoundCharPolicy.AllArtifacts;
+
+			PercentCharPolicy = PercentCharPolicy.None;
 		}
 	}
 }

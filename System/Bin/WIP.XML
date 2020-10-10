@@ -1,12 +1,12 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.FilesetDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.FilesetDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IFileset, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IFileset, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Fileset, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Fileset, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="WorkDir" value="..\..\Adventures\TheWayfarersInn" />
             <Simple name="PluginFileName" value="TheWayfarersInn.dll" />

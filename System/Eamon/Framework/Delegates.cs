@@ -14,37 +14,14 @@ namespace Eamon.Framework
 	public static class Delegates
 	{
 		/// <summary>
-		/// Queries the game database for a list of <see cref="IArtifact">Artifact</see>s matching a criteria set.
+		/// Queries the game database for a list of <see cref="IGameBase">Record</see>s matching a criteria set.
 		/// </summary>
 		/// <param name="whereClauseFuncs"></param>
 		/// <returns></returns>
-		public delegate IList<IArtifact> GetArtifactListFunc(params Func<IArtifact, bool>[] whereClauseFuncs);
+		public delegate IList<IGameBase> GetRecordListFunc(params Func<IGameBase, bool>[] whereClauseFuncs);
 
 		/// <summary>
-		/// Queries the game database for a list of <see cref="IMonster">Monster</see>s matching a criteria set.
-		/// </summary>
-		/// <param name="whereClauseFuncs"></param>
-		/// <returns></returns>
-		public delegate IList<IMonster> GetMonsterListFunc(params Func<IMonster, bool>[] whereClauseFuncs);
-
-		/// <summary>
-		/// Filters a given <see cref="IArtifact">Artifact</see> list, returning all records matching a given name.
-		/// </summary>
-		/// <param name="artifactList"></param>
-		/// <param name="name"></param>
-		/// <returns></returns>
-		public delegate IList<IArtifact> FilterArtifactListFunc(IList<IArtifact> artifactList, string name);
-
-		/// <summary>
-		/// Filters a given <see cref="IMonster">Monster</see> list, returning all records matching a given name.
-		/// </summary>
-		/// <param name="monsterList"></param>
-		/// <param name="name"></param>
-		/// <returns></returns>
-		public delegate IList<IMonster> FilterMonsterListFunc(IList<IMonster> monsterList, string name);
-
-		/// <summary>
-		/// Filters a given record list, returning all records matching a given name.
+		/// Filters a given <see cref="IGameBase">Record</see> list, returning all records matching a given name.
 		/// </summary>
 		/// <param name="recordList"></param>
 		/// <param name="name"></param>

@@ -1,3 +1,3 @@
 #!/bin/sh
 cd ../../..
-google-chrome https://firstmethod.github.io
+google-chrome https://TheRealEamonCS.github.io

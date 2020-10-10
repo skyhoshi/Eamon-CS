@@ -1,12 +1,12 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.RoomDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.RoomDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IRoom, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IRoom, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -24,6 +24,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="1" />
@@ -35,7 +37,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -53,6 +55,8 @@
                 <Simple value="0" />
                 <Simple value="8" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="2" />
@@ -64,7 +68,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -82,6 +86,8 @@
                 <Simple value="0" />
                 <Simple value="9" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="3" />
@@ -93,7 +99,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -111,6 +117,8 @@
                 <Simple value="0" />
                 <Simple value="10" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="4" />
@@ -122,7 +130,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -140,6 +148,8 @@
                 <Simple value="0" />
                 <Simple value="11" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="5" />
@@ -151,7 +161,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -169,6 +179,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="6" />
@@ -180,7 +192,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -198,6 +210,8 @@
                 <Simple value="0" />
                 <Simple value="13" />
                 <Simple value="3" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="7" />
@@ -209,7 +223,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -227,6 +241,8 @@
                 <Simple value="2" />
                 <Simple value="14" />
                 <Simple value="4" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="8" />
@@ -238,7 +254,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -256,6 +272,8 @@
                 <Simple value="3" />
                 <Simple value="15" />
                 <Simple value="5" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="9" />
@@ -267,7 +285,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -285,6 +303,8 @@
                 <Simple value="4" />
                 <Simple value="16" />
                 <Simple value="6" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="10" />
@@ -296,7 +316,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -314,6 +334,8 @@
                 <Simple value="5" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="11" />
@@ -325,7 +347,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -343,6 +365,8 @@
                 <Simple value="0" />
                 <Simple value="18" />
                 <Simple value="8" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="12" />
@@ -354,7 +378,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -372,6 +396,8 @@
                 <Simple value="7" />
                 <Simple value="19" />
                 <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="13" />
@@ -383,7 +409,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -401,6 +427,8 @@
                 <Simple value="8" />
                 <Simple value="10" />
                 <Simple value="20" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="14" />
@@ -412,7 +440,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -430,6 +458,8 @@
                 <Simple value="9" />
                 <Simple value="21" />
                 <Simple value="11" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="15" />
@@ -441,7 +471,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -459,6 +489,8 @@
                 <Simple value="10" />
                 <Simple value="22" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="16" />
@@ -470,7 +502,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -488,6 +520,8 @@
                 <Simple value="0" />
                 <Simple value="25" />
                 <Simple value="13" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="17" />
@@ -499,7 +533,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -517,6 +551,8 @@
                 <Simple value="12" />
                 <Simple value="26" />
                 <Simple value="14" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="18" />
@@ -528,7 +564,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -546,6 +582,8 @@
                 <Simple value="13" />
                 <Simple value="27" />
                 <Simple value="15" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="19" />
@@ -557,7 +595,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -575,6 +613,8 @@
                 <Simple value="14" />
                 <Simple value="28" />
                 <Simple value="16" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="20" />
@@ -586,7 +626,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -604,6 +644,8 @@
                 <Simple value="15" />
                 <Simple value="29" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="21" />
@@ -615,7 +657,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -633,6 +675,8 @@
                 <Simple value="16" />
                 <Simple value="0" />
                 <Simple value="23" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="22" />
@@ -644,7 +688,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -659,6 +703,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="22" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -673,7 +719,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -691,6 +737,8 @@
                 <Simple value="0" />
                 <Simple value="31" />
                 <Simple value="18" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="24" />
@@ -702,7 +750,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -720,6 +768,8 @@
                 <Simple value="17" />
                 <Simple value="32" />
                 <Simple value="19" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="25" />
@@ -731,7 +781,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -749,6 +799,8 @@
                 <Simple value="18" />
                 <Simple value="33" />
                 <Simple value="20" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="26" />
@@ -760,7 +812,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -778,6 +830,8 @@
                 <Simple value="19" />
                 <Simple value="34" />
                 <Simple value="21" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="27" />
@@ -789,7 +843,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -807,6 +861,8 @@
                 <Simple value="20" />
                 <Simple value="35" />
                 <Simple value="22" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="28" />
@@ -818,7 +874,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -834,6 +890,8 @@
                 <Simple value="0" />
                 <Simple value="34" />
                 <Simple value="21" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
               </Items>
@@ -847,7 +905,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -865,6 +923,8 @@
                 <Simple value="0" />
                 <Simple value="37" />
                 <Simple value="25" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="30" />
@@ -876,7 +936,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -894,6 +954,8 @@
                 <Simple value="24" />
                 <Simple value="38" />
                 <Simple value="26" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="31" />
@@ -905,7 +967,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -923,6 +985,8 @@
                 <Simple value="25" />
                 <Simple value="39" />
                 <Simple value="27" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="32" />
@@ -934,7 +998,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -952,6 +1016,8 @@
                 <Simple value="26" />
                 <Simple value="40" />
                 <Simple value="28" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="33" />
@@ -963,7 +1029,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -981,6 +1047,8 @@
                 <Simple value="27" />
                 <Simple value="0" />
                 <Simple value="29" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="34" />
@@ -992,7 +1060,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1010,6 +1078,8 @@
                 <Simple value="28" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="35" />
@@ -1021,7 +1091,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1039,6 +1109,8 @@
                 <Simple value="0" />
                 <Simple value="42" />
                 <Simple value="31" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="36" />
@@ -1050,7 +1122,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1068,6 +1140,8 @@
                 <Simple value="30" />
                 <Simple value="43" />
                 <Simple value="32" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="37" />
@@ -1079,7 +1153,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1097,6 +1171,8 @@
                 <Simple value="31" />
                 <Simple value="44" />
                 <Simple value="33" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="38" />
@@ -1108,7 +1184,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1126,6 +1202,8 @@
                 <Simple value="32" />
                 <Simple value="45" />
                 <Simple value="34" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="39" />
@@ -1137,7 +1215,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1155,6 +1233,8 @@
                 <Simple value="33" />
                 <Simple value="0" />
                 <Simple value="35" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="40" />
@@ -1166,7 +1246,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1184,6 +1264,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="37" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="41" />
@@ -1195,7 +1277,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1213,6 +1295,8 @@
                 <Simple value="36" />
                 <Simple value="0" />
                 <Simple value="38" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="42" />
@@ -1224,7 +1308,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1242,6 +1326,8 @@
                 <Simple value="37" />
                 <Simple value="0" />
                 <Simple value="39" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="43" />
@@ -1253,7 +1339,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1271,6 +1357,8 @@
                 <Simple value="38" />
                 <Simple value="0" />
                 <Simple value="40" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="44" />
@@ -1282,7 +1370,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1300,6 +1388,8 @@
                 <Simple value="39" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="45" />
@@ -1311,7 +1401,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1329,6 +1419,8 @@
                 <Simple value="0" />
                 <Simple value="49" />
                 <Simple value="121" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="46" />
@@ -1340,7 +1432,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1356,6 +1448,8 @@
                 <Simple value="0" />
                 <Simple value="48" />
                 <Simple value="121" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
               </Items>
@@ -1369,7 +1463,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1387,6 +1481,8 @@
                 <Simple value="0" />
                 <Simple value="50" />
                 <Simple value="47" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="48" />
@@ -1398,7 +1494,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1414,6 +1510,8 @@
                 <Simple value="0" />
                 <Simple value="51" />
                 <Simple value="46" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
               </Items>
@@ -1427,7 +1525,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1443,6 +1541,8 @@
                 <Simple value="0" />
                 <Simple value="52" />
                 <Simple value="48" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
               </Items>
@@ -1456,7 +1556,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1474,6 +1574,8 @@
                 <Simple value="0" />
                 <Simple value="53" />
                 <Simple value="49" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="51" />
@@ -1485,7 +1587,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1503,6 +1605,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="50" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="52" />
@@ -1514,7 +1618,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -1532,6 +1636,8 @@
                 <Simple value="51" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="53" />
@@ -1543,7 +1649,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1561,6 +1667,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="54" />
@@ -1572,7 +1680,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1583,6 +1691,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="57" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1601,13 +1711,15 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
             <Simple name="Zone" value="1" />
             <SingleArray name="Dirs">
               <Items>
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1630,7 +1742,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1648,6 +1760,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="57" />
@@ -1659,7 +1773,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1669,6 +1783,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="57" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1688,7 +1804,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1706,6 +1822,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="59" />
@@ -1717,7 +1835,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1735,6 +1853,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="60" />
@@ -1746,7 +1866,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1764,6 +1884,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="61" />
@@ -1775,7 +1897,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1793,6 +1915,8 @@
                 <Simple value="63" />
                 <Simple value="70" />
                 <Simple value="68" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="62" />
@@ -1804,7 +1928,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1822,6 +1946,8 @@
                 <Simple value="0" />
                 <Simple value="62" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="63" />
@@ -1833,7 +1959,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1843,6 +1969,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="65" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1862,7 +1990,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1872,6 +2000,8 @@
                 <Simple value="0" />
                 <Simple value="64" />
                 <Simple value="62" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1891,7 +2021,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1909,6 +2039,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="62" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="66" />
@@ -1920,7 +2052,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1938,6 +2070,8 @@
                 <Simple value="0" />
                 <Simple value="73" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="67" />
@@ -1949,7 +2083,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1964,6 +2098,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="62" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1978,7 +2114,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -1987,6 +2123,8 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="62" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -2007,7 +2145,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2025,6 +2163,8 @@
                 <Simple value="62" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="70" />
@@ -2036,7 +2176,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -2054,6 +2194,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="67" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="71" />
@@ -2065,7 +2207,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2077,6 +2219,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="67" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -2094,7 +2238,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2112,6 +2256,8 @@
                 <Simple value="67" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="73" />
@@ -2123,7 +2269,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2141,6 +2287,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="74" />
@@ -2152,7 +2300,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2163,6 +2311,8 @@
                 <Simple value="0" />
                 <Simple value="74" />
                 <Simple value="79" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -2181,7 +2331,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2192,6 +2342,8 @@
                 <Simple value="74" />
                 <Simple value="77" />
                 <Simple value="81" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -2210,7 +2362,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2221,6 +2373,8 @@
                 <Simple value="76" />
                 <Simple value="78" />
                 <Simple value="82" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -2239,7 +2393,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2250,6 +2404,8 @@
                 <Simple value="77" />
                 <Simple value="0" />
                 <Simple value="83" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -2268,7 +2424,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2286,6 +2442,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="79" />
@@ -2297,7 +2455,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2315,6 +2473,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="80" />
@@ -2326,7 +2486,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2344,6 +2504,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="81" />
@@ -2355,7 +2517,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2373,6 +2535,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="82" />
@@ -2384,7 +2548,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2402,6 +2566,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="83" />
@@ -2413,7 +2579,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2431,6 +2597,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="84" />
@@ -2442,7 +2610,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2460,6 +2628,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="85" />
@@ -2471,7 +2641,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2489,6 +2659,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="86" />
@@ -2500,7 +2672,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2518,6 +2690,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="87" />
@@ -2529,7 +2703,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2547,6 +2721,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="88" />
@@ -2558,7 +2734,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2567,6 +2743,8 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="88" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -2587,7 +2765,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2605,6 +2783,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="90" />
@@ -2616,7 +2796,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2634,6 +2814,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="91" />
@@ -2645,7 +2827,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2663,6 +2845,8 @@
                 <Simple value="0" />
                 <Simple value="95" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="92" />
@@ -2674,7 +2858,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2692,6 +2876,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="92" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="93" />
@@ -2703,7 +2889,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2714,6 +2900,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="91" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -2732,7 +2920,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2750,6 +2938,8 @@
                 <Simple value="92" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="95" />
@@ -2761,7 +2951,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2779,6 +2969,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="96" />
@@ -2790,7 +2982,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2808,6 +3000,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="97" />
@@ -2819,7 +3013,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2837,6 +3031,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="98" />
@@ -2848,7 +3044,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2866,6 +3062,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="99" />
@@ -2877,7 +3075,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2888,6 +3086,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="101" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -2906,7 +3106,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2916,6 +3116,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="102" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -2935,7 +3137,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2945,6 +3147,8 @@
                 <Simple value="0" />
                 <Simple value="101" />
                 <Simple value="98" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -2964,7 +3168,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -2974,6 +3178,8 @@
                 <Simple value="0" />
                 <Simple value="98" />
                 <Simple value="104" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -2993,7 +3199,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -3002,6 +3208,8 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="103" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -3022,7 +3230,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -3040,6 +3248,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="105" />
@@ -3051,7 +3261,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -3069,6 +3279,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="106" />
@@ -3080,7 +3292,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -3098,6 +3310,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="107" />
@@ -3109,7 +3323,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -3126,6 +3340,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="110" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
               </Items>
             </SingleArray>
@@ -3138,7 +3354,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -3149,6 +3365,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="110" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -3167,7 +3385,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -3185,6 +3403,8 @@
                 <Simple value="108" />
                 <Simple value="114" />
                 <Simple value="112" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="110" />
@@ -3196,7 +3416,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -3206,6 +3426,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="110" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -3225,7 +3447,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -3240,6 +3462,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="110" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -3254,7 +3478,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -3263,6 +3487,8 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="110" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -3283,7 +3509,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -3301,6 +3527,8 @@
                 <Simple value="110" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="114" />
@@ -3312,7 +3540,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -3330,6 +3558,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="115" />
@@ -3341,7 +3571,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -3351,6 +3581,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="115" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -3370,7 +3602,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -3388,6 +3620,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="117" />
@@ -3399,7 +3633,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -3409,6 +3643,8 @@
                 <Simple value="0" />
                 <Simple value="119" />
                 <Simple value="36" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -3428,7 +3664,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -3438,6 +3674,8 @@
                 <Simple value="0" />
                 <Simple value="120" />
                 <Simple value="118" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -3457,7 +3695,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -3468,6 +3706,8 @@
                 <Simple value="0" />
                 <Simple value="119" />
                 <Simple value="121" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -3486,7 +3726,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Room, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -3503,6 +3743,8 @@
                 <Simple value="46" />
                 <Simple value="0" />
                 <Simple value="47" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
               </Items>
             </SingleArray>

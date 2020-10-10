@@ -50,20 +50,20 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 		/// <summary></summary>
 		public virtual string HintsXmlText { get; set; } =
-@"<Complex name=""Root"" type=""Eamon.Game.DataStorage.HintDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null"">
+@"<Complex name=""Root"" type=""Eamon.Game.DataStorage.HintDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null"">
   <Properties>
-    <Collection name=""Records"" type=""Eamon.ThirdParty.BTree`1[[Eamon.Framework.IHint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null"">
+    <Collection name=""Records"" type=""Eamon.ThirdParty.BTree`1[[Eamon.Framework.IHint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null"">
       <Properties>
         <Simple name=""IsReadOnly"" value=""False"" />
         <Simple name=""AllowDuplicates"" value=""False"" />
       </Properties>
       <Items>
-        <Complex type=""YourAdventureName.Game.Hint, YourAdventureName, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null"">
+        <Complex type=""YourAdventureName.Game.Hint, YourAdventureName, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null"">
           <Properties>
             <Simple name=""Uid"" value=""1"" />
             <Simple name=""IsUidRecycled"" value=""True"" />
             <Simple name=""Active"" value=""True"" />
-            <Simple name=""Question"" value=""EAMON CS 1.6 GENERAL HELP."" />
+            <Simple name=""Question"" value=""EAMON CS 1.7 GENERAL HELP."" />
             <Simple name=""NumAnswers"" value=""8"" />
             <SingleArray name=""Answers"">
               <Items>
@@ -79,12 +79,12 @@ namespace EamonDD.Game.Menus.ActionMenus
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type=""YourAdventureName.Game.Hint, YourAdventureName, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null"">
+        <Complex type=""YourAdventureName.Game.Hint, YourAdventureName, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null"">
           <Properties>
             <Simple name=""Uid"" value=""2"" />
             <Simple name=""IsUidRecycled"" value=""True"" />
             <Simple name=""Active"" value=""True"" />
-            <Simple name=""Question"" value=""EAMON CS 1.6 NEW COMMANDS."" />
+            <Simple name=""Question"" value=""EAMON CS 1.7 NEW COMMANDS."" />
             <Simple name=""NumAnswers"" value=""3"" />
             <SingleArray name=""Answers"">
               <Items>

@@ -36,36 +36,20 @@ namespace EamonRT.Game.Parsing
 			}
 		}
 
-		public virtual IList<IArtifact> GetArtifactList { get; set; }
+		public virtual IList<IGameBase> GetRecordList { get; set; }
 
-		public virtual IList<IMonster> GetMonsterList { get; set; }
+		public virtual IList<IGameBase> FilterRecordList { get; set; }
 
-		public virtual IList<IArtifact> FilterArtifactList { get; set; }
+		public virtual IList<Func<IGameBase, bool>> RecordWhereClauseList { get; set; }
 
-		public virtual IList<IMonster> FilterMonsterList { get; set; }
-
-		public virtual IList<Func<IArtifact, bool>> ArtifactWhereClauseList { get; set; }
-
-		public virtual IList<Func<IMonster, bool>> MonsterWhereClauseList { get; set; }
-
-		public virtual Delegates.GetArtifactListFunc GetArtifactListFunc { get; set; }
-
-		public virtual Delegates.GetMonsterListFunc GetMonsterListFunc { get; set; }
-
-		public virtual Delegates.FilterArtifactListFunc FilterArtifactListFunc { get; set; }
-
-		public virtual Delegates.FilterMonsterListFunc FilterMonsterListFunc { get; set; }
+		public virtual Delegates.GetRecordListFunc GetRecordListFunc { get; set; }
 
 		public virtual Delegates.FilterRecordListFunc FilterRecordListFunc { get; set; }
 
 		public virtual Delegates.RevealEmbeddedArtifactFunc RevealEmbeddedArtifactFunc { get; set; }
 
-		public virtual Action ArtifactMatchFunc { get; set; }
+		public virtual Action RecordMatchFunc { get; set; }
 
-		public virtual Action MonsterMatchFunc { get; set; }
-
-		public virtual Action ArtifactNotFoundFunc { get; set; }
-
-		public virtual Action MonsterNotFoundFunc { get; set; }
+		public virtual Action RecordNotFoundFunc { get; set; }
 	}
 }

@@ -1,19 +1,19 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.ModuleDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.ModuleDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IModule, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IModule, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Module, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Module, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Author" value="Michael Penner" />
             <Simple name="VolLabel" value="MP-002" />
             <Simple name="SerialNum" value="009" />
             <Simple name="LastMod" value="2020-05-28T18:48:55.2325616-07:00" />
             <Simple name="IntroStory" value="135" />
-            <Simple name="NumDirs" value="10" />
+            <Simple name="NumDirs" value="12" />
             <Simple name="NumRooms" value="121" />
             <Simple name="NumArtifacts" value="63" />
             <Simple name="NumEffects" value="172" />

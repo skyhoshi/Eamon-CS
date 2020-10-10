@@ -256,43 +256,41 @@ namespace EamonRT.Game.Parsing
 
 		public virtual void PlayerFinishParsingAttackCommand()
 		{
-			ObjData.MonsterMatchFunc = PlayerMonsterMatch03;
-
-			ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+			ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
 			{
-				a => a.IsInRoom(ActorRoom),
-				a => a.IsEmbeddedInRoom(ActorRoom),
-				a => a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)
+				r => r is IMonster m && m.IsInRoom(ActorRoom) && m != ActorMonster,
+				r => r is IArtifact a && a.IsInRoom(ActorRoom),
+				r => r is IArtifact a && a.IsEmbeddedInRoom(ActorRoom),
+				r => r is IArtifact a && a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)
 			};
 
-			ObjData.ArtifactNotFoundFunc = NextCommand.PrintNobodyHereByThatName;
-
-			PlayerResolveMonster();
+			PlayerResolveRecord();
 		}
 
 		public virtual void PlayerFinishParsingBlastCommand()
 		{
-			ObjData.MonsterMatchFunc = PlayerMonsterMatch03;
-
-			ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+			ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
 			{
-				a => a.IsInRoom(ActorRoom),
-				a => a.IsEmbeddedInRoom(ActorRoom),
-				a => a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)
+				r => r is IMonster m && m.IsInRoom(ActorRoom) && m != ActorMonster,
+				r => r is IArtifact a && a.IsInRoom(ActorRoom),
+				r => r is IArtifact a && a.IsEmbeddedInRoom(ActorRoom),
+				r => r is IArtifact a && a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)
 			};
 
-			ObjData.ArtifactNotFoundFunc = NextCommand.PrintNobodyHereByThatName;
-
-			PlayerResolveMonster();
+			PlayerResolveRecord();
 		}
 
 		public virtual void PlayerFinishParsingFreeCommand()
 		{
-			ObjData.ArtifactMatchFunc = PlayerArtifactMatch01;
+			ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
+			{
+				r => r is IArtifact a && (a.IsCarriedByCharacter() || a.IsInRoom(ActorRoom)),
+				r => r is IArtifact a && a.IsEmbeddedInRoom(ActorRoom),
+				r => r is IArtifact a && (a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)),
+				r => r is IMonster m && m.IsInRoom(ActorRoom) && m != ActorMonster
+			};
 
-			ObjData.MonsterMatchFunc = PlayerMonsterMatch01;
-
-			PlayerResolveArtifact();
+			PlayerResolveRecord();
 		}
 
 		public virtual void PlayerFinishParsingGiveCommand()
@@ -312,63 +310,24 @@ namespace EamonRT.Game.Parsing
 
 			if (giveCommand.GoldAmount == 0)
 			{
-				ObjData.ArtifactMatchFunc = () =>
+				ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
 				{
-					if (ObjData.FilterArtifactList.Count > 1)
-					{
-						NextCommand.PrintDoYouMeanObj1OrObj2(ObjData.FilterArtifactList[0], ObjData.FilterArtifactList[1]);
-
-						NextState = Globals.CreateInstance<IStartState>();
-					}
-					else if (ObjData.FilterArtifactList.Count < 1)
-					{
-						ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
-						{
-							a => a.IsWornByCharacter()
-						};
-
-						ObjData.ArtifactMatchFunc = () =>
-						{
-							if (ObjData.FilterArtifactList.Count > 1)
-							{
-								NextCommand.PrintDoYouMeanObj1OrObj2(ObjData.FilterArtifactList[0], ObjData.FilterArtifactList[1]);
-
-								NextState = Globals.CreateInstance<IStartState>();
-							}
-							else if (ObjData.FilterArtifactList.Count < 1)
-							{
-								ObjData.ArtifactNotFoundFunc();
-
-								NextState = Globals.CreateInstance<IStartState>();
-							}
-							else
-							{
-								NextCommand.PrintWearingRemoveFirst(ObjData.FilterArtifactList[0]);
-
-								NextState = Globals.CreateInstance<IStartState>();
-							}
-						};
-
-						PlayerResolveArtifact();
-					}
-					else
-					{
-						ObjData.RevealEmbeddedArtifactFunc(ActorRoom, ObjData.FilterArtifactList[0]);
-
-						SetArtifact(ObjData.FilterArtifactList[0]);
-					}
+					r => r is IArtifact a && (a.IsCarriedByCharacter() || a.IsInRoom(ActorRoom)),
+					r => r is IArtifact a && a.IsEmbeddedInRoom(ActorRoom),
+					r => r is IArtifact a && (a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)),
+					r => r is IArtifact a && a.IsWornByCharacter()
 				};
 
-				PlayerResolveArtifact();
+				PlayerResolveRecord(false);
 			}
 
-			if (giveCommand.GoldAmount > 0 || DobjArtifact != null)
+			if (NextCommand != null && (giveCommand.GoldAmount > 0 || DobjArtifact != null))
 			{
 				ObjData = IobjData;
 
 				ObjData.QueryDescFunc = () => string.Format("{0}To whom? ", Environment.NewLine);
 
-				PlayerResolveMonster();
+				PlayerResolveRecord(true, false);
 			}
 		}
 
@@ -376,7 +335,7 @@ namespace EamonRT.Game.Parsing
 		{
 			if (!Globals.IsRulesetVersion(5) && CurrToken < Tokens.Length)
 			{
-				PlayerResolveMonster();
+				PlayerResolveRecord(true, false);
 			}
 			else
 			{
@@ -392,39 +351,37 @@ namespace EamonRT.Game.Parsing
 
 			ObjData.QueryDescFunc = () => string.Format("{0}From whom? ", Environment.NewLine);
 
-			PlayerResolveMonster();
+			PlayerResolveRecord(true, false);
 
 			if (IobjMonster != null)
 			{
 				ObjData = DobjData;
 
-				ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+				ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
 				{
-					a => a.IsCarriedByMonster(IobjMonster),
-					a => a.IsWornByMonster(IobjMonster)
+					r => r is IArtifact a && a.IsCarriedByMonster(IobjMonster),
+					r => r is IArtifact a && a.IsWornByMonster(IobjMonster)
 				};
 
-				ObjData.ArtifactMatchFunc = PlayerArtifactMatch02;
+				ObjData.RecordMatchFunc = PlayerRecordMatch01;
 
-				ObjData.ArtifactNotFoundFunc = () =>
+				ObjData.RecordNotFoundFunc = () =>
 				{
-					gOut.Print("{0}{1} have it.",
-						IobjMonster.GetTheName(true),
-						IobjMonster.EvalPlural(" doesn't", " don't"));
+					gOut.Print("{0}{1} have it.", IobjMonster.GetTheName(true), IobjMonster.EvalPlural(" doesn't", " don't"));
 				};
 
-				PlayerResolveArtifact();
+				PlayerResolveRecord(false);
 			}
 		}
 
 		public virtual void PlayerFinishParsingCloseCommand()
 		{
-			PlayerResolveArtifact();
+			PlayerResolveRecord(false);
 		}
 
 		public virtual void PlayerFinishParsingDrinkCommand()
 		{
-			PlayerResolveArtifact();
+			PlayerResolveRecord(false);
 		}
 
 		public virtual void PlayerFinishParsingDropCommand()
@@ -437,22 +394,22 @@ namespace EamonRT.Game.Parsing
 			}
 			else
 			{
-				ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+				ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
 				{
-					a => a.IsCarriedByCharacter(),
-					a => a.IsWornByCharacter(),
-					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively)
+					r => r is IArtifact a && a.IsCarriedByCharacter(),
+					r => r is IArtifact a && a.IsWornByCharacter(),
+					r => r is IArtifact a && a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively)
 				};
 
-				ObjData.ArtifactNotFoundFunc = NextCommand.PrintDontHaveIt;
+				ObjData.RecordNotFoundFunc = NextCommand.PrintDontHaveIt;
 
-				PlayerResolveArtifact();
+				PlayerResolveRecord(false);
 			}
 		}
 
 		public virtual void PlayerFinishParsingEatCommand()
 		{
-			PlayerResolveArtifact();
+			PlayerResolveRecord(false);
 		}
 
 		public virtual void PlayerFinishParsingExamineCommand()
@@ -471,12 +428,12 @@ namespace EamonRT.Game.Parsing
 			}
 			else
 			{
-				ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+				ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
 				{
-					a => a.IsCarriedByCharacter() || a.IsInRoom(ActorRoom),
-					a => a.IsEmbeddedInRoom(ActorRoom),
-					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively),
-					a => a.IsWornByCharacter()
+					r => (r is IArtifact a && (a.IsCarriedByCharacter() || a.IsInRoom(ActorRoom))) || (r is IMonster m && m.IsInRoom(ActorRoom) && m != ActorMonster),
+					r => r is IArtifact a && a.IsEmbeddedInRoom(ActorRoom),
+					r => r is IArtifact a && (a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)),
+					r => r is IArtifact a && a.IsWornByCharacter()
 				};
 
 				if (!Enum.IsDefined(typeof(ContainerType), NextCommand.ContainerType))
@@ -484,13 +441,11 @@ namespace EamonRT.Game.Parsing
 					ObjData.RevealEmbeddedArtifactFunc = (r, a) => { };
 				}
 
-				ObjData.ArtifactMatchFunc = PlayerArtifactMatch01;
+				ObjData.RecordMatchFunc = PlayerRecordMatch01;
 
-				ObjData.MonsterMatchFunc = PlayerMonsterMatch02;
+				ObjData.RecordNotFoundFunc = NextCommand.PrintYouSeeNothingSpecial;
 
-				ObjData.MonsterNotFoundFunc = NextCommand.PrintYouSeeNothingSpecial;
-
-				PlayerResolveArtifact();
+				PlayerResolveRecord();
 			}
 		}
 
@@ -504,16 +459,16 @@ namespace EamonRT.Game.Parsing
 			}
 			else
 			{
-				ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+				ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
 				{
-					a => a.IsInRoom(ActorRoom),
-					a => a.IsEmbeddedInRoom(ActorRoom),
-					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)
+					r => r is IArtifact a && a.IsInRoom(ActorRoom),
+					r => r is IArtifact a && a.IsEmbeddedInRoom(ActorRoom),
+					r => r is IArtifact a && (a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively))
 				};
 
-				ObjData.ArtifactNotFoundFunc = NextCommand.PrintCantVerbThat;
+				ObjData.RecordNotFoundFunc = NextCommand.PrintCantVerbThat;
 
-				PlayerResolveArtifact();
+				PlayerResolveRecord(false);
 			}
 		}
 
@@ -521,20 +476,20 @@ namespace EamonRT.Game.Parsing
 		{
 			if (!ActorMonster.IsInRoomLit())
 			{
-				ObjData.ArtifactNotFoundFunc = () => { };
+				ObjData.RecordNotFoundFunc = () => { };
 			}
 
-			PlayerResolveArtifact();
+			PlayerResolveRecord(false);
 		}
 
 		public virtual void PlayerFinishParsingOpenCommand()
 		{
-			PlayerResolveArtifact();
+			PlayerResolveRecord(false);
 		}
 
 		public virtual void PlayerFinishParsingPutCommand()
 		{
-			PlayerResolveArtifact();
+			PlayerResolveRecord(false);
 
 			if (DobjArtifact != null)
 			{
@@ -544,7 +499,7 @@ namespace EamonRT.Game.Parsing
 
 				ObjData.QueryDescFunc = () => string.Format("{0}Put {1} {2} what? ", Environment.NewLine, DobjArtifact.EvalPlural("it", "them"), Enum.IsDefined(typeof(ContainerType), NextCommand.ContainerType) ? gEngine.EvalContainerType(NextCommand.ContainerType, "inside", "on", "under", "behind") : "in");
 
-				PlayerResolveArtifact();
+				PlayerResolveRecord(false);
 
 				if (IobjArtifact != null)
 				{
@@ -562,98 +517,102 @@ namespace EamonRT.Game.Parsing
 
 		public virtual void PlayerFinishParsingReadCommand()
 		{
-			PlayerResolveArtifact();
+			PlayerResolveRecord(false);
 		}
 
 		public virtual void PlayerFinishParsingReadyCommand()
 		{
-			PlayerResolveArtifact();
+			PlayerResolveRecord(false);
 		}
 
 		public virtual void PlayerFinishParsingRemoveCommand()
 		{
-			ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+			ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
 			{
-				a => a.IsWornByCharacter()
+				r => r is IArtifact a && a.IsWornByCharacter()
 			};
 
-			ObjData.ArtifactMatchFunc = () =>
+			ObjData.RecordMatchFunc = () =>
 			{
 				NextCommand.ContainerType = NextCommand.Prep != null ? NextCommand.Prep.ContainerType : (ContainerType)(-1);
 
-				if (ObjData.FilterArtifactList.Count > 1)
+				if (ObjData.FilterRecordList.Count > 1)
 				{
-					NextCommand.PrintDoYouMeanObj1OrObj2(ObjData.FilterArtifactList[0], ObjData.FilterArtifactList[1]);
+					NextCommand.PrintDoYouMeanObj1OrObj2(ObjData.FilterRecordList[0], ObjData.FilterRecordList[1]);
 
 					NextState = Globals.CreateInstance<IStartState>();
 				}
-				else if (ObjData.FilterArtifactList.Count < 1)
+				else if (ObjData.FilterRecordList.Count == 1)
 				{
-					ObjData = IobjData;
-
-					ObjData.QueryDescFunc = () => string.Format("{0}From {1}what? ", Environment.NewLine, Enum.IsDefined(typeof(ContainerType), NextCommand.ContainerType) ? gEngine.EvalContainerType(NextCommand.ContainerType, "inside ", "on ", "under ", "behind ") : "");
-
-					PlayerResolveArtifact();
-
-					if (IobjArtifact != null)
+					if (ObjData.FilterRecordList[0] is IArtifact artifact)
 					{
-						if (!Enum.IsDefined(typeof(ContainerType), NextCommand.ContainerType))
+						ObjData.RevealEmbeddedArtifactFunc(ActorRoom, artifact);
+					}
+
+					SetRecord(ObjData.FilterRecordList[0]);
+				}
+			};
+
+			PlayerResolveRecord(false);
+
+			if (NextCommand != null && DobjArtifact == null)
+			{
+				ObjData = IobjData;
+
+				ObjData.QueryDescFunc = () => string.Format("{0}From {1}what? ", Environment.NewLine, Enum.IsDefined(typeof(ContainerType), NextCommand.ContainerType) ? gEngine.EvalContainerType(NextCommand.ContainerType, "inside ", "on ", "under ", "behind ") : "");
+
+				PlayerResolveRecord(false);
+
+				if (IobjArtifact != null)
+				{
+					if (!Enum.IsDefined(typeof(ContainerType), NextCommand.ContainerType))
+					{
+						var artTypes = new ArtifactType[] { ArtifactType.InContainer, ArtifactType.OnContainer };
+
+						var defaultAc = IobjArtifact.GetArtifactCategory(artTypes);
+
+						NextCommand.ContainerType = defaultAc != null ? gEngine.GetContainerType(defaultAc.Type) : ContainerType.In;
+					}
+
+					var ac = gEngine.EvalContainerType(NextCommand.ContainerType, IobjArtifact.InContainer, IobjArtifact.OnContainer, IobjArtifact.UnderContainer, IobjArtifact.BehindContainer);
+
+					if (ac != null)
+					{
+						if (ac != IobjArtifact.InContainer || ac.IsOpen())
 						{
-							var artTypes = new ArtifactType[] { ArtifactType.InContainer, ArtifactType.OnContainer };
+							ObjData = DobjData;
 
-							var defaultAc = IobjArtifact.GetArtifactCategory(artTypes);
-
-							NextCommand.ContainerType = defaultAc != null ? gEngine.GetContainerType(defaultAc.Type) : ContainerType.In;
-						}
-
-						var ac = gEngine.EvalContainerType(NextCommand.ContainerType, IobjArtifact.InContainer, IobjArtifact.OnContainer, IobjArtifact.UnderContainer, IobjArtifact.BehindContainer);
-
-						if (ac != null)
-						{
-							if (ac != IobjArtifact.InContainer || ac.IsOpen())
+							ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
 							{
-								ObjData = DobjData;
+								r => r is IArtifact a && a.IsCarriedByContainer(IobjArtifact) && a.GetCarriedByContainerContainerType() == NextCommand.ContainerType
+							};
 
-								ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
-								{
-									a => a.IsCarriedByContainer(IobjArtifact) && a.GetCarriedByContainerContainerType() == NextCommand.ContainerType
-								};
+							ObjData.RecordMatchFunc = PlayerRecordMatch;
 
-								ObjData.ArtifactMatchFunc = PlayerArtifactMatch;
+							ObjData.RecordNotFoundFunc = NextCommand.PrintDontFollowYou;
 
-								ObjData.ArtifactNotFoundFunc = NextCommand.PrintDontFollowYou;
-
-								PlayerResolveArtifact();
-							}
-							else
-							{
-								NextCommand.PrintMustFirstOpen(IobjArtifact);
-
-								NextState = Globals.CreateInstance<IStartState>();
-							}
+							PlayerResolveRecord(false);
 						}
 						else
 						{
-							NextCommand.PrintDontFollowYou();
+							NextCommand.PrintMustFirstOpen(IobjArtifact);
 
 							NextState = Globals.CreateInstance<IStartState>();
 						}
 					}
-				}
-				else
-				{
-					ObjData.RevealEmbeddedArtifactFunc(ActorRoom, ObjData.FilterArtifactList[0]);
+					else
+					{
+						NextCommand.PrintDontFollowYou();
 
-					SetArtifact(ObjData.FilterArtifactList[0]);
+						NextState = Globals.CreateInstance<IStartState>();
+					}
 				}
-			};
-
-			PlayerResolveArtifact();
+			}
 		}
 
 		public virtual void PlayerFinishParsingUseCommand()
 		{
-			PlayerResolveArtifact();
+			PlayerResolveRecord(false);
 
 			if (DobjArtifact != null && NextCommand.IsIobjEnabled && CurrToken < Tokens.Length)
 			{
@@ -661,27 +620,32 @@ namespace EamonRT.Game.Parsing
 
 				ObjData.QueryDescFunc = () => string.Format("{0}Use {1} on who or what? ", Environment.NewLine, DobjArtifact.EvalPlural("it", "them"));
 
-				ObjData.ArtifactMatchFunc = PlayerArtifactMatch01;
+				ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
+				{
+					r => (r is IArtifact a && (a.IsCarriedByCharacter() || a.IsInRoom(ActorRoom))) || (r is IMonster m && m.IsInRoom(ActorRoom) && m != ActorMonster),
+					r => r is IArtifact a && a.IsEmbeddedInRoom(ActorRoom),
+					r => r is IArtifact a && (a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively))
+				};
 
-				ObjData.MonsterMatchFunc = PlayerMonsterMatch02;
+				ObjData.RecordMatchFunc = PlayerRecordMatch01;
 
-				ObjData.MonsterNotFoundFunc = NextCommand.PrintDontHaveItNotHere;
+				ObjData.RecordNotFoundFunc = NextCommand.PrintDontHaveItNotHere;
 
-				PlayerResolveArtifact();
+				PlayerResolveRecord();
 			}
 		}
 
 		public virtual void PlayerFinishParsingWearCommand()
 		{
-			ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+			ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
 			{
-				a => a.IsCarriedByCharacter() || a.IsInRoom(ActorRoom),
-				a => a.IsEmbeddedInRoom(ActorRoom),
-				a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively),
-				a => a.IsWornByCharacter()
+				r => r is IArtifact a && (a.IsCarriedByCharacter() || a.IsInRoom(ActorRoom)),
+				r => r is IArtifact a && a.IsEmbeddedInRoom(ActorRoom),
+				r => r is IArtifact a && (a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)),
+				r => r is IArtifact a && a.IsWornByCharacter()
 			};
 
-			PlayerResolveArtifact();
+			PlayerResolveRecord(false);
 		}
 
 		public virtual void PlayerFinishParsingInventoryCommand()
@@ -692,13 +656,20 @@ namespace EamonRT.Game.Parsing
 				{
 					if (Globals.IsRulesetVersion(5))
 					{
-						PlayerResolveArtifact();
+						PlayerResolveRecord(false);
 					}
 					else
 					{
-						ObjData.MonsterMatchFunc = PlayerMonsterMatch03;
+						ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
+						{
+							r => (r is IArtifact a && (a.IsCarriedByCharacter() || a.IsInRoom(ActorRoom))) || (r is IMonster m && m.IsInRoom(ActorRoom) && m != ActorMonster),
+							r => r is IArtifact a && a.IsEmbeddedInRoom(ActorRoom),
+							r => r is IArtifact a && (a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively))
+						};
 
-						PlayerResolveMonster();
+						ObjData.RecordNotFoundFunc = NextCommand.PrintDontHaveItNotHere;
+
+						PlayerResolveRecord();
 					}
 				}
 				else
@@ -1024,16 +995,16 @@ namespace EamonRT.Game.Parsing
 				{
 					ParseName();
 
-					ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+					ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
 					{
-						a => a.IsInRoom(ActorRoom),
-						a => a.IsEmbeddedInRoom(ActorRoom),
-						a => a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)
+						r => r is IArtifact a && a.IsInRoom(ActorRoom),
+						r => r is IArtifact a && a.IsEmbeddedInRoom(ActorRoom),
+						r => r is IArtifact a && a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)
 					};
 
-					ObjData.ArtifactNotFoundFunc = NextCommand.PrintNothingHereByThatName;
+					ObjData.RecordNotFoundFunc = NextCommand.PrintNothingHereByThatName;
 
-					PlayerResolveArtifact();
+					PlayerResolveRecord(false);
 				}
 				else
 				{
@@ -1046,141 +1017,71 @@ namespace EamonRT.Game.Parsing
 		{
 			ParseName();
 
-			ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+			ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
 			{
-				a => a.IsInRoom(ActorRoom),
-				a => a.IsEmbeddedInRoom(ActorRoom),
-				a => a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)
+				r => r is IArtifact a && a.IsInRoom(ActorRoom),
+				r => r is IArtifact a && a.IsEmbeddedInRoom(ActorRoom),
+				r => r is IArtifact a && a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)
 			};
 
-			ObjData.ArtifactNotFoundFunc = NextCommand.PrintNothingHereByThatName;
+			ObjData.RecordNotFoundFunc = NextCommand.PrintNothingHereByThatName;
 
-			PlayerResolveArtifact();
+			PlayerResolveRecord(false);
 		}
 
-		public virtual void PlayerArtifactMatch()
+		public virtual void PlayerRecordMatch()
 		{
-			if (ObjData.FilterArtifactList.Count > 1)
+			if (ObjData.FilterRecordList.Count > 1)
 			{
-				NextCommand.PrintDoYouMeanObj1OrObj2(ObjData.FilterArtifactList[0], ObjData.FilterArtifactList[1]);
+				NextCommand.PrintDoYouMeanObj1OrObj2(ObjData.FilterRecordList[0], ObjData.FilterRecordList[1]);
 
 				NextState = Globals.CreateInstance<IStartState>();
 			}
-			else if (ObjData.FilterArtifactList.Count < 1)
+			else if (ObjData.FilterRecordList.Count < 1)
 			{
-				ObjData.ArtifactNotFoundFunc();
+				ObjData.RecordNotFoundFunc();
 
 				NextState = Globals.CreateInstance<IStartState>();
 			}
-			else
+			else 
 			{
-				ObjData.RevealEmbeddedArtifactFunc(ActorRoom, ObjData.FilterArtifactList[0]);
+				if (ObjData.FilterRecordList[0] is IArtifact artifact)
+				{
+					ObjData.RevealEmbeddedArtifactFunc(ActorRoom, artifact);
+				}
 
-				SetArtifact(ObjData.FilterArtifactList[0]);
-			}
-		}
-
-		public virtual void PlayerArtifactMatch01()
-		{
-			if (ObjData.FilterArtifactList.Count > 1)
-			{
-				NextCommand.PrintDoYouMeanObj1OrObj2(ObjData.FilterArtifactList[0], ObjData.FilterArtifactList[1]);
-
-				NextState = Globals.CreateInstance<IStartState>();
-			}
-			else if (ObjData.FilterArtifactList.Count < 1)
-			{
-				PlayerResolveMonster();
-			}
-			else
-			{
-				ObjData.RevealEmbeddedArtifactFunc(ActorRoom, ObjData.FilterArtifactList[0]);
-
-				SetArtifact(ObjData.FilterArtifactList[0]);
+				SetRecord(ObjData.FilterRecordList[0]);
 			}
 		}
 
-		public virtual void PlayerArtifactMatch02()
+		public virtual void PlayerRecordMatch01()
 		{
-			if (ObjData.FilterArtifactList.Count > 1)
+			if (ObjData.FilterRecordList.Count > 1)
 			{
-				NextCommand.PrintDoYouMeanObj1OrObj2(ObjData.FilterArtifactList[0], ObjData.FilterArtifactList[1]);
+				NextCommand.PrintDoYouMeanObj1OrObj2(ObjData.FilterRecordList[0], ObjData.FilterRecordList[1]);
 
 				NextState = Globals.CreateInstance<IStartState>();
 			}
-			else if (ObjData.FilterArtifactList.Count < 1)
+			else if (ObjData.FilterRecordList.Count < 1)
 			{
-				ObjData.ArtifactNotFoundFunc();
+				ObjData.RecordNotFoundFunc();
 
 				NextState = Globals.CreateInstance<IMonsterStartState>();
 			}
 			else
 			{
-				ObjData.RevealEmbeddedArtifactFunc(ActorRoom, ObjData.FilterArtifactList[0]);
+				if (ObjData.FilterRecordList[0] is IArtifact artifact)
+				{
+					ObjData.RevealEmbeddedArtifactFunc(ActorRoom, artifact);
+				}
 
-				SetArtifact(ObjData.FilterArtifactList[0]);
+				SetRecord(ObjData.FilterRecordList[0]);
 			}
 		}
 
-		public virtual void PlayerMonsterMatch()
+		public virtual void PlayerResolveRecord(bool includeMonsters = true, bool includeArtifacts = true)
 		{
-			if (ObjData.FilterMonsterList.Count < 1)
-			{
-				ObjData.MonsterNotFoundFunc();
-
-				NextState = Globals.CreateInstance<IStartState>();
-			}
-			else
-			{
-				SetMonster(ObjData.FilterMonsterList[0]);
-			}
-		}
-
-		public virtual void PlayerMonsterMatch01()
-		{
-			if (ObjData.FilterMonsterList.Count < 1)
-			{
-				ObjData.MonsterNotFoundFunc();
-
-				NextState = Globals.CreateInstance<IStartState>();
-			}
-			else
-			{
-				NextCommand.PrintCantVerbObj(ObjData.FilterMonsterList[0]);
-
-				NextState = Globals.CreateInstance<IMonsterStartState>();
-			}
-		}
-
-		public virtual void PlayerMonsterMatch02()
-		{
-			if (ObjData.FilterMonsterList.Count < 1)
-			{
-				ObjData.MonsterNotFoundFunc();
-
-				NextState = Globals.CreateInstance<IMonsterStartState>();
-			}
-			else
-			{
-				SetMonster(ObjData.FilterMonsterList[0]);
-			}
-		}
-
-		public virtual void PlayerMonsterMatch03()
-		{
-			if (ObjData.FilterMonsterList.Count < 1)
-			{
-				PlayerResolveArtifact();
-			}
-			else
-			{
-				SetMonster(ObjData.FilterMonsterList[0]);
-			}
-		}
-
-		public virtual void PlayerResolveArtifact()
-		{
-			if (GetArtifact() == null)
+			if (GetRecord() == null)
 			{
 				if (string.IsNullOrWhiteSpace(ObjData.Name))
 				{
@@ -1189,14 +1090,29 @@ namespace EamonRT.Game.Parsing
 
 				if (!string.IsNullOrWhiteSpace(ObjData.Name))
 				{
-					if (ObjData.ArtifactWhereClauseList == null)
+					if (ObjData.RecordWhereClauseList == null)
 					{
-						ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+						ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>();
+
+						if (includeMonsters)
 						{
-							a => a.IsCarriedByCharacter() || a.IsInRoom(ActorRoom),
-							a => a.IsEmbeddedInRoom(ActorRoom),
-							a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)
-						};
+							ObjData.RecordWhereClauseList.AddRange(
+								new Func<IGameBase, bool>[] {
+									r => r is IMonster m && m.IsInRoom(ActorRoom) && m != ActorMonster
+								}
+							);
+						}
+
+						if (includeArtifacts)
+						{
+							ObjData.RecordWhereClauseList.AddRange(
+								new Func<IGameBase, bool>[] {
+									r => r is IArtifact a && (a.IsCarriedByCharacter() || a.IsInRoom(ActorRoom)),
+									r => r is IArtifact a && a.IsEmbeddedInRoom(ActorRoom),
+									r => r is IArtifact a && (a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively))
+								}
+							);
+						}
 					}
 
 					if (ObjData.RevealEmbeddedArtifactFunc == null)
@@ -1204,107 +1120,36 @@ namespace EamonRT.Game.Parsing
 						ObjData.RevealEmbeddedArtifactFunc = gEngine.RevealEmbeddedArtifact;
 					}
 
-					if (ObjData.GetArtifactListFunc == null)
+					if (ObjData.GetRecordListFunc == null)
 					{
-						ObjData.GetArtifactListFunc = gEngine.GetArtifactList;
+						ObjData.GetRecordListFunc = gEngine.GetRecordList;
 					}
 
-					if (ObjData.FilterArtifactListFunc == null)
+					if (ObjData.FilterRecordListFunc == null)
 					{
-						ObjData.FilterArtifactListFunc = gEngine.FilterArtifactList;
+						ObjData.FilterRecordListFunc = gEngine.FilterRecordList;
 					}
 
-					if (ObjData.ArtifactMatchFunc == null)
+					if (ObjData.RecordMatchFunc == null)
 					{
-						ObjData.ArtifactMatchFunc = PlayerArtifactMatch;
+						ObjData.RecordMatchFunc = PlayerRecordMatch;
 					}
 
-					if (ObjData.ArtifactNotFoundFunc == null)
+					if (ObjData.RecordNotFoundFunc == null)
 					{
-						ObjData.ArtifactNotFoundFunc = NextCommand.PrintDontHaveItNotHere;
-					}
-
-					PlayerResolveArtifactProcessWhereClauseList();
-
-					ObjData.ArtifactMatchFunc();
-				}
-				else
-				{
-					NextState = Globals.CreateInstance<IErrorState>(x =>
-					{
-						x.ErrorMessage = string.Format("{0}: string.IsNullOrWhiteSpace({1}.Name)", NextCommand.Name, GetActiveObjData());
-					});
-				}
-			}
-		}
-
-		public virtual void PlayerResolveArtifactProcessWhereClauseList()
-		{
-			ObjData.GetArtifactList = new List<IArtifact>();
-
-			foreach (var whereClauseFuncs in ObjData.ArtifactWhereClauseList)
-			{
-				ObjData.GetArtifactList = ObjData.GetArtifactListFunc(whereClauseFuncs);
-
-				Debug.Assert(ObjData.GetArtifactList != null);
-
-				var filterArtifactList = ObjData.FilterArtifactListFunc(ObjData.GetArtifactList, ObjData.Name);
-
-				Debug.Assert(filterArtifactList != null);
-
-				ObjData.FilterArtifactList = filterArtifactList.GroupBy(a => a.Name.ToLower()).Select(a => a.First()).ToList();
-
-				Debug.Assert(ObjData.FilterArtifactList != null);
-
-				if (ObjData.FilterArtifactList.Count > 0)
-				{
-					break;
-				}
-			}
-		}
-
-		public virtual void PlayerResolveMonster()
-		{
-			if (GetMonster() == null)
-			{
-				if (string.IsNullOrWhiteSpace(ObjData.Name))
-				{
-					ParseName();
-				}
-
-				if (!string.IsNullOrWhiteSpace(ObjData.Name))
-				{
-					if (ObjData.MonsterWhereClauseList == null)
-					{
-						ObjData.MonsterWhereClauseList = new List<Func<IMonster, bool>>()
+						if (includeMonsters)
 						{
-							m => m.IsInRoom(ActorRoom) && m != ActorMonster
-						};
+							ObjData.RecordNotFoundFunc = NextCommand.PrintNobodyHereByThatName;
+						}
+						else
+						{
+							ObjData.RecordNotFoundFunc = NextCommand.PrintDontHaveItNotHere;
+						}
 					}
 
-					if (ObjData.GetMonsterListFunc == null)
-					{
-						ObjData.GetMonsterListFunc = gEngine.GetMonsterList;
-					}
+					PlayerResolveRecordProcessWhereClauseList();
 
-					if (ObjData.FilterMonsterListFunc == null)
-					{
-						ObjData.FilterMonsterListFunc = gEngine.FilterMonsterList;
-					}
-
-					if (ObjData.MonsterMatchFunc == null)
-					{
-						ObjData.MonsterMatchFunc = PlayerMonsterMatch;
-					}
-
-					if (ObjData.MonsterNotFoundFunc == null)
-					{
-						ObjData.MonsterNotFoundFunc = NextCommand.PrintNobodyHereByThatName;
-					}
-
-					PlayerResolveMonsterProcessWhereClauseList();
-
-					ObjData.MonsterMatchFunc();
+					ObjData.RecordMatchFunc();
 				}
 				else
 				{
@@ -1316,21 +1161,21 @@ namespace EamonRT.Game.Parsing
 			}
 		}
 
-		public virtual void PlayerResolveMonsterProcessWhereClauseList()
+		public virtual void PlayerResolveRecordProcessWhereClauseList()
 		{
-			ObjData.GetMonsterList = new List<IMonster>();
+			ObjData.GetRecordList = new List<IGameBase>();
 
-			foreach (var whereClauseFuncs in ObjData.MonsterWhereClauseList)
+			foreach (var whereClauseFunc in ObjData.RecordWhereClauseList)
 			{
-				ObjData.GetMonsterList = ObjData.GetMonsterListFunc(whereClauseFuncs);
+				ObjData.GetRecordList = ObjData.GetRecordListFunc(whereClauseFunc);
 
-				Debug.Assert(ObjData.GetMonsterList != null);
+				Debug.Assert(ObjData.GetRecordList != null);
 
-				ObjData.FilterMonsterList = ObjData.FilterMonsterListFunc(ObjData.GetMonsterList, ObjData.Name);
+				ObjData.FilterRecordList = ObjData.FilterRecordListFunc(ObjData.GetRecordList, ObjData.Name);
 
-				Debug.Assert(ObjData.FilterMonsterList != null);
+				Debug.Assert(ObjData.FilterRecordList != null);
 
-				if (ObjData.FilterMonsterList.Count > 0)
+				if (ObjData.FilterRecordList.Count > 0)
 				{
 					break;
 				}
@@ -1398,50 +1243,27 @@ namespace EamonRT.Game.Parsing
 			return ObjData == DobjData ? "DobjData" : "IobjData";
 		}
 
-		public virtual void SetArtifact(IArtifact artifact)
+		public virtual void SetRecord(IGameBase record)
 		{
 			Debug.Assert(NextCommand != null);
 
 			if (ObjData == DobjData)
 			{
-				Dobj = artifact;
+				Dobj = record;
 			}
 			else
 			{
-				Iobj = artifact;
+				Iobj = record;
 			}
 
-			ObjData.Obj = artifact;
+			ObjData.Obj = record;
 		}
 
-		public virtual void SetMonster(IMonster monster)
+		public virtual IGameBase GetRecord()
 		{
 			Debug.Assert(NextCommand != null);
 
-			if (ObjData == DobjData)
-			{
-				Dobj = monster;
-			}
-			else
-			{
-				Iobj = monster;
-			}
-
-			ObjData.Obj = monster;
-		}
-
-		public virtual IArtifact GetArtifact()
-		{
-			Debug.Assert(NextCommand != null);
-
-			return ObjData == DobjData ? DobjArtifact : IobjArtifact;
-		}
-
-		public virtual IMonster GetMonster()
-		{
-			Debug.Assert(NextCommand != null);
-
-			return ObjData == DobjData ? DobjMonster : IobjMonster;
+			return ObjData == DobjData ? Dobj : Iobj;
 		}
 
 		public virtual void Clear()
@@ -1571,7 +1393,7 @@ namespace EamonRT.Game.Parsing
 
 						if (ShouldStripTrailingPunctuation())
 						{
-							Globals.Buf.SetFormat("{0}", Globals.Buf.TrimEndPunctuationMinusPound().ToString().Trim());
+							Globals.Buf.SetFormat("{0}", Globals.Buf.TrimEndPunctuationMinusUniqueChars().ToString().Trim());
 						}
 
 						Tokens = Globals.Buf.ToString().Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
@@ -1754,7 +1576,7 @@ namespace EamonRT.Game.Parsing
 					{
 						Globals.Buf.SetFormat("{0}", Tokens[CurrToken]);
 
-						Tokens[CurrToken] = Globals.Buf.TrimEndPunctuationMinusPound().ToString().Trim();
+						Tokens[CurrToken] = Globals.Buf.TrimEndPunctuationMinusUniqueChars().ToString().Trim();
 					}
 
 					if (Tokens[CurrToken].Length == 0)
@@ -1797,7 +1619,7 @@ namespace EamonRT.Game.Parsing
 						{
 							Globals.Buf.SetFormat("{0}", Tokens[Tokens.Length - 1]);
 
-							Tokens[Tokens.Length - 1] = Globals.Buf.TrimEndPunctuationMinusPound().ToString().Trim();
+							Tokens[Tokens.Length - 1] = Globals.Buf.TrimEndPunctuationMinusUniqueChars().ToString().Trim();
 						}
 
 						if (ActorMonster.IsCharacterMonster())

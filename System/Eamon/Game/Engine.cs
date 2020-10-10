@@ -2220,7 +2220,7 @@ namespace Eamon.Game
 			}).Skip((int)(which - 1)).Take(1).FirstOrDefault();
 		}
 
-		public virtual void StripPoundCharsFromRecordNames(IList<IGameBase> recordList)
+		public virtual void StripUniqueCharsFromRecordNames(IList<IGameBase> recordList)
 		{
 			Debug.Assert(recordList != null);
 
@@ -2228,11 +2228,11 @@ namespace Eamon.Game
 
 			for (var i = 0; i < sz; i++)
 			{
-				recordList[i].Name = recordList[i].Name.TrimEnd('#');
+				recordList[i].Name = recordList[i].Name.TrimEnd(recordList[i] is IArtifact ? '#' : '%');
 			}
 		}
 
-		public virtual void AddPoundCharsToRecordNames(IList<IGameBase> recordList)
+		public virtual void AddUniqueCharsToRecordNames(IList<IGameBase> recordList)
 		{
 			long c;
 
@@ -2248,11 +2248,14 @@ namespace Eamon.Game
 				{
 					for (var j = i + 1; j < sz; j++)
 					{
-						if (recordList[j].Name.Equals(recordList[i].Name, StringComparison.OrdinalIgnoreCase))
+						if ((recordList[j] is IArtifact && recordList[i] is IArtifact) || (recordList[j] is IMonster && recordList[i] is IMonster))
 						{
-							recordList[j].Name += "#";
+							if (recordList[j].Name.Equals(recordList[i].Name, StringComparison.OrdinalIgnoreCase))
+							{
+								recordList[j].Name += (recordList[j] is IArtifact ? "#" : "%");
 
-							c = 1;
+								c = 1;
+							}
 						}
 					}
 				}
@@ -2851,6 +2854,20 @@ namespace Eamon.Game
 					x.PrintedName = "SW";
 					x.Abbr = "SW";
 					x.EnterDir = Direction.Northeast;
+				}),
+				Globals.CreateInstance<IDirection>(x =>
+				{
+					x.Name = "In";
+					x.PrintedName = "In";
+					x.Abbr = "I";
+					x.EnterDir = Direction.Out;
+				}),
+				Globals.CreateInstance<IDirection>(x =>
+				{
+					x.Name = "Out";
+					x.PrintedName = "Out";
+					x.Abbr = "O";
+					x.EnterDir = Direction.In;
 				})
 			};
 

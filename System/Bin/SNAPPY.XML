@@ -1,145 +1,145 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.EffectDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.EffectDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IEffect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IEffect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="being pulled away from the bar to look up names." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="having seen ugly faces before but never anything like this." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="3" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="the idiot on the other shift with the lousy handwriting." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="how the days are so long since he quit adventuring." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="how he was once young and foolish too." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="weird young adventurers with even weirder names." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="7" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="young greenhorns that think they know it all." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="taking the barmaid out after her shift." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="leaving this job to start a dungeon." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="10" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="how he should have listened to his mother and been a brain surgeon." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="11" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="how good fer nothin' young adventurers should be taken out an hung." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="12" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="strange Saxon names ye can never pronounce, let alone spell." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="13" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="how he should have listened to his mother and gone into taxidermy." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="14" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="having to computerize this damn book business sometime." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="15" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="how the know-it-all attitudes of the new adventurers will do them in." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="16" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="how if he gets the chance, he's gonna get out of this rat race." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="17" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="leaving this place and running off with the bar wench someday." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="18" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="young adventurers never using their rightful names anyway." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="19" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Desc" value="the Main Hall on the Apple II being more civilized." />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Effect, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Effect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="20" />
             <Simple name="IsUidRecycled" value="True" />

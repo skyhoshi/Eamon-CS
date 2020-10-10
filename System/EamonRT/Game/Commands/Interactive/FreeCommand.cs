@@ -41,65 +41,74 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			Debug.Assert(DobjArtifact != null);
+			Debug.Assert(DobjArtifact != null || DobjMonster != null);
 
-			DobjArtAc = DobjArtifact.BoundMonster;
-
-			if (DobjArtAc != null)
+			if (DobjArtifact != null)
 			{
-				BoundMonsterUid = DobjArtAc.GetMonsterUid();
+				DobjArtAc = DobjArtifact.BoundMonster;
 
-				KeyArtifactUid = DobjArtAc.GetKeyUid();
-
-				GuardMonsterUid = DobjArtAc.Field3;
-
-				BoundMonster = BoundMonsterUid > 0 ? gMDB[BoundMonsterUid] : null;
-
-				KeyArtifact = KeyArtifactUid > 0 ? gADB[KeyArtifactUid] : null;
-
-				GuardMonster = GuardMonsterUid > 0 ? gMDB[GuardMonsterUid] : null;
-
-				Debug.Assert(BoundMonster != null);
-
-				PlayerProcessEvents(EventType.BeforeGuardMonsterCheck);
-
-				if (GotoCleanup)
+				if (DobjArtAc != null)
 				{
+					BoundMonsterUid = DobjArtAc.GetMonsterUid();
+
+					KeyArtifactUid = DobjArtAc.GetKeyUid();
+
+					GuardMonsterUid = DobjArtAc.Field3;
+
+					BoundMonster = BoundMonsterUid > 0 ? gMDB[BoundMonsterUid] : null;
+
+					KeyArtifact = KeyArtifactUid > 0 ? gADB[KeyArtifactUid] : null;
+
+					GuardMonster = GuardMonsterUid > 0 ? gMDB[GuardMonsterUid] : null;
+
+					Debug.Assert(BoundMonster != null);
+
+					PlayerProcessEvents(EventType.BeforeGuardMonsterCheck);
+
+					if (GotoCleanup)
+					{
+						goto Cleanup;
+					}
+
+					if (GuardMonster != null && GuardMonster.IsInRoom(ActorRoom))
+					{
+						gOut.Print("{0} won't let you!", GuardMonster.GetTheName(true));
+
+						goto Cleanup;
+					}
+
+					if (KeyArtifactUid == -1)
+					{
+						gOut.Print("There's no obvious way to do that.");
+
+						goto Cleanup;
+					}
+
+					if (KeyArtifact != null && !KeyArtifact.IsCarriedByCharacter() && !KeyArtifact.IsWornByCharacter() && !KeyArtifact.IsInRoom(ActorRoom))
+					{
+						gOut.Print("You don't have the key.");
+
+						goto Cleanup;
+					}
+
+					PrintMonsterFreed();
+
+					BoundMonster.SetInRoom(ActorRoom);
+
+					DobjArtifact.SetInLimbo();
+				}
+				else
+				{
+					PrintCantVerbObj(DobjArtifact);
+
+					NextState = Globals.CreateInstance<IStartState>();
+
 					goto Cleanup;
 				}
-
-				if (GuardMonster != null && GuardMonster.IsInRoom(ActorRoom))
-				{
-					gOut.Print("{0} won't let you!", GuardMonster.GetTheName(true));
-
-					goto Cleanup;
-				}
-
-				if (KeyArtifactUid == -1)
-				{
-					gOut.Print("There's no obvious way to do that.");
-
-					goto Cleanup;
-				}
-
-				if (KeyArtifact != null && !KeyArtifact.IsCarriedByCharacter() && !KeyArtifact.IsWornByCharacter() && !KeyArtifact.IsInRoom(ActorRoom))
-				{
-					gOut.Print("You don't have the key.");
-
-					goto Cleanup;
-				}
-
-				PrintMonsterFreed();
-
-				BoundMonster.SetInRoom(ActorRoom);
-
-				DobjArtifact.SetInLimbo();
 			}
 			else
 			{
-				PrintCantVerbObj(DobjArtifact);
-
-				NextState = Globals.CreateInstance<IStartState>();
+				PrintCantVerbObj(DobjMonster);
 
 				goto Cleanup;
 			}

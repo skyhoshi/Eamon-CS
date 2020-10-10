@@ -34,16 +34,16 @@ namespace TheBeginnersCave.Game.Parsing
 			}
 			else
 			{
-				ObjData.ArtifactWhereClauseList = new List<Func<IArtifact, bool>>()
+				ObjData.RecordWhereClauseList = new List<Func<IGameBase, bool>>()
 				{
-					a => a.IsInRoom(ActorRoom),
-					a => a.IsEmbeddedInRoom(ActorRoom),
-					a => a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively)
+					r => r is IArtifact a && a.IsInRoom(ActorRoom),
+					r => r is IArtifact a && a.IsEmbeddedInRoom(ActorRoom),
+					r => r is IArtifact a && (a.IsCarriedByContainerContainerTypeExposedToCharacter(gEngine.ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(ActorRoom, gEngine.ExposeContainersRecursively))
 				};
 
-				ObjData.ArtifactNotFoundFunc = NextCommand.PrintCantVerbThat;
+				ObjData.RecordNotFoundFunc = NextCommand.PrintCantVerbThat;
 
-				PlayerResolveArtifact();
+				PlayerResolveRecord(false);
 			}
 		}
 	}

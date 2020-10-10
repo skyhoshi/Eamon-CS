@@ -1,12 +1,12 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.RoomDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.RoomDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IRoom, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IRoom, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -24,6 +24,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="1" />
@@ -35,7 +37,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -49,6 +51,8 @@
                 <Simple value="1" />
                 <Simple value="3" />
                 <Simple value="1" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -64,7 +68,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -78,6 +82,8 @@
                 <Simple value="2" />
                 <Simple value="4" />
                 <Simple value="2" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -93,7 +99,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -111,6 +117,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="4" />
@@ -122,7 +130,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -140,6 +148,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="5" />
@@ -151,7 +161,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -169,6 +179,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="6" />
@@ -180,7 +192,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -198,6 +210,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="7" />
@@ -209,7 +223,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -219,6 +233,8 @@
                 <Simple value="0" />
                 <Simple value="5" />
                 <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -238,7 +254,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -256,6 +272,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="9" />
@@ -267,7 +285,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -278,6 +296,8 @@
                 <Simple value="0" />
                 <Simple value="11" />
                 <Simple value="9" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -296,7 +316,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -306,6 +326,8 @@
                 <Simple value="0" />
                 <Simple value="10" />
                 <Simple value="12" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -325,7 +347,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -335,6 +357,8 @@
                 <Simple value="0" />
                 <Simple value="11" />
                 <Simple value="13" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -354,7 +378,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -372,6 +396,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="13" />
@@ -383,7 +409,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -401,6 +427,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="14" />
@@ -412,7 +440,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -421,6 +449,8 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="45" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -441,7 +471,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -459,6 +489,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="16" />
@@ -470,7 +502,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -488,6 +520,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="17" />
@@ -499,7 +533,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -517,6 +551,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="18" />
@@ -528,7 +564,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -537,6 +573,8 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="18" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -557,7 +595,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -575,6 +613,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="20" />
@@ -586,7 +626,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -596,6 +636,8 @@
                 <Simple value="0" />
                 <Simple value="20" />
                 <Simple value="44" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -615,7 +657,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -633,6 +675,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="22" />
@@ -644,7 +688,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -662,6 +706,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="23" />
@@ -673,7 +719,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -691,6 +737,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="24" />
@@ -702,7 +750,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -715,6 +763,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="24" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -731,7 +781,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -742,6 +792,8 @@
                 <Simple value="23" />
                 <Simple value="30" />
                 <Simple value="27" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -760,7 +812,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -778,6 +830,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="27" />
@@ -789,7 +843,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -807,6 +861,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="28" />
@@ -818,7 +874,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -836,6 +892,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="29" />
@@ -847,7 +905,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -857,6 +915,8 @@
                 <Simple value="0" />
                 <Simple value="26" />
                 <Simple value="33" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -876,7 +936,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -887,6 +947,8 @@
                 <Simple value="27" />
                 <Simple value="34" />
                 <Simple value="32" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -905,7 +967,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -923,6 +985,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="32" />
@@ -934,7 +998,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -952,6 +1016,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="33" />
@@ -963,7 +1029,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -981,6 +1047,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="34" />
@@ -992,7 +1060,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1010,6 +1078,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="35" />
@@ -1021,7 +1091,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1039,6 +1109,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="36" />
@@ -1050,7 +1122,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1061,6 +1133,8 @@
                 <Simple value="27" />
                 <Simple value="39" />
                 <Simple value="38" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1079,7 +1153,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1097,6 +1171,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="38" />
@@ -1108,7 +1184,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1117,6 +1193,8 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="37" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1137,7 +1215,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1155,6 +1233,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="40" />
@@ -1166,7 +1246,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1176,6 +1256,8 @@
                 <Simple value="0" />
                 <Simple value="40" />
                 <Simple value="42" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1195,7 +1277,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1205,6 +1287,8 @@
                 <Simple value="0" />
                 <Simple value="41" />
                 <Simple value="43" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1224,7 +1308,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1242,6 +1326,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="43" />
@@ -1253,7 +1339,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1263,6 +1349,8 @@
                 <Simple value="0" />
                 <Simple value="21" />
                 <Simple value="45" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1282,7 +1370,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1293,6 +1381,8 @@
                 <Simple value="44" />
                 <Simple value="46" />
                 <Simple value="-43" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1311,7 +1401,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1321,6 +1411,8 @@
                 <Simple value="0" />
                 <Simple value="45" />
                 <Simple value="47" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1340,7 +1432,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1351,6 +1443,8 @@
                 <Simple value="46" />
                 <Simple value="56" />
                 <Simple value="48" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1369,7 +1463,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1387,6 +1481,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="48" />
@@ -1398,7 +1494,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1416,6 +1512,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="49" />
@@ -1427,7 +1525,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1445,6 +1543,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="50" />
@@ -1456,7 +1556,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1466,6 +1566,8 @@
                 <Simple value="0" />
                 <Simple value="50" />
                 <Simple value="52" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1485,7 +1587,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1503,6 +1605,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="52" />
@@ -1514,7 +1618,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1532,6 +1636,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="53" />
@@ -1543,7 +1649,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1561,6 +1667,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="54" />
@@ -1572,7 +1680,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1583,6 +1691,8 @@
                 <Simple value="56" />
                 <Simple value="0" />
                 <Simple value="54" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1601,7 +1711,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1619,6 +1729,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="56" />
@@ -1630,7 +1742,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1641,6 +1753,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="56" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1659,7 +1773,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1677,6 +1791,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="58" />
@@ -1688,7 +1804,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1697,6 +1813,8 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="49" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1717,7 +1835,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1727,6 +1845,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="54" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1746,7 +1866,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1756,6 +1876,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="53" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1775,7 +1897,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1785,6 +1907,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="49" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1804,7 +1928,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1813,6 +1937,8 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="54" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1833,7 +1959,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1842,6 +1968,8 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="53" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1862,7 +1990,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1872,6 +2000,8 @@
                 <Simple value="0" />
                 <Simple value="52" />
                 <Simple value="66" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1891,7 +2021,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1901,6 +2031,8 @@
                 <Simple value="0" />
                 <Simple value="65" />
                 <Simple value="1039" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1920,7 +2052,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1938,6 +2070,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="67" />
@@ -1949,7 +2083,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1958,6 +2092,8 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="67" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -1978,7 +2114,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="WrenholdsSecretVigil.Game.Room, WrenholdsSecretVigil, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -1989,6 +2125,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="67" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />

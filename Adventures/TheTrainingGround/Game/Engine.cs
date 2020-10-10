@@ -14,9 +14,9 @@ namespace TheTrainingGround.Game
 	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, EamonRT.Framework.IEngine
 	{
-		public override void AddPoundCharsToArtifactNames()
+		public override void AddUniqueCharsToArtifactAndMonsterNames()
 		{
-			base.AddPoundCharsToArtifactNames();
+			base.AddUniqueCharsToArtifactAndMonsterNames();
 
 			// Obsidian scroll case
 

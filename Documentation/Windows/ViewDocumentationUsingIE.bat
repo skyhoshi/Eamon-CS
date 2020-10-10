@@ -1,3 +1,3 @@
 @echo off
 cd ..\..\..
-start iexplore https://firstmethod.github.io
+start iexplore https://TheRealEamonCS.github.io

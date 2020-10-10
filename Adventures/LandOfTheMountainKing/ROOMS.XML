@@ -1,12 +1,12 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.RoomDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.RoomDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IRoom, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IRoom, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -24,6 +24,8 @@
                 <Simple value="9" />
                 <Simple value="5" />
                 <Simple value="7" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="1" />
@@ -35,7 +37,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -53,6 +55,8 @@
                 <Simple value="0" />
                 <Simple value="4" />
                 <Simple value="8" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="2" />
@@ -64,7 +68,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -82,6 +86,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="1" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="3" />
@@ -93,7 +99,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -111,6 +117,8 @@
                 <Simple value="2" />
                 <Simple value="0" />
                 <Simple value="6" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="4" />
@@ -122,7 +130,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -140,6 +148,8 @@
                 <Simple value="1" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="5" />
@@ -151,7 +161,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -169,6 +179,8 @@
                 <Simple value="8" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="6" />
@@ -180,7 +192,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -198,6 +210,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="10" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="7" />
@@ -209,7 +223,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -227,6 +241,8 @@
                 <Simple value="0" />
                 <Simple value="6" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="8" />
@@ -238,7 +254,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -256,6 +272,8 @@
                 <Simple value="0" />
                 <Simple value="1" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="9" />
@@ -267,7 +285,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Dark" />
             <Simple name="Type" value="Indoors" />
@@ -285,6 +303,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="10" />
@@ -296,7 +316,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -314,6 +334,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="11" />
@@ -325,7 +347,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -334,6 +356,8 @@
               <Items>
                 <Simple value="0" />
                 <Simple value="5" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -354,7 +378,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -372,6 +396,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="13" />
@@ -383,7 +409,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
@@ -401,6 +427,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="14" />
@@ -412,7 +440,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -430,6 +458,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="15" />
@@ -441,7 +471,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -451,6 +481,8 @@
                 <Simple value="0" />
                 <Simple value="17" />
                 <Simple value="2" />
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
@@ -470,7 +502,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Outdoors" />
@@ -488,6 +520,8 @@
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
               </Items>
             </SingleArray>
             <Simple name="Uid" value="17" />
@@ -499,13 +533,15 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Room, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Room, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="LightLvl" value="Light" />
             <Simple name="Type" value="Indoors" />
             <Simple name="Zone" value="1" />
             <SingleArray name="Dirs">
               <Items>
+                <Simple value="0" />
+                <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />
                 <Simple value="0" />

@@ -1,3 +1,3 @@
 #!/bin/sh
 cd ../../..
-firefox https://firstmethod.github.io
+firefox https://TheRealEamonCS.github.io

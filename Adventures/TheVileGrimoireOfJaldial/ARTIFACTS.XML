@@ -1,12 +1,12 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -18,7 +18,7 @@
             <Simple name="Location" value="-1" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="LightSource" />
                     <Simple name="Field1" value="0" />
@@ -28,7 +28,7 @@
                     <Simple name="Field5" value="0" />
                   </Properties>
                 </Complex>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="12" />
@@ -49,7 +49,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -61,7 +61,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -82,7 +82,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -94,7 +94,7 @@
             <Simple name="Location" value="17" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="54" />
@@ -115,7 +115,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -127,7 +127,7 @@
             <Simple name="Location" value="33" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="74" />
@@ -148,7 +148,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -160,7 +160,7 @@
             <Simple name="Location" value="50" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DoorGate" />
                     <Simple name="Field1" value="98" />
@@ -181,7 +181,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -193,7 +193,7 @@
             <Simple name="Location" value="19" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -214,7 +214,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -226,7 +226,7 @@
             <Simple name="Location" value="19" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -247,7 +247,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -259,7 +259,7 @@
             <Simple name="Location" value="1063" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -280,7 +280,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -292,7 +292,7 @@
             <Simple name="Location" value="1063" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="103" />
@@ -313,7 +313,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -325,7 +325,7 @@
             <Simple name="Location" value="23" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -346,7 +346,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -358,7 +358,7 @@
             <Simple name="Location" value="58" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -379,7 +379,7 @@
             <Simple name="ArticleType" value="The" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -391,7 +391,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -412,7 +412,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -424,7 +424,7 @@
             <Simple name="Location" value="56" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="InContainer" />
                     <Simple name="Field1" value="-1" />
@@ -445,7 +445,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -457,7 +457,7 @@
             <Simple name="Location" value="1013" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="17" />
@@ -478,7 +478,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -490,7 +490,7 @@
             <Simple name="Location" value="1013" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Drinkable" />
                     <Simple name="Field1" value="15" />
@@ -511,7 +511,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -523,7 +523,7 @@
             <Simple name="Location" value="1013" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Wearable" />
                     <Simple name="Field1" value="0" />
@@ -544,7 +544,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -556,7 +556,7 @@
             <Simple name="Location" value="64" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="InContainer" />
                     <Simple name="Field1" value="0" />
@@ -577,7 +577,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -589,7 +589,7 @@
             <Simple name="Location" value="105" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -610,7 +610,7 @@
             <Simple name="ArticleType" value="The" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -622,7 +622,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Wearable" />
                     <Simple name="Field1" value="0" />
@@ -643,7 +643,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -655,7 +655,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Gold" />
                     <Simple name="Field1" value="0" />
@@ -676,7 +676,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -688,7 +688,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -709,7 +709,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -721,7 +721,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -742,7 +742,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -754,7 +754,7 @@
             <Simple name="Location" value="113" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="InContainer" />
                     <Simple name="Field1" value="-1" />
@@ -775,7 +775,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -787,7 +787,7 @@
             <Simple name="Location" value="116" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="InContainer" />
                     <Simple name="Field1" value="-1" />
@@ -808,7 +808,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -820,7 +820,7 @@
             <Simple name="Location" value="1024" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -841,7 +841,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -853,7 +853,7 @@
             <Simple name="Location" value="117" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -874,7 +874,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -886,7 +886,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="1" />
@@ -907,7 +907,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -919,7 +919,7 @@
             <Simple name="Location" value="35" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="-5" />
@@ -940,7 +940,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -952,7 +952,7 @@
             <Simple name="Location" value="-47" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="0" />
@@ -973,7 +973,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -985,7 +985,7 @@
             <Simple name="Location" value="-48" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="10" />
@@ -1006,7 +1006,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1018,7 +1018,7 @@
             <Simple name="Location" value="-49" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="25" />
@@ -1039,7 +1039,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1051,7 +1051,7 @@
             <Simple name="Location" value="-50" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Weapon" />
                     <Simple name="Field1" value="15" />
@@ -1072,7 +1072,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1084,7 +1084,7 @@
             <Simple name="Location" value="-1" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Readable" />
                     <Simple name="Field1" value="10" />
@@ -1105,7 +1105,7 @@
             <Simple name="ArticleType" value="An" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1117,7 +1117,7 @@
             <Simple name="Location" value="86" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DisguisedMonster" />
                     <Simple name="Field1" value="31" />
@@ -1138,7 +1138,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1150,7 +1150,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="InContainer" />
                     <Simple name="Field1" value="-1" />
@@ -1171,7 +1171,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1183,7 +1183,7 @@
             <Simple name="Location" value="1035" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1204,7 +1204,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1216,7 +1216,7 @@
             <Simple name="Location" value="1035" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -1237,7 +1237,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1249,7 +1249,7 @@
             <Simple name="Location" value="19" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -1270,7 +1270,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1282,7 +1282,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="LightSource" />
                     <Simple name="Field1" value="0" />
@@ -1303,7 +1303,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1315,7 +1315,7 @@
             <Simple name="Location" value="1024" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -1336,7 +1336,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1348,7 +1348,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -1369,7 +1369,7 @@
             <Simple name="ArticleType" value="The" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1381,7 +1381,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -1402,7 +1402,7 @@
             <Simple name="ArticleType" value="The" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1414,7 +1414,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1435,7 +1435,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1447,7 +1447,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1468,7 +1468,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1480,7 +1480,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Wearable" />
                     <Simple name="Field1" value="0" />
@@ -1501,7 +1501,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1513,7 +1513,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1534,7 +1534,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1546,7 +1546,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -1567,7 +1567,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1579,7 +1579,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1600,7 +1600,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1612,7 +1612,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1633,7 +1633,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1645,7 +1645,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1666,7 +1666,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1678,7 +1678,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="Treasure" />
                     <Simple name="Field1" value="0" />
@@ -1699,7 +1699,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1711,7 +1711,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1732,7 +1732,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1744,7 +1744,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1765,7 +1765,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1777,7 +1777,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1798,7 +1798,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1810,7 +1810,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1831,7 +1831,7 @@
             <Simple name="ArticleType" value="A" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1843,7 +1843,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1864,7 +1864,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1876,7 +1876,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1897,7 +1897,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1909,7 +1909,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1930,7 +1930,7 @@
             <Simple name="ArticleType" value="Some" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1942,7 +1942,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1963,7 +1963,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -1975,7 +1975,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -1996,7 +1996,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2008,7 +2008,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -2029,7 +2029,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2041,7 +2041,7 @@
             <Simple name="Location" value="0" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="DeadBody" />
                     <Simple name="Field1" value="0" />
@@ -2062,7 +2062,7 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
-        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="TheVileGrimoireOfJaldial.Game.Artifact, TheVileGrimoireOfJaldial, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="StateDesc" value="" />
             <Simple name="IsCharOwned" value="False" />
@@ -2074,7 +2074,7 @@
             <Simple name="Location" value="107" />
             <SingleArray name="Categories">
               <Items>
-                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
                   <Properties>
                     <Simple name="Type" value="InContainer" />
                     <Simple name="Field1" value="-1" />

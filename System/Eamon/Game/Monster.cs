@@ -1102,11 +1102,11 @@ namespace Eamon.Game
 
 			if (fleeing)
 			{
-				result = string.Format("{0} {1}{2}!", monsterName, isPlural ? "flee" : "flees", exitDirection == Direction.Up || exitDirection == Direction.Down ? string.Format(" {0}ward", exitDirection.ToString().ToLower()) : string.Format(" to the {0}", exitDirection.ToString().ToLower()));
+				result = string.Format("{0} {1}{2}!", monsterName, isPlural ? "flee" : "flees", exitDirection == Direction.Up || exitDirection == Direction.Down || exitDirection == Direction.In || exitDirection == Direction.Out ? string.Format(" {0}ward", exitDirection.ToString().ToLower()) : string.Format(" to the {0}", exitDirection.ToString().ToLower()));
 			}
 			else
 			{
-				result = string.Format("{0} {1}{2}.", monsterName, isPlural ? "go" : "goes", exitDirection == Direction.Up || exitDirection == Direction.Down ? string.Format(" {0}ward", exitDirection.ToString().ToLower()) : string.Format(" to the {0}", exitDirection.ToString().ToLower()));
+				result = string.Format("{0} {1}{2}.", monsterName, isPlural ? "go" : "goes", exitDirection == Direction.Up || exitDirection == Direction.Down || exitDirection == Direction.In || exitDirection == Direction.Out ? string.Format(" {0}ward", exitDirection.ToString().ToLower()) : string.Format(" to the {0}", exitDirection.ToString().ToLower()));
 			}
 
 			return result;

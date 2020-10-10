@@ -38,7 +38,7 @@ namespace EamonRT.Game
 
 			Debug.Assert(gGameState.Cm > 0);
 
-			gEngine.AddPoundCharsToArtifactNames();
+			gEngine.AddUniqueCharsToArtifactAndMonsterNames();
 
 			gEngine.AddMissingDescs();
 

@@ -27,7 +27,7 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 
 				if (!ObjData.Name.Equals("room", StringComparison.OrdinalIgnoreCase) && !ObjData.Name.Equals("area", StringComparison.OrdinalIgnoreCase) && !(ActorRoom.Uid == 89 && ObjData.Name.ContainsAny(new string[] { "tapestries", "tapestry" }, StringComparison.OrdinalIgnoreCase)))
 				{
-					PlayerResolveArtifact();
+					PlayerResolveRecord(false);
 				}
 			}
 		}
@@ -123,19 +123,19 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 			}
 		}
 
-		public override void PlayerResolveArtifactProcessWhereClauseList()
+		public override void PlayerResolveRecordProcessWhereClauseList()
 		{
-			// Do a normal Artifact resolution, excluding Decorations (which will be in limbo)
+			// Do a normal Record resolution, excluding Decorations (which will be in limbo)
 
-			base.PlayerResolveArtifactProcessWhereClauseList();
+			base.PlayerResolveRecordProcessWhereClauseList();
 
-			// If the Artifact couldn't be resolved and a Decoration was identified in ParseName, move it into the Room and try to resolve again
+			// If the Record couldn't be resolved and a Decoration was identified in ParseName, move it into the Room and try to resolve again
 
-			if (ObjData.FilterArtifactList.Count == 0 && ObjData.Cast<Framework.Parsing.IParserData>().DecorationArtifact != null)
+			if (ObjData.FilterRecordList.Count == 0 && ObjData.Cast<Framework.Parsing.IParserData>().DecorationArtifact != null)
 			{
 				ObjData.Cast<Framework.Parsing.IParserData>().DecorationArtifact.SetInRoom(ActorRoom);
 
-				base.PlayerResolveArtifactProcessWhereClauseList();
+				base.PlayerResolveRecordProcessWhereClauseList();
 			}
 		}
 

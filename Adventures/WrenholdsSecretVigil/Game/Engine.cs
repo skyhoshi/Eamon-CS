@@ -16,9 +16,9 @@ namespace WrenholdsSecretVigil.Game
 	[ClassMappings(typeof(IEngine))]
 	public class Engine : EamonRT.Game.Engine, Framework.IEngine
 	{
-		public override void AddPoundCharsToArtifactNames()
+		public override void AddUniqueCharsToArtifactAndMonsterNames()
 		{
-			base.AddPoundCharsToArtifactNames();
+			base.AddUniqueCharsToArtifactAndMonsterNames();
 
 			var slimeArtifact = gADB[25];     // Slime #2
 

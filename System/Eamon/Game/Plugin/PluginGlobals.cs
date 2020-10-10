@@ -805,7 +805,7 @@ namespace Eamon.Game.Plugin
 
 						upgraded = true;
 					}
-					
+
 					if (firstLine.Contains("Game.DataStorage.MonsterDbTable") || firstLine.Contains("Game.DataStorage.Database"))
 					{
 						if (workDir.EndsWith(@"\Adventures\TheTrainingGround"))
@@ -839,6 +839,64 @@ namespace Eamon.Game.Plugin
 							{
 								"Version=1.6.0.0",
 								"EAMON CS 1.6",
+							}
+						);
+					}
+				}
+				else if (firstLine.Contains("Version=1.6.0.0"))
+				{
+					if (firstLine.Contains("Game.DataStorage.RoomDbTable") || firstLine.Contains("Game.DataStorage.Database"))
+					{
+						ReplaceTextfileValues
+						(
+							fileName,
+							new string[]
+							{
+								@"Version=1\.6\.0\.0",
+								@"EAMON CS 1\.6",
+								"(<SingleArray name=\"Dirs\">\\r?\\n?.*<Items>)((.*\\r?\\n?){12})",
+							},
+							new string[]
+							{
+								"Version=1.7.0.0",
+								"EAMON CS 1.7",
+								string.Format("$1$2{0}<Simple value=\"0\" />{1}{0}<Simple value=\"0\" />{1}", new String(' ', firstLine.Contains("Game.DataStorage.Database") ? 20 : 16), Environment.NewLine),
+							}
+						);
+
+						upgraded = true;
+					}
+
+					if (firstLine.Contains("Game.DataStorage.ModuleDbTable") || firstLine.Contains("Game.DataStorage.Database"))
+					{
+						ReplaceTextfileValues
+						(
+							fileName,
+							new string[]
+							{
+								"<Simple name=\"NumDirs\" value=\"10\"",
+							},
+							new string[]
+							{
+								"<Simple name=\"NumDirs\" value=\"12\"",
+							}
+						);
+					}
+
+					if (!upgraded)
+					{
+						ReplaceTextfileValues
+						(
+							fileName,
+							new string[]
+							{
+								@"Version=1\.6\.0\.0",
+								@"EAMON CS 1\.6",
+							},
+							new string[]
+							{
+								"Version=1.7.0.0",
+								"EAMON CS 1.7",
 							}
 						);
 					}

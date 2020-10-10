@@ -54,11 +54,11 @@ namespace Eamon.Game.Extensions
 			return buf;
 		}
 
-		public static StringBuilder TrimEndPunctuationMinusPound(this StringBuilder buf)
+		public static StringBuilder TrimEndPunctuationMinusUniqueChars(this StringBuilder buf)
 		{
 			if (buf != null)
 			{
-				while (buf.Length > 0 && char.IsPunctuation(buf[buf.Length - 1]) && buf[buf.Length - 1] != '#')
+				while (buf.Length > 0 && char.IsPunctuation(buf[buf.Length - 1]) && buf[buf.Length - 1] != '#' && buf[buf.Length - 1] != '%')
 				{
 					buf.Length--;
 				}

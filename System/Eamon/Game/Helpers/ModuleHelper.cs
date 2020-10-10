@@ -202,7 +202,7 @@ namespace Eamon.Game.Helpers
 		/// <returns></returns>
 		public virtual bool ValidateNumDirs()
 		{
-			return Record.NumDirs == 6 || Record.NumDirs == 10;
+			return Record.NumDirs == 6 || Record.NumDirs == 12;
 		}
 
 		/// <summary></summary>
@@ -366,9 +366,9 @@ namespace Eamon.Game.Helpers
 		/// <summary></summary>
 		public virtual void PrintDescNumDirs()
 		{
-			var fullDesc = "Enter the number of compass directions to use for connections between Rooms in the adventure." + Environment.NewLine + Environment.NewLine + "Typically, the number of directions used determines the intricacy of a game's map.  Simple and complex adventures use six and ten directions, respectively, but this is only a rule of thumb, not a requirement.";
+			var fullDesc = "Enter the number of compass directions to use for connections between Rooms in the adventure." + Environment.NewLine + Environment.NewLine + "Typically, the number of directions used determines the intricacy of a game's map.  Simple and complex adventures use six and twelve directions, respectively, but this is only a rule of thumb, not a requirement.";
 
-			var briefDesc = "6=Six compass directions; 10=Ten compass directions";
+			var briefDesc = "6=Six compass directions; 12=Twelve compass directions";
 
 			gEngine.AppendFieldDesc(FieldDesc, Buf01, fullDesc, briefDesc);
 		}

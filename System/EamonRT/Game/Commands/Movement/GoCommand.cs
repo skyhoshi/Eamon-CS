@@ -53,7 +53,9 @@ namespace EamonRT.Game.Commands
 		{
 			Synonyms = new string[] { "enter" };
 
-			SortOrder = 95;
+			SortOrder = 97;
+
+			IsDobjPrepEnabled = true;
 
 			if (Globals.IsRulesetVersion(5))
 			{

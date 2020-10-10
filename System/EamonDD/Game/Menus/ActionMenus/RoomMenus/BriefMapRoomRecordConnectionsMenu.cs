@@ -51,9 +51,9 @@ namespace EamonDD.Game.Menus.ActionMenus
 			{
 				if (showHeader)
 				{
-					if (numDirs == 10)
+					if (numDirs == 12)
 					{
-						Buf.SetFormat("{0}{1,-28}", Environment.NewLine, "Room name:");
+						Buf.SetFormat("{0}{1}{0}{2,-18}", Environment.NewLine, "Room name:", "");
 
 						for (var j = 0; j < numDirs; j++)
 						{
@@ -87,31 +87,24 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				Buf.SetFormat("{0}{1,3}. {2}", Environment.NewLine, room.Uid, room.Name);
 
-				if (numDirs == 10)
+				while (Buf.Length < 49)
 				{
-					while (Buf.Length < 29)
-					{
-						Buf.Append('.');
-					}
-
-					Buf.Length = 29;
-				}
-				else
-				{
-					while (Buf.Length < 49)
-					{
-						Buf.Append('.');
-					}
-
-					Buf.Length = 49;
+					Buf.Append('.');
 				}
 
-				if (Environment.NewLine.Length == 1)
+				Buf.Length = 49;
+
+				if (numDirs == 6 && Environment.NewLine.Length == 1)
 				{
 					Buf.Length--;
 				}
 
 				Buf.Append('.');
+
+				if (numDirs == 12)
+				{
+					Buf.AppendFormat("{0}{1,-18}", Environment.NewLine, "");
+				}
 
 				for (var j = 0; j < numDirs; j++)
 				{
@@ -122,7 +115,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				nlFlag = true;
 
-				if ((i != 0 && (i % (Constants.NumRows - 10)) == 0) || i == k - 1)
+				if ((i != 0 && (i % (Constants.NumRows - (numDirs == 12 ? 16 : 10))) == 0) || i == k - 1)
 				{
 					nlFlag = false;
 

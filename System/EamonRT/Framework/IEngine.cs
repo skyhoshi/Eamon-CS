@@ -50,6 +50,9 @@ namespace EamonRT.Framework
 		PoundCharPolicy PoundCharPolicy { get; set; }
 
 		/// <summary></summary>
+		PercentCharPolicy PercentCharPolicy { get; set; }
+
+		/// <summary></summary>
 		void PrintPlayerRoom();
 
 		/// <summary></summary>
@@ -86,7 +89,7 @@ namespace EamonRT.Framework
 		void EnforceCharacterWeightLimits();
 
 		/// <summary></summary>
-		void AddPoundCharsToArtifactNames();
+		void AddUniqueCharsToArtifactAndMonsterNames();
 
 		/// <summary></summary>
 		void AddMissingDescs();
@@ -255,18 +258,6 @@ namespace EamonRT.Framework
 		/// <param name="whereClauseFuncs"></param>
 		/// <returns></returns>
 		IList<IMonster> GetRandomMonsterList(long numMonsters, params Func<IMonster, bool>[] whereClauseFuncs);
-
-		/// <summary></summary>
-		/// <param name="artifactList"></param>
-		/// <param name="name"></param>
-		/// <returns></returns>
-		IList<IArtifact> FilterArtifactList(IList<IArtifact> artifactList, string name);
-
-		/// <summary></summary>
-		/// <param name="monsterList"></param>
-		/// <param name="name"></param>
-		/// <returns></returns>
-		IList<IMonster> FilterMonsterList(IList<IMonster> monsterList, string name);
 
 		/// <summary></summary>
 		/// <param name="recordList"></param>

@@ -393,9 +393,9 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 			Globals.Character.GetWeapons(i).Parent = Globals.Character;
 
-			Globals.Character.StripPoundCharsFromWeaponNames();
+			Globals.Character.StripUniqueCharsFromWeaponNames();
 
-			Globals.Character.AddPoundCharsToWeaponNames();
+			Globals.Character.AddUniqueCharsToWeaponNames();
 
 			Globals.Character.HeldGold -= ap;
 

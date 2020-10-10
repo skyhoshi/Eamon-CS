@@ -751,39 +751,16 @@
             A collection of C# delegate signatures.
             </summary>
         </member>
-        <member name="T:Eamon.Framework.Delegates.GetArtifactListFunc">
+        <member name="T:Eamon.Framework.Delegates.GetRecordListFunc">
             <summary>
-            Queries the game database for a list of <see cref="T:Eamon.Framework.IArtifact">Artifact</see>s matching a criteria set.
+            Queries the game database for a list of <see cref="T:Eamon.Framework.IGameBase">Record</see>s matching a criteria set.
             </summary>
             <param name="whereClauseFuncs"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Eamon.Framework.Delegates.GetMonsterListFunc">
-            <summary>
-            Queries the game database for a list of <see cref="T:Eamon.Framework.IMonster">Monster</see>s matching a criteria set.
-            </summary>
-            <param name="whereClauseFuncs"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Eamon.Framework.Delegates.FilterArtifactListFunc">
-            <summary>
-            Filters a given <see cref="T:Eamon.Framework.IArtifact">Artifact</see> list, returning all records matching a given name.
-            </summary>
-            <param name="artifactList"></param>
-            <param name="name"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Eamon.Framework.Delegates.FilterMonsterListFunc">
-            <summary>
-            Filters a given <see cref="T:Eamon.Framework.IMonster">Monster</see> list, returning all records matching a given name.
-            </summary>
-            <param name="monsterList"></param>
-            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="T:Eamon.Framework.Delegates.FilterRecordListFunc">
             <summary>
-            Filters a given record list, returning all records matching a given name.
+            Filters a given <see cref="T:Eamon.Framework.IGameBase">Record</see> list, returning all records matching a given name.
             </summary>
             <param name="recordList"></param>
             <param name="name"></param>
@@ -1926,10 +1903,10 @@
             <param name="capitalize"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.ICharacter.StripPoundCharsFromWeaponNames">
+        <member name="M:Eamon.Framework.ICharacter.StripUniqueCharsFromWeaponNames">
             <summary></summary>
         </member>
-        <member name="M:Eamon.Framework.ICharacter.AddPoundCharsToWeaponNames">
+        <member name="M:Eamon.Framework.ICharacter.AddUniqueCharsToWeaponNames">
             <summary></summary>
         </member>
         <member name="M:Eamon.Framework.ICharacter.StatDisplay(Eamon.Framework.Args.IStatDisplayArgs)">
@@ -2977,11 +2954,11 @@
             <param name="whereClauseFunc"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IEngine.StripPoundCharsFromRecordNames(System.Collections.Generic.IList{Eamon.Framework.IGameBase})">
+        <member name="M:Eamon.Framework.IEngine.StripUniqueCharsFromRecordNames(System.Collections.Generic.IList{Eamon.Framework.IGameBase})">
             <summary></summary>
             <param name="recordList"></param>
         </member>
-        <member name="M:Eamon.Framework.IEngine.AddPoundCharsToRecordNames(System.Collections.Generic.IList{Eamon.Framework.IGameBase})">
+        <member name="M:Eamon.Framework.IEngine.AddUniqueCharsToRecordNames(System.Collections.Generic.IList{Eamon.Framework.IGameBase})">
             <summary></summary>
             <param name="recordList"></param>
         </member>
@@ -3430,7 +3407,7 @@
         <member name="P:Eamon.Framework.IModule.NumDirs">
             <summary>
             Gets or sets the number of directional links for <see cref="T:Eamon.Framework.IRoom">Room</see>s in this adventure.  Valid values
-            are 6 or 10, corresponding to compass <see cref="T:Eamon.Framework.Primitive.Enums.Direction">Direction</see>s.
+            are 6 or 12, corresponding to compass <see cref="T:Eamon.Framework.Primitive.Enums.Direction">Direction</see>s.
             </summary>
         </member>
         <member name="P:Eamon.Framework.IModule.NumRooms">
@@ -6020,8 +5997,8 @@
             </summary>
             <remarks>
             These represent the possible directional links between <see cref="T:Eamon.Framework.IRoom">Room</see>s in a game.  Each Room contains an
-            array that is indexed using these Direction values.  The array will always be created assuming a 10-direction game; for
-            6-direction games, the last four (4) elements will be unused.
+            array that is indexed using these Direction values.  The array will always be created assuming a 12-direction game; for
+            6-direction games, the last four (6) elements will be unused.
             </remarks>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Direction.North">
@@ -6052,6 +6029,12 @@
             <summary></summary>
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Direction.Southwest">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.Direction.In">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.Direction.Out">
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.ExitType">
@@ -6169,6 +6152,15 @@
             <summary>
             Lit <see cref="T:Eamon.Framework.IRoom">Room</see>s allow the full range of Commands.
             </summary>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.PercentCharPolicy">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.PercentCharPolicy.None">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.PercentCharPolicy.AllMonsters">
+            <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.PluralType">
             <summary>

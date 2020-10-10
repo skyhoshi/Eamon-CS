@@ -1,17 +1,17 @@
-﻿<Complex name="Root" type="Eamon.Game.DataStorage.HintDbTable, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.HintDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
   <Properties>
-    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IHint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IHint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
       <Properties>
         <Simple name="IsReadOnly" value="False" />
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
-            <Simple name="Question" value="EAMON CS 1.6 GENERAL HELP." />
+            <Simple name="Question" value="EAMON CS 1.7 GENERAL HELP." />
             <Simple name="NumAnswers" value="8" />
             <SingleArray name="Answers">
               <Items>
@@ -27,12 +27,12 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="2" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Active" value="True" />
-            <Simple name="Question" value="EAMON CS 1.6 NEW COMMANDS." />
+            <Simple name="Question" value="EAMON CS 1.7 NEW COMMANDS." />
             <Simple name="NumAnswers" value="3" />
             <SingleArray name="Answers">
               <Items>
@@ -48,7 +48,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="3" />
             <Simple name="IsUidRecycled" value="True" />
@@ -69,7 +69,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="4" />
             <Simple name="IsUidRecycled" value="True" />
@@ -90,7 +90,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="5" />
             <Simple name="IsUidRecycled" value="True" />
@@ -111,7 +111,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="6" />
             <Simple name="IsUidRecycled" value="True" />
@@ -132,7 +132,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="7" />
             <Simple name="IsUidRecycled" value="True" />
@@ -153,7 +153,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
@@ -174,7 +174,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
@@ -195,7 +195,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="10" />
             <Simple name="IsUidRecycled" value="True" />
@@ -216,7 +216,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="11" />
             <Simple name="IsUidRecycled" value="True" />
@@ -237,7 +237,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="12" />
             <Simple name="IsUidRecycled" value="True" />
@@ -258,7 +258,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="13" />
             <Simple name="IsUidRecycled" value="True" />
@@ -279,7 +279,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="14" />
             <Simple name="IsUidRecycled" value="True" />
@@ -300,7 +300,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="15" />
             <Simple name="IsUidRecycled" value="True" />
@@ -321,7 +321,7 @@
             </SingleArray>
           </Properties>
         </Complex>
-        <Complex type="Eamon.Game.Hint, Eamon, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="Eamon.Game.Hint, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
             <Simple name="Uid" value="16" />
             <Simple name="IsUidRecycled" value="True" />

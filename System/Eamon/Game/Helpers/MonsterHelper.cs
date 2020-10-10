@@ -190,7 +190,7 @@ namespace Eamon.Game.Helpers
 			{
 				for (var i = Constants.MonNameLen; i < Record.Name.Length; i++)
 				{
-					if (Record.Name[i] != '#')
+					if (Record.Name[i] != '%')
 					{
 						result = false;
 

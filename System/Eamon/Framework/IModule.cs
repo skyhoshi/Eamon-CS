@@ -48,7 +48,7 @@ namespace Eamon.Framework
 
 		/// <summary>
 		/// Gets or sets the number of directional links for <see cref="IRoom">Room</see>s in this adventure.  Valid values
-		/// are 6 or 10, corresponding to compass <see cref="Direction">Direction</see>s.
+		/// are 6 or 12, corresponding to compass <see cref="Direction">Direction</see>s.
 		/// </summary>
 		long NumDirs { get; set; }
 

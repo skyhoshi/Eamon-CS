@@ -221,7 +221,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 								Debug.Assert(Enum.IsDefined(typeof(Direction), direction));
 
-								if (direction > Direction.West && direction < Direction.Northeast)
+								if (direction == Direction.Up || direction == Direction.Down || direction == Direction.In || direction == Direction.Out)
 								{
 									Globals.Buf.SetFormat(" {0}ward", direction.ToString().ToLower());
 								}
