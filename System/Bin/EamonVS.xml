@@ -4,12 +4,5 @@
         <name>EamonVS</name>
     </assembly>
     <members>
-        <member name="M:EamonVS.VisualStudioAutomation.ExecuteWithRetry(System.Func{System.Boolean},System.Int64,System.Int64)">
-            <summary></summary>
-            <param name="func"></param>
-            <param name="numTries"></param>
-            <param name="sleepMs"></param>
-            <returns></returns>
-        </member>
     </members>
 </doc>

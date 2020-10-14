@@ -521,7 +521,7 @@ Date			Version			Who			Notes
 				goto Cleanup;
 			}
 
-			RebuildSolution();
+			RebuildProject();
 
 			if (GotoCleanup)
 			{

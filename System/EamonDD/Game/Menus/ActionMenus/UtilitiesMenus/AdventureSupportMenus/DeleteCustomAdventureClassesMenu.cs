@@ -74,7 +74,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			DeleteAdvBinaryFiles();
 
-			RebuildSolution();
+			RebuildProject();
 
 			if (GotoCleanup)
 			{

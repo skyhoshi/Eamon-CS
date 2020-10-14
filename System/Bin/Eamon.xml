@@ -47,9 +47,6 @@
         <member name="T:Eamon.Framework.Automation.IVisualStudioAutomation">
             <summary></summary>
         </member>
-        <member name="P:Eamon.Framework.Automation.IVisualStudioAutomation.DevenvExePath">
-            <summary></summary>
-        </member>
         <member name="P:Eamon.Framework.Automation.IVisualStudioAutomation.SolutionFile">
             <summary></summary>
         </member>
@@ -63,9 +60,9 @@
             <param name="projName"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.Automation.IVisualStudioAutomation.RebuildSolution(System.String)">
+        <member name="M:Eamon.Framework.Automation.IVisualStudioAutomation.RebuildProject(System.String)">
             <summary></summary>
-            <param name="libraryName"></param>
+            <param name="projName"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.Automation.IVisualStudioAutomation.Shutdown">

@@ -530,9 +530,6 @@
         <member name="T:EamonDD.Framework.Plugin.IPluginConstants">
             <summary></summary>
         </member>
-        <member name="P:EamonDD.Framework.Plugin.IPluginConstants.DevenvExePath">
-            <summary></summary>
-        </member>
         <member name="P:EamonDD.Framework.Plugin.IPluginConstants.DdProgVersion">
             <summary></summary>
         </member>
@@ -546,9 +543,6 @@
             <summary></summary>
         </member>
         <member name="P:EamonDD.Framework.Plugin.IPluginGlobals.WordWrapLastChar">
-            <summary></summary>
-        </member>
-        <member name="P:EamonDD.Framework.Plugin.IPluginGlobals.DevenvExePath">
             <summary></summary>
         </member>
         <member name="P:EamonDD.Framework.Plugin.IPluginGlobals.ConfigFileName">
@@ -770,7 +764,7 @@
         <member name="M:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.UpdateXmlFileClasses">
             <summary></summary>
         </member>
-        <member name="M:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.RebuildSolution">
+        <member name="M:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.RebuildProject">
             <summary></summary>
         </member>
         <member name="M:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.DeleteAdvBinaryFiles">

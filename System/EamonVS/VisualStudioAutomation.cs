@@ -4,6 +4,7 @@
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
 using System;
+using System.IO;
 using System.Threading;
 using System.Diagnostics;
 using Eamon;
@@ -13,8 +14,6 @@ namespace EamonVS
 {
 	public class VisualStudioAutomation : IVisualStudioAutomation
 	{
-		public virtual string DevenvExePath { get; set; }
-
 		public virtual string SolutionFile { get; set; }
 
 		public virtual RetCode AddProjectToSolution(string projName)
@@ -25,7 +24,32 @@ namespace EamonVS
 
 			try
 			{
-				result = RetCode.Success;
+				using (var process = new Process())
+				{
+					process.StartInfo.RedirectStandardOutput = true;
+					process.StartInfo.UseShellExecute = false;
+					process.StartInfo.CreateNoWindow = true;
+
+					process.StartInfo.FileName = "dotnet";
+					process.StartInfo.Arguments = string.Format("sln Eamon.Adventures.sln add {0} --in-root", projName);		// --in-root requires .NET Core 3.0+ SDK
+					process.StartInfo.WorkingDirectory = string.Format("..{0}..", Path.DirectorySeparatorChar);
+
+					Console.Out.Write("Adding {0} project... ", Path.GetFileNameWithoutExtension(projName));
+
+					process.Start();
+					process.WaitForExit();		// May want timeout
+
+					result = process.ExitCode == 0 ? RetCode.Success : RetCode.Failure;		// Verify this
+
+					if (result == RetCode.Success)
+					{
+						Console.Out.WriteLine("succeeded");
+					}
+					else
+					{
+						Console.Out.WriteLine("failed");
+					}
+				}
 			}
 			catch (Exception ex)
 			{
@@ -45,7 +69,32 @@ namespace EamonVS
 
 			try
 			{
-				result = RetCode.Success;
+				using (var process = new Process())
+				{
+					process.StartInfo.RedirectStandardOutput = true;
+					process.StartInfo.UseShellExecute = false;
+					process.StartInfo.CreateNoWindow = true;
+
+					process.StartInfo.FileName = "dotnet";
+					process.StartInfo.Arguments = string.Format("sln Eamon.Adventures.sln remove {0}", projName);
+					process.StartInfo.WorkingDirectory = string.Format("..{0}..", Path.DirectorySeparatorChar);
+
+					Console.Out.Write("Removing {0} project... ", Path.GetFileNameWithoutExtension(projName));
+
+					process.Start();
+					process.WaitForExit();		// May want timeout
+
+					result = process.ExitCode == 0 ? RetCode.Success : RetCode.Failure;		// Verify this
+
+					if (result == RetCode.Success)
+					{
+						Console.Out.WriteLine("succeeded");
+					}
+					else
+					{
+						Console.Out.WriteLine("failed");
+					}
+				}
 			}
 			catch (Exception ex)
 			{
@@ -57,15 +106,40 @@ namespace EamonVS
 			return result;
 		}
 
-		public virtual RetCode RebuildSolution(string libraryName)
+		public virtual RetCode RebuildProject(string projName)
 		{
 			RetCode result;
 
-			Debug.Assert(!string.IsNullOrWhiteSpace(libraryName));
+			Debug.Assert(!string.IsNullOrWhiteSpace(projName));
 
 			try
 			{
-				result = RetCode.Success;
+				using (var process = new Process())
+				{
+					process.StartInfo.RedirectStandardOutput = true;
+					process.StartInfo.UseShellExecute = false;
+					process.StartInfo.CreateNoWindow = true;
+
+					process.StartInfo.FileName = "dotnet";
+					process.StartInfo.Arguments = string.Format("build {0}", projName);
+					process.StartInfo.WorkingDirectory = string.Format("..{0}..", Path.DirectorySeparatorChar);
+
+					Console.Out.Write("Rebuilding {0} project... ", Path.GetFileNameWithoutExtension(projName));
+
+					process.Start();
+					process.WaitForExit();		// May want timeout
+
+					result = process.ExitCode == 0 ? RetCode.Success : RetCode.Failure;     // Verify this
+
+					if (result == RetCode.Success)
+					{
+						Console.Out.WriteLine("succeeded");
+					}
+					else
+					{
+						Console.Out.WriteLine("failed");
+					}
+				}
 			}
 			catch (Exception ex)
 			{
@@ -93,51 +167,6 @@ namespace EamonVS
 			}
 
 			return result;
-		}
-
-		/// <summary></summary>
-		/// <param name="func"></param>
-		/// <param name="numTries"></param>
-		/// <param name="sleepMs"></param>
-		/// <returns></returns>
-		public virtual RetCode ExecuteWithRetry(Func<bool> func, long numTries, long sleepMs)
-		{
-			Debug.Assert(func != null);
-
-			Exception savedEx = null;
-
-			bool result = false;
-
-			for (var i = 0; i < numTries; i++)
-			{
-				try
-				{
-					result = func();
-				}
-				catch (Exception ex)
-				{
-					if (savedEx == null)
-					{
-						savedEx = ex;
-					}
-
-					result = false;
-				}
-
-				Thread.Sleep(result ? 500 : (int)sleepMs);
-
-				if (result)
-				{
-					break;
-				}
-			}
-
-			if (!result && savedEx != null)
-			{
-				throw new Exception("ExecuteWithRetry: caught exception", savedEx);
-			}
-
-			return result ? RetCode.Success : RetCode.Failure;
 		}
 	}
 }

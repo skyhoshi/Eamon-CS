@@ -306,8 +306,6 @@ namespace YourAdventureName.YourGameNamespaceName
 
 					if (VsaObject != null)
 					{
-						VsaObject.DevenvExePath = Globals.DevenvExePath;
-
 						VsaObject.SolutionFile = Globals.Path.GetFullPath(Constants.EamonAdventuresSlnFile);
 					}
 				}
@@ -317,26 +315,7 @@ namespace YourAdventureName.YourGameNamespaceName
 		/// <summary></summary>
 		public virtual void CheckForPrerequisites()
 		{
-			if (!Globals.File.Exists(Globals.DevenvExePath))
-			{
-				if (SupportMenuType == SupportMenuType.DeleteAdventure)
-				{
-					gOut.Print("{0}", Globals.LineSep);
-				}
-
-				gOut.Print("Could not locate the Visual Studio 2017+ devenv.exe program at the following path:");
-
-				gOut.WordWrap = false;
-
-				gOut.Print(Globals.DevenvExePath);
-
-				gOut.WordWrap = true;
-
-				gOut.Print("You may need to modify the LoadAdventureSupportMenu .bat or .sh file to use the -dep flag.  See the documentation section on creating custom adventures for more details.");
-
-				GotoCleanup = true;
-			}
-			else if (!Globals.File.Exists(Globals.Path.GetFullPath(@".\EamonVS.dll")))
+			if (!Globals.File.Exists(Globals.Path.GetFullPath(@".\EamonVS.dll")))
 			{
 				if (SupportMenuType == SupportMenuType.DeleteAdventure)
 				{
@@ -352,25 +331,6 @@ namespace YourAdventureName.YourGameNamespaceName
 				gOut.WordWrap = true;
 
 				gOut.Print("You may need to compile it using the Eamon.Desktop solution and Visual Studio 2017+.");
-
-				GotoCleanup = true;
-			}
-			else if (!Globals.File.Exists(Globals.Path.GetFullPath(@".\envdte.dll")))
-			{
-				if (SupportMenuType == SupportMenuType.DeleteAdventure)
-				{
-					gOut.Print("{0}", Globals.LineSep);
-				}
-
-				gOut.Print("Could not locate the Visual Studio 2017+ envdte.dll library at the following path:");
-
-				gOut.WordWrap = false;
-
-				gOut.Print(Globals.Path.GetFullPath(@".\envdte.dll"));
-
-				gOut.WordWrap = true;
-
-				gOut.Print(@"This library is copied into System\Bin when the EamonVS project is compiled using the Eamon.Desktop solution and Visual Studio 2017+.");
 
 				GotoCleanup = true;
 			}
@@ -973,7 +933,7 @@ namespace YourAdventureName.YourGameNamespaceName
 		}
 
 		/// <summary></summary>
-		public virtual void RebuildSolution()
+		public virtual void RebuildProject()
 		{
 			var result = RetCode.Failure;
 
@@ -985,9 +945,9 @@ namespace YourAdventureName.YourGameNamespaceName
 			{
 				if (IsAdventureNameValid())
 				{
-					var libraryName = Globals.Path.GetFullPath(@".\" + AdventureName + ".dll");
+					var projName = Globals.Path.GetFullPath(Globals.Path.Combine(Constants.AdventuresDir + @"\" + AdventureName, AdventureName + ".csproj"));
 
-					result = VsaObject.RebuildSolution(libraryName);
+					result = VsaObject.RebuildProject(projName);
 				}
 
 				VsaObject.Shutdown();

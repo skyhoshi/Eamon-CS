@@ -22,9 +22,6 @@ namespace EamonDD.Framework.Plugin
 		char WordWrapLastChar { get; set; }
 
 		/// <summary></summary>
-		string DevenvExePath { get; set; }
-
-		/// <summary></summary>
 		string ConfigFileName { get; set; }
 
 		/// <summary></summary>

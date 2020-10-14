@@ -9,9 +9,6 @@ namespace Eamon.Framework.Automation
 	public interface IVisualStudioAutomation
 	{
 		/// <summary></summary>
-		string DevenvExePath { get; set; }
-
-		/// <summary></summary>
 		string SolutionFile { get; set; }
 
 		/// <summary></summary>
@@ -25,9 +22,9 @@ namespace Eamon.Framework.Automation
 		RetCode RemoveProjectFromSolution(string projName);
 
 		/// <summary></summary>
-		/// <param name="libraryName"></param>
+		/// <param name="projName"></param>
 		/// <returns></returns>
-		RetCode RebuildSolution(string libraryName);
+		RetCode RebuildProject(string projName);
 
 		/// <summary></summary>
 		/// <returns></returns>
