@@ -44,31 +44,6 @@
         <member name="P:Eamon.Framework.Args.IWordWrapArgs.LastChar">
             <summary></summary>
         </member>
-        <member name="T:Eamon.Framework.Automation.IVisualStudioAutomation">
-            <summary></summary>
-        </member>
-        <member name="P:Eamon.Framework.Automation.IVisualStudioAutomation.SolutionFile">
-            <summary></summary>
-        </member>
-        <member name="M:Eamon.Framework.Automation.IVisualStudioAutomation.AddProjectToSolution(System.String)">
-            <summary></summary>
-            <param name="projName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Eamon.Framework.Automation.IVisualStudioAutomation.RemoveProjectFromSolution(System.String)">
-            <summary></summary>
-            <param name="projName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Eamon.Framework.Automation.IVisualStudioAutomation.RebuildProject(System.String)">
-            <summary></summary>
-            <param name="projName"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Eamon.Framework.Automation.IVisualStudioAutomation.Shutdown">
-            <summary></summary>
-            <returns></returns>
-        </member>
         <member name="T:Eamon.Framework.DataStorage.Generic.IDbTable`1">
             <summary>
             Represents a collection of records of type T in a database.
@@ -4887,6 +4862,12 @@
         <member name="M:Eamon.Framework.Portability.IDirectory.Exists(System.String)">
             <summary></summary>
             <param name="path"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.Portability.IDirectory.IsEamonCSDirectory(System.String,System.String@)">
+            <summary></summary>
+            <param name="path"></param>
+            <param name="parentName"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.Portability.IDirectory.Delete(System.String,System.Boolean)">

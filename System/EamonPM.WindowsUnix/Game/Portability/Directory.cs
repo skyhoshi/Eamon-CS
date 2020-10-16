@@ -15,27 +15,89 @@ namespace EamonPM.Game.Portability
 			return System.IO.Directory.Exists(NormalizePath(path));
 		}
 
+		public virtual bool IsEamonCSDirectory(string path, ref string parentName)
+		{
+			var result = false;
+
+			if (!string.IsNullOrWhiteSpace(path) && parentName != null)
+			{
+				parentName = "";
+
+				var directoryInfo = new System.IO.DirectoryInfo(NormalizePath(path));
+
+				while (directoryInfo.Parent != null && directoryInfo.Parent.Name != directoryInfo.Root.Name)
+				{
+					if (directoryInfo.Parent.Name.Equals("Adventures") || 
+							directoryInfo.Parent.Name.Equals("Documentation") || 
+							directoryInfo.Parent.Name.Equals("QuickLaunch") || 
+							directoryInfo.Parent.Name.Equals("System"))
+					{
+						parentName = directoryInfo.Parent.Name;
+					}
+
+					if (parentName.Length > 0 && 
+							directoryInfo.Name.Equals(parentName) &&
+							directoryInfo.Parent.Name.StartsWith("Eamon-CS") &&
+							System.IO.Directory.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "Adventures")) && 
+							System.IO.Directory.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "Documentation")) &&
+							System.IO.Directory.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "QuickLaunch")) &&
+							System.IO.Directory.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "System")) &&
+							System.IO.File.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, ".gitattributes")) &&
+							System.IO.File.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, ".gitignore")) &&
+							System.IO.File.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "Eamon.Adventures.sln")) &&
+							System.IO.File.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "Eamon.Desktop.sln")) &&
+							System.IO.File.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "Eamon.Mobile.sln")) &&
+							System.IO.File.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "README.md")))
+					{
+						result = true;
+
+						break;
+					}
+
+					directoryInfo = directoryInfo.Parent;
+				}
+			}
+
+			return result;
+		}
+
 		public virtual void Delete(string path, bool recursive)
 		{
-			/*
-			System.IO.Directory.Delete(NormalizePath(path), recursive);
-			*/
+			if (!string.IsNullOrWhiteSpace(path))
+			{
+				var fullPath = System.IO.Path.GetFullPath(NormalizePath(path));
+
+				var parentName = "";
+
+				if (IsEamonCSDirectory(path, ref parentName) && parentName != null && parentName.Equals("Adventures"))
+				{
+					System.IO.Directory.Delete(fullPath, recursive);
+				}
+			}
 		}
 
 		public virtual void DeleteEmptySubdirectories(string path, bool recursive)
 		{
-			foreach (var directory in System.IO.Directory.GetDirectories(NormalizePath(path)))
+			if (!string.IsNullOrWhiteSpace(path))
 			{
-				if (recursive)
+				foreach (var directory in System.IO.Directory.GetDirectories(NormalizePath(path)))
 				{
-					DeleteEmptySubdirectories(directory, recursive);
-				}
+					if (recursive)
+					{
+						DeleteEmptySubdirectories(directory, recursive);
+					}
 
-				if (!System.IO.Directory.EnumerateFileSystemEntries(directory).Any())
-				{
-					/*
-					System.IO.Directory.Delete(directory, false);
-					*/
+					if (!System.IO.Directory.EnumerateFileSystemEntries(directory).Any())
+					{
+						var fullPath = System.IO.Path.GetFullPath(directory);
+
+						var parentName = "";
+
+						if (IsEamonCSDirectory(directory, ref parentName) && parentName != null && parentName.Equals("Adventures"))
+						{
+							System.IO.Directory.Delete(fullPath, false);
+						}
+					}
 				}
 			}
 		}

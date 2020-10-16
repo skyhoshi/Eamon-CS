@@ -7,13 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using Eamon;
 using Eamon.Framework;
-using Eamon.Framework.Automation;
 using Eamon.Game.Extensions;
 using Eamon.Game.Menus;
 using EamonDD.Framework.Menus.ActionMenus;
@@ -235,12 +233,6 @@ namespace YourAdventureName.YourGameNamespaceName
 		public virtual IList<string> SelectedClassFileList { get; set; }
 
 		/// <summary></summary>
-		public virtual Assembly VsaAssembly { get; set; }
-
-		/// <summary></summary>
-		public virtual IVisualStudioAutomation VsaObject { get; set; }
-
-		/// <summary></summary>
 		/// <param name="fileText"></param>
 		/// <returns></returns>
 		public virtual string ReplaceMacros(string fileText)
@@ -262,79 +254,9 @@ namespace YourAdventureName.YourGameNamespaceName
 		}
 
 		/// <summary></summary>
-		public virtual void LoadVsaAssemblyIfNecessary()
-		{
-			if (VsaAssembly == null)
-			{
-				try
-				{
-					VsaAssembly = Assembly.LoadFrom(Globals.Path.GetFullPath(@".\EamonVS.dll"));
-				}
-				catch (Exception)
-				{
-					VsaAssembly = null;
-				}
-			}
-		}
-
-		/// <summary></summary>
-		public virtual void GetVsaObjectIfNecessary()
-		{
-			if (VsaAssembly != null && VsaObject == null)
-			{
-				Type type = null;
-
-				try
-				{
-					type = VsaAssembly.GetType("EamonVS.VisualStudioAutomation");
-				}
-				catch (Exception)
-				{
-					type = null;
-				}
-
-				if (type != null)
-				{
-					try
-					{
-						VsaObject = (IVisualStudioAutomation)Activator.CreateInstance(type);
-					}
-					catch (Exception)
-					{
-						VsaObject = null;
-					}
-
-					if (VsaObject != null)
-					{
-						VsaObject.SolutionFile = Globals.Path.GetFullPath(Constants.EamonAdventuresSlnFile);
-					}
-				}
-			}
-		}
-
-		/// <summary></summary>
 		public virtual void CheckForPrerequisites()
 		{
-			if (!Globals.File.Exists(Globals.Path.GetFullPath(@".\EamonVS.dll")))
-			{
-				if (SupportMenuType == SupportMenuType.DeleteAdventure)
-				{
-					gOut.Print("{0}", Globals.LineSep);
-				}
-
-				gOut.Print("Could not locate the Eamon CS EamonVS.dll library at the following path:");
-
-				gOut.WordWrap = false;
-
-				gOut.Print(Globals.Path.GetFullPath(@".\EamonVS.dll"));
-
-				gOut.WordWrap = true;
-
-				gOut.Print("You may need to compile it using the Eamon.Desktop solution and Visual Studio 2017+.");
-
-				GotoCleanup = true;
-			}
-			else if (!Globals.File.Exists(Globals.Path.GetFullPath(Constants.EamonAdventuresSlnFile)))
+			if (!Globals.File.Exists(Globals.Path.GetFullPath(Constants.EamonAdventuresSlnFile)))
 			{
 				if (SupportMenuType == SupportMenuType.DeleteAdventure)
 				{
@@ -349,7 +271,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 				gOut.WordWrap = true;
 
-				gOut.Print(@"This Eamon CS repository may be compromised since the solution should always be present.");
+				gOut.Print(@"This Eamon CS repository does not support custom adventure development.");
 
 				GotoCleanup = true;
 			}
@@ -937,20 +859,49 @@ namespace YourAdventureName.YourGameNamespaceName
 		{
 			var result = RetCode.Failure;
 
-			LoadVsaAssemblyIfNecessary();
-
-			GetVsaObjectIfNecessary();
-
-			if (VsaObject != null)
+			if (IsAdventureNameValid())
 			{
-				if (IsAdventureNameValid())
+				var projName = Globals.Path.GetFullPath(Globals.Path.Combine(Constants.AdventuresDir + @"\" + AdventureName, AdventureName + ".csproj"));
+
+				Debug.Assert(!string.IsNullOrWhiteSpace(projName));
+
+				try
 				{
-					var projName = Globals.Path.GetFullPath(Globals.Path.Combine(Constants.AdventuresDir + @"\" + AdventureName, AdventureName + ".csproj"));
+					using (var process = new Process())
+					{
+						process.StartInfo.RedirectStandardOutput = true;
+						process.StartInfo.RedirectStandardError = true;
+						process.StartInfo.UseShellExecute = false;
+						process.StartInfo.CreateNoWindow = true;
 
-					result = VsaObject.RebuildProject(projName);
+						process.StartInfo.FileName = "dotnet";
+						process.StartInfo.Arguments = string.Format("build {0}", projName);
+						process.StartInfo.WorkingDirectory = string.Format("..{0}..", Globals.Path.DirectorySeparatorChar);
+
+						gOut.Write("Rebuilding {0} project... ", Globals.Path.GetFileNameWithoutExtension(projName));
+
+						process.Start();
+
+						result = process.WaitForExit(60000) && process.ExitCode == 0 ? RetCode.Success : RetCode.Failure;
+
+						try { process.Kill(); } catch (Exception) { }
+
+						if (result == RetCode.Success)
+						{
+							gOut.WriteLine("succeeded");
+						}
+						else
+						{
+							gOut.WriteLine("failed");
+						}
+					}
 				}
+				catch (Exception ex)
+				{
+					gOut.WriteLine(ex.ToString());
 
-				VsaObject.Shutdown();
+					result = RetCode.Failure;
+				}
 			}
 
 			if (result == RetCode.Failure)

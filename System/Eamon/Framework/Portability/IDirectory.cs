@@ -15,6 +15,12 @@ namespace Eamon.Framework.Portability
 
 		/// <summary></summary>
 		/// <param name="path"></param>
+		/// <param name="parentName"></param>
+		/// <returns></returns>
+		bool IsEamonCSDirectory(string path, ref string parentName);
+
+		/// <summary></summary>
+		/// <param name="path"></param>
 		/// <param name="recursive"></param>
 		void Delete(string path, bool recursive);
 

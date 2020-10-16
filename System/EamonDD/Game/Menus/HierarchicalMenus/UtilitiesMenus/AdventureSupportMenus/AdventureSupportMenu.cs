@@ -36,7 +36,7 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 				x.SubMenu = Globals.CreateInstance<IAddStandardAdventureMenu>();
 			}));
 
-			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) || RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
 			{
 				MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 				{
@@ -60,7 +60,7 @@ namespace EamonDD.Game.Menus.HierarchicalMenus
 				x.SubMenu = Globals.CreateInstance<IDeleteAdventureMenu>();
 			}));
 
-			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) || RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
 			{
 				MenuItemList.Add(Globals.CreateInstance<IMenuItem>(x =>
 				{

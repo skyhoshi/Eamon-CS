@@ -15,8 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EamonDD", "System\EamonDD\E
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EamonRT", "System\EamonRT\EamonRT.csproj", "{53EC7466-C127-450D-B854-6D5F8C439869}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EamonVS", "System\EamonVS\EamonVS.csproj", "{03F3D861-89AC-4D23-906A-AE354AA16092}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,10 +45,6 @@ Global
 		{53EC7466-C127-450D-B854-6D5F8C439869}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53EC7466-C127-450D-B854-6D5F8C439869}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53EC7466-C127-450D-B854-6D5F8C439869}.Release|Any CPU.Build.0 = Release|Any CPU
-		{03F3D861-89AC-4D23-906A-AE354AA16092}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{03F3D861-89AC-4D23-906A-AE354AA16092}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{03F3D861-89AC-4D23-906A-AE354AA16092}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{03F3D861-89AC-4D23-906A-AE354AA16092}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

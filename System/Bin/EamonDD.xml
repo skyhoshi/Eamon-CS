@@ -704,12 +704,6 @@
         <member name="P:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.SelectedClassFileList">
             <summary></summary>
         </member>
-        <member name="P:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.VsaAssembly">
-            <summary></summary>
-        </member>
-        <member name="P:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.VsaObject">
-            <summary></summary>
-        </member>
         <member name="M:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.ReplaceMacros(System.String)">
             <summary></summary>
             <param name="fileText"></param>
@@ -718,12 +712,6 @@
         <member name="M:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.IsAdventureNameValid">
             <summary></summary>
             <returns></returns>
-        </member>
-        <member name="M:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.LoadVsaAssemblyIfNecessary">
-            <summary></summary>
-        </member>
-        <member name="M:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.GetVsaObjectIfNecessary">
-            <summary></summary>
         </member>
         <member name="M:EamonDD.Game.Menus.ActionMenus.AdventureSupportMenu01.CheckForPrerequisites">
             <summary></summary>

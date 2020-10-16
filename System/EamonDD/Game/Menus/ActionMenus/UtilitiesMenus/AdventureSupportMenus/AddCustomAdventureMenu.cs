@@ -3,7 +3,9 @@
 
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
+using System;
 using System.Diagnostics;
+using Eamon;
 using Eamon.Game.Attributes;
 using EamonDD.Framework.Menus.ActionMenus;
 using static EamonDD.Game.Plugin.PluginContext;
@@ -417,7 +419,7 @@ ChangeLog: YourAdventureName
 
 Date			Version			Who			Notes
 ----------------------------------------------------------------------------------------------------------------------------------
-20XXXXXX		1.7.0				YourAuthorInitials			Code complete 1.7.0
+20XXXXXX		1.7.0				YourAuthorInitials 			Code complete 1.7.0
 ";
 
 		/// <summary></summary>
@@ -584,21 +586,55 @@ Date			Version			Who			Notes
 		/// <summary></summary>
 		public virtual void AddProjectToSolution()
 		{
+			var result = RetCode.Failure;
+
 			gOut.Print("{0}", Globals.LineSep);
 
 			gOut.WriteLine();
 
-			LoadVsaAssemblyIfNecessary();
+			var projName = Globals.Path.GetFullPath(Globals.Path.Combine(Constants.AdventuresDir + @"\" + AdventureName, AdventureName + ".csproj"));
 
-			GetVsaObjectIfNecessary();
+			Debug.Assert(!string.IsNullOrWhiteSpace(projName));
 
-			if (VsaObject != null)
+			try
 			{
-				var projName = Globals.Path.GetFullPath(Globals.Path.Combine(Constants.AdventuresDir + @"\" + AdventureName, AdventureName + ".csproj"));
+				using (var process = new Process())
+				{
+					process.StartInfo.RedirectStandardOutput = true;
+					process.StartInfo.RedirectStandardError = true;
+					process.StartInfo.UseShellExecute = false;
+					process.StartInfo.CreateNoWindow = true;
 
-				VsaObject.AddProjectToSolution(projName);
+					process.StartInfo.FileName = "dotnet";
+					process.StartInfo.Arguments = string.Format("sln Eamon.Adventures.sln add {0} --in-root", projName);     // --in-root requires .NET Core 3.0+ SDK
+					process.StartInfo.WorkingDirectory = string.Format("..{0}..", Globals.Path.DirectorySeparatorChar);
+
+					gOut.Write("Adding {0} project... ", Globals.Path.GetFileNameWithoutExtension(projName));
+
+					process.Start();
+
+					result = process.WaitForExit(60000) && process.ExitCode == 0 ? RetCode.Success : RetCode.Failure;
+
+					try { process.Kill(); } catch (Exception) { }
+
+					if (result == RetCode.Success)
+					{
+						gOut.WriteLine("succeeded");
+					}
+					else
+					{
+						gOut.WriteLine("failed");
+					}
+				}
 			}
-			else
+			catch (Exception ex)
+			{
+				gOut.WriteLine(ex.ToString());
+
+				result = RetCode.Failure;
+			}
+
+			if (result == RetCode.Failure)
 			{
 				gOut.Print("{0}", Globals.LineSep);
 

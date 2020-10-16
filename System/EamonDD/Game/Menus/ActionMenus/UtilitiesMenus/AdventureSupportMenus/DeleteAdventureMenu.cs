@@ -48,7 +48,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 			{
 				if (Globals.File.Exists(Constants.AdventuresDir + @"\" + AdventureName + @"\" + AdventureName + @".csproj"))
 				{
-					if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+					if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) || RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
 					{
 						CheckForPrerequisites();
 
@@ -60,7 +60,7 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 					DeleteAdvBinaryFiles();
 
-					if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+					if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows) || RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
 					{
 						RemoveProjectFromSolution();
 					}
@@ -121,22 +121,49 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 			gOut.WriteLine();
 
-			LoadVsaAssemblyIfNecessary();
-
-			GetVsaObjectIfNecessary();
-
-			if (VsaObject != null)
+			if (IsAdventureNameValid())
 			{
-				if (IsAdventureNameValid())
+				var projName = Globals.Path.GetFullPath(Globals.Path.Combine(Constants.AdventuresDir + @"\" + AdventureName, AdventureName + ".csproj"));
+
+				Debug.Assert(!string.IsNullOrWhiteSpace(projName));
+
+				try
 				{
-					var projName = Globals.Path.GetFullPath(Globals.Path.Combine(Constants.AdventuresDir + @"\" + AdventureName, AdventureName + ".csproj"));
+					using (var process = new Process())
+					{
+						process.StartInfo.RedirectStandardOutput = true;
+						process.StartInfo.RedirectStandardError = true;
+						process.StartInfo.UseShellExecute = false;
+						process.StartInfo.CreateNoWindow = true;
 
-					VsaObject.RemoveProjectFromSolution(projName);
+						process.StartInfo.FileName = "dotnet";
+						process.StartInfo.Arguments = string.Format("sln Eamon.Adventures.sln remove {0}", projName);
+						process.StartInfo.WorkingDirectory = string.Format("..{0}..", Globals.Path.DirectorySeparatorChar);
 
-					result = RetCode.Success;
+						gOut.Write("Removing {0} project... ", Globals.Path.GetFileNameWithoutExtension(projName));
+
+						process.Start();
+
+						result = process.WaitForExit(60000) && process.ExitCode == 0 ? RetCode.Success : RetCode.Failure;
+
+						try { process.Kill(); } catch (Exception) { }
+
+						if (result == RetCode.Success)
+						{
+							gOut.WriteLine("succeeded");
+						}
+						else
+						{
+							gOut.WriteLine("failed");
+						}
+					}
 				}
+				catch (Exception ex)
+				{
+					gOut.WriteLine(ex.ToString());
 
-				VsaObject.Shutdown();
+					result = RetCode.Failure;
+				}
 			}
 
 			if (result == RetCode.Failure)
