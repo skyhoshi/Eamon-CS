@@ -220,10 +220,6 @@ namespace EamonRT.Game.Commands
 					{
 						DobjArtAc.SetBreakageStrength(BreakageStrength);
 
-						rc = DobjArtifact.SyncArtifactCategories(DobjArtAc);
-
-						Debug.Assert(gEngine.IsSuccess(rc));
-
 						goto Cleanup;
 					}
 
@@ -236,10 +232,6 @@ namespace EamonRT.Game.Commands
 					DobjArtAc.SetKeyUid(-2);
 
 					DobjArtAc.Field4 = 0;
-
-					rc = DobjArtifact.SyncArtifactCategories(DobjArtAc);
-
-					Debug.Assert(gEngine.IsSuccess(rc));
 
 					DobjArtifact.Value = 0;
 

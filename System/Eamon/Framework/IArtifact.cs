@@ -680,15 +680,6 @@ namespace Eamon.Framework
 		RetCode SetArtifactCategoryCount(long count);
 
 		/// <summary></summary>
-		/// <param name="artifactCategory"></param>
-		/// <returns></returns>
-		RetCode SyncArtifactCategories(IArtifactCategory artifactCategory);
-
-		/// <summary></summary>
-		/// <returns></returns>
-		RetCode SyncArtifactCategories();
-
-		/// <summary></summary>
 		/// <param name="stateDesc"></param>
 		/// <param name="dupAllowed"></param>
 		/// <returns></returns>

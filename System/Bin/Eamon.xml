@@ -1616,15 +1616,6 @@
             <param name="count"></param>
             <returns></returns>
         </member>
-        <member name="M:Eamon.Framework.IArtifact.SyncArtifactCategories(Eamon.Framework.Primitive.Classes.IArtifactCategory)">
-            <summary></summary>
-            <param name="artifactCategory"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Eamon.Framework.IArtifact.SyncArtifactCategories">
-            <summary></summary>
-            <returns></returns>
-        </member>
         <member name="M:Eamon.Framework.IArtifact.AddStateDesc(System.String,System.Boolean)">
             <summary></summary>
             <param name="stateDesc"></param>
@@ -5381,6 +5372,9 @@
         <member name="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Parent">
             <summary></summary>
         </member>
+        <member name="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.SyncFields">
+            <summary></summary>
+        </member>
         <member name="P:Eamon.Framework.Primitive.Classes.IArtifactCategory.Type">
             <summary></summary>
         </member>
@@ -5475,6 +5469,9 @@
         <member name="M:Eamon.Framework.Primitive.Classes.IArtifactCategory.GetMonsterUid">
             <summary></summary>
             <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.Primitive.Classes.IArtifactCategory.SyncArtifactCategories">
+            <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Classes.IArtifactLinkage">
             <summary></summary>

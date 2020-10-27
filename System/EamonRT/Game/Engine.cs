@@ -250,10 +250,6 @@ namespace EamonRT.Game
 
 			foreach (var artifact in artifactList)
 			{
-				var rc = artifact.SyncArtifactCategories();
-
-				Debug.Assert(IsSuccess(rc));
-
 				TruncatePluralTypeEffectDesc(artifact.PluralType, Constants.ArtNameLen);
 			}
 		}

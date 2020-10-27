@@ -12,6 +12,9 @@ namespace Eamon.Framework.Primitive.Classes
 		IArtifact Parent { get; set; }
 
 		/// <summary></summary>
+		bool SyncFields { get; set; }
+
+		/// <summary></summary>
 		Enums.ArtifactType Type { get; set; }
 
 		/// <summary></summary>
@@ -105,5 +108,8 @@ namespace Eamon.Framework.Primitive.Classes
 		/// <summary></summary>
 		/// <returns></returns>
 		long GetMonsterUid();
+
+		/// <summary></summary>
+		void SyncArtifactCategories();
 	}
 }

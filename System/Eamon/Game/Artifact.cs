@@ -427,11 +427,23 @@ namespace Eamon.Game
 
 		public override void SetParentReferences()
 		{
+			// Backpoint ArtifactCategory objects to this Artifact to allow easy access
+
 			foreach (var ac in Categories)
 			{
 				if (ac != null)
 				{
 					ac.Parent = this;
+				}
+			}
+
+			// Ensure ArtifactCategory objects are in sync for this Artifact
+
+			foreach (var ac in Categories)
+			{
+				if (ac != null && ac.Type != ArtifactType.None)
+				{
+					ac.SyncArtifactCategories();
 				}
 			}
 		}
@@ -1400,166 +1412,6 @@ namespace Eamon.Game
 		Cleanup:
 
 			_lastArtifactCategory = null;
-
-			return rc;
-		}
-
-		public virtual RetCode SyncArtifactCategories(IArtifactCategory artifactCategory)
-		{
-			RetCode rc;
-
-			if (artifactCategory == null)
-			{
-				rc = RetCode.InvalidArg;
-
-				// PrintError
-
-				goto Cleanup;
-			}
-
-			rc = RetCode.Success;
-
-			switch (artifactCategory.Type)
-			{
-				case ArtifactType.InContainer:
-				case ArtifactType.DoorGate:
-				{
-					foreach (var ac in Categories)
-					{
-						if (ac != null && ac != artifactCategory && ac.Type != ArtifactType.None)
-						{
-							if (ac.IsLockable())
-							{
-								ac.SetKeyUid(artifactCategory.GetKeyUid());
-							}
-
-							if (ac.IsOpenable())
-							{
-								if (artifactCategory.GetBreakageStrength() > 0)
-								{
-									if (ac.Type == ArtifactType.InContainer || ac.Type == ArtifactType.DoorGate)
-									{
-										ac.SetBreakageStrength(artifactCategory.GetBreakageStrength());
-									}
-									else
-									{
-										ac.SetOpen(artifactCategory.IsOpen());
-									}
-								}
-								else if (ac.GetBreakageStrength() <= 0 || artifactCategory.IsOpen())
-								{
-									ac.SetOpen(artifactCategory.IsOpen());
-								}
-							}
-						}
-					}
-
-					break;
-				}
-
-				case ArtifactType.Drinkable:
-				case ArtifactType.Edible:
-				{
-					foreach (var ac in Categories)
-					{
-						if (ac != null && ac != artifactCategory && ac.Type != ArtifactType.None)
-						{
-							if (ac.Type == ArtifactType.Drinkable || ac.Type == ArtifactType.Edible)
-							{
-								ac.Field1 = artifactCategory.Field1;
-
-								ac.Field2 = artifactCategory.Field2;
-							}
-
-							if (ac.IsOpenable() && (ac.GetBreakageStrength() <= 0 || artifactCategory.IsOpen()))
-							{
-								ac.SetOpen(artifactCategory.IsOpen());
-							}
-						}
-					}
-
-					break;
-				}
-
-				case ArtifactType.Readable:
-				{
-					foreach (var ac in Categories)
-					{
-						if (ac != null && ac != artifactCategory && ac.Type != ArtifactType.None)
-						{
-							if (ac.IsOpenable() && (ac.GetBreakageStrength() <= 0 || artifactCategory.IsOpen()))
-							{
-								ac.SetOpen(artifactCategory.IsOpen());
-							}
-						}
-					}
-
-					break;
-				}
-
-				case ArtifactType.BoundMonster:
-				{
-					foreach (var ac in Categories)
-					{
-						if (ac != null && ac != artifactCategory && ac.Type != ArtifactType.None)
-						{
-							if (ac.Type == ArtifactType.DisguisedMonster)
-							{
-								ac.Field1 = artifactCategory.Field1;
-							}
-
-							if (ac.IsLockable())
-							{
-								ac.SetKeyUid(artifactCategory.GetKeyUid());
-							}
-						}
-					}
-
-					break;
-				}
-
-				case ArtifactType.DisguisedMonster:
-				{
-					foreach (var ac in Categories)
-					{
-						if (ac != null && ac != artifactCategory && ac.Type != ArtifactType.None)
-						{
-							if (ac.Type == ArtifactType.BoundMonster)
-							{
-								ac.Field1 = artifactCategory.Field1;
-							}
-						}
-					}
-
-					break;
-				}
-			}
-
-		Cleanup:
-
-			return rc;
-		}
-
-		public virtual RetCode SyncArtifactCategories()
-		{
-			RetCode rc;
-
-			rc = RetCode.Success;
-
-			foreach (var ac in Categories)
-			{
-				if (ac != null && ac.Type != ArtifactType.None)
-				{
-					rc = SyncArtifactCategories(ac);
-
-					if (gEngine.IsFailure(rc))
-					{
-						goto Cleanup;
-					}
-				}
-			}
-
-		Cleanup:
 
 			return rc;
 		}

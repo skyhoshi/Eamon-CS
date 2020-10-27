@@ -203,10 +203,6 @@ namespace EamonRT.Game.Commands
 							DobjArtAc.Field2--;
 						}
 
-						rc = DobjArtifact.SyncArtifactCategories(DobjArtAc);
-
-						Debug.Assert(gEngine.IsSuccess(rc));
-
 						if (DobjArtAc.Field2 > 0)
 						{
 							Globals.Buf.SetPrint("{0}{1}{2} takes a {3} and hands {4} back.",

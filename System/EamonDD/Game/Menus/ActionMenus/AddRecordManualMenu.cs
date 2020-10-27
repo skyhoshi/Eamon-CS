@@ -111,10 +111,6 @@ namespace EamonDD.Game.Menus.ActionMenus
 					Debug.Assert(gEngine.IsSuccess(rc));
 				}
 
-				rc = artifact.SyncArtifactCategories();
-
-				Debug.Assert(gEngine.IsSuccess(rc));
-
 				gEngine.TruncatePluralTypeEffectDesc(artifact.PluralType, Constants.ArtNameLen);
 			}
 

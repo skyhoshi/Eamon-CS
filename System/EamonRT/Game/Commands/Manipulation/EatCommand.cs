@@ -31,8 +31,6 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			RetCode rc;
-
 			Debug.Assert(DobjArtifact != null);
 
 			DrinkableAc = DobjArtifact.Drinkable;
@@ -72,10 +70,6 @@ namespace EamonRT.Game.Commands
 				{
 					DobjArtAc.Field2--;
 				}
-
-				rc = DobjArtifact.SyncArtifactCategories(DobjArtAc);
-
-				Debug.Assert(gEngine.IsSuccess(rc));
 
 				PlayerProcessEvents(EventType.BeforeArtifactNowEmptyCheck);
 

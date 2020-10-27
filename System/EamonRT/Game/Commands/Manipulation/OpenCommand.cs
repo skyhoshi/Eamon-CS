@@ -52,8 +52,6 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			RetCode rc;
-
 			Debug.Assert(DobjArtifact != null);
 
 			InContainerAc = DobjArtifact.InContainer;
@@ -108,10 +106,6 @@ namespace EamonRT.Game.Commands
 				if (DobjArtAc.Type == ArtifactType.Drinkable || DobjArtAc.Type == ArtifactType.Edible || DobjArtAc.Type == ArtifactType.Readable)
 				{
 					DobjArtAc.SetOpen(true);
-
-					rc = DobjArtifact.SyncArtifactCategories(DobjArtAc);
-
-					Debug.Assert(gEngine.IsSuccess(rc));
 
 					PrintOpened(DobjArtifact);
 
@@ -186,10 +180,6 @@ namespace EamonRT.Game.Commands
 					DobjArtAc.Field4 = 0;
 				}
 				*/
-
-				rc = DobjArtifact.SyncArtifactCategories(DobjArtAc);
-
-				Debug.Assert(gEngine.IsSuccess(rc));
 
 				PlayerProcessEvents(EventType.AfterArtifactOpen);
 

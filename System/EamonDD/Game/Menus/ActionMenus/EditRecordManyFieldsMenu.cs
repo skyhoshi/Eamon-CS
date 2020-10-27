@@ -93,10 +93,6 @@ namespace EamonDD.Game.Menus.ActionMenus
 
 				if (artifact != null)
 				{
-					rc = artifact.SyncArtifactCategories();
-
-					Debug.Assert(gEngine.IsSuccess(rc));
-
 					gEngine.TruncatePluralTypeEffectDesc(artifact.PluralType, Constants.ArtNameLen);
 				}
 				

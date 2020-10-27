@@ -38,8 +38,6 @@ namespace EamonRT.Game.Commands
 
 		public override void PlayerExecute()
 		{
-			RetCode rc;
-
 			Debug.Assert(DobjArtifact != null);
 
 			InContainerAc = DobjArtifact.InContainer;
@@ -105,10 +103,6 @@ namespace EamonRT.Game.Commands
 				PrintClosed(DobjArtifact);
 
 				DobjArtAc.SetOpen(false);
-
-				rc = DobjArtifact.SyncArtifactCategories(DobjArtAc);
-
-				Debug.Assert(gEngine.IsSuccess(rc));
 
 				PlayerProcessEvents(EventType.AfterArtifactClose);
 
