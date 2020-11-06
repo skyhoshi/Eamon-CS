@@ -453,15 +453,9 @@ Date			Version			Who			Notes
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include=""Eamon"">
-      <HintPath>..\..\System\Bin\Eamon.dll</HintPath>
-    </Reference>
-    <Reference Include=""EamonDD"">
-      <HintPath>..\..\System\Bin\EamonDD.dll</HintPath>
-    </Reference>
-    <Reference Include=""EamonRT"">
-      <HintPath>..\..\System\Bin\EamonRT.dll</HintPath>
-    </Reference>
+    <ProjectReference Include=""..\..\System\EamonDD\EamonDD.csproj"" />
+    <ProjectReference Include=""..\..\System\EamonRT\EamonRT.csproj"" />
+    <ProjectReference Include=""..\..\System\Eamon\Eamon.csproj"" />
   </ItemGroup>
 
 </Project>
@@ -606,14 +600,14 @@ Date			Version			Who			Notes
 					process.StartInfo.CreateNoWindow = true;
 
 					process.StartInfo.FileName = "dotnet";
-					process.StartInfo.Arguments = string.Format("sln Eamon.Adventures.sln add {0} --in-root", projName);     // --in-root requires .NET Core 3.0+ SDK
+					process.StartInfo.Arguments = string.Format("sln Eamon.Desktop.sln add {0}", projName);
 					process.StartInfo.WorkingDirectory = string.Format("..{0}..", Globals.Path.DirectorySeparatorChar);
 
 					gOut.Write("Adding {0} project... ", Globals.Path.GetFileNameWithoutExtension(projName));
 
 					process.Start();
 
-					result = process.WaitForExit(60000) && process.ExitCode == 0 ? RetCode.Success : RetCode.Failure;
+					result = process.WaitForExit(120000) && process.ExitCode == 0 ? RetCode.Success : RetCode.Failure;
 
 					try { process.Kill(); } catch (Exception) { }
 

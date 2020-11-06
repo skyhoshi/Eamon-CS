@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Eamon.Mobile", "System\Eamo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EamonPM.Android", "System\EamonPM.Android\EamonPM.Android.csproj", "{7E4BD0D4-AF5B-4C95-8FFB-85B68159C9B6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System", "System", "{4354307E-E2A2-4C3F-9B3F-018291A96FBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1E8E7C06-9DD8-4B9E-9A13-555F47359604} = {4354307E-E2A2-4C3F-9B3F-018291A96FBC}
+		{7E4BD0D4-AF5B-4C95-8FFB-85B68159C9B6} = {4354307E-E2A2-4C3F-9B3F-018291A96FBC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0215F79-A8CE-43AE-9805-3240C3AE977A}

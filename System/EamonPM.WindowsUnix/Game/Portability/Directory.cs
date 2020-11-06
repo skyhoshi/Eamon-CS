@@ -25,7 +25,7 @@ namespace EamonPM.Game.Portability
 
 				var directoryInfo = new System.IO.DirectoryInfo(NormalizePath(path));
 
-				while (directoryInfo.Parent != null && directoryInfo.Parent.Name != directoryInfo.Root.Name)
+				while (directoryInfo != null && directoryInfo.Parent != null && directoryInfo.Root != null && directoryInfo.Parent.Name != directoryInfo.Root.Name)
 				{
 					if (directoryInfo.Parent.Name.Equals("Adventures") || 
 							directoryInfo.Parent.Name.Equals("Documentation") || 
@@ -44,7 +44,6 @@ namespace EamonPM.Game.Portability
 							System.IO.Directory.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "System")) &&
 							System.IO.File.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, ".gitattributes")) &&
 							System.IO.File.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, ".gitignore")) &&
-							System.IO.File.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "Eamon.Adventures.sln")) &&
 							System.IO.File.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "Eamon.Desktop.sln")) &&
 							System.IO.File.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "Eamon.Mobile.sln")) &&
 							System.IO.File.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "README.md")))

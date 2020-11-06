@@ -25,7 +25,7 @@ namespace EamonPM.Game.Portability
 
 				var directoryInfo = new System.IO.DirectoryInfo(NormalizePath(path));
 
-				while (directoryInfo.Parent != null && directoryInfo.Parent.Name != directoryInfo.Root.Name)
+				while (directoryInfo != null && directoryInfo.Parent != null && directoryInfo.Root != null && directoryInfo.Parent.Name != directoryInfo.Root.Name)
 				{
 					if (directoryInfo.Parent.Name.Equals("Adventures") ||
 							directoryInfo.Parent.Name.Equals("System"))
@@ -35,7 +35,7 @@ namespace EamonPM.Game.Portability
 
 					if (parentName.Length > 0 &&
 							directoryInfo.Name.Equals(parentName) &&
-							/* directoryInfo.Parent.Name.StartsWith("Eamon-CS") && */
+							directoryInfo.Parent.FullName.Contains("EamonPM.Android") &&
 							System.IO.Directory.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "Adventures")) &&
 							System.IO.Directory.Exists(System.IO.Path.Combine(directoryInfo.Parent.FullName, "System")))
 					{

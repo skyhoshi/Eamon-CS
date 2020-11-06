@@ -256,18 +256,18 @@ namespace YourAdventureName.YourGameNamespaceName
 		/// <summary></summary>
 		public virtual void CheckForPrerequisites()
 		{
-			if (!Globals.File.Exists(Globals.Path.GetFullPath(Constants.EamonAdventuresSlnFile)))
+			if (!Globals.File.Exists(Globals.Path.GetFullPath(Constants.EamonDesktopSlnFile)))
 			{
 				if (SupportMenuType == SupportMenuType.DeleteAdventure)
 				{
 					gOut.Print("{0}", Globals.LineSep);
 				}
 
-				gOut.Print("Could not locate the Eamon.Adventures solution at the following path:");
+				gOut.Print("Could not locate the Eamon.Desktop solution at the following path:");
 
 				gOut.WordWrap = false;
 
-				gOut.Print(Globals.Path.GetFullPath(Constants.EamonAdventuresSlnFile));
+				gOut.Print(Globals.Path.GetFullPath(Constants.EamonDesktopSlnFile));
 
 				gOut.WordWrap = true;
 
@@ -875,14 +875,14 @@ namespace YourAdventureName.YourGameNamespaceName
 						process.StartInfo.CreateNoWindow = true;
 
 						process.StartInfo.FileName = "dotnet";
-						process.StartInfo.Arguments = string.Format("build {0}", projName);
+						process.StartInfo.Arguments = string.Format("build {0} --no-dependencies", projName);
 						process.StartInfo.WorkingDirectory = string.Format("..{0}..", Globals.Path.DirectorySeparatorChar);
 
 						gOut.Write("Rebuilding {0} project... ", Globals.Path.GetFileNameWithoutExtension(projName));
 
 						process.Start();
 
-						result = process.WaitForExit(60000) && process.ExitCode == 0 ? RetCode.Success : RetCode.Failure;
+						result = process.WaitForExit(300000) && process.ExitCode == 0 ? RetCode.Success : RetCode.Failure;
 
 						try { process.Kill(); } catch (Exception) { }
 

@@ -4578,7 +4578,7 @@
         <member name="P:Eamon.Framework.Plugin.IPluginConstants.ProcessMutexName">
             <summary></summary>
         </member>
-        <member name="P:Eamon.Framework.Plugin.IPluginConstants.EamonAdventuresSlnFile">
+        <member name="P:Eamon.Framework.Plugin.IPluginConstants.EamonDesktopSlnFile">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginConstants.StackTraceFile">
