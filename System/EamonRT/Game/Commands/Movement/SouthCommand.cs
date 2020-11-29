@@ -28,6 +28,8 @@ namespace EamonRT.Game.Commands
 
 			IsDarkEnabled = true;
 
+			Uid = 78;
+
 			Name = "SouthCommand";
 
 			Verb = "south";

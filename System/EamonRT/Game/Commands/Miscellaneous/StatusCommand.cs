@@ -133,6 +133,8 @@ namespace EamonRT.Game.Commands
 
 			IsMonsterEnabled = false;
 
+			Uid = 67;
+
 			Name = "StatusCommand";
 
 			Verb = "status";

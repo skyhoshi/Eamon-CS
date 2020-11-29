@@ -248,6 +248,8 @@ namespace EamonRT.Game.Commands
 
 			IsDobjPrepEnabled = true;
 
+			Uid = 46;
+
 			Name = "ExamineCommand";
 
 			Verb = "examine";

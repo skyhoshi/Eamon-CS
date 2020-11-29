@@ -113,7 +113,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 		{
 			Debug.Assert(DobjArtifact != null);
 
-			// Book of runes can't be opened
+			// Grimoire can't be opened
 
 			if (DobjArtifact.Uid == 27)
 			{

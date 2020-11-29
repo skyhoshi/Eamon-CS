@@ -124,7 +124,7 @@ namespace EamonPM.Game.Portability
 
 				ch = Console.ReadKey(true).KeyChar;
 
-				if ((Environment.NewLine.Length == 2 && ch == '\r') || (Environment.NewLine.Length == 1 && ch == '\n') || ch == '\t')
+				if (ch == '\r' || ch == '\n' || ch == '\t')
 				{
 					Globals.Out.SetCursorPosition(inputCh0Pos);
 
@@ -150,7 +150,7 @@ namespace EamonPM.Game.Portability
 
 					i = 0;
 				}
-				else if ((Environment.NewLine.Length == 2 && ch == '\b') || (Environment.NewLine.Length == 1 && ch == 0x7F))
+				else if (ch == '\b' || ch == 0x7F)
 				{
 					if (i > 0)
 					{

@@ -702,7 +702,7 @@
             </SingleArray>
             <Simple name="Uid" value="21" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="pouch containing stones" />
+            <Simple name="Name" value="pouch of stones" />
             <Simple name="Desc" value="You find a small pouch containing some precious stones:  three emeralds, two small rubies and a single diamond." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
@@ -900,7 +900,7 @@
             </SingleArray>
             <Simple name="Uid" value="27" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="book of runes" />
+            <Simple name="Name" value="grimoire" />
             <Simple name="Desc" value="You see a faintly glowing manuscript, bearing the title &quot;Anta Loquestra - Bae Nihydrali&quot;." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />

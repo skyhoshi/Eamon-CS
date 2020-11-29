@@ -128,6 +128,8 @@ namespace EamonRT.Game.Commands
 				IsMonsterEnabled = false;
 			}
 
+			Uid = 54;
+
 			Name = "UseCommand";
 
 			Verb = "use";

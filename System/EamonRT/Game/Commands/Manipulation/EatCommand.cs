@@ -163,6 +163,8 @@ namespace EamonRT.Game.Commands
 				IsMonsterEnabled = false;
 			}
 
+			Uid = 45;
+
 			Name = "EatCommand";
 
 			Verb = "eat";

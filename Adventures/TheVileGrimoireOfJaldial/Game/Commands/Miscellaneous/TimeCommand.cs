@@ -53,6 +53,8 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			IsMonsterEnabled = false;
 
+			Uid = 90;
+
 			Name = "TimeCommand";
 
 			Verb = "time";

@@ -485,6 +485,18 @@
         <member name="T:EamonDD.Framework.Menus.HierarchicalMenus.IRoomRecordUtilitiesMenu">
             <summary></summary>
         </member>
+        <member name="T:EamonDD.Framework.Menus.HierarchicalMenus.IScriptRecordMenu">
+            <summary></summary>
+        </member>
+        <member name="T:EamonDD.Framework.Menus.HierarchicalMenus.IScriptRecordUtilitiesMenu">
+            <summary></summary>
+        </member>
+        <member name="T:EamonDD.Framework.Menus.HierarchicalMenus.ITriggerRecordMenu">
+            <summary></summary>
+        </member>
+        <member name="T:EamonDD.Framework.Menus.HierarchicalMenus.ITriggerRecordUtilitiesMenu">
+            <summary></summary>
+        </member>
         <member name="T:EamonDD.Framework.Menus.HierarchicalMenus.IAdventureSupportMenu">
             <summary></summary>
         </member>
@@ -522,6 +534,12 @@
             <summary></summary>
         </member>
         <member name="M:EamonDD.Framework.Menus.IDdMenu.PrintHintMenuSubtitle">
+            <summary></summary>
+        </member>
+        <member name="M:EamonDD.Framework.Menus.IDdMenu.PrintTriggerMenuSubtitle">
+            <summary></summary>
+        </member>
+        <member name="M:EamonDD.Framework.Menus.IDdMenu.PrintScriptMenuSubtitle">
             <summary></summary>
         </member>
         <member name="T:EamonDD.Framework.Plugin.IPluginClassMappings">
@@ -588,6 +606,12 @@
             <summary></summary>
         </member>
         <member name="P:EamonDD.Framework.Plugin.IPluginGlobals.HintsModified">
+            <summary></summary>
+        </member>
+        <member name="P:EamonDD.Framework.Plugin.IPluginGlobals.TriggersModified">
+            <summary></summary>
+        </member>
+        <member name="P:EamonDD.Framework.Plugin.IPluginGlobals.ScriptsModified">
             <summary></summary>
         </member>
         <member name="T:EamonDD.Framework.Primitive.Enums.SupportMenuType">

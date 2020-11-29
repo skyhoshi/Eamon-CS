@@ -43,6 +43,10 @@ namespace Eamon.Game
 
 		public virtual string HintFileName { get; set; }
 
+		public virtual string TriggerFileName { get; set; }
+
+		public virtual string ScriptFileName { get; set; }
+
 		public virtual string GameStateFileName { get; set; }
 
 		#endregion
@@ -163,6 +167,10 @@ namespace Eamon.Game
 			MonsterFileName = "";
 
 			HintFileName = "";
+
+			TriggerFileName = "";
+
+			ScriptFileName = "";
 
 			GameStateFileName = "";
 		}

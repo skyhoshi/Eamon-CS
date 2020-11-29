@@ -39,6 +39,8 @@ namespace EamonRT.Game.Commands
 
 			IsMonsterEnabled = false;
 
+			Uid = 57;
+
 			Name = "InfoCommand";
 
 			Verb = "info";

@@ -82,6 +82,10 @@ namespace Eamon.Framework
 		/// </summary>
 		long NumHints { get; set; }
 
+		long NumTriggers { get; set; }
+
+		long NumScripts { get; set; }
+
 		#endregion
 
 		#region Methods

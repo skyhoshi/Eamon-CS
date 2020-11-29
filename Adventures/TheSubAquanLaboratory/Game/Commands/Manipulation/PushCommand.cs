@@ -324,6 +324,8 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			IsMonsterEnabled = false;
 
+			Uid = 86;
+
 			Name = "PushCommand";
 
 			Verb = "push";

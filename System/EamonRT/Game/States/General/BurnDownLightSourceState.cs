@@ -83,6 +83,8 @@ namespace EamonRT.Game.States
 
 		public BurnDownLightSourceState()
 		{
+			Uid = 1;
+
 			Name = "BurnDownLightSourceState";
 		}
 	}

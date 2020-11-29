@@ -65,5 +65,21 @@ namespace Eamon.Game.Plugin
 				return Globals?.MDB;
 			}
 		}
+
+		public static IRecordDb<ITrigger> gTDB
+		{
+			get
+			{
+				return Globals?.TDB;
+			}
+		}
+
+		public static IRecordDb<IScript> gSDB
+		{
+			get
+			{
+				return Globals?.SDB;
+			}
+		}
 	}
 }

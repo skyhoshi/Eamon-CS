@@ -108,6 +108,8 @@ namespace EamonRT.Game.States
 
 		public BeforePrintPlayerRoomEventState()
 		{
+			Uid = 28;
+
 			Name = "BeforePrintPlayerRoomEventState";
 		}
 	}

@@ -39,6 +39,8 @@ namespace EamonRT.Game.States
 
 		public AfterMonsterFleesRoomState()
 		{
+			Uid = 8;
+
 			Name = "AfterMonsterFleesRoomState";
 		}
 	}

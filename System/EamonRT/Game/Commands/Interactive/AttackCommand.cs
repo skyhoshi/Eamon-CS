@@ -382,6 +382,8 @@ namespace EamonRT.Game.Commands
 
 			SortOrder = 250;
 
+			Uid = 34;
+
 			Name = "AttackCommand";
 
 			Verb = "attack";

@@ -36,6 +36,8 @@ namespace EamonRT.Game.States
 
 			Debug.Assert(Direction == 0 || Enum.IsDefined(typeof(Direction), Direction));
 
+			Globals.PlayerMoved = true;
+
 			gCommandParser.LastHimNameStr = "";
 
 			gCommandParser.LastHerNameStr = "";
@@ -96,6 +98,8 @@ namespace EamonRT.Game.States
 
 		public AfterPlayerMoveState()
 		{
+			Uid = 25;
+
 			Name = "AfterPlayerMoveState";
 
 			MoveMonsters = true;

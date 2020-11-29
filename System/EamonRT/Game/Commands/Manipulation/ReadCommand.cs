@@ -121,6 +121,8 @@ namespace EamonRT.Game.Commands
 				IsMonsterEnabled = false;
 			}
 
+			Uid = 51;
+
 			Name = "ReadCommand";
 
 			Verb = "read";

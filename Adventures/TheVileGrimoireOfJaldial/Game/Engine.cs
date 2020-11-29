@@ -86,13 +86,13 @@ namespace TheVileGrimoireOfJaldial.Game
 				{ 18, new string[] { "beholder's treasure", "beholder's hoard", "treasure hoard", "treasure", "hoard" } },
 				{ 19, new string[] { "cloak" } },
 				{ 20, new string[] { "pieces" } },
-				{ 21, new string[] { "pouch with stones", "pouch", "stones" } },
+				{ 21, new string[] { "pouch containing stones", "pouch with stones", "pouch", "stones" } },
 				{ 22, new string[] { "egg" } },
 				{ 23, new string[] { "nest" } },
 				{ 24, new string[] { "fountain", "basin", "grotesque face", "face" } },
 				{ 25, new string[] { "gold pile", "gold coins", "gold", "coins" } },
 				{ 26, new string[] { "wood throne", "throne" } },
-				{ 27, new string[] { "rune book", "book" } },
+				{ 27, new string[] { "book", "manuscript" } },
 				{ 28, new string[] { "rod" } },
 				{ 29, new string[] { "mace" } },
 				{ 31, new string[] { "sword" } },
@@ -451,6 +451,49 @@ namespace TheVileGrimoireOfJaldial.Game
 					{
 						result = "to daylight";
 					}
+				}
+
+				return result;
+			});
+
+			MacroFuncs.Add(8, () =>
+			{
+				var result = "  To the south, you see a small chamber of carved stone, and eastward the corridor continues.";
+
+				if (gGameState != null && !gGameState.GetSecretDoors(1))
+				{
+					result = "  Eastward the corridor continues.";
+				}
+
+				return result;
+			});
+
+			MacroFuncs.Add(9, () =>
+			{
+				var result = "  You may go north or east.";
+
+				if (gGameState != null)
+				{
+					if (gGameState.GetSecretDoors(2) && !gGameState.GetSecretDoors(4))
+					{
+						result = "  You may go north.";
+					}
+					else if (!gGameState.GetSecretDoors(2) && gGameState.GetSecretDoors(4))
+					{
+						result = "  You may go east.";
+					}
+				}
+
+				return result;
+			});
+
+			MacroFuncs.Add(10, () =>
+			{
+				var result = " between the two openings (to the east and south)";
+
+				if (gGameState != null && !gGameState.GetSecretDoors(3))
+				{
+					result = "";
 				}
 
 				return result;

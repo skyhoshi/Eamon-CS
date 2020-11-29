@@ -74,17 +74,17 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				Debug.Assert(goldPiecesArtifact != null);
 
-				var pouchContainingStonesArtifact = gADB[21];
+				var pouchOfStonesArtifact = gADB[21];
 
-				Debug.Assert(pouchContainingStonesArtifact != null);
+				Debug.Assert(pouchOfStonesArtifact != null);
 
 				var griffinEggArtifact = gADB[22];
 
 				Debug.Assert(griffinEggArtifact != null);
 
-				var bookOfRunesArtifact = gADB[27];
+				var grimoireArtifact = gADB[27];
 
-				Debug.Assert(bookOfRunesArtifact != null);
+				Debug.Assert(grimoireArtifact != null);
 
 				// Dragon's treasure hoard
 
@@ -112,7 +112,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 						goldPiecesArtifact.SetInRoom(ActorRoom);
 
-						pouchContainingStonesArtifact.SetInRoom(ActorRoom);
+						pouchOfStonesArtifact.SetInRoom(ActorRoom);
 
 						found = true;
 					}
@@ -159,11 +159,11 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 				else if (DobjArtifact.Uid == 26)
 				{
-					if (saved && bookOfRunesArtifact.IsInLimbo())
+					if (saved && grimoireArtifact.IsInLimbo())
 					{
 						foundDesc = "You find a secret compartment in the tree stump!";
 
-						bookOfRunesArtifact.SetInRoom(ActorRoom);
+						grimoireArtifact.SetInRoom(ActorRoom);
 
 						found = true;
 					}
@@ -399,6 +399,8 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 			IsNew = true;
 
 			IsMonsterEnabled = false;
+
+			Uid = 89;
 
 			Name = "SearchCommand";
 

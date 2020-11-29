@@ -216,6 +216,8 @@ namespace EamonRT.Game.Commands
 				IsMonsterEnabled = false;
 			}
 
+			Uid = 49;
+
 			Name = "OpenCommand";
 
 			Verb = "open";

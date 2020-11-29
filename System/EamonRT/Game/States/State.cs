@@ -24,6 +24,19 @@ namespace EamonRT.Game.States
 
 		#region Interface IStateSignatures
 
+		public virtual long Uid
+		{
+			get
+			{
+				return StateImpl.Uid;
+			}
+
+			set
+			{
+				StateImpl.Uid = value;
+			}
+		}
+
 		public virtual bool GotoCleanup
 		{
 			get

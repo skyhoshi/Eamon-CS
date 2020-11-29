@@ -135,6 +135,8 @@ namespace EamonRT.Game.Commands
 
 			IsMonsterEnabled = false;
 
+			Uid = 56;
+
 			Name = "HintsCommand";
 
 			Verb = "hints";

@@ -68,6 +68,8 @@ namespace EamonRT.Game.States
 
 		public MonsterLoopIncrementState()
 		{
+			Uid = 18;
+
 			Name = "MonsterLoopIncrementState";
 		}
 	}

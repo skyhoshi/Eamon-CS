@@ -28,6 +28,8 @@ namespace EamonRT.Game.Commands
 
 			IsDarkEnabled = true;
 
+			Uid = 75;
+
 			Name = "NwCommand";
 
 			Verb = "nw";

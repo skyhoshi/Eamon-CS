@@ -278,6 +278,8 @@ namespace EamonRT.Game.Commands
 				IsMonsterEnabled = false;
 			}
 
+			Uid = 53;
+
 			Name = "RemoveCommand";
 
 			Verb = "remove";

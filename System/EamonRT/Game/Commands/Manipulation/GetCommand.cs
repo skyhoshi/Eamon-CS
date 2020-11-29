@@ -481,6 +481,8 @@ namespace EamonRT.Game.Commands
 
 			SortOrder = 160;
 
+			Uid = 47;
+
 			Name = "GetCommand";
 
 			Verb = "get";

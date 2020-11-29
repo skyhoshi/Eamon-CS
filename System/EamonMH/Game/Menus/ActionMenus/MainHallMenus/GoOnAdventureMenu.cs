@@ -270,6 +270,14 @@ namespace EamonMH.Game.Menus.ActionMenus
 
 						config.DdHintFileName = Globals.CloneInstance(config.RtHintFileName);
 
+						config.RtTriggerFileName = Globals.CloneInstance(fileset.TriggerFileName);
+
+						config.DdTriggerFileName = Globals.CloneInstance(config.RtTriggerFileName);
+
+						config.RtScriptFileName = Globals.CloneInstance(fileset.ScriptFileName);
+
+						config.DdScriptFileName = Globals.CloneInstance(config.RtScriptFileName);
+
 						config.RtGameStateFileName = "GAMESTATE.XML";
 
 						config.DdEditingFilesets = true;

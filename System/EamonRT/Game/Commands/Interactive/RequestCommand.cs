@@ -98,6 +98,8 @@ namespace EamonRT.Game.Commands
 				IsMonsterEnabled = false;
 			}
 
+			Uid = 39;
+
 			Name = "RequestCommand";
 
 			Verb = "request";

@@ -40,6 +40,8 @@ namespace EamonRT.Game.States
 
 					Globals.CommandPromptSeen = true;
 
+					Globals.PlayerMoved = false;
+
 					Globals.CursorPosition = gOut.GetCursorPosition();
 
 					if (Globals.CursorPosition.Y > -1 && Globals.CursorPosition.Y + 1 >= gOut.GetBufferHeight())
@@ -105,6 +107,8 @@ namespace EamonRT.Game.States
 
 		public GetPlayerInputState()
 		{
+			Uid = 29;
+
 			Name = "GetPlayerInputState";
 
 			ParsingSuccessful = true;

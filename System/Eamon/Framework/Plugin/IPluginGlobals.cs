@@ -131,6 +131,12 @@ namespace Eamon.Framework.Plugin
 		IRecordDb<IHint> HDB { get; set; }
 
 		/// <summary></summary>
+		IRecordDb<ITrigger> TDB { get; set; }
+
+		/// <summary></summary>
+		IRecordDb<IScript> SDB { get; set; }
+
+		/// <summary></summary>
 		IRecordDb<IGameState> GSDB { get; set; }
 
 		/// <summary></summary>

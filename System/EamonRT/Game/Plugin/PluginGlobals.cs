@@ -122,6 +122,8 @@ namespace EamonRT.Game.Plugin
 
 		public virtual bool CommandPromptSeen { get; set; }
 
+		public virtual bool PlayerMoved { get; set; }
+
 		public virtual bool GameRunning
 		{
 			get

@@ -109,6 +109,8 @@ namespace TheBeginnersCave.Game.Commands
 
 			IsMonsterEnabled = false;
 
+			Uid = 84;
+
 			Name = "TrollsfireCommand";
 
 			Verb = "trollsfire";

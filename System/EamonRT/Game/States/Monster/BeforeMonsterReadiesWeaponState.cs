@@ -70,6 +70,8 @@ namespace EamonRT.Game.States
 
 		public BeforeMonsterReadiesWeaponState()
 		{
+			Uid = 14;
+
 			Name = "BeforeMonsterReadiesWeaponState";
 		}
 	}

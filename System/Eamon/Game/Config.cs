@@ -45,6 +45,10 @@ namespace Eamon.Game
 
 		public virtual string DdHintFileName { get; set; }
 
+		public virtual string DdTriggerFileName { get; set; }
+
+		public virtual string DdScriptFileName { get; set; }
+
 		public virtual string MhWorkDir { get; set; }
 
 		public virtual string MhFilesetFileName { get; set; }
@@ -69,6 +73,10 @@ namespace Eamon.Game
 
 		public virtual string RtHintFileName { get; set; }
 
+		public virtual string RtTriggerFileName { get; set; }
+
+		public virtual string RtScriptFileName { get; set; }
+
 		public virtual string RtGameStateFileName { get; set; }
 
 		public virtual bool DdEditingFilesets { get; set; }
@@ -86,6 +94,10 @@ namespace Eamon.Game
 		public virtual bool DdEditingMonsters { get; set; }
 
 		public virtual bool DdEditingHints { get; set; }
+
+		public virtual bool DdEditingTriggers { get; set; }
+
+		public virtual bool DdEditingScripts { get; set; }
 
 		#endregion
 
@@ -201,6 +213,30 @@ namespace Eamon.Game
 				goto Cleanup;
 			}
 
+			if (!string.IsNullOrWhiteSpace(RtTriggerFileName))				// TODO: remove this check at some point
+			{
+				rc = Globals.Database.LoadTriggers(RtTriggerFileName, validate, printOutput);
+
+				if (gEngine.IsFailure(rc))
+				{
+					Globals.Error.WriteLine("Error: LoadTriggers function call failed");
+
+					goto Cleanup;
+				}
+			}
+
+			if (!string.IsNullOrWhiteSpace(RtScriptFileName))          // TODO: remove this check at some point
+			{
+				rc = Globals.Database.LoadScripts(RtScriptFileName, validate, printOutput);
+
+				if (gEngine.IsFailure(rc))
+				{
+					Globals.Error.WriteLine("Error: LoadScripts function call failed");
+
+					goto Cleanup;
+				}
+			}
+
 			rc = Globals.Database.LoadGameStates(RtGameStateFileName, validate, printOutput);
 
 			if (gEngine.IsFailure(rc))
@@ -226,6 +262,30 @@ namespace Eamon.Game
 				Globals.Error.WriteLine("Error: SaveGameStates function call failed");
 
 				goto Cleanup;
+			}
+
+			if (!string.IsNullOrWhiteSpace(RtScriptFileName))          // TODO: remove this check at some point
+			{
+				rc = Globals.Database.SaveScripts(RtScriptFileName, printOutput);
+
+				if (gEngine.IsFailure(rc))
+				{
+					Globals.Error.WriteLine("Error: SaveScripts function call failed");
+
+					goto Cleanup;
+				}
+			}
+
+			if (!string.IsNullOrWhiteSpace(RtTriggerFileName))          // TODO: remove this check at some point
+			{
+				rc = Globals.Database.SaveTriggers(RtTriggerFileName, printOutput);
+
+				if (gEngine.IsFailure(rc))
+				{
+					Globals.Error.WriteLine("Error: SaveTriggers function call failed");
+
+					goto Cleanup;
+				}
 			}
 
 			rc = Globals.Database.SaveHints(RtHintFileName, printOutput);
@@ -426,6 +486,10 @@ namespace Eamon.Game
 
 			DdHintFileName = Globals.CloneInstance(config.DdHintFileName);
 
+			DdTriggerFileName = Globals.CloneInstance(config.DdTriggerFileName);
+
+			DdScriptFileName = Globals.CloneInstance(config.DdScriptFileName);
+
 			MhWorkDir = Globals.CloneInstance(config.MhWorkDir);
 
 			MhFilesetFileName = Globals.CloneInstance(config.MhFilesetFileName);
@@ -450,6 +514,10 @@ namespace Eamon.Game
 
 			RtHintFileName = Globals.CloneInstance(config.RtHintFileName);
 
+			RtTriggerFileName = Globals.CloneInstance(config.RtTriggerFileName);
+
+			RtScriptFileName = Globals.CloneInstance(config.RtScriptFileName);
+
 			RtGameStateFileName = Globals.CloneInstance(config.RtGameStateFileName);
 
 			DdEditingFilesets = config.DdEditingFilesets;
@@ -467,6 +535,10 @@ namespace Eamon.Game
 			DdEditingMonsters = config.DdEditingMonsters;
 
 			DdEditingHints = config.DdEditingHints;
+
+			DdEditingTriggers = config.DdEditingTriggers;
+
+			DdEditingScripts = config.DdEditingScripts;
 
 		Cleanup:
 
@@ -495,6 +567,10 @@ namespace Eamon.Game
 
 			DdHintFileName = "";
 
+			DdTriggerFileName = "";
+
+			DdScriptFileName = "";
+
 			MhWorkDir = "";
 
 			MhFilesetFileName = "";
@@ -518,6 +594,10 @@ namespace Eamon.Game
 			RtMonsterFileName = "";
 
 			RtHintFileName = "";
+
+			RtTriggerFileName = "";
+
+			RtScriptFileName = "";
 
 			RtGameStateFileName = "";
 		}

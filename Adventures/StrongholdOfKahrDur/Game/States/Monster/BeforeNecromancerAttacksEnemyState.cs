@@ -130,6 +130,8 @@ namespace StrongholdOfKahrDur.Game.States
 
 		public BeforeNecromancerAttacksEnemyState()
 		{
+			Uid = 82;
+
 			Name = "BeforeNecromancerAttacksEnemyState";
 		}
 	}

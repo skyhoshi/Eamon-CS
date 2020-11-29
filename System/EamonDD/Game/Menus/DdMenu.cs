@@ -45,24 +45,22 @@ namespace EamonDD.Game.Menus
 				gOut.Write("{0}Rooms: {1}", "  ", Globals.Database.GetRoomsCount());
 			}
 
+			if (Globals.Config.DdEditingArtifacts)
+			{
+				gOut.Write("{0}Artifacts: {1}", "  ", Globals.Database.GetArtifactsCount());
+			}
+
 			gOut.WriteLine();
 
 			i = 0;
 
-			if (Globals.Config.DdEditingArtifacts || Globals.Config.DdEditingEffects || Globals.Config.DdEditingMonsters || Globals.Config.DdEditingHints)
+			if (Globals.Config.DdEditingEffects || Globals.Config.DdEditingMonsters || Globals.Config.DdEditingHints || Globals.Config.DdEditingTriggers || Globals.Config.DdEditingScripts)
 			{
 				gOut.WriteLine();
 
-				if (Globals.Config.DdEditingArtifacts)
-				{
-					gOut.Write("Artifacts: {0}", Globals.Database.GetArtifactsCount());
-
-					i++;
-				}
-
 				if (Globals.Config.DdEditingEffects)
 				{
-					gOut.Write("{0}Effects: {1}", i > 0 ? "  " : "", Globals.Database.GetEffectsCount());
+					gOut.Write("Effects: {0}", Globals.Database.GetEffectsCount());
 
 					i++;
 				}
@@ -77,6 +75,20 @@ namespace EamonDD.Game.Menus
 				if (Globals.Config.DdEditingHints)
 				{
 					gOut.Write("{0}Hints: {1}", i > 0 ? "  " : "", Globals.Database.GetHintsCount());
+
+					i++;
+				}
+
+				if (Globals.Config.DdEditingTriggers)
+				{
+					gOut.Write("{0}Triggers: {1}", i > 0 ? "  " : "", Globals.Database.GetTriggersCount());
+
+					i++;
+				}
+
+				if (Globals.Config.DdEditingScripts)
+				{
+					gOut.Write("{0}Scripts: {1}", i > 0 ? "  " : "", Globals.Database.GetScriptsCount());
 
 					i++;
 				}
@@ -164,6 +176,28 @@ namespace EamonDD.Game.Menus
 			}
 
 			gOut.Print("Hints: {0}", Globals.Database.GetHintsCount());
+		}
+
+		public virtual void PrintTriggerMenuSubtitle()
+		{
+			if (gEngine.IsAdventureFilesetLoaded())
+			{
+				gOut.Print("Editing: {0}",
+					Globals.Module != null ? Globals.Module.Name : gEngine.UnknownName);
+			}
+
+			gOut.Print("Triggers: {0}", Globals.Database.GetTriggersCount());
+		}
+
+		public virtual void PrintScriptMenuSubtitle()
+		{
+			if (gEngine.IsAdventureFilesetLoaded())
+			{
+				gOut.Print("Editing: {0}",
+					Globals.Module != null ? Globals.Module.Name : gEngine.UnknownName);
+			}
+
+			gOut.Print("Scripts: {0}", Globals.Database.GetScriptsCount());
 		}
 	}
 }

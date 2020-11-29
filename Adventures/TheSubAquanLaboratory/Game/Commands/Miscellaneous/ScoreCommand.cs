@@ -82,6 +82,8 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			IsMonsterEnabled = false;
 
+			Uid = 88;
+
 			Name = "ScoreCommand";
 
 			Verb = "score";

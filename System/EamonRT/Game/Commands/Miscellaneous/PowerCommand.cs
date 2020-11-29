@@ -162,6 +162,8 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 360;
 
+			Uid = 60;
+
 			Name = "PowerCommand";
 
 			Verb = "power";

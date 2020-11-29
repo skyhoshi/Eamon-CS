@@ -141,6 +141,8 @@ namespace EamonRT.Game.Commands
 
 			IsMonsterEnabled = false;
 
+			Uid = 65;
+
 			Name = "SettingsCommand";
 
 			Verb = "settings";

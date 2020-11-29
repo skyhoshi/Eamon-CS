@@ -104,6 +104,8 @@ namespace EamonRT.Game.States
 
 		public BeforeMonsterAttacksEnemyState()
 		{
+			Uid = 11;
+
 			Name = "BeforeMonsterAttacksEnemyState";
 		}
 	}

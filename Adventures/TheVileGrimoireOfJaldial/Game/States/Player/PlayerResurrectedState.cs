@@ -86,5 +86,12 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 			Globals.NextState = NextState;
 		}
+
+		public PlayerResurrectedState()
+		{
+			Uid = 83;
+
+			Name = "PlayerResurrectedState";
+		}
 	}
 }

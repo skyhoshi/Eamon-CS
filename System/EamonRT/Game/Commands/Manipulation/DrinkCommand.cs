@@ -163,6 +163,8 @@ namespace EamonRT.Game.Commands
 				IsMonsterEnabled = false;
 			}
 
+			Uid = 43;
+
 			Name = "DrinkCommand";
 
 			Verb = "drink";

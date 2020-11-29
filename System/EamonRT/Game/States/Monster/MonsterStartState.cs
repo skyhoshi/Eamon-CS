@@ -24,6 +24,8 @@ namespace EamonRT.Game.States
 
 		public MonsterStartState()
 		{
+			Uid = 21;
+
 			Name = "MonsterStartState";
 		}
 	}

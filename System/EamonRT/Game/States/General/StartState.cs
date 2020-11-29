@@ -35,6 +35,8 @@ namespace EamonRT.Game.States
 
 		public StartState()
 		{
+			Uid = 6;
+
 			Name = "StartState";
 		}
 	}

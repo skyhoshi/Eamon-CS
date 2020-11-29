@@ -98,6 +98,8 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 260;
 
+			Uid = 35;
+
 			Name = "BlastCommand";
 
 			Verb = "blast";

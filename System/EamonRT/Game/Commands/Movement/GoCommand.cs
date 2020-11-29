@@ -64,6 +64,8 @@ namespace EamonRT.Game.Commands
 				IsMonsterEnabled = false;
 			}
 
+			Uid = 71;
+
 			Name = "GoCommand";
 
 			Verb = "go";

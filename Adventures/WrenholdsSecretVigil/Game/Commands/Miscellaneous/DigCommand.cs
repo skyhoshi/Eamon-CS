@@ -61,6 +61,8 @@ namespace WrenholdsSecretVigil.Game.Commands
 
 			IsMonsterEnabled = false;
 
+			Uid = 92;
+
 			Name = "DigCommand";
 
 			Verb = "dig";

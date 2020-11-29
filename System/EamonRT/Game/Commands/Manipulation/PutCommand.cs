@@ -238,6 +238,8 @@ namespace EamonRT.Game.Commands
 				IsMonsterEnabled = false;
 			}
 
+			Uid = 50;
+
 			Name = "PutCommand";
 
 			Verb = "put";

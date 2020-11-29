@@ -28,6 +28,8 @@ namespace EamonRT.Game.Commands
 
 			IsDarkEnabled = true;
 
+			Uid = 80;
+
 			Name = "UpCommand";
 
 			Verb = "up";

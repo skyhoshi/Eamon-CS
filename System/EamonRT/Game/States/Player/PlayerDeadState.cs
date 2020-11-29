@@ -79,6 +79,8 @@ namespace EamonRT.Game.States
 
 		public PlayerDeadState()
 		{
+			Uid = 30;
+
 			Name = "PlayerDeadState";
 		}
 	}

@@ -165,6 +165,8 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 130;
 
+			Uid = 44;
+
 			Name = "DropCommand";
 
 			Verb = "drop";

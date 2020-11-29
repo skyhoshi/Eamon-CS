@@ -94,6 +94,8 @@ namespace EamonRT.Game.Commands
 
 			IsMonsterEnabled = false;
 
+			Uid = 61;
+
 			Name = "QuitCommand";
 
 			Verb = "quit";

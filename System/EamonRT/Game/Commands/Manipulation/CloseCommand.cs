@@ -139,6 +139,8 @@ namespace EamonRT.Game.Commands
 				IsMonsterEnabled = false;
 			}
 
+			Uid = 42;
+
 			Name = "CloseCommand";
 
 			Verb = "close";

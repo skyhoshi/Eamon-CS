@@ -27,9 +27,9 @@ namespace TheVileGrimoireOfJaldial.Game
 
 			Debug.Assert(leatherBoundBookArtifact != null);
 
-			var bookOfRunesArtifact = gADB[27];
+			var grimoireArtifact = gADB[27];
 
-			Debug.Assert(bookOfRunesArtifact != null);
+			Debug.Assert(grimoireArtifact != null);
 
 			var parchmentArtifact = gADB[33];
 
@@ -47,9 +47,9 @@ namespace TheVileGrimoireOfJaldial.Game
 
 			gOut.Print("After exploring the graveyard for {0} day{1}, {2} hour{3}, and {4} minute{5} you finally head homeward.", gGameState.Day, gGameState.Day != 1 ? "s" : "", hour, hour != 1 ? "s" : "", minute, minute != 1 ? "s" : "");
 
-			if (bookOfRunesArtifact.IsCarriedByCharacter())
+			if (grimoireArtifact.IsCarriedByCharacter())
 			{
-				var reward = (gCharacter.GetStats(Stat.Charisma) * bookOfRunesArtifact.Value) / 10;
+				var reward = (gCharacter.GetStats(Stat.Charisma) * grimoireArtifact.Value) / 10;
 
 				gEngine.PrintEffectDesc(162);
 
@@ -67,7 +67,7 @@ namespace TheVileGrimoireOfJaldial.Game
 
 				gCharacter.HeldGold += reward;
 
-				bookOfRunesArtifact.SetInLimbo();
+				grimoireArtifact.SetInLimbo();
 			}
 			else if (leatherBoundBookArtifact.IsCarriedByCharacter())
 			{

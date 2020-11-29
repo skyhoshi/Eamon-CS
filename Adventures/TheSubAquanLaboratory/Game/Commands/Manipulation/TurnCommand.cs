@@ -97,6 +97,8 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			IsMonsterEnabled = false;
 
+			Uid = 87;
+
 			Name = "TurnCommand";
 
 			Verb = "turn";

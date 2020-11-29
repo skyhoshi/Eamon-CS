@@ -171,6 +171,8 @@ namespace EamonRT.Game.Commands
 				IsMonsterEnabled = false;
 			}
 
+			Uid = 55;
+
 			Name = "WearCommand";
 
 			Verb = "wear";

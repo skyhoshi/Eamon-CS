@@ -186,6 +186,8 @@ namespace EamonRT.Game.Commands
 		{
 			SortOrder = 210;
 
+			Uid = 52;
+
 			Name = "ReadyCommand";
 
 			Verb = "ready";

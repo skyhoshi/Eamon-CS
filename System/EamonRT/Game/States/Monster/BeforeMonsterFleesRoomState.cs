@@ -52,6 +52,8 @@ namespace EamonRT.Game.States
 
 		public BeforeMonsterFleesRoomState()
 		{
+			Uid = 12;
+
 			Name = "BeforeMonsterFleesRoomState";
 		}
 	}

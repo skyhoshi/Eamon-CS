@@ -51,6 +51,8 @@ namespace EamonRT.Game.States
 
 		public MemberLoopIncrementState()
 		{
+			Uid = 16;
+
 			Name = "MemberLoopIncrementState";
 		}
 	}

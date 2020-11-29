@@ -98,6 +98,9 @@ namespace EamonRT.Framework.Plugin
 		bool CommandPromptSeen { get; set; }
 
 		/// <summary></summary>
+		bool PlayerMoved { get; set; }
+
+		/// <summary></summary>
 		bool GameRunning { get; }
 
 		/// <summary></summary>

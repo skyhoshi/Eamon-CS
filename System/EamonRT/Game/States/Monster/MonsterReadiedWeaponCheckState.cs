@@ -45,6 +45,8 @@ namespace EamonRT.Game.States
 
 		public MonsterReadiedWeaponCheckState()
 		{
+			Uid = 20;
+
 			Name = "MonsterReadiedWeaponCheckState";
 		}
 	}

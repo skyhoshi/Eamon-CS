@@ -67,6 +67,8 @@ namespace EamonRT.Game.Commands
 
 			IsSentenceParserEnabled = false;
 
+			Uid = 64;
+
 			Name = "SayCommand";
 
 			Verb = "say";

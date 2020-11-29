@@ -171,6 +171,8 @@ namespace EamonRT.Game.Commands
 
 			IsDarkEnabled = true;
 
+			Uid = 70;
+
 			Name = "FleeCommand";
 
 			Verb = "flee";

@@ -35,6 +35,8 @@ namespace EamonRT.Game.States
 
 		public MemberLoopInitializeState()
 		{
+			Uid = 17;
+
 			Name = "MemberLoopInitializeState";
 		}
 	}

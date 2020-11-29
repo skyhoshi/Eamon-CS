@@ -40,6 +40,8 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			IsMonsterEnabled = false;
 
+			Uid = 91;
+
 			Name = "WaitCommand";
 
 			Verb = "wait";

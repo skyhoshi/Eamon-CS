@@ -141,6 +141,8 @@ namespace EamonRT.Game.Commands
 				IsMonsterEnabled = false;
 			}
 
+			Uid = 36;
+
 			Name = "FreeCommand";
 
 			Verb = "free";

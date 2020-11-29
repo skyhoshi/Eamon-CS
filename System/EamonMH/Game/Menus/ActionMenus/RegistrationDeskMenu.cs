@@ -500,11 +500,13 @@ namespace EamonMH.Game.Menus.ActionMenus
 						}
 						else
 						{
-							Debug.Assert(Globals.Character.Status == Status.Dead);
+							Debug.Assert(Globals.Character.Status == Status.Dead || Globals.Character.Status == Status.Unknown);
 
-							gOut.Print("The burly Irishman gets a sad look in his eyes and says, \"Ye can't be {0}, {1} be dead.  Now who'r ye again?\"",
+							gOut.Print("The burly Irishman gets a {0} look in his eyes and says, \"Ye can't be {1}, {2} be {3}.  Now who'r ye again?\"",
+								Globals.Character.Status == Status.Dead ? "sad" : "puzzled",
 								Globals.Character.Name,
-								Globals.Character.EvalGender("he", "she", "it"));
+								Globals.Character.EvalGender("he", "she", "it"),
+								Globals.Character.Status == Status.Dead ? "dead" : "missing");
 						}
 					}
 				}

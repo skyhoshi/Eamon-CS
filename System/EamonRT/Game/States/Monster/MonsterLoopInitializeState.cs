@@ -26,6 +26,8 @@ namespace EamonRT.Game.States
 
 		public MonsterLoopInitializeState()
 		{
+			Uid = 19;
+
 			Name = "MonsterLoopInitializeState";
 		}
 	}

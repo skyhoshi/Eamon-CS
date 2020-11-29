@@ -40,6 +40,8 @@ namespace EamonRT.Game.States
 
 		public AttackLoopInitializeState()
 		{
+			Uid = 10;
+
 			Name = "AttackLoopInitializeState";
 		}
 	}

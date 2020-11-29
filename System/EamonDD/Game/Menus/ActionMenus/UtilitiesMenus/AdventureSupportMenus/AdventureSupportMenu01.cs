@@ -653,11 +653,11 @@ namespace YourAdventureName.YourGameNamespaceName
 
 					if (eamonLibraryName.Equals("Eamon"))
 					{
-						yourEamonUsingStatement = string.Format("using {0}.{1};{2}", eamonLibraryName, yourFrameworkNamespaceName, Environment.NewLine);
+						yourEamonUsingStatement = string.Format("using {0}.{1};\r\n", eamonLibraryName, yourFrameworkNamespaceName);
 					}
 					else
 					{
-						yourEamonRTUsingStatement = string.Format("using {0}.{1};{2}", eamonLibraryName, yourFrameworkNamespaceName, Environment.NewLine);
+						yourEamonRTUsingStatement = string.Format("using {0}.{1};\r\n", eamonLibraryName, yourFrameworkNamespaceName);
 					}
 
 					if (IncludeInterface)
@@ -721,7 +721,7 @@ namespace YourAdventureName.YourGameNamespaceName
 
 					Globals.Directory.CreateDirectory(childInterfacePath);
 
-					var yourEamonRTUsingStatement = string.Format("using {0}.{1};{2}", eamonLibraryName, yourFrameworkNamespaceName, Environment.NewLine);
+					var yourEamonRTUsingStatement = string.Format("using {0}.{1};\r\n", eamonLibraryName, yourFrameworkNamespaceName);
 
 					if (parentClassFileExists)
 					{
@@ -797,6 +797,10 @@ namespace YourAdventureName.YourGameNamespaceName
 						x.MonsterFileName = "MONSTERS.XML";
 
 						x.HintFileName = "HINTS.XML";
+
+						x.TriggerFileName = "TRIGGERS.XML";
+
+						x.ScriptFileName = "SCRIPTS.XML";
 
 						x.GameStateFileName = "NONE";
 					});

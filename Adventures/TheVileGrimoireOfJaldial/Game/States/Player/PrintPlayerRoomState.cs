@@ -271,9 +271,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 								// Wandering Monster appears to be fixed encounter when last Command type is Movement
 
-								var lastCommandMovement = Globals.LastCommand != null && Globals.LastCommand.Type == CommandType.Movement && gGameState.R3 > 0 && gGameState.R2 > 0 && gGameState.R3 != gGameState.R2;
-
-								if (!lastCommandMovement)
+								if (!Globals.PlayerMoved)
 								{
 									if (gGameState.GetNBTL(Friendliness.Enemy) > 0)
 									{
@@ -309,7 +307,7 @@ namespace TheVileGrimoireOfJaldial.Game.States
 
 								monster.SetInRoom(room);
 
-								if (!lastCommandMovement)
+								if (!Globals.PlayerMoved)
 								{
 									var saved = gEngine.SaveThrow(Stat.Agility);
 

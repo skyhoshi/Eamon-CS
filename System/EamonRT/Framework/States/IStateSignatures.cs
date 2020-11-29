@@ -15,6 +15,9 @@ namespace EamonRT.Framework.States
 		#region Properties
 
 		/// <summary></summary>
+		long Uid { get; set; }
+
+		/// <summary></summary>
 		bool GotoCleanup { get; set; }
 
 		/// <summary></summary>

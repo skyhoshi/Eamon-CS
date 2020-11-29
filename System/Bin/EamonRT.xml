@@ -1491,6 +1491,9 @@
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.CommandPromptSeen">
             <summary></summary>
         </member>
+        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.PlayerMoved">
+            <summary></summary>
+        </member>
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.GameRunning">
             <summary></summary>
         </member>
@@ -1811,6 +1814,9 @@
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.States.IStateSignatures">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Framework.States.IStateSignatures.Uid">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Framework.States.IStateSignatures.GotoCleanup">

@@ -58,6 +58,8 @@ namespace EamonRT.Game.States
 
 		public DefaultMonsterDecisionState()
 		{
+			Uid = 15;
+
 			Name = "DefaultMonsterDecisionState";
 		}
 	}

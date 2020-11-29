@@ -110,6 +110,10 @@ namespace EamonRT.Game.Commands
 
 				SaveConfig.RtHintFileName = Globals.CloneInstance(SaveFileset.HintFileName);
 
+				SaveConfig.RtTriggerFileName = Globals.CloneInstance(SaveFileset.TriggerFileName);
+
+				SaveConfig.RtScriptFileName = Globals.CloneInstance(SaveFileset.ScriptFileName);
+
 				SaveConfig.RtGameStateFileName = Globals.CloneInstance(SaveFileset.GameStateFileName);
 
 				rc = SaveConfig.LoadGameDatabase(printOutput: false);
@@ -269,6 +273,8 @@ namespace EamonRT.Game.Commands
 			IsDarkEnabled = true;
 
 			IsMonsterEnabled = false;
+
+			Uid = 62;
 
 			Name = "RestoreCommand";
 

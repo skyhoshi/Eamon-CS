@@ -137,6 +137,8 @@ namespace EamonRT.Game.Commands
 
 			IsMonsterEnabled = false;
 
+			Uid = 48;
+
 			Name = "LightCommand";
 
 			Verb = "light";

@@ -41,6 +41,10 @@ namespace Eamon.Game
 
 		public virtual long NumHints { get; set; }
 
+		public virtual long NumTriggers { get; set; }
+
+		public virtual long NumScripts { get; set; }
+
 		#endregion
 
 		#endregion

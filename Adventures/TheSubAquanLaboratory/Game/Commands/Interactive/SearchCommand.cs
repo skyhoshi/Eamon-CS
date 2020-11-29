@@ -99,6 +99,8 @@ namespace TheSubAquanLaboratory.Game.Commands
 
 			IsMonsterEnabled = false;
 
+			Uid = 85;
+
 			Name = "SearchCommand";
 
 			Verb = "search";

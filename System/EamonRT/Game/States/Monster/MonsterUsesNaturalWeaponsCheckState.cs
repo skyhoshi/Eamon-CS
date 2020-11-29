@@ -48,6 +48,8 @@ namespace EamonRT.Game.States
 
 		public MonsterUsesNaturalWeaponsCheckState()
 		{
+			Uid = 22;
+
 			Name = "MonsterUsesNaturalWeaponsCheckState";
 		}
 	}

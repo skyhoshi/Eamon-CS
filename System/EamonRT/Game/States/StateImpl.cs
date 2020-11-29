@@ -22,6 +22,8 @@ namespace EamonRT.Game.States
 	{
 		public virtual IState State { get; set; }
 
+		public virtual long Uid { get; set; }
+
 		public virtual bool GotoCleanup { get; set; }
 
 		public virtual string Name { get; set; }

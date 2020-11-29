@@ -1705,7 +1705,7 @@
             <Simple name="Uid" value="55" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Secret Passage, Bend" />
-            <Simple name="Desc" value="You are at a bend in the passage.  To the south, you see a small chamber of carved stone, and eastward the corridor continues.  The dusty floor shows the tracks of small animals.  The air is very stale." />
+            <Simple name="Desc" value="You are at a bend in the passage.@@008  The dusty floor shows the tracks of small animals.  The air is very stale." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1736,7 +1736,7 @@
             <Simple name="Uid" value="56" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Secret Room" />
-            <Simple name="Desc" value="You have entered a secret room, carved out of the solid rock.  The dust on the floor is inches thick, and the air smells faintly of rot.  A heap of bones fills one corner of the room.  You may go north or east." />
+            <Simple name="Desc" value="You have entered a secret room, carved out of the solid rock.  The dust on the floor is inches thick, and the air smells faintly of rot.  A heap of bones fills one corner of the room.@@009" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />
@@ -1798,7 +1798,7 @@
             <Simple name="Uid" value="58" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Vaulted Room" />
-            <Simple name="Desc" value="This is a chamber with a vaulted ceiling.  Faint tracks mark the dusty floor between the two openings (to the east and south), and the air smells faintly of vanilla." />
+            <Simple name="Desc" value="This is a chamber with a vaulted ceiling.  Faint tracks mark the dusty floor@@010, and the air smells faintly of vanilla." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

@@ -46,6 +46,8 @@ namespace EamonRT.Game.States
 
 		public WeaponArtifactLoopInitializeState()
 		{
+			Uid = 24;
+
 			Name = "WeaponArtifactLoopInitializeState";
 		}
 	}

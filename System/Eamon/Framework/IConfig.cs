@@ -53,6 +53,12 @@ namespace Eamon.Framework
 		string DdHintFileName { get; set; }
 
 		/// <summary></summary>
+		string DdTriggerFileName { get; set; }
+
+		/// <summary></summary>
+		string DdScriptFileName { get; set; }
+
+		/// <summary></summary>
 		string MhWorkDir { get; set; }
 
 		/// <summary></summary>
@@ -89,6 +95,12 @@ namespace Eamon.Framework
 		string RtHintFileName { get; set; }
 
 		/// <summary></summary>
+		string RtTriggerFileName { get; set; }
+
+		/// <summary></summary>
+		string RtScriptFileName { get; set; }
+
+		/// <summary></summary>
 		string RtGameStateFileName { get; set; }
 
 		/// <summary></summary>
@@ -114,6 +126,12 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		bool DdEditingHints { get; set; }
+
+		/// <summary></summary>
+		bool DdEditingTriggers { get; set; }
+
+		/// <summary></summary>
+		bool DdEditingScripts { get; set; }
 
 		#endregion
 
