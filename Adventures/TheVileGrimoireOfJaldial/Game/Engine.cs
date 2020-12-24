@@ -458,11 +458,11 @@ namespace TheVileGrimoireOfJaldial.Game
 
 			MacroFuncs.Add(8, () =>
 			{
-				var result = "  To the south, you see a small chamber of carved stone, and eastward the corridor continues.";
+				var result = "You are at a bend in the passage.  To the south, you see a small chamber of carved stone, and eastward the corridor continues.";
 
 				if (gGameState != null && !gGameState.GetSecretDoors(1))
 				{
-					result = "  Eastward the corridor continues.";
+					result = "You are at a dead-end in the passage.  Eastward the corridor continues.";
 				}
 
 				return result;

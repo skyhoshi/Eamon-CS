@@ -592,9 +592,9 @@ namespace Eamon.Framework
 		char ModifyCharToNull(char ch);
 
 		/// <summary></summary>
-		/// <param name="printedName"></param>
+		/// <param name="directionName"></param>
 		/// <returns></returns>
-		Direction GetDirection(string printedName);
+		Direction GetDirection(string directionName);
 
 		/// <summary></summary>
 		/// <param name="artifactType"></param>

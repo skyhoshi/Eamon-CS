@@ -123,7 +123,7 @@ namespace EamonRT
 
 			gOut.Write("{0}Copyright (c) 2014+ by Michael Penner.  All rights reserved.", Environment.NewLine);
 
-			gOut.Print("This GNU GPL'd free software has ABSOLUTELY NO WARRANTY.");
+			gOut.Print("This MIT Licensed free software has ABSOLUTELY NO WARRANTY.");
 
 			// copy and store command line args
 
@@ -826,7 +826,7 @@ namespace EamonRT
 
 			gOut.Write("{0}Copyright (c) 2014+ by Michael Penner.  All rights reserved.", Environment.NewLine);
 
-			gOut.Print("This GNU GPL'd free software has ABSOLUTELY NO WARRANTY.");
+			gOut.Print("This MIT Licensed free software has ABSOLUTELY NO WARRANTY.");
 
 			// copy and store command line args
 

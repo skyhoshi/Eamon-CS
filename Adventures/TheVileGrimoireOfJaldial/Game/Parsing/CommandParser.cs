@@ -393,6 +393,14 @@ namespace TheVileGrimoireOfJaldial.Game.Parsing
 			{
 				a.Field1 = 57;
 			}
+			else if (gActorRoom(this).IsRainyRoom() && ObjData.Name.Contains("rain", StringComparison.OrdinalIgnoreCase))
+			{
+				a.Field1 = 61;
+			}
+			else if (gActorRoom(this).IsFoggyRoom() && ObjData.Name.ContainsAny(new string[] { "fog", "mist", "haze" }, StringComparison.OrdinalIgnoreCase))
+			{
+				a.Field1 = 62;
+			}
 
 			// Read decorations
 

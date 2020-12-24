@@ -1705,7 +1705,7 @@
             <Simple name="Uid" value="55" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="Secret Passage, Bend" />
-            <Simple name="Desc" value="You are at a bend in the passage.@@008  The dusty floor shows the tracks of small animals.  The air is very stale." />
+            <Simple name="Desc" value="@@008  The dusty floor shows the tracks of small animals.  The air is very stale." />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

@@ -24,6 +24,8 @@ namespace EamonRT.Game.Commands
 
 		public NeCommand()
 		{
+			Synonyms = new string[] { "northeast" };
+
 			SortOrder = 60;
 
 			IsDarkEnabled = true;

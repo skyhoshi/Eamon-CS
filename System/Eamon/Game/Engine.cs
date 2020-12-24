@@ -622,11 +622,11 @@ namespace Eamon.Game
 			return '\0';
 		}
 
-		public virtual Direction GetDirection(string printedName)
+		public virtual Direction GetDirection(string directionName)
 		{
 			Direction result = 0;
 
-			Debug.Assert(!string.IsNullOrWhiteSpace(printedName));
+			Debug.Assert(!string.IsNullOrWhiteSpace(directionName));
 
 			var module = GetModule();
 
@@ -636,7 +636,7 @@ namespace Eamon.Game
 
 			for (var i = 0; i < numDirs; i++)
 			{
-				if (GetDirections(i).PrintedName.Equals(printedName, StringComparison.OrdinalIgnoreCase))
+				if (GetDirections(i).PrintedName.Equals(directionName, StringComparison.OrdinalIgnoreCase))
 				{
 					result = directionValues[i];
 
@@ -648,7 +648,33 @@ namespace Eamon.Game
 			{
 				for (var i = 0; i < numDirs; i++)
 				{
-					if (GetDirections(i).PrintedName.StartsWith(printedName, StringComparison.OrdinalIgnoreCase) || GetDirections(i).PrintedName.EndsWith(printedName, StringComparison.OrdinalIgnoreCase))
+					if (GetDirections(i).Name.Equals(directionName, StringComparison.OrdinalIgnoreCase))
+					{
+						result = directionValues[i];
+
+						break;
+					}
+				}
+			}
+
+			if (result == 0)
+			{
+				for (var i = 0; i < numDirs; i++)
+				{
+					if (GetDirections(i).PrintedName.StartsWith(directionName, StringComparison.OrdinalIgnoreCase) || GetDirections(i).PrintedName.EndsWith(directionName, StringComparison.OrdinalIgnoreCase))
+					{
+						result = directionValues[i];
+
+						break;
+					}
+				}
+			}
+
+			if (result == 0)
+			{
+				for (var i = 0; i < numDirs; i++)
+				{
+					if (GetDirections(i).Name.StartsWith(directionName, StringComparison.OrdinalIgnoreCase) || GetDirections(i).Name.EndsWith(directionName, StringComparison.OrdinalIgnoreCase))
 					{
 						result = directionValues[i];
 

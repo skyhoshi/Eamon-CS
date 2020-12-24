@@ -41,7 +41,7 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 
 			// Decoration
 
-			else if (DobjArtifact?.Uid == 41 && DobjArtifact.Field1 > 0 && (!gActorRoom(this).IsDimLightRoomWithoutGlowingMonsters() || gGameState.Ls > 0) && !Enum.IsDefined(typeof(ContainerType), ContainerType))
+			else if (DobjArtifact?.Uid == 41 && DobjArtifact.Field1 > 0 && (!gActorRoom(this).IsDimLightRoomWithoutGlowingMonsters() || gGameState.Ls > 0 || DobjArtifact.Field1 == 61 || DobjArtifact.Field1 == 62) && !Enum.IsDefined(typeof(ContainerType), ContainerType))
 			{
 				switch (DobjArtifact.Field1)
 				{
@@ -635,6 +635,36 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 						CopyCommandData(command);
 
 						NextState = command;
+
+						break;
+
+					case 61:
+
+						var rainDescs = new string[]
+						{
+							"",
+							string.Format("A sprinkling of rain falls on the cemetery from a patchwork of{0} clouds.", gGameState.IsDayTime() ? " light grey" : ""),
+							string.Format("The rain falls lightly{0}, covering the ground with small puddles and coating any tombstones or monuments present.", gGameState.IsDayTime() ? " from slate-grey clouds" : ""),
+							"A driving rain falls from ominous black clouds; you try to keep dry but quickly realize the effort is futile.  Large puddles form, and streams of water cut through the path, seeking lower ground.  Your footing is treacherous.",
+							"The fury of nature is on full display as you blindly stumble through a deluge.  Large sections of ground turn into pools, and the path disappears altogether.  You are soaked, chilled to the bone, feeling quite miserable, and must carefully navigate to avoid being swept away."
+						};
+
+						gOut.Print("{0}", rainDescs[gActorRoom(this).GetWeatherIntensity()]);
+
+						break;
+
+					case 62:
+
+						var fogDescs = new string[]
+						{
+							"",
+							"A light mist hangs in the air, gently swirling as you move along the path, but your vision is otherwise unimpaired.",
+							"A fog hangs over the terrain and limits your vision to several dozen paces; familiar landmarks become dimly-lit silhouettes.",
+							"As you peer into the dense fog, you realize your vision is restricted to a dozen paces.  The imposing shapes of monuments and trees lurk in the gloom, just beyond your perception; a foreboding silence is broken occasionally by the cry of an unseen bird or rustle of leaves nearby.",
+							"The world is lost as you find yourself enveloped in a silent white cocoon, the fog so dense you can barely see your hand, held up at arms' length in front of your face.  Your eyes only occasionally leave the ground as you stumble across monuments or trees, hulking shadows that suddenly appear in the miasma, seemingly from nowhere."
+						};
+
+						gOut.Print("{0}", fogDescs[gActorRoom(this).GetWeatherIntensity()]);
 
 						break;
 				}

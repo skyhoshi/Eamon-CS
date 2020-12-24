@@ -19,6 +19,26 @@ namespace TheVileGrimoireOfJaldial.Game
 	[ClassMappings(typeof(IRoom))]
 	public class Room : Eamon.Game.Room, Framework.IRoom
 	{
+		public override string Name
+		{
+			get
+			{
+				var result = base.Name;
+
+				if (Globals.EnableGameOverrides && Uid == 55)
+				{
+					result = gGameState != null && !gGameState.GetSecretDoors(1) ? "Passageway, Dead-End" : "Secret Passage, Bend";
+				}
+
+				return result;
+			}
+
+			set
+			{
+				base.Name = value;
+			}
+		}
+
 		public override string Desc
 		{
 			get
