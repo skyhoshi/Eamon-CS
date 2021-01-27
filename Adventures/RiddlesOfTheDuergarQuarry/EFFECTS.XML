@@ -1,0 +1,217 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.EffectDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IEffect, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="150" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="occasional dust devil.  The Main Hall and comforts of home lie many leagues to the west." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="200" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="There comes a day in late spring when you notice a great commotion in the Main Hall.  Investigating, you are informed that Eamon University's esteemed Department of Archaeology has discovered an ancient mining camp during one of its periodic digs.  **201" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="201" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The site is carved into a basalt overhang on the steppes of Mount Everdes, an extinct volcano located in the southern regions of the Horn Belt.  It is heralded as the most significant find since the Department's unfortunate encounter with the **202" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="202" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="infamous &quot;Runcible Cargo&quot; years ago.*203" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="203" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Later that week, a notice appears, and you soon discover it.  You elbow your way through a small but growing crowd outside Sam Slicker's store, coming upon a message nailed to a signpost that gives additional information:@@PB**204" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="204" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="&quot;To Whom It May Concern,*205" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="205" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The Department of Archaeology at Eamon University has discovered a compelling cultural site that demands further exploration but must turn over this task to a more qualified team.  The surface area and immediate quarry have been secured, but **206" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="206" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="there is further evidence of artifacts below ground.  It is unclear the depth or expanse of this complex.  We seek those experienced in spelunking and strong enough to fend off any dangers encountered.  Interested parties may inquire with **207" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="207" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Professor Berescroft at the dig site for more information.*208" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="208" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Department of Archaeology,                                                      Eamon University&quot;@@PB**209" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="209" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You wonder what treasures and perils lurk beneath the slope of that mountain - it fires your imagination, and you quickly realize this may be the chance of a lifetime!  There isn't a moment to waste!*210" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="210" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You gather your belongings, consult a local cartographer to get your bearings, and set off on the journey, hoping you will be the first to respond.  Several uneventful days pass as you travel.  Then the terrain turns rocky and gives way to a **211" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="211" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="high plain of scrub-brush as you climb in elevation.  Eventually, you arrive at the base of a rock-strewn gully - the enigmatic Mount Everdes towering in the background, to the northeast, against an azure sky." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="250" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="scope.  Sharpen your sword and pack your bags, for who knows what lurks under that mountain?" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="950" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="LARGE OVEN." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="951" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="See EAMON CS 1.7 NEW COMMANDS for additional details." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="952" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="floor and you can GET ALL." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="953" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="to remove from or add to the container." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="953" />
+  </Properties>
+</Complex>

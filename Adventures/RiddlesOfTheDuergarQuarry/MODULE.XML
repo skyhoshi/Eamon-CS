@@ -6,23 +6,25 @@
         <Simple name="AllowDuplicates" value="False" />
       </Properties>
       <Items>
-        <Complex type="Eamon.Game.Module, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Module, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
-            <Simple name="Author" value="Kenneth Pedersen" />
-            <Simple name="VolLabel" value="KP-001" />
-            <Simple name="SerialNum" value="009" />
-            <Simple name="LastMod" value="2020-02-11T00:17:11.9006845+01:00" />
-            <Simple name="IntroStory" value="0" />
+            <Simple name="Author" value="Michael Penner" />
+            <Simple name="VolLabel" value="MP-003" />
+            <Simple name="SerialNum" value="011" />
+            <Simple name="LastMod" value="2021-01-02T09:21:00.2324754-08:00" />
+            <Simple name="IntroStory" value="200" />
             <Simple name="NumDirs" value="12" />
-            <Simple name="NumRooms" value="18" />
-            <Simple name="NumArtifacts" value="95" />
-            <Simple name="NumEffects" value="85" />
-            <Simple name="NumMonsters" value="8" />
-            <Simple name="NumHints" value="10" />
+            <Simple name="NumRooms" value="1" />
+            <Simple name="NumArtifacts" value="0" />
+            <Simple name="NumEffects" value="18" />
+            <Simple name="NumMonsters" value="0" />
+            <Simple name="NumHints" value="2" />
+            <Simple name="NumTriggers" value="0" />
+            <Simple name="NumScripts" value="0" />
             <Simple name="Uid" value="1" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Land of the Mountain King" />
-            <Simple name="Desc" value="You are summoned to another land to help rid the land of the evil mountain king." />
+            <Simple name="Name" value="Riddles of the Duergar Quarry" />
+            <Simple name="Desc" value="Mount Everdes, an extinct volcano located in the Horn Belt's southern reaches, is mostly unexplored.  But Eamon University's Department of Archaeology has made a compelling discovery on its steppes and requires assistance to quantify the site's **250" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

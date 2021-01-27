@@ -143,9 +143,9 @@
           <Properties>
             <Simple name="Uid" value="8" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="The Vile Grimoire of Jaldi'al" />
-            <Simple name="WorkDir" value="..\..\Adventures\TheVileGrimoireOfJaldial" />
-            <Simple name="PluginFileName" value="TheVileGrimoireOfJaldial.dll" />
+            <Simple name="Name" value="Land of the Mountain King" />
+            <Simple name="WorkDir" value="..\..\Adventures\LandOfTheMountainKing" />
+            <Simple name="PluginFileName" value="LandOfTheMountainKing.dll" />
             <Simple name="ConfigFileName" value="NONE" />
             <Simple name="FilesetFileName" value="NONE" />
             <Simple name="CharacterFileName" value="NONE" />
@@ -162,9 +162,9 @@
           <Properties>
             <Simple name="Uid" value="9" />
             <Simple name="IsUidRecycled" value="True" />
-            <Simple name="Name" value="Land of the Mountain King" />
-            <Simple name="WorkDir" value="..\..\Adventures\LandOfTheMountainKing" />
-            <Simple name="PluginFileName" value="LandOfTheMountainKing.dll" />
+            <Simple name="Name" value="The Vile Grimoire of Jaldi'al" />
+            <Simple name="WorkDir" value="..\..\Adventures\TheVileGrimoireOfJaldial" />
+            <Simple name="PluginFileName" value="TheVileGrimoireOfJaldial.dll" />
             <Simple name="ConfigFileName" value="NONE" />
             <Simple name="FilesetFileName" value="NONE" />
             <Simple name="CharacterFileName" value="NONE" />
