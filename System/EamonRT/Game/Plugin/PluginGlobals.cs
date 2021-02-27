@@ -28,10 +28,6 @@ namespace EamonRT.Game.Plugin
 
 		public virtual IList<ICommand> LastCommandList { get; set; }
 
-		public virtual IList<IArtifact> LoopWeaponArtifactList { get; set; }
-
-		public virtual long LoopWeaponArtifactListIndex { get; set; }
-
 		public virtual long LoopMonsterUid { get; set; }
 
 		public virtual long LoopMemberNumber { get; set; }

@@ -1,5 +1,5 @@
 ﻿
-// AttackLoopIncrementState.cs
+// MonsterAttackLoopIncrementState.cs
 
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
@@ -13,10 +13,13 @@ using static EamonRT.Game.Plugin.PluginContext;
 namespace EamonRT.Game.States
 {
 	[ClassMappings]
-	public class AttackLoopIncrementState : State, IAttackLoopIncrementState
+	public class MonsterAttackLoopIncrementState : State, IMonsterAttackLoopIncrementState
 	{
 		/// <summary></summary>
 		public virtual IMonster LoopMonster { get; set; }
+
+		/// <summary></summary>
+		public virtual long MaxMemberAttackCount { get; set; }
 
 		public override void Execute()
 		{
@@ -26,21 +29,16 @@ namespace EamonRT.Game.States
 
 			Globals.LoopAttackNumber++;
 
+			MaxMemberAttackCount = Math.Max(1, LoopMonster.GetMaxMemberAttackCount());
+
 			if (LoopMonster.GroupCount < Globals.LoopGroupCount)
 			{
 				Globals.LoopMemberNumber--;
 			}
 
-			if (LoopMonster.IsInLimbo() || LoopMonster.GroupCount < Globals.LoopGroupCount || Globals.LoopAttackNumber > Math.Abs(LoopMonster.AttackCount) || Globals.LoopAttackNumber > 25)
+			if (LoopMonster.IsInLimbo() || LoopMonster.GroupCount < Globals.LoopGroupCount || LoopMonster.Weapon < 0 || Globals.LoopAttackNumber > Math.Abs(LoopMonster.AttackCount) || Globals.LoopAttackNumber > MaxMemberAttackCount)
 			{
-				NextState = Globals.CreateInstance<IMemberLoopIncrementState>();
-
-				goto Cleanup;
-			}
-
-			if (LoopMonster.ShouldReadyWeapon() && Globals.LoopMemberNumber == 1 && Globals.LoopAttackNumber == 1 && LoopMonster.Weapon <= 0)
-			{
-				NextState = Globals.CreateInstance<IWeaponArtifactLoopInitializeState>();
+				NextState = Globals.CreateInstance<IMonsterMemberLoopIncrementState>();
 
 				goto Cleanup;
 			}
@@ -49,17 +47,17 @@ namespace EamonRT.Game.States
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<IBeforeMonsterAttacksEnemyState>();
+				NextState = Globals.CreateInstance<IMonsterAttackActionState>();
 			}
 
 			Globals.NextState = NextState;
 		}
 
-		public AttackLoopIncrementState()
+		public MonsterAttackLoopIncrementState()
 		{
 			Uid = 9;
 
-			Name = "AttackLoopIncrementState";
+			Name = "MonsterAttackLoopIncrementState";
 		}
 	}
 }

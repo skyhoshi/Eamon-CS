@@ -8,6 +8,314 @@
       <Items>
         <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
           <Properties>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The undergrad students scratch at the ground intently in their endeavor to unearth the next duergar relic; now and then, one of them cries out in delight, and they huddle together, admiring their find." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The undergrad students continue their diligent work, hoping for a discovery they can use as the topic for their next research paper." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You grab the lever and pull it; the safety mechanism disengages with a sharp metallic click.  @@001 looks at you and gasps in horror, slack-jawed!  The cart goes into free fall as the hand-held winch spins wildly.  Down the dark shaft, you plunge, **012" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="your feet lifting off the platform and the thud of your heartbeat in your neck.  Moments later, the impact at the bottom kills you @@002 instantly." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The Archeology Department's faculty and students have abandoned the site and fled for their lives, sensing danger from increasing seismic activity." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You emerge from your hideaway reluctantly, shocked to see the devastation wrought by the eruption.  The landscape, formerly a place of rugged beauty, has been reduced to a scorched wasteland.  You survey league after league of black, smoldering **015" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="lava fields and burned vegetation, out to the horizon, covered by fine powdery ash.  The sheer magnitude of this boggles your mind.*016" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Turning to the mountain, the massive column of smoke has dissipated, but the sky remains dark grey, the sun blotted out.  Mount Everdes itself bears a new scar:  the upper portion of the southwestern face obliterated, the bulk of the ejecta hurled **017" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="into surrounding regions, and the tranquil lake within the caldera has vaporized.  There are no signs of life anywhere; you feel fortunate to be alive!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The ground shakes violently and heaves as though the mountain is exhaling; you struggle to maintain your balance.  Intense shearing forces cause ruptures along hidden fault lines and the terrain buckles.  Then it all collapses, and you tumble into **019" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="the caldera before being blasted skyward as the volcano erupts!  You are dimly aware of your altitude far above the plains before being incinerated, surrounded by broiling ash and molten rock." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="A wave of lava suddenly pours into the chamber, catching you off guard.  With little time to panic, let alone react, it consumes you!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="@@001 gets a thoughtful look and pulls out @@003 leather bound notebook.  @@004 writes in it for a few minutes, then puts it away." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Wild mountain goats are known to be ill-tempered, but this one seems to have taken a liking to you.  It hesitates at first but then approaches and nuzzles you, hoping you'll feed it more vegetables!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The ground shakes as a tremor hits the area." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="An earthquake suddenly jolts the area, causing the ground to shake violently." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You stumble about and try to maintain footing as a massive earthquake strikes, opening fissures in the ground." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="You see a billowing cloud of superheated gas, ash, and volcanic matter emerge from the summit of the mountain, barreling down its slope at a frightening pace.  The deadly pyroclastic flow engulfs and incinerates everything in its path; you are in **027" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="27" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="dire peril if you fail to take shelter from it!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="28" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The pyroclastic flow continues to cut a path of destruction as it races down the mountain, drawing ever closer." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="29" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The pyroclastic flow, towering over the landscape, has nearly arrived; a low rumbling sound is audible, and a hot, dry wind howls as it approaches.  You panic and frantically look around for somewhere to hide!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="30" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The pyroclastic flow sweeps through the area, and the impact sends you reeling; your skin blisters and peels as you choke on broiling ash.  In your final conscious moments, you glance about, in a state of delirium, to see fires consuming **031" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="31" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="everything flammable in the vicinity.  Your horrific fate is to suffocate and burn alive, inside and out!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="32" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="Sensing danger, @@001 shouts a warning and darts to safety behind you!" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="33" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The intense heat in that area prevents you from entering." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="34" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The sluice gate opens, and a torrent of lake water pours through.  It rushes down an artificial channel cut into the rock that terminates at a hollow vertical lava conduit.  From there, the water plummets into the depths of the mountain." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="35" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The water diversion gate slowly opens, routing the river to the left.  The water rushes down an artificial channel carved into the basalt that terminates at a gaping lava vent; it then plummets further into the depths of the mountain." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="Uid" value="36" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="" />
+            <Simple name="Desc" value="The water diversion gate slowly closes, routing the river to the right, down a natural channel worn into the basalt.  The water flows under a rock outcropping and disappears around a bend." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Effect, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
             <Simple name="Uid" value="150" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
@@ -121,7 +429,7 @@
             <Simple name="Uid" value="209" />
             <Simple name="IsUidRecycled" value="True" />
             <Simple name="Name" value="" />
-            <Simple name="Desc" value="You wonder what treasures and perils lurk beneath the slope of that mountain - it fires your imagination, and you quickly realize this may be the chance of a lifetime!  There isn't a moment to waste!*210" />
+            <Simple name="Desc" value="You wonder what treasures and perils lurk beneath the slope of that mountain - it captures your imagination, and you quickly realize this may be the chance of a lifetime!  There isn't a moment to waste!*210" />
             <Null name="Synonyms" />
             <Simple name="Seen" value="False" />
             <Simple name="ArticleType" value="None" />

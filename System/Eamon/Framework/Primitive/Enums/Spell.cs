@@ -6,7 +6,7 @@
 namespace Eamon.Framework.Primitive.Enums
 {
 	/// <summary>
-	/// An enumeration of <see cref="ICharacter">Character</see> Spells.
+	/// An enumeration of <see cref="ICharacter">Character</see> and <see cref="IMonster">Monster</see> Spells.
 	/// </summary>
 	/// <remarks>
 	/// These spells should be familiar to anyone who has been involved with Eamon before.  The Eamon CS

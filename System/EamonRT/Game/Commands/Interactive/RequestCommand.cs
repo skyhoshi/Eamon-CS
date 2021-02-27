@@ -31,6 +31,13 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
+			if (!DobjArtifact.IsRequestable())
+			{
+				PrintObjBelongsToActor(DobjArtifact, IobjMonster);
+
+				goto Cleanup;
+			}
+
 			if (!GetCommandCalled)
 			{
 				RedirectToGetCommand<IRequestCommand>(DobjArtifact, false);

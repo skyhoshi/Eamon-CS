@@ -45,7 +45,7 @@ namespace EamonRT.Game.States
 				{
 					if (LoopMonster.ShouldProcessInGameLoop())
 					{
-						NextState = Globals.CreateInstance<IDefaultMonsterDecisionState>();
+						NextState = Globals.CreateInstance<IMonsterActionState>();
 
 						goto Cleanup;
 					}
@@ -68,7 +68,7 @@ namespace EamonRT.Game.States
 
 		public MonsterLoopIncrementState()
 		{
-			Uid = 18;
+			Uid = 15;
 
 			Name = "MonsterLoopIncrementState";
 		}

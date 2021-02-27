@@ -29,12 +29,6 @@ namespace EamonRT.Framework.Plugin
 		IList<ICommand> LastCommandList { get; set; }
 
 		/// <summary></summary>
-		IList<IArtifact> LoopWeaponArtifactList { get; set; }
-
-		/// <summary></summary>
-		long LoopWeaponArtifactListIndex { get; set; }
-
-		/// <summary></summary>
 		long LoopMonsterUid { get; set; }
 
 		/// <summary></summary>

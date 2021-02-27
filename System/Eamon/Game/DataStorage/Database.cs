@@ -68,7 +68,7 @@ namespace Eamon.Game.DataStorage
 			{
 				Globals.UpgradeTextfile(fileName);
 
-				table01 = Globals.SharpSerializer.Deserialize(fileName) as IDbTable<T>;
+				table01 = Globals.TextSerializer.Deserialize<IDbTable<T>>(fileName);
 			}
 			catch (FileNotFoundException)
 			{
@@ -367,7 +367,7 @@ namespace Eamon.Game.DataStorage
 				gOut.Write("{0}Saving textfile [{1}] ... ", Environment.NewLine, fileName);
 			}
 
-			Globals.SharpSerializer.Serialize(table, fileName);
+			Globals.TextSerializer.Serialize(table, fileName);
 
 			if (printOutput)
 			{

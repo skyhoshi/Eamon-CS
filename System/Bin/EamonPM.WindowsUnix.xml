@@ -22,7 +22,7 @@
             <param name="path"></param>
             <returns></returns>
         </member>
-        <member name="M:EamonPM.Game.Portability.SharpSerializer.NormalizePath(System.String)">
+        <member name="M:EamonPM.Game.Portability.TextSerializer.NormalizePath(System.String)">
             <summary></summary>
             <param name="path"></param>
             <returns></returns>

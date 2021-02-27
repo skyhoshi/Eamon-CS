@@ -50,7 +50,7 @@ namespace Eamon.Framework.Plugin
 		IPath Path { get; set; }
 
 		/// <summary></summary>
-		ISharpSerializer SharpSerializer { get; set; }
+		ITextSerializer TextSerializer { get; set; }
 
 		/// <summary></summary>
 		IThread Thread { get; set; }

@@ -112,7 +112,7 @@ namespace EamonRT.Game.Commands
 				goto Cleanup;
 			}
 
-			if (IobjArtAc == IobjArtifact.InContainer && !IobjArtAc.IsOpen())
+			if (IobjArtAc == IobjArtifact.InContainer && !IobjArtAc.IsOpen() && !IobjArtifact.ShouldExposeInContentsWhenClosed())
 			{
 				PrintMustFirstOpen(IobjArtifact);
 

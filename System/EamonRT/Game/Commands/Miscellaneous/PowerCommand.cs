@@ -136,6 +136,18 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		public override void MonsterExecute()
+		{
+
+			if (NextState == null)
+			{
+				NextState = Globals.CreateInstance<IErrorState>(x =>
+				{
+					x.ErrorMessage = string.Format("{0}: NextState == null", Name);
+				});
+			}
+		}
+
 		public virtual void PrintSonicBoom()
 		{
 			if (Globals.IsRulesetVersion(5, 15))

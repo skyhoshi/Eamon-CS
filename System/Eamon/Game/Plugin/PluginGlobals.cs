@@ -134,15 +134,15 @@ namespace Eamon.Game.Plugin
 			}
 		}
 
-		public virtual ISharpSerializer SharpSerializer
+		public virtual ITextSerializer TextSerializer
 		{
 			get
 			{
-				return ClassMappings.SharpSerializer;
+				return ClassMappings.TextSerializer;
 			}
 			set
 			{
-				ClassMappings.SharpSerializer = value;
+				ClassMappings.TextSerializer = value;
 			}
 		}
 
@@ -427,7 +427,7 @@ namespace Eamon.Game.Plugin
 				goto Cleanup;
 			}
 
-			SharpSerializer.Serialize(Database, fileName);
+			TextSerializer.Serialize(Database, fileName);
 
 		Cleanup:
 
@@ -460,7 +460,7 @@ namespace Eamon.Game.Plugin
 
 			UpgradeTextfile(fileName);
 
-			var database = SharpSerializer.Deserialize(fileName) as IDatabase;
+			var database = TextSerializer.Deserialize<IDatabase>(fileName);
 
 			if (database == null)
 			{

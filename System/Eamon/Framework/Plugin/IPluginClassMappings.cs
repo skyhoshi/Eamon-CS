@@ -78,7 +78,7 @@ namespace Eamon.Framework.Plugin
 		IPath Path { get; set; }
 
 		/// <summary></summary>
-		ISharpSerializer SharpSerializer { get; set; }
+		ITextSerializer TextSerializer { get; set; }
 
 		/// <summary>
 		/// Gets or sets the platform-independent Thread manager that Eamon CS relies on for all thread-related operations.
@@ -110,7 +110,7 @@ namespace Eamon.Framework.Plugin
 		/// Examples of mutating properties include <see cref="IMonster">Monster</see> <see cref="IMonster.Courage"> Courage</see> and
 		/// <see cref="IArtifact">Artifact</see> <see cref="IArtifact.Location"> Location</see>, but there are more scattered through the various games as
 		/// well.  You will note that both the getter and setter of a property can mutate if necessary.  In general, you want this behavior enabled during
-		/// gameplay so properties can respond to changes in game state, but never when the <see cref="SharpSerializer">SharpSerializer</see> is running
+		/// gameplay so properties can respond to changes in game state, but never when the <see cref="TextSerializer">TextSerializer</see> is running
 		/// during textfile serialization or deserialization because it can lead to corrupted values.  This value should be checked in all mutating
 		/// properties and if it is <c>false</c> they should disable complex calculations and return a simple base value.
 		/// </remarks>

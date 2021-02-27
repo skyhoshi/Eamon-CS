@@ -1,5 +1,5 @@
 ﻿
-// BeforeNecromancerAttacksEnemyState.cs
+// NecromancerAttackActionState.cs
 
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
@@ -14,7 +14,7 @@ using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 namespace StrongholdOfKahrDur.Game.States
 {
 	[ClassMappings]
-	public class BeforeNecromancerAttacksEnemyState : EamonRT.Game.States.State, Framework.States.IBeforeNecromancerAttacksEnemyState
+	public class NecromancerAttackActionState : EamonRT.Game.States.State, Framework.States.INecromancerAttackActionState
 	{
 		public override void Execute()
 		{
@@ -122,17 +122,17 @@ namespace StrongholdOfKahrDur.Game.States
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<IAttackLoopIncrementState>();
+				NextState = Globals.CreateInstance<IMonsterAttackLoopIncrementState>();
 			}
 
 			Globals.NextState = NextState;
 		}
 
-		public BeforeNecromancerAttacksEnemyState()
+		public NecromancerAttackActionState()
 		{
 			Uid = 82;
 
-			Name = "BeforeNecromancerAttacksEnemyState";
+			Name = "NecromancerAttackActionState";
 		}
 	}
 }

@@ -202,6 +202,10 @@
             <param name="obj1"></param>
             <param name="obj2"></param>
         </member>
+        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintWhyAttack(Eamon.Framework.IGameBase)">
+            <summary></summary>
+            <param name="obj"></param>
+        </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintTakingFirst(Eamon.Framework.IArtifact)">
             <summary></summary>
             <param name="artifact"></param>
@@ -342,10 +346,6 @@
             <param name="artifact"></param>
         </member>
         <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintTryDifferentCommand(Eamon.Framework.IArtifact)">
-            <summary></summary>
-            <param name="artifact"></param>
-        </member>
-        <member name="M:EamonRT.Framework.Commands.ICommandSignatures.PrintWhyAttack(Eamon.Framework.IArtifact)">
             <summary></summary>
             <param name="artifact"></param>
         </member>
@@ -1422,12 +1422,6 @@
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LastCommandList">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopWeaponArtifactList">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopWeaponArtifactListIndex">
-            <summary></summary>
-        </member>
         <member name="P:EamonRT.Framework.Plugin.IPluginGlobals.LoopMonsterUid">
             <summary></summary>
         </member>
@@ -1878,34 +1872,16 @@
         <member name="M:EamonRT.Framework.States.IStateSignatures.Execute">
             <summary></summary>
         </member>
-        <member name="T:EamonRT.Framework.States.IAfterMonsterFleesRoomState">
+        <member name="T:EamonRT.Framework.States.IMonsterActionState">
             <summary></summary>
         </member>
-        <member name="T:EamonRT.Framework.States.IAttackLoopIncrementState">
+        <member name="T:EamonRT.Framework.States.IMonsterAttackActionState">
             <summary></summary>
         </member>
-        <member name="T:EamonRT.Framework.States.IAttackLoopInitializeState">
+        <member name="T:EamonRT.Framework.States.IMonsterAttackLoopIncrementState">
             <summary></summary>
         </member>
-        <member name="T:EamonRT.Framework.States.IBeforeMonsterAttacksEnemyState">
-            <summary></summary>
-        </member>
-        <member name="T:EamonRT.Framework.States.IBeforeMonsterFleesRoomState">
-            <summary></summary>
-        </member>
-        <member name="T:EamonRT.Framework.States.IBeforeMonsterPicksUpWeaponState">
-            <summary></summary>
-        </member>
-        <member name="T:EamonRT.Framework.States.IBeforeMonsterReadiesWeaponState">
-            <summary></summary>
-        </member>
-        <member name="T:EamonRT.Framework.States.IDefaultMonsterDecisionState">
-            <summary></summary>
-        </member>
-        <member name="T:EamonRT.Framework.States.IMemberLoopIncrementState">
-            <summary></summary>
-        </member>
-        <member name="T:EamonRT.Framework.States.IMemberLoopInitializeState">
+        <member name="T:EamonRT.Framework.States.IMonsterAttackLoopInitializeState">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.States.IMonsterLoopIncrementState">
@@ -1914,19 +1890,16 @@
         <member name="T:EamonRT.Framework.States.IMonsterLoopInitializeState">
             <summary></summary>
         </member>
-        <member name="T:EamonRT.Framework.States.IMonsterReadiedWeaponCheckState">
+        <member name="T:EamonRT.Framework.States.IMonsterMemberActionState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IMonsterMemberLoopIncrementState">
+            <summary></summary>
+        </member>
+        <member name="T:EamonRT.Framework.States.IMonsterMemberLoopInitializeState">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.States.IMonsterStartState">
-            <summary></summary>
-        </member>
-        <member name="T:EamonRT.Framework.States.IMonsterUsesNaturalWeaponsCheckState">
-            <summary></summary>
-        </member>
-        <member name="T:EamonRT.Framework.States.IWeaponArtifactLoopIncrementState">
-            <summary></summary>
-        </member>
-        <member name="T:EamonRT.Framework.States.IWeaponArtifactLoopInitializeState">
             <summary></summary>
         </member>
         <member name="T:EamonRT.Framework.States.IAfterPlayerMoveState">
@@ -2827,79 +2800,37 @@
         <member name="P:EamonRT.Game.States.UnrecognizedCommandState.NewSeen">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.AfterMonsterFleesRoomState.LoopMonster">
+        <member name="P:EamonRT.Game.States.MonsterActionState.LoopMonster">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.AttackLoopIncrementState.LoopMonster">
+        <member name="P:EamonRT.Game.States.MonsterActionState.LoopMonsterRoom">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.AttackLoopInitializeState.LoopMonster">
+        <member name="P:EamonRT.Game.States.MonsterActionState.ActionCommand">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterAttacksEnemyState.HostileMonsterList">
+        <member name="P:EamonRT.Game.States.MonsterAttackActionState.HostileMonsterList">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterAttacksEnemyState.LoopMonster">
+        <member name="P:EamonRT.Game.States.MonsterAttackActionState.LoopMonster">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterAttacksEnemyState.LoopMonsterRoom">
+        <member name="P:EamonRT.Game.States.MonsterAttackActionState.LoopMonsterRoom">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterAttacksEnemyState.RedirectCommand">
+        <member name="P:EamonRT.Game.States.MonsterAttackActionState.ActionCommand">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterAttacksEnemyState.HostileMonsterListIndex">
+        <member name="P:EamonRT.Game.States.MonsterAttackActionState.HostileMonsterListIndex">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterFleesRoomState.LoopMonster">
+        <member name="P:EamonRT.Game.States.MonsterAttackLoopIncrementState.LoopMonster">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterFleesRoomState.LoopMonsterRoom">
+        <member name="P:EamonRT.Game.States.MonsterAttackLoopIncrementState.MaxMemberAttackCount">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterFleesRoomState.RedirectCommand">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterPicksUpWeaponState.LoopMonster">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterPicksUpWeaponState.LoopMonsterRoom">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterPicksUpWeaponState.WeaponArtifact">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterPicksUpWeaponState.RedirectCommand">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterPicksUpWeaponState.WeaponContainerType">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterPicksUpWeaponState.ContainerPrepName">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterReadiesWeaponState.LoopMonster">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterReadiesWeaponState.LoopMonsterRoom">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterReadiesWeaponState.WeaponArtifact">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.States.BeforeMonsterReadiesWeaponState.RedirectCommand">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.States.DefaultMonsterDecisionState.LoopMonster">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.States.MemberLoopIncrementState.LoopMonster">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.States.MemberLoopIncrementState.MaxMemberAttackCount">
-            <summary></summary>
-        </member>
-        <member name="P:EamonRT.Game.States.MemberLoopInitializeState.LoopMonster">
+        <member name="P:EamonRT.Game.States.MonsterAttackLoopInitializeState.LoopMonster">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.States.MonsterLoopIncrementState.FailedMoveMonster">
@@ -2908,16 +2839,46 @@
         <member name="P:EamonRT.Game.States.MonsterLoopIncrementState.LoopMonster">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.MonsterReadiedWeaponCheckState.LoopMonster">
+        <member name="F:EamonRT.Game.States.MonsterMemberActionState._spellCast">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.MonsterUsesNaturalWeaponsCheckState.LoopMonster">
+        <member name="F:EamonRT.Game.States.MonsterMemberActionState._spellTarget">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.WeaponArtifactLoopIncrementState.LoopMonster">
+        <member name="P:EamonRT.Game.States.MonsterMemberActionState.LoopMonster">
             <summary></summary>
         </member>
-        <member name="P:EamonRT.Game.States.WeaponArtifactLoopInitializeState.LoopMonster">
+        <member name="P:EamonRT.Game.States.MonsterMemberActionState.LoopMonsterRoom">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MonsterMemberActionState.WeaponArtifact">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MonsterMemberActionState.WeaponArtifactList">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MonsterMemberActionState.MonsterSpell">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MonsterMemberActionState.ActionCommand">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MonsterMemberActionState.WeaponArtifactListIndex">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MonsterMemberActionState.WeaponContainerType">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MonsterMemberActionState.ContainerPrepName">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MonsterMemberLoopIncrementState.LoopMonster">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MonsterMemberLoopIncrementState.MaxMemberActionCount">
+            <summary></summary>
+        </member>
+        <member name="P:EamonRT.Game.States.MonsterMemberLoopInitializeState.LoopMonster">
             <summary></summary>
         </member>
         <member name="P:EamonRT.Game.States.AfterPlayerMoveState.NewRoom">

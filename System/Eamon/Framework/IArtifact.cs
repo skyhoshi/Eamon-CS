@@ -551,6 +551,10 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		/// <returns></returns>
+		bool IsRequestable();
+
+		/// <summary></summary>
+		/// <returns></returns>
 		bool IsUnmovable();
 
 		/// <summary></summary>
@@ -576,6 +580,10 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <returns></returns>
 		bool IsInContainerOpenedFromTop();
+
+		/// <summary></summary>
+		/// <returns></returns>
+		bool ShouldExposeInContentsWhenClosed();
 
 		/// <summary></summary>
 		/// <param name="containerType"></param>

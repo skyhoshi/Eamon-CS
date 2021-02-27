@@ -162,7 +162,38 @@ namespace Eamon.Game.Helpers
 
 		#region GetValue Methods
 
-		// do nothing
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual object GetValueSpellsSpell()
+		{
+			var i = Index;
+
+			var monsterSpell = Record.Spells != null ? Record.Spells[i] : null;
+			
+			return monsterSpell != null ? monsterSpell.Spell : default(object);
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual object GetValueSpellsField1()
+		{
+			var i = Index;
+
+			var monsterSpell = Record.Spells != null ? Record.Spells[i] : null;
+
+			return monsterSpell != null ? monsterSpell.Field1 : default(object);
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual object GetValueSpellsField2()
+		{
+			var i = Index;
+
+			var monsterSpell = Record.Spells != null ? Record.Spells[i] : null;
+
+			return monsterSpell != null ? monsterSpell.Field2 : default(object);
+		}
 
 		#endregion
 
@@ -353,6 +384,84 @@ namespace Eamon.Game.Helpers
 		public virtual bool ValidateDmgTaken()
 		{
 			return Record.DmgTaken >= 0;
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual bool ValidateSpells()
+		{
+			var result = true;
+
+			if (Record.Spells != null)
+			{
+				for (Index = 0; Index < Record.Spells.Length; Index++)
+				{
+					result = ValidateField("SpellsSpell") &&
+									ValidateField("SpellsField1") &&
+									ValidateField("SpellsField2") &&
+									/* ValidateField("SpellsFieldN") */ true;
+
+					if (result == false)
+					{
+						break;
+					}
+				}
+			}
+
+			return result;
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual bool ValidateSpellsSpell()
+		{
+			var i = Index;
+
+			var monsterSpell = Record.Spells[i];
+
+			var spell = monsterSpell != null ? gEngine.GetSpells(monsterSpell.Spell) : null;
+
+			return spell != null;
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual bool ValidateSpellsField1()
+		{
+			var i = Index;
+
+			var monsterSpell = Record.Spells[i];
+
+			return monsterSpell != null && Enum.IsDefined(typeof(SpellPolicy), (SpellPolicy)monsterSpell.Field1);
+		}
+
+		/// <summary></summary>
+		/// <returns></returns>
+		public virtual bool ValidateSpellsField2()
+		{
+			var result = true;
+
+			var i = Index;
+
+			var monsterSpell = Record.Spells[i];
+
+			if (monsterSpell != null)
+			{
+				switch(monsterSpell.Spell)
+				{
+					case Spell.Speed:
+
+						result = monsterSpell.Field2 >= 0;
+
+						break;
+				}
+			}
+			else
+			{
+				result = false;
+			}
+
+			return result;
 		}
 
 		#endregion
@@ -2237,6 +2346,7 @@ namespace Eamon.Game.Helpers
 				"DmgTaken",
 				"Field1",
 				"Field2",
+				"Spells",
 			};
 		}
 

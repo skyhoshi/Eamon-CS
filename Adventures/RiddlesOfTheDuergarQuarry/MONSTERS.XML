@@ -1,0 +1,597 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.MonsterDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IMonster, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="3" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Professor Berescroft" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="4" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Grad Student #1" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="5" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Grad Student #2" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="6" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Grad Student #3" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="3" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="4" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="3" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Undergrad Student Team #1" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="3" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="7" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="3" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Undergrad Student Team #2" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="3" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="5" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="3" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Undergrad Student Team #3" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="3" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="8" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="3" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Undergrad Student Team #4" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="9" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Guard #1" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="10" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Guard #2" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="3" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="field foreman" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="11" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Female" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="field medic" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="12" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Male" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="field cook" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="13" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="highland ibex" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="14" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="fire salamander" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="1" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="15" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Enemy" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="1" />
+            <Simple name="OrigFriendliness" value="100" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="giant fire beetle" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Monster, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Hardiness" value="1" />
+            <Simple name="Agility" value="1" />
+            <Simple name="GroupCount" value="2" />
+            <Simple name="AttackCount" value="1" />
+            <Simple name="Courage" value="1" />
+            <Simple name="Location" value="31" />
+            <Simple name="CombatCode" value="Weapons" />
+            <Simple name="Armor" value="0" />
+            <Simple name="Weapon" value="0" />
+            <Simple name="NwDice" value="0" />
+            <Simple name="NwSides" value="0" />
+            <Simple name="DeadBody" value="0" />
+            <Simple name="Friendliness" value="Neutral" />
+            <Simple name="Gender" value="Neutral" />
+            <Simple name="InitGroupCount" value="0" />
+            <Simple name="OrigGroupCount" value="2" />
+            <Simple name="OrigFriendliness" value="150" />
+            <Simple name="DmgTaken" value="0" />
+            <Simple name="Field1" value="0" />
+            <Simple name="Field2" value="0" />
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="ranch hand" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="17" />
+  </Properties>
+</Complex>

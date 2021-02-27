@@ -29,7 +29,7 @@ ECS Mobile mirrors the hierarchical directory structure of ECS Desktop, making t
 
 Like all Eamons, ECS allows you to create adventures with no programming involved, via the EamonDD data file editor.  But for the intrepid game designer, the engine is infinitely extensible, using typical C# subclassing mechanisms.  The documentation has improved, and many adventures can be recompiled in Debug mode and stepped through to gain a better understanding of the system.  See Technical Paper under DOCUMENT LINKS on the Eamon CS website for more details.
 
-If you are interested in contributing to the Eamon CS project, or you wish to port your own game or build a new one, please contact me.  I can provide insight if there are areas of the code that need clarification.  Eamon has always been an ideal programmer's learning tool.  If you build a game, you aren't just contributing to the system; you're honing your skills as a C# developer while having fun doing it!
+If you are interested in contributing to the Eamon CS project or wish to port your own game or build a new one, please contact me.  I can provide insight if there are areas of the code that need clarification.  Eamon has always been an ideal programmer's learning tool.  If you build a game, you aren't just contributing to the system; you're honing your skills as a C# developer while having fun doing it!
 
 #### Roadmap
 

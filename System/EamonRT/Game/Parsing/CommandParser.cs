@@ -578,7 +578,7 @@ namespace EamonRT.Game.Parsing
 
 					if (ac != null)
 					{
-						if (ac != IobjArtifact.InContainer || ac.IsOpen())
+						if (ac != IobjArtifact.InContainer || ac.IsOpen() || IobjArtifact.ShouldExposeInContentsWhenClosed())
 						{
 							ObjData = DobjData;
 

@@ -1,9 +1,8 @@
 ﻿
-// MonsterReadiedWeaponCheckState.cs
+// MonsterMemberLoopInitializeState.cs
 
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
-using System;
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
@@ -13,7 +12,7 @@ using static EamonRT.Game.Plugin.PluginContext;
 namespace EamonRT.Game.States
 {
 	[ClassMappings]
-	public class MonsterReadiedWeaponCheckState : State, IMonsterReadiedWeaponCheckState
+	public class MonsterMemberLoopInitializeState : State, IMonsterMemberLoopInitializeState
 	{
 		/// <summary></summary>
 		public virtual IMonster LoopMonster { get; set; }
@@ -24,30 +23,21 @@ namespace EamonRT.Game.States
 
 			Debug.Assert(LoopMonster != null);
 
-			if (LoopMonster.Weapon > 0)
-			{
-				Globals.LoopAttackNumber = Math.Abs(LoopMonster.AttackCount);
-
-				NextState = Globals.CreateInstance<IAttackLoopIncrementState>();
-			
-				goto Cleanup;
-			}
-
-		Cleanup:
+			Globals.LoopMemberNumber = 0;
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<IBeforeMonsterAttacksEnemyState>();
+				NextState = Globals.CreateInstance<IMonsterMemberLoopIncrementState>();
 			}
 
 			Globals.NextState = NextState;
 		}
 
-		public MonsterReadiedWeaponCheckState()
+		public MonsterMemberLoopInitializeState()
 		{
-			Uid = 20;
+			Uid = 13;
 
-			Name = "MonsterReadiedWeaponCheckState";
+			Name = "MonsterMemberLoopInitializeState";
 		}
 	}
 }

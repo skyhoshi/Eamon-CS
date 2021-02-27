@@ -1,8 +1,9 @@
 ﻿
-// MemberLoopIncrementState.cs
+// MonsterMemberLoopIncrementState.cs
 
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
+using System;
 using System.Diagnostics;
 using Eamon.Framework;
 using Eamon.Game.Attributes;
@@ -12,13 +13,13 @@ using static EamonRT.Game.Plugin.PluginContext;
 namespace EamonRT.Game.States
 {
 	[ClassMappings]
-	public class MemberLoopIncrementState : State, IMemberLoopIncrementState
+	public class MonsterMemberLoopIncrementState : State, IMonsterMemberLoopIncrementState
 	{
 		/// <summary></summary>
 		public virtual IMonster LoopMonster { get; set; }
 
 		/// <summary></summary>
-		public virtual long MaxMemberAttackCount { get; set; }
+		public virtual long MaxMemberActionCount { get; set; }
 
 		public override void Execute()
 		{
@@ -26,13 +27,13 @@ namespace EamonRT.Game.States
 
 			Debug.Assert(LoopMonster != null);
 
-			MaxMemberAttackCount = LoopMonster.GetMaxMemberAttackCount();
-
-			Debug.Assert(Globals.LoopMemberNumber >= 0 && Globals.LoopMemberNumber <= LoopMonster.GroupCount && Globals.LoopMemberNumber <= MaxMemberAttackCount);
+			Debug.Assert(Globals.LoopMemberNumber >= 0 && Globals.LoopMemberNumber <= LoopMonster.GroupCount);
 
 			Globals.LoopMemberNumber++;
 
-			if (Globals.LoopMemberNumber > LoopMonster.GroupCount || Globals.LoopMemberNumber > MaxMemberAttackCount)
+			MaxMemberActionCount = Math.Max(1, LoopMonster.GetMaxMemberActionCount());
+
+			if (LoopMonster.IsInLimbo() || Globals.LoopMemberNumber > LoopMonster.GroupCount || Globals.LoopMemberNumber > MaxMemberActionCount)
 			{
 				NextState = Globals.CreateInstance<IMonsterLoopIncrementState>();
 
@@ -43,17 +44,17 @@ namespace EamonRT.Game.States
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<IAttackLoopInitializeState>();
+				NextState = Globals.CreateInstance<IMonsterMemberActionState>();
 			}
 
 			Globals.NextState = NextState;
 		}
 
-		public MemberLoopIncrementState()
+		public MonsterMemberLoopIncrementState()
 		{
-			Uid = 16;
+			Uid = 12;
 
-			Name = "MemberLoopIncrementState";
+			Name = "MonsterMemberLoopIncrementState";
 		}
 	}
 }

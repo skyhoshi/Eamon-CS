@@ -1,5 +1,5 @@
 ﻿
-// AfterMonsterFleesRoomState.cs
+// MonsterAttackLoopInitializeState.cs
 
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
@@ -13,7 +13,7 @@ using static EamonRT.Game.Plugin.PluginContext;
 namespace EamonRT.Game.States
 {
 	[ClassMappings]
-	public class AfterMonsterFleesRoomState : State, IAfterMonsterFleesRoomState
+	public class MonsterAttackLoopInitializeState : State, IMonsterAttackLoopInitializeState
 	{
 		/// <summary></summary>
 		public virtual IMonster LoopMonster { get; set; }
@@ -22,26 +22,27 @@ namespace EamonRT.Game.States
 		{
 			LoopMonster = gMDB[Globals.LoopMonsterUid];
 
-			Debug.Assert(LoopMonster != null && LoopMonster.Friendliness != Friendliness.Neutral);
+			Debug.Assert(LoopMonster != null && LoopMonster.CombatCode != CombatCode.NeverFights && LoopMonster.Friendliness != Friendliness.Neutral);
 
-			if (LoopMonster.CombatCode != CombatCode.NeverFights && LoopMonster.GroupCount < Globals.LoopGroupCount)
-			{
-				NextState = Globals.CreateInstance<IMemberLoopInitializeState>();
-			}
+			Globals.LoopAttackNumber = 0;
+
+			Globals.LoopGroupCount = LoopMonster.GroupCount;
+
+			Globals.LoopLastDfMonster = null;
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<IMonsterLoopIncrementState>();
+				NextState = Globals.CreateInstance<IMonsterAttackLoopIncrementState>();
 			}
 
 			Globals.NextState = NextState;
 		}
 
-		public AfterMonsterFleesRoomState()
+		public MonsterAttackLoopInitializeState()
 		{
-			Uid = 8;
+			Uid = 10;
 
-			Name = "AfterMonsterFleesRoomState";
+			Name = "MonsterAttackLoopInitializeState";
 		}
 	}
 }

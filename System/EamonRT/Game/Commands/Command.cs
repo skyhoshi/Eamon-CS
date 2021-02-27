@@ -330,6 +330,11 @@ namespace EamonRT.Game.Commands
 			CommandImpl.PrintDoYouMeanObj1OrObj2(obj1, obj2);
 		}
 
+		public virtual void PrintWhyAttack(IGameBase obj)
+		{
+			CommandImpl.PrintWhyAttack(obj);
+		}
+
 		public virtual void PrintTakingFirst(IArtifact artifact)
 		{
 			CommandImpl.PrintTakingFirst(artifact);
@@ -503,11 +508,6 @@ namespace EamonRT.Game.Commands
 		public virtual void PrintTryDifferentCommand(IArtifact artifact)
 		{
 			CommandImpl.PrintTryDifferentCommand(artifact);
-		}
-
-		public virtual void PrintWhyAttack(IArtifact artifact)
-		{
-			CommandImpl.PrintWhyAttack(artifact);
 		}
 
 		public virtual void PrintNotWeapon(IArtifact artifact)

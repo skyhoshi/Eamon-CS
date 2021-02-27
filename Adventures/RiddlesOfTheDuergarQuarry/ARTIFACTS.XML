@@ -1,0 +1,2537 @@
+﻿<Complex name="Root" type="Eamon.Game.DataStorage.ArtifactDbTable, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+  <Properties>
+    <Collection name="Records" type="Eamon.ThirdParty.BTree`1[[Eamon.Framework.IArtifact, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null]], Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+      <Properties>
+        <Simple name="IsReadOnly" value="False" />
+        <Simple name="AllowDuplicates" value="False" />
+      </Properties>
+      <Items>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="1" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Mount Everdes" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="purple sage" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="dust devil" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="YIes" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="1" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field1" value="2" />
+                    <Simple name="Field2" value="-1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="rock-strewn gully" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="True" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="iron fence" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="16" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="InContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="vegetable garden" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="1006" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Edible" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="tomato" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="1006" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Edible" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="carrot" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="1006" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Edible" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="squash" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="1006" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Edible" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="lettuce" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="1006" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Edible" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cabbage" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="42" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="gold pan" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="33" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="leather pannier" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="17" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="brass bell" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="18" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field1" value="19" />
+                    <Simple name="Field2" value="-1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="large wooden cart" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="19" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="pulley" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="19" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="iron lever" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="19" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="hand winch" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="20" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="InContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="2" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="silver sheen obsidian statue" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="large emerald" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="large emerald" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="LightSource" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="hooded lantern" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="2029" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Wearable" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="blacksmith's smock" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="3032" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Wearable" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="blacksmith's smock" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="None" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Gold" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="gold dust" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Gold" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="gold nugget" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Gold" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="27" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="gold nugget" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Gold" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="28" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="gold nugget" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="21" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="OnContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="2" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="29" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="iron peg" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="OnContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="2" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="30" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="iron anvil" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="2032" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Weapon" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="3" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="1" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="31" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="blacksmith's hammer" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="OnContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="1" />
+                  </Properties>
+                </Complex>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="UnderContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="32" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="wooden workbench" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="22" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="33" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="mining drill" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="OnContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="34" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="conveyor belt" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="35" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="shearing machine" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="36" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="rock crusher" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="37" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="rock grinder" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="38" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="rock screener" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="InContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="39" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="rail cart" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="40" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="weighting system" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="41" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="measuring system" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Drinkable" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="9999" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="42" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="tranquil lake" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="23" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="InContainer" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="43" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="iron steam turbine" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="34" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="44" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="iron gear" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="45" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="metal tube" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="24" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="46" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="lavafall" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="47" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="lava river" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="48" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="towering ash cloud" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="49" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="pyroclastic flow" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="25" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field1" value="-34" />
+                    <Simple name="Field2" value="-1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="50" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="canvas tent" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="26" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field1" value="27" />
+                    <Simple name="Field2" value="-1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="51" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="hydrostation" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="27" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="52" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="hand crank" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="26" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="-1" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="53" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="sluice gate" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Drinkable" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="9999" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="54" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="underground river" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="An" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="55" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="hand crank" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="28" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="-1" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="56" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="water diversion gate" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="5027" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field1" value="35" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="1" />
+                    <Simple name="Field4" value="1" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="57" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="trapdoor" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="41" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field1" value="38" />
+                    <Simple name="Field2" value="-1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="58" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="spiral staircase" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="59" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="cave-in" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="60" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="quill pen" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="61" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="field notebook" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="62" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="trowel" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="Es" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="63" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="brush" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="64" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="sample container" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="65" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="quill pen" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="66" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="leather bound notebook" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="67" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="small pickaxe" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="0" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="68" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="shovel" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="29" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field1" value="12" />
+                    <Simple name="Field2" value="-1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="69" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="mess tent" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="30" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field1" value="11" />
+                    <Simple name="Field2" value="-1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="70" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="medical tent" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="3" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field1" value="6" />
+                    <Simple name="Field2" value="-1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="71" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="survey tent" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="with some pack animals inside it" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="31" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="InContainer" />
+                    <Simple name="Field1" value="-1" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="72" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="corral" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="999" />
+            <Simple name="Location" value="1072" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="73" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="pack animal" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="32" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="DoorGate" />
+                    <Simple name="Field1" value="33" />
+                    <Simple name="Field2" value="-1" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="74" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="supply tent" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="The" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="False" />
+            <Simple name="IsListed" value="True" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="0" />
+            <Simple name="Location" value="42" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="75" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="bleached skeleton" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="A" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Artifact, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="StateDesc" value="" />
+            <Simple name="IsCharOwned" value="False" />
+            <Simple name="IsPlural" value="True" />
+            <Simple name="IsListed" value="False" />
+            <Simple name="PluralType" value="S" />
+            <Simple name="Value" value="0" />
+            <Simple name="Weight" value="-999" />
+            <Simple name="Location" value="43" />
+            <SingleArray name="Categories">
+              <Items>
+                <Complex type="Eamon.Game.Primitive.Classes.ArtifactCategory, Eamon, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+                  <Properties>
+                    <Simple name="Type" value="Treasure" />
+                    <Simple name="Field1" value="0" />
+                    <Simple name="Field2" value="0" />
+                    <Simple name="Field3" value="0" />
+                    <Simple name="Field4" value="0" />
+                    <Simple name="Field5" value="0" />
+                  </Properties>
+                </Complex>
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="76" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="jagged wall" />
+            <Simple name="Desc" value="The light throws odd shadows off the jagged walls in this chamber; examining them is difficult.  Still, you can't help but feel that something awaits discovery." />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="Some" />
+          </Properties>
+        </Complex>
+      </Items>
+    </Collection>
+    <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <Properties>
+        <Simple name="Capacity" value="0" />
+      </Properties>
+      <Items />
+    </Collection>
+    <Simple name="CurrUid" value="76" />
+  </Properties>
+</Complex>

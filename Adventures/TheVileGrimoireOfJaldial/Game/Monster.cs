@@ -173,9 +173,9 @@ namespace TheVileGrimoireOfJaldial.Game
 				return GetInRoomUid() != smallGriffinMonster.GetInRoomUid() ? base.CanMoveToRoom(fleeing) : false;
 			}
 
-			// Dark hood and griffin cubs will only flee, never follow
+			// Jaldi'al, dark hood and griffin cubs will only flee, never follow
 
-			else if (Uid == 21 || Uid == 41)
+			else if (Uid == 21 || Uid == 41 || Uid == 43)
 			{
 				return fleeing ? base.CanMoveToRoom(fleeing) : false;
 			}

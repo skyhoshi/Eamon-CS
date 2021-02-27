@@ -102,7 +102,7 @@ namespace EamonRT.Game.Commands
 						DobjArtifact.SetInRoom(ActorRoom);
 					}
 
-					if (DobjArtAc == DobjArtifact.InContainer && !DobjArtAc.IsOpen())
+					if (DobjArtAc == DobjArtifact.InContainer && !DobjArtAc.IsOpen() && !DobjArtifact.ShouldExposeInContentsWhenClosed())
 					{
 						PrintMustFirstOpen(DobjArtifact);
 

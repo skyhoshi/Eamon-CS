@@ -104,6 +104,10 @@ namespace EamonRT.Framework.Commands
 		void PrintDoYouMeanObj1OrObj2(IGameBase obj1, IGameBase obj2);
 
 		/// <summary></summary>
+		/// <param name="obj"></param>
+		void PrintWhyAttack(IGameBase obj);
+
+		/// <summary></summary>
 		/// <param name="artifact"></param>
 		void PrintTakingFirst(IArtifact artifact);
 
@@ -245,10 +249,6 @@ namespace EamonRT.Framework.Commands
 		/// <summary></summary>
 		/// <param name="artifact"></param>
 		void PrintTryDifferentCommand(IArtifact artifact);
-
-		/// <summary></summary>
-		/// <param name="artifact"></param>
-		void PrintWhyAttack(IArtifact artifact);
 
 		/// <summary></summary>
 		/// <param name="artifact"></param>

@@ -6,9 +6,11 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using Eamon.Framework;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
 using Eamon.Game.Attributes;
 using Eamon.Game.Extensions;
@@ -87,6 +89,8 @@ namespace Eamon.Game
 
 		public virtual long Field2 { get; set; }
 
+		public virtual IMonsterSpell[] Spells { get; set; }
+
 		#endregion
 
 		#endregion
@@ -113,6 +117,20 @@ namespace Eamon.Game
 		#endregion
 
 		#region Interface IGameBase
+
+		public override void SetParentReferences()
+		{
+			if (Spells != null)
+			{
+				foreach (var s in Spells)
+				{
+					if (s != null)
+					{
+						s.Parent = this;
+					}
+				}
+			}
+		}
 
 		public override string GetPluralName(string fieldName, StringBuilder buf = null)
 		{
@@ -402,6 +420,13 @@ namespace Eamon.Game
 			return IsInRoomUid(room.Uid);
 		}
 
+		public virtual bool IsAttackable(IMonster monster)
+		{
+			Debug.Assert(monster != null);
+
+			return true;
+		}
+
 		public virtual bool CanMoveToRoom(bool fleeing)
 		{
 			return true;
@@ -480,6 +505,27 @@ namespace Eamon.Game
 		public virtual bool ShouldFleeRoom()
 		{
 			return CheckNBTLHostility();
+		}
+
+		public virtual bool ShouldCastSpell(ref Enums.Spell spellCast, ref IGameBase spellTarget)
+		{
+			var result = false;
+
+			if (Spells != null)
+			{
+				// If enemies are present
+
+				if (CheckNBTLHostility())
+				{
+
+				}
+				else
+				{
+
+				}
+			}
+
+			return result;
 		}
 
 		public virtual bool ShouldReadyWeapon()
@@ -702,9 +748,19 @@ namespace Eamon.Game
 			return gEngine.RollDice(1, GroupCount, 0);
 		}
 
-		public virtual long GetMaxMemberAttackCount()
+		public virtual long GetMaxMemberActionCount()
 		{
 			return 5;
+		}
+
+		public virtual long GetMaxMemberAttackCount()
+		{
+			return 25;
+		}
+
+		public virtual IMonsterSpell GetMonsterSpell(Enums.Spell spell)
+		{
+			return Spells != null && Enum.IsDefined(typeof(Enums.Spell), spell) ? Spells.FirstOrDefault(ms => ms != null && ms.Spell == spell) : null;
 		}
 
 		public virtual IList<IArtifact> GetCarriedList(Func<IArtifact, bool> monsterFindFunc = null, Func<IArtifact, bool> artifactFindFunc = null, bool recurse = false)

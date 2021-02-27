@@ -11,13 +11,13 @@
             <Simple name="Author" value="Michael Penner" />
             <Simple name="VolLabel" value="MP-003" />
             <Simple name="SerialNum" value="011" />
-            <Simple name="LastMod" value="2021-01-02T09:21:00.2324754-08:00" />
+            <Simple name="LastMod" value="2021-02-15T10:17:14.5784858-08:00" />
             <Simple name="IntroStory" value="200" />
             <Simple name="NumDirs" value="12" />
-            <Simple name="NumRooms" value="1" />
-            <Simple name="NumArtifacts" value="0" />
-            <Simple name="NumEffects" value="18" />
-            <Simple name="NumMonsters" value="0" />
+            <Simple name="NumRooms" value="44" />
+            <Simple name="NumArtifacts" value="76" />
+            <Simple name="NumEffects" value="46" />
+            <Simple name="NumMonsters" value="17" />
             <Simple name="NumHints" value="2" />
             <Simple name="NumTriggers" value="0" />
             <Simple name="NumScripts" value="0" />

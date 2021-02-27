@@ -108,7 +108,7 @@ namespace Eamon.Mobile
 
 			try
 			{
-				settingsViewModel = ClassMappings.SharpSerializer.Deserialize(fileName) as SettingsViewModel;
+				settingsViewModel = ClassMappings.TextSerializer.Deserialize<SettingsViewModel>(fileName);
 			}
 			catch (Exception)
 			{
@@ -121,7 +121,7 @@ namespace Eamon.Mobile
 
 				Debug.Assert(settingsViewModel != null);
 
-				ClassMappings.SharpSerializer.Serialize(settingsViewModel, fileName);
+				ClassMappings.TextSerializer.Serialize(settingsViewModel, fileName);
 			}
 
 			Current.MainPage = new TabbedPage

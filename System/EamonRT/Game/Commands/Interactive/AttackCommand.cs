@@ -276,7 +276,7 @@ namespace EamonRT.Game.Commands
 					goto Cleanup;
 				}
 			}
-			else
+			else if (DobjMonster.IsAttackable(ActorMonster))
 			{
 				if (!CheckAttack && DobjMonster.Friendliness != Friendliness.Enemy)
 				{
@@ -318,6 +318,14 @@ namespace EamonRT.Game.Commands
 				});
 
 				PlayerCombatSystem.ExecuteAttack();
+			}
+			else
+			{
+				PrintWhyAttack(DobjMonster);
+
+				NextState = Globals.CreateInstance<IStartState>();
+
+				goto Cleanup;
 			}
 
 		Cleanup:

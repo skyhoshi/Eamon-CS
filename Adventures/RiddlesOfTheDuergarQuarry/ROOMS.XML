@@ -37,6 +37,1339 @@
             <Simple name="ArticleType" value="None" />
           </Properties>
         </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="1" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="2" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="3" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="4" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="5" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="3" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="6" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Survey Tent" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="7" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="8" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="9" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="10" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="30" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="11" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Medical Tent" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="29" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="12" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Mess Tent" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="13" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="14" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="15" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="16" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="17" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="18" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="18" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="19" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="20" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="21" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="22" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="23" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="24" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="25" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="26" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="26" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="27" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="28" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="29" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="30" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="31" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="32" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="32" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="33" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Supply Tent" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="34" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="27" />
+                <Simple value="36" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="35" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Spiral Staircase" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="35" />
+                <Simple value="37" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="36" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Spiral Staircase" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="36" />
+                <Simple value="-35" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="37" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Spiral Staircase" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="39" />
+                <Simple value="41" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="38" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Spiral Staircase" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="40" />
+                <Simple value="38" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="39" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Spiral Staircase" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="-35" />
+                <Simple value="39" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="40" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="Spiral Staircase" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="41" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Light" />
+            <Simple name="Type" value="Outdoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="42" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="43" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
+        <Complex type="RiddlesOfTheDuergarQuarry.Game.Room, RiddlesOfTheDuergarQuarry, Version=1.7.0.0, Culture=neutral, PublicKeyToken=null">
+          <Properties>
+            <Simple name="LightLvl" value="Dark" />
+            <Simple name="Type" value="Indoors" />
+            <Simple name="Zone" value="1" />
+            <SingleArray name="Dirs">
+              <Items>
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="0" />
+                <Simple value="43" />
+              </Items>
+            </SingleArray>
+            <Simple name="Uid" value="44" />
+            <Simple name="IsUidRecycled" value="True" />
+            <Simple name="Name" value="TODO" />
+            <Simple name="Desc" value="TODO" />
+            <Null name="Synonyms" />
+            <Simple name="Seen" value="False" />
+            <Simple name="ArticleType" value="None" />
+          </Properties>
+        </Complex>
       </Items>
     </Collection>
     <Collection name="FreeUids" type="System.Collections.Generic.List`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -45,6 +1378,6 @@
       </Properties>
       <Items />
     </Collection>
-    <Simple name="CurrUid" value="1" />
+    <Simple name="CurrUid" value="44" />
   </Properties>
 </Complex>

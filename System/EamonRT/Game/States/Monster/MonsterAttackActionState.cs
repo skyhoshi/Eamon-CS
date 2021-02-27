@@ -1,9 +1,8 @@
 ﻿
-// BeforeMonsterAttacksEnemyState.cs
+// MonsterAttackActionState.cs
 
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Eamon.Framework;
@@ -15,7 +14,7 @@ using static EamonRT.Game.Plugin.PluginContext;
 namespace EamonRT.Game.States
 {
 	[ClassMappings]
-	public class BeforeMonsterAttacksEnemyState : State, IBeforeMonsterAttacksEnemyState
+	public class MonsterAttackActionState : State, IMonsterAttackActionState
 	{
 		/// <summary></summary>
 		public virtual IList<IMonster> HostileMonsterList { get; set; }
@@ -27,7 +26,7 @@ namespace EamonRT.Game.States
 		public virtual IRoom LoopMonsterRoom { get; set; }
 
 		/// <summary></summary>
-		public virtual ICommand RedirectCommand { get; set; }
+		public virtual ICommand ActionCommand { get; set; }
 
 		/// <summary></summary>
 		public virtual long HostileMonsterListIndex { get; set; }
@@ -42,71 +41,62 @@ namespace EamonRT.Game.States
 
 			Debug.Assert(LoopMonsterRoom != null);
 
-			if (LoopMonster.Weapon < 0)
-			{
-				Globals.LoopAttackNumber = Math.Abs(LoopMonster.AttackCount);
-
-				Globals.LoopMemberNumber = LoopMonster.GroupCount;
-
-				goto Cleanup;
-			}
-
 			HostileMonsterList = gEngine.GetHostileMonsterList(LoopMonster);
 
 			Debug.Assert(HostileMonsterList != null);
 
 			if (HostileMonsterList.Count < 1)
 			{
-				Globals.LoopAttackNumber = Math.Abs(LoopMonster.AttackCount);
-
-				Globals.LoopMemberNumber = LoopMonster.GroupCount;
+				NextState = Globals.CreateInstance<IMonsterMemberLoopIncrementState>();
 
 				goto Cleanup;
 			}
 
 			if (LoopMonster.AttackCount > 1 && Globals.LoopLastDfMonster != null && !HostileMonsterList.Contains(Globals.LoopLastDfMonster))
 			{
-				Globals.LoopAttackNumber = Math.Abs(LoopMonster.AttackCount);
+				NextState = Globals.CreateInstance<IMonsterMemberLoopIncrementState>();
 
 				goto Cleanup;
 			}
 
 			HostileMonsterListIndex = gEngine.RollDice(1, HostileMonsterList.Count, -1);
 
-			RedirectCommand = Globals.CreateInstance<IAttackCommand>(x =>
+			ActionCommand = Globals.CreateInstance<IAttackCommand>(x =>
 			{
+				x.NextState = Globals.CreateInstance<IMonsterAttackLoopIncrementState>();
+
+				x.ActorMonster = LoopMonster;
+
+				x.ActorRoom = LoopMonsterRoom;
+
 				x.MemberNumber = Globals.LoopMemberNumber;
 
 				x.AttackNumber = Globals.LoopAttackNumber;
+
+				x.Dobj = LoopMonster.AttackCount > 1 && Globals.LoopLastDfMonster != null ? Globals.LoopLastDfMonster : HostileMonsterList[(int)HostileMonsterListIndex];
 			});
 
-			RedirectCommand.ActorMonster = LoopMonster;
+			Globals.LoopLastDfMonster = ActionCommand.Dobj as IMonster;
 
-			RedirectCommand.ActorRoom = LoopMonsterRoom;
+			ActionCommand.MonsterExecute();
 
-			RedirectCommand.Dobj = LoopMonster.AttackCount > 1 && Globals.LoopLastDfMonster != null ? Globals.LoopLastDfMonster : HostileMonsterList[(int)HostileMonsterListIndex];
-
-			Globals.LoopLastDfMonster = RedirectCommand.Dobj as IMonster;
-
-			RedirectCommand.NextState = Globals.CreateInstance<IAttackLoopIncrementState>();
-
-			NextState = RedirectCommand;
+			NextState = ActionCommand.NextState;
 
 		Cleanup:
 
 			if (NextState == null)
 			{
-				NextState = Globals.CreateInstance<IAttackLoopIncrementState>();
+				NextState = Globals.CreateInstance<IMonsterAttackLoopIncrementState>();
 			}
 
 			Globals.NextState = NextState;
 		}
 
-		public BeforeMonsterAttacksEnemyState()
+		public MonsterAttackActionState()
 		{
-			Uid = 11;
+			Uid = 8;
 
-			Name = "BeforeMonsterAttacksEnemyState";
+			Name = "MonsterAttackActionState";
 		}
 	}
 }

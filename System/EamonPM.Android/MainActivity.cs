@@ -141,7 +141,7 @@ namespace EamonPM
 
 			classMappings[typeof(IPath)] = typeof(Game.Portability.Path);
 
-			classMappings[typeof(ISharpSerializer)] = typeof(Game.Portability.SharpSerializer);
+			classMappings[typeof(ITextSerializer)] = typeof(Game.Portability.TextSerializer);
 
 			classMappings[typeof(IThread)] = typeof(Game.Portability.Thread);
 		}
@@ -206,7 +206,7 @@ namespace EamonPM
 
 				var fileName = Path.Combine(path, "MOBILE_SETTINGS.XML");
 
-				ClassMappings.SharpSerializer.Serialize(App.SettingsViewModel, fileName);
+				ClassMappings.TextSerializer.Serialize(App.SettingsViewModel, fileName);
 			}
 		}
 
@@ -312,11 +312,13 @@ namespace EamonPM
 
 			pg = WrenholdsSecretVigil.Game.Plugin.PluginContext.Globals;
 
+			pg = LandOfTheMountainKing.Game.Plugin.PluginContext.Globals;
+			
 			pg = TheVileGrimoireOfJaldial.Game.Plugin.PluginContext.Globals;
 
+			pg = RiddlesOfTheDuergarQuarry.Game.Plugin.PluginContext.Globals;
+			
 			pg = TheWayfarersInn.Game.Plugin.PluginContext.Globals;
-
-			pg = LandOfTheMountainKing.Game.Plugin.PluginContext.Globals;
 
 			// Note: if ECS Mobile crashes while loading textfiles it is likely that the FreeUids list in the offending textfile is
 			// defined as coming from System.Private.CoreLib.  Xamarin.Forms appears to currently only be compatible with mscorlib,

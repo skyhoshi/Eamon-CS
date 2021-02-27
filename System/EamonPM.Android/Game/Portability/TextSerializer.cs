@@ -1,5 +1,5 @@
 ﻿
-// SharpSerializer.cs
+// TextSerializer.cs
 
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
@@ -8,11 +8,11 @@ using Eamon.Framework.Portability;
 
 namespace EamonPM.Game.Portability
 {
-	public class SharpSerializer : ISharpSerializer
+	public class TextSerializer : ITextSerializer
 	{
 		public virtual bool IsActive { get; protected set; }
 
-		public virtual void Serialize(object data, string fileName, bool binaryMode = false)
+		public virtual void Serialize<T>(T data, string fileName, bool binaryMode = false) where T : class
 		{
 			using (var fileStream = new FileStream(NormalizePath(fileName), FileMode.Create))
 			{
@@ -20,15 +20,15 @@ namespace EamonPM.Game.Portability
 			}
 		}
 
-		public virtual void Serialize(object data, Stream stream, bool binaryMode = false)
+		public virtual void Serialize<T>(T data, Stream stream, bool binaryMode = false) where T : class
 		{
-			var sharpSerializer = new Polenter.Serialization.SharpSerializer(binaryMode);
+			var textSerializer = new Polenter.Serialization.SharpSerializer(binaryMode);
 
 			try
 			{
 				IsActive = true;
 
-				sharpSerializer.Serialize(data, stream);
+				textSerializer.Serialize(data, stream);
 			}
 			finally
 			{
@@ -36,25 +36,25 @@ namespace EamonPM.Game.Portability
 			}
 		}
 
-		public virtual object Deserialize(string fileName, bool binaryMode = false)
+		public virtual T Deserialize<T>(string fileName, bool binaryMode = false) where T : class
 		{
 			using (var fileStream = new FileStream(NormalizePath(fileName), FileMode.Open))
 			{
-				return Deserialize(fileStream, binaryMode);
+				return Deserialize<T>(fileStream, binaryMode);
 			}
 		}
 
-		public virtual object Deserialize(Stream stream, bool binaryMode = false)
+		public virtual T Deserialize<T>(Stream stream, bool binaryMode = false) where T : class
 		{
-			var sharpSerializer = new Polenter.Serialization.SharpSerializer(binaryMode);
+			var textSerializer = new Polenter.Serialization.SharpSerializer(binaryMode);
 
-			object result = null;
+			T result = default(T);
 
 			try
 			{
 				IsActive = true;
 
-				result = sharpSerializer.Deserialize(stream);
+				result = textSerializer.Deserialize(stream) as T;
 			}
 			finally
 			{

@@ -18,6 +18,17 @@ namespace TheVileGrimoireOfJaldial.Game.Commands
 		{
 			Debug.Assert(ActorMonster != null && DobjMonster != null);
 
+			// efreeti has special attack behavior when water weird is present
+
+			if (ActorMonster.Uid == 50 && AttackNumber == 1)
+			{
+				var waterWeirdMonster = gMDB[38];
+
+				Debug.Assert(waterWeirdMonster != null);
+
+				ActorMonster.AttackCount = DobjMonster?.Uid == 38 ? 1 : waterWeirdMonster.IsInRoom(ActorRoom) ? 3 : -3;
+			}
+
 			while (true)
 			{
 				// Monster selects its attack modality

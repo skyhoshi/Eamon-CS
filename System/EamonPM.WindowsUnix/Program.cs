@@ -93,7 +93,7 @@ namespace EamonPM
 
 			classMappings[typeof(IPath)] = typeof(Game.Portability.Path);
 
-			classMappings[typeof(ISharpSerializer)] = typeof(Game.Portability.SharpSerializer);
+			classMappings[typeof(ITextSerializer)] = typeof(Game.Portability.TextSerializer);
 
 			classMappings[typeof(IThread)] = typeof(Game.Portability.Thread);
 		}

@@ -1147,11 +1147,11 @@ namespace Eamon.Game
 
 			var buf = new StringBuilder(Constants.BufSize);
 
-			var ac = artifact.Categories.FirstOrDefault(ac01 => ac01 != null && artTypes.Contains(ac01.Type) && ac01.Field5 == (long)ContainerDisplayCode.ArtifactNameSomeStuff && (ac01.Type != ArtifactType.InContainer || ac01.IsOpen()));
+			var ac = artifact.Categories.FirstOrDefault(ac01 => ac01 != null && artTypes.Contains(ac01.Type) && ac01.Field5 == (long)ContainerDisplayCode.ArtifactNameSomeStuff && (ac01.Type != ArtifactType.InContainer || ac01.IsOpen() || artifact.ShouldExposeInContentsWhenClosed()));
 
 			if (ac == null)
 			{
-				ac = artifact.Categories.FirstOrDefault(ac01 => ac01 != null && artTypes.Contains(ac01.Type) && ac01.Field5 == (long)ContainerDisplayCode.SomethingSomeStuff && (ac01.Type != ArtifactType.InContainer || ac01.IsOpen()));
+				ac = artifact.Categories.FirstOrDefault(ac01 => ac01 != null && artTypes.Contains(ac01.Type) && ac01.Field5 == (long)ContainerDisplayCode.SomethingSomeStuff && (ac01.Type != ArtifactType.InContainer || ac01.IsOpen() || artifact.ShouldExposeInContentsWhenClosed()));
 			}
 
 			if (ac != null)

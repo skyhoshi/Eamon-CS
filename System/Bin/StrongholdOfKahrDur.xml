@@ -35,7 +35,7 @@
         <member name="T:StrongholdOfKahrDur.Framework.Plugin.IPluginGlobals">
             <summary></summary>
         </member>
-        <member name="T:StrongholdOfKahrDur.Framework.States.IBeforeNecromancerAttacksEnemyState">
+        <member name="T:StrongholdOfKahrDur.Framework.States.INecromancerAttackActionState">
             <summary></summary>
         </member>
         <member name="M:StrongholdOfKahrDur.Game.Helpers.GameStateHelper.ValidateLichState">

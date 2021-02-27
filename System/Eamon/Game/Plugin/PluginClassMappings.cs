@@ -40,7 +40,7 @@ namespace Eamon.Game.Plugin
 
 		public virtual IPath Path { get; set; }
 
-		public virtual ISharpSerializer SharpSerializer { get; set; }
+		public virtual ITextSerializer TextSerializer { get; set; }
 
 		public virtual IThread Thread { get; set; }
 
@@ -56,7 +56,7 @@ namespace Eamon.Game.Plugin
 		{
 			get
 			{
-				return SharpSerializer == null || SharpSerializer.IsActive == false;
+				return TextSerializer == null || TextSerializer.IsActive == false;
 			}
 		}
 
@@ -151,9 +151,9 @@ namespace Eamon.Game.Plugin
 
 			Debug.Assert(Path != null);
 
-			SharpSerializer = CreateInstance<ISharpSerializer>();
+			TextSerializer = CreateInstance<ITextSerializer>();
 
-			Debug.Assert(SharpSerializer != null);
+			Debug.Assert(TextSerializer != null);
 
 			Thread = CreateInstance<IThread>();
 
@@ -322,11 +322,11 @@ namespace Eamon.Game.Plugin
 			{
 				CloneStream.SetLength(0);
 
-				SharpSerializer.Serialize(source, CloneStream, true);
+				TextSerializer.Serialize(source, CloneStream, true);
 
 				CloneStream.Position = 0;
 
-				result = SharpSerializer.Deserialize(CloneStream, true) as T;
+				result = TextSerializer.Deserialize<T>(CloneStream, true);
 			}
 			catch (Exception)
 			{
@@ -364,7 +364,7 @@ namespace Eamon.Game.Plugin
 
 			CloneStream.SetLength(0);
 
-			SharpSerializer.Serialize(object1, CloneStream, true);
+			TextSerializer.Serialize(object1, CloneStream, true);
 
 			object1Bytes = CloneStream.ToArray();
 
@@ -372,7 +372,7 @@ namespace Eamon.Game.Plugin
 
 			CloneStream.SetLength(0);
 
-			SharpSerializer.Serialize(object2, CloneStream, true);
+			TextSerializer.Serialize(object2, CloneStream, true);
 
 			object2Bytes = CloneStream.ToArray();
 

@@ -1592,6 +1592,10 @@
             <param name="ac"></param>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IArtifact.IsRequestable">
+            <summary></summary>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IArtifact.IsUnmovable">
             <summary></summary>
             <returns></returns>
@@ -1617,6 +1621,10 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IArtifact.IsInContainerOpenedFromTop">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IArtifact.ShouldExposeInContentsWhenClosed">
             <summary></summary>
             <returns></returns>
         </member>
@@ -3697,6 +3705,12 @@
             Gets or sets a value that is unused by Eamon CS, but provided for game developer usage.
             </summary>
         </member>
+        <member name="P:Eamon.Framework.IMonster.Spells">
+            <summary>
+            Gets or sets an array of <see cref="T:Eamon.Framework.Primitive.Classes.IMonsterSpell">MonsterSpell</see> objects that define
+            this <see cref="T:Eamon.Framework.IMonster">Monster</see>'s spellcasting ability (NPC only).
+            </summary>
+        </member>
         <member name="M:Eamon.Framework.IMonster.IsDead">
             <summary>
             Indicates whether this <see cref="T:Eamon.Framework.IMonster">Monster</see> is dead.
@@ -3748,6 +3762,11 @@
         <member name="M:Eamon.Framework.IMonster.IsInRoom(Eamon.Framework.IRoom)">
             <summary></summary>
             <param name="room"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.IsAttackable(Eamon.Framework.IMonster)">
+            <summary></summary>
+            <param name="monster"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IMonster.CanMoveToRoom(System.Boolean)">
@@ -3812,6 +3831,12 @@
         </member>
         <member name="M:Eamon.Framework.IMonster.ShouldFleeRoom">
             <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.ShouldCastSpell(Eamon.Framework.Primitive.Enums.Spell@,Eamon.Framework.IGameBase@)">
+            <summary></summary>
+            <param name="spellCast"></param>
+            <param name="spellTarget"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IMonster.ShouldReadyWeapon">
@@ -3917,8 +3942,17 @@
             <summary></summary>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Framework.IMonster.GetMaxMemberActionCount">
+            <summary></summary>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Framework.IMonster.GetMaxMemberAttackCount">
             <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.IMonster.GetMonsterSpell(Eamon.Framework.Primitive.Enums.Spell)">
+            <summary></summary>
+            <param name="spell"></param>
             <returns></returns>
         </member>
         <member name="M:Eamon.Framework.IMonster.GetCarriedList(System.Func{Eamon.Framework.IArtifact,System.Boolean},System.Func{Eamon.Framework.IArtifact,System.Boolean},System.Boolean)">
@@ -4449,7 +4483,7 @@
             Gets or sets the platform-independent file system Path manager that Eamon CS relies on for all file system path-related operations.
             </summary>
         </member>
-        <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.SharpSerializer">
+        <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.TextSerializer">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginClassMappings.Thread">
@@ -4483,7 +4517,7 @@
             Examples of mutating properties include <see cref="T:Eamon.Framework.IMonster">Monster</see> <see cref="P:Eamon.Framework.IMonster.Courage"> Courage</see> and
             <see cref="T:Eamon.Framework.IArtifact">Artifact</see> <see cref="P:Eamon.Framework.IArtifact.Location"> Location</see>, but there are more scattered through the various games as
             well.  You will note that both the getter and setter of a property can mutate if necessary.  In general, you want this behavior enabled during
-            gameplay so properties can respond to changes in game state, but never when the <see cref="P:Eamon.Framework.Plugin.IPluginClassMappings.SharpSerializer">SharpSerializer</see> is running
+            gameplay so properties can respond to changes in game state, but never when the <see cref="P:Eamon.Framework.Plugin.IPluginClassMappings.TextSerializer">TextSerializer</see> is running
             during textfile serialization or deserialization because it can lead to corrupted values.  This value should be checked in all mutating
             properties and if it is <c>false</c> they should disable complex calculations and return a simple base value.
             </remarks>
@@ -4897,7 +4931,7 @@
         <member name="P:Eamon.Framework.Plugin.IPluginGlobals.Path">
             <summary></summary>
         </member>
-        <member name="P:Eamon.Framework.Plugin.IPluginGlobals.SharpSerializer">
+        <member name="P:Eamon.Framework.Plugin.IPluginGlobals.TextSerializer">
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Plugin.IPluginGlobals.Thread">
@@ -5240,36 +5274,6 @@
             <summary></summary>
             <param name="args"></param>
         </member>
-        <member name="T:Eamon.Framework.Portability.ISharpSerializer">
-            <summary></summary>
-        </member>
-        <member name="P:Eamon.Framework.Portability.ISharpSerializer.IsActive">
-            <summary></summary>
-        </member>
-        <member name="M:Eamon.Framework.Portability.ISharpSerializer.Serialize(System.Object,System.String,System.Boolean)">
-            <summary></summary>
-            <param name="data"></param>
-            <param name="fileName"></param>
-            <param name="binaryMode"></param>
-        </member>
-        <member name="M:Eamon.Framework.Portability.ISharpSerializer.Serialize(System.Object,System.IO.Stream,System.Boolean)">
-            <summary></summary>
-            <param name="data"></param>
-            <param name="stream"></param>
-            <param name="binaryMode"></param>
-        </member>
-        <member name="M:Eamon.Framework.Portability.ISharpSerializer.Deserialize(System.String,System.Boolean)">
-            <summary></summary>
-            <param name="fileName"></param>
-            <param name="binaryMode"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Eamon.Framework.Portability.ISharpSerializer.Deserialize(System.IO.Stream,System.Boolean)">
-            <summary></summary>
-            <param name="stream"></param>
-            <param name="binaryMode"></param>
-            <returns></returns>
-        </member>
         <member name="T:Eamon.Framework.Portability.ITextReader">
             <summary></summary>
         </member>
@@ -5320,6 +5324,36 @@
             <summary></summary>
             <param name="buf"></param>
             <param name="initialNewLine"></param>
+        </member>
+        <member name="T:Eamon.Framework.Portability.ITextSerializer">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Portability.ITextSerializer.IsActive">
+            <summary></summary>
+        </member>
+        <member name="M:Eamon.Framework.Portability.ITextSerializer.Serialize``1(``0,System.String,System.Boolean)">
+            <summary></summary>
+            <param name="data"></param>
+            <param name="fileName"></param>
+            <param name="binaryMode"></param>
+        </member>
+        <member name="M:Eamon.Framework.Portability.ITextSerializer.Serialize``1(``0,System.IO.Stream,System.Boolean)">
+            <summary></summary>
+            <param name="data"></param>
+            <param name="stream"></param>
+            <param name="binaryMode"></param>
+        </member>
+        <member name="M:Eamon.Framework.Portability.ITextSerializer.Deserialize``1(System.String,System.Boolean)">
+            <summary></summary>
+            <param name="fileName"></param>
+            <param name="binaryMode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Framework.Portability.ITextSerializer.Deserialize``1(System.IO.Stream,System.Boolean)">
+            <summary></summary>
+            <param name="stream"></param>
+            <param name="binaryMode"></param>
+            <returns></returns>
         </member>
         <member name="T:Eamon.Framework.Portability.Coord">
             <summary></summary>
@@ -5833,6 +5867,21 @@
             <summary></summary>
         </member>
         <member name="P:Eamon.Framework.Primitive.Classes.IDirection.EnterDir">
+            <summary></summary>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Classes.IMonsterSpell">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Primitive.Classes.IMonsterSpell.Parent">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Primitive.Classes.IMonsterSpell.Spell">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Primitive.Classes.IMonsterSpell.Field1">
+            <summary></summary>
+        </member>
+        <member name="P:Eamon.Framework.Primitive.Classes.IMonsterSpell.Field2">
             <summary></summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Classes.IPrep">
@@ -6573,7 +6622,7 @@
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.Spell">
             <summary>
-            An enumeration of <see cref="T:Eamon.Framework.ICharacter">Character</see> Spells.
+            An enumeration of <see cref="T:Eamon.Framework.ICharacter">Character</see> and <see cref="T:Eamon.Framework.IMonster">Monster</see> Spells.
             </summary>
             <remarks>
             These spells should be familiar to anyone who has been involved with Eamon before.  The Eamon CS
@@ -6591,6 +6640,29 @@
         </member>
         <member name="F:Eamon.Framework.Primitive.Enums.Spell.Power">
             <summary></summary>
+        </member>
+        <member name="T:Eamon.Framework.Primitive.Enums.SpellPolicy">
+            <summary>
+            An enumeration used to set a <see cref="T:Eamon.Framework.IMonster">Monster</see>'s <see cref="T:Eamon.Framework.Primitive.Enums.Spell">Spell</see> policy.
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.SpellPolicy.None">
+            <summary></summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.SpellPolicy.LeastInjured">
+            <summary>
+            Target the least injured available <see cref="T:Eamon.Framework.IMonster">Monster</see>.
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.SpellPolicy.MostInjured">
+            <summary>
+            Target the most injured available <see cref="T:Eamon.Framework.IMonster">Monster</see>.
+            </summary>
+        </member>
+        <member name="F:Eamon.Framework.Primitive.Enums.SpellPolicy.Random">
+            <summary>
+            Target a random available <see cref="T:Eamon.Framework.IMonster">Monster</see>.
+            </summary>
         </member>
         <member name="T:Eamon.Framework.Primitive.Enums.Stat">
             <summary>
@@ -8908,6 +8980,18 @@
             <summary></summary>
             <returns></returns>
         </member>
+        <member name="M:Eamon.Game.Helpers.MonsterHelper.GetValueSpellsSpell">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Game.Helpers.MonsterHelper.GetValueSpellsField1">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Game.Helpers.MonsterHelper.GetValueSpellsField2">
+            <summary></summary>
+            <returns></returns>
+        </member>
         <member name="M:Eamon.Game.Helpers.MonsterHelper.ValidateUid">
             <summary></summary>
             <returns></returns>
@@ -8985,6 +9069,22 @@
             <returns></returns>
         </member>
         <member name="M:Eamon.Game.Helpers.MonsterHelper.ValidateDmgTaken">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Game.Helpers.MonsterHelper.ValidateSpells">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Game.Helpers.MonsterHelper.ValidateSpellsSpell">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Game.Helpers.MonsterHelper.ValidateSpellsField1">
+            <summary></summary>
+            <returns></returns>
+        </member>
+        <member name="M:Eamon.Game.Helpers.MonsterHelper.ValidateSpellsField2">
             <summary></summary>
             <returns></returns>
         </member>

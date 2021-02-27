@@ -721,7 +721,7 @@ namespace Eamon.Game
 
 			var containerType = GetCarriedByContainerContainerType();
 
-			return artifact != null && artifact.ShouldExposeContentsToMonster(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen())) && (!recurse || artifact.GetCarriedByContainer() == null || artifact.IsCarriedByContainerContainerTypeExposedToMonster(recurse));
+			return artifact != null && artifact.ShouldExposeContentsToMonster(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen()) || artifact.ShouldExposeInContentsWhenClosed()) && (!recurse || artifact.GetCarriedByContainer() == null || artifact.IsCarriedByContainerContainerTypeExposedToMonster(recurse));
 		}
 
 		public virtual bool IsCarriedByContainerContainerTypeExposedToRoom(bool recurse = false)
@@ -730,7 +730,7 @@ namespace Eamon.Game
 
 			var containerType = GetCarriedByContainerContainerType();
 
-			return artifact != null && artifact.ShouldExposeContentsToRoom(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen())) && (!recurse || artifact.GetCarriedByContainer() == null || artifact.IsCarriedByContainerContainerTypeExposedToRoom(recurse));
+			return artifact != null && artifact.ShouldExposeContentsToRoom(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen()) || artifact.ShouldExposeInContentsWhenClosed()) && (!recurse || artifact.GetCarriedByContainer() == null || artifact.IsCarriedByContainerContainerTypeExposedToRoom(recurse));
 		}
 
 		public virtual bool IsInLimbo(bool recurse = false)
@@ -821,7 +821,7 @@ namespace Eamon.Game
 
 			var containerType = GetCarriedByContainerContainerType();
 
-			return artifact != null && artifact.ShouldExposeContentsToCharacter(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen())) && (artifact.IsCarriedByCharacter() || (recurse && artifact.GetCarriedByContainer() != null && artifact.IsCarriedByContainerContainerTypeExposedToCharacter(recurse)));
+			return artifact != null && artifact.ShouldExposeContentsToCharacter(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen()) || artifact.ShouldExposeInContentsWhenClosed()) && (artifact.IsCarriedByCharacter() || (recurse && artifact.GetCarriedByContainer() != null && artifact.IsCarriedByContainerContainerTypeExposedToCharacter(recurse)));
 		}
 
 		public virtual bool IsCarriedByContainerContainerTypeExposedToMonsterUid(long monsterUid, bool recurse = false)
@@ -830,7 +830,7 @@ namespace Eamon.Game
 
 			var containerType = GetCarriedByContainerContainerType();
 
-			return artifact != null && artifact.ShouldExposeContentsToMonster(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen())) && (artifact.IsCarriedByMonsterUid(monsterUid) || (recurse && artifact.GetCarriedByContainer() != null && artifact.IsCarriedByContainerContainerTypeExposedToMonsterUid(monsterUid, recurse)));
+			return artifact != null && artifact.ShouldExposeContentsToMonster(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen()) || artifact.ShouldExposeInContentsWhenClosed()) && (artifact.IsCarriedByMonsterUid(monsterUid) || (recurse && artifact.GetCarriedByContainer() != null && artifact.IsCarriedByContainerContainerTypeExposedToMonsterUid(monsterUid, recurse)));
 		}
 
 		public virtual bool IsCarriedByContainerContainerTypeExposedToRoomUid(long roomUid, bool recurse = false)
@@ -839,7 +839,7 @@ namespace Eamon.Game
 
 			var containerType = GetCarriedByContainerContainerType();
 
-			return artifact != null && artifact.ShouldExposeContentsToRoom(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen())) && (artifact.IsInRoomUid(roomUid) || (recurse && artifact.GetCarriedByContainer() != null && artifact.IsCarriedByContainerContainerTypeExposedToRoomUid(roomUid, recurse)));
+			return artifact != null && artifact.ShouldExposeContentsToRoom(containerType) && (containerType != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen()) || artifact.ShouldExposeInContentsWhenClosed()) && (artifact.IsInRoomUid(roomUid) || (recurse && artifact.GetCarriedByContainer() != null && artifact.IsCarriedByContainerContainerTypeExposedToRoomUid(roomUid, recurse)));
 		}
 
 		public virtual bool IsCarriedByMonster(IMonster monster, bool recurse = false)
@@ -1135,6 +1135,11 @@ namespace Eamon.Game
 			return !Globals.IsRulesetVersion(5) && ac != null;
 		}
 
+		public virtual bool IsRequestable()
+		{
+			return true;
+		}
+
 		public virtual bool IsUnmovable()
 		{
 			return gEngine.IsUnmovable(Weight);
@@ -1181,6 +1186,11 @@ namespace Eamon.Game
 		public virtual bool IsInContainerOpenedFromTop()
 		{
 			return true;
+		}
+
+		public virtual bool ShouldExposeInContentsWhenClosed()
+		{
+			return false;
 		}
 
 		public virtual bool ShouldExposeContentsToCharacter(ContainerType containerType = ContainerType.In)

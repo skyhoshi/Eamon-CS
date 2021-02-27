@@ -1,5 +1,5 @@
 ﻿
-// BeforeMonsterAttacksEnemyState.cs
+// MonsterAttackActionState.cs
 
 // Copyright (c) 2014+ by Michael Penner.  All rights reserved.
 
@@ -11,7 +11,7 @@ using static StrongholdOfKahrDur.Game.Plugin.PluginContext;
 namespace StrongholdOfKahrDur.Game.States
 {
 	[ClassMappings]
-	public class BeforeMonsterAttacksEnemyState : EamonRT.Game.States.BeforeMonsterAttacksEnemyState, IBeforeMonsterAttacksEnemyState
+	public class MonsterAttackActionState : EamonRT.Game.States.MonsterAttackActionState, IMonsterAttackActionState
 	{
 		public override void Execute()
 		{
@@ -23,7 +23,7 @@ namespace StrongholdOfKahrDur.Game.States
 
 			if (monster.Uid == 22)
 			{
-				NextState = Globals.CreateInstance<Framework.States.IBeforeNecromancerAttacksEnemyState>();
+				NextState = Globals.CreateInstance<Framework.States.INecromancerAttackActionState>();
 
 				Globals.NextState = NextState;
 			}

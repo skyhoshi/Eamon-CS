@@ -718,7 +718,7 @@ namespace EamonRT.Game
 
 						foreach (var artifact01 in artifactList01)
 						{
-							if (artifact01.Seen == true || artifact01.GetCarriedByContainerContainerType() != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen()))
+							if (artifact01.Seen == true || artifact01.GetCarriedByContainerContainerType() != ContainerType.In || (artifact.InContainer != null && artifact.InContainer.IsOpen()) || artifact.ShouldExposeInContentsWhenClosed())
 							{
 								artifact01.SetCarriedByCharacter();
 
@@ -1722,7 +1722,34 @@ namespace EamonRT.Game
 
 			var monsterList = GetMonsterList(m => m.Uid != monster.Uid && m.Uid != charMonster.Uid && m.IsInRoom(room));
 
-			var artifactList = GetArtifactList(a => a.IsReadyableByMonster(monster) && (a.IsCarriedByMonster(monster) || ((a.IsInRoom(room) || ((a.IsCarriedByContainerContainerTypeExposedToMonster(monster, ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(room, ExposeContainersRecursively)) && (a.GetCarriedByContainer().Seen || !room.IsLit()))) && (a.Seen || !room.IsLit()) && monsterList.FirstOrDefault(m => m.Weapon == -a.Uid - 1) == null && (charMonster.Weapon > 0 || !a.IsCharOwned || monster.Friendliness == Friendliness.Friend)))).OrderByDescending(a01 =>
+			var artifactList = GetArtifactList(a =>
+			{
+				var result = false;
+
+				if (a.IsReadyableByMonster(monster))
+				{
+					if (a.IsCarriedByMonster(monster))
+					{
+						result = true;
+					}
+					else if (a.IsInRoom(room))
+					{
+						result = monsterList.FirstOrDefault(m => m.Weapon == -a.Uid - 1) == null && 
+										(monster.Weapon == -a.Uid - 1 || a.Seen || !room.IsLit()) && 
+										(charMonster.Weapon > 0 || !a.IsCharOwned || monster.Friendliness == Friendliness.Friend);
+					}
+					else if (a.IsCarriedByContainerContainerTypeExposedToMonster(monster, ExposeContainersRecursively) || a.IsCarriedByContainerContainerTypeExposedToRoom(room, ExposeContainersRecursively))
+					{
+						result = monsterList.FirstOrDefault(m => m.Weapon == -a.Uid - 1) == null && 
+										(monster.Weapon == -a.Uid - 1 || a.GetCarriedByContainer().Seen || !room.IsLit()) && 
+										(monster.Weapon == -a.Uid - 1 || a.Seen || !room.IsLit()) && 
+										(charMonster.Weapon > 0 || !a.IsCharOwned || monster.Friendliness == Friendliness.Friend);
+					}
+				}
+
+				return result;
+
+			}).OrderByDescending(a01 =>
 			{
 				if (monster.Weapon != -a01.Uid - 1)
 				{
@@ -1788,8 +1815,8 @@ namespace EamonRT.Game
 			Debug.Assert(room != null);
 
 			var monsterList =
-					monster.Friendliness == Friendliness.Friend ? GetMonsterList(m => m.Friendliness == Friendliness.Enemy && m.IsInRoom(room)) :
-					monster.Friendliness == Friendliness.Enemy ? GetMonsterList(m => m.Friendliness == Friendliness.Friend && m.IsInRoom(room)) :
+					monster.Friendliness == Friendliness.Friend ? GetMonsterList(m => m.Friendliness == Friendliness.Enemy && m.IsInRoom(room) && m.IsAttackable(monster)) :
+					monster.Friendliness == Friendliness.Enemy ? GetMonsterList(m => m.Friendliness == Friendliness.Friend && m.IsInRoom(room) && m.IsAttackable(monster)) :
 					new List<IMonster>();
 
 			return monsterList;

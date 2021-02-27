@@ -140,6 +140,13 @@ namespace EamonRT.Game.Commands
 			gOut.Print("Do you mean \"{0}\" or \"{1}\"?", obj1.GetNoneName(showCharOwned: false), obj2.GetNoneName(showCharOwned: false, buf: Globals.Buf01));
 		}
 
+		public virtual void PrintWhyAttack(IGameBase obj)
+		{
+			Debug.Assert(obj != null);
+
+			gOut.Print("Why would you attack {0}?", obj.GetTheName());
+		}
+
 		public virtual void PrintTakingFirst(IArtifact artifact)
 		{
 			Debug.Assert(artifact != null);
@@ -402,13 +409,6 @@ namespace EamonRT.Game.Commands
 			Debug.Assert(artifact != null);
 
 			gOut.Print("Try a different command.");
-		}
-
-		public virtual void PrintWhyAttack(IArtifact artifact)
-		{
-			Debug.Assert(artifact != null);
-
-			gOut.Print("Why would you attack {0}?", artifact.GetTheName());
 		}
 
 		public virtual void PrintNotWeapon(IArtifact artifact)

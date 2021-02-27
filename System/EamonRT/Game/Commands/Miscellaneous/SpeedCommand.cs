@@ -45,6 +45,18 @@ namespace EamonRT.Game.Commands
 			}
 		}
 
+		public override void MonsterExecute()
+		{
+
+			if (NextState == null)
+			{
+				NextState = Globals.CreateInstance<IErrorState>(x =>
+				{
+					x.ErrorMessage = string.Format("{0}: NextState == null", Name);
+				});
+			}
+		}
+
 		public virtual void PrintFeelNewAgility()
 		{
 			gOut.Print("You can feel the new agility flowing through you!");

@@ -6,7 +6,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Eamon.Framework.Primitive.Classes;
 using Eamon.Framework.Primitive.Enums;
+using Enums = Eamon.Framework.Primitive.Enums;
 
 namespace Eamon.Framework
 {
@@ -131,6 +133,12 @@ namespace Eamon.Framework
 		/// </summary>
 		long Field2 { get; set; }
 
+		/// <summary>
+		/// Gets or sets an array of <see cref="IMonsterSpell">MonsterSpell</see> objects that define
+		/// this <see cref="IMonster">Monster</see>'s spellcasting ability (NPC only).
+		/// </summary>
+		IMonsterSpell[] Spells { get; set; }
+
 		#endregion
 
 		#region Methods
@@ -187,6 +195,11 @@ namespace Eamon.Framework
 		/// <param name="room"></param>
 		/// <returns></returns>
 		bool IsInRoom(IRoom room);
+
+		/// <summary></summary>
+		/// <param name="monster"></param>
+		/// <returns></returns>
+		bool IsAttackable(IMonster monster);
 
 		/// <summary></summary>
 		/// <param name="fleeing"></param>
@@ -251,6 +264,12 @@ namespace Eamon.Framework
 		/// <summary></summary>
 		/// <returns></returns>
 		bool ShouldFleeRoom();
+
+		/// <summary></summary>
+		/// <param name="spellCast"></param>
+		/// <param name="spellTarget"></param>
+		/// <returns></returns>
+		bool ShouldCastSpell(ref Enums.Spell spellCast, ref IGameBase spellTarget);
 
 		/// <summary></summary>
 		/// <returns></returns>
@@ -357,7 +376,16 @@ namespace Eamon.Framework
 
 		/// <summary></summary>
 		/// <returns></returns>
+		long GetMaxMemberActionCount();
+
+		/// <summary></summary>
+		/// <returns></returns>
 		long GetMaxMemberAttackCount();
+
+		/// <summary></summary>
+		/// <param name="spell"></param>
+		/// <returns></returns>
+		IMonsterSpell GetMonsterSpell(Enums.Spell spell);
 
 		/// <summary></summary>
 		/// <param name="monsterFindFunc"></param>

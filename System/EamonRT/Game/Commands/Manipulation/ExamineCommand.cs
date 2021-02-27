@@ -101,7 +101,7 @@ namespace EamonRT.Game.Commands
 						goto Cleanup;
 					}
 
-					if (DobjArtContainerAc == DobjArtifact.InContainer && !DobjArtContainerAc.IsOpen())
+					if (DobjArtContainerAc == DobjArtifact.InContainer && !DobjArtContainerAc.IsOpen() && !DobjArtifact.ShouldExposeInContentsWhenClosed())
 					{
 						PrintMustFirstOpen(DobjArtifact);
 
@@ -170,7 +170,7 @@ namespace EamonRT.Game.Commands
 							DobjArtAc.Field2 != 1 ? "s" : "");
 					}
 
-					if (((DobjArtAc.Type == ArtifactType.InContainer && DobjArtAc.IsOpen()) || DobjArtAc.Type == ArtifactType.OnContainer || DobjArtAc.Type == ArtifactType.UnderContainer || DobjArtAc.Type == ArtifactType.BehindContainer) && DobjArtifact.ShouldShowContentsWhenExamined())
+					if (((DobjArtAc.Type == ArtifactType.InContainer && (DobjArtAc.IsOpen() || DobjArtifact.ShouldExposeInContentsWhenClosed())) || DobjArtAc.Type == ArtifactType.OnContainer || DobjArtAc.Type == ArtifactType.UnderContainer || DobjArtAc.Type == ArtifactType.BehindContainer) && DobjArtifact.ShouldShowContentsWhenExamined())
 					{
 						RedirectCommand = Globals.CreateInstance<IInventoryCommand>(x =>
 						{

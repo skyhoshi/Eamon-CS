@@ -5,7 +5,8 @@ ChangeLog: EamonRT
 
 Date			Version			Who			Notes
 ----------------------------------------------------------------------------------------------------------------------------------
-20201031		1.7.0				MP 			Direction overhaul
+20210231		1.7.0				MP 			Monster State/Monster spellcasting overhaul
+20201031							MP 			Direction overhaul
 20201031		   				MP 			CommandParser IGameBase overhaul
 20200930		1.6.0				MP 			Full-sentence parser overhaul
 20200709		   				MP 			CommandParser/Command overhaul
